@@ -11,7 +11,7 @@
     "https://www.hitachienergy.com/careers/open-jobs?filterable587622750-location=Switzerland"
   ],
   "notes": "Dedicated Hitachi Energy crawler uses the AEM JSON listing API filtered to Switzerland, then filters for Ticino/GR locations. Descriptions enriched from detail pages.",
-  "updatedAt": "2026-07-20T11:54:27.184Z",
+  "updatedAt": "2026-07-20T22:06:07.467Z",
   "seedMetaByUrl": {
     "https://www.hitachienergy.com/careers/open-jobs/details/JID3-206700": {
       "location": "Wettingen, Switzerland",
@@ -26,6 +26,24 @@
       "postedDate": "2026-07-20"
     },
     "https://www.hitachienergy.com/careers/open-jobs/details/JID3-206653": {
+      "location": "Zurich, Switzerland",
+      "canton": "ZH",
+      "company": "Hitachi Energy",
+      "postedDate": "2026-07-20"
+    },
+    "https://www.hitachienergy.com/careers/open-jobs/details/JID3-206797": {
+      "location": "Zurich, Switzerland",
+      "canton": "ZH",
+      "company": "Hitachi Energy",
+      "postedDate": "2026-07-20"
+    },
+    "https://www.hitachienergy.com/careers/open-jobs/details/JID3-206673": {
+      "location": "Zurich, Switzerland",
+      "canton": "ZH",
+      "company": "Hitachi Energy",
+      "postedDate": "2026-07-20"
+    },
+    "https://www.hitachienergy.com/careers/open-jobs/details/JID3-206646": {
       "location": "Zurich, Switzerland",
       "canton": "ZH",
       "company": "Hitachi Energy",
@@ -313,12 +331,6 @@
       "company": "Hitachi Energy",
       "postedDate": "2026-06-23"
     },
-    "https://www.hitachienergy.com/careers/open-jobs/details/JID3-201514": {
-      "location": "Molinazzo di Monteggio, Switzerland",
-      "canton": "TI",
-      "company": "Hitachi Energy",
-      "postedDate": "2026-06-23"
-    },
     "https://www.hitachienergy.com/careers/open-jobs/details/JID3-201503": {
       "location": "Baden-Daettwil, Switzerland",
       "canton": "AG",
@@ -534,12 +546,6 @@
       "canton": "AG",
       "company": "Hitachi Energy",
       "postedDate": "2026-02-16"
-    },
-    "https://www.hitachienergy.com/careers/open-jobs/details/JID3-174784": {
-      "location": "Remote - Zurich, Switzerland",
-      "canton": "ZH",
-      "company": "Hitachi Energy",
-      "postedDate": "2026-01-28"
     },
     "https://www.hitachienergy.com/careers/open-jobs/details/JID3-155168": {
       "location": "Molinazzo di Monteggio, Switzerland",

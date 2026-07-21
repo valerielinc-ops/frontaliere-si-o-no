@@ -1,19 +1,21 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-07-20T11:51:15.153Z",
+  "generatedAt": "2026-07-20T22:01:24.077Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 35553,
-  "avgDurationMs": 35553,
+  "unchangedCount": 1,
+  "durationMs": 35117,
+  "avgDurationMs": 35117,
   "durationHistory": [
-    35553
+    35117
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spital-zollikerberg-7120c5419eed",
       "slug": "berufsbildner-berufsbildnerin-per-dipl-fachfrau-dipl-fachmann-operationstechnik-e-operationspflege-medizintechnische-bereiche-spital-zollikerberg",
@@ -45,7 +47,7 @@
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -54,7 +56,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

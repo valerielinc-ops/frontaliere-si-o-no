@@ -17100,6 +17100,825 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-assistente-sociale-ticino-stipendio-requisiti': {
+    title: 'Frontaliere assistente sociale in Ticino: stipendio e requisiti',
+    description: 'Stipendio medio e requisiti per lavorare come frontaliere assistente sociale in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assistente, sociale, stipendio, requisiti',
+    ogTitle: 'Frontaliere assistente sociale in Ticino: stipendio e requisiti',
+    ogDescription: 'Stipendio medio e requisiti per lavorare come frontaliere assistente sociale in Ticino.',
+    canonicalPath: '/articoli-svizzera/frontaliere-assistente-sociale-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere assistente sociale in Ticino: stipendio e requisiti",
+      "description": "Stipendio medio e requisiti per lavorare come frontaliere assistente sociale in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-assistente-sociale-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere assistente sociale in un ospedale in Svizzera, con un ambiente moderno e tecnologico."
+      },
+      "datePublished": "2026-07-20T16:50:52+00:00",
+      "dateModified": "2026-07-20T16:50:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-assistente-sociale-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-receptionist-ticino-stipendio-requisiti': {
+    title: 'Lavorare come receptionist in Ticino: stipendio e requisiti',
+    description: 'Frontalieri, scopri i requisiti e il stipendio medio per lavorare come receptionist in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, receptionist, stipendio, requisiti',
+    ogTitle: 'Lavorare come receptionist in Ticino da frontaliere: stipendio medio, requisiti e permesso G',
+    ogDescription: 'Frontalieri, scopri i requisiti e il stipendio medio per lavorare come receptionist in Ticino.',
+    canonicalPath: '/articoli-svizzera/frontaliere-receptionist-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come receptionist in Ticino: stipendio e requisiti",
+      "description": "Frontalieri, scopri i requisiti e il stipendio medio per lavorare come receptionist in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-receptionist-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "una receptionist frontaliera in un hotel a Lugano"
+      },
+      "datePublished": "2026-07-20T18:04:49+00:00",
+      "dateModified": "2026-07-20T18:04:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-receptionist-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-docente-ticino-stipendio-requisiti': {
+    title: 'Docenti frontalieri in Ticino: requisiti e riconoscimento',
+    description: 'I requisiti per lavorare come docente in Ticino da frontaliere e le condizioni per il riconoscimento del titolo di studio. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, docenti, requisiti, riconoscimento, lavorare',
+    ogTitle: 'Lavorare come docente in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G',
+    ogDescription: 'I requisiti per lavorare come docente in Ticino da frontaliere e le condizioni per il riconoscimento del titolo di studio.',
+    canonicalPath: '/articoli-svizzera/frontaliere-docente-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Docenti frontalieri in Ticino: requisiti e riconoscimento",
+      "description": "I requisiti per lavorare come docente in Ticino da frontaliere e le condizioni per il riconoscimento del titolo di studio. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-docente-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena fotografata a Lugano, con il lago e le montagne sullo sfondo. Un docente frontaliero è seduto su una panchina, con un libro aperto in mano e un'espressione serena sul viso."
+      },
+      "datePublished": "2026-07-20T18:39:09+00:00",
+      "dateModified": "2026-07-20T18:39:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-docente-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieredicente-stipendio-requisiti-ticino': {
+    title: 'Docenti frontalieri in Ticino: stipendio e requisiti',
+    description: 'Impostazione della fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, docenti, stipendio, requisiti, impostazione',
+    ogTitle: 'Lavorare come docente in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio',
+    ogDescription: 'Impostazione della fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri',
+    canonicalPath: '/articoli-svizzera/frontalieredicente-stipendio-requisiti-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Docenti frontalieri in Ticino: stipendio e requisiti",
+      "description": "Impostazione della fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieredicente-stipendio-requisiti-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un aula scolastica in Ticino"
+      },
+      "datePublished": "2026-07-20T19:53:25+00:00",
+      "dateModified": "2026-07-20T19:53:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieredicente-stipendio-requisiti-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-falegname-ticino-stipendio-requisiti': {
+    title: 'Frontaliere falegname in Ticino: requisiti e riconoscimento',
+    description: 'Scopri i requisiti e le condizioni per lavorare come falegname in Ticino come frontaliere, incluse le aliquote fiscali e il permesso di soggiorno.',
+    keywords: 'frontalieri, ticino, svizzera, italia, falegname, requisiti, riconoscimento, scopri',
+    ogTitle: 'Frontaliere falegname in Ticino: stipendio medio, requisiti, riconoscimento del titolo di studio e permesso G.',
+    ogDescription: 'Scopri i requisiti e le condizioni per lavorare come falegname in Ticino come frontaliere, incluse le aliquote fiscali e il permesso di soggiorno.',
+    canonicalPath: '/articoli-svizzera/frontaliere-falegname-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere falegname in Ticino: requisiti e riconoscimento",
+      "description": "Scopri i requisiti e le condizioni per lavorare come falegname in Ticino come frontaliere, incluse le aliquote fiscali e il permesso di soggiorno.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-falegname-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un falegname in azione nella regione del Lugano, con sfondo della città di Lugano e del lago di Lugano."
+      },
+      "datePublished": "2026-07-20T20:20:13+00:00",
+      "dateModified": "2026-07-20T20:20:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-falegname-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-carpentiere-ticino-stipendio-requisiti': {
+    title: 'Carpentiere in Ticino: stipendio e requisiti per frontaliere',
+    description: 'Ecco le informazioni utili per lavorare come carpentiere in Ticino da frontaliere, inclusi i requisiti e il permesso G. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, carpentiere, stipendio, requisiti, ecco',
+    ogTitle: 'Lavorare come carpentiere in Ticino da frontaliere: stipendio medio, requisiti e permesso G',
+    ogDescription: 'Ecco le informazioni utili per lavorare come carpentiere in Ticino da frontaliere, inclusi i requisiti e il permesso G',
+    canonicalPath: '/articoli-svizzera/frontaliere-carpentiere-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Carpentiere in Ticino: stipendio e requisiti per frontaliere",
+      "description": "Ecco le informazioni utili per lavorare come carpentiere in Ticino da frontaliere, inclusi i requisiti e il permesso G. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-carpentiere-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fotografia di un carpentiere in Ticino con sfondo di montagna"
+      },
+      "datePublished": "2026-07-20T20:43:16+00:00",
+      "dateModified": "2026-07-20T20:43:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-carpentiere-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-pittore-ticino-guadagno': {
+    title: 'Quanto guadagna un pittore frontaliere in Ticino?',
+    description: 'Il pittore frontaliere in Ticino guadagna tra i CHF 40\'000 e i CHF 60\'000 all\'anno. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, pittore, anno',
+    ogTitle: 'Quanto guadagna un pittore frontaliere in Ticino?',
+    ogDescription: 'Il pittore frontaliere in Ticino guadagna tra i CHF 40\'000 e i CHF 60\'000 all\'anno.',
+    canonicalPath: '/articoli-svizzera/frontaliere-pittore-ticino-guadagno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un pittore frontaliere in Ticino?",
+      "description": "Il pittore frontaliere in Ticino guadagna tra i CHF 40'000 e i CHF 60'000 all'anno. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-pittore-ticino-guadagno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pittore frontaliere al lavoro"
+      },
+      "datePublished": "2026-07-20T21:17:00+00:00",
+      "dateModified": "2026-07-20T21:17:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-pittore-ticino-guadagno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-giardiniere-frontaliere-ticino-salario': {
+    title: 'Quanto guadagna un giardiniere frontaliere in Ticino?',
+    description: 'Il salario di un giardiniere frontaliere in Ticino è soggetto alle stesse regole fiscali della Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, giardiniere, salario',
+    ogTitle: 'Quanto guadagna un giardiniere frontaliere in Ticino?',
+    ogDescription: 'Il salario di un giardiniere frontaliere in Ticino è soggetto alle stesse regole fiscali della Svizzera.',
+    canonicalPath: '/articoli-svizzera/giardiniere-frontaliere-ticino-salario/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un giardiniere frontaliere in Ticino?",
+      "description": "Il salario di un giardiniere frontaliere in Ticino è soggetto alle stesse regole fiscali della Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/giardiniere-frontaliere-ticino-salario.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una panoramica del Lago di Lugano, con un giardiniere in primo piano, lavorando in un giardino davanti a una casa in Svizzera"
+      },
+      "datePublished": "2026-07-20T21:45:19+00:00",
+      "dateModified": "2026-07-20T21:45:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/giardiniere-frontaliere-ticino-salario/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-lattoniere-ticino-stipendio-requisiti': {
+    title: 'Lattoniere in Ticino: stipendio, requisiti e titolo',
+    description: 'Ecco i requisiti e il stipendio medio per i frontaliere lattonieri in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lattoniere, stipendio, requisiti, titolo',
+    ogTitle: 'Lavorare come lattoniere in Ticino da frontaliere: stipendio medio, requisiti e riconoscimento del titolo di studio',
+    ogDescription: 'Ecco i requisiti e il stipendio medio per i frontaliere lattonieri in Ticino',
+    canonicalPath: '/articoli-svizzera/frontaliere-lattoniere-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lattoniere in Ticino: stipendio, requisiti e titolo",
+      "description": "Ecco i requisiti e il stipendio medio per i frontaliere lattonieri in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-lattoniere-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il Lago di Lugano"
+      },
+      "datePublished": "2026-07-20T23:03:33+00:00",
+      "dateModified": "2026-07-20T23:03:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-lattoniere-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-lattoniere-ticino-stipendio': {
+    title: 'Quanto guadagna un lattoniere frontaliere in Ticino?',
+    description: 'La retribuzione di un lattoniere frontaliere in Ticino è influenzata da diversi fattori. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, lattoniere, retribuzione',
+    ogTitle: 'Quanto guadagna un lattoniere frontaliere in Ticino?',
+    ogDescription: 'La retribuzione di un lattoniere frontaliere in Ticino è influenzata da diversi fattori.',
+    canonicalPath: '/articoli-svizzera/frontalieri-lattoniere-ticino-stipendio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un lattoniere frontaliere in Ticino?",
+      "description": "La retribuzione di un lattoniere frontaliere in Ticino è influenzata da diversi fattori. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-lattoniere-ticino-stipendio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un lattoniere frontaliere lavora nel Canton Ticino"
+      },
+      "datePublished": "2026-07-20T23:39:26+00:00",
+      "dateModified": "2026-07-20T23:39:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-lattoniere-ticino-stipendio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-guadagno-ticino': {
+    title: 'Stipendio gessatore: salari e differenze con l\'Italia',
+    description: 'Gli stipendi dei frontalieri in Ticino: quanto guadagnano i gessatori e come si differenziano dalle retribuzioni italiane. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, stipendio, gessatore, salari, differenze',
+    ogTitle: 'Stipendio reale di un gessatore frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione',
+    ogDescription: 'Gli stipendi dei frontalieri in Ticino: quanto guadagnano i gessatori e come si differenziano dalle retribuzioni italiane',
+    canonicalPath: '/articoli-svizzera/frontalieri-guadagno-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stipendio gessatore: salari e differenze con l'Italia",
+      "description": "Gli stipendi dei frontalieri in Ticino: quanto guadagnano i gessatori e come si differenziano dalle retribuzioni italiane. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-guadagno-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in Ticino: guadagno reale e differenze con l'Italia"
+      },
+      "datePublished": "2026-07-21T00:07:51+00:00",
+      "dateModified": "2026-07-21T00:07:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-guadagno-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-montatore-frontaliere-ticino-stipendio-requisiti': {
+    title: 'Lavorare come montatore in Ticino: stipendio, requisiti e permesso G',
+    description: 'Stipendio medio di un montatore frontaliero in Ticino, requisiti per lavorare come montatore in Ticino, riconoscimento del titolo di studio e permesso G.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, montatore, stipendio, requisiti',
+    ogTitle: 'Lavorare come montatore in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G.',
+    ogDescription: 'Stipendio medio di un montatore frontaliero in Ticino, requisiti per lavorare come montatore in Ticino, riconoscimento del titolo di studio e permesso G.',
+    canonicalPath: '/articoli-svizzera/montatore-frontaliere-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come montatore in Ticino: stipendio, requisiti e permesso G",
+      "description": "Stipendio medio di un montatore frontaliero in Ticino, requisiti per lavorare come montatore in Ticino, riconoscimento del titolo di studio e permesso G.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/montatore-frontaliere-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di lavoro di un montatore frontaliero in Ticino"
+      },
+      "datePublished": "2026-07-21T00:34:20+00:00",
+      "dateModified": "2026-07-21T00:34:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/montatore-frontaliere-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-magazziniere-ticino-stipendio-requisiti': {
+    title: 'Lavorare come magazziniere in Ticino: stipendio e requisiti',
+    description: 'Il Nuovo Accordo Frontalieri prevede nuove regole per i magazzinieri frontalieri in Ticino. Ecco cosa devi sapere. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, magazziniere, stipendio, requisiti',
+    ogTitle: 'Lavorare come magazziniere in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G.',
+    ogDescription: 'Il Nuovo Accordo Frontalieri prevede nuove regole per i magazzinieri frontalieri in Ticino. Ecco cosa devi sapere.',
+    canonicalPath: '/articoli-svizzera/frontaliere-magazziniere-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come magazziniere in Ticino: stipendio e requisiti",
+      "description": "Il Nuovo Accordo Frontalieri prevede nuove regole per i magazzinieri frontalieri in Ticino. Ecco cosa devi sapere. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-magazziniere-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un magazziniere frontaliero in una scena di lavoro a Lugano."
+      },
+      "datePublished": "2026-07-21T00:59:12+00:00",
+      "dateModified": "2026-07-21T00:59:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-magazziniere-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-gruista-frontaliere-ticino': {
+    title: 'Quanto guadagna un gruista frontaliere in Ticino',
+    description: 'Stipendio reale di un gruista frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, gruista, stipendio',
+    ogTitle: 'Quanto guadagna un gruista frontaliere in Ticino | Frontaliere Ticino',
+    ogDescription: 'Stipendio reale di un gruista frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione.',
+    canonicalPath: '/articoli-svizzera/gruista-frontaliere-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un gruista frontaliere in Ticino",
+      "description": "Stipendio reale di un gruista frontaliere in Ticino: fascia salariale, differenze rispetto all'Italia, fattori che incidono sulla retribuzione. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/gruista-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un gruista frontaliere a Lugano, vista del lago di Lugano in secondo piano."
+      },
+      "datePublished": "2026-07-21T01:26:15+00:00",
+      "dateModified": "2026-07-21T01:26:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/gruista-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-stipendio-cassiere-frontaliere-ticino': {
+    title: 'Quanto guadagna un cassiere frontaliere in Ticino',
+    description: 'Quanto guadagna un cassiere frontaliere in Ticino? Scopri la retribuzione netta, differenze con l\'Italia e come calcolare le trattenute con il nuovo regime',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, cassiere, fascia',
+    ogTitle: 'Stipendio cassiere frontaliere in Ticino: guida completa 2024',
+    ogDescription: 'Calcolo stipendio netto, confronto Italia-Svizzera e novità fiscali post-2024. Dati verificati su retribuzioni e deduzioni.',
+    canonicalPath: '/articoli-svizzera/stipendio-cassiere-frontaliere-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un cassiere frontaliere in Ticino",
+      "description": "Quanto guadagna un cassiere frontaliere in Ticino? Scopri la retribuzione netta, differenze con l'Italia e come calcolare le trattenute con il nuovo regime",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stipendio-cassiere-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cassiere in un negozio di Bellinzona con prodotti svizzeri e banconote CHF"
+      },
+      "datePublished": "2026-07-21T02:13:06+00:00",
+      "dateModified": "2026-07-21T02:13:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stipendio-cassiere-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-stipendio-frontaliere-ticino-2024': {
+    title: 'Quanto guadagna un responsabile di negozio frontaliere in Ticino?',
+    description: 'Fatti e cifre sulla retribuzione dei responsabili di negozio frontaliere in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, responsabile, negozio',
+    ogTitle: 'Quanto guadagna un responsabile di negozio frontaliere in Ticino?',
+    ogDescription: 'Fatti e cifre sulla retribuzione dei responsabili di negozio frontaliere in Ticino',
+    canonicalPath: '/articoli-svizzera/stipendio-frontaliere-ticino-2024/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un responsabile di negozio frontaliere in Ticino?",
+      "description": "Fatti e cifre sulla retribuzione dei responsabili di negozio frontaliere in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stipendio-frontaliere-ticino-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un responsabile frontaliere in un negozio di Lugano"
+      },
+      "datePublished": "2026-07-21T02:36:35+00:00",
+      "dateModified": "2026-07-21T02:36:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stipendio-frontaliere-ticino-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-macellaio-ticino-stipendio-requisiti': {
+    title: 'Frontaliere macellaio: stipendio e requisiti | Frontaliere Ticino',
+    description: 'I requisiti per lavorare come macellaio in Ticino come frontaliere, stipendio medio e possibilità di riconoscimento del titolo di studio. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, macellaio, stipendio, requisiti, lavorare',
+    ogTitle: 'Frontaliere macellaio in Ticino: stipendio medio, requisiti e riconoscimento del titolo di studio',
+    ogDescription: 'I requisiti per lavorare come macellaio in Ticino come frontaliere, stipendio medio e possibilità di riconoscimento del titolo di studio',
+    canonicalPath: '/articoli-svizzera/frontaliere-macellaio-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere macellaio: stipendio e requisiti",
+      "description": "I requisiti per lavorare come macellaio in Ticino come frontaliere, stipendio medio e possibilità di riconoscimento del titolo di studio. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-macellaio-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fotografia di un frontaliere macellaio che lavora in un negozio di carne a Lugano"
+      },
+      "datePublished": "2026-07-21T03:02:31+00:00",
+      "dateModified": "2026-07-21T03:02:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-macellaio-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-pasticciere-ticino-stipendio-requisiti': {
+    title: 'Frontaliere pasticceria: stipendio, requisiti e riconoscimento',
+    description: 'Il Nuovo Accordo Frontalieri prevede la franchigia di €10.000 per i nuovi frontalieri. I vecchi frontalieri esentati di €7.500 avranno un regime transitorio',
+    keywords: 'frontalieri, ticino, svizzera, italia, pasticceria, stipendio, requisiti, riconoscimento',
+    ogTitle: 'Frontaliere pasticcere Ticino: stipendio medio, requisiti, riconoscimento titolo di studio e permesso G.',
+    ogDescription: 'Il Nuovo Accordo Frontalieri prevede la franchigia di €10.000 per i nuovi frontalieri. I vecchi frontalieri esentati di €7.500 avranno un regime transitorio',
+    canonicalPath: '/articoli-svizzera/frontaliere-pasticciere-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere pasticceria: stipendio, requisiti e riconoscimento",
+      "description": "Il Nuovo Accordo Frontalieri prevede la franchigia di €10.000 per i nuovi frontalieri. I vecchi frontalieri esentati di €7.500 avranno un regime transitorio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-pasticciere-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere che lavora come pasticcere in un negozio di Lugano, con una vista sulla città."
+      },
+      "datePublished": "2026-07-21T03:32:58+00:00",
+      "dateModified": "2026-07-21T03:32:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-pasticciere-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-parrucchieri-frontaliere-ticino': {
+    title: 'Lavorare come parrucchiera in Ticino: stipendio, requisiti e riconoscimento del titolo',
+    description: 'I requisiti per lavorare come parrucchiera in Ticino da frontaliere, il salario medio, il riconoscimento del titolo di studio e il permesso G. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, parrucchiera, stipendio, requisiti',
+    ogTitle: 'Lavorare come parrucchiera in Ticino da frontaliere: stipendio medio, requisiti, riconoscimento del titolo di studio e permesso G',
+    ogDescription: 'I requisiti per lavorare come parrucchiera in Ticino da frontaliere, il salario medio, il riconoscimento del titolo di studio e il permesso G.',
+    canonicalPath: '/articoli-svizzera/parrucchieri-frontaliere-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come parrucchiera in Ticino: stipendio, requisiti e riconoscimento del titolo",
+      "description": "I requisiti per lavorare come parrucchiera in Ticino da frontaliere, il salario medio, il riconoscimento del titolo di studio e il permesso G. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/parrucchieri-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una parrucchiera frontaliera al lavoro in un salone a Lugano"
+      },
+      "datePublished": "2026-07-21T03:58:31+00:00",
+      "dateModified": "2026-07-21T03:58:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/parrucchieri-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-estetista-frontaliere-ticino-stipendio-requisiti': {
+    title: 'Lavorare come estetista in Ticino: stipendio, requisiti e permesso G',
+    description: 'Ecco cosa devi sapere per lavorare come estetista in Ticino da frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, estetista, stipendio, requisiti',
+    ogTitle: 'Lavorare come estetista in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G.',
+    ogDescription: 'Ecco cosa devi sapere per lavorare come estetista in Ticino da frontaliere.',
+    canonicalPath: '/articoli-svizzera/estetista-frontaliere-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come estetista in Ticino: stipendio, requisiti e permesso G",
+      "description": "Ecco cosa devi sapere per lavorare come estetista in Ticino da frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/estetista-frontaliere-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di un salone di bellezza in Lugano, con clienti che si sottopongono a trattamenti di estetica."
+      },
+      "datePublished": "2026-07-21T04:27:13+00:00",
+      "dateModified": "2026-07-21T04:27:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/estetista-frontaliere-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-aiuto-cucina-ticino-stipendio-requisiti': {
+    title: 'Frontaliere Ticino: stipendio e requisiti per l\'aiuto cucina',
+    description: 'Stipendio medio per gli aiuti cucina frontalieri in Ticino, requisiti e riconoscimento del titolo di studio. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, stipendio, requisiti, aiuto, cucina',
+    ogTitle: 'Lavorare come aiuto cucina in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G.',
+    ogDescription: 'Stipendio medio per gli aiuti cucina frontalieri in Ticino, requisiti e riconoscimento del titolo di studio',
+    canonicalPath: '/articoli-svizzera/frontaliere-aiuto-cucina-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere Ticino: stipendio e requisiti per l'aiuto cucina",
+      "description": "Stipendio medio per gli aiuti cucina frontalieri in Ticino, requisiti e riconoscimento del titolo di studio. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-aiuto-cucina-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un aiuto cucina frontaliero in Ticino"
+      },
+      "datePublished": "2026-07-21T04:58:16+00:00",
+      "dateModified": "2026-07-21T04:58:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-aiuto-cucina-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
