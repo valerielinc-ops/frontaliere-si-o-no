@@ -115,6 +115,7 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
   return {
     name: 'job-recency-pages',
     apply: 'build',
+    enforce: 'post',
     async closeBundle() {
       const fs = await import('node:fs');
       const np = await import('node:path');
