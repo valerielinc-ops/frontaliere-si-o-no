@@ -8786,6 +8786,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.monate-pesche-sciroppate-bina.title': 'Azienda Bina: la tradizione dei Perzic de Munà',
     'blog.article.monate-pesche-sciroppate-bina.excerpt': 'Scopri la storia dell\'azienda agricola Bina di Travedona Monate, attiva da tre generazioni nella produzione artigianale di pesche sciroppate senza conservanti.',
     'blog.article.monate-pesche-sciroppate-bina.imageAlt': 'Pesche sciroppate artigianali prodotte a Travedona Monate',
+    'blog.article.disoccupazione-frontalieri-lorenzo-quadri-bernareplica.title': 'Disoccupazione frontalieri, Lorenzo Quadri: «Berna deve dire no»',
+    'blog.article.disoccupazione-frontalieri-lorenzo-quadri-bernareplica.excerpt': 'Il Consigliere nazionale critica la riforma UE sui frontalieri e chiede al Governo di respingere i nuovi oneri sulla disoccupazione.',
+    'blog.article.disoccupazione-frontalieri-lorenzo-quadri-bernareplica.imageAlt': 'Frontalieri in Ticino che si preparano a un cambio di legge.',
 };
 
 export default blogMetaIt;

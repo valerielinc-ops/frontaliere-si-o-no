@@ -8785,6 +8785,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.monate-pesche-sciroppate-bina.title': 'Bina Company: the tradition of the Perzic de Munà',
     'blog.article.monate-pesche-sciroppate-bina.excerpt': 'Discover the history of the Bina di Travedona Monate farm, which has been active for three generations in the artisanal production of peaches syruped without preservatives.',
     'blog.article.monate-pesche-sciroppate-bina.imageAlt': 'Artisanal canned peaches produced in Travedona Monate',
+    'blog.article.disoccupazione-frontalieri-lorenzo-quadri-bernareplica.title': 'Border unemployment, Lorenzo Quadri: "Bern must say no"',
+    'blog.article.disoccupazione-frontalieri-lorenzo-quadri-bernareplica.excerpt': 'The National Councillor criticises the EU reform on border workers and calls on the Government to reject the new burdens on unemployment.',
+    'blog.article.disoccupazione-frontalieri-lorenzo-quadri-bernareplica.imageAlt': 'Frontalieri in Ticino che si preparano a un cambio di legge.',
 };
 
 export default blogMetaEn;

@@ -8784,6 +8784,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.monate-pesche-sciroppate-bina.title': 'Unternehmen Bina: die Tradition der Perzic de Munà',
     'blog.article.monate-pesche-sciroppate-bina.excerpt': 'Entdecken Sie die Geschichte des landwirtschaftlichen Betriebs Bina di Travedona Monate, der seit drei Generationen in der handwerklichen Produktion von Pfirsichen in Sirup ohne Konservierungsstoffe tätig ist.',
     'blog.article.monate-pesche-sciroppate-bina.imageAlt': 'Handwerklich hergestellte Pfirsiche in Travedona Monate',
+    'blog.article.disoccupazione-frontalieri-lorenzo-quadri-bernareplica.title': 'Grenzgänger-Arbeitslosigkeit, Lorenzo Quadri: «Bern muss Nein sagen»',
+    'blog.article.disoccupazione-frontalieri-lorenzo-quadri-bernareplica.excerpt': 'Der Nationalrat kritisiert die EU-Grenzgängerreform und fordert die Regierung auf, die neuen Arbeitslosensteuern abzulehnen.',
+    'blog.article.disoccupazione-frontalieri-lorenzo-quadri-bernareplica.imageAlt': 'Frontalieri in Ticino, die sich auf einen Änderung der Gesetze vorbereiten.',
 };
 
 export default blogMetaDe;
