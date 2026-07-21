@@ -1387,6 +1387,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-aiuto-cucina-ticino-stipendio-requisiti.title': 'Frontaliere Ticino: stipendio e requisiti per l\'aiuto cucina',
     'blog.article.frontaliere-aiuto-cucina-ticino-stipendio-requisiti.excerpt': 'Stipendio medio per gli aiuti cucina frontalieri in Ticino, requisiti e riconoscimento del titolo di studio',
     'blog.article.frontaliere-aiuto-cucina-ticino-stipendio-requisiti.imageAlt': 'Un aiuto cucina frontaliero in Ticino',
+    'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.title': 'Agente di sicurezza in Ticino: stipendio, requisiti e riconoscimento',
+    'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.excerpt': 'Gli agenti di sicurezza frontalieri in Ticino: stipendio medio CHF 60\'000, requisiti e riconoscimento del titolo di studio',
+    'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.imageAlt': 'Immagine di un agente di sicurezza frontaliero a Lugano',
 };
 
 export default blogMetaChIt;

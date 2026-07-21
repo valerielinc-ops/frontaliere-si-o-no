@@ -17919,6 +17919,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti': {
+    title: 'Agente di sicurezza in Ticino: stipendio, requisiti e riconoscimento',
+    description: 'Gli agenti di sicurezza frontalieri in Ticino: stipendio medio CHF 60\'000, requisiti e riconoscimento del titolo di studio. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, agente, sicurezza, stipendio, requisiti',
+    ogTitle: 'Lavorare come agente di sicurezza in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G',
+    ogDescription: 'Gli agenti di sicurezza frontalieri in Ticino: stipendio medio CHF 60\'000, requisiti e riconoscimento del titolo di studio',
+    canonicalPath: '/articoli-svizzera/frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Agente di sicurezza in Ticino: stipendio, requisiti e riconoscimento",
+      "description": "Gli agenti di sicurezza frontalieri in Ticino: stipendio medio CHF 60'000, requisiti e riconoscimento del titolo di studio. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un agente di sicurezza frontaliero a Lugano"
+      },
+      "datePublished": "2026-07-21T05:25:43+00:00",
+      "dateModified": "2026-07-21T05:25:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

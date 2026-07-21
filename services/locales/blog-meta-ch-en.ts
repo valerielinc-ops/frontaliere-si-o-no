@@ -1387,6 +1387,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-aiuto-cucina-ticino-stipendio-requisiti.title': 'Ticino border guards: salary and requirements for kitchen help',
     'blog.article.frontaliere-aiuto-cucina-ticino-stipendio-requisiti.excerpt': 'Average salary for border kitchen help in Ticino, qualification requirements and recognition',
     'blog.article.frontaliere-aiuto-cucina-ticino-stipendio-requisiti.imageAlt': 'A kitchen helper in Ticino',
+    'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.title': 'Security officer in Ticino: salary, requirements and recognition',
+    'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.excerpt': 'Border security agents in Ticino: average salary CHF 60\'000, qualification requirements and recognition',
+    'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.imageAlt': 'Image of a frontier security agent at Lugano',
 };
 
 export default blogMetaChEn;
