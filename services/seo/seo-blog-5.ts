@@ -53307,6 +53307,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-ticino-abusi-precarieta': {
+    title: 'Salari ticinesi: tra abusi e precarietà | Frontaliere Ticino',
+    description: 'Guida pratica per frontalieri Italia-Svizzera: franchigie fiscali 2024, contributi AVS/LPP, errori busta paga e come evitarli. Calcola il netto con il',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, ticinesi, abusi, precarietà',
+    ogTitle: 'Salari ticinesi 2024: abusi e precarietà per frontalieri',
+    ogDescription: 'Analisi del nuovo regime fiscale italo-svizzero: franchigie, contributi sociali e diritti negati. Proteggi il tuo salario con guide pratiche.',
+    canonicalPath: '/articoli-frontaliere/salari-ticino-abusi-precarieta',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari ticinesi: tra abusi e precarietà",
+      "description": "Guida pratica per frontalieri Italia-Svizzera: franchigie fiscali 2024, contributi AVS/LPP, errori busta paga e come evitarli. Calcola il netto con il",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-ticino-abusi-precarieta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in attesa presso l'Ufficio delle contribuzioni di Bellinzona"
+      },
+      "datePublished": "2026-07-21T10:28:17+00:00",
+      "dateModified": "2026-07-21T10:28:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salari-ticino-abusi-precarieta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

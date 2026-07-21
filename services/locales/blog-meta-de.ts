@@ -8802,6 +8802,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.title': 'Des Grases Sekretär Ausschuss für Gesundheit und Sicherheit',
     'blog.article.romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.excerpt': 'Die Regionalrätin Romana Dell \'Gras wurde zur Sekretärin der Sonderkommission für Gesundheit und Sicherheit am Arbeitsplatz ernannt.',
     'blog.article.romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.imageAlt': 'Die Sicht auf Lugano von dem See',
+    'blog.article.salari-ticino-abusi-precarieta.title': 'Tessiner Löhne: Zwischen Missbrauch und Prekarität',
+    'blog.article.salari-ticino-abusi-precarieta.excerpt': 'Neues Steuerabkommen 2024, Quellensteuer und Sozialbeiträge: Was sich für Grenzgänger mit Italien ändert',
+    'blog.article.salari-ticino-abusi-precarieta.imageAlt': 'Grenzgänger warten im Steueramt Bellinzona',
 };
 
 export default blogMetaDe;

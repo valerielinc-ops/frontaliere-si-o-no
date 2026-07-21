@@ -8803,6 +8803,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.title': 'OF the grass Secretary OF the health and safety Committee',
     'blog.article.romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.excerpt': 'The regional councillor Romana Dell \'Erba has been appointed secretary of the Special Commission on Health and Safety in the Workplace.',
     'blog.article.romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.imageAlt': 'The view of Lugano from the lake',
+    'blog.article.salari-ticino-abusi-precarieta.title': 'Ticino wages: between abuse and precariousness',
+    'blog.article.salari-ticino-abusi-precarieta.excerpt': 'New tax agreement 2024, tax at source and social contributions: what changes for border workers with Italy',
+    'blog.article.salari-ticino-abusi-precarieta.imageAlt': 'Cross-border workers queuing at Bellinzona tax office',
 };
 
 export default blogMetaEn;

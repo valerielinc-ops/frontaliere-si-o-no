@@ -8804,6 +8804,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.title': 'Dell\'erba segretario commissione salute e sicurezza',
     'blog.article.romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.excerpt': 'La consigliera regionale Romana Dell\'erba è stata nominata segretario della Commissione speciale Salute e Sicurezza nei luoghi di lavoro.',
     'blog.article.romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.imageAlt': 'La vista di Lugano dal lago',
+    'blog.article.salari-ticino-abusi-precarieta.title': 'Salari ticinesi: tra abusi e precarietà',
+    'blog.article.salari-ticino-abusi-precarieta.excerpt': 'Nuovo accordo fiscale 2024, imposta alla fonte e contributi sociali: cosa cambia per i frontalieri con l\'Italia',
+    'blog.article.salari-ticino-abusi-precarieta.imageAlt': 'Frontalieri in attesa presso l\'Ufficio delle contribuzioni di Bellinzona',
 };
 
 export default blogMetaIt;

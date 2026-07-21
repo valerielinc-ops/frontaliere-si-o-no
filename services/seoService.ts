@@ -4800,6 +4800,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-orologi-svizzeri-export-in-netta-crescita-ma-non-basta': { name: 'Orologi svizzeri', path: '/articoli-svizzera/orologi-svizzeri-export-in-netta-crescita-ma-non-basta/', parent: 'blog' },
     'blog-romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza': { name: 'Notizie Ticino', path: '/articoli-frontaliere/romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza', parent: 'blog' },
     'blog-swiss-ccl-migliorato-2027': { name: 'CCL migliorato di Swiss', path: '/articoli-svizzera/swiss-ccl-migliorato-2027/', parent: 'blog' },
+    'blog-salari-ticino-abusi-precarieta': { name: 'Salari e fiscalià', path: '/articoli-frontaliere/salari-ticino-abusi-precarieta', parent: 'blog' },
  };
 
  const info = sectionNames[section];
