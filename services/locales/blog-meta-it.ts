@@ -8789,6 +8789,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-lorenzo-quadri-bernareplica.title': 'Disoccupazione frontalieri, Lorenzo Quadri: «Berna deve dire no»',
     'blog.article.disoccupazione-frontalieri-lorenzo-quadri-bernareplica.excerpt': 'Il Consigliere nazionale critica la riforma UE sui frontalieri e chiede al Governo di respingere i nuovi oneri sulla disoccupazione.',
     'blog.article.disoccupazione-frontalieri-lorenzo-quadri-bernareplica.imageAlt': 'Frontalieri in Ticino che si preparano a un cambio di legge.',
+    'blog.article.accertamenti-fiscali-frontalieri-controlli-e-difesa.title': 'Accertamenti fiscali ai lavoratori frontalieri: controlli e difesa',
+    'blog.article.accertamenti-fiscali-frontalieri-controlli-e-difesa.excerpt': 'La nuova legge prevede un aumento delle attività di controllo per i lavoratori frontalieri. Scopri i dettagli e come ti possono influire.',
+    'blog.article.accertamenti-fiscali-frontalieri-controlli-e-difesa.imageAlt': 'Immagine del Lago di Lugano con due persone in barca',
 };
 
 export default blogMetaIt;
