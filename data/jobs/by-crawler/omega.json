@@ -86,7 +86,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:47.089Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -115,7 +114,7 @@
       "title": "DESIGNER (H/F)",
       "titleByLocale": {
         "it": "DESIGNATO (H/F)",
-        "en": "DESIGNER (H/F)",
+        "en": "DESIGNATE (H/F)",
         "de": "BEZEICHNUNG (H/F)",
         "fr": "DESIGNER (H/F)"
       },
@@ -193,7 +192,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:25.778Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -289,7 +287,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:04.444Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -379,7 +376,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:53:15.053Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -470,8 +466,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

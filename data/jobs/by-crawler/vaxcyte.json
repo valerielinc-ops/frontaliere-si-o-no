@@ -72,7 +72,6 @@
         ]
       },
       "firstSeenAt": "2026-06-25T23:32:47.249Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -140,7 +139,6 @@
         "location": "Visp"
       },
       "firstSeenAt": "2026-07-09T12:13:14.086Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -315,8 +313,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "vaxcyte-27b9ca402283",
@@ -400,8 +397,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     }
   ]
 }
