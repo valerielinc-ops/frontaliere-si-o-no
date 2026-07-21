@@ -26486,6 +26486,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'aumento-prezzi-trenord-pendolari',
+ category: 'novita',
+ date: '2026-07-21T13:18:49.563Z',
+ image: '/images/blog/aumento-prezzi-trenord-pendolari.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

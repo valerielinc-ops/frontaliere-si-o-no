@@ -8817,6 +8817,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-nuove-regole.title': 'Télétravail pour les frontaliers : nouvelles règles de travail intelligent',
     'blog.article.telelavoro-frontalieri-nuove-regole.excerpt': 'Nouvelles règles pour les frontaliers entre l\'Italie et la Suisse : travail intelligent jusqu\'à 25 % de l\'heure sans perdre le statut et l\'imposition en Suisse.',
     'blog.article.telelavoro-frontalieri-nuove-regole.imageAlt': 'Bureau à domicile avec vue sur le lac de Lugano pour le télétravail des frontaliers',
+    'blog.article.aumento-prezzi-trenord-pendolari.title': 'Trenord, nouvelles augmentations sur les billets pour les frontaliers',
+    'blog.article.aumento-prezzi-trenord-pendolari.excerpt': 'Trenord a annoncé une nouvelle augmentation des tarifs ferroviaires. Le nouveau « tarif spécifique Malpensa » est reporté à l\'été prochain.',
+    'blog.article.aumento-prezzi-trenord-pendolari.imageAlt': 'Navetteurs dans une gare au Tessin',
 };
 
 export default blogMetaFr;

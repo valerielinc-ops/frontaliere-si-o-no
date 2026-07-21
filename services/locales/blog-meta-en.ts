@@ -8815,6 +8815,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-nuove-regole.title': 'Teleworking for border workers: new smart working rules',
     'blog.article.telelavoro-frontalieri-nuove-regole.excerpt': 'New rules for border workers between Italy and Switzerland: smart working up to 25% of the time without losing status and taxability in Switzerland.',
     'blog.article.telelavoro-frontalieri-nuove-regole.imageAlt': 'Home office with Lake Lugano view for cross-border telework',
+    'blog.article.aumento-prezzi-trenord-pendolari.title': 'Trenord, new increases on tickets for border crossers',
+    'blog.article.aumento-prezzi-trenord-pendolari.excerpt': 'Trenord has announced a further increase in rail fares. The new \'Malpensa specific rate\' has been postponed to next summer.',
+    'blog.article.aumento-prezzi-trenord-pendolari.imageAlt': 'Commuters at a train station in Ticino',
 };
 
 export default blogMetaEn;

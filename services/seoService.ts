@@ -4808,6 +4808,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna': { name: 'Dichiarazione delle imposte in Svizzera', path: '/articoli-svizzera/dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna/', parent: 'blog' },
     'blog-telelavoro-frontalieri-nuove-regole': { name: 'Telelavoro Frontalieri', path: '/articoli-frontaliere/telelavoro-frontalieri-nuove-regole', parent: 'blog' },
     'blog-birra-in-mancanza': { name: 'La produzione mondiale di birra', path: '/articoli-svizzera/birra-in-mancanza/', parent: 'blog' },
+    'blog-aumento-prezzi-trenord-pendolari': { name: 'Trasporti frontalieri', path: '/articoli-frontaliere/aumento-prezzi-trenord-pendolari', parent: 'blog' },
  };
 
  const info = sectionNames[section];

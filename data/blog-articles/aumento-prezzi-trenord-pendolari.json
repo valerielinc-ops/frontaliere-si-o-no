@@ -1,0 +1,40 @@
+{
+  "id": "aumento-prezzi-trenord-pendolari",
+  "slug": "aumento-prezzi-trenord-pendolari",
+  "publishedAt": "2026-07-21T13:18:55.266Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.431604829705208,
+    "confidence": 0.8,
+    "finalScore": 9.945283863764168,
+    "topK": [
+      {
+        "slug": "militari-treni-ticino-20-euro",
+        "cosine": 0.8640744543427396
+      },
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8622044607713261
+      },
+      {
+        "slug": "mense-scolastiche-ticino-prezzi-2026",
+        "cosine": 0.8548353652868222
+      },
+      {
+        "slug": "aumento-mezzi-pubblici-ticino",
+        "cosine": 0.8541561815820367
+      },
+      {
+        "slug": "stipendi-frontalieri-inflazione-ticino",
+        "cosine": 0.8513848561778202
+      }
+    ],
+    "score": 2.486320965941042,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

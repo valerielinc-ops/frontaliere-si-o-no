@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3433,
+ "numberOfItems": 3434,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8201,7 +8201,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3430, "name": "Frontalieri: nessuna disoccupazione per la Sviz...", "url": `${BASE_URL}/articoli-frontaliere/frontaliereticino-mozione-consiglio-federale` },
           { "@type": "ListItem", "position": 3431, "name": "Dichiarazione imposte in Svizzera: scadenze e d...", "url": `${BASE_URL}/articoli-frontaliere/dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna` },
           { "@type": "ListItem", "position": 3432, "name": "Telelavoro per frontalieri: nuove regole smart ...", "url": `${BASE_URL}/articoli-frontaliere/telelavoro-frontalieri-nuove-regole` },
-          { "@type": "ListItem", "position": 3433, "name": "1,4 miliardi di litri di birra in meno", "url": `${BASE_URL}/articoli-frontaliere/birra-in-mancanza` }
+          { "@type": "ListItem", "position": 3433, "name": "1,4 miliardi di litri di birra in meno", "url": `${BASE_URL}/articoli-frontaliere/birra-in-mancanza` },
+          { "@type": "ListItem", "position": 3434, "name": "Trenord, nuovi aumenti sui biglietti per i fron...", "url": `${BASE_URL}/articoli-frontaliere/aumento-prezzi-trenord-pendolari` }
  ]
  },
  {

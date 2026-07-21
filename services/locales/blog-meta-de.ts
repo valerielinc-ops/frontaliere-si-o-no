@@ -8814,6 +8814,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-nuove-regole.title': 'Telearbeit für Grenzgänger: Neue Smart-Working-Regeln',
     'blog.article.telelavoro-frontalieri-nuove-regole.excerpt': 'Neue Regeln für Grenzgänger zwischen Italien und der Schweiz: Smart Working bis zu 25% der Arbeitszeit ohne Verlust des Status und der Steuerpflicht in der Schweiz.',
     'blog.article.telelavoro-frontalieri-nuove-regole.imageAlt': 'Heimbüro mit Blick auf den Luganersee für Grenzgänger-Telearbeit',
+    'blog.article.aumento-prezzi-trenord-pendolari.title': 'Trenord, neue Fahrkartenerhöhungen für Grenzgänger',
+    'blog.article.aumento-prezzi-trenord-pendolari.excerpt': 'Trenord kündigte eine weitere Erhöhung der Bahntarife an. Der neue "spezifische Malpensa-Tarif" wird auf den nächsten Sommer verschoben.',
+    'blog.article.aumento-prezzi-trenord-pendolari.imageAlt': 'Pendler an einem Bahnhof im Tessin',
 };
 
 export default blogMetaDe;

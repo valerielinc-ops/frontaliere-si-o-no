@@ -8816,6 +8816,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-nuove-regole.title': 'Telelavoro per frontalieri: nuove regole smart working',
     'blog.article.telelavoro-frontalieri-nuove-regole.excerpt': 'Nuove norme per i frontalieri tra Italia e Svizzera: smart working fino al 25% dell\'orario senza perdere lo status e l\'imponibilità in Svizzera.',
     'blog.article.telelavoro-frontalieri-nuove-regole.imageAlt': 'Ufficio domestico con vista sul Lago di Lugano per telelavoro frontalieri',
+    'blog.article.aumento-prezzi-trenord-pendolari.title': 'Trenord, nuovi aumenti sui biglietti per i frontalieri',
+    'blog.article.aumento-prezzi-trenord-pendolari.excerpt': 'Trenord ha annunciato un ulteriore incremento delle tariffe ferroviarie. Posticipata alla prossima estate la nuova \'tariffa specifica Malpensa\'.',
+    'blog.article.aumento-prezzi-trenord-pendolari.imageAlt': 'Pendolari in stazione in Ticino',
 };
 
 export default blogMetaIt;

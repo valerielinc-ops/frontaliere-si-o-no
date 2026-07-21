@@ -53463,6 +53463,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aumento-prezzi-trenord-pendolari': {
+    title: 'Trenord, nuovi aumenti sui biglietti per i frontalieri',
+    description: 'Trenord aumenta i prezzi dei biglietti. Posticipata la tariffa Malpensa. Scopri le implicazioni per i frontalieri e come gestire il budget di trasporto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trenord, nuovi, aumenti, biglietti',
+    ogTitle: 'Trenord aumenta i prezzi: impatti per i frontalieri',
+    ogDescription: 'Trenord ha annunciato nuovi rincari. La tariffa Malpensa slitta all\'estate. Analisi e consigli per i frontalieri Ticino-Italia.',
+    canonicalPath: '/articoli-frontaliere/aumento-prezzi-trenord-pendolari',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trenord, nuovi aumenti sui biglietti per i frontalieri",
+      "description": "Trenord aumenta i prezzi dei biglietti. Posticipata la tariffa Malpensa. Scopri le implicazioni per i frontalieri e come gestire il budget di trasporto.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aumento-prezzi-trenord-pendolari.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pendolari in stazione in Ticino"
+      },
+      "datePublished": "2026-07-21T13:18:49+00:00",
+      "dateModified": "2026-07-21T13:18:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumento-prezzi-trenord-pendolari/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
