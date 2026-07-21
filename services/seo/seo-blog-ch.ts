@@ -18270,6 +18270,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-swiss-ccl-migliorato-2027': {
+    title: 'Swiss, dal 2027 CCL migliorato per il personale di terra',
+    description: 'La compagnia aerea Swiss ha definito un nuovo contratto collettivo di lavoro che consente di ridurre le ore settimanali da 42 a 40 e aumentare i bonus nel fine',
+    keywords: 'frontalieri, ticino, svizzera, italia, swiss, 2027, migliorato, personale',
+    ogTitle: 'Swiss, dal 2027 CCL migliorato per il personale di terra',
+    ogDescription: 'La compagnia aerea Swiss ha definito un nuovo contratto collettivo di lavoro che consente di ridurre le ore settimanali da 42 a 40 e aumentare i bonus nel fine',
+    canonicalPath: '/articoli-svizzera/swiss-ccl-migliorato-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swiss, dal 2027 CCL migliorato per il personale di terra",
+      "description": "La compagnia aerea Swiss ha definito un nuovo contratto collettivo di lavoro che consente di ridurre le ore settimanali da 42 a 40 e aumentare i bonus nel fine",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/swiss-ccl-migliorato-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un aeroporto svizzero"
+      },
+      "datePublished": "2026-07-21T10:17:27+00:00",
+      "dateModified": "2026-07-21T10:17:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/swiss-ccl-migliorato-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -1414,6 +1414,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.orologi-svizzeri-export-in-netta-crescita-ma-non-basta.title': 'Swiss watches: exports in sharp growth, but not enough',
     'blog.article.orologi-svizzeri-export-in-netta-crescita-ma-non-basta.excerpt': 'Swiss watch exports showed an 11.2% increase in June 2026, but the overall balance remains weak.',
     'blog.article.orologi-svizzeri-export-in-netta-crescita-ma-non-basta.imageAlt': 'Image of Swiss watches on display in a Lugano store.',
+    'blog.article.swiss-ccl-migliorato-2027.title': 'Swiss, from 2027 CCL improved for ground staff',
+    'blog.article.swiss-ccl-migliorato-2027.excerpt': 'The airline Swiss has defined a new collective bargaining agreement that allows you to reduce weekly hours from 42 to 40 and increase bonuses at the weekend.',
+    'blog.article.swiss-ccl-migliorato-2027.imageAlt': 'Swiss airport',
 };
 
 export default blogMetaChEn;
