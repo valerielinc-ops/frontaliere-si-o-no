@@ -1429,6 +1429,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.birra-in-mancanza.title': '1,4 Milliarden Liter Bier weniger',
     'blog.article.birra-in-mancanza.excerpt': 'Die weltweite Bierproduktion verzeichnet einen weiteren Rückgang, angetrieben durch Rückgänge in Ozeanien, Europa, Asien und Nordamerika.',
     'blog.article.birra-in-mancanza.imageAlt': 'Ein Bier in einem Bar in Lugano',
+    'blog.article.schindler-utile-in-crescita.title': 'Umsatz rückläufig, aber Gewinnsteigerung für Schindler',
+    'blog.article.schindler-utile-in-crescita.excerpt': 'Umsatz rückläufig, aber Gewinn leicht gewachsen für Schindler, einen der wichtigsten international tätigen Schweizer Industriekonzerne.',
+    'blog.article.schindler-utile-in-crescita.imageAlt': 'Schindler, profitable Wachstum, neue Installationen',
 };
 
 export default blogMetaChDe;

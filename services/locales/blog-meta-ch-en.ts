@@ -1429,6 +1429,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.birra-in-mancanza.title': '1.4 billion litres less beer',
     'blog.article.birra-in-mancanza.excerpt': 'World beer production is down again, driven by declines in Oceania, Europe, Asia and North America.',
     'blog.article.birra-in-mancanza.imageAlt': 'A beer in a bar in Lugano',
+    'blog.article.schindler-utile-in-crescita.title': 'Declining turnover, but growing profit for Schindler',
+    'blog.article.schindler-utile-in-crescita.excerpt': 'Declining turnover, but slightly growing profits for Schindler, one of the most important internationally active Swiss industrial groups.',
+    'blog.article.schindler-utile-in-crescita.imageAlt': 'Schindler, profitable growth, new installations',
 };
 
 export default blogMetaChEn;

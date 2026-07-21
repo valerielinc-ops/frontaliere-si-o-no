@@ -4809,6 +4809,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-telelavoro-frontalieri-nuove-regole': { name: 'Telelavoro Frontalieri', path: '/articoli-frontaliere/telelavoro-frontalieri-nuove-regole', parent: 'blog' },
     'blog-birra-in-mancanza': { name: 'La produzione mondiale di birra', path: '/articoli-svizzera/birra-in-mancanza/', parent: 'blog' },
     'blog-aumento-prezzi-trenord-pendolari': { name: 'Trasporti frontalieri', path: '/articoli-frontaliere/aumento-prezzi-trenord-pendolari', parent: 'blog' },
+    'blog-schindler-utile-in-crescita': { name: 'Schindler, crescita utile', path: '/articoli-svizzera/schindler-utile-in-crescita/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
