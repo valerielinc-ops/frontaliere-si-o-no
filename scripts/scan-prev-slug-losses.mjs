@@ -32,7 +32,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { execSync, spawnSync } from 'node:child_process';
+import { execSync, spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { denylistKey, loadRestoreDenylist } from './backfill-prev-slugs-from-loss-events.mjs';
@@ -163,7 +163,103 @@ export function diffJobSlices(prevJobs, curJobs, opts = {}) {
   return results;
 }
 
-function main() {
+/**
+ * Build file → ordered commit list (oldest first, matching each file's own
+ * `git log --reverse`) for every slice file touched in the window, via ONE
+ * `git log --name-only` walk of the whole slice directory instead of one
+ * `git log` subprocess per file. 569 slice files each paying their own
+ * commit-graph walk was the dominant cost behind the scheduled job's
+ * 25-minute timeout (issue #4654) — a single walk shares the graph
+ * traversal across every file.
+ *
+ * @param {string} since
+ * @returns {Map<string, string[]>} absolute file path → commit SHAs
+ */
+function buildFileCommitsIndex(since) {
+  const raw = execSync(
+    `git log --since="${since}" --reverse --name-only --pretty=format:%x01%H -- ${DIR}`,
+    { encoding: 'utf8', cwd: ROOT, maxBuffer: 200 * 1024 * 1024 },
+  );
+  const fileCommits = new Map();
+  for (const chunk of raw.split('\x01')) {
+    if (!chunk) continue;
+    const lines = chunk.split('\n');
+    const hash = lines[0]?.trim();
+    if (!hash) continue;
+    for (let i = 1; i < lines.length; i++) {
+      const f = lines[i].trim();
+      if (!f || !f.endsWith('.json')) continue;
+      const abs = path.join(ROOT, f);
+      let arr = fileCommits.get(abs);
+      if (!arr) { arr = []; fileCommits.set(abs, arr); }
+      arr.push(hash);
+    }
+  }
+  return fileCommits;
+}
+
+/**
+ * Long-lived `git cat-file --batch` process. The old code spawned a fresh
+ * `git show <commit>:<path>` process per historical blob (~2000+ in a
+ * typical 24h window) — each pays its own process-spawn + repo-open cost.
+ * `cat-file --batch` keeps ONE process alive and streams requests/responses
+ * over its stdin/stdout pipe; responses arrive strictly in request order
+ * (git's documented batch-mode contract), so a simple FIFO queue suffices.
+ *
+ * @param {string} cwd
+ */
+function createCatFileBatch(cwd) {
+  const proc = spawn('git', ['cat-file', '--batch'], { cwd, stdio: ['pipe', 'pipe', 'ignore'] });
+  const queue = [];
+  let buf = Buffer.alloc(0);
+
+  proc.stdout.on('data', (chunk) => {
+    buf = buf.length ? Buffer.concat([buf, chunk]) : chunk;
+    drain();
+  });
+  proc.on('error', (err) => {
+    while (queue.length) queue.shift().reject(err);
+  });
+
+  function drain() {
+    for (;;) {
+      const nl = buf.indexOf(10);
+      if (nl === -1) return;
+      const header = buf.subarray(0, nl).toString('utf8');
+      const parts = header.split(' ');
+      if (parts[1] === 'missing') {
+        buf = buf.subarray(nl + 1);
+        queue.shift()?.resolve(null);
+        continue;
+      }
+      const size = Number(parts[2]);
+      if (!Number.isFinite(size)) {
+        buf = buf.subarray(nl + 1);
+        queue.shift()?.resolve(null);
+        continue;
+      }
+      const need = nl + 1 + size + 1;
+      if (buf.length < need) return;
+      const content = buf.subarray(nl + 1, nl + 1 + size).toString('utf8');
+      buf = buf.subarray(need);
+      queue.shift()?.resolve(content);
+    }
+  }
+
+  return {
+    get(objSpec) {
+      return new Promise((resolve, reject) => {
+        queue.push({ resolve, reject });
+        proc.stdin.write(`${objSpec}\n`);
+      });
+    },
+    close() {
+      proc.stdin.end();
+    },
+  };
+}
+
+async function main() {
   const args = process.argv.slice(2);
   const sinceIdx = args.indexOf('--since');
   const SINCE = sinceIdx !== -1 ? args[sinceIdx + 1] : '60 days ago';
@@ -188,27 +284,24 @@ function main() {
   const denylist = loadRestoreDenylist();
   let denylistedSkipped = 0;
 
+  process.stderr.write(`Building commit index for ${slices.length} slice files…\n`);
+  const fileCommits = buildFileCommitsIndex(SINCE);
+  const catFile = createCatFileBatch(ROOT);
+
   let fileIdx = 0;
   for (const file of slices) {
     fileIdx++;
-    if (fileIdx % 25 === 0) process.stderr.write(`  ${fileIdx}/${slices.length}…\n`);
+    if (fileIdx % 100 === 0) process.stderr.write(`  ${fileIdx}/${slices.length}…\n`);
+    const commits = fileCommits.get(file);
+    if (!commits || commits.length === 0) continue;
     const rel = path.relative(ROOT, file);
-    let commits;
-    try {
-      commits = execSync(
-        `git log --since="${SINCE}" --reverse --pretty=format:%H -- ${rel}`,
-        { encoding: 'utf8', cwd: ROOT }
-      ).trim().split('\n').filter(Boolean);
-    } catch { continue; }
-    if (commits.length === 0) continue;
 
     let prev = null;
     for (const commit of commits) {
-      const res = spawnSync('git', ['show', `${commit}:${rel}`],
-        { encoding: 'utf8', maxBuffer: 100 * 1024 * 1024, cwd: ROOT });
-      if (res.status !== 0) continue;
+      const content = await catFile.get(`${commit}:${rel}`);
+      if (content == null) continue;
       let cur;
-      try { cur = JSON.parse(res.stdout); } catch { continue; }
+      try { cur = JSON.parse(content); } catch { continue; }
       if (!cur?.jobs) continue;
       if (prev && Array.isArray(prev.jobs)) {
         const fileBase = file.replace(`${ABS_DIR}/`, '');
@@ -225,6 +318,7 @@ function main() {
       prev = cur;
     }
   }
+  catFile.close();
 
   const totalLost = [...lossesByJob.values()].reduce((n, x) => n + x.slugs.size, 0);
   console.log(JSON.stringify({
@@ -286,5 +380,8 @@ const isMain = (() => {
 })();
 
 if (isMain) {
-  main();
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
 }
