@@ -4775,6 +4775,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-ticino-panettiere-guadagno': { name: 'Stipendio reale di un panettiere', path: '/articoli-frontaliere/frontaliere-ticino-panettiere-guadagno', parent: 'blog' },
     'blog-frontaliere-pasticciere-ticino-stipendio-requisiti': { name: 'Frontaliere pasticcere Ticino', path: '/articoli-svizzera/frontaliere-pasticciere-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-frontaliere-pasticcere-ticino-stipendio-requisiti': { name: 'Lavorare come pasticcere in Ticino da', path: '/articoli-frontaliere/frontaliere-pasticcere-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-parrucchieri-frontaliere-ticino': { name: 'Lavorare come parrucchiera in Ticino da', path: '/articoli-svizzera/parrucchieri-frontaliere-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

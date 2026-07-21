@@ -1378,6 +1378,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.title': 'Border pastry: salary, requirements and recognition',
     'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.excerpt': 'The New Frontier Agreement was signed on 23 December 2020 and enters into force on 1 January 2024. What are the requirements to work as a pastry chef in Ticino?',
     'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.imageAlt': 'A frontalier working as a pastry chef in a shop in Lugano, with a view of the city.',
+    'blog.article.parrucchieri-frontaliere-ticino.title': 'Working as a hairdresser in Ticino: salary, requirements and title recognition',
+    'blog.article.parrucchieri-frontaliere-ticino.excerpt': 'The requirements to work as a hairdresser in Ticino as a border worker, the average salary, the recognition of the qualification and the G permit.',
+    'blog.article.parrucchieri-frontaliere-ticino.imageAlt': 'A hairdresser working in a salon in Lugano',
 };
 
 export default blogMetaChEn;

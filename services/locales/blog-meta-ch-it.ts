@@ -1378,6 +1378,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.title': 'Frontaliere pasticceria: stipendio, requisiti e riconoscimento',
     'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.excerpt': 'Il Nuovo Accordo Frontalieri è stato firmato il 23 dicembre 2020 e entra in vigore dal 1° gennaio 2024. Quali sono i requisiti per lavorare come pasticcere in Ticino?',
     'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.imageAlt': 'Un frontaliere che lavora come pasticcere in un negozio di Lugano, con una vista sulla città.',
+    'blog.article.parrucchieri-frontaliere-ticino.title': 'Lavorare come parrucchiera in Ticino: stipendio, requisiti e riconoscimento del titolo',
+    'blog.article.parrucchieri-frontaliere-ticino.excerpt': 'I requisiti per lavorare come parrucchiera in Ticino da frontaliere, il salario medio, il riconoscimento del titolo di studio e il permesso G.',
+    'blog.article.parrucchieri-frontaliere-ticino.imageAlt': 'Una parrucchiera frontaliera al lavoro in un salone a Lugano',
 };
 
 export default blogMetaChIt;
