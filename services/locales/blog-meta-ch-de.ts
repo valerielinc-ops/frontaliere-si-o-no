@@ -1432,6 +1432,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.schindler-utile-in-crescita.title': 'Umsatz rückläufig, aber Gewinnsteigerung für Schindler',
     'blog.article.schindler-utile-in-crescita.excerpt': 'Umsatz rückläufig, aber Gewinn leicht gewachsen für Schindler, einen der wichtigsten international tätigen Schweizer Industriekonzerne.',
     'blog.article.schindler-utile-in-crescita.imageAlt': 'Schindler, profitable Wachstum, neue Installationen',
+    'blog.article.migros-operatore-conquista-svizzera-coop.title': 'Die Migros ist der beliebteste Anbieter in der Schweiz',
+    'blog.article.migros-operatore-conquista-svizzera-coop.excerpt': 'Die Migros erzielte im Ranking Kundenzufriedenheit 7,6 von 10 Punkten.',
+    'blog.article.migros-operatore-conquista-svizzera-coop.imageAlt': 'Ein Kunde vor einem Migros-Shop',
 };
 
 export default blogMetaChDe;

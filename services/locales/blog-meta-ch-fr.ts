@@ -1432,6 +1432,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.schindler-utile-in-crescita.title': 'Chiffre d\'affaires en baisse, mais bénéfice en hausse pour Schindler',
     'blog.article.schindler-utile-in-crescita.excerpt': 'Chiffre d\'affaires en baisse, mais bénéfices en légère hausse pour Schindler, l\'un des plus importants groupes industriels suisses actifs au niveau international.',
     'blog.article.schindler-utile-in-crescita.imageAlt': 'Schindler, croissance rentable, nouvelles installations',
+    'blog.article.migros-operatore-conquista-svizzera-coop.title': 'Migros est l\'opérateur le plus apprécié en Suisse',
+    'blog.article.migros-operatore-conquista-svizzera-coop.excerpt': 'Migros a obtenu une note de 7,6 sur 10 dans le classement de la satisfaction client.',
+    'blog.article.migros-operatore-conquista-svizzera-coop.imageAlt': 'Un client devant un magasin Migros',
 };
 
 export default blogMetaChFr;
