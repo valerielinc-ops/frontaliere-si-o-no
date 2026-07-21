@@ -58,6 +58,21 @@ function SafeLazy({ boundary, fallback = null, children }: { boundary: string; f
   );
 }
 
+// Hides the #naspi-simulator-fallback static table (see
+// build-plugins/shared/salaryLandingShell.ts) once the real
+// SeasonalNaspiSimulator has portalled onto its empty sibling
+// #naspi-simulator-root — createPortal does NOT clear a container's
+// pre-existing DOM children, so without this the static fallback and the
+// live tool would both stay visible after hydration. useLayoutEffect (not
+// useEffect) avoids a flash of duplicated content before first paint, same
+// rationale as the main.seo-static-content toggle above.
+function NaspiSimulatorPortal({ target }: { target: HTMLElement }) {
+  useLayoutEffect(() => {
+    document.getElementById('naspi-simulator-fallback')?.remove();
+  }, []);
+  return createPortal(<SeasonalNaspiSimulator />, target);
+}
+
 // Lazy-loaded components — still used in secondary tabs / non-extracted sections
 const FeedbackSection = lazyRetry(() => import('@/components/community/FeedbackSection').then(m => ({ default: m.FeedbackSection })));
 const ApiStatus = lazyRetry(() => import('@/components/pages/ApiStatus'));
@@ -2799,7 +2814,7 @@ const App: React.FC = () => {
    if (!target) return null;
    return (
  <SafeLazy boundary="naspi-simulator-static">
- {createPortal(<SeasonalNaspiSimulator />, target)}
+ <NaspiSimulatorPortal target={target} />
  </SafeLazy>
    );
  })()}

@@ -28,6 +28,7 @@ import {
 } from './seoContentTokens';
 import { calculateSimulation, calculateSeasonalScenario } from '../../services/calculationService';
 import { DEFAULT_INPUTS, DEFAULT_EXCHANGE_RATE } from '../../constants';
+import { MUNICIPALITIES } from '../../data/municipalities';
 import { HEALTH_HREF, JOBS_HREF } from './comparatorHref';
 
 export type SalaryLocale = 'it' | 'en' | 'de' | 'fr';
@@ -295,6 +296,15 @@ function over20Move80kCell(locale: SalaryLocale): string {
 // drift from what the live simulator (portalled onto #naspi-simulator-root
 // on hydration, see App.tsx) actually computes for the same inputs.
 function buildSeasonalNaspiHubData(): SalaryLandingData {
+  // Same municipality-lookup logic as the live component (which sorts
+  // MUNICIPALITIES and defaults to 'Sumirago') so this static preview always
+  // tracks whatever the component actually defaults to, even if the
+  // municipality dataset changes — no hardcoded duplicate to drift out of sync.
+  const defaultMunicipality = [...MUNICIPALITIES].sort((a, b) => a.name.localeCompare(b.name))
+    .find((m) => m.name === 'Sumirago') ?? MUNICIPALITIES[0];
+  const distanceZone: 'WITHIN_20KM' | 'OVER_20KM' = (defaultMunicipality.fascia === '1' || defaultMunicipality.fascia === '1A')
+    ? 'WITHIN_20KM'
+    : 'OVER_20KM';
   const base = {
     grossMonthlyCHF: 4300,
     contributedMonthsLast4Years: 48,
@@ -303,8 +313,8 @@ function buildSeasonalNaspiHubData(): SalaryLandingData {
     maritalStatus: 'SINGLE' as const,
     spouseWorks: false,
     children: 0,
-    distanceZone: 'WITHIN_20KM' as const, // Sumirago, fascia 1A
-    addizionaleComunalePercent: 0.8, // Sumirago
+    distanceZone,
+    addizionaleComunalePercent: defaultMunicipality.irpefAddizionale,
     exchangeRate: DEFAULT_EXCHANGE_RATE,
   };
   const monthsWorked = 8;
@@ -2185,13 +2195,17 @@ export function renderSalaryLandingShell(
 export function buildSalaryLandingBody(args: BuildSalaryLandingArgs): string {
   const { data, locale } = resolveScenarioData(args.canonicalPath);
   const stripped = args.canonicalPath.replace(/\/+$/, '');
-  // Wraps the static comparison table in a named anchor (#naspi-simulator-root,
-  // literal string mirrored in App.tsx) so React can portal the real
-  // interactive SeasonalNaspiSimulator onto it on hydration — same mechanism
-  // as the rail-ad/footer portals in App.tsx. Pre-hydration/no-JS crawlers
-  // still see the real computed table as a static fallback.
+  // #naspi-simulator-root (literal string mirrored in App.tsx) is left EMPTY
+  // so React can portal the real interactive SeasonalNaspiSimulator onto it
+  // on hydration — same mechanism as the rail-ad/footer portals in App.tsx.
+  // The computed table is a SIBLING (#naspi-simulator-fallback), not a child
+  // of the anchor: createPortal does not clear a container's pre-existing DOM
+  // children, so putting the fallback inside the anchor would leave both the
+  // static table and the live tool visible after hydration. App.tsx removes
+  // the fallback once the portal mounts. Pre-hydration/no-JS crawlers still
+  // see the real computed table.
   const dataAreaHtmlOverride = stripped === '/calcola-stipendio/lavoro-stagionale-vs-annuale-naspi-frontalieri' && data.table
-    ? `<div id="naspi-simulator-root">${renderTable(data.table)}</div>`
+    ? `<div id="naspi-simulator-fallback">${renderTable(data.table)}</div><div id="naspi-simulator-root"></div>`
     : undefined;
   return renderSalaryLandingShell(data, locale, {
     h1Text: args.h1Text,
