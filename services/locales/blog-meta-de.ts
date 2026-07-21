@@ -8823,6 +8823,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-operaio-ticino-stipendio-requisiti.title': 'Als Arbeiter im Tessin arbeiten: Gehalt, Voraussetzungen und Erlaubnis G',
     'blog.article.frontaliere-operaio-ticino-stipendio-requisiti.excerpt': 'Das neue Gesetz über die Arbeitserlaubnis G für Grenzgänger im Tessin: Was sind die Voraussetzungen, das Durchschnittsgehalt und die Anerkennung des Bildungsabschlusses?',
     'blog.article.frontaliere-operaio-ticino-stipendio-requisiti.imageAlt': 'Ein Frontalier arbeitet in einer Fabrik in Lugano.',
+    'blog.article.giacomo-gallazzi-giovani-innovazione.title': 'Giacomo Gallazzi: Der Weg eines jungen Innovators',
+    'blog.article.giacomo-gallazzi-giovani-innovazione.excerpt': 'Von der Reife bis zum internationalen Master: Wie Giacomo Gallazzi das Konzept der Ausbildung und Kommunikation für die neuen Generationen neu definiert.',
+    'blog.article.giacomo-gallazzi-giovani-innovazione.imageAlt': 'Giacomo Gallazzi, junger Innovator und Kommunikator, in einem professionellen Umfeld.',
 };
 
 export default blogMetaDe;
