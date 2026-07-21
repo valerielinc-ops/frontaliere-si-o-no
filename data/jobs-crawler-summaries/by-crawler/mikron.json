@@ -1,18 +1,53 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-07-21T11:24:51.045Z",
-  "total": 5,
-  "newCount": 0,
-  "updatedCount": 5,
+  "generatedAt": "2026-07-21T22:49:15.175Z",
+  "total": 6,
+  "newCount": 1,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 16819,
-  "avgDurationMs": 16819,
+  "unchangedCount": 2,
+  "durationMs": 16540,
+  "avgDurationMs": 16540,
   "durationHistory": [
-    16819
+    16540
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://www.mikron.com/en/manufacturing-methodology-engineer-mfd",
+      "applyUrl": "https://www.mikron.com/en/manufacturing-methodology-engineer-mfd",
+      "title": "Manufacturing Methodology Engineer - (m/f/d)",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Boudry",
+      "canton": "NE",
+      "country": "CH",
+      "postalCode": "2017",
+      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
+      "slug": "manufacturing-methodology-engineer-m-f-d-mikron",
+      "sourceLang": "fr",
+      "category": "technology",
+      "datePosted": "2026-07-21",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Boudry"
+      },
+      "addressLocality": "Boudry",
+      "addressCountry": "CH",
+      "addressRegion": "NE",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 15
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://www.mikron.com/en/giovane-ingegnere-meccanico-madrelingua-francese",
@@ -121,7 +156,10 @@
         "translation": 23,
         "completeness": 15
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://www.mikron.com/en/formateur-dapprentissage-pour-former-les-apprentis-polymecaniciens-0",
       "applyUrl": "https://www.mikron.com/en/formateur-dapprentissage-pour-former-les-apprentis-polymecaniciens-0",
@@ -149,12 +187,16 @@
       "addressLocality": "Boudry",
       "addressCountry": "CH",
       "addressRegion": "NE",
-      "_qualityScore": 83,
+      "salaryMin": 50500,
+      "salaryMax": 77000,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 15
+        "completeness": 20
       }
     },
     {
@@ -184,16 +226,18 @@
       "addressLocality": "Boudry",
       "addressCountry": "CH",
       "addressRegion": "NE",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 15
+        "completeness": 20
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
