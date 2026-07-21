@@ -1,6 +1,6 @@
 {
   "crawlerKey": "omega",
-  "assembledAt": "2026-07-20T22:22:37.819Z",
+  "assembledAt": "2026-07-21T12:44:23.635Z",
   "jobs": [
     {
       "id": "omega-32494",
@@ -33,7 +33,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32494",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-20T22:22:35.128Z",
+      "crawledAt": "2026-07-21T12:44:21.083Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -69,12 +69,14 @@
       },
       "previousSlugs": [
         "cuisinier-h-f-temporaire-omega-biel-bienne",
-        "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne"
+        "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne",
+        "kitchen-h-f-temporario-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cuisinier-h-f-temporaire-omega-biel-bienne",
-          "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne"
+          "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne",
+          "kitchen-h-f-temporario-omega-sa-biel-bienne"
         ],
         "en": [
           "cuisinier-h-f-temporaire-omega-biel-bienne"
@@ -84,6 +86,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:47.089Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -102,7 +105,7 @@
       "slug": "designato-h-f-omega-sa-biel-bienne",
       "slugByLocale": {
         "it": "designato-h-f-omega-sa-biel-bienne",
-        "en": "designate-h-f-omega-sa-biel-bienne",
+        "en": "designer-m-w-d-omega-sa-biel-bienne",
         "de": "bezeichnung-h-f-omega-sa-biel-bienne",
         "fr": "designer-h-f-omega-biel-bienne"
       },
@@ -112,7 +115,7 @@
       "title": "DESIGNER (H/F)",
       "titleByLocale": {
         "it": "DESIGNATO (H/F)",
-        "en": "DESIGNATE (H/F)",
+        "en": "DESIGNER (H/F)",
         "de": "BEZEICHNUNG (H/F)",
         "fr": "DESIGNER (H/F)"
       },
@@ -128,7 +131,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32497",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-20T22:22:13.690Z",
+      "crawledAt": "2026-07-21T12:43:59.761Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -170,15 +173,19 @@
       "previousSlugs": [
         "designer-h-f-omega-biel-bienne",
         "designer-h-f-omega-sa-biel-bienne",
+        "designate-h-f-omega-sa-biel-bienne",
+        "designato-h-f-omega-sa-biel-bienne",
         "designer-m-w-d-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "designer-h-f-omega-biel-bienne"
+          "designer-h-f-omega-biel-bienne",
+          "designato-h-f-omega-sa-biel-bienne"
         ],
         "en": [
           "designer-h-f-omega-biel-bienne",
           "designer-h-f-omega-sa-biel-bienne",
+          "designate-h-f-omega-sa-biel-bienne",
           "designer-m-w-d-omega-sa-biel-bienne"
         ],
         "de": [
@@ -186,6 +193,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:25.778Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -230,7 +238,7 @@
       "url": "https://www.swatchgroup.com/en/job/32500",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-20T22:21:52.258Z",
+      "crawledAt": "2026-07-21T12:43:38.353Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -281,6 +289,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:04.444Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -325,7 +334,7 @@
       "url": "https://www.swatchgroup.com/en/job/32560",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-20T22:21:30.895Z",
+      "crawledAt": "2026-07-21T12:43:16.921Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -357,17 +366,20 @@
         ]
       },
       "previousSlugs": [
-        "international-sales-trainer-m-w-omega-biel-bienne"
+        "international-sales-trainer-m-w-omega-biel-bienne",
+        "trainer-internazionale-m-w-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "international-sales-trainer-m-w-omega-biel-bienne"
+          "international-sales-trainer-m-w-omega-biel-bienne",
+          "trainer-internazionale-m-w-omega-sa-biel-bienne"
         ],
         "de": [
           "international-sales-trainer-m-w-omega-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-07-17T11:53:15.053Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -380,85 +392,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "omega-32490",
-      "slug": "spare-parts-stock-employee-h-f-omega-biel-bienne",
-      "slugByLocale": {
-        "it": "spare-parts-stock-employee-h-f-omega-biel-bienne",
-        "en": "employed-stock-parts-h-f-omega-sa-biel-bienne",
-        "de": "arbeitsparteien-h-f-omega-sa-biel-bienne",
-        "fr": "spare-parts-stock-employee-h-f-omega-biel-bienne"
-      },
-      "company": "OMEGA SA",
-      "companyKey": "omega",
-      "companyDomain": "omegawatches.com",
-      "title": "SPARE PARTS STOCK EMPLOYEE (H/F)",
-      "titleByLocale": {
-        "it": "SPARE PARTI STOCK EMPLOYEE (H/F)",
-        "en": "EMPLOYED STOCK PARTS (H/F)",
-        "de": "ARBEITSPARTEIEN (H/F)",
-        "fr": "SPARE PARTS STOCK EMPLOYEE (H/F)"
-      },
-      "description": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\n## Description du poste\n• Réceptionner les marchandises, effectuer les contrôles selon les procédures en vigueur et assurer leur saisie dans SAP\n\n• Préparer et traiter les commandes quotidiennes (marché suisse-international / 48h / prestataires externes) ainsi que les commandes Spare Parts\n\n• S’occuper des entres-sorties de marchandises pour les départements internes\n\n• Vérifier la conformité des produits avant leur expédition\n\n• Préparer les commandes clients (picking, emballage, étiquetage et expédition)\n\n• Réaliser les inventaires tournants hebdomadaires et contribuer à la fiabilité des stocks\n\n• Effectuer l’ensachage de blisters dans le respect des délais impartis\n\n• Participer à la permanence du service et assurer les remplacements au sein de l’équipe en cas d’absence\n\n## Profil\n• Formation technique ou commerciale achevée, idéalement complétée par un CFC de gestionnaire en logistique, ou expérience confirmée dans une fonction similaire.\n\n## Compétences requises\n• Bonne dextérité manuelle, sens de l’organisation et polyvalence\n\n• Intérêt marqué pour les activités logistiques et la gestion de stocks\n\n• Bonne maîtrise des outils MS-Office : la connaissance de SAP et/ou Brisoft constitue un atout\n\n• Personnalité ouverte, rigoureuse et orientée service, faisant preuve de flexibilité et d'un fort esprit d'équipe.\n\n## Langues\n• Excellente maîtrise du français, l'allemand est un plus",
-      "descriptionByLocale": {
-        "it": "## Introduzione della società\nOMEGA è un marchio di orologi di livello mondiale noto per le sue esigenze di qualità, precisione e innovazione da oltre 170 anni. I nostri orologi sono tra i più belli del mondo e sono caratterizzati dalla loro tecnologia all'avanguardia e dallo stile senza tempo.\n\nNel corso della nostra lunga storia, abbiamo rotto i record di precisione, ridefinito i tempi sportivi e mantenuto la nostra posizione all'avanguardia dell'Alta Orologeria.\n\nCome brand internazionale, siamo sempre interessati a incontrare i futuri colleghi che desiderano contribuire al lavoro dei nostri team in quasi tutti i continenti con i loro talenti, ambizioni e ispirazioni.\n\n## Descrizione del post\n• Ricevere le merci, eseguire i controlli secondo le procedure in vigore e garantire il loro sequestro in SAP\n\n• Preparare ed elaborare gli ordini giornalieri (mercato internazionale / 48h / fornitori esterni) così come gli ordini di parti di ricambio\n\n• Trattare con merci intere per dipartimenti interni\n\n• Controllare la conformità dei prodotti prima della spedizione\n\n• Preparare gli ordini del cliente (picking, imballaggio, etichettatura e spedizione)\n\n• Condurre gli inventori rotanti settimanali e contribuire all'affidabilità dell'inventario\n\n• Esegui il lavaggio del blister secondo le scadenze\n\n• Partecipare alla permanenza del servizio e garantire la sostituzione all'interno del team in caso di assenza\n\n## Profilo\n• Allenamento tecnico o commerciale completato, idealmente completato da un SWC di responsabile della logistica, o esperienza confermata in una funzione simile.\n\n## Qualifiche\n• Buona destrezza manuale, senso organizzativo e versatilità\n\n• Interessi nella logistica e nella gestione delle scorte\n\n• Buona padronanza degli strumenti MS-Office: la conoscenza di SAP e/o Brisoft è un bene\n\n• Personalità aperta, rigorosa e orientata al servizio, dimostrando flessibilità e un forte spirito di squadra.\n\n## Lingue\n• Eccellente padronanza del francese, il tedesco è un plus",
-        "en": "## Introduction of society\nOMEGA is a prestigious watch brand worldwide known for its quality, precision and innovation requirements for over 170 years. Our watches are among the most beautiful in the world and are characterized by their state-of-the-art technology and timeless style.\n\nOver the course of our long history, we have broken records of precision, redefined sporting timing and maintained our position at the cutting edge of Haute Horlogerie.\n\nAs an international brand, we are always interested in meeting future colleagues wishing to contribute to the work of our teams on almost every continent with their talents, ambitions and inspirations.\n\n## Description of post\n• Receipt the goods, perform the checks according to the procedures in force and ensure their seizure in SAP\n\n• Prepare and process daily orders (swiss-international market / 48h / external providers) as well as Spare Parts orders\n\n• Dealing with goods inter-exit for internal departments\n\n• Check conformity of products before shipment\n\n• Prepare customer orders (picking, packaging, labelling and shipping)\n\n• Conduct weekly rotating inventories and contribute to inventory reliability\n\n• Perform blister-slashing in accordance with deadlines\n\n• Participate in the permanence of the service and ensure replacements within the team in case of absence\n\n## Profile\n• Completed technical or commercial training, ideally complemented by an SWC of logistics manager, or experience confirmed in a similar function.\n\n## Qualifications\n• Good manual dexterity, organizational sense and versatility\n\n• Interest in logistics and inventory management\n\n• Good mastery of MS-Office tools: knowledge of SAP and/or Brisoft is an asset\n\n• Open, rigorous and service-oriented personality, demonstrating flexibility and a strong team spirit.\n\n## Languages\n• Excellent mastery of French, German is a plus",
-        "de": "## Einführung der Gesellschaft\nOMEGA ist eine renommierte Uhrenmarke weltweit, die seit über 170 Jahren für ihre Qualitäts-, Präzisions- und Innovationsanforderungen bekannt ist. Unsere Uhren gehören zu den schönsten der Welt und zeichnen sich durch modernste Technik und zeitlosen Stil aus.\n\nIm Laufe unserer langen Geschichte haben wir Rekorde an Präzision gebrochen, sportliches Timing neu definiert und unsere Position an der Spitze der Haute Horlogerie beibehalten.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen zu treffen, die mit ihren Talenten, Ambitionen und Inspirationen zur Arbeit unserer Teams auf fast jedem Kontinent beitragen möchten.\n\n## Beschreibung der Post\n• Erhalt der Ware, Durchführung der Kontrollen gemäß den geltenden Verfahren und Sicherstellung ihrer Beschlagnahme in SAP\n\n• Bereiten und bearbeiten Sie tägliche Bestellungen (schweizerischer Markt / 48h / externe Anbieter) sowie Ersatzteilbestellungen\n\n• Umgang mit Waren Inter-Exit für interne Abteilungen\n\n• Prüfung der Konformität der Produkte vor dem Versand\n\n• Kundenbestellungen vorbereiten (Picken, Verpacken, Etikettieren und Versand)\n\n• Führen Sie wöchentlich rotierende Lagerbestände durch und tragen Sie zur Zuverlässigkeit des Lagerbestands bei\n\n• Durchführung von Blister-Slashing gemäß den Fristen\n\n• Beteiligen Sie sich an der Dauerhaftigkeit des Dienstes und sorgen Sie für Ersatz im Team im Falle von Abwesenheit\n\n## Profil\n• Abgeschlossene technische oder kaufmännische Ausbildung, idealerweise ergänzt durch einen SWC von Logistikmanager, oder Erfahrung in einer ähnlichen Funktion bestätigt.\n\n## Qualifikationen\n• Gute manuelle Geschicklichkeit, Organisationssinn und Vielseitigkeit\n\n• Interesse an Logistik und Bestandsverwaltung\n\n• Gute Beherrschung von MS-Office-Tools: Kenntnisse von SAP und / oder Brisoft sind eine Bereicherung\n\n• Offene, strenge und serviceorientierte Persönlichkeit, die Flexibilität und einen starken Teamgeist zeigt.\n\n## Sprachen\n• Hervorragende Beherrschung von Französisch, Deutsch ist ein Plus",
-        "fr": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\n## Description du poste\n• Réceptionner les marchandises, effectuer les contrôles selon les procédures en vigueur et assurer leur saisie dans SAP\n\n• Préparer et traiter les commandes quotidiennes (marché suisse-international / 48h / prestataires externes) ainsi que les commandes Spare Parts\n\n• S’occuper des entres-sorties de marchandises pour les départements internes\n\n• Vérifier la conformité des produits avant leur expédition\n\n• Préparer les commandes clients (picking, emballage, étiquetage et expédition)\n\n• Réaliser les inventaires tournants hebdomadaires et contribuer à la fiabilité des stocks\n\n• Effectuer l’ensachage de blisters dans le respect des délais impartis\n\n• Participer à la permanence du service et assurer les remplacements au sein de l’équipe en cas d’absence\n\n## Profil\n• Formation technique ou commerciale achevée, idéalement complétée par un CFC de gestionnaire en logistique, ou expérience confirmée dans une fonction similaire.\n\n## Compétences requises\n• Bonne dextérité manuelle, sens de l’organisation et polyvalence\n\n• Intérêt marqué pour les activités logistiques et la gestion de stocks\n\n• Bonne maîtrise des outils MS-Office : la connaissance de SAP et/ou Brisoft constitue un atout\n\n• Personnalité ouverte, rigoureuse et orientée service, faisant preuve de flexibilité et d'un fort esprit d'équipe.\n\n## Langues\n• Excellente maîtrise du français, l'allemand est un plus"
-      },
-      "location": "Biel/Bienne",
-      "canton": "BE",
-      "url": "https://www.swatchgroup.com/fr/job/32490",
-      "source": "OMEGA SA Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-19T22:35:45.973Z",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2502",
-      "streetAddress": "Rue Jakob-Stämpfli - Jakob-Stämpfli-Strasse 96",
-      "category": "Logistica",
-      "contract": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Orologeria di lusso",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-268290&langCode=fr_FR&source=swatchgroup.com",
-      "requirements": [
-        "Formation technique ou commerciale achevée, idéalement complétée par un CFC de gestionnaire en logistique, ou expérience confirmée dans une fonction similaire.",
-        "Bonne dextérité manuelle, sens de l’organisation et polyvalence",
-        "Intérêt marqué pour les activités logistiques et la gestion de stocks",
-        "Bonne maîtrise des outils MS-Office : la connaissance de SAP et/ou Brisoft constitue un atout",
-        "Personnalité ouverte, rigoureuse et orientée service, faisant preuve de flexibilité et d'un fort esprit d'équipe.",
-        "Excellente maîtrise du français, l'allemand est un plus"
-      ],
-      "requirementsByLocale": {
-        "fr": [
-          "Bonne dextérité manuelle, sens de l’organisation et polyvalence",
-          "Intérêt marqué pour les activités logistiques et la gestion de stocks",
-          "Bonne maîtrise des outils MS-Office : la connaissance de SAP et/ou Brisoft constitue un atout",
-          "Personnalité ouverte, rigoureuse et orientée service, faisant preuve de flexibilité et d'un fort esprit d'équipe.",
-          "Excellente maîtrise du français, l'allemand est un plus"
-        ]
-      },
-      "firstSeenAt": "2026-07-10T13:32:08.546Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
