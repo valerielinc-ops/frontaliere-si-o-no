@@ -4762,6 +4762,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-guadagno-ticino': { name: 'Stipendio reale di un gessatore', path: '/articoli-svizzera/frontalieri-guadagno-ticino/', parent: 'blog' },
     'blog-stipendio-gessatore-frontaliere-ticino': { name: 'Stipendi frontalieri', path: '/articoli-frontaliere/stipendio-gessatore-frontaliere-ticino', parent: 'blog' },
     'blog-montatore-frontaliere-ticino-stipendio-requisiti': { name: 'Lavorare come montatore in Ticino da', path: '/articoli-svizzera/montatore-frontaliere-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-stipendio-magazziniere-frontaliere-ticino': { name: 'Stipendio magazziniere frontaliere in', path: '/articoli-frontaliere/stipendio-magazziniere-frontaliere-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

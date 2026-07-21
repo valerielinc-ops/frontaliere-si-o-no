@@ -8747,6 +8747,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stipendio-gessatore-frontaliere-ticino.title': 'Combien gagne un plâtrier frontalier au Tessin : salaires et taxes',
     'blog.article.stipendio-gessatore-frontaliere-ticino.excerpt': 'Échelle des salaires réels, différences avec l\'Italie, déductions et cotisations. Guide pratique avec calculs vérifiés.',
     'blog.article.stipendio-gessatore-frontaliere-ticino.imageAlt': 'Plâtrier frontalier travaillant sur un chantier tessinois',
+    'blog.article.stipendio-magazziniere-frontaliere-ticino.title': 'Combien gagne un entrepôt frontalier au Tessin ?',
+    'blog.article.stipendio-magazziniere-frontaliere-ticino.excerpt': 'Les salaires des entrepôts frontaliers au Tessin sont influencés par la législation suisse et italienne.',
+    'blog.article.stipendio-magazziniere-frontaliere-ticino.imageAlt': 'Un travailleur frontalier du stockage en Suisse travaille dans un entrepôt avec vue sur le lac de Lugano.',
 };
 
 export default blogMetaFr;

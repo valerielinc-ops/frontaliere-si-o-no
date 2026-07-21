@@ -8745,6 +8745,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stipendio-gessatore-frontaliere-ticino.title': 'Wie viel verdient ein Grenzgipser im Tessin: Gehälter und Steuern',
     'blog.article.stipendio-gessatore-frontaliere-ticino.excerpt': 'Reale Lohnspanne, Unterschiede zu Italien, Abzüge und Beiträge. Praktischer Leitfaden mit geprüften Berechnungen.',
     'blog.article.stipendio-gessatore-frontaliere-ticino.imageAlt': 'Grenzgänger-Putzmeister auf einer Baustelle im Tessin',
+    'blog.article.stipendio-magazziniere-frontaliere-ticino.title': 'Wie viel verdient ein Grenzlagerist im Tessin?',
+    'blog.article.stipendio-magazziniere-frontaliere-ticino.excerpt': 'Die Gehälter der Grenzlagerarbeiter im Tessin werden von der schweizerischen und italienischen Gesetzgebung beeinflusst.',
+    'blog.article.stipendio-magazziniere-frontaliere-ticino.imageAlt': 'Ein Frontalierlagerarbeiter in Ticino arbeitet in einem Lager mit Blick auf den Luganersee.',
 };
 
 export default blogMetaDe;
