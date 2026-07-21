@@ -1408,6 +1408,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dazi-usa-24-luglio.title': 'Dazi USA, la tregua è un\'illusione',
     'blog.article.dazi-usa-24-luglio.excerpt': 'Le nuove misure statunitensi rischiano di pesare ulteriormente sulle esportazioni svizzere',
     'blog.article.dazi-usa-24-luglio.imageAlt': 'Fotografia di un portale doganale di un\'azienda con due impiegati che controllano merci in arrivo',
+    'blog.article.esportazioni-svizzera-sfide-kagi.title': 'Kägi: Esportazioni, problema principale per aziende svizzere',
+    'blog.article.esportazioni-svizzera-sfide-kagi.excerpt': 'Il franco forte, costi del lavoro elevati e dazi USA mettono a rischio il \'made in Switzerland\'. L\'analisi del CEO Cédric El-Idrissi.',
+    'blog.article.esportazioni-svizzera-sfide-kagi.imageAlt': 'Stabilimento produttivo Kägi a Lichtensteig con bandiera svizzera',
 };
 
 export default blogMetaChIt;

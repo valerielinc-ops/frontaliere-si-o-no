@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3420,
+ "numberOfItems": 3421,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8188,7 +8188,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3417, "name": "Iperammortamento: via alle comunicazioni di con...", "url": `${BASE_URL}/articoli-frontaliere/iperammortamento-transizione-5-0-conferma` },
           { "@type": "ListItem", "position": 3418, "name": "Sciopero treni Italia, disagi per TILO 23-24 lu...", "url": `${BASE_URL}/articoli-frontaliere/sciopero-treni-italia-tilo` },
           { "@type": "ListItem", "position": 3419, "name": "Dazi USA, la tregua è un'illusione", "url": `${BASE_URL}/articoli-frontaliere/dazi-usa-24-luglio` },
-          { "@type": "ListItem", "position": 3420, "name": "Frontalieri e telelavoro: pubblicato l'accordo ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-telelavoro-pubblicato-limite-25` }
+          { "@type": "ListItem", "position": 3420, "name": "Frontalieri e telelavoro: pubblicato l'accordo ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-telelavoro-pubblicato-limite-25` },
+          { "@type": "ListItem", "position": 3421, "name": "Kägi: Esportazioni, problema principale per azi...", "url": `${BASE_URL}/articoli-frontaliere/esportazioni-svizzera-sfide-kagi` }
  ]
  },
  {

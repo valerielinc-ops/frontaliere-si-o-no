@@ -1408,6 +1408,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dazi-usa-24-luglio.title': 'Droits US, la trêve est une illusion',
     'blog.article.dazi-usa-24-luglio.excerpt': 'Les nouvelles mesures américaines risquent de peser davantage sur les exportations suisses',
     'blog.article.dazi-usa-24-luglio.imageAlt': 'Fotografia di un portale doganale di un\'azienda con due impiegati che controllano merci in arrivo',
+    'blog.article.esportazioni-svizzera-sfide-kagi.title': 'Kägi : Exportations, problème majeur pour les entreprises suisses',
+    'blog.article.esportazioni-svizzera-sfide-kagi.excerpt': 'Le franc fort, les coûts de main-d\' œuvre élevés et les droits de douane américains mettent en péril le « made in Switzerland ». L\'analyse du PDG Cédric El-Idrissi.',
+    'blog.article.esportazioni-svizzera-sfide-kagi.imageAlt': 'Usine de production Kägi à Lichtensteig avec drapeau suisse',
 };
 
 export default blogMetaChFr;
