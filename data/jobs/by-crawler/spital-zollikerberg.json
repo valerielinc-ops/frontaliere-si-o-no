@@ -127,13 +127,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg",
-        "dipl-expert-dipl-expert-emergency-care-nds-hf-spital-zollikerberg-zollikerberg"
+        "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg",
-          "dipl-expert-dipl-expert-emergency-care-nds-hf-spital-zollikerberg-zollikerberg"
+          "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg"
         ],
         "fr": [
           "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg"
@@ -279,13 +277,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "arztsekretarin-arztsekretar-frauenklinik-middle-office-spital-zollikerberg-zollikerberg",
-        "segretario-medico-segretario-medico-clinica-femminile-middle-office-spital-zollikerberg-zollikerberg"
+        "arztsekretarin-arztsekretar-frauenklinik-middle-office-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretarin-arztsekretar-frauenklinik-middle-office-spital-zollikerberg-zollikerberg",
-          "segretario-medico-segretario-medico-clinica-femminile-middle-office-spital-zollikerberg-zollikerberg"
+          "arztsekretarin-arztsekretar-frauenklinik-middle-office-spital-zollikerberg-zollikerberg"
         ],
         "en": [
           "arztsekretarin-arztsekretar-frauenklinik-middle-office-spital-zollikerberg-zollikerberg"
@@ -358,13 +354,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg",
-        "formazione-professionale-formazione-professionale-stazione-chirurgia-ginecologia-spital-zollikerberg-zollikerberg"
+        "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg",
-          "formazione-professionale-formazione-professionale-stazione-chirurgia-ginecologia-spital-zollikerberg-zollikerberg"
+          "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg"
         ],
         "en": [
           "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg"
@@ -389,12 +383,12 @@
     },
     {
       "id": "spital-zollikerberg-b0edd12ee0b1",
-      "slug": "stationsleiterin-stationsleiter-chirurgische-bettenstation-spital-zollikerberg",
+      "slug": "station-manager-station-manager-stazione-letto-chirurgico-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "stationsleiterin-stationsleiter-chirurgische-bettenstation-spital-zollikerberg",
-        "it": "stationsleiterin-stationsleiter-chirurgische-bettenstation-spital-zollikerberg",
-        "en": "stationsleiterin-stationsleiter-chirurgische-bettenstation-spital-zollikerberg",
-        "fr": "stationsleiterin-stationsleiter-chirurgische-bettenstation-spital-zollikerberg"
+        "it": "station-manager-station-manager-stazione-letto-chirurgico-spital-zollikerberg-zollikerberg",
+        "en": "station-manager-station-manager-surgical-bed-station-spital-zollikerberg-zollikerberg",
+        "fr": "gestionnaire-de-station-gestionnaire-de-station-station-de-lit-chirurgical-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -449,7 +443,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stationsleiterin-stationsleiter-chirurgische-bettenstation-spital-zollikerberg"
+        ],
+        "en": [
+          "stationsleiterin-stationsleiter-chirurgische-bettenstation-spital-zollikerberg"
+        ],
+        "fr": [
+          "stationsleiterin-stationsleiter-chirurgische-bettenstation-spital-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "stationsleiterin-stationsleiter-chirurgische-bettenstation-spital-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-5f58ce2b513a",
@@ -501,13 +509,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-spital-zollikerberg",
-        "testa-capo-dell-ingegneria-medica-op-spital-zollikerberg-zollikerberg"
+        "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-spital-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-spital-zollikerberg",
-          "testa-capo-dell-ingegneria-medica-op-spital-zollikerberg-zollikerberg"
+          "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-spital-zollikerberg"
         ],
         "en": [
           "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-spital-zollikerberg"
