@@ -8753,6 +8753,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.title': 'Corriere in Ticino: stipendio, requisiti e permesso G',
     'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.excerpt': 'I frontalieri che lavorano come corrieri in Ticino devono presentare i seguenti documenti: permesso G, assicurazione malattia e certificato di assunzione.',
     'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.imageAlt': 'Un corriere frontaliero in Ticino',
+    'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.title': 'Lavorare come venditore in Ticino da frontaliere: stipendio, requisiti e tasse',
+    'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.excerpt': 'Guida pratica per frontalieri: stipendio medio, requisiti legali, imposta alla fonte e permessi per lavorare nel commercio in Ticino.',
+    'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.imageAlt': 'Via Nassa a Lugano con negozi e frontalieri in pausa pranzo',
 };
 
 export default blogMetaIt;

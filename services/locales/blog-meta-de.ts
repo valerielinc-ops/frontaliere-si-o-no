@@ -8751,6 +8751,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.title': 'Kuriere im Tessin: Gehalt, Voraussetzungen und G-Bewilligung',
     'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.excerpt': 'Grenzgänger, die als Kuriere im Tessin arbeiten, müssen folgende Dokumente vorlegen: Bewilligung G, Krankenversicherung und Einstellungsbescheinigung.',
     'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.imageAlt': 'Ein grenzgängerischer Kurier in Ticino',
+    'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.title': 'Verkäufer im Tessin: Gehalt, Voraussetzungen und Steuern',
+    'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.excerpt': 'Praktischer Leitfaden für Grenzgänger: Durchschnittslohn, gesetzliche Anforderungen, Quellensteuer und Genehmigungen für die Arbeit im Handel im Tessin.',
+    'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.imageAlt': 'Einkaufsstraße in Lugano mit Geschäften und Grenzgängern in der Mittagspause',
 };
 
 export default blogMetaDe;
