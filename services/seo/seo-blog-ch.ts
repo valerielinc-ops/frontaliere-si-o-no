@@ -18543,6 +18543,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione': {
+    title: 'Mancano 534 ore di esperienza: Swisscom perde un appalto della Confederazione.',
+    description: 'La Confederazione ha escluso l\'offerta di Swisscom per un appalto a causa di un errore di battitura nell\'offerta. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, mancano, esperienza, swisscom, perde',
+    ogTitle: 'Mancano 534 ore di esperienza: Swisscom perde un appalto della Confederazione.',
+    ogDescription: 'La Confederazione ha escluso l\'offerta di Swisscom per un appalto a causa di un errore di battitura nell\'offerta.',
+    canonicalPath: '/articoli-svizzera/mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mancano 534 ore di esperienza: Swisscom perde un appalto della Confederazione.",
+      "description": "La Confederazione ha escluso l'offerta di Swisscom per un appalto a causa di un errore di battitura nell'offerta. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La sede di Swisscom a Lugano."
+      },
+      "datePublished": "2026-07-21T16:31:44+00:00",
+      "dateModified": "2026-07-21T16:31:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

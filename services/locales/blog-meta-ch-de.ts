@@ -1435,6 +1435,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.migros-operatore-conquista-svizzera-coop.title': 'Die Migros ist der beliebteste Anbieter in der Schweiz',
     'blog.article.migros-operatore-conquista-svizzera-coop.excerpt': 'Die Migros erzielte im Ranking Kundenzufriedenheit 7,6 von 10 Punkten.',
     'blog.article.migros-operatore-conquista-svizzera-coop.imageAlt': 'Ein Kunde vor einem Migros-Shop',
+    'blog.article.mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione.title': 'Mancano 534 ore: Swisscom perde un appalto',
+    'blog.article.mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione.excerpt': 'Der Bund hat das Angebot von Swisscom für einen Auftrag aufgrund eines Tippfehlers im Angebot ausgeschlossen.',
+    'blog.article.mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione.imageAlt': 'Sitz von Swisscom in Lugano.',
 };
 
 export default blogMetaChDe;

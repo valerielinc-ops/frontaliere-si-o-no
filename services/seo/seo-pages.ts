@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3439,
+ "numberOfItems": 3440,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8207,7 +8207,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3436, "name": "Impiegato di commercio in Ticino: stipendio, re...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3437, "name": "Lavorare come operaio in Ticino: stipendio, req...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-operaio-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3438, "name": "Migros è l'operatore più apprezzato in Svizzera", "url": `${BASE_URL}/articoli-frontaliere/migros-operatore-conquista-svizzera-coop` },
-          { "@type": "ListItem", "position": 3439, "name": "Giacomo Gallazzi: il percorso di un giovane inn...", "url": `${BASE_URL}/articoli-frontaliere/giacomo-gallazzi-giovani-innovazione` }
+          { "@type": "ListItem", "position": 3439, "name": "Giacomo Gallazzi: il percorso di un giovane inn...", "url": `${BASE_URL}/articoli-frontaliere/giacomo-gallazzi-giovani-innovazione` },
+          { "@type": "ListItem", "position": 3440, "name": "Mancano 534 ore di esperienza: Swisscom perde u...", "url": `${BASE_URL}/articoli-frontaliere/mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione` }
  ]
  },
  {
