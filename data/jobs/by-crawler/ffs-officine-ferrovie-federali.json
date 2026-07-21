@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ffs-officine-ferrovie-federali",
-  "assembledAt": "2026-07-21T12:03:41.656Z",
+  "assembledAt": "2026-07-21T10:12:02.523Z",
   "jobs": [
     {
       "id": "sbb-d43430c2ea05",
@@ -4560,13 +4560,30 @@
       "postedDate": "2026-07-09",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/baufuehrer-in-fahrbahn/d4af8ddd-cbd3-480e-92fd-8d8061cdb4e7",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-07-21T11:58:55.230Z",
+      "crawledAt": "2026-07-20T22:45:01.124Z",
       "previousSlugs": [
-        "baufuhrer-in-fahrbahn-ffs-officine-ferrovie-federali-winterthur"
+        "baufuhrer-in-fahrbahn-ffs-officine-ferrovie-federali-winterthur",
+        "responsabile-di-progetto-in-manutenzione-ffs-officine-ferrovie-federali-winterthur",
+        "maintenance-project-manager-ffs-officine-ferrovie-federali-winterthur",
+        "projektleiter-in-instandhaltung-ffs-officine-ferrovie-federali-winterthur",
+        "chef-de-projet-en-maintenance-ffs-officine-ferrovie-federali-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baufuhrer-in-fahrbahn-ffs-officine-ferrovie-federali-winterthur"
+          "baufuhrer-in-fahrbahn-ffs-officine-ferrovie-federali-winterthur",
+          "responsabile-di-progetto-in-manutenzione-ffs-officine-ferrovie-federali-winterthur",
+          "maintenance-project-manager-ffs-officine-ferrovie-federali-winterthur",
+          "projektleiter-in-instandhaltung-ffs-officine-ferrovie-federali-winterthur",
+          "chef-de-projet-en-maintenance-ffs-officine-ferrovie-federali-winterthur"
+        ],
+        "en": [
+          "maintenance-project-manager-ffs-officine-ferrovie-federali-winterthur"
+        ],
+        "de": [
+          "projektleiter-in-instandhaltung-ffs-officine-ferrovie-federali-winterthur"
+        ],
+        "fr": [
+          "chef-de-projet-en-maintenance-ffs-officine-ferrovie-federali-winterthur"
         ]
       },
       "firstSeenAt": "2026-07-10T22:12:25.872Z",

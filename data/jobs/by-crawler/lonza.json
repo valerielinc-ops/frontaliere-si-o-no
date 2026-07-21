@@ -1684,7 +1684,7 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Bioprocess-Engineer-in-USP---DSP---BioConjugates_R76167-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T11:26:13.145Z",
+      "crawledAt": "2026-07-19T22:23:58.292Z",
       "jobReqId": "R76167",
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-15T23:26:16.458Z",
@@ -1700,7 +1700,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "en": [
+          "bioprocess-engineer-in-usp-dsp-bioconjugates-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bioprocess-engineer-in-usp-dsp-bioconjugates-lonza-ch"
+      ]
     },
     {
       "id": "lonza-0b92286f2e3f",
