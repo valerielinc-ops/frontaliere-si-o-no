@@ -1,7 +1,8 @@
 /**
  * article-fabrication-guard.test.ts
  *
- * Scans ALL Italian blog body files for known hallucination patterns:
+ * Scans ALL blog body files (blog-body + blog-body-ch, all 4 locales) for
+ * known hallucination patterns:
  * - Fabricated Swiss/Italian laws and legal references
  * - Fabricated institutions and acronyms
  * - Known incorrect facts (wrong convention dates, fake tax rates)
@@ -14,13 +15,31 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 
-const BLOG_BODY_IT = path.resolve(__dirname, '..', 'services', 'locales', 'blog-body', 'it');
+const BODY_ROOTS = ['blog-body', 'blog-body-ch'];
+const LOCALES = ['it', 'de', 'en', 'fr'];
 
-function getArticleFiles(): string[] {
-  if (!fs.existsSync(BLOG_BODY_IT)) return [];
-  return fs.readdirSync(BLOG_BODY_IT)
-    .filter(f => f.endsWith('.ts'))
-    .map(f => path.join(BLOG_BODY_IT, f));
+interface ArticleFile {
+  id: string;
+  path: string;
+  locale: string;
+}
+
+function getArticleFiles(): ArticleFile[] {
+  const results: ArticleFile[] = [];
+  for (const root of BODY_ROOTS) {
+    for (const locale of LOCALES) {
+      const dir = path.resolve(__dirname, '..', 'services', 'locales', root, locale);
+      if (!fs.existsSync(dir)) continue;
+      for (const f of fs.readdirSync(dir).filter(f => f.endsWith('.ts'))) {
+        results.push({
+          id: `${root}/${locale}/${path.basename(f, '.ts')}`,
+          path: path.join(dir, f),
+          locale,
+        });
+      }
+    }
+  }
+  return results;
 }
 
 function extractTextContent(filePath: string): string {
@@ -71,14 +90,26 @@ const VAGUE_SOURCING = [
   { pattern: /secondo\s+(?:un(?:a|')\s+)?(?:indagine|ricerca|sondaggio)[^.]{0,40}\d{2,3}[.,]\d+\s*%/i, desc: 'Percentuale precisa attribuita a indagine/ricerca senza fonte' },
 ];
 
+// Cross-locale: the same fabricated "federal labour office" institution
+// (real: SECO) recurs under a different fake acronym per article — matching
+// the institution NAME itself (not a fixed acronym list) catches every
+// variant regardless of what acronym a future auto-generated article invents.
+const FABRICATED_LABOR_OFFICE: Partial<Record<string, RegExp>> = {
+  it: /\b[Uu]fficio federale(?: svizzero)? del lavoro\b/,
+  de: /\b([Bb]undesamt(?:es)? für Arbeit|[Bb]undesarbeitsamt)\b/,
+  fr: /\b(?:[Oo]ffice|[Bb]ureau) fédéral du travail\b/,
+  en: /\b[Ff]ederal (?:Labou?r Office|Office of Labou?r)\b/,
+};
+
 describe('article fabrication guard', () => {
   const files = getArticleFiles();
+  const itFiles = files.filter(f => f.locale === 'it');
 
-  it('should have Italian blog body files to check', () => {
+  it('should have blog body files to check', () => {
     expect(files.length).toBeGreaterThan(0);
   });
 
-  it.each(files.map(f => [path.basename(f, '.ts'), f]))(
+  it.each(itFiles.map(f => [f.id, f.path]))(
     '%s — no fabricated institutions',
     (_id, filePath) => {
       const text = extractTextContent(filePath as string);
@@ -90,7 +121,7 @@ describe('article fabrication guard', () => {
     }
   );
 
-  it.each(files.map(f => [path.basename(f, '.ts'), f]))(
+  it.each(itFiles.map(f => [f.id, f.path]))(
     '%s — no fabricated acronyms',
     (_id, filePath) => {
       const text = extractTextContent(filePath as string);
@@ -102,7 +133,7 @@ describe('article fabrication guard', () => {
     }
   );
 
-  it.each(files.map(f => [path.basename(f, '.ts'), f]))(
+  it.each(itFiles.map(f => [f.id, f.path]))(
     '%s — no known incorrect facts',
     (_id, filePath) => {
       const text = extractTextContent(filePath as string);
@@ -114,7 +145,17 @@ describe('article fabrication guard', () => {
     }
   );
 
-  it.each(files.map(f => [path.basename(f, '.ts'), f]))(
+  it.each(files.map(f => [f.id, f.path, f.locale]))(
+    '%s — no fabricated "federal labour office" institution (real: SECO)',
+    (_id, filePath, locale) => {
+      const pattern = FABRICATED_LABOR_OFFICE[locale as string];
+      if (!pattern) return;
+      const text = extractTextContent(filePath as string);
+      expect(pattern.test(text), `Fabricated "federal labour office" (real: SECO) found in ${_id}`).toBe(false);
+    }
+  );
+
+  it.each(itFiles.map(f => [f.id, f.path]))(
     '%s — no vague sourcing with precise statistics',
     (_id, filePath) => {
       const text = extractTextContent(filePath as string);
