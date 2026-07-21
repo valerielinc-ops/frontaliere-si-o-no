@@ -1384,6 +1384,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.estetista-frontaliere-ticino-stipendio-requisiti.title': 'Als Kosmetikerin im Tessin arbeiten: Gehalt, Voraussetzungen und G-Bewilligung',
     'blog.article.estetista-frontaliere-ticino-stipendio-requisiti.excerpt': 'Hier ist, was Sie wissen müssen, um als Grenzgängerin als Kosmetikerin im Tessin zu arbeiten.',
     'blog.article.estetista-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Eine Szene eines Schönheitssalons in Lugano, mit Kunden, die sich esthetischen Behandlungen unterziehen.',
+    'blog.article.frontaliere-aiuto-cucina-ticino-stipendio-requisiti.title': 'Grenzgänger Tessin: Gehalt und Voraussetzungen für die Küchenhilfe',
+    'blog.article.frontaliere-aiuto-cucina-ticino-stipendio-requisiti.excerpt': 'Durchschnittslohn für Grenzküchenhilfen im Tessin, Voraussetzungen und Anerkennung des Bildungsabschlusses',
+    'blog.article.frontaliere-aiuto-cucina-ticino-stipendio-requisiti.imageAlt': 'Ein Küchenhilfe in Ticino',
 };
 
 export default blogMetaChDe;

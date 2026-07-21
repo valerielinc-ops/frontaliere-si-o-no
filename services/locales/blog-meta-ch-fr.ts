@@ -1384,6 +1384,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.estetista-frontaliere-ticino-stipendio-requisiti.title': 'Travailler comme esthéticienne au Tessin : salaire, exigences et permis G',
     'blog.article.estetista-frontaliere-ticino-stipendio-requisiti.excerpt': 'Voici ce que vous devez savoir pour travailler comme esthéticienne au Tessin en tant que frontalier.',
     'blog.article.estetista-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Une scène d\'un salon de beauté à Lugano, avec des clients qui subissent des traitements esthétiques.',
+    'blog.article.frontaliere-aiuto-cucina-ticino-stipendio-requisiti.title': 'Frontière du Tessin : salaire et exigences pour l\'aide à la cuisine',
+    'blog.article.frontaliere-aiuto-cucina-ticino-stipendio-requisiti.excerpt': 'Salaire moyen pour les aides-cuisine frontalières au Tessin, exigences et reconnaissance du diplôme',
+    'blog.article.frontaliere-aiuto-cucina-ticino-stipendio-requisiti.imageAlt': 'Un aide de cuisine en Tessin',
 };
 
 export default blogMetaChFr;

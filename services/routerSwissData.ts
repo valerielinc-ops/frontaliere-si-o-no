@@ -484,6 +484,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-pasticciere-ticino-stipendio-requisiti': { it: 'frontaliere-pasticciere-ticino-stipendio-requisiti', en: 'frontalier-pastry-chef-ticino-salary-requirements', de: 'frontalier-patisserie-chef-ticino-salary-anforderungen', fr: 'frontalier-patissier-ticino-salaire-exigences' },
  'parrucchieri-frontaliere-ticino': { it: 'parrucchieri-frontaliere-ticino', en: 'hairdressers-frontaliers-ticino', de: 'friseure-frontalier-ticino', fr: 'coiffeurs-frontaliers-ticino' },
  'estetista-frontaliere-ticino-stipendio-requisiti': { it: 'estetista-frontaliere-ticino-stipendio-requisiti', en: 'estetista-frontaliere-ticino-stipendio-requisiti', de: 'estetista-frontaliere-ticino-stipendio-requisiti', fr: 'estetista-frontaliere-ticino-stipendio-requisiti' },
+ 'frontaliere-aiuto-cucina-ticino-stipendio-requisiti': { it: 'frontaliere-aiuto-cucina-ticino-stipendio-requisiti', en: 'frontaliere-kitchen-helper-ticino-salary-requirements', de: 'frontaliere-kuchenhilfe-tessin-honorar-anforderungen', fr: 'frontaliere-aide-cuisine-tessin-salaire-exigences' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
