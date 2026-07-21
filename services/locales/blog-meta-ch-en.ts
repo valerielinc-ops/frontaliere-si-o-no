@@ -1423,6 +1423,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-2026.title': 'Third pillar 3a: tax advantages 2026 in Switzerland',
     'blog.article.terzo-pilastro-3a-vantaggi-2026.excerpt': 'Find out how private pension 3a works and the tax benefits available in 2026 for those who work in Switzerland and reside in the Canton of Zurich.',
     'blog.article.terzo-pilastro-3a-vantaggi-2026.imageAlt': 'Financial advisor office in Zurich with city view',
+    'blog.article.dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.title': 'Tax returns in Switzerland: deadlines and deductions',
+    'blog.article.dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.excerpt': 'Cantonal deadlines, allowable deductions, online procedure for tax reporting in Switzerland: find out how it works and what you need to do for the Canton of Lucerne.',
+    'blog.article.dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.imageAlt': 'A scene of a tax office in Switzerland, with officials working on tax declarations for residents of the Canton of Lucerne.',
 };
 
 export default blogMetaChEn;
