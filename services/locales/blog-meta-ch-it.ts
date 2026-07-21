@@ -1363,6 +1363,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.title': 'Lavorare come magazziniere in Ticino: stipendio e requisiti',
     'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.excerpt': 'Il Nuovo Accordo Frontalieri prevede nuove regole per i magazzinieri frontalieri in Ticino. Ecco cosa devi sapere.',
     'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.imageAlt': 'Un magazziniere frontaliero in una scena di lavoro a Lugano.',
+    'blog.article.gruista-frontaliere-ticino.title': 'Quanto guadagna un gruista frontaliere in Ticino',
+    'blog.article.gruista-frontaliere-ticino.excerpt': 'Stipendio reale di un gruista frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione.',
+    'blog.article.gruista-frontaliere-ticino.imageAlt': 'Un gruista frontaliere a Lugano, vista del lago di Lugano in secondo piano.',
 };
 
 export default blogMetaChIt;

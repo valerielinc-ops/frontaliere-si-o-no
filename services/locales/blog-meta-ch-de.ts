@@ -1363,6 +1363,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.title': 'Als Lagerist im Tessin arbeiten: Gehalt und Anforderungen',
     'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.excerpt': 'Die neue Frontalieri-Vereinbarung sieht neue Regeln für Grenzlagerhalter im Tessin vor. Hier ist, was Sie wissen müssen.',
     'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.imageAlt': 'Ein Frontaliere Lagerarbeiter in einer Szene von Arbeit in Lugano.',
+    'blog.article.gruista-frontaliere-ticino.title': 'Wie viel verdient ein Grenzkranführer im Tessin',
+    'blog.article.gruista-frontaliere-ticino.excerpt': 'Reales Gehalt eines Grenzkranführers im Tessin: Lohnspanne, Unterschiede zu Italien, Faktoren, die sich auf die Bezahlung auswirken.',
+    'blog.article.gruista-frontaliere-ticino.imageAlt': 'Ein Frontal-Arbeitskran-Operator in Lugano, mit dem Luganoer-See-Hintergrund.',
 };
 
 export default blogMetaChDe;

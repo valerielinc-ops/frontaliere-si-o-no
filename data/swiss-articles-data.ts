@@ -4085,6 +4085,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'gruista-frontaliere-ticino',
+    category: 'pratico',
+    date: '2026-07-21T01:26:15.122Z',
+    image: '/images/blog/gruista-frontaliere-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
