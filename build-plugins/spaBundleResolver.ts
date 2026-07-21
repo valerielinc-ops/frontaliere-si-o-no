@@ -21,11 +21,18 @@
  * One module-level cache, populated on first call by polling the on-disk
  * `dist/index.html` until both regexes match (bounded retry). Once the
  * cache is populated, all subsequent callers — across plugins — read the
- * same value. The poll is bounded at 3 s (60 attempts × 50 ms): plenty of
- * head room for the rare case where closeBundle wins the race against
- * writeBundle, but tight enough to fail loudly when the file is genuinely
- * absent (e.g. someone calls the resolver from a hook earlier than
- * writeBundle).
+ * same value. The poll defaults to 3 s (60 attempts × 50 ms), overridable
+ * via `SPA_BUNDLE_POLL_TIMEOUT_MS` — the CI deploy workflow sets it to 30 s
+ * because the corpus `og-pages`/`jobs-seo-pages`/etc. parse before calling
+ * this (e.g. `services/locales/blog-body/*` alone) keeps growing with every
+ * auto-generated article, so the original fixed 3 s budget (introduced when
+ * the corpus was much smaller) eroded from "rare race, huge head room" to
+ * "consistent CI failure" without any plugin-order or timeout code change
+ * — see the 2026-07-21 deploy incident. The 3 s default is kept for local
+ * dev/tests, where dist/index.html is either already there or genuinely
+ * never coming (tests/spa-bundle-resolver.test.ts asserts a fast throw on
+ * missing/empty/malformed index.html — a 30 s default would make every one
+ * of those a 30 s timeout instead of an assertion).
  *
  * Hard-fail vs silent fallback
  * ----------------------------
@@ -71,7 +78,9 @@ const cache = new Map<string, SpaBundleInfo>();
  * template-build path — making it async would propagate `await` through
  * 50+ template helpers in jobsSeoPagesPlugin alone.
  */
-function pollDistIndexHtml(distDir: string, timeoutMs = 3000, intervalMs = 50): SpaBundleInfo {
+const DEFAULT_POLL_TIMEOUT_MS = Number(process.env.SPA_BUNDLE_POLL_TIMEOUT_MS) || 3000;
+
+function pollDistIndexHtml(distDir: string, timeoutMs = DEFAULT_POLL_TIMEOUT_MS, intervalMs = 50): SpaBundleInfo {
   const indexPath = path.join(distDir, 'index.html');
   const deadline = Date.now() + timeoutMs;
   let attempts = 0;

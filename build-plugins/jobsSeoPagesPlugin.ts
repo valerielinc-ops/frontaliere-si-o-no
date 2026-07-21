@@ -545,6 +545,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return {
  name: 'jobs-seo-pages',
  apply: 'build',
+ enforce: 'post',
  async closeBundle() {
  // Fail the build loudly (follow-up #3608 item 2) instead of silently
  // emitting a literal "undefined" segment in a sector-hub canonical URL —
