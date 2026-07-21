@@ -8763,6 +8763,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-ticino-panettiere-guadagno.title': 'Wie viel verdient ein Grenzbäcker im Tessin?',
     'blog.article.frontaliere-ticino-panettiere-guadagno.excerpt': 'Reales Gehalt eines Grenzbäckers im Tessin: Lohnspanne, Unterschiede zu Italien, Faktoren, die sich auf die Bezahlung auswirken.',
     'blog.article.frontaliere-ticino-panettiere-guadagno.imageAlt': 'Bäcker in Ticino',
+    'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.title': 'Als Konditor im Tessin arbeiten: Gehalt und Anforderungen',
+    'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.excerpt': 'Die Schweiz ist kein EU-Mitglied, die Bewilligung G ist notwendig, um im Tessin als Konditor zu arbeiten.',
+    'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.imageAlt': 'Eine Konditorin arbeitet in einer Tessiner Küche, mit einer großen Fensterfläche, die einen Blick auf den Luganersee bietet.',
 };
 
 export default blogMetaDe;

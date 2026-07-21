@@ -8764,6 +8764,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-ticino-panettiere-guadagno.title': 'How much does a border baker earn in Ticino?',
     'blog.article.frontaliere-ticino-panettiere-guadagno.excerpt': 'Actual salary of a border baker in Ticino: salary band, differences compared to Italy, factors affecting salary.',
     'blog.article.frontaliere-ticino-panettiere-guadagno.imageAlt': 'Baker at work in Ticino',
+    'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.title': 'Working as a pastry chef in Ticino: salary and requirements',
+    'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.excerpt': 'Switzerland is not a member of the EU, the G permit is required to work in Ticino as a pastry chef.',
+    'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.imageAlt': 'A pastry chef works in a Ticino kitchen, with a large window offering a view of Lake Lugano.',
 };
 
 export default blogMetaEn;

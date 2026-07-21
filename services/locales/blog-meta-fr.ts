@@ -8765,6 +8765,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-ticino-panettiere-guadagno.title': 'Combien gagne un boulanger frontalier au Tessin ?',
     'blog.article.frontaliere-ticino-panettiere-guadagno.excerpt': 'Salaire réel d\'un boulanger frontalier au Tessin : fourchette de salaire, différences par rapport à l\'Italie, facteurs affectant la rémunération.',
     'blog.article.frontaliere-ticino-panettiere-guadagno.imageAlt': 'Boulanger en cours de travail à Ticino',
+    'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.title': 'Travailler comme pâtissier au Tessin : salaire et exigences',
+    'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.excerpt': 'La Suisse n\'est pas membre de l\'UE, le permis G est nécessaire pour travailler au Tessin en tant que pâtissier.',
+    'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.imageAlt': 'Une pâtissière travaille dans une cuisine tessinoise, avec une grande fenêtre offrant une vue sur le lac de Lugano.',
 };
 
 export default blogMetaFr;

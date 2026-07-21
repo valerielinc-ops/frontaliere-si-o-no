@@ -52800,6 +52800,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-pasticcere-ticino-stipendio-requisiti': {
+    title: 'Lavorare come pasticcere in Ticino: stipendio e requisiti',
+    description: 'La Svizzera non è membro dell\'UE, il permesso G è necessario per lavorare in Ticino come pasticcere. La nuova convenzione italo-svizzera prevede la non',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, pasticcere, stipendio, requisiti',
+    ogTitle: 'Lavorare come pasticcere in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G.',
+    ogDescription: 'La Svizzera non è membro dell\'UE, il permesso G è necessario per lavorare in Ticino come pasticcere. La nuova convenzione italo-svizzera prevede la non',
+    canonicalPath: '/articoli-frontaliere/frontaliere-pasticcere-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come pasticcere in Ticino: stipendio e requisiti",
+      "description": "La Svizzera non è membro dell'UE, il permesso G è necessario per lavorare in Ticino come pasticcere. La nuova convenzione italo-svizzera prevede la non",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-pasticcere-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una pasticciere lavora in una cucina ticinese, con un'ampia finestra che offre una vista sul lago di Lugano."
+      },
+      "datePublished": "2026-07-21T03:46:16+00:00",
+      "dateModified": "2026-07-21T03:46:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-pasticcere-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
