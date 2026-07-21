@@ -1399,6 +1399,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.swatch-crescita-2026.title': 'Swatch, forte crescita nel primo semestre',
     'blog.article.swatch-crescita-2026.excerpt': 'La Swatch Group ha registrato un aumento del fatturato del 2% nel primo semestre del 2026, con un fatturato di 3,12 miliardi di franchi.',
     'blog.article.swatch-crescita-2026.imageAlt': 'Una fotografia di alta qualità di una sede della Swatch Group a Lugano, con persone che lavorano all\'interno della fabbrica.',
+    'blog.article.votazioni-federali-27-settembre-cosa-cambia.title': 'Votazioni federali 27 settembre: cosa cambia per chi vive e lavora in Svizzera',
+    'blog.article.votazioni-federali-27-settembre-cosa-cambia.excerpt': 'Le prossime votazioni federali affronteranno temi chiave per l\'economia e la società svizzera. Ecco le implicazioni pratiche per residenti e frontalieri.',
+    'blog.article.votazioni-federali-27-settembre-cosa-cambia.imageAlt': 'Urna elettorale svizzera con schede di voto durante le votazioni federali',
 };
 
 export default blogMetaChIt;

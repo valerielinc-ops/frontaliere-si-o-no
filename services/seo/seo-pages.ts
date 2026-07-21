@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3414,
+ "numberOfItems": 3415,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8182,7 +8182,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3411, "name": "Custodi in Ticino: stipendio, requisiti e perme...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-custode-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3412, "name": "Azienda Bina: la tradizione dei Perzic de Munà", "url": `${BASE_URL}/articoli-frontaliere/monate-pesche-sciroppate-bina` },
           { "@type": "ListItem", "position": 3413, "name": "Swatch, forte crescita nel primo semestre", "url": `${BASE_URL}/articoli-frontaliere/swatch-crescita-2026` },
-          { "@type": "ListItem", "position": 3414, "name": "Disoccupazione frontalieri, Lorenzo Quadri: «Be...", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-frontalieri-lorenzo-quadri-bernareplica` }
+          { "@type": "ListItem", "position": 3414, "name": "Disoccupazione frontalieri, Lorenzo Quadri: «Be...", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-frontalieri-lorenzo-quadri-bernareplica` },
+          { "@type": "ListItem", "position": 3415, "name": "Votazioni federali 27 settembre: cosa cambia pe...", "url": `${BASE_URL}/articoli-frontaliere/votazioni-federali-27-settembre-cosa-cambia` }
  ]
  },
  {

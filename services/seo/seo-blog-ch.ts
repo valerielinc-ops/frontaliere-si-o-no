@@ -18075,6 +18075,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-votazioni-federali-27-settembre-cosa-cambia': {
+    title: 'Votazioni federali 27 settembre: cosa cambia per chi vive e lavora in Svizzera',
+    description: 'Scopri i temi chiave delle prossime votazioni svizzere e come influenzeranno fiscalità, salari, sanità e pensioni. Guida pratica per chi vive e lavora in',
+    keywords: 'frontalieri, ticino, svizzera, italia, votazioni, federali, settembre, cosa',
+    ogTitle: 'Votazioni federali 27 settembre: cosa cambia per residenti e frontalieri',
+    ogDescription: 'Guida pratica alle implicazioni delle votazioni svizzere su fiscalità, lavoro e sanità. Informati e prepara le tue scelte.',
+    canonicalPath: '/articoli-svizzera/votazioni-federali-27-settembre-cosa-cambia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Votazioni federali 27 settembre: cosa cambia per chi vive e lavora in Svizzera",
+      "description": "Scopri i temi chiave delle prossime votazioni svizzere e come influenzeranno fiscalità, salari, sanità e pensioni. Guida pratica per chi vive e lavora in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/votazioni-federali-27-settembre-cosa-cambia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Urna elettorale svizzera con schede di voto durante le votazioni federali"
+      },
+      "datePublished": "2026-07-21T07:41:36+00:00",
+      "dateModified": "2026-07-21T07:41:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/votazioni-federali-27-settembre-cosa-cambia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -4193,6 +4193,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'votazioni-federali-27-settembre-cosa-cambia',
+    category: 'novita',
+    date: '2026-07-21T07:41:36.462Z',
+    image: '/images/blog/votazioni-federali-27-settembre-cosa-cambia.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

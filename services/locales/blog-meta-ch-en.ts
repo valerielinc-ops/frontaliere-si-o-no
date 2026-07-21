@@ -1399,6 +1399,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.swatch-crescita-2026.title': 'Swatch, strong growth in the first half',
     'blog.article.swatch-crescita-2026.excerpt': 'The Swatch Group recorded a 2% increase in turnover in the first half of 2026, with a turnover of CHF 3.12 billion.',
     'blog.article.swatch-crescita-2026.imageAlt': 'A high-quality photograph of a Swatch Group location in Lugano, with people working inside the factory.',
+    'blog.article.votazioni-federali-27-settembre-cosa-cambia.title': 'Federal votes 27 Sept: Changes for Swiss residents & workers',
+    'blog.article.votazioni-federali-27-settembre-cosa-cambia.excerpt': 'The upcoming federal votes will address key issues for the Swiss economy and society. Here are the practical implications for residents and border crossers.',
+    'blog.article.votazioni-federali-27-settembre-cosa-cambia.imageAlt': 'Swiss federal voting ballot box with voting cards',
 };
 
 export default blogMetaChEn;
