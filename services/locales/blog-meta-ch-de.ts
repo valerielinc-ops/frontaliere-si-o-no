@@ -1399,6 +1399,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.swatch-crescita-2026.title': 'Swatch, starkes Wachstum im ersten Halbjahr',
     'blog.article.swatch-crescita-2026.excerpt': 'Die Swatch Group verzeichnete im ersten Halbjahr 2026 eine Umsatzsteigerung von 2% auf CHF 3,12 Milliarden.',
     'blog.article.swatch-crescita-2026.imageAlt': 'Eine hochwertige Fotografie einer Swatch-Gruppensitz in Lugano, mit Menschen, die innerhalb der Fabrik arbeiten.',
+    'blog.article.votazioni-federali-27-settembre-cosa-cambia.title': 'Eidgenössische Abstimmungen 27.9.: Schweiz ändert sich.',
+    'blog.article.votazioni-federali-27-settembre-cosa-cambia.excerpt': 'Bei den nächsten eidgenössischen Abstimmungen werden zentrale Themen für die Schweizer Wirtschaft und Gesellschaft thematisiert. Hier sind die praktischen Auswirkungen für Anwohner und Grenzgänger.',
+    'blog.article.votazioni-federali-27-settembre-cosa-cambia.imageAlt': 'Schweizer Wahlurne mit Stimmzetteln bei Bundesabstimmungen',
 };
 
 export default blogMetaChDe;
