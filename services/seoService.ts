@@ -4815,6 +4815,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-migros-operatore-conquista-svizzera-coop': { name: 'Migros', path: '/articoli-svizzera/migros-operatore-conquista-svizzera-coop/', parent: 'blog' },
     'blog-giacomo-gallazzi-giovani-innovazione': { name: 'Giacomo Gallazzi', path: '/articoli-frontaliere/giacomo-gallazzi-giovani-innovazione', parent: 'blog' },
     'blog-mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione': { name: 'Mancano 534 ore di esperienza: Swisscom', path: '/articoli-svizzera/mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione/', parent: 'blog' },
+    'blog-deduzioni-smac-frontalieri-2025': { name: 'Fiscale frontalieri', path: '/articoli-frontaliere/deduzioni-smac-frontalieri-2025', parent: 'blog' },
  };
 
  const info = sectionNames[section];

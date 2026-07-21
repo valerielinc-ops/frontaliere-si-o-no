@@ -26522,6 +26522,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'deduzioni-smac-frontalieri-2025',
+ category: 'fiscale',
+ date: '2026-07-21T16:44:21.883Z',
+ image: '/images/blog/deduzioni-smac-frontalieri-2025.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -8829,6 +8829,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.giacomo-gallazzi-giovani-innovazione.title': 'Giacomo Gallazzi : le parcours d\'un jeune innovateur',
     'blog.article.giacomo-gallazzi-giovani-innovazione.excerpt': 'De la maturité au master international : comment Giacomo Gallazzi redéfinit le concept de formation et de communication pour les nouvelles générations.',
     'blog.article.giacomo-gallazzi-giovani-innovazione.imageAlt': 'Giacomo Gallazzi, jeune innovateur et communicateur, dans un cadre professionnel.',
+    'blog.article.deduzioni-smac-frontalieri-2025.title': 'Déductions SMAC et frontalières 2025 : simulations et impact fiscal',
+    'blog.article.deduzioni-smac-frontalieri-2025.excerpt': 'Analyse des effets des déductions SMAC pour les travailleurs frontaliers dans la déclaration de revenus 2025 : guide pratique et simulations.',
+    'blog.article.deduzioni-smac-frontalieri-2025.imageAlt': 'Vue panoramique sur Lugano dans le canton du Tessin',
 };
 
 export default blogMetaFr;
