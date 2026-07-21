@@ -1372,6 +1372,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.stipendio-frontaliere-ticino-2024.title': 'How much does a border shop manager earn in Ticino?',
     'blog.article.stipendio-frontaliere-ticino-2024.excerpt': 'Facts and figures on the remuneration of border shop managers in Ticino',
     'blog.article.stipendio-frontaliere-ticino-2024.imageAlt': 'A frontaliere manager in a Lugano store',
+    'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.title': 'Butcher frontier: salary and requirements',
+    'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.excerpt': 'The requirements to work as a butcher in Ticino as a border worker, average salary and possibility of recognition of the qualification',
+    'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.imageAlt': 'Photograph of a cross-border butcher working in a meat shop in Lugano',
 };
 
 export default blogMetaChEn;

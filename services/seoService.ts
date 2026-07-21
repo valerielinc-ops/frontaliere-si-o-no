@@ -4771,6 +4771,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti': { name: 'Lavorare come responsabile di negozio in', path: '/articoli-frontaliere/frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-stipendio-frontaliere-ticino-2024': { name: 'Stipendio frontaliere Ticino', path: '/articoli-svizzera/stipendio-frontaliere-ticino-2024/', parent: 'blog' },
     'blog-frontaliere-ticino-salario-macellaio': { name: 'Macellaio frontaliere in Ticino', path: '/articoli-frontaliere/frontaliere-ticino-salario-macellaio', parent: 'blog' },
+    'blog-frontaliere-macellaio-ticino-stipendio-requisiti': { name: 'Frontaliere macellaio in Ticino', path: '/articoli-svizzera/frontaliere-macellaio-ticino-stipendio-requisiti/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

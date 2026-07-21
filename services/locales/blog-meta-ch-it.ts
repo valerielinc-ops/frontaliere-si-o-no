@@ -1372,6 +1372,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.stipendio-frontaliere-ticino-2024.title': 'Quanto guadagna un responsabile di negozio frontaliere in Ticino?',
     'blog.article.stipendio-frontaliere-ticino-2024.excerpt': 'Fatti e cifre sulla retribuzione dei responsabili di negozio frontaliere in Ticino',
     'blog.article.stipendio-frontaliere-ticino-2024.imageAlt': 'Un responsabile frontaliere in un negozio di Lugano',
+    'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.title': 'Frontaliere macellaio: stipendio e requisiti',
+    'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.excerpt': 'I requisiti per lavorare come macellaio in Ticino come frontaliere, stipendio medio e possibilità di riconoscimento del titolo di studio',
+    'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.imageAlt': 'Fotografia di un frontaliere macellaio che lavora in un negozio di carne a Lugano',
 };
 
 export default blogMetaChIt;

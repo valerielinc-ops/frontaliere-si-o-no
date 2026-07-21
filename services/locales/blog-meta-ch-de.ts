@@ -1372,6 +1372,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.stipendio-frontaliere-ticino-2024.title': 'Wie viel verdient ein Filialleiter im Tessin?',
     'blog.article.stipendio-frontaliere-ticino-2024.excerpt': 'Zahlen und Fakten zur Entlohnung der Verantwortlichen von Grenzshops im Tessin',
     'blog.article.stipendio-frontaliere-ticino-2024.imageAlt': 'Ein Frontalier Manager in einem Lugano-Laden',
+    'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.title': 'Grenzgänger Metzger: Gehalt und Anforderungen',
+    'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.excerpt': 'Die Voraussetzungen für die Arbeit als Metzger im Tessin als Grenzgänger, Durchschnittsgehalt und die Möglichkeit der Anerkennung des Abschlusses',
+    'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.imageAlt': 'Fotografie eines Frontalier-Metzgers, der in einem Fleischladen in Lugano arbeitet',
 };
 
 export default blogMetaChDe;

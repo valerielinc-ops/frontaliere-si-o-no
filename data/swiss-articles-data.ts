@@ -4112,6 +4112,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontaliere-macellaio-ticino-stipendio-requisiti',
+    category: 'pratico',
+    date: '2026-07-21T03:02:31.531Z',
+    image: '/images/blog/frontaliere-macellaio-ticino-stipendio-requisiti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
