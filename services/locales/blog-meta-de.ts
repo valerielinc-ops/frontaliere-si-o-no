@@ -8760,6 +8760,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-ticino-salario-macellaio.title': 'Wie viel verdient ein Grenzmetzger im Tessin',
     'blog.article.frontaliere-ticino-salario-macellaio.excerpt': 'Durchschnittslohn eines Grenzmetzgers im Tessin: Quellenangaben und -zahlen',
     'blog.article.frontaliere-ticino-salario-macellaio.imageAlt': 'Metzger in einem Fleischladen in Lugano',
+    'blog.article.frontaliere-ticino-panettiere-guadagno.title': 'Wie viel verdient ein Grenzbäcker im Tessin?',
+    'blog.article.frontaliere-ticino-panettiere-guadagno.excerpt': 'Reales Gehalt eines Grenzbäckers im Tessin: Lohnspanne, Unterschiede zu Italien, Faktoren, die sich auf die Bezahlung auswirken.',
+    'blog.article.frontaliere-ticino-panettiere-guadagno.imageAlt': 'Bäcker in Ticino',
 };
 
 export default blogMetaDe;

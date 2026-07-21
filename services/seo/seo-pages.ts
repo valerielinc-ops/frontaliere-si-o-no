@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3397,
+ "numberOfItems": 3398,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8165,7 +8165,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3394, "name": "Lavorare come responsabile di negozio in Ticino...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3395, "name": "Quanto guadagna un responsabile di negozio fron...", "url": `${BASE_URL}/articoli-frontaliere/stipendio-frontaliere-ticino-2024` },
           { "@type": "ListItem", "position": 3396, "name": "Quanto guadagna un macellaio frontaliere in Ticino", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-salario-macellaio` },
-          { "@type": "ListItem", "position": 3397, "name": "Frontaliere macellaio: stipendio e requisiti", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-macellaio-ticino-stipendio-requisiti` }
+          { "@type": "ListItem", "position": 3397, "name": "Frontaliere macellaio: stipendio e requisiti", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-macellaio-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3398, "name": "Quanto guadagna un panettiere frontaliere in Ti...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-panettiere-guadagno` }
  ]
  },
  {

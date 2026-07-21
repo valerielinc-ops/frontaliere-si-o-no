@@ -8762,6 +8762,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-ticino-salario-macellaio.title': 'Quanto guadagna un macellaio frontaliere in Ticino',
     'blog.article.frontaliere-ticino-salario-macellaio.excerpt': 'Salario medio di un macellaio frontaliere in Ticino: dati e cifre della fonte',
     'blog.article.frontaliere-ticino-salario-macellaio.imageAlt': 'Macellaio in un negozio di carne a Lugano',
+    'blog.article.frontaliere-ticino-panettiere-guadagno.title': 'Quanto guadagna un panettiere frontaliere in Ticino?',
+    'blog.article.frontaliere-ticino-panettiere-guadagno.excerpt': 'Stipendio reale di un panettiere frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione.',
+    'blog.article.frontaliere-ticino-panettiere-guadagno.imageAlt': 'Panettiere al lavoro in Ticino',
 };
 
 export default blogMetaIt;

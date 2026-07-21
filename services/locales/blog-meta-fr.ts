@@ -8762,6 +8762,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-ticino-salario-macellaio.title': 'Combien gagne un boucher frontalier au Tessin',
     'blog.article.frontaliere-ticino-salario-macellaio.excerpt': 'Salaire moyen d\'un boucher frontalier au Tessin : données et chiffres de la source',
     'blog.article.frontaliere-ticino-salario-macellaio.imageAlt': 'Boucher dans un magasin de viande à Lugano',
+    'blog.article.frontaliere-ticino-panettiere-guadagno.title': 'Combien gagne un boulanger frontalier au Tessin ?',
+    'blog.article.frontaliere-ticino-panettiere-guadagno.excerpt': 'Salaire réel d\'un boulanger frontalier au Tessin : fourchette de salaire, différences par rapport à l\'Italie, facteurs affectant la rémunération.',
+    'blog.article.frontaliere-ticino-panettiere-guadagno.imageAlt': 'Boulanger en cours de travail à Ticino',
 };
 
 export default blogMetaFr;
