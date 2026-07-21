@@ -1381,6 +1381,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.parrucchieri-frontaliere-ticino.title': 'Working as a hairdresser in Ticino: salary, requirements and title recognition',
     'blog.article.parrucchieri-frontaliere-ticino.excerpt': 'The requirements to work as a hairdresser in Ticino as a border worker, the average salary, the recognition of the qualification and the G permit.',
     'blog.article.parrucchieri-frontaliere-ticino.imageAlt': 'A hairdresser working in a salon in Lugano',
+    'blog.article.estetista-frontaliere-ticino-stipendio-requisiti.title': 'Working as a beautician in Ticino: salary, requirements and permit G',
+    'blog.article.estetista-frontaliere-ticino-stipendio-requisiti.excerpt': 'Here\'s what you need to know to work as a beautician in Ticino as a border worker.',
+    'blog.article.estetista-frontaliere-ticino-stipendio-requisiti.imageAlt': 'A scene of a beauty salon in Lugano, with clients undergoing esthetic treatments.',
 };
 
 export default blogMetaChEn;

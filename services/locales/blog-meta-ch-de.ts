@@ -1381,6 +1381,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.parrucchieri-frontaliere-ticino.title': 'Parrucchiera in Ticino: stipendio, requisiti e riconoscimento',
     'blog.article.parrucchieri-frontaliere-ticino.excerpt': 'Die Voraussetzungen für die Arbeit als Friseurin im Tessin als Grenzgängerin, der Durchschnittslohn, die Anerkennung des Bildungsabschlusses und die Erlaubnis G.',
     'blog.article.parrucchieri-frontaliere-ticino.imageAlt': 'Eine Friseurin arbeitet in einem Salon in Lugano',
+    'blog.article.estetista-frontaliere-ticino-stipendio-requisiti.title': 'Als Kosmetikerin im Tessin arbeiten: Gehalt, Voraussetzungen und G-Bewilligung',
+    'blog.article.estetista-frontaliere-ticino-stipendio-requisiti.excerpt': 'Hier ist, was Sie wissen müssen, um als Grenzgängerin als Kosmetikerin im Tessin zu arbeiten.',
+    'blog.article.estetista-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Eine Szene eines Schönheitssalons in Lugano, mit Kunden, die sich esthetischen Behandlungen unterziehen.',
 };
 
 export default blogMetaChDe;
