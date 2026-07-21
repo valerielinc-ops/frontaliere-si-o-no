@@ -1378,6 +1378,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.title': 'Grenzgänger Konditorei: Gehalt, Anforderungen und Anerkennung',
     'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.excerpt': 'Die Neue Frontalieri-Vereinbarung wurde am 23. Dezember 2020 unterzeichnet und tritt am 1. Januar 2024 in Kraft. Was sind die Voraussetzungen, um als Konditor im Tessin zu arbeiten?',
     'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.imageAlt': 'Ein Frontalier, der als Patisserie-Chef in einem Laden in Lugano arbeitet, mit einer Aussicht auf die Stadt.',
+    'blog.article.parrucchieri-frontaliere-ticino.title': 'Parrucchiera in Ticino: stipendio, requisiti e riconoscimento',
+    'blog.article.parrucchieri-frontaliere-ticino.excerpt': 'Die Voraussetzungen für die Arbeit als Friseurin im Tessin als Grenzgängerin, der Durchschnittslohn, die Anerkennung des Bildungsabschlusses und die Erlaubnis G.',
+    'blog.article.parrucchieri-frontaliere-ticino.imageAlt': 'Eine Friseurin arbeitet in einem Salon in Lugano',
 };
 
 export default blogMetaChDe;

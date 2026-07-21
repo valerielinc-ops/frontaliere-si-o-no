@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3400,
+ "numberOfItems": 3401,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8168,7 +8168,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3397, "name": "Frontaliere macellaio: stipendio e requisiti", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-macellaio-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3398, "name": "Quanto guadagna un panettiere frontaliere in Ti...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-panettiere-guadagno` },
           { "@type": "ListItem", "position": 3399, "name": "Frontaliere pasticceria: stipendio, requisiti e...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-pasticciere-ticino-stipendio-requisiti` },
-          { "@type": "ListItem", "position": 3400, "name": "Lavorare come pasticcere in Ticino: stipendio e...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-pasticcere-ticino-stipendio-requisiti` }
+          { "@type": "ListItem", "position": 3400, "name": "Lavorare come pasticcere in Ticino: stipendio e...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-pasticcere-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3401, "name": "Lavorare come parrucchiera in Ticino: stipendio...", "url": `${BASE_URL}/articoli-frontaliere/parrucchieri-frontaliere-ticino` }
  ]
  },
  {

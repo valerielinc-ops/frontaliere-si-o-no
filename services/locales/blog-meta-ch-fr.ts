@@ -1378,6 +1378,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.title': 'Frontalier pâtissier : salaire, exigences et reconnaissance',
     'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.excerpt': 'Le nouvel accord frontalier a été signé le 23 décembre 2020 et entre en vigueur le 1er janvier 2024. Quelles sont les exigences pour travailler comme pâtissier au Tessin ?',
     'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.imageAlt': 'Un frontalier travaillant comme pâtissier dans un magasin de Lugano, avec une vue sur la ville.',
+    'blog.article.parrucchieri-frontaliere-ticino.title': 'Coiffeuse au Tessin : salaire et reconnaissance du titre',
+    'blog.article.parrucchieri-frontaliere-ticino.excerpt': 'Les exigences pour travailler comme coiffeuse au Tessin en tant que frontalière, le salaire moyen, la reconnaissance du diplôme et le permis G.',
+    'blog.article.parrucchieri-frontaliere-ticino.imageAlt': 'Une coiffeuse travaillant dans un salon à Lugano',
 };
 
 export default blogMetaChFr;
