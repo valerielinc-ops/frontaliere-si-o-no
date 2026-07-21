@@ -1435,6 +1435,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.migros-operatore-conquista-svizzera-coop.title': 'Migros est l\'opérateur le plus apprécié en Suisse',
     'blog.article.migros-operatore-conquista-svizzera-coop.excerpt': 'Migros a obtenu une note de 7,6 sur 10 dans le classement de la satisfaction client.',
     'blog.article.migros-operatore-conquista-svizzera-coop.imageAlt': 'Un client devant un magasin Migros',
+    'blog.article.mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione.title': '534 heures d\'expérience manquent : Swisscom perd un marché de la Confédération.',
+    'blog.article.mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione.excerpt': 'La Confédération a exclu l\'offre de Swisscom pour un marché dû à une faute de frappe dans l\'offre.',
+    'blog.article.mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione.imageAlt': 'Siège de Swisscom à Lugano.',
 };
 
 export default blogMetaChFr;

@@ -4301,6 +4301,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione',
+    category: 'fiscale',
+    date: '2026-07-21T16:31:44.931Z',
+    image: '/images/blog/mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
