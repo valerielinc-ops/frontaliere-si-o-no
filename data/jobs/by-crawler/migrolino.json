@@ -170,11 +170,11 @@
     },
     {
       "id": "migrolino-0576b1008778",
-      "slug": "personale-di-vendita-migrolino-worblaufen-ittigen",
+      "slug": "rappresentante-vendite-migrolino-worblaufen-ittigen",
       "slugByLocale": {
         "it": "personale-di-vendita-migrolino-worblaufen-ittigen",
         "en": "sales-staff-migrolino-worblaufen-ittigen",
-        "de": "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen-0vzh7v",
+        "de": "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen",
         "fr": "personnel-de-vente-migrolino-worblaufen-ittigen"
       },
       "company": "migrolino",
@@ -199,7 +199,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/6a22eee3-8ca3-432a-a73b-99d66e1d1305",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:14:18.168Z",
+      "crawledAt": "2026-07-20T12:03:14.018Z",
       "addressLocality": "Worblaufen-Ittigen",
       "addressRegion": "BE",
       "streetAddress": "Worblaufenstrasse 161",
@@ -218,14 +218,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen",
-        "rappresentante-vendite-migrolino-worblaufen-ittigen",
         "sales-staff-migrolino-worblaufen-ittigen-007f71",
         "personnel-de-vente-migrolino-worblaufen-ittigen-007f71"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen",
-          "rappresentante-vendite-migrolino-worblaufen-ittigen"
+          "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen",
@@ -234,9 +232,6 @@
         "fr": [
           "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen",
           "personnel-de-vente-migrolino-worblaufen-ittigen-007f71"
-        ],
-        "de": [
-          "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen"
         ]
       },
       "needsRetranslation": true,
