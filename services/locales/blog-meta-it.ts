@@ -8819,6 +8819,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aumento-prezzi-trenord-pendolari.title': 'Trenord, nuovi aumenti sui biglietti per i frontalieri',
     'blog.article.aumento-prezzi-trenord-pendolari.excerpt': 'Trenord ha annunciato un ulteriore incremento delle tariffe ferroviarie. Posticipata alla prossima estate la nuova \'tariffa specifica Malpensa\'.',
     'blog.article.aumento-prezzi-trenord-pendolari.imageAlt': 'Pendolari in stazione in Ticino',
+    'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.title': 'Impiegato di commercio in Ticino: stipendio, requisiti e riconoscimento',
+    'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.excerpt': 'I frontalieri che lavorano come impiegati di commercio in Ticino devono soddisfare specifici requisiti e possedere determinate qualifiche.',
+    'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.imageAlt': 'Frontalieri che lavorano in Ticino e risiedono in Italia. Focose su una scena di lavoro con la vista sul Lago di Lugano.',
 };
 
 export default blogMetaIt;

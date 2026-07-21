@@ -8817,6 +8817,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aumento-prezzi-trenord-pendolari.title': 'Trenord, neue Fahrkartenerhöhungen für Grenzgänger',
     'blog.article.aumento-prezzi-trenord-pendolari.excerpt': 'Trenord kündigte eine weitere Erhöhung der Bahntarife an. Der neue "spezifische Malpensa-Tarif" wird auf den nächsten Sommer verschoben.',
     'blog.article.aumento-prezzi-trenord-pendolari.imageAlt': 'Pendler an einem Bahnhof im Tessin',
+    'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.title': 'Kaufmännischer Angestellter im Tessin: Gehalt, Voraussetzungen und Anerkennung',
+    'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.excerpt': 'Grenzgänger, die als Kaufleute im Tessin arbeiten, müssen bestimmte Anforderungen erfüllen und bestimmte Qualifikationen besitzen.',
+    'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.imageAlt': 'Frontalieri, die in Ticino arbeiten und in Italien wohnen. Fokussiert auf eine Arbeits Szene mit Aussicht auf den Luganersee.',
 };
 
 export default blogMetaDe;
