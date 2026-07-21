@@ -48,7 +48,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-07-21T12:09:48.527Z",
-      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza significativa in sala operatoria",
@@ -149,7 +148,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-07-21T12:09:48.525Z",
-      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -335,7 +333,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-07-21T12:09:48.523Z",
-      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Descrizione GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle."
@@ -811,7 +808,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-07-21T12:09:48.519Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "secretaire-medicale-cabinet-prive-du-dr-bloch-groupement-hospitalier-de-l-ouest-lemanique",
         "segreteria-medica-ufficio-privato-di-dr-bloch-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -992,8 +988,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }

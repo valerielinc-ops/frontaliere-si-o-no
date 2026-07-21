@@ -86,7 +86,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:47.089Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -193,7 +192,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:25.778Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -281,15 +279,29 @@
         ]
       },
       "previousSlugs": [
-        "international-crm-manager-m-w-omega-biel-bienne"
+        "international-crm-manager-m-w-omega-biel-bienne",
+        "spare-parts-stock-employee-h-f-omega-biel-bienne",
+        "employed-stock-parts-h-f-omega-sa-biel-bienne",
+        "arbeitsparteien-h-f-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "international-crm-manager-m-w-omega-biel-bienne"
+          "international-crm-manager-m-w-omega-biel-bienne",
+          "spare-parts-stock-employee-h-f-omega-biel-bienne",
+          "employed-stock-parts-h-f-omega-sa-biel-bienne",
+          "arbeitsparteien-h-f-omega-sa-biel-bienne"
+        ],
+        "en": [
+          "employed-stock-parts-h-f-omega-sa-biel-bienne"
+        ],
+        "de": [
+          "arbeitsparteien-h-f-omega-sa-biel-bienne"
+        ],
+        "fr": [
+          "spare-parts-stock-employee-h-f-omega-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:04.444Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -379,7 +391,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:53:15.053Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {

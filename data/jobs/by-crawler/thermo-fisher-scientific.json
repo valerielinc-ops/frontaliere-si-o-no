@@ -532,7 +532,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:33.926Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -595,7 +594,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-03T23:19:34.807Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -759,7 +757,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:37.670Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -849,8 +846,7 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "thermo-fisher-scientific-14dbed50cf4f",
@@ -901,7 +897,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-03T23:19:31.714Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1371,7 +1366,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-08T11:18:54.109Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1522,7 +1516,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:22.727Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1676,7 +1669,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:18.664Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1997,8 +1989,7 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "thermo-fisher-scientific-bcfdb7173f77",
@@ -2291,8 +2282,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "thermo-fisher-scientific-7c1971d49613",

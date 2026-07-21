@@ -129,11 +129,13 @@
       "requirementsByLocale": {},
       "department": "Augenklinik",
       "previousSlugs": [
-        "vitreoretinale-chirurgin-chirurge-ksw-ch"
+        "vitreoretinale-chirurgin-chirurge-ksw-ch",
+        "chirurgo-vitreoretinale-surgeon-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vitreoretinale-chirurgin-chirurge-ksw-ch"
+          "vitreoretinale-chirurgin-chirurge-ksw-ch",
+          "chirurgo-vitreoretinale-surgeon-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "vitreoretinale-chirurgin-chirurge-ksw-ch"
@@ -283,11 +285,13 @@
       "requirementsByLocale": {},
       "department": "Notfallzentrum",
       "previousSlugs": [
-        "weiterbildung-expertin-experte-notfallpflege-nds-hf-ksw-ch"
+        "weiterbildung-expertin-experte-notfallpflege-nds-hf-ksw-ch",
+        "esperto-a-in-formazione-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "weiterbildung-expertin-experte-notfallpflege-nds-hf-ksw-ch"
+          "weiterbildung-expertin-experte-notfallpflege-nds-hf-ksw-ch",
+          "esperto-a-in-formazione-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "weiterbildung-expertin-experte-notfallpflege-nds-hf-ksw-ch"
@@ -360,11 +364,13 @@
       "requirementsByLocale": {},
       "department": "ICT",
       "previousSlugs": [
-        "system-engineer-ksw-ch"
+        "system-engineer-ksw-ch",
+        "system-ingegnere-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "system-engineer-ksw-ch"
+          "system-engineer-ksw-ch",
+          "system-ingegnere-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-07-20T22:01:40.615Z",
@@ -386,9 +392,9 @@
       "slug": "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-winterthur-ksw-winterthur",
-        "en": "nurse-nurse-specialist-acute-geriatry-kantonsspital-winterthur-ksw-winterthur",
+        "en": "care-professional-acutegeriatry-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
-        "fr": "infirmiere-ou-infirmiere-specialiste-de-la-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "professionnel-de-soins-aiguite-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -435,6 +441,8 @@
         "infirmiere-en-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur",
         "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
         "infermiera-nurse-specialista-acutogeria-kantonsspital-winterthur-ksw-winterthur",
+        "nurse-nurse-specialist-acute-geriatry-kantonsspital-winterthur-ksw-winterthur",
+        "infirmiere-ou-infirmiere-specialiste-de-la-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur",
         "care-professional-acutegeriatry-kantonsspital-winterthur-ksw-winterthur",
         "professionnel-de-soins-aiguite-kantonsspital-winterthur-ksw-winterthur"
       ],
@@ -448,11 +456,13 @@
         "en": [
           "nurse-in-acute-geriatrics-kantonsspital-winterthur-ksw-winterthur",
           "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
+          "nurse-nurse-specialist-acute-geriatry-kantonsspital-winterthur-ksw-winterthur",
           "care-professional-acutegeriatry-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
           "infirmiere-en-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur",
           "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
+          "infirmiere-ou-infirmiere-specialiste-de-la-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur",
           "professionnel-de-soins-aiguite-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
@@ -649,8 +659,8 @@
       "id": "ksw-52c9c7cdcd01",
       "slug": "neuropsicologo-neuropsicologo-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur",
-        "en": "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur",
+        "it": "neuropsicologo-neuropsicologo-kantonsspital-winterthur-ksw-winterthur",
+        "en": "neuropsychologist-neuropsychologist-kantonsspital-winterthur-ksw-winterthur",
         "de": "neuropsychologin-neuropsychologe-ksw-ch",
         "fr": "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -696,13 +706,18 @@
       "department": "Zentrum für Kinder- und Jugendmedizin",
       "previousSlugs": [
         "neuropsychologin-neuropsychologe-ksw-ch",
+        "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur",
+        "neuropsicologo-neuropsicologo-kantonsspital-winterthur-ksw-winterthur",
         "neuropsychologist-neuropsychologist-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "neuropsychologin-neuropsychologe-ksw-ch"
+          "neuropsychologin-neuropsychologe-ksw-ch",
+          "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur",
+          "neuropsicologo-neuropsicologo-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
+          "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur",
           "neuropsychologist-neuropsychologist-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
@@ -924,11 +939,13 @@
       "requirementsByLocale": {},
       "department": "Hauswirtschaft",
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-spezial-und-bettenreinigung-ksw-ch"
+        "mitarbeiterin-mitarbeiter-spezial-und-bettenreinigung-ksw-ch",
+        "mitarbeiterin-collaboratore-trice-spezial-e-bettenreinigung-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-spezial-und-bettenreinigung-ksw-ch"
+          "mitarbeiterin-mitarbeiter-spezial-und-bettenreinigung-ksw-ch",
+          "mitarbeiterin-collaboratore-trice-spezial-e-bettenreinigung-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-spezial-und-bettenreinigung-ksw-ch"
@@ -1001,11 +1018,13 @@
       "requirementsByLocale": {},
       "department": "Klinik für Radio-Onkologie",
       "previousSlugs": [
-        "physician-associate-ksw-ch"
+        "physician-associate-ksw-ch",
+        "medico-associato-kantonsspital-winterthur-ksw-winterthur-85881d"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physician-associate-ksw-ch"
+          "physician-associate-ksw-ch",
+          "medico-associato-kantonsspital-winterthur-ksw-winterthur-85881d"
         ],
         "fr": [
           "physician-associate-ksw-ch"
@@ -1402,11 +1421,13 @@
       "requirementsByLocale": {},
       "department": "Supply Chain Management",
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-op-logistik-ksw-ch"
+        "mitarbeiterin-mitarbeiter-op-logistik-ksw-ch",
+        "mitarbeiterin-collaboratore-trice-op-logistik-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-op-logistik-ksw-ch"
+          "mitarbeiterin-mitarbeiter-op-logistik-ksw-ch",
+          "mitarbeiterin-collaboratore-trice-op-logistik-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-op-logistik-ksw-ch"
@@ -1787,11 +1808,13 @@
       "requirementsByLocale": {},
       "department": "Finanz- und Rechnungswesen",
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-abrechnung-ksw-ch"
+        "mitarbeiterin-mitarbeiter-abrechnung-ksw-ch",
+        "mitarbeiterin-collaboratore-trice-abrechnung-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-abrechnung-ksw-ch"
+          "mitarbeiterin-mitarbeiter-abrechnung-ksw-ch",
+          "mitarbeiterin-collaboratore-trice-abrechnung-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-abrechnung-ksw-ch"
@@ -2118,11 +2141,13 @@
         "werkstudent-management-support-ksw-ch",
         "soutien-a-la-gestion-des-etudiants-en-activite-kantonsspital-winterthur-ksw-winterthur",
         "supporto-alla-gestione-degli-studenti-lavoratori-kantonsspital-winterthur-ksw-winterthur",
-        "werkstudentin-werkstudent-management-support-ksw-ch"
+        "werkstudentin-werkstudent-management-support-ksw-ch",
+        "mitarbeiterin-collaboratore-trice-management-support-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-management-support-ksw-ch"
+          "mitarbeiterin-mitarbeiter-management-support-ksw-ch",
+          "mitarbeiterin-collaboratore-trice-management-support-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-management-support-ksw-ch"
@@ -2272,11 +2297,13 @@
       "requirementsByLocale": {},
       "department": "Zentrum für Intensivmedizin",
       "previousSlugs": [
-        "teamleiterin-teamleiter-imc-lindberg-ksw-ch"
+        "teamleiterin-teamleiter-imc-lindberg-ksw-ch",
+        "team-leader-team-leader-imc-lindberg-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiterin-teamleiter-imc-lindberg-ksw-ch"
+          "teamleiterin-teamleiter-imc-lindberg-ksw-ch",
+          "team-leader-team-leader-imc-lindberg-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "teamleiterin-teamleiter-imc-lindberg-ksw-ch"
@@ -2532,7 +2559,7 @@
         "it": "infermieristica-praticante-di-allattamento-kantonsspital-winterthur-ksw-winterthur",
         "en": "nursing-practitioner-nursing-practitioner-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegepraktikantin-pflegepraktikant-ksw-ch",
-        "fr": "pratique-infirmiere-praticien-infirmier-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2542,7 +2569,7 @@
         "it": "Infermieristica / praticante di allattamento",
         "en": "Nursing practitioner / nursing practitioner",
         "de": "Pflegepraktikantin / Pflegepraktikant",
-        "fr": "Pratique infirmière / praticien infirmier"
+        "fr": "Spécialiste des soins infirmiers / praticien des soins infirmiers"
       },
       "description": "Beim Pflegepraktikum handelt es sich um einen befristeten Einsatz für Personen, welche sich mit dem Einstieg in eine Berufsausbildung im Gesundheitswesen befassen. Das Praktikum bietet einen ersten Einblick in den Pflegealltag und dient der Interessen- und Eignungsabklärung.\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Ausbildungsplätze / Praktika\n• Bereich: Kantonsspital Winterthur\n• Pensum: 80-100%",
       "descriptionByLocale": {
@@ -2578,18 +2605,22 @@
         "pflegepraktikantin-pflegepraktikant-ksw-ch",
         "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur",
         "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
-        "specialiste-des-soins-infirmiers-praticien-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur"
+        "specialiste-des-soins-infirmiers-praticien-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur",
+        "pratique-infirmiere-praticien-infirmier-kantonsspital-winterthur-ksw-winterthur",
+        "infermieristica-praticante-di-allattamento-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegepraktikantin-pflegepraktikant-ksw-ch",
-          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
+          "infermieristica-praticante-di-allattamento-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
           "specialiste-des-soins-infirmiers-praticien-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur",
+          "pratique-infirmiere-praticien-infirmier-kantonsspital-winterthur-ksw-winterthur",
           "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
@@ -2978,11 +3009,13 @@
       "requirementsByLocale": {},
       "department": "Telefonzentrale",
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-telefonzentrale-und-information-ksw-ch"
+        "mitarbeiterin-mitarbeiter-telefonzentrale-und-information-ksw-ch",
+        "mitarbeiterin-collaboratore-trice-telefonzentrale-e-information-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-telefonzentrale-und-information-ksw-ch"
+          "mitarbeiterin-mitarbeiter-telefonzentrale-und-information-ksw-ch",
+          "mitarbeiterin-collaboratore-trice-telefonzentrale-e-information-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-telefonzentrale-und-information-ksw-ch"
@@ -3163,7 +3196,7 @@
       "id": "ksw-0c70271dcbf6",
       "slug": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "specialista-di-radiologia-specialista-di-radiologia-hf-kantonsspital-winterthur-ksw-winterthur",
+        "it": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
         "en": "radiology-specialist-radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
         "de": "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
         "fr": "specialiste-en-radiologie-specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
@@ -3213,7 +3246,9 @@
         "infermiere-di-formazione-infermiere-specialista-hf-kantonsspital-winterthur-ksw-winterthur",
         "training-nurse-nurse-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
         "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch",
-        "infirmiere-infirmiere-specialiste-hf-kantonsspital-winterthur-ksw-winterthur"
+        "infirmiere-infirmiere-specialiste-hf-kantonsspital-winterthur-ksw-winterthur",
+        "specialista-di-radiologia-specialista-di-radiologia-hf-kantonsspital-winterthur-ksw-winterthur",
+        "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3221,7 +3256,9 @@
           "infermiere-di-formazione-infermiere-specialista-hf-kantonsspital-winterthur-ksw-winterthur",
           "training-nurse-nurse-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
           "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch",
-          "infirmiere-infirmiere-specialiste-hf-kantonsspital-winterthur-ksw-winterthur"
+          "infirmiere-infirmiere-specialiste-hf-kantonsspital-winterthur-ksw-winterthur",
+          "specialista-di-radiologia-specialista-di-radiologia-hf-kantonsspital-winterthur-ksw-winterthur",
+          "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "training-nurse-nurse-specialist-hf-kantonsspital-winterthur-ksw-winterthur"
@@ -3451,11 +3488,13 @@
       "requirementsByLocale": {},
       "department": "Klinik für Urologie",
       "previousSlugs": [
-        "physician-associate-ksw-ch"
+        "physician-associate-ksw-ch",
+        "medico-associato-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physician-associate-ksw-ch"
+          "physician-associate-ksw-ch",
+          "medico-associato-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
           "physician-associate-ksw-ch"
@@ -4240,11 +4279,13 @@
       "department": "Pflege Chirurgie",
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-urologie-und-orthopadie-ksw-ch",
-        "urologie-professionnelle-sante-et-orthopedie-kantonsspital-winterthur-ksw-winterthur"
+        "urologie-professionnelle-sante-et-orthopedie-kantonsspital-winterthur-ksw-winterthur",
+        "fachfrau-fachmann-gesundheit-urologie-e-orthopala-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-urologie-und-orthopadie-ksw-ch"
+          "fachfrau-fachmann-gesundheit-urologie-und-orthopadie-ksw-ch",
+          "fachfrau-fachmann-gesundheit-urologie-e-orthopala-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-urologie-und-orthopadie-ksw-ch"
@@ -4406,12 +4447,14 @@
         "leitende-arztin-leitender-arzt-facharzt-dermatologie-ksw-ch",
         "medico-specialista-in-dermatologia-kantonsspital-winterthur-ksw-winterthur",
         "senior-physician-specialist-in-dermatology-kantonsspital-winterthur-ksw-winterthur",
-        "medecin-specialiste-en-dermatologie-kantonsspital-winterthur-ksw-winterthur"
+        "medecin-specialiste-en-dermatologie-kantonsspital-winterthur-ksw-winterthur",
+        "medico-specialista-in-dermatologia-responsabile-di-area-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitende-arztin-leitender-arzt-facharzt-dermatologie-ksw-ch",
-          "medico-specialista-in-dermatologia-kantonsspital-winterthur-ksw-winterthur"
+          "medico-specialista-in-dermatologia-kantonsspital-winterthur-ksw-winterthur",
+          "medico-specialista-in-dermatologia-responsabile-di-area-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "leitende-arztin-leitender-arzt-facharzt-dermatologie-ksw-ch",
@@ -4488,13 +4531,15 @@
       "previousSlugs": [
         "training-nurse-nurse-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
         "infirmiere-infirmiere-specialiste-hf-kantonsspital-winterthur-ksw-winterthur",
-        "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch"
+        "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch",
+        "infermiere-di-formazione-infermiere-specialista-hf-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "training-nurse-nurse-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
           "infirmiere-infirmiere-specialiste-hf-kantonsspital-winterthur-ksw-winterthur",
-          "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch"
+          "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch",
+          "infermiere-di-formazione-infermiere-specialista-hf-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch"
@@ -4567,11 +4612,13 @@
       "requirementsByLocale": {},
       "department": "Zentrum für Intensivmedizin",
       "previousSlugs": [
-        "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch"
+        "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch",
+        "cura-intensiva-di-esperti-nds-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch"
+          "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch",
+          "cura-intensiva-di-esperti-nds-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch"
@@ -4608,7 +4655,7 @@
       "companyDomain": "ksw.ch",
       "title": "Disponent/-in / Patientenkoordinator/-in / MPA",
       "titleByLocale": {
-        "it": "Dispone/in / Coordinatore paziente/in / MPA",
+        "it": "/ in / Coordinatore del paziente / MPA",
         "en": "Disponent/in / Patient Coordinator/in / MPA",
         "de": "Disponent/-in / Patientenkoordinator/-in / MPA",
         "fr": "Déposant/in / Coordinateur/in / MPA"
@@ -4645,12 +4692,14 @@
       "department": "Klinik für Radio-Onkologie",
       "previousSlugs": [
         "disponent-in-patientenkoordinator-in-mpa-ksw-ch",
-        "disponent-in-patientenkoordinator-in-mpa-kantonsspital-winterthur-ksw-winterthur"
+        "disponent-in-patientenkoordinator-in-mpa-kantonsspital-winterthur-ksw-winterthur",
+        "dispone-in-coordinatore-paziente-in-mpa-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "disponent-in-patientenkoordinator-in-mpa-ksw-ch",
-          "disponent-in-patientenkoordinator-in-mpa-kantonsspital-winterthur-ksw-winterthur"
+          "disponent-in-patientenkoordinator-in-mpa-kantonsspital-winterthur-ksw-winterthur",
+          "dispone-in-coordinatore-paziente-in-mpa-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "disponent-in-patientenkoordinator-in-mpa-ksw-ch"
@@ -4723,11 +4772,13 @@
       "requirementsByLocale": {},
       "department": "Notfallzentrum",
       "previousSlugs": [
-        "expertin-experte-notfallpflege-nds-hf-ksw-ch"
+        "expertin-experte-notfallpflege-nds-hf-ksw-ch",
+        "expert-expert-emergency-care-nds-hf-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expertin-experte-notfallpflege-nds-hf-ksw-ch"
+          "expertin-experte-notfallpflege-nds-hf-ksw-ch",
+          "expert-expert-emergency-care-nds-hf-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
           "expertin-experte-notfallpflege-nds-hf-ksw-ch"
@@ -4797,11 +4848,13 @@
       "requirementsByLocale": {},
       "department": "Verpflegung",
       "previousSlugs": [
-        "diatkochin-diatkoch-ksw-ch"
+        "diatkochin-diatkoch-ksw-ch",
+        "cucina-dietetica-cucina-dietetica-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diatkochin-diatkoch-ksw-ch"
+          "diatkochin-diatkoch-ksw-ch",
+          "cucina-dietetica-cucina-dietetica-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "diatkochin-diatkoch-ksw-ch"
@@ -4877,12 +4930,14 @@
         "arztsekretarin-arztsekretar-ksw-ch",
         "arztsekretarin-arztsekretar-ksw-ch-2",
         "arztsekretarin-arztsekretar-ksw-ch-4",
-        "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur"
+        "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur",
+        "segretario-medico-segretario-medico-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretarin-arztsekretar-ksw-ch",
-          "arztsekretarin-arztsekretar-ksw-ch-2"
+          "arztsekretarin-arztsekretar-ksw-ch-2",
+          "segretario-medico-segretario-medico-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "arztsekretarin-arztsekretar-ksw-ch"
@@ -4956,12 +5011,14 @@
       "department": "Augenklinik",
       "previousSlugs": [
         "arztsekretarin-arztsekretar-ksw-ch",
-        "segretario-medico-segretario-medico-kantonsspital-winterthur-ksw-winterthur-d039fa"
+        "segretario-medico-segretario-medico-kantonsspital-winterthur-ksw-winterthur-d039fa",
+        "segretario-medico-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretarin-arztsekretar-ksw-ch",
-          "segretario-medico-segretario-medico-kantonsspital-winterthur-ksw-winterthur-d039fa"
+          "segretario-medico-segretario-medico-kantonsspital-winterthur-ksw-winterthur-d039fa",
+          "segretario-medico-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "arztsekretarin-arztsekretar-ksw-ch"
@@ -4986,12 +5043,12 @@
     },
     {
       "id": "ksw-ca5d70d93e8a",
-      "slug": "infermieristica-specialista-infermieristica-traumatologia-chirurgia-a-mano-plastica-kantonsspital-winterthur-ksw",
+      "slug": "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch",
-        "it": "infermieristica-specialista-infermieristica-traumatologia-chirurgia-a-mano-plastica-kantonsspital-winterthur-ksw",
-        "en": "nursing-specialist-nursing-specialist-traumatology-hand-plastic-surgery-kantonsspital-winterthur-ksw-winterthur",
-        "fr": "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-traumatologie-chirurgie-manuelle-plastique"
+        "it": "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch",
+        "en": "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch",
+        "fr": "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -5001,14 +5058,14 @@
         "de": "Pflegefachfrau / Pflegefachmann Traumatologie, Hand /Plastische Chirurgie",
         "it": "Infermieristica specialista / Infermieristica Traumatologia, Chirurgia a mano /plastica",
         "en": "Nursing specialist / Nursing specialist Traumatology, Hand /Plastic surgery",
-        "fr": "Spécialiste des soins infirmiers / Spécialiste des soins infirmiers Traumatologie, Chirurgie manuelle / plastique"
+        "fr": "Spécialiste en soins infirmiers / Spécialiste en soins infirmiers Traumatologie, Chirurgie manuelle / plastique"
       },
       "description": "Für die Bettenstation auf der Klinik für Traumatologie und Hand / Plastische Chirurgie mit integrierter Tagesklinik suchen wir per sofort oder nach Vereinbarung eine motivierte Kollegin / einen motivierten Kollegen zur Ergänzung unseres Teams.\n\nAufgaben:\n• Konstruktive Zusammenarbeit in einem beständigen, jungen und kollegialen Team\n• Pflege und Betreuung der Patienten und deren Angehörigen in ganzheitlicher hoher Qualität\n• Verantwortung für die Umsetzung einer fachkompetenten Betreuung und Pflege unter Berücksichtigung moderner Pflege- und Behandlungskonzepte sowie Pflegestandards\n• Abwechslungsreicher Arbeitsinhalt mit stationären und ambulanten Patienten\n• Förderung und Begleitung der Auszubildenden als Tagesbezugsperson\n• Mitgestaltung einer aktiven und positiven Team- und Klinikkultur\n\nProfil:\n• Ausbildung als Dipl. Pflegefachperson HF/FH, vorzugsweise mit Erfahrung im Fachbereich Chirurgie\n• Freude am Pflegeberuf, motivierte, engagierte und belastbare Persönlichkeit\n• Hohes Qualitätsbewusstsein und Interesse an fachlicher und persönlicher Weiterentwicklung\n• Freude und Engagement im Bereich Pflege sowie in der interdisziplinären und interprofessionellen Zusammenarbeit\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Pflegeberufe\n• Bereich: Pflege Chirurgie\n• Pensum: 80-100%",
       "descriptionByLocale": {
         "de": "Für die Bettenstation auf der Klinik für Traumatologie und Hand / Plastische Chirurgie mit integrierter Tagesklinik suchen wir per sofort oder nach Vereinbarung eine motivierte Kollegin / einen motivierten Kollegen zur Ergänzung unseres Teams.\n\nAufgaben:\n• Konstruktive Zusammenarbeit in einem beständigen, jungen und kollegialen Team\n• Pflege und Betreuung der Patienten und deren Angehörigen in ganzheitlicher hoher Qualität\n• Verantwortung für die Umsetzung einer fachkompetenten Betreuung und Pflege unter Berücksichtigung moderner Pflege- und Behandlungskonzepte sowie Pflegestandards\n• Abwechslungsreicher Arbeitsinhalt mit stationären und ambulanten Patienten\n• Förderung und Begleitung der Auszubildenden als Tagesbezugsperson\n• Mitgestaltung einer aktiven und positiven Team- und Klinikkultur\n\nProfil:\n• Ausbildung als Dipl. Pflegefachperson HF/FH, vorzugsweise mit Erfahrung im Fachbereich Chirurgie\n• Freude am Pflegeberuf, motivierte, engagierte und belastbare Persönlichkeit\n• Hohes Qualitätsbewusstsein und Interesse an fachlicher und persönlicher Weiterentwicklung\n• Freude und Engagement im Bereich Pflege sowie in der interdisziplinären und interprofessionellen Zusammenarbeit\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Pflegeberufe\n• Bereich: Pflege Chirurgie\n• Pensum: 80-100%",
-        "it": "Per il reparto letto presso la clinica per la traumatologia e la chirurgia della mano / plastica con clinica diurna integrata, stiamo cercando un collega motivato per integrare il nostro team immediatamente o con accordo.\n\nCompiti:\n• Cooperazione costruttiva in un team permanente, giovane e collegiale\n• Cura e cura dei pazienti e dei loro parenti in un'alta qualità olistica\n• Responsabilità per l'attuazione di cure e cure professionali tenendo conto dei moderni concetti di cura e trattamento, nonché degli standard di cura\n• Contenuto di lavoro variegato con pazienti affetti da pazienti apatici e ambulatoriali\n• Promozione e accompagnamento dei tirocinanti come fornitori di servizi diurni\n• Creare un team attivo e positivo e la cultura clinica\n\nProfilo:\n• Allenamento come Dipl. Infermieristica professionale HF/FH, preferibilmente con esperienza nel campo della chirurgia\n• Gioia nella professione di allattamento, personalità motivata, impegnata e resiliente\n• Sensibilizzazione e interesse di alta qualità nello sviluppo professionale e personale\n• Gioia e impegno nel campo della cura e nella cooperazione interdisciplinare e interprofessionale\n\nVantaggi: KSW offre ai dipendenti condizioni che permettono loro di conciliare i loro obiettivi professionali e le esigenze personali. Orario di lavoro flessibile e flessibile, ufficio domestico, nonché un generoso congedo di maternità e livelli di occupazione adattati a situazioni diverse – tutto questo è possibile a KSW, fino a quando l'azienda lo permette. Ogni anno, il KSW offre 40 corsi di formazione interdisciplinari e 50 corsi di formazione professionale. Vi sosteniamo anche nel tempo e/o finanziariamente con la formazione esterna.; In situazioni straordinarie, ad esempio B. malattia prolungata, grave stress personale o esperienze difficili nella vita privata, così come nel lavoro quotidiano, varie offerte di conversazione sono a vostra disposizione.; La collaborazione apprezzata e amichevole all'interno delle squadre e nei dipartimenti caratterizza l'atmosfera di lavoro a KSW. Come segno di un forte spirito di squadra, il “tu” è stato introdotto come standard a KSW. Inoltre, il KSW supporta eventi di squadra annuali finanziariamente e organizza un grande evento di personale per tutta la casa ogni quattro anni. I dipendenti KSW beneficiano di benefici sociali molto buoni. Così, la soluzione di fondo pensionistico con BVK è molto superiore al minimo legale. Anche in caso di malattia o incidente, i dipendenti KSW sono molto ben coperti.; Con sconti su abbonamenti di fitness, opportunità di formazione interna e offerte di corso, vantaggi in farmacie e presso le più popolari compagnie di assicurazione sanitaria. È possibile beneficiare di un'offerta completa per la vostra salute.; Il nostro centro diurno La Luna con ampie ore di apertura si trova vicino al KSW. Inoltre, è possibile utilizzare il reddito dipendente, il sostegno finanziario dalla KSW per i costi della culla.; In collaborazione con partner culturali di Winterthur e dintorni, offriamo regolarmente sconti per concerti e spettacoli teatrali. Il prestito dei media nella biblioteca interna è anche gratuito per i dipendenti.\n\n• Campo professionale: professioni di cura\n• Area: Chirurgia di cura\n• Penso: 80-100 %",
-        "en": "For the bed ward at the clinic for traumatology and hand / plastic surgery with integrated day clinic, we are looking for a motivated colleague to complement our team immediately or by agreement.\n\nTasks:\n• Constructive cooperation in a permanent, young and collegial team\n• Care and care of patients and their relatives in a holistic high quality\n• Responsibility for the implementation of professional care and care taking into account modern care and treatment concepts as well as care standards\n• Varied work content with inpatient and outpatient patients\n• Promotion and accompaniment of trainees as day-care providers\n• Creating an active and positive team and clinic culture\n\nProfile:\n• Training as a Dipl. Nursing professional HF/FH, preferably with experience in the field of surgery\n• Joy in the nursing profession, motivated, committed and resilient personality\n• High quality awareness and interest in professional and personal development\n• Joy and commitment in the field of care as well as in interdisciplinary and interprofessional cooperation\n\nBenefits: KSW offers employees conditions that enable them to reconcile their professional goals and personal needs. Flexible, flexible working hours, home office as well as a generous maternity leave and employment levels adapted to different situations – all this is possible at KSW, as long as the company allows it. Every year, the KSW offers 40 interdisciplinary and 50 professional training courses. We also support you temporally and/or financially with external training.; In extraordinary situations, e.g. B. prolonged illness, severe personal stress or difficult experiences in private life as well as in everyday work, various offers of conversation are available to you.; The appreciative and friendly cooperation within the teams and across the departments characterizes the working atmosphere at KSW. As a sign of a strong team spirit, the “you” was introduced as a standard at KSW. In addition, the KSW supports annual team events financially and organizes a large staffing event for the whole house every four years. KSW employees benefit from very good social benefits. Thus, the pension fund solution with BVK is far above the legal minimum. Even in the event of illness or accident, KSW employees are very well covered.; With discounts on fitness subscriptions, internal training opportunities and course offers, perks in pharmacies as well as at the most popular health insurance companies. You can benefit from a comprehensive offer for your health.; Our daycare center La Luna with spacious opening hours is located next to the KSW. In addition, you can use the income-dependent, financial support from the KSW for the crib costs.; In cooperation with cultural partners in and around Winterthur, we regularly offer discounts for concerts and theater performances. The borrowing of media in the in-house library is also free of charge for employees.\n\n• Professional field: nursing professions\n• Area: Care surgery\n• Pensum: 80-100 %",
-        "fr": "Pour le service de lit de la clinique de traumatologie et de chirurgie main / plastique avec clinique de jour intégrée, nous cherchons un collègue motivé pour compléter notre équipe immédiatement ou d'un commun accord.\n\nTâches :\n• Coopération constructive dans une équipe permanente, jeune et collégiale\n• Soins et soins des patients et de leurs proches dans une qualité globale de qualité\n• Responsabilité de la mise en œuvre des soins et des soins professionnels en tenant compte des concepts modernes de soins et de traitement ainsi que des normes de soins\n• Contenu varié du travail avec les patients hospitalisés et externes\n• Promotion et accompagnement des stagiaires en tant que garderies\n• Créer une équipe active et positive et une culture clinique\n\nProfil :\n• Entraînement comme dipl. Soins infirmiers professionnels HF/FH, de préférence avec une expérience dans le domaine de la chirurgie\n• La joie dans la profession infirmière, une personnalité motivée, engagée et résiliente\n• Sensibilisation de haute qualité et intérêt pour le développement professionnel et personnel\n• Joy et engagement dans le domaine des soins ainsi que dans la coopération interdisciplinaire et interprofessionnelle\n\nAvantages: KSW offre aux employés des conditions qui leur permettent de concilier leurs objectifs professionnels et leurs besoins personnels. Des horaires de travail flexibles et flexibles, un bureau à domicile ainsi qu'un congé de maternité généreux et des niveaux d'emploi adaptés à différentes situations – tout cela est possible chez KSW, tant que l'entreprise le permet. Chaque année, le KSW propose 40 formations interdisciplinaires et 50 formations professionnelles. Nous vous soutenons également dans le temps et/ou financièrement avec une formation externe; Dans des situations extraordinaires, p. ex. maladie prolongée de B., stress personnel grave ou expériences difficiles dans la vie privée ainsi que dans le travail quotidien, diverses offres de conversation sont disponibles pour vous. La coopération reconnaissante et amicale au sein des équipes et des départements caractérise l'atmosphère de travail de KSW. Comme signe d'un esprit d'équipe fort, le -you , a été introduit comme un standard chez KSW. De plus, le KSW soutient financièrement les activités annuelles de l'équipe et organise tous les quatre ans un important événement de dotation pour toute la maison. Les employés de KSW bénéficient de très bons avantages sociaux. Ainsi, la solution de fonds de pension avec BVK est bien au-dessus du minimum légal. Même en cas de maladie ou d'accident, les employés de KSW sont très bien couverts. Avec des réductions sur les abonnements de fitness, des possibilités de formation interne et des cours, avantages dans les pharmacies ainsi que dans les compagnies d'assurance santé les plus populaires. Vous pouvez bénéficier d'une offre complète pour votre santé; Notre garderie La Luna avec des heures d'ouverture spacieuses est situé à côté de la KSW. En outre, vous pouvez utiliser le soutien financier dépendant du revenu de la KSW pour les coûts du berceau. En collaboration avec des partenaires culturels à Winterthur et aux alentours, nous offrons régulièrement des réductions pour les concerts et les spectacles de théâtre. L'emprunt des médias dans la bibliothèque interne est également gratuit pour les employés.\n\n• Domaine professionnel : professions infirmières\n• Domaine: Chirurgie des soins\n• Pensum: 80-100 %"
+        "it": "Per il reparto letto presso la clinica per traumatologia e chirurgia manuale / plastica con clinica giorno integrata, stiamo cercando un collega motivato per integrare il nostro team immediatamente o con accordo.\n\nCompiti:\n• Cooperazione costruttiva in un team stabile, giovane e collegiale\n• Cura e cura dei pazienti e dei loro parenti in un'alta qualità olistica\n• Responsabilità per l'attuazione di cure e cure professionali tenendo conto dei moderni concetti di cura e trattamento, nonché degli standard di cura\n• Contenuto di lavoro variegato con pazienti affetti da pazienti apatici e ambulatoriali\n• Promozione e accompagnamento dei tirocinanti come fornitori di servizi diurni\n• Creare un team attivo e positivo e la cultura clinica\n\nProfilo:\n• Allenamento come Dipl. Infermieristica professionale HF/FH, preferibilmente con esperienza nel campo della chirurgia\n• Gioia nella professione di allattamento, personalità motivata, impegnata e resiliente\n• Sensibilizzazione e interesse di alta qualità nello sviluppo professionale e personale\n• Gioia e impegno nel campo della cura e nella cooperazione interdisciplinare e interprofessionale\n\nVantaggi: KSW offre ai dipendenti condizioni che permettono loro di conciliare i loro obiettivi professionali e le esigenze personali. Orario di lavoro flessibile, flessibile, home office e un generoso congedo di maternità e livelli di occupazione adattati a situazioni diverse – tutto questo è possibile a KSW, purché l'azienda lo permetta. Ogni anno, il KSW offre 40 corsi di formazione interdisciplinare e 50 corsi di formazione professionale. Vi sosteniamo anche nel tempo e/o finanziariamente per la formazione esterna.; In situazioni straordinarie, ad esempio B. malattia prolungata, grave stress personale o esperienze difficili nella vita privata, così come nel lavoro quotidiano, sono disponibili varie offerte di conversazione.; La collaborazione apprezzata e amichevole all'interno delle squadre e di tutti i dipartimenti caratterizza l'atmosfera di lavoro a KSW. Come segno di un forte spirito di squadra, il “tu” è stato introdotto come standard al KSW. Inoltre, il KSW supporta eventi di squadra annuali finanziariamente e organizza un grande evento di personale per tutta la casa ogni quattro anni. I dipendenti KSW beneficiano di benefici sociali molto buoni. Così, la soluzione di fondo pensionistico con BVK è molto superiore al minimo legale. Anche in caso di malattia o incidente, i dipendenti KSW sono molto ben coperti.; Con sconti su abbonamenti di fitness, opportunità di formazione interna e offerte di corso, vantaggi in farmacie e presso le più popolari compagnie di assicurazione sanitaria. È possibile beneficiare di un'offerta completa per la vostra salute.; Il nostro centro diurno La Luna con ampie ore di apertura si trova direttamente accanto al KSW. Inoltre, è possibile utilizzare il reddito dipendente, il sostegno finanziario dalla KSW per i costi della culla.; In collaborazione con partner culturali di Winterthur e dintorni, offriamo regolarmente sconti per concerti e spettacoli teatrali. Il prestito dei media nella biblioteca interna è anche gratuito per i dipendenti.\n\n• Campo professionale: professioni di cura\n• Area: Chirurgia di cura\n• Pensum: 80-100 %",
+        "en": "For the bed ward at the clinic for traumatology and hand / plastic surgery with integrated day clinic, we are looking for a motivated colleague to complement our team immediately or by agreement.\n\nTasks:\n• Constructive cooperation in a stable, young and collegial team\n• Care and care of patients and their relatives in a holistic high quality\n• Responsibility for the implementation of professional care and care taking into account modern care and treatment concepts as well as care standards\n• Varied work content with inpatient and outpatient patients\n• Promotion and accompaniment of trainees as day-care providers\n• Creating an active and positive team and clinic culture\n\nProfile:\n• Training as a Dipl. Nursing professional HF/FH, preferably with experience in the field of surgery\n• Joy in the nursing profession, motivated, committed and resilient personality\n• High quality awareness and interest in professional and personal development\n• Joy and commitment in the field of care as well as in interdisciplinary and interprofessional cooperation\n\nBenefits: KSW offers employees conditions that enable them to reconcile their professional goals and personal needs. Flexible, flexible working hours, home office as well as a generous maternity leave and employment levels adapted to different situations – all this is possible at KSW, as long as the company allows it. Every year, the KSW offers 40 interdisciplinary and 50 professional training courses. We also support you temporally and/or financially for external training.; In extraordinary situations, e.g. B. prolonged illness, severe personal stress or difficult experiences in private life as well as in everyday work, various offers of conversation are available to you.; The appreciative and friendly cooperation within the teams and across the departments characterizes the working atmosphere at KSW. As a sign of a strong team spirit, the “you” was introduced as a standard at KSW. In addition, the KSW supports annual team events financially and organizes a large staffing event for the whole house every four years. KSW employees benefit from very good social benefits. Thus, the pension fund solution with BVK is far above the legal minimum. Even in the event of illness or accident, KSW employees are very well covered.; With discounts on fitness subscriptions, internal training opportunities and course offers, perks in pharmacies as well as at the most popular health insurance companies. You can benefit from a comprehensive offer for your health.; Our daycare center La Luna with spacious opening hours is located directly next to the KSW. In addition, you can use the income-dependent, financial support from the KSW for the crib costs.; In cooperation with cultural partners in and around Winterthur, we regularly offer discounts for concerts and theatre performances. The borrowing of media in the in-house library is also free of charge for employees.\n\n• Professional field: nursing professions\n• Area: Care surgery\n• Pensum: 80-100 %",
+        "fr": "Pour le service de lit de la clinique de traumatologie et de chirurgie main / plastique avec clinique de jour intégrée, nous cherchons un collègue motivé pour compléter notre équipe immédiatement ou d'un commun accord.\n\nTâches :\n• Coopération constructive dans une équipe stable, jeune et collégiale\n• Soins et soins aux patients et à leurs proches dans une qualité globale de haute qualité\n• Responsabilité de la mise en œuvre des soins et des soins professionnels en tenant compte des concepts modernes de soins et de traitement ainsi que des normes de soins\n• Contenu varié du travail avec les patients hospitalisés et externes\n• Promotion et accompagnement des stagiaires en tant que prestataires de garderie\n• Créer une équipe active et positive et une culture clinique\n\nProfil :\n• Entraînement en tant que Dipl. Soins infirmiers professionnels HF/FH, de préférence avec une expérience dans le domaine de la chirurgie\n• La joie dans la profession infirmière, une personnalité motivée, engagée et résiliente\n• Sensibilisation de haute qualité et intérêt pour le développement professionnel et personnel\n• Joy et engagement dans le domaine des soins ainsi que dans la coopération interdisciplinaire et interprofessionnelle\n\nAvantages: KSW offre aux employés des conditions qui leur permettent de concilier leurs objectifs professionnels et leurs besoins personnels. Des horaires flexibles et flexibles, un bureau à domicile ainsi qu'un congé de maternité généreux et des niveaux d'emploi adaptés à différentes situations – tout cela est possible chez KSW, tant que l'entreprise le permet. Chaque année, le KSW propose 40 formations interdisciplinaires et 50 formations professionnelles. Nous vous soutenons également temporairement et/ou financièrement pour la formation externe; Dans des situations extraordinaires, comme une maladie prolongée de B., un stress personnel grave ou des expériences difficiles dans la vie privée ainsi que dans le travail quotidien, diverses offres de conversation vous sont offertes. La coopération reconnaissante et amicale au sein des équipes et des départements caractérise l'atmosphère de travail de KSW. Comme signe d'un fort esprit d'équipe, le -you , a été introduit comme un standard chez KSW. De plus, le KSW appuie financièrement les activités annuelles de l'équipe et organise tous les quatre ans un important événement de dotation pour toute la maison. Les employés de KSW bénéficient de très bons avantages sociaux. Ainsi, la solution de fonds de pension avec BVK est bien au-dessus du minimum légal. Même en cas de maladie ou d'accident, les employés de KSW sont très bien couverts. Avec des rabais sur les abonnements de fitness, des possibilités de formation interne et des cours, avantages dans les pharmacies ainsi que dans les compagnies d'assurance santé les plus populaires. Vous pouvez bénéficier d'une offre complète pour votre santé; Notre garderie La Luna avec des heures d'ouverture spacieuses est située directement à côté de la KSW. De plus, vous pouvez utiliser le soutien financier de la KSW, qui dépend du revenu, pour les coûts du lit. En collaboration avec des partenaires culturels de Winterthur et des environs, nous offrons régulièrement des réductions pour les concerts et les spectacles de théâtre. L'emprunt des médias dans la bibliothèque interne est également gratuit pour les employés.\n\n• Domaine professionnel: professions infirmières\n• Domaine: Chirurgie des soins\n• Récipient: 80-100 %"
       },
       "location": "Winterthur",
       "canton": "ZH",
@@ -5050,24 +5107,21 @@
       "firstSeenAt": "2026-07-21T11:14:37.757Z",
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-kantonsspital-winterthur-ksw-winterthur",
+          "infermieristica-specialista-infermieristica-traumatologia-chirurgia-a-mano-plastica-kantonsspital-winterthur-ksw",
           "nursing-specialist-nursing-specialist-traumatology-hand-plastic-surgery-kantonsspital-winterthur-ksw-winterthur",
-          "specialiste-en-soins-infirmiers-specialiste-en-soins-infirmiers-traumatologie-chirurgie-manuelle-plastique-kantonsspital",
-          "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch"
+          "specialiste-en-soins-infirmiers-specialiste-en-soins-infirmiers-traumatologie-chirurgie-manuelle-plastique-kantonsspital"
         ],
         "en": [
-          "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch"
+          "nursing-specialist-nursing-specialist-traumatology-hand-plastic-surgery-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
-          "specialiste-en-soins-infirmiers-specialiste-en-soins-infirmiers-traumatologie-chirurgie-manuelle-plastique-kantonsspital",
-          "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch"
+          "specialiste-en-soins-infirmiers-specialiste-en-soins-infirmiers-traumatologie-chirurgie-manuelle-plastique-kantonsspital"
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-kantonsspital-winterthur-ksw-winterthur",
+        "infermieristica-specialista-infermieristica-traumatologia-chirurgia-a-mano-plastica-kantonsspital-winterthur-ksw",
         "nursing-specialist-nursing-specialist-traumatology-hand-plastic-surgery-kantonsspital-winterthur-ksw-winterthur",
-        "specialiste-en-soins-infirmiers-specialiste-en-soins-infirmiers-traumatologie-chirurgie-manuelle-plastique-kantonsspital",
-        "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch"
+        "specialiste-en-soins-infirmiers-specialiste-en-soins-infirmiers-traumatologie-chirurgie-manuelle-plastique-kantonsspital"
       ]
     },
     {
@@ -5086,15 +5140,15 @@
       "titleByLocale": {
         "de": "Mitarbeiterin / Mitarbeiter Personalrestaurant und Bistro 15",
         "it": "Mitarbeiterin / Collaboratore/trice Personalrestaurant e Bistro 15",
-        "en": "Employee / staff restaurant and Bistro 15",
-        "fr": "Restaurant du personnel et Bistro 15"
+        "en": "Employee / Staff Restaurant and Bistro 15",
+        "fr": "Restaurant pour employés et employés et Bistro 15"
       },
       "description": "Für unser Personalrestaurant und unser Bistro 15 im KSW suchen wir zur Unterstützung unseres Teams per sofort oder nach Vereinbarung eine engagierte Persönlichkeit. Die Stelle ist befristet bis zum 31. Dezember 2026. Als Teil der Spitalgastronomie sorgen wir täglich für das Wohl von Patientinnen und Patienten, Mitarbeitenden sowie Besuchenden. Unser Betrieb ist an 365 Tagen im Jahr geöffnet und bietet ein abwechslungsreiches, dynamisches Arbeitsumfeld, in dem Teamgeist, Serviceorientierung und Qualität im Mittelpunkt stehen. Werde Teil unseres engagierten Teams und trage dazu bei, unseren Gästen jeden Tag ein positives Erlebnis zu bieten.\n\nAufgaben:\n• Sicherstellen eines reibungslosen Serviceablaufs im Personalrestaurant und Bistro 15, sowie Beratung und Betreuung unserer Gäste\n• Vorbereitung und Ausgabe von Speisen und Getränken\n• Kassiertätigkeiten und Abrechnung\n• Einhaltung der Hygiene- und Qualitätsstandards\n\nProfil:\n• Abgeschlossene Ausbildung als Systemgastronomiefachfrau / Systemgastronomiefachmann EFZ oder vergleichbare Qualifikation sowie Berufserfahrung in der Gastronomie\n• Kommunikative Persönlichkeit sowie Flexibilität in der Arbeitszeitgestaltung\n• Sehr gute Deutschkenntnisse in Wort und Schrift runden dein Profil ab\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Betrieb\n• Bereich: Betrieb\n• Pensum: 80%",
       "descriptionByLocale": {
         "de": "Für unser Personalrestaurant und unser Bistro 15 im KSW suchen wir zur Unterstützung unseres Teams per sofort oder nach Vereinbarung eine engagierte Persönlichkeit. Die Stelle ist befristet bis zum 31. Dezember 2026. Als Teil der Spitalgastronomie sorgen wir täglich für das Wohl von Patientinnen und Patienten, Mitarbeitenden sowie Besuchenden. Unser Betrieb ist an 365 Tagen im Jahr geöffnet und bietet ein abwechslungsreiches, dynamisches Arbeitsumfeld, in dem Teamgeist, Serviceorientierung und Qualität im Mittelpunkt stehen. Werde Teil unseres engagierten Teams und trage dazu bei, unseren Gästen jeden Tag ein positives Erlebnis zu bieten.\n\nAufgaben:\n• Sicherstellen eines reibungslosen Serviceablaufs im Personalrestaurant und Bistro 15, sowie Beratung und Betreuung unserer Gäste\n• Vorbereitung und Ausgabe von Speisen und Getränken\n• Kassiertätigkeiten und Abrechnung\n• Einhaltung der Hygiene- und Qualitätsstandards\n\nProfil:\n• Abgeschlossene Ausbildung als Systemgastronomiefachfrau / Systemgastronomiefachmann EFZ oder vergleichbare Qualifikation sowie Berufserfahrung in der Gastronomie\n• Kommunikative Persönlichkeit sowie Flexibilität in der Arbeitszeitgestaltung\n• Sehr gute Deutschkenntnisse in Wort und Schrift runden dein Profil ab\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Betrieb\n• Bereich: Betrieb\n• Pensum: 80%",
-        "it": "Per il nostro ristorante personale e il nostro Bistro 15 a KSW, stiamo cercando una personalità impegnata per sostenere il nostro team immediatamente o con accordo. Il posto è limitato in tempo fino al 31 dicembre 2026. Nell'ambito della ristorazione ospedaliera, garantiamo il benessere di pazienti, dipendenti e visitatori ogni giorno. La nostra azienda è aperta 365 giorni all'anno e offre un ambiente di lavoro dinamico e vario in cui spirito di squadra, orientamento di servizio e qualità sono al centro. Diventa parte del nostro team dedicato e aiuta a offrire ai nostri ospiti un'esperienza positiva ogni giorno.\n\nCompiti:\n• Assicurare un flusso di servizio regolare nel ristorante del personale e Bistro 15, nonché consigli e cura dei nostri ospiti\n• Preparazione e distribuzione di alimenti e bevande\n• Servizi di cassa e insediamento\n• Rispetto degli standard di igiene e qualità\n\nProfilo:\n• Formazione completa come specialista di gastronomia di sistema / specialista di gastronomia di sistema EFZ o qualifica paragonabile, nonché esperienza professionale in gastronomia\n• Personalità comunicativa e flessibilità nelle ore di lavoro\n• Molto buona conoscenza del tedesco in parola e scrivere arrotonda il tuo profilo\n\nVantaggi: KSW offre ai dipendenti condizioni che permettono loro di conciliare i loro obiettivi professionali e le esigenze personali. Orario di lavoro flessibile e flessibile, ufficio domestico, nonché un generoso congedo di maternità e livelli di occupazione adattati a situazioni diverse – tutto questo è possibile a KSW, fino a quando l'azienda lo permette. Ogni anno, il KSW offre 40 corsi di formazione interdisciplinari e 50 corsi di formazione professionale. Vi sosteniamo anche nel tempo e/o finanziariamente con la formazione esterna.; In situazioni straordinarie, ad esempio B. malattia prolungata, grave stress personale o esperienze difficili nella vita privata, così come nel lavoro quotidiano, varie offerte di conversazione sono a vostra disposizione.; La collaborazione apprezzata e amichevole all'interno delle squadre e nei dipartimenti caratterizza l'atmosfera di lavoro a KSW. Come segno di un forte spirito di squadra, il “tu” è stato introdotto come standard a KSW. Inoltre, il KSW supporta eventi di squadra annuali finanziariamente e organizza un grande evento di personale per tutta la casa ogni quattro anni. I dipendenti KSW beneficiano di benefici sociali molto buoni. Così, la soluzione di fondo pensionistico con BVK è molto superiore al minimo legale. Anche in caso di malattia o incidente, i dipendenti KSW sono molto ben coperti.; Con sconti su abbonamenti di fitness, opportunità di formazione interna e offerte di corso, vantaggi in farmacie e presso le più popolari compagnie di assicurazione sanitaria. È possibile beneficiare di un'offerta completa per la vostra salute.; Il nostro centro diurno La Luna con ampie ore di apertura si trova vicino al KSW. Inoltre, è possibile utilizzare il reddito dipendente, il sostegno finanziario dalla KSW per i costi della culla.; In collaborazione con partner culturali di Winterthur e dintorni, offriamo regolarmente sconti per concerti e spettacoli teatrali. Il prestito dei media nella biblioteca interna è anche gratuito per i dipendenti.\n\n• Campo professionale: Operazione\n• Area: Operazione\n• Penso: 80 %",
-        "en": "For our staff restaurant and our Bistro 15 at KSW, we are looking for a committed personality to support our team immediately or by agreement. The post shall be limited in time until 31 December 2026. As part of hospital catering, we ensure the well-being of patients, employees and visitors every day. Our company is open 365 days a year and offers a varied, dynamic working environment in which team spirit, service orientation and quality are the focus. Become part of our dedicated team and help to offer our guests a positive experience every day.\n\nTasks:\n• Ensure a smooth service flow in the staff restaurant and Bistro 15, as well as advice and care of our guests\n• Preparation and distribution of food and beverages\n• Cash and settlement services\n• Compliance with hygiene and quality standards\n\nProfile:\n• Completed training as a system gastronomy specialist / system gastronomy specialist EFZ or comparable qualification as well as professional experience in gastronomy\n• Communicative personality and flexibility in working hours\n• Very good knowledge of German in word and writing round off your profile\n\nBenefits: KSW offers employees conditions that enable them to reconcile their professional goals and personal needs. Flexible, flexible working hours, home office as well as a generous maternity leave and employment levels adapted to different situations – all this is possible at KSW, as long as the company allows it. Every year, the KSW offers 40 interdisciplinary and 50 professional training courses. We also support you temporally and/or financially with external training.; In extraordinary situations, e.g. B. prolonged illness, severe personal stress or difficult experiences in private life as well as in everyday work, various offers of conversation are available to you.; The appreciative and friendly cooperation within the teams and across the departments characterizes the working atmosphere at KSW. As a sign of a strong team spirit, the “you” was introduced as a standard at KSW. In addition, the KSW supports annual team events financially and organizes a large staffing event for the whole house every four years. KSW employees benefit from very good social benefits. Thus, the pension fund solution with BVK is far above the legal minimum. Even in the event of illness or accident, KSW employees are very well covered.; With discounts on fitness subscriptions, internal training opportunities and course offers, perks in pharmacies as well as at the most popular health insurance companies. You can benefit from a comprehensive offer for your health.; Our daycare center La Luna with spacious opening hours is located next to the KSW. In addition, you can use the income-dependent, financial support from the KSW for the crib costs.; In cooperation with cultural partners in and around Winterthur, we regularly offer discounts for concerts and theater performances. The borrowing of media in the in-house library is also free of charge for employees.\n\n• Professional field: Operation\n• Area: Operation\n• Pensum: 80 %",
-        "fr": "Pour notre restaurant personnel et notre Bistro 15 chez KSW, nous recherchons une personnalité engagée pour soutenir notre équipe immédiatement ou d'un commun accord. Le poste est limité dans le temps jusqu'au 31 décembre 2026. Dans le cadre de la restauration hospitalière, nous assurons le bien-être des patients, des employés et des visiteurs chaque jour. Notre entreprise est ouverte 365 jours par an et offre un environnement de travail varié et dynamique dans lequel l'esprit d'équipe, l'orientation du service et la qualité sont au centre. Faites partie de notre équipe dédiée et aidez à offrir à nos clients une expérience positive tous les jours.\n\nTâches :\n• Assurer un flux de service en douceur dans le restaurant du personnel et Bistro 15, ainsi que des conseils et soins de nos clients\n• Préparation et distribution des denrées alimentaires et des boissons\n• Encaisse et services de règlement\n• Respect des normes d'hygiène et de qualité\n\nProfil :\n• Formation complète comme spécialiste de la gastronomie système / spécialiste de la gastronomie système EFZ ou qualification comparable ainsi que l'expérience professionnelle en gastronomie\n• Personnalité communicative et flexibilité du temps de travail\n• Très bonne connaissance de l'allemand en paroles et l'écriture complètent votre profil\n\nAvantages: KSW offre aux employés des conditions qui leur permettent de concilier leurs objectifs professionnels et leurs besoins personnels. Des horaires de travail flexibles et flexibles, un bureau à domicile ainsi qu'un congé de maternité généreux et des niveaux d'emploi adaptés à différentes situations – tout cela est possible chez KSW, tant que l'entreprise le permet. Chaque année, le KSW propose 40 formations interdisciplinaires et 50 formations professionnelles. Nous vous soutenons également dans le temps et/ou financièrement avec une formation externe; Dans des situations extraordinaires, p. ex. maladie prolongée de B., stress personnel grave ou expériences difficiles dans la vie privée ainsi que dans le travail quotidien, diverses offres de conversation sont disponibles pour vous. La coopération reconnaissante et amicale au sein des équipes et des départements caractérise l'atmosphère de travail de KSW. Comme signe d'un esprit d'équipe fort, le -you , a été introduit comme un standard chez KSW. De plus, le KSW soutient financièrement les activités annuelles de l'équipe et organise tous les quatre ans un important événement de dotation pour toute la maison. Les employés de KSW bénéficient de très bons avantages sociaux. Ainsi, la solution de fonds de pension avec BVK est bien au-dessus du minimum légal. Même en cas de maladie ou d'accident, les employés de KSW sont très bien couverts. Avec des réductions sur les abonnements de fitness, des possibilités de formation interne et des cours, avantages dans les pharmacies ainsi que dans les compagnies d'assurance santé les plus populaires. Vous pouvez bénéficier d'une offre complète pour votre santé; Notre garderie La Luna avec des heures d'ouverture spacieuses est situé à côté de la KSW. En outre, vous pouvez utiliser le soutien financier dépendant du revenu de la KSW pour les coûts du berceau. En collaboration avec des partenaires culturels à Winterthur et aux alentours, nous offrons régulièrement des réductions pour les concerts et les spectacles de théâtre. L'emprunt des médias dans la bibliothèque interne est également gratuit pour les employés.\n\n• Domaine professionnel : Opération\n• Secteur: Exploitation\n• Pensum: 80 %"
+        "it": "Per il nostro ristorante personale e il nostro Bistro 15 a KSW, stiamo cercando una personalità impegnata per sostenere il nostro team immediatamente o con accordo. Il posto è limitato in tempo fino al 31 dicembre 2026. Nell'ambito della ristorazione ospedaliera, garantiamo il benessere di pazienti, dipendenti e visitatori ogni giorno. La nostra azienda è aperta 365 giorni all'anno e offre un ambiente di lavoro dinamico e vario in cui spirito di squadra, orientamento di servizio e qualità sono al centro dell'attenzione. Diventa parte del nostro team dedicato e aiuta a offrire ai nostri ospiti un'esperienza positiva ogni giorno.\n\nCompiti:\n• Garantire un flusso di servizio regolare nel ristorante del personale e Bistro 15, nonché consigli e cure dei nostri ospiti\n• Preparazione e distribuzione di alimenti e bevande\n• Servizi di cassa e insediamento\n• Rispetto degli standard di igiene e qualità\n\nProfilo:\n• Formazione completa come specialista di gastronomia di sistema / specialista di gastronomia di sistema EFZ o qualifica comparabile, nonché esperienza professionale in gastronomia\n• Personalità comunicativa e flessibilità nelle ore di lavoro\n• Molto buona conoscenza del tedesco in parola e scrittura arrotonda il tuo profilo\n\nVantaggi: KSW offre ai dipendenti condizioni che permettono loro di conciliare i loro obiettivi professionali e le esigenze personali. Orario di lavoro flessibile, flessibile, home office e un generoso congedo di maternità e livelli di occupazione adattati a situazioni diverse – tutto questo è possibile a KSW, purché l'azienda lo permetta. Ogni anno, il KSW offre 40 corsi di formazione interdisciplinare e 50 corsi di formazione professionale. Vi sosteniamo anche nel tempo e/o finanziariamente per la formazione esterna.; In situazioni straordinarie, ad esempio B. malattia prolungata, grave stress personale o esperienze difficili nella vita privata, così come nel lavoro quotidiano, sono disponibili varie offerte di conversazione.; La collaborazione apprezzata e amichevole all'interno delle squadre e di tutti i dipartimenti caratterizza l'atmosfera di lavoro a KSW. Come segno di un forte spirito di squadra, il “tu” è stato introdotto come standard al KSW. Inoltre, il KSW supporta eventi di squadra annuali finanziariamente e organizza un grande evento di personale per tutta la casa ogni quattro anni. I dipendenti KSW beneficiano di benefici sociali molto buoni. Così, la soluzione di fondo pensionistico con BVK è molto superiore al minimo legale. Anche in caso di malattia o incidente, i dipendenti KSW sono molto ben coperti.; Con sconti su abbonamenti di fitness, opportunità di formazione interna e offerte di corso, vantaggi in farmacie e presso le più popolari compagnie di assicurazione sanitaria. È possibile beneficiare di un'offerta completa per la vostra salute.; Il nostro centro diurno La Luna con ampie ore di apertura si trova direttamente accanto al KSW. Inoltre, è possibile utilizzare il reddito dipendente, il sostegno finanziario dalla KSW per i costi della culla.; In collaborazione con partner culturali di Winterthur e dintorni, offriamo regolarmente sconti per concerti e spettacoli teatrali. Il prestito dei media nella biblioteca interna è anche gratuito per i dipendenti.\n\n• Campo professionale: Operazione\n• Area: Operazione\n• Penso: 80 %",
+        "en": "For our staff restaurant and our Bistro 15 at KSW, we are looking for a committed personality to support our team immediately or by agreement. The post shall be limited in time until 31 December 2026. As part of hospital catering, we ensure the well-being of patients, employees and visitors every day. Our company is open 365 days a year and offers a varied, dynamic working environment in which team spirit, service orientation and quality are at the centre of attention. Become part of our dedicated team and help to offer our guests a positive experience every day.\n\nTasks:\n• Ensuring a smooth service flow in the staff restaurant and Bistro 15, as well as advice and care of our guests\n• Preparation and distribution of food and beverages\n• Cash and settlement services\n• Compliance with hygiene and quality standards\n\nProfile:\n• Completed training as a system gastronomy specialist / system gastronomy specialist EFZ or comparable qualification as well as professional experience in gastronomy\n• Communicative personality and flexibility in working hours\n• Very good knowledge of German in word and writing round off your profile\n\nBenefits: KSW offers employees conditions that enable them to reconcile their professional goals and personal needs. Flexible, flexible working hours, home office as well as a generous maternity leave and employment levels adapted to different situations – all this is possible at KSW, as long as the company allows it. Every year, the KSW offers 40 interdisciplinary and 50 professional training courses. We also support you temporally and/or financially for external training.; In extraordinary situations, e.g. B. prolonged illness, severe personal stress or difficult experiences in private life as well as in everyday work, various offers of conversation are available to you.; The appreciative and friendly cooperation within the teams and across the departments characterizes the working atmosphere at KSW. As a sign of a strong team spirit, the “you” was introduced as a standard at KSW. In addition, the KSW supports annual team events financially and organizes a large staffing event for the whole house every four years. KSW employees benefit from very good social benefits. Thus, the pension fund solution with BVK is far above the legal minimum. Even in the event of illness or accident, KSW employees are very well covered.; With discounts on fitness subscriptions, internal training opportunities and course offers, perks in pharmacies as well as at the most popular health insurance companies. You can benefit from a comprehensive offer for your health.; Our daycare center La Luna with spacious opening hours is located directly next to the KSW. In addition, you can use the income-dependent, financial support from the KSW for the crib costs.; In cooperation with cultural partners in and around Winterthur, we regularly offer discounts for concerts and theatre performances. The borrowing of media in the in-house library is also free of charge for employees.\n\n• Professional field: Operation\n• Area: Operation\n• Pensum: 80 %",
+        "fr": "Pour notre restaurant du personnel et notre Bistro 15 chez KSW, nous recherchons une personnalité engagée pour soutenir notre équipe immédiatement ou d'un commun accord. Le poste est limité dans le temps jusqu'au 31 décembre 2026. Dans le cadre de la restauration hospitalière, nous assurons le bien-être des patients, des employés et des visiteurs chaque jour. Notre entreprise est ouverte 365 jours par an et offre un environnement de travail varié et dynamique dans lequel l'esprit d'équipe, l'orientation du service et la qualité sont au centre de l'attention. Faites partie de notre équipe dédiée et aidez à offrir à nos clients une expérience positive chaque jour.\n\nTâches :\n• Assurer un flux de service en douceur dans le restaurant du personnel et le Bistro 15, ainsi que des conseils et soins de nos clients\n• Préparation et distribution des denrées alimentaires et des boissons\n• Encaisse et services de règlement\n• Respect des normes d'hygiène et de qualité\n\nProfil :\n• Formation complète comme spécialiste de la gastronomie du système / spécialiste de la gastronomie du système EFZ ou qualification comparable ainsi que expérience professionnelle en gastronomie\n• Personnalité communicative et flexibilité du temps de travail\n• Très bonne connaissance de l'allemand en paroles et l'écriture complètent votre profil\n\nAvantages: KSW offre aux employés des conditions qui leur permettent de concilier leurs objectifs professionnels et leurs besoins personnels. Des horaires flexibles et flexibles, un bureau à domicile ainsi qu'un congé de maternité généreux et des niveaux d'emploi adaptés à différentes situations – tout cela est possible chez KSW, tant que l'entreprise le permet. Chaque année, le KSW propose 40 formations interdisciplinaires et 50 formations professionnelles. Nous vous soutenons également temporairement et/ou financièrement pour la formation externe; Dans des situations extraordinaires, comme une maladie prolongée de B., un stress personnel grave ou des expériences difficiles dans la vie privée ainsi que dans le travail quotidien, diverses offres de conversation vous sont offertes. La coopération reconnaissante et amicale au sein des équipes et des départements caractérise l'atmosphère de travail de KSW. Comme signe d'un fort esprit d'équipe, le -you , a été introduit comme un standard chez KSW. De plus, le KSW appuie financièrement les activités annuelles de l'équipe et organise tous les quatre ans un important événement de dotation pour toute la maison. Les employés de KSW bénéficient de très bons avantages sociaux. Ainsi, la solution de fonds de pension avec BVK est bien au-dessus du minimum légal. Même en cas de maladie ou d'accident, les employés de KSW sont très bien couverts. Avec des rabais sur les abonnements de fitness, des possibilités de formation interne et des cours, avantages dans les pharmacies ainsi que dans les compagnies d'assurance santé les plus populaires. Vous pouvez bénéficier d'une offre complète pour votre santé; Notre garderie La Luna avec des heures d'ouverture spacieuses est située directement à côté de la KSW. De plus, vous pouvez utiliser le soutien financier de la KSW, qui dépend du revenu, pour les coûts du lit. En collaboration avec des partenaires culturels de Winterthur et des environs, nous offrons régulièrement des réductions pour les concerts et les spectacles de théâtre. L'emprunt des médias dans la bibliothèque interne est également gratuit pour les employés.\n\n• Domaine professionnel: Opération\n• Secteur: Exploitation\n• Pensum: 80 %"
       },
       "location": "Winterthur",
       "canton": "ZH",

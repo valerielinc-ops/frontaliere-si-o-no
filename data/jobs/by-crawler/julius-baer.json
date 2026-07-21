@@ -178,7 +178,6 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-07-08T22:08:05.429Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -5463,8 +5462,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-SAP-Project-Manager---Finance-Transformation-80-100---f-m-d-_r-18701",
