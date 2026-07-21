@@ -3348,9 +3348,9 @@
     },
     {
       "id": "novartis-040a56a242c1",
-      "slug": "trd-qa-global-sterility-assurance-novartis-ch",
+      "slug": "trd-qa-assicurazione-globale-della-sterilita-novartis-basel",
       "slugByLocale": {
-        "it": "trd-qa-global-sterility-assurance-novartis-ch",
+        "it": "trd-qa-assicurazione-globale-della-sterilita-novartis-basel",
         "en": "trd-qa-global-sterility-assurance-novartis-ch",
         "de": "trd-qa-global-sterility-assurance-novartis-ch",
         "fr": "trd-qa-global-sterility-assurance-novartis-ch"
@@ -3406,7 +3406,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "trd-qa-global-sterility-assurance-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "trd-qa-global-sterility-assurance-novartis-ch"
+      ]
     },
     {
       "id": "novartis-e90ca42ef375",
