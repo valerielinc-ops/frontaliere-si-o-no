@@ -1,16 +1,16 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-07-20T22:05:18.751Z",
+  "generatedAt": "2026-07-21T11:29:24.664Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2082,
-  "avgDurationMs": 2082,
+  "durationMs": 1786,
+  "avgDurationMs": 1786,
   "durationHistory": [
-    2082
+    1786
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -358,50 +358,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Senior .NET Engineer (6-months project)",
-      "slug": "senior-net-ingegnere-6-months-project-fincons-group-lugano",
-      "url": "https://fincons.applytojob.com/apply/tWTOwNLiUk/Senior-NET-Engineer-6months-Project",
-      "applyUrl": "https://fincons.applytojob.com/apply/tWTOwNLiUk/Senior-NET-Engineer-6months-Project",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-11",
-      "validThrough": "2026-09-09",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Mid Level",
-        "uniqueJobCode": "job_20260611115624_NDW2YNSD34Y18S7S",
-        "listingLocation": "Lugano, Switzerland",
-        "listingDepartment": ""
-      },
-      "id": "fincons-group-3a49140b7495",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "firstSeenAt": "2026-06-30T11:21:13.758Z",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
