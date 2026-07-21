@@ -1,0 +1,40 @@
+{
+  "id": "nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia",
+  "slug": "nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia",
+  "publishedAt": "2026-07-21T11:08:27.292Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 11.07243900830287,
+    "confidence": 0.8,
+    "finalScore": 8.857951206642296,
+    "topK": [
+      {
+        "slug": "iniziativa-contro-dumping-ticino",
+        "cosine": 0.8517260775617594
+      },
+      {
+        "slug": "di-piu-posti-di-lavoro-la-situazione-rista-critica-nel-settore-bancario",
+        "cosine": 0.8510130454383935
+      },
+      {
+        "slug": "settimana-corta-svizzera-frontalieri",
+        "cosine": 0.8487158722421363
+      },
+      {
+        "slug": "mobilita-infermieri-ticino",
+        "cosine": 0.8466570079051732
+      },
+      {
+        "slug": "frontalieri-ticino-dati-ingannevoli",
+        "cosine": 0.8446300237680003
+      }
+    ],
+    "score": 8.857951206642296,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

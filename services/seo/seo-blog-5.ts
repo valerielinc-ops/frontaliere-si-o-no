@@ -53346,6 +53346,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia': {
+    title: 'Il ritorno del nucleare svizzero minaccia migliaia di posti nell\'edilizia',
+    description: 'Studio ZHAW: nuove centrali nucleari in Svizzera minacciano 5\'800-9\'500 impieghi in edilizia e rinnovabili entro 5 anni. Impatto sui frontalieri ticinesi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ritorno, nucleare, svizzero, minaccia',
+    ogTitle: 'Nucleare svizzero: 9\'500 posti frontalieri a rischio nell\'edilizia',
+    ogDescription: 'Studio ZHAW avverte: il ritorno del nucleare in Svizzera potrebbe cancellare migliaia di impieghi nell\'edilizia e rinnovabili entro 5 anni.',
+    canonicalPath: '/articoli-frontaliere/nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il ritorno del nucleare svizzero minaccia migliaia di posti nell'edilizia",
+      "description": "Studio ZHAW: nuove centrali nucleari in Svizzera minacciano 5'800-9'500 impieghi in edilizia e rinnovabili entro 5 anni. Impatto sui frontalieri ticinesi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantiere edile a Bellinzona con operai al lavoro"
+      },
+      "datePublished": "2026-07-21T11:08:23+00:00",
+      "dateModified": "2026-07-21T11:08:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

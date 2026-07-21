@@ -8807,6 +8807,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.salari-ticino-abusi-precarieta.title': 'Salari ticinesi: tra abusi e precarietà',
     'blog.article.salari-ticino-abusi-precarieta.excerpt': 'Nuovo accordo fiscale 2024, imposta alla fonte e contributi sociali: cosa cambia per i frontalieri con l\'Italia',
     'blog.article.salari-ticino-abusi-precarieta.imageAlt': 'Frontalieri in attesa presso l\'Ufficio delle contribuzioni di Bellinzona',
+    'blog.article.nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia.title': 'Il ritorno del nucleare svizzero minaccia migliaia di posti nell\'edilizia',
+    'blog.article.nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia.excerpt': 'Uno studio ZHAW avverte: nuove centrali nucleari mettono a rischio 5\'800-9\'500 impieghi in edilizia e rinnovabili entro 5 anni',
+    'blog.article.nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia.imageAlt': 'Cantiere edile a Bellinzona con operai al lavoro',
 };
 
 export default blogMetaIt;
