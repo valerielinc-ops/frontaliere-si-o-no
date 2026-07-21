@@ -75,6 +75,34 @@ describe('walkHtmlFiles', () => {
     const files = await walkHtmlFiles(root);
     expect(files.every((f) => f.endsWith('.html'))).toBe(true);
   });
+
+  // Regression guard for the bounded-concurrency directory fan-out
+  // (WALK_CONCURRENCY): with N directories in flight at once, a wide+deep
+  // tree exercises the queue/cursor/inFlight bookkeeping far harder than the
+  // 3-file fixture above — completeness (every file found, no duplicates,
+  // no dropped subtree) must hold regardless of readdir completion order.
+  it('finds every file in a wide, deep tree with no duplicates or omissions (parallel walk correctness)', async () => {
+    const wideRoot = mkdtempSync(join(tmpdir(), 'audit-runner-wide-'));
+    const expected = new Set<string>();
+    for (let locale = 0; locale < 4; locale++) {
+      for (let section = 0; section < 5; section++) {
+        for (let slug = 0; slug < 10; slug++) {
+          const dir = join(wideRoot, `locale-${locale}`, `section-${section}`, `slug-${slug}`);
+          mkdirSync(dir, { recursive: true });
+          const file = join(dir, 'index.html');
+          writeFileSync(file, '<html></html>');
+          expected.add(file);
+        }
+      }
+    }
+    try {
+      const files = await walkHtmlFiles(wideRoot);
+      expect(files.length).toBe(expected.size); // 200 files, no dupes/drops
+      expect(new Set(files)).toEqual(expected);
+    } finally {
+      rmSync(wideRoot, { recursive: true, force: true });
+    }
+  });
 });
 
 describe('sharedExtract', () => {

@@ -139,21 +139,56 @@ function decodeEntities(s) {
  * @param {string} dir
  * @returns {Promise<string[]>}
  */
+// Bounded-concurrency directory fan-out — WALK_CONCURRENCY simultaneous
+// `readdir` calls instead of one at a time. The SSG output tree is one
+// directory per job/page (`dist/<locale>/<section>/<slug>/index.html`), so
+// on a ~3.3M-file dist that's ~3.3M individual `readdir` syscalls; awaiting
+// them fully sequentially (the previous stack-based DFS) leaves the event
+// loop idle between each one. Same lever this file's own `runAudits()`
+// collect loop already applies to file reads (see READAHEAD below) — this
+// mirrors that established pattern for the walk phase instead of inventing
+// a new one. Correctness is unaffected: every directory is still visited
+// exactly once, dot-prefixed directories are still skipped, and the
+// returned set of `.html` files is identical — only DISCOVERY ORDER changes
+// (no auditor or test depends on walk order; pass/fail is a function of the
+// complete file SET, not its enumeration order — see tests/seo/audit-
+// runner.test.ts, which only asserts membership/count/`.every()` predicates).
+const WALK_CONCURRENCY = 24;
+
 export async function walkHtmlFiles(dir) {
   const out = [];
-  const stack = [dir];
-  while (stack.length) {
-    const cur = stack.pop();
-    let entries;
-    try { entries = await readdir(cur, { withFileTypes: true }); }
-    catch { continue; }
-    for (const e of entries) {
-      if (e.name.startsWith('.')) continue;
-      const p = join(cur, e.name);
-      if (e.isDirectory()) stack.push(p);
-      else if (e.isFile() && p.endsWith('.html')) out.push(p);
-    }
-  }
+  const queue = [dir];
+  let inFlight = 0;
+  let cursor = 0;
+
+  // Same "swallow any readdir error and skip that subtree" contract as the
+  // original sequential walk's `catch { continue; }` — a speed refactor
+  // must not also change error-handling semantics.
+  await new Promise((resolve) => {
+    const pump = () => {
+      while (inFlight < WALK_CONCURRENCY && cursor < queue.length) {
+        const cur = queue[cursor++];
+        inFlight++;
+        readdir(cur, { withFileTypes: true })
+          .then((entries) => {
+            for (const e of entries) {
+              if (e.name.startsWith('.')) continue;
+              const p = join(cur, e.name);
+              if (e.isDirectory()) queue.push(p);
+              else if (e.isFile() && p.endsWith('.html')) out.push(p);
+            }
+          })
+          .catch(() => {})
+          .finally(() => {
+            inFlight--;
+            if (cursor >= queue.length && inFlight === 0) resolve();
+            else pump();
+          });
+      }
+    };
+    pump();
+  });
+
   return out;
 }
 
