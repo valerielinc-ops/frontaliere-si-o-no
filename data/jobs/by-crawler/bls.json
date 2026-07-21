@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-07-20T22:14:48.006Z",
+  "assembledAt": "2026-07-21T11:35:43.307Z",
   "jobs": [
     {
       "id": "bls-5c03d3b84468",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/gleisbauer-in/e1d4abf3-9ab0-4d59-90ae-5f02770201b0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:14:39.153Z",
+      "crawledAt": "2026-07-21T11:35:39.951Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -84,6 +84,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:35.340Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -129,7 +130,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-immobilienentwicklung/877f2218-456f-42eb-949f-8c7acbeb3544",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:14:38.233Z",
+      "crawledAt": "2026-07-21T11:35:38.885Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -176,6 +177,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T12:57:20.047Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -205,7 +207,7 @@
       "title": "Senior SAP Applikations-Manager:in BW",
       "titleByLocale": {
         "it": "Senior SAP Application Manager: in BW",
-        "en": "Senior SAP Application Manager: in BW",
+        "en": "Senior SAP Applikations-Manager:in BW",
         "de": "Senior SAP Applikations-Manager:in BW",
         "fr": "Gestionnaire principal des applications SAP : en BW"
       },
@@ -221,7 +223,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/senior-sap-applikations-manager-in-bw/ae3debbe-b632-4a7a-be55-cb3ee8ce5dd4",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:14:37.518Z",
+      "crawledAt": "2026-07-21T11:35:37.949Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -263,6 +265,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T21:56:35.717Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -308,7 +311,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/sachbearbeiter-in-avor-fahrzeuge/b5914380-f9b2-4ed1-a2e6-8b2e582bf103",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:14:36.678Z",
+      "crawledAt": "2026-07-21T11:35:36.882Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -356,6 +359,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T12:34:16.156Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -401,7 +405,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachperson-beschriftung-und-grafik/b2005728-e8ef-4493-9545-57ddfb0dcb8a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:14:35.826Z",
+      "crawledAt": "2026-07-21T11:35:35.799Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -449,6 +453,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:16:16.079Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -494,7 +499,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/flottenmanager-in/543ebd37-5d31-43f4-9610-f564e7a54c75",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:14:35.101Z",
+      "crawledAt": "2026-07-21T11:35:34.835Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -554,6 +559,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:16:23.691Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -599,7 +605,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/junior-betriebsplaner-in-bus/a564855b-b74c-48e0-994f-4865aa551b52",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:14:34.254Z",
+      "crawledAt": "2026-07-21T11:35:33.888Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -646,6 +652,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T13:12:39.014Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -691,7 +698,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-tunneltechnik-loetschberg-basistunnel-lbt/87090c34-c9fd-4541-a605-c35c2780277d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:14:32.752Z",
+      "crawledAt": "2026-07-21T11:35:33.034Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -738,6 +745,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:20:28.123Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -783,7 +791,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/junior-produktemanager-in-autoverlad/05b45652-0fb7-46c8-ae2b-861a6f8737b2",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:14:27.272Z",
+      "crawledAt": "2026-07-21T11:35:31.914Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -828,14 +836,15 @@
           "junior-produktemanager-in-autoverlad-bls-ch",
           "junior-product-manager-in-autoverlad-bls-ag-bern"
         ],
-        "fr": [
+        "en": [
           "junior-produktemanager-in-autoverlad-bls-ch"
         ],
-        "en": [
+        "fr": [
           "junior-produktemanager-in-autoverlad-bls-ch"
         ]
       },
       "firstSeenAt": "2026-07-20T12:20:22.725Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -881,7 +890,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/kaeltesystemtechniker-in-lueftung-und-klima/2a7b3bed-4367-4ac7-b091-f2a5cbb4e352",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:14:21.772Z",
+      "crawledAt": "2026-07-21T11:35:30.875Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -938,6 +947,7 @@
         ]
       },
       "firstSeenAt": "2026-07-19T11:47:54.009Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -951,6 +961,87 @@
         }
       },
       "addressRegion": "BE"
+    },
+    {
+      "id": "bls-cfb4d105162d",
+      "slug": "baufuhrer-in-bahnbau-bls-ch",
+      "slugByLocale": {
+        "de": "baufuhrer-in-bahnbau-bls-ch",
+        "it": "baufuhrer-in-bahnbau-bls-ch",
+        "en": "baufuhrer-in-bahnbau-bls-ch",
+        "fr": "baufuhrer-in-bahnbau-bls-ch"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "Bauführer:in Bahnbau",
+      "titleByLocale": {
+        "de": "Bauführer:in Bahnbau",
+        "it": "Bauführer:in Bahnbau",
+        "en": "Bauführer:in Bahnbau",
+        "fr": "Bauführer:in Bahnbau"
+      },
+      "description": "Wenn nachts die letzten Züge durchs Berner Oberland rollen, läuft deine Arbeit oft erst richtig an. Mit Übersicht, technischem Gespür und einem starken Team realisierst du komplexe Bauprojekte und erneuerst die Fahrbahn dort, wo täglich tausende Menschen unterwegs sind. So bleibt die BLS zuverlässig in der Spur – heute und morgen.\n\nDas wartet auf dich:\n\n• Führst komplexe Bauprojekte mit Schwerpunkt Fahrbahn durch und wirkst bei der Planung der Ausführung mit\n\n• Gemeinsam mit Fachbereichen die Bahntechnik aufeinander abstimmen\n\n• Verantwortung für Kosten, Qualität und Termine im Bahnbau übernehmen\n\n• Personal, Maschinen und Intervalle vorausschauend und effizient planen\n\n• Sicherheit auf Baustellen aktiv prägen und Standards konsequent umsetzen\n\nDas bringst du mit:\n\n• Weiterbildung als Bauführer:in, Techniker:in HF oder gleichwertige Qualifikation\n\n• Grundwissen in Fahrbahn, Automation oder Energie gezielt einsetzen\n\n• Mit klarem Auftreten unterschiedliche Anspruchsgruppen sicher koordinieren\n\n• Stilsicher auf Deutsch kommunizieren – mündlich wie schriftlich\n\n• Mit Führerausweis Kategorie B flexibel entlang der BLS-Strecken unterwegs sein\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+      "descriptionByLocale": {
+        "de": "Wenn nachts die letzten Züge durchs Berner Oberland rollen, läuft deine Arbeit oft erst richtig an. Mit Übersicht, technischem Gespür und einem starken Team realisierst du komplexe Bauprojekte und erneuerst die Fahrbahn dort, wo täglich tausende Menschen unterwegs sind. So bleibt die BLS zuverlässig in der Spur – heute und morgen.\n\nDas wartet auf dich:\n\n• Führst komplexe Bauprojekte mit Schwerpunkt Fahrbahn durch und wirkst bei der Planung der Ausführung mit\n\n• Gemeinsam mit Fachbereichen die Bahntechnik aufeinander abstimmen\n\n• Verantwortung für Kosten, Qualität und Termine im Bahnbau übernehmen\n\n• Personal, Maschinen und Intervalle vorausschauend und effizient planen\n\n• Sicherheit auf Baustellen aktiv prägen und Standards konsequent umsetzen\n\nDas bringst du mit:\n\n• Weiterbildung als Bauführer:in, Techniker:in HF oder gleichwertige Qualifikation\n\n• Grundwissen in Fahrbahn, Automation oder Energie gezielt einsetzen\n\n• Mit klarem Auftreten unterschiedliche Anspruchsgruppen sicher koordinieren\n\n• Stilsicher auf Deutsch kommunizieren – mündlich wie schriftlich\n\n• Mit Führerausweis Kategorie B flexibel entlang der BLS-Strecken unterwegs sein\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "it": "Wenn nachts die letzten Züge durchs Berner Oberland rollen, läuft deine Arbeit oft erst richtig an. Mit Übersicht, technischem Gespür und einem starken Team realisierst du komplexe Bauprojekte und erneuerst die Fahrbahn dort, wo täglich tausende Menschen unterwegs sind. So bleibt die BLS zuverlässig in der Spur – heute und morgen.\n\nDas wartet auf dich:\n\n• Führst komplexe Bauprojekte mit Schwerpunkt Fahrbahn durch und wirkst bei der Planung der Ausführung mit\n\n• Gemeinsam mit Fachbereichen die Bahntechnik aufeinander abstimmen\n\n• Verantwortung für Kosten, Qualität und Termine im Bahnbau übernehmen\n\n• Personal, Maschinen und Intervalle vorausschauend und effizient planen\n\n• Sicherheit auf Baustellen aktiv prägen und Standards konsequent umsetzen\n\nDas bringst du mit:\n\n• Weiterbildung als Bauführer:in, Techniker:in HF oder gleichwertige Qualifikation\n\n• Grundwissen in Fahrbahn, Automation oder Energie gezielt einsetzen\n\n• Mit klarem Auftreten unterschiedliche Anspruchsgruppen sicher koordinieren\n\n• Stilsicher auf Deutsch kommunizieren – mündlich wie schriftlich\n\n• Mit Führerausweis Kategorie B flexibel entlang der BLS-Strecken unterwegs sein\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "en": "Wenn nachts die letzten Züge durchs Berner Oberland rollen, läuft deine Arbeit oft erst richtig an. Mit Übersicht, technischem Gespür und einem starken Team realisierst du komplexe Bauprojekte und erneuerst die Fahrbahn dort, wo täglich tausende Menschen unterwegs sind. So bleibt die BLS zuverlässig in der Spur – heute und morgen.\n\nDas wartet auf dich:\n\n• Führst komplexe Bauprojekte mit Schwerpunkt Fahrbahn durch und wirkst bei der Planung der Ausführung mit\n\n• Gemeinsam mit Fachbereichen die Bahntechnik aufeinander abstimmen\n\n• Verantwortung für Kosten, Qualität und Termine im Bahnbau übernehmen\n\n• Personal, Maschinen und Intervalle vorausschauend und effizient planen\n\n• Sicherheit auf Baustellen aktiv prägen und Standards konsequent umsetzen\n\nDas bringst du mit:\n\n• Weiterbildung als Bauführer:in, Techniker:in HF oder gleichwertige Qualifikation\n\n• Grundwissen in Fahrbahn, Automation oder Energie gezielt einsetzen\n\n• Mit klarem Auftreten unterschiedliche Anspruchsgruppen sicher koordinieren\n\n• Stilsicher auf Deutsch kommunizieren – mündlich wie schriftlich\n\n• Mit Führerausweis Kategorie B flexibel entlang der BLS-Strecken unterwegs sein\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "fr": "Wenn nachts die letzten Züge durchs Berner Oberland rollen, läuft deine Arbeit oft erst richtig an. Mit Übersicht, technischem Gespür und einem starken Team realisierst du komplexe Bauprojekte und erneuerst die Fahrbahn dort, wo täglich tausende Menschen unterwegs sind. So bleibt die BLS zuverlässig in der Spur – heute und morgen.\n\nDas wartet auf dich:\n\n• Führst komplexe Bauprojekte mit Schwerpunkt Fahrbahn durch und wirkst bei der Planung der Ausführung mit\n\n• Gemeinsam mit Fachbereichen die Bahntechnik aufeinander abstimmen\n\n• Verantwortung für Kosten, Qualität und Termine im Bahnbau übernehmen\n\n• Personal, Maschinen und Intervalle vorausschauend und effizient planen\n\n• Sicherheit auf Baustellen aktiv prägen und Standards konsequent umsetzen\n\nDas bringst du mit:\n\n• Weiterbildung als Bauführer:in, Techniker:in HF oder gleichwertige Qualifikation\n\n• Grundwissen in Fahrbahn, Automation oder Energie gezielt einsetzen\n\n• Mit klarem Auftreten unterschiedliche Anspruchsgruppen sicher koordinieren\n\n• Stilsicher auf Deutsch kommunizieren – mündlich wie schriftlich\n\n• Mit Führerausweis Kategorie B flexibel entlang der BLS-Strecken unterwegs sein\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bls.ch/offene-stellen/baufuehrer-in-bahnbau/adcb2459-2080-47bc-964b-82d7764e2de5",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-21T11:35:29.865Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3001",
+      "streetAddress": "Freiburgstrasse 130",
+      "category": "Risorse Umane",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-21",
+      "validThrough": "2026-08-19",
+      "pensum": "80-100%",
+      "salary": "109546",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/adcb2459-2080-47bc-964b-82d7764e2de5",
+      "requirements": [
+        "Weiterbildung als Bauführer:in, Techniker:in HF oder gleichwertige Qualifikation",
+        "Grundwissen in Fahrbahn, Automation oder Energie gezielt einsetzen",
+        "Mit klarem Auftreten unterschiedliche Anspruchsgruppen sicher koordinieren",
+        "Stilsicher auf Deutsch kommunizieren – mündlich wie schriftlich",
+        "Mit Führerausweis Kategorie B flexibel entlang der BLS-Strecken unterwegs sein"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Weiterbildung als Bauführer:in, Techniker:in HF oder gleichwertige Qualifikation",
+          "Grundwissen in Fahrbahn, Automation oder Energie gezielt einsetzen",
+          "Mit klarem Auftreten unterschiedliche Anspruchsgruppen sicher koordinieren",
+          "Stilsicher auf Deutsch kommunizieren – mündlich wie schriftlich",
+          "Mit Führerausweis Kategorie B flexibel entlang der BLS-Strecken unterwegs sein"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-07-21T11:35:29.865Z"
     }
   ]
 }
