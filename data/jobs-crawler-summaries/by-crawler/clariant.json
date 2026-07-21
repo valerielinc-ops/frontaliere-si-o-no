@@ -1,18 +1,19 @@
 {
   "key": "clariant",
   "label": "Clariant",
-  "generatedAt": "2026-07-21T11:38:41.542Z",
+  "generatedAt": "2026-07-21T22:23:27.361Z",
   "total": 1,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4514,
-  "avgDurationMs": 4514,
+  "durationMs": 4479,
+  "avgDurationMs": 4479,
   "durationHistory": [
-    4514
+    4479
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "clariant-8907364e581e",
       "slug": "finance-specialist-m-f-d-clariant-pratteln",
@@ -25,7 +26,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-Finance-Specialist-%28MFD%29/1417218033/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T11:38:38.947Z",
+      "crawledAt": "2026-07-21T22:23:25.133Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
@@ -41,16 +42,16 @@
       "postedDate": "2026-07-21",
       "applyUrl": "https://careers.clariant.com/job/Pratteln-Finance-Specialist-%28MFD%29/1417218033/",
       "jobReqId": "41644",
-      "_qualityScore": 69,
+      "firstSeenAt": "2026-07-21T11:38:38.947Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
