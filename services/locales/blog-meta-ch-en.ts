@@ -1438,6 +1438,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione.title': '534 hours of experience left: Swisscom loses a Confederation contract.',
     'blog.article.mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione.excerpt': 'The Confederation has excluded Swisscom\'s bid for a contract due to a typo in the bid.',
     'blog.article.mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione.imageAlt': 'Swisscom headquarters in Lugano.',
+    'blog.article.grigioni-traffico-sviamento-udc.title': 'Graubünden: diversion traffic, UDC criticizes the Government',
+    'blog.article.grigioni-traffico-sviamento-udc.excerpt': 'The greyish CDU proposes the Birsfelden model to counteract diversion traffic on the A13. The Government asks for legal clarity before proceeding.',
+    'blog.article.grigioni-traffico-sviamento-udc.imageAlt': 'Traffic on the A13 in Grisons',
 };
 
 export default blogMetaChEn;
