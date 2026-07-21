@@ -1396,6 +1396,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-custode-ticino-stipendio-requisiti.title': 'Custodians in Ticino: salary, requirements and G permit',
     'blog.article.frontaliere-custode-ticino-stipendio-requisiti.excerpt': 'Border workers working as custodians in Ticino must comply with the regulations in force. Here are the requirements and useful information.',
     'blog.article.frontaliere-custode-ticino-stipendio-requisiti.imageAlt': 'Frontier workers working as custodians in Ticino',
+    'blog.article.swatch-crescita-2026.title': 'Swatch, strong growth in the first half',
+    'blog.article.swatch-crescita-2026.excerpt': 'The Swatch Group recorded a 2% increase in turnover in the first half of 2026, with a turnover of CHF 3.12 billion.',
+    'blog.article.swatch-crescita-2026.imageAlt': 'A high-quality photograph of a Swatch Group location in Lugano, with people working inside the factory.',
 };
 
 export default blogMetaChEn;

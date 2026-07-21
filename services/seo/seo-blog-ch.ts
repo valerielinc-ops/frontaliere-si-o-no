@@ -18036,6 +18036,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-swatch-crescita-2026': {
+    title: 'Swatch, forte crescita nel primo semestre | Frontaliere Ticino',
+    description: 'La Swatch Group ha registrato un aumento del fatturato del 2% nel primo semestre del 2026, con un fatturato di 3,12 miliardi di franchi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, swatch, forte, crescita, primo',
+    ogTitle: 'Swatch, forte crescita nel primo semestre',
+    ogDescription: 'La Swatch Group ha registrato un aumento del fatturato del 2% nel primo semestre del 2026, con un fatturato di 3,12 miliardi di franchi.',
+    canonicalPath: '/articoli-svizzera/swatch-crescita-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swatch, forte crescita nel primo semestre",
+      "description": "La Swatch Group ha registrato un aumento del fatturato del 2% nel primo semestre del 2026, con un fatturato di 3,12 miliardi di franchi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/swatch-crescita-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una fotografia di alta qualità di una sede della Swatch Group a Lugano, con persone che lavorano all'interno della fabbrica."
+      },
+      "datePublished": "2026-07-21T06:51:11+00:00",
+      "dateModified": "2026-07-21T06:51:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/swatch-crescita-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

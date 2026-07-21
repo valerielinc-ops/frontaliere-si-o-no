@@ -1396,6 +1396,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-custode-ticino-stipendio-requisiti.title': 'Hausmeister im Tessin: Gehalt, Voraussetzungen und Bewilligung G',
     'blog.article.frontaliere-custode-ticino-stipendio-requisiti.excerpt': 'Grenzgänger, die als Wächter im Tessin arbeiten, müssen die geltenden Vorschriften einhalten. Hier finden Sie die Anforderungen und nützlichen Informationen.',
     'blog.article.frontaliere-custode-ticino-stipendio-requisiti.imageAlt': 'Grenzgänger, die als Aufseher in Ticino arbeiten',
+    'blog.article.swatch-crescita-2026.title': 'Swatch, starkes Wachstum im ersten Halbjahr',
+    'blog.article.swatch-crescita-2026.excerpt': 'Die Swatch Group verzeichnete im ersten Halbjahr 2026 eine Umsatzsteigerung von 2% auf CHF 3,12 Milliarden.',
+    'blog.article.swatch-crescita-2026.imageAlt': 'Eine hochwertige Fotografie einer Swatch-Gruppensitz in Lugano, mit Menschen, die innerhalb der Fabrik arbeiten.',
 };
 
 export default blogMetaChDe;

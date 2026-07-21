@@ -1396,6 +1396,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-custode-ticino-stipendio-requisiti.title': 'Custodi in Ticino: stipendio, requisiti e permesso G',
     'blog.article.frontaliere-custode-ticino-stipendio-requisiti.excerpt': 'I frontalieri che lavorano come custodi in Ticino devono rispettare le norme vigenti. Ecco i requisiti e le informazioni utili.',
     'blog.article.frontaliere-custode-ticino-stipendio-requisiti.imageAlt': 'Frontalieri che lavorano come custodi in Ticino',
+    'blog.article.swatch-crescita-2026.title': 'Swatch, forte crescita nel primo semestre',
+    'blog.article.swatch-crescita-2026.excerpt': 'La Swatch Group ha registrato un aumento del fatturato del 2% nel primo semestre del 2026, con un fatturato di 3,12 miliardi di franchi.',
+    'blog.article.swatch-crescita-2026.imageAlt': 'Una fotografia di alta qualità di una sede della Swatch Group a Lugano, con persone che lavorano all\'interno della fabbrica.',
 };
 
 export default blogMetaChIt;

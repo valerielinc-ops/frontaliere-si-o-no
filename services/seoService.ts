@@ -4787,6 +4787,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-addetto-pulizie-ticino-stipendio-requisiti': { name: 'Frontaliere addetto alle pulizie Ticino', path: '/articoli-frontaliere/frontaliere-addetto-pulizie-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-frontaliere-custode-ticino-stipendio-requisiti': { name: 'Lavorare come custode in Ticino', path: '/articoli-svizzera/frontaliere-custode-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-monate-pesche-sciroppate-bina': { name: 'Tradizioni locali', path: '/articoli-frontaliere/monate-pesche-sciroppate-bina', parent: 'blog' },
+    'blog-swatch-crescita-2026': { name: 'Swatch, crescita, fatturato', path: '/articoli-svizzera/swatch-crescita-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
