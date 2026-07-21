@@ -1,18 +1,55 @@
 {
   "key": "trafigura",
   "label": "Trafigura",
-  "generatedAt": "2026-07-20T22:01:54.859Z",
+  "generatedAt": "2026-07-21T22:06:36.483Z",
   "total": 8,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 10214,
-  "avgDurationMs": 10214,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 11687,
+  "avgDurationMs": 11687,
   "durationHistory": [
-    10214
+    11687
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "trafigura-e590821f2aa3",
+      "slug": "sustainability-specialist-trafigura-ch",
+      "company": "Trafigura",
+      "companyKey": "trafigura",
+      "companyDomain": "trafigura.com",
+      "title": "Sustainability Specialist",
+      "needsRetranslation": true,
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Sustainability-Specialist_R-018423",
+      "source": "Trafigura Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-21T22:06:26.642Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trading di materie prime",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-21",
+      "applyUrl": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Sustainability-Specialist_R-018423",
+      "jobReqId": "R-018423",
+      "_qualityScore": 63,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "trafigura-c3bfbffa64db",
@@ -27,7 +64,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Gasoline-Blending-Operator_R-018360",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-20T22:01:46.471Z",
+      "crawledAt": "2026-07-21T22:06:27.405Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -64,7 +101,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Geneva-Commercial-Graduate-Programme_R-018268",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-20T22:01:48.281Z",
+      "crawledAt": "2026-07-21T22:06:29.115Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -101,7 +138,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Market-Risk-Financial-Engineer_R-017858",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-20T22:01:47.291Z",
+      "crawledAt": "2026-07-21T22:06:28.242Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -138,7 +175,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/CTRM-Business-Architect_R-018081",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-20T22:01:49.177Z",
+      "crawledAt": "2026-07-21T22:06:30.032Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -175,7 +212,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Market-Risk-Manager---Oil-products_R-017868",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-20T22:01:50.023Z",
+      "crawledAt": "2026-07-21T22:06:31.102Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -212,7 +249,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Risk-Quant-Analyst_R-017471",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-20T22:01:50.772Z",
+      "crawledAt": "2026-07-21T22:06:31.835Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -249,7 +286,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Analyst--Americas-Oil-2_R-017068",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-20T22:01:51.604Z",
+      "crawledAt": "2026-07-21T22:06:32.560Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -274,8 +311,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "trafigura-dad260e2ee64",
       "slug": "senior-gas-originator-trafigura-ch",
@@ -315,5 +351,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
