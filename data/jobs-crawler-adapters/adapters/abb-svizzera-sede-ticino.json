@@ -45,10 +45,11 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00040474EXTERNALENGLOBAL/DACH-Sales-Manager-CI",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00040990EXTERNALENGLOBAL/R-D-Project-Manager--f-m-d--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00041013EXTERNALENGLOBAL/Application-Engineering-Chapter-Leader",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00041416EXTERNALENGLOBAL/Sales-Manager---Panel-Builders--80-100"
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00041416EXTERNALENGLOBAL/Sales-Manager---Panel-Builders--80-100",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00042189EXTERNALENGLOBAL/Finance-Intern"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-07-21T11:30:28.870Z",
+  "updatedAt": "2026-07-21T22:18:05.458Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00040397EXTERNALENGLOBAL/Electrification-Business-Area-Research-Manager": {
       "location": "Baden-Daettwil, Aargau, Switzerland",
@@ -59,6 +60,22 @@
       "contract": "Full-time"
     },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00040367EXTERNALENGLOBAL/Global-Sales-Manager-Business-Line-Mining---Materials_JR00040367-1": {
+      "location": "Baden, Aargau, Switzerland",
+      "canton": "AG",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00040990EXTERNALENGLOBAL/R-D-Project-Manager--f-m-d--80-100": {
+      "location": "Schaffhausen, Schaffhausen, Switzerland",
+      "canton": "SH",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00038436EXTERNALENGLOBAL/Technical-Service-Specialist---Gearless-Mill-Drive--80-100": {
       "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
@@ -101,22 +118,6 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00038899EXTERNALENGLOBAL/IS-Division-Manager-ELSB": {
       "location": "Zurich, Zurich, Switzerland",
       "canton": "ZH",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00040990EXTERNALENGLOBAL/R-D-Project-Manager--f-m-d--80-100": {
-      "location": "Schaffhausen, Schaffhausen, Switzerland",
-      "canton": "SH",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00038436EXTERNALENGLOBAL/Technical-Service-Specialist---Gearless-Mill-Drive--80-100": {
-      "location": "Baden, Aargau, Switzerland",
-      "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
@@ -314,14 +315,6 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00037142EXTERNALENGLOBAL/Technical-Support-Engineer--80-100": {
-      "location": "Biel, Berne, Switzerland",
-      "canton": "BE",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00034494EXTERNALENGLOBAL/Internship-Procurement": {
       "location": "Schaffhausen, Schaffhausen, Switzerland",
       "canton": "SH",
@@ -337,6 +330,22 @@
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
       "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00037142EXTERNALENGLOBAL/Technical-Support-Engineer--80-100": {
+      "location": "Biel, Berne, Switzerland",
+      "canton": "BE",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00042189EXTERNALENGLOBAL/Finance-Intern": {
+      "location": "Zurich, Zurich, Switzerland",
+      "canton": "ZH",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Part-time"
     }
   }
 }
