@@ -196,13 +196,13 @@ function mapEmploymentTypeLd(value, contractLabel = '', title = '') {
   if (/teilzeit|geringf(ü|u)gig/.test(label)) return 'part-time';
   if (/vollzeit/.test(label)) return 'full-time';
   const t = String(title || '').toLowerCase();
-  if (/lehrling|lernend|apprenti|apprendist|praktik|stage|stagiair/.test(t)) return 'internship';
+  if (/\b(lehrling|lernend|apprenti|apprendist|praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair)/.test(t)) return 'internship';
   return 'full-time';
 }
 
 function detectExperienceLevel(title = '') {
   const t = title.toLowerCase();
-  if (/\b(lehrling|lernend\w*|apprenti\w*|apprendist\w*|stage|stagiair\w*|praktik\w*|intern\w*)\b/.test(t)) return 'intern';
+  if (/\b(lehrling|lernend\w*|apprenti\w*|apprendist\w*|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair\w*|praktik\w*|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/.test(t)) return 'intern';
   if (/\b(junior|jr\.?|assistent\w*|assistant\w*)\b/.test(t)) return 'junior';
   if (/\b(senior|sr\.?|lead|head|director|manager|leiter\w*|leitend\w*|verantwortlich\w*)\b/.test(t)) return 'senior';
   return 'mid';

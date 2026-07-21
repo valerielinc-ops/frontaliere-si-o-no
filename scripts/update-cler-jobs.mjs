@@ -240,7 +240,7 @@ function inferCategory(field = '', title = '') {
 
 function inferEmploymentType(title = '', workload = '') {
   const t = `${title} ${workload}`.toLowerCase();
-  if (/praktik|intern|trainee|stage/i.test(t)) return 'internship';
+  if (/\b(praktik|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|trainee|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/i.test(t)) return 'internship';
   if (/teilzeit|part.?time/i.test(t)) return 'part_time';
   if (/temporär|befristet/i.test(t)) return 'temporary';
   return 'full_time';

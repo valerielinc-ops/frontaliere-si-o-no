@@ -155,7 +155,7 @@ function normalizeAbbContract(raw = '') {
   if (value.includes('apprend') || value.includes('lehre') || value.includes('apprent')) return 'Apprendistato';
   if (value.includes('part-time') || value.includes('part time') || value.includes('teilzeit')) return 'Part-time';
   if (value.includes('full-time') || value.includes('full time') || value.includes('vollzeit')) return 'Full-time';
-  if (value.includes('stage') || value.includes('intern') || value.includes('praktikum')) return 'Stage';
+  if (/\bstages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(value) || /\bintern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(value) || value.includes('praktikum')) return 'Stage';
   return String(raw || '').trim();
 }
 

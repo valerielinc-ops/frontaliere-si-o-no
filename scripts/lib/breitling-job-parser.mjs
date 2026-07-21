@@ -187,7 +187,7 @@ function detectCategory(title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(intern|apprenti|apprenticeship|stage|stagiaire|trainee)/.test(t)) return 'intern';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprenti|apprenticeship|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiaire|trainee)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|head of|director|assistant boutique director)/.test(t)) return 'senior';
   return 'mid';
@@ -195,7 +195,7 @@ function detectExperienceLevel(title = '') {
 
 function detectEmploymentType(title = '') {
   const t = normalize(title);
-  if (/\b(intern|apprenti|apprenticeship|stage|stagiaire)/.test(t)) return 'INTERN';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprenti|apprenticeship|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiaire)/.test(t)) return 'INTERN';
   if (/\btemporary\b/.test(t)) return 'TEMPORARY';
   const pct = t.match(/\((\d{1,3})\s*%\)/) || t.match(/(\d{1,3})\s*%/);
   if (pct) {

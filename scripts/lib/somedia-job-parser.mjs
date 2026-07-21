@@ -121,7 +121,7 @@ function detectCategory(title = '', description = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti|hochschulpraktik)/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti|hochschulpraktik)/.test(t)) return 'intern';
   if (/\b(junior|jr|quereinsteig)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab|teamleit)/.test(t)) return 'senior';
   return 'mid';
@@ -147,7 +147,7 @@ function detectEmploymentType(title = '', jsonLdType = '') {
 
   if (/\b(teilzeit|part.?time|tempo parziale)/.test(t)) return 'PART_TIME';
   if (/\b(vollzeit|full.?time|tempo pieno)/.test(t)) return 'FULL_TIME';
-  if (/\b(praktik|intern|stage)/.test(t)) return 'INTERN';
+  if (/\b(praktik|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/.test(t)) return 'INTERN';
   return 'OTHER';
 }
 

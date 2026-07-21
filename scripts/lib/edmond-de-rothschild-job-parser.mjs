@@ -137,7 +137,7 @@ function detectCategory(title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(stagiaire|stage|intern|apprenti|apprentice|trainee|praktik)/.test(t)) return 'intern';
+  if (/\b(stagiaire|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprenti|apprentice|trainee|praktik)/.test(t)) return 'intern';
   if (/\b(junior|jr\.?|analyst)/.test(t)) return 'junior';
   if (/\b(senior|sr\.?|lead|head|director|chef|responsable|manager|dirett)/.test(t)) return 'senior';
   return 'mid';
@@ -146,7 +146,7 @@ function detectExperienceLevel(title = '') {
 function detectEmploymentType(title = '') {
   const t = normalize(title);
   if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
-  if (/\b(stagiaire|stage|intern|apprenti|apprentice)/.test(t)) return 'INTERN';
+  if (/\b(stagiaire|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprenti|apprentice)/.test(t)) return 'INTERN';
   // CDD (contrat à durée déterminée) is a fixed-term contract, NOT part-time —
   // matches the established convention in pictet-job-parser.mjs / ubs-job-parser.mjs.
   if (/\b(temporary|tempor|befristet|fixed.?term|cdd)\b/.test(t)) return 'CONTRACTOR';

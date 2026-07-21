@@ -771,7 +771,7 @@ function inferContract(apiMeta, employmentType = '', title = '') {
   const type = normalize(employmentType);
   const titleN = normalize(title);
   const employmentTokens = Array.isArray(apiMeta?.employmentRaw) ? apiMeta.employmentRaw.map((x) => normalize(x)) : [];
-  if (/(apprend|intern|tirocin|trainee)/.test(titleN)) return 'temporary';
+  if (/\b(apprend|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|tirocin|trainee)/.test(titleN)) return 'temporary';
   if (type.includes('part_time') && !type.includes('full_time')) return 'part-time';
   if (type.includes('temporary') || type.includes('contract')) return 'temporary';
   if (employmentTokens.some((x) => x.includes('tempo parziale')) && !employmentTokens.some((x) => x.includes('tempo pieno'))) {

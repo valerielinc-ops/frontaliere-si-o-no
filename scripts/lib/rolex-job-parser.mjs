@@ -119,7 +119,7 @@ function detectCategory(title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab)/.test(t)) return 'senior';
   return 'mid';
@@ -127,7 +127,7 @@ function detectExperienceLevel(title = '') {
 
 function detectEmploymentType(text = '') {
   const t = normalize(text);
-  if (/\b(stage|stagiair|intern|praktik|apprenti|apprendist)/.test(t)) return 'INTERN';
+  if (/\b(stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|praktik|apprenti|apprendist)/.test(t)) return 'INTERN';
   if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
   // Rolex listing "CONTRAT" column: CDI (permanent) / CDD (fixed-term) ⇒ full-time.
   if (/\bcdd\b/.test(t)) return 'TEMPORARY';

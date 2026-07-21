@@ -218,7 +218,7 @@ function detectCategory(title = '', department = '') {
 
 function detectExperienceLevel(title = '', tags = []) {
   const combined = `${title} ${tags.join(' ')}`;
-  if (/lehr|ausbildung|intern|junior|entry|stage|apprent|praktik/i.test(combined)) return 'ENTRY';
+  if (/\b(lehr|ausbildung|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|junior|entry|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprent|praktik)/i.test(combined)) return 'ENTRY';
   if (/senior|lead|head|director|manager|chef|teamleit|stv\./i.test(combined)) return 'SENIOR';
   return 'MID';
 }

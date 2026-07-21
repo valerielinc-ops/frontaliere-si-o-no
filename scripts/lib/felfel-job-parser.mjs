@@ -130,7 +130,7 @@ function detectExperienceLevel(title = '', seniority = '', personioEmploymentTyp
   if (sen.includes('student') || pet === 'intern') return 'intern';
   if (sen.includes('entry')) return 'junior';
   const t = normalize(title);
-  if (/\b(praktikum|praktikant|stage|stagiaire|intern|apprenti|lehrling|lernende)/.test(t)) return 'intern';
+  if (/\b(praktikum|praktikant|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiaire|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprenti|lehrling|lernende)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|chef|responsable|leiter|verantwort)/.test(t)) return 'senior';
   return 'mid';

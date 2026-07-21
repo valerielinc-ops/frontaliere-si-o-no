@@ -78,7 +78,7 @@ export const CLUSTER_PATTERNS = [
   },
   {
     cluster: 'lavoro',
-    pattern: /\b(lavor|jobs?|vacanc|posizione|assum|stage|tirocin|apprend|cerc[ao]\s*lavor|opportunit[aà])/i,
+    pattern: /\b(lavor|jobs?|vacanc|posizione|assum|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|tirocin|apprend|cerc[ao]\s*lavor|opportunit[aà])/i,
   },
   {
     cluster: 'novita',

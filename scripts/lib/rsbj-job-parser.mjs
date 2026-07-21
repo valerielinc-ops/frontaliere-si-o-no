@@ -141,13 +141,13 @@ function detectCategory(title = '') {
   if (/technique|maintenan|b[âa]timent/.test(t)) return 'Tecnica';
   if (/admin|secret|gestion|finance|compt/.test(t)) return 'Amministrazione';
   if (/cuisine|restauration|h[ôo]tel/.test(t)) return 'Ospitalità';
-  if (/apprenti|stage/.test(t)) return 'Formazione';
+  if (/\b(apprenti|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/.test(t)) return 'Formazione';
   return 'Sanità / Ospedali';
 }
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/apprenti|stage|intern/.test(t)) return 'intern';
+  if (/\b(apprenti|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/.test(t)) return 'intern';
   if (/junior|assistant/.test(t)) return 'junior';
   if (/senior|chef|responsable|directeur|cadre|encadrant/.test(t)) return 'senior';
   return 'mid';

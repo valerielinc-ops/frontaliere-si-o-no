@@ -210,7 +210,7 @@ function normalizeEmploymentType(contractRaw = ''): string {
  if (v.includes('full')) return 'FULL_TIME';
  if (v.includes('permanent')) return 'FULL_TIME';
  if (v.includes('part')) return 'PART_TIME';
- if (v.includes('intern') || v.includes('stage') || v.includes('tirocin')) return 'INTERN';
+ if (/\bintern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(v) || /\bstages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(v) || v.includes('tirocin')) return 'INTERN';
  if (v.includes('temp')) return 'TEMPORARY';
  if (v.includes('contract')) return 'CONTRACTOR';
  return 'OTHER';

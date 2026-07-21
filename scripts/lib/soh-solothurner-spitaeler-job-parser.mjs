@@ -241,7 +241,7 @@ export async function fetchAllSohJobs() {
     let employmentType = 'OTHER';
     if (/FULL_TIME/.test(detail.employmentTypeRaw)) employmentType = 'FULL_TIME';
     else if (/PART_TIME/.test(detail.employmentTypeRaw)) employmentType = 'PART_TIME';
-    else if (/INTERN|TRAINEE|APPRENT/.test(detail.employmentTypeRaw)) employmentType = 'OTHER';
+    else if (/\bINTERN(?:SHIP)?S?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|TRAINEE|APPRENT/.test(detail.employmentTypeRaw)) employmentType = 'OTHER';
     if (employmentType === 'OTHER') {
       employmentType = detectHealthcareEmploymentType(title);
     }

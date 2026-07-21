@@ -23,6 +23,26 @@ describe('jobDataNormalization', () => {
     expect(normalizeJobContract('', 'Thesis R&D Orthopedics')).toBe('internship');
   });
 
+  it('does not misclassify full-time roles whose description merely contains "intern"/"stage" as a substring (issue: UBS M&A Business Strategist flagged as internship)', () => {
+    expect(
+      normalizeJobContract(
+        'full-time',
+        'Group M&A - Business Strategist',
+        'prepare high-quality presentations and materials for internal and external stakeholders',
+      ),
+    ).toBe('full-time');
+    expect(normalizeJobContract('full-time', 'International Sales Manager', '')).toBe('full-time');
+    expect(normalizeJobContract('full-time', 'Backstage Crew Technician', '')).toBe('full-time');
+  });
+
+  it('still detects genuine internship/stage signals as standalone words or plurals', () => {
+    expect(normalizeJobContract('', '', 'Stage de formation en informatique')).toBe('internship');
+    expect(normalizeJobContract('', '', 'Plusieurs stages disponibles cet ete')).toBe('internship');
+    expect(normalizeJobContract('', 'Summer Intern, Investment Banking', '')).toBe('internship');
+    expect(normalizeJobContract('Internship', '', '')).toBe('internship');
+    expect(normalizeJobContract('', '', 'Multiple Internships available')).toBe('internship');
+  });
+
   it('resolves Medacta website host even when the job URL is hosted on Allibo', () => {
     const host = resolveCompanyWebsiteHost({
       company: 'Medacta International SA',

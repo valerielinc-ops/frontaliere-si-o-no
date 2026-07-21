@@ -165,7 +165,7 @@ export function detectCategory(title = '') {
 
 export function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   // "leiter(in)" is not word-boundary-prefixed on purpose: Swiss German titles
   // routinely compound it (Filialleiter, Marktleiter, Teamleiter, Abteilungsleiterin).

@@ -323,7 +323,7 @@ function detectCategory(title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/apprendist|afc|cfp|stage|stagist|junior/i.test(t)) return 'ENTRY';
+  if (/\b(apprendist|afc|cfp|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagist|junior)/i.test(t)) return 'ENTRY';
   if (/senior|responsabile|capo|dirett|manager|head/i.test(t)) return 'SENIOR';
   return 'MID';
 }

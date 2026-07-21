@@ -137,13 +137,13 @@ function detectCategory(title = '') {
   if (/\b(planer|projektleiter|gesamtprojektleiter|teamleiter|fachkoordinator|chef de projet|projeteur|ingegner|engineer)/.test(t)) return 'Ingegneria';
   if (/\b(consultant|expert|beratung|conseil)/.test(t)) return 'Consulenza';
   if (/\b(admin|segret|contab|buchhalt|account|administrat)/.test(t)) return 'Amministrazione';
-  if (/\b(werkstudent|apprenti|praktik|stage|lehrling|lernend)/.test(t)) return 'Formazione';
+  if (/\b(werkstudent|apprenti|praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|lehrling|lernend)/.test(t)) return 'Formazione';
   return 'Ingegneria';
 }
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(werkstudent|apprenti|praktik|stage|stagiair|intern|apprendist|lehrling|lernend)/.test(t)) return 'intern';
+  if (/\b(werkstudent|apprenti|praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend)/.test(t)) return 'intern';
   if (/\bjunior\b/.test(t)) return 'junior';
   if (/\b(senior|gesamtprojektleiter|teamleiter|expert|chef de projet senior|leiter|leitend)/.test(t)) return 'senior';
   return 'mid';
@@ -151,7 +151,7 @@ function detectExperienceLevel(title = '') {
 
 function detectEmploymentType(title = '') {
   const t = normalize(title);
-  if (/\b(werkstudent|apprenti|praktik|stage|lehrling|lernend)/.test(t)) return 'INTERN';
+  if (/\b(werkstudent|apprenti|praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|lehrling|lernend)/.test(t)) return 'INTERN';
   const pctMatch = t.match(/(\d{2,3})\s*[-–]\s*(\d{2,3})\s*%/) || t.match(/(\d{2,3})\s*%/);
   if (pctMatch) {
     const minPct = Number(pctMatch[1]);

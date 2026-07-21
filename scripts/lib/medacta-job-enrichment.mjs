@@ -88,7 +88,7 @@ export function inferMedactaContract({ rawContract = '', title = '', description
   }
   if (Number.isFinite(percent) && percent > 0 && percent < 90) return 'part-time';
 
-  if (/(thesis|intern|internship|stage|tirocin|apprendist|praktikum)/.test(norm)) return 'internship';
+  if (/\b(thesis|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|internship|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|tirocin|apprendist|praktikum)/.test(norm)) return 'internship';
   if (/(part time|tempo parziale|teilzeit|temps partiel)/.test(norm)) return 'part-time';
   if (/(temp|temporary|determinato|fixed term|befristet)/.test(norm)) return 'temporary';
   if (/(contractor|freelance|consul|progetto|projektvertrag|contract)/.test(norm)) return 'contract';

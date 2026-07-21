@@ -271,13 +271,13 @@ export function detectHealthcareCategory(text = '', fallback = 'Sanità / Ospeda
   if (/küche|koch|gastro|hauswirt|reinig|hotellerie|cuisine|restauration|cucina|cuoco|ristoraz/.test(t)) return 'Ospitalità';
   if (/logist|magazz|lager|einkauf|transport|approvvig/.test(t)) return 'Logistica';
   if (/market|kommunik|communic|comunicaz/.test(t)) return 'Marketing';
-  if (/lernend|praktik|ausbildung|apprenti|stage|stagiair|tirocin|formaz/.test(t)) return 'Formazione';
+  if (/\b(lernend|praktik|ausbildung|apprenti|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|tirocin|formaz)/.test(t)) return 'Formazione';
   return fallback;
 }
 
 export function detectHealthcareExperienceLevel(text = '') {
   const t = normalize(text);
-  if (/praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti|tirocin|werkstudent/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti|tirocin|werkstudent)/.test(t)) return 'intern';
   if (/junior|jr|assistent|assistant/.test(t)) return 'junior';
   if (/senior|sr|lead|head|director|dirett|chef|verantwort|leiter|leitend|stationsleitung|oberarzt|chefarzt|primario|responsable|cadre|responsabile/.test(t)) return 'senior';
   return 'mid';

@@ -145,7 +145,7 @@ function mapEmploymentType(rawType = '') {
   const t = normalize(rawType);
   if (t.includes('full') || t.includes('vollzeit') || t.includes('pieno')) return 'full-time';
   if (t.includes('part') || t.includes('teilzeit') || t.includes('parziale')) return 'part-time';
-  if (t.includes('intern') || t.includes('praktik') || t.includes('stage')) return 'internship';
+  if (/\bintern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(t) || t.includes('praktik') || /\bstages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(t)) return 'internship';
   return 'full-time';
 }
 
