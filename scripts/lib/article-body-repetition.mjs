@@ -93,17 +93,30 @@ export function dedupeRepeatedParagraphs(bodies) {
       }
     }
 
-    // Step 2: within each surviving paragraph, strip sentences repeated 3+
-    // times globally down to a single occurrence across the whole document.
+    // Step 2: within each surviving paragraph, strip sentences repeated 4+
+    // times globally (same bar as detectBodyRepetition's own trigger, so
+    // dedup never touches a sentence that wouldn't independently have
+    // flagged detection — was 3+ before code review found it could
+    // silently strip unrelated, legitimately 3x-repeated content whenever
+    // dedup ran for a different reason) down to a single occurrence across
+    // the whole document.
+    //
+    // No `sentences.length < 2` short-circuit for single-sentence
+    // paragraphs (code review found this too): a repeated sentence that
+    // stands alone as its own paragraph — a callout/pull-quote line, which
+    // this article format explicitly supports (📊/💡/⚠️ markers) — must
+    // still go through the SAME filter so it both (a) gets stripped when
+    // it's a repeat and (b) registers in `globalSeen` on its first/kept
+    // occurrence; skipping it silently undercounted, letting one extra
+    // occurrence elsewhere survive.
     const cleaned = uniqueParas
       .map((para) => {
         const sentences = para.split(/(?<=[.!?])\s+/);
-        if (sentences.length < 2) return para;
         const filtered = sentences.filter((s) => {
           const norm = s.trim().toLowerCase().replace(/\s+/g, ' ');
           if (norm.length <= 30) return true;
           const globalCount = globalSentCounts.get(norm) || 1;
-          if (globalCount < 3) return true;
+          if (globalCount < 4) return true;
           const soFar = (globalSeen.get(norm) || 0) + 1;
           globalSeen.set(norm, soFar);
           return soFar <= 1;
