@@ -8778,6 +8778,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.title': 'Wie viel verdient ein Grenzschutzbeamter im Tessin?',
     'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.excerpt': 'Das Einkommen eines Grenzschutzbeamten im Tessin hängt von verschiedenen Faktoren ab, wie der Gehaltsstufe und dem Arbeitsplatz.',
     'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.imageAlt': 'Ein Grenzschutzbeamter arbeitet in Lugano, mit dem Luganer See im Hintergrund.',
+    'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.title': 'Grenzgänger Tessin: Gehalt und Anforderungen für Reinigungskräfte',
+    'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.excerpt': 'Der Reinigungskraft ist ein Mitarbeiter, der sich mit der Wartung und Instandhaltung von Gebäuden, Anlagen und Infrastrukturen befasst. Im Tessin kann der Reinigungsgrenzgänger in verschiedenen Bereichen wie Unternehmen, Schulen, Spitälern und Einkaufszentren arbeiten.',
+    'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.imageAlt': 'Ein Grenzgänger, der sich um die Reinigung kümmert, arbeitet in einer Firma in Lugano',
 };
 
 export default blogMetaDe;

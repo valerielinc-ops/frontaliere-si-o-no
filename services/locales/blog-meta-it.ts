@@ -8780,6 +8780,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.title': 'Quanto guadagna un agente di sicurezza frontaliere in Ticino?',
     'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.excerpt': 'Il reddito di un agente di sicurezza frontaliere in Ticino dipende da vari fattori, come la fascia salariale e la posizione lavorativa.',
     'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.imageAlt': 'Un agente di sicurezza frontaliere in azione a Lugano, con la vista sul lago Lugano in secondo piano.',
+    'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.title': 'Frontaliere Ticino: stipendio e requisiti per addetti alle pulizie',
+    'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.excerpt': 'L\'addetto alle pulizie è un lavoratore che si occupa della manutenzione e del mantenimento degli edifici, degli impianti e delle infrastrutture. In Ticino, il frontaliere addetto alle pulizie può lavorare in diverse aree, come le aziende, le scuole, gli ospedali e i centri commerciali.',
+    'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.imageAlt': 'Un frontaliere addetto alle pulizie lavora in un\'azienda di Lugano',
 };
 
 export default blogMetaIt;

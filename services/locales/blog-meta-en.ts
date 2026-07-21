@@ -8779,6 +8779,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.title': 'How much does a border security agent earn in Ticino?',
     'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.excerpt': 'The income of a border security agent in Ticino depends on various factors, such as salary bracket and job position.',
     'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.imageAlt': 'A border security agent working at Lugano, with Lake Lugano in the background.',
+    'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.title': 'Ticino border guards: salary and requirements for cleaners',
+    'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.excerpt': 'The cleaner is a worker who takes care of the maintenance and upkeep of buildings, plants and infrastructure. In Ticino, the border cleaner can work in different areas, such as companies, schools, hospitals and shopping centers.',
+    'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.imageAlt': 'A cross-border cleaner works in a company in Lugano',
 };
 
 export default blogMetaEn;

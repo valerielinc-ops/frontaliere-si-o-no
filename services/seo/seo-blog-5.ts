@@ -52995,6 +52995,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-addetto-pulizie-ticino-stipendio-requisiti': {
+    title: 'Frontaliere Ticino: stipendio e requisiti per addetti alle pulizie',
+    description: 'Lavorare come addetto alle pulizie in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G.',
+    keywords: 'frontalieri, ticino, svizzera, italia, stipendio, requisiti, addetti, alle',
+    ogTitle: 'Frontaliere addetto alle pulizie Ticino: stipendio medio, requisiti, riconoscimento del titolo di studio, permesso G',
+    ogDescription: 'Lavorare come addetto alle pulizie in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-addetto-pulizie-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere Ticino: stipendio e requisiti per addetti alle pulizie",
+      "description": "Lavorare come addetto alle pulizie in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-addetto-pulizie-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere addetto alle pulizie lavora in un'azienda di Lugano"
+      },
+      "datePublished": "2026-07-21T06:14:38+00:00",
+      "dateModified": "2026-07-21T06:14:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-addetto-pulizie-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -8780,6 +8780,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.title': 'Combien gagne un agent de sécurité frontalière au Tessin ?',
     'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.excerpt': 'Le revenu d\'un agent de sécurité frontalière au Tessin dépend de divers facteurs, tels que la fourchette de salaire et le poste de travail.',
     'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.imageAlt': 'Un agent de sécurité frontalière travaillant à Lugano, avec le lac de Lugano en arrière-plan.',
+    'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.title': 'Frontière du Tessin : salaire et exigences pour les agents de nettoyage',
+    'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.excerpt': 'L\'agent de nettoyage est un travailleur qui s\'occupe de l\'entretien et de la maintenance des bâtiments, des installations et des infrastructures. Au Tessin, l\'agent de nettoyage frontalier peut travailler dans différents domaines, tels que les entreprises, les écoles, les hôpitaux et les centres commerciaux.',
+    'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.imageAlt': 'Un frontalier chargé de nettoyage travaille dans une entreprise à Lugano',
 };
 
 export default blogMetaFr;
