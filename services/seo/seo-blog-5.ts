@@ -53658,6 +53658,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge': {
+    title: 'Telelavoro per frontalieri: il Governo approva il disegno di legge',
+    description: 'Il Consiglio dei ministri italiano ha approvato il disegno di legge per ratificare il Protocollo di modifica dell\'Accordo con la Svizzera sull\'imposizione dei',
+    keywords: 'frontalieri, ticino, svizzera, italia, telelavoro, governo, approva, disegno',
+    ogTitle: 'Il Governo italiano approva il disegno di legge per il telelavoro dei frontalieri',
+    ogDescription: 'Il Consiglio dei ministri italiano ha approvato il disegno di legge per ratificare il Protocollo di modifica dell\'Accordo con la Svizzera sull\'imposizione dei',
+    canonicalPath: '/articoli-frontaliere/telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Telelavoro per frontalieri: il Governo approva il disegno di legge",
+      "description": "Il Consiglio dei ministri italiano ha approvato il disegno di legge per ratificare il Protocollo di modifica dell'Accordo con la Svizzera sull'imposizione dei",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere ticinese lavora da casa, circondato da libri e documenti."
+      },
+      "datePublished": "2026-07-21T17:13:39+00:00",
+      "dateModified": "2026-07-21T17:13:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

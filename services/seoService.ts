@@ -4817,6 +4817,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione': { name: 'Mancano 534 ore di esperienza: Swisscom', path: '/articoli-svizzera/mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione/', parent: 'blog' },
     'blog-deduzioni-smac-frontalieri-2025': { name: 'Fiscale frontalieri', path: '/articoli-frontaliere/deduzioni-smac-frontalieri-2025', parent: 'blog' },
     'blog-grigioni-traffico-sviamento-udc': { name: 'Traffico Grigioni', path: '/articoli-svizzera/grigioni-traffico-sviamento-udc/', parent: 'blog' },
+    'blog-telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge': { name: 'Governo italiano', path: '/articoli-frontaliere/telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge', parent: 'blog' },
  };
 
  const info = sectionNames[section];
