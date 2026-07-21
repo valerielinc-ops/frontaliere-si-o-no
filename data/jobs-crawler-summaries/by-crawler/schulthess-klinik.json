@@ -1,16 +1,16 @@
 {
   "key": "schulthess-klinik",
   "label": "Schulthess Klinik",
-  "generatedAt": "2026-07-21T11:14:42.302Z",
-  "total": 6,
+  "generatedAt": "2026-07-21T22:04:59.326Z",
+  "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5906,
-  "avgDurationMs": 5906,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6078,
+  "avgDurationMs": 6078,
   "durationHistory": [
-    5906
+    6078
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-schulter-und-ellbogenchirurgie/f0113e53-104f-439d-9d85-dc38a9f1e01a",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:14:37.308Z",
+      "crawledAt": "2026-07-21T22:04:54.074Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/experte-expertin-anaesthesiepflege-nds-hf-in-ausbildung/19f33968-498b-44f6-8f1f-60c0b58e15a1",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:14:37.327Z",
+      "crawledAt": "2026-07-21T22:04:54.100Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation/8f712e35-aecd-403d-b0b9-d48e6d1ddab0",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:14:37.335Z",
+      "crawledAt": "2026-07-21T22:04:54.107Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/radiologiefachperson/408d33fc-2664-40fa-a077-16db7969afc8",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:14:37.339Z",
+      "crawledAt": "2026-07-21T22:04:54.113Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -179,7 +179,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation/2454b56f-d938-4c76-8cec-98a913c25330",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:14:37.343Z",
+      "crawledAt": "2026-07-21T22:04:54.115Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -205,11 +205,10 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "schulthess-klinik-44bc6c5a34d1",
-      "slug": "spezialistin-spezialist-content-multimedia-schulthess-klinik-lengghalde-2-zurich",
+      "slug": "specialista-specialista-contenuto-multimedia-schulthess-klinik-lengghalde-2-zurich",
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
       "companyDomain": "schulthess-klinik.ch",
@@ -247,5 +246,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
