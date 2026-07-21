@@ -1369,6 +1369,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.stipendio-cassiere-frontaliere-ticino.title': 'How much does a border cashier earn in Ticino',
     'blog.article.stipendio-cassiere-frontaliere-ticino.excerpt': 'Real wage band, differences with Italy and factors affecting net pay. Practical guide with verified data.',
     'blog.article.stipendio-cassiere-frontaliere-ticino.imageAlt': 'Cashier in a Bellinzona store with Swiss products and CHF banknotes',
+    'blog.article.stipendio-frontaliere-ticino-2024.title': 'How much does a border shop manager earn in Ticino?',
+    'blog.article.stipendio-frontaliere-ticino-2024.excerpt': 'Facts and figures on the remuneration of border shop managers in Ticino',
+    'blog.article.stipendio-frontaliere-ticino-2024.imageAlt': 'A frontaliere manager in a Lugano store',
 };
 
 export default blogMetaChEn;

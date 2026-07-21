@@ -1369,6 +1369,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.stipendio-cassiere-frontaliere-ticino.title': 'Wie viel verdient ein Grenzkassierer im Tessin',
     'blog.article.stipendio-cassiere-frontaliere-ticino.excerpt': 'Reales Lohnniveau, Unterschiede zu Italien und Faktoren, die das Nettoentgelt beeinflussen. Praktische Anleitung mit verifizierten Daten.',
     'blog.article.stipendio-cassiere-frontaliere-ticino.imageAlt': 'Kassierer in Bellinzona mit Schweizer Produkten und CHF-Banknoten',
+    'blog.article.stipendio-frontaliere-ticino-2024.title': 'Wie viel verdient ein Filialleiter im Tessin?',
+    'blog.article.stipendio-frontaliere-ticino-2024.excerpt': 'Zahlen und Fakten zur Entlohnung der Verantwortlichen von Grenzshops im Tessin',
+    'blog.article.stipendio-frontaliere-ticino-2024.imageAlt': 'Ein Frontalier Manager in einem Lugano-Laden',
 };
 
 export default blogMetaChDe;

@@ -1369,6 +1369,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.stipendio-cassiere-frontaliere-ticino.title': 'Combien gagne un caissier frontalier au Tessin',
     'blog.article.stipendio-cassiere-frontaliere-ticino.excerpt': 'Échelle des salaires réels, différences avec l\'Italie et facteurs affectant le salaire net. Guide pratique avec des données vérifiées.',
     'blog.article.stipendio-cassiere-frontaliere-ticino.imageAlt': 'Caissier à Bellinzona avec des produits suisses et des billets CHF',
+    'blog.article.stipendio-frontaliere-ticino-2024.title': 'Combien gagne un responsable de magasin frontalier au Tessin ?',
+    'blog.article.stipendio-frontaliere-ticino-2024.excerpt': 'Faits et chiffres sur la rémunération des responsables de magasin frontalier au Tessin',
+    'blog.article.stipendio-frontaliere-ticino-2024.imageAlt': 'Un responsable frontalier dans un magasin de Lugano',
 };
 
 export default blogMetaChFr;
