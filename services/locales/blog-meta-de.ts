@@ -8799,6 +8799,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sospensioni-attivita-varesotto-sicurezza.title': 'Varesotto: 10 Unternehmen wegen Schwarzarbeit und Sicherheit suspendiert',
     'blog.article.sospensioni-attivita-varesotto-sicurezza.excerpt': 'Maxi-Blitz der Carabinieri in Varese: 12 Arbeiter in Schwarz und schwerwiegende Sicherheitsmängel führen zur Schließung von 10 Aktivitäten und Sanktionen in Höhe von 775.000 Euro.',
     'blog.article.sospensioni-attivita-varesotto-sicurezza.imageAlt': 'Sicherheitsinspektion in einem Produktionsbetrieb in der Provinz Varese',
+    'blog.article.romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.title': 'Des Grases Sekretär Ausschuss für Gesundheit und Sicherheit',
+    'blog.article.romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.excerpt': 'Die Regionalrätin Romana Dell \'Gras wurde zur Sekretärin der Sonderkommission für Gesundheit und Sicherheit am Arbeitsplatz ernannt.',
+    'blog.article.romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.imageAlt': 'Die Sicht auf Lugano von dem See',
 };
 
 export default blogMetaDe;

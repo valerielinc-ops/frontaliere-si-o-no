@@ -4798,6 +4798,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-esportazioni-svizzera-sfide-kagi': { name: 'Economia', path: '/articoli-svizzera/esportazioni-svizzera-sfide-kagi/', parent: 'blog' },
     'blog-sospensioni-attivita-varesotto-sicurezza': { name: 'Cronaca Lavoro', path: '/articoli-frontaliere/sospensioni-attivita-varesotto-sicurezza', parent: 'blog' },
     'blog-orologi-svizzeri-export-in-netta-crescita-ma-non-basta': { name: 'Orologi svizzeri', path: '/articoli-svizzera/orologi-svizzeri-export-in-netta-crescita-ma-non-basta/', parent: 'blog' },
+    'blog-romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza': { name: 'Notizie Ticino', path: '/articoli-frontaliere/romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza', parent: 'blog' },
  };
 
  const info = sectionNames[section];

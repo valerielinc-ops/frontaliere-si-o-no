@@ -8800,6 +8800,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sospensioni-attivita-varesotto-sicurezza.title': 'Varese: 10 companies suspended for undeclared work and safety',
     'blog.article.sospensioni-attivita-varesotto-sicurezza.excerpt': 'Carabinieri maxi blitz in Varese: 12 workers in black and serious safety deficiencies lead to the closure of 10 activities and sanctions for 775 thousand euros.',
     'blog.article.sospensioni-attivita-varesotto-sicurezza.imageAlt': 'Safety inspection at a production facility in the Varese province',
+    'blog.article.romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.title': 'OF the grass Secretary OF the health and safety Committee',
+    'blog.article.romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.excerpt': 'The regional councillor Romana Dell \'Erba has been appointed secretary of the Special Commission on Health and Safety in the Workplace.',
+    'blog.article.romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.imageAlt': 'The view of Lugano from the lake',
 };
 
 export default blogMetaEn;
