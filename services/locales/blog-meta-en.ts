@@ -8743,6 +8743,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.title': 'Gessatori in Ticino: salary, requirements and recognition',
     'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.excerpt': 'Average salary of border plasterers in Ticino: CHF 60,000, requirements to work as a plasterer in Ticino, possible recognition of the qualification',
     'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.imageAlt': 'Gessatore frontaliero in Lugano',
+    'blog.article.stipendio-gessatore-frontaliere-ticino.title': 'How much does a border plasterer earn in Ticino: salaries and taxes',
+    'blog.article.stipendio-gessatore-frontaliere-ticino.excerpt': 'Real salary band, differences with Italy, deductions and contributions. Practical guide with verified calculations.',
+    'blog.article.stipendio-gessatore-frontaliere-ticino.imageAlt': 'Cross-border worker plasterer on a construction site in Ticino',
 };
 
 export default blogMetaEn;
