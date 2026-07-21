@@ -17697,9 +17697,9 @@
     },
     {
       "id": "roche-e651a228bab5",
-      "slug": "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland",
+      "slug": "specialista-dell-assistenza-tecnica-specialista-roche-poland",
       "slugByLocale": {
-        "it": "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland",
+        "it": "specialista-dell-assistenza-tecnica-specialista-roche-poland",
         "en": "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
         "de": "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
         "fr": "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch"
@@ -17743,12 +17743,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
-        "specialista-dell-assistenza-tecnica-specialista-roche-poland"
+        "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
-          "specialista-dell-assistenza-tecnica-specialista-roche-poland"
+          "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland"
         ]
       },
       "needsRetranslation": true,
@@ -82755,10 +82755,10 @@
     },
     {
       "id": "roche-8a9f192e96ce",
-      "slug": "estagiario-para-suporte-a-campo-recife-roche-ch",
+      "slug": "stadio-per-sostenere-il-campo-recife-roche-basel",
       "slugByLocale": {
         "en": "estagiario-para-suporte-a-campo-recife-roche-ch",
-        "it": "estagiario-para-suporte-a-campo-recife-roche-ch",
+        "it": "stadio-per-sostenere-il-campo-recife-roche-basel",
         "de": "estagiario-para-suporte-a-campo-recife-roche-ch",
         "fr": "estagiario-para-suporte-a-campo-recife-roche-ch"
       },
@@ -82815,7 +82815,15 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-20T22:04:02.506Z"
+      "firstSeenAt": "2026-07-20T22:04:02.506Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "estagiario-para-suporte-a-campo-recife-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "estagiario-para-suporte-a-campo-recife-roche-ch"
+      ]
     },
     {
       "id": "roche-d62c0276f2c3",

@@ -5677,9 +5677,9 @@
     },
     {
       "id": "raiffeisen-026b3c9fc29b",
-      "slug": "credit-officer-w-m-d-raiffeisen-nafels",
+      "slug": "responsabile-del-credito-f-m-d-raiffeisen-nafels",
       "slugByLocale": {
-        "it": "credit-officer-w-m-d-raiffeisen-nafels",
+        "it": "responsabile-del-credito-f-m-d-raiffeisen-nafels",
         "en": "credit-officer-w-m-d-raiffeisen-nafels",
         "de": "credit-officer-w-m-d-raiffeisen-nafels",
         "fr": "specialiste-du-credit-f-m-d-raiffeisen-nafels"
@@ -5736,7 +5736,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "credit-officer-w-m-d-raiffeisen-nafels"
+        ]
+      },
+      "previousSlugs": [
+        "credit-officer-w-m-d-raiffeisen-nafels"
+      ]
     },
     {
       "id": "raiffeisen-b45efd702b56",
