@@ -1,16 +1,16 @@
 {
   "key": "huntsman",
   "label": "Huntsman Corporation",
-  "generatedAt": "2026-07-20T22:41:22.694Z",
-  "total": 5,
+  "generatedAt": "2026-07-21T12:19:55.798Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5181,
-  "avgDurationMs": 5181,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4998,
+  "avgDurationMs": 4998,
   "durationHistory": [
-    5181
+    4998
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,7 +38,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/LOGISTICIEN--H-F-_J-020013",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-20T22:41:18.201Z",
+      "crawledAt": "2026-07-21T12:19:51.781Z",
       "jobReqId": "J-020013",
       "firstSeenAt": "2026-07-20T12:04:44.172Z",
       "_qualityScore": 84,
@@ -73,7 +73,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019937",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-20T22:41:18.750Z",
+      "crawledAt": "2026-07-21T12:19:52.558Z",
       "jobReqId": "J-019937",
       "firstSeenAt": "2026-06-26T22:07:54.096Z",
       "_qualityScore": 82,
@@ -108,7 +108,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Technologue-en-production---5-quipes_J-019681",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-20T22:41:19.297Z",
+      "crawledAt": "2026-07-21T12:19:53.245Z",
       "jobReqId": "J-019681",
       "firstSeenAt": "2026-05-04T22:05:20.209Z",
       "_qualityScore": 82,
@@ -143,7 +143,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-20T22:41:19.849Z",
+      "crawledAt": "2026-07-21T12:19:53.887Z",
       "jobReqId": "J-019405",
       "firstSeenAt": "2026-04-13T10:44:47.716Z",
       "_qualityScore": 82,
@@ -155,8 +155,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "huntsman-c78cd5f80c52",
       "slug": "tirocinante-data-science-huntsman-corporation-basel",
@@ -196,5 +195,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
