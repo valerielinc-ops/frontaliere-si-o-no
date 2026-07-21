@@ -74,7 +74,11 @@ const AI_CONCURRENCY = 5; // Max parallel AI calls
 // the tightest top-of-chain free-tier daily cap (Gemini flash: 1500/day) even
 // on high-subscriber days, so most batches succeed on the first model instead
 // of cascading through the whole chain to the claude-cli/haiku last resort.
-const AI_BRIEFING_BATCH_SIZE = 5;
+// Kept at 3 (not higher) so the batch's combined maxTokens request stays
+// comfortably under smaller free-tier models' per-request output caps —
+// a bigger batch cuts request volume further but risks silent truncation
+// on the weaker links in the chain.
+const AI_BRIEFING_BATCH_SIZE = 3;
 
 // ── Email provider selection ──
 // cascade = multi-provider free tier cascade (default)
@@ -250,13 +254,18 @@ async function generateAIBriefing(ctx) {
  */
 function parseBriefingBatchResponse(raw) {
   const map = new Map();
-  const marker = /===BRIEFING\s+(\S+?)===/g;
-  const matches = [...String(raw || '').matchAll(marker)];
+  const text = String(raw || '');
+  // Tolerant of minor formatting drift models are prone to (extra/missing
+  // spaces around the marker, e.g. "== BRIEFING 0 ==" instead of the exact
+  // "===BRIEFING 0===" requested) — a strict marker match would silently
+  // drop an otherwise-good item to the template fallback over whitespace.
+  const marker = /={2,}\s*BRIEFING\s+(\S+?)\s*={2,}/g;
+  const matches = [...text.matchAll(marker)];
   for (let i = 0; i < matches.length; i++) {
     const id = matches[i][1];
     const start = matches[i].index + matches[i][0].length;
-    const end = i + 1 < matches.length ? matches[i + 1].index : raw.length;
-    const content = raw.slice(start, end).trim();
+    const end = i + 1 < matches.length ? matches[i + 1].index : text.length;
+    const content = text.slice(start, end).trim();
     if (content) map.set(id, content);
   }
   return map;

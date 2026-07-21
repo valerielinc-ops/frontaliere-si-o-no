@@ -990,13 +990,13 @@ export function buildBriefingPrompt(ctx) {
  */
 export function buildBriefingBatchPrompt(items) {
   if (!items.length) throw new Error('buildBriefingBatchPrompt: items must be non-empty');
-  const { system: baseSystem } = buildBriefingPrompt(items[0].ctx);
-  const readerBlocks = items.map((item) => {
-    const { user } = buildBriefingPrompt(item.ctx);
+  const first = buildBriefingPrompt(items[0].ctx);
+  const readerBlocks = items.map((item, idx) => {
+    const { user } = idx === 0 ? first : buildBriefingPrompt(item.ctx);
     return `===READER ${item.id}===\n${user}`;
   });
   const system = [
-    baseSystem,
+    first.system,
     `BATCH MODE: below are ${items.length} independent readers, each starting with a "===READER <id>===" marker. Apply every rule above separately to EACH reader, using ONLY that reader's own data — never mix jobs, facts, or details between readers.`,
     `Output EXACTLY ${items.length} blocks, one per reader, in the SAME ORDER as the readers below. Each block starts with "===BRIEFING <id>===" on its own line (the same id as that reader's marker) followed immediately by that reader's briefing HTML. No text outside these blocks.`,
   ].join(' ');
