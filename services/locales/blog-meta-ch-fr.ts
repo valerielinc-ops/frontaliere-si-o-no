@@ -1363,6 +1363,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.title': 'Travailler comme magasinier au Tessin : salaire et exigences',
     'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.excerpt': 'Le nouvel accord frontalier prévoit de nouvelles règles pour les entrepôts frontaliers au Tessin. Voici ce que vous devez savoir.',
     'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.imageAlt': 'Un frontalier magasinier dans une scène de travail à Lugano.',
+    'blog.article.gruista-frontaliere-ticino.title': 'Combien gagne un grutier frontalier au Tessin',
+    'blog.article.gruista-frontaliere-ticino.excerpt': 'Salaire réel d\'un grutier frontalier au Tessin : fourchette de salaire, différences par rapport à l\'Italie, facteurs affectant la rémunération.',
+    'blog.article.gruista-frontaliere-ticino.imageAlt': 'Un opérateur de grue frontal à Lugano, avec la vue du lac de Lugano en arrière-plan.',
 };
 
 export default blogMetaChFr;

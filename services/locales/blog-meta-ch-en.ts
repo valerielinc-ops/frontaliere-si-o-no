@@ -1363,6 +1363,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.title': 'Working as a warehouseman in Ticino: salary and requirements',
     'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.excerpt': 'The New Frontier Agreement provides for new rules for border warehousemen in Ticino. Here\'s what you need to know.',
     'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.imageAlt': 'A frontalier warehouse worker in a scene of work at Lugano.',
+    'blog.article.gruista-frontaliere-ticino.title': 'How much does a border crane operator earn in Ticino',
+    'blog.article.gruista-frontaliere-ticino.excerpt': 'Actual salary of a border crane operator in Ticino: salary band, differences compared to Italy, factors affecting remuneration.',
+    'blog.article.gruista-frontaliere-ticino.imageAlt': 'A frontal worker crane operator in Lugano, with the Lake Lugano view in the background.',
 };
 
 export default blogMetaChEn;
