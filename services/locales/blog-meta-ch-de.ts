@@ -1417,6 +1417,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.swiss-ccl-migliorato-2027.title': 'Swiss, ab 2027 verbesserter GAV für das Bodenpersonal',
     'blog.article.swiss-ccl-migliorato-2027.excerpt': 'Die Fluggesellschaft Swiss hat einen neuen Gesamtarbeitsvertrag definiert, der es ermöglicht, die Wochenstunden von 42 auf 40 zu reduzieren und die Boni am Wochenende zu erhöhen.',
     'blog.article.swiss-ccl-migliorato-2027.imageAlt': 'Schweizer Flughafen',
+    'blog.article.dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.title': 'Leitfaden 2026: Steuererklärung Schweiz - Kanton St. Gallen',
+    'blog.article.dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.excerpt': 'Kantonale Fälligkeiten, zulässige Abzüge und Online-Verfahren für die Steuererklärung 2026. Kantonsspezifische Daten und nationaler Vergleich.',
+    'blog.article.dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.imageAlt': 'Kathedrale und Stiftsbibliothek von St. Gallen, UNESCO-Welterbe',
 };
 
 export default blogMetaChDe;
