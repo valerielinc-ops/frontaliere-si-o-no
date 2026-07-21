@@ -1,134 +1,18 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-07-21T11:19:22.528Z",
+  "generatedAt": "2026-07-21T22:05:20.685Z",
   "total": 39,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 37,
-  "durationMs": 20278,
-  "avgDurationMs": 20278,
+  "unchangedCount": 38,
+  "durationMs": 21416,
+  "avgDurationMs": 21416,
   "durationHistory": [
-    20278
+    21416
   ],
-  "newJobs": [
-    {
-      "id": "efg-6327",
-      "slug": "receptionist-efg-zurich",
-      "company": "EFG International AG",
-      "title": "Receptionist",
-      "location": "Zurich",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-21",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6327",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [],
-            "requirements": [
-              "Successfully completed commercial education;",
-              "Proven experience in hospitality/hôtellerie;",
-              "Service-oriented, flexible, reliable, and a strong team player",
-              "Proven experience in intervention management;",
-              "Around 5-7 years of working experience as Receptionist and/or Administrative Assistant;",
-              "Fluent in German and English is a must. French/Italian would be strongly valued;",
-              "Excellent time management skill, ability to multitask and prioritize request from various sources;",
-              "Accurate and detail oriented;",
-              "Very good knowledge of Microsoft Office package and proficient in the use of IT tools",
-              "Communicative, trustworthy presence, politeness;",
-              "Able to work in a challenging, pressure and dynamic environment."
-            ],
-            "benefits": [],
-            "process": [],
-            "highlights": [
-              "Successfully completed commercial education;",
-              "Proven experience in hospitality/hôtellerie;",
-              "Service-oriented, flexible, reliable, and a strong team player"
-            ],
-            "keywords": [
-              "Successfully completed commercial education",
-              "Proven experience in hospitality/hôtellerie",
-              "Service-oriented",
-              "Proven experience in intervention management",
-              "Around 5-7 years of working experience as Receptionist and/or Administrative Assistant"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.The receptionist ensures a seamless, premium experience that echoes the standards of five-star hospitality. The receptionist delivers professional and client focused reception, switchboard services and administrative tasks.",
-                  "<span><strong>JOB DESCRIPTION</strong></span>",
-                  "The receptionist is the first point of contact and ensures a seamless, premium client experience in line with five‑star hospitality standards. They provide professional, client‑focused reception and switchboard services, while efficiently handling a variety of administrative tasks."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Main activities",
-                "paragraphs": [],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "1. Hospitality services",
-                "paragraphs": [
-                  "<br><strong>2. Admin support</strong>"
-                ],
-                "bullets": [
-                  "Follow the Hospitality service protocol (SOP).",
-                  "Serves visitors by greeting, welcoming and directing them appropriately. Taking care of guests anticipating their hospitality needs and making the experience impeccable according to our corporate standard quality.",
-                  "Physically welcome clients and visitors (Escort and seat clients in lounges, offer a drink, and serve).",
-                  "Set up and restore lounges/conference rooms + service.",
-                  "Maintains security and controlling access. Issuing visitor badges. Noticing and reporting suspicious activity.",
-                  "Organise and book meeting rooms.",
-                  "Support internal event and management meeting (e.g. organise, manage, and order breakfasts/lunches for meetings upon request.",
-                  "Handle sensitive information in a confidential manner comply with all internal regulations.",
-                  "Register external visitors and issue badges.",
-                  "Keep statistics (number of clients/visitors).",
-                  "Ensure that the facilities are kept clean and remedy any issues together with service providers. Coordinate with facility management or maintenance for repairs (chairs, lighting, doors, elevator, noise, ventilation, etc.).",
-                  "Prepare \"Welcome Packs,\" and organize induction day"
-                ]
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-07-21T11:19:19.247Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "needsRetranslation": true,
-      "datePosted": "2026-07-21",
-      "_qualityScore": 68,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 4,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "efg-5984",
@@ -164,7 +48,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.251Z",
+      "crawledAt": "2026-07-21T22:05:17.307Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-10",
@@ -333,7 +217,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.276Z",
+      "crawledAt": "2026-07-21T22:05:17.332Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-25",
@@ -449,7 +333,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.275Z",
+      "crawledAt": "2026-07-21T22:05:17.330Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-23",
@@ -569,7 +453,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.274Z",
+      "crawledAt": "2026-07-21T22:05:17.329Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-07-02",
@@ -655,7 +539,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.272Z",
+      "crawledAt": "2026-07-21T22:05:17.328Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-05-18",
@@ -710,7 +594,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.270Z",
+      "crawledAt": "2026-07-21T22:05:17.326Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-20",
@@ -765,7 +649,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.269Z",
+      "crawledAt": "2026-07-21T22:05:17.325Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-03",
@@ -894,7 +778,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.268Z",
+      "crawledAt": "2026-07-21T22:05:17.323Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -995,7 +879,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.267Z",
+      "crawledAt": "2026-07-21T22:05:17.322Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1113,7 +997,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.266Z",
+      "crawledAt": "2026-07-21T22:05:17.321Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1168,7 +1052,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.265Z",
+      "crawledAt": "2026-07-21T22:05:17.319Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -1292,7 +1176,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.264Z",
+      "crawledAt": "2026-07-21T22:05:17.318Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1347,7 +1231,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.262Z",
+      "crawledAt": "2026-07-21T22:05:17.317Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -1402,7 +1286,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.261Z",
+      "crawledAt": "2026-07-21T22:05:17.316Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-21",
@@ -1457,7 +1341,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.260Z",
+      "crawledAt": "2026-07-21T22:05:17.315Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1568,7 +1452,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.259Z",
+      "crawledAt": "2026-07-21T22:05:17.314Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1696,7 +1580,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.257Z",
+      "crawledAt": "2026-07-21T22:05:17.313Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1752,7 +1636,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.256Z",
+      "crawledAt": "2026-07-21T22:05:17.312Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-24",
@@ -1899,7 +1783,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.255Z",
+      "crawledAt": "2026-07-21T22:05:17.311Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -2019,7 +1903,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.254Z",
+      "crawledAt": "2026-07-21T22:05:17.310Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-08",
@@ -2138,7 +2022,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.249Z",
+      "crawledAt": "2026-07-21T22:05:17.306Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-20",
@@ -2154,6 +2038,127 @@
         "cleanliness": 25,
         "richness": 25,
         "translation": 23,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "efg-6327",
+      "slug": "ricevitore-efg-international-ag-zurich",
+      "company": "EFG International AG",
+      "title": "Receptionist",
+      "location": "Zurich",
+      "canton": "ZH",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-21",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6327",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [],
+            "requirements": [
+              "Successfully completed commercial education;",
+              "Proven experience in hospitality/hôtellerie;",
+              "Service-oriented, flexible, reliable, and a strong team player",
+              "Proven experience in intervention management;",
+              "Around 5-7 years of working experience as Receptionist and/or Administrative Assistant;",
+              "Fluent in German and English is a must. French/Italian would be strongly valued;",
+              "Excellent time management skill, ability to multitask and prioritize request from various sources;",
+              "Accurate and detail oriented;",
+              "Very good knowledge of Microsoft Office package and proficient in the use of IT tools",
+              "Communicative, trustworthy presence, politeness;",
+              "Able to work in a challenging, pressure and dynamic environment."
+            ],
+            "benefits": [],
+            "process": [],
+            "highlights": [
+              "Successfully completed commercial education;",
+              "Proven experience in hospitality/hôtellerie;",
+              "Service-oriented, flexible, reliable, and a strong team player"
+            ],
+            "keywords": [
+              "Successfully completed commercial education",
+              "Proven experience in hospitality/hôtellerie",
+              "Service-oriented",
+              "Proven experience in intervention management",
+              "Around 5-7 years of working experience as Receptionist and/or Administrative Assistant"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.The receptionist ensures a seamless, premium experience that echoes the standards of five-star hospitality. The receptionist delivers professional and client focused reception, switchboard services and administrative tasks.",
+                  "<span><strong>JOB DESCRIPTION</strong></span>",
+                  "The receptionist is the first point of contact and ensures a seamless, premium client experience in line with five‑star hospitality standards. They provide professional, client‑focused reception and switchboard services, while efficiently handling a variety of administrative tasks."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "Main activities",
+                "paragraphs": [],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "1. Hospitality services",
+                "paragraphs": [
+                  "<br><strong>2. Admin support</strong>"
+                ],
+                "bullets": [
+                  "Follow the Hospitality service protocol (SOP).",
+                  "Serves visitors by greeting, welcoming and directing them appropriately. Taking care of guests anticipating their hospitality needs and making the experience impeccable according to our corporate standard quality.",
+                  "Physically welcome clients and visitors (Escort and seat clients in lounges, offer a drink, and serve).",
+                  "Set up and restore lounges/conference rooms + service.",
+                  "Maintains security and controlling access. Issuing visitor badges. Noticing and reporting suspicious activity.",
+                  "Organise and book meeting rooms.",
+                  "Support internal event and management meeting (e.g. organise, manage, and order breakfasts/lunches for meetings upon request.",
+                  "Handle sensitive information in a confidential manner comply with all internal regulations.",
+                  "Register external visitors and issue badges.",
+                  "Keep statistics (number of clients/visitors).",
+                  "Ensure that the facilities are kept clean and remedy any issues together with service providers. Coordinate with facility management or maintenance for repairs (chairs, lighting, doors, elevator, noise, ventilation, etc.).",
+                  "Prepare \"Welcome Packs,\" and organize induction day"
+                ]
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-07-21T22:05:17.304Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "datePosted": "2026-07-21",
+      "salaryMin": 113000,
+      "salaryMax": 198500,
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "firstSeenAt": "2026-07-21T11:19:19.247Z",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -2191,7 +2196,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-21T11:19:19.243Z",
+      "crawledAt": "2026-07-21T22:05:17.301Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -2838,146 +2843,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "efg-6212",
-      "slug": "finanza-data-analytics-power-bi-internship-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Finance Data Analytics & Power BI Internship",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-17",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6212",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [],
-            "requirements": [
-              "University student, preferably in Finance.",
-              "Project management or Finance competencies (including basic knowledge of derivatives).",
-              "Fluent in English.",
-              "Rigorous, result-driven, and good relationship skills are required qualities for this position.",
-              "Able to work from the Geneva Office, reporting to a UK – London based line manager."
-            ],
-            "benefits": [],
-            "process": [],
-            "highlights": [
-              "University student, preferably in Finance.",
-              "Project management or Finance competencies (including basic knowledge of derivatives).",
-              "Fluent in English."
-            ],
-            "keywords": [
-              "University student",
-              "Project management or Finance competencies (including basic knowledge of derivatives).",
-              "Fluent in English.",
-              "Rigorous",
-              "Able to work from the Geneva Office"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Power BI Reconciliation",
-                "paragraphs": [],
-                "bullets": [
-                  "Assist in the reconciliation of net other income revenue, using Power BI to cross-validate accounting data from multiple sources (statutory and consolidation levels), ensuring data integrity and consistency.",
-                  "Support the automation of reconciliation processes, reducing manual effort and minimizing errors in financial reporting."
-                ]
-              },
-              {
-                "id": "details",
-                "heading": "Dashboard Development",
-                "paragraphs": [],
-                "bullets": [
-                  "Collaborate with technical Power BI specialists to design, develop, and maintain interactive dashboards and reports tailored for financial data reconciliation and control.",
-                  "Enhance real-time visibility for finance teams, enabling faster identification and resolution of reconciliation discrepancies."
-                ]
-              },
-              {
-                "id": "details",
-                "heading": "Process Improvement",
-                "paragraphs": [],
-                "bullets": [
-                  "Conduct in-depth analysis of existing reconciliation workflows and lead discussions with key stakeholders to define and implement a target operating model, integrating Power BI as a core tool for reconciliation and reporting.",
-                  "Project manage the transformation of reconciliation processes, from requirements gathering to implementation and user training."
-                ]
-              },
-              {
-                "id": "details",
-                "heading": "Internal Controls & Compliance",
-                "paragraphs": [],
-                "bullets": [
-                  "Strengthen the Internal Control Signoff (ICS) process by embedding automated reconciliation checks within Power BI reports, supporting audit readiness and compliance with IFRS standards.",
-                  "Contribute to the update of the Accounting Manual, reflecting improved reconciliation practices and Power BI integration."
-                ]
-              },
-              {
-                "id": "details",
-                "heading": "Stakeholder Engagement",
-                "paragraphs": [],
-                "bullets": [
-                  "Act as a bridge between finance, IT, and management teams, ensuring alignment of reconciliation objectives and smooth adoption of new Power BI tools."
-                ]
-              },
-              {
-                "id": "details",
-                "heading": "INFORMATION",
-                "paragraphs": [
-                  "The internship will last 7 months starting asap and his based in Geneva"
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-06-08T12:48:41.629Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-17",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.910Z",
-      "country": "CH",
-      "needsRetranslation": true,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 25,
         "translation": 25,
         "completeness": 22
       }
