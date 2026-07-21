@@ -1,41 +1,39 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-07-21T11:46:38.201Z",
-  "total": 35,
+  "generatedAt": "2026-07-21T22:12:53.336Z",
+  "total": 29,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 19973,
-  "avgDurationMs": 19973,
+  "unchangedCount": 0,
+  "durationMs": 18497,
+  "avgDurationMs": 18497,
   "durationHistory": [
-    19973
+    18497
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "etat-de-vaud-5614",
-      "slug": "gestione-delle-registrazioni-assicurative-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "id": "etat-de-vaud-5566",
+      "slug": "aiuti-di-stato-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
       "companyDomain": "vd.ch",
-      "title": "Gestionnaire de dossiers assurances",
+      "title": "Juriste au support juridique",
       "location": "Lausanne",
       "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5614",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5566",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-19T22:00:04.322Z",
+      "crawledAt": "2026-07-21T11:46:28.856Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "1000",
       "streetAddress": "Place du Château 1",
-      "category": "Amministrazione",
+      "category": "Legale",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
@@ -43,11 +41,11 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5614",
-      "firstSeenAt": "2026-07-05T11:43:25.035Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "crawlerMissStreak": 2,
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5566",
+      "firstSeenAt": "2026-07-05T11:43:20.864Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -56,5 +54,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
