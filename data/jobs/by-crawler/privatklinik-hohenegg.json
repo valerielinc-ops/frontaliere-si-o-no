@@ -1,6 +1,6 @@
 {
   "crawlerKey": "privatklinik-hohenegg",
-  "assembledAt": "2026-07-20T11:51:28.317Z",
+  "assembledAt": "2026-07-21T22:06:05.917Z",
   "jobs": [
     {
       "id": "privatklinik-hohenegg-4aec380d7fbc",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/640332/0047/pub/13/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:51:24.202Z",
+      "crawledAt": "2026-07-21T22:06:01.343Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "url": "https://apply.refline.ch/640332/0065/pub/4/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:51:23.762Z",
+      "crawledAt": "2026-07-21T22:06:00.841Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "title": "Pflegefachperson HF mit Schwerpunkt Psychiatrie (60-100%)",
       "titleByLocale": {
         "it": "HF infermiera con un focus sulla psichiatria (60-100%)",
-        "en": "HF nurse with a focus on psychiatry (60-100%)",
+        "en": "Pflegefachperson HF mit Schwerpunkt Psychiatrie (60-100%)",
         "de": "Pflegefachperson HF mit Schwerpunkt Psychiatrie (60-100%)",
         "fr": "Infirmière HF avec un accent sur la psychiatrie (60-100%)"
       },
@@ -241,7 +241,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "privatklinik-hohenegg-726875029776",
@@ -321,7 +323,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
