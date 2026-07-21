@@ -235,7 +235,7 @@
         "it": "Supporto ICT - Service Desk",
         "en": "ICT Supporter - Service Desk",
         "de": "ICT Supporter*in - Service Desk",
-        "fr": "Supporteur TIC - Service Desk"
+        "fr": "ICT Supporter*in - Service Desk"
       },
       "description": "Zur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine engagierte und serviceorientierte Persönlichkeit. Wenn du Freude am Kundensupport hast und in einem dynamischen IT-Umfeld arbeiten möchtest, freuen wir uns auf deine Bewerbung.\n\nAufgaben:\n• Beantworten von schriftlichen und mündlichen Anfragen unserer Kundschaft sowie Bereitstellung von kompetenten Lösungen\n\n• Bearbeiten von Fragen, Bestellungen und Vorfällen im Zusammenhang mit Hardware, Anwendungen, Zugängen oder Netzwerkverbindungen\n\n• Analysieren, dokumentieren und lösen von Fällen, um sicherzustellen, dass alle Anfragen effizient und vollständig bearbeitet werden\n\n• Proaktives Informieren unserer Kundschaft über den Status ihrer Anfragen sowie Lösen, Eskalieren oder Weiterleiten von Vorfällen bei Bedarf\n\n• Du stellst den Kontakt zwischen dem Servicedesk und den relevanten Teams sicher, mit denen wir eng zusammenarbeiten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als ICT-Fachmann / ICT-Fachfrau EFZ oder eine vergleichbare Qualifikation\n\n• Erfahrung im telefonischen Support sowie eine rasche Auffassungsgabe, um sich schnell in neue Themengebiete einzuarbeiten\n\n• Eine ausgeprägte Kundenorientierung und Freude am Umgang mit Menschen\n\n• Hohe Einsatzbereitschaft und Flexibilität, auch in herausfordernden Situationen\n\n• Kommunikationsstärke und Zielstrebigkeit, um Lösungen effizient und zielgerichtet umzusetzen\n\n• Teamplayer-Mentalität mit einer positiven und kooperativen Arbeitsweise\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
       "descriptionByLocale": {
@@ -286,7 +286,7 @@
       "slug": "cura-professionale-stadt-bern-bern",
       "slugByLocale": {
         "it": "cura-professionale-stadt-bern-bern",
-        "en": "care-professional-stadt-bern-bern",
+        "en": "betreuungsfachperson-stadt-bern",
         "de": "betreuungsfachperson-stadt-bern-bern",
         "fr": "professionnel-de-soins-stadt-bern-bern"
       },
@@ -296,7 +296,7 @@
       "title": "Betreuungsfachperson",
       "titleByLocale": {
         "it": "Cura professionale",
-        "en": "Care professional",
+        "en": "Betreuungsfachperson",
         "de": "Betreuungsfachperson",
         "fr": "Professionnel de soins"
       },
@@ -336,6 +336,8 @@
         "tertiary-care-professional-stadt-bern-bern",
         "betreuungsfachperson-tertiar-stadt-bern-bern",
         "specialiste-des-soins-tertiaires-stadt-bern-bern",
+        "care-professional-stadt-bern-bern",
+        "cura-professionale-stadt-bern-bern",
         "betreuungsfachperson-stadt-bern"
       ],
       "previousSlugsByLocale": {
@@ -344,11 +346,13 @@
           "terziario-professionale-stadt-bern-bern",
           "tertiary-care-professional-stadt-bern-bern",
           "betreuungsfachperson-tertiar-stadt-bern-bern",
-          "specialiste-des-soins-tertiaires-stadt-bern-bern"
+          "specialiste-des-soins-tertiaires-stadt-bern-bern",
+          "cura-professionale-stadt-bern-bern"
         ],
         "en": [
           "betreuungsfachperson-stadt-bern-bern",
           "tertiary-care-professional-stadt-bern-bern",
+          "care-professional-stadt-bern-bern",
           "betreuungsfachperson-stadt-bern"
         ],
         "de": [
@@ -424,12 +428,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-in-digitale-unternehmensarchitektur-stadt-bern-bern",
-        "leiter-in-digitale-unternehmensarchitektur-stadt-bern"
+        "leiter-in-digitale-unternehmensarchitektur-stadt-bern",
+        "responsabile-dell-architettura-digitale-aziendale-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-digitale-unternehmensarchitektur-stadt-bern-bern",
-          "leiter-in-digitale-unternehmensarchitektur-stadt-bern"
+          "leiter-in-digitale-unternehmensarchitektur-stadt-bern",
+          "responsabile-dell-architettura-digitale-aziendale-stadt-bern-bern"
         ],
         "en": [
           "leiter-in-digitale-unternehmensarchitektur-stadt-bern-bern"
@@ -503,11 +509,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-amp",
-        "programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-datenarchitektur-stadt-bern-bern"
+        "programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-datenarchitektur-stadt-bern-bern",
+        "programm-e-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-datenarchitektur-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-amp"
+          "programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-amp",
+          "programm-e-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-datenarchitektur-stadt-bern"
         ],
         "en": [
           "programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-datenarchitektur-stadt-bern-bern"
@@ -1235,7 +1243,7 @@
       "title": "Fachangestellte*r Administration Support",
       "titleByLocale": {
         "it": "Addetto/a Amministrativo Support",
-        "en": "Specialist Administration Support",
+        "en": "Fachangestellte*r Administration Support",
         "de": "Fachangestellte*r Administration Support",
         "fr": "Employé(e) administratif(ve) support"
       },
@@ -1270,11 +1278,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachangestellte-r-administration-support-stadt-bern-bern"
+        "fachangestellte-r-administration-support-stadt-bern-bern",
+        "supporto-amministrativo-specializzato-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachangestellte-r-administration-support-stadt-bern-bern"
+          "fachangestellte-r-administration-support-stadt-bern-bern",
+          "supporto-amministrativo-specializzato-stadt-bern-bern"
         ],
         "fr": [
           "fachangestellte-r-administration-support-stadt-bern-bern"
@@ -1344,11 +1354,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kinder-amp-jugendbetreuer-in-stadt-bern-bern"
+        "kinder-amp-jugendbetreuer-in-stadt-bern-bern",
+        "fornitore-di-assistenza-per-bambini-e-giovani-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kinder-amp-jugendbetreuer-in-stadt-bern-bern"
+          "kinder-amp-jugendbetreuer-in-stadt-bern-bern",
+          "fornitore-di-assistenza-per-bambini-e-giovani-stadt-bern-bern"
         ],
         "en": [
           "kinder-amp-jugendbetreuer-in-stadt-bern-bern"
@@ -1932,8 +1944,8 @@
       "slugByLocale": {
         "de": "teamleiter-in-outtake-mit-stv-sektionsleitung-stadt-bern-bern",
         "it": "teamleiter-in-outtake-mit-stv-sektionsleitung-stadt-bern-bern",
-        "en": "team-leader-in-outtake-with-stv-section-management-stadt-bern-bern",
-        "fr": "chef-d-equipe-a-la-sortie-avec-stv-gestion-des-sections-stadt-bern-bern"
+        "en": "teamleiter-in-outtake-mit-stv-sektionsleitung-stadt-bern-bern",
+        "fr": "teamleiter-in-outtake-mit-stv-sektionsleitung-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -1943,14 +1955,14 @@
         "de": "Teamleiter*in Outtake mit stv. Sektionsleitung",
         "it": "Teamleiter*in Outtake con stv. Sektionsleitung",
         "en": "Team leader*in outtake with stv. Section management",
-        "fr": "Chef d'équipe* à la sortie avec stv. Gestion des sections"
+        "fr": "Chef d'équipe* en sortie avec stv. Gestion des sections"
       },
       "description": "In der Sektion Outtake werden administrative Dienstleistungen in den Bereichen Krankenkassengeschäft, Klientenbuchhaltung, sozialhilferechtliche Abrechnung und Rückerstattung sowie Archivierung erbracht.\n\nAufgaben:\n• Personelle Leitung von rund 10 Mitarbeitenden\n\n• Umfassende fachliche Leitung bestimmter Aufgabenbereiche\n\n• Mitarbeit bei der Weiterentwicklung des Fallführungssystems FFS CSN (Citysoftnet)\n\n• Leitung kleinerer Projekte und Projektmitarbeit\n\n• Stellvertretung innerhalb des 4-köpfigen Leitungsteams, Vertretung der Sektion in internen Gremien\n\nAnforderungen:\n• Kaufmännische Ausbildung mit Fachausweis Sozialversicherungen\n\n• Mehrjährige Erfahrung in der Personalführung\n\n• Berufserfahrung in den Bereichen Sozialhilfe, Sozialversicherungen, Mahn- und Inkassowesen und / oder IT von Vorteil\n\n• Geschick in der Gesprächs- und Verhandlungsführung\n\n• Zahlenflair, Sicherheit in anspruchsvoller Korrespondenz (Verfügungen)\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
       "descriptionByLocale": {
         "de": "In der Sektion Outtake werden administrative Dienstleistungen in den Bereichen Krankenkassengeschäft, Klientenbuchhaltung, sozialhilferechtliche Abrechnung und Rückerstattung sowie Archivierung erbracht.\n\nAufgaben:\n• Personelle Leitung von rund 10 Mitarbeitenden\n\n• Umfassende fachliche Leitung bestimmter Aufgabenbereiche\n\n• Mitarbeit bei der Weiterentwicklung des Fallführungssystems FFS CSN (Citysoftnet)\n\n• Leitung kleinerer Projekte und Projektmitarbeit\n\n• Stellvertretung innerhalb des 4-köpfigen Leitungsteams, Vertretung der Sektion in internen Gremien\n\nAnforderungen:\n• Kaufmännische Ausbildung mit Fachausweis Sozialversicherungen\n\n• Mehrjährige Erfahrung in der Personalführung\n\n• Berufserfahrung in den Bereichen Sozialhilfe, Sozialversicherungen, Mahn- und Inkassowesen und / oder IT von Vorteil\n\n• Geschick in der Gesprächs- und Verhandlungsführung\n\n• Zahlenflair, Sicherheit in anspruchsvoller Korrespondenz (Verfügungen)\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "it": "La sezione Outtake fornisce servizi amministrativi nei settori dell'assicurazione sanitaria, della contabilità clienti, dell'assistenza sociale fatturazione e del rimborso nonché dell'archiviazione.\n\nCompiti:\n• Gestione del personale di circa 10 dipendenti\n\n• Gestione tecnica completa di compiti specifici\n\n• Cooperazione nell'ulteriore sviluppo del sistema di gestione dei casi FFS CSN (Citysoftnet)\n\n• Gestione di piccoli progetti e collaborazione di progetti\n\n• Deputato all'interno del gruppo di gestione a 4 membri, rappresentanza della sezione in comitati interni\n\nRequisiti\n• Istruzione commerciale con certificato di assicurazione sociale specializzato\n\n• Diversi anni di esperienza nella gestione del personale\n\n• Esperienza professionale nei settori dell'assistenza sociale, dell'assicurazione sociale, della raccolta dei debiti e/o dell'IT di vantaggio\n\n• Conversazione e competenze di negoziazione\n\n• Portata, sicurezza in corrispondenza esigente (decisioni)\n\nOffriamo:\nPer il senso e la vita della città\n Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "The Outtake section provides administrative services in the areas of health insurance business, client accounting, social assistance billing and refund as well as archiving.\n\nTasks:\n• Personnel management of around 10 employees\n\n• Comprehensive technical management of specific tasks\n\n• Cooperation in the further development of the FFS CSN case management system (Citysoftnet)\n\n• Management of smaller projects and project collaboration\n\n• Deputy within the 4-member management team, representation of the section in internal committees\n\nRequirements\n• Commercial education with specialised social insurance certificate\n\n• Several years of experience in personnel management\n\n• Professional experience in the areas of social assistance, social insurance, dunning and debt collection and / or IT of advantage\n\n• Conversation and negotiation skills\n\n• Number flair, security in demanding correspondence (decisions)\n\nWe offer:\nFor sense and city life\n With us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "fr": "La section des sorties fournit des services administratifs dans les domaines de l'assurance-maladie, de la comptabilité des clients, de la facturation et du remboursement de l'aide sociale ainsi que de l'archivage.\n\nTâches :\n• Gestion du personnel d'environ 10 employés\n\n• Gestion technique globale de tâches spécifiques\n\n• Coopération en vue du développement du système de gestion des cas FFS CSN (Citysoftnet)\n\n• Gestion de petits projets et collaboration de projets\n\n• Adjoint au sein de l'équipe de gestion de 4 membres, représentation de la section dans les comités internes\n\nExigences\n• Enseignement commercial avec certificat d'assurance sociale spécialisée\n\n• Plusieurs années d'expérience en gestion du personnel\n\n• Expérience professionnelle dans les domaines de l'aide sociale, de l'assurance sociale, de la dunning et du recouvrement des créances et/ou de l'informatique d'avantage\n\n• Compétences en conversation et en négociation\n\n• Numéro flair, sécurité dans la correspondance exigeante (décisions)\n\nNous offrons:\nPour le sens et la vie urbaine\n Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+        "it": "La sezione Outtake fornisce servizi amministrativi nei settori dell'assicurazione sanitaria, della contabilità clienti, dell'assistenza sociale fatturazione e del rimborso nonché dell'archiviazione.\n\nCompiti:\n• Gestione del personale di circa 10 dipendenti\n\n• Gestione tecnica completa di compiti specifici\n\n• Cooperazione nell'ulteriore sviluppo del sistema di gestione dei casi FFS CSN (Citysoftnet)\n\n• Gestione di piccoli progetti e collaborazione di progetti\n\n• Deputato all'interno del gruppo di gestione a 4 membri, rappresentanza della sezione in comitati interni\n\nRequisiti\n• Istruzione commerciale con certificato di assicurazione sociale specializzato\n\n• Diversi anni di esperienza nella gestione del personale\n\n• Esperienza professionale nei settori dell'assistenza sociale, dell'assicurazione sociale, della raccolta dei debiti e/o dell'IT di vantaggio\n\n• Conversazione e competenze di negoziazione\n\n• Portata, sicurezza in corrispondenza esigente (decisioni)\n\nOffriamo:\nPer senso e vita della città\n Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e più di 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "The Outtake section provides administrative services in the areas of health insurance business, client accounting, social assistance billing and reimbursement as well as archiving.\n\nTasks:\n• Personnel management of around 10 employees\n\n• Comprehensive technical management of specific tasks\n\n• Cooperation in the further development of the case management system FFS CSN (Citysoftnet)\n\n• Management of smaller projects and project collaboration\n\n• Deputy within the 4-member management team, representation of the section in internal committees\n\nRequirements\n• Commercial education with specialised social insurance certificate\n\n• Several years of experience in personnel management\n\n• Professional experience in the areas of social assistance, social insurance, dunning and debt collection and / or IT of advantage\n\n• Conversation and negotiation skills\n\n• Number flair, security in demanding correspondence (decisions)\n\nWe offer:\nFor sense and city life\n With us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "fr": "Cette section fournit des services administratifs dans les domaines de l'assurance-maladie, de la comptabilité des clients, de la facturation et du remboursement de l'aide sociale ainsi que de l'archivage.\n\nTâches :\n• Gestion du personnel d'environ 10 employés\n\n• Gestion technique globale de tâches spécifiques\n\n• Coopération pour le développement du système de gestion de cas FFS CSN (Citysoftnet)\n\n• Gestion de petits projets et collaboration de projets\n\n• Adjoint au sein de l'équipe de gestion de 4 membres, représentation de la section dans les comités internes\n\nExigences\n• Formation commerciale avec certificat d'assurance sociale spécialisée\n\n• Plusieurs années d'expérience dans la gestion du personnel\n\n• Expérience professionnelle dans les domaines de l'assistance sociale, de l'assurance sociale, de la dunning et du recouvrement des dettes et/ou de l'informatique d'avantage\n\n• Compétences en conversation et en négociation\n\n• Numéro flair, sécurité dans la correspondance exigeante (décisions)\n\nNous offrons:\nPour le sens et la vie en ville\n Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
       },
       "location": "Bern",
       "canton": "BE",
