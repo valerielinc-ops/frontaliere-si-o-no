@@ -26540,6 +26540,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-impiegato-commercio-ticino',
+ category: 'pratico',
+ date: '2026-07-21T18:00:09.298Z',
+ image: '/images/blog/frontaliere-impiegato-commercio-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
