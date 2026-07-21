@@ -1357,6 +1357,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-guadagno-ticino.title': 'Salaire épaississeur : salaires et différences avec l\'Italie',
     'blog.article.frontalieri-guadagno-ticino.excerpt': 'Les salaires des frontaliers au Tessin : combien gagnent les épandeurs et comment diffèrent-ils des salaires italiens',
     'blog.article.frontalieri-guadagno-ticino.imageAlt': 'Frontaliers en Tessin: revenu réel et différences avec l\'Italie',
+    'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.title': 'Travailler comme monteur au Tessin : salaire, exigences et permis G',
+    'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.excerpt': 'Salaire moyen d\'un monteur frontalier au Tessin, conditions pour travailler comme monteur au Tessin, reconnaissance du titre d\'études et permis G.',
+    'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Une scène de travail d\'un mécanicien frontalier en Tessin',
 };
 
 export default blogMetaChFr;

@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3386,
+ "numberOfItems": 3387,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8154,7 +8154,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3383, "name": "Quanto guadagna un lattoniere frontaliere in Ti...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-lattoniere-ticino-stipendio` },
           { "@type": "ListItem", "position": 3384, "name": "Gessatori in Ticino: stipendio, requisiti e ric...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-gessatore-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3385, "name": "Stipendio gessatore: salari e differenze con l'...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-guadagno-ticino` },
-          { "@type": "ListItem", "position": 3386, "name": "Quanto guadagna un gessatore frontaliere in Tic...", "url": `${BASE_URL}/articoli-frontaliere/stipendio-gessatore-frontaliere-ticino` }
+          { "@type": "ListItem", "position": 3386, "name": "Quanto guadagna un gessatore frontaliere in Tic...", "url": `${BASE_URL}/articoli-frontaliere/stipendio-gessatore-frontaliere-ticino` },
+          { "@type": "ListItem", "position": 3387, "name": "Lavorare come montatore in Ticino: stipendio, r...", "url": `${BASE_URL}/articoli-frontaliere/montatore-frontaliere-ticino-stipendio-requisiti` }
  ]
  },
  {

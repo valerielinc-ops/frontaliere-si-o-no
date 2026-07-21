@@ -1357,6 +1357,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-guadagno-ticino.title': 'Gipserlohn: Löhne und Unterschiede zu Italien',
     'blog.article.frontalieri-guadagno-ticino.excerpt': 'Die Gehälter der Grenzgänger im Tessin: Wie viel verdienen Gipser und wie unterscheiden sie sich von den italienischen Gehältern?',
     'blog.article.frontalieri-guadagno-ticino.imageAlt': 'Frontalieri in Ticino: echtes Einkommen und Unterschiede mit Italien',
+    'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.title': 'Arbeiten als Monteur im Tessin: Gehalt, Voraussetzungen und Genehmigung G',
+    'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.excerpt': 'Durchschnittsgehalt eines Grenzmonteurs im Tessin, Voraussetzungen für die Arbeit als Monteur im Tessin, Anerkennung des Bildungsabschlusses und G-Genehmigung.',
+    'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Eine Szene von einem Frontaliere-Mechaniker am Werk in Ticino',
 };
 
 export default blogMetaChDe;

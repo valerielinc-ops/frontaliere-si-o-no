@@ -1357,6 +1357,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-guadagno-ticino.title': 'Pinstriping Salary: Salaries and Differences with Italy',
     'blog.article.frontalieri-guadagno-ticino.excerpt': 'The salaries of border workers in Ticino: how much do banders earn and how do they differ from Italian salaries',
     'blog.article.frontalieri-guadagno-ticino.imageAlt': 'Frontalieri in Ticino: real income and differences with Italy',
+    'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.title': 'Working as a fitter in Ticino: salary, requirements and permit G',
+    'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.excerpt': 'Average salary of a border assembler in Ticino, requirements to work as an assembler in Ticino, recognition of the qualification and G permit.',
+    'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.imageAlt': 'A scene of a frontalier mechanic at work in Ticino',
 };
 
 export default blogMetaChEn;
