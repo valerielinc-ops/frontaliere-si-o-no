@@ -213,6 +213,7 @@ async function getDb(): Promise<Firestore | null> {
 export async function syncToFirestore(email: string): Promise<void> {
  if (!email || !available()) return;
  try {
+ const normalizedEmail = email.trim().toLowerCase();
  const db = await getDb();
  if (!db) return;
  const data = getBehaviorData();
@@ -221,7 +222,7 @@ export async function syncToFirestore(email: string): Promise<void> {
  (m) => typeof m.doc === 'function',
  );
  await setDoc(
- doc(db, 'newsletter_subscribers', email, 'private', 'personalization'),
+ doc(db, 'newsletter_subscribers', normalizedEmail, 'private', 'personalization'),
  {
  viewedJobs: data.viewedJobs,
  searches: data.searches,
@@ -243,13 +244,14 @@ export async function syncToFirestore(email: string): Promise<void> {
 export async function hydrateFromFirestore(email: string): Promise<void> {
  if (!email || !available()) return;
  try {
+ const normalizedEmail = email.trim().toLowerCase();
  const db = await getDb();
  if (!db) return;
  const { doc, getDoc } = await resilientImport(
  () => import('firebase/firestore'),
  (m) => typeof m.doc === 'function',
  );
- const snap = await getDoc(doc(db, 'newsletter_subscribers', email, 'private', 'personalization'));
+ const snap = await getDoc(doc(db, 'newsletter_subscribers', normalizedEmail, 'private', 'personalization'));
  if (!snap.exists()) return;
  const remote = snap.data();
  if (!remote) return;

@@ -48,7 +48,7 @@ service cloud.firestore {
       // Private sub-collection — auth-gated, own data only
       match /private/{docId} {
         allow read, write: if request.auth != null
-          && request.auth.token.email == email;
+          && request.auth.token.email.lower() == email;
       }
     }
 
@@ -103,13 +103,13 @@ service cloud.firestore {
       match /alerts/{alertId} {
         allow read: if request.auth != null
           && (request.auth.uid == resource.data.userId
-              || request.auth.token.email == email);
+              || request.auth.token.email.lower() == email);
         allow create: if request.auth != null
           && request.auth.uid == request.resource.data.userId
-          && request.auth.token.email == email;
+          && request.auth.token.email.lower() == email;
         allow update, delete: if request.auth != null
           && request.auth.uid == resource.data.userId
-          && request.auth.token.email == email;
+          && request.auth.token.email.lower() == email;
       }
 
       // Per-alert delivery state — written by ESP webhooks (Admin SDK bypasses rules).
