@@ -1426,6 +1426,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.title': 'Tax returns in Switzerland: deadlines and deductions',
     'blog.article.dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.excerpt': 'Cantonal deadlines, allowable deductions, online procedure for tax reporting in Switzerland: find out how it works and what you need to do for the Canton of Lucerne.',
     'blog.article.dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.imageAlt': 'A scene of a tax office in Switzerland, with officials working on tax declarations for residents of the Canton of Lucerne.',
+    'blog.article.birra-in-mancanza.title': '1.4 billion litres less beer',
+    'blog.article.birra-in-mancanza.excerpt': 'World beer production is down again, driven by declines in Oceania, Europe, Asia and North America.',
+    'blog.article.birra-in-mancanza.imageAlt': 'A beer in a bar in Lugano',
 };
 
 export default blogMetaChEn;

@@ -1426,6 +1426,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.title': 'Déclaration d\'impôts en Suisse : échéances et déductions',
     'blog.article.dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.excerpt': 'Délais cantonaux, déductions admises, procédure en ligne pour la déclaration des impôts en Suisse : découvrez comment cela fonctionne et ce que vous devez faire pour le canton de Lucerne.',
     'blog.article.dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.imageAlt': 'Une scène d\'un bureau de la fiscalité en Suisse, avec des fonctionnaires qui travaillent sur les déclarations fiscales pour les résidents du canton de Lucerne.',
+    'blog.article.birra-in-mancanza.title': '1,4 milliard de litres de bière en moins',
+    'blog.article.birra-in-mancanza.excerpt': 'La production mondiale de bière enregistre une nouvelle baisse, tirée par les baisses en Océanie, en Europe, en Asie et en Amérique du Nord.',
+    'blog.article.birra-in-mancanza.imageAlt': 'Une bière dans un bar à Lugano',
 };
 
 export default blogMetaChFr;
