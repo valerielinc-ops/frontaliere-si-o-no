@@ -153,7 +153,7 @@ function inferCategory(title = '', jobFunction = '') {
   if (/hse|health|safety|environment/i.test(haystack)) return 'safety';
   if (/quality|qualit/i.test(haystack)) return 'quality';
   if (/production|manufacturing|operator|assembl|monteur|tester/i.test(haystack)) return 'production';
-  if (/intern|stage|werkstudent|trainee/i.test(haystack)) return 'internship';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|werkstudent|trainee)/i.test(haystack)) return 'internship';
   if (/hr |human.*resource|people/i.test(haystack)) return 'hr';
   if (/commissioning|service|field/i.test(haystack)) return 'service';
   return 'engineering';
@@ -168,7 +168,7 @@ function inferSector(jobFunction = '') {
   if (fn.includes('supply')) return 'Logistica';
   if (fn.includes('production') || fn.includes('skilled')) return 'Produzione';
   if (fn.includes('project') || fn.includes('program')) return 'Project Management';
-  if (fn.includes('intern')) return 'Stage & Formazione';
+  if (/\bintern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(fn)) return 'Stage & Formazione';
   if (fn.includes('quality')) return 'Qualità';
   if (fn.includes('legal') || fn.includes('compliance')) return 'Legale & Compliance';
   if (fn.includes('general')) return 'Management';
@@ -178,7 +178,7 @@ function inferSector(jobFunction = '') {
 function mapEmploymentType(jobType = '', contractType = '') {
   const jt = normalize(jobType);
   const ct = normalize(contractType);
-  if (ct.includes('intern') || ct.includes('trainee')) return 'internship';
+  if (/\bintern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(ct) || ct.includes('trainee')) return 'internship';
   if (jt.includes('part time') || jt.includes('part-time')) return 'part-time';
   return 'full-time';
 }

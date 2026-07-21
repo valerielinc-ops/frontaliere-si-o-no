@@ -146,7 +146,7 @@ function stripHtml(html = '') {
 function mapEmploymentType(pinpointType = '') {
   const t = pinpointType.toLowerCase();
   if (t.includes('part')) return 'PART_TIME';
-  if (t.includes('intern')) return 'INTERN';
+  if (/\bintern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(t)) return 'INTERN';
   if (t.includes('apprentice')) return 'APPRENTICE';
   return 'FULL_TIME';
 }
@@ -154,7 +154,7 @@ function mapEmploymentType(pinpointType = '') {
 function mapContractType(pinpointType = '') {
   const t = pinpointType.toLowerCase();
   if (t.includes('seasonal')) return 'seasonal';
-  if (t.includes('intern')) return 'internship';
+  if (/\bintern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(t)) return 'internship';
   if (t.includes('apprentice')) return 'apprenticeship';
   if (t.includes('temporary') || t.includes('fixed')) return 'fixed-term';
   return 'permanent';

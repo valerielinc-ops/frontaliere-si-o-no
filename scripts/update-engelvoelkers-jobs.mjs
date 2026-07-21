@@ -144,14 +144,14 @@ function inferCategory(title = '', department = '') {
   if (/technology|developer|engineer|software|it\b|devops/i.test(haystack)) return 'tech';
   if (/finance|legal|contabilit|buchhaltu/i.test(haystack)) return 'finance';
   if (/people|culture|hr\b|human/i.test(haystack)) return 'hr';
-  if (/stage|intern|tirocinante|junior|trainee|apprentice/i.test(haystack)) return 'internship';
+  if (/\b(stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|tirocinante|junior|trainee|apprentice)/i.test(haystack)) return 'internship';
   if (/admin|segretari|assistente|office/i.test(haystack)) return 'admin';
   return 'real-estate';
 }
 
 function inferEmploymentType(rawType = '') {
   const t = normalize(rawType);
-  if (/stage|intern/i.test(t)) return 'internship';
+  if (/\b(stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/i.test(t)) return 'internship';
   if (/temporar/i.test(t)) return 'temporary';
   if (/apprendista|apprentice/i.test(t)) return 'apprenticeship';
   if (/part[\s-]?time/i.test(t)) return 'part-time';

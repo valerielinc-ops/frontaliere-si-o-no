@@ -124,7 +124,7 @@ function inferCategory(title = '', description = '') {
   if (/(front office|reception|concierge|page|bellman|guest relation)/i.test(hay)) return 'reception';
   if (/(spa|wellness|massage|therapist)/i.test(hay)) return 'spa';
   if (/(manager|director|supervisor|lead|executive)/i.test(hay)) return 'management';
-  if (/(trainee|apprentice|intern|stage)/i.test(hay)) return 'formazione';
+  if (/\b(trainee|apprentice|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/i.test(hay)) return 'formazione';
   if (/(maintenance|engineer|technic)/i.test(hay)) return 'tecnico';
   return 'hospitality';
 }
@@ -156,7 +156,7 @@ function inferEmploymentType(text = '') {
   const t = text.toLowerCase();
   if (t.includes('part time') || t.includes('part-time') || t.includes('teilzeit')) return 'part_time';
   if (t.includes('temporary') || t.includes('seasonal') || t.includes('befristet')) return 'temporary';
-  if (t.includes('trainee') || t.includes('intern') || t.includes('apprentice') || t.includes('stage')) return 'internship';
+  if (t.includes('trainee') || /\bintern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(t) || t.includes('apprentice') || /\bstages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(t)) return 'internship';
   return 'full_time';
 }
 

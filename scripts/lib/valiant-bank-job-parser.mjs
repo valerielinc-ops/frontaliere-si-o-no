@@ -124,7 +124,7 @@ function detectCategory(title = '') {
   if (/\b(compliance|risk|risiko|recht|legal)/.test(t)) return 'Compliance & Risk';
   if (/\b(it|informatik|software|entwickl|développeur)/.test(t)) return 'IT';
   if (/\b(hr|personal|human resources)/.test(t)) return 'Risorse Umane';
-  if (/\b(lehrstelle|lernend|praktik|stage|apprenti)/.test(t)) return 'Formazione';
+  if (/\b(lehrstelle|lernend|praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprenti)/.test(t)) return 'Formazione';
   if (/\b(rechnungswesen|buchhaltung|finance|comptab)/.test(t)) return 'Finanza & Contabilità';
   if (/\b(marketing|kommunikation|communication)/.test(t)) return 'Marketing';
   if (/\b(unternehmensnachfolge|firmenkunden)/.test(t)) return 'Firmenkundengeschäft';
@@ -133,7 +133,7 @@ function detectCategory(title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(lehrstelle|lernend|praktik|stage|apprenti|einsteiger)/.test(t)) return 'intern';
+  if (/\b(lehrstelle|lernend|praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprenti|einsteiger)/.test(t)) return 'intern';
   if (/\b(junior)/.test(t)) return 'junior';
   if (/\b(senior|leiter|leiterin|head|director|verantwort|responsab)/.test(t)) return 'senior';
   return 'mid';

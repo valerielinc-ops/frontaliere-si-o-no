@@ -122,7 +122,7 @@ function inferCategory(department = '', title = '') {
 
 function mapEmploymentType(role = '') {
   const r = role.toLowerCase();
-  if (r.includes('praktik') || r.includes('intern') || r.includes('trainee') || r.includes('stage')) return 'internship';
+  if (r.includes('praktik') || /\bintern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(r) || r.includes('trainee') || /\bstages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(r)) return 'internship';
   if (r.includes('teilzeit') || r.includes('part')) return 'part_time';
   if (r.includes('temporär') || r.includes('befristet')) return 'temporary';
   return 'full_time';

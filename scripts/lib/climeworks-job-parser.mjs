@@ -109,7 +109,7 @@ function detectCategory(title = '', department = '') {
 
 function detectExperienceLevel(title = '', experienceCode = '') {
   const t = normalize(`${title} ${experienceCode}`);
-  if (/\b(intern|student_college|apprendist|lehrling|lernend|apprenti|stage)/.test(t)) return 'intern';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|student_college|apprendist|lehrling|lernend|apprenti|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/.test(t)) return 'intern';
   if (/\b(junior|jr|entry)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab|manager|principal|experienced|senior_manager)/.test(t)) return 'senior';
   return 'mid';
@@ -123,7 +123,7 @@ function mapEmploymentType(apiType = '') {
   if (t.includes('parttime') || t.includes('part_time') || t.includes('part-time')) return 'PART_TIME';
   if (t.includes('fulltime') || t.includes('full_time') || t.includes('full-time')) return 'FULL_TIME';
   if (t.includes('freelance') || t.includes('contract')) return 'CONTRACTOR';
-  if (t.includes('intern')) return 'INTERN';
+  if (/\bintern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(t)) return 'INTERN';
   return 'OTHER';
 }
 

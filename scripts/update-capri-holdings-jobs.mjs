@@ -152,7 +152,7 @@ function detectCategory(title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = String(title || '').toLowerCase();
-  if (/junior|jr\.?|entry|intern|stage|stagist|apprenti|trainee|graduate/i.test(t)) return 'ENTRY';
+  if (/\b(junior|jr\.?|entry|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagist|apprenti|trainee|graduate)/i.test(t)) return 'ENTRY';
   if (/senior|sr\.?|lead|head|director|manager|principal|chief|vp\b|managing/i.test(t)) return 'SENIOR';
   return 'MID';
 }

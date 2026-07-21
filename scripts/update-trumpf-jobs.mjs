@@ -159,7 +159,7 @@ function inferCategory(title = '') {
 function mapEmploymentType(timeType = '', title = '') {
   const t = `${timeType} ${title}`.toLowerCase();
   if (t.includes('part')) return 'part_time';
-  if (t.includes('praktik') || t.includes('intern') || t.includes('trainee')) return 'internship';
+  if (t.includes('praktik') || /\bintern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(t) || t.includes('trainee')) return 'internship';
   if (t.includes('lehrstelle') || t.includes('apprenti') || t.includes('ausbildung')) return 'apprenticeship';
   return 'full_time';
 }

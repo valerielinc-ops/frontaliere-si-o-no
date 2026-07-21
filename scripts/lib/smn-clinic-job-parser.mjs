@@ -123,13 +123,13 @@ function detectCategory(title = '') {
   if (/\b(admin|sekret|buchhalt|sachbearbeit)/.test(t)) return 'Amministrazione';
   if (/\b(hr|personal|recruit)/.test(t)) return 'Risorse Umane';
   if (/\b(küche|koch|gastro|hauswirtschaft|reinigung)/.test(t)) return 'Ospitalità';
-  if (/\b(lernende|lehrstelle|praktik|apprenti|stage)/.test(t)) return 'Formazione';
+  if (/\b(lernende|lehrstelle|praktik|apprenti|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/.test(t)) return 'Formazione';
   return 'Sanità / Ospedali';
 }
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(lernende|lehrstelle|praktik|stage|intern|apprenti)/.test(t)) return 'intern';
+  if (/\b(lernende|lehrstelle|praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprenti)/.test(t)) return 'intern';
   if (/\b(senior|lead|head|chefarzt|leitend|verantwort|leiter|oberarzt|oberärztin)/.test(t)) return 'senior';
   if (/\b(junior|jr|assistent|assistenz)/.test(t)) return 'junior';
   return 'mid';

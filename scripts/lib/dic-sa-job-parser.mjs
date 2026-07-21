@@ -113,13 +113,13 @@ function detectCategory(title = '') {
   if (/\b(ingenieur|ingénieur|ingegnere|engineer)/.test(t)) return 'Ingegneria';
   if (/\b(dessinateur|dessinatrice|disegnatore|technical draw|drafts)/.test(t)) return 'Disegno Tecnico';
   if (/\b(chef de projet|projektleiter|project manager|capo progetto)/.test(t)) return 'Project Management';
-  if (/\b(apprenti|lehrling|apprendist|stage|stagiair)/.test(t)) return 'Formazione';
+  if (/\b(apprenti|lehrling|apprendist|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair)/.test(t)) return 'Formazione';
   return 'Altro';
 }
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab)/.test(t)) return 'senior';
   return 'mid';
@@ -133,7 +133,7 @@ function detectExperienceLevel(title = '') {
  */
 function resolveEmploymentType(ldEmploymentType = '', grades = []) {
   const t = normalize(ldEmploymentType);
-  if (/intern/.test(t)) return 'INTERN';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/.test(t)) return 'INTERN';
   if (/temporary|fixed.term|contract/.test(t)) return 'TEMPORARY';
   if (/supplementary/.test(t)) return 'PER_DIEM';
   const nums = (Array.isArray(grades) ? grades : []).map(Number).filter(Number.isFinite);

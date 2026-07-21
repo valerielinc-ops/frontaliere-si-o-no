@@ -113,7 +113,7 @@ function detectCategory(title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(intern|stage|stagiaire|apprenti|apprentice|trainee|graduate)/.test(t)) return 'intern';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiaire|apprenti|apprentice|trainee|graduate)/.test(t)) return 'intern';
   if (/\b(junior|jr\.?|analyst|associate)/.test(t)) return 'junior';
   if (/\b(senior|sr\.?|lead|head|director|principal|chief|manager|partner|managing\s*director)/.test(t))
     return 'senior';
@@ -123,7 +123,7 @@ function detectExperienceLevel(title = '') {
 function detectEmploymentType(timeType = '', title = '') {
   const t = normalize(`${timeType} ${title}`);
   if (/\b(part.?time|temps\s*partiel|teilzeit)/.test(t)) return 'PART_TIME';
-  if (/\b(intern|stage|stagiaire|apprenti|apprentice)/.test(t)) return 'INTERN';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiaire|apprenti|apprentice)/.test(t)) return 'INTERN';
   return 'FULL_TIME';
 }
 

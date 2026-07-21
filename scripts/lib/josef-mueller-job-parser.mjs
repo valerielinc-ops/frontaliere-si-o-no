@@ -310,7 +310,7 @@ export function parseJosefMuellerDetail(html = '') {
  */
 export function mapEmploymentType(raw = '', title = '', description = '') {
   const t = normalize(raw);
-  if (/praktik|stage|intern/.test(t)) return { contract: 'internship', employmentType: 'OTHER' };
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/.test(t)) return { contract: 'internship', employmentType: 'OTHER' };
   if (/teilzeit|temps partiel|part.?time/.test(t)) return { contract: 'part-time', employmentType: 'PART_TIME' };
   if (/temporär|befristet|tempor|fixed.?term/.test(t)) return { contract: 'temporary', employmentType: 'OTHER' };
   if (/festanstellung|unbefristet|permanent|cdi/.test(t)) return { contract: 'full-time', employmentType: 'FULL_TIME' };

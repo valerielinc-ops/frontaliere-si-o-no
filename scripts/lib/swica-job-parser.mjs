@@ -127,13 +127,13 @@ function detectCategory(title = '') {
   if (/\b(market|kommunik|comunicaz|communication|academy|trainer)/.test(t)) return 'Marketing';
   if (/\b(finanz|finance|financ|controll)/.test(t)) return 'Finanza';
   if (/\b(legal|giurid|recht|jurid|compliance)/.test(t)) return 'Legale';
-  if (/\b(praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'Formazione';
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'Formazione';
   return 'Altro';
 }
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab|manager|teamleiter|leiter)/.test(t)) return 'senior';
   return 'mid';

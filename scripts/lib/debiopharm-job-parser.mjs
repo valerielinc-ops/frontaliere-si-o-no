@@ -42,7 +42,7 @@ export function normalizeDebiopharmEmploymentType(value = '') {
   const normalized = normalize(value);
   if (normalized.includes('part') || normalized.includes('contract part')) return 'part-time';
   if (normalized.includes('temporary') || normalized.includes('fixed') || normalized.includes('contract')) return 'temporary';
-  if (normalized.includes('intern')) return 'internship';
+  if (/\bintern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(normalized)) return 'internship';
   return 'full-time';
 }
 

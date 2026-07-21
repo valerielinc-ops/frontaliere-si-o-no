@@ -135,13 +135,13 @@ function detectCategory(title = '', jobCat = '') {
   if (/\b(küche|koch|gastro|hauswirt|reinigung|hotellerie|cuisine|restaur|hôtel|hotel)/.test(t)) return 'Ospitalità';
   if (/\b(logist|magazz|lager|einkauf|transport|achat)/.test(t)) return 'Logistica';
   if (/\b(market|kommunik|communic)/.test(t)) return 'Marketing';
-  if (/\b(lernend|praktik|ausbildung|apprenti|stage|stagiaire)/.test(t)) return 'Formazione';
+  if (/\b(lernend|praktik|ausbildung|apprenti|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiaire)/.test(t)) return 'Formazione';
   return 'Sanità / Ospedali';
 }
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(praktik|stage|stagiaire|intern|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiaire|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|lehrling|lernend|apprenti)/.test(t)) return 'intern';
   if (/\b(junior|jr|assistent|assistant)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|chef|verantwort|leiter|leitend|stationsleitung|oberarzt|chefarzt|responsable|cadre)/.test(t)) return 'senior';
   return 'mid';
