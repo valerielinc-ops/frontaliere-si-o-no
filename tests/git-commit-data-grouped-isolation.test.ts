@@ -153,6 +153,68 @@ describe('git-commit-data.sh grouped-isolated commit path (shared workspace)', (
     }
   });
 
+  // Regression coverage for issue #4603: a job slice's array-merge must not
+  // resurrect a record the remote side already deleted just because the
+  // local (stale) snapshot still has it edited. Concretely: a crawl-time
+  // merge collapses two URL-variant postings sharing one stable `id` into a
+  // single surviving record (remote push). Meanwhile a long-running sibling
+  // process (e.g. translate-pending's slug-regen) started from a snapshot
+  // taken BEFORE that collapse — its local worktree still has both records,
+  // one of them cosmetically touched. The 3-way merge must respect the
+  // remote-side deletion instead of letting the stale local edit resurrect
+  // the retired record (previously: mergeArray always kept a "touched" key
+  // from local even when remote no longer had it at all).
+  it('does not resurrect a job record the remote side already collapsed away, even if local touched it', () => {
+    const { originDir, repoDir } = initClonePair();
+    const otherDir = mkdtempSync(join(tmpdir(), 'gcd-grouped-other-'));
+
+    try {
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      const base = [
+        { id: 'j1', url: 'https://x.example/old' },
+        { id: 'j1', url: 'https://x.example/new', title: 'v1' },
+      ];
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), `${JSON.stringify(base)}\n`);
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      // The crawler's own dedicated crawl runs concurrently and pushes the
+      // collapsed (correct) state: only the "new" URL variant survives.
+      execFileSync('git', ['clone', '-q', originDir, join(otherDir, 'clone')]);
+      const otherClone = join(otherDir, 'clone');
+      execFileSync('git', ['config', 'user.email', 'other@example.com'], { cwd: otherClone });
+      execFileSync('git', ['config', 'user.name', 'Other'], { cwd: otherClone });
+      const collapsed = [{ id: 'j1', url: 'https://x.example/new', title: 'v1' }];
+      writeFileSync(join(otherClone, 'data/jobs/by-crawler/a.json'), `${JSON.stringify(collapsed)}\n`);
+      execFileSync('git', ['add', '.'], { cwd: otherClone });
+      execFileSync('git', ['commit', '-q', '-m', 'crawler: collapse duplicate req id'], { cwd: otherClone });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: otherClone });
+
+      // Meanwhile this workspace (simulating translate-pending, started from
+      // the pre-collapse snapshot) cosmetically touches the now-retired "old"
+      // record — it never re-fetched, so it still has both.
+      const staleLocal = [
+        { id: 'j1', url: 'https://x.example/old', note: 'slug-regen touched me' },
+        { id: 'j1', url: 'https://x.example/new', title: 'v1' },
+      ];
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), `${JSON.stringify(staleLocal)}\n`);
+
+      runScript(repoDir, 'data/jobs/by-crawler/a.json');
+
+      execFileSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: repoDir });
+      const merged = JSON.parse(
+        execFileSync('git', ['show', 'origin/main:data/jobs/by-crawler/a.json'], { cwd: repoDir, encoding: 'utf-8' }),
+      );
+      expect(merged).toHaveLength(1);
+      expect(merged[0].url).toBe('https://x.example/new');
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(otherDir, { recursive: true, force: true });
+    }
+  });
+
   it('commits a brand-new untracked slice file (first-ever run of a crawler in a group)', () => {
     const { originDir, repoDir } = initClonePair();
     try {
