@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "arosa-lenzerheide-4fac9b112f86",
-      "slug": "patrouilleur-in-arosa-lenzerheide-lenzerheide",
+      "slug": "pattugliatore-in-arosa-lenzerheide-lenzerheide",
       "slugByLocale": {
         "de": "patrouilleur-in-arosa-lenzerheide-lenzerheide",
-        "it": "patrouilleur-in-arosa-lenzerheide-lenzerheide",
-        "en": "patrouilleur-in-arosa-lenzerheide-lenzerheide",
+        "it": "pattugliatore-in-arosa-lenzerheide-lenzerheide",
+        "en": "patroller-in-arosa-lenzerheide-lenzerheide",
         "fr": "patrouilleur-in-arosa-lenzerheide-lenzerheide"
       },
       "company": "Arosa Lenzerheide",
@@ -65,7 +65,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-21T11:44:58.522Z"
+      "firstSeenAt": "2026-07-21T11:44:58.522Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "patrouilleur-in-arosa-lenzerheide-lenzerheide"
+        ],
+        "en": [
+          "patrouilleur-in-arosa-lenzerheide-lenzerheide"
+        ]
+      },
+      "previousSlugs": [
+        "patrouilleur-in-arosa-lenzerheide-lenzerheide"
+      ]
     },
     {
       "id": "arosa-lenzerheide-854562563d92",
@@ -117,13 +128,11 @@
       "requirementsByLocale": {},
       "externalId": "0033",
       "previousSlugs": [
-        "junior-digital-experience-manager-arosa-lenzerheide-lenzerheide",
-        "gestione-dell-esperienza-digitale-junior-arosa-lenzerheide-lenzerheide"
+        "junior-digital-experience-manager-arosa-lenzerheide-lenzerheide"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-digital-experience-manager-arosa-lenzerheide-lenzerheide",
-          "gestione-dell-esperienza-digitale-junior-arosa-lenzerheide-lenzerheide"
+          "junior-digital-experience-manager-arosa-lenzerheide-lenzerheide"
         ],
         "fr": [
           "junior-digital-experience-manager-arosa-lenzerheide-lenzerheide"
@@ -193,13 +202,11 @@
       "requirementsByLocale": {},
       "externalId": "0030",
       "previousSlugs": [
-        "sales-manager-international-arosa-lenzerheide-lenzerheide",
-        "responsabile-vendite-international-arosa-lenzerheide-lenzerheide"
+        "sales-manager-international-arosa-lenzerheide-lenzerheide"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-manager-international-arosa-lenzerheide-lenzerheide",
-          "responsabile-vendite-international-arosa-lenzerheide-lenzerheide"
+          "sales-manager-international-arosa-lenzerheide-lenzerheide"
         ],
         "fr": [
           "sales-manager-international-arosa-lenzerheide-lenzerheide"
@@ -270,13 +277,11 @@
       "requirementsByLocale": {},
       "externalId": "0024",
       "previousSlugs": [
-        "pistenmaschinenfahrer-in-arosa-lenzerheide-lenzerheide",
-        "autista-in-arosa-lenzerheide-lenzerheide"
+        "pistenmaschinenfahrer-in-arosa-lenzerheide-lenzerheide"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pistenmaschinenfahrer-in-arosa-lenzerheide-lenzerheide",
-          "autista-in-arosa-lenzerheide-lenzerheide"
+          "pistenmaschinenfahrer-in-arosa-lenzerheide-lenzerheide"
         ],
         "en": [
           "pistenmaschinenfahrer-in-arosa-lenzerheide-lenzerheide"
@@ -350,13 +355,11 @@
       "requirementsByLocale": {},
       "externalId": "0021",
       "previousSlugs": [
-        "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide",
-        "collaboratore-trice-beschneiung-arosa-lenzerheide"
+        "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide",
-          "collaboratore-trice-beschneiung-arosa-lenzerheide"
+          "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide"
         ],
         "en": [
           "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide"
@@ -431,14 +434,12 @@
       "externalId": "0018",
       "previousSlugs": [
         "parkbully-fahrer-in-arosa-lenzerheide-lenzerheide",
-        "autista-del-parco-in-arosa-lenzerheide-lenzerheide",
-        "autista-di-parkbully-in-arosa-lenzerheide-lenzerheide"
+        "autista-del-parco-in-arosa-lenzerheide-lenzerheide"
       ],
       "previousSlugsByLocale": {
         "it": [
           "parkbully-fahrer-in-arosa-lenzerheide-lenzerheide",
-          "autista-del-parco-in-arosa-lenzerheide-lenzerheide",
-          "autista-di-parkbully-in-arosa-lenzerheide-lenzerheide"
+          "autista-del-parco-in-arosa-lenzerheide-lenzerheide"
         ],
         "en": [
           "parkbully-fahrer-in-arosa-lenzerheide-lenzerheide"
@@ -514,14 +515,12 @@
       "previousSlugs": [
         "betriebselektriker-in-arosa-lenzerheide-lenzerheide",
         "societa-elettricista-in-arosa-lenzerheide-lenzerheide",
-        "entreprise-electricien-in-arosa-lenzerheide-lenzerheide",
-        "azienda-elettrica-in-arosa-lenzerheide-lenzerheide"
+        "entreprise-electricien-in-arosa-lenzerheide-lenzerheide"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebselektriker-in-arosa-lenzerheide-lenzerheide",
-          "societa-elettricista-in-arosa-lenzerheide-lenzerheide",
-          "azienda-elettrica-in-arosa-lenzerheide-lenzerheide"
+          "societa-elettricista-in-arosa-lenzerheide-lenzerheide"
         ],
         "en": [
           "betriebselektriker-in-arosa-lenzerheide-lenzerheide"
