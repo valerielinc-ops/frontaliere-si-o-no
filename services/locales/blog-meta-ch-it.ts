@@ -1381,6 +1381,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.parrucchieri-frontaliere-ticino.title': 'Lavorare come parrucchiera in Ticino: stipendio, requisiti e riconoscimento del titolo',
     'blog.article.parrucchieri-frontaliere-ticino.excerpt': 'I requisiti per lavorare come parrucchiera in Ticino da frontaliere, il salario medio, il riconoscimento del titolo di studio e il permesso G.',
     'blog.article.parrucchieri-frontaliere-ticino.imageAlt': 'Una parrucchiera frontaliera al lavoro in un salone a Lugano',
+    'blog.article.estetista-frontaliere-ticino-stipendio-requisiti.title': 'Lavorare come estetista in Ticino: stipendio, requisiti e permesso G',
+    'blog.article.estetista-frontaliere-ticino-stipendio-requisiti.excerpt': 'Ecco cosa devi sapere per lavorare come estetista in Ticino da frontaliere.',
+    'blog.article.estetista-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Una scena di un salone di bellezza in Lugano, con clienti che si sottopongono a trattamenti di estetica.',
 };
 
 export default blogMetaChIt;
