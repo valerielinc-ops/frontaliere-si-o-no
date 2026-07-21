@@ -111,7 +111,7 @@ reliable site-wide aggregate — and newsletter/job-alert audiences overlap
 heavily) rather than computing a separate one.
 
 **Cross-run staleness (by design)** — with the cron slots below,
-`send-job-alerts` fires at 01:47 UTC, *before* `send-newsletter` at 03:33 UTC.
+`send-job-alerts` fires at 00:33 UTC, *before* `send-newsletter` at 03:33 UTC.
 So the `global_preferred_send_hour_utc` job-alerts reads on any given day is
 the value `send-newsletter` wrote on the *previous* day's run, never today's.
 This is intentionally harmless: the global aggregate is a slow-moving mean
@@ -259,7 +259,7 @@ the day* each subscriber's email goes out, not how often the workflow runs.
 | Workflow | Cron (UTC) | Rationale |
 |---|---|---|
 | `send-newsletter.yml` | `33 3 * * *` (03:33) | Unchanged by this feature. Tuned via PostHog click data + owner request (2026-07-08); confirmed clear by the same concurrency audit below. |
-| `send-job-alerts.yml` | `47 1 * * *` (01:47) | Moved from `0 5 * * *` (2026-07-11, issue #3798 rollout). See below. |
+| `send-job-alerts.yml` | `33 0 * * *` (00:33) | Moved from `0 5 * * *` (2026-07-11, issue #3798 rollout); shifted from 01:47→00:33 (2026-07-21) to hold a 3h gap before send-newsletter. See below. |
 
 **Audit basis** (real GitHub Actions runs, 3.5-day window, July 2026):
 01:00-04:00 UTC is the quietest concurrency window on the account (~4
