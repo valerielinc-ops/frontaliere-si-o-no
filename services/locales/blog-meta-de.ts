@@ -8757,6 +8757,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.title': 'Frontalieri im Tessin: Voraussetzungen und Bewilligung',
     'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.excerpt': 'Erfahren Sie, wie die Arbeit als Filialleiter im Tessin für Grenzgänger funktioniert.',
     'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.imageAlt': 'Ein Verkaufsleiter in einem Einkaufszentrum in Lugano.',
+    'blog.article.frontaliere-ticino-salario-macellaio.title': 'Wie viel verdient ein Grenzmetzger im Tessin',
+    'blog.article.frontaliere-ticino-salario-macellaio.excerpt': 'Durchschnittslohn eines Grenzmetzgers im Tessin: Quellenangaben und -zahlen',
+    'blog.article.frontaliere-ticino-salario-macellaio.imageAlt': 'Metzger in einem Fleischladen in Lugano',
 };
 
 export default blogMetaDe;
