@@ -1441,6 +1441,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.grigioni-traffico-sviamento-udc.title': 'Grigioni: traffico di sviamento, UDC critica il Governo',
     'blog.article.grigioni-traffico-sviamento-udc.excerpt': 'L\'UDC grigionese propone il modello di Birsfelden per contrastare il traffico di sviamento sulla A13. Il Governo chiede chiarezza giuridica prima di procedere.',
     'blog.article.grigioni-traffico-sviamento-udc.imageAlt': 'Traffico sulla A13 nei Grigioni',
+    'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.title': 'Di più Swiss: nuovo CCL per personale di terra, settimana scende a 40 ore',
+    'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.excerpt': 'Il personale di terra della Swiss approva il nuovo contratto collettivo di lavoro (CCL) che prevede una riduzione dell\'orario di lavoro settimanale da 42 a 40 ore.',
+    'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.imageAlt': 'Una foto di un aeroporto svizzero con un pilota di terra in primo piano.',
 };
 
 export default blogMetaChIt;

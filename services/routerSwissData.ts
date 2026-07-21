@@ -503,6 +503,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'migros-operatore-conquista-svizzera-coop': { it: 'migros-operatore-conquista-svizzera-coop', en: 'migros-operator-conquers-switzerland-coop', de: 'migros-operator-erobert-schweiz-coop', fr: 'migros-operateur-conquiert-suisse-coop' },
  'mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione': { it: 'mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione', en: 'swisscom-loses-contract-over-534-hours-of-experience', de: 'swisscom-verliert-vertrag-ueber-534-stunden-erfahrung', fr: 'swisscom-perd-un-contract-sur-534-heures-d-experience' },
  'grigioni-traffico-sviamento-udc': { it: 'grigioni-traffico-sviamento-udc', en: 'grisons-diversion-traffic-udc', de: 'graubuenden-ausweichverkehr-svp', fr: 'grisons-trafic-evitement-udc' },
+ 'di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore': { it: 'di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore', en: 'swiss-new-ccl-for-ground-crew', de: 'neu-im-schweiz-ccl-fur-bodenpersonal', fr: 'nouveau-ccl-suisse-pour-l-equipage-terre' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

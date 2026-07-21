@@ -1441,6 +1441,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.grigioni-traffico-sviamento-udc.title': 'Grisons : trafic de détournement, UDC critique le gouvernement',
     'blog.article.grigioni-traffico-sviamento-udc.excerpt': 'L\'UDC grisonne propose le modèle de Birsfelden pour contrer le trafic de détournement sur l\'A13. Le Gouvernement demande des éclaircissements juridiques avant de procéder.',
     'blog.article.grigioni-traffico-sviamento-udc.imageAlt': 'Trafic sur l\'A13 dans les Grisons',
+    'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.title': 'Plus de Swiss : nouvelle CCT à 40h pour le personnel au sol',
+    'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.excerpt': 'Le personnel au sol de Swiss approuve la nouvelle convention collective de travail (CCT) qui prévoit une réduction du temps de travail hebdomadaire de 42 à 40 heures.',
+    'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.imageAlt': 'Une photo d\'un aéroport suisse avec un membre de l\'équipage au premier plan.',
 };
 
 export default blogMetaChFr;

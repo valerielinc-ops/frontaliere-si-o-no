@@ -1441,6 +1441,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.grigioni-traffico-sviamento-udc.title': 'Graubünden: Umleitungsverkehr, SVP kritisiert Regierung',
     'blog.article.grigioni-traffico-sviamento-udc.excerpt': 'Die Bündner SVP schlägt das Birsfelden-Modell vor, um dem Umleitungsverkehr auf der A13 entgegenzuwirken. Die Regierung verlangt rechtliche Klarheit, bevor sie fortfährt.',
     'blog.article.grigioni-traffico-sviamento-udc.imageAlt': 'Verkehr auf der A13 in Graubünden',
+    'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.title': 'Mehr Swiss: Neuer GAV für Bodenpersonal, Woche sinkt auf 40 Stunden',
+    'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.excerpt': 'Das Bodenpersonal der Swiss genehmigt den neuen Gesamtarbeitsvertrag (GAV), der eine Verkürzung der Wochenarbeitszeit von 42 auf 40 Stunden vorsieht.',
+    'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.imageAlt': 'Eine Foto eines Schweizer Flughafens mit einem Bodenpersonal in Vordergrund.',
 };
 
 export default blogMetaChDe;
