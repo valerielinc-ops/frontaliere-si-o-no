@@ -933,6 +933,40 @@ describe('events schema data quality (#3508)', () => {
     // Markup-only filter: the stale event must still be visible in the HTML list.
     expect(page.html).toContain('Chilbi Vecchia');
   });
+
+  // Regression guard: validate-dist run 29794187475 found the Bern canton hub
+  // (the most-crawled canton, closest to the 100-event visible-card cap) ~1 KB
+  // over the 260 KB audit:page-weight budget — the ItemList JSON-LD mirrored
+  // all 100 visible cards' worth of `lightEventLd()` entries. The fix caps
+  // JSON-LD entries independently of the visible card list (EVENT_JSONLD_ITEM_CAP
+  // in eventsSeoPagesPlugin.ts), so every event still gets a real crawlable
+  // <a href> card (audit:max-bfs-depth reachability untouched) while the
+  // invisible structured-data tail shrinks.
+  it('caps ItemList JSON-LD entries well below the visible card count on a large hub', () => {
+    const dateStamp = '2026-06-30';
+    const events = Array.from({ length: 120 }, (_, i) => ({
+      ...EVENT,
+      id: `myswitzerland:${i}`,
+      title: `Evento Berna ${i}`,
+      startDate: `2026-07-${String((i % 27) + 1).padStart(2, '0')}`,
+      endDate: `2026-07-${String((i % 27) + 1).padStart(2, '0')}`,
+    })).sort((a, b) => a.startDate.localeCompare(b.startDate));
+    const page = renderHubPage({
+      locale: 'it',
+      canton: 'BE',
+      events: events as never,
+      byComune: new Map([['Bern', events]]) as never,
+      dateStamp,
+      weekendDays: new Set<string>(),
+      distDir,
+    });
+    const itemLists = [...page.html.matchAll(/<script type="application\/ld\+json">(\{"@context":"https:\/\/schema\.org","@type":"ItemList".*?\})<\/script>/g)];
+    const parsed = JSON.parse(itemLists[0][1]) as { itemListElement: unknown[] };
+    expect(parsed.itemListElement.length).toBeLessThanOrEqual(50);
+    // Visible cards stay uncapped by this change — every event keeps its own
+    // crawlable link (audit:max-bfs-depth reachability, PR #4611 fix #3645).
+    expect(page.html).toContain('Evento Berna 99');
+  });
 });
 
 describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => {
