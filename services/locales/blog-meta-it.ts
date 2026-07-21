@@ -8783,6 +8783,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.title': 'Frontaliere Ticino: stipendio e requisiti per addetti alle pulizie',
     'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.excerpt': 'L\'addetto alle pulizie è un lavoratore che si occupa della manutenzione e del mantenimento degli edifici, degli impianti e delle infrastrutture. In Ticino, il frontaliere addetto alle pulizie può lavorare in diverse aree, come le aziende, le scuole, gli ospedali e i centri commerciali.',
     'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.imageAlt': 'Un frontaliere addetto alle pulizie lavora in un\'azienda di Lugano',
+    'blog.article.monate-pesche-sciroppate-bina.title': 'Azienda Bina: la tradizione dei Perzic de Munà',
+    'blog.article.monate-pesche-sciroppate-bina.excerpt': 'Scopri la storia dell\'azienda agricola Bina di Travedona Monate, attiva da tre generazioni nella produzione artigianale di pesche sciroppate senza conservanti.',
+    'blog.article.monate-pesche-sciroppate-bina.imageAlt': 'Pesche sciroppate artigianali prodotte a Travedona Monate',
 };
 
 export default blogMetaIt;

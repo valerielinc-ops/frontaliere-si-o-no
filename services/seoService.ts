@@ -4786,6 +4786,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-novartis-superaspettative': { name: 'Novartis', path: '/articoli-svizzera/novartis-superaspettative/', parent: 'blog' },
     'blog-frontaliere-addetto-pulizie-ticino-stipendio-requisiti': { name: 'Frontaliere addetto alle pulizie Ticino', path: '/articoli-frontaliere/frontaliere-addetto-pulizie-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-frontaliere-custode-ticino-stipendio-requisiti': { name: 'Lavorare come custode in Ticino', path: '/articoli-svizzera/frontaliere-custode-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-monate-pesche-sciroppate-bina': { name: 'Tradizioni locali', path: '/articoli-frontaliere/monate-pesche-sciroppate-bina', parent: 'blog' },
  };
 
  const info = sectionNames[section];

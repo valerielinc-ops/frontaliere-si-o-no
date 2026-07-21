@@ -53034,6 +53034,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-monate-pesche-sciroppate-bina': {
+    title: 'Azienda Bina: la tradizione dei Perzic de Munà',
+    description: 'Scopri la storia dell\'azienda agricola Bina di Travedona Monate, attiva da tre generazioni nella produzione artigianale di pesche sciroppate senza conservanti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, azienda, bina, tradizione, perzic',
+    ogTitle: 'Azienda Bina: la tradizione dei Perzic de Munà',
+    ogDescription: 'Scopri la storia dell\'azienda agricola Bina di Travedona Monate, attiva da tre generazioni nella produzione artigianale di pesche sciroppate senza conservanti.',
+    canonicalPath: '/articoli-frontaliere/monate-pesche-sciroppate-bina',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Azienda Bina: la tradizione dei Perzic de Munà",
+      "description": "Scopri la storia dell'azienda agricola Bina di Travedona Monate, attiva da tre generazioni nella produzione artigianale di pesche sciroppate senza conservanti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/monate-pesche-sciroppate-bina.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pesche sciroppate artigianali prodotte a Travedona Monate"
+      },
+      "datePublished": "2026-07-21T06:36:57+00:00",
+      "dateModified": "2026-07-21T06:36:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/monate-pesche-sciroppate-bina/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

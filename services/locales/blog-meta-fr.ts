@@ -8783,6 +8783,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.title': 'Frontière du Tessin : salaire et exigences pour les agents de nettoyage',
     'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.excerpt': 'L\'agent de nettoyage est un travailleur qui s\'occupe de l\'entretien et de la maintenance des bâtiments, des installations et des infrastructures. Au Tessin, l\'agent de nettoyage frontalier peut travailler dans différents domaines, tels que les entreprises, les écoles, les hôpitaux et les centres commerciaux.',
     'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.imageAlt': 'Un frontalier chargé de nettoyage travaille dans une entreprise à Lugano',
+    'blog.article.monate-pesche-sciroppate-bina.title': 'Entreprise Bina : la tradition des Perzic de Munà',
+    'blog.article.monate-pesche-sciroppate-bina.excerpt': 'Découvrez l\'histoire de la ferme Bina de Travedona Monate, active depuis trois générations dans la production artisanale de pêches au sirop sans conservateurs.',
+    'blog.article.monate-pesche-sciroppate-bina.imageAlt': 'Pêches au sirop artisanales produites à Travedona Monate',
 };
 
 export default blogMetaFr;
