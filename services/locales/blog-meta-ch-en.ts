@@ -1375,6 +1375,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.title': 'Butcher frontier: salary and requirements',
     'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.excerpt': 'The requirements to work as a butcher in Ticino as a border worker, average salary and possibility of recognition of the qualification',
     'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.imageAlt': 'Photograph of a cross-border butcher working in a meat shop in Lugano',
+    'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.title': 'Border pastry: salary, requirements and recognition',
+    'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.excerpt': 'The New Frontier Agreement was signed on 23 December 2020 and enters into force on 1 January 2024. What are the requirements to work as a pastry chef in Ticino?',
+    'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.imageAlt': 'A frontalier working as a pastry chef in a shop in Lugano, with a view of the city.',
 };
 
 export default blogMetaChEn;

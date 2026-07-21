@@ -1375,6 +1375,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.title': 'Frontalier boucher : salaire et exigences',
     'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.excerpt': 'Les exigences pour travailler comme boucher au Tessin en tant que frontalier, le salaire moyen et la possibilité de reconnaissance du diplôme',
     'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.imageAlt': 'Photographie d\'un frontalier boucher travaillant dans un magasin de viande à Lugano',
+    'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.title': 'Frontalier pâtissier : salaire, exigences et reconnaissance',
+    'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.excerpt': 'Le nouvel accord frontalier a été signé le 23 décembre 2020 et entre en vigueur le 1er janvier 2024. Quelles sont les exigences pour travailler comme pâtissier au Tessin ?',
+    'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.imageAlt': 'Un frontalier travaillant comme pâtissier dans un magasin de Lugano, avec une vue sur la ville.',
 };
 
 export default blogMetaChFr;
