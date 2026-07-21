@@ -4773,6 +4773,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-ticino-salario-macellaio': { name: 'Macellaio frontaliere in Ticino', path: '/articoli-frontaliere/frontaliere-ticino-salario-macellaio', parent: 'blog' },
     'blog-frontaliere-macellaio-ticino-stipendio-requisiti': { name: 'Frontaliere macellaio in Ticino', path: '/articoli-svizzera/frontaliere-macellaio-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-frontaliere-ticino-panettiere-guadagno': { name: 'Stipendio reale di un panettiere', path: '/articoli-frontaliere/frontaliere-ticino-panettiere-guadagno', parent: 'blog' },
+    'blog-frontaliere-pasticciere-ticino-stipendio-requisiti': { name: 'Frontaliere pasticcere Ticino', path: '/articoli-svizzera/frontaliere-pasticciere-ticino-stipendio-requisiti/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

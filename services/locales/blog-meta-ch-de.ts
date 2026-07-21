@@ -1375,6 +1375,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.title': 'Grenzgänger Metzger: Gehalt und Anforderungen',
     'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.excerpt': 'Die Voraussetzungen für die Arbeit als Metzger im Tessin als Grenzgänger, Durchschnittsgehalt und die Möglichkeit der Anerkennung des Abschlusses',
     'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.imageAlt': 'Fotografie eines Frontalier-Metzgers, der in einem Fleischladen in Lugano arbeitet',
+    'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.title': 'Grenzgänger Konditorei: Gehalt, Anforderungen und Anerkennung',
+    'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.excerpt': 'Die Neue Frontalieri-Vereinbarung wurde am 23. Dezember 2020 unterzeichnet und tritt am 1. Januar 2024 in Kraft. Was sind die Voraussetzungen, um als Konditor im Tessin zu arbeiten?',
+    'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.imageAlt': 'Ein Frontalier, der als Patisserie-Chef in einem Laden in Lugano arbeitet, mit einer Aussicht auf die Stadt.',
 };
 
 export default blogMetaChDe;

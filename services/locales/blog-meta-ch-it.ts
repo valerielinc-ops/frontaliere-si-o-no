@@ -1375,6 +1375,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.title': 'Frontaliere macellaio: stipendio e requisiti',
     'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.excerpt': 'I requisiti per lavorare come macellaio in Ticino come frontaliere, stipendio medio e possibilità di riconoscimento del titolo di studio',
     'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.imageAlt': 'Fotografia di un frontaliere macellaio che lavora in un negozio di carne a Lugano',
+    'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.title': 'Frontaliere pasticceria: stipendio, requisiti e riconoscimento',
+    'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.excerpt': 'Il Nuovo Accordo Frontalieri è stato firmato il 23 dicembre 2020 e entra in vigore dal 1° gennaio 2024. Quali sono i requisiti per lavorare come pasticcere in Ticino?',
+    'blog.article.frontaliere-pasticciere-ticino-stipendio-requisiti.imageAlt': 'Un frontaliere che lavora come pasticcere in un negozio di Lugano, con una vista sulla città.',
 };
 
 export default blogMetaChIt;

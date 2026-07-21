@@ -4121,6 +4121,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontaliere-pasticciere-ticino-stipendio-requisiti',
+    category: 'pratico',
+    date: '2026-07-21T03:32:58.108Z',
+    image: '/images/blog/frontaliere-pasticciere-ticino-stipendio-requisiti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
