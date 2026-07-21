@@ -27,8 +27,14 @@
  * is a bug.
  */
 
-import { readdir, readFile, stat } from 'node:fs/promises';
+import { readFile, stat } from 'node:fs/promises';
 import { join, relative } from 'node:path';
+// Shared bounded-concurrency dist walker — was a copy-pasted sequential
+// `stack.pop()` walk, identical to measure-l2-distribution.mjs,
+// verify-l2-equivalence.mjs, and the pre-fix scripts/lib/audit-runner.mjs
+// (deduped per CLAUDE.md #6). Returns absolute paths; this script needs
+// root-relative ones to compare baseline vs. candidate trees.
+import { walkHtmlFiles } from './lib/audit-runner.mjs';
 
 function parseArgs() {
   const args = new Map();
@@ -42,21 +48,8 @@ function parseArgs() {
 }
 
 async function walk(root) {
-  const out = [];
-  const stack = [root];
-  while (stack.length) {
-    const cur = stack.pop();
-    let entries;
-    try { entries = await readdir(cur, { withFileTypes: true }); }
-    catch { continue; }
-    for (const e of entries) {
-      if (e.name.startsWith('.')) continue;
-      const p = join(cur, e.name);
-      if (e.isDirectory()) stack.push(p);
-      else if (e.isFile() && p.endsWith('.html')) out.push(relative(root, p));
-    }
-  }
-  return out;
+  const absolute = await walkHtmlFiles(root);
+  return absolute.map((p) => relative(root, p));
 }
 
 function sampleRandom(arr, n) {
