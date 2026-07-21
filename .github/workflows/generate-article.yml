@@ -328,6 +328,8 @@ jobs:
             const dupLines = Object.keys(dup).length
               ? Object.entries(dup).map(([k,v]) => `- ${k}: ${v}`).join("\n")
               : "- none";
+            const preDrops = r.preFilterDrops || {};
+            const samples = Array.isArray(r.discardedHeadlineSamples) ? r.discardedHeadlineSamples : [];
             const lines = [
               "## Create-article report",
               "",
@@ -342,6 +344,26 @@ jobs:
               "### Headline pool stats",
               `- total=${r.headlines?.total ?? 0}, recent=${r.headlines?.recent ?? 0}, undated=${r.headlines?.undated ?? 0}`,
               `- usedRecent=${r.headlines?.usedRecent ?? 0}, usedUndated=${r.headlines?.usedUndated ?? 0}`,
+              `- droppedPreSpendGate=${r.headlines?.droppedPreSpendGate ?? 0} (frontaliere-relevance classifier)`,
+              "",
+              "### Fase 1 pre-filter drops (perché la pool news si è svuotata)",
+              `- URL gia usata (source gia pubblicata): ${preDrops.urlAlreadyUsed ?? 0}`,
+              `- Topic gia coperto (dedup vs corpus): ${preDrops.topicAlreadyCovered ?? 0}`,
+              "",
+              samples.length
+                ? [
+                    "| motivo | headline scartata | matcha con | segnale |",
+                    "|---|---|---|---|",
+                    ...samples.map((s) => {
+                      const headline = String(s.headline || "").replace(/\|/g, "\\|").slice(0, 90);
+                      const matched = s.existingTitle
+                        ? `${String(s.existingTitle).replace(/\|/g, "\\|").slice(0, 90)} (${s.existingId || ""})`
+                        : (s.existingId || s.classifierReason || "-");
+                      const signal = s.sim != null ? `${s.signal}=${s.sim}` : (s.signal || s.reason || "-");
+                      return `| ${s.reason || "-"} | ${headline} | ${matched} | ${signal} |`;
+                    }),
+                  ].join("\n")
+                : "_nessun sample registrato questo run._",
               "",
               "### Report file",
               `- \`${p}\``
