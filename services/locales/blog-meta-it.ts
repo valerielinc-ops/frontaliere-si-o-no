@@ -8813,6 +8813,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliereticino-mozione-consiglio-federale.title': 'Frontalieri: nessuna disoccupazione per la Svizzera',
     'blog.article.frontaliereticino-mozione-consiglio-federale.excerpt': 'La Svizzera non deve versare la disoccupazione ai frontalieri. Mozione al Consiglio federale.',
     'blog.article.frontaliereticino-mozione-consiglio-federale.imageAlt': 'Un frontaliere a Lugano, con la città di fronte',
+    'blog.article.telelavoro-frontalieri-nuove-regole.title': 'Telelavoro per frontalieri: nuove regole smart working',
+    'blog.article.telelavoro-frontalieri-nuove-regole.excerpt': 'Nuove norme per i frontalieri tra Italia e Svizzera: smart working fino al 25% dell\'orario senza perdere lo status e l\'imponibilità in Svizzera.',
+    'blog.article.telelavoro-frontalieri-nuove-regole.imageAlt': 'Ufficio domestico con vista sul Lago di Lugano per telelavoro frontalieri',
 };
 
 export default blogMetaIt;

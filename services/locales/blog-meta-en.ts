@@ -8812,6 +8812,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliereticino-mozione-consiglio-federale.title': 'Frontier workers: no unemployment for Switzerland',
     'blog.article.frontaliereticino-mozione-consiglio-federale.excerpt': 'Switzerland must not pay unemployment to frontier workers. Motion to the Federal Council.',
     'blog.article.frontaliereticino-mozione-consiglio-federale.imageAlt': 'A frontaliere in Lugano, with the city in the background',
+    'blog.article.telelavoro-frontalieri-nuove-regole.title': 'Teleworking for border workers: new smart working rules',
+    'blog.article.telelavoro-frontalieri-nuove-regole.excerpt': 'New rules for border workers between Italy and Switzerland: smart working up to 25% of the time without losing status and taxability in Switzerland.',
+    'blog.article.telelavoro-frontalieri-nuove-regole.imageAlt': 'Home office with Lake Lugano view for cross-border telework',
 };
 
 export default blogMetaEn;

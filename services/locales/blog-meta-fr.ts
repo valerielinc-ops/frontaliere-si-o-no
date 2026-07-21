@@ -8814,6 +8814,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliereticino-mozione-consiglio-federale.title': 'Frontaliers : pas de chômage pour la Suisse',
     'blog.article.frontaliereticino-mozione-consiglio-federale.excerpt': 'La Suisse ne doit pas verser le chômage aux frontaliers. Motion au Conseil fédéral.',
     'blog.article.frontaliereticino-mozione-consiglio-federale.imageAlt': 'Un frontalier à Lugano, avec la ville en arrière-plan',
+    'blog.article.telelavoro-frontalieri-nuove-regole.title': 'Télétravail pour les frontaliers : nouvelles règles de travail intelligent',
+    'blog.article.telelavoro-frontalieri-nuove-regole.excerpt': 'Nouvelles règles pour les frontaliers entre l\'Italie et la Suisse : travail intelligent jusqu\'à 25 % de l\'heure sans perdre le statut et l\'imposition en Suisse.',
+    'blog.article.telelavoro-frontalieri-nuove-regole.imageAlt': 'Bureau à domicile avec vue sur le lac de Lugano pour le télétravail des frontaliers',
 };
 
 export default blogMetaFr;
