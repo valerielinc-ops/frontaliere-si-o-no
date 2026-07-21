@@ -165,19 +165,19 @@ describe('filterLiveJobs', () => {
 // checkLink option surface added for the deep-sample propagation gate (PR #4181
 // review 🟡: the gate must REUSE checkLink, not re-implement it — these tests
 // pin the option semantics both callers now share).
-import { checkLink } from '../scripts/lib/live-link-check.mjs';
+import { checkLink, DEFAULT_LIVE_CHECK_USER_AGENT } from '../scripts/lib/live-link-check.mjs';
 
 describe('checkLink — cacheBust + headers options (deep-sample gate reuse)', () => {
   afterEach(() => vi.restoreAllMocks());
 
-  it('default call has NO cache-bust query and no extra headers (send-job-alerts semantics unchanged)', async () => {
+  it('default call has NO cache-bust query and only the default User-Agent header (CF challenge bypass, no caller override)', async () => {
     const spy = vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response(null, { status: 200 }));
     await checkLink('https://example.com/page/');
     expect(spy).toHaveBeenCalledTimes(1);
     const [url, init] = spy.mock.calls[0] as [string, RequestInit];
     expect(url).toBe('https://example.com/page/');
     expect(init.method).toBe('HEAD');
-    expect(init.headers).toEqual({});
+    expect(init.headers).toEqual({ 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT });
   });
 
   it('cacheBust appends a unique _=<ts> query param (origin read, edge defeated)', async () => {

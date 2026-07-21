@@ -44,6 +44,7 @@
  */
 
 import { writeFileSync } from 'node:fs';
+import { DEFAULT_LIVE_CHECK_USER_AGENT } from './lib/live-link-check.mjs';
 
 const HOST = process.env.HOST || 'frontaliereticino.ch';
 const OUTPUT = process.env.OUTPUT || '/tmp/pre-deploy-sitemap-urls.json';
@@ -73,7 +74,7 @@ function parseSitemapBody(xml) {
 async function fetchText(url) {
   try {
     const res = await fetch(url, {
-      headers: { Accept: 'application/xml, text/xml' },
+      headers: { Accept: 'application/xml, text/xml', 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT },
       signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
     });
     if (!res.ok) return null;

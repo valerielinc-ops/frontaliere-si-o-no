@@ -47,7 +47,7 @@
  */
 
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { checkPageBodyLive, runWithConcurrency } from './lib/live-link-check.mjs';
+import { checkPageBodyLive, runWithConcurrency, DEFAULT_LIVE_CHECK_USER_AGENT } from './lib/live-link-check.mjs';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const FETCH_TIMEOUT_MS = 10_000;
@@ -92,7 +92,10 @@ function extractSameOriginLinks(html, pageUrl) {
 /** Fetch a live page + check all its same-origin outlinks. Returns the
  * linkCheck result shape (services/journalistTypes.ts JournalistArticleLinkCheckResult). */
 async function checkPageLinks(pageUrl) {
-  const pageRes = await fetch(pageUrl, { signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
+  const pageRes = await fetch(pageUrl, {
+    headers: { 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT },
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+  });
   if (!pageRes.ok) throw new Error(`page fetch failed: HTTP ${pageRes.status}`);
   const html = await pageRes.text();
   const links = extractSameOriginLinks(html, pageUrl);
