@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3405,
+ "numberOfItems": 3407,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8173,7 +8173,9 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3402, "name": "Quanto guadagna un parrucchiere frontaliere in ...", "url": `${BASE_URL}/articoli-frontaliere/parrucchiere-frontaliere-ticino` },
           { "@type": "ListItem", "position": 3403, "name": "Lavorare come estetista in Ticino: stipendio, r...", "url": `${BASE_URL}/articoli-frontaliere/estetista-frontaliere-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3404, "name": "Barista frontaliere: stipendio e requisiti in T...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-barista-ticino-stipendio-requisiti` },
-          { "@type": "ListItem", "position": 3405, "name": "Frontaliere Ticino: stipendio e requisiti per l...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-aiuto-cucina-ticino-stipendio-requisiti` }
+          { "@type": "ListItem", "position": 3405, "name": "Frontaliere Ticino: stipendio e requisiti per l...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-aiuto-cucina-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3406, "name": "Quanto guadagna un aiuto cucina frontaliere in ...", "url": `${BASE_URL}/articoli-frontaliere/aiuto-cucina-frontaliere-ticino-stipendio` },
+          { "@type": "ListItem", "position": 3407, "name": "Agente di sicurezza in Ticino: stipendio, requi...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti` }
  ]
  },
  {

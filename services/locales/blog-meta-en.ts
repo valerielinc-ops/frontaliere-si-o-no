@@ -8773,6 +8773,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-barista-ticino-stipendio-requisiti.title': 'Border bartender: salary and requirements in Ticino',
     'blog.article.frontaliere-barista-ticino-stipendio-requisiti.excerpt': 'Average salary of a border bartender in Ticino: not yet specified',
     'blog.article.frontaliere-barista-ticino-stipendio-requisiti.imageAlt': 'A barista working in Lugano',
+    'blog.article.aiuto-cucina-frontaliere-ticino-stipendio.title': 'How much does a border kitchen help earn in Ticino',
+    'blog.article.aiuto-cucina-frontaliere-ticino-stipendio.excerpt': 'The salary of a border kitchen help in Ticino: how the tax at source works and what it means for workers.',
+    'blog.article.aiuto-cucina-frontaliere-ticino-stipendio.imageAlt': 'A kitchen assistant in Lugano',
 };
 
 export default blogMetaEn;

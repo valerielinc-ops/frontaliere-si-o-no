@@ -1387,6 +1387,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-aiuto-cucina-ticino-stipendio-requisiti.title': 'Frontière du Tessin : salaire et exigences pour l\'aide à la cuisine',
     'blog.article.frontaliere-aiuto-cucina-ticino-stipendio-requisiti.excerpt': 'Salaire moyen pour les aides-cuisine frontalières au Tessin, exigences et reconnaissance du diplôme',
     'blog.article.frontaliere-aiuto-cucina-ticino-stipendio-requisiti.imageAlt': 'Un aide de cuisine en Tessin',
+    'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.title': 'Agent de sécurité au Tessin : salaire, exigences et reconnaissance',
+    'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.excerpt': 'Les agents de sécurité frontaliers au Tessin : salaire moyen CHF 60\'000, exigences et reconnaissance du diplôme',
+    'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.imageAlt': 'Image d\'un agent de sécurité frontalier à Lugano',
 };
 
 export default blogMetaChFr;
