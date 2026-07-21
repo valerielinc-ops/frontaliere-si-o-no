@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadt-luzern",
-  "assembledAt": "2026-07-21T10:56:32.720Z",
+  "assembledAt": "2026-07-21T22:33:02.448Z",
   "jobs": [
     {
       "id": "stadt-luzern-b1758745ff12",
@@ -28,12 +28,13 @@
         "de": "Du suchst eine sinnvolle Aufgabe, bei der du Schulkinder am Morgen vor dem Unterricht und beim Frühstück begleitest? In unserer schulergänzenden Betreuung der Primarschule Littau Dorf erwartet dich ein abwechslungsreiches Umfeld, ein engagiertes Team und die Chance, deine pädagogischen Fähigkeiten mit Freude einzubringen.\n\nAufgaben:\n• Du bist verantwortlich für die Frühmorgenbetreuung, begleitest die Kinder beim Frühstück und in ihrer freien Zeit vor dem Unterricht.\n\n• Du stellst den Informationsfluss an das Tagesteam sicher.\n\n• Du bist für Kinder, Eltern und Schulmitarbeitende eine verlässliche Bezugsperson.\n\n• Du pflegst den Kontakt zu Betreuungs- und Lehrpersonen.\n\n• Du arbeitest überwiegend während den Schulwochen, jeweils Montag bis Freitag von 7:00-8:15 Uhr.\n\nAnforderungen:\n• Du bringst eine pädagogische Ausbildung oder Weiterbildung mit.\n\n• Du arbeitest nach dem lösungsorientierten Ansatz und bringst klare pädagogische Haltungen und Werte mit.\n\n• Du hast Erfahrung und Freude daran, Kindergartenkinder von 4 bis 12 Jahren zu begleiten und zu unterstützen.\n\n• Du fühlst dich in die Lebenswelt der Kinder ein und gehst souverän mit kulturell- und altersdurchmischten Gruppen um.\n\n• Du überzeugst durch deine empathische, wertschätzende und teamorientierte Art.\n\n• Du bringst Erfahrung im administrativen Bereich mit.\n\n• Du arbeitest selbstständig, zuverlässig und kommunizierst offen, klar und transparent.",
         "fr": "Vous cherchez une tâche significative où vous accompagnez les écoliers le matin avant le cours et au petit déjeuner? Dans notre supervision complémentaire de l'école primaire Littau Dorf, vous pouvez vous attendre à un environnement varié, une équipe engagée et la chance de contribuer vos compétences éducatives avec joie. Tâches :\n• Vous êtes responsable des soins tôt le matin, accompagnant les enfants au petit déjeuner et dans leur temps libre avant la classe.\n• Vous assurez le flux d'information à l'équipe de jour.\n• Vous êtes une personne de référence fiable pour les enfants, les parents et les employés de l'école.\n• Vous gardez le contact avec les soignants et les enseignants.\n• Vous travaillez surtout pendant les semaines d'école, du lundi au vendredi de 7:00 à 8:15. Exigences\n• Vous apportez une éducation ou une formation.\n• Vous travaillez selon l'approche axée sur la solution et apportez des attitudes et des valeurs pédagogiques claires.\n• Vous avez l'expérience et la joie d'accompagner et de soutenir les enfants de la maternelle de 4 à 12 ans.\n• Vous empathie avec le monde des enfants et vous traitez avec des groupes culturellement et par âge.\n• Vous convainquez par votre façon empathique, appréciatrice et orientée vers l'équipe.\n• Vous avez de l'expérience dans le domaine administratif.\n• Vous travaillez de manière indépendante, fiable et communiquez ouvertement, clairement et de manière transparente."
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozial-paedagogische-r-mitarbeiter-in-fruehmorgenbetreuung-zirka-betreuung-littau-dorf/2ba8de14-9263-4bee-b7fa-425dfa8da26a",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.728Z",
+      "crawledAt": "2026-07-21T22:32:59.147Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -52,11 +53,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozial-padagogische-r-mitarbeiter-in-fruhmorgenbetreuung-zirka-12-betreuung-littau-dorf"
+        "sozial-padagogische-r-mitarbeiter-in-fruhmorgenbetreuung-zirka-12-betreuung-littau-dorf",
+        "sozial-padagogische-r-collaboratore-trice-in-fruhmorgenbetreuung-zirka-12-betreuung-littau-dorf-stadt-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozial-padagogische-r-mitarbeiter-in-fruhmorgenbetreuung-zirka-12-betreuung-littau-dorf"
+          "sozial-padagogische-r-mitarbeiter-in-fruhmorgenbetreuung-zirka-12-betreuung-littau-dorf",
+          "sozial-padagogische-r-collaboratore-trice-in-fruhmorgenbetreuung-zirka-12-betreuung-littau-dorf-stadt-luzern"
         ],
         "en": [
           "sozial-padagogische-r-mitarbeiter-in-fruhmorgenbetreuung-zirka-12-betreuung-littau-dorf"
@@ -75,85 +78,6 @@
           "@type": "QuantitativeValue",
           "minValue": 8300,
           "maxValue": 12700,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-luzern-9824dc6d62a2",
-      "slug": "ufficiale-di-stato-civile-60-stadt-luzern-luzern",
-      "slugByLocale": {
-        "it": "ufficiale-di-stato-civile-60-stadt-luzern-luzern",
-        "en": "civil-status-officer-60-stadt-luzern-luzern",
-        "de": "zivilstandsbeamt-in-60-stadt-luzern-luzern",
-        "fr": "fonctionnaire-de-l-etat-civil-60-stadt-luzern-luzern"
-      },
-      "company": "Stadt Luzern",
-      "companyKey": "stadt-luzern",
-      "companyDomain": "stadtluzern.ch",
-      "title": "Zivilstandsbeamt*in (60 %)",
-      "titleByLocale": {
-        "it": "Ufficiale di stato civile (60%)",
-        "en": "Zivilstandsbeamt*in (60 %)",
-        "de": "Zivilstandsbeamt*in (60 %)",
-        "fr": "Fonctionnaire de l ' état civil (60 %)"
-      },
-      "description": "Willst du Büroarbeit mit einer sinnstiftenden Tätigkeit verbinden? Und Kundinnen und Kunden an die erste Stelle setzen?\n\nAufgaben:\n• Du beurkundest Zivilstandsereignisse von Geburt, über Eheschliessung bis zum Tod inkl. Gerichts- und Verwaltungsentscheide.\n\n• Erklärungen (z. B. Anerkennung, Namenserklärung, Geschlechtsänderung) nimmst du entgegen und bearbeitest sie.\n\n• Im Rahmen der Ehevorbereitung prüfst du, ob alle Ehevoraussetzungen erfüllt sind.\n\n• Du führst Trauungen durch.\n\n• Du erstellst Auszüge aus den Zivilstandsregistern.\n\n• Du berätst unsere Kundinnen und Kunden telefonisch oder persönlich am Schalter.\n\nAnforderungen:\n• Du weist eine abgeschlossene kaufmännische Grundausbildung, vorzugsweise in einer öffentlichen Verwaltung sowie den eidgenössischen Fachausweis als Zivilstandsbeamtin / Zivilstandsbeamte vor.\n\n• Du verfügst über Praxiserfahrung im Aufgabenbereich und hast ein Flair für rechtliche Belange.\n\n• Du drückst dich schriftlich und mündlich gewandt in der deutschen Sprache aus und bringst Fremdsprachenkenntnisse mit.\n\n• Deine Arbeitsweise ist selbstständig, zuverlässig, dienstleistungsorientiert und einfühlsam.",
-      "descriptionByLocale": {
-        "it": "Vuoi combinare lavoro in ufficio con un'attività significativa? E mettere i clienti prima? Compiti:\n• Documenti eventi di stato civile dalla nascita, dal matrimonio alla morte incl. decisioni giudiziarie e amministrative.\n• Le dichiarazioni (ad esempio il riconoscimento, la dichiarazione dei nomi, il cambiamento di genere) sono accettate e elaborate.\n• Come parte della preparazione del matrimonio, si verifica se tutti i requisiti di matrimonio sono soddisfatti.\n• Stai conducendo matrimoni.\n• Crea estratti dai registri dello stato civile.\n• Si consiglia ai nostri clienti per telefono o personalmente al bancone. Requisiti\n• Hai completato la formazione commerciale di base, preferibilmente in una pubblica amministrazione, così come la Swiss Federal Professional Card come ufficiale di stato civile.\n• Hai un'esperienza pratica nell'area di lavoro e hai un tocco per questioni legali.\n• Si esprime per iscritto e per via orale nella lingua tedesca e portare le vostre competenze linguistiche straniere.\n• Il vostro modo di lavorare è indipendente, affidabile, orientato al servizio e sensibile.",
-        "en": "Do you want to combine office work with a meaningful activity? And put customers first? Tasks:\n• You document civil status events from birth, marriage to death incl. judicial and administrative decisions.\n• Declarations (e.g. recognition, name declaration, gender change) are accepted and processed.\n• As part of marriage preparation, you check whether all marriage requirements are met.\n• You are conducting weddings.\n• You create excerpts from the civil status registers.\n• You advise our customers by phone or personally at the counter. Requirements\n• You have completed basic commercial training, preferably in a public administration, as well as the Swiss Federal Professional Card as a civil status officer.\n• You have practical experience in the task area and have a flair for legal matters.\n• You express yourself in writing and orally in the German language and bring your foreign language skills.\n• Your way of working is independent, reliable, service-oriented and sensitive.",
-        "de": "Willst du Büroarbeit mit einer sinnstiftenden Tätigkeit verbinden? Und Kundinnen und Kunden an die erste Stelle setzen?\n\nAufgaben:\n• Du beurkundest Zivilstandsereignisse von Geburt, über Eheschliessung bis zum Tod inkl. Gerichts- und Verwaltungsentscheide.\n\n• Erklärungen (z. B. Anerkennung, Namenserklärung, Geschlechtsänderung) nimmst du entgegen und bearbeitest sie.\n\n• Im Rahmen der Ehevorbereitung prüfst du, ob alle Ehevoraussetzungen erfüllt sind.\n\n• Du führst Trauungen durch.\n\n• Du erstellst Auszüge aus den Zivilstandsregistern.\n\n• Du berätst unsere Kundinnen und Kunden telefonisch oder persönlich am Schalter.\n\nAnforderungen:\n• Du weist eine abgeschlossene kaufmännische Grundausbildung, vorzugsweise in einer öffentlichen Verwaltung sowie den eidgenössischen Fachausweis als Zivilstandsbeamtin / Zivilstandsbeamte vor.\n\n• Du verfügst über Praxiserfahrung im Aufgabenbereich und hast ein Flair für rechtliche Belange.\n\n• Du drückst dich schriftlich und mündlich gewandt in der deutschen Sprache aus und bringst Fremdsprachenkenntnisse mit.\n\n• Deine Arbeitsweise ist selbstständig, zuverlässig, dienstleistungsorientiert und einfühlsam.",
-        "fr": "Voulez-vous combiner le travail de bureau et une activité significative? Et mettre les clients en premier ? Tâches :\n• Vous documentez les événements de l'état civil de la naissance, du mariage à la mort, y compris. décisions judiciaires et administratives.\n• Les déclarations (par exemple, reconnaissance, déclaration de nom, changement de sexe) sont acceptées et traitées.\n• Dans le cadre de la préparation du mariage, vous vérifiez si toutes les conditions du mariage sont remplies.\n• Vous dirigez des mariages.\n• Vous créez des extraits des registres de l'état civil.\n• Vous conseillez nos clients par téléphone ou personnellement au comptoir. Exigences\n• Vous avez suivi une formation commerciale de base, de préférence dans une administration publique, ainsi que la carte professionnelle fédérale suisse en tant qu'officier d'état civil.\n• Vous avez de l'expérience pratique dans le domaine des tâches et vous avez un goût pour les questions juridiques.\n• Vous vous exprimez par écrit et oralement en langue allemande et apportez vos compétences en langue étrangère.\n• Votre façon de travailler est indépendante, fiable, orientée vers le service et sensible."
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/zivilstandsbeamt-in/2f40e940-835a-4325-97fd-d8c1e372ad6a",
-      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.727Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6003",
-      "streetAddress": "Obergrundstrasse 1",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-18",
-      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/zivilstandsbeamt-in/2f40e940-835a-4325-97fd-d8c1e372ad6a",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "zivilstandsbeamt-in-60-stadt-luzern-luzern",
-        "zivilstandsbeamt-in-60-stadt-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "zivilstandsbeamt-in-60-stadt-luzern-luzern"
-        ],
-        "en": [
-          "zivilstandsbeamt-in-60-stadt-luzern-luzern",
-          "zivilstandsbeamt-in-60-stadt-luzern"
-        ],
-        "fr": [
-          "zivilstandsbeamt-in-60-stadt-luzern-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:19:10.043Z",
-      "salaryMin": 41700,
-      "salaryMax": 63600,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41700,
-          "maxValue": 63600,
           "unitText": "YEAR"
         }
       }
@@ -190,7 +114,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/planungs-und-baukoordinator-in-total-140/d2b9e650-df09-4d7b-a088-1ad1006e7cab",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.727Z",
+      "crawledAt": "2026-07-21T22:32:59.146Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -237,81 +161,85 @@
       }
     },
     {
-      "id": "stadt-luzern-ff3c2cbb9648",
-      "slug": "responsabile-del-progetto-in-bau-bautreuhand-80-100-stadt-luzern-luzern",
+      "id": "stadt-luzern-9824dc6d62a2",
+      "slug": "ufficiale-di-stato-civile-60-stadt-luzern-luzern",
       "slugByLocale": {
-        "it": "responsabile-del-progetto-in-bau-bautreuhand-80-100-stadt-luzern-luzern",
-        "en": "project-manager-in-bau-bautreuhand-80-100-stadt-luzern-luzern",
-        "de": "projektleiter-in-bau-bautreuhand-80-100-stadt-luzern-luzern",
-        "fr": "chef-de-projet-a-bau-bautreuhand-80-100-stadt-luzern-luzern"
+        "it": "ufficiale-di-stato-civile-60-stadt-luzern-luzern",
+        "en": "zivilstandsbeamt-in-60-stadt-luzern",
+        "de": "zivilstandsbeamt-in-60-stadt-luzern-luzern",
+        "fr": "fonctionnaire-de-l-etat-civil-60-stadt-luzern-luzern"
       },
       "company": "Stadt Luzern",
       "companyKey": "stadt-luzern",
       "companyDomain": "stadtluzern.ch",
-      "title": "Projektleiter*in Bau/Bautreuhand (80-100 %)",
+      "title": "Zivilstandsbeamt*in (60 %)",
       "titleByLocale": {
-        "it": "Responsabile del progetto* in Bau/Bautreuhand (80-100%)",
-        "en": "Project manager* in Bau/Bautreuhand (80-100%)",
-        "de": "Projektleiter*in Bau/Bautreuhand (80-100 %)",
-        "fr": "Chef de projet* à Bau/Bautreuhand (80-100%)"
+        "it": "Ufficiale di stato civile (60%)",
+        "en": "Zivilstandsbeamt*in (60 %)",
+        "de": "Zivilstandsbeamt*in (60 %)",
+        "fr": "Fonctionnaire de l ' état civil (60 %)"
       },
-      "description": "Interessierst du dich für das Projektmanagement von mittleren und grossen Bauvorhaben und möchtest das Stadtbild von Luzern aktiv mitprägen? Dann freuen wir uns auf deine Bewerbung.\n\nAufgaben:\n• Du führst Bauprojekte in deinem Zuständigkeits- und Kompetenzbereich eigenständig und koordinierst dabei interne sowie externe Anspruchsgruppen.\n\n• Du verantwortest sämtliche erforderlichen Tätigkeiten – von der Antragsformulierung bis zur Fertigstellung – bei mittleren bis grossen Bauvorhaben.\n\n• Gemeinsam mit externen Planer*innen koordinierst und erarbeitest du Konzepte sowie Machbarkeitsstudien.\n\n• Du bist verantwortlich für das Management von Qualität, Quantität, Kosten und Terminen deiner Bauprojekte.\n\n• Nach Abschluss der Bauprojekte führst du Bauabnahmen durch und organisierst die Inbetriebnahme der technischen Anlagen.\n\n• Du verfasst Projektanträge zuhanden des Stadtrats und Grossstadtrats und erstellst die Budgets für deine Bauprojekte.\n\nAnforderungen:\n• Du verfügst über einen Hochschulabschluss, beispielsweise auf FH-Stufe oder mit eidgenössischem Diplom, im Bereich Bauleitung oder Architektur.\n\n• Du bringst mehrjährige Berufserfahrung im Projektmanagement, in der Bauherrentreuhand sowie in der Bauleitung mit.\n\n• Du arbeitest selbstständig und setzt Bauvorhaben bei städtischen Liegenschaften eigenverantwortlich um.\n\n• Du denkst und handelst konzeptionell sowie betriebswirtschaftlich.",
+      "description": "Willst du Büroarbeit mit einer sinnstiftenden Tätigkeit verbinden? Und Kundinnen und Kunden an die erste Stelle setzen?\n\nAufgaben:\n• Du beurkundest Zivilstandsereignisse von Geburt, über Eheschliessung bis zum Tod inkl. Gerichts- und Verwaltungsentscheide.\n\n• Erklärungen (z. B. Anerkennung, Namenserklärung, Geschlechtsänderung) nimmst du entgegen und bearbeitest sie.\n\n• Im Rahmen der Ehevorbereitung prüfst du, ob alle Ehevoraussetzungen erfüllt sind.\n\n• Du führst Trauungen durch.\n\n• Du erstellst Auszüge aus den Zivilstandsregistern.\n\n• Du berätst unsere Kundinnen und Kunden telefonisch oder persönlich am Schalter.\n\nAnforderungen:\n• Du weist eine abgeschlossene kaufmännische Grundausbildung, vorzugsweise in einer öffentlichen Verwaltung sowie den eidgenössischen Fachausweis als Zivilstandsbeamtin / Zivilstandsbeamte vor.\n\n• Du verfügst über Praxiserfahrung im Aufgabenbereich und hast ein Flair für rechtliche Belange.\n\n• Du drückst dich schriftlich und mündlich gewandt in der deutschen Sprache aus und bringst Fremdsprachenkenntnisse mit.\n\n• Deine Arbeitsweise ist selbstständig, zuverlässig, dienstleistungsorientiert und einfühlsam.",
       "descriptionByLocale": {
-        "it": "Sei interessato alla gestione del progetto di progetti di costruzione di medie e grandi dimensioni e vuoi plasmare attivamente il paesaggio urbano di Lucerna? Attendiamo con ansia la vostra applicazione. Compiti:\n• Guidate progetti di costruzione nel vostro settore di responsabilità e competenza in modo indipendente e coordinate stakeholder interni ed esterni.\n• Siete responsabili di tutte le attività necessarie – dalla formulazione delle applicazioni al completamento – per progetti di costruzione di medie e grandi dimensioni.\n• Insieme ai pianificatori esterni, coordinare e sviluppare concetti e studi di fattibilità.\n• Sei responsabile della gestione della qualità, della quantità, dei costi e delle date dei tuoi progetti di costruzione.\n• Dopo il completamento dei progetti di costruzione, si effettuerà accettazione costruzione e organizzare la messa in servizio delle strutture tecniche.\n• Scrivete proposte di progetto per il consiglio comunale e il consiglio comunale e create i budget per i vostri progetti di costruzione. Requisiti\n• Hai una laurea, per esempio a livello FH o con un diploma federale, nel campo della gestione delle costruzioni o dell'architettura.\n• Porti diversi anni di esperienza professionale nella gestione dei progetti, nella fiducia dei clienti e nella gestione delle costruzioni.\n• Si lavora indipendentemente e implementare progetti di costruzione per le proprietà urbane indipendentemente.\n• Pensi e agisci concettualmente e economicamente.",
-        "en": "Are you interested in the project management of medium and large construction projects and would like to actively shape the cityscape of Lucerne? We look forward to your application. Tasks:\n• You lead construction projects in your area of responsibility and competence independently and coordinate internal and external stakeholders.\n• You are responsible for all necessary activities – from application formulation to completion – for medium to large construction projects.\n• Together with external planners, you will coordinate and develop concepts and feasibility studies.\n• You are responsible for managing the quality, quantity, costs and dates of your construction projects.\n• After completion of the construction projects, you will carry out construction acceptances and organize the commissioning of the technical facilities.\n• You write project proposals for the city council and the city council and create the budgets for your construction projects. Requirements\n• You have a university degree, for example at FH level or with a federal diploma, in the field of construction management or architecture.\n• You bring several years of professional experience in project management, in the client trust and in the construction management.\n• You work independently and implement construction projects for urban properties independently.\n• You think and act conceptually as well as economically.",
-        "de": "Interessierst du dich für das Projektmanagement von mittleren und grossen Bauvorhaben und möchtest das Stadtbild von Luzern aktiv mitprägen? Dann freuen wir uns auf deine Bewerbung.\n\nAufgaben:\n• Du führst Bauprojekte in deinem Zuständigkeits- und Kompetenzbereich eigenständig und koordinierst dabei interne sowie externe Anspruchsgruppen.\n\n• Du verantwortest sämtliche erforderlichen Tätigkeiten – von der Antragsformulierung bis zur Fertigstellung – bei mittleren bis grossen Bauvorhaben.\n\n• Gemeinsam mit externen Planer*innen koordinierst und erarbeitest du Konzepte sowie Machbarkeitsstudien.\n\n• Du bist verantwortlich für das Management von Qualität, Quantität, Kosten und Terminen deiner Bauprojekte.\n\n• Nach Abschluss der Bauprojekte führst du Bauabnahmen durch und organisierst die Inbetriebnahme der technischen Anlagen.\n\n• Du verfasst Projektanträge zuhanden des Stadtrats und Grossstadtrats und erstellst die Budgets für deine Bauprojekte.\n\nAnforderungen:\n• Du verfügst über einen Hochschulabschluss, beispielsweise auf FH-Stufe oder mit eidgenössischem Diplom, im Bereich Bauleitung oder Architektur.\n\n• Du bringst mehrjährige Berufserfahrung im Projektmanagement, in der Bauherrentreuhand sowie in der Bauleitung mit.\n\n• Du arbeitest selbstständig und setzt Bauvorhaben bei städtischen Liegenschaften eigenverantwortlich um.\n\n• Du denkst und handelst konzeptionell sowie betriebswirtschaftlich.",
-        "fr": "Êtes-vous intéressé par la gestion de projets de construction de moyenne et grande taille et souhaitez-vous façonner activement le paysage urbain de Lucerne? Nous attendons avec impatience votre candidature. Tâches :\n• Vous dirigez des projets de construction dans votre domaine de responsabilité et de compétence indépendamment et coordonnez les parties prenantes internes et externes.\n• Vous êtes responsable de toutes les activités nécessaires – de la formulation des demandes à l'achèvement – pour les projets de construction de moyenne à grande envergure.\n• En collaboration avec des planificateurs externes, vous coordonnerez et développerez des concepts et des études de faisabilité.\n• Vous êtes responsable de gérer la qualité, la quantité, les coûts et les dates de vos projets de construction.\n• Après l'achèvement des projets de construction, vous effectuerez les acceptations de construction et organiserez la mise en service des installations techniques.\n• Vous écrivez des propositions de projet pour le conseil municipal et le conseil municipal et créez les budgets pour vos projets de construction. Exigences\n• Vous avez un diplôme universitaire, par exemple au niveau FH ou avec un diplôme fédéral, dans le domaine de la gestion de la construction ou de l'architecture.\n• Vous apportez plusieurs années d'expérience professionnelle dans la gestion de projet, dans la confiance des clients et dans la gestion de la construction.\n• Vous travaillez de manière indépendante et réalisez des projets de construction pour des propriétés urbaines indépendamment.\n• Vous pensez et agissez sur le plan conceptuel et économique."
+        "it": "Vuoi combinare lavoro in ufficio con un'attività significativa? E mettere i clienti prima? Compiti:\n• Documenti eventi di stato civile dalla nascita, dal matrimonio alla morte incl. decisioni giudiziarie e amministrative.\n• Le dichiarazioni (ad esempio il riconoscimento, la dichiarazione dei nomi, il cambiamento di genere) sono accettate e elaborate.\n• Come parte della preparazione del matrimonio, si verifica se tutti i requisiti di matrimonio sono soddisfatti.\n• Stai conducendo matrimoni.\n• Crea estratti dai registri dello stato civile.\n• Si consiglia ai nostri clienti per telefono o personalmente al bancone. Requisiti\n• Hai completato la formazione commerciale di base, preferibilmente in una pubblica amministrazione, così come la Swiss Federal Professional Card come ufficiale di stato civile.\n• Hai un'esperienza pratica nell'area di lavoro e hai un tocco per questioni legali.\n• Si esprime per iscritto e per via orale nella lingua tedesca e portare le vostre competenze linguistiche straniere.\n• Il vostro modo di lavorare è indipendente, affidabile, orientato al servizio e sensibile.",
+        "en": "Do you want to combine office work with a meaningful activity? And put customers first? Tasks:\n• You document civil status events from birth, marriage to death incl. judicial and administrative decisions.\n• Declarations (e.g. recognition, name declaration, gender change) are accepted and processed.\n• As part of marriage preparation, you check whether all marriage requirements are met.\n• You are conducting weddings.\n• You create excerpts from the civil status registers.\n• You advise our customers by phone or personally at the counter. Requirements\n• You have completed basic commercial training, preferably in a public administration, as well as the Swiss Federal Professional Card as a civil status officer.\n• You have practical experience in the task area and have a flair for legal matters.\n• You express yourself in writing and orally in the German language and bring your foreign language skills.\n• Your way of working is independent, reliable, service-oriented and sensitive.",
+        "de": "Willst du Büroarbeit mit einer sinnstiftenden Tätigkeit verbinden? Und Kundinnen und Kunden an die erste Stelle setzen?\n\nAufgaben:\n• Du beurkundest Zivilstandsereignisse von Geburt, über Eheschliessung bis zum Tod inkl. Gerichts- und Verwaltungsentscheide.\n\n• Erklärungen (z. B. Anerkennung, Namenserklärung, Geschlechtsänderung) nimmst du entgegen und bearbeitest sie.\n\n• Im Rahmen der Ehevorbereitung prüfst du, ob alle Ehevoraussetzungen erfüllt sind.\n\n• Du führst Trauungen durch.\n\n• Du erstellst Auszüge aus den Zivilstandsregistern.\n\n• Du berätst unsere Kundinnen und Kunden telefonisch oder persönlich am Schalter.\n\nAnforderungen:\n• Du weist eine abgeschlossene kaufmännische Grundausbildung, vorzugsweise in einer öffentlichen Verwaltung sowie den eidgenössischen Fachausweis als Zivilstandsbeamtin / Zivilstandsbeamte vor.\n\n• Du verfügst über Praxiserfahrung im Aufgabenbereich und hast ein Flair für rechtliche Belange.\n\n• Du drückst dich schriftlich und mündlich gewandt in der deutschen Sprache aus und bringst Fremdsprachenkenntnisse mit.\n\n• Deine Arbeitsweise ist selbstständig, zuverlässig, dienstleistungsorientiert und einfühlsam.",
+        "fr": "Voulez-vous combiner le travail de bureau et une activité significative? Et mettre les clients en premier ? Tâches :\n• Vous documentez les événements de l'état civil de la naissance, du mariage à la mort, y compris. décisions judiciaires et administratives.\n• Les déclarations (par exemple, reconnaissance, déclaration de nom, changement de sexe) sont acceptées et traitées.\n• Dans le cadre de la préparation du mariage, vous vérifiez si toutes les conditions du mariage sont remplies.\n• Vous dirigez des mariages.\n• Vous créez des extraits des registres de l'état civil.\n• Vous conseillez nos clients par téléphone ou personnellement au comptoir. Exigences\n• Vous avez suivi une formation commerciale de base, de préférence dans une administration publique, ainsi que la carte professionnelle fédérale suisse en tant qu'officier d'état civil.\n• Vous avez de l'expérience pratique dans le domaine des tâches et vous avez un goût pour les questions juridiques.\n• Vous vous exprimez par écrit et oralement en langue allemande et apportez vos compétences en langue étrangère.\n• Votre façon de travailler est indépendante, fiable, orientée vers le service et sensible."
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
-      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/projektleiter-in-bau-bautreuhand/b90298cc-7580-490d-a1d9-3a619346cde7",
+      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/zivilstandsbeamt-in/2f40e940-835a-4325-97fd-d8c1e372ad6a",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.726Z",
+      "crawledAt": "2026-07-21T22:32:59.145Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6003",
-      "streetAddress": "Hirschengraben 17",
+      "streetAddress": "Obergrundstrasse 1",
       "category": "Amministrazione Pubblica",
       "contract": "full-time",
-      "employmentType": "FULL_TIME",
+      "employmentType": "PART_TIME",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/projektleiter-in-bau-bautreuhand/b90298cc-7580-490d-a1d9-3a619346cde7",
+      "postedDate": "2026-05-18",
+      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/zivilstandsbeamt-in/2f40e940-835a-4325-97fd-d8c1e372ad6a",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-bau-bautreuhand-80-100-stadt-luzern-luzern",
-        "projektleiter-in-bau-bautreuhand-80-100-stadt-luzern"
+        "zivilstandsbeamt-in-60-stadt-luzern-luzern",
+        "civil-status-officer-60-stadt-luzern-luzern",
+        "ufficiale-di-stato-civile-60-stadt-luzern-luzern",
+        "zivilstandsbeamt-in-60-stadt-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-bau-bautreuhand-80-100-stadt-luzern-luzern",
-          "projektleiter-in-bau-bautreuhand-80-100-stadt-luzern"
+          "zivilstandsbeamt-in-60-stadt-luzern-luzern",
+          "ufficiale-di-stato-civile-60-stadt-luzern-luzern"
         ],
         "en": [
-          "projektleiter-in-bau-bautreuhand-80-100-stadt-luzern-luzern"
+          "zivilstandsbeamt-in-60-stadt-luzern-luzern",
+          "civil-status-officer-60-stadt-luzern-luzern",
+          "zivilstandsbeamt-in-60-stadt-luzern"
         ],
         "fr": [
-          "projektleiter-in-bau-bautreuhand-80-100-stadt-luzern-luzern"
+          "zivilstandsbeamt-in-60-stadt-luzern-luzern"
         ]
       },
-      "firstSeenAt": "2026-07-04T12:19:10.042Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
+      "firstSeenAt": "2026-07-04T12:19:10.043Z",
+      "salaryMin": 41700,
+      "salaryMax": 63600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
+          "minValue": 41700,
+          "maxValue": 63600,
           "unitText": "YEAR"
         }
       }
@@ -348,7 +276,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/praktikant-in-immobilienbewirtschaftung-finanzvermoegen/7c7c7d3e-fca5-43a7-9272-2014053d626a",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.724Z",
+      "crawledAt": "2026-07-21T22:32:59.142Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -367,11 +295,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-immobilienbewirtschaftung-finanzvermogen-80-100-stadt-luzern-luzern"
+        "praktikant-in-immobilienbewirtschaftung-finanzvermogen-80-100-stadt-luzern-luzern",
+        "stage-nella-gestione-immobiliare-attivo-finanziario-80-100-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-immobilienbewirtschaftung-finanzvermogen-80-100-stadt-luzern-luzern"
+          "praktikant-in-immobilienbewirtschaftung-finanzvermogen-80-100-stadt-luzern-luzern",
+          "stage-nella-gestione-immobiliare-attivo-finanziario-80-100-stadt-luzern-luzern"
         ],
         "en": [
           "praktikant-in-immobilienbewirtschaftung-finanzvermogen-80-100-stadt-luzern-luzern"
@@ -395,44 +325,44 @@
       }
     },
     {
-      "id": "stadt-luzern-a0d661262ad4",
-      "slug": "occupazione-sociale-70-90-stadt-luzern-luzern",
+      "id": "stadt-luzern-ff3c2cbb9648",
+      "slug": "responsabile-del-progetto-in-bau-bautreuhand-80-100-stadt-luzern-luzern",
       "slugByLocale": {
-        "it": "occupazione-sociale-70-90-stadt-luzern-luzern",
-        "en": "social-worker-in-social-welfare-70-90-stadt-luzern-luzern",
-        "de": "sozialarbeiter-in-sozialhilfe-70-90-stadt-luzern-luzern",
-        "fr": "travailleur-social-en-protection-sociale-70-90-stadt-luzern-luzern"
+        "it": "responsabile-del-progetto-in-bau-bautreuhand-80-100-stadt-luzern-luzern",
+        "en": "project-manager-in-bau-bautreuhand-80-100-stadt-luzern-luzern",
+        "de": "projektleiter-in-bau-bautreuhand-80-100-stadt-luzern-luzern",
+        "fr": "chef-de-projet-a-bau-bautreuhand-80-100-stadt-luzern-luzern"
       },
       "company": "Stadt Luzern",
       "companyKey": "stadt-luzern",
       "companyDomain": "stadtluzern.ch",
-      "title": "Sozialarbeiter*in Sozialhilfe (70 - 90 %)",
+      "title": "Projektleiter*in Bau/Bautreuhand (80-100 %)",
       "titleByLocale": {
-        "it": "Occupazione sociale (70 - 90 %)",
-        "en": "Social worker* in social welfare (70 - 90 %)",
-        "de": "Sozialarbeiter*in Sozialhilfe (70 - 90 %)",
-        "fr": "Travailleur social* en protection sociale (70 - 90 %)"
+        "it": "Responsabile del progetto* in Bau/Bautreuhand (80-100%)",
+        "en": "Project manager* in Bau/Bautreuhand (80-100%)",
+        "de": "Projektleiter*in Bau/Bautreuhand (80-100 %)",
+        "fr": "Chef de projet* à Bau/Bautreuhand (80-100%)"
       },
-      "description": "Möchtest du deine optimistische und offene Art bei der Arbeit mit Menschen einbringen? Und dich aktiv einbringen?\n\nAufgaben:\n• Du bist verantwortlich für die Beratung, Begleitung und finanzielle Unterstützung von Einzelpersonen und Familien im Rahmen der gesetzlichen Sozialhilfe.\n\n• Du begleitest Menschen in den unterschiedlichsten Lebenslagen auf ihrem Weg zur sozialen und beruflichen Integration.\n\n• Du arbeitest mit internen und externen Fachstellen, Sozialversicherungen und Behörden zusammen.\n\n• Du wirst von Sachbearbeitenden administrativ unterstützt, kannst auf das Wissen von internen Fachstellen (Rechtsdienst, Fachstelle Arbeit und Bildung, Fachstelle Integration und Wohnen) zurückgreifen und arbeitest mit deinen Kolleginnen und Kollegen im Team zusammen.\n\nAnforderungen:\n• Du bringst einen Fachhochschulabschluss in Sozialer Arbeit oder eine gleichwertige Ausbildung mit, idealerweise ergänzt mit fachspezifischer Weiterbildung.\n\n• Du hast bereits erste Berufserfahrung in der wirtschaftlichen Sozialhilfe gesammelt.\n\n• Allen Menschen begegnest du wertschätzend und kannst mit unterschiedlichen Erwartungen umgehen.\n\n• Du bist geübt in administrativen Tätigkeiten und im Umgang mit Zahlen.\n\n• Du bist es dir gewohnt, selbstständig zu arbeiten, bist ein Organisationstalent und entscheidungsfreudig.",
+      "description": "Interessierst du dich für das Projektmanagement von mittleren und grossen Bauvorhaben und möchtest das Stadtbild von Luzern aktiv mitprägen? Dann freuen wir uns auf deine Bewerbung.\n\nAufgaben:\n• Du führst Bauprojekte in deinem Zuständigkeits- und Kompetenzbereich eigenständig und koordinierst dabei interne sowie externe Anspruchsgruppen.\n\n• Du verantwortest sämtliche erforderlichen Tätigkeiten – von der Antragsformulierung bis zur Fertigstellung – bei mittleren bis grossen Bauvorhaben.\n\n• Gemeinsam mit externen Planer*innen koordinierst und erarbeitest du Konzepte sowie Machbarkeitsstudien.\n\n• Du bist verantwortlich für das Management von Qualität, Quantität, Kosten und Terminen deiner Bauprojekte.\n\n• Nach Abschluss der Bauprojekte führst du Bauabnahmen durch und organisierst die Inbetriebnahme der technischen Anlagen.\n\n• Du verfasst Projektanträge zuhanden des Stadtrats und Grossstadtrats und erstellst die Budgets für deine Bauprojekte.\n\nAnforderungen:\n• Du verfügst über einen Hochschulabschluss, beispielsweise auf FH-Stufe oder mit eidgenössischem Diplom, im Bereich Bauleitung oder Architektur.\n\n• Du bringst mehrjährige Berufserfahrung im Projektmanagement, in der Bauherrentreuhand sowie in der Bauleitung mit.\n\n• Du arbeitest selbstständig und setzt Bauvorhaben bei städtischen Liegenschaften eigenverantwortlich um.\n\n• Du denkst und handelst konzeptionell sowie betriebswirtschaftlich.",
       "descriptionByLocale": {
-        "it": "Vuoi portare il tuo modo ottimista e aperto di lavorare con le persone? Sei coinvolto attivamente? Compiti:\n• Lei è responsabile della consulenza, del sostegno e del sostegno finanziario delle persone e delle famiglie nell'ambito dell'assistenza sociale legale.\n• Accompagnate le persone in situazioni diverse, andando all'integrazione sociale e professionale.\n• Lavora con specialisti interni ed esterni, società di assicurazione sociale e autorità.\n• Sarai supportato amministrativamente da specialisti, in grado di attingere alla conoscenza di uffici specializzati interni (servizio legale, occupazione e istruzione, integrazione e vita) e lavorare insieme ai tuoi colleghi in un team. Requisiti\n• Si porta una laurea nel lavoro sociale o un'istruzione equivalente, idealmente completato con istruzione tema-specifica ulteriore.\n• Hai già acquisito la tua prima esperienza professionale nel benessere economico.\n• Incontri tutte le persone con apprezzamento e può affrontare diverse aspettative.\n• Sei esperto in attività amministrative e nel trattare con i numeri.\n• Siete abituati a lavorare in modo indipendente, sono un talento organizzativo e disposti a prendere decisioni.",
-        "en": "Do you want to bring your optimistic and open way to work with people? Are you actively involved? Tasks:\n• You are responsible for the advice, support and financial support of individuals and families within the framework of statutory social assistance.\n• You accompany people in different situations on their way to social and professional integration.\n• You work with internal and external specialists, social insurance companies and authorities.\n• You will be administratively supported by specialists, can draw on the knowledge of internal specialist offices (legal service, employment and education, integration and living) and work together with your colleagues in a team. Requirements\n• You bring a university degree in social work or an equivalent education, ideally supplemented with subject-specific further education.\n• You have already gained your first professional experience in economic welfare.\n• You meet all people with appreciation and can deal with different expectations.\n• You are experienced in administrative activities and in dealing with numbers.\n• You are accustomed to working independently, are an organizational talent and willing to make decisions.",
-        "de": "Möchtest du deine optimistische und offene Art bei der Arbeit mit Menschen einbringen? Und dich aktiv einbringen?\n\nAufgaben:\n• Du bist verantwortlich für die Beratung, Begleitung und finanzielle Unterstützung von Einzelpersonen und Familien im Rahmen der gesetzlichen Sozialhilfe.\n\n• Du begleitest Menschen in den unterschiedlichsten Lebenslagen auf ihrem Weg zur sozialen und beruflichen Integration.\n\n• Du arbeitest mit internen und externen Fachstellen, Sozialversicherungen und Behörden zusammen.\n\n• Du wirst von Sachbearbeitenden administrativ unterstützt, kannst auf das Wissen von internen Fachstellen (Rechtsdienst, Fachstelle Arbeit und Bildung, Fachstelle Integration und Wohnen) zurückgreifen und arbeitest mit deinen Kolleginnen und Kollegen im Team zusammen.\n\nAnforderungen:\n• Du bringst einen Fachhochschulabschluss in Sozialer Arbeit oder eine gleichwertige Ausbildung mit, idealerweise ergänzt mit fachspezifischer Weiterbildung.\n\n• Du hast bereits erste Berufserfahrung in der wirtschaftlichen Sozialhilfe gesammelt.\n\n• Allen Menschen begegnest du wertschätzend und kannst mit unterschiedlichen Erwartungen umgehen.\n\n• Du bist geübt in administrativen Tätigkeiten und im Umgang mit Zahlen.\n\n• Du bist es dir gewohnt, selbstständig zu arbeiten, bist ein Organisationstalent und entscheidungsfreudig.",
-        "fr": "Voulez-vous apporter votre façon optimiste et ouverte de travailler avec les gens? Êtes-vous activement impliqué ? Tâches :\n• Vous êtes responsable des conseils, du soutien et du soutien financier des personnes et des familles dans le cadre de l'aide sociale légale.\n• Vous accompagnez les gens dans différentes situations sur leur chemin vers l'intégration sociale et professionnelle.\n• Vous travaillez avec des spécialistes internes et externes, des compagnies d'assurance sociale et des autorités.\n• Vous serez soutenu administrativement par des spécialistes, pouvez tirer parti des connaissances des bureaux spécialisés internes (service juridique, emploi et éducation, intégration et vie) et travailler avec vos collègues dans une équipe. Exigences\n• Vous apportez un diplôme universitaire en travail social ou un enseignement équivalent, idéalement complété par un enseignement complémentaire spécifique.\n• Vous avez déjà acquis votre première expérience professionnelle en matière de bien-être économique.\n• Vous rencontrez toutes les personnes avec reconnaissance et pouvez répondre à différentes attentes.\n• Vous avez de l'expérience dans les activités administratives et dans le traitement des chiffres.\n• Vous êtes habitué à travailler de façon indépendante, êtes un talent organisationnel et prêt à prendre des décisions."
+        "it": "Sei interessato alla gestione del progetto di progetti di costruzione di medie e grandi dimensioni e vuoi plasmare attivamente il paesaggio urbano di Lucerna? Attendiamo con ansia la vostra applicazione. Compiti:\n• Guidate progetti di costruzione nel vostro settore di responsabilità e competenza in modo indipendente e coordinate stakeholder interni ed esterni.\n• Siete responsabili di tutte le attività necessarie – dalla formulazione delle applicazioni al completamento – per progetti di costruzione di medie e grandi dimensioni.\n• Insieme ai pianificatori esterni, coordinare e sviluppare concetti e studi di fattibilità.\n• Sei responsabile della gestione della qualità, della quantità, dei costi e delle date dei tuoi progetti di costruzione.\n• Dopo il completamento dei progetti di costruzione, si effettuerà accettazione costruzione e organizzare la messa in servizio delle strutture tecniche.\n• Scrivete proposte di progetto per il consiglio comunale e il consiglio comunale e create i budget per i vostri progetti di costruzione. Requisiti\n• Hai una laurea, per esempio a livello FH o con un diploma federale, nel campo della gestione delle costruzioni o dell'architettura.\n• Porti diversi anni di esperienza professionale nella gestione dei progetti, nella fiducia dei clienti e nella gestione delle costruzioni.\n• Si lavora indipendentemente e implementare progetti di costruzione per le proprietà urbane indipendentemente.\n• Pensi e agisci concettualmente e economicamente.",
+        "en": "Are you interested in the project management of medium and large construction projects and would like to actively shape the cityscape of Lucerne? We look forward to your application. Tasks:\n• You lead construction projects in your area of responsibility and competence independently and coordinate internal and external stakeholders.\n• You are responsible for all necessary activities – from application formulation to completion – for medium to large construction projects.\n• Together with external planners, you will coordinate and develop concepts and feasibility studies.\n• You are responsible for managing the quality, quantity, costs and dates of your construction projects.\n• After completion of the construction projects, you will carry out construction acceptances and organize the commissioning of the technical facilities.\n• You write project proposals for the city council and the city council and create the budgets for your construction projects. Requirements\n• You have a university degree, for example at FH level or with a federal diploma, in the field of construction management or architecture.\n• You bring several years of professional experience in project management, in the client trust and in the construction management.\n• You work independently and implement construction projects for urban properties independently.\n• You think and act conceptually as well as economically.",
+        "de": "Interessierst du dich für das Projektmanagement von mittleren und grossen Bauvorhaben und möchtest das Stadtbild von Luzern aktiv mitprägen? Dann freuen wir uns auf deine Bewerbung.\n\nAufgaben:\n• Du führst Bauprojekte in deinem Zuständigkeits- und Kompetenzbereich eigenständig und koordinierst dabei interne sowie externe Anspruchsgruppen.\n\n• Du verantwortest sämtliche erforderlichen Tätigkeiten – von der Antragsformulierung bis zur Fertigstellung – bei mittleren bis grossen Bauvorhaben.\n\n• Gemeinsam mit externen Planer*innen koordinierst und erarbeitest du Konzepte sowie Machbarkeitsstudien.\n\n• Du bist verantwortlich für das Management von Qualität, Quantität, Kosten und Terminen deiner Bauprojekte.\n\n• Nach Abschluss der Bauprojekte führst du Bauabnahmen durch und organisierst die Inbetriebnahme der technischen Anlagen.\n\n• Du verfasst Projektanträge zuhanden des Stadtrats und Grossstadtrats und erstellst die Budgets für deine Bauprojekte.\n\nAnforderungen:\n• Du verfügst über einen Hochschulabschluss, beispielsweise auf FH-Stufe oder mit eidgenössischem Diplom, im Bereich Bauleitung oder Architektur.\n\n• Du bringst mehrjährige Berufserfahrung im Projektmanagement, in der Bauherrentreuhand sowie in der Bauleitung mit.\n\n• Du arbeitest selbstständig und setzt Bauvorhaben bei städtischen Liegenschaften eigenverantwortlich um.\n\n• Du denkst und handelst konzeptionell sowie betriebswirtschaftlich.",
+        "fr": "Êtes-vous intéressé par la gestion de projets de construction de moyenne et grande taille et souhaitez-vous façonner activement le paysage urbain de Lucerne? Nous attendons avec impatience votre candidature. Tâches :\n• Vous dirigez des projets de construction dans votre domaine de responsabilité et de compétence indépendamment et coordonnez les parties prenantes internes et externes.\n• Vous êtes responsable de toutes les activités nécessaires – de la formulation des demandes à l'achèvement – pour les projets de construction de moyenne à grande envergure.\n• En collaboration avec des planificateurs externes, vous coordonnerez et développerez des concepts et des études de faisabilité.\n• Vous êtes responsable de gérer la qualité, la quantité, les coûts et les dates de vos projets de construction.\n• Après l'achèvement des projets de construction, vous effectuerez les acceptations de construction et organiserez la mise en service des installations techniques.\n• Vous écrivez des propositions de projet pour le conseil municipal et le conseil municipal et créez les budgets pour vos projets de construction. Exigences\n• Vous avez un diplôme universitaire, par exemple au niveau FH ou avec un diplôme fédéral, dans le domaine de la gestion de la construction ou de l'architecture.\n• Vous apportez plusieurs années d'expérience professionnelle dans la gestion de projet, dans la confiance des clients et dans la gestion de la construction.\n• Vous travaillez de manière indépendante et réalisez des projets de construction pour des propriétés urbaines indépendamment.\n• Vous pensez et agissez sur le plan conceptuel et économique."
       },
       "needsRetranslation": false,
       "location": "Luzern",
       "canton": "LU",
-      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialarbeiter-in-sozialhilfe/17e3af7f-3f52-453e-83d7-b60412c5c953",
+      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/projektleiter-in-bau-bautreuhand/b90298cc-7580-490d-a1d9-3a619346cde7",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.723Z",
+      "crawledAt": "2026-07-21T22:32:59.142Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6003",
-      "streetAddress": "Obergrundstrasse 3",
+      "streetAddress": "Hirschengraben 17",
       "category": "Amministrazione Pubblica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -440,34 +370,38 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-11",
-      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialarbeiter-in-sozialhilfe/17e3af7f-3f52-453e-83d7-b60412c5c953",
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/projektleiter-in-bau-bautreuhand/b90298cc-7580-490d-a1d9-3a619346cde7",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialarbeiter-in-sozialhilfe-70-90-stadt-luzern-luzern"
+        "projektleiter-in-bau-bautreuhand-80-100-stadt-luzern-luzern",
+        "projektleiter-in-bau-bautreuhand-80-100-stadt-luzern",
+        "responsabile-del-progetto-in-bau-bautreuhand-80-100-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-sozialhilfe-70-90-stadt-luzern-luzern"
+          "projektleiter-in-bau-bautreuhand-80-100-stadt-luzern-luzern",
+          "projektleiter-in-bau-bautreuhand-80-100-stadt-luzern",
+          "responsabile-del-progetto-in-bau-bautreuhand-80-100-stadt-luzern-luzern"
         ],
         "en": [
-          "sozialarbeiter-in-sozialhilfe-70-90-stadt-luzern-luzern"
+          "projektleiter-in-bau-bautreuhand-80-100-stadt-luzern-luzern"
         ],
         "fr": [
-          "sozialarbeiter-in-sozialhilfe-70-90-stadt-luzern-luzern"
+          "projektleiter-in-bau-bautreuhand-80-100-stadt-luzern-luzern"
         ]
       },
-      "firstSeenAt": "2026-07-04T12:19:10.038Z",
-      "salaryMin": 62600,
-      "salaryMax": 95400,
+      "firstSeenAt": "2026-07-04T12:19:10.042Z",
+      "salaryMin": 96000,
+      "salaryMax": 146000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62600,
-          "maxValue": 95400,
+          "minValue": 96000,
+          "maxValue": 146000,
           "unitText": "YEAR"
         }
       }
@@ -498,12 +432,13 @@
         "de": "Möchtest du deine optimistische und offene Art bei der Arbeit mit Kinder- und Jugendlichen in besonderen Lebenslagen einbringen? Dann unterstützt du uns vielleicht bald mit deinem Führungstalent.\n\nAufgaben:\n• Du hast die Fallverantwortung für sieben Kinder und Jugendliche mit Einbezug deren Lebens- und Entwicklungsräume und du führst die jeweiligen Standortgespräche.\n\n• Du coachst deine Mitarbeitenden der Wohngruppe in der Elternzusammenarbeit mit systemischem Fokus.\n\n• Du führst, unterstützt und qualifizierst deine Mitarbeitenden.\n\n• Du übernimmst die Qualitätssicherung innerhalb des Angebotes.\n\n• Du arbeitest im Kadergremium sowie in Fachgruppen und prägst damit die Weiterentwicklung der Institution mit.\n\n• Du führst Teamsitzungen, wirkst mit an Supervisionen sowie systemischer und psychiatrischer Fach- und Fallberatung.\n\n• Du begleitest angehende Sozialpädagog*innen während der Ausbildung.\n\nAnforderungen:\n• Studium in Sozialpädagogik/Soziale Arbeit (FH/HF) oder eine vergleichbare Ausbildung.\n\n• Du hast eine Führungsausbildung oder Lust, eine zu machen.\n\n• Erfahrung im Stationären Bereich ist ein Plus.\n\n• Als vertrauenswürdige Person begegnest du den Menschen wertschätzend und gestaltest Beziehungen engagiert und klärend.\n\n• Du übernimmst gerne Verantwortung, agierst bei Konflikten besonnen und entscheidungsfreudig.\n\n• Du arbeitest lösungsorientiert und gehst auch herausfordernde Situationen mit einer Prise Humor an.\n\n• Neben Bürotagen schätzt du auch unregelmässige Arbeitszeiten (Abend-, einige Nacht- und wenige Wochenenddienste).",
         "fr": "Aimeriez-vous contribuer à votre manière optimiste et ouverte de travailler avec les enfants et les jeunes dans des situations particulières? Alors vous pourriez bientôt nous soutenir avec votre talent de leader. Tâches :\n• Vous avez la responsabilité de sept enfants et adolescents en ce qui concerne leurs zones de vie et de développement et vous dirigez les discussions de localisation respectives.\n• Vous coachez vos employés dans le groupe résidentiel en coopération parentale avec un objectif systémique.\n• Vous dirigez, soutenez et qualifiez vos employés.\n• Vous prenez en charge l'assurance qualité dans l'offre.\n• Vous travaillez au conseil d'administration et dans des groupes spécialisés et façonnez ainsi le développement ultérieur de l'institution.\n• Vous dirigerez des réunions d'équipe, participerez à la supervision ainsi qu'à des spécialistes systémiques et psychiatriques et à des séances de counseling.\n• Vous accompagnez les futurs pédagogues sociaux pendant la formation. Exigences\n• Études en éducation sociale/travail social (FH/HF) ou enseignement comparable.\n• Vous avez une éducation ou le désir de faire un leadership.\n• L'expérience dans la zone stationnaire est un plus.\n• En tant que personne digne de confiance, vous rencontrez les gens d'une manière reconnaissante et façonnez les relations avec l'engagement et la clarification.\n• Vous aimez prendre des responsabilités, agir avec calme et détermination en cas de conflit.\n• Vous travaillez vers une solution et vous affrontez des situations difficiles avec une pincée d'humour.\n• En plus des jours de bureau, vous appréciez également les horaires de travail irréguliers (soir, quelques nuits et quelques services de week-end)."
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/teamleiter-in-fuer-eine-stationaere-wohngruppe-in-der-kinder-und-jugendsiedlung-utenberg/0f584d9d-287d-4011-b5f0-4b7edb7e8b2f",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.723Z",
+      "crawledAt": "2026-07-21T22:32:59.141Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -550,6 +485,86 @@
       }
     },
     {
+      "id": "stadt-luzern-a0d661262ad4",
+      "slug": "occupazione-sociale-70-90-stadt-luzern-luzern",
+      "slugByLocale": {
+        "it": "occupazione-sociale-70-90-stadt-luzern-luzern",
+        "en": "social-worker-in-social-welfare-70-90-stadt-luzern-luzern",
+        "de": "sozialarbeiter-in-sozialhilfe-70-90-stadt-luzern-luzern",
+        "fr": "travailleur-social-en-protection-sociale-70-90-stadt-luzern-luzern"
+      },
+      "company": "Stadt Luzern",
+      "companyKey": "stadt-luzern",
+      "companyDomain": "stadtluzern.ch",
+      "title": "Sozialarbeiter*in Sozialhilfe (70 - 90 %)",
+      "titleByLocale": {
+        "it": "Occupazione sociale (70 - 90 %)",
+        "en": "Social worker* in social welfare (70 - 90 %)",
+        "de": "Sozialarbeiter*in Sozialhilfe (70 - 90 %)",
+        "fr": "Travailleur social* en protection sociale (70 - 90 %)"
+      },
+      "description": "Möchtest du deine optimistische und offene Art bei der Arbeit mit Menschen einbringen? Und dich aktiv einbringen?\n\nAufgaben:\n• Du bist verantwortlich für die Beratung, Begleitung und finanzielle Unterstützung von Einzelpersonen und Familien im Rahmen der gesetzlichen Sozialhilfe.\n\n• Du begleitest Menschen in den unterschiedlichsten Lebenslagen auf ihrem Weg zur sozialen und beruflichen Integration.\n\n• Du arbeitest mit internen und externen Fachstellen, Sozialversicherungen und Behörden zusammen.\n\n• Du wirst von Sachbearbeitenden administrativ unterstützt, kannst auf das Wissen von internen Fachstellen (Rechtsdienst, Fachstelle Arbeit und Bildung, Fachstelle Integration und Wohnen) zurückgreifen und arbeitest mit deinen Kolleginnen und Kollegen im Team zusammen.\n\nAnforderungen:\n• Du bringst einen Fachhochschulabschluss in Sozialer Arbeit oder eine gleichwertige Ausbildung mit, idealerweise ergänzt mit fachspezifischer Weiterbildung.\n\n• Du hast bereits erste Berufserfahrung in der wirtschaftlichen Sozialhilfe gesammelt.\n\n• Allen Menschen begegnest du wertschätzend und kannst mit unterschiedlichen Erwartungen umgehen.\n\n• Du bist geübt in administrativen Tätigkeiten und im Umgang mit Zahlen.\n\n• Du bist es dir gewohnt, selbstständig zu arbeiten, bist ein Organisationstalent und entscheidungsfreudig.",
+      "descriptionByLocale": {
+        "it": "Vuoi portare il tuo modo ottimista e aperto di lavorare con le persone? Sei coinvolto attivamente? Compiti:\n• Lei è responsabile della consulenza, del sostegno e del sostegno finanziario delle persone e delle famiglie nell'ambito dell'assistenza sociale legale.\n• Accompagnate le persone in situazioni diverse, andando all'integrazione sociale e professionale.\n• Lavora con specialisti interni ed esterni, società di assicurazione sociale e autorità.\n• Sarai supportato amministrativamente da specialisti, in grado di attingere alla conoscenza di uffici specializzati interni (servizio legale, occupazione e istruzione, integrazione e vita) e lavorare insieme ai tuoi colleghi in un team. Requisiti\n• Si porta una laurea nel lavoro sociale o un'istruzione equivalente, idealmente completato con istruzione tema-specifica ulteriore.\n• Hai già acquisito la tua prima esperienza professionale nel benessere economico.\n• Incontri tutte le persone con apprezzamento e può affrontare diverse aspettative.\n• Sei esperto in attività amministrative e nel trattare con i numeri.\n• Siete abituati a lavorare in modo indipendente, sono un talento organizzativo e disposti a prendere decisioni.",
+        "en": "Do you want to bring your optimistic and open way to work with people? Are you actively involved? Tasks:\n• You are responsible for the advice, support and financial support of individuals and families within the framework of statutory social assistance.\n• You accompany people in different situations on their way to social and professional integration.\n• You work with internal and external specialists, social insurance companies and authorities.\n• You will be administratively supported by specialists, can draw on the knowledge of internal specialist offices (legal service, employment and education, integration and living) and work together with your colleagues in a team. Requirements\n• You bring a university degree in social work or an equivalent education, ideally supplemented with subject-specific further education.\n• You have already gained your first professional experience in economic welfare.\n• You meet all people with appreciation and can deal with different expectations.\n• You are experienced in administrative activities and in dealing with numbers.\n• You are accustomed to working independently, are an organizational talent and willing to make decisions.",
+        "de": "Möchtest du deine optimistische und offene Art bei der Arbeit mit Menschen einbringen? Und dich aktiv einbringen?\n\nAufgaben:\n• Du bist verantwortlich für die Beratung, Begleitung und finanzielle Unterstützung von Einzelpersonen und Familien im Rahmen der gesetzlichen Sozialhilfe.\n\n• Du begleitest Menschen in den unterschiedlichsten Lebenslagen auf ihrem Weg zur sozialen und beruflichen Integration.\n\n• Du arbeitest mit internen und externen Fachstellen, Sozialversicherungen und Behörden zusammen.\n\n• Du wirst von Sachbearbeitenden administrativ unterstützt, kannst auf das Wissen von internen Fachstellen (Rechtsdienst, Fachstelle Arbeit und Bildung, Fachstelle Integration und Wohnen) zurückgreifen und arbeitest mit deinen Kolleginnen und Kollegen im Team zusammen.\n\nAnforderungen:\n• Du bringst einen Fachhochschulabschluss in Sozialer Arbeit oder eine gleichwertige Ausbildung mit, idealerweise ergänzt mit fachspezifischer Weiterbildung.\n\n• Du hast bereits erste Berufserfahrung in der wirtschaftlichen Sozialhilfe gesammelt.\n\n• Allen Menschen begegnest du wertschätzend und kannst mit unterschiedlichen Erwartungen umgehen.\n\n• Du bist geübt in administrativen Tätigkeiten und im Umgang mit Zahlen.\n\n• Du bist es dir gewohnt, selbstständig zu arbeiten, bist ein Organisationstalent und entscheidungsfreudig.",
+        "fr": "Voulez-vous apporter votre façon optimiste et ouverte de travailler avec les gens? Êtes-vous activement impliqué ? Tâches :\n• Vous êtes responsable des conseils, du soutien et du soutien financier des personnes et des familles dans le cadre de l'aide sociale légale.\n• Vous accompagnez les gens dans différentes situations sur leur chemin vers l'intégration sociale et professionnelle.\n• Vous travaillez avec des spécialistes internes et externes, des compagnies d'assurance sociale et des autorités.\n• Vous serez soutenu administrativement par des spécialistes, pouvez tirer parti des connaissances des bureaux spécialisés internes (service juridique, emploi et éducation, intégration et vie) et travailler avec vos collègues dans une équipe. Exigences\n• Vous apportez un diplôme universitaire en travail social ou un enseignement équivalent, idéalement complété par un enseignement complémentaire spécifique.\n• Vous avez déjà acquis votre première expérience professionnelle en matière de bien-être économique.\n• Vous rencontrez toutes les personnes avec reconnaissance et pouvez répondre à différentes attentes.\n• Vous avez de l'expérience dans les activités administratives et dans le traitement des chiffres.\n• Vous êtes habitué à travailler de façon indépendante, êtes un talent organisationnel et prêt à prendre des décisions."
+      },
+      "needsRetranslation": false,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialarbeiter-in-sozialhilfe/17e3af7f-3f52-453e-83d7-b60412c5c953",
+      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-21T22:32:59.139Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6003",
+      "streetAddress": "Obergrundstrasse 3",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-11",
+      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialarbeiter-in-sozialhilfe/17e3af7f-3f52-453e-83d7-b60412c5c953",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sozialarbeiter-in-sozialhilfe-70-90-stadt-luzern-luzern",
+        "occupazione-sociale-70-90-stadt-luzern-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-sozialhilfe-70-90-stadt-luzern-luzern",
+          "occupazione-sociale-70-90-stadt-luzern-luzern"
+        ],
+        "en": [
+          "sozialarbeiter-in-sozialhilfe-70-90-stadt-luzern-luzern"
+        ],
+        "fr": [
+          "sozialarbeiter-in-sozialhilfe-70-90-stadt-luzern-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T12:19:10.038Z",
+      "salaryMin": 62600,
+      "salaryMax": 95400,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62600,
+          "maxValue": 95400,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stadt-luzern-0c7d7b07cdf9",
       "slug": "pedagoga-sociale-in-hf-fh-uni-circa-40-moosmatt-care-stadt-luzern-luzern",
       "slugByLocale": {
@@ -575,12 +590,13 @@
         "de": "Du suchst eine sinnvolle Aufgabe, bei der du Kinder im Schulalltag begleiten und fördern kannst? In unserer schulergänzenden Betreuung der Primarschule Moosmatt erwartet dich ein abwechslungsreiches Umfeld, ein engagiertes Team und die Chance, deine pädagogischen Fähigkeiten mit Freude einzubringen.\n\nAufgaben:\n• Du wirkst aktiv im Betreuungsteam mit und gestaltest eine professionelle, kindgerechte Betreuung und Förderung.\n\n• Du bist für Kinder und Eltern eine verlässliche Bezugsperson und führst Elterngespräche (ohne Abendtermine).\n\n• Du pflegst den Kontakt zu Lehrpersonen, Hauswartung und weiteren Fachpersonen der Schule.\n\n• Du arbeitest überwiegend während den Schulwochen: 40%:\nMontag: 11 - 17.30 Uhr\nDienstag: 09.30 - 17.30 Uhr\nDonnerstag: 11 – 17.30Uhr\n\nAnforderungen:\n• Du bringst eine abgeschlossene sozialpädagogische, soziokulturelle oder pädagogische Ausbildung mit.\n\n• Du hast Erfahrung und Freude daran, Kinder von 4 bis 13 Jahren zu begleiten, sie zu fördern und in ihrem Alltag zu unterstützen.\n\n• Du fühlst dich in die Lebenswelt der Kinder ein und gehst souverän mit kulturell- und altersdurchmischten Gruppen um.\n\n• Du überzeugst durch deine empathische, wertschätzende und teamorientierte Art und bringst dich aktiv in unser Schulleben ein.\n\n• Du bringst Erfahrung im administrativen und planerischen Aufgabengebiet mit.\n\n• Du arbeitest selbstständig, zuverlässig und kommunizierst offen, klar und transparent.\n\n• Du bist eine initiative, humorvolle, belastbare und flexible Persönlichkeit.\n\n• Du bereitest gerne kleine, gesunde Mahlzeiten zu und gestaltest diese mit Herz.",
         "fr": "Cherchez-vous une tâche significative dans laquelle vous pouvez accompagner et soutenir les enfants dans la vie scolaire quotidienne? Dans notre supervision d'école supplémentaire de l'école primaire Moosmatt, vous pouvez vous attendre à un environnement varié, une équipe engagée et la chance de contribuer vos compétences éducatives avec plaisir. Tâches :\n• Vous participez activement à l'équipe de soins et concevez des soins professionnels et adaptés aux enfants.\n• Vous êtes un soignant fiable pour les enfants et les parents et avez des réunions avec les parents (sans rendez-vous en soirée).\n• Vous garderez le contact avec les enseignants, l'entretien à domicile et d'autres spécialistes de l'école.\n• Vous travaillez surtout pendant les semaines scolaires: 40%: Lundi: 11-17.30 Mardi : 9 h 30-17 h 30 Jeudi: 11 – 17.30 Exigences\n• Vous apportez une éducation socio-éducative, socioculturelle ou éducative complète.\n• Vous avez l'expérience et la joie d'accompagner des enfants de 4 à 13 ans, de les soutenir et de les soutenir dans leur vie quotidienne.\n• Vous empathie avec le monde des enfants et vous traitez avec des groupes culturellement et par âge.\n• Vous convainquez par votre façon empathique, appréciatrice et axée sur l'équipe et contribuez activement à notre vie scolaire.\n• Vous apportez de l'expérience dans le domaine de l'administration et de la planification.\n• Vous travaillez de manière indépendante, fiable et communiquez ouvertement, clairement et de manière transparente.\n• Vous êtes une personnalité d'initiative, humoristique, résiliente et flexible.\n• Vous aimez préparer de petits repas sains et les concevoir avec le cœur."
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-hf-fh-uni-zirka-betreuung-moosmatt/00384aa4-1e6b-4ad2-bca4-0ee483fef36a",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.721Z",
+      "crawledAt": "2026-07-21T22:32:59.138Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -599,11 +615,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialpadagog-in-hf-fh-uni-zirka-40-betreuung-moosmatt-stadt-luzern-luzern"
+        "sozialpadagog-in-hf-fh-uni-zirka-40-betreuung-moosmatt-stadt-luzern-luzern",
+        "pedagoga-sociale-in-hf-fh-uni-circa-40-moosmatt-care-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagog-in-hf-fh-uni-zirka-40-betreuung-moosmatt-stadt-luzern-luzern"
+          "sozialpadagog-in-hf-fh-uni-zirka-40-betreuung-moosmatt-stadt-luzern-luzern",
+          "pedagoga-sociale-in-hf-fh-uni-circa-40-moosmatt-care-stadt-luzern-luzern"
         ],
         "en": [
           "sozialpadagog-in-hf-fh-uni-zirka-40-betreuung-moosmatt-stadt-luzern-luzern"
@@ -652,12 +670,13 @@
         "de": "Innovative Lösungen zu entwickeln ist genau Ihr Ding? Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der Stadt Luzern mit.\n\nAufgaben:\n• Du übernimmst Verantwortung für den Betrieb und die Weiterentwicklung des 3D-Stadtmodells.\n\n• Du setzt spannende Projekte in der Bau-, Ingenieur-, Architektur- und Leitungsvermessung um und bringst deine Ideen aktiv in die Gestaltung ein.\n\n• Bestehende Prozesse entwickelst du weiter und implementierst neue Ansätze sowie Lösungswege.\n\n• Du übernimmst die Dokumentation städtischer Datenthemen sowie einzelner Werkleitungsthemen im GIS-System.\n\n• Du nimmst kleinere Entwicklungen in GIS-Systemen vor und berätst Kundinnen und Kunden in GIS-Fragen.\n\n• Als Praxisbildner*in gibst du dein Wissen weiter und begleitest die Ausbildung der Geomatik-Lernenden.\n\nAnforderungen:\n• Du verfügst über ein abgeschlossenes Studium in Geomatik (BSc) oder eine vergleichbare Weiterbildung als Geomatiktechniker*in mit eidg. Fachausweis.\n\n• Mit Geoinformationssystemen kennst du dich bestens aus. Zudem bringst du Erfahrung in der Betreuung von 3D-Stadtmodellen sowie in der Ingenieur- und Werkleitungsvermessung mit.\n\n• Du begeisterst dich für digitale Prozesse und Automatisierung und verfügst idealerweise über Kenntnisse in ETL-Prozessen (z.B. FME)\n\n• Neben guten Deutschkenntnissen in Wort und Schrift zeichnen dich eine ausgeprägte Kundenorientierung, ein hohes Qualitätsbewusstsein sowie konzeptionelle Fähigkeiten aus.\n\n• Du arbeitest selbstständig, strukturiert und innovativ und bringst eigene Ideen aktiv ein.\n\n• Die Zusammenarbeit in einem motivierten Team bereitet dir Freude.\n\n• Den Führerausweis der Kategorie B bringst du ebenfalls mit.",
         "fr": "Développer des solutions innovantes est exactement votre truc ? Faites partie de notre équipe et façonnez l'avenir de la ville de Lucerne. Tâches :\n• Vous assumez la responsabilité de l'opération et du développement du modèle de ville 3D.\n• Vous implémentez des projets passionnants dans la construction, l'ingénierie, l'architecture et la mesure de ligne et contribuez activement à la conception.\n• Les processus existants que vous développez et mettez en œuvre de nouvelles approches et solutions.\n• Vous prenez en charge la documentation des sujets de données urbaines ainsi que des sujets de gestion d'usines individuelles dans le système SIG.\n• Vous réaliserez des développements mineurs dans les systèmes SIG et conseillerez les clients sur les questions SIG.\n• En tant qu'instructeur pratique, vous transmettez vos connaissances et accompagnez la formation des apprenants en géomatique. Exigences\n• Vous avez obtenu un diplôme en géomatique (BSc) ou une formation complémentaire comparable comme technicien en géomatique avec un certificat fédéral.\n• Vous connaissez très bien les systèmes d'information géographique. En outre, vous avez de l'expérience dans le support de modèles de ville 3D ainsi que dans l'ingénierie et l'arpentage de gestion d'usines.\n• Vous êtes passionné par les processus numériques et l'automatisation et avez idéalement une connaissance des processus ETL (par exemple FME)\n• En plus d'une bonne connaissance de l'allemand en paroles et en écriture, vous êtes caractérisé par une orientation client prononcée, un niveau élevé de sensibilisation à la qualité et des compétences conceptuelles.\n• Vous travaillez de façon indépendante, structurée, innovante et active.\n• Travailler dans une équipe motivée vous apporte de la joie.\n• Vous apportez également le permis de conduire de catégorie B."
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa/eab851b2-2bc7-4d4e-8ca2-827b952bdeb3",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.721Z",
+      "crawledAt": "2026-07-21T22:32:59.138Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -676,11 +695,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa-80-100-stadt-luzern-luzern"
+        "geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa-80-100-stadt-luzern-luzern",
+        "ingegnere-geomatics-in-fh-tecnico-geomatics-in-diritto-federale-fa-80-100-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa-80-100-stadt-luzern-luzern"
+          "geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa-80-100-stadt-luzern-luzern",
+          "ingegnere-geomatics-in-fh-tecnico-geomatics-in-diritto-federale-fa-80-100-stadt-luzern-luzern"
         ],
         "en": [
           "geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa-80-100-stadt-luzern-luzern"
@@ -699,86 +720,6 @@
           "@type": "QuantitativeValue",
           "minValue": 69500,
           "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-luzern-e49f39713d4c",
-      "slug": "project-manager-nella-protezione-ambientale-75-stadt-luzern-luzern",
-      "slugByLocale": {
-        "it": "project-manager-nella-protezione-ambientale-75-stadt-luzern-luzern",
-        "en": "project-manager-in-environmental-protection-75-stadt-luzern-luzern",
-        "de": "projektleiter-in-umweltschutz-75-stadt-luzern-luzern",
-        "fr": "chef-de-projet-en-protection-de-l-environnement-75-stadt-luzern-luzern"
-      },
-      "company": "Stadt Luzern",
-      "companyKey": "stadt-luzern",
-      "companyDomain": "stadtluzern.ch",
-      "title": "Projektleiter*in Umweltschutz (75 %)",
-      "titleByLocale": {
-        "it": "Project manager nella protezione ambientale (75%)",
-        "en": "Project manager in environmental protection (75%)",
-        "de": "Projektleiter*in Umweltschutz (75 %)",
-        "fr": "Chef de projet en protection de l'environnement (75 %)"
-      },
-      "description": "Möchtest du im Baubewilligungsverfahren einen wichtigen Beitrag zu energieeffizienten und umweltgerechten Bauprojekten leisten? Werde Teil unseres motivierten Teams und stelle sicher, dass private Bauvorhaben die gesetzlichen Anforderungen erfüllen.\n\nAufgaben:\n• Du stellst im Baubewilligungsverfahren die Einhaltung der Energie- und Umweltvorschriften sicher.\n\n• Du berätst Bauherrschaften und Planende und bearbeitest Klagen aus der Bevölkerung.\n\n• Du stellst die Stellvertretung deines Kollegen im Bereich des Baubewilligungsverfahrens sicher.\n\n• Du leitest vereinzelt Projekte in Aufgabenbereichen, in denen du über entsprechende Kenntnisse verfügst.\n\n• Du arbeitest eng mit Mitarbeitenden von Stadt und Kanton zusammen.\n\nAnforderungen:\n• Du verfügst über einen Hochschulabschluss (Bachelor oder Master) in technischer oder naturwissenschaftlicher Richtung.\n\n• Du bringst Erfahrung im Vollzug der Energie- und Umweltvorschriften (insbesondere Lärmschutz und Luftreinhaltung) mit.\n\n• Es macht dir Freude, Energie- und Umweltinteressen gegenüber Bauherrschaften, Planenden und Kläger*innen zu vertreten.\n\n• Du bist sehr zuverlässig und kannst dich auf Deutsch mündlich und schriftlich präzise ausdrücken.\n\n• Du schätzt die Abwechslung von Büroarbeit und Besprechungen vor Ort.\n\n• Idealerweise hast du bereits Erfahrung mit selbstorganisierten Arbeitsformen oder bist offen, eine solche Entwicklung mitzugestalten.",
-      "descriptionByLocale": {
-        "it": "Vuoi dare un contributo importante ai progetti di costruzione a basso consumo energetico e rispettosi dell'ambiente nel processo di permesso di costruzione? Diventa parte del nostro team motivato e assicurati che i progetti di costruzione privata soddisfino i requisiti legali. Compiti:\n• L'utente garantisce il rispetto delle normative energetiche e ambientali nella procedura per il permesso di costruzione.\n• Si consiglia costruttori e pianificatori e trattare i reclami dalla popolazione.\n• Assicura il vice del suo collega nell'ambito della procedura di autorizzazione all'edificio.\n• Lei conduce progetti individuali in compiti in cui Lei ha conoscenza appropriata.\n• Lavori a stretto contatto con i dipendenti della città e cantone. Requisiti\n• Hai una laurea (bachelor o master) in una direzione tecnica o scientifica.\n• L'utente ha esperienza nell'attuazione delle normative sull'energia e l'ambiente (in particolare la protezione dal rumore e il controllo dell'inquinamento atmosferico).\n• Vi dà il piacere di rappresentare gli interessi energetici e ambientali verso costruttori, pianificatori e querelanti.\n• Sei molto affidabile e puoi esprimerti esattamente per via orale e per iscritto in tedesco.\n• Apprezzi la varietà di lavori di ufficio e incontri in loco.\n• Idealmente, avete già esperienza con forme di lavoro auto-organizzate o sono aperti a modellare tale sviluppo.",
-        "en": "Do you want to make an important contribution to energy-efficient and environmentally friendly construction projects in the building permit process? Become part of our motivated team and ensure that private construction projects meet the legal requirements. Tasks:\n• You ensure compliance with energy and environmental regulations in the building permit procedure.\n• You advise builders and planners and deal with complaints from the population.\n• You ensure the deputy of your colleague in the area of the building permit procedure.\n• You lead individual projects in tasks in which you have appropriate knowledge.\n• You work closely with employees of the city and canton. Requirements\n• You have a university degree (bachelor or master) in a technical or scientific direction.\n• You have experience in the implementation of energy and environmental regulations (in particular noise protection and air pollution control).\n• It gives you pleasure to represent energy and environmental interests towards builders, planners and plaintiffs.\n• You are very reliable and can express yourself precisely orally and in writing in German.\n• You appreciate the variety of office work and meetings on site.\n• Ideally, you already have experience with self-organized forms of work or are open to shaping such a development.",
-        "de": "Möchtest du im Baubewilligungsverfahren einen wichtigen Beitrag zu energieeffizienten und umweltgerechten Bauprojekten leisten? Werde Teil unseres motivierten Teams und stelle sicher, dass private Bauvorhaben die gesetzlichen Anforderungen erfüllen.\n\nAufgaben:\n• Du stellst im Baubewilligungsverfahren die Einhaltung der Energie- und Umweltvorschriften sicher.\n\n• Du berätst Bauherrschaften und Planende und bearbeitest Klagen aus der Bevölkerung.\n\n• Du stellst die Stellvertretung deines Kollegen im Bereich des Baubewilligungsverfahrens sicher.\n\n• Du leitest vereinzelt Projekte in Aufgabenbereichen, in denen du über entsprechende Kenntnisse verfügst.\n\n• Du arbeitest eng mit Mitarbeitenden von Stadt und Kanton zusammen.\n\nAnforderungen:\n• Du verfügst über einen Hochschulabschluss (Bachelor oder Master) in technischer oder naturwissenschaftlicher Richtung.\n\n• Du bringst Erfahrung im Vollzug der Energie- und Umweltvorschriften (insbesondere Lärmschutz und Luftreinhaltung) mit.\n\n• Es macht dir Freude, Energie- und Umweltinteressen gegenüber Bauherrschaften, Planenden und Kläger*innen zu vertreten.\n\n• Du bist sehr zuverlässig und kannst dich auf Deutsch mündlich und schriftlich präzise ausdrücken.\n\n• Du schätzt die Abwechslung von Büroarbeit und Besprechungen vor Ort.\n\n• Idealerweise hast du bereits Erfahrung mit selbstorganisierten Arbeitsformen oder bist offen, eine solche Entwicklung mitzugestalten.",
-        "fr": "Voulez-vous apporter une contribution importante aux projets de construction économes en énergie et respectueux de l'environnement dans le processus de permis de construire? Faites partie de notre équipe motivée et assurez-vous que les projets de construction privée répondent aux exigences légales. Tâches :\n• Vous veillez au respect de la réglementation énergétique et environnementale dans la procédure de permis de construire.\n• Vous conseillez les constructeurs et les planificateurs et traitez les plaintes de la population.\n• Vous assurez le député de votre collègue dans le domaine de la procédure de permis de construire.\n• Vous dirigez des projets individuels dans des tâches dans lesquelles vous avez les connaissances appropriées.\n• Vous travaillez en étroite collaboration avec les employés de la ville et du canton. Exigences\n• Vous avez un diplôme universitaire (bachelor ou master) dans une direction technique ou scientifique.\n• Vous avez de l'expérience dans la mise en œuvre des réglementations en matière d'énergie et d'environnement (notamment la protection du bruit et la lutte contre la pollution atmosphérique).\n• Cela vous donne le plaisir de représenter les intérêts énergétiques et environnementaux envers les constructeurs, les planificateurs et les demandeurs.\n• Vous êtes très fiable et pouvez vous exprimer précisément oralement et par écrit en allemand.\n• Vous appréciez la variété du travail de bureau et des réunions sur place.\n• Idéalement, vous avez déjà de l'expérience avec des formes de travail auto-organisées ou êtes ouvert à façonner un tel développement."
-      },
-      "needsRetranslation": false,
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/projektleiter-in-umweltschutz/caa3f8b5-eb4b-4a8c-877c-af0e20c425e1",
-      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.720Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6005",
-      "streetAddress": "Industriestrasse 6",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-26",
-      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/projektleiter-in-umweltschutz/caa3f8b5-eb4b-4a8c-877c-af0e20c425e1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "projektleiter-in-umweltschutz-75-stadt-luzern-luzern",
-        "projektleiter-in-umweltschutz-75-stadt-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "projektleiter-in-umweltschutz-75-stadt-luzern-luzern",
-          "projektleiter-in-umweltschutz-75-stadt-luzern"
-        ],
-        "en": [
-          "projektleiter-in-umweltschutz-75-stadt-luzern-luzern"
-        ],
-        "fr": [
-          "projektleiter-in-umweltschutz-75-stadt-luzern-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:19:10.019Z",
-      "salaryMin": 72000,
-      "salaryMax": 109500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 109500,
           "unitText": "YEAR"
         }
       }
@@ -815,7 +756,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/einschaetzer-in/32175654-ea5e-4fd0-8f7f-ab6cb5531f7e",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.720Z",
+      "crawledAt": "2026-07-21T22:32:59.137Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -834,11 +775,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "einschatzer-in-80-100-stadt-luzern-luzern"
+        "einschatzer-in-80-100-stadt-luzern-luzern",
+        "stimatore-80-100-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "einschatzer-in-80-100-stadt-luzern-luzern"
+          "einschatzer-in-80-100-stadt-luzern-luzern",
+          "stimatore-80-100-stadt-luzern-luzern"
         ],
         "en": [
           "einschatzer-in-80-100-stadt-luzern-luzern"
@@ -893,7 +836,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/betriebswirtschafter-in-mit-schwerpunkt-cash-und-treasurymanagement/878e5fb4-cbcc-4ef9-97a9-139082df5ab7",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.716Z",
+      "crawledAt": "2026-07-21T22:32:59.136Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -940,6 +883,88 @@
       }
     },
     {
+      "id": "stadt-luzern-e49f39713d4c",
+      "slug": "project-manager-nella-protezione-ambientale-75-stadt-luzern-luzern",
+      "slugByLocale": {
+        "it": "project-manager-nella-protezione-ambientale-75-stadt-luzern-luzern",
+        "en": "project-manager-in-environmental-protection-75-stadt-luzern-luzern",
+        "de": "projektleiter-in-umweltschutz-75-stadt-luzern-luzern",
+        "fr": "chef-de-projet-en-protection-de-l-environnement-75-stadt-luzern-luzern"
+      },
+      "company": "Stadt Luzern",
+      "companyKey": "stadt-luzern",
+      "companyDomain": "stadtluzern.ch",
+      "title": "Projektleiter*in Umweltschutz (75 %)",
+      "titleByLocale": {
+        "it": "Project manager nella protezione ambientale (75%)",
+        "en": "Project manager in environmental protection (75%)",
+        "de": "Projektleiter*in Umweltschutz (75 %)",
+        "fr": "Chef de projet en protection de l'environnement (75 %)"
+      },
+      "description": "Möchtest du im Baubewilligungsverfahren einen wichtigen Beitrag zu energieeffizienten und umweltgerechten Bauprojekten leisten? Werde Teil unseres motivierten Teams und stelle sicher, dass private Bauvorhaben die gesetzlichen Anforderungen erfüllen.\n\nAufgaben:\n• Du stellst im Baubewilligungsverfahren die Einhaltung der Energie- und Umweltvorschriften sicher.\n\n• Du berätst Bauherrschaften und Planende und bearbeitest Klagen aus der Bevölkerung.\n\n• Du stellst die Stellvertretung deines Kollegen im Bereich des Baubewilligungsverfahrens sicher.\n\n• Du leitest vereinzelt Projekte in Aufgabenbereichen, in denen du über entsprechende Kenntnisse verfügst.\n\n• Du arbeitest eng mit Mitarbeitenden von Stadt und Kanton zusammen.\n\nAnforderungen:\n• Du verfügst über einen Hochschulabschluss (Bachelor oder Master) in technischer oder naturwissenschaftlicher Richtung.\n\n• Du bringst Erfahrung im Vollzug der Energie- und Umweltvorschriften (insbesondere Lärmschutz und Luftreinhaltung) mit.\n\n• Es macht dir Freude, Energie- und Umweltinteressen gegenüber Bauherrschaften, Planenden und Kläger*innen zu vertreten.\n\n• Du bist sehr zuverlässig und kannst dich auf Deutsch mündlich und schriftlich präzise ausdrücken.\n\n• Du schätzt die Abwechslung von Büroarbeit und Besprechungen vor Ort.\n\n• Idealerweise hast du bereits Erfahrung mit selbstorganisierten Arbeitsformen oder bist offen, eine solche Entwicklung mitzugestalten.",
+      "descriptionByLocale": {
+        "it": "Vuoi dare un contributo importante ai progetti di costruzione a basso consumo energetico e rispettosi dell'ambiente nel processo di permesso di costruzione? Diventa parte del nostro team motivato e assicurati che i progetti di costruzione privata soddisfino i requisiti legali. Compiti:\n• L'utente garantisce il rispetto delle normative energetiche e ambientali nella procedura per il permesso di costruzione.\n• Si consiglia costruttori e pianificatori e trattare i reclami dalla popolazione.\n• Assicura il vice del suo collega nell'ambito della procedura di autorizzazione all'edificio.\n• Lei conduce progetti individuali in compiti in cui Lei ha conoscenza appropriata.\n• Lavori a stretto contatto con i dipendenti della città e cantone. Requisiti\n• Hai una laurea (bachelor o master) in una direzione tecnica o scientifica.\n• L'utente ha esperienza nell'attuazione delle normative sull'energia e l'ambiente (in particolare la protezione dal rumore e il controllo dell'inquinamento atmosferico).\n• Vi dà il piacere di rappresentare gli interessi energetici e ambientali verso costruttori, pianificatori e querelanti.\n• Sei molto affidabile e puoi esprimerti esattamente per via orale e per iscritto in tedesco.\n• Apprezzi la varietà di lavori di ufficio e incontri in loco.\n• Idealmente, avete già esperienza con forme di lavoro auto-organizzate o sono aperti a modellare tale sviluppo.",
+        "en": "Do you want to make an important contribution to energy-efficient and environmentally friendly construction projects in the building permit process? Become part of our motivated team and ensure that private construction projects meet the legal requirements. Tasks:\n• You ensure compliance with energy and environmental regulations in the building permit procedure.\n• You advise builders and planners and deal with complaints from the population.\n• You ensure the deputy of your colleague in the area of the building permit procedure.\n• You lead individual projects in tasks in which you have appropriate knowledge.\n• You work closely with employees of the city and canton. Requirements\n• You have a university degree (bachelor or master) in a technical or scientific direction.\n• You have experience in the implementation of energy and environmental regulations (in particular noise protection and air pollution control).\n• It gives you pleasure to represent energy and environmental interests towards builders, planners and plaintiffs.\n• You are very reliable and can express yourself precisely orally and in writing in German.\n• You appreciate the variety of office work and meetings on site.\n• Ideally, you already have experience with self-organized forms of work or are open to shaping such a development.",
+        "de": "Möchtest du im Baubewilligungsverfahren einen wichtigen Beitrag zu energieeffizienten und umweltgerechten Bauprojekten leisten? Werde Teil unseres motivierten Teams und stelle sicher, dass private Bauvorhaben die gesetzlichen Anforderungen erfüllen.\n\nAufgaben:\n• Du stellst im Baubewilligungsverfahren die Einhaltung der Energie- und Umweltvorschriften sicher.\n\n• Du berätst Bauherrschaften und Planende und bearbeitest Klagen aus der Bevölkerung.\n\n• Du stellst die Stellvertretung deines Kollegen im Bereich des Baubewilligungsverfahrens sicher.\n\n• Du leitest vereinzelt Projekte in Aufgabenbereichen, in denen du über entsprechende Kenntnisse verfügst.\n\n• Du arbeitest eng mit Mitarbeitenden von Stadt und Kanton zusammen.\n\nAnforderungen:\n• Du verfügst über einen Hochschulabschluss (Bachelor oder Master) in technischer oder naturwissenschaftlicher Richtung.\n\n• Du bringst Erfahrung im Vollzug der Energie- und Umweltvorschriften (insbesondere Lärmschutz und Luftreinhaltung) mit.\n\n• Es macht dir Freude, Energie- und Umweltinteressen gegenüber Bauherrschaften, Planenden und Kläger*innen zu vertreten.\n\n• Du bist sehr zuverlässig und kannst dich auf Deutsch mündlich und schriftlich präzise ausdrücken.\n\n• Du schätzt die Abwechslung von Büroarbeit und Besprechungen vor Ort.\n\n• Idealerweise hast du bereits Erfahrung mit selbstorganisierten Arbeitsformen oder bist offen, eine solche Entwicklung mitzugestalten.",
+        "fr": "Voulez-vous apporter une contribution importante aux projets de construction économes en énergie et respectueux de l'environnement dans le processus de permis de construire? Faites partie de notre équipe motivée et assurez-vous que les projets de construction privée répondent aux exigences légales. Tâches :\n• Vous veillez au respect de la réglementation énergétique et environnementale dans la procédure de permis de construire.\n• Vous conseillez les constructeurs et les planificateurs et traitez les plaintes de la population.\n• Vous assurez le député de votre collègue dans le domaine de la procédure de permis de construire.\n• Vous dirigez des projets individuels dans des tâches dans lesquelles vous avez les connaissances appropriées.\n• Vous travaillez en étroite collaboration avec les employés de la ville et du canton. Exigences\n• Vous avez un diplôme universitaire (bachelor ou master) dans une direction technique ou scientifique.\n• Vous avez de l'expérience dans la mise en œuvre des réglementations en matière d'énergie et d'environnement (notamment la protection du bruit et la lutte contre la pollution atmosphérique).\n• Cela vous donne le plaisir de représenter les intérêts énergétiques et environnementaux envers les constructeurs, les planificateurs et les demandeurs.\n• Vous êtes très fiable et pouvez vous exprimer précisément oralement et par écrit en allemand.\n• Vous appréciez la variété du travail de bureau et des réunions sur place.\n• Idéalement, vous avez déjà de l'expérience avec des formes de travail auto-organisées ou êtes ouvert à façonner un tel développement."
+      },
+      "needsRetranslation": false,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/projektleiter-in-umweltschutz/caa3f8b5-eb4b-4a8c-877c-af0e20c425e1",
+      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-21T22:32:59.136Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6005",
+      "streetAddress": "Industriestrasse 6",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-26",
+      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/projektleiter-in-umweltschutz/caa3f8b5-eb4b-4a8c-877c-af0e20c425e1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "projektleiter-in-umweltschutz-75-stadt-luzern-luzern",
+        "projektleiter-in-umweltschutz-75-stadt-luzern",
+        "project-manager-nella-protezione-ambientale-75-stadt-luzern-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-in-umweltschutz-75-stadt-luzern-luzern",
+          "projektleiter-in-umweltschutz-75-stadt-luzern",
+          "project-manager-nella-protezione-ambientale-75-stadt-luzern-luzern"
+        ],
+        "en": [
+          "projektleiter-in-umweltschutz-75-stadt-luzern-luzern"
+        ],
+        "fr": [
+          "projektleiter-in-umweltschutz-75-stadt-luzern-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T12:19:10.019Z",
+      "salaryMin": 72000,
+      "salaryMax": 109500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72000,
+          "maxValue": 109500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stadt-luzern-6d7269576c6b",
       "slug": "pedagoga-sociale-in-hf-fh-circa-70-care-felsberg-stadt-luzern-luzern",
       "slugByLocale": {
@@ -971,7 +996,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-hf-fh-zirka-betreuung-felsberg/9f5083ea-a389-4b8d-8ff4-2417aaae5dd3",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.715Z",
+      "crawledAt": "2026-07-21T22:32:59.135Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -990,11 +1015,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialpadagog-in-hf-fh-zirka-70-betreuung-felsberg-stadt-luzern-luzern"
+        "sozialpadagog-in-hf-fh-zirka-70-betreuung-felsberg-stadt-luzern-luzern",
+        "pedagoga-sociale-in-hf-fh-circa-70-care-felsberg-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagog-in-hf-fh-zirka-70-betreuung-felsberg-stadt-luzern-luzern"
+          "sozialpadagog-in-hf-fh-zirka-70-betreuung-felsberg-stadt-luzern-luzern",
+          "pedagoga-sociale-in-hf-fh-circa-70-care-felsberg-stadt-luzern-luzern"
         ],
         "en": [
           "sozialpadagog-in-hf-fh-zirka-70-betreuung-felsberg-stadt-luzern-luzern"
@@ -1049,7 +1076,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/praktikum-sportfoerderung/f860ec46-7b45-4bbf-9884-67117b690ff0",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.714Z",
+      "crawledAt": "2026-07-21T22:32:59.134Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1068,11 +1095,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikum-sportforderung-50-stadt-luzern-luzern"
+        "praktikum-sportforderung-50-stadt-luzern-luzern",
+        "promozione-sportiva-di-tirocinio-50-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-sportforderung-50-stadt-luzern-luzern"
+          "praktikum-sportforderung-50-stadt-luzern-luzern",
+          "promozione-sportiva-di-tirocinio-50-stadt-luzern-luzern"
         ],
         "en": [
           "praktikum-sportforderung-50-stadt-luzern-luzern"
@@ -1127,7 +1156,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/projektleiter-in-siedlungsentwaesserung/36bb8400-3af5-452b-8c5b-a04e4954750f",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.703Z",
+      "crawledAt": "2026-07-21T22:32:59.129Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1147,12 +1176,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-in-siedlungsentwasserung-60-100-stadt-luzern-luzern",
-        "projektleiter-in-siedlungsentwasserung-60-100-stadt-luzern"
+        "projektleiter-in-siedlungsentwasserung-60-100-stadt-luzern",
+        "project-manager-in-drenaggio-urbano-60-100-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-siedlungsentwasserung-60-100-stadt-luzern-luzern",
-          "projektleiter-in-siedlungsentwasserung-60-100-stadt-luzern"
+          "projektleiter-in-siedlungsentwasserung-60-100-stadt-luzern",
+          "project-manager-in-drenaggio-urbano-60-100-stadt-luzern-luzern"
         ],
         "en": [
           "projektleiter-in-siedlungsentwasserung-60-100-stadt-luzern-luzern"
@@ -1201,12 +1232,13 @@
         "de": "Du suchst eine sinnvolle Aufgabe, bei der du Kinder im Schulalltag begleiten und fördern kannst? In unserer schulergänzenden Betreuung der Primarschule Moosmatt erwartet dich ein abwechslungsreiches Umfeld, ein engagiertes Team und die Chance, deine pädagogischen Fähigkeiten mit Freude einzubringen.\n\nAufgaben:\n• Du wirkst aktiv im Betreuungsteam mit und gestaltest eine professionelle, kindgerechte Betreuung und Förderung.\n\n• Du bist für Kinder und Eltern eine verlässliche Bezugsperson und führst Elterngespräche (ohne Abendtermine).\n\n• Du pflegst den Kontakt zu Lehrpersonen, Hauswartung und weiteren Fachpersonen der Schule.\n\n• Du arbeitest überwiegend während den Schulwochen:\n60%:\nMontag: 11:00 Uhr - 17:30 Uhr\nDienstag: 09:30 Uhr – 18:00 Uhr\nMittwoch: 11:00 Uhr – 13:45 Uhr\nDonnerstag: 11:00 Uhr – 17:30 Uhr\nFreitag: 11:00 Uhr – 17:30 Uhr\n\nAnforderungen:\n• Du bringst eine abgeschlossene sozialpädagogische, soziokulturelle oder pädagogische Ausbildung mit.\n\n• Du hast Erfahrung und Freude daran, Kinder von 4 bis 13 Jahren zu begleiten, sie zu fördern und in ihrem Alltag zu unterstützen.\n\n• Du fühlst dich in die Lebenswelt der Kinder ein und gehst souverän mit kulturell- und altersdurchmischten Gruppen um.\n\n• Du überzeugst durch deine empathische, wertschätzende und teamorientierte Art und bringst dich aktiv in unser Schulleben ein.\n\n• Du bringst Erfahrung im administrativen und planerischen Aufgabengebiet mit.\n\n• Du arbeitest selbstständig, zuverlässig und kommunizierst offen, klar und transparent.\n\n• Du bist eine initiative, humorvolle, belastbare und flexible Persönlichkeit.\n\n• Du bereitest gerne kleine, gesunde Mahlzeiten zu und gestaltest diese mit Herz.",
         "fr": "Cherchez-vous une tâche significative dans laquelle vous pouvez accompagner et soutenir les enfants dans la vie scolaire quotidienne? Dans notre supervision d'école supplémentaire de l'école primaire Moosmatt, vous pouvez vous attendre à un environnement varié, une équipe engagée et la chance de contribuer vos compétences éducatives avec plaisir. Tâches :\n• Vous participez activement à l'équipe de soins et concevez des soins professionnels et adaptés aux enfants.\n• Vous êtes un soignant fiable pour les enfants et les parents et avez des réunions avec les parents (sans rendez-vous en soirée).\n• Vous garderez le contact avec les enseignants, l'entretien à domicile et d'autres spécialistes de l'école.\n• Vous travaillez surtout pendant les semaines d'école: 60%: Lundi: 11:00 - 17:30 Mardi: 09:30 – 18:00 Mercredi: 11:00 – 13:45 Jeudi: 11:00 – 17:30 Vendredi: 11:00 – 17:30 Exigences\n• Vous apportez une éducation socio-éducative, socioculturelle ou éducative complète.\n• Vous avez l'expérience et la joie d'accompagner des enfants de 4 à 13 ans, de les soutenir et de les soutenir dans leur vie quotidienne.\n• Vous empathie avec le monde des enfants et vous traitez avec des groupes culturellement et par âge.\n• Vous convainquez par votre façon empathique, appréciatrice et axée sur l'équipe et contribuez activement à notre vie scolaire.\n• Vous apportez de l'expérience dans le domaine de l'administration et de la planification.\n• Vous travaillez de manière indépendante, fiable et communiquez ouvertement, clairement et de manière transparente.\n• Vous êtes une personnalité d'initiative, humoristique, résiliente et flexible.\n• Vous aimez préparer de petits repas sains et les concevoir avec le cœur."
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-hf-fh-uni-zirka-betreuung-moosmatt/b674d460-007c-4108-932b-fac49ef8f56a",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.697Z",
+      "crawledAt": "2026-07-21T22:32:59.127Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1225,11 +1257,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialpadagog-in-hf-fh-uni-zirka-60-betreuung-moosmatt-stadt-luzern-luzern"
+        "sozialpadagog-in-hf-fh-uni-zirka-60-betreuung-moosmatt-stadt-luzern-luzern",
+        "pedagoga-sociale-in-hf-fh-uni-circa-60-moosmatt-care-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagog-in-hf-fh-uni-zirka-60-betreuung-moosmatt-stadt-luzern-luzern"
+          "sozialpadagog-in-hf-fh-uni-zirka-60-betreuung-moosmatt-stadt-luzern-luzern",
+          "pedagoga-sociale-in-hf-fh-uni-circa-60-moosmatt-care-stadt-luzern-luzern"
         ],
         "en": [
           "sozialpadagog-in-hf-fh-uni-zirka-60-betreuung-moosmatt-stadt-luzern-luzern"
@@ -1284,7 +1318,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/fachspezialist-in-baukontrolle-vollzug/0d498076-521d-43a4-9304-2a9168f41507",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.691Z",
+      "crawledAt": "2026-07-21T22:32:59.124Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1303,11 +1337,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachspezialist-in-baukontrolle-vollzug-60-80-stadt-luzern-luzern"
+        "fachspezialist-in-baukontrolle-vollzug-60-80-stadt-luzern-luzern",
+        "controllo-esecuzione-di-edifici-specializzati-60-80-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-baukontrolle-vollzug-60-80-stadt-luzern-luzern"
+          "fachspezialist-in-baukontrolle-vollzug-60-80-stadt-luzern-luzern",
+          "controllo-esecuzione-di-edifici-specializzati-60-80-stadt-luzern-luzern"
         ],
         "en": [
           "fachspezialist-in-baukontrolle-vollzug-60-80-stadt-luzern-luzern"
@@ -1362,7 +1398,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/fachspezialist-in-baugesuche/aeb15b73-2ce9-42f3-8d73-d97b6d2467a4",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.690Z",
+      "crawledAt": "2026-07-21T22:32:59.122Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1381,11 +1417,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachspezialist-in-baugesuche-50-80-stadt-luzern-luzern"
+        "fachspezialist-in-baugesuche-50-80-stadt-luzern-luzern",
+        "applicazione-di-costruzione-specialistica-50-80-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-baugesuche-50-80-stadt-luzern-luzern"
+          "fachspezialist-in-baugesuche-50-80-stadt-luzern-luzern",
+          "applicazione-di-costruzione-specialistica-50-80-stadt-luzern-luzern"
         ],
         "en": [
           "fachspezialist-in-baugesuche-50-80-stadt-luzern-luzern"
@@ -1440,7 +1478,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/fachperson-grundstuecksentwaesserung/70e47d5e-0e59-4ebd-b7f6-31a10a7a0fa8",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.689Z",
+      "crawledAt": "2026-07-21T22:32:59.121Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1459,11 +1497,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern"
+        "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern",
+        "specialista-di-drenaggio-terrestre-60-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern"
+          "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern",
+          "specialista-di-drenaggio-terrestre-60-stadt-luzern-luzern"
         ],
         "en": [
           "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern"
@@ -1518,7 +1558,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/chauffeur-in-kat-c/8f47675b-9aed-4aee-8520-9d9be5f0d9d8",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.687Z",
+      "crawledAt": "2026-07-21T22:32:59.120Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1582,7 +1622,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/gaertner-in/c043c6e2-39a9-4591-b3a1-e9066387eebb",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.686Z",
+      "crawledAt": "2026-07-21T22:32:59.119Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1601,11 +1641,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gartner-in-80-100-stadt-luzern-ebikon"
+        "gartner-in-80-100-stadt-luzern-ebikon",
+        "giardiniere-80-100-stadt-luzern-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gartner-in-80-100-stadt-luzern-ebikon"
+          "gartner-in-80-100-stadt-luzern-ebikon",
+          "giardiniere-80-100-stadt-luzern-ebikon"
         ],
         "en": [
           "gartner-in-80-100-stadt-luzern-ebikon"
@@ -1654,12 +1696,13 @@
         "de": "Möchtest du die Jugend- und Kulturszene mitprägen und dich im Treibhaus engagieren? Dann bewirb dich jetzt und bring deine Ideen ein.\n\nAufgaben:\n• Du entwickelst, planst und realisierst soziokulturelle Projekte für Jugendliche und junge Erwachsene und förderst deren aktive Mitgestaltung.\n\n• Mit \"Mitmach\"-Projekten begeisterst du Jugendliche für das Treibhaus und seine Angebote.\n\n• Du hältst Präsentationen an Schulen, vernetzt dich mit Jugendtreffs und baust Kooperationen mit relevanten Partnerorganisationen auf und aus.\n\n• Community Building ist für dich mehr als ein Schlagwort: Du stärkst bestehende Netzwerke, entwickelst neue Beteiligungsformen und förderst eine lebendige Community.\n\n• Du planst und organisierst gemeinsam mit jungen Menschen das Rahmenprogramm am Nachmittag, wie Lerncafés, Workshops oder weitere niederschwellige Angebote.\n\n• Bei Veranstaltungen bist du als Begleitperson präsent und sorgst an mehreren Abenden pro Monat für eine unterstützende und verbindende Atmosphäre.\n\nAnforderungen:\n• Du hast einen Studienabschluss, idealerweise in Soziokultureller Animation, Sozialer Arbeit oder Pädagogik.\n\n• Du bringst bereits Erfahrung in der Projektarbeit sowie idealerweise im Jugend- oder Kulturbereich mit.\n\n• Junge Menschen begeistern dich. Du gehst offen auf sie zu und schaffst es, sie für Projekte und Angebote zu gewinnen.\n\n• Als kreative und initiative Person ist es für dich selbstverständlich, Ideen in die Tat umzusetzen.\n\n• Du arbeitest selbstständig, organisiert und behältst auch bei mehreren Projekten den Überblick.\n\n• Du bewegst dich gerne in der Luzerner Jugend- und Kulturszene und begleitest mit Freude junge Erwachsene auf ihrem Weg.\n\n• Flexible Arbeitszeiten sind für dich kein Problem. Du arbeitest gerne auch unregelmässig sowie abends und am Wochenende.",
         "fr": "Voulez-vous façonner la scène jeunesse et culturelle et vous impliquer dans la serre? Alors appliquez maintenant et apportez vos idées.\n\nTâches :\n• Vous développez, planifiez et réalisez des projets socioculturels pour les jeunes et les jeunes adultes et favorisez leur participation active.\n\n• Avec les projets \"Participation\", vous inspirez les jeunes pour la serre et ses offres.\n\n• Vous organiserez des présentations dans les écoles, des réunions de jeunes en réseau et renforcerez la coopération avec les organisations partenaires concernées.\n\n• La construction communautaire est plus qu'un mot à la mode pour vous : vous renforcez les réseaux existants, développez de nouvelles formes de participation et faites la promotion d'une communauté dynamique.\n\n• Avec les jeunes, vous planifiez et organisez le programme de soutien dans l'après-midi, comme l'apprentissage des cafés, des ateliers ou d'autres offres à bas seuil.\n\n• Lors d'événements, vous êtes présent en tant que personne d'accompagnement et offrez une atmosphère de soutien et de connexion plusieurs soirs par mois.\n\nExigences\n• Vous avez un diplôme, idéalement en animation socioculturelle, travail social ou pédagogie.\n\n• Vous avez déjà une expérience dans le travail de projet et idéalement dans le secteur de la jeunesse ou de la culture.\n\n• Les jeunes vous inspirent. Vous les approchez ouvertement et réussissez à les convaincre de projets et d'offres.\n\n• En tant que personne créative et d'initiative, il est naturel pour vous de mettre des idées en action.\n\n• Vous travaillez en toute indépendance, vous organisez et suivez plusieurs projets.\n\n• Vous aimez vous déplacer autour de la scène jeunesse et culturelle de Lucerne et accompagner volontiers les jeunes adultes sur leur chemin.\n\n• Des horaires flexibles ne vous posent aucun problème. Vous aimez aussi travailler irrégulièrement ainsi que le soir et le week-end."
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/leiter-in-projekte-community-jugendkulturhaus-treibhaus/3731527f-de8b-491f-9825-4d49ce53a3a0",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:36:38.654Z",
+      "crawledAt": "2026-07-21T22:32:59.091Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1679,12 +1722,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-in-projekte-amp-community-jugendkulturhaus-treibhaus-70-stadt-luzern-luzern",
-        "leiter-in-projekte-community-jugendkulturhaus-treibhaus-70-stadt-luzern"
+        "leiter-in-projekte-community-jugendkulturhaus-treibhaus-70-stadt-luzern",
+        "capo-dei-progetti-community-jugendkulturhaus-treibhaus-70-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-projekte-amp-community-jugendkulturhaus-treibhaus-70-stadt-luzern-luzern",
-          "leiter-in-projekte-community-jugendkulturhaus-treibhaus-70-stadt-luzern"
+          "leiter-in-projekte-community-jugendkulturhaus-treibhaus-70-stadt-luzern",
+          "capo-dei-progetti-community-jugendkulturhaus-treibhaus-70-stadt-luzern-luzern"
         ],
         "en": [
           "leiter-in-projekte-amp-community-jugendkulturhaus-treibhaus-70-stadt-luzern-luzern"
