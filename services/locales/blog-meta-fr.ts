@@ -8802,6 +8802,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sospensioni-attivita-varesotto-sicurezza.title': 'Varesotto : 10 entreprises suspendues pour travail au noir et sécurité',
     'blog.article.sospensioni-attivita-varesotto-sicurezza.excerpt': 'Grand blitz des carabiniers dans le Varesotto : 12 travailleurs au noir et de graves lacunes en matière de sécurité entraînent la fermeture de 10 activités et des sanctions pour 775 000 euros.',
     'blog.article.sospensioni-attivita-varesotto-sicurezza.imageAlt': 'Inspection de sécurité dans une entreprise de la province de Varese',
+    'blog.article.romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.title': 'DE L\'HERBE secrétaire de la commission santé et sécurité',
+    'blog.article.romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.excerpt': 'La conseillère régionale romaine Dell\' Erba a été nommée secrétaire de la Commission spéciale Santé et sécurité sur les lieux de travail.',
+    'blog.article.romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.imageAlt': 'La vue de Lugano du lac',
 };
 
 export default blogMetaFr;

@@ -53268,6 +53268,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza': {
+    title: 'Dell\'erba segretario commissione salute e sicurezza',
+    description: 'La consigliera regionale Romana Dell\'erba è stata nominata segretario della Commissione speciale Salute e Sicurezza nei luoghi di lavoro. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, dell, erba, segretario, commissione',
+    ogTitle: 'Romana Dell\'erba nominata segretario della Commissione speciale Salute e Sicurezza',
+    ogDescription: 'La consigliera regionale Romana Dell\'erba è stata nominata segretario della Commissione speciale Salute e Sicurezza nei luoghi di lavoro.',
+    canonicalPath: '/articoli-frontaliere/romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dell'erba segretario commissione salute e sicurezza",
+      "description": "La consigliera regionale Romana Dell'erba è stata nominata segretario della Commissione speciale Salute e Sicurezza nei luoghi di lavoro. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La vista di Lugano dal lago"
+      },
+      "datePublished": "2026-07-21T10:03:27+00:00",
+      "dateModified": "2026-07-21T10:03:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

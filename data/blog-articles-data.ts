@@ -26441,6 +26441,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza',
+ category: 'novita',
+ date: '2026-07-21T10:03:27.369Z',
+ image: '/images/blog/romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
