@@ -369,7 +369,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-kosmetik-coop-genossenschaft-luzern-yhjy6k",
-          "verkaufsberater-in-kosmetik-coop-genossenschaft-luzern"
+          "verkaufsberater-in-kosmetik-coop-genossenschaft-luzern",
+          "verkaufsberater-in-kosmetik-coop-city-luzern"
         ],
         "en": [
           "verkaufsberater-in-kosmetik-coop-genossenschaft-luzern-yhjy6k"
@@ -380,7 +381,8 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-kosmetik-coop-genossenschaft-luzern-yhjy6k",
-        "verkaufsberater-in-kosmetik-coop-genossenschaft-luzern"
+        "verkaufsberater-in-kosmetik-coop-genossenschaft-luzern",
+        "verkaufsberater-in-kosmetik-coop-city-luzern"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -535,7 +537,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-marketing-trading-coop-genossenschaft-winterthur-zurich"
+          "leiter-in-marketing-trading-coop-genossenschaft-winterthur-zurich",
+          "leiter-in-marketing-trading-import-parfumerie-winterthur-zurich"
         ],
         "en": [
           "leiter-in-marketing-trading-coop-genossenschaft-winterthur-zurich-bxftgw",
@@ -550,7 +553,8 @@
         "leiter-in-marketing-trading-coop-genossenschaft-winterthur-zurich-bxftgw",
         "leiter-in-marketing-trading-coop-genossenschaft-winterthur-zurich",
         "head-in-marketing-trading-coop-genossenschaft-winterthur-zurich",
-        "chef-dans-le-marketing-coop-genossenschaft-winterthur-zurich"
+        "chef-dans-le-marketing-coop-genossenschaft-winterthur-zurich",
+        "leiter-in-marketing-trading-import-parfumerie-winterthur-zurich"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -2140,7 +2144,15 @@
         }
       },
       "salaryMin": 64500,
-      "salaryMax": 110000
+      "salaryMax": 110000,
+      "previousSlugsByLocale": {
+        "it": [
+          "it-monitoring-performance-engineer-m-w-d-coop-basel-stadt"
+        ]
+      },
+      "previousSlugs": [
+        "it-monitoring-performance-engineer-m-w-d-coop-basel-stadt"
+      ]
     },
     {
       "id": "company-nt3zmd",
@@ -2207,7 +2219,8 @@
           "macellaio-specialista-della-carne-coop-genossenschaft-meggen",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-meggen-luzern-7oygdj",
           "butcher-meat-specialist-coop-genossenschaft-meggen-7oygdj",
-          "boucher-specialiste-de-la-viande-coop-genossenschaft-meggen-7oygdj"
+          "boucher-specialiste-de-la-viande-coop-genossenschaft-meggen-7oygdj",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-meggen-luzern"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-meggen-luzern-nt3zmd",
@@ -2226,7 +2239,8 @@
         "macellaio-specialista-della-carne-coop-genossenschaft-meggen",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-meggen-luzern-7oygdj",
         "butcher-meat-specialist-coop-genossenschaft-meggen-7oygdj",
-        "boucher-specialiste-de-la-viande-coop-genossenschaft-meggen-7oygdj"
+        "boucher-specialiste-de-la-viande-coop-genossenschaft-meggen-7oygdj",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-meggen-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -2292,7 +2306,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-engelberg-obwalden-h8lnyi"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-engelberg-obwalden-h8lnyi",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-engelberg-obwalden"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-engelberg-obwalden-h8lnyi"
@@ -2302,7 +2317,8 @@
         ]
       },
       "previousSlugs": [
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-engelberg-obwalden-h8lnyi"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-engelberg-obwalden-h8lnyi",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-engelberg-obwalden"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -2368,7 +2384,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zweisimmen-t3w4mg",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zweisimmen",
           "butcher-meat-specialist-coop-genossenschaft-zweisimmen",
           "boucher-specialiste-de-la-viande-coop-genossenschaft-zweisimmen",
@@ -2387,7 +2402,8 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-kussnacht-schwyz-pv4px6",
           "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-risch-rotkreuz",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-risch-rotkreuz-rr3gal",
-          "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-kussnacht"
+          "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-kussnacht",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-emmen-luzern"
         ],
         "en": [
           "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-winterthur",
@@ -2481,7 +2497,8 @@
         "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug-rr3gal",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-kussnacht-pv4px6",
         "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-risch-rotkreuz",
-        "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-kussnacht"
+        "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-kussnacht",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-emmen-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -2858,7 +2875,8 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-koniz-bern-7pscpx",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-koniz",
           "macellaio-a-specialista-della-carne-coop-genossenschaft-koniz",
-          "macellaio-specialista-della-carne-coop-genossenschaft-koniz"
+          "macellaio-specialista-della-carne-coop-genossenschaft-koniz",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-koniz-bern"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-koniz-bern-7pscpx"
@@ -2871,7 +2889,8 @@
         "metzger-in-fleischfachfrau-fleischfachmann-coop-koniz-bern-7pscpx",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-koniz",
         "macellaio-a-specialista-della-carne-coop-genossenschaft-koniz",
-        "macellaio-specialista-della-carne-coop-genossenschaft-koniz"
+        "macellaio-specialista-della-carne-coop-genossenschaft-koniz",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-koniz-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -3201,7 +3220,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-textil-und-haushalt-coop-genossenschaft-st-gallen-sankt-gallen"
+          "verkaufsberater-in-textil-und-haushalt-coop-genossenschaft-st-gallen-sankt-gallen",
+          "verkaufsberater-in-textil-und-haushalt-coop-city-st-gallen-sankt-gallen"
         ],
         "en": [
           "verkaufsberater-in-textil-und-haushalt-coop-genossenschaft-st-gallen-sankt-gallen-ye44a5"
@@ -3212,7 +3232,8 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-textil-und-haushalt-coop-genossenschaft-st-gallen-sankt-gallen-ye44a5",
-        "verkaufsberater-in-textil-und-haushalt-coop-genossenschaft-st-gallen-sankt-gallen"
+        "verkaufsberater-in-textil-und-haushalt-coop-genossenschaft-st-gallen-sankt-gallen",
+        "verkaufsberater-in-textil-und-haushalt-coop-city-st-gallen-sankt-gallen"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -3500,7 +3521,8 @@
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-professional-solutions-fust-oberburen-8fm84c",
-          "servicetechniker-in-professional-solutions-fust-oberburen"
+          "servicetechniker-in-professional-solutions-fust-oberburen",
+          "servicetechniker-in-professional-solutions-fust-oberburen-2"
         ],
         "en": [
           "servicetechniker-in-professional-solutions-fust-oberburen-8fm84c"
@@ -3511,7 +3533,8 @@
       },
       "previousSlugs": [
         "servicetechniker-in-professional-solutions-fust-oberburen-8fm84c",
-        "servicetechniker-in-professional-solutions-fust-oberburen"
+        "servicetechniker-in-professional-solutions-fust-oberburen",
+        "servicetechniker-in-professional-solutions-fust-oberburen-2"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -3743,7 +3766,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen-bern-2w1yfz"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen-bern-2w1yfz",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen-bern"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen-bern-2w1yfz"
@@ -3753,7 +3777,8 @@
         ]
       },
       "previousSlugs": [
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen-bern-2w1yfz"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen-bern-2w1yfz",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -3906,7 +3931,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug-r59liv"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug-r59liv",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug-r59liv"
@@ -3916,7 +3942,8 @@
         ]
       },
       "previousSlugs": [
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug-r59liv"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug-r59liv",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -4260,7 +4287,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-einsiedeln-schwyz-3n807p"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-einsiedeln-schwyz-3n807p",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-einsiedeln-schwyz"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-einsiedeln-schwyz-3n807p"
@@ -4270,7 +4298,8 @@
         ]
       },
       "previousSlugs": [
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-einsiedeln-schwyz-3n807p"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-einsiedeln-schwyz-3n807p",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-einsiedeln-schwyz"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -5004,7 +5033,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-kriens-luzern-365ia5"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-kriens-luzern-365ia5",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-kriens-luzern"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-kriens-luzern-365ia5"
@@ -5014,7 +5044,8 @@
         ]
       },
       "previousSlugs": [
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-kriens-luzern-365ia5"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-kriens-luzern-365ia5",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-kriens-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -5257,7 +5288,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-kussnacht-schwyz-wlbqmc"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-kussnacht-schwyz-wlbqmc",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-kussnacht-schwyz"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-kussnacht-schwyz-wlbqmc"
@@ -5267,7 +5299,8 @@
         ]
       },
       "previousSlugs": [
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-kussnacht-schwyz-wlbqmc"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-kussnacht-schwyz-wlbqmc",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-kussnacht-schwyz"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -5520,7 +5553,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-city-luzern-segi6g"
+          "verkaufer-in-food-coop-city-luzern-segi6g",
+          "verkaufer-in-food-coop-city-luzern"
         ],
         "en": [
           "verkaufer-in-food-coop-city-luzern-segi6g"
@@ -5530,7 +5564,8 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-city-luzern-segi6g"
+        "verkaufer-in-food-coop-city-luzern-segi6g",
+        "verkaufer-in-food-coop-city-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -6208,7 +6243,8 @@
       "previousSlugsByLocale": {
         "it": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-cham",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-cham-zug-fntbu3"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-cham-zug-fntbu3",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-cham-zug"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-cham-zug-fntbu3"
@@ -6219,7 +6255,8 @@
       },
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-cham",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-cham-zug-fntbu3"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-cham-zug-fntbu3",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-cham-zug"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -32780,7 +32817,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "ferienaushilfen-sommer-2026-coop-interlaken-und-jungfrau-region-bern-f4oy7p"
+          "ferienaushilfen-sommer-2026-coop-interlaken-und-jungfrau-region-bern-f4oy7p",
+          "ferienaushilfen-sommer-2026-coop-interlaken-und-jungfrau-region-bern"
         ],
         "en": [
           "ferienaushilfen-sommer-2026-coop-interlaken-und-jungfrau-region-bern-f4oy7p",
@@ -32792,7 +32830,8 @@
       },
       "previousSlugs": [
         "ferienaushilfen-sommer-2026-coop-interlaken-und-jungfrau-region-bern-f4oy7p",
-        "ferienaushilfen-sommer-2026-coop-genossenschaft-interlaken-und-jungfrau-region-f4oy7p"
+        "ferienaushilfen-sommer-2026-coop-genossenschaft-interlaken-und-jungfrau-region-f4oy7p",
+        "ferienaushilfen-sommer-2026-coop-interlaken-und-jungfrau-region-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -61315,7 +61354,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-au-zh-zurich-9keayd"
+          "verkaufer-in-food-coop-au-zh-zurich-9keayd",
+          "verkaufer-in-food-coop-au-zh-zurich"
         ],
         "en": [
           "verkaufer-in-food-coop-au-zh-zurich-9keayd",
@@ -61332,7 +61372,8 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-au-zh-zurich-9keayd",
         "verkaufer-in-food-coop-genossenschaft-au-zh",
-        "verkaufer-in-food-coop-genossenschaft-au-zh-9keayd"
+        "verkaufer-in-food-coop-genossenschaft-au-zh-9keayd",
+        "verkaufer-in-food-coop-au-zh-zurich"
       ],
       "sourceLang": "de",
       "salaryMin": 73500,
@@ -62448,7 +62489,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-frischprodukte-coop-nussbaumen-bei-baden-aargau-rb7z7o",
-          "verkaufer-in-frischprodukte-coop-genossenschaft-baden"
+          "verkaufer-in-frischprodukte-coop-genossenschaft-baden",
+          "verkaufer-in-food-frischprodukte-coop-nussbaumen-bei-baden-aargau"
         ],
         "en": [
           "verkaufer-in-food-frischprodukte-coop-nussbaumen-bei-baden-aargau-rb7z7o",
@@ -62467,7 +62509,8 @@
         "verkaufer-in-food-frischprodukte-coop-nussbaumen-bei-baden-aargau-rb7z7o",
         "verkaufer-in-lebensmittel-frischprodukte-coop-genossenschaft-nussbaumen-bei-baden-2a5565",
         "verkaufer-in-food-frischprodukte-coop-genossenschaft-nussbaumen-bei-baden-rb7z7o",
-        "verkaufer-in-frischprodukte-coop-genossenschaft-baden"
+        "verkaufer-in-frischprodukte-coop-genossenschaft-baden",
+        "verkaufer-in-food-frischprodukte-coop-nussbaumen-bei-baden-aargau"
       ],
       "sourceLang": "de",
       "salaryMin": 62000,
@@ -62733,7 +62776,15 @@
       },
       "sourceLang": "de",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "previousSlugsByLocale": {
+        "it": [
+          "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-fricktal-wurenlingen-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-fricktal-wurenlingen-aargau"
+      ]
     },
     {
       "id": "company-4c1lqx",
@@ -62804,7 +62855,15 @@
       },
       "sourceLang": "de",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "previousSlugsByLocale": {
+        "it": [
+          "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-region-baselland-basel-landschaft"
+        ]
+      },
+      "previousSlugs": [
+        "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-region-baselland-basel-landschaft"
+      ]
     },
     {
       "id": "company-xs3z6k",
@@ -63849,7 +63908,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "rayonleiter-in-brot-backwaren-coop-rickenbach-thurgau-0als1h"
+          "rayonleiter-in-brot-backwaren-coop-rickenbach-thurgau-0als1h",
+          "rayonleiter-in-brot-backwaren-coop-rickenbach-thurgau"
         ],
         "en": [
           "rayonleiter-in-brot-backwaren-coop-rickenbach-thurgau-0als1h",
@@ -63865,7 +63925,8 @@
       },
       "previousSlugs": [
         "rayonleiter-in-brot-backwaren-coop-rickenbach-thurgau-0als1h",
-        "rayonleiter-in-brot-backwaren-coop-genossenschaft-rickenbach-0als1h"
+        "rayonleiter-in-brot-backwaren-coop-genossenschaft-rickenbach-0als1h",
+        "rayonleiter-in-brot-backwaren-coop-rickenbach-thurgau"
       ],
       "sourceLang": "de",
       "salaryMin": 57500,
@@ -65618,7 +65679,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-blumen-kiosk-coop-siebnen-schwyz-dycjsv"
+          "verkaufer-in-blumen-kiosk-coop-siebnen-schwyz-dycjsv",
+          "verkaufer-in-blumen-kiosk-coop-siebnen-schwyz"
         ],
         "en": [
           "verkaufer-in-blumen-kiosk-coop-siebnen-schwyz-dycjsv",
@@ -65634,7 +65696,8 @@
       },
       "previousSlugs": [
         "verkaufer-in-blumen-kiosk-coop-siebnen-schwyz-dycjsv",
-        "verkaufer-in-blumen-kiosk-coop-genossenschaft-siebnen-dycjsv"
+        "verkaufer-in-blumen-kiosk-coop-genossenschaft-siebnen-dycjsv",
+        "verkaufer-in-blumen-kiosk-coop-siebnen-schwyz"
       ],
       "sourceLang": "de",
       "salaryMin": 69500,
@@ -68635,7 +68698,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-brunnen-schwyz-wh2bwy"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-brunnen-schwyz-wh2bwy",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-brunnen-schwyz"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-brunnen-schwyz-wh2bwy",
@@ -68651,7 +68715,8 @@
       },
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-brunnen-schwyz-wh2bwy",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-brunnen-wh2bwy"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-brunnen-wh2bwy",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-brunnen-schwyz"
       ],
       "sourceLang": "de",
       "salaryMin": 69500,
@@ -69963,7 +70028,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-frischprodukte-metzgerei-frische-coop-risch-rotkreuz-zug-wrf4hz"
+          "verkaufer-in-frischprodukte-metzgerei-frische-coop-risch-rotkreuz-zug-wrf4hz",
+          "verkaufer-in-frischprodukte-metzgerei-frische-coop-risch-rotkreuz-zug"
         ],
         "en": [
           "verkaufer-in-frischprodukte-metzgerei-frische-coop-risch-rotkreuz-zug-wrf4hz",
@@ -69979,7 +70045,8 @@
       },
       "previousSlugs": [
         "verkaufer-in-frischprodukte-metzgerei-frische-coop-risch-rotkreuz-zug-wrf4hz",
-        "verkaufer-in-frischprodukte-metzgerei-frische-coop-genossenschaft-risch-rotkreuz-wrf4hz"
+        "verkaufer-in-frischprodukte-metzgerei-frische-coop-genossenschaft-risch-rotkreuz-wrf4hz",
+        "verkaufer-in-frischprodukte-metzgerei-frische-coop-risch-rotkreuz-zug"
       ],
       "sourceLang": "de",
       "salaryMin": 69500,
@@ -70138,18 +70205,17 @@
       "crawledAt": "2026-07-20T14:30:37.924Z",
       "firstSeenAt": "2026-07-01T13:59:48.533Z",
       "titleByLocale": {
-        "it": "Venditore: in Food",
-        "en": "Seller:in Food",
+        "it": "Venditore di Alimentari",
+        "en": "Food Salesperson",
         "de": "Verkäufer:in Food",
-        "fr": "Verkäufer:dans les aliments"
+        "fr": "Vendeur de produits alimentaires"
       },
       "descriptionByLocale": {
-        "it": "## Venditore: in Food\n\n**Coop Genossenschaft** — Zell, Zurich, Svizzera\n\n## Compiti\n- Amate la varietà, quindi servite e consigliate i nostri clienti in diversi dipartimenti – sempre cordiali e impegnati.\n- Grazie al vostro uso attivo, le merci vendono meglio e sono gestiti top.\n- È chiaro che si rispettano le nostre esigenze, sia esso freschezza e qualità, igiene, regolamenti di temperatura o la data di scadenza.\n- Il vostro impegno nei registri di cassa è anche variato se supportate il team.\n\n## Requisiti\n- Sei addestrato in vendita al dettaglio (istruzione primaria) o hai già acquisito molta esperienza nelle vendite? Bingo, allora applica.\n- I tempi di assegnazione sono flessibili, ma questo non vi causerà alcun problema.\n- Padroneggiare bene il tedesco, in conversazione e su carta.\n- Sconti: Sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti più economici mobile e prepagati su Coop Mobile, Reka Card: sconto sull'acquisto, sconto su Mobility CarSharing, sconto personale anche per i partner:in (vivere nella stessa famiglia), sconto sull'abbonamento GA, sconti sugli eventi culturali, sconti sugli eventi, sconti sugli eventi, sconti sugli eventi culturali, sconti sugli eventi, sconti sugli eventi culturali, sconti\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, Condizioni interessanti di occupazione e parità di retribuzione certificata, premi fedeltà, piano di risparmio del Fondo pensione, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità retribuito e tre settimane di congedo di paternità retribuito\n- Orario di lavoro: 5 settimane vacanze, modelli di tempo di lavoro flessibili\n- Ulteriore istruzione: Più di 600 corsi di formazione interna, gestione del talento con diverse opportunità di sviluppo, formazione e ulteriori offerte di istruzione della L-GAV e Coop\n- Sostenibilità: Impegno a persone, animali e natura con oltre 400 azioni\n- Comunicazione: applicazione interna per i dipendenti\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto su abbonamento annuale, partecipazione gratuita a varie piste aziendali, offerte sportive interne\n\n## La persona di contatto\nChristelle Heitz\nHR Marketing\n\n**Tipo: Tempo parziale\n**Ciao!",
-        "en": "Aufgaben\n\n- Du liebst die Abwechslung, darum bedienst und berätst du unsere Kundschaft in verschieden Abteilungen – stets freundlich und engagiert.\n\n- Dank deinem aktiven Einsatz verkaufen sich die Waren besser und werden top bewirtschaftet.\n\n- Klar, dass du unsere Vorgaben einhältst, sei es bei Frische und Qualität, punkto Hygiene, Temperaturvorschriften oder des Verfalldatums.\n\n- Abwechslungsreich ist auch dein Einsatz an den Kassen, wenn du das Team unterstützt.\n\nAnforderungen\n\n- Bist du im Detailhandel ausgebildet (Grundbildung) oder hast du drinkits viel Erfahrung im Verkauf gemacht? Bingo, dann bewirb dich.\n\n- Deine Einsatzzeiten sind flexibel, aber das macht dir keine Probleme.\n\n- Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier.\n\n- Vergünstigungen : Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei\n\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertlater (GAV), 18 Wochen bezahlter Mutterschaft\n\n- Arbeitszeit: 5 Wochen Ferien, flexible Arbeitszeitmodelle\n\n- Weiterbildung: Über 600 internal Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n\n- Kommunikation: internal App for Mitarbeitende\n\n- Gesundheit : Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Free Teilnahme an verschieden Firmenläufen, Firmeninterne Sportangebote\n\nDeine Ansprechperson\nChristelle Heitz\nHR Marketing",
-        "de": "## Verkäufer:in Food\n\n**Coop Genossenschaft** — Zell, Zürich, Svizzera\n\n## Aufgaben\n- Du liebst die Abwechslung, darum bedienst und berätst du unsere Kundschaft in verschiedenen Abteilungen – stets freundlich und engagiert.\n- Dank deinem aktiven Einsatz verkaufen sich die Waren besser und werden top bewirtschaftet.\n- Klar, dass du unsere Vorgaben einhältst, sei es bei Frische und Qualität, punkto Hygiene, Temperaturvorschriften oder des Verfalldatums.\n- Abwechslungsreich ist auch dein Einsatz an den Kassen, wenn du das Team unterstützt.\n\n## Anforderungen\n- Bist du im Detailhandel ausgebildet (Grundbildung) oder hast du bereits viel Erfahrung im Verkauf gemacht? Bingo, dann bewirb dich.\n- Deine Einsatzzeiten sind flexibel, aber das macht dir keine Probleme.\n- Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n- Arbeitszeit: 5 Wochen Ferien, flexible Arbeitszeitmodelle\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\n## Deine Ansprechperson\nChristelle Heitz\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Zell",
-        "fr": "Aufgaben\n\n- Du liebst die Abwechslung, darum bedienst und berätst du unsere Kundschaft in verschieden Abteilungen – stets freundlich und engagiert.\n\n- Dank deinem aktiven Einsatz verkaufen sich die Waren besser und werden top bewirtschaftet.\n\n- Klar, dass du unsere Vorgaben einhältst, sei es bei Frische und Qualität, punkto Hygiène, Temperaturvorschriften oder des Verfalldatums.\n\n- Abwechslungsreich ist auch dein Einsatz an den Kassen, wenn du das Team unterstützt.\n\nLa Commission européenne\n\n- Bist du im Detailhandel ausgebildet (Grundbildung) oder hast du drinkits viel Erfahrung im Verkauf gemacht? Bingo, dann bewirb dich.\n\n- Deine Einsatzzeiten sind flexibel, aber das macht dir keine Problème.\n\n- Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier.\n\n- Vergünstigungen : Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei\n\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertlater (GAV), 18 Wochen bezahlter Mutterschaft\n\n- Arbeitszeit: 5 Wochen Ferien, Arbeitszeitmodelle flexible\n\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n\n- Kommunikation: application interne pour Mitarbeitende\n\n- Gesundheit : Mise à jour-Fitness: P. 200.– Rabatt aufs Jahresabonnement, Teilnahme an verschieden Firmenläufen, Firmeninterne Sportangebote\n\nDeine Ansprechperson\nChristelle Heitz\nMarketing des ressources humaines"
+        "it": "Venditore:in Food\n\nCooperativa Coop. Zell, Zurigo, Sizera\n\nCompiti - Ami la varietà, quindi servi e consiglia i nostri clienti in diversi reparti. sempre cordiale e impegnato. - Grazie al tuo uso attivo i prodotti vendono meglio e sono gestiti top. - Sure che si rispettano le nostre specifiche, sia che si tratti di fresco e qualità, punto di igiene, temperatura regola o la data di scadenza. - Varietà è anche il vostro utilizzo presso i registri di cassa se si supporta il team.\n\nRequisiti - Siete formati nel commercio al dettaglio (istruzione di base) o avete già avuto molta esperienza nelle vendite? Bingo, quindi applicare. - I vostri tempi di distribuzione sono flessibili, ma questo non causa problemi. - Il tedesco è un buon modo per padroneggiare loro, sia in conversazione e sulla carta.\n\n- Sconti: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di super punti nel supermercato, fino al 20% di sconto sulle varie prestazioni assicurative, fino al 20% di sconto in tutti i formati del gruppo Coop, più conveniente abbonamento mobile e pre-cheek a Coop Mobile, carta Reka: sconto su acquisto, sconto sulla mobilità car sharing, sconto personale anche per i partner:in (vivendo nella stessa famiglia), sconto su abbonamento GA, sconti su eventi culturali, sconti sulle attività ricreative - Condizioni di lavoro: fondo pensione: 2/3 è pagato da Coop,\n\nCondizioni di lavoro attraenti e parità salariale certificata, premi fedeltà, piano di risparmio presso il fondo pensioni, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità retribuito e tre settimane di congedo di paternità retribuito - tempo di lavoro: 5 settimane di ferie, modelli flessibili di orario di lavoro - formazione continua: oltre 600 corsi di formazione interna, gestione dei talenti con diverse opportunità di sviluppo, formazione L-GAV e offerte di formazione continua e Coop - sostenibilità: impegno per le persone, gli animali e la natura con oltre 400 azioni - comunicazione: applicazione interna per i lavoratori - salute:\n\nAggiornamento del fitness: p.\n\n200. sconto su abbonamento annuale, partecipazione gratuita a varie gare aziendali, sport aziendali\n\nIl Suo contatto Christelle Heitz HR Marketing\n\nTipo: Sale a tempo parziale: cella",
+        "en": "Salesman:in Food\n\nCoop Cooperative — Zell, Zurich, Sizzera\n\nTasks - You love the variety, therefore you serve and advise our customers in different departments – always friendly and committed. - Thanks to your active use the goods sell better and are managed top. - Sure that you comply with our specifications, whether it is fresh and quality, point hygiene, temperature regulations or the expiry date. - Variety is also your use at the cash registers if you support the team.\n\nRequirements - Are you trained in retail trade (basic education) or have you already had a lot of experience in sales? Bingo, then apply. - Your deployment times are flexible, but that doesn't cause you any problems. - German is a good way to master them, both in conversation and on paper.\n\n- Discounts: discount on the travel offer ITS Coop Travel, 5-fold number of super points in the supermarket, up to 20% discount on various insurance benefits, up to 20% discount in all formats of the Coop group, cheaper mobile and pre-cheek subscriptions at Coop Mobile, Reka card: discount on purchase, discount on mobility car sharing, staff discount also for partners:in (living in the same household), discount on GA subscription, discount on cultural events, discounts on leisure activities - Conditions of employment: pension fund: 2/3 is paid by Coop,\n\nAttractive employment conditions and certified wage equality, loyalty premiums, savings plan at the pension fund, total employment contract (GAV), 18 weeks of paid maternity leave and three weeks of paid paternity leave - working time: 5 weeks holidays, flexible working time models - continuing education: over 600 internal training courses, talent management with diverse development opportunities, L-GAV training and further education offers and Coop - sustainability: commitment to people, animals and nature with over 400 actions - communication: internal app for employees - health:\n\nUpdate fitness: Fr.\n\n200.– discount on annual subscription, free participation in various company races, company sports\n\nYour contact Christelle Heitz HR Marketing\n\nTipo: Part-time sede: cell",
+        "de": "Verkäufer:in Food\n\nCoop Genossenschaft — Zell, Zürich, Svizzera\n\nAufgaben\n- Du liebst die Abwechslung, darum bedienst und berätst du unsere Kundschaft in verschiedenen Abteilungen – stets freundlich und engagiert.\n- Dank deinem aktiven Einsatz verkaufen sich die Waren besser und werden top bewirtschaftet.\n- Klar, dass du unsere Vorgaben einhältst, sei es bei Frische und Qualität, punkto Hygiene, Temperaturvorschriften oder des Verfalldatums.\n- Abwechslungsreich ist auch dein Einsatz an den Kassen, wenn du das Team unterstützt.\n\nAnforderungen\n- Bist du im Detailhandel ausgebildet (Grundbildung) oder hast du bereits viel Erfahrung im Verkauf gemacht? Bingo, dann bewirb dich.\n- Deine Einsatzzeiten sind flexibel, aber das macht dir keine Probleme.\n- Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n- Arbeitszeit: 5 Wochen Ferien, flexible Arbeitszeitmodelle\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\nDeine Ansprechperson\nChristelle Heitz\nHR Marketing\n\nTipo: Part-time\nSede: Zell",
+        "fr": "Vendeur:dans la nourriture\n\nCoopérative de coop — Zell, Zurich, Sizzera\n\nTâches - Vous aimez la variété, vous servez et conseillez nos clients dans différents départements – toujours amical et engagé. - Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut. - S'assurer que vous respectez nos spécifications, qu'il soit frais et de qualité, point hygiène, règlement de température ou la date d'expiration. - Variante est également votre utilisation aux caisses enregistreuses si vous soutenez l'équipe.\n\nExigences - Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà eu beaucoup d'expérience dans les ventes? Bingo, puis postuler. - Vos temps de déploiement sont flexibles, mais cela ne vous cause aucun problème. - L'allemand est un bon moyen de les maîtriser, tant dans la conversation que sur papier.\n\n- Réductions: réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différentes prestations d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et pré-chèques moins chers chez Coop Mobile, carte Reka: remise sur l'achat, remise sur le partage de la mobilité automobile, réduction personnel également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, remise sur les événements culturels, remise sur les activités de loisirs - Conditions d'emploi: pension: 2/3 est payé par Coop,\n\nConditions d'emploi attrayantes et égalité salariale certifiée, primes de fidélité, plan d'épargne à la caisse de retraite, contrat de travail total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé - temps de travail : 5 semaines de congés, modèles de temps de travail flexibles - formation continue : plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, offres de formation L-GAV et de formation continue et Coop - durabilité : engagement envers les personnes, les animaux et la nature avec plus de 400 actions - communication : application interne pour les salariés - santé :\n\nMise à jour de la condition physique: Fr.\n\n200.– réduction sur abonnement annuel, participation gratuite à diverses courses d'entreprises, sports d'entreprises\n\nVotre contact Christelle Heitz HR Marketing\n\nTipo: Sede à temps partiel: cellule"
       },
-      "needsRetranslation": true,
       "slugByLocale": {
         "it": "venditore-in-food-coop-genossenschaft-zell",
         "en": "seller-in-food-coop-genossenschaft-zell",
@@ -71401,7 +71467,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "rayonleiter-in-molkerei-eier-kase-coop-kusnacht-zurich-k93p4j"
+          "rayonleiter-in-molkerei-eier-kase-coop-kusnacht-zurich-k93p4j",
+          "rayonleiter-in-molkerei-eier-kase-coop-kusnacht-zurich"
         ],
         "en": [
           "rayonleiter-in-molkerei-eier-kase-coop-kusnacht-zurich-k93p4j",
@@ -71417,7 +71484,8 @@
       },
       "previousSlugs": [
         "rayonleiter-in-molkerei-eier-kase-coop-kusnacht-zurich-k93p4j",
-        "rayonleiter-in-molkerei-eier-kase-coop-genossenschaft-kusnacht-k93p4j"
+        "rayonleiter-in-molkerei-eier-kase-coop-genossenschaft-kusnacht-k93p4j",
+        "rayonleiter-in-molkerei-eier-kase-coop-kusnacht-zurich"
       ],
       "sourceLang": "de",
       "salaryMin": 73500,
@@ -78431,7 +78499,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-aesch-basel-landschaft-cxl4ht"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-aesch-basel-landschaft-cxl4ht",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-aesch-basel-landschaft"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-aesch-basel-landschaft-cxl4ht",
@@ -78447,7 +78516,8 @@
       },
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-aesch-basel-landschaft-cxl4ht",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-aesch-cxl4ht"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-aesch-cxl4ht",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-aesch-basel-landschaft"
       ],
       "sourceLang": "de",
       "salaryMin": 62000,
@@ -82355,7 +82425,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-kassen-services-coop-risch-rotkreuz-zug-45x8iv"
+          "verkaufer-in-kassen-services-coop-risch-rotkreuz-zug-45x8iv",
+          "verkaufer-in-kassen-services-coop-risch-rotkreuz-zug"
         ],
         "en": [
           "verkaufer-in-kassen-services-coop-risch-rotkreuz-zug-45x8iv",
@@ -82371,7 +82442,8 @@
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-risch-rotkreuz-zug-45x8iv",
-        "verkaufer-in-kassen-services-coop-genossenschaft-risch-rotkreuz-45x8iv"
+        "verkaufer-in-kassen-services-coop-genossenschaft-risch-rotkreuz-45x8iv",
+        "verkaufer-in-kassen-services-coop-risch-rotkreuz-zug"
       ],
       "sourceLang": "de",
       "salaryMin": 69500,
@@ -83266,7 +83338,8 @@
           "verkaufer-in-food-coop-genossenschaft-aarau-bahnhofplatz-3d",
           "verkaufer-in-food-coop-genossenschaft-aarau",
           "verkaufer-in-food-coop-genossenschaft-aarau-r40lah",
-          "seller-in-food-coop-genossenschaft-aarau-r40lah"
+          "seller-in-food-coop-genossenschaft-aarau-r40lah",
+          "verkaufer-in-food-coop-aarau-bahnhofplatz-3d-aargau"
         ],
         "en": [
           "verkaufer-in-food-coop-aarau-bahnhofplatz-3d-aargau-227079",
@@ -83321,7 +83394,8 @@
         "verkaufer-in-food-coop-genossenschaft-adliswil-izbi0b",
         "seller-in-food-coop-genossenschaft-adliswil",
         "sales-assistant-food-coop-genossenschaft-adliswil",
-        "verkaufer-dans-les-aliments-coop-genossenschaft-aarau-bahnhofplatz-3d-822e24"
+        "verkaufer-dans-les-aliments-coop-genossenschaft-aarau-bahnhofplatz-3d-822e24",
+        "verkaufer-in-food-coop-aarau-bahnhofplatz-3d-aargau"
       ],
       "sourceLang": "de",
       "salaryMin": 62000,
@@ -96231,7 +96305,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "rayonleiter-in-nonfood-coop-kussnacht-schwyz-0k8pqy"
+          "rayonleiter-in-nonfood-coop-kussnacht-schwyz-0k8pqy",
+          "rayonleiter-in-nonfood-coop-kussnacht-schwyz"
         ],
         "en": [
           "rayonleiter-in-nonfood-coop-kussnacht-schwyz-0k8pqy",
@@ -96246,7 +96321,8 @@
       },
       "previousSlugs": [
         "rayonleiter-in-nonfood-coop-kussnacht-schwyz-0k8pqy",
-        "rayonleiter-in-nonfood-coop-genossenschaft-kussnacht-0k8pqy"
+        "rayonleiter-in-nonfood-coop-genossenschaft-kussnacht-0k8pqy",
+        "rayonleiter-in-nonfood-coop-kussnacht-schwyz"
       ],
       "sourceLang": "de",
       "salaryMin": 107500,
@@ -96614,7 +96690,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-erlinsbach-solothurn-q5mf2i"
+          "verkaufer-in-food-coop-erlinsbach-solothurn-q5mf2i",
+          "verkaufer-in-food-coop-erlinsbach-solothurn"
         ],
         "en": [
           "verkaufer-in-food-coop-erlinsbach-solothurn-q5mf2i",
@@ -96631,7 +96708,8 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-erlinsbach-solothurn-q5mf2i",
         "verkaufer-in-food-coop-genossenschaft-erlinsbach",
-        "verkaufer-in-food-coop-genossenschaft-erlinsbach-q5mf2i"
+        "verkaufer-in-food-coop-genossenschaft-erlinsbach-q5mf2i",
+        "verkaufer-in-food-coop-erlinsbach-solothurn"
       ],
       "sourceLang": "de",
       "salaryMin": 68500,
@@ -96706,7 +96784,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "rayonleiter-in-fruchte-gemuse-coop-siebnen-schwyz-731hko"
+          "rayonleiter-in-fruchte-gemuse-coop-siebnen-schwyz-731hko",
+          "rayonleiter-in-fruchte-gemuse-coop-siebnen-schwyz"
         ],
         "en": [
           "rayonleiter-in-fruchte-gemuse-coop-siebnen-schwyz-731hko",
@@ -96722,7 +96801,8 @@
       },
       "previousSlugs": [
         "rayonleiter-in-fruchte-gemuse-coop-siebnen-schwyz-731hko",
-        "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-siebnen-731hko"
+        "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-siebnen-731hko",
+        "rayonleiter-in-fruchte-gemuse-coop-siebnen-schwyz"
       ],
       "sourceLang": "de",
       "salaryMin": 107500,
@@ -97896,7 +97976,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "konditor-in-coop-pfaffikon-sz-schwyz-x77cvi"
+          "konditor-in-coop-pfaffikon-sz-schwyz-x77cvi",
+          "konditor-in-coop-pfaffikon-sz-schwyz"
         ],
         "en": [
           "konditor-in-coop-pfaffikon-sz-schwyz-x77cvi",
@@ -97913,7 +97994,8 @@
       "previousSlugs": [
         "konditor-in-coop-pfaffikon-sz-schwyz-x77cvi",
         "dans-coop-genossenschaft-pfaffikon-sz-5366c1",
-        "konditor-in-coop-genossenschaft-pfaffikon-sz-x77cvi"
+        "konditor-in-coop-genossenschaft-pfaffikon-sz-x77cvi",
+        "konditor-in-coop-pfaffikon-sz-schwyz"
       ],
       "sourceLang": "de",
       "salaryMin": 69500,
@@ -99688,7 +99770,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "rayonleiter-in-grundnahrungsmittel-coop-feldmeilen-zurich-gxnn41"
+          "rayonleiter-in-grundnahrungsmittel-coop-feldmeilen-zurich-gxnn41",
+          "rayonleiter-in-grundnahrungsmittel-coop-feldmeilen-zurich"
         ],
         "en": [
           "rayonleiter-in-grundnahrungsmittel-coop-feldmeilen-zurich-gxnn41",
@@ -99706,7 +99789,8 @@
       "previousSlugs": [
         "rayonleiter-in-grundnahrungsmittel-coop-feldmeilen-zurich-gxnn41",
         "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-feldmeilen-gxnn41",
-        "strahlenleiter-coop-genossenschaft-feldmeilen"
+        "strahlenleiter-coop-genossenschaft-feldmeilen",
+        "rayonleiter-in-grundnahrungsmittel-coop-feldmeilen-zurich"
       ],
       "sourceLang": "de",
       "salaryMin": 73500,
@@ -100408,7 +100492,8 @@
       "previousSlugsByLocale": {
         "it": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-pfaffikon-sz-schwyz-yn7xcu",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-pfaffikon"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-pfaffikon",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-pfaffikon-sz-schwyz"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-pfaffikon-sz-schwyz-yn7xcu",
@@ -100425,7 +100510,8 @@
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-pfaffikon-sz-schwyz-yn7xcu",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-pfaffikon-sz-yn7xcu",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-pfaffikon"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-pfaffikon",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-pfaffikon-sz-schwyz"
       ],
       "sourceLang": "de",
       "salaryMin": 69500,
@@ -100727,7 +100813,15 @@
       },
       "sourceLang": "de",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "previousSlugsByLocale": {
+        "it": [
+          "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-bern-und-umgebung"
+        ]
+      },
+      "previousSlugs": [
+        "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-bern-und-umgebung"
+      ]
     },
     {
       "id": "company-45n580",
@@ -105884,10 +105978,14 @@
         ],
         "fr": [
           "quereinstieg-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-zentralschweiz-luzern-epeel3"
+        ],
+        "it": [
+          "quereinstieg-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-zentralschweiz-luzern"
         ]
       },
       "previousSlugs": [
-        "quereinstieg-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-zentralschweiz-luzern-epeel3"
+        "quereinstieg-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-zentralschweiz-luzern-epeel3",
+        "quereinstieg-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-zentralschweiz-luzern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000
@@ -105966,10 +106064,14 @@
         ],
         "fr": [
           "quereinstieg-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-stadt-bern-berner-oberland-oberwallis-9pfqoj"
+        ],
+        "it": [
+          "quereinstieg-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-stadt-bern-berner-oberland-oberwallis"
         ]
       },
       "previousSlugs": [
-        "quereinstieg-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-stadt-bern-berner-oberland-oberwallis-9pfqoj"
+        "quereinstieg-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-stadt-bern-berner-oberland-oberwallis-9pfqoj",
+        "quereinstieg-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-stadt-bern-berner-oberland-oberwallis"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000
@@ -106044,7 +106146,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "cambio-carriera-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-st-gallen-frauenfeld-winterthur-schaffhausen-sankt-gallen-asl0qf"
+          "cambio-carriera-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-st-gallen-frauenfeld-winterthur-schaffhausen-sankt-gallen-asl0qf",
+          "quereinstieg-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-st-gallen-frauenfeld-winterthur-schaffhausen-sankt-gallen"
         ],
         "en": [
           "quereinstieg-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-st-gallen-frauenfeld-winterthur-schaffhausen-sankt-gallen-asl0qf"
@@ -106055,7 +106158,8 @@
       },
       "previousSlugs": [
         "quereinstieg-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-st-gallen-frauenfeld-winterthur-schaffhausen-sankt-gallen-asl0qf",
-        "cambio-carriera-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-st-gallen-frauenfeld-winterthur-schaffhausen-sankt-gallen-asl0qf"
+        "cambio-carriera-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-st-gallen-frauenfeld-winterthur-schaffhausen-sankt-gallen-asl0qf",
+        "quereinstieg-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-st-gallen-frauenfeld-winterthur-schaffhausen-sankt-gallen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000
@@ -106134,10 +106238,14 @@
         ],
         "fr": [
           "quereinstieg-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-biel-solothurn-emmental-oberaargau-bern-x7okwr"
+        ],
+        "it": [
+          "quereinstieg-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-biel-solothurn-emmental-oberaargau-bern"
         ]
       },
       "previousSlugs": [
-        "quereinstieg-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-biel-solothurn-emmental-oberaargau-bern-x7okwr"
+        "quereinstieg-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-biel-solothurn-emmental-oberaargau-bern-x7okwr",
+        "quereinstieg-koch-kochin-in-der-systemgastronomie-m-w-d-coop-ristorante-biel-solothurn-emmental-oberaargau-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000
@@ -107539,7 +107647,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "nachwuchsfuhrungskrafte-retail-80-100-coop-sankt-gallen-eqfx6n"
+          "nachwuchsfuhrungskrafte-retail-80-100-coop-sankt-gallen-eqfx6n",
+          "nachwuchsfuhrungskrafte-retail-80-100-coop-sankt-gallen"
         ],
         "en": [
           "nachwuchsfuhrungskrafte-retail-80-100-coop-sankt-gallen-eqfx6n",
@@ -107555,7 +107664,8 @@
       },
       "previousSlugs": [
         "nachwuchsfuhrungskrafte-retail-80-100-coop-sankt-gallen-eqfx6n",
-        "nachwuchsfuhrungskrafte-retail-80-100-coop-genossenschaft-sankt-gallen-eqfx6n"
+        "nachwuchsfuhrungskrafte-retail-80-100-coop-genossenschaft-sankt-gallen-eqfx6n",
+        "nachwuchsfuhrungskrafte-retail-80-100-coop-sankt-gallen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000
@@ -138692,7 +138802,15 @@
       },
       "sourceLang": "de",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-inventuren-coop-mittelland-basel-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-inventuren-coop-mittelland-basel-zurich"
+      ]
     },
     {
       "id": "company-ldlmgf",
@@ -138954,7 +139072,8 @@
           "metzger-in-fleischfachfrau-fleischfachmann-mit-springerfunktion-coop-urtenen-schonbuhl-bern-xobte2",
           "boucher-specialiste-de-la-viande-avec-fonction-de-remplacant-coop-genossenschaft-urtenen-schonbuhl",
           "metzger-in-fleischfachfrau-fleischfachmann-con-springerfunktion-coop-urtenen-schonbuhl-bern-xobte2",
-          "metzger-in-fleischfachfrau-fleischfachmann-mit-springerfunktion-coop-genossenschaft-urtenen-schonbuhl"
+          "metzger-in-fleischfachfrau-fleischfachmann-mit-springerfunktion-coop-genossenschaft-urtenen-schonbuhl",
+          "metzger-in-fleischfachfrau-fleischfachmann-mit-springerfunktion-coop-urtenen-schonbuhl-bern"
         ],
         "en": [
           "butcher-meat-specialist-with-stand-in-function-coop-genossenschaft-urtenen-schonbuhl",
@@ -138975,7 +139094,8 @@
         "boucher-specialiste-de-la-viande-avec-fonction-de-remplacant-coop-genossenschaft-urtenen-schonbuhl",
         "metzger-in-fleischfachfrau-fleischfachmann-con-springerfunktion-coop-urtenen-schonbuhl-bern-xobte2",
         "metzger-in-fleischfachfrau-fleischfachmann-mit-springerfunktion-coop-genossenschaft-urtenen-schonbuhl",
-        "metzger-in-fleischfachfrau-fleischfachmann-mit-springerfunktion-coop-urtenen-schonbuhl-bern-do7okz"
+        "metzger-in-fleischfachfrau-fleischfachmann-mit-springerfunktion-coop-urtenen-schonbuhl-bern-do7okz",
+        "metzger-in-fleischfachfrau-fleischfachmann-mit-springerfunktion-coop-urtenen-schonbuhl-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -139120,7 +139240,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-schenkon-luzern-gk1eax"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-schenkon-luzern-gk1eax",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-schenkon-luzern"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-schenkon-luzern-gk1eax"
@@ -139130,7 +139251,8 @@
         ]
       },
       "previousSlugs": [
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-schenkon-luzern-gk1eax"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-schenkon-luzern-gk1eax",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-schenkon-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -139692,7 +139814,8 @@
           "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-m-w-d-coop-bern-cpr2hd",
           "boucher-specialiste-de-la-viande-et-cuisinier-f-m-d-coop-genossenschaft-bern",
           "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-w-m-d-coop-genossenschaft-bern",
-          "metzger-in-fleischfachfrau-fleischfachmann-e-koch-kochin-w-m-d-coop-genossenschaft-bern"
+          "metzger-in-fleischfachfrau-fleischfachmann-e-koch-kochin-w-m-d-coop-genossenschaft-bern",
+          "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-m-w-d-coop-bern"
         ],
         "en": [
           "butcher-meat-specialist-and-cook-f-m-d-coop-genossenschaft-bern",
@@ -139713,7 +139836,8 @@
         "boucher-specialiste-de-la-viande-et-cuisinier-f-m-d-coop-genossenschaft-bern",
         "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-w-m-d-coop-genossenschaft-bern",
         "metzger-in-fleischfachfrau-fleischfachmann-e-koch-kochin-w-m-d-coop-genossenschaft-bern",
-        "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-m-w-d-coop-bern-210jkx"
+        "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-m-w-d-coop-bern-210jkx",
+        "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-m-w-d-coop-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -146117,7 +146241,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-kusnacht-zurich-vw1mai"
+          "verkaufer-in-food-coop-kusnacht-zurich-vw1mai",
+          "verkaufer-in-food-coop-kusnacht-zurich"
         ],
         "en": [
           "verkaufer-in-food-coop-kusnacht-zurich-vw1mai",
@@ -146136,7 +146261,8 @@
         "verkaufer-in-food-coop-kusnacht-zurich-vw1mai",
         "verkaufer-in-lebensmittel-coop-genossenschaft-kusnacht-982f1f",
         "verkaufer-in-food-coop-genossenschaft-kusnacht",
-        "verkaufer-in-food-coop-genossenschaft-kusnacht-vw1mai"
+        "verkaufer-in-food-coop-genossenschaft-kusnacht-vw1mai",
+        "verkaufer-in-food-coop-kusnacht-zurich"
       ],
       "sourceLang": "de",
       "salaryMin": 73500,
@@ -147635,10 +147761,14 @@
         ],
         "fr": [
           "quereinstieg-backer-in-und-konditor-in-coop-bern-und-umgebung-o1q9fg"
+        ],
+        "it": [
+          "quereinstieg-backer-in-und-konditor-in-coop-bern-und-umgebung"
         ]
       },
       "previousSlugs": [
-        "quereinstieg-backer-in-und-konditor-in-coop-bern-und-umgebung-o1q9fg"
+        "quereinstieg-backer-in-und-konditor-in-coop-bern-und-umgebung-o1q9fg",
+        "quereinstieg-backer-in-und-konditor-in-coop-bern-und-umgebung"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000
@@ -148105,13 +148235,16 @@
         "fr": "quereinstieg-collaborateur-trice-fleisch-und-fisch-coop-grigioni-9yar0z"
       },
       "titleByLocale": {
-        "it": "Cross entry - Staff:in carne e pesce",
-        "en": "Cross entry - Staff:in meat and fish",
+        "it": "Quereinstieg - Collaboratore/a Carni e Pesce",
+        "en": "Entry-Level - Meat and Fish Staff",
         "de": "Quereinstieg - Mitarbeiter:in Fleisch und Fisch",
-        "fr": "Entrée croisée - personnel:dans la viande et le poisson"
+        "fr": "Entrée - Personnel Carni et Poisson"
       },
       "descriptionByLocale": {
-        "de": "## Quereinstieg - Mitarbeiter:in Fleisch und Fisch\n\n**Coop Genossenschaft** — Chur Quader, Graubünden, Svizzera\n\n## Aufgaben\n- Fleisch und Fisch präsentieren\n- Fleisch und Fisch schneiden\n- Fleisch und Fisch nach Rezept verarbeiten\n- Kundinnen und Kunden beraten und bedienen\n\n## Anforderungen\n- Du kochst gerne.\n- Du arbeitest gerne mit Fleisch und Fisch.\n- Du hast Freude am Kundenkontakt.\n- Du kannst Deutsch sprechen und lesen.\n- Du willst Neues lernen.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n- Arbeitszeit: 5 Wochen Ferien, flexible Arbeitszeitmodelle\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\n## Deine Ansprechperson\nDaniel Mangold\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Chur Quader"
+        "de": "Quereinstieg - Mitarbeiter:in Fleisch und Fisch\n\nCoop Genossenschaft — Chur Quader, Graubünden, Svizzera\n\nAufgaben\n- Fleisch und Fisch präsentieren\n- Fleisch und Fisch schneiden\n- Fleisch und Fisch nach Rezept verarbeiten\n- Kundinnen und Kunden beraten und bedienen\n\nAnforderungen\n- Du kochst gerne.\n- Du arbeitest gerne mit Fleisch und Fisch.\n- Du hast Freude am Kundenkontakt.\n- Du kannst Deutsch sprechen und lesen.\n- Du willst Neues lernen.\n\nWas wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n- Arbeitszeit: 5 Wochen Ferien, flexible Arbeitszeitmodelle\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\nDeine Ansprechperson\nDaniel Mangold\nHR Marketing\n\nTipo: Part-time\nSede: Chur Quader",
+        "it": "Ingresso - Personale: in carne e pesce\n\nCooperativa Coop. Chur Quader, Grigioni, Sizzera\n\nCompiti - Presentazione di carne e pesce - Tagliare carne e pesce - Processo di carne e pesce secondo ricetta - Avvisa e servi i clienti\n\nRequisiti - Ti piace cucinare. - Ti piace lavorare con carne e pesce. - Ti piace il contatto con i clienti. - Puoi parlare e leggere tedesco. - Vuoi imparare cose nuove.\n\nCosa offriamo - sconti: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di super punti nel supermercato, fino al 20% di sconto su varie prestazioni assicurative, fino al 20% di sconto in tutti i formati del gruppo Coop, più conveniente abbonamento mobile e pre-pay a Coop Mobile, carta Reka: sconto su acquisto, sconto su Mobility CarSharing, sconto personale anche per i partner:in (vivendo nella stessa famiglia), sconto su abbonamento GA, sconti su eventi culturali, sconti sulle attività ricreative - Condizioni di impiego: fondo pensione: 2/3 è fornito da Coop\n\ncondizioni di lavoro retribuite, attraenti e pari opportunità salariali certificate, premi fedeltà, piano di risparmio presso il fondo pensioni, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità retribuito e tre settimane di congedo di paternità retribuito - tempo di lavoro: 5 settimane di ferie, modelli flessibili di orario di lavoro - formazione continua: oltre 600 corsi di formazione interna, gestione dei talenti con diverse opportunità di sviluppo, formazione L-GAV e offerte di formazione continua e Coop - sostenibilità: impegno per le persone, gli animali e la natura con oltre 400 azioni - comunicazione: applicazione interna per i dipendenti -\n\nSalute: Aggiornamento Fitness: Fr.\n\n200. sconto su abbonamento annuale, partecipazione gratuita a varie gare aziendali, sport aziendali\n\nIl Suo contatto Daniel Mangold HR Marketing\n\nData di nascita: 19.12.1956",
+        "en": "Cross-entry - Staff: in meat and fish\n\nCoop Cooperative — Chur Quader, Graubünden, Sizzera\n\nTasks - Presenting meat and fish - Cut meat and fish - Process meat and fish according to recipe - Advise and serve customers\n\nRequirements - You like to cook. - You like to work with meat and fish. - You enjoy customer contact. - You can speak and read German. - You want to learn new things.\n\nWhat we offer - discounts: discount on the travel offer ITS Coop Travel, 5-fold number of super points in the supermarket, up to 20% discount on various insurance benefits, up to 20% discount in all formats of the Coop group, cheaper mobile and pre-pay subscriptions at Coop Mobile, Reka card: discount on purchase, discount on Mobility CarSharing, staff discount also for partners:in (living in the same household), discount on GA subscription, discounts on cultural events, discounts on leisure activities - Conditions of employment: pension fund: 2/3 is provided by Coop\n\npaid, attractive employment conditions and certified wage equality, loyalty premiums, savings plan at the pension fund, total employment contract (GAV), 18 weeks of paid maternity leave and three weeks of paid paternity leave - working time: 5 weeks holidays, flexible working time models - continuing education: over 600 internal training courses, talent management with diverse development opportunities, L-GAV training and further education offers and Coop - sustainability: commitment to people, animals and nature with over 400 actions - communication: internal app for employees -\n\nHealth: Update fitness: Fr.\n\n200.– discount on annual subscription, free participation in various company races, company sports\n\nYour contact Daniel Mangold HR Marketing\n\nTipo: Part-time Sede: Chur Quader",
+        "fr": "Entrée croisée - Personnel : dans la viande et le poisson\n\nCoopérative de coop — Chur Quader, Graubünden, Sizzera\n\nTâches - Présentation de la viande et du poisson - Viande et poisson coupés - Traiter la viande et le poisson selon la recette - Conseiller et servir les clients\n\nExigences - Vous aimez cuisiner. - Vous aimez travailler avec la viande et le poisson. - Vous aimez le contact avec le client. - Vous pouvez parler et lire l'allemand. - Vous voulez apprendre de nouvelles choses.\n\nCe que nous offrons - réductions: réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différentes prestations d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et pré-payés moins chers à Coop Mobile, carte Reka: réduction sur achat, réduction sur Mobility CarSharing, réduction personnel également pour les partenaires:dans (vivant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs - Conditions d'emploi: fonds de pension: 2/3 est fourni par Coop\n\n- durée de travail: 5 semaines de congés, modèles de temps de travail flexibles - formation continue: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation L-GAV et offres de formation continue et Coop - durabilité: engagement envers les personnes, les animaux et la nature avec plus de 400 actions - communication: application interne pour les salariés -\n\nSanté : Mise à jour de la condition physique : Fr.\n\n200.– réduction sur abonnement annuel, participation gratuite à diverses courses d'entreprises, sports d'entreprises\n\nVotre interlocuteur Daniel Mangold HR Marketing\n\nTipo: Sede à temps partiel: Chur Quader"
       },
       "requirementsByLocale": {
         "de": [
@@ -148152,10 +148285,6 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1742,
-      "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000
@@ -148229,7 +148358,15 @@
       },
       "sourceLang": "de",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "previousSlugsByLocale": {
+        "it": [
+          "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-unterentfelden-lenzburg-wettingen-dietikon-baden-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-unterentfelden-lenzburg-wettingen-dietikon-baden-aargau"
+      ]
     },
     {
       "id": "company-awh6h9",
@@ -148450,7 +148587,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "nachwuchsfuhrungskrafte-retail-coop-thurgau-dphv5l"
+          "nachwuchsfuhrungskrafte-retail-coop-thurgau-dphv5l",
+          "nachwuchsfuhrungskrafte-retail-coop-thurgau"
         ],
         "en": [
           "nachwuchsfuhrungskrafte-retail-coop-thurgau-dphv5l",
@@ -148466,7 +148604,8 @@
       },
       "previousSlugs": [
         "nachwuchsfuhrungskrafte-retail-coop-thurgau-dphv5l",
-        "nachwuchsfuhrungskrafte-retail-coop-genossenschaft-thurgau-dphv5l"
+        "nachwuchsfuhrungskrafte-retail-coop-genossenschaft-thurgau-dphv5l",
+        "nachwuchsfuhrungskrafte-retail-coop-thurgau"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000
@@ -154774,7 +154913,8 @@
           "household-and-electrical-sales-consultant-coop-genossenschaft-zurich",
           "sales-consultant-in-household-and-electric-coop-genossenschaft-zurich",
           "conseiller-de-vente-dans-le-menage-et-l-electricite-coop-genossenschaft-zurich",
-          "consultant-en-ventes-en-menage-et-electrique-coop-genossenschaft-zurich"
+          "consultant-en-ventes-en-menage-et-electrique-coop-genossenschaft-zurich",
+          "verkaufsberater-in-haushalt-und-elektro-coop-genossenschaft-zurich"
         ],
         "en": [
           "sales-consultant-household-and-electrical-coop-genossenschaft-zurich",
@@ -154799,7 +154939,8 @@
         "sales-consultant-in-household-and-electric-coop-genossenschaft-zurich",
         "conseiller-de-vente-dans-le-menage-et-l-electricite-coop-genossenschaft-zurich",
         "consultant-en-ventes-en-menage-et-electrique-coop-genossenschaft-zurich",
-        "verkaufsberater-in-haushalt-und-elektro-coop-genossenschaft-zurich-fwqpi9"
+        "verkaufsberater-in-haushalt-und-elektro-coop-genossenschaft-zurich-fwqpi9",
+        "verkaufsberater-in-haushalt-und-elektro-coop-genossenschaft-zurich"
       ]
     },
     {
@@ -155021,7 +155162,8 @@
           "lagermitarbeiter-in-leergutzentrale-mit-stv-funktion-coop-genossenschaft-schafisheim-aargau-d6r7zo",
           "employe-d-entrepot-vide-le-centre-avec-une-fonction-adjointe-coop-genossenschaft-schafisheim",
           "lagermitarbeiter-in-leergutzentrale-con-stv-funktion-coop-genossenschaft-schafisheim-aargau-d6r7zo",
-          "lagermitarbeiter-in-leergutzentrale-mit-stv-funktion-coop-genossenschaft-schafisheim"
+          "lagermitarbeiter-in-leergutzentrale-mit-stv-funktion-coop-genossenschaft-schafisheim",
+          "lagermitarbeiter-in-leergutzentrale-mit-stv-funktion-coop-genossenschaft-schafisheim-aargau"
         ],
         "en": [
           "warehouse-employee-empties-center-with-deputy-function-coop-genossenschaft-schafisheim",
@@ -155042,7 +155184,8 @@
         "employe-d-entrepot-vide-le-centre-avec-une-fonction-adjointe-coop-genossenschaft-schafisheim",
         "lagermitarbeiter-in-leergutzentrale-con-stv-funktion-coop-genossenschaft-schafisheim-aargau-d6r7zo",
         "lagermitarbeiter-in-leergutzentrale-mit-stv-funktion-coop-genossenschaft-schafisheim",
-        "lagermitarbeiter-in-leergutzentrale-mit-stv-funktion-coop-genossenschaft-schafisheim-aargau-wbz6vx"
+        "lagermitarbeiter-in-leergutzentrale-mit-stv-funktion-coop-genossenschaft-schafisheim-aargau-wbz6vx",
+        "lagermitarbeiter-in-leergutzentrale-mit-stv-funktion-coop-genossenschaft-schafisheim-aargau"
       ]
     },
     {
@@ -155109,7 +155252,15 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-gastronomie-coop-genossenschaft-seewen-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-gastronomie-coop-genossenschaft-seewen-schwyz"
+      ]
     },
     {
       "id": "company-f7pygl",
@@ -155175,7 +155326,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-gastronomie-coop-genossenschaft-landquart-graubunden"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-gastronomie-coop-genossenschaft-landquart-graubunden"
+      ]
     },
     {
       "id": "company-wrp13f",
@@ -155236,18 +155395,68 @@
       "previousSlugsByLocale": {
         "it": [
           "servicemitarbeiter-in-auf-abruf-two-spice-ag-dietlikon-wrp13f",
-          "servicemitarbeiter-in-auf-abruf-two-spice-ag-dietlikon"
+          "servicemitarbeiter-in-auf-abruf-two-spice-ag-dietlikon",
+          "personale-di-servizio-su-richiesta-two-spice-ag-dietlikon-5fe964",
+          "servicemitarbeiter-in-auf-abruf-two-spice-dietlikon-2",
+          "impiegato-di-servizio-reperibile-two-spice-ag-dietlikon-fc1764",
+          "service-employee-on-call-two-spice-ag-dietlikon-fc1764",
+          "servicemitarbeiter-in-auf-abruf-two-spice-dietlikon-5tzg80",
+          "employe-de-service-de-garde-two-spice-ag-dietlikon-fc1764",
+          "servicemitarbeiter-in-auf-abruf-two-spice-dietlikon-uk4gxo",
+          "impiegato-di-servizio-reperibile-two-spice-ag-dietlikon",
+          "service-employee-on-call-two-spice-ag-dietlikon",
+          "employe-de-service-de-garde-two-spice-ag-dietlikon",
+          "service-und-kassenmitarbeiter-in-two-spice-dietlikon",
+          "service-e-kassenmitarbeiter-in-two-spice-dietlikon-5hn0of",
+          "service-and-cashier-two-spice-ag-dietlikon",
+          "service-und-kassenmitarbeiter-in-two-spice-dietlikon-5hn0of",
+          "employe-e-de-service-et-de-caisse-two-spice-ag-dietlikon",
+          "servicemitarbeiter-in-auf-abruf-two-spice-ag-dietlikon-wu9scy",
+          "personale-di-servizio-su-richiesta-two-spice-ag-dietlikon-a5f7c1",
+          "servicemitarbeiter-in-auf-abruf-two-spice-dietlikon"
         ],
         "en": [
-          "servicemitarbeiter-in-auf-abruf-two-spice-ag-dietlikon-wrp13f"
+          "servicemitarbeiter-in-auf-abruf-two-spice-ag-dietlikon-wrp13f",
+          "service-staff-on-demand-two-spice-ag-dietlikon-a5f7c1",
+          "service-staff-on-demand-two-spice-ag-dietlikon-5fe964"
         ],
         "fr": [
-          "servicemitarbeiter-in-auf-abruf-two-spice-ag-dietlikon-wrp13f"
+          "servicemitarbeiter-in-auf-abruf-two-spice-ag-dietlikon-wrp13f",
+          "personnel-des-services-sur-demande-two-spice-ag-dietlikon-a5f7c1",
+          "personnel-des-services-sur-demande-two-spice-ag-dietlikon-5fe964"
+        ],
+        "de": [
+          "servicemitarbeiter-in-auf-abruf-two-spice-ag-dietlikon-x1kzy0",
+          "servicemitarbeiter-in-auf-abruf-two-spice-dietlikon-09ufck"
         ]
       },
       "previousSlugs": [
         "servicemitarbeiter-in-auf-abruf-two-spice-ag-dietlikon-wrp13f",
-        "servicemitarbeiter-in-auf-abruf-two-spice-ag-dietlikon"
+        "servicemitarbeiter-in-auf-abruf-two-spice-ag-dietlikon",
+        "personale-di-servizio-su-richiesta-two-spice-ag-dietlikon-5fe964",
+        "servicemitarbeiter-in-auf-abruf-two-spice-dietlikon-2",
+        "impiegato-di-servizio-reperibile-two-spice-ag-dietlikon-fc1764",
+        "service-employee-on-call-two-spice-ag-dietlikon-fc1764",
+        "servicemitarbeiter-in-auf-abruf-two-spice-dietlikon-5tzg80",
+        "employe-de-service-de-garde-two-spice-ag-dietlikon-fc1764",
+        "servicemitarbeiter-in-auf-abruf-two-spice-dietlikon-uk4gxo",
+        "impiegato-di-servizio-reperibile-two-spice-ag-dietlikon",
+        "service-employee-on-call-two-spice-ag-dietlikon",
+        "employe-de-service-de-garde-two-spice-ag-dietlikon",
+        "service-und-kassenmitarbeiter-in-two-spice-dietlikon",
+        "service-e-kassenmitarbeiter-in-two-spice-dietlikon-5hn0of",
+        "service-and-cashier-two-spice-ag-dietlikon",
+        "service-und-kassenmitarbeiter-in-two-spice-dietlikon-5hn0of",
+        "employe-e-de-service-et-de-caisse-two-spice-ag-dietlikon",
+        "servicemitarbeiter-in-auf-abruf-two-spice-ag-dietlikon-wu9scy",
+        "personale-di-servizio-su-richiesta-two-spice-ag-dietlikon-a5f7c1",
+        "servicemitarbeiter-in-auf-abruf-two-spice-dietlikon",
+        "service-staff-on-demand-two-spice-ag-dietlikon-a5f7c1",
+        "service-staff-on-demand-two-spice-ag-dietlikon-5fe964",
+        "servicemitarbeiter-in-auf-abruf-two-spice-ag-dietlikon-x1kzy0",
+        "servicemitarbeiter-in-auf-abruf-two-spice-dietlikon-09ufck",
+        "personnel-des-services-sur-demande-two-spice-ag-dietlikon-a5f7c1",
+        "personnel-des-services-sur-demande-two-spice-ag-dietlikon-5fe964"
       ]
     },
     {
@@ -155632,18 +155841,23 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-teamleiter-in-reiskuche-100-two-spice-ag-dietlikon-we3sak",
-          "stv-teamleiter-in-reiskuche-100-two-spice-ag-dietlikon"
+          "stv-teamleiter-in-reiskuche-100-two-spice-ag-dietlikon",
+          "stv-teamleiter-in-reiskuche-100-two-spice-ag-dietlikon-gpf7z1"
         ],
         "en": [
           "stv-teamleiter-in-reiskuche-100-two-spice-ag-dietlikon-we3sak"
         ],
         "fr": [
           "stv-teamleiter-in-reiskuche-100-two-spice-ag-dietlikon-we3sak"
+        ],
+        "de": [
+          "stv-teamleiter-in-reiskuche-100-two-spice-ag-dietlikon-gpf7z1"
         ]
       },
       "previousSlugs": [
         "stv-teamleiter-in-reiskuche-100-two-spice-ag-dietlikon-we3sak",
-        "stv-teamleiter-in-reiskuche-100-two-spice-ag-dietlikon"
+        "stv-teamleiter-in-reiskuche-100-two-spice-ag-dietlikon",
+        "stv-teamleiter-in-reiskuche-100-two-spice-ag-dietlikon-gpf7z1"
       ]
     },
     {
@@ -155705,18 +155919,23 @@
       "previousSlugsByLocale": {
         "it": [
           "produktionsmitarbeiter-in-100-verpackung-nacht-two-spice-ag-dietlikon-62umca",
-          "produktionsmitarbeiter-in-100-verpackung-nacht-two-spice-ag-dietlikon"
+          "produktionsmitarbeiter-in-100-verpackung-nacht-two-spice-ag-dietlikon",
+          "produktionsmitarbeiter-in-100-verpackung-nacht-two-spice-ag-dietlikon-mk1mgr"
         ],
         "en": [
           "produktionsmitarbeiter-in-100-verpackung-nacht-two-spice-ag-dietlikon-62umca"
         ],
         "fr": [
           "produktionsmitarbeiter-in-100-verpackung-nacht-two-spice-ag-dietlikon-62umca"
+        ],
+        "de": [
+          "produktionsmitarbeiter-in-100-verpackung-nacht-two-spice-ag-dietlikon-mk1mgr"
         ]
       },
       "previousSlugs": [
         "produktionsmitarbeiter-in-100-verpackung-nacht-two-spice-ag-dietlikon-62umca",
-        "produktionsmitarbeiter-in-100-verpackung-nacht-two-spice-ag-dietlikon"
+        "produktionsmitarbeiter-in-100-verpackung-nacht-two-spice-ag-dietlikon",
+        "produktionsmitarbeiter-in-100-verpackung-nacht-two-spice-ag-dietlikon-mk1mgr"
       ]
     },
     {
@@ -155942,7 +156161,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-jobcenter-e-zeugnisse-80-100-coop-genossenschaft-basel-stadt-khee5g"
+          "sachbearbeiter-in-jobcenter-e-zeugnisse-80-100-coop-genossenschaft-basel-stadt-khee5g",
+          "sachbearbeiter-in-jobcenter-und-zeugnisse-80-100-coop-basel-stadt"
         ],
         "de": [
           "sachbearbeiter-in-jobcenter-und-zeugnisse-80-100-coop-genossenschaft-basel-stadt"
@@ -155959,7 +156179,8 @@
         "sachbearbeiter-in-jobcenter-e-zeugnisse-80-100-coop-genossenschaft-basel-stadt-khee5g",
         "sachbearbeiter-in-jobcenter-und-zeugnisse-80-100-coop-genossenschaft-basel-stadt",
         "sachbearbeiter-in-jobcenter-und-zeugnisse-80-100-coop-genossenschaft-basel-stadt-khee5g",
-        "sachbearbeiter-in-jobcenter-und-zeugnisse-80-100-coop-basel-stadt-67xgml"
+        "sachbearbeiter-in-jobcenter-und-zeugnisse-80-100-coop-basel-stadt-67xgml",
+        "sachbearbeiter-in-jobcenter-und-zeugnisse-80-100-coop-basel-stadt"
       ]
     },
     {
@@ -156799,7 +157020,8 @@
           "verkaufer-in-food-mit-potential-zu-2-stv-geschaftsfuhrer-in-coop-zurich-c1n6xq",
           "vendeur-alimentaire-avec-le-potentiel-de-devenir-2e-directeur-general-adjoint-coop-genossenschaft-zurich",
           "verkaufer-in-food-con-potential-zu-2-stv-geschaftsfuhrer-in-coop-zurich-c1n6xq",
-          "verkaufer-in-food-mit-potential-zu-2-stv-geschaftsfuhrer-in-coop-genossenschaft-zurich"
+          "verkaufer-in-food-mit-potential-zu-2-stv-geschaftsfuhrer-in-coop-genossenschaft-zurich",
+          "verkaufer-in-food-mit-potential-zu-2-stv-geschaftsfuhrer-in-coop-zurich"
         ],
         "en": [
           "food-salesperson-with-potential-to-become-2nd-deputy-managing-director-coop-genossenschaft-zurich",
@@ -156819,7 +157041,8 @@
         "vendeur-alimentaire-avec-le-potentiel-de-devenir-2e-directeur-general-adjoint-coop-genossenschaft-zurich",
         "verkaufer-in-food-con-potential-zu-2-stv-geschaftsfuhrer-in-coop-zurich-c1n6xq",
         "verkaufer-in-food-mit-potential-zu-2-stv-geschaftsfuhrer-in-coop-genossenschaft-zurich",
-        "verkaufer-in-food-mit-potential-zu-2-stv-geschaftsfuhrer-in-coop-zurich-6dshun"
+        "verkaufer-in-food-mit-potential-zu-2-stv-geschaftsfuhrer-in-coop-zurich-6dshun",
+        "verkaufer-in-food-mit-potential-zu-2-stv-geschaftsfuhrer-in-coop-zurich"
       ]
     },
     {
@@ -157480,10 +157703,14 @@
         ],
         "fr": [
           "leiter-in-einkauf-100-two-spice-dietlikon-fx940l"
+        ],
+        "it": [
+          "leiter-in-einkauf-100-two-spice-dietlikon"
         ]
       },
       "previousSlugs": [
-        "leiter-in-einkauf-100-two-spice-dietlikon-fx940l"
+        "leiter-in-einkauf-100-two-spice-dietlikon-fx940l",
+        "leiter-in-einkauf-100-two-spice-dietlikon"
       ]
     },
     {
@@ -157601,15 +157828,16 @@
       "crawledAt": "2026-07-20T14:30:37.924Z",
       "firstSeenAt": "2026-07-20T14:30:37.924Z",
       "titleByLocale": {
-        "fr": "Coordonnateur de la production et administration (100 %)",
-        "it": "Coordinatore di produzione e amministrazione (100%)",
-        "en": "Production Coordinator & Administration (100%)"
+        "fr": "Coordonnateur de Production & Administration (100%)",
+        "it": "Coordinatore di Produzione & Amministrazione (100%)",
+        "en": "Production Coordinator & Administration (100%)",
+        "de": "Produktionskoordinator/in & Administration (100%)"
       },
       "descriptionByLocale": {
-        "de": "## Produktionskoordinator/in & Administration (100%)\n\n**Two Spice AG** — Dietlikon, Dietlikon, Svizzera\n\n## Die Yooji's Manufaktur, welche zur Two Spice AG gehört, bietet ein vielseitiges und exquisites Angebot an Sushi, Sashimi und vielem mehr. Die Produktionsstätte der Two Spice Manufaktur befindet sich in Rümlang und beschäftigt über 90 Mitarbeitende. Täglich werden diverse Köstlichkeiten vorgefertigt und mehrmals täglich an die Yooji's Restaurants und Stores geliefert. Auch eigens entwickelte Produkte für unsere japanische Retail Marke ZENBU, werden in der Manufaktur produziert. ZENBU Produkte wie Sushi, Poké, Onigiri und vegane Feinkost werden für Coop produziert und sind schweizweit direkt bei Coop erhältlich. Möchtest du Teil unseres Teams werden? Dann ist jetzt deine Chance!\n\n## Aufgaben\n- Unterstützung der Produktionsleitung in administrativen und organisatorischen Belangen\n- Administrative Arbeiten wie Bestellungen, Qualitätsmeldungen, Arbeitsanweisungen und Datenpflege\n- Durchführung und Dokumentation interner Qualitätskontrollen\n- Telefonische Ansprechperson für Kunden\n- Vorbereitung und Durchführung interner Schulungen\n- Organisation des Produktionsbüros\n- Unterstützung der Produktion im Tagesgeschäft\n- Sicherstellung der Einhaltung von Hygiene- und Qualitätsstandards\n\n## Anforderungen\n- Abgeschlossene Ausbildung in der Lebensmittelbranche auf der Stufe EFZ\n- Berufserfahrung in der Lebensmittelproduktion\n- Sehr gute Deutschkenntnisse, Englisch von Vorteil\n- Gute MS-Office-Kenntnisse und IT-Affinität\n- Selbstständige, strukturierte und zuverlässige Arbeitsweise\n- Organisationsgeschick sowie hohes Qualitäts- und Hygienebewusstsein\n- Teamfähige, belastbare und lösungsorientierte Persönlichkeit\n- Bereitschaft zu Wochenendeinsätze\n\n## Was wir bieten\n\n## Deine Ansprechperson\nNadine Grob\n, Human Resources\n\n**Tipo:** Part-time\n**Sede:** Dietlikon",
-        "it": "## Coordinatore di produzione e amministrazione (100%)\n\n Due Spice AG — Dietlikon, Dietlikon, Svizzera\n\n## La Manufaktur di Yooji, che fa parte di Two Spice AG, offre una gamma versatile e squisita di sushi, sashimi e molto altro. Il sito di produzione del Two Spice Manufaktur si trova in Rümlang e impiega oltre 90 persone. Varie prelibatezze sono preparate ogni giorno e consegnate ai ristoranti e negozi di Yooji più volte al giorno. Prodotti appositamente sviluppati per il nostro marchio commerciale giapponese ZENBU sono prodotti anche in fabbrica. Prodotti ZENBU come Sushi, Poké, Onigiri e prelibatezze vegane sono prodotti per Coop e sono disponibili direttamente da Coop in tutta la Svizzera. Vuoi far parte della nostra squadra? E' la tua occasione!\n\n## Compiti\n- Sostegno alla gestione della produzione in materia amministrativa e organizzativa\n- Lavori amministrativi come ordini, rapporti di qualità, istruzioni di lavoro e manutenzione dei dati\n- Prestazioni e documentazione dei controlli di qualità interni\n- Persona di contatto telefonico per i clienti\n- Preparazione e attuazione della formazione interna\n- Organizzazione dell'ufficio di produzione\n- Sostenere la produzione nel business quotidiano\n- Garantire il rispetto degli standard di igiene e qualità\n\n## Requisiti\n- Formazione completa nel settore alimentare a livello EFZ\n- Esperienza professionale nella produzione alimentare\n- Conoscenza molto buona del tedesco, l'inglese è un vantaggio\n- Buona SM Conoscenza dell'ufficio e affinità IT\n- Metodo di lavoro indipendente, strutturato e affidabile\n- Competenze organizzative così come l'alta qualità e la consapevolezza dell'igiene\n- Personalità responsabile, resiliente e orientata alla soluzione\n- Prontezza per gli incarichi del fine settimana\n\n## Cosa offriamo\n\n## La persona di contatto\nNadine Grob\n, Risorse umane\n\nTipo: Tempo parziale\nDietlikon",
-        "en": "## Production Coordinator & Administration (100%)\n\n**Two Spice AG** — Dietlikon, Dietlikon, Svizzera\n\n## Yooji’s Manufaktur, which is part of Two Spice AG, offers a versatile and exquisite range of sushi, sashimi and much more. The production site of the Two Spice Manufaktur is located in Rümlang and employs more than 90 people. Various delicacies are pre-made every day and delivered to Yooji's restaurants and stores several times a day. Specially developed products for our Japanese retail brand ZENBU are also produced in the factory. ZENBU products such as Sushi, Poké, Onigiri and vegan delicacies are produced for Coop and are available directly from Coop throughout Switzerland. Do you want to be part of our team? Now is your chance!\n\n## Tasks\n- Support of production management in administrative and organisational matters\n- Administrative work such as orders, quality reports, work instructions and data maintenance\n- Performance and documentation of internal quality controls\n- Telephone contact person for customers\n- Preparation and implementation of internal training\n- Organisation of the production office\n- Supporting production in day-to-day business\n- Ensuring compliance with hygiene and quality standards\n\n## Requirements\n- Completed training in the food sector at EFZ level\n- Professional experience in food production\n- Very good knowledge of German, English is an advantage\n- Good MS Office knowledge and IT affinity\n- Independent, structured and reliable working method\n- Organizational skills as well as high quality and hygiene awareness\n- Team-capable, resilient and solution-oriented personality\n- Readiness for weekend assignments\n\n## What we offer\n\n## Your contact person\nNadine Grob\n, Human resources\n\n**Tipo:** Part-time\n**Sede:** Dietlikon",
-        "fr": "## Coordonnateur de la production et administration (100 %)\n\n**Deux Spice AG** — Dietlikon, Dietlikon, Svizzera\n\n## Yooji-S Manufaktur, qui fait partie de Two Spice AG, offre une gamme polyvalente et exquise de sushi, sashimi et bien plus encore. Le site de production du Two Spice Manufaktur est situé à Rümlang et emploie plus de 90 personnes. Diverses spécialités sont préparées chaque jour et livrées plusieurs fois par jour aux restaurants et magasins de Yooji. Des produits spécialement développés pour notre marque japonaise ZENBU sont également produits dans l'usine. Les produits ZENBU tels que Sushi, Poké, Onigiri et végétalien sont produits pour Coop et sont disponibles directement auprès de Coop partout en Suisse. Tu veux faire partie de notre équipe ? C'est votre chance !\n\n## Tâche\n- Appui à la gestion de la production en matière administrative et organisationnelle\n- Travaux administratifs tels que commandes, rapports de qualité, instructions de travail et maintenance des données\n- Performance et documentation des contrôles internes de qualité\n- Personne-ressource téléphonique pour les clients\n- Préparation et mise en œuvre de la formation interne\n- Organisation du bureau de production\n- Soutenir la production dans les activités quotidiennes\n- Assurer le respect des normes d'hygiène et de qualité\n\n## Exigences\n- Formation complète dans le secteur alimentaire au niveau de l'EFZ\n- Expérience professionnelle dans la production alimentaire\n- Très bonne connaissance de l'allemand, l'anglais est un avantage\n- Bonne EM Connaissances de bureau et affinité informatique\n- Méthode de travail indépendante, structurée et fiable\n- Compétences organisationnelles et sensibilisation à la qualité et à l'hygiène\n- Personnalité capable d'équipe, résistante et orientée vers la solution\n- Préparation aux affectations de fin de semaine\n\n## Ce que nous offrons\n\n## Votre personne à contacter\nNadine Grob\nRessources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Dietlikon"
+        "de": "Produktionskoordinator/in & Administration (100%)\n\nTwo Spice AG — Dietlikon, Dietlikon, Svizzera\n\nDie Yooji's Manufaktur, welche zur Two Spice AG gehört, bietet ein vielseitiges und exquisites Angebot an Sushi, Sashimi und vielem mehr. Die Produktionsstätte der Two Spice Manufaktur befindet sich in Rümlang und beschäftigt über 90 Mitarbeitende. Täglich werden diverse Köstlichkeiten vorgefertigt und mehrmals täglich an die Yooji's Restaurants und Stores geliefert. Auch eigens entwickelte Produkte für unsere japanische Retail Marke ZENBU, werden in der Manufaktur produziert. ZENBU Produkte wie Sushi, Poké, Onigiri und vegane Feinkost werden für Coop produziert und sind schweizweit direkt bei Coop erhältlich. Möchtest du Teil unseres Teams werden? Dann ist jetzt deine Chance!\n\nAufgaben\n- Unterstützung der Produktionsleitung in administrativen und organisatorischen Belangen\n- Administrative Arbeiten wie Bestellungen, Qualitätsmeldungen, Arbeitsanweisungen und Datenpflege\n- Durchführung und Dokumentation interner Qualitätskontrollen\n- Telefonische Ansprechperson für Kunden\n- Vorbereitung und Durchführung interner Schulungen\n- Organisation des Produktionsbüros\n- Unterstützung der Produktion im Tagesgeschäft\n- Sicherstellung der Einhaltung von Hygiene- und Qualitätsstandards\n\nAnforderungen\n- Abgeschlossene Ausbildung in der Lebensmittelbranche auf der Stufe EFZ\n- Berufserfahrung in der Lebensmittelproduktion\n- Sehr gute Deutschkenntnisse, Englisch von Vorteil\n- Gute MS-Office-Kenntnisse und IT-Affinität\n- Selbstständige, strukturierte und zuverlässige Arbeitsweise\n- Organisationsgeschick sowie hohes Qualitäts- und Hygienebewusstsein\n- Teamfähige, belastbare und lösungsorientierte Persönlichkeit\n- Bereitschaft zu Wochenendeinsätze\n\nWas wir bieten\n\nDeine Ansprechperson\nNadine Grob\n, Human Resources\n\nTipo: Part-time\nSede: Dietlikon",
+        "it": "Coordinatore/trice di produzione e amministrazione (100%)\n\nTwo Spice AG — Dietlikon, Dietlikon, Svizzera\n\nLa manifattura Yooji's, che fa parte di Two Spice AG, offre un'offerta versatile e squisita di sushi, sashimi e molto altro. Lo stabilimento di produzione della Two Spice Manufaktur si trova a Rümlang e impiega oltre 90 dipendenti. Ogni giorno vengono preparate diverse prelibatezze e consegnate più volte al giorno ai ristoranti e ai negozi di Yooji. Anche i prodotti appositamente sviluppati per il nostro marchio retail giapponese ZENBU sono prodotti nella manifattura. I prodotti Zenbu come sushi, Poké, Onigiri e specialità vegane sono prodotti per Coop e sono disponibili direttamente da Coop in tutta la Svizzera. Vuoi entrare a far parte del nostro team? Allora questa è la tua occasione!\n\nCompiti\n- Supporto alla direzione di produzione nelle questioni amministrative e organizzative\n- Lavori amministrativi come ordini, notifiche di qualità, istruzioni di lavoro e manutenzione dei dati\n- Esecuzione e documentazione dei controlli di qualità interni\n- Referente telefonico per i clienti\n- Preparazione e svolgimento di corsi di formazione interni\n- Organizzazione dell'ufficio di produzione\n- Supporto alla produzione nell'attività quotidiana\n- Garantire il rispetto degli standard di igiene e qualità\n\nRequisiti\n- Formazione completata nel settore alimentare a livello AFC\n- Esperienza professionale nella produzione alimentare\n- Ottima conoscenza del tedesco, inglese di",
+        "en": "Production coordinator & administration (100%)\n\n2 Spice AG — Dietlikon, Dietlikon, Sizzera\n\nThe Yooji's Manufaktur, which belongs to the two spice AG, offers a versatile and exquisite range of Sushi, Sashimi and much more. The production site of the two spice factory is located in Rümlang and employs over 90 employees. Every day various delicacies are prepared and delivered to Yooji's restaurants and stores several times a day. Also specially developed products for our Japanese retail brand ZENBU, are produced in the manufaktur.\n\nZENBU products such as Sushi, Poké, Onigiri and vegan delicacies are produced for Coop and are available directly from Coop throughout Switzerland. Do you want to become part of our team? Then now is your chance!\n\nTasks - Support of production management in administrative and organisational matters - Administrative Work such as orders, quality reports, work instructions and data maintenance - Implementation and documentation of internal quality controls - Telephone contact person for customers - Preparation and implementation of internal training - Organisation of production office - Support of production in daily business - Ensure compliance with hygiene and quality standards\n\nRequirements - Completed training in the food industry at the EFZ level - Professional experience in food production - Very good German knowledge, English of advantage - Good MS Office skills and IT-A quality - Self-employed, structured and reliable working methods - Organizational skills and high quality and hygiene awareness - Team-capable, resilient and solution-oriented personality - Ready to use weekends\n\nWhat we offer\n\nYour contact Nadine Grob, Human Resources\n\nTipo: Part-time Sede: Dietlikon",
+        "fr": "Coordinateur de la production et administration (100%)\n\n2 Spice AG — Dietlikon, Dietlikon, Sizzera\n\nLe Manufaktur de Yooji, qui appartient aux deux Spice AG, offre une gamme polyvalente et exquise de Sushi, Sashimi et bien plus encore. Le site de production de la deux Spice Factory est situé à Rümlang et emploie plus de 90 employés. Chaque jour, diverses spécialités sont préparées et livrées plusieurs fois par jour aux restaurants et magasins de Yooji.\n\nLes produits ZENBU tels que Sushi, Poké, Onigiri et Vegan sont produits pour Coop et sont disponibles directement sur Coop partout en Suisse. Voulez-vous faire partie de notre équipe? Alors, c'est votre chance!\n\nTâches - Soutien à la gestion de la production en matière administrative et organisationnelle - Travaux administratifs tels que commandes, rapports de qualité, instructions de travail et maintenance des données - Mise en œuvre et documentation des contrôles internes de qualité - Personne de contact téléphonique pour les clients - Préparation et mise en oeuvre de la formation interne - Organisation du bureau de production - Appui à la production dans les entreprises quotidiennes - Assurer le respect des normes d'hygiène et de qualité\n\nExigences - Formation complète dans l'industrie alimentaire au niveau EFZ - Expérience professionnelle dans la production alimentaire - Très bonne connaissance allemande, anglais d'avantage - Bonnes compétences MS Office et qualité IT-A - Méthodes de travail indépendantes, structurées et fiables - Compétences organisationnelles et sensibilisation à la haute qualité et à l'hygiène - Personnalité capable d'équipe, résistante et orientée vers la solution - Prête à utiliser les week-ends\n\nCe que nous offrons\n\nVotre interlocuteur Nadine Grob, Ressources humaines\n\nTipo: Sede à temps partiel: Dietlikon"
       },
       "needsRetranslation": true,
       "slugByLocale": {
@@ -157640,7 +157868,8 @@
         "it": [
           "produktionskoordinator-in-administration-100-two-spice-ag-dietlikon",
           "produktionskoordinator-in-administration-100-two-spice-dietlikon-dhxzeq",
-          "produktionskoordinator-in-administration-100-two-spice-dietlikon"
+          "produktionskoordinator-in-administration-100-two-spice-dietlikon",
+          "coordinatore-di-produzione-amministrazione-100-two-spice-ag-rumlang"
         ],
         "en": [
           "produktionskoordinator-in-administration-100-two-spice-dietlikon-dhxzeq"
@@ -157652,8 +157881,10 @@
       "previousSlugs": [
         "produktionskoordinator-in-administration-100-two-spice-ag-dietlikon",
         "produktionskoordinator-in-administration-100-two-spice-dietlikon-dhxzeq",
-        "produktionskoordinator-in-administration-100-two-spice-dietlikon"
-      ]
+        "produktionskoordinator-in-administration-100-two-spice-dietlikon",
+        "coordinatore-di-produzione-amministrazione-100-two-spice-ag-rumlang"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "company-5re3t7",
@@ -157899,7 +158130,15 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-coop-city-aarau-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-verkauf-administration-und-kundendienst-coop-city-aarau-aargau"
+      ]
     },
     {
       "id": "company-knd3lv",
@@ -158247,7 +158486,15 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-security-solutions-mitarbeiter-in-80-100-coop-basel-stadt"
+        ]
+      },
+      "previousSlugs": [
+        "ict-security-solutions-mitarbeiter-in-80-100-coop-basel-stadt"
+      ]
     },
     {
       "id": "company-xa6g4f",
@@ -158396,7 +158643,15 @@
           "maxValue": 188500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil"
+        ]
+      },
+      "previousSlugs": [
+        "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil"
+      ]
     },
     {
       "id": "company-4zt4v5",
@@ -158458,7 +158713,15 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil-2"
+        ]
+      },
+      "previousSlugs": [
+        "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil-2"
+      ]
     },
     {
       "id": "company-e6yqs5",
@@ -158524,18 +158787,51 @@
       "previousSlugsByLocale": {
         "it": [
           "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil-e6yqs5",
-          "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil"
+          "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil",
+          "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil-kopcbe",
+          "franchising-partner-in-coop-pronto-senza-tankstelle-familienbetrieb-coop-genossenschaft-allschwil",
+          "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-genossenschaft-allschwil",
+          "partenaire-de-franchise-coop-pronto-sans-station-service-entreprise-familiale-coop-genossenschaft-allschwil-0aer1j",
+          "franchising-partner-coop-pronto-without-petrol-station-family-business-coop-genossenschaft-allschwil-0aer1j",
+          "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-genossenschaft-allschwil-0aer1j",
+          "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil-0aer1j",
+          "partner-franchising-coop-pronto-senza-stazione-di-servizio-azienda-familiare-coop-genossenschaft-allschwil-be6312",
+          "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-genossenschaft-allschwil-kopcbe",
+          "partner-franchising-coop-pronto-senza-stazione-di-servizio-azienda-familiare-coop-genossenschaft-allschwil",
+          "franchising-partner-coop-pronto-without-gas-station-family-business-coop-genossenschaft-allschwil-kopcbe",
+          "partenaire-franchise-coop-pronto-sans-station-service-entreprise-familiale-coop-genossenschaft-allschwil-kopcbe",
+          "franchising-partner-a-coop-pronto-senza-distributore-di-benzina-famiglia-business-coop-genossenschaft-allschwil-be6312",
+          "franchising-partner-in-coop-pronto-without-gas-station-family-business-coop-genossenschaft-allschwil-be6312",
+          "franchising-partner-a-coop-pronto-sans-station-service-entreprise-familiale-coop-genossenschaft-allschwil-be6312"
         ],
         "en": [
           "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil-e6yqs5"
         ],
         "fr": [
           "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil-e6yqs5"
+        ],
+        "de": [
+          "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil-kopcbe"
         ]
       },
       "previousSlugs": [
         "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil-e6yqs5",
-        "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil"
+        "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil",
+        "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil-kopcbe",
+        "franchising-partner-in-coop-pronto-senza-tankstelle-familienbetrieb-coop-genossenschaft-allschwil",
+        "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-genossenschaft-allschwil",
+        "partenaire-de-franchise-coop-pronto-sans-station-service-entreprise-familiale-coop-genossenschaft-allschwil-0aer1j",
+        "franchising-partner-coop-pronto-without-petrol-station-family-business-coop-genossenschaft-allschwil-0aer1j",
+        "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-genossenschaft-allschwil-0aer1j",
+        "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil-0aer1j",
+        "partner-franchising-coop-pronto-senza-stazione-di-servizio-azienda-familiare-coop-genossenschaft-allschwil-be6312",
+        "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-genossenschaft-allschwil-kopcbe",
+        "partner-franchising-coop-pronto-senza-stazione-di-servizio-azienda-familiare-coop-genossenschaft-allschwil",
+        "franchising-partner-coop-pronto-without-gas-station-family-business-coop-genossenschaft-allschwil-kopcbe",
+        "partenaire-franchise-coop-pronto-sans-station-service-entreprise-familiale-coop-genossenschaft-allschwil-kopcbe",
+        "franchising-partner-a-coop-pronto-senza-distributore-di-benzina-famiglia-business-coop-genossenschaft-allschwil-be6312",
+        "franchising-partner-in-coop-pronto-without-gas-station-family-business-coop-genossenschaft-allschwil-be6312",
+        "franchising-partner-a-coop-pronto-sans-station-service-entreprise-familiale-coop-genossenschaft-allschwil-be6312"
       ]
     },
     {
@@ -158598,7 +158894,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-intralogistik-bereich-warenausgang-fust-oberburen-sankt-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-intralogistik-bereich-warenausgang-fust-oberburen-sankt-gallen"
+      ]
     },
     {
       "id": "company-tc5y73",
@@ -158742,10 +159046,14 @@
         ],
         "fr": [
           "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau-2ootsb"
+        ],
+        "it": [
+          "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau"
         ]
       },
       "previousSlugs": [
-        "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau-2ootsb"
+        "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau-2ootsb",
+        "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau"
       ]
     },
     {
@@ -158808,7 +159116,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-intralogistik-bereich-retouren-fust-oberburen-sankt-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-intralogistik-bereich-retouren-fust-oberburen-sankt-gallen"
+      ]
     },
     {
       "id": "company-aqcu7o",
@@ -158960,19 +159276,70 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-bern-9kqvxs",
-          "verkaufer-in-food-coop-bern"
+          "verkaufer-in-food-coop-genossenschaft-interlaken",
+          "verkaufer-in-food-coop-interlaken-bern-qmtnz3",
+          "verkaufer-in-food-coop-genossenschaft-interlaken-qmtnz3",
+          "verkaufer-in-food-studentenaushilfe-coop-genossenschaft-bern",
+          "venditore-food-coop-genossenschaft-bern",
+          "verkaufer-in-food-coop-interlaken-bern-lhs8ie",
+          "food-sales-assistant-coop-genossenschaft-interlaken-da20b4",
+          "food-sales-assistant-coop-genossenschaft-interlaken-84b5d9",
+          "assistant-commercial-alimentaire-coop-genossenschaft-interlaken-da20b4",
+          "assistant-commercial-alimentaire-coop-genossenschaft-interlaken-84b5d9",
+          "food-sales-assistant-coop-genossenschaft-interlaken",
+          "food-sales-assistant-coop-genossenschaft-monchaltorf-b98388",
+          "food-sales-assistant-coop-genossenschaft-interlaken-qmtnz3",
+          "assistant-commercial-alimentaire-coop-genossenschaft-interlaken",
+          "assistant-commercial-alimentaire-coop-genossenschaft-interlaken-qmtnz3",
+          "food-sales-assistant-coop-genossenschaft-bern-7e7b87",
+          "food-sales-assistant-coop-genossenschaft-bern",
+          "food-sales-assistant-coop-genossenschaft-bern-str4uz",
+          "verkaufer-in-lebensmittel-coop-genossenschaft-interlaken",
+          "verkaufer-in-lebensmittel-coop-genossenschaft-bern"
         ],
         "en": [
-          "verkaufer-in-food-coop-bern-9kqvxs"
+          "verkaufer-in-food-coop-bern-9kqvxs",
+          "food-salesperson-coop-genossenschaft-bern"
         ],
         "fr": [
-          "verkaufer-in-food-coop-bern-9kqvxs"
+          "verkaufer-in-food-coop-bern-9kqvxs",
+          "vendeur-e-dans-l-alimentation-coop-genossenschaft-bern"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-genossenschaft-bern-str4uz"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-bern-9kqvxs",
-        "verkaufer-in-food-coop-bern"
+        "verkaufer-in-food-coop-bern",
+        "food-sales-assistant-coop-genossenschaft-interlaken",
+        "food-sales-assistant-coop-genossenschaft-monchaltorf-b98388",
+        "food-sales-assistant-coop-genossenschaft-interlaken-qmtnz3",
+        "assistant-commercial-alimentaire-coop-genossenschaft-interlaken",
+        "assistant-commercial-alimentaire-coop-genossenschaft-interlaken-qmtnz3",
+        "food-sales-assistant-coop-genossenschaft-bern-7e7b87",
+        "food-sales-assistant-coop-genossenschaft-bern",
+        "food-sales-assistant-coop-genossenschaft-bern-str4uz",
+        "verkaufer-in-lebensmittel-coop-genossenschaft-interlaken",
+        "verkaufer-in-lebensmittel-coop-genossenschaft-bern",
+        "verkaufer-in-lebensmittel-coop-genossenschaft-bern-7e7b87",
+        "assistant-commercial-alimentaire-coop-genossenschaft-bern-7e7b87",
+        "assistant-commercial-alimentaire-coop-genossenschaft-bern",
+        "assistant-commercial-alimentaire-coop-genossenschaft-bern-str4uz",
+        "verkaufer-in-food-coop-genossenschaft-bern",
+        "verkaufer-in-food-coop-genossenschaft-interlaken",
+        "verkaufer-in-food-coop-interlaken-bern-qmtnz3",
+        "verkaufer-in-food-coop-genossenschaft-interlaken-qmtnz3",
+        "verkaufer-in-food-studentenaushilfe-coop-genossenschaft-bern",
+        "venditore-food-coop-genossenschaft-bern",
+        "food-salesperson-coop-genossenschaft-bern",
+        "verkaufer-in-food-coop-genossenschaft-bern-str4uz",
+        "vendeur-e-dans-l-alimentation-coop-genossenschaft-bern",
+        "verkaufer-in-food-coop-interlaken-bern-lhs8ie",
+        "food-sales-assistant-coop-genossenschaft-interlaken-da20b4",
+        "food-sales-assistant-coop-genossenschaft-interlaken-84b5d9",
+        "assistant-commercial-alimentaire-coop-genossenschaft-interlaken-da20b4",
+        "assistant-commercial-alimentaire-coop-genossenschaft-interlaken-84b5d9"
       ]
     },
     {
@@ -159253,7 +159620,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "ferienaushilfe-food-coop-city-basel-stadt-9pkx2k"
+          "ferienaushilfe-food-coop-city-basel-stadt-9pkx2k",
+          "ferienaushilfe-food-coop-city-basel-stadt"
         ],
         "en": [
           "ferienaushilfe-food-coop-city-basel-stadt-9pkx2k"
@@ -159263,7 +159631,8 @@
         ]
       },
       "previousSlugs": [
-        "ferienaushilfe-food-coop-city-basel-stadt-9pkx2k"
+        "ferienaushilfe-food-coop-city-basel-stadt-9pkx2k",
+        "ferienaushilfe-food-coop-city-basel-stadt"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000
