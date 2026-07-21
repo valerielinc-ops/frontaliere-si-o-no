@@ -1357,6 +1357,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-guadagno-ticino.title': 'Stipendio gessatore: salari e differenze con l\'Italia',
     'blog.article.frontalieri-guadagno-ticino.excerpt': 'Gli stipendi dei frontalieri in Ticino: quanto guadagnano i gessatori e come si differenziano dalle retribuzioni italiane',
     'blog.article.frontalieri-guadagno-ticino.imageAlt': 'Frontalieri in Ticino: guadagno reale e differenze con l\'Italia',
+    'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.title': 'Lavorare come montatore in Ticino: stipendio, requisiti e permesso G',
+    'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.excerpt': 'Stipendio medio di un montatore frontaliero in Ticino, requisiti per lavorare come montatore in Ticino, riconoscimento del titolo di studio e permesso G.',
+    'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Una scena di lavoro di un montatore frontaliero in Ticino',
 };
 
 export default blogMetaChIt;
