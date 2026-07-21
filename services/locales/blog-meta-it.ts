@@ -8822,6 +8822,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.title': 'Impiegato di commercio in Ticino: stipendio, requisiti e riconoscimento',
     'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.excerpt': 'I frontalieri che lavorano come impiegati di commercio in Ticino devono soddisfare specifici requisiti e possedere determinate qualifiche.',
     'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.imageAlt': 'Frontalieri che lavorano in Ticino e risiedono in Italia. Focose su una scena di lavoro con la vista sul Lago di Lugano.',
+    'blog.article.frontaliere-operaio-ticino-stipendio-requisiti.title': 'Lavorare come operaio in Ticino: stipendio, requisiti e permesso G',
+    'blog.article.frontaliere-operaio-ticino-stipendio-requisiti.excerpt': 'La nuova legge sul permesso G per i frontaliere operaio in Ticino: quali sono i requisiti, il stipendio medio e il riconoscimento del titolo di studio?',
+    'blog.article.frontaliere-operaio-ticino-stipendio-requisiti.imageAlt': 'Un frontaliere operaio lavora in una fabbrica di Lugano.',
 };
 
 export default blogMetaIt;
