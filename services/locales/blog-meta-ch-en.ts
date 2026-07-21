@@ -1405,6 +1405,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.iperammortamento-transizione-5-0-conferma.title': 'Hyper-depreciation: via confirmation communications',
     'blog.article.iperammortamento-transizione-5-0-conferma.excerpt': 'The executive decree for the confirmation of the investments of the Transition Plan 5.0 has been published. Here\'s how to proceed through the GSE portal.',
     'blog.article.iperammortamento-transizione-5-0-conferma.imageAlt': 'Modern office with financial data on screens',
+    'blog.article.dazi-usa-24-luglio.title': 'US Duties, Truce is an Illusion',
+    'blog.article.dazi-usa-24-luglio.excerpt': 'New US measures risk further weighing on Swiss exports',
+    'blog.article.dazi-usa-24-luglio.imageAlt': 'Fotografia di un portale doganale di un\'azienda con due impiegati che controllano merci in arrivo',
 };
 
 export default blogMetaChEn;

@@ -4793,6 +4793,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-accertamenti-fiscali-frontalieri-controlli-e-difesa': { name: 'Accertamenti fiscali ai lavoratori', path: '/articoli-frontaliere/accertamenti-fiscali-frontalieri-controlli-e-difesa', parent: 'blog' },
     'blog-iperammortamento-transizione-5-0-conferma': { name: 'Iperammortamento 5.0', path: '/articoli-svizzera/iperammortamento-transizione-5-0-conferma/', parent: 'blog' },
     'blog-sciopero-treni-italia-tilo': { name: 'Sciopero dei treni in Italia', path: '/articoli-frontaliere/sciopero-treni-italia-tilo', parent: 'blog' },
+    'blog-dazi-usa-24-luglio': { name: 'Dazi USA, la tregua è un\'illusione: cosa', path: '/articoli-svizzera/dazi-usa-24-luglio/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

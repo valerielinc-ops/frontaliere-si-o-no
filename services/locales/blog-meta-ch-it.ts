@@ -1405,6 +1405,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.iperammortamento-transizione-5-0-conferma.title': 'Iperammortamento: via alle comunicazioni di conferma',
     'blog.article.iperammortamento-transizione-5-0-conferma.excerpt': 'Pubblicato il decreto direttoriale per la conferma degli investimenti del Piano Transizione 5.0. Ecco come procedere tramite il portale GSE.',
     'blog.article.iperammortamento-transizione-5-0-conferma.imageAlt': 'Ufficio moderno con dati finanziari su schermi',
+    'blog.article.dazi-usa-24-luglio.title': 'Dazi USA, la tregua è un\'illusione',
+    'blog.article.dazi-usa-24-luglio.excerpt': 'Le nuove misure statunitensi rischiano di pesare ulteriormente sulle esportazioni svizzere',
+    'blog.article.dazi-usa-24-luglio.imageAlt': 'Fotografia di un portale doganale di un\'azienda con due impiegati che controllano merci in arrivo',
 };
 
 export default blogMetaChIt;

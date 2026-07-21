@@ -491,6 +491,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'swatch-crescita-2026': { it: 'swatch-crescita-2026', en: 'swatch-growth-2026', de: 'swatch-wachstum-2026', fr: 'swatch-croissance-2026' },
  'votazioni-federali-27-settembre-cosa-cambia': { it: 'votazioni-federali-27-settembre-cosa-cambia', en: 'swiss-federal-votes-september-27-key-changes', de: 'schweizer-bundesabstimmungen-27-september-auswirkungen', fr: 'votations-federales-27-septembre-changements-suisse' },
  'iperammortamento-transizione-5-0-conferma': { it: 'iperammortamento-transizione-5-0-conferma', en: 'hyper-amortization-transition-5-0-confirmation', de: 'hyper-amortisation-transiton-5-0-bestatigung', fr: 'hyper-amortissement-transition-5-0-confirmation' },
+ 'dazi-usa-24-luglio': { it: 'dazi-usa-24-luglio', en: 'dazi-usa-24-july', de: 'dazi-usa-24-juli', fr: 'dazi-usa-24-juillet' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
