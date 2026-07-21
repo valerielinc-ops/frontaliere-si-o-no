@@ -1411,6 +1411,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.esportazioni-svizzera-sfide-kagi.title': 'Kägi: Esportazioni, problema principale per aziende svizzere',
     'blog.article.esportazioni-svizzera-sfide-kagi.excerpt': 'Il franco forte, costi del lavoro elevati e dazi USA mettono a rischio il \'made in Switzerland\'. L\'analisi del CEO Cédric El-Idrissi.',
     'blog.article.esportazioni-svizzera-sfide-kagi.imageAlt': 'Stabilimento produttivo Kägi a Lichtensteig con bandiera svizzera',
+    'blog.article.orologi-svizzeri-export-in-netta-crescita-ma-non-basta.title': 'Orologi svizzeri: esportazioni in netta crescita, ma non basta',
+    'blog.article.orologi-svizzeri-export-in-netta-crescita-ma-non-basta.excerpt': 'Le esportazioni di orologi svizzeri hanno mostrato un aumento del 11,2% nel giugno 2026, ma il bilancio complessivo rimane debole.',
+    'blog.article.orologi-svizzeri-export-in-netta-crescita-ma-non-basta.imageAlt': 'Immagine di orologi svizzeri esposti in una vetrina di Lugano.',
 };
 
 export default blogMetaChIt;

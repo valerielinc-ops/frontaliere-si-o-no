@@ -1411,6 +1411,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.esportazioni-svizzera-sfide-kagi.title': 'Kägi: Export, Hauptproblem für Schweizer Unternehmen',
     'blog.article.esportazioni-svizzera-sfide-kagi.excerpt': 'Starker Franken, hohe Arbeitskosten und US-Zölle gefährden das «Made in Switzerland». Die Analyse von CEO Cédric El-Idrissi.',
     'blog.article.esportazioni-svizzera-sfide-kagi.imageAlt': 'Kägi Produktionsstätte in Lichtensteig mit Schweizer Flagge',
+    'blog.article.orologi-svizzeri-export-in-netta-crescita-ma-non-basta.title': 'Schweizer Uhren: Exportwachstum stark, aber nicht genug',
+    'blog.article.orologi-svizzeri-export-in-netta-crescita-ma-non-basta.excerpt': 'Die Schweizer Uhrenexporte legten im Juni 2026 um 11,2% zu, die Bilanz bleibt aber insgesamt schwach.',
+    'blog.article.orologi-svizzeri-export-in-netta-crescita-ma-non-basta.imageAlt': 'Bild von Schweizer Uhren in einem Lugano-Shop.',
 };
 
 export default blogMetaChDe;

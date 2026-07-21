@@ -1411,6 +1411,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.esportazioni-svizzera-sfide-kagi.title': 'Kägi : Exportations, problème majeur pour les entreprises suisses',
     'blog.article.esportazioni-svizzera-sfide-kagi.excerpt': 'Le franc fort, les coûts de main-d\' œuvre élevés et les droits de douane américains mettent en péril le « made in Switzerland ». L\'analyse du PDG Cédric El-Idrissi.',
     'blog.article.esportazioni-svizzera-sfide-kagi.imageAlt': 'Usine de production Kägi à Lichtensteig avec drapeau suisse',
+    'blog.article.orologi-svizzeri-export-in-netta-crescita-ma-non-basta.title': 'Orologi suisses: croissance des exportations, mais il y en a encore pour tout le monde',
+    'blog.article.orologi-svizzeri-export-in-netta-crescita-ma-non-basta.excerpt': 'Les exportations de montres suisses ont augmenté de 11,2% en juin 2026, mais le bilan global reste faible.',
+    'blog.article.orologi-svizzeri-export-in-netta-crescita-ma-non-basta.imageAlt': 'Image de montres suisses exposées dans une vitrine de Lugano.',
 };
 
 export default blogMetaChFr;
