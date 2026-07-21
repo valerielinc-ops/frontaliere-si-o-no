@@ -4283,6 +4283,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'schindler-utile-in-crescita',
+    category: 'fiscale',
+    date: '2026-07-21T13:33:48.605Z',
+    image: '/images/blog/schindler-utile-in-crescita.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

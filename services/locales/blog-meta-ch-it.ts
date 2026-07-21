@@ -1429,6 +1429,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.birra-in-mancanza.title': '1,4 miliardi di litri di birra in meno',
     'blog.article.birra-in-mancanza.excerpt': 'La produzione mondiale di birra registra un nuovo calo, trainata dalle diminuzioni in Oceania, Europa, Asia e Nord America.',
     'blog.article.birra-in-mancanza.imageAlt': 'Una birra in un bar a Lugano',
+    'blog.article.schindler-utile-in-crescita.title': 'Giro d\'affari in calo, ma utile in crescita per Schindler',
+    'blog.article.schindler-utile-in-crescita.excerpt': 'Fatturato in calo, ma profitti in lieve crescita per Schindler, uno dei più importanti gruppi industriali svizzeri attivi a livello internazionale.',
+    'blog.article.schindler-utile-in-crescita.imageAlt': 'Schindler, crescita utile, nuove installazioni',
 };
 
 export default blogMetaChIt;

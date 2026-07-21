@@ -1429,6 +1429,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.birra-in-mancanza.title': '1,4 milliard de litres de bière en moins',
     'blog.article.birra-in-mancanza.excerpt': 'La production mondiale de bière enregistre une nouvelle baisse, tirée par les baisses en Océanie, en Europe, en Asie et en Amérique du Nord.',
     'blog.article.birra-in-mancanza.imageAlt': 'Une bière dans un bar à Lugano',
+    'blog.article.schindler-utile-in-crescita.title': 'Chiffre d\'affaires en baisse, mais bénéfice en hausse pour Schindler',
+    'blog.article.schindler-utile-in-crescita.excerpt': 'Chiffre d\'affaires en baisse, mais bénéfices en légère hausse pour Schindler, l\'un des plus importants groupes industriels suisses actifs au niveau international.',
+    'blog.article.schindler-utile-in-crescita.imageAlt': 'Schindler, croissance rentable, nouvelles installations',
 };
 
 export default blogMetaChFr;
