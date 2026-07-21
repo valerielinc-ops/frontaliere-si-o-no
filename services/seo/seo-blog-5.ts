@@ -53580,6 +53580,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-giacomo-gallazzi-giovani-innovazione': {
+    title: 'Giacomo Gallazzi: il percorso di un giovane innovatore',
+    description: 'Scopri il percorso formativo di Giacomo Gallazzi, tra innovazione, comunicazione e il sogno di creare una scuola. Esempio di ambizione per giovani talenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, giacomo, gallazzi, percorso, giovane',
+    ogTitle: 'Giacomo Gallazzi: il percorso di un giovane innovatore',
+    ogDescription: 'Scopri il percorso formativo di Giacomo Gallazzi, tra innovazione, comunicazione e il sogno di creare una scuola.',
+    canonicalPath: '/articoli-frontaliere/giacomo-gallazzi-giovani-innovazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Giacomo Gallazzi: il percorso di un giovane innovatore",
+      "description": "Scopri il percorso formativo di Giacomo Gallazzi, tra innovazione, comunicazione e il sogno di creare una scuola. Esempio di ambizione per giovani talenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/giacomo-gallazzi-giovani-innovazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giacomo Gallazzi, giovane innovatore e comunicatore, in un contesto professionale."
+      },
+      "datePublished": "2026-07-21T16:16:57+00:00",
+      "dateModified": "2026-07-21T16:16:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giacomo-gallazzi-giovani-innovazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

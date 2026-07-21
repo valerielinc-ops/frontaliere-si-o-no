@@ -8824,6 +8824,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-operaio-ticino-stipendio-requisiti.title': 'Working as a worker in Ticino: salary, requirements and permit G',
     'blog.article.frontaliere-operaio-ticino-stipendio-requisiti.excerpt': 'The new law on the G permit for frontier workers in Ticino: what are the requirements, the average salary and the recognition of the qualification?',
     'blog.article.frontaliere-operaio-ticino-stipendio-requisiti.imageAlt': 'A foreign worker operates in a factory in Lugano.',
+    'blog.article.giacomo-gallazzi-giovani-innovazione.title': 'Giacomo Gallazzi: the journey of a young innovator',
+    'blog.article.giacomo-gallazzi-giovani-innovazione.excerpt': 'From maturity to an international master\'s degree: how Giacomo Gallazzi is redefining the concept of training and communication for new generations.',
+    'blog.article.giacomo-gallazzi-giovani-innovazione.imageAlt': 'Giacomo Gallazzi, young innovator and communicator, in a professional setting.',
 };
 
 export default blogMetaEn;

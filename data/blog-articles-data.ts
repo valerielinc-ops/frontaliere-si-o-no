@@ -26513,6 +26513,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'giacomo-gallazzi-giovani-innovazione',
+ category: 'pratico',
+ date: '2026-07-21T16:16:57.253Z',
+ image: '/images/blog/giacomo-gallazzi-giovani-innovazione.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

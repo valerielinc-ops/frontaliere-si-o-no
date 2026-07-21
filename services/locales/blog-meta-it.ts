@@ -8825,6 +8825,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-operaio-ticino-stipendio-requisiti.title': 'Lavorare come operaio in Ticino: stipendio, requisiti e permesso G',
     'blog.article.frontaliere-operaio-ticino-stipendio-requisiti.excerpt': 'La nuova legge sul permesso G per i frontaliere operaio in Ticino: quali sono i requisiti, il stipendio medio e il riconoscimento del titolo di studio?',
     'blog.article.frontaliere-operaio-ticino-stipendio-requisiti.imageAlt': 'Un frontaliere operaio lavora in una fabbrica di Lugano.',
+    'blog.article.giacomo-gallazzi-giovani-innovazione.title': 'Giacomo Gallazzi: il percorso di un giovane innovatore',
+    'blog.article.giacomo-gallazzi-giovani-innovazione.excerpt': 'Dalla maturità al master internazionale: come Giacomo Gallazzi sta ridefinendo il concetto di formazione e comunicazione per le nuove generazioni.',
+    'blog.article.giacomo-gallazzi-giovani-innovazione.imageAlt': 'Giacomo Gallazzi, giovane innovatore e comunicatore, in un contesto professionale.',
 };
 
 export default blogMetaIt;
