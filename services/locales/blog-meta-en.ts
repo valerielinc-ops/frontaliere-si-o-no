@@ -8818,6 +8818,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumento-prezzi-trenord-pendolari.title': 'Trenord, new increases on tickets for border crossers',
     'blog.article.aumento-prezzi-trenord-pendolari.excerpt': 'Trenord has announced a further increase in rail fares. The new \'Malpensa specific rate\' has been postponed to next summer.',
     'blog.article.aumento-prezzi-trenord-pendolari.imageAlt': 'Commuters at a train station in Ticino',
+    'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.title': 'Commercial employee in Ticino: salary, requirements and recognition',
+    'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.excerpt': 'Border workers working as commercial employees in Ticino must meet specific requirements and possess certain qualifications.',
+    'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.imageAlt': 'Frontalieri who work in Ticino and reside in Italy. Focused on a work scene with a view of Lake Lugano.',
 };
 
 export default blogMetaEn;

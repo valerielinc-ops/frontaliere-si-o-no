@@ -26495,6 +26495,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti',
+ category: 'fiscale',
+ date: '2026-07-21T14:07:18.622Z',
+ image: '/images/blog/frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

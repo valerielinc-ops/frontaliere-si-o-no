@@ -8820,6 +8820,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aumento-prezzi-trenord-pendolari.title': 'Trenord, nouvelles augmentations sur les billets pour les frontaliers',
     'blog.article.aumento-prezzi-trenord-pendolari.excerpt': 'Trenord a annoncé une nouvelle augmentation des tarifs ferroviaires. Le nouveau « tarif spécifique Malpensa » est reporté à l\'été prochain.',
     'blog.article.aumento-prezzi-trenord-pendolari.imageAlt': 'Navetteurs dans une gare au Tessin',
+    'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.title': 'Employé de commerce au Tessin : salaire, exigences et reconnaissance',
+    'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.excerpt': 'Les frontaliers qui travaillent comme employés de commerce au Tessin doivent répondre à des exigences spécifiques et posséder certaines qualifications.',
+    'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.imageAlt': 'Frontaliers qui travaillent en Tessin et résident en Italie. Cadré sur une scène de travail avec une vue sur le lac de Lugano.',
 };
 
 export default blogMetaFr;
