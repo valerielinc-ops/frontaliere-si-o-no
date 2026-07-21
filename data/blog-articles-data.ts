@@ -26306,6 +26306,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti',
+ category: 'pratico',
+ date: '2026-07-21T02:25:16.155Z',
+ image: '/images/blog/frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

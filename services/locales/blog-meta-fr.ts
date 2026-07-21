@@ -8756,6 +8756,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.title': 'Travail frontalier en Ticino : salaire, exigences et taxes',
     'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.excerpt': 'Guide pratique pour les frontaliers : salaire moyen, exigences légales, impôt à la source et permis de travailler dans le commerce au Tessin.',
     'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.imageAlt': 'Rue commerçante à Lugano avec des magasins et des frontaliers à la pause déjeuner',
+    'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.title': 'Responsable de magasin au Tessin : requisits et permis G',
+    'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.excerpt': 'Savoir comment fonctionne le travail de responsable de magasin au Tessin pour les frontaliers.',
+    'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.imageAlt': 'Un responsable de magasin dans un centre commercial à Lugano.',
 };
 
 export default blogMetaFr;

@@ -4768,6 +4768,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-gruista-frontaliere-ticino': { name: 'Stipendio gruista frontaliere Ticino', path: '/articoli-svizzera/gruista-frontaliere-ticino/', parent: 'blog' },
     'blog-frontaliere-venditore-ticino-stipendio-requisiti': { name: 'Lavoro frontaliero', path: '/articoli-frontaliere/frontaliere-venditore-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-stipendio-cassiere-frontaliere-ticino': { name: 'Lavoro', path: '/articoli-svizzera/stipendio-cassiere-frontaliere-ticino/', parent: 'blog' },
+    'blog-frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti': { name: 'Lavorare come responsabile di negozio in', path: '/articoli-frontaliere/frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti', parent: 'blog' },
  };
 
  const info = sectionNames[section];
