@@ -1,16 +1,16 @@
 {
   "key": "tinext",
   "label": "tinext",
-  "generatedAt": "2026-07-20T22:41:20.354Z",
+  "generatedAt": "2026-07-21T11:54:22.457Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1218,
-  "avgDurationMs": 1218,
+  "durationMs": 1171,
+  "avgDurationMs": 1171,
   "durationHistory": [
-    1218
+    1171
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "IT & Digital Transformation",
       "source": "tinext-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-20",
+      "postedDate": "2026-07-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -69,7 +69,7 @@
       "sector": "IT & Digital Transformation",
       "source": "tinext-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-07-20",
+      "postedDate": "2026-07-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -88,42 +88,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Impiegato/a amministrativo-contabile",
-      "slug": "impiegato-a-amministrativo-contabile-tinext-sa-morbio",
-      "url": "https://tinext.kenjo.io/backoffthb",
-      "applyUrl": "https://tinext.kenjo.io/backoffthb",
-      "company": "Tinext SA",
-      "companyKey": "tinext",
-      "companyDomain": "tinext.com",
-      "location": "Morbio",
-      "addressLocality": "Morbio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "IT & Digital Transformation",
-      "sector": "IT & Digital Transformation",
-      "source": "tinext-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-16",
-      "validThrough": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "tinext-02ce24a236a5",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-16T11:17:02.312Z",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
