@@ -26279,6 +26279,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'stipendio-magazziniere-frontaliere-ticino',
+ category: 'pratico',
+ date: '2026-07-21T00:49:05.536Z',
+ image: '/images/blog/stipendio-magazziniere-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

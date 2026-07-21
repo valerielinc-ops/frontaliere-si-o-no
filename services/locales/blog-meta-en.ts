@@ -8746,6 +8746,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stipendio-gessatore-frontaliere-ticino.title': 'How much does a border plasterer earn in Ticino: salaries and taxes',
     'blog.article.stipendio-gessatore-frontaliere-ticino.excerpt': 'Real salary band, differences with Italy, deductions and contributions. Practical guide with verified calculations.',
     'blog.article.stipendio-gessatore-frontaliere-ticino.imageAlt': 'Cross-border worker plasterer on a construction site in Ticino',
+    'blog.article.stipendio-magazziniere-frontaliere-ticino.title': 'How much does a border warehouseman earn in Ticino?',
+    'blog.article.stipendio-magazziniere-frontaliere-ticino.excerpt': 'The salaries of border warehouse workers in Ticino are influenced by Swiss and Italian legislation.',
+    'blog.article.stipendio-magazziniere-frontaliere-ticino.imageAlt': 'A cross-border warehouse worker in Ticino works in a warehouse with a view of Lake Lugano.',
 };
 
 export default blogMetaEn;

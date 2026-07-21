@@ -8747,6 +8747,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stipendio-gessatore-frontaliere-ticino.title': 'Quanto guadagna un gessatore frontaliere in Ticino: stipendi e tasse',
     'blog.article.stipendio-gessatore-frontaliere-ticino.excerpt': 'Fascia salariale reale, differenze con l\'Italia, detrazioni e contributi. Guida pratica con calcoli verificati.',
     'blog.article.stipendio-gessatore-frontaliere-ticino.imageAlt': 'Gessatore frontaliere al lavoro in un cantiere ticinese',
+    'blog.article.stipendio-magazziniere-frontaliere-ticino.title': 'Quanto guadagna un magazziniere frontaliere in Ticino?',
+    'blog.article.stipendio-magazziniere-frontaliere-ticino.excerpt': 'Gli stipendi dei magazziniere frontaliere in Ticino sono influenzati dalla legislazione svizzera e italiana.',
+    'blog.article.stipendio-magazziniere-frontaliere-ticino.imageAlt': 'Un magazziniere frontaliere in Ticino lavora in un magazzificio con vista sul lago di Lugano.',
 };
 
 export default blogMetaIt;
