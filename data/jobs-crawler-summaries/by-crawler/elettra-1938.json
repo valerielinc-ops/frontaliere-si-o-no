@@ -1,16 +1,16 @@
 {
   "key": "elettra-1938",
   "label": "Elettra 1938",
-  "generatedAt": "2026-07-21T12:42:27.816Z",
+  "generatedAt": "2026-07-21T23:14:11.588Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4693,
-  "avgDurationMs": 4693,
+  "durationMs": 3880,
+  "avgDurationMs": 3880,
   "durationHistory": [
-    4693
+    3880
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/customer-quality-engineer-717575/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-21T12:42:25.027Z",
+      "crawledAt": "2026-07-21T23:14:09.531Z",
       "addressLocality": "Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -62,7 +62,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/manutentore-elettromeccanico-715887/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-21T12:42:25.329Z",
+      "crawledAt": "2026-07-21T23:14:09.833Z",
       "addressLocality": "Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -87,46 +87,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "elettra-1938-4eb9d2395e16",
-      "slug": "operaio-d-esercizio-elettra-1938-ch",
-      "company": "Elettra 1938",
-      "companyKey": "elettra-1938",
-      "companyDomain": "elettra1938.ch",
-      "title": "Operaio d'esercizio",
-      "location": "Stabio Svizzera",
-      "canton": "TI",
-      "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-716611/it/",
-      "source": "Elettra 1938 Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-07-19T22:30:31.648Z",
-      "addressLocality": "Stabio Svizzera",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6850",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Impiantistica elettrica / Automazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-716611/it/",
-      "firstSeenAt": "2026-07-08T22:06:24.959Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
