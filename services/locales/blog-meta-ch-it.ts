@@ -1369,6 +1369,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.stipendio-cassiere-frontaliere-ticino.title': 'Quanto guadagna un cassiere frontaliere in Ticino',
     'blog.article.stipendio-cassiere-frontaliere-ticino.excerpt': 'Fascia salariale reale, differenze con l\'Italia e fattori che influenzano la retribuzione netta. Guida pratica con dati verificati.',
     'blog.article.stipendio-cassiere-frontaliere-ticino.imageAlt': 'Cassiere in un negozio di Bellinzona con prodotti svizzeri e banconote CHF',
+    'blog.article.stipendio-frontaliere-ticino-2024.title': 'Quanto guadagna un responsabile di negozio frontaliere in Ticino?',
+    'blog.article.stipendio-frontaliere-ticino-2024.excerpt': 'Fatti e cifre sulla retribuzione dei responsabili di negozio frontaliere in Ticino',
+    'blog.article.stipendio-frontaliere-ticino-2024.imageAlt': 'Un responsabile frontaliere in un negozio di Lugano',
 };
 
 export default blogMetaChIt;

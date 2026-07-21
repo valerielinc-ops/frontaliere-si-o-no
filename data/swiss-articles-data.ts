@@ -4103,6 +4103,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'stipendio-frontaliere-ticino-2024',
+    category: 'pratico',
+    date: '2026-07-21T02:36:35.546Z',
+    image: '/images/blog/stipendio-frontaliere-ticino-2024.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

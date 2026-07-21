@@ -479,6 +479,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-magazziniere-ticino-stipendio-requisiti': { it: 'frontaliere-magazziniere-ticino-stipendio-requisiti', en: 'frontaliere-magazziniere-ticino-salary-requirements', de: 'frontaliere-magazziniere-ticino-lohne-anforderungen', fr: 'frontaliere-magazziniere-ticino-salaire-requisits' },
  'gruista-frontaliere-ticino': { it: 'gruista-frontaliere-ticino', en: 'frontal-crane-operator-ticino', de: 'frontal-kran-betrieb-ticino', fr: 'operateur-de-grue-frontal-ticino' },
  'stipendio-cassiere-frontaliere-ticino': { it: 'stipendio-cassiere-frontaliere-ticino', en: 'frontaliere-cashier-salary-ticino', de: 'grenzgaenger-kassierer-gehalt-ticino', fr: 'salaire-caissier-frontalier-ticino' },
+ 'stipendio-frontaliere-ticino-2024': { it: 'stipendio-frontaliere-ticino-2024', en: 'frontaliere-swiss-ticino-salary', de: 'frontalier-schweiz-ticino-gesetz', fr: 'salari-frontalier-suisse-ticino' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
