@@ -8782,6 +8782,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.title': 'Ticino border guards: salary and requirements for cleaners',
     'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.excerpt': 'The cleaner is a worker who takes care of the maintenance and upkeep of buildings, plants and infrastructure. In Ticino, the border cleaner can work in different areas, such as companies, schools, hospitals and shopping centers.',
     'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.imageAlt': 'A cross-border cleaner works in a company in Lugano',
+    'blog.article.monate-pesche-sciroppate-bina.title': 'Bina Company: the tradition of the Perzic de Munà',
+    'blog.article.monate-pesche-sciroppate-bina.excerpt': 'Discover the history of the Bina di Travedona Monate farm, which has been active for three generations in the artisanal production of peaches syruped without preservatives.',
+    'blog.article.monate-pesche-sciroppate-bina.imageAlt': 'Artisanal canned peaches produced in Travedona Monate',
 };
 
 export default blogMetaEn;

@@ -8781,6 +8781,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.title': 'Grenzgänger Tessin: Gehalt und Anforderungen für Reinigungskräfte',
     'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.excerpt': 'Der Reinigungskraft ist ein Mitarbeiter, der sich mit der Wartung und Instandhaltung von Gebäuden, Anlagen und Infrastrukturen befasst. Im Tessin kann der Reinigungsgrenzgänger in verschiedenen Bereichen wie Unternehmen, Schulen, Spitälern und Einkaufszentren arbeiten.',
     'blog.article.frontaliere-addetto-pulizie-ticino-stipendio-requisiti.imageAlt': 'Ein Grenzgänger, der sich um die Reinigung kümmert, arbeitet in einer Firma in Lugano',
+    'blog.article.monate-pesche-sciroppate-bina.title': 'Unternehmen Bina: die Tradition der Perzic de Munà',
+    'blog.article.monate-pesche-sciroppate-bina.excerpt': 'Entdecken Sie die Geschichte des landwirtschaftlichen Betriebs Bina di Travedona Monate, der seit drei Generationen in der handwerklichen Produktion von Pfirsichen in Sirup ohne Konservierungsstoffe tätig ist.',
+    'blog.article.monate-pesche-sciroppate-bina.imageAlt': 'Handwerklich hergestellte Pfirsiche in Travedona Monate',
 };
 
 export default blogMetaDe;

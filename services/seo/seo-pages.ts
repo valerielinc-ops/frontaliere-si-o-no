@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3411,
+ "numberOfItems": 3412,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8179,7 +8179,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3408, "name": "Quanto guadagna un agente di sicurezza frontali...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-agenzia-sicurezza-guadagno-ticino` },
           { "@type": "ListItem", "position": 3409, "name": "Novartis supera le aspettative", "url": `${BASE_URL}/articoli-frontaliere/novartis-superaspettative` },
           { "@type": "ListItem", "position": 3410, "name": "Frontaliere Ticino: stipendio e requisiti per a...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-addetto-pulizie-ticino-stipendio-requisiti` },
-          { "@type": "ListItem", "position": 3411, "name": "Custodi in Ticino: stipendio, requisiti e perme...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-custode-ticino-stipendio-requisiti` }
+          { "@type": "ListItem", "position": 3411, "name": "Custodi in Ticino: stipendio, requisiti e perme...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-custode-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3412, "name": "Azienda Bina: la tradizione dei Perzic de Munà", "url": `${BASE_URL}/articoli-frontaliere/monate-pesche-sciroppate-bina` }
  ]
  },
  {

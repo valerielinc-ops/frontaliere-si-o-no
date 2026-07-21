@@ -26387,6 +26387,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'monate-pesche-sciroppate-bina',
+ category: 'pratico',
+ date: '2026-07-21T06:36:57.893Z',
+ image: '/images/blog/monate-pesche-sciroppate-bina.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
