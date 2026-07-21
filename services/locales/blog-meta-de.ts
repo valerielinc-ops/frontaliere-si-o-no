@@ -8790,6 +8790,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.accertamenti-fiscali-frontalieri-controlli-e-difesa.title': 'Steuerprüfungen von Grenzgängern: Kontrollen und Verteidigung',
     'blog.article.accertamenti-fiscali-frontalieri-controlli-e-difesa.excerpt': 'Das neue Gesetz sieht eine Verstärkung der Kontrolltätigkeiten für Grenzgänger vor. Entdecke die Details und wie sie dich beeinflussen können.',
     'blog.article.accertamenti-fiscali-frontalieri-controlli-e-difesa.imageAlt': 'Bild des Luganer Sees mit zwei Personen in einem Boot',
+    'blog.article.sciopero-treni-italia-tilo.title': 'Zugstreik Italien, Unannehmlichkeiten für TILO 23.-24. Juli',
+    'blog.article.sciopero-treni-italia-tilo.excerpt': 'Ein landesweiter Streik des Schienenverkehrs in Italien am 23. und 24. Juli 2026. Von TILO betriebene grenzüberschreitende Verbindungen sind betroffen.',
+    'blog.article.sciopero-treni-italia-tilo.imageAlt': 'Pendolari in attesa ai valichi di frontiera tra Italia e Svizzera',
 };
 
 export default blogMetaDe;
