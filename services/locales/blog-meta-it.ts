@@ -8756,6 +8756,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.title': 'Lavorare come venditore in Ticino da frontaliere: stipendio, requisiti e tasse',
     'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.excerpt': 'Guida pratica per frontalieri: stipendio medio, requisiti legali, imposta alla fonte e permessi per lavorare nel commercio in Ticino.',
     'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.imageAlt': 'Via Nassa a Lugano con negozi e frontalieri in pausa pranzo',
+    'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.title': 'Lavorare come responsabile di negozio in Ticino da frontaliere: requisiti e permesso G',
+    'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.excerpt': 'Sapere come funziona il lavoro di responsabile di negozio in Ticino per i frontalieri.',
+    'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.imageAlt': 'Un responsabile di negozio in un centro commerciale di Lugano.',
 };
 
 export default blogMetaIt;

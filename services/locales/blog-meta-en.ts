@@ -8755,6 +8755,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.title': 'Salesman in Ticino: Salary, Requirements, Taxes',
     'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.excerpt': 'Practical guide for border workers: average salary, legal requirements, source tax and permits to work in the Ticino trade.',
     'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.imageAlt': 'Retail street in Lugano with shops and cross-border workers on lunch break',
+    'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.title': 'Ticino Shop Manager Requirements for Border Workers',
+    'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.excerpt': 'Know how the job of store manager in Ticino works for border workers.',
+    'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.imageAlt': 'A store manager in a shopping mall in Lugano.',
 };
 
 export default blogMetaEn;

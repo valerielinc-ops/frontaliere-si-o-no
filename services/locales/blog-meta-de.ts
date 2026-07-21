@@ -8754,6 +8754,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.title': 'Verkäufer im Tessin: Gehalt, Voraussetzungen und Steuern',
     'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.excerpt': 'Praktischer Leitfaden für Grenzgänger: Durchschnittslohn, gesetzliche Anforderungen, Quellensteuer und Genehmigungen für die Arbeit im Handel im Tessin.',
     'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.imageAlt': 'Einkaufsstraße in Lugano mit Geschäften und Grenzgängern in der Mittagspause',
+    'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.title': 'Frontalieri im Tessin: Voraussetzungen und Bewilligung',
+    'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.excerpt': 'Erfahren Sie, wie die Arbeit als Filialleiter im Tessin für Grenzgänger funktioniert.',
+    'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.imageAlt': 'Ein Verkaufsleiter in einem Einkaufszentrum in Lugano.',
 };
 
 export default blogMetaDe;
