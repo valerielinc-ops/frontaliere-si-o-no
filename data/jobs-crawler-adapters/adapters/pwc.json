@@ -11,7 +11,7 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-07-20T22:28:01.659Z",
+  "updatedAt": "2026-07-21T11:48:05.332Z",
   "seedMetaByUrl": {
     "https://jobs.pwc.ch/job-vacancies/assistant-comptable/22f2c1ed-4659-41ec-b8c1-f3d6a0338bf1": {
       "location": "Lausanne",
@@ -392,12 +392,6 @@
       "postedDate": "2026-03-12"
     },
     "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-strategy-consulting/397fe1ab-2e3e-434e-8611-41f59b3e47a1": {
-      "location": "Zürich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-03-10"
-    },
-    "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-technology-strategy-transformation-consulting/decd61a7-5b34-4780-80ae-af8b9d04ac76": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "PwC Switzerland",
