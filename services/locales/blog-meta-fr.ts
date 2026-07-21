@@ -8805,6 +8805,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.title': 'DE L\'HERBE secrétaire de la commission santé et sécurité',
     'blog.article.romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.excerpt': 'La conseillère régionale romaine Dell\' Erba a été nommée secrétaire de la Commission spéciale Santé et sécurité sur les lieux de travail.',
     'blog.article.romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza.imageAlt': 'La vue de Lugano du lac',
+    'blog.article.salari-ticino-abusi-precarieta.title': 'Salaires tessinois : entre abus et précarité',
+    'blog.article.salari-ticino-abusi-precarieta.excerpt': 'Nouvel accord fiscal 2024, impôt à la source et cotisations sociales : ce qui change pour les frontaliers avec l\'Italie',
+    'blog.article.salari-ticino-abusi-precarieta.imageAlt': 'Frontaliers faisant la queue au bureau des contributions de Bellinzona',
 };
 
 export default blogMetaFr;

@@ -26450,6 +26450,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'salari-ticino-abusi-precarieta',
+ category: 'fiscale',
+ date: '2026-07-21T10:28:17.227Z',
+ image: '/images/blog/salari-ticino-abusi-precarieta.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
