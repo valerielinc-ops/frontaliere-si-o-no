@@ -1372,6 +1372,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.stipendio-frontaliere-ticino-2024.title': 'Combien gagne un responsable de magasin frontalier au Tessin ?',
     'blog.article.stipendio-frontaliere-ticino-2024.excerpt': 'Faits et chiffres sur la rémunération des responsables de magasin frontalier au Tessin',
     'blog.article.stipendio-frontaliere-ticino-2024.imageAlt': 'Un responsable frontalier dans un magasin de Lugano',
+    'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.title': 'Frontalier boucher : salaire et exigences',
+    'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.excerpt': 'Les exigences pour travailler comme boucher au Tessin en tant que frontalier, le salaire moyen et la possibilité de reconnaissance du diplôme',
+    'blog.article.frontaliere-macellaio-ticino-stipendio-requisiti.imageAlt': 'Photographie d\'un frontalier boucher travaillant dans un magasin de viande à Lugano',
 };
 
 export default blogMetaChFr;
