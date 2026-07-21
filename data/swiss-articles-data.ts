@@ -4184,6 +4184,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'swatch-crescita-2026',
+    category: 'fiscale',
+    date: '2026-07-21T06:51:11.284Z',
+    image: '/images/blog/swatch-crescita-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

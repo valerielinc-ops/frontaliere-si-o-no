@@ -1396,6 +1396,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-custode-ticino-stipendio-requisiti.title': 'Gardiens au Tessin : salaire, exigences et permis G',
     'blog.article.frontaliere-custode-ticino-stipendio-requisiti.excerpt': 'Les frontaliers qui travaillent comme gardiens au Tessin doivent respecter les normes en vigueur. Voici les exigences et les informations utiles.',
     'blog.article.frontaliere-custode-ticino-stipendio-requisiti.imageAlt': 'Travailleurs frontaliers travaillant comme gardiens en Tessin',
+    'blog.article.swatch-crescita-2026.title': 'Swatch, forte croissance au premier semestre',
+    'blog.article.swatch-crescita-2026.excerpt': 'Swatch Group a enregistré une augmentation de son chiffre d\'affaires de 2 % au premier semestre 2026, avec un chiffre d\'affaires de 3,12 milliards de francs.',
+    'blog.article.swatch-crescita-2026.imageAlt': 'Une photographie de haute qualité d\'un siège de la Swatch Group à Lugano, avec des personnes qui travaillent à l\'intérieur de la fabrique.',
 };
 
 export default blogMetaChFr;
