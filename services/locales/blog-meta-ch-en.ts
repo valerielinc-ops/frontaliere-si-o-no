@@ -1354,6 +1354,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-lattoniere-ticino-stipendio.title': 'How much does a border tinsmith earn in Ticino?',
     'blog.article.frontalieri-lattoniere-ticino-stipendio.excerpt': 'The remuneration of a border tinsmith in Ticino is influenced by several factors, including his experience, the type of work and the area in which he works.',
     'blog.article.frontalieri-lattoniere-ticino-stipendio.imageAlt': 'A front-line roofer at work in the Canton of Ticino',
+    'blog.article.frontalieri-guadagno-ticino.title': 'Pinstriping Salary: Salaries and Differences with Italy',
+    'blog.article.frontalieri-guadagno-ticino.excerpt': 'The salaries of border workers in Ticino: how much do banders earn and how do they differ from Italian salaries',
+    'blog.article.frontalieri-guadagno-ticino.imageAlt': 'Frontalieri in Ticino: real income and differences with Italy',
 };
 
 export default blogMetaChEn;

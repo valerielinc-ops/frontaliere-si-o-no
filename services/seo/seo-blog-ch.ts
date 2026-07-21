@@ -17490,6 +17490,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-guadagno-ticino': {
+    title: 'Stipendio gessatore: salari e differenze con l\'Italia',
+    description: 'Gli stipendi dei frontalieri in Ticino: quanto guadagnano i gessatori e come si differenziano dalle retribuzioni italiane. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, stipendio, gessatore, salari, differenze',
+    ogTitle: 'Stipendio reale di un gessatore frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione',
+    ogDescription: 'Gli stipendi dei frontalieri in Ticino: quanto guadagnano i gessatori e come si differenziano dalle retribuzioni italiane',
+    canonicalPath: '/articoli-svizzera/frontalieri-guadagno-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stipendio gessatore: salari e differenze con l'Italia",
+      "description": "Gli stipendi dei frontalieri in Ticino: quanto guadagnano i gessatori e come si differenziano dalle retribuzioni italiane. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-guadagno-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in Ticino: guadagno reale e differenze con l'Italia"
+      },
+      "datePublished": "2026-07-21T00:07:51+00:00",
+      "dateModified": "2026-07-21T00:07:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-guadagno-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

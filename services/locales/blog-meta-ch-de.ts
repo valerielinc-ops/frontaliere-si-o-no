@@ -1354,6 +1354,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-lattoniere-ticino-stipendio.title': 'Wie viel verdient ein Grenzspengler im Tessin?',
     'blog.article.frontalieri-lattoniere-ticino-stipendio.excerpt': 'Die Entlohnung eines Grenzspenders im Tessin wird durch verschiedene Faktoren beeinflusst, darunter seine Erfahrung, die Art der Arbeit und die Region, in der er arbeitet.',
     'blog.article.frontalieri-lattoniere-ticino-stipendio.imageAlt': 'Ein Dachdecker arbeitet am Kantons Ticino',
+    'blog.article.frontalieri-guadagno-ticino.title': 'Gipserlohn: Löhne und Unterschiede zu Italien',
+    'blog.article.frontalieri-guadagno-ticino.excerpt': 'Die Gehälter der Grenzgänger im Tessin: Wie viel verdienen Gipser und wie unterscheiden sie sich von den italienischen Gehältern?',
+    'blog.article.frontalieri-guadagno-ticino.imageAlt': 'Frontalieri in Ticino: echtes Einkommen und Unterschiede mit Italien',
 };
 
 export default blogMetaChDe;

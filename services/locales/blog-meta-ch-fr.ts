@@ -1354,6 +1354,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-lattoniere-ticino-stipendio.title': 'Combien gagne un fermier frontalier au Tessin ?',
     'blog.article.frontalieri-lattoniere-ticino-stipendio.excerpt': 'La rémunération d\'un fermier frontalier au Tessin est influencée par plusieurs facteurs, notamment son expérience, le type de travail et la zone dans laquelle il travaille.',
     'blog.article.frontalieri-lattoniere-ticino-stipendio.imageAlt': 'Un couvreur frontalier travaille dans le canton du Tessin',
+    'blog.article.frontalieri-guadagno-ticino.title': 'Salaire épaississeur : salaires et différences avec l\'Italie',
+    'blog.article.frontalieri-guadagno-ticino.excerpt': 'Les salaires des frontaliers au Tessin : combien gagnent les épandeurs et comment diffèrent-ils des salaires italiens',
+    'blog.article.frontalieri-guadagno-ticino.imageAlt': 'Frontaliers en Tessin: revenu réel et différences avec l\'Italie',
 };
 
 export default blogMetaChFr;
