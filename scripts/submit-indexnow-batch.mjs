@@ -40,6 +40,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
+import { DEFAULT_LIVE_CHECK_USER_AGENT } from './lib/live-link-check.mjs';
 
 // ── Configuration ─────────────────────────────────────────────
 const DEFAULT_KEY = '39093e02a74b4a2dbf867c74bc53a7d8';
@@ -153,7 +154,7 @@ async function fetchSitemapXml(file) {
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     try {
       const res = await fetch(url, {
-        headers: { Accept: 'application/xml,text/xml' },
+        headers: { Accept: 'application/xml,text/xml', 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT },
         signal: AbortSignal.timeout(30_000),
       });
       if (res.ok) return await res.text();
@@ -267,7 +268,7 @@ export async function getUrlsFromSitemaps() {
 async function verifyKeyFile() {
   try {
     const res = await fetch(KEY_LOCATION, {
-      headers: { Accept: 'text/plain' },
+      headers: { Accept: 'text/plain', 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT },
       signal: AbortSignal.timeout(10_000),
     });
     if (!res.ok) {

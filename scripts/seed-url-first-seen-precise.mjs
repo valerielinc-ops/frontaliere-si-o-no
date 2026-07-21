@@ -33,6 +33,7 @@
 import { readFileSync, readdirSync, existsSync, writeFileSync } from 'node:fs';
 import { dirname, join, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { DEFAULT_LIVE_CHECK_USER_AGENT } from './lib/live-link-check.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -133,7 +134,7 @@ function loadSlugIndex(rootDir) {
 }
 
 async function fetchSitemap(url) {
-  const r = await fetch(url);
+  const r = await fetch(url, { headers: { 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT } });
   if (!r.ok) throw new Error(`${url} → ${r.status}`);
   return await r.text();
 }
