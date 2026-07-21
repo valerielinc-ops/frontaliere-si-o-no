@@ -8809,6 +8809,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia.title': 'The return of Swiss nuclear power threatens thousands of construction jobs',
     'blog.article.nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia.excerpt': 'A ZHAW study warns: new nuclear power plants put 5,800-9,500 construction and renewable uses at risk within 5 years',
     'blog.article.nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia.imageAlt': 'Construction site in Bellinzona with workers',
+    'blog.article.frontaliereticino-mozione-consiglio-federale.title': 'Frontier workers: no unemployment for Switzerland',
+    'blog.article.frontaliereticino-mozione-consiglio-federale.excerpt': 'Switzerland must not pay unemployment to frontier workers. Motion to the Federal Council.',
+    'blog.article.frontaliereticino-mozione-consiglio-federale.imageAlt': 'A frontaliere in Lugano, with the city in the background',
 };
 
 export default blogMetaEn;

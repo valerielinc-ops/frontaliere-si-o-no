@@ -26468,6 +26468,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliereticino-mozione-consiglio-federale',
+ category: 'novita',
+ date: '2026-07-21T12:22:01.722Z',
+ image: '/images/blog/frontaliereticino-mozione-consiglio-federale.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
