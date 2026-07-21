@@ -841,7 +841,7 @@
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
-        "de": "general-services-employee-efg-international-ag-geneve",
+        "de": "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "fr": "services-generaux-employe-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -874,14 +874,12 @@
         ],
         "de": [
           "general-services-employee-efg-geneve",
-          "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
           "general-services-employee-efg-international-ag-geneve"
         ]
       },
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
-        "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "general-services-employee-efg-international-ag-geneve"
       ]
     },
@@ -3017,9 +3015,9 @@
       },
       "crawledAt": "2026-07-21T11:19:19.251Z",
       "slugByLocale": {
-        "it": "switchboard-operator-efg-international-ag-lugano",
+        "it": "operatore-di-commutazione-efg-international-ag-lugano",
         "en": "switchboard-operator-efg-lugano",
-        "de": "schaltstelle-operator-efg-international-ag-lugano",
+        "de": "schaltnetzbetreiber-efg-international-ag-lugano",
         "fr": "switchboard-operateur-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -3045,19 +3043,15 @@
       "firstSeenAt": "2026-07-10T10:26:15.024Z",
       "previousSlugsByLocale": {
         "it": [
-          "switchboard-operator-efg-lugano",
-          "operatore-di-commutazione-efg-international-ag-lugano"
+          "switchboard-operator-efg-lugano"
         ],
         "de": [
           "switchboard-operator-efg-lugano",
-          "schaltnetzbetreiber-efg-international-ag-lugano",
           "schaltstelle-operator-efg-international-ag-lugano"
         ]
       },
       "previousSlugs": [
         "switchboard-operator-efg-lugano",
-        "operatore-di-commutazione-efg-international-ag-lugano",
-        "schaltnetzbetreiber-efg-international-ag-lugano",
         "schaltstelle-operator-efg-international-ag-lugano"
       ]
     },
@@ -3223,7 +3217,7 @@
     },
     {
       "id": "efg-6327",
-      "slug": "receptionist-efg-zurich",
+      "slug": "ricevitore-efg-international-ag-zurich",
       "company": "EFG International AG",
       "title": "Receptionist",
       "location": "Zurich",
@@ -3366,10 +3360,10 @@
       },
       "crawledAt": "2026-07-21T11:19:19.247Z",
       "slugByLocale": {
-        "it": "receptionist-efg-zurich",
+        "it": "ricevitore-efg-international-ag-zurich",
         "en": "receptionist-efg-international-ag-zurich",
-        "de": "receptionist-efg-zurich",
-        "fr": "receptionist-efg-zurich"
+        "de": "rezeptionist-efg-international-ag-zurich",
+        "fr": "receptionniste-efg-international-ag-zurich"
       },
       "addressLocality": "Zurich",
       "addressCountry": "CH",
@@ -3389,7 +3383,21 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-07-21T11:19:19.247Z"
+      "firstSeenAt": "2026-07-21T11:19:19.247Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "receptionist-efg-zurich"
+        ],
+        "de": [
+          "receptionist-efg-zurich"
+        ],
+        "fr": [
+          "receptionist-efg-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "receptionist-efg-zurich"
+      ]
     },
     {
       "id": "efg-6039",
