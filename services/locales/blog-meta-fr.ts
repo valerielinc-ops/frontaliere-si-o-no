@@ -8753,6 +8753,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.title': 'Courrier au Tessin : salaire, exigences et permis G',
     'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.excerpt': 'Les frontaliers travaillant comme coursiers au Tessin doivent présenter les documents suivants : permis G, assurance maladie et certificat d\'embauche.',
     'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.imageAlt': 'Un courrier frontalier en Suisse',
+    'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.title': 'Travail frontalier en Ticino : salaire, exigences et taxes',
+    'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.excerpt': 'Guide pratique pour les frontaliers : salaire moyen, exigences légales, impôt à la source et permis de travailler dans le commerce au Tessin.',
+    'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.imageAlt': 'Rue commerçante à Lugano avec des magasins et des frontaliers à la pause déjeuner',
 };
 
 export default blogMetaFr;

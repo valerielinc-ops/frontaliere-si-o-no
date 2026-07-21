@@ -8752,6 +8752,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.title': 'Courier in Ticino: salary, requirements and permit G',
     'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.excerpt': 'Border workers working as couriers in Ticino must present the following documents: G permit, health insurance and employment certificate.',
     'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.imageAlt': 'A cross-border courier in Ticino',
+    'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.title': 'Salesman in Ticino: Salary, Requirements, Taxes',
+    'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.excerpt': 'Practical guide for border workers: average salary, legal requirements, source tax and permits to work in the Ticino trade.',
+    'blog.article.frontaliere-venditore-ticino-stipendio-requisiti.imageAlt': 'Retail street in Lugano with shops and cross-border workers on lunch break',
 };
 
 export default blogMetaEn;

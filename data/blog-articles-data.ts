@@ -26297,6 +26297,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-venditore-ticino-stipendio-requisiti',
+ category: 'pratico',
+ date: '2026-07-21T01:41:16.299Z',
+ image: '/images/blog/frontaliere-venditore-ticino-stipendio-requisiti.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
