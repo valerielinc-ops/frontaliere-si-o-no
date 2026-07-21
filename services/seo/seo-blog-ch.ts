@@ -18114,6 +18114,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iperammortamento-transizione-5-0-conferma': {
+    title: 'Iperammortamento: via alle comunicazioni di conferma',
+    description: 'Al via le comunicazioni di conferma per l\'iperammortamento del Piano Transizione 5.0. Scopri come procedere sul portale GSE secondo il nuovo decreto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, iperammortamento, alle, comunicazioni, conferma',
+    ogTitle: 'Iperammortamento: via alle comunicazioni di conferma',
+    ogDescription: 'Dal 21 luglio al via le conferme per il Piano Transizione 5.0 sul portale GSE. Dettagli e istruzioni per le imprese.',
+    canonicalPath: '/articoli-svizzera/iperammortamento-transizione-5-0-conferma/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iperammortamento: via alle comunicazioni di conferma",
+      "description": "Al via le comunicazioni di conferma per l'iperammortamento del Piano Transizione 5.0. Scopri come procedere sul portale GSE secondo il nuovo decreto.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/iperammortamento-transizione-5-0-conferma.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno con dati finanziari su schermi"
+      },
+      "datePublished": "2026-07-21T08:10:43+00:00",
+      "dateModified": "2026-07-21T08:10:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iperammortamento-transizione-5-0-conferma/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

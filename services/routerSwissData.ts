@@ -490,6 +490,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-custode-ticino-stipendio-requisiti': { it: 'frontaliere-custode-ticino-stipendio-requisiti', en: 'frontalier-custodian-ticino-salary-requirements', de: 'grenzgaenger-aufseher-ticino-salario-anforderungen', fr: 'travailleurs-frontaliers-gardiens-tessin-salaire-exigences' },
  'swatch-crescita-2026': { it: 'swatch-crescita-2026', en: 'swatch-growth-2026', de: 'swatch-wachstum-2026', fr: 'swatch-croissance-2026' },
  'votazioni-federali-27-settembre-cosa-cambia': { it: 'votazioni-federali-27-settembre-cosa-cambia', en: 'swiss-federal-votes-september-27-key-changes', de: 'schweizer-bundesabstimmungen-27-september-auswirkungen', fr: 'votations-federales-27-septembre-changements-suisse' },
+ 'iperammortamento-transizione-5-0-conferma': { it: 'iperammortamento-transizione-5-0-conferma', en: 'hyper-amortization-transition-5-0-confirmation', de: 'hyper-amortisation-transiton-5-0-bestatigung', fr: 'hyper-amortissement-transition-5-0-confirmation' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

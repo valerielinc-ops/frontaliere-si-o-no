@@ -1402,6 +1402,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.votazioni-federali-27-settembre-cosa-cambia.title': 'Eidgenössische Abstimmungen 27.9.: Schweiz ändert sich.',
     'blog.article.votazioni-federali-27-settembre-cosa-cambia.excerpt': 'Bei den nächsten eidgenössischen Abstimmungen werden zentrale Themen für die Schweizer Wirtschaft und Gesellschaft thematisiert. Hier sind die praktischen Auswirkungen für Anwohner und Grenzgänger.',
     'blog.article.votazioni-federali-27-settembre-cosa-cambia.imageAlt': 'Schweizer Wahlurne mit Stimmzetteln bei Bundesabstimmungen',
+    'blog.article.iperammortamento-transizione-5-0-conferma.title': 'Hyperabschreibung: Weg zur Bestätigungsmitteilung',
+    'blog.article.iperammortamento-transizione-5-0-conferma.excerpt': 'Veröffentlichung des Direktionsdekrets zur Bestätigung der Investitionen des Übergangsplans 5.0. So gehen Sie über das GSE-Portal vor.',
+    'blog.article.iperammortamento-transizione-5-0-conferma.imageAlt': 'Modernes Büro mit Finanzdaten auf Bildschirmen',
 };
 
 export default blogMetaChDe;

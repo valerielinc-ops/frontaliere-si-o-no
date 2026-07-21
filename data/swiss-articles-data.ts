@@ -4202,6 +4202,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'iperammortamento-transizione-5-0-conferma',
+    category: 'fiscale',
+    date: '2026-07-21T08:10:43.275Z',
+    image: '/images/blog/iperammortamento-transizione-5-0-conferma.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
