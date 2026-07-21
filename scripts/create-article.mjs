@@ -567,6 +567,13 @@ async function applyPreSpendTopicGate(headlines, opts = {}) {
       }
     }
   }
+  for (const f of filtered) {
+    recordDiscardedHeadline({
+      reason: 'not_frontaliere_relevant',
+      headline: f.rawHeadline,
+      classifierReason: f.reason,
+    });
+  }
   if (typeof RUN_REPORT === 'object' && RUN_REPORT?.headlines) {
     RUN_REPORT.headlines.droppedPreSpendGate = (RUN_REPORT.headlines.droppedPreSpendGate || 0) + dropped;
     RUN_REPORT.headlines.preSpendGateClassifierCalls = (RUN_REPORT.headlines.preSpendGateClassifierCalls || 0) + classifierCalls;
@@ -1128,6 +1135,16 @@ const RUN_REPORT = {
     attemptsUndated: 0,
   },
   duplicateReasonBreakdown: {},
+  // Pre-generation pool-exhaustion diagnostics (2026-07-21): the Fase 1 news
+  // pool routinely empties before any headline reaches generation, silently
+  // falling back to Fase 2 evergreen. These counts + samples make WHY a
+  // headline was dropped (and WHAT it matched) visible in the run's step
+  // summary instead of requiring a raw-log grep after the fact.
+  preFilterDrops: {
+    urlAlreadyUsed: 0,
+    topicAlreadyCovered: 0,
+  },
+  discardedHeadlineSamples: [],
   article: {
     id: null,
     url: null,
@@ -1137,6 +1154,16 @@ const RUN_REPORT = {
 };
 
 let REPORT_FINALIZED = false;
+
+// Cap on discardedHeadlineSamples — a single run's pre-filter can drop 50-100+
+// headlines; the report only needs enough examples to judge whether the gate
+// is catching real duplicates or false-positiving on distinct stories.
+const DISCARDED_HEADLINE_SAMPLE_CAP = 20;
+
+function recordDiscardedHeadline(entry) {
+  if (RUN_REPORT.discardedHeadlineSamples.length >= DISCARDED_HEADLINE_SAMPLE_CAP) return;
+  RUN_REPORT.discardedHeadlineSamples.push(entry);
+}
 
 function addDuplicateReason(key) {
   const k = key || 'other';
@@ -1397,6 +1424,39 @@ const PRIORITY_EVERGREEN_TOPICS = [
   { keyword: 'longlake festival lugano eventi gratuiti', angle: 'LongLake Festival a Lugano: calendario eventi gratuiti, location, come organizzare una serata dall\'altra parte del confine' },
   { keyword: 'blues to bop lugano concerti gratuiti', angle: 'Blues to Bop a Lugano: date, concerti gratuiti in piazza, come organizzare la trasferta serale da chi vive vicino al confine' },
   { keyword: 'fiera di lugano manifestazioni annuali', angle: 'Le principali fiere e manifestazioni annuali a Lugano: calendario, ingresso, cosa aspettarsi, utile per chi organizza la trasferta dal confine' },
+];
+
+// ── Long-tail SEO: evergreen keyword topics — sezione `svizzera` (2026-07-21) ──
+// National-scope counterpart to PRIORITY_EVERGREEN_TOPICS above. The `svizzera`
+// section targets anyone living/working in Switzerland at national scale (see
+// the prompt framing near IS_FRONTALIERE — "NON sei limitato ai frontalieri",
+// spans all cantons), NOT the frontaliere/Ticino niche. Before this pool
+// existed, the Fase 2 fallback for `svizzera` reused PRIORITY_EVERGREEN_TOPICS
+// (100% Ticino/frontaliere keywords) whenever Fase 1 found no usable news —
+// every /articoli-svizzera/ evergreen article ended up Ticino-scoped despite
+// the national prompt wrapper. Keep entries genuinely national/cantonal, no
+// frontaliere framing.
+const PRIORITY_EVERGREEN_TOPICS_SVIZZERA = [
+  { keyword: 'confronto imposta cantonale svizzera cantoni', angle: 'Confronto tra le aliquote di imposta cantonale in Svizzera: perché Zugo e Svitto costano meno di Ginevra o Vaud, con esempi di calcolo' },
+  { keyword: 'costo della vita per cantone svizzera', angle: 'Costo della vita nei principali cantoni svizzeri: affitti, spesa, trasporti e assicurazioni a confronto tra Zurigo, Ginevra, Berna, Basilea e Ticino' },
+  { keyword: 'premi cassa malati lamal per cantone', angle: 'Perché i premi LAMal variano così tanto tra cantoni: fattori regionali, come cambiare cassa, franchigia ottimale e sussidi disponibili' },
+  { keyword: 'salario medio in svizzera per professione', angle: 'Salari medi per professione e settore in Svizzera: dati ufficiali UST/BFS, differenze tra cantoni e città, fattori che spiegano il divario' },
+  { keyword: 'secondo pilastro lpp guida completa svizzera', angle: 'Guida al secondo pilastro LPP: come funziona, contributi, riscatto lacune, prelievo per acquisto casa o partenza dalla Svizzera' },
+  { keyword: 'terzo pilastro 3a vantaggi fiscali svizzera', angle: 'Terzo pilastro 3a: vantaggi fiscali reali, differenze tra 3a bancario e assicurativo, quanto versare per ottimizzare le imposte' },
+  { keyword: 'affitti svizzera diritti inquilino disdetta', angle: 'Diritti dell\'inquilino in Svizzera: deposito cauzionale, procedura di disdetta, contestazione dell\'affitto, differenze cantonali' },
+  { keyword: 'dichiarazione delle imposte in svizzera guida', angle: 'Guida pratica alla dichiarazione delle imposte in Svizzera: scadenze cantonali, deduzioni ammesse, procedura online per cantone' },
+  { keyword: 'permesso di soggiorno svizzera tipologie B C L', angle: 'Permessi di soggiorno in Svizzera: differenze tra permesso B, C e L, requisiti, durata e procedura di rinnovo o conversione' },
+  { keyword: 'cercare lavoro in svizzera dall estero guida', angle: 'Come cercare lavoro in Svizzera: portali di annunci, CV in formato svizzero, colloqui, permesso di lavoro e primi passi burocratici' },
+  { keyword: 'aprire un attivita in svizzera guida pratica', angle: 'Aprire un\'attività in Svizzera: forma giuridica, registro di commercio, capitale minimo, differenze cantonali e oneri fiscali' },
+  { keyword: 'assicurazione disoccupazione svizzera come funziona', angle: 'Assicurazione disoccupazione svizzera: requisiti, calcolo dell\'indennità, durata delle prestazioni, obblighi verso l\'URC' },
+  { keyword: 'naturalizzazione svizzera requisiti procedura', angle: 'Naturalizzazione svizzera: requisiti di residenza, esame di integrazione, costi e differenze procedurali tra cantoni e comuni' },
+  { keyword: 'sistema sanitario svizzero lamal come funziona', angle: 'Come funziona il sistema sanitario svizzero: obbligo LAMal, scelta della cassa malati, franchigia, rimborsi e pronto soccorso' },
+  { keyword: 'comprare casa in svizzera mutuo requisiti', angle: 'Comprare casa in Svizzera: requisiti del mutuo ipotecario, fondi propri minimi, tassi, differenze tra banche cantonali e private' },
+  { keyword: 'votazioni federali svizzera come funzionano', angle: 'Come funziona la democrazia diretta svizzera: iniziative popolari, referendum, doppia maggioranza di popolo e cantoni' },
+  { keyword: 'trasporti pubblici svizzera abbonamenti sconti', angle: 'Guida agli abbonamenti di trasporto pubblico in Svizzera: AG, mezza tariffa, abbonamenti cantonali e comunitari, costi e vantaggi' },
+  { keyword: 'lavoro part-time in svizzera diritti contratto', angle: 'Lavoro part-time in Svizzera: diritti contrattuali, contributi sociali proporzionali, ferie, differenze rispetto al tempo pieno' },
+  { keyword: 'congedo parentale svizzera durata indennita', angle: 'Congedo di maternità e paternità in Svizzera: durata, indennità giornaliera, procedura di richiesta, differenze cantonali per gli assegni' },
+  { keyword: 'franco svizzero economia bns politica monetaria', angle: 'Il ruolo della Banca Nazionale Svizzera (BNS): politica monetaria, tassi di interesse, impatto del franco forte su economia e salari' },
 ];
 
 // ── News sources to auto-scan ───────────────────────────────
@@ -2123,6 +2183,43 @@ function buildDynamicEvergreenTopics() {
       out.push({
         keyword: `${base.k} ${addon}`,
         angle: `${base.a} Focus su "${addon}" con checklist operativa e confronto scenari.`,
+      });
+    }
+  }
+  return out;
+}
+
+// National counterpart to buildDynamicEvergreenTopics, for the `svizzera`
+// section (2026-07-21, see PRIORITY_EVERGREEN_TOPICS_SVIZZERA above for the
+// full rationale). Addon dimension is cantons instead of frontaliere-specific
+// facets (20km confine, permesso G, ...) so the combinatorial pool stays
+// genuinely national instead of re-deriving Ticino-only angles.
+function buildDynamicEvergreenTopicsSvizzera() {
+  const y = new Date().getFullYear();
+  const pillars = [
+    { k: `imposta cantonale confronto svizzera ${y}`, a: `Confronto ${y} delle aliquote di imposta cantonale in Svizzera: differenze tra cantoni, scaglioni e strategie di ottimizzazione lecita.` },
+    { k: `costo della vita svizzera ${y}`, a: `Analisi ${y} del costo della vita in Svizzera: affitti, spesa alimentare, trasporti e assicurazioni a confronto tra cantoni.` },
+    { k: `premi cassa malati lamal ${y}`, a: `Guida ${y} ai premi LAMal: differenze cantonali, franchigia ottimale, cambio cassa e sussidi disponibili.` },
+    { k: `salario medio professioni svizzera ${y}`, a: `Salari medi per professione in Svizzera nel ${y}: confronto tra cantoni e settori, con dati ufficiali e fattori di variazione.` },
+    { k: `secondo pilastro lpp svizzera guida ${y}`, a: `Guida ${y} al secondo pilastro LPP: contributi, prelievo, riscatto lacune e pianificazione previdenziale in Svizzera.` },
+    { k: `affitti svizzera mercato immobiliare ${y}`, a: `Mercato degli affitti in Svizzera nel ${y}: prezzi medi per cantone, diritti dell'inquilino, deposito cauzionale e disdetta.` },
+    { k: `dichiarazione imposte svizzera guida pratica ${y}`, a: `Guida pratica ${y} alla dichiarazione delle imposte in Svizzera: scadenze cantonali, deduzioni ammesse, procedura online.` },
+    { k: `terzo pilastro 3a svizzera vantaggi ${y}`, a: `Guida ${y} al terzo pilastro 3a: vantaggi fiscali, provider bancari e assicurativi, strategia di versamento.` },
+    { k: `cercare lavoro in svizzera guida pratica ${y}`, a: `Guida ${y} alla ricerca di lavoro in Svizzera: portali, CV svizzero, colloqui e permesso di lavoro.` },
+    { k: `sistema sanitario svizzero lamal guida ${y}`, a: `Guida ${y} al sistema sanitario svizzero: obbligo LAMal, scelta della cassa, franchigia e rimborsi.` },
+  ];
+  const addOns = [
+    'canton Zurigo', 'canton Ginevra', 'canton Berna', 'canton Basilea',
+    'canton Vaud', 'canton San Gallo', 'canton Lucerna', 'canton Argovia',
+  ];
+
+  const out = [];
+  for (const base of pillars) {
+    out.push({ keyword: base.k, angle: base.a });
+    for (const addon of addOns) {
+      out.push({
+        keyword: `${base.k} ${addon}`,
+        angle: `${base.a} Focus sul ${addon} con dati specifici e confronto nazionale.`,
       });
     }
   }
@@ -8633,6 +8730,13 @@ async function main() {
         const check = isSourceUrlAlreadyUsed(h.url);
         if (check.used) {
           console.error(`  🔗 Headline scartata (URL già usata → ${check.articleId}): ${h.headline.slice(0, 60)}…`);
+          RUN_REPORT.preFilterDrops.urlAlreadyUsed += 1;
+          recordDiscardedHeadline({
+            reason: 'url_already_used',
+            headline: h.headline,
+            existingId: check.articleId,
+            signal: check.signal,
+          });
           return false;
         }
         return true;
@@ -8651,6 +8755,15 @@ async function main() {
         const check = preFlightHeadlineCheck(h.headline);
         if (check.duplicate) {
           console.error(`  📰 Headline scartata (topic già coperto → ${check.existingId}, ${check.signal}=${check.sim.toFixed(2)}): ${h.headline.slice(0, 60)}…`);
+          RUN_REPORT.preFilterDrops.topicAlreadyCovered += 1;
+          recordDiscardedHeadline({
+            reason: 'topic_already_covered',
+            headline: h.headline,
+            existingId: check.existingId,
+            existingTitle: check.existingTitle,
+            signal: check.signal,
+            sim: Number(check.sim.toFixed(3)),
+          });
           return false;
         }
         return true;
@@ -9058,9 +9171,19 @@ async function main() {
       // instead of another hand-written batch, since those saturate every
       // 1-2 weeks as the corpus grows (#3138 2026-07-02, again 2026-07-08,
       // again 2026-07-17).
-      const dynamicTopics = buildDynamicEvergreenTopics();
-      const structuralTopics = buildStructuralEvergreenTopics();
-      const topicPool = [...PRIORITY_EVERGREEN_TOPICS, ...dynamicTopics, ...structuralTopics];
+      //
+      // Section-aware pool (2026-07-21): PRIORITY_EVERGREEN_TOPICS,
+      // buildDynamicEvergreenTopics and buildStructuralEvergreenTopics are ALL
+      // frontaliere/Ticino-scoped (border comuni × frontaliere professions).
+      // Before this fix the `svizzera` section (national CH, all cantons —
+      // see the prompt's "NON sei limitato ai frontalieri" framing) silently
+      // reused this same Ticino-only pool for its evergreen fallback, so
+      // every /articoli-svizzera/ static article ended up Ticino-scoped
+      // regardless of the national framing wrapped around it. `svizzera` now
+      // draws from its own national pool (all-canton keywords) instead.
+      const topicPool = IS_FRONTALIERE
+        ? [...PRIORITY_EVERGREEN_TOPICS, ...buildDynamicEvergreenTopics(), ...buildStructuralEvergreenTopics()]
+        : [...PRIORITY_EVERGREEN_TOPICS_SVIZZERA, ...buildDynamicEvergreenTopicsSvizzera()];
       const weekNum = Math.floor((Date.now() - new Date('2025-01-06').getTime()) / (7 * 24 * 60 * 60 * 1000));
       const baseIndex = weekNum % topicPool.length;
       const totalTopics = topicPool.length;
@@ -9133,7 +9256,9 @@ async function main() {
         }
         try {
           const topic = selectedTopic;
-          const isStaticTopic = PRIORITY_EVERGREEN_TOPICS.includes(topic);
+          const isStaticTopic = IS_FRONTALIERE
+            ? PRIORITY_EVERGREEN_TOPICS.includes(topic)
+            : PRIORITY_EVERGREEN_TOPICS_SVIZZERA.includes(topic);
           RUN_REPORT.selectedArticleType = isStaticTopic ? 'evergreen_static' : 'evergreen_dynamic';
           RUN_REPORT.selectedSource = 'evergreen';
           RUN_REPORT.selectedUrl = `evergreen://${encodeURIComponent(topic.keyword)}`;
