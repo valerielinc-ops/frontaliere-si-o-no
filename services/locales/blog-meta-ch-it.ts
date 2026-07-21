@@ -1354,6 +1354,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-lattoniere-ticino-stipendio.title': 'Quanto guadagna un lattoniere frontaliere in Ticino?',
     'blog.article.frontalieri-lattoniere-ticino-stipendio.excerpt': 'La retribuzione di un lattoniere frontaliere in Ticino è influenzata da diversi fattori, tra cui la sua esperienza, il tipo di lavoro e la zona in cui lavora.',
     'blog.article.frontalieri-lattoniere-ticino-stipendio.imageAlt': 'Un lattoniere frontaliere lavora nel Canton Ticino',
+    'blog.article.frontalieri-guadagno-ticino.title': 'Stipendio gessatore: salari e differenze con l\'Italia',
+    'blog.article.frontalieri-guadagno-ticino.excerpt': 'Gli stipendi dei frontalieri in Ticino: quanto guadagnano i gessatori e come si differenziano dalle retribuzioni italiane',
+    'blog.article.frontalieri-guadagno-ticino.imageAlt': 'Frontalieri in Ticino: guadagno reale e differenze con l\'Italia',
 };
 
 export default blogMetaChIt;

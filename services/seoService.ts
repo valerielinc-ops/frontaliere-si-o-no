@@ -4759,6 +4759,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-piastrellista-frontaliere-ticino-guadagno': { name: 'Guadagno dei piastrellisti frontaliere in', path: '/articoli-frontaliere/piastrellista-frontaliere-ticino-guadagno', parent: 'blog' },
     'blog-frontalieri-lattoniere-ticino-stipendio': { name: 'Quanto guadagna un lattoniere frontaliere', path: '/articoli-svizzera/frontalieri-lattoniere-ticino-stipendio/', parent: 'blog' },
     'blog-frontaliere-gessatore-ticino-stipendio-requisiti': { name: 'Gessatori frontalieri in Ticino', path: '/articoli-frontaliere/frontaliere-gessatore-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-frontalieri-guadagno-ticino': { name: 'Stipendio reale di un gessatore', path: '/articoli-svizzera/frontalieri-guadagno-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
