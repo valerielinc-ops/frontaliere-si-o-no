@@ -1,16 +1,16 @@
 {
   "key": "thurklinik",
   "label": "Thurklinik",
-  "generatedAt": "2026-07-21T11:16:14.466Z",
-  "total": 9,
+  "generatedAt": "2026-07-21T22:07:04.193Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 11814,
-  "avgDurationMs": 11814,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 11859,
+  "avgDurationMs": 11859,
   "durationHistory": [
-    11814
+    11859
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2026/05/Lehrstelle-als-Fachfrau-oder-Fachmann-Gesundheit-EFZ_FAGE_2027.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:16:09.907Z",
+      "crawledAt": "2026-07-21T22:06:58.938Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/07/Gynaekologie-Urologie-HNO-Orthopaedie-Viszeralchirurgie-und-Handchirurgie.-Anaesthesie-und-Schmerztherapie-.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:16:05.567Z",
+      "crawledAt": "2026-07-21T22:06:54.208Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/11/Dipl.-Anaesthesiepflegerin-oder-Anaesthesiepfleger-60-–-80.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:16:06.558Z",
+      "crawledAt": "2026-07-21T22:06:55.155Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/10/Dipl.-Fachfrau-oder-Fachmann-Operatioinstechnik-HF-oder-TOA_Thurklinik_UZWIL.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:16:07.332Z",
+      "crawledAt": "2026-07-21T22:06:56.067Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/01/Stellenbeschreibung-GYN.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:16:07.971Z",
+      "crawledAt": "2026-07-21T22:06:56.791Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/02/Stellenbeschreibung-Hausarzt_Praxis.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:16:08.613Z",
+      "crawledAt": "2026-07-21T22:06:57.497Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2026/03/Lagerungspflege-Springer-m_w_d-20-80_Thurklinik.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:16:09.277Z",
+      "crawledAt": "2026-07-21T22:06:58.246Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://test.thurklinik.ch/wp-content/uploads/2025/01/Stellenbeschreibung-SChmerz.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:16:11.192Z",
+      "crawledAt": "2026-07-21T22:07:00.518Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -311,8 +311,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "thurklinik-5725ce478f37",
       "slug": "dipl-carriera-hf-20-80-thurklinik-niederuzwil",
@@ -353,5 +352,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
