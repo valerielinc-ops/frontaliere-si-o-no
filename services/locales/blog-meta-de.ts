@@ -8793,6 +8793,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sciopero-treni-italia-tilo.title': 'Zugstreik Italien, Unannehmlichkeiten für TILO 23.-24. Juli',
     'blog.article.sciopero-treni-italia-tilo.excerpt': 'Ein landesweiter Streik des Schienenverkehrs in Italien am 23. und 24. Juli 2026. Von TILO betriebene grenzüberschreitende Verbindungen sind betroffen.',
     'blog.article.sciopero-treni-italia-tilo.imageAlt': 'Pendolari in attesa ai valichi di frontiera tra Italia e Svizzera',
+    'blog.article.frontalieri-telelavoro-pubblicato-limite-25.title': 'Grenzgänger und Telearbeit: Vereinbarung über 25 % -Grenze veröffentlicht',
+    'blog.article.frontalieri-telelavoro-pubblicato-limite-25.excerpt': 'Vereinbarung über die 25 % -Grenze für Grenzgänger, die in der Schweiz arbeiten, veröffentlicht',
+    'blog.article.frontalieri-telelavoro-pubblicato-limite-25.imageAlt': 'Bellinzona, Tessin',
 };
 
 export default blogMetaDe;

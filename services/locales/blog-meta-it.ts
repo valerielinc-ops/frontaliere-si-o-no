@@ -8795,6 +8795,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sciopero-treni-italia-tilo.title': 'Sciopero treni Italia, disagi per TILO 23-24 luglio',
     'blog.article.sciopero-treni-italia-tilo.excerpt': 'Uno sciopero nazionale del trasporto ferroviario in Italia il 23 e 24 luglio 2026. I collegamenti transfrontalieri gestiti da TILO saranno interessati.',
     'blog.article.sciopero-treni-italia-tilo.imageAlt': 'Pendolari in attesa ai valichi di frontiera tra Italia e Svizzera',
+    'blog.article.frontalieri-telelavoro-pubblicato-limite-25.title': 'Frontalieri e telelavoro: pubblicato l\'accordo sul limite del 25%',
+    'blog.article.frontalieri-telelavoro-pubblicato-limite-25.excerpt': 'Pubblicato l\'accordo sul limite del 25% per i frontalieri che lavorano in Svizzera',
+    'blog.article.frontalieri-telelavoro-pubblicato-limite-25.imageAlt': 'Bellinzona, Ticino',
 };
 
 export default blogMetaIt;
