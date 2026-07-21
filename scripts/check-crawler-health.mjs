@@ -418,6 +418,22 @@ const EMPTY_OK_CRAWLERS = new Set([
   // the parser is healthy and re-arms if an extractable posting appears. Same
   // legitimately-empty small-employer case as moncucco/linnea/ail-lugano.
   'tpl-lugano',
+  // Josef Müller Gemüse AG (Hünenberg ZG, produce/salad processing):
+  // verified live 2026-07-21 — the jobs.ch company-profile page
+  // (https://www.jobs.ch/de/firmen/33612-josef-mueller-gemuese-ag/) returns
+  // HTTP 200, the "Jobs (0)" tab counter and the
+  // `data-cy="company-no-vacancies"` block ("Derzeit sind keine
+  // Stellenangebote vorhanden") both confirm zero current postings, and no
+  // `/de/stellenangebote/detail/{uuid}/` links are present in the markup —
+  // parseJosefMuellerListing() correctly extracts 0 from a genuinely
+  // vacancy-free page. This is a small single-site produce processor
+  // (~170 employees) that previously had exactly one listing
+  // (lastNonZeroJobs: 1); it legitimately has stretches with no openings.
+  // The listing selector (URL-shape regex, not a class name) and the
+  // JobPosting JSON-LD detail parser are unchanged and healthy; re-arms
+  // automatically when jobs.ch lists a new vacancy. Same legitimately-empty
+  // small-employer case as linnea/banca-raiffeisen-vedeggio-cassarate/wuerth-international.
+  'josef-mueller',
 ]);
 
 /** Read JSON file, return null on any error. */
