@@ -29,6 +29,7 @@
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-winterthur-687912",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-winterthur-687915",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-zurich-705584",
+    "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-adliswil-706551",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-chur-712397",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-chur-712402",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-dubendorf-714399",
@@ -151,6 +152,7 @@
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-zurich-701239",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-zurich-712451",
     "https://team.lidl.ch/de/jobs/vendeur-vendeuse-h-f-d-40-1-sierre-707571",
+    "https://team.lidl.ch/de/jobs/verantwortlicher-fur-die-autoflotte-mobilitat-m-w-d-80-100-weinfelden-721959",
     "https://team.lidl.ch/de/jobs/verkaufer-as-80-oensingen-710902",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-40-altendorf-702396",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-40-chur-712399",
@@ -319,15 +321,13 @@
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-etoy-705929",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-morges-705931",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-bulle-695660",
-    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-conthey-706115",
-    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-sierre-656579",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-collombey-muraz-709685",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-marly-669259",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-matran-721194",
     "https://team.lidl.ch/it/jobs/ch-lavoro-per-studenti-vendita-m-f-d-20-60-biasca-679101"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-07-21T11:14:44.450Z",
+  "updatedAt": "2026-07-21T22:05:21.551Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-60-kreuzlingen-695002": {
       "location": "Kreuzlingen",
@@ -447,6 +447,15 @@
       "contract": "Full-time"
     },
     "https://team.lidl.ch/de/jobs/sachbearbeiter-hr-administration-m-w-d-80-100-weinfelden-711149": {
+      "location": "Weinfelden",
+      "addressLocality": "Weinfelden",
+      "canton": "TG",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
+    },
+    "https://team.lidl.ch/de/jobs/verantwortlicher-fur-die-autoflotte-mobilitat-m-w-d-80-100-weinfelden-721959": {
       "location": "Weinfelden",
       "addressLocality": "Weinfelden",
       "canton": "TG",
@@ -1455,6 +1464,15 @@
       "contract": "Full-time"
     },
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-adliswil-693703": {
+      "location": "Adliswil",
+      "addressLocality": "Adliswil",
+      "canton": "ZH",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-adliswil-706551": {
       "location": "Adliswil",
       "addressLocality": "Adliswil",
       "canton": "ZH",
@@ -2660,7 +2678,7 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-bern-702221": {
+    "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-bern-704655": {
       "location": "Bern",
       "addressLocality": "Bern",
       "canton": "BE",
@@ -2669,7 +2687,7 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-bern-704655": {
+    "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-bern-702221": {
       "location": "Bern",
       "addressLocality": "Bern",
       "canton": "BE",
@@ -3101,15 +3119,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-sierre-656579": {
-      "location": "Sierre",
-      "addressLocality": "Sierre",
-      "canton": "VS",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/fr/jobs/gerant-gerante-de-magasin-suppleant-e-h-f-d-80-100-sierre-656566": {
       "location": "Sierre",
       "addressLocality": "Sierre",
@@ -3140,15 +3149,6 @@
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-collombey-muraz-709685": {
       "location": "Collombey-Muraz",
       "addressLocality": "Collombey-Muraz",
-      "canton": "VS",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-conthey-706115": {
-      "location": "Conthey",
-      "addressLocality": "Conthey",
       "canton": "VS",
       "country": "CH",
       "company": "Lidl Svizzera",
