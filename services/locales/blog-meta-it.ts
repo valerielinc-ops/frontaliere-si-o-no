@@ -8792,6 +8792,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.accertamenti-fiscali-frontalieri-controlli-e-difesa.title': 'Accertamenti fiscali ai lavoratori frontalieri: controlli e difesa',
     'blog.article.accertamenti-fiscali-frontalieri-controlli-e-difesa.excerpt': 'La nuova legge prevede un aumento delle attività di controllo per i lavoratori frontalieri. Scopri i dettagli e come ti possono influire.',
     'blog.article.accertamenti-fiscali-frontalieri-controlli-e-difesa.imageAlt': 'Immagine del Lago di Lugano con due persone in barca',
+    'blog.article.sciopero-treni-italia-tilo.title': 'Sciopero treni Italia, disagi per TILO 23-24 luglio',
+    'blog.article.sciopero-treni-italia-tilo.excerpt': 'Uno sciopero nazionale del trasporto ferroviario in Italia il 23 e 24 luglio 2026. I collegamenti transfrontalieri gestiti da TILO saranno interessati.',
+    'blog.article.sciopero-treni-italia-tilo.imageAlt': 'Pendolari in attesa ai valichi di frontiera tra Italia e Svizzera',
 };
 
 export default blogMetaIt;

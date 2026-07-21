@@ -53151,6 +53151,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sciopero-treni-italia-tilo': {
+    title: 'Sciopero treni Italia, disagi per TILO 23-24 luglio',
+    description: 'Uno sciopero nazionale del trasporto ferroviario in Italia il 23 e 24 luglio 2026. I collegamenti transfrontalieri gestiti da TILO saranno interessati.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sciopero, treni, disagi, tilo',
+    ogTitle: 'Sciopero dei treni in Italia, disagi previsti anche per i collegamenti TILO il 23 e 24 luglio',
+    ogDescription: 'Uno sciopero nazionale del trasporto ferroviario in Italia il 23 e 24 luglio 2026. I collegamenti transfrontalieri gestiti da TILO saranno interessati.',
+    canonicalPath: '/articoli-frontaliere/sciopero-treni-italia-tilo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sciopero treni Italia, disagi per TILO 23-24 luglio",
+      "description": "Uno sciopero nazionale del trasporto ferroviario in Italia il 23 e 24 luglio 2026. I collegamenti transfrontalieri gestiti da TILO saranno interessati.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sciopero-treni-italia-tilo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pendolari in attesa ai valichi di frontiera tra Italia e Svizzera"
+      },
+      "datePublished": "2026-07-21T08:24:21+00:00",
+      "dateModified": "2026-07-21T08:24:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sciopero-treni-italia-tilo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

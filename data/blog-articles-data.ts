@@ -26414,6 +26414,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'sciopero-treni-italia-tilo',
+ category: 'pratico',
+ date: '2026-07-21T08:24:21.027Z',
+ image: '/images/blog/sciopero-treni-italia-tilo.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
