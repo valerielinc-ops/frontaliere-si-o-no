@@ -1,16 +1,16 @@
 {
   "key": "nsn-medical",
   "label": "NSN Medical Group",
-  "generatedAt": "2026-07-20T22:30:38.745Z",
-  "total": 11,
+  "generatedAt": "2026-07-21T12:02:08.280Z",
+  "total": 10,
   "newCount": 0,
   "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 11071,
-  "avgDurationMs": 11071,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 11401,
+  "avgDurationMs": 11401,
   "durationHistory": [
-    11071
+    11401
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/836/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:30:30.430Z",
+      "crawledAt": "2026-07-21T12:01:59.442Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/832/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:30:31.084Z",
+      "crawledAt": "2026-07-21T12:02:00.088Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/823/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:30:31.751Z",
+      "crawledAt": "2026-07-21T12:02:00.741Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/830/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:30:32.411Z",
+      "crawledAt": "2026-07-21T12:02:01.429Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/829/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:30:33.066Z",
+      "crawledAt": "2026-07-21T12:02:02.081Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/828/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:30:33.928Z",
+      "crawledAt": "2026-07-21T12:02:02.857Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/827/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:30:34.606Z",
+      "crawledAt": "2026-07-21T12:02:03.495Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/822/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:30:35.258Z",
+      "crawledAt": "2026-07-21T12:02:04.155Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -323,7 +323,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/817/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:30:35.906Z",
+      "crawledAt": "2026-07-21T12:02:04.793Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -360,7 +360,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/782/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:30:36.542Z",
+      "crawledAt": "2026-07-21T12:02:05.414Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -385,8 +385,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "nsn-medical-85c6a3cf8d30",
       "slug": "facharztin-o-facharzt-con-erfahrung-in-erwachsenen-u-kinderanasthesie-60-80-nsn-medical-group-zurich",
@@ -426,5 +425,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
