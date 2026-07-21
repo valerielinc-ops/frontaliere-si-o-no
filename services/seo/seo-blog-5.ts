@@ -53619,6 +53619,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-deduzioni-smac-frontalieri-2025': {
+    title: 'Deduzioni SMAC e frontalieri 2025: simulazioni e impatto fiscale',
+    description: 'Guida pratica agli effetti delle deduzioni SMAC per i frontalieri nella dichiarazione 2025. Scopri come gestire il credito d\'imposta e le soglie fiscali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, deduzioni, smac, 2025, simulazioni',
+    ogTitle: 'Deduzioni SMAC e frontalieri 2025: guida e simulazioni',
+    ogDescription: 'Analisi pratica delle deduzioni fiscali per i frontalieri nella dichiarazione dei redditi 2025: scopri le novità e le simulazioni.',
+    canonicalPath: '/articoli-frontaliere/deduzioni-smac-frontalieri-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Deduzioni SMAC e frontalieri 2025: simulazioni e impatto fiscale",
+      "description": "Guida pratica agli effetti delle deduzioni SMAC per i frontalieri nella dichiarazione 2025. Scopri come gestire il credito d'imposta e le soglie fiscali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/deduzioni-smac-frontalieri-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica su Lugano dal Canton Ticino"
+      },
+      "datePublished": "2026-07-21T16:44:21+00:00",
+      "dateModified": "2026-07-21T16:44:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/deduzioni-smac-frontalieri-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
