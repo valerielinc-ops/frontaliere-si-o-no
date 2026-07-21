@@ -4803,6 +4803,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-salari-ticino-abusi-precarieta': { name: 'Salari e fiscalià', path: '/articoli-frontaliere/salari-ticino-abusi-precarieta', parent: 'blog' },
     'blog-dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo': { name: 'Fiscale', path: '/articoli-svizzera/dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo/', parent: 'blog' },
     'blog-nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia': { name: 'Lavoro a rischio', path: '/articoli-frontaliere/nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia', parent: 'blog' },
+    'blog-terzo-pilastro-3a-vantaggi-2026': { name: 'Terzo pilastro 3a', path: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

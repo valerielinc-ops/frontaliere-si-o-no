@@ -1420,6 +1420,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.title': 'Guida 2026: dichiarazione imposte Svizzera - Canton San Gallo',
     'blog.article.dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.excerpt': 'Scadenze cantonali, deduzioni ammesse e procedura online per la dichiarazione fiscale 2026. Dati specifici per il canton San Gallo e confronto nazionale.',
     'blog.article.dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.imageAlt': 'Cattedrale e biblioteca abbaziale di San Gallo, patrimonio UNESCO',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026.title': 'Terzo pilastro 3a: vantaggi fiscali 2026 in Svizzera',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026.excerpt': 'Scopri come funziona la previdenza privata 3a e i benefici fiscali disponibili nel 2026 per chi lavora in Svizzera e risiede nel Canton Zurigo.',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026.imageAlt': 'Ufficio finanziario a Zurigo con vista sulla città',
 };
 
 export default blogMetaChIt;

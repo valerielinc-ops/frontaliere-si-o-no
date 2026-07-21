@@ -4256,6 +4256,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'terzo-pilastro-3a-vantaggi-2026',
+    category: 'fiscale',
+    date: '2026-07-21T12:01:53.508Z',
+    image: '/images/blog/terzo-pilastro-3a-vantaggi-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -1420,6 +1420,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.title': 'Leitfaden 2026: Steuererklärung Schweiz - Kanton St. Gallen',
     'blog.article.dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.excerpt': 'Kantonale Fälligkeiten, zulässige Abzüge und Online-Verfahren für die Steuererklärung 2026. Kantonsspezifische Daten und nationaler Vergleich.',
     'blog.article.dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.imageAlt': 'Kathedrale und Stiftsbibliothek von St. Gallen, UNESCO-Welterbe',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026.title': 'Dritte Säule 3a: Steuervorteile 2026 in der Schweiz',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026.excerpt': 'Erfahren Sie, wie die private Vorsorge 3a funktioniert und welche Steuervorteile 2026 für Personen, die in der Schweiz arbeiten und im Kanton Zürich wohnen, zur Verfügung stehen.',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026.imageAlt': 'Büro eines Finanzberaters in Zürich mit Stadtblick',
 };
 
 export default blogMetaChDe;
