@@ -36,7 +36,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
-import { renderJobCardHtml, JOB_CARD_ICON_SYMBOLS, type JobCardJob } from './shared/jobCardHtml';
+import { renderJobCardHtml, JOB_CARD_ICON_SYMBOLS, localizedContract, type JobCardJob } from './shared/jobCardHtml';
 import { buildListItemJobPosting } from './shared/jobPostingListItem';
 import { renderEmployerCtaBlock } from './shared/employerCtaBlock';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -150,6 +150,19 @@ const TITLE_SUFFIX: Record<Locale, string> = {
   de: 'offene Stellen und Gehälter',
   fr: 'postes ouverts et salaires',
 };
+// Short last-resort suffix — MUST differ from the bare "{H1_PREFIX} {name}"
+// string used for <h1> (see renderProfileBody). composePlaceTitle's fallback
+// candidate used to be that exact bare string, so any company name whose
+// full TITLE_SUFFIX candidate overflowed TITLE_MAX_CHARS fell back to a
+// <title> byte-identical to <h1>, tripping audit:h1-title-duplicates (157
+// offenders, validate-dist run 29794187475 — regression from PR #4611's
+// title-length fix). Keeping a (however short) suffix on every candidate
+// guarantees title !== h1 by construction: if even this short candidate
+// overflows, composePlaceTitle's truncateHeadline() fallback always appends
+// "…", which also never equals the untruncated h1 text.
+const TITLE_SUFFIX_SHORT: Record<Locale, string> = {
+  it: 'offerte', en: 'jobs', de: 'Jobs', fr: 'offres',
+};
 
 /** Format a CHF annual amount with Swiss grouping (e.g. "CHF 86’250"). */
 function fmtChf(v: number): string {
@@ -229,6 +242,13 @@ interface ProseTemplate {
   readonly citiesMulti: (first: string, firstCount: number, rest: string) => string;
   readonly salary: (sal: string) => string;
   readonly trend: (added: number, win: number) => string;
+  /** Contract-type majority among the CURRENTLY listed postings — real
+   * per-build aggregate, distinct from the per-job contract badge already
+   * shown on each card (see contractMixProse). */
+  readonly contractMix: (label: string, count: number, total: number) => string;
+  /** Real salary min–max range across postings with a reported/estimated
+   * figure — distinct from the single median stat tile. */
+  readonly salaryRange: (min: string, max: string) => string;
   readonly outro: string;
 }
 const PROSE_TEMPLATES: Record<Locale, ProseTemplate> = {
@@ -240,6 +260,10 @@ const PROSE_TEMPLATES: Record<Locale, ProseTemplate> = {
     citiesMulti: (first, firstCount, rest) => `A livello di città, le sedi con più posizioni aperte sono ${first} (${firstCount} offerte), seguita da ${rest}.`,
     salary: (sal) => `Lo stipendio mediano stimato per queste offerte è di ${sal} lordi all’anno.`,
     trend: (added, win) => `Negli ultimi ${win} giorni sono state pubblicate ${added} nuove offerte.`,
+    contractMix: (label, count, total) => count === total
+      ? `Tutte le posizioni attive sono a ${label}.`
+      : `${count} delle ${total} posizioni attive pubblicate sono a ${label}.`,
+    salaryRange: (min, max) => `Gli stipendi pubblicati per queste posizioni vanno da ${min} a ${max} lordi all’anno.`,
     outro: 'Consulta qui sotto le posizioni attive e candidati direttamente sul sito del datore di lavoro.',
   },
   en: {
@@ -250,6 +274,10 @@ const PROSE_TEMPLATES: Record<Locale, ProseTemplate> = {
     citiesMulti: (first, firstCount, rest) => `By city, the locations with the most open positions are ${first} (${firstCount} openings), followed by ${rest}.`,
     salary: (sal) => `The estimated median salary for these roles is ${sal} gross per year.`,
     trend: (added, win) => `In the last ${win} days, ${added} new postings were published.`,
+    contractMix: (label, count, total) => count === total
+      ? `All active positions are ${label}.`
+      : `${count} of the ${total} active postings are ${label}.`,
+    salaryRange: (min, max) => `Published salaries for these roles range from ${min} to ${max} gross per year.`,
     outro: 'Browse the active roles below and apply directly on the employer’s own site.',
   },
   de: {
@@ -260,6 +288,10 @@ const PROSE_TEMPLATES: Record<Locale, ProseTemplate> = {
     citiesMulti: (first, firstCount, rest) => `Nach Stadt betrachtet haben ${first} (${firstCount} Stellen) die meisten offenen Stellen, gefolgt von ${rest}.`,
     salary: (sal) => `Das geschätzte Median­gehalt für diese Stellen beträgt ${sal} brutto pro Jahr.`,
     trend: (added, win) => `In den letzten ${win} Tagen wurden ${added} neue Stellen veröffentlicht.`,
+    contractMix: (label, count, total) => count === total
+      ? `Alle aktiven Stellen sind ${label}.`
+      : `${count} der ${total} aktiven Stellen sind ${label}.`,
+    salaryRange: (min, max) => `Die veröffentlichten Gehälter für diese Stellen reichen von ${min} bis ${max} brutto pro Jahr.`,
     outro: 'Sehen Sie sich unten die aktiven Stellen an und bewerben Sie sich direkt auf der Website des Arbeitgebers.',
   },
   fr: {
@@ -270,6 +302,10 @@ const PROSE_TEMPLATES: Record<Locale, ProseTemplate> = {
     citiesMulti: (first, firstCount, rest) => `Par ville, les sites avec le plus de postes ouverts sont ${first} (${firstCount} offres), suivi de ${rest}.`,
     salary: (sal) => `Le salaire médian estimé pour ces postes est de ${sal} brut par an.`,
     trend: (added, win) => `Au cours des ${win} derniers jours, ${added} nouvelles annonces ont été publiées.`,
+    contractMix: (label, count, total) => count === total
+      ? `Tous les postes actifs sont en ${label}.`
+      : `${count} des ${total} postes actifs publiés sont en ${label}.`,
+    salaryRange: (min, max) => `Les salaires publiés pour ces postes vont de ${min} à ${max} brut par an.`,
     outro: 'Parcourez les postes actifs ci-dessous et postulez directement sur le site de l’employeur.',
   },
 };
@@ -295,15 +331,60 @@ function citiesProse(profile: EmployerProfile, locale: Locale): string {
   return t.citiesMulti(c[0].name, c[0].count, rest);
 }
 
+/** Real contract-type majority across the company's FULL active-job set
+ * (not just the ≤MAX_JOBS_LISTED cards shown) — genuine aggregate fact,
+ * distinct from the per-job contract badge already on each card. Returns
+ * '' when the data is too sparse/fragmented to say anything meaningful
+ * (no single contract type reaches a majority), same graceful-skip pattern
+ * as cantonsProse/citiesProse when there's nothing real to report. */
+function contractMixProse(jobs: CorpusJob[], locale: Locale): string {
+  const counts = new Map<string, number>();
+  for (const job of jobs) {
+    const label = localizedContract(job.contract, locale);
+    if (!label) continue;
+    counts.set(label, (counts.get(label) ?? 0) + 1);
+  }
+  const total = [...counts.values()].reduce((a, b) => a + b, 0);
+  if (total === 0) return '';
+  const [topLabel, topCount] = [...counts.entries()].sort((a, b) => b[1] - a[1])[0];
+  if (topCount / total < 0.5) return '';
+  return PROSE_TEMPLATES[locale].contractMix(topLabel.toLowerCase(), topCount, total);
+}
+
+/** Real salary min–max range across postings with a reported/estimated
+ * figure — distinct from the single median stat tile, and from the
+ * per-card salary line (this is the FULL active-job range, not just the
+ * ≤MAX_JOBS_LISTED shown). Returns '' when there isn't a genuine range
+ * (fewer than 2 data points, or min === max — nothing to compare). */
+function salaryRangeProse(jobs: CorpusJob[], locale: Locale): string {
+  const values = jobs
+    .flatMap((j) => [j.salaryMin, j.salaryMax])
+    .filter((v): v is number => typeof v === 'number' && Number.isFinite(v) && v > 0);
+  if (values.length < 2) return '';
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  if (min >= max) return '';
+  return PROSE_TEMPLATES[locale].salaryRange(fmtChf(min), fmtChf(max));
+}
+
 /** Localized intro prose — templated FACTS only, now with the FULL
  * canton/city breakdown (was top-3 `locationsSummary`, still used for the
- * compact stat tile). Real per-company detail, not filler — length scales
- * with the company's actual canton/city footprint (data/employer-
- * profiles.json caps both arrays at 6, so this never runs away). Part of
- * the audit:text-html-ratio fix (#4593): still doesn't clear the 10% floor
- * for every profile at MAX_JOBS_LISTED cards (verified — see MAX_JOBS_LISTED
- * comment), but meaningfully narrows the gap with genuine content, not padding. */
-function introProse(profile: EmployerProfile, locale: Locale): string {
+ * compact stat tile), plus a real contract-mix and salary-range sentence
+ * computed from the company's full active-job set. Real per-company detail,
+ * not filler — length scales with the company's actual canton/city
+ * footprint (data/employer-profiles.json caps both arrays at 6, so this
+ * never runs away). Part of the audit:text-html-ratio fix (#4593): PR
+ * #4611's MAX_JOBS_LISTED reduction (24→8) + earlier prose expansion
+ * narrowed the gap but the LIVE measured ratio (~5%, validate-dist run
+ * 29794187475) was roughly half PR #4611's own local estimate (~9.8%) —
+ * this adds genuine additional facts rather than re-tuning MAX_JOBS_LISTED
+ * again (that lever was already verified NOT to help: more cards add more
+ * per-job JobPosting JSON-LD, mandated complete by Non-Negotiable #3, far
+ * faster than they add visible card text — see MAX_JOBS_LISTED comment).
+ * Does not guarantee every one of the ~1860 profiles clears the 10% floor
+ * (a handful with no contract/salary data at all get none of the two new
+ * sentences); see PR body for the honest remaining gap. */
+function introProse(profile: EmployerProfile, jobs: CorpusJob[], locale: Locale): string {
   const t = PROSE_TEMPLATES[locale];
   const sal = profile.salaryMedianChf ? fmtChf(profile.salaryMedianChf) : null;
   const added = profile.trend?.added ?? null;
@@ -314,6 +395,8 @@ function introProse(profile: EmployerProfile, locale: Locale): string {
     citiesProse(profile, locale),
     sal ? t.salary(sal) : '',
     added ? t.trend(added, win) : '',
+    contractMixProse(jobs, locale),
+    salaryRangeProse(jobs, locale),
     t.outro,
   ].filter(Boolean).join(' ');
 }
@@ -359,6 +442,7 @@ function renderProfileBody(
   profile: EmployerProfile,
   jobs: CorpusJob[],
   locale: Locale,
+  allActiveJobs: CorpusJob[] = jobs,
 ): string {
   const name = profile.name;
   const tiles = [
@@ -399,10 +483,10 @@ function renderProfileBody(
 ${breadcrumbHtml(locale, name)}
 <header class="rounded-2xl border border-edge bg-surface-alt p-5 mb-5">
 <h1 class="text-[26px] font-bold text-strong leading-tight m-0 mb-1.5">${esc(H1_PREFIX[locale])} ${esc(name)}</h1>
-<p class="text-[15px] text-muted m-0">${esc(introProse(profile, locale).split('. ')[0])}.</p>
+<p class="text-[15px] text-muted m-0">${esc(introProse(profile, allActiveJobs, locale).split('. ')[0])}.</p>
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4">${tiles}</div>
 </header>
-<section class="mb-7"><p class="my-2.5 leading-relaxed text-body">${esc(introProse(profile, locale))}</p></section>
+<section class="mb-7"><p class="my-2.5 leading-relaxed text-body">${esc(introProse(profile, allActiveJobs, locale))}</p></section>
 <section class="mb-2">
 <h2 class="text-lg font-bold text-strong mb-3">${esc(JOBS_HEADING[locale])} (${profile.activeJobs})</h2>
 ${JOB_CARD_ICON_SYMBOLS}
@@ -552,7 +636,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
         // page never points an alternate at a noindex sibling (reviewer
         // adversarial check). Rendering is reused in the emit loop below.
         const rendered = LOCALES.map((locale) => {
-          const bodyHtml = renderProfileBody(liveProfile, listed, locale);
+          const bodyHtml = renderProfileBody(liveProfile, listed, locale, group);
           const indexable = liveActive >= MIN_ACTIVE_JOBS && countHtmlBodyWords(bodyHtml) >= MIN_INDEXABLE_WORDS;
           return { locale, bodyHtml, indexable };
         });
@@ -618,14 +702,22 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           // Longest-first candidates, name never truncated (composePlaceTitle
           // policy) — same "shrink the boilerplate, never the place/name"
           // pattern as job titles (composeSerpJobTitle) and comune titles.
+          //
+          // The last candidate must NEVER be the bare `${H1_PREFIX} ${name}`
+          // string — that's byte-identical to <h1> (see renderProfileBody),
+          // so falling back to it trips audit:h1-title-duplicates (157
+          // offenders, validate-dist run 29794187475). Short-suffix middle
+          // candidate keeps title != h1 for virtually every name; the
+          // TITLE_SUFFIX_SHORT comment explains why this holds even on
+          // further overflow.
           const titleCandidates = [
             `${H1_PREFIX[locale]} ${profile.name}: ${TITLE_SUFFIX[locale]}`,
-            `${H1_PREFIX[locale]} ${profile.name}`,
+            `${H1_PREFIX[locale]} ${profile.name} · ${TITLE_SUFFIX_SHORT[locale]}`,
           ];
           const html = buildSeoPageHtml({
             locale,
             title: composePlaceTitle(titleCandidates, TITLE_MAX_CHARS, (s) => esc(s).length),
-            description: introProse(liveProfile, locale).slice(0, 160),
+            description: introProse(liveProfile, group, locale).slice(0, 160),
             canonicalUrl,
             robots: indexable ? 'index,follow' : 'noindex,follow',
             ogType: 'website',

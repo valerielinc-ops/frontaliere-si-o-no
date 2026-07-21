@@ -17,6 +17,7 @@
  */
 
 import type { EmploymentType, JobPostingSchema } from './jobPostingSchema';
+import { hostFromUrl } from './hostFromUrl';
 
 export type FaqLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -27,7 +28,9 @@ export interface JobFaqPair {
 
 export interface BuildJobPostingFaqOptions {
   readonly locale: FaqLocale;
-  /** Absolute canonical job URL — used for the "how to apply" answer. */
+  /** Absolute job listing URL (the employer's original posting, falling back
+   * to our own canonical URL) — its HOSTNAME is cited in the "how to apply"
+   * answer, see {@link buildApplyFaq}. */
   readonly jobUrl: string;
   /** Localised canton display name (e.g. "Ticino", "Ginevra"). */
   readonly cantonDisplay: string;
@@ -223,27 +226,37 @@ function buildPermitFaq(opts: BuildJobPostingFaqOptions): JobFaqPair {
 function buildApplyFaq(schema: JobPostingSchema, opts: BuildJobPostingFaqOptions): JobFaqPair {
   const { locale, jobUrl } = opts;
   const company = schema.hiringOrganization.name;
+  // Display the SOURCE HOSTNAME, not the raw jobUrl path: third-party ATS
+  // systems encode arbitrary characters into their URL slugs (e.g.
+  // Rheinmetall's career site turns "/" "(" ")" into literal "_", producing
+  // paths like `ux_ui___xr_designer__m_w_d_`). Interpolating that raw path
+  // into visible prose leaked 3+-underscore runs into <main>, tripping
+  // audit:no-literal-markdown's 0-tolerance separator-run gate even though
+  // nothing here is AI-translation markdown (validate-dist run 29794187475,
+  // 119 offenders). The "Apply now" button (href, not text) still points at
+  // the exact full URL — only the human-readable citation is shortened.
+  const jobHost = hostFromUrl(jobUrl) || jobUrl.replace(/[_=~]{3,}/g, ' ').trim();
   if (locale === 'en') {
     return {
       q: `How do I apply for this position at ${company}?`,
-      a: `Use the "Apply now" button on this page — it links directly to ${company}'s original listing at ${jobUrl}, so your application goes straight to the employer's own applicant-tracking system. Frontaliere Ticino does not collect or forward applications itself.`,
+      a: `Use the "Apply now" button on this page — it links directly to ${company}'s original listing at ${jobHost}, so your application goes straight to the employer's own applicant-tracking system. Frontaliere Ticino does not collect or forward applications itself.`,
     };
   }
   if (locale === 'de') {
     return {
       q: `Wie bewerbe ich mich für diese Stelle bei ${company}?`,
-      a: `Nutzen Sie die Schaltfläche "Jetzt bewerben" auf dieser Seite — sie führt direkt zum Original-Inserat von ${company} unter ${jobUrl}, sodass Ihre Bewerbung direkt im Bewerbermanagementsystem des Arbeitgebers landet. Frontaliere Ticino sammelt oder leitet keine Bewerbungen selbst weiter.`,
+      a: `Nutzen Sie die Schaltfläche "Jetzt bewerben" auf dieser Seite — sie führt direkt zum Original-Inserat von ${company} unter ${jobHost}, sodass Ihre Bewerbung direkt im Bewerbermanagementsystem des Arbeitgebers landet. Frontaliere Ticino sammelt oder leitet keine Bewerbungen selbst weiter.`,
     };
   }
   if (locale === 'fr') {
     return {
       q: `Comment postuler à ce poste chez ${company} ?`,
-      a: `Utilisez le bouton « Postuler maintenant » sur cette page — il renvoie directement à l'annonce originale de ${company} sur ${jobUrl}, votre candidature arrive donc directement dans le système de suivi des candidatures de l'employeur. Frontaliere Ticino ne collecte ni ne transmet lui-même les candidatures.`,
+      a: `Utilisez le bouton « Postuler maintenant » sur cette page — il renvoie directement à l'annonce originale de ${company} sur ${jobHost}, votre candidature arrive donc directement dans le système de suivi des candidatures de l'employeur. Frontaliere Ticino ne collecte ni ne transmet lui-même les candidatures.`,
     };
   }
   return {
     q: `Come mi candido a questa posizione presso ${company}?`,
-    a: `Usa il pulsante "Candidati ora" in questa pagina — rimanda direttamente all'annuncio originale di ${company} su ${jobUrl}, quindi la tua candidatura arriva direttamente nel sistema di gestione candidature del datore di lavoro. Frontaliere Ticino non raccoglie né inoltra candidature in proprio.`,
+    a: `Usa il pulsante "Candidati ora" in questa pagina — rimanda direttamente all'annuncio originale di ${company} su ${jobHost}, quindi la tua candidatura arriva direttamente nel sistema di gestione candidature del datore di lavoro. Frontaliere Ticino non raccoglie né inoltra candidature in proprio.`,
   };
 }
 
