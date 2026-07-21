@@ -4778,6 +4778,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-parrucchieri-frontaliere-ticino': { name: 'Lavorare come parrucchiera in Ticino da', path: '/articoli-svizzera/parrucchieri-frontaliere-ticino/', parent: 'blog' },
     'blog-parrucchiere-frontaliere-ticino': { name: 'Parrucchiere frontaliere in Ticino', path: '/articoli-frontaliere/parrucchiere-frontaliere-ticino', parent: 'blog' },
     'blog-estetista-frontaliere-ticino-stipendio-requisiti': { name: 'Lavorare come estetista in Ticino da', path: '/articoli-svizzera/estetista-frontaliere-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-frontaliere-barista-ticino-stipendio-requisiti': { name: 'Lavorare come barista in Ticino da', path: '/articoli-frontaliere/frontaliere-barista-ticino-stipendio-requisiti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

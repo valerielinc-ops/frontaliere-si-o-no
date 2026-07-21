@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3403,
+ "numberOfItems": 3404,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8171,7 +8171,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3400, "name": "Lavorare come pasticcere in Ticino: stipendio e...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-pasticcere-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3401, "name": "Lavorare come parrucchiera in Ticino: stipendio...", "url": `${BASE_URL}/articoli-frontaliere/parrucchieri-frontaliere-ticino` },
           { "@type": "ListItem", "position": 3402, "name": "Quanto guadagna un parrucchiere frontaliere in ...", "url": `${BASE_URL}/articoli-frontaliere/parrucchiere-frontaliere-ticino` },
-          { "@type": "ListItem", "position": 3403, "name": "Lavorare come estetista in Ticino: stipendio, r...", "url": `${BASE_URL}/articoli-frontaliere/estetista-frontaliere-ticino-stipendio-requisiti` }
+          { "@type": "ListItem", "position": 3403, "name": "Lavorare come estetista in Ticino: stipendio, r...", "url": `${BASE_URL}/articoli-frontaliere/estetista-frontaliere-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3404, "name": "Barista frontaliere: stipendio e requisiti in T...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-barista-ticino-stipendio-requisiti` }
  ]
  },
  {

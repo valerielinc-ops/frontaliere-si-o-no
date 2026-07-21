@@ -8771,6 +8771,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.parrucchiere-frontaliere-ticino.title': 'Quanto guadagna un parrucchiere frontaliere in Ticino',
     'blog.article.parrucchiere-frontaliere-ticino.excerpt': 'Il salario di un parrucchiere frontaliere in Ticino può variare a seconda della sua esperienza e del tipo di attività che svolge',
     'blog.article.parrucchiere-frontaliere-ticino.imageAlt': 'Vista di Lugano con il lago in primo piano',
+    'blog.article.frontaliere-barista-ticino-stipendio-requisiti.title': 'Barista frontaliere: stipendio e requisiti in Ticino',
+    'blog.article.frontaliere-barista-ticino-stipendio-requisiti.excerpt': 'Stipendio medio di un barista frontaliero in Ticino: non ancora specificato',
+    'blog.article.frontaliere-barista-ticino-stipendio-requisiti.imageAlt': 'Un barista frontaliero in un caffè di Lugano',
 };
 
 export default blogMetaIt;

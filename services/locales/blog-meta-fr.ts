@@ -8771,6 +8771,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.parrucchiere-frontaliere-ticino.title': 'Combien gagne un coiffeur frontalier au Tessin',
     'blog.article.parrucchiere-frontaliere-ticino.excerpt': 'Le salaire d\'un coiffeur frontalier au Tessin peut varier en fonction de son expérience et du type d\'activité qu\'il exerce',
     'blog.article.parrucchiere-frontaliere-ticino.imageAlt': 'Vue de Lugano avec le lac en arrière-plan',
+    'blog.article.frontaliere-barista-ticino-stipendio-requisiti.title': 'Barman frontalier : salaire et exigences au Tessin',
+    'blog.article.frontaliere-barista-ticino-stipendio-requisiti.excerpt': 'Salaire moyen d\'un barman frontalier au Tessin : non encore précisé',
+    'blog.article.frontaliere-barista-ticino-stipendio-requisiti.imageAlt': 'Un barman travaillant à Lugano',
 };
 
 export default blogMetaFr;

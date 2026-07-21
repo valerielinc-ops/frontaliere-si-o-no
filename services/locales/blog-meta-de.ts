@@ -8769,6 +8769,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.parrucchiere-frontaliere-ticino.title': 'Wie viel verdient ein Grenzstylist im Tessin',
     'blog.article.parrucchiere-frontaliere-ticino.excerpt': 'Das Gehalt eines Grenzstylisten im Tessin kann je nach Erfahrung und Art der Tätigkeit variieren',
     'blog.article.parrucchiere-frontaliere-ticino.imageAlt': 'Lugano mit dem See im Vordergrund',
+    'blog.article.frontaliere-barista-ticino-stipendio-requisiti.title': 'Grenzgänger-Barkeeper: Gehalt und Anforderungen im Tessin',
+    'blog.article.frontaliere-barista-ticino-stipendio-requisiti.excerpt': 'Durchschnittsgehalt eines Grenzbarista im Tessin: noch nicht festgelegt',
+    'blog.article.frontaliere-barista-ticino-stipendio-requisiti.imageAlt': 'Ein Barista in Lugano',
 };
 
 export default blogMetaDe;
