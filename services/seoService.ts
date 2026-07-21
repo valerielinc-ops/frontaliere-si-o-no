@@ -4780,6 +4780,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-estetista-frontaliere-ticino-stipendio-requisiti': { name: 'Lavorare come estetista in Ticino da', path: '/articoli-svizzera/estetista-frontaliere-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-frontaliere-barista-ticino-stipendio-requisiti': { name: 'Lavorare come barista in Ticino da', path: '/articoli-frontaliere/frontaliere-barista-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-frontaliere-aiuto-cucina-ticino-stipendio-requisiti': { name: 'Lavorare come aiuto cucina in Ticino da', path: '/articoli-svizzera/frontaliere-aiuto-cucina-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-aiuto-cucina-frontaliere-ticino-stipendio': { name: 'Aiuto cucina frontaliere in Ticino', path: '/articoli-frontaliere/aiuto-cucina-frontaliere-ticino-stipendio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

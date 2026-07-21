@@ -8772,6 +8772,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-barista-ticino-stipendio-requisiti.title': 'Grenzgänger-Barkeeper: Gehalt und Anforderungen im Tessin',
     'blog.article.frontaliere-barista-ticino-stipendio-requisiti.excerpt': 'Durchschnittsgehalt eines Grenzbarista im Tessin: noch nicht festgelegt',
     'blog.article.frontaliere-barista-ticino-stipendio-requisiti.imageAlt': 'Ein Barista in Lugano',
+    'blog.article.aiuto-cucina-frontaliere-ticino-stipendio.title': 'Wie viel verdient eine Grenzküchenhilfe im Tessin',
+    'blog.article.aiuto-cucina-frontaliere-ticino-stipendio.excerpt': 'Der Lohn einer Grenzküchenhilfe im Tessin: Wie funktioniert die Quellensteuer und was bedeutet sie für die Arbeitnehmenden?',
+    'blog.article.aiuto-cucina-frontaliere-ticino-stipendio.imageAlt': 'Ein Küchenhilfskraft in Lugano',
 };
 
 export default blogMetaDe;

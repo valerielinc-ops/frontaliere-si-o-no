@@ -8774,6 +8774,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-barista-ticino-stipendio-requisiti.title': 'Barista frontaliere: stipendio e requisiti in Ticino',
     'blog.article.frontaliere-barista-ticino-stipendio-requisiti.excerpt': 'Stipendio medio di un barista frontaliero in Ticino: non ancora specificato',
     'blog.article.frontaliere-barista-ticino-stipendio-requisiti.imageAlt': 'Un barista frontaliero in un caffè di Lugano',
+    'blog.article.aiuto-cucina-frontaliere-ticino-stipendio.title': 'Quanto guadagna un aiuto cucina frontaliere in Ticino',
+    'blog.article.aiuto-cucina-frontaliere-ticino-stipendio.excerpt': 'Il salario di un aiuto cucina frontaliere in Ticino: come funziona l\'imposta alla fonte e cosa significa per i lavoratori.',
+    'blog.article.aiuto-cucina-frontaliere-ticino-stipendio.imageAlt': 'Un aiuto cucina in una cucina in Lugano',
 };
 
 export default blogMetaIt;
