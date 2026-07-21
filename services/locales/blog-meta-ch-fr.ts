@@ -1405,6 +1405,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.iperammortamento-transizione-5-0-conferma.title': 'Hyperamortissement : via les communications de confirmation',
     'blog.article.iperammortamento-transizione-5-0-conferma.excerpt': 'Le décret directeur pour la confirmation des investissements du Plan Transition 5.0 a été publié. Voici comment procéder via le portail GSE.',
     'blog.article.iperammortamento-transizione-5-0-conferma.imageAlt': 'Bureau moderne avec des données financières sur écrans',
+    'blog.article.dazi-usa-24-luglio.title': 'Droits US, la trêve est une illusion',
+    'blog.article.dazi-usa-24-luglio.excerpt': 'Les nouvelles mesures américaines risquent de peser davantage sur les exportations suisses',
+    'blog.article.dazi-usa-24-luglio.imageAlt': 'Fotografia di un portale doganale di un\'azienda con due impiegati che controllano merci in arrivo',
 };
 
 export default blogMetaChFr;

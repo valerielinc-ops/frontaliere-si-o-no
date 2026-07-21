@@ -1405,6 +1405,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.iperammortamento-transizione-5-0-conferma.title': 'Hyperabschreibung: Weg zur Bestätigungsmitteilung',
     'blog.article.iperammortamento-transizione-5-0-conferma.excerpt': 'Veröffentlichung des Direktionsdekrets zur Bestätigung der Investitionen des Übergangsplans 5.0. So gehen Sie über das GSE-Portal vor.',
     'blog.article.iperammortamento-transizione-5-0-conferma.imageAlt': 'Modernes Büro mit Finanzdaten auf Bildschirmen',
+    'blog.article.dazi-usa-24-luglio.title': 'US-Zölle, Waffenstillstand ist eine Illusion',
+    'blog.article.dazi-usa-24-luglio.excerpt': 'Die neuen US-Maßnahmen drohen die Schweizer Exporte zusätzlich zu belasten',
+    'blog.article.dazi-usa-24-luglio.imageAlt': 'Fotografia di un portale doganale di un\'azienda con due impiegati che controllano merci in arrivo',
 };
 
 export default blogMetaChDe;
