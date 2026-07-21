@@ -1,6 +1,6 @@
 {
   "crawlerKey": "prada",
-  "assembledAt": "2026-07-21T12:14:38.397Z",
+  "assembledAt": "2026-07-21T22:29:44.844Z",
   "jobs": [
     {
       "id": "prada-332f237b0ca4",
@@ -43,8 +43,9 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T12:14:31.737Z",
+      "crawledAt": "2026-07-21T22:29:39.457Z",
       "firstSeenAt": "2026-07-07T22:19:25.934Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -125,7 +126,7 @@
       },
       "country": "CH",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
