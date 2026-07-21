@@ -5188,6 +5188,95 @@ function italianBodyWordCount(data) {
     .reduce((acc, n) => acc + n, 0);
 }
 
+// ── Repetition detection + cleanup helpers ──────────────────────────
+// Shared between the main generation retry loop and the last-resort
+// content-expansion path below (expandShortItalianContent). Extracted
+// 2026-07-21: that expansion path — invoked when the source is too thin to
+// reach adaptiveMinWords through normal regeneration — is the code path
+// MOST likely to trigger LLM repetition-degeneration, since it explicitly
+// asks the model to keep adding content past what a thin source genuinely
+// supports. Before this fix, only the main retry loop ran this check; the
+// expansion path had none, so runaway repeats (a paragraph copy-pasted 5x,
+// a sentence repeated 26x) reached the live site untouched. Live incident:
+// articoli-svizzera swatch-crescita-2026 / novartis-superaspettative
+// (2026-07-21) — both expanded from thin tio.ch/AWP wire snippets.
+
+/** Detect exact-duplicate paragraphs or heavily-repeated sentences across body1-3. */
+function detectBodyRepetition(itContent) {
+  const allBodies = ['body1', 'body2', 'body3'].map(k => itContent?.[k] || '');
+
+  // 1. Repeated paragraphs within a single body field.
+  for (const [idx, body] of allBodies.entries()) {
+    const paragraphs = body.split(/\n\n+/).map(p => p.trim()).filter(p => p.length > 60);
+    const seen = new Map();
+    let dupeCount = 0;
+    for (const p of paragraphs) {
+      const normalized = p.replace(/[.!?,;:\s]+$/g, '').toLowerCase().replace(/\s+/g, ' ');
+      seen.set(normalized, (seen.get(normalized) || 0) + 1);
+      if (seen.get(normalized) > 1) dupeCount++;
+    }
+    if (dupeCount >= 3) {
+      return { hasRepetition: true, reason: `body${idx + 1} ha ${dupeCount} paragrafi ripetuti` };
+    }
+  }
+
+  // 2. Sentences repeated 4+ times across all bodies.
+  const allText = allBodies.join('\n\n');
+  const sentences = allText.split(/[.!?]\s+/).map(s => s.trim().toLowerCase().replace(/\s+/g, ' ')).filter(s => s.length > 40);
+  const sentCounts = new Map();
+  for (const s of sentences) sentCounts.set(s, (sentCounts.get(s) || 0) + 1);
+  const heavyRepeats = [...sentCounts.entries()].filter(([, c]) => c >= 4);
+  if (heavyRepeats.length > 0) {
+    return {
+      hasRepetition: true,
+      reason: `${heavyRepeats.length} frasi ripetute 4+ volte: "${heavyRepeats[0][0].substring(0, 60)}..." (${heavyRepeats[0][1]}x)`,
+    };
+  }
+
+  return { hasRepetition: false, reason: '' };
+}
+
+/** Strip exact-duplicate paragraphs (post-normalization) from each body field, keeping the first. Mutates itContent. */
+function dedupeRepeatedParagraphs(itContent) {
+  for (const field of ['body1', 'body2', 'body3']) {
+    if (!itContent?.[field]) continue;
+    const paras = itContent[field].split(/\n\n+/);
+    const seen = new Set();
+    const unique = [];
+    for (const p of paras) {
+      const norm = p.trim().replace(/[.!?,;:\s]+$/g, '').toLowerCase().replace(/\s+/g, ' ');
+      if (norm.length < 60 || !seen.has(norm)) {
+        seen.add(norm);
+        unique.push(p);
+      }
+    }
+    itContent[field] = unique.join('\n\n');
+  }
+}
+
+/** Strip the article title when echoed as the opening line of 2+ body fields. Mutates itContent. */
+function stripDuplicateTitleFromBody(itContent) {
+  const titleCheck = String(itContent?.title || '').trim();
+  if (!titleCheck) return;
+  const allBodies = ['body1', 'body2', 'body3'].map(k => itContent?.[k] || '');
+  let titleInBodyCount = 0;
+  for (const body of allBodies) {
+    const firstLine = body.split('\n')[0].trim();
+    if (firstLine === titleCheck || firstLine.startsWith(titleCheck)) titleInBodyCount++;
+  }
+  if (titleInBodyCount < 2) return;
+  for (const field of ['body1', 'body2', 'body3']) {
+    if (!itContent?.[field]) continue;
+    const lines = itContent[field].split('\n');
+    if (lines[0].trim() === titleCheck || lines[0].trim().startsWith(titleCheck)) {
+      lines.shift();
+      while (lines.length > 0 && lines[0].trim() === '') lines.shift();
+      itContent[field] = lines.join('\n');
+      console.error(`  🧹 Rimosso titolo duplicato da it.${field}`);
+    }
+  }
+}
+
 /**
  * Expand short Italian body content by asking the LLM to enrich each body field.
  * This is a last-resort fallback that's far more effective than regenerating from scratch,
@@ -9766,86 +9855,19 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     if (itWords >= adaptiveMinWords) {
       // ── Repetition check INSIDE the loop — triggers retry if AI looped ──
       const itContentLoop = data.content.it || data.content;
-      const allBodiesLoop = ['body1', 'body2', 'body3'].map(k => itContentLoop?.[k] || '');
-      let hasRepetition = false;
-      let repetitionReason = '';
-
-      // 1. Detect repeated paragraphs within a single body field
-      for (const [idx, body] of allBodiesLoop.entries()) {
-        const paragraphs = body.split(/\n\n+/).map(p => p.trim()).filter(p => p.length > 60);
-        const seen = new Map();
-        let dupeCount = 0;
-        for (const p of paragraphs) {
-          const normalized = p.replace(/[.!?,;:\s]+$/g, '').toLowerCase().replace(/\s+/g, ' ');
-          seen.set(normalized, (seen.get(normalized) || 0) + 1);
-          if (seen.get(normalized) > 1) dupeCount++;
-        }
-        if (dupeCount >= 3) {
-          hasRepetition = true;
-          repetitionReason = `body${idx + 1} ha ${dupeCount} paragrafi ripetuti`;
-          break;
-        }
-      }
-
-      // 2. Detect sentences repeated 4+ times across all bodies
-      if (!hasRepetition) {
-        const allText = allBodiesLoop.join('\n\n');
-        const sentences = allText.split(/[.!?]\s+/).map(s => s.trim().toLowerCase().replace(/\s+/g, ' ')).filter(s => s.length > 40);
-        const sentCounts = new Map();
-        for (const s of sentences) sentCounts.set(s, (sentCounts.get(s) || 0) + 1);
-        const heavyRepeats = [...sentCounts.entries()].filter(([, c]) => c >= 4);
-        if (heavyRepeats.length > 0) {
-          hasRepetition = true;
-          repetitionReason = `${heavyRepeats.length} frasi ripetute 4+ volte: "${heavyRepeats[0][0].substring(0, 60)}..." (${heavyRepeats[0][1]}x)`;
-        }
-      }
+      const { hasRepetition, reason: repetitionReason } = detectBodyRepetition(itContentLoop);
 
       if (hasRepetition) {
         console.error(`  ⚠️  AI loop rilevato: ${repetitionReason} — rigenero (${attempt}/${maxAttempts})...`);
         if (attempt < maxAttempts) continue;
         // Last attempt: auto-strip duplicate paragraphs as fallback
         console.error(`  🔧 Ultimo tentativo: auto-deduplica paragrafi ripetuti...`);
-        for (const field of ['body1', 'body2', 'body3']) {
-          if (itContentLoop?.[field]) {
-            const paras = itContentLoop[field].split(/\n\n+/);
-            const seen = new Set();
-            const unique = [];
-            for (const p of paras) {
-              const norm = p.trim().replace(/[.!?,;:\s]+$/g, '').toLowerCase().replace(/\s+/g, ' ');
-              if (norm.length < 60 || !seen.has(norm)) {
-                seen.add(norm);
-                unique.push(p);
-              }
-            }
-            itContentLoop[field] = unique.join('\n\n');
-          }
-        }
+        dedupeRepeatedParagraphs(itContentLoop);
         console.error(`  ✅ Auto-deduplica completata`);
         break;
       }
 
-      // 3. Auto-strip title duplicated as first line in body fields
-      const titleCheck = String(itContentLoop?.title || '').trim();
-      if (titleCheck) {
-        let titleInBodyCount = 0;
-        for (const body of allBodiesLoop) {
-          const firstLine = body.split('\n')[0].trim();
-          if (firstLine === titleCheck || firstLine.startsWith(titleCheck)) titleInBodyCount++;
-        }
-        if (titleInBodyCount >= 2) {
-          for (const field of ['body1', 'body2', 'body3']) {
-            if (itContentLoop?.[field]) {
-              const lines = itContentLoop[field].split('\n');
-              if (lines[0].trim() === titleCheck || lines[0].trim().startsWith(titleCheck)) {
-                lines.shift();
-                while (lines.length > 0 && lines[0].trim() === '') lines.shift();
-                itContentLoop[field] = lines.join('\n');
-                console.error(`  🧹 Rimosso titolo duplicato da it.${field}`);
-              }
-            }
-          }
-        }
-      }
+      stripDuplicateTitleFromBody(itContentLoop);
 
       console.error(`  ✅ Soglia parole IT raggiunta: ${itWords} (min ${adaptiveMinWords}), nessun loop AI`);
       break;
@@ -9858,6 +9880,21 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     console.error(`  🔧 Ultimo tentativo: espansione contenuto esistente (${itWords} → min ${adaptiveMinWords})...`);
     try {
       data = await expandShortItalianContent(data, adaptiveMinWords);
+
+      // Re-run the SAME repetition check the main loop uses above — this
+      // expansion call is the path MOST likely to produce it (see
+      // detectBodyRepetition's doc comment). Before this fix, runaway
+      // repeats from this specific path shipped straight to the live site
+      // uncaught (incident 2026-07-21: swatch-crescita-2026,
+      // novartis-superaspettative).
+      const expandedItContent = data.content.it || data.content;
+      const { hasRepetition: expandHasRepetition, reason: expandRepetitionReason } = detectBodyRepetition(expandedItContent);
+      if (expandHasRepetition) {
+        console.error(`  ⚠️  AI loop rilevato dopo espansione: ${expandRepetitionReason} — auto-deduplica...`);
+        dedupeRepeatedParagraphs(expandedItContent);
+      }
+      stripDuplicateTitleFromBody(expandedItContent);
+
       const expandedWords = italianBodyWordCount(data);
       if (expandedWords >= adaptiveMinWords) {
         console.error(`  ✅ Espansione riuscita: ${expandedWords} parole (min ${adaptiveMinWords})`);
