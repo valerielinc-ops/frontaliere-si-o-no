@@ -1360,6 +1360,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.title': 'Arbeiten als Monteur im Tessin: Gehalt, Voraussetzungen und Genehmigung G',
     'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.excerpt': 'Durchschnittsgehalt eines Grenzmonteurs im Tessin, Voraussetzungen für die Arbeit als Monteur im Tessin, Anerkennung des Bildungsabschlusses und G-Genehmigung.',
     'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Eine Szene von einem Frontaliere-Mechaniker am Werk in Ticino',
+    'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.title': 'Als Lagerist im Tessin arbeiten: Gehalt und Anforderungen',
+    'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.excerpt': 'Die neue Frontalieri-Vereinbarung sieht neue Regeln für Grenzlagerhalter im Tessin vor. Hier ist, was Sie wissen müssen.',
+    'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.imageAlt': 'Ein Frontaliere Lagerarbeiter in einer Szene von Arbeit in Lugano.',
 };
 
 export default blogMetaChDe;
