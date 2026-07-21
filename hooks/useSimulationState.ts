@@ -14,9 +14,18 @@ import { DEFAULT_INPUTS } from '@/constants';
 import { SimulationInputs, SimulationResult } from '@/types';
 import { decodeSimulationParams, hasSimulationParams, cleanSimulationParams } from '@/services/urlStateService';
 import { reportCaughtError } from '@/services/errorReporter';
+import { resilientImport } from '@/services/resilientImport';
 import type { SeoLandingId, ActiveTab } from '@/services/router';
 
-const lazyCalculate = () => import('@/services/calculationService');
+// Unlike every other lazily-loaded service module in this codebase
+// (exchangeRateService/authService/authorProfileService/behaviorTracker/
+// fuelPricesService/jobViewsService/clarity — all wrap via resilientImport),
+// this was a bare `import()` with no retry/reload recovery AND no `.catch()`
+// at either fire-and-forget call site below (the idle initial calc and the
+// auto-recalculate effect) — a stale-deploy chunk-load failure surfaced as an
+// unhandled TypeError straight to PostHog instead of self-healing (#4645).
+const lazyCalculate = () =>
+ resilientImport(() => import('@/services/calculationService'), (m) => typeof m.calculateSimulation === 'function');
 
 import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
 
