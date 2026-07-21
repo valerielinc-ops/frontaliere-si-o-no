@@ -1,16 +1,56 @@
 {
   "key": "clariant",
   "label": "Clariant",
-  "generatedAt": "2026-07-20T23:25:07.691Z",
-  "total": 0,
-  "newCount": 0,
+  "generatedAt": "2026-07-21T11:38:41.542Z",
+  "total": 1,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "newJobs": [],
+  "durationMs": 4514,
+  "avgDurationMs": 4514,
+  "durationHistory": [
+    4514
+  ],
+  "newJobs": [
+    {
+      "id": "clariant-8907364e581e",
+      "slug": "finance-specialist-m-f-d-clariant-pratteln",
+      "company": "Clariant",
+      "companyKey": "clariant",
+      "companyDomain": "clariant.com",
+      "title": "Finance Specialist (M/F/D)",
+      "location": "Pratteln",
+      "canton": "BL",
+      "url": "https://careers.clariant.com/job/Pratteln-Finance-Specialist-%28MFD%29/1417218033/",
+      "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-21T11:38:38.947Z",
+      "addressLocality": "Pratteln",
+      "addressRegion": "Basel-Landschaft",
+      "streetAddress": "Rothausstrasse 61",
+      "postalCode": "4132",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "finance",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "sector": "Chimica Speciale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-21",
+      "applyUrl": "https://careers.clariant.com/job/Pratteln-Finance-Specialist-%28MFD%29/1417218033/",
+      "jobReqId": "41644",
+      "_qualityScore": 69,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "unchangedJobs": []
 }
