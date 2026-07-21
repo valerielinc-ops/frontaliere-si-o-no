@@ -1,55 +1,53 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-07-21T11:37:15.112Z",
+  "generatedAt": "2026-07-21T22:34:37.001Z",
   "total": 371,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 118901,
-  "avgDurationMs": 118901,
+  "unchangedCount": 0,
+  "durationMs": 94014,
+  "avgDurationMs": 94014,
   "durationHistory": [
-    118901
+    94014
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Qualitätsmanager (w/m/d)",
-      "company": "Galenica AG (Galenica)",
+      "title": "Impiegato/a in logistica AFC",
+      "company": "Alloga AG (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3117384.4028987",
-      "location": "Bern",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=12624288",
+      "location": "Burgdorf",
       "canton": "BE",
       "country": "CH",
-      "category": "technology",
-      "descriptionIt": "Qualitätsmanager (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-      "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "category": "logistics",
+      "descriptionIt": "Impiegato/a in logistica AFC presso Alloga AG (Gruppo Galenica), con sede a Burgdorf, Buchmattstrasse 10, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12624288-logistiker-in-efz-burgdorf-be-alloga-ag?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "qualitatsmanager-m-w-d-galenica-ag-galenica-bern",
-      "id": "galenica-ed642a10befe",
+      "slug": "galenica-alloga-ag-impiegato-a-in-logistica-afc-burgdorf",
+      "id": "galenica-6f6a5646370e",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "currency": "CHF",
-      "streetAddress": "Untermattweg 8",
-      "postalCode": "3027",
-      "addressLocality": "Bern",
+      "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2,
-      "_qualityScore": 86,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 22
+        "completeness": 14
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
