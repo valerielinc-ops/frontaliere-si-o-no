@@ -26396,6 +26396,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'disoccupazione-frontalieri-lorenzo-quadri-bernareplica',
+ category: 'novita',
+ date: '2026-07-21T07:10:36.093Z',
+ image: '/images/blog/disoccupazione-frontalieri-lorenzo-quadri-bernareplica.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
