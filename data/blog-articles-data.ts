@@ -26270,6 +26270,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'stipendio-gessatore-frontaliere-ticino',
+ category: 'fiscale',
+ date: '2026-07-21T00:22:12.497Z',
+ image: '/images/blog/stipendio-gessatore-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

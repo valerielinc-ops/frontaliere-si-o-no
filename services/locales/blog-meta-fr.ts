@@ -8744,6 +8744,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.title': 'Épandeurs au Tessin : salaire, exigences et reconnaissance',
     'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.excerpt': 'Salaire moyen des épandeurs frontaliers au Tessin : CHF 60\'000, conditions pour travailler comme épandeur au Tessin, reconnaissance éventuelle du diplôme',
     'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.imageAlt': 'Gessatore frontaliero à Lugano',
+    'blog.article.stipendio-gessatore-frontaliere-ticino.title': 'Combien gagne un plâtrier frontalier au Tessin : salaires et taxes',
+    'blog.article.stipendio-gessatore-frontaliere-ticino.excerpt': 'Échelle des salaires réels, différences avec l\'Italie, déductions et cotisations. Guide pratique avec calculs vérifiés.',
+    'blog.article.stipendio-gessatore-frontaliere-ticino.imageAlt': 'Plâtrier frontalier travaillant sur un chantier tessinois',
 };
 
 export default blogMetaFr;

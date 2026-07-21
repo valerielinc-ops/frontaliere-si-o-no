@@ -8744,6 +8744,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.title': 'Gessatori in Ticino: stipendio, requisiti e riconoscimento',
     'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.excerpt': 'Stipendio medio dei gessatori frontalieri in Ticino: CHF 60\'000, requisiti per lavorare come gessatore in Ticino, eventuale riconoscimento del titolo di studio',
     'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.imageAlt': 'Gessatore frontaliero a Lugano',
+    'blog.article.stipendio-gessatore-frontaliere-ticino.title': 'Quanto guadagna un gessatore frontaliere in Ticino: stipendi e tasse',
+    'blog.article.stipendio-gessatore-frontaliere-ticino.excerpt': 'Fascia salariale reale, differenze con l\'Italia, detrazioni e contributi. Guida pratica con calcoli verificati.',
+    'blog.article.stipendio-gessatore-frontaliere-ticino.imageAlt': 'Gessatore frontaliere al lavoro in un cantiere ticinese',
 };
 
 export default blogMetaIt;

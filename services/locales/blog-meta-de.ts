@@ -8742,6 +8742,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.title': 'Gipser im Tessin: Gehalt, Voraussetzungen und Anerkennung',
     'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.excerpt': 'Durchschnittsgehalt der Grenzgipser im Tessin: CHF 60\'000, Voraussetzungen für die Arbeit als Gipser im Tessin, allfällige Anerkennung des Bildungsabschlusses',
     'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.imageAlt': 'Gessatore frontaliero in Lugano',
+    'blog.article.stipendio-gessatore-frontaliere-ticino.title': 'Wie viel verdient ein Grenzgipser im Tessin: Gehälter und Steuern',
+    'blog.article.stipendio-gessatore-frontaliere-ticino.excerpt': 'Reale Lohnspanne, Unterschiede zu Italien, Abzüge und Beiträge. Praktischer Leitfaden mit geprüften Berechnungen.',
+    'blog.article.stipendio-gessatore-frontaliere-ticino.imageAlt': 'Grenzgänger-Putzmeister auf einer Baustelle im Tessin',
 };
 
 export default blogMetaDe;
