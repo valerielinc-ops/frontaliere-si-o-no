@@ -8776,6 +8776,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aiuto-cucina-frontaliere-ticino-stipendio.title': 'How much does a border kitchen help earn in Ticino',
     'blog.article.aiuto-cucina-frontaliere-ticino-stipendio.excerpt': 'The salary of a border kitchen help in Ticino: how the tax at source works and what it means for workers.',
     'blog.article.aiuto-cucina-frontaliere-ticino-stipendio.imageAlt': 'A kitchen assistant in Lugano',
+    'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.title': 'How much does a border security agent earn in Ticino?',
+    'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.excerpt': 'The income of a border security agent in Ticino depends on various factors, such as salary bracket and job position.',
+    'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.imageAlt': 'A border security agent working at Lugano, with Lake Lugano in the background.',
 };
 
 export default blogMetaEn;

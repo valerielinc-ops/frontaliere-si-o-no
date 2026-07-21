@@ -26369,6 +26369,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-agenzia-sicurezza-guadagno-ticino',
+ category: 'pratico',
+ date: '2026-07-21T05:40:31.839Z',
+ image: '/images/blog/frontaliere-agenzia-sicurezza-guadagno-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

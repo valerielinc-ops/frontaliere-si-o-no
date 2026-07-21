@@ -4782,6 +4782,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-aiuto-cucina-ticino-stipendio-requisiti': { name: 'Lavorare come aiuto cucina in Ticino da', path: '/articoli-svizzera/frontaliere-aiuto-cucina-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-aiuto-cucina-frontaliere-ticino-stipendio': { name: 'Aiuto cucina frontaliere in Ticino', path: '/articoli-frontaliere/aiuto-cucina-frontaliere-ticino-stipendio', parent: 'blog' },
     'blog-frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti': { name: 'Lavorare come agente di sicurezza in', path: '/articoli-svizzera/frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-frontaliere-agenzia-sicurezza-guadagno-ticino': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/frontaliere-agenzia-sicurezza-guadagno-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

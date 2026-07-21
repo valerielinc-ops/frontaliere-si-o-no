@@ -8777,6 +8777,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aiuto-cucina-frontaliere-ticino-stipendio.title': 'Quanto guadagna un aiuto cucina frontaliere in Ticino',
     'blog.article.aiuto-cucina-frontaliere-ticino-stipendio.excerpt': 'Il salario di un aiuto cucina frontaliere in Ticino: come funziona l\'imposta alla fonte e cosa significa per i lavoratori.',
     'blog.article.aiuto-cucina-frontaliere-ticino-stipendio.imageAlt': 'Un aiuto cucina in una cucina in Lugano',
+    'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.title': 'Quanto guadagna un agente di sicurezza frontaliere in Ticino?',
+    'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.excerpt': 'Il reddito di un agente di sicurezza frontaliere in Ticino dipende da vari fattori, come la fascia salariale e la posizione lavorativa.',
+    'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.imageAlt': 'Un agente di sicurezza frontaliere in azione a Lugano, con la vista sul lago Lugano in secondo piano.',
 };
 
 export default blogMetaIt;
