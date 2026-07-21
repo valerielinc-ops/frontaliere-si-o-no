@@ -18309,6 +18309,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo': {
+    title: 'Guida 2026: dichiarazione imposte Svizzera - Canton San Gallo',
+    description: 'Scadenze, deduzioni e procedura online per la dichiarazione fiscale 2026 nel canton San Gallo. Confronto con la media nazionale e consigli pratici per',
+    keywords: 'frontalieri, ticino, svizzera, italia, dichiarazione, imposte, canton, gallo',
+    ogTitle: 'Dichiarazione imposte Svizzera 2026: guida pratica per il canton San Gallo',
+    ogDescription: 'Tutto sulla dichiarazione fiscale 2026 nel canton San Gallo: scadenze, deduzioni specifiche e procedura online. Confronto con la media svizzera.',
+    canonicalPath: '/articoli-svizzera/dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guida 2026: dichiarazione imposte Svizzera - Canton San Gallo",
+      "description": "Scadenze, deduzioni e procedura online per la dichiarazione fiscale 2026 nel canton San Gallo. Confronto con la media nazionale e consigli pratici per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cattedrale e biblioteca abbaziale di San Gallo, patrimonio UNESCO"
+      },
+      "datePublished": "2026-07-21T10:48:26+00:00",
+      "dateModified": "2026-07-21T10:48:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

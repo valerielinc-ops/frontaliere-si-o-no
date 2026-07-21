@@ -1417,6 +1417,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.swiss-ccl-migliorato-2027.title': 'Swiss, dal 2027 CCL migliorato per il personale di terra',
     'blog.article.swiss-ccl-migliorato-2027.excerpt': 'La compagnia aerea Swiss ha definito un nuovo contratto collettivo di lavoro che consente di ridurre le ore settimanali da 42 a 40 e aumentare i bonus nel fine settimana.',
     'blog.article.swiss-ccl-migliorato-2027.imageAlt': 'Immagine di un aeroporto svizzero',
+    'blog.article.dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.title': 'Guida 2026: dichiarazione imposte Svizzera - Canton San Gallo',
+    'blog.article.dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.excerpt': 'Scadenze cantonali, deduzioni ammesse e procedura online per la dichiarazione fiscale 2026. Dati specifici per il canton San Gallo e confronto nazionale.',
+    'blog.article.dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.imageAlt': 'Cattedrale e biblioteca abbaziale di San Gallo, patrimonio UNESCO',
 };
 
 export default blogMetaChIt;

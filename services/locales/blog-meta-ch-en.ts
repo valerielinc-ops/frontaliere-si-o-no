@@ -1417,6 +1417,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.swiss-ccl-migliorato-2027.title': 'Swiss, from 2027 CCL improved for ground staff',
     'blog.article.swiss-ccl-migliorato-2027.excerpt': 'The airline Swiss has defined a new collective bargaining agreement that allows you to reduce weekly hours from 42 to 40 and increase bonuses at the weekend.',
     'blog.article.swiss-ccl-migliorato-2027.imageAlt': 'Swiss airport',
+    'blog.article.dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.title': 'Guide 2026: tax return Switzerland - Canton of St. Gallen',
+    'blog.article.dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.excerpt': 'Cantonal deadlines, allowable deductions and online procedure for the 2026 tax return. Specific data for the canton of St. Gallen and national comparison.',
+    'blog.article.dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.imageAlt': 'St. Gallen Cathedral and Abbey Library, UNESCO World Heritage Site',
 };
 
 export default blogMetaChEn;

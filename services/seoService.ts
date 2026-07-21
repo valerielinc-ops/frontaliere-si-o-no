@@ -4801,6 +4801,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza': { name: 'Notizie Ticino', path: '/articoli-frontaliere/romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza', parent: 'blog' },
     'blog-swiss-ccl-migliorato-2027': { name: 'CCL migliorato di Swiss', path: '/articoli-svizzera/swiss-ccl-migliorato-2027/', parent: 'blog' },
     'blog-salari-ticino-abusi-precarieta': { name: 'Salari e fiscalià', path: '/articoli-frontaliere/salari-ticino-abusi-precarieta', parent: 'blog' },
+    'blog-dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo': { name: 'Fiscale', path: '/articoli-svizzera/dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
