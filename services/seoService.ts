@@ -4764,6 +4764,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-montatore-frontaliere-ticino-stipendio-requisiti': { name: 'Lavorare come montatore in Ticino da', path: '/articoli-svizzera/montatore-frontaliere-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-stipendio-magazziniere-frontaliere-ticino': { name: 'Stipendio magazziniere frontaliere in', path: '/articoli-frontaliere/stipendio-magazziniere-frontaliere-ticino', parent: 'blog' },
     'blog-frontaliere-magazziniere-ticino-stipendio-requisiti': { name: 'Lavorare come magazziniere in Ticino da', path: '/articoli-svizzera/frontaliere-magazziniere-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-frontaliere-corriere-ticino-stipendio-requisiti': { name: 'Lavorare come corriere in Ticino da', path: '/articoli-frontaliere/frontaliere-corriere-ticino-stipendio-requisiti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

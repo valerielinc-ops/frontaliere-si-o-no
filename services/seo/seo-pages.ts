@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3389,
+ "numberOfItems": 3390,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8157,7 +8157,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3386, "name": "Quanto guadagna un gessatore frontaliere in Tic...", "url": `${BASE_URL}/articoli-frontaliere/stipendio-gessatore-frontaliere-ticino` },
           { "@type": "ListItem", "position": 3387, "name": "Lavorare come montatore in Ticino: stipendio, r...", "url": `${BASE_URL}/articoli-frontaliere/montatore-frontaliere-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3388, "name": "Quanto guadagna un magazziniere frontaliere in ...", "url": `${BASE_URL}/articoli-frontaliere/stipendio-magazziniere-frontaliere-ticino` },
-          { "@type": "ListItem", "position": 3389, "name": "Lavorare come magazziniere in Ticino: stipendio...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-magazziniere-ticino-stipendio-requisiti` }
+          { "@type": "ListItem", "position": 3389, "name": "Lavorare come magazziniere in Ticino: stipendio...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-magazziniere-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3390, "name": "Corriere in Ticino: stipendio, requisiti e perm...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-corriere-ticino-stipendio-requisiti` }
  ]
  },
  {
