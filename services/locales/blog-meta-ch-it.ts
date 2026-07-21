@@ -1360,6 +1360,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.title': 'Lavorare come montatore in Ticino: stipendio, requisiti e permesso G',
     'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.excerpt': 'Stipendio medio di un montatore frontaliero in Ticino, requisiti per lavorare come montatore in Ticino, riconoscimento del titolo di studio e permesso G.',
     'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Una scena di lavoro di un montatore frontaliero in Ticino',
+    'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.title': 'Lavorare come magazziniere in Ticino: stipendio e requisiti',
+    'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.excerpt': 'Il Nuovo Accordo Frontalieri prevede nuove regole per i magazzinieri frontalieri in Ticino. Ecco cosa devi sapere.',
+    'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.imageAlt': 'Un magazziniere frontaliero in una scena di lavoro a Lugano.',
 };
 
 export default blogMetaChIt;

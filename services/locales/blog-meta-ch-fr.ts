@@ -1360,6 +1360,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.title': 'Travailler comme monteur au Tessin : salaire, exigences et permis G',
     'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.excerpt': 'Salaire moyen d\'un monteur frontalier au Tessin, conditions pour travailler comme monteur au Tessin, reconnaissance du titre d\'études et permis G.',
     'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Une scène de travail d\'un mécanicien frontalier en Tessin',
+    'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.title': 'Travailler comme magasinier au Tessin : salaire et exigences',
+    'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.excerpt': 'Le nouvel accord frontalier prévoit de nouvelles règles pour les entrepôts frontaliers au Tessin. Voici ce que vous devez savoir.',
+    'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.imageAlt': 'Un frontalier magasinier dans une scène de travail à Lugano.',
 };
 
 export default blogMetaChFr;

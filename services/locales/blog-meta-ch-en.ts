@@ -1360,6 +1360,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.title': 'Working as a fitter in Ticino: salary, requirements and permit G',
     'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.excerpt': 'Average salary of a border assembler in Ticino, requirements to work as an assembler in Ticino, recognition of the qualification and G permit.',
     'blog.article.montatore-frontaliere-ticino-stipendio-requisiti.imageAlt': 'A scene of a frontalier mechanic at work in Ticino',
+    'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.title': 'Working as a warehouseman in Ticino: salary and requirements',
+    'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.excerpt': 'The New Frontier Agreement provides for new rules for border warehousemen in Ticino. Here\'s what you need to know.',
+    'blog.article.frontaliere-magazziniere-ticino-stipendio-requisiti.imageAlt': 'A frontalier warehouse worker in a scene of work at Lugano.',
 };
 
 export default blogMetaChEn;
