@@ -8758,6 +8758,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.title': 'Ticino Shop Manager Requirements for Border Workers',
     'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.excerpt': 'Know how the job of store manager in Ticino works for border workers.',
     'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.imageAlt': 'A store manager in a shopping mall in Lugano.',
+    'blog.article.frontaliere-ticino-salario-macellaio.title': 'How much does a border butcher earn in Ticino',
+    'blog.article.frontaliere-ticino-salario-macellaio.excerpt': 'Average salary of a border butcher in Ticino: data and figures from the source',
+    'blog.article.frontaliere-ticino-salario-macellaio.imageAlt': 'Butcher in a meat shop in Lugano',
 };
 
 export default blogMetaEn;

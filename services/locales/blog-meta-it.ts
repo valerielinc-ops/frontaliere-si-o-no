@@ -8759,6 +8759,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.title': 'Lavorare come responsabile di negozio in Ticino da frontaliere: requisiti e permesso G',
     'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.excerpt': 'Sapere come funziona il lavoro di responsabile di negozio in Ticino per i frontalieri.',
     'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.imageAlt': 'Un responsabile di negozio in un centro commerciale di Lugano.',
+    'blog.article.frontaliere-ticino-salario-macellaio.title': 'Quanto guadagna un macellaio frontaliere in Ticino',
+    'blog.article.frontaliere-ticino-salario-macellaio.excerpt': 'Salario medio di un macellaio frontaliere in Ticino: dati e cifre della fonte',
+    'blog.article.frontaliere-ticino-salario-macellaio.imageAlt': 'Macellaio in un negozio di carne a Lugano',
 };
 
 export default blogMetaIt;

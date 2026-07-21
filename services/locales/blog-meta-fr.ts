@@ -8759,6 +8759,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.title': 'Responsable de magasin au Tessin : requisits et permis G',
     'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.excerpt': 'Savoir comment fonctionne le travail de responsable de magasin au Tessin pour les frontaliers.',
     'blog.article.frontaliere-responsabile-di-negozio-ticino-stipendio-requisiti.imageAlt': 'Un responsable de magasin dans un centre commercial à Lugano.',
+    'blog.article.frontaliere-ticino-salario-macellaio.title': 'Combien gagne un boucher frontalier au Tessin',
+    'blog.article.frontaliere-ticino-salario-macellaio.excerpt': 'Salaire moyen d\'un boucher frontalier au Tessin : données et chiffres de la source',
+    'blog.article.frontaliere-ticino-salario-macellaio.imageAlt': 'Boucher dans un magasin de viande à Lugano',
 };
 
 export default blogMetaFr;
