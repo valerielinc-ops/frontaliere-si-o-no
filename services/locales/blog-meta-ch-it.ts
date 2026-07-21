@@ -1390,6 +1390,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.title': 'Agente di sicurezza in Ticino: stipendio, requisiti e riconoscimento',
     'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.excerpt': 'Gli agenti di sicurezza frontalieri in Ticino: stipendio medio CHF 60\'000, requisiti e riconoscimento del titolo di studio',
     'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.imageAlt': 'Immagine di un agente di sicurezza frontaliero a Lugano',
+    'blog.article.novartis-superaspettative.title': 'Novartis supera le aspettative',
+    'blog.article.novartis-superaspettative.excerpt': 'Novartis ha registrato un fatturato di 14,4 miliardi di dollari nel secondo trimestre 2026.',
+    'blog.article.novartis-superaspettative.imageAlt': 'Edificio Novartis a Basilea',
 };
 
 export default blogMetaChIt;
