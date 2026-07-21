@@ -24,9 +24,26 @@
  * expired-job soft-landing marker check, for same-origin frontaliereticino.ch
  * URLs where checkLink()'s HEAD/status-only check is blind to the site's
  * soft-404 policy (see its own doc comment below).
+ *
+ * DEFAULT_LIVE_CHECK_USER_AGENT: Cloudflare's own
+ * "unidentified-scripted-traffic-challenge" firewall rule (managed by
+ * scripts/cf-locale-failover-setup.mjs, CHALLENGED_UAS) `managed_challenge`s
+ * any request whose User-Agent is empty or the literal "node" — undici's
+ * default `fetch()` sends no User-Agent header at all, which reads as empty
+ * to Cloudflare, so every check in this module was silently hitting the CF
+ * JS-challenge interstitial (HTTP 403 "Just a moment...") and reading as
+ * "dead" 100% of the time, regardless of the target's real liveness (found
+ * investigating the send-job-alerts.mjs preflight always failing open).
+ * Same convention/fix as scripts/seo-audit-structural.mjs,
+ * scripts/canary-article-content.mjs, scripts/probe-5xx.mjs, etc. — a
+ * descriptive UA clears the challenge rule and reaches the real origin.
+ * Both checkLink() and checkPageBodyLive() apply this as a default, merged
+ * under any caller-supplied `opts.headers` (wait-for-pages-propagation.mjs's
+ * own UA still wins where it sets one explicitly).
  */
 
 export const DEFAULT_LIVE_CHECK_TIMEOUT_MS = 8_000;
+export const DEFAULT_LIVE_CHECK_USER_AGENT = 'FrontaliereTicino-LiveLinkCheck/1.0 (+https://frontaliereticino.ch)';
 
 /** HEAD-check a single URL; falls back to a ranged GET if the origin rejects
  * HEAD (some static hosts / edge configs return 405/501 for it). Never
@@ -47,17 +64,18 @@ export const DEFAULT_LIVE_CHECK_TIMEOUT_MS = 8_000;
  */
 export async function checkLink(url, timeoutMs = DEFAULT_LIVE_CHECK_TIMEOUT_MS, opts = {}) {
   const { cacheBust = false, headers = {} } = opts;
+  const mergedHeaders = { 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT, ...headers };
   const target = cacheBust ? `${url}${url.includes('?') ? '&' : '?'}_=${Date.now()}` : url;
   try {
     const res = await fetch(target, {
       method: 'HEAD',
-      headers,
+      headers: mergedHeaders,
       signal: AbortSignal.timeout(timeoutMs),
     });
     if (res.status === 405 || res.status === 501) {
       const getRes = await fetch(target, {
         method: 'GET',
-        headers: { ...headers, Range: 'bytes=0-0' },
+        headers: { ...mergedHeaders, Range: 'bytes=0-0' },
         signal: AbortSignal.timeout(timeoutMs),
       });
       return getRes.ok || getRes.status === 206;
@@ -84,9 +102,13 @@ export const EXPIRED_JOB_MARKER = '__EXPIRED_JOB_DATA__=';
  * EXPIRED_JOB_MARKER above — HEAD/status alone can never see this, the page
  * always 200s). Never throws — resolves `false` on any non-ok status,
  * network error, timeout, or marker match. */
-export async function checkPageBodyLive(url, timeoutMs = DEFAULT_LIVE_CHECK_TIMEOUT_MS) {
+export async function checkPageBodyLive(url, timeoutMs = DEFAULT_LIVE_CHECK_TIMEOUT_MS, opts = {}) {
+  const { headers = {} } = opts;
   try {
-    const res = await fetch(url, { signal: AbortSignal.timeout(timeoutMs) });
+    const res = await fetch(url, {
+      headers: { 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT, ...headers },
+      signal: AbortSignal.timeout(timeoutMs),
+    });
     if (!res.ok) return false;
     const body = await res.text();
     return !body.includes(EXPIRED_JOB_MARKER);

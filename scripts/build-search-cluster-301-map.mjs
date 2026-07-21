@@ -62,6 +62,7 @@ import {
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
 import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
+import { DEFAULT_LIVE_CHECK_USER_AGENT } from './lib/live-link-check.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -168,7 +169,11 @@ async function isLive(pathUrl) {
   if (liveCache.has(pathUrl)) return liveCache.get(pathUrl);
   let ok = false;
   try {
-    const res = await fetch(`${BASE}${pathUrl}`, { method: 'GET', redirect: 'manual' });
+    const res = await fetch(`${BASE}${pathUrl}`, {
+      method: 'GET',
+      redirect: 'manual',
+      headers: { 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT },
+    });
     ok = res.status === 200;
   } catch {
     ok = false;
@@ -311,7 +316,7 @@ export async function fetchLiveClusterSet() {
     const url = `${BASE}/sitemap-search-clusters-${idx}.xml`;
     let xml;
     try {
-      const res = await fetch(url);
+      const res = await fetch(url, { headers: { 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT } });
       if (!res.ok) break; // no more shards
       xml = await res.text();
     } catch {
