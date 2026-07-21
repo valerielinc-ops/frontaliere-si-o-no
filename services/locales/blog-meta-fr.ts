@@ -8835,6 +8835,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge.title': 'Télétravail pour les frontaliers : le gouvernement approuve le projet de loi',
     'blog.article.telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge.excerpt': 'Le Conseil des ministres italien a approuvé le projet de loi visant à ratifier le Protocole de modification de l\'Accord avec la Suisse sur l\'imposition des travailleurs frontaliers.',
     'blog.article.telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge.imageAlt': 'Un frontalier ticinois travaille à domicile, entouré de livres et de documents.',
+    'blog.article.frontaliere-impiegato-commercio-ticino.title': 'Employés du commerce au Tessin: guide transfrontalier',
+    'blog.article.frontaliere-impiegato-commercio-ticino.excerpt': 'Découvrez les exigences, le rôle et les règles fiscales pour travailler comme employé de commerce dans le canton du Tessin en tant que frontalier en 2024.',
+    'blog.article.frontaliere-impiegato-commercio-ticino.imageAlt': 'Vue professionnelle sur Lugano, Tessin',
 };
 
 export default blogMetaFr;

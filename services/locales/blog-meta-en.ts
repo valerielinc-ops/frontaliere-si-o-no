@@ -8833,6 +8833,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge.title': 'Teleworking for border workers: the Government approves the bill',
     'blog.article.telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge.excerpt': 'The Italian Council of Ministers approved the bill to ratify the Protocol amending the Agreement with Switzerland on the taxation of frontier workers.',
     'blog.article.telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge.imageAlt': 'A Ticinese frontaliere works from home, surrounded by books and documents.',
+    'blog.article.frontaliere-impiegato-commercio-ticino.title': 'Trade clerk in Ticino: guide for border workers',
+    'blog.article.frontaliere-impiegato-commercio-ticino.excerpt': 'Learn about the requirements, role and tax rules to work as a trade clerk in Canton Ticino as a border worker in 2024.',
+    'blog.article.frontaliere-impiegato-commercio-ticino.imageAlt': 'Professional view over Lugano, Ticino',
 };
 
 export default blogMetaEn;

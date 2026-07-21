@@ -8834,6 +8834,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge.title': 'Telelavoro per frontalieri: il Governo approva il disegno di legge',
     'blog.article.telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge.excerpt': 'Il Consiglio dei ministri italiano ha approvato il disegno di legge per ratificare il Protocollo di modifica dell\'Accordo con la Svizzera sull\'imposizione dei lavoratori frontalieri.',
     'blog.article.telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge.imageAlt': 'Un frontaliere ticinese lavora da casa, circondato da libri e documenti.',
+    'blog.article.frontaliere-impiegato-commercio-ticino.title': 'Impiegato di commercio in Ticino: guida per frontalieri',
+    'blog.article.frontaliere-impiegato-commercio-ticino.excerpt': 'Scopri i requisiti, il ruolo e le regole fiscali per lavorare come impiegato di commercio in Canton Ticino da frontaliere nel 2024.',
+    'blog.article.frontaliere-impiegato-commercio-ticino.imageAlt': 'Vista professionale su Lugano, Ticino',
 };
 
 export default blogMetaIt;

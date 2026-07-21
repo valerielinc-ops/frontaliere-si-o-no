@@ -53697,6 +53697,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-impiegato-commercio-ticino': {
+    title: 'Impiegato di commercio in Ticino: guida per frontalieri',
+    description: 'Guida pratica per frontalieri impiegati di commercio in Ticino: requisiti, tassazione 2024, franchigie fiscali e gestione del permesso G. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, impiegato, commercio, scopri, requisiti',
+    ogTitle: 'Frontaliere impiegato di commercio in Ticino: stipendio e regole',
+    ogDescription: 'Guida pratica per frontalieri impiegati di commercio in Ticino: requisiti, tassazione 2024, franchigie fiscali e gestione del permesso G.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-impiegato-commercio-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Impiegato di commercio in Ticino: guida per frontalieri",
+      "description": "Guida pratica per frontalieri impiegati di commercio in Ticino: requisiti, tassazione 2024, franchigie fiscali e gestione del permesso G. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-impiegato-commercio-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista professionale su Lugano, Ticino"
+      },
+      "datePublished": "2026-07-21T18:00:09+00:00",
+      "dateModified": "2026-07-21T18:00:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-impiegato-commercio-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

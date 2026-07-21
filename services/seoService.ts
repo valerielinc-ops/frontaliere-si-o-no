@@ -4819,6 +4819,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-grigioni-traffico-sviamento-udc': { name: 'Traffico Grigioni', path: '/articoli-svizzera/grigioni-traffico-sviamento-udc/', parent: 'blog' },
     'blog-telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge': { name: 'Governo italiano', path: '/articoli-frontaliere/telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge', parent: 'blog' },
     'blog-di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore': { name: 'Di più Swiss: nuovo CCL per personale di', path: '/articoli-svizzera/di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore/', parent: 'blog' },
+    'blog-frontaliere-impiegato-commercio-ticino': { name: 'Frontaliere impiegato commercio', path: '/articoli-frontaliere/frontaliere-impiegato-commercio-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];
