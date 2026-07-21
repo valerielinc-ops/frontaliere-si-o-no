@@ -8748,6 +8748,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stipendio-magazziniere-frontaliere-ticino.title': 'Wie viel verdient ein Grenzlagerist im Tessin?',
     'blog.article.stipendio-magazziniere-frontaliere-ticino.excerpt': 'Die Gehälter der Grenzlagerarbeiter im Tessin werden von der schweizerischen und italienischen Gesetzgebung beeinflusst.',
     'blog.article.stipendio-magazziniere-frontaliere-ticino.imageAlt': 'Ein Frontalierlagerarbeiter in Ticino arbeitet in einem Lager mit Blick auf den Luganersee.',
+    'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.title': 'Kuriere im Tessin: Gehalt, Voraussetzungen und G-Bewilligung',
+    'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.excerpt': 'Grenzgänger, die als Kuriere im Tessin arbeiten, müssen folgende Dokumente vorlegen: Bewilligung G, Krankenversicherung und Einstellungsbescheinigung.',
+    'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.imageAlt': 'Ein grenzgängerischer Kurier in Ticino',
 };
 
 export default blogMetaDe;

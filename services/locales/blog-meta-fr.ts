@@ -8750,6 +8750,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stipendio-magazziniere-frontaliere-ticino.title': 'Combien gagne un entrepôt frontalier au Tessin ?',
     'blog.article.stipendio-magazziniere-frontaliere-ticino.excerpt': 'Les salaires des entrepôts frontaliers au Tessin sont influencés par la législation suisse et italienne.',
     'blog.article.stipendio-magazziniere-frontaliere-ticino.imageAlt': 'Un travailleur frontalier du stockage en Suisse travaille dans un entrepôt avec vue sur le lac de Lugano.',
+    'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.title': 'Courrier au Tessin : salaire, exigences et permis G',
+    'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.excerpt': 'Les frontaliers travaillant comme coursiers au Tessin doivent présenter les documents suivants : permis G, assurance maladie et certificat d\'embauche.',
+    'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.imageAlt': 'Un courrier frontalier en Suisse',
 };
 
 export default blogMetaFr;

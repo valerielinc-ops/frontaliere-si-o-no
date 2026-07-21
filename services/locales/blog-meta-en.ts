@@ -8749,6 +8749,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stipendio-magazziniere-frontaliere-ticino.title': 'How much does a border warehouseman earn in Ticino?',
     'blog.article.stipendio-magazziniere-frontaliere-ticino.excerpt': 'The salaries of border warehouse workers in Ticino are influenced by Swiss and Italian legislation.',
     'blog.article.stipendio-magazziniere-frontaliere-ticino.imageAlt': 'A cross-border warehouse worker in Ticino works in a warehouse with a view of Lake Lugano.',
+    'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.title': 'Courier in Ticino: salary, requirements and permit G',
+    'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.excerpt': 'Border workers working as couriers in Ticino must present the following documents: G permit, health insurance and employment certificate.',
+    'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.imageAlt': 'A cross-border courier in Ticino',
 };
 
 export default blogMetaEn;

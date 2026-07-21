@@ -8750,6 +8750,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stipendio-magazziniere-frontaliere-ticino.title': 'Quanto guadagna un magazziniere frontaliere in Ticino?',
     'blog.article.stipendio-magazziniere-frontaliere-ticino.excerpt': 'Gli stipendi dei magazziniere frontaliere in Ticino sono influenzati dalla legislazione svizzera e italiana.',
     'blog.article.stipendio-magazziniere-frontaliere-ticino.imageAlt': 'Un magazziniere frontaliere in Ticino lavora in un magazzificio con vista sul lago di Lugano.',
+    'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.title': 'Corriere in Ticino: stipendio, requisiti e permesso G',
+    'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.excerpt': 'I frontalieri che lavorano come corrieri in Ticino devono presentare i seguenti documenti: permesso G, assicurazione malattia e certificato di assunzione.',
+    'blog.article.frontaliere-corriere-ticino-stipendio-requisiti.imageAlt': 'Un corriere frontaliero in Ticino',
 };
 
 export default blogMetaIt;
