@@ -1,16 +1,16 @@
 {
   "key": "gim-architekten",
   "label": "GIM Architekten AG",
-  "generatedAt": "2026-07-20T12:41:18.582Z",
+  "generatedAt": "2026-07-21T11:45:10.542Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5464,
-  "avgDurationMs": 5464,
+  "unchangedCount": 0,
+  "durationMs": 5142,
+  "avgDurationMs": 5142,
   "durationHistory": [
-    5464
+    5142
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/af4cec50-62b4-4f52-9d0e-bf3d0c24bf80/",
       "source": "GIM Architekten AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T12:41:15.409Z",
+      "crawledAt": "2026-07-21T11:45:07.002Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -51,13 +51,10 @@
         "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "gim-architekten-dfcd34dca23b",
-      "slug": "dipl-architetto-gim-gim-architekten-ag-bern",
+      "slug": "dipl-architect-gim-gim-architekten-bern",
       "company": "GIM Architekten AG",
       "companyKey": "gim-architekten",
       "companyDomain": "gim.ch",
@@ -68,7 +65,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/1d796c78-bfb5-4f59-abbc-afa0ee492061/",
       "source": "GIM Architekten AG Dedicated Parser (jobs.ch)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T22:27:16.305Z",
+      "crawledAt": "2026-07-21T11:45:06.967Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -85,16 +82,15 @@
       "postedDate": "2025-05-06",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/1d796c78-bfb5-4f59-abbc-afa0ee492061/",
       "firstSeenAt": "2026-07-04T10:49:57.418Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "crawlerMissStreak": 1,
-      "_qualityScore": 93,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 20
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
