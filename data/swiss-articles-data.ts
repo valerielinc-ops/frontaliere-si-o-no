@@ -4274,6 +4274,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'birra-in-mancanza',
+    category: 'fiscale',
+    date: '2026-07-21T13:09:10.270Z',
+    image: '/images/blog/birra-in-mancanza.webp',
+    hasCalculator: false,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

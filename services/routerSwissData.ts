@@ -498,6 +498,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo': { it: 'dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo', en: 'switzerland-tax-declaration-2026-guide-st-gallen-canton', de: 'schweiz-steuererklaerung-2026-leitfaden-kanton-st-gallen', fr: 'declaration-impots-suisse-2026-guide-canton-saint-gall' },
  'terzo-pilastro-3a-vantaggi-2026': { it: 'terzo-pilastro-3a-vantaggi-2026', en: 'third-pillar-3a-benefits-2026', de: 'dritte-saeule-3a-vorteile-2026', fr: 'troisieme-pilier-3a-avantages-2026' },
  'dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna': { it: 'dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna', en: 'guidance-practical-tax-declaration-switzerland-2026-canton-lucerne', de: 'steuererklarung-anleitung-schweiz-2026-kanton-luzern', fr: 'guide-pratique-declaration-fiscale-suisse-2026-canton-de-lucerne' },
+ 'birra-in-mancanza': { it: 'birra-in-mancanza', en: 'beer-shortage', de: 'bier-mangel', fr: 'manque-de-biere' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

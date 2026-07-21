@@ -1426,6 +1426,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.title': 'Steuererklärung Schweiz: Fälligkeiten und Abzüge',
     'blog.article.dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.excerpt': 'Kantonale Fristen, zulässige Abzüge, Online-Verfahren zur Steuererklärung in der Schweiz: Erfahren Sie, wie es funktioniert und was Sie für den Kanton Luzern tun müssen.',
     'blog.article.dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.imageAlt': 'Eine Szene aus einem Steuerbüro in der Schweiz, mit Beamten, die Steuererklärungen für die Einwohner des Kantons Luzern vorbereiten.',
+    'blog.article.birra-in-mancanza.title': '1,4 Milliarden Liter Bier weniger',
+    'blog.article.birra-in-mancanza.excerpt': 'Die weltweite Bierproduktion verzeichnet einen weiteren Rückgang, angetrieben durch Rückgänge in Ozeanien, Europa, Asien und Nordamerika.',
+    'blog.article.birra-in-mancanza.imageAlt': 'Ein Bier in einem Bar in Lugano',
 };
 
 export default blogMetaChDe;

@@ -1426,6 +1426,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.title': 'Dichiarazione imposte in Svizzera: scadenze e deduzioni',
     'blog.article.dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.excerpt': 'Scadenze cantonali, deduzioni ammesse, procedura online per la dichiarazione delle imposte in Svizzera: scopri come funziona e cosa devi fare per il Canton Lucerna.',
     'blog.article.dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.imageAlt': 'Una stanza di un ufficio tributario in Svizzera, con funzionari che lavorano alla dichiarazione delle imposte per i residenti del Canton Lucerna.',
+    'blog.article.birra-in-mancanza.title': '1,4 miliardi di litri di birra in meno',
+    'blog.article.birra-in-mancanza.excerpt': 'La produzione mondiale di birra registra un nuovo calo, trainata dalle diminuzioni in Oceania, Europa, Asia e Nord America.',
+    'blog.article.birra-in-mancanza.imageAlt': 'Una birra in un bar a Lugano',
 };
 
 export default blogMetaChIt;
