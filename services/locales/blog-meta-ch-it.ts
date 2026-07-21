@@ -1384,6 +1384,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.estetista-frontaliere-ticino-stipendio-requisiti.title': 'Lavorare come estetista in Ticino: stipendio, requisiti e permesso G',
     'blog.article.estetista-frontaliere-ticino-stipendio-requisiti.excerpt': 'Ecco cosa devi sapere per lavorare come estetista in Ticino da frontaliere.',
     'blog.article.estetista-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Una scena di un salone di bellezza in Lugano, con clienti che si sottopongono a trattamenti di estetica.',
+    'blog.article.frontaliere-aiuto-cucina-ticino-stipendio-requisiti.title': 'Frontaliere Ticino: stipendio e requisiti per l\'aiuto cucina',
+    'blog.article.frontaliere-aiuto-cucina-ticino-stipendio-requisiti.excerpt': 'Stipendio medio per gli aiuti cucina frontalieri in Ticino, requisiti e riconoscimento del titolo di studio',
+    'blog.article.frontaliere-aiuto-cucina-ticino-stipendio-requisiti.imageAlt': 'Un aiuto cucina frontaliero in Ticino',
 };
 
 export default blogMetaChIt;

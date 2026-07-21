@@ -1384,6 +1384,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.estetista-frontaliere-ticino-stipendio-requisiti.title': 'Working as a beautician in Ticino: salary, requirements and permit G',
     'blog.article.estetista-frontaliere-ticino-stipendio-requisiti.excerpt': 'Here\'s what you need to know to work as a beautician in Ticino as a border worker.',
     'blog.article.estetista-frontaliere-ticino-stipendio-requisiti.imageAlt': 'A scene of a beauty salon in Lugano, with clients undergoing esthetic treatments.',
+    'blog.article.frontaliere-aiuto-cucina-ticino-stipendio-requisiti.title': 'Ticino border guards: salary and requirements for kitchen help',
+    'blog.article.frontaliere-aiuto-cucina-ticino-stipendio-requisiti.excerpt': 'Average salary for border kitchen help in Ticino, qualification requirements and recognition',
+    'blog.article.frontaliere-aiuto-cucina-ticino-stipendio-requisiti.imageAlt': 'A kitchen helper in Ticino',
 };
 
 export default blogMetaChEn;
