@@ -118,4 +118,28 @@ describe('salaryStats — page render', () => {
     expect(html).toContain('94%'); // vs-national tile (region median path)
     expect(html).toContain("105'000"); // gross-band high = round5000(110000 × 6623/7024), region-scaled
   });
+
+  // Regression guard: sibling of the employer-profiles bug fixed for
+  // validate-dist run 29794187475 (found via check-sibling-patterns.mjs).
+  // The title-length fallback candidate used to be the bare `c.h1(cantonName)`
+  // string — byte-identical to the actual <h1>, which trips
+  // audit:h1-title-duplicates whenever a canton name is long enough that
+  // `metaTitle` overflows TITLE_MAX_CHARS.
+  it('never emits a <title> byte-identical to the <h1> for any canton/locale', () => {
+    for (const key of SALARY_STATS_CANTON_KEYS) {
+      for (const locale of SALARY_STATS_LOCALES) {
+        const { html } = renderSalaryStatsPage({
+          locale,
+          cantonKey: key,
+          cantonSlug: SALARY_STATS_CANTON_SLUGS[key][locale],
+          distDir: '',
+        });
+        const title = html.match(/<title>([\s\S]*?)<\/title>/)?.[1];
+        const h1 = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)?.[1];
+        expect(title, `${key}/${locale} <title>`).toBeTruthy();
+        expect(h1, `${key}/${locale} <h1>`).toBeTruthy();
+        expect(title, `${key}/${locale} title !== h1`).not.toBe(h1);
+      }
+    }
+  });
 });

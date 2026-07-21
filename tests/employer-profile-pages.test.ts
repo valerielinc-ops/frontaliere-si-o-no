@@ -36,6 +36,7 @@ function job(i: number) {
     canton: 'TI',
     datePosted: '2026-07-10',
     employmentType: 'FULL_TIME',
+    contract: 'full-time',
     salaryMin: 80000 + i * 1000,
     salaryMax: 120000 + i * 1000,
     url: `https://acme.example/job/${i}`,
@@ -118,6 +119,19 @@ describe('employerProfilePagesPlugin', () => {
     expect(html).toContain('Lavorare in Acme Corp');
     expect(html).toContain('6'); // active jobs
     expect(html).toContain("CHF 100"); // median salary formatted
+  });
+
+  // text-html-ratio follow-up (validate-dist run 29794187475, PR #4611
+  // follow-up): real per-company facts computed from the FULL active-job
+  // set (not just the ≤8 cards shown), genuinely new visible text.
+  it('adds a real contract-mix and salary-range sentence from the full active-job set', () => {
+    const html = read('aziende/acme-corp/index.html');
+    // All 7 seeded jobs are 'full-time' → unanimous contract-mix sentence.
+    expect(html).toContain('Tutte le posizioni attive sono a tempo pieno.');
+    // salaryMin/salaryMax vary 81'000..127'000 across the 7 jobs — a real
+    // range distinct from the single CHF 100'000 median stat tile.
+    expect(html).toContain('CHF 81');
+    expect(html).toContain('CHF 127');
   });
 
   it('embeds COMPLETE JobPosting structured data (Non-Negotiable #3)', () => {

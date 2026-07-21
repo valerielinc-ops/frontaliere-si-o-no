@@ -20,6 +20,7 @@ import { buildSlimSeed } from './shared/slimJobIndex';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from './shared/jobPostingFaq';
+import { hostFromUrl } from './shared/hostFromUrl';
 import { dedupeUrlsetXmlByLoc } from './shared/sitemapUrlsetDedupe';
 import { stripLiteralMarkdown as stripLiteralMarkdownFromTitle } from './shared/stripLiteralMarkdown';
 import { minifyHtml } from './shared/htmlMinify';
@@ -1757,14 +1758,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  let h = 5381;
  for (let i = 0; i < s.length; i += 1) h = ((h * 33) ^ s.charCodeAt(i)) >>> 0;
  return h;
- };
- const hostFromUrl = (raw?: string): string => {
- if (!raw) return '';
- try {
- return new URL(raw).hostname.replace(/^www\./i, '').toLowerCase();
- } catch {
- return '';
- }
  };
  const companyWebsite = (job: any): string => {
  const domain = job?.companyDomain || hostFromUrl(job?.url);

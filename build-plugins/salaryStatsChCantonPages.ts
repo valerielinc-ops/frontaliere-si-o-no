@@ -400,7 +400,17 @@ ${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
   // `metaTitle` carries the "2026 — mediana e settori (dati BFS)" suffix;
   // falls back to the shorter `h1` template (no year/source clause) when a
   // longer canton display name would overflow TITLE_MAX_CHARS.
-  const titleCandidates = [c.metaTitle(cantonName), c.h1(cantonName)];
+  //
+  // The bare `c.h1(cantonName)` fallback used to be the LAST candidate —
+  // byte-identical to the actual <h1> rendered below, which trips
+  // audit:h1-title-duplicates whenever a canton name is long enough to
+  // overflow `metaTitle`. Sibling of the exact bug fixed in
+  // employerProfilePagesPlugin.ts (validate-dist run 29794187475, found via
+  // check-sibling-patterns.mjs against that fix — CLAUDE.md #6). A trailing
+  // " · 2026" keeps title != h1 by construction (locale-neutral numeric
+  // token, no new translation strings needed) while every Swiss canton name
+  // is short enough that this candidate always has budget to spare.
+  const titleCandidates = [c.metaTitle(cantonName), `${c.h1(cantonName)} · 2026`];
 
   const html = buildSeoPageHtml({
     locale,

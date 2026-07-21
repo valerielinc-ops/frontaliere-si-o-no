@@ -110,10 +110,29 @@ describe('buildJobPostingFaqPairs', () => {
     }
   });
 
-  it('mentions the apply URL in the how-to-apply answer', () => {
+  it('mentions the apply URL hostname in the how-to-apply answer', () => {
     const schema = buildJobPostingSchema(TICINO_JOB, BASE_OPTS);
     const pairs = buildJobPostingFaqPairs(schema, faqOptsFor(TICINO_JOB, true, 'Ticino'));
-    expect(pairs[3].a).toContain(TICINO_JOB.url);
+    expect(pairs[3].a).toContain('acme.example.com');
+  });
+
+  // Regression guard: validate-dist run 29794187475 found 119 job pages
+  // where a third-party ATS URL (Rheinmetall) encoded spaces/parens as
+  // literal "_", producing a 3+-underscore run once interpolated verbatim
+  // into this FAQ answer's prose — tripping audit:no-literal-markdown's
+  // 0-tolerance separator-run gate even though the source isn't AI-translated
+  // markdown. The answer must cite only the hostname, never the raw path.
+  it('never leaks a 3+-underscore (or "=", "~") run from the raw ATS URL path', () => {
+    const job: JobInput = {
+      ...TICINO_JOB,
+      url: 'https://www.rheinmetall.com/en/job/ux_ui___xr_designer__m_w_d_/1081238',
+    };
+    const schema = buildJobPostingSchema(job, BASE_OPTS);
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const pairs = buildJobPostingFaqPairs(schema, { ...faqOptsFor(job, true, 'Ticino'), locale });
+      expect(pairs[3].a).not.toMatch(/[_=~]{3,}/);
+      expect(pairs[3].a).toContain('rheinmetall.com');
+    }
   });
 });
 

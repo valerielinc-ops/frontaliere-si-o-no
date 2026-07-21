@@ -1439,6 +1439,21 @@ function dynamicFaqPair(
   return { q, a: aHasEvents(weekCount, localizedTitle(next, locale), humanDate(next.startDate, locale)) };
 }
 
+// Cap on ItemList JSON-LD entries per aggregate page (canton/national/comune/
+// digest hubs) — deliberately SMALLER than the visible card-list caps (80/100
+// items, see the `upcoming`/`list` comments above each render* function).
+// Those caps were raised 40/60→80/100 to fix audit:max-bfs-depth (every event
+// needs a real <a href> within crawl depth ≤2); this cap is unrelated to that
+// and stays independent. `lightEventLd()` already strips optional fields, but
+// even the "light" per-event JSON-LD entry for the busiest canton hub (Bern —
+// the most-crawled canton) pushed 2 pages ~1 KB over the 260 KB audit:page-
+// weight budget (validate-dist run 29794187475). Google's rich-result
+// eligibility already only surfaces a handful of ItemList entries regardless
+// of how many are marked up, so trimming the JSON-LD tail (while every event
+// keeps its real visible <a href> card, so BFS reachability is untouched) is
+// a real byte reduction rather than a page-weight-only patch.
+const EVENT_JSONLD_ITEM_CAP = 50;
+
 /**
  * Events eligible for Event JSON-LD markup on aggregate ItemList pages
  * (#3508): Google's event structured-data guidelines say not to mark up
@@ -1447,13 +1462,14 @@ function dynamicFaqPair(
  * year-long start→end span). Markup-only filter — the visible HTML list
  * is NOT affected (no page/content cut): keep events whose startDate is
  * today or later, with a 1-day grace window for timezone skew.
- * ISO yyyy-mm-dd strings compare lexicographically.
+ * ISO yyyy-mm-dd strings compare lexicographically. Also caps the result at
+ * {@link EVENT_JSONLD_ITEM_CAP} — see that constant for why.
  */
 function markupEligibleEvents(events: SiteEvent[], dateStamp: string): SiteEvent[] {
   const cutoff = new Date(`${dateStamp}T00:00:00Z`);
   cutoff.setUTCDate(cutoff.getUTCDate() - 1);
   const cutoffIso = cutoff.toISOString().slice(0, 10);
-  return events.filter((e) => e.startDate >= cutoffIso);
+  return events.filter((e) => e.startDate >= cutoffIso).slice(0, EVENT_JSONLD_ITEM_CAP);
 }
 
 export function renderHubPage(params: {
