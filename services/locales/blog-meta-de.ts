@@ -8775,6 +8775,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aiuto-cucina-frontaliere-ticino-stipendio.title': 'Wie viel verdient eine Grenzküchenhilfe im Tessin',
     'blog.article.aiuto-cucina-frontaliere-ticino-stipendio.excerpt': 'Der Lohn einer Grenzküchenhilfe im Tessin: Wie funktioniert die Quellensteuer und was bedeutet sie für die Arbeitnehmenden?',
     'blog.article.aiuto-cucina-frontaliere-ticino-stipendio.imageAlt': 'Ein Küchenhilfskraft in Lugano',
+    'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.title': 'Wie viel verdient ein Grenzschutzbeamter im Tessin?',
+    'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.excerpt': 'Das Einkommen eines Grenzschutzbeamten im Tessin hängt von verschiedenen Faktoren ab, wie der Gehaltsstufe und dem Arbeitsplatz.',
+    'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.imageAlt': 'Ein Grenzschutzbeamter arbeitet in Lugano, mit dem Luganer See im Hintergrund.',
 };
 
 export default blogMetaDe;

@@ -8777,6 +8777,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aiuto-cucina-frontaliere-ticino-stipendio.title': 'Combien gagne une aide cuisine frontalière au Tessin',
     'blog.article.aiuto-cucina-frontaliere-ticino-stipendio.excerpt': 'Le salaire d\'une aide-cuisinière frontalière au Tessin : comment fonctionne l\'impôt à la source et ce que cela signifie pour les travailleurs.',
     'blog.article.aiuto-cucina-frontaliere-ticino-stipendio.imageAlt': 'Un assistant de cuisine à Lugano',
+    'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.title': 'Combien gagne un agent de sécurité frontalière au Tessin ?',
+    'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.excerpt': 'Le revenu d\'un agent de sécurité frontalière au Tessin dépend de divers facteurs, tels que la fourchette de salaire et le poste de travail.',
+    'blog.article.frontaliere-agenzia-sicurezza-guadagno-ticino.imageAlt': 'Un agent de sécurité frontalière travaillant à Lugano, avec le lac de Lugano en arrière-plan.',
 };
 
 export default blogMetaFr;
