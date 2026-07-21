@@ -1393,6 +1393,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.novartis-superaspettative.title': 'Novartis supera le aspettative',
     'blog.article.novartis-superaspettative.excerpt': 'Novartis ha registrato un fatturato di 14,4 miliardi di dollari nel secondo trimestre 2026.',
     'blog.article.novartis-superaspettative.imageAlt': 'Edificio Novartis a Basilea',
+    'blog.article.frontaliere-custode-ticino-stipendio-requisiti.title': 'Custodi in Ticino: stipendio, requisiti e permesso G',
+    'blog.article.frontaliere-custode-ticino-stipendio-requisiti.excerpt': 'I frontalieri che lavorano come custodi in Ticino devono rispettare le norme vigenti. Ecco i requisiti e le informazioni utili.',
+    'blog.article.frontaliere-custode-ticino-stipendio-requisiti.imageAlt': 'Frontalieri che lavorano come custodi in Ticino',
 };
 
 export default blogMetaChIt;

@@ -1393,6 +1393,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.novartis-superaspettative.title': 'Novartis Exceeds Expectations',
     'blog.article.novartis-superaspettative.excerpt': 'Novartis reported revenue of 'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.imageAlt': 'Image of a frontier security agent at Lugano',4.4 billion in the second quarter of 2026.',
     'blog.article.novartis-superaspettative.imageAlt': 'Novartis building in Basel',
+    'blog.article.frontaliere-custode-ticino-stipendio-requisiti.title': 'Custodians in Ticino: salary, requirements and G permit',
+    'blog.article.frontaliere-custode-ticino-stipendio-requisiti.excerpt': 'Border workers working as custodians in Ticino must comply with the regulations in force. Here are the requirements and useful information.',
+    'blog.article.frontaliere-custode-ticino-stipendio-requisiti.imageAlt': 'Frontier workers working as custodians in Ticino',
 };
 
 export default blogMetaChEn;

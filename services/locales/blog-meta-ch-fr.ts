@@ -1393,6 +1393,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.novartis-superaspettative.title': 'Novartis dépasse les attentes',
     'blog.article.novartis-superaspettative.excerpt': 'Novartis a réalisé un chiffre d\'affaires de 14,4 milliards de dollars au deuxième trimestre 2026.',
     'blog.article.novartis-superaspettative.imageAlt': 'Bâtiment Novartis à Bâle',
+    'blog.article.frontaliere-custode-ticino-stipendio-requisiti.title': 'Gardiens au Tessin : salaire, exigences et permis G',
+    'blog.article.frontaliere-custode-ticino-stipendio-requisiti.excerpt': 'Les frontaliers qui travaillent comme gardiens au Tessin doivent respecter les normes en vigueur. Voici les exigences et les informations utiles.',
+    'blog.article.frontaliere-custode-ticino-stipendio-requisiti.imageAlt': 'Travailleurs frontaliers travaillant comme gardiens en Tessin',
 };
 
 export default blogMetaChFr;

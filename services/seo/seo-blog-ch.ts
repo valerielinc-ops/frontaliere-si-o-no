@@ -17997,6 +17997,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-custode-ticino-stipendio-requisiti': {
+    title: 'Custodi in Ticino: stipendio, requisiti e permesso G',
+    description: 'I frontalieri che lavorano come custodi in Ticino devono rispettare le norme vigenti. Ecco i requisiti e le informazioni utili. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, custodi, stipendio, requisiti, permesso',
+    ogTitle: 'Lavorare come custode in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G',
+    ogDescription: 'I frontalieri che lavorano come custodi in Ticino devono rispettare le norme vigenti. Ecco i requisiti e le informazioni utili.',
+    canonicalPath: '/articoli-svizzera/frontaliere-custode-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Custodi in Ticino: stipendio, requisiti e permesso G",
+      "description": "I frontalieri che lavorano come custodi in Ticino devono rispettare le norme vigenti. Ecco i requisiti e le informazioni utili. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-custode-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri che lavorano come custodi in Ticino"
+      },
+      "datePublished": "2026-07-21T06:28:00+00:00",
+      "dateModified": "2026-07-21T06:28:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-custode-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

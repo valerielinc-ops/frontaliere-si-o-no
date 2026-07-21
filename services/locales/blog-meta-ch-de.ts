@@ -1393,6 +1393,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.novartis-superaspettative.title': 'Novartis übertrifft die Erwartungen',
     'blog.article.novartis-superaspettative.excerpt': 'Novartis erwirtschaftete im zweiten Quartal 2026 einen Umsatz von 14,4 Milliarden US-Dollar.',
     'blog.article.novartis-superaspettative.imageAlt': 'Novartis-Gebäude in Basel',
+    'blog.article.frontaliere-custode-ticino-stipendio-requisiti.title': 'Hausmeister im Tessin: Gehalt, Voraussetzungen und Bewilligung G',
+    'blog.article.frontaliere-custode-ticino-stipendio-requisiti.excerpt': 'Grenzgänger, die als Wächter im Tessin arbeiten, müssen die geltenden Vorschriften einhalten. Hier finden Sie die Anforderungen und nützlichen Informationen.',
+    'blog.article.frontaliere-custode-ticino-stipendio-requisiti.imageAlt': 'Grenzgänger, die als Aufseher in Ticino arbeiten',
 };
 
 export default blogMetaChDe;
