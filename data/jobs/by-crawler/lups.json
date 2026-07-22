@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lups",
-  "assembledAt": "2026-07-22T11:21:18.283Z",
+  "assembledAt": "2026-07-22T10:33:50.166Z",
   "jobs": [
     {
       "id": "lups-815a9238f256",
@@ -4730,7 +4730,7 @@
       "title": "Pflegefachperson (w/m/d) 80 - 100%",
       "titleByLocale": {
         "it": "Infermiere (f/m/d) 80 - 100%",
-        "en": "Pflegefachperson (w/m/d) 80 - 100%",
+        "en": "Nurse (f/m/d) 80 - 100%",
         "de": "Pflegefachperson (w/m/d) 80 - 100%",
         "fr": "Infirmière (f/m/j) 80 - 100%"
       },
@@ -4747,7 +4747,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-w-m-d/0867d27f-2a91-41fe-85c4-beaf37b4af55",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T11:20:34.935Z",
+      "crawledAt": "2026-07-21T22:32:46.169Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4773,7 +4773,15 @@
         "psicologia-interna-80-100-f-m-d-luzerner-psychiatrie-lups-st-urban",
         "intern-psychology-80-100-f-m-d-luzerner-psychiatrie-lups-st-urban",
         "praktikantin-psychologie-80-100-w-m-d-lups-st-urban",
-        "infermiere-f-m-d-80-100-luzerner-psychiatrie-lups-st-urban"
+        "linea-di-stazione-f-m-d-80-100-luzerner-psychiatrie-lups-st-urban",
+        "station-line-f-m-d-80-100-luzerner-psychiatrie-lups-st-urban",
+        "stationsleitung-w-m-d-80-100-lups-st-urban",
+        "ligne-de-station-f-m-j-80-100-luzerner-psychiatrie-lups-st-urban",
+        "capo-dell-istruzione-f-m-d-70-100-luzerner-psychiatrie-lups-st-urban",
+        "head-of-education-f-m-d-70-100-luzerner-psychiatrie-lups-st-urban",
+        "leiter-bildung-w-m-d-70-100-lups-st-urban",
+        "chef-de-l-education-f-m-j-70-100-luzerner-psychiatrie-lups-st-urban",
+        "leiter-bildung-m-w-d-70-100-luzerner-psychiatrie-lups-st-urban"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4785,20 +4793,35 @@
           "psicologia-interna-80-100-f-m-d-luzerner-psychiatrie-lups-st-urban",
           "intern-psychology-80-100-f-m-d-luzerner-psychiatrie-lups-st-urban",
           "praktikantin-psychologie-80-100-w-m-d-lups-st-urban",
-          "infermiere-f-m-d-80-100-luzerner-psychiatrie-lups-st-urban"
+          "linea-di-stazione-f-m-d-80-100-luzerner-psychiatrie-lups-st-urban",
+          "station-line-f-m-d-80-100-luzerner-psychiatrie-lups-st-urban",
+          "stationsleitung-w-m-d-80-100-lups-st-urban",
+          "ligne-de-station-f-m-j-80-100-luzerner-psychiatrie-lups-st-urban",
+          "capo-dell-istruzione-f-m-d-70-100-luzerner-psychiatrie-lups-st-urban",
+          "head-of-education-f-m-d-70-100-luzerner-psychiatrie-lups-st-urban",
+          "leiter-bildung-w-m-d-70-100-lups-st-urban",
+          "chef-de-l-education-f-m-j-70-100-luzerner-psychiatrie-lups-st-urban",
+          "leiter-bildung-m-w-d-70-100-luzerner-psychiatrie-lups-st-urban"
         ],
         "en": [
           "pflegefachperson-w-m-d-80-100-lups-st-urban",
           "diet-cook-80-100-m-f-d-luzerner-psychiatrie-lups-st-urban",
-          "intern-psychology-80-100-f-m-d-luzerner-psychiatrie-lups-st-urban"
+          "intern-psychology-80-100-f-m-d-luzerner-psychiatrie-lups-st-urban",
+          "station-line-f-m-d-80-100-luzerner-psychiatrie-lups-st-urban",
+          "head-of-education-f-m-d-70-100-luzerner-psychiatrie-lups-st-urban"
         ],
         "de": [
-          "diatkoch-80-100-m-w-d-lups-st-urban"
+          "diatkoch-80-100-m-w-d-lups-st-urban",
+          "stationsleitung-w-m-d-80-100-lups-st-urban",
+          "leiter-bildung-w-m-d-70-100-lups-st-urban",
+          "leiter-bildung-m-w-d-70-100-luzerner-psychiatrie-lups-st-urban"
         ],
         "fr": [
           "pflegefachperson-w-m-d-80-100-lups-st-urban",
           "cuisinier-dietetique-80-100-h-f-luzerner-psychiatrie-lups-st-urban",
-          "praktikantin-psychologie-80-100-w-m-d-lups-st-urban"
+          "praktikantin-psychologie-80-100-w-m-d-lups-st-urban",
+          "ligne-de-station-f-m-j-80-100-luzerner-psychiatrie-lups-st-urban",
+          "chef-de-l-education-f-m-j-70-100-luzerner-psychiatrie-lups-st-urban"
         ]
       },
       "firstSeenAt": "2026-06-22T14:49:53.405Z",

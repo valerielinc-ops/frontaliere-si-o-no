@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zfv-unternehmungen",
-  "assembledAt": "2026-07-22T11:41:31.432Z",
+  "assembledAt": "2026-07-22T11:09:39.574Z",
   "jobs": [
     {
       "id": "zfv-unternehmungen-74d19ea56c29",
@@ -3187,7 +3187,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-70-80-de-j4450.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T11:41:03.487Z",
+      "crawledAt": "2026-07-21T11:48:27.198Z",
       "needsRetranslation": false,
       "addressLocality": "Basel",
       "postalCode": "4056",
@@ -3207,12 +3207,27 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kochin-koch-70-80-zfv-unternehmungen-basel",
-        "cucinare-cucinare-70-80-zfv-unternehmungen-basel"
+        "assistente-cuoco-assistente-cuoco-60-zfv-unternehmungen-basel",
+        "assistant-cook-assistant-cook-60-zfv-unternehmungen-basel",
+        "hilfskochin-hilfskoch-60-zfv-unternehmungen-basel",
+        "cuisinier-adjoint-cuisinier-adjoint-60-zfv-unternehmungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-70-80-zfv-unternehmungen-basel",
-          "cucinare-cucinare-70-80-zfv-unternehmungen-basel"
+          "assistente-cuoco-assistente-cuoco-60-zfv-unternehmungen-basel",
+          "assistant-cook-assistant-cook-60-zfv-unternehmungen-basel",
+          "hilfskochin-hilfskoch-60-zfv-unternehmungen-basel",
+          "cuisinier-adjoint-cuisinier-adjoint-60-zfv-unternehmungen-basel"
+        ],
+        "en": [
+          "assistant-cook-assistant-cook-60-zfv-unternehmungen-basel"
+        ],
+        "de": [
+          "hilfskochin-hilfskoch-60-zfv-unternehmungen-basel"
+        ],
+        "fr": [
+          "cuisinier-adjoint-cuisinier-adjoint-60-zfv-unternehmungen-basel"
         ]
       },
       "firstSeenAt": "2026-07-04T12:44:01.972Z",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "liebherr",
-  "assembledAt": "2026-07-22T11:19:42.749Z",
+  "assembledAt": "2026-07-22T10:30:30.540Z",
   "jobs": [
     {
       "id": "liebherr-8f7c69728dce",
@@ -6089,7 +6089,7 @@
       "url": "https://careers.liebherr.com/job/Abuja-Service-Manager-Earthmoving-&-Mining%2C-location-Nigeria/1385035733/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:19:12.517Z",
+      "crawledAt": "2026-07-19T22:13:09.330Z",
       "addressLocality": "Abuja",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -6116,17 +6116,12 @@
       "previousSlugs": [
         "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja-2",
         "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja",
-        "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja-o4gyln",
-        "responsabile-del-servizio-movimento-terrapiena-e-miniere-sede-nigeria-liebherr-abuja"
+        "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja-o4gyln"
       ],
       "previousSlugsByLocale": {
         "it": [
           "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja-2",
           "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja",
-          "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja-o4gyln",
-          "responsabile-del-servizio-movimento-terrapiena-e-miniere-sede-nigeria-liebherr-abuja"
-        ],
-        "en": [
           "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja-o4gyln"
         ],
         "de": [
@@ -6134,10 +6129,13 @@
         ],
         "fr": [
           "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja-2"
+        ],
+        "en": [
+          "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja-o4gyln",
+          "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.362Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -6374,11 +6372,23 @@
       },
       "previousSlugs": [
         "controleur-de-gestion-junior-data-analista-h-f-x-liebherr-bulle",
-        "controleur-de-gestion-junior-data-analyst-h-f-x-liebherr-bulle"
+        "controleur-de-gestion-junior-data-analyst-h-f-x-liebherr-bulle",
+        "titolare-del-trattamento-e-analista-dati-junior-m-f-x-liebherr-bulle",
+        "controller-data-analyst-junior-m-f-x-liebherr-bulle",
+        "controleur-data-analyste-junior-m-f-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "controleur-de-gestion-junior-data-analyst-h-f-x-liebherr-bulle"
+          "controleur-de-gestion-junior-data-analyst-h-f-x-liebherr-bulle",
+          "titolare-del-trattamento-e-analista-dati-junior-m-f-x-liebherr-bulle",
+          "controller-data-analyst-junior-m-f-x-liebherr-bulle",
+          "controleur-data-analyste-junior-m-f-x-liebherr-bulle"
+        ],
+        "de": [
+          "controller-data-analyst-junior-m-f-x-liebherr-bulle"
+        ],
+        "fr": [
+          "controleur-data-analyste-junior-m-f-x-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.380Z",
@@ -6393,9 +6403,7 @@
           "maxValue": 112000,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      }
     }
   ]
 }

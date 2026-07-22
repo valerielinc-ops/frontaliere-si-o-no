@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kantonsspital-graubuenden-ksgr",
-  "assembledAt": "2026-07-22T11:31:45.640Z",
+  "assembledAt": "2026-07-22T10:24:27.266Z",
   "jobs": [
     {
       "id": "10122766",
@@ -2391,7 +2391,7 @@
       "postedDate": "2026-05-03",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-07-22T11:31:45.573Z",
+      "crawledAt": "2026-07-21T22:44:18.276Z",
       "slug": "professionisti-professionisti-industria-alberghiera-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
@@ -2512,6 +2512,9 @@
           "specialiste-de-l-apprentissage-professionnel-specialiste-de-l-hotellerie-et-du-menage-kantonsspital-graubunden-chur",
           "apprentissage-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
           "apprentissage-en-tant-que-specialiste-dans-l-industrie-hoteliere-et-le-menage-kantonsspital-graubunden-chur"
+        ],
+        "de": [
+          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
         ]
       },
       "needsRetranslation": false,
@@ -2672,7 +2675,7 @@
       "postedDate": "2026-05-03",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-07-22T11:31:45.574Z",
+      "crawledAt": "2026-07-21T22:44:18.276Z",
       "slug": "specialista-di-insegnamento-professionale-salute-professionale-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-chur",
@@ -2704,11 +2707,28 @@
       },
       "featured": false,
       "previousSlugs": [
-        "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-chur"
+        "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-chur",
+        "apprendista-in-assistenza-sanitaria-kantonsspital-graubunden-walenstadt",
+        "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-walenstadt",
+        "healthcare-assistant-apprentice-kantonsspital-graubunden-walenstadt",
+        "apprenti-en-assistance-sanitaire-kantonsspital-graubunden-walenstadt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-chur"
+          "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-chur",
+          "apprendista-in-assistenza-sanitaria-kantonsspital-graubunden-walenstadt",
+          "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-walenstadt",
+          "healthcare-assistant-apprentice-kantonsspital-graubunden-walenstadt",
+          "apprenti-en-assistance-sanitaire-kantonsspital-graubunden-walenstadt"
+        ],
+        "en": [
+          "healthcare-assistant-apprentice-kantonsspital-graubunden-walenstadt"
+        ],
+        "de": [
+          "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-walenstadt"
+        ],
+        "fr": [
+          "apprenti-en-assistance-sanitaire-kantonsspital-graubunden-walenstadt"
         ]
       },
       "needsRetranslation": false,

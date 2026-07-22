@@ -1,6 +1,6 @@
 {
   "crawlerKey": "novelis",
-  "assembledAt": "2026-07-22T11:26:06.643Z",
+  "assembledAt": "2026-07-22T10:36:10.222Z",
   "jobs": [
     {
       "id": "novelis-a1e0b3dd23e1",
@@ -128,21 +128,34 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52694/stagiaire/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T11:26:03.079Z",
+      "crawledAt": "2026-07-21T22:12:13.453Z",
       "previousSlugs": [
         "stagiaire-novelis-ch",
-        "allenatore-novelis-sierre"
+        "allenatore-novelis-sierre",
+        "intern-comunicazione-visiva-novelis-sierre",
+        "intern-visual-communication-novelis-sierre",
+        "interne-visuelle-kommunikation-novelis-sierre",
+        "stagiaire-communication-visuelle-novelis-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stagiaire-novelis-ch",
-          "allenatore-novelis-sierre"
+          "allenatore-novelis-sierre",
+          "intern-comunicazione-visiva-novelis-sierre",
+          "intern-visual-communication-novelis-sierre",
+          "interne-visuelle-kommunikation-novelis-sierre",
+          "stagiaire-communication-visuelle-novelis-ch"
         ],
         "en": [
-          "stagiaire-novelis-ch"
+          "stagiaire-novelis-ch",
+          "intern-visual-communication-novelis-sierre"
         ],
         "de": [
-          "stagiaire-novelis-ch"
+          "stagiaire-novelis-ch",
+          "interne-visuelle-kommunikation-novelis-sierre"
+        ],
+        "fr": [
+          "stagiaire-communication-visuelle-novelis-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:10.893Z",
