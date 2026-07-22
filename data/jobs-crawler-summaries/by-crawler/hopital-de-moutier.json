@@ -1,18 +1,56 @@
 {
   "key": "hopital-de-moutier",
   "label": "Hôpital de Moutier",
-  "generatedAt": "2026-07-21T22:22:49.276Z",
-  "total": 6,
-  "newCount": 0,
-  "updatedCount": 6,
+  "generatedAt": "2026-07-22T12:44:49.438Z",
+  "total": 7,
+  "newCount": 1,
+  "updatedCount": 5,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4165,
-  "avgDurationMs": 4165,
+  "unchangedCount": 1,
+  "durationMs": 3682,
+  "avgDurationMs": 3682,
   "durationHistory": [
-    4165
+    3682
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "hopital-de-moutier-c5a808428857",
+      "slug": "medecin-dermatologue-hopital-de-moutier",
+      "company": "Hôpital de Moutier",
+      "companyKey": "hopital-de-moutier",
+      "companyDomain": "swissmedical.net",
+      "title": "Médecin Dermatologue",
+      "needsRetranslation": true,
+      "location": "Moutier",
+      "canton": "BE",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139053059-medecin-dermatologue",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139053059-medecin-dermatologue",
+      "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-22T12:44:47.545Z",
+      "addressLocality": "Moutier",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2740",
+      "streetAddress": "Beausite 49, 2740 Moutier",
+      "category": "Sanità / Ospedali",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-22",
+      "datePosted": "2026-07-22",
+      "_qualityScore": 62,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "hopital-de-moutier-56e1dd06c497",
@@ -28,7 +66,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138804240-collaborateur-trice-en-hotellerie-restauration-50-60-",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:22:46.752Z",
+      "crawledAt": "2026-07-22T12:44:47.542Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -66,7 +104,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138057588-medecin-adjoint-e-en-psychiatrie-hospitaliere",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:22:46.753Z",
+      "crawledAt": "2026-07-22T12:44:47.547Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -104,7 +142,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137680334-medecin-assistant-e-en-pedopsychiatrie-stationnaire",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:22:46.750Z",
+      "crawledAt": "2026-07-22T12:44:47.546Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -142,7 +180,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136408530-un-e-chef-de-clinique-avec-titre-fmh-ou-chef-de-clinique-adjoint-e-en-pedopsychiatrie",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:22:46.755Z",
+      "crawledAt": "2026-07-22T12:44:47.544Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -180,7 +218,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134935009-medecin-specialiste-en-psychiatrie-et-psychotherapie-des-addictions-h-f-",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:22:46.757Z",
+      "crawledAt": "2026-07-22T12:44:47.548Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -203,10 +241,13 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "hopital-de-moutier-5c2673aa9bf0",
-      "slug": "medecin-dermatologue-hopital-de-moutier",
+      "slug": "medico-dermatologo-swiss-medical-network-moutier",
       "company": "Hôpital de Moutier",
       "companyKey": "hopital-de-moutier",
       "companyDomain": "swissmedical.net",
@@ -234,15 +275,16 @@
       "postedDate": "2026-06-29",
       "datePosted": "2026-06-29",
       "firstSeenAt": "2026-07-10T10:55:15.045Z",
-      "_qualityScore": 83,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
