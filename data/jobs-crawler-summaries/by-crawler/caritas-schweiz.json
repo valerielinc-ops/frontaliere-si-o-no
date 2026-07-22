@@ -1,16 +1,16 @@
 {
   "key": "caritas-schweiz",
   "label": "Caritas Schweiz",
-  "generatedAt": "2026-07-22T12:37:12.450Z",
-  "total": 6,
+  "generatedAt": "2026-07-22T22:16:15.576Z",
+  "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5208,
-  "avgDurationMs": 5208,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5329,
+  "avgDurationMs": 5329,
   "durationHistory": [
-    5208
+    5329
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://apply.refline.ch/126757/2335/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T12:37:10.006Z",
+      "crawledAt": "2026-07-22T22:16:13.082Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
       "url": "https://apply.refline.ch/126757/2333/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T12:37:09.549Z",
+      "crawledAt": "2026-07-22T22:16:12.606Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "url": "https://apply.refline.ch/126757/2332/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T12:37:08.624Z",
+      "crawledAt": "2026-07-22T22:16:11.647Z",
       "addressLocality": "Waldibrücke, Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -147,7 +147,7 @@
       "url": "https://apply.refline.ch/126757/2320/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T12:37:08.158Z",
+      "crawledAt": "2026-07-22T22:16:11.159Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -187,7 +187,7 @@
       "url": "https://apply.refline.ch/126757/2330/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T12:37:09.091Z",
+      "crawledAt": "2026-07-22T22:16:12.128Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -215,8 +215,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "caritas-schweiz-a920b6b4ec9b",
       "slug": "consulenza-mappatura-di-donatori-e-partner-non-tradizionali-per-l-azione-umanitaria-caritas-schweiz-syrien",
@@ -260,5 +259,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
