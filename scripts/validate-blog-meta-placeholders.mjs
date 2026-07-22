@@ -32,6 +32,7 @@ const PLACEHOLDER_PATTERNS = [
   'OG title (',
   'OG desc (',
   'Headline JSON-LD',
+  'BlogPost JSON-LD',
   'Meta description 150-160 chars',
   'SEO Title | Frontaliere Ticino',
   '6-8 keywords IT',
@@ -53,13 +54,17 @@ for (const file of readdirSync(localesDir)) {
   }
 }
 
-// Add all seo-blog-N.ts chunks (auto-discovered so new splits are picked up automatically)
+// Add all seo-blog-N.ts chunks (auto-discovered so new splits are picked up automatically),
+// plus seo-blog-ch.ts (svizzera section — same shape, but not "seo-blog-N" named so the
+// contiguous-N loop above never picked it up; that gap is how "BlogPost JSON-LD" and
+// "OG desc (" placeholders shipped unnoticed there, see issue #4663).
 const seoBlogDir = 'services/seo';
 FILES_TO_SCAN.push(join(seoBlogDir, 'seo-blog.ts'));
 for (let n = 2; n <= 20; n++) {
   const p = join(seoBlogDir, `seo-blog-${n}.ts`);
   try { statSync(p); FILES_TO_SCAN.push(p); } catch { break; }
 }
+FILES_TO_SCAN.push(join(seoBlogDir, 'seo-blog-ch.ts'));
 
 // Add all blog body files — both blog-body (frontaliere section) and
 // blog-body-ch (svizzera section); scanning only the former left the
