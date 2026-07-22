@@ -55,18 +55,31 @@
       "pensum": "90-100%",
       "previousSlugs": [
         "laborant-in-chemie-etat-de-fribourg-ch",
-        "tecnico-di-laboratorio-in-chimica-etat-de-fribourg-hauterive-fr"
+        "tecnico-di-laboratorio-in-chimica-etat-de-fribourg-hauterive-fr",
+        "tecnico-di-laboratorio-di-biologia-etat-de-fribourg-hauterive-fr",
+        "laboratory-in-biology-etat-de-fribourg-hauterive-fr",
+        "laboratorium-in-biologie-etat-de-fribourg-hauterive-fr",
+        "laborantin-e-en-biologie-etat-de-fribourg-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "laborant-in-chemie-etat-de-fribourg-ch",
-          "tecnico-di-laboratorio-in-chimica-etat-de-fribourg-hauterive-fr"
+          "tecnico-di-laboratorio-in-chimica-etat-de-fribourg-hauterive-fr",
+          "tecnico-di-laboratorio-di-biologia-etat-de-fribourg-hauterive-fr",
+          "laboratory-in-biology-etat-de-fribourg-hauterive-fr",
+          "laboratorium-in-biologie-etat-de-fribourg-hauterive-fr",
+          "laborantin-e-en-biologie-etat-de-fribourg-ch"
         ],
         "en": [
-          "laborant-in-chemie-etat-de-fribourg-ch"
+          "laborant-in-chemie-etat-de-fribourg-ch",
+          "laboratory-in-biology-etat-de-fribourg-hauterive-fr"
         ],
         "fr": [
-          "laborant-in-chemie-etat-de-fribourg-ch"
+          "laborant-in-chemie-etat-de-fribourg-ch",
+          "laborantin-e-en-biologie-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "laboratorium-in-biologie-etat-de-fribourg-hauterive-fr"
         ]
       },
       "firstSeenAt": "2026-07-04T10:42:04.411Z",
@@ -1069,8 +1082,7 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR",
-      "needsRetranslation": true
+      "addressRegion": "FR"
     },
     {
       "id": "etat-de-fribourg-65aec3e26317",
@@ -1555,7 +1567,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:34.085Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1795,18 +1806,45 @@
       "pensum": "50-60%",
       "previousSlugs": [
         "stagiaire-juriste-etat-de-fribourg-ch",
-        "tirocinante-legale-etat-de-fribourg-fribourg"
+        "tirocinante-legale-etat-de-fribourg-fribourg",
+        "tirocinante-di-tribunale-etat-de-fribourg-fribourg",
+        "court-clerk-in-practitioner-in-etat-de-fribourg-fribourg",
+        "gerichtsschreiber-in-praktikant-in-etat-de-fribourg-ch",
+        "greffier-in-praticien-in-etat-de-fribourg-fribourg",
+        "greffier-praticien-in-etat-de-fribourg-fribourg",
+        "tirocinante-etat-de-fribourg-fribourg",
+        "greffier-ere-stagiaire-etat-de-fribourg-ch-2",
+        "greffier-ere-stagiaire-etat-de-fribourg-ch",
+        "registrar-etat-de-fribourg",
+        "kanzler-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stagiaire-juriste-etat-de-fribourg-ch",
-          "tirocinante-legale-etat-de-fribourg-fribourg"
+          "tirocinante-legale-etat-de-fribourg-fribourg",
+          "tirocinante-di-tribunale-etat-de-fribourg-fribourg",
+          "court-clerk-in-practitioner-in-etat-de-fribourg-fribourg",
+          "gerichtsschreiber-in-praktikant-in-etat-de-fribourg-ch",
+          "greffier-in-praticien-in-etat-de-fribourg-fribourg",
+          "greffier-praticien-in-etat-de-fribourg-fribourg",
+          "tirocinante-etat-de-fribourg-fribourg",
+          "greffier-ere-stagiaire-etat-de-fribourg-ch-2",
+          "greffier-ere-stagiaire-etat-de-fribourg-ch",
+          "registrar-etat-de-fribourg",
+          "kanzler-etat-de-fribourg"
         ],
         "en": [
-          "stagiaire-juriste-etat-de-fribourg-ch"
+          "stagiaire-juriste-etat-de-fribourg-ch",
+          "court-clerk-in-practitioner-in-etat-de-fribourg-fribourg"
         ],
         "de": [
-          "stagiaire-juriste-etat-de-fribourg-ch"
+          "stagiaire-juriste-etat-de-fribourg-ch",
+          "gerichtsschreiber-in-praktikant-in-etat-de-fribourg-ch",
+          "greffier-ere-stagiaire-etat-de-fribourg-ch-2"
+        ],
+        "fr": [
+          "greffier-in-praticien-in-etat-de-fribourg-fribourg",
+          "greffier-ere-stagiaire-etat-de-fribourg-ch"
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:28.961Z",
@@ -1974,7 +2012,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:27.051Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2069,8 +2106,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR",
-      "needsRetranslation": true
+      "addressRegion": "FR"
     },
     {
       "id": "etat-de-fribourg-497e3196b114",
@@ -2654,8 +2690,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR",
-      "needsRetranslation": true
+      "addressRegion": "FR"
     },
     {
       "id": "etat-de-fribourg-8479d0cc32d9",
@@ -3253,9 +3288,9 @@
       "companyDomain": "fr.ch",
       "title": "Professorship in Applied Microeconomics (Open Rank)",
       "titleByLocale": {
-        "it": "Professorship in Applied Microeconomics (Open Rank)",
+        "it": "Professore in Microeconomia applicata (Open Rank)",
         "en": "Professorship in Applied Microeconomics (Open Rank)",
-        "de": "Professorship in Applied Microeconomics (Open Rank)",
+        "de": "Professur für Angewandte Mikroökonomie (Open Rank)",
         "fr": "Professeur en Microéconomie Appliquée (Open Rank)"
       },
       "description": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDie Universität Freiburg ist Bildungsstätte, Forschungsplatz, Arbeitgeberin und Event-Veranstalterin in einem. Ihre Innovationskraft macht sie zu einem wichtigen Motor für das wirtschaftliche und kulturelle Leben der Region. Als Anziehungspunkt für Studierende und Forschende aus der gesamten Schweiz und aus allen Teilen der Welt prägt die Hochschule seit ihrer Gründung 1889 das Leben der zweisprachigen Stadt Freiburg.\n\nThe position includes one 100% doctoral assistant. The University offers attractive working conditions and a competitive salary. The position is open rank, in accordance with University statutes.\n\nSeeking to promote an equitable representation of women and men, the University strongly encourages applications from women. Having signed the CoARA declaration, the University of Fribourg emphasizes qualitative assessment of academic achievement.\n\nImportant\n\nPlease note  : Do not   use the \"apply\" button at the top of this page: your application will not be processed. Apply electronically at  Appl-Micro@unifr.ch\n\nCandidates should submit a complete application package (motivation letter, CV, list of publications, teaching evaluations, administrative experience, third-party funding, research and teaching statement, three references, and three representative publications)\n\nIhre Aufgaben\n\n• The successful candidate will teach courses in French and English at the Bachelor’s and Master’s levels. Two courses will be given in French in Microeconomics on the Bachelor’s level. The research profile as well as offered Master courses should fall within applied microeconomics. Possible areas include, for example, labour economics, health economics, education economics, competition, personnel economics, or innovation economics.\n\nGewünschtes Profil\n\n• The successful candidate must have a doctorate (Ph.D.) in economics or a related field, and demonstrate an excellent research record in applied microeconomics, strong teaching skills, and the ability to supervise theses at the Bachelor’s and Master’s level.\n\n• The University of Fribourg is bilingual (French/German). Fluency in French is required and knowledge of German (oral level B1) is expected. If this is not the case, it must be acquired within two years of taking up the position.\n\nKontaktperson\n\nProf. Dr. Berno Büchel, berno.buechel@unifr.ch\n\nDatum der Stellenausschreibung:",
@@ -4648,7 +4683,6 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "firstSeenAt": "2026-07-10T12:09:31.236Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5249,7 +5283,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:21.383Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -6105,7 +6138,7 @@
       "companyDomain": "fr.ch",
       "title": "Pflegefachfrau/-mann",
       "titleByLocale": {
-        "it": "Pflegefachfrau/-mann",
+        "it": "Infermieristica professionale",
         "en": "Nursing professional",
         "de": "Pflegefachfrau/-mann",
         "fr": "Professionnels des soins infirmiers"
@@ -6161,7 +6194,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:10.228Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -6190,7 +6222,7 @@
       "companyDomain": "fr.ch",
       "title": "Collaborateur-trice administratif-ve",
       "titleByLocale": {
-        "it": "Collaborateur-trice administratif-ve",
+        "it": "Collaboratore amministrativo",
         "en": "Administrative Collaborator-ve",
         "de": "Verwaltungsmitarbeiter-Vereinigung",
         "fr": "Collaborateur-trice administratif-ve"
@@ -6244,7 +6276,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:16.806Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8175,7 +8206,7 @@
         "it": "Stage universitario presso la Segreteria Generale di tre conferenze intercantoneali",
         "en": "University intern at the General Secretariat of three intercantonal conferences",
         "de": "Hochschulpraktikant/in FH/UNI/ETH bei der Staatskanzlei des Kantons Freiburg",
-        "fr": "Hochschulpraktikant/in FH/UNI/ETH bei der Staatskanzlei des Kantons Freiburg"
+        "fr": "Stage universitaire/en FH/UNI/ETH à la Chancellerie d'Etat du Canton de Fribourg"
       },
       "description": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nMöchten Sie in die Bundespolitik eintauchen, berufliche Netzwerke pflegen und in einem kleinen, dynamischen Team arbeiten? Der Bereich Aussenbeziehungen der Staatskanzlei ist das Bindeglied des Kantons Freiburg zum Bundeshaus in Bern, zu den kantonalen Konferenzen und zu weiteren Partnern in der Schweiz und im Ausland. Wir vertreten die Interessen des Kantons Freiburg über die Kantonsgrenzen hinaus und arbeiten direktionsübergreifend mit der Bundesverwaltung und den eidgenössischen Parlamentariern zusammen. Unsere Hauptaufgabe besteht darin, die Interessen von Freiburg über die Kantonsgrenzen hinaus zu vertreten.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Sie verfolgen und beaufsichtigen die wichtigsten Dossiers während des Gesetzgebungsverfahren in Bundesbern\n\n• Sie verfassen Dokumente für den Staatsrat\n\n• Sie koordinieren die Antworten auf Vernehmlassungen des Bundes\n\n• Sie unterstützen den Staatsrat bei der Vorbereitung für die interkantonalen Konferenzen (Konferenz der Kantonsregierungen KdK, Westschweizer Regierungskonferenz WRK und die Hauptstadtregion Schweiz HSR)\n\n• Ausserdem wirken Sie bei der Organisation von Veranstaltungen und Konferenzen mit\n\n• Sie helfen bei der Erstellung des Jahresberichts des Sektors Aussenbeziehungen mit\n\nGewünschtes Profil\n\n• Sie haben einen Masterabschluss an einer Universität, vorzugsweise im Bereich Politikwissenschaften oder verfügen über eine ähnliche Erfahrung\n\n• Sie haben gute Kenntnisse des politischen und föderalen Systems der Schweiz und Sie sind grundsätzlich an Politik interessiert\n\n• Sie kennen den Kanton Freiburg und seine wichtigsten Herausforderungen oder haben ein starkes Interesse an dieser Region\n\n• Sie sind in der Lage, schnell zu verstehen, komplexe Sachverhalte zusammenzufassen, die Initiative zu ergreifen und sich leicht in ein kleines Team zu integrieren\n\n• Sie beherrschen die deutsche oder französische  Sprache , jeweils mit sehr guten Kenntnissen der Partnersprache. Englischkenntnisse sind von Vorteil\n\nKontaktperson\n\nPatrick Mülhauser\nDélégué aux relations extérieures\nT +41 26 305 50 97\nM +41 79 287 21 51\npatrick.muelhauser.cha@fr.ch\n\nDatum der Stellenausschreibung:",
       "descriptionByLocale": {
@@ -8234,7 +8265,6 @@
         "stage-universitario-presso-la-segreteria-generale-di-tre-conferenze-intercantoneali-etat-de-fribourg-fribourg"
       ],
       "firstSeenAt": "2026-07-14T11:08:41.493Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8429,16 +8459,16 @@
       "title": "Chimiste cantonal-e",
       "titleByLocale": {
         "fr": "Chimiste cantonal-e",
-        "it": "Chimiste cantonal-e",
-        "en": "Chimiste cantonal-e",
-        "de": "Chimiste cantonal-e"
+        "it": "chimico cantonale",
+        "en": "Cantonal chemist",
+        "de": "Kantonalchemiker"
       },
       "description": "Qui sommes-nous?\n\nLe Service de la sécurité alimentaire et des affaires vétérinaires SAAV a pour mission de veiller, par ses inspections et analyses, à ce que les denrées alimentaires et les objets usuels ne mettent pas en danger la santé des consommateurs ou ne les trompent. Il veille au bien-être et à la santé des animaux pour eux-mêmes et à l’avantage de l’être humain.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• En tant que Chimiste cantonal-e, vous contribuez avec le Chef de service à l’élaboration et à la mise en œuvre des politiques publiques relatives à la sécurité alimentaire\n\n• De par votre rôle, vous êtes responsable de la gestion, de l’exécution et de la surveillance des tâches définies par la législation dans le domaine des denrées alimentaires et objets usuels, des produits chimiques ainsi que de l’hygiène des piscines et des plages publiques\n\n• Vous coordonnez et supervisez les activités de contrôle des denrées alimentaires et objets usuels et, participez à l’engagement des spécialistes du domaine de la sécurité alimentaire\n\n• Vous orientez et conseillez le Chef de service, la Direction ainsi que le Conseiller d’Etat dans votre domaine de compétence\n\nProfil souhaité\n\n• Titulaire d'un master universitaire, EPF ou HES en chimie, biochimie, sciences alimentaires ou sciences naturelles, vous êtes idéalement au bénéfice d'un diplôme fédéral en direction du contrôle officiel des denrées alimentaires (DDCAl) au sens de l’ordonnace fédérale en vigueur\n\n• Orienté/e résultats, vous êtes proactif/ve et prenez les initiatives et propositions de décisions requises afin de mener à bien votre mission\n\n• Doté/e de bonnes compétences en communication, vous savez travailler en équipe et collaborer activement avec vos collaborateurs et interlocuteurs, de manière pragmatique\n\n• Résistant/e au stress, vous êtes confronté/e à une charge de travail importante ainsi qu'à des horaires irréguliers\n\n• Connaissance du tissu agro-alimentaire fribourgeois un plus\n\n• Vous maîtrisez la langue française ou allemande et avez d'excellentes connaissances de l'autre langue\n\nCoordonnées des personnes de contact\n\nManon Wicht,\nResponsable RH\nmanon.wicht@fr.ch\nT +41 26 305 22 13\n\nDate de publication:",
       "descriptionByLocale": {
         "fr": "Qui sommes-nous?\n\nLe Service de la sécurité alimentaire et des affaires vétérinaires SAAV a pour mission de veiller, par ses inspections et analyses, à ce que les denrées alimentaires et les objets usuels ne mettent pas en danger la santé des consommateurs ou ne les trompent. Il veille au bien-être et à la santé des animaux pour eux-mêmes et à l’avantage de l’être humain.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• En tant que Chimiste cantonal-e, vous contribuez avec le Chef de service à l’élaboration et à la mise en œuvre des politiques publiques relatives à la sécurité alimentaire\n\n• De par votre rôle, vous êtes responsable de la gestion, de l’exécution et de la surveillance des tâches définies par la législation dans le domaine des denrées alimentaires et objets usuels, des produits chimiques ainsi que de l’hygiène des piscines et des plages publiques\n\n• Vous coordonnez et supervisez les activités de contrôle des denrées alimentaires et objets usuels et, participez à l’engagement des spécialistes du domaine de la sécurité alimentaire\n\n• Vous orientez et conseillez le Chef de service, la Direction ainsi que le Conseiller d’Etat dans votre domaine de compétence\n\nProfil souhaité\n\n• Titulaire d'un master universitaire, EPF ou HES en chimie, biochimie, sciences alimentaires ou sciences naturelles, vous êtes idéalement au bénéfice d'un diplôme fédéral en direction du contrôle officiel des denrées alimentaires (DDCAl) au sens de l’ordonnace fédérale en vigueur\n\n• Orienté/e résultats, vous êtes proactif/ve et prenez les initiatives et propositions de décisions requises afin de mener à bien votre mission\n\n• Doté/e de bonnes compétences en communication, vous savez travailler en équipe et collaborer activement avec vos collaborateurs et interlocuteurs, de manière pragmatique\n\n• Résistant/e au stress, vous êtes confronté/e à une charge de travail importante ainsi qu'à des horaires irréguliers\n\n• Connaissance du tissu agro-alimentaire fribourgeois un plus\n\n• Vous maîtrisez la langue française ou allemande et avez d'excellentes connaissances de l'autre langue\n\nCoordonnées des personnes de contact\n\nManon Wicht,\nResponsable RH\nmanon.wicht@fr.ch\nT +41 26 305 22 13\n\nDate de publication:",
-        "it": "Qui sommes-nous?\n\nLe Service de la sécurité alimentaire et des affaires vétérinaires SAAV a pour mission de veiller, par ses inspections et analyses, à ce que les denrées alimentaires et les objets usuels ne mettent pas en danger la santé des consommateurs ou ne les trompent. Il veille au bien-être et à la santé des animaux pour eux-mêmes et à l’avantage de l’être humain.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• En tant que Chimiste cantonal-e, vous contribuez avec le Chef de service à l’élaboration et à la mise en œuvre des politiques publiques relatives à la sécurité alimentaire\n\n• De par votre rôle, vous êtes responsable de la gestion, de l’exécution et de la surveillance des tâches définies par la législation dans le domaine des denrées alimentaires et objets usuels, des produits chimiques ainsi que de l’hygiène des piscines et des plages publiques\n\n• Vous coordonnez et supervisez les activités de contrôle des denrées alimentaires et objets usuels et, participez à l’engagement des spécialistes du domaine de la sécurité alimentaire\n\n• Vous orientez et conseillez le Chef de service, la Direction ainsi que le Conseiller d’Etat dans votre domaine de compétence\n\nProfil souhaité\n\n• Titulaire d'un master universitaire, EPF ou HES en chimie, biochimie, sciences alimentaires ou sciences naturelles, vous êtes idéalement au bénéfice d'un diplôme fédéral en direction du contrôle officiel des denrées alimentaires (DDCAl) au sens de l’ordonnace fédérale en vigueur\n\n• Orienté/e résultats, vous êtes proactif/ve et prenez les initiatives et propositions de décisions requises afin de mener à bien votre mission\n\n• Doté/e de bonnes compétences en communication, vous savez travailler en équipe et collaborer activement avec vos collaborateurs et interlocuteurs, de manière pragmatique\n\n• Résistant/e au stress, vous êtes confronté/e à une charge de travail importante ainsi qu'à des horaires irréguliers\n\n• Connaissance du tissu agro-alimentaire fribourgeois un plus\n\n• Vous maîtrisez la langue française ou allemande et avez d'excellentes connaissances de l'autre langue\n\nCoordonnées des personnes de contact\n\nManon Wicht,\nResponsable RH\nmanon.wicht@fr.ch\nT +41 26 305 22 13\n\nDate de publication:",
-        "en": "Qui sommes-nous?\n\nLe Service de la sécurité alimentaire et des affaires vétérinaires SAAV a pour mission de veiller, par ses inspections et analyses, à ce que les denrées alimentaires et les objets usuels ne mettent pas en danger la santé des consommateurs ou ne les trompent. Il veille au bien-être et à la santé des animaux pour eux-mêmes et à l’avantage de l’être humain.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• En tant que Chimiste cantonal-e, vous contribuez avec le Chef de service à l’élaboration et à la mise en œuvre des politiques publiques relatives à la sécurité alimentaire\n\n• De par votre rôle, vous êtes responsable de la gestion, de l’exécution et de la surveillance des tâches définies par la législation dans le domaine des denrées alimentaires et objets usuels, des produits chimiques ainsi que de l’hygiène des piscines et des plages publiques\n\n• Vous coordonnez et supervisez les activités de contrôle des denrées alimentaires et objets usuels et, participez à l’engagement des spécialistes du domaine de la sécurité alimentaire\n\n• Vous orientez et conseillez le Chef de service, la Direction ainsi que le Conseiller d’Etat dans votre domaine de compétence\n\nProfil souhaité\n\n• Titulaire d'un master universitaire, EPF ou HES en chimie, biochimie, sciences alimentaires ou sciences naturelles, vous êtes idéalement au bénéfice d'un diplôme fédéral en direction du contrôle officiel des denrées alimentaires (DDCAl) au sens de l’ordonnace fédérale en vigueur\n\n• Orienté/e résultats, vous êtes proactif/ve et prenez les initiatives et propositions de décisions requises afin de mener à bien votre mission\n\n• Doté/e de bonnes compétences en communication, vous savez travailler en équipe et collaborer activement avec vos collaborateurs et interlocuteurs, de manière pragmatique\n\n• Résistant/e au stress, vous êtes confronté/e à une charge de travail importante ainsi qu'à des horaires irréguliers\n\n• Connaissance du tissu agro-alimentaire fribourgeois un plus\n\n• Vous maîtrisez la langue française ou allemande et avez d'excellentes connaissances de l'autre langue\n\nCoordonnées des personnes de contact\n\nManon Wicht,\nResponsable RH\nmanon.wicht@fr.ch\nT +41 26 305 22 13\n\nDate de publication:",
-        "de": "Qui sommes-nous?\n\nLe Service de la sécurité alimentaire et des affaires vétérinaires SAAV a pour mission de veiller, par ses inspections et analyses, à ce que les denrées alimentaires et les objets usuels ne mettent pas en danger la santé des consommateurs ou ne les trompent. Il veille au bien-être et à la santé des animaux pour eux-mêmes et à l’avantage de l’être humain.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• En tant que Chimiste cantonal-e, vous contribuez avec le Chef de service à l’élaboration et à la mise en œuvre des politiques publiques relatives à la sécurité alimentaire\n\n• De par votre rôle, vous êtes responsable de la gestion, de l’exécution et de la surveillance des tâches définies par la législation dans le domaine des denrées alimentaires et objets usuels, des produits chimiques ainsi que de l’hygiène des piscines et des plages publiques\n\n• Vous coordonnez et supervisez les activités de contrôle des denrées alimentaires et objets usuels et, participez à l’engagement des spécialistes du domaine de la sécurité alimentaire\n\n• Vous orientez et conseillez le Chef de service, la Direction ainsi que le Conseiller d’Etat dans votre domaine de compétence\n\nProfil souhaité\n\n• Titulaire d'un master universitaire, EPF ou HES en chimie, biochimie, sciences alimentaires ou sciences naturelles, vous êtes idéalement au bénéfice d'un diplôme fédéral en direction du contrôle officiel des denrées alimentaires (DDCAl) au sens de l’ordonnace fédérale en vigueur\n\n• Orienté/e résultats, vous êtes proactif/ve et prenez les initiatives et propositions de décisions requises afin de mener à bien votre mission\n\n• Doté/e de bonnes compétences en communication, vous savez travailler en équipe et collaborer activement avec vos collaborateurs et interlocuteurs, de manière pragmatique\n\n• Résistant/e au stress, vous êtes confronté/e à une charge de travail importante ainsi qu'à des horaires irréguliers\n\n• Connaissance du tissu agro-alimentaire fribourgeois un plus\n\n• Vous maîtrisez la langue française ou allemande et avez d'excellentes connaissances de l'autre langue\n\nCoordonnées des personnes de contact\n\nManon Wicht,\nResponsable RH\nmanon.wicht@fr.ch\nT +41 26 305 22 13\n\nDate de publication:"
+        "it": "Chi siamo?\n\nLa missione del Servizio di Sicurezza Alimentare e Veterinaria SAAV è garantire, attraverso le sue ispezioni e le sue analisi, che gli alimenti e gli oggetti abituali non mettono in pericolo o ingannano la salute dei consumatori. Assicura il benessere e la salute degli animali per se stessi e il beneficio degli esseri umani.\n\nPerché unirsi a noi?\n\nCi affidiamo alla complementarietà delle competenze e alla varietà delle prospettive perché è la diversità di percorsi e profili che rende lo stato di Friburgo la forza. Promuoviamo l'equilibrio della vita lavorativa e le condizioni di lavoro flessibili. Per saperne di più, segui questo link .\n\nLe vostre missioni\n\n• Come chimico cantonale, tu e il Capo del Servizio contribuite allo sviluppo e all'attuazione delle politiche pubbliche sulla sicurezza alimentare.\n\n• Dal vostro ruolo, siete responsabili della gestione, esecuzione e monitoraggio dei compiti definiti dalla legislazione nel campo degli oggetti alimentari e consueti, dei prodotti chimici e dell'igiene delle piscine e delle spiagge pubbliche.\n\n• Coordinate e supervisionate il controllo del cibo e degli oggetti abituali e partecipate all'impegno degli specialisti della sicurezza alimentare\n\n• Guida e consiglia il Capo del Servizio, la Direzione e il Consigliere di Stato nel suo ambito di competenza\n\nProfilo desiderato\n\n• Hai un master in chimica, biochimica, scienze alimentari o scienze naturali, EPF o HES, e sei idealmente autorizzato a una laurea federale nella direzione del controllo alimentare ufficiale (DDCAl) ai sensi dell'attuale Ordine federale.\n\n• Concentrati/risultati, sei proattivo/ve e prendi le iniziative e le proposte per le decisioni necessarie per completare la tua missione\n\n• Con buone capacità di comunicazione, sai come lavorare come team e collaborare attivamente con i tuoi dipendenti e interlocutori, in modo pragmatico\n\n• Resistente allo stress, si è di fronte a un alto carico di lavoro e programmi irregolari\n\n• Conoscenza del tessuto agroalimentare Friburgo\n\n• Parli francese o tedesco e hai una conoscenza eccellente dell'altra lingua\n\nInformazioni di contatto\n\nManon Wicht,\nGestione delle risorse\nmanon.wicht@fr.ch\nT +41 26 305 22 13\n\nData di pubblicazione:",
+        "en": "Who are we?\n\nThe mission of the Food Safety and Veterinary Service SAAV is to ensure, through its inspections and analyses, that food and usual items do not endanger or deceive the health of consumers. It ensures the welfare and health of animals for themselves and the benefit of human beings.\n\nWhy join us?\n\nWe rely on the complementarity of skills and the variety of perspectives because it is the diversity of paths and profiles that makes the state of Fribourg the strength. We promote work-life balance and flexible working conditions. To learn more, follow this link .\n\nYour missions\n\n• As a cantonal chemist, you and the Head of Service contribute to the development and implementation of public policies on food security.\n\n• By your role, you are responsible for the management, execution and monitoring of the tasks defined by legislation in the field of food and usual objects, chemicals and hygiene of swimming pools and public beaches.\n\n• You coordinate and supervise the control of food and usual objects and, participate in the engagement of food security specialists\n\n• You guide and advise the Head of Service, the Directorate and the State Adviser in your area of competence\n\nProfile desired\n\n• You have a master's degree in chemistry, biochemistry, food science or natural sciences, EPF or HES, and you are ideally entitled to a federal degree in the direction of official food control (DDCAl) within the meaning of the current Federal Order.\n\n• Focused/results, you are proactive/ve and take the initiatives and proposals for decisions required to complete your mission\n\n• With good communication skills, you know how to work as a team and actively collaborate with your employees and interlocutors, in a pragmatic way\n\n• Resistant to stress, you are faced with a high workload and irregular schedules\n\n• Knowledge of the Friburg agri-food fabric a plus\n\n• You speak French or German and have excellent knowledge of the other language\n\nContact details\n\nManon Wicht,\nHR Manager\nmanon.wicht@fr.ch\nT +41 26 305 22 13\n\nDate of publication:",
+        "de": "Wer sind wir?\n\nDie Aufgabe des Lebensmittelsicherheits- und Veterinärdienstes SAAV besteht darin, durch seine Inspektionen und Analysen sicherzustellen, dass Lebensmittel und übliche Artikel die Gesundheit der Verbraucher nicht gefährden oder täuschen. Es sichert das Wohlergehen und die Gesundheit der Tiere für sich selbst und den Nutzen des Menschen.\n\nWarum mitmachen?\n\nWir setzen auf die Komplementarität der Fähigkeiten und die Vielfalt der Perspektiven, denn es ist die Vielfalt der Wege und Profile, die den Zustand Freiburgs zur Stärke macht. Wir fördern Work-Life-Balance und flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link.\n\nIhre Missionen\n\n• Als kantonale Chemikerin tragen Sie und der Serviceleiter zur Entwicklung und Umsetzung der öffentlichen Ernährungssicherheitspolitik bei.\n\n• Durch Ihre Rolle sind Sie verantwortlich für die Verwaltung, Durchführung und Überwachung der Aufgaben, die durch die Gesetzgebung im Bereich der Lebensmittel und üblichen Gegenstände, Chemikalien und Hygiene von Schwimmbädern und öffentlichen Stränden definiert sind.\n\n• Sie koordinieren und überwachen die Kontrolle von Lebensmitteln und üblichen Gegenständen und beteiligen sich am Engagement von Spezialisten für Lebensmittelsicherheit\n\n• Sie führen und beraten den Serviceleiter, die Direktion und den Staatsberater in Ihrem Zuständigkeitsbereich\n\nProfil gewünscht\n\n• Sie haben einen Master-Abschluss in Chemie, Biochemie, Lebensmittelwissenschaft oder Naturwissenschaften, EPF oder HES, und Sie haben idealerweise Anspruch auf einen Bundesabschluss in Richtung amtliche Lebensmittelkontrolle (DDCAl) im Sinne der aktuellen Bundesverordnung.\n\n• Konzentriert/Ergebnisse, sind Sie proaktiv/ve und nehmen die Initiativen und Vorschläge für Entscheidungen, die erforderlich sind, um Ihre Mission abzuschließen\n\n• Mit guten Kommunikationsfähigkeiten wissen Sie, wie Sie als Team arbeiten und aktiv mit Ihren Mitarbeitern und Gesprächspartnern pragmatisch zusammenarbeiten.\n\n• Beständig gegen Stress, sind Sie mit einer hohen Arbeitsbelastung und unregelmäßigen Zeitplänen konfrontiert\n\n• Kenntnisse des Friburger Agrarlebensmittelgewebes a plus\n\n• Sie sprechen Französisch oder Deutsch und haben ausgezeichnete Kenntnisse der anderen Sprache\n\nKontaktdaten\n\nManon Wicht\nHR-Manager\nmanon.wicht@fr.ch\nT +41 26 305 22 13\n\nDatum der Veröffentlichung:"
       },
       "location": "Givisiez",
       "canton": "FR",
@@ -8467,7 +8497,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8498,16 +8527,16 @@
       "title": "Kantonschemiker/in",
       "titleByLocale": {
         "de": "Kantonschemiker/in",
-        "fr": "Kantonschemiker/in",
-        "it": "Kantonschemiker/in",
-        "en": "Kantonschemiker/in"
+        "fr": "Chimiste cantonal",
+        "it": "chimico cantonale",
+        "en": "Cantonal chemist"
       },
       "description": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDas Amt für Lebensmittelsicherheit und Veterinärwesen (LSVW) hat die Aufgabe, die Konsumenten und Konsumentinnen mittels Inspektionen und Analysen vor gesundheitsgefährdenden Lebensmitteln und Gebrauchsgegenständen sowie vor Täuschung im Zusammenhang mit Lebensmitteln zu schützen und das Wohlbefinden und die Gesundheit der Tiere sowohl zu ihrem eigenen als auch zum Wohl des Menschen sicherzustellen.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Als Kantonschemiker/in tragen Sie, zusammen mit dem Dienstchef zur Erarbeitung und Umsetzung der staatlichen Politik zur Lebensmittelsicherheit bei\n\n• Aufgrund Ihrer Funktion sind Sie verantwortlich für das Management, den Vollzug und die Aufsicht über die Aufgaben gemäss der Gesetzgebung in den Bereichen Lebensmittel und Gebrauchsgegenstände, Chemikalien sowie Hygiene in öffentlichen Schwimm- und Strandbädern\n\n• Sie koordinieren und beaufsichtigen die Kontrolltätigkeiten im Beriech Lebensmitteln und Gebrauchsgegenständen und wirken bei der Anstellung von Spezialisten im Bereich der Lebensmittelsicherheit mit\n\n• Sie orientieren und beraten den Dienstchef, die Direktion sowie den Staatsrat in Ihrem Zuständigkeitsbereich\n\nGewünschtes Profil\n\n• Sie verfügen über einen Masterabschluss einer Universität, ETH oder FH in Chemie, Biochemie, Lebensmittel- oder Naturwissenschaften, haben ein eidgenössisches Diplom für die leitende amtliche Lebensmittelkontrolle (DLAL) im Sinne der geltenden Bundesverordnung\n\n• Sie sind ergebnisorientiert, proaktiv, ergreifen die Initiativen und treffen die Entscheids-vorschläge, die für die Ausführung Ihres Auftrags erforderlich sind\n\n• Sie verfügen über gute kommunikative Fähigkeiten, sind teamfähig und arbeiten aktiv und auf pragmatische Weise mit ihren Mitarbeiter und Ansprechpartnern zusammen\n\n• Dank Ihrer Belastbarkeit können Sie mit hoher Arbeitsbelastung und unregelmässigen Arbeitszeiten umgehen\n\n• Kenntnisse der Freiburger Agrar- und Lebensmittelbranche sind von Vorteil\n\n• Sie beherrschen die deutsche oder französische Sprache und haben hervorragende Kenntnisse der anderen Sprache\n\nKontaktperson\n\nManon Wicht\nHR-Verantwortliche\nmanon.wicht@fr.ch\nT +41 26 305 22 13\n\nDatum der Stellenausschreibung:",
       "descriptionByLocale": {
         "de": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDas Amt für Lebensmittelsicherheit und Veterinärwesen (LSVW) hat die Aufgabe, die Konsumenten und Konsumentinnen mittels Inspektionen und Analysen vor gesundheitsgefährdenden Lebensmitteln und Gebrauchsgegenständen sowie vor Täuschung im Zusammenhang mit Lebensmitteln zu schützen und das Wohlbefinden und die Gesundheit der Tiere sowohl zu ihrem eigenen als auch zum Wohl des Menschen sicherzustellen.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Als Kantonschemiker/in tragen Sie, zusammen mit dem Dienstchef zur Erarbeitung und Umsetzung der staatlichen Politik zur Lebensmittelsicherheit bei\n\n• Aufgrund Ihrer Funktion sind Sie verantwortlich für das Management, den Vollzug und die Aufsicht über die Aufgaben gemäss der Gesetzgebung in den Bereichen Lebensmittel und Gebrauchsgegenstände, Chemikalien sowie Hygiene in öffentlichen Schwimm- und Strandbädern\n\n• Sie koordinieren und beaufsichtigen die Kontrolltätigkeiten im Beriech Lebensmitteln und Gebrauchsgegenständen und wirken bei der Anstellung von Spezialisten im Bereich der Lebensmittelsicherheit mit\n\n• Sie orientieren und beraten den Dienstchef, die Direktion sowie den Staatsrat in Ihrem Zuständigkeitsbereich\n\nGewünschtes Profil\n\n• Sie verfügen über einen Masterabschluss einer Universität, ETH oder FH in Chemie, Biochemie, Lebensmittel- oder Naturwissenschaften, haben ein eidgenössisches Diplom für die leitende amtliche Lebensmittelkontrolle (DLAL) im Sinne der geltenden Bundesverordnung\n\n• Sie sind ergebnisorientiert, proaktiv, ergreifen die Initiativen und treffen die Entscheids-vorschläge, die für die Ausführung Ihres Auftrags erforderlich sind\n\n• Sie verfügen über gute kommunikative Fähigkeiten, sind teamfähig und arbeiten aktiv und auf pragmatische Weise mit ihren Mitarbeiter und Ansprechpartnern zusammen\n\n• Dank Ihrer Belastbarkeit können Sie mit hoher Arbeitsbelastung und unregelmässigen Arbeitszeiten umgehen\n\n• Kenntnisse der Freiburger Agrar- und Lebensmittelbranche sind von Vorteil\n\n• Sie beherrschen die deutsche oder französische Sprache und haben hervorragende Kenntnisse der anderen Sprache\n\nKontaktperson\n\nManon Wicht\nHR-Verantwortliche\nmanon.wicht@fr.ch\nT +41 26 305 22 13\n\nDatum der Stellenausschreibung:",
-        "it": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDas Amt für Lebensmittelsicherheit und Veterinärwesen (LSVW) hat die Aufgabe, die Konsumenten und Konsumentinnen mittels Inspektionen und Analysen vor gesundheitsgefährdenden Lebensmitteln und Gebrauchsgegenständen sowie vor Täuschung im Zusammenhang mit Lebensmitteln zu schützen und das Wohlbefinden und die Gesundheit der Tiere sowohl zu ihrem eigenen als auch zum Wohl des Menschen sicherzustellen.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Als Kantonschemiker/in tragen Sie, zusammen mit dem Dienstchef zur Erarbeitung und Umsetzung der staatlichen Politik zur Lebensmittelsicherheit bei\n\n• Aufgrund Ihrer Funktion sind Sie verantwortlich für das Management, den Vollzug und die Aufsicht über die Aufgaben gemäss der Gesetzgebung in den Bereichen Lebensmittel und Gebrauchsgegenstände, Chemikalien sowie Hygiene in öffentlichen Schwimm- und Strandbädern\n\n• Sie koordinieren und beaufsichtigen die Kontrolltätigkeiten im Beriech Lebensmitteln und Gebrauchsgegenständen und wirken bei der Anstellung von Spezialisten im Bereich der Lebensmittelsicherheit mit\n\n• Sie orientieren und beraten den Dienstchef, die Direktion sowie den Staatsrat in Ihrem Zuständigkeitsbereich\n\nGewünschtes Profil\n\n• Sie verfügen über einen Masterabschluss einer Universität, ETH oder FH in Chemie, Biochemie, Lebensmittel- oder Naturwissenschaften, haben ein eidgenössisches Diplom für die leitende amtliche Lebensmittelkontrolle (DLAL) im Sinne der geltenden Bundesverordnung\n\n• Sie sind ergebnisorientiert, proaktiv, ergreifen die Initiativen und treffen die Entscheids-vorschläge, die für die Ausführung Ihres Auftrags erforderlich sind\n\n• Sie verfügen über gute kommunikative Fähigkeiten, sind teamfähig und arbeiten aktiv und auf pragmatische Weise mit ihren Mitarbeiter und Ansprechpartnern zusammen\n\n• Dank Ihrer Belastbarkeit können Sie mit hoher Arbeitsbelastung und unregelmässigen Arbeitszeiten umgehen\n\n• Kenntnisse der Freiburger Agrar- und Lebensmittelbranche sind von Vorteil\n\n• Sie beherrschen die deutsche oder französische Sprache und haben hervorragende Kenntnisse der anderen Sprache\n\nKontaktperson\n\nManon Wicht\nHR-Verantwortliche\nmanon.wicht@fr.ch\nT +41 26 305 22 13\n\nDatum der Stellenausschreibung:",
-        "en": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDas Amt für Lebensmittelsicherheit und Veterinärwesen (LSVW) hat die Aufgabe, die Konsumenten und Konsumentinnen mittels Inspektionen und Analysen vor gesundheitsgefährdenden Lebensmitteln und Gebrauchsgegenständen sowie vor Täuschung im Zusammenhang mit Lebensmitteln zu schützen und das Wohlbefinden und die Gesundheit der Tiere sowohl zu ihrem eigenen als auch zum Wohl des Menschen sicherzustellen.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Als Kantonschemiker/in tragen Sie, zusammen mit dem Dienstchef zur Erarbeitung und Umsetzung der staatlichen Politik zur Lebensmittelsicherheit bei\n\n• Aufgrund Ihrer Funktion sind Sie verantwortlich für das Management, den Vollzug und die Aufsicht über die Aufgaben gemäss der Gesetzgebung in den Bereichen Lebensmittel und Gebrauchsgegenstände, Chemikalien sowie Hygiene in öffentlichen Schwimm- und Strandbädern\n\n• Sie koordinieren und beaufsichtigen die Kontrolltätigkeiten im Beriech Lebensmitteln und Gebrauchsgegenständen und wirken bei der Anstellung von Spezialisten im Bereich der Lebensmittelsicherheit mit\n\n• Sie orientieren und beraten den Dienstchef, die Direktion sowie den Staatsrat in Ihrem Zuständigkeitsbereich\n\nGewünschtes Profil\n\n• Sie verfügen über einen Masterabschluss einer Universität, ETH oder FH in Chemie, Biochemie, Lebensmittel- oder Naturwissenschaften, haben ein eidgenössisches Diplom für die leitende amtliche Lebensmittelkontrolle (DLAL) im Sinne der geltenden Bundesverordnung\n\n• Sie sind ergebnisorientiert, proaktiv, ergreifen die Initiativen und treffen die Entscheids-vorschläge, die für die Ausführung Ihres Auftrags erforderlich sind\n\n• Sie verfügen über gute kommunikative Fähigkeiten, sind teamfähig und arbeiten aktiv und auf pragmatische Weise mit ihren Mitarbeiter und Ansprechpartnern zusammen\n\n• Dank Ihrer Belastbarkeit können Sie mit hoher Arbeitsbelastung und unregelmässigen Arbeitszeiten umgehen\n\n• Kenntnisse der Freiburger Agrar- und Lebensmittelbranche sind von Vorteil\n\n• Sie beherrschen die deutsche oder französische Sprache und haben hervorragende Kenntnisse der anderen Sprache\n\nKontaktperson\n\nManon Wicht\nHR-Verantwortliche\nmanon.wicht@fr.ch\nT +41 26 305 22 13\n\nDatum der Stellenausschreibung:",
-        "fr": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDas Amt für Lebensmittelsicherheit und Veterinärwesen (LSVW) hat die Aufgabe, die Konsumenten und Konsumentinnen mittels Inspektionen und Analysen vor gesundheitsgefährdenden Lebensmitteln und Gebrauchsgegenständen sowie vor Täuschung im Zusammenhang mit Lebensmitteln zu schützen und das Wohlbefinden und die Gesundheit der Tiere sowohl zu ihrem eigenen als auch zum Wohl des Menschen sicherzustellen.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Als Kantonschemiker/in tragen Sie, zusammen mit dem Dienstchef zur Erarbeitung und Umsetzung der staatlichen Politik zur Lebensmittelsicherheit bei\n\n• Aufgrund Ihrer Funktion sind Sie verantwortlich für das Management, den Vollzug und die Aufsicht über die Aufgaben gemäss der Gesetzgebung in den Bereichen Lebensmittel und Gebrauchsgegenstände, Chemikalien sowie Hygiene in öffentlichen Schwimm- und Strandbädern\n\n• Sie koordinieren und beaufsichtigen die Kontrolltätigkeiten im Beriech Lebensmitteln und Gebrauchsgegenständen und wirken bei der Anstellung von Spezialisten im Bereich der Lebensmittelsicherheit mit\n\n• Sie orientieren und beraten den Dienstchef, die Direktion sowie den Staatsrat in Ihrem Zuständigkeitsbereich\n\nGewünschtes Profil\n\n• Sie verfügen über einen Masterabschluss einer Universität, ETH oder FH in Chemie, Biochemie, Lebensmittel- oder Naturwissenschaften, haben ein eidgenössisches Diplom für die leitende amtliche Lebensmittelkontrolle (DLAL) im Sinne der geltenden Bundesverordnung\n\n• Sie sind ergebnisorientiert, proaktiv, ergreifen die Initiativen und treffen die Entscheids-vorschläge, die für die Ausführung Ihres Auftrags erforderlich sind\n\n• Sie verfügen über gute kommunikative Fähigkeiten, sind teamfähig und arbeiten aktiv und auf pragmatische Weise mit ihren Mitarbeiter und Ansprechpartnern zusammen\n\n• Dank Ihrer Belastbarkeit können Sie mit hoher Arbeitsbelastung und unregelmässigen Arbeitszeiten umgehen\n\n• Kenntnisse der Freiburger Agrar- und Lebensmittelbranche sind von Vorteil\n\n• Sie beherrschen die deutsche oder französische Sprache und haben hervorragende Kenntnisse der anderen Sprache\n\nKontaktperson\n\nManon Wicht\nHR-Verantwortliche\nmanon.wicht@fr.ch\nT +41 26 305 22 13\n\nDatum der Stellenausschreibung:"
+        "it": "Nomina autorità / unità amministrativa / istituzione\n\nL'Ufficio per la sicurezza alimentare e gli affari veterinari (LSVW) ha il compito di proteggere i consumatori attraverso ispezioni e analisi contro gli oggetti alimentari e di consumo che sono pericolosi per la salute e contro l'inganno in relazione al cibo, e di garantire il benessere e la salute degli animali, sia per se stessi che per il beneficio degli esseri umani.\n\nDiventa parte della nostra squadra!\n\nCi concentriamo sulla complementarità delle competenze e sulla diversità delle prospettive, perché è la vasta gamma di carriere e profili che costituiscono la forza dello stato di Friburgo. Promuoviamo la riconciliazione della vita professionale e privata e le condizioni di lavoro flessibili. Per saperne di più, segui questo link.\n\nI loro compiti\n\n• Come chimico cantonale, insieme al gestore del servizio, contribuisce allo sviluppo e all'attuazione della politica di sicurezza alimentare statale.\n\n• A causa del vostro ruolo, siete responsabili per la gestione, l'applicazione e la supervisione dei compiti secondo la legislazione nei settori dei prodotti alimentari e dei beni di consumo, dei prodotti chimici e dell'igiene nelle piscine pubbliche e in spiaggia.\n\n• Esse coordinano e controllano le attività di controllo nel settore dei prodotti alimentari e dei beni di consumo e partecipano al reclutamento di specialisti della sicurezza alimentare;\n\n• Lei consiglia e consiglia il capo servizio, la direzione e il Consiglio di Stato nel suo ambito di responsabilità\n\nProfilo desiderato\n\n• Hai un master da un'università, ETH o FH in chimica, biochimica, cibo o scienze naturali, hanno un diploma federale per il principale controllo alimentare ufficiale (DLAL) nel senso della normativa federale applicabile\n\n• Siete orientati ai risultati, proattivi, prendere le iniziative e prendere le proposte decisionali necessarie per eseguire il vostro ordine\n\n• Hanno buone capacità di comunicazione, sono in grado di lavoro di squadra e lavorare attivamente e pragmaticamente con i loro dipendenti e contatti.\n\n• Grazie alla tua resilienza, puoi affrontare carichi di lavoro elevati e ore di lavoro irregolari\n\n• La conoscenza dell'industria agricola e alimentare di Friburgo è un vantaggio\n\n• Padroneggiare la lingua tedesca o francese e avere una conoscenza eccellente dell'altra lingua\n\nPersona di contatto\n\ncera di mano\nGestione delle risorse\nmanon.wicht@fr.ch\nT +41 26 305 22 13\n\nData di pubblicità:",
+        "en": "Appointing authority / administrative unit / institution\n\nThe Office for Food Safety and Veterinary Affairs (LSVW) has the task of protecting consumers by means of inspections and analyses against food and consumer objects which are hazardous to health and against deception in connection with food, and of ensuring the welfare and health of animals, both for themselves and for the benefit of human beings.\n\nBecome part of our team!\n\nWe focus on the complementarity of competences and the diversity of perspectives, because it is the wide range of careers and profiles that makes up the strength of the state of Freiburg. We promote the reconciliation of professional and private life as well as flexible working conditions. To learn more, follow this link.\n\nTheir tasks\n\n• As a cantonal chemist, together with the service manager, you contribute to the development and implementation of the state food safety policy.\n\n• Due to your role, you are responsible for the management, enforcement and supervision of the tasks according to the legislation in the areas of food and consumer goods, chemicals and hygiene in public swimming and beach pools.\n\n• They shall coordinate and supervise control activities in the food and consumer goods sector and shall participate in the recruitment of food safety specialists;\n\n• You orient and advise the service chief, the management and the State Council in your area of responsibility\n\nDesired profile\n\n• You have a master’s degree from a university, ETH or FH in chemistry, biochemistry, food or natural sciences, have a federal diploma for the leading official food control (DLAL) in the sense of the applicable federal regulation\n\n• You are results-oriented, proactive, take the initiatives and make the decision-making proposals necessary to execute your order\n\n• They have good communication skills, are capable of teamwork and work actively and pragmatically with their employees and contacts.\n\n• Thanks to your resilience, you can deal with high workload and irregular working hours\n\n• Knowledge of the Freiburg agricultural and food industry is an advantage\n\n• You master the German or French language and have excellent knowledge of the other language\n\nContact person\n\nManon wax\nHR managers\nmanon.wicht@fr.ch\nT +41 26 305 22 13\n\nDate of advertisement:",
+        "fr": "Pouvoir de nomination / unité administrative / institution\n\nL'Office de la sécurité alimentaire et des affaires vétérinaires (LSVW) a pour mission de protéger les consommateurs au moyen d'inspections et d'analyses contre les denrées alimentaires et les objets de consommation dangereux pour la santé et contre la tromperie en rapport avec les denrées alimentaires, et d'assurer le bien-être et la santé des animaux, tant pour eux-mêmes que pour le bénéfice des êtres humains.\n\nFaites partie de notre équipe !\n\nNous nous concentrons sur la complémentarité des compétences et la diversité des perspectives, car c'est le large éventail de carrières et de profils qui constitue la force de l'état de Fribourg. Nous favorisons la conciliation de la vie professionnelle et privée ainsi que des conditions de travail flexibles. Pour en savoir plus, suivez ce lien.\n\nLeurs tâches\n\n• En tant que chimiste cantonal, vous contribuez, en collaboration avec le responsable du service, au développement et à la mise en œuvre de la politique nationale de sécurité alimentaire.\n\n• En raison de votre rôle, vous êtes responsable de la gestion, de l'exécution et de la supervision des tâches conformément à la législation dans les domaines de l'alimentation et des biens de consommation, des produits chimiques et de l'hygiène dans les piscines publiques et les plages.\n\n• Ils coordonnent et supervisent les activités de contrôle dans le secteur des denrées alimentaires et des biens de consommation et participent au recrutement de spécialistes de la sécurité alimentaire;\n\n• Vous orienter et conseiller le chef de service, la direction et le conseil d'État dans votre domaine de responsabilité\n\nProfil désiré\n\n• Vous avez un diplôme de maîtrise en chimie, biochimie, alimentation ou sciences naturelles d'une université, ETH ou FH, vous avez un diplôme fédéral pour le principal contrôle officiel des aliments (DLAL) au sens du règlement fédéral applicable\n\n• Vous êtes orienté vers les résultats, proactif, prenez les initiatives et faites les propositions de décision nécessaires pour exécuter votre commande\n\n• Ils ont de bonnes compétences en communication, sont capables de travailler en équipe et de travailler activement et de façon pragmatique avec leurs employés et leurs contacts.\n\n• Grâce à votre résilience, vous pouvez gérer une charge de travail élevée et des heures de travail irrégulières\n\n• La connaissance de l'industrie agricole et alimentaire de Fribourg est un avantage\n\n• Vous maîtrisez l'allemand ou le français et avez une excellente connaissance de l'autre langue\n\nPersonne à contacter\n\ncire de manon\nGestionnaires des ressources humaines\nMano.wicht@fr.ch\nT +41 26 305 22 13\n\nDate de la publicité:"
       },
       "location": "Givisiez",
       "canton": "FR",
@@ -8536,14 +8565,36 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "kantonschemiker-in-etat-de-fribourg-ch"
+          "kantonschemiker-in-etat-de-fribourg-ch",
+          "responsabile-dei-casi-di-disoccupazione-etat-de-fribourg-givisiez",
+          "unemployment-file-manager-etat-de-fribourg-givisiez",
+          "arbeitslosendateimanager-etat-de-fribourg-givisiez",
+          "gestionnaire-de-dossier-chomage-etat-de-fribourg-ch",
+          "gestionnaire-de-dossier-chomage-etat-de-fribourg-givisiez",
+          "responsabile-dei-casi-giovanili-rea-etat-de-fribourg-givisiez",
+          "case-manager-rea-jeunes-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "unemployment-file-manager-etat-de-fribourg-givisiez"
+        ],
+        "de": [
+          "arbeitslosendateimanager-etat-de-fribourg-givisiez"
+        ],
+        "fr": [
+          "gestionnaire-de-dossier-chomage-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
-        "kantonschemiker-in-etat-de-fribourg-ch"
+        "kantonschemiker-in-etat-de-fribourg-ch",
+        "responsabile-dei-casi-di-disoccupazione-etat-de-fribourg-givisiez",
+        "unemployment-file-manager-etat-de-fribourg-givisiez",
+        "arbeitslosendateimanager-etat-de-fribourg-givisiez",
+        "gestionnaire-de-dossier-chomage-etat-de-fribourg-ch",
+        "gestionnaire-de-dossier-chomage-etat-de-fribourg-givisiez",
+        "responsabile-dei-casi-giovanili-rea-etat-de-fribourg-givisiez",
+        "case-manager-rea-jeunes-etat-de-fribourg-ch"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -9073,7 +9124,7 @@
       "title": "Full-Stack-Entwickler/in",
       "titleByLocale": {
         "it": "Sviluppatore Full-Stack",
-        "en": "Full-Stack-Entwickler/in",
+        "en": "Full-Stack Developer",
         "de": "Full-Stack-Entwickler/in",
         "fr": "Développeur Full-Stack"
       },
@@ -9123,7 +9174,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:09:09.338Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -9201,7 +9251,13 @@
         "dipl-verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
         "dipl-gestionnaire-de-dossiers-administratifs-etat-de-fribourg-fribourg",
         "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
-        "gestione-del-caso-amministrativo-etat-de-fribourg-fribourg"
+        "gestione-del-caso-amministrativo-etat-de-fribourg-fribourg",
+        "impiegato-amministrativo-etat-de-fribourg-fribourg-25af9d",
+        "verwaltungssachbearbeiter-in-etat-de-fribourg-ch-4",
+        "impiegato-amministrativo-etat-de-fribourg-fribourg-4222bf",
+        "verwaltungssachbearbeiter-in-etat-de-fribourg-ch-2",
+        "administrative-case-handler-etat-de-fribourg",
+        "gestionnaire-de-dossiers-administratifs-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9215,11 +9271,18 @@
           "dipl-verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
           "dipl-gestionnaire-de-dossiers-administratifs-etat-de-fribourg-fribourg",
           "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
-          "gestione-del-caso-amministrativo-etat-de-fribourg-fribourg"
+          "gestione-del-caso-amministrativo-etat-de-fribourg-fribourg",
+          "impiegato-amministrativo-etat-de-fribourg-fribourg-25af9d",
+          "verwaltungssachbearbeiter-in-etat-de-fribourg-ch-4",
+          "impiegato-amministrativo-etat-de-fribourg-fribourg-4222bf",
+          "verwaltungssachbearbeiter-in-etat-de-fribourg-ch-2",
+          "administrative-case-handler-etat-de-fribourg",
+          "gestionnaire-de-dossiers-administratifs-etat-de-fribourg"
         ],
         "en": [
           "verwaltungssachbearbeiter-in-etat-de-fribourg-ch-3",
-          "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+          "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
+          "verwaltungssachbearbeiter-in-etat-de-fribourg-ch-4"
         ],
         "fr": [
           "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
@@ -9255,7 +9318,7 @@
       "companyDomain": "fr.ch",
       "title": "Collaborateur-trice administratif-ve",
       "titleByLocale": {
-        "it": "Collaborateur-trice administratif-ve",
+        "it": "Collaboratore amministrativo",
         "en": "Administrative Collaborator-ve",
         "de": "Verwaltungsmitarbeiter-Vereinigung",
         "fr": "Collaborateur-trice administratif-ve"
@@ -9304,7 +9367,13 @@
         "assistente-amministrativo-graduato-etat-de-fribourg-fribourg",
         "administrative-collaborator-graduate-etat-de-fribourg-fribourg",
         "verwaltungsmitarbeiter-graduate-etat-de-fribourg-fribourg",
-        "collaborateur-trice-administratif-ve-diplome-e-etat-de-fribourg-ch"
+        "collaborateur-trice-administratif-ve-diplome-e-etat-de-fribourg-ch",
+        "associato-amministrativo-etat-de-fribourg-fribourg-c09884",
+        "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-4",
+        "collaborateur-trice-administratif-ve-etat-de-fribourg-fribourg",
+        "associato-amministrativo-etat-de-fribourg-fribourg-c961d8",
+        "administrative-collaborator-ve-etat-de-fribourg",
+        "verwaltungsmitarbeiter-vereinigung-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9319,12 +9388,19 @@
           "assistente-amministrativo-graduato-etat-de-fribourg-fribourg",
           "administrative-collaborator-graduate-etat-de-fribourg-fribourg",
           "verwaltungsmitarbeiter-graduate-etat-de-fribourg-fribourg",
-          "collaborateur-trice-administratif-ve-diplome-e-etat-de-fribourg-ch"
+          "collaborateur-trice-administratif-ve-diplome-e-etat-de-fribourg-ch",
+          "associato-amministrativo-etat-de-fribourg-fribourg-c09884",
+          "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-4",
+          "collaborateur-trice-administratif-ve-etat-de-fribourg-fribourg",
+          "associato-amministrativo-etat-de-fribourg-fribourg-c961d8",
+          "administrative-collaborator-ve-etat-de-fribourg",
+          "verwaltungsmitarbeiter-vereinigung-etat-de-fribourg"
         ],
         "en": [
           "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-3",
           "administrative-collaborator-graduate-etat-de-fribourg-fribourg",
-          "administrative-collaborator-ve-etat-de-fribourg-fribourg"
+          "administrative-collaborator-ve-etat-de-fribourg-fribourg",
+          "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-4"
         ],
         "de": [
           "verwaltungsmitarbeiter-graduate-etat-de-fribourg-fribourg",
@@ -9335,7 +9411,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:09:04.090Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -9606,7 +9681,7 @@
       "companyDomain": "fr.ch",
       "title": "Psychologin/Psychologe im Praktikum, FNPG Ambulatorium",
       "titleByLocale": {
-        "it": "Psychologin/Psychologe im Praktikum, FNPG Ambulatorium",
+        "it": "Psicologo in stage, FNPG Ambulatorium",
         "en": "Psychologist in internship, FNPG Ambulatorium",
         "de": "Psychologin/Psychologe im Praktikum, FNPG Ambulatorium",
         "fr": "Psychologue en stage, FNPG Ambulatorium"
@@ -9660,7 +9735,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:09:06.723Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -10348,7 +10422,7 @@
         "it": "Infermiera, FNPG Villars-sur-Glâne - Stazione Saturn",
         "en": "Nursing Professional, FNPG Villars-sur-Glâne - Saturn Station",
         "de": "Pflegefachfrau/Pflegefachmann, FNPG Villars-sur-Glâne - Station Saturn",
-        "fr": "Pflegefachfrau/Pflegefachmann, FNPG Villars-sur-Glâne - Station Saturn"
+        "fr": "Professionnels des soins infirmiers, FNPG Villars-sur-Glâne - Station Saturne"
       },
       "description": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\n\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender   Seite .\n\nVorteile des RFSM: Swibeco-Karte – Gesundheitsförderung – Rotkäppchen – Rabatt im Nestlé Shop – Sprachkurse\n\nLabel „Family Score“ 2026–2028 & Ausbildungsbetrieb\n\nIhre Aufgaben\n\nSaturn ist eine allgemeinpsychiatrische Station für deutschsprachige Personen im Alter von 18 bis über 65 Jahre.\n\nWir bieten:\n\n• einen angenehmen und dynamischen Arbeitsrahmen an einem neuen stationären Standort, der sich in voller Entwicklung befindet\n\n• die Möglichkeit, an der Entwicklung der Angebote mitzuarbeiten und sich aktiv miteinzubringen und mitzugestalten\n\n• die Möglichkeit, sich weiterzubilden und moderne Ansätze zu praktizieren (Acudetox, Achtsamkeit, therapeutische Gruppen usw.)\n\n• die Möglichkeit, am selben Standort weitere Bereiche kennenzulernen (Ambulatorium, Tagesklinik, Notfallpsychiatrie usw.)\n\n• Französisch- und Deutschkurse\n\nGewünschtes Profil\n\n• Diplomierte Pflegefachpersonen mit Interesse für die Fachrichtung Psychiatrie\n\n• Fähigkeit zur Zusammenarbeit im pluridisziplinären Team\n\n• Flexibilität und Anpassungsfähigkeit\n\n• Interesse an Therapeutischer Gruppen zu leiten\n\n• Tag und Nachtdienste\n\n• Beherrschung der französischen oder deutschen Sprache sowie sehr gute Kenntnisse der jeweils anderen Sprache (mindestens Niveau C1)\n\nAngaben der Kontaktpersonen\n\nAnaïs Torres, Stationsleiterin - T +41 26 308 11 71 - anais.torres@rfsm.ch\n\nDatum der Stellenausschreibung:",
       "descriptionByLocale": {
@@ -10407,8 +10481,7 @@
         }
       },
       "addressRegion": "FR",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-fribourg-60dfb24110fc",
@@ -10493,8 +10566,7 @@
         }
       },
       "addressRegion": "FR",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }
