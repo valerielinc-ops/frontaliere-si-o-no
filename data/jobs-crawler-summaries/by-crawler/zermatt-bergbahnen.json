@@ -1,18 +1,53 @@
 {
   "key": "zermatt-bergbahnen",
   "label": "Zermatt Bergbahnen",
-  "generatedAt": "2026-07-22T12:17:40.517Z",
-  "total": 6,
-  "newCount": 0,
+  "generatedAt": "2026-07-22T22:31:48.410Z",
+  "total": 7,
+  "newCount": 1,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7156,
-  "avgDurationMs": 7156,
+  "durationMs": 8689,
+  "avgDurationMs": 8689,
   "durationHistory": [
-    7156
+    8689
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "zermatt-bergbahnen-1d2568bbb7e6",
+      "slug": "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen",
+      "company": "Zermatt Bergbahnen",
+      "companyKey": "zermatt-bergbahnen",
+      "companyDomain": "matterhornparadise.ch",
+      "title": "Baumaschinenmechaniker/in",
+      "location": "Zermatt",
+      "canton": "VS",
+      "addressLocality": "Zermatt",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3920",
+      "category": "engineering",
+      "sector": "Turismo / Funivie",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "featured": false,
+      "postedDate": "2026-07-22",
+      "url": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/baumaschinenmechaniker/in_job_5142094",
+      "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/baumaschinenmechaniker/in_job_5142094",
+      "source": "Zermatt Bergbahnen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-22T22:31:46.759Z",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "zermatt-bergbahnen-a4f395715a64",
@@ -39,7 +74,8 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/informatiker/in_job_3001250",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T12:17:35.618Z",
+      "crawledAt": "2026-07-22T22:31:42.196Z",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-11T10:52:24.845Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -74,7 +110,8 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-polymechaniker/in-produktionsmechaniker/in_job_3700464",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T12:17:36.407Z",
+      "crawledAt": "2026-07-22T22:31:43.056Z",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-11T10:52:26.388Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -109,7 +146,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-seilbahn-mechatroniker/in-efz-seilbahner/in-eba_job_3704876",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T12:17:37.047Z",
+      "crawledAt": "2026-07-22T22:31:43.925Z",
       "firstSeenAt": "2026-07-11T10:52:27.901Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -144,7 +181,8 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-informatiker/in-efz_job_3706844",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T12:17:37.710Z",
+      "crawledAt": "2026-07-22T22:31:44.746Z",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-11T10:52:29.425Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -179,7 +217,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/sachbearbeiter/in-lohnbuchhaltung_job_4524271",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T12:17:38.340Z",
+      "crawledAt": "2026-07-22T22:31:45.414Z",
       "firstSeenAt": "2026-07-11T10:52:30.862Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -214,7 +252,8 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-metallbauer/in-efz_job_4602024",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-22T12:17:38.884Z",
+      "crawledAt": "2026-07-22T22:31:46.090Z",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-11T10:52:32.296Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
