@@ -753,7 +753,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Senior-Project-Manager-%2880-100%29-Zuri-8340/1164383755/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:34:27.793Z",
+      "crawledAt": "2026-07-21T11:36:41.847Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -777,6 +777,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "senior-project-manager-80-100-belimo-hinwil"
+        ],
+        "en": [
           "senior-project-manager-80-100-belimo-hinwil"
         ]
       },
@@ -2868,10 +2871,10 @@
       "id": "belimo-53a9e8650f11",
       "slug": "esperto-di-automazione-edifici-hvac-80-100-belimo-hinwil",
       "slugByLocale": {
-        "it": "esperto-di-automazione-edifici-hvac-80-100-belimo-hinwil",
+        "it": "hvac-building-automation-expert-80-100-belimo-hinwil-2",
         "en": "hvac-building-automation-expert-80-100-belimo-hinwil-2",
         "de": "hvac-building-automation-expert-80-100-belimo-hinwil",
-        "fr": "specialiste-de-l-automatisation-des-batiments-80-100-belimo-hinwil"
+        "fr": "hvac-building-automation-expert-80-100-belimo-hinwil-2"
       },
       "company": "Belimo",
       "companyKey": "belimo",
@@ -2895,7 +2898,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-HVAC-Building-Automation-Expert-%2880-100%29-Z%C3%BCri-8340/1164470055/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:34:10.800Z",
+      "crawledAt": "2026-07-21T11:36:21.047Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2917,24 +2920,21 @@
       "previousSlugs": [
         "hvac-building-automation-expert-80-100-belimo-hinwil",
         "expert-en-automatisation-des-batiments-de-cvc-80-100-belimo-hinwil",
-        "hvac-building-automation-expert-80-100-belimo-hinwil-2",
-        "esperto-di-automazione-edifici-hvac-80-100-belimo-hinwil",
         "specialiste-de-l-automatisation-des-batiments-80-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hvac-building-automation-expert-80-100-belimo-hinwil",
-          "hvac-building-automation-expert-80-100-belimo-hinwil-2",
-          "esperto-di-automazione-edifici-hvac-80-100-belimo-hinwil"
+          "hvac-building-automation-expert-80-100-belimo-hinwil"
         ],
         "fr": [
           "expert-en-automatisation-des-batiments-de-cvc-80-100-belimo-hinwil",
-          "hvac-building-automation-expert-80-100-belimo-hinwil-2",
           "specialiste-de-l-automatisation-des-batiments-80-100-belimo-hinwil"
+        ],
+        "de": [
+          "hvac-building-automation-expert-80-100-belimo-hinwil"
         ]
       },
       "firstSeenAt": "2026-07-12T22:18:00.190Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
