@@ -1,6 +1,6 @@
 {
   "crawlerKey": "omega",
-  "assembledAt": "2026-07-22T12:21:10.149Z",
+  "assembledAt": "2026-07-22T22:58:41.759Z",
   "jobs": [
     {
       "id": "omega-32494",
@@ -33,7 +33,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32494",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T12:21:07.564Z",
+      "crawledAt": "2026-07-22T22:58:38.905Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -86,6 +86,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:47.089Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -130,7 +131,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32497",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T12:20:46.134Z",
+      "crawledAt": "2026-07-22T22:58:17.396Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -192,6 +193,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:25.778Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -236,7 +238,7 @@
       "url": "https://www.swatchgroup.com/en/job/32500",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T12:20:24.255Z",
+      "crawledAt": "2026-07-22T22:57:55.916Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -302,6 +304,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:04.444Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -346,7 +349,7 @@
       "url": "https://www.swatchgroup.com/en/job/32560",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T12:20:02.850Z",
+      "crawledAt": "2026-07-22T22:57:33.699Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -391,6 +394,7 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:53:15.053Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
