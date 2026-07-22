@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksow",
-  "assembledAt": "2026-07-21T22:22:13.573Z",
+  "assembledAt": "2026-07-22T22:42:38.655Z",
   "jobs": [
     {
       "id": "ksow-553b13e21c9c",
@@ -33,7 +33,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-fmh-allgemeine-innere-medizin-ca/1rn6v8yexqoha8aa0h3j3v8fwsaljtvz2lq36nnjyhbnst2trkc5tt3golid0m7f",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:22:11.420Z",
+      "crawledAt": "2026-07-22T22:42:36.514Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -69,16 +69,21 @@
           "Charge de travail : jours fériés individuels et week-ends par an"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
-          "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen"
+          "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen",
+          "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-kantonsspital-obwalden-sarnen"
         ],
         "it": [
-          "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen"
+          "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen",
+          "specialista-fmh-medicina-interna-generale-a-10-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
-        "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen"
+        "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen",
+        "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-kantonsspital-obwalden-sarnen",
+        "specialista-fmh-medicina-interna-generale-a-10-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:31.266Z",
       "salaryMin": 7000,
@@ -125,7 +130,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-ueberwachungsstation-hf/iaxflchp4guvo4palt0jhvlbi6670eipgwye4ryrkb605wpv8w6bes3xq8e4feje",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:22:09.534Z",
+      "crawledAt": "2026-07-22T22:42:34.822Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -145,14 +150,18 @@
       "needsRetranslation": false,
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-uberwachungsstation-hf-a-50-100-ksow-sarnen"
+          "dipl-pflegefachperson-uberwachungsstation-hf-a-50-100-ksow-sarnen",
+          "dipl-pflegefachperson-uberwachungsstation-hf-a-50-100-kantonsspital-obwalden-sarnen"
         ],
         "it": [
-          "dipl-pflegefachperson-uberwachungsstation-hf-a-50-100-ksow-sarnen"
+          "dipl-pflegefachperson-uberwachungsstation-hf-a-50-100-ksow-sarnen",
+          "infermiere-specializzata-in-sorveglianza-hf-a-50-100-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-uberwachungsstation-hf-a-50-100-ksow-sarnen"
+        "dipl-pflegefachperson-uberwachungsstation-hf-a-50-100-ksow-sarnen",
+        "dipl-pflegefachperson-uberwachungsstation-hf-a-50-100-kantonsspital-obwalden-sarnen",
+        "infermiere-specializzata-in-sorveglianza-hf-a-50-100-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-07-08T11:37:38.680Z",
       "salaryMin": 69500,
@@ -199,7 +208,7 @@
       "url": "https://link.ostendis.com/publication/dipl-experte-in-anaesthesiepflege-nds-hf/hchi3byoxnduiomr2q4tb57d5q2hclz4a4rlhxrx251bbwzfp46rw7d7eza4dy67",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:22:07.865Z",
+      "crawledAt": "2026-07-22T22:42:33.118Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -238,16 +247,21 @@
           "Plaisir pour la collaboration interdisciplinaire"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
-          "dipl-experte-in-anasthesiepflege-nds-hf-70-100-ksow-sarnen"
+          "dipl-experte-in-anasthesiepflege-nds-hf-70-100-ksow-sarnen",
+          "dipl-experte-in-anasthesiepflege-nds-hf-70-100-kantonsspital-obwalden-sarnen"
         ],
         "it": [
-          "dipl-experte-in-anasthesiepflege-nds-hf-70-100-ksow-sarnen"
+          "dipl-experte-in-anasthesiepflege-nds-hf-70-100-ksow-sarnen",
+          "dipl-esperto-a-in-cure-anestesiologiche-nds-hf-70-100-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
-        "dipl-experte-in-anasthesiepflege-nds-hf-70-100-ksow-sarnen"
+        "dipl-experte-in-anasthesiepflege-nds-hf-70-100-ksow-sarnen",
+        "dipl-experte-in-anasthesiepflege-nds-hf-70-100-kantonsspital-obwalden-sarnen",
+        "dipl-esperto-a-in-cure-anestesiologiche-nds-hf-70-100-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:26.168Z",
       "salaryMin": 69500,
@@ -268,7 +282,7 @@
       "slug": "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
         "it": "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
-        "en": "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen",
+        "en": "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen",
         "de": "hebamme-hf-als-beleghebamme-kantonsspital-obwalden-sarnen",
         "fr": "sage-femme-es-hes-agreee-independante-kantonsspital-obwalden-sarnen"
       },
@@ -294,7 +308,7 @@
       "url": "https://link.ostendis.com/publication/hebamme-hf-als-beleghebamme/sps0tnlmko6qyyzaidf5ejsnjh7al617qbyx6zmrt55d5etvj0mii5e50rdf3bib",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:22:06.207Z",
+      "crawledAt": "2026-07-22T22:42:31.389Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -333,19 +347,26 @@
           "Activité en tant que sage-femme indépendante"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
-          "hebamme-hf-als-beleghebamme-ksow-sarnen"
+          "hebamme-hf-als-beleghebamme-ksow-sarnen",
+          "hebamme-hf-als-beleghebamme-kantonsspital-obwalden-sarnen"
         ],
         "it": [
-          "hebamme-hf-als-beleghebamme-ksow-sarnen"
+          "hebamme-hf-als-beleghebamme-ksow-sarnen",
+          "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen"
         ],
         "en": [
+          "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen",
           "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
         "hebamme-hf-als-beleghebamme-ksow-sarnen",
+        "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen",
+        "hebamme-hf-als-beleghebamme-kantonsspital-obwalden-sarnen",
+        "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
         "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:22.515Z",
@@ -393,7 +414,7 @@
       "url": "https://link.ostendis.com/publication/medizinischen-praxisassistent-in-arztsekretaer-in-kardiologie/kw35cynp40el68mt1mz2we0kmenedovs1oke05mtly4bp51ycqhei2d2ipcn33t2",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:22:04.540Z",
+      "crawledAt": "2026-07-22T22:42:29.664Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -441,16 +462,21 @@
           "Réalisation autonome d'examens médicaux"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
-          "medizinischen-praxisassistent-in-arztsekretar-in-40-100-kardiologie-ksow-sarnen"
+          "medizinischen-praxisassistent-in-arztsekretar-in-40-100-kardiologie-ksow-sarnen",
+          "medizinischen-praxisassistent-in-arztsekretar-in-40-100-kardiologie-kantonsspital-obwalden-sarnen"
         ],
         "it": [
-          "medizinischen-praxisassistent-in-arztsekretar-in-40-100-kardiologie-ksow-sarnen"
+          "medizinischen-praxisassistent-in-arztsekretar-in-40-100-kardiologie-ksow-sarnen",
+          "assistente-medico-a-segretario-a-medico-a-40-100-cardiologia-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
-        "medizinischen-praxisassistent-in-arztsekretar-in-40-100-kardiologie-ksow-sarnen"
+        "medizinischen-praxisassistent-in-arztsekretar-in-40-100-kardiologie-ksow-sarnen",
+        "medizinischen-praxisassistent-in-arztsekretar-in-40-100-kardiologie-kantonsspital-obwalden-sarnen",
+        "assistente-medico-a-segretario-a-medico-a-40-100-cardiologia-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:20.839Z",
       "salaryMin": 58500,
@@ -481,7 +507,7 @@
       "title": "Dipl. Fachperson Operationstechnik HF (a) 50–100%",
       "titleByLocale": {
         "it": "Tecnico di Sala Operatoria SSS (a) 50–100%",
-        "en": "Dipl. Specialist Operations Technique HF (a) 50–100 %",
+        "en": "Dipl. Fachperson Operationstechnik HF (a) 50–100%",
         "de": "Dipl. Fachperson Operationstechnik HF (a) 50–100%",
         "fr": "Technicien en salle d'opération ES (a) 50–100%"
       },
@@ -497,7 +523,7 @@
       "url": "https://link.ostendis.com/publication/dipl-fachperson-operationstechnik-hf/zvlnudeefxpj3lstnn3rdi0v7fzfv2o6zek40f7yq80ioqeoz2vdodv14sbiie2l",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:22:02.837Z",
+      "crawledAt": "2026-07-22T22:42:27.854Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -540,12 +566,15 @@
           "Esprit d'équipe, flexibilité et plaisir à travailler dans un environnement dynamique"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
-          "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen"
+          "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen",
+          "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen"
         ],
         "it": [
-          "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen"
+          "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen",
+          "tecnico-di-sala-operatoria-sss-a-50-100-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen"
@@ -553,7 +582,8 @@
       },
       "previousSlugs": [
         "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen",
-        "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen"
+        "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen",
+        "tecnico-di-sala-operatoria-sss-a-50-100-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:17.375Z",
       "salaryMin": 69500,
@@ -600,7 +630,7 @@
       "url": "https://link.ostendis.com/publication/lagerungspfleger-in/yaqj7d7po5spp85wtqx7hjpqaayw4gehzssx738m7stclh6jo3eyv4afnghcohrd",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:22:01.158Z",
+      "crawledAt": "2026-07-22T22:42:26.068Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -620,14 +650,18 @@
       "needsRetranslation": false,
       "previousSlugsByLocale": {
         "de": [
-          "lagerungspfleger-in-a-60-100-ksow-sarnen"
+          "lagerungspfleger-in-a-60-100-ksow-sarnen",
+          "lagerungspfleger-in-a-60-100-kantonsspital-obwalden-sarnen"
         ],
         "it": [
-          "lagerungspfleger-in-a-60-100-ksow-sarnen"
+          "lagerungspfleger-in-a-60-100-ksow-sarnen",
+          "assistente-di-posizionamento-a-60-100-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
-        "lagerungspfleger-in-a-60-100-ksow-sarnen"
+        "lagerungspfleger-in-a-60-100-ksow-sarnen",
+        "lagerungspfleger-in-a-60-100-kantonsspital-obwalden-sarnen",
+        "assistente-di-posizionamento-a-60-100-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-07-15T11:17:50.859Z",
       "salaryMin": 96000,
@@ -674,7 +708,7 @@
       "url": "https://link.ostendis.com/publication/oberarzt-leitender-arzt-gastroenterologie/2yph4crwy1zhmnm3ych5gvhtd5rs22y4wom17lshe3x7mbquftb50ie3c4vrlie7",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:21:40.835Z",
+      "crawledAt": "2026-07-22T22:42:05.686Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -717,16 +751,21 @@
           "Haute compétence sociale ainsi qu'une communication précieuse"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
-          "oberarzt-leitender-arzt-gastroenterologie-20-ksow-sarnen"
+          "oberarzt-leitender-arzt-gastroenterologie-20-ksow-sarnen",
+          "oberarzt-leitender-arzt-gastroenterologie-20-kantonsspital-obwalden-sarnen"
         ],
         "it": [
-          "oberarzt-leitender-arzt-gastroenterologie-20-ksow-sarnen"
+          "oberarzt-leitender-arzt-gastroenterologie-20-ksow-sarnen",
+          "medico-senior-gastroenterology-20-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
-        "oberarzt-leitender-arzt-gastroenterologie-20-ksow-sarnen"
+        "oberarzt-leitender-arzt-gastroenterologie-20-ksow-sarnen",
+        "oberarzt-leitender-arzt-gastroenterologie-20-kantonsspital-obwalden-sarnen",
+        "medico-senior-gastroenterology-20-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:04:50.682Z",
       "salaryMin": 19200,
@@ -757,7 +796,7 @@
       "title": "Fachverantwortliche/r Kommunikation & Integration 80–100%",
       "titleByLocale": {
         "it": "Responsabile Comunicazione & Integrazione 80–100 %",
-        "en": "Responsible for Communication & Integration 80–100 %",
+        "en": "Fachverantwortliche/r Kommunikation & Integration 80–100%",
         "de": "Fachverantwortliche/r Kommunikation & Integration 80–100%",
         "fr": "Responsable Communication & Intégration 80–100 %"
       },
@@ -773,7 +812,7 @@
       "url": "https://link.ostendis.com/publication/fachverantwortliche-kommunikation-integration/45lzm6nxauy2fp2yegtlj6xpvujwo2yimxaq76inj6k2xh7y228yn0n6lqi5om3z",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:21:39.118Z",
+      "crawledAt": "2026-07-22T22:42:03.812Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -790,14 +829,17 @@
       "applyUrl": "https://link.ostendis.com/publication/fachverantwortliche-kommunikation-integration/45lzm6nxauy2fp2yegtlj6xpvujwo2yimxaq76inj6k2xh7y228yn0n6lqi5om3z",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "fachverantwortliche-r-kommunikation-integration-80-100-ksow-sarnen",
-        "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen"
+        "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen",
+        "responsabile-comunicazione-integrazione-80-100-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachverantwortliche-r-kommunikation-integration-80-100-ksow-sarnen",
-          "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen"
+          "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen",
+          "responsabile-comunicazione-integrazione-80-100-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen"
@@ -851,7 +893,7 @@
       "url": "https://link.ostendis.com/publication/arztsekretaer-in-chirurgie-und-belegaerzte/6ma2h98zyhwoalv2qvtuurisbrp7vrnc8gm3hx8lv7uxlfst7sqj6ji7trnveuzi",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:21:37.444Z",
+      "crawledAt": "2026-07-22T22:42:02.025Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -868,14 +910,17 @@
       "applyUrl": "https://link.ostendis.com/publication/arztsekretaer-in-chirurgie-und-belegaerzte/6ma2h98zyhwoalv2qvtuurisbrp7vrnc8gm3hx8lv7uxlfst7sqj6ji7trnveuzi",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "arztsekretar-in-chirurgie-und-belegarzte-a-80-ksow-sarnen",
-        "arztsekretar-in-chirurgie-und-belegarzte-a-80-kantonsspital-obwalden-sarnen"
+        "arztsekretar-in-chirurgie-und-belegarzte-a-80-kantonsspital-obwalden-sarnen",
+        "arztsekretar-in-chirurgie-e-belegarzte-a-80-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretar-in-chirurgie-und-belegarzte-a-80-ksow-sarnen",
-          "arztsekretar-in-chirurgie-und-belegarzte-a-80-kantonsspital-obwalden-sarnen"
+          "arztsekretar-in-chirurgie-und-belegarzte-a-80-kantonsspital-obwalden-sarnen",
+          "arztsekretar-in-chirurgie-e-belegarzte-a-80-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "arztsekretar-in-chirurgie-und-belegarzte-a-80-ksow-sarnen"
@@ -929,7 +974,7 @@
       "url": "https://link.ostendis.com/publication/leitende-arzt-aerztin-innere-medizin-schwerpunkt-geriatrie/vs7xfcnesedeepbf3eazkakjmfzj286ocmhfx8sm67absaxp6r2b4m2q4yyoprvc",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:21:35.047Z",
+      "crawledAt": "2026-07-22T22:41:59.732Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -949,12 +994,14 @@
       "needsRetranslation": false,
       "previousSlugs": [
         "leitende-r-arzt-arztin-innere-medizin-schwerpunkt-geriatrie-ksow-sarnen",
-        "dottore-principale-medico-di-medicina-interna-concentrarsi-sulla-geriatria-kantonsspital-obwalden-sarnen"
+        "dottore-principale-medico-di-medicina-interna-concentrarsi-sulla-geriatria-kantonsspital-obwalden-sarnen",
+        "medico-senior-in-medicina-interna-con-focus-in-geriatria-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitende-r-arzt-arztin-innere-medizin-schwerpunkt-geriatrie-ksow-sarnen",
-          "dottore-principale-medico-di-medicina-interna-concentrarsi-sulla-geriatria-kantonsspital-obwalden-sarnen"
+          "dottore-principale-medico-di-medicina-interna-concentrarsi-sulla-geriatria-kantonsspital-obwalden-sarnen",
+          "medico-senior-in-medicina-interna-con-focus-in-geriatria-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "leitende-r-arzt-arztin-innere-medizin-schwerpunkt-geriatrie-ksow-sarnen"
@@ -992,7 +1039,7 @@
       "title": "Dipl. Experte / Expertin Notfallpflege NDS HF oder Pflegefachperson HF (a) 40-80%",
       "titleByLocale": {
         "it": "Dipl. Experte / Expertin Notfallpflege NDS HF o Pflegefachperson HF (a) 40-80%",
-        "en": "Dipl. Expert Emergency Care NDS HF or nurse HF (a) 40-80 %",
+        "en": "Dipl. Experte / Expertin Notfallpflege NDS HF oder Pflegefachperson HF (a) 40-80%",
         "de": "Dipl. Experte / Expertin Notfallpflege NDS HF oder Pflegefachperson HF (a) 40-80%",
         "fr": "Dipl. Expert Soins d'urgence NDS HF ou professionnel des soins HF (a) 40-80 %"
       },
@@ -1008,7 +1055,7 @@
       "url": "https://link.ostendis.com/publication/dipl-experte-expertin-notfallpflege-nds-hf-oder-pflegefachperson-hf/cltooq170hv1mlpf74ma4qorps5m7365vh2wprt4vphrz7gfqlkehwozvtr2jhv7",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:21:33.187Z",
+      "crawledAt": "2026-07-22T22:41:57.737Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1025,13 +1072,15 @@
       "applyUrl": "https://link.ostendis.com/publication/dipl-experte-expertin-notfallpflege-nds-hf-oder-pflegefachperson-hf/cltooq170hv1mlpf74ma4qorps5m7365vh2wprt4vphrz7gfqlkehwozvtr2jhv7",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "dipl-experte-expertin-notfallpflege-nds-hf-oder-pflegefachperson-hf-a-40-80-ksow-sarnen",
         "dipl-esperto-a-in-infermeria-d-emergenza-nds-hf-a-100-kantonsspital-obwalden-sarnen",
         "dipl-experte-expertin-notfallpflege-nds-hf-a-100-ksow-sarnen",
         "dipl-ing-experte-expertin-notfallpflege-nds-hf-a-100-kantonsspital-obwalden-sarnen",
         "dipl-expert-e-en-soins-d-urgence-nds-hf-a-100-kantonsspital-obwalden-sarnen",
-        "dipl-experte-expertin-notfallpflege-nds-hf-a-40-100-ksow-sarnen"
+        "dipl-experte-expertin-notfallpflege-nds-hf-a-40-100-ksow-sarnen",
+        "dipl-experte-expertin-notfallpflege-nds-hf-o-pflegefachperson-hf-a-40-80-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1040,7 +1089,8 @@
           "dipl-experte-expertin-notfallpflege-nds-hf-a-100-ksow-sarnen",
           "dipl-ing-experte-expertin-notfallpflege-nds-hf-a-100-kantonsspital-obwalden-sarnen",
           "dipl-expert-e-en-soins-d-urgence-nds-hf-a-100-kantonsspital-obwalden-sarnen",
-          "dipl-experte-expertin-notfallpflege-nds-hf-a-40-100-ksow-sarnen"
+          "dipl-experte-expertin-notfallpflege-nds-hf-a-40-100-ksow-sarnen",
+          "dipl-experte-expertin-notfallpflege-nds-hf-o-pflegefachperson-hf-a-40-80-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "dipl-experte-expertin-notfallpflege-nds-hf-oder-pflegefachperson-hf-a-40-80-ksow-sarnen",
@@ -1099,7 +1149,7 @@
       "url": "https://link.ostendis.com/publication/lehrstelle-fachfrau-fachmann-hauswirtschaft-efz/mhpe6got6kp8aehvbhvrutqet94iqlvveti51x2mzy0czw1etpot27jvsddb54w2",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:21:31.400Z",
+      "crawledAt": "2026-07-22T22:41:55.933Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1116,12 +1166,15 @@
       "applyUrl": "https://link.ostendis.com/publication/lehrstelle-fachfrau-fachmann-hauswirtschaft-efz/mhpe6got6kp8aehvbhvrutqet94iqlvveti51x2mzy0czw1etpot27jvsddb54w2",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
-        "lehrstelle-fachfrau-fachmann-hauswirtschaft-a-efz-2027-ksow-sarnen"
+        "lehrstelle-fachfrau-fachmann-hauswirtschaft-a-efz-2027-ksow-sarnen",
+        "apprendistato-fachfrau-fachmann-hauswirtschaft-a-cfc-2027-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-fachmann-hauswirtschaft-a-efz-2027-ksow-sarnen"
+          "lehrstelle-fachfrau-fachmann-hauswirtschaft-a-efz-2027-ksow-sarnen",
+          "apprendistato-fachfrau-fachmann-hauswirtschaft-a-cfc-2027-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "lehrstelle-fachfrau-fachmann-hauswirtschaft-a-efz-2027-ksow-sarnen"
@@ -1175,7 +1228,7 @@
       "url": "https://link.ostendis.com/publication/lehrstelle-koechin-koch-efz/pkihhblzupj8tzcuezrj0x6dvyd4l66pc5to2p54fimn1cifw3r4e8anlzpsh653",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:21:28.981Z",
+      "crawledAt": "2026-07-22T22:41:53.803Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1194,11 +1247,13 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "previousSlugs": [
-        "lehrstelle-kochin-koch-efz-2027-ksow-sarnen"
+        "lehrstelle-kochin-koch-efz-2027-ksow-sarnen",
+        "apprendistato-kochin-koch-cfc-2027-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kochin-koch-efz-2027-ksow-sarnen"
+          "lehrstelle-kochin-koch-efz-2027-ksow-sarnen",
+          "apprendistato-kochin-koch-cfc-2027-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "lehrstelle-kochin-koch-efz-2027-ksow-sarnen"
@@ -1252,7 +1307,7 @@
       "url": "https://link.ostendis.com/publication/lehrstelle-kauffrau-mann-efz/m0sf074vvtq20lapotsgddjkxpj4ib3znxpsrr14a5yoy5frp0paeo7e6yoawr2z",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:21:26.456Z",
+      "crawledAt": "2026-07-22T22:41:51.814Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1269,13 +1324,16 @@
       "applyUrl": "https://link.ostendis.com/publication/lehrstelle-kauffrau-mann-efz/m0sf074vvtq20lapotsgddjkxpj4ib3znxpsrr14a5yoy5frp0paeo7e6yoawr2z",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "lehrstelle-kauffrau-mann-efz-2027-ksow-sarnen",
-        "lehrstelle-kauffrau-mann-efz-2027-kantonsspital-obwalden-sarnen"
+        "lehrstelle-kauffrau-mann-efz-2027-kantonsspital-obwalden-sarnen",
+        "apprendistato-kauffrau-mann-cfc-2027-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kauffrau-mann-efz-2027-ksow-sarnen"
+          "lehrstelle-kauffrau-mann-efz-2027-ksow-sarnen",
+          "apprendistato-kauffrau-mann-cfc-2027-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "lehrstelle-kauffrau-mann-efz-2027-kantonsspital-obwalden-sarnen"
@@ -1297,6 +1355,79 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "ksow-d8289d9aaf9d",
+      "slug": "ausbildungsplatz-dipl-fachfrau-mann-operationstechnik-hf-kantonsspital-obwalden-sarnen",
+      "slugByLocale": {
+        "de": "ausbildungsplatz-dipl-fachfrau-mann-operationstechnik-hf-ksow-sarnen",
+        "it": "ausbildungsplatz-dipl-fachfrau-mann-operationstechnik-hf-kantonsspital-obwalden-sarnen",
+        "en": "ausbildungsplatz-dipl-fachfrau-mann-operationstechnik-hf-kantonsspital-obwalden-sarnen",
+        "fr": "ausbildungsplatz-dipl-fachfrau-mann-operationstechnik-hf-kantonsspital-obwalden-sarnen"
+      },
+      "company": "Kantonsspital Obwalden",
+      "companyKey": "ksow",
+      "companyDomain": "ksow.ch",
+      "title": "Ausbildungsplatz Dipl. Fachfrau/-mann Operationstechnik HF",
+      "titleByLocale": {
+        "de": "Ausbildungsplatz Dipl. Fachfrau/-mann Operationstechnik HF",
+        "it": "Ausbildungsplatz Dipl. Fachfrau/-mann Operationstechnik HF",
+        "en": "Ausbildungsplatz Dipl. Fachfrau/-mann Operationstechnik HF",
+        "fr": "Ausbildungsplatz Dipl. Fachfrau/-mann Operationstechnik HF"
+      },
+      "description": "Starte deine Karriere am Spital Obwalden\n Das Kantonsspital Obwalden ist ein innovatives, vielseitiges Grundversorgungsspital in der Zentral-schweiz mit den Kliniken Allgemein-, Unfall- und Viszeralchirurgie, Orthopädie, Neurochirurgie (Wirbel-säule) Innere Medizin, HNO, Urologie, Ophthalmologie, Gynäkologie/ Geburtshilfe sowie Anästhesie.\n\nGestalte zukunftssicher mit uns die Medizin von Morgen Wir suchen per März 2027 eine motivierte Persönlichkeit für die\n\nAusbildungsstelle als Dipl. Fachfrau/-mann Operationstechnik HF (a)\n Das dreijährige Vollzeitstudium kombiniert theoretischen Unterricht mit einer abwechslungsreichen Praxisausbildung im Spitalalltag.\n Das erwartet dich bei uns:\n\n• Individuelle Begleitung: Gut ausgebildete und motivierte Berufsbildner/innen sowie Fachpersonal bieten dir eine persönliche Lernbegleitung.\n\n• Starkes Team : In unserem Operationszentrum erwartet dich ein motiviertes, flexibles und offenes Team.\n\n• Unsere Werte: Verantwortung, Teamgeist, Präzision\n\nDeine zukünftigen Aufgaben:\n\n• OP-Vor- und Nachbereitung: Erlernen der fachgerechten Vorbereitung, Durchführung und Nachbereitung von operativen Eingriffen.\n\n• Assistenz im OP: Instrumentieren und Zudienen bei Operationen unter Anleitung erfahrener Fachpersonen.\n\n• Sicherheit & Hygiene : Sicherstellen der Hygiene-, Qualitäts- und Sicherheitsstandards im Operationsbereich.\n\n• Patientenbetreuung : Empathische Betreuung und Begleitung von Patientinnen und Patienten vor, während und nach operativen Eingriffen.\n\n• Technik & Material : Bedienung und Pflege medizinisch-technischer Geräte sowie des Operationsinstrumentariums.\n\n• Interprofessionelles Arbeiten : Enge Zusammenarbeit mit Ärztinnen, Ärzten, Pflegefachpersonen und weiteren Berufsgruppen.\n\n• Entwicklung: Schrittweise Übernahme von Verantwortung entsprechend Deinem Ausbildungsstand.\n\nDas bringst du mit:\n\n• Schulische Voraussetzung: Abgeschlossene Sekundarstufe II (abgeschlossene Berufslehre mit EFZ, Fachmittelschulausweis oder Maturität).\n\n• Eignung: Bestandene Eignungsabklärung für den Studiengang HF Operationstechnik.\n\n• Fähigkeiten: Physische und psychische Belastbarkeit.\n\n• Interessen : Starkes technisches Interesse und manuelles Geschick.\n\nUnser Angebot:\n\n• Einen Arbeitsplatz an attraktiver Lage in Sarnen am See, 5 Gehminuten vom Bahnhof\n\n• Wahlmöglichkeit beim Lohn mit oder ohne Verpflichtungszeit (Löhne zwischen CHF 1'200 und 3'400)\n\n• Fortschrittliche Anstellungsbedingungen wie vergünstigte Parkplätze und Verpflegung, weltweite private Unfallversicherung, gratis Fitness-Abo in der hauseigenen Physio-Fitness, betriebliche Kinderzulagen, vergünstigte REKA-Schecks und vieles mehr.\n\nBist du bereit für deine Zukunft im OP? Wir freuen uns auf deine vollständige Bewerbung.\n Jetzt bewerben Hast du Fragen zu dieser Stelle? Deine Ansprechsperson für Auskünfte: Frau Anja Leuwer, Leiterin OP Technik, 041 666 41 31\nFrau Marina Wolfisberg, Stv. Leiterin OP und leitende Berufsbildnerin, 041 666 41 31\n Kantonsspital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 40 22",
+      "descriptionByLocale": {
+        "de": "Starte deine Karriere am Spital Obwalden\n Das Kantonsspital Obwalden ist ein innovatives, vielseitiges Grundversorgungsspital in der Zentral-schweiz mit den Kliniken Allgemein-, Unfall- und Viszeralchirurgie, Orthopädie, Neurochirurgie (Wirbel-säule) Innere Medizin, HNO, Urologie, Ophthalmologie, Gynäkologie/ Geburtshilfe sowie Anästhesie.\n\nGestalte zukunftssicher mit uns die Medizin von Morgen Wir suchen per März 2027 eine motivierte Persönlichkeit für die\n\nAusbildungsstelle als Dipl. Fachfrau/-mann Operationstechnik HF (a)\n Das dreijährige Vollzeitstudium kombiniert theoretischen Unterricht mit einer abwechslungsreichen Praxisausbildung im Spitalalltag.\n Das erwartet dich bei uns:\n\n• Individuelle Begleitung: Gut ausgebildete und motivierte Berufsbildner/innen sowie Fachpersonal bieten dir eine persönliche Lernbegleitung.\n\n• Starkes Team : In unserem Operationszentrum erwartet dich ein motiviertes, flexibles und offenes Team.\n\n• Unsere Werte: Verantwortung, Teamgeist, Präzision\n\nDeine zukünftigen Aufgaben:\n\n• OP-Vor- und Nachbereitung: Erlernen der fachgerechten Vorbereitung, Durchführung und Nachbereitung von operativen Eingriffen.\n\n• Assistenz im OP: Instrumentieren und Zudienen bei Operationen unter Anleitung erfahrener Fachpersonen.\n\n• Sicherheit & Hygiene : Sicherstellen der Hygiene-, Qualitäts- und Sicherheitsstandards im Operationsbereich.\n\n• Patientenbetreuung : Empathische Betreuung und Begleitung von Patientinnen und Patienten vor, während und nach operativen Eingriffen.\n\n• Technik & Material : Bedienung und Pflege medizinisch-technischer Geräte sowie des Operationsinstrumentariums.\n\n• Interprofessionelles Arbeiten : Enge Zusammenarbeit mit Ärztinnen, Ärzten, Pflegefachpersonen und weiteren Berufsgruppen.\n\n• Entwicklung: Schrittweise Übernahme von Verantwortung entsprechend Deinem Ausbildungsstand.\n\nDas bringst du mit:\n\n• Schulische Voraussetzung: Abgeschlossene Sekundarstufe II (abgeschlossene Berufslehre mit EFZ, Fachmittelschulausweis oder Maturität).\n\n• Eignung: Bestandene Eignungsabklärung für den Studiengang HF Operationstechnik.\n\n• Fähigkeiten: Physische und psychische Belastbarkeit.\n\n• Interessen : Starkes technisches Interesse und manuelles Geschick.\n\nUnser Angebot:\n\n• Einen Arbeitsplatz an attraktiver Lage in Sarnen am See, 5 Gehminuten vom Bahnhof\n\n• Wahlmöglichkeit beim Lohn mit oder ohne Verpflichtungszeit (Löhne zwischen CHF 1'200 und 3'400)\n\n• Fortschrittliche Anstellungsbedingungen wie vergünstigte Parkplätze und Verpflegung, weltweite private Unfallversicherung, gratis Fitness-Abo in der hauseigenen Physio-Fitness, betriebliche Kinderzulagen, vergünstigte REKA-Schecks und vieles mehr.\n\nBist du bereit für deine Zukunft im OP? Wir freuen uns auf deine vollständige Bewerbung.\n Jetzt bewerben Hast du Fragen zu dieser Stelle? Deine Ansprechsperson für Auskünfte: Frau Anja Leuwer, Leiterin OP Technik, 041 666 41 31\nFrau Marina Wolfisberg, Stv. Leiterin OP und leitende Berufsbildnerin, 041 666 41 31\n Kantonsspital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 40 22",
+        "it": "Starte deine Karriere am Spital Obwalden\n Das Kantonsspital Obwalden ist ein innovatives, vielseitiges Grundversorgungsspital in der Zentral-schweiz mit den Kliniken Allgemein-, Unfall- und Viszeralchirurgie, Orthopädie, Neurochirurgie (Wirbel-säule) Innere Medizin, HNO, Urologie, Ophthalmologie, Gynäkologie/ Geburtshilfe sowie Anästhesie.\n\nGestalte zukunftssicher mit uns die Medizin von Morgen Wir suchen per März 2027 eine motivierte Persönlichkeit für die\n\nAusbildungsstelle als Dipl. Fachfrau/-mann Operationstechnik HF (a)\n Das dreijährige Vollzeitstudium kombiniert theoretischen Unterricht mit einer abwechslungsreichen Praxisausbildung im Spitalalltag.\n Das erwartet dich bei uns:\n\n• Individuelle Begleitung: Gut ausgebildete und motivierte Berufsbildner/innen sowie Fachpersonal bieten dir eine persönliche Lernbegleitung.\n\n• Starkes Team : In unserem Operationszentrum erwartet dich ein motiviertes, flexibles und offenes Team.\n\n• Unsere Werte: Verantwortung, Teamgeist, Präzision\n\nDeine zukünftigen Aufgaben:\n\n• OP-Vor- und Nachbereitung: Erlernen der fachgerechten Vorbereitung, Durchführung und Nachbereitung von operativen Eingriffen.\n\n• Assistenz im OP: Instrumentieren und Zudienen bei Operationen unter Anleitung erfahrener Fachpersonen.\n\n• Sicherheit & Hygiene : Sicherstellen der Hygiene-, Qualitäts- und Sicherheitsstandards im Operationsbereich.\n\n• Patientenbetreuung : Empathische Betreuung und Begleitung von Patientinnen und Patienten vor, während und nach operativen Eingriffen.\n\n• Technik & Material : Bedienung und Pflege medizinisch-technischer Geräte sowie des Operationsinstrumentariums.\n\n• Interprofessionelles Arbeiten : Enge Zusammenarbeit mit Ärztinnen, Ärzten, Pflegefachpersonen und weiteren Berufsgruppen.\n\n• Entwicklung: Schrittweise Übernahme von Verantwortung entsprechend Deinem Ausbildungsstand.\n\nDas bringst du mit:\n\n• Schulische Voraussetzung: Abgeschlossene Sekundarstufe II (abgeschlossene Berufslehre mit EFZ, Fachmittelschulausweis oder Maturität).\n\n• Eignung: Bestandene Eignungsabklärung für den Studiengang HF Operationstechnik.\n\n• Fähigkeiten: Physische und psychische Belastbarkeit.\n\n• Interessen : Starkes technisches Interesse und manuelles Geschick.\n\nUnser Angebot:\n\n• Einen Arbeitsplatz an attraktiver Lage in Sarnen am See, 5 Gehminuten vom Bahnhof\n\n• Wahlmöglichkeit beim Lohn mit oder ohne Verpflichtungszeit (Löhne zwischen CHF 1'200 und 3'400)\n\n• Fortschrittliche Anstellungsbedingungen wie vergünstigte Parkplätze und Verpflegung, weltweite private Unfallversicherung, gratis Fitness-Abo in der hauseigenen Physio-Fitness, betriebliche Kinderzulagen, vergünstigte REKA-Schecks und vieles mehr.\n\nBist du bereit für deine Zukunft im OP? Wir freuen uns auf deine vollständige Bewerbung.\n Jetzt bewerben Hast du Fragen zu dieser Stelle? Deine Ansprechsperson für Auskünfte: Frau Anja Leuwer, Leiterin OP Technik, 041 666 41 31\nFrau Marina Wolfisberg, Stv. Leiterin OP und leitende Berufsbildnerin, 041 666 41 31\n Kantonsspital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 40 22",
+        "en": "Starte deine Karriere am Spital Obwalden\n Das Kantonsspital Obwalden ist ein innovatives, vielseitiges Grundversorgungsspital in der Zentral-schweiz mit den Kliniken Allgemein-, Unfall- und Viszeralchirurgie, Orthopädie, Neurochirurgie (Wirbel-säule) Innere Medizin, HNO, Urologie, Ophthalmologie, Gynäkologie/ Geburtshilfe sowie Anästhesie.\n\nGestalte zukunftssicher mit uns die Medizin von Morgen Wir suchen per März 2027 eine motivierte Persönlichkeit für die\n\nAusbildungsstelle als Dipl. Fachfrau/-mann Operationstechnik HF (a)\n Das dreijährige Vollzeitstudium kombiniert theoretischen Unterricht mit einer abwechslungsreichen Praxisausbildung im Spitalalltag.\n Das erwartet dich bei uns:\n\n• Individuelle Begleitung: Gut ausgebildete und motivierte Berufsbildner/innen sowie Fachpersonal bieten dir eine persönliche Lernbegleitung.\n\n• Starkes Team : In unserem Operationszentrum erwartet dich ein motiviertes, flexibles und offenes Team.\n\n• Unsere Werte: Verantwortung, Teamgeist, Präzision\n\nDeine zukünftigen Aufgaben:\n\n• OP-Vor- und Nachbereitung: Erlernen der fachgerechten Vorbereitung, Durchführung und Nachbereitung von operativen Eingriffen.\n\n• Assistenz im OP: Instrumentieren und Zudienen bei Operationen unter Anleitung erfahrener Fachpersonen.\n\n• Sicherheit & Hygiene : Sicherstellen der Hygiene-, Qualitäts- und Sicherheitsstandards im Operationsbereich.\n\n• Patientenbetreuung : Empathische Betreuung und Begleitung von Patientinnen und Patienten vor, während und nach operativen Eingriffen.\n\n• Technik & Material : Bedienung und Pflege medizinisch-technischer Geräte sowie des Operationsinstrumentariums.\n\n• Interprofessionelles Arbeiten : Enge Zusammenarbeit mit Ärztinnen, Ärzten, Pflegefachpersonen und weiteren Berufsgruppen.\n\n• Entwicklung: Schrittweise Übernahme von Verantwortung entsprechend Deinem Ausbildungsstand.\n\nDas bringst du mit:\n\n• Schulische Voraussetzung: Abgeschlossene Sekundarstufe II (abgeschlossene Berufslehre mit EFZ, Fachmittelschulausweis oder Maturität).\n\n• Eignung: Bestandene Eignungsabklärung für den Studiengang HF Operationstechnik.\n\n• Fähigkeiten: Physische und psychische Belastbarkeit.\n\n• Interessen : Starkes technisches Interesse und manuelles Geschick.\n\nUnser Angebot:\n\n• Einen Arbeitsplatz an attraktiver Lage in Sarnen am See, 5 Gehminuten vom Bahnhof\n\n• Wahlmöglichkeit beim Lohn mit oder ohne Verpflichtungszeit (Löhne zwischen CHF 1'200 und 3'400)\n\n• Fortschrittliche Anstellungsbedingungen wie vergünstigte Parkplätze und Verpflegung, weltweite private Unfallversicherung, gratis Fitness-Abo in der hauseigenen Physio-Fitness, betriebliche Kinderzulagen, vergünstigte REKA-Schecks und vieles mehr.\n\nBist du bereit für deine Zukunft im OP? Wir freuen uns auf deine vollständige Bewerbung.\n Jetzt bewerben Hast du Fragen zu dieser Stelle? Deine Ansprechsperson für Auskünfte: Frau Anja Leuwer, Leiterin OP Technik, 041 666 41 31\nFrau Marina Wolfisberg, Stv. Leiterin OP und leitende Berufsbildnerin, 041 666 41 31\n Kantonsspital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 40 22",
+        "fr": "Starte deine Karriere am Spital Obwalden\n Das Kantonsspital Obwalden ist ein innovatives, vielseitiges Grundversorgungsspital in der Zentral-schweiz mit den Kliniken Allgemein-, Unfall- und Viszeralchirurgie, Orthopädie, Neurochirurgie (Wirbel-säule) Innere Medizin, HNO, Urologie, Ophthalmologie, Gynäkologie/ Geburtshilfe sowie Anästhesie.\n\nGestalte zukunftssicher mit uns die Medizin von Morgen Wir suchen per März 2027 eine motivierte Persönlichkeit für die\n\nAusbildungsstelle als Dipl. Fachfrau/-mann Operationstechnik HF (a)\n Das dreijährige Vollzeitstudium kombiniert theoretischen Unterricht mit einer abwechslungsreichen Praxisausbildung im Spitalalltag.\n Das erwartet dich bei uns:\n\n• Individuelle Begleitung: Gut ausgebildete und motivierte Berufsbildner/innen sowie Fachpersonal bieten dir eine persönliche Lernbegleitung.\n\n• Starkes Team : In unserem Operationszentrum erwartet dich ein motiviertes, flexibles und offenes Team.\n\n• Unsere Werte: Verantwortung, Teamgeist, Präzision\n\nDeine zukünftigen Aufgaben:\n\n• OP-Vor- und Nachbereitung: Erlernen der fachgerechten Vorbereitung, Durchführung und Nachbereitung von operativen Eingriffen.\n\n• Assistenz im OP: Instrumentieren und Zudienen bei Operationen unter Anleitung erfahrener Fachpersonen.\n\n• Sicherheit & Hygiene : Sicherstellen der Hygiene-, Qualitäts- und Sicherheitsstandards im Operationsbereich.\n\n• Patientenbetreuung : Empathische Betreuung und Begleitung von Patientinnen und Patienten vor, während und nach operativen Eingriffen.\n\n• Technik & Material : Bedienung und Pflege medizinisch-technischer Geräte sowie des Operationsinstrumentariums.\n\n• Interprofessionelles Arbeiten : Enge Zusammenarbeit mit Ärztinnen, Ärzten, Pflegefachpersonen und weiteren Berufsgruppen.\n\n• Entwicklung: Schrittweise Übernahme von Verantwortung entsprechend Deinem Ausbildungsstand.\n\nDas bringst du mit:\n\n• Schulische Voraussetzung: Abgeschlossene Sekundarstufe II (abgeschlossene Berufslehre mit EFZ, Fachmittelschulausweis oder Maturität).\n\n• Eignung: Bestandene Eignungsabklärung für den Studiengang HF Operationstechnik.\n\n• Fähigkeiten: Physische und psychische Belastbarkeit.\n\n• Interessen : Starkes technisches Interesse und manuelles Geschick.\n\nUnser Angebot:\n\n• Einen Arbeitsplatz an attraktiver Lage in Sarnen am See, 5 Gehminuten vom Bahnhof\n\n• Wahlmöglichkeit beim Lohn mit oder ohne Verpflichtungszeit (Löhne zwischen CHF 1'200 und 3'400)\n\n• Fortschrittliche Anstellungsbedingungen wie vergünstigte Parkplätze und Verpflegung, weltweite private Unfallversicherung, gratis Fitness-Abo in der hauseigenen Physio-Fitness, betriebliche Kinderzulagen, vergünstigte REKA-Schecks und vieles mehr.\n\nBist du bereit für deine Zukunft im OP? Wir freuen uns auf deine vollständige Bewerbung.\n Jetzt bewerben Hast du Fragen zu dieser Stelle? Deine Ansprechsperson für Auskünfte: Frau Anja Leuwer, Leiterin OP Technik, 041 666 41 31\nFrau Marina Wolfisberg, Stv. Leiterin OP und leitende Berufsbildnerin, 041 666 41 31\n Kantonsspital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 40 22"
+      },
+      "location": "Sarnen",
+      "canton": "OW",
+      "url": "https://link.ostendis.com/publication/ausbildungsplatz-dipl-fachfrau-mann-operationstechnik-hf/4z2hse6qu86zoykljebrbqr23v4znwobb8a8hfwobih0kv1sw3duhxidt1tbwbk3",
+      "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-22T22:41:49.102Z",
+      "addressLocality": "Sarnen",
+      "addressRegion": "OW",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6060",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-22",
+      "applyUrl": "https://link.ostendis.com/publication/ausbildungsplatz-dipl-fachfrau-mann-operationstechnik-hf/4z2hse6qu86zoykljebrbqr23v4znwobb8a8hfwobih0kv1sw3duhxidt1tbwbk3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildungsplatz-dipl-fachfrau-mann-operationstechnik-hf-ksow-sarnen"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildungsplatz-dipl-fachfrau-mann-operationstechnik-hf-ksow-sarnen"
+      ],
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-22T22:41:49.102Z"
     }
   ]
 }
