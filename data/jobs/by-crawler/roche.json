@@ -13449,7 +13449,7 @@
         "it": "medical-direttore-cvm-roche-basel",
         "en": "medical-director-cvm-roche-ch-27mycl",
         "de": "medical-direktor-cvm-roche-basel",
-        "fr": "medical-director-cvm-roche-ch-27mycl"
+        "fr": "directeur-medical-cvm-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -13493,7 +13493,8 @@
         "medical-direttore-cvm-roche-basel-hfwos4",
         "medical-direttore-cvm-roche-basel-hfwosr",
         "medical-director-cvm-roche-ch-2",
-        "medical-direttore-cvm-roche-basel-iufblz"
+        "medical-direttore-cvm-roche-basel-iufblz",
+        "medical-director-cvm-roche-ch-27mycl"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13506,7 +13507,8 @@
           "medical-director-cvm-roche-ch"
         ],
         "fr": [
-          "medical-director-cvm-roche-ch"
+          "medical-director-cvm-roche-ch",
+          "medical-director-cvm-roche-ch-27mycl"
         ]
       },
       "firstSeenAt": "2026-06-03T15:16:10.885Z",
@@ -21700,7 +21702,7 @@
         "it": "direttore-medico-cvm-roche-basel",
         "en": "medical-director-cvm-roche-ch-iufbmm",
         "de": "medical-direktor-cvm-roche-basel",
-        "fr": "medical-director-cvm-roche-ch-iufbmm"
+        "fr": "directeur-medical-cvm-roche-basel-74757b"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -21744,7 +21746,8 @@
         "medical-director-cvm-roche-ch",
         "medical-director-cvm-roche-ch-3",
         "medical-direttore-cvm-roche-basel-hfwosr",
-        "medical-director-cvm-roche-ch-2"
+        "medical-director-cvm-roche-ch-2",
+        "medical-director-cvm-roche-ch-iufbmm"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -21759,7 +21762,8 @@
           "medical-director-cvm-roche-ch"
         ],
         "fr": [
-          "medical-director-cvm-roche-ch"
+          "medical-director-cvm-roche-ch",
+          "medical-director-cvm-roche-ch-iufbmm"
         ]
       },
       "firstSeenAt": "2026-06-02T14:31:48.519Z",
@@ -46584,13 +46588,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "becario-medical-affairs-roche-ch",
-        "becario-medical-affairs-roche-basel"
+        "becario-medical-affairs-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "becario-medical-affairs-roche-ch",
-          "becario-medical-affairs-roche-basel"
+          "becario-medical-affairs-roche-ch"
         ],
         "de": [
           "becario-medical-affairs-roche-ch"
@@ -67503,8 +67505,7 @@
         "patient-journey-partner-oncology-roche-ch",
         "patient-journey-partner-oncology-roche-ch-2",
         "partenaire-de-voyage-patient-oncologie-roche-mumbai",
-        "patient-journey-partner-ophthalmologie-roche-basel",
-        "partner-del-viaggio-paziente-oftalmologia-roche-basel"
+        "patient-journey-partner-ophthalmologie-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -67513,8 +67514,7 @@
           "partner-del-viaggio-paziente-oncologia-roche-mumbai",
           "patient-journey-partner-oncology-roche-ch",
           "patient-journey-partner-oncology-roche-ch-2",
-          "partenaire-de-voyage-patient-oncologie-roche-mumbai",
-          "partner-del-viaggio-paziente-oftalmologia-roche-basel"
+          "partenaire-de-voyage-patient-oncologie-roche-mumbai"
         ],
         "en": [
           "patient-journey-partner-oncology-roche-ch"
@@ -79461,13 +79461,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "finance-enterprise-partner-roche-ch",
-        "finanzen-enterprise-partner-roche-mississauga",
-        "finanza-enterprise-partner-roche-mississauga"
+        "finanzen-enterprise-partner-roche-mississauga"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "finance-enterprise-partner-roche-ch",
-          "finanza-enterprise-partner-roche-mississauga"
+          "finance-enterprise-partner-roche-ch"
         ],
         "de": [
           "finanzen-enterprise-partner-roche-mississauga"
@@ -84697,13 +84695,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "clinical-contract-administrator-roche-ch",
-        "clinical-contract-administrator-roche-basel"
+        "clinical-contract-administrator-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "clinical-contract-administrator-roche-ch",
-          "clinical-contract-administrator-roche-basel"
+          "clinical-contract-administrator-roche-ch"
         ],
         "de": [
           "clinical-contract-administrator-roche-ch"

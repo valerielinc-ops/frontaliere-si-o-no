@@ -93,7 +93,7 @@
       "slugByLocale": {
         "it": "cat-b-m-f-d-planzer-grand-lancy",
         "en": "chauffeur-colis-cat-b-m-f-d-planzer-grand-lancy",
-        "de": "chauffeur-colis-cat-b-m-w-d-planzer-grand-lancy",
+        "de": "kategorie-b-m-w-d-planzer-grand-lancy",
         "fr": "chauffeur-colis-cat-b-m-f-d-planzer-grand-lancy"
       },
       "company": "Planzer",
@@ -139,7 +139,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chauffeur-colis-cat-b-m-f-d-planzer-grand-lancy",
-        "kategorie-b-m-w-d-planzer-grand-lancy",
         "chauffeur-colis-cat-b-m-w-d-planzer-grand-lancy"
       ],
       "previousSlugsByLocale": {
@@ -148,7 +147,6 @@
         ],
         "de": [
           "chauffeur-colis-cat-b-m-f-d-planzer-grand-lancy",
-          "kategorie-b-m-w-d-planzer-grand-lancy",
           "chauffeur-colis-cat-b-m-w-d-planzer-grand-lancy"
         ]
       },
@@ -579,12 +577,12 @@
     },
     {
       "id": "planzer-65994771b0e0",
-      "slug": "logistiker-wareneingang-crossdocking-m-w-d-planzer-kallnach",
+      "slug": "logistica-in-entrata-merci-crossdocking-m-f-d-planzer-kallnach",
       "slugByLocale": {
         "de": "logistiker-wareneingang-crossdocking-m-w-d-planzer-kallnach",
-        "it": "logistiker-wareneingang-crossdocking-m-w-d-planzer-kallnach",
-        "en": "logistiker-wareneingang-crossdocking-m-w-d-planzer-kallnach",
-        "fr": "logistiker-wareneingang-crossdocking-m-w-d-planzer-kallnach"
+        "it": "logistica-in-entrata-merci-crossdocking-m-f-d-planzer-kallnach",
+        "en": "logistics-incoming-goods-crossdocking-m-f-d-planzer-kallnach",
+        "fr": "logistique-des-marchandises-entrantes-et-des-marchandises-en-attente-m-f-d-planzer-kallnach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -641,16 +639,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-22T11:16:34.572Z"
+      "firstSeenAt": "2026-07-22T11:16:34.572Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logistiker-wareneingang-crossdocking-m-w-d-planzer-kallnach"
+        ],
+        "en": [
+          "logistiker-wareneingang-crossdocking-m-w-d-planzer-kallnach"
+        ],
+        "fr": [
+          "logistiker-wareneingang-crossdocking-m-w-d-planzer-kallnach"
+        ]
+      },
+      "previousSlugs": [
+        "logistiker-wareneingang-crossdocking-m-w-d-planzer-kallnach"
+      ]
     },
     {
       "id": "planzer-14ed150f8762",
-      "slug": "chauffeur-quereinstieg-zu-c-ce-m-w-d-planzer-marstetten",
+      "slug": "chauffeur-cambio-carriera-zu-c-ce-m-w-d-planzer-marstetten",
       "slugByLocale": {
         "de": "chauffeur-quereinstieg-zu-c-ce-m-w-d-planzer-marstetten",
-        "it": "chauffeur-quereinstieg-zu-c-ce-m-w-d-planzer-marstetten",
-        "en": "chauffeur-quereinstieg-zu-c-ce-m-w-d-planzer-marstetten",
-        "fr": "chauffeur-quereinstieg-zu-c-ce-m-w-d-planzer-marstetten"
+        "it": "chauffeur-cambio-carriera-zu-c-ce-m-w-d-planzer-marstetten",
+        "en": "chauffeur-lateral-access-to-c-ce-m-f-d-planzer-marstetten",
+        "fr": "acces-lateral-du-chauffeur-au-c-ce-m-f-d-planzer-marstetten"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -707,7 +719,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-22T11:16:33.869Z"
+      "firstSeenAt": "2026-07-22T11:16:33.869Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-quereinstieg-zu-c-ce-m-w-d-planzer-marstetten"
+        ],
+        "en": [
+          "chauffeur-quereinstieg-zu-c-ce-m-w-d-planzer-marstetten"
+        ],
+        "fr": [
+          "chauffeur-quereinstieg-zu-c-ce-m-w-d-planzer-marstetten"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-quereinstieg-zu-c-ce-m-w-d-planzer-marstetten"
+      ]
     },
     {
       "id": "planzer-5dfa7f6d44bf",
