@@ -1,21 +1,22 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-07-22T11:47:27.501Z",
+  "generatedAt": "2026-07-22T23:03:47.108Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8199,
-  "avgDurationMs": 8199,
+  "durationMs": 8095,
+  "avgDurationMs": 8095,
   "durationHistory": [
-    8199
+    8095
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "prada-d95cd7de3867",
-      "slug": "design-architect-prada-group-arezzo-design-architect",
+      "slug": "design-architetto-prada-group-arezzo-design-architect",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -33,17 +34,16 @@
       "url": "https://jobs.pradagroup.com/job/Arezzo-Design-Architect/1243250501/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:47:22.438Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-07-22T23:03:42.068Z",
+      "firstSeenAt": "2026-07-22T11:47:22.438Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "prada-332f237b0ca4",
       "slug": "miu-miu-store-manager-saint-moritz-prada-group-st-moritz",
@@ -64,7 +64,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:47:21.909Z",
+      "crawledAt": "2026-07-22T23:03:41.478Z",
       "firstSeenAt": "2026-07-07T22:19:25.934Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -75,47 +75,11 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "prada-64995bda5ddc",
-      "slug": "purchasing-intern-prada-group-arezzo-purchasing-intern",
-      "company": "Prada Group",
-      "companyKey": "prada",
-      "companyDomain": "pradagroup.com",
-      "title": "Purchasing intern",
-      "location": "Arezzo Purchasing intern",
-      "canton": "TI",
-      "addressLocality": "Arezzo Purchasing intern",
-      "addressCountry": "CH",
-      "category": "fashion",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-20",
-      "url": "https://jobs.pradagroup.com/job/Arezzo-Purchasing-intern/1387030233/",
-      "source": "Prada Group Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-07-20T22:30:45.437Z",
-      "firstSeenAt": "2026-07-20T11:58:41.046Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "country": "CH",
-      "addressRegion": "TI",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "prada-d95cd7de3867",
-      "slug": "design-architect-prada-group-arezzo-design-architect",
+      "slug": "design-architetto-prada-group-arezzo-design-architect",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -133,17 +97,18 @@
       "url": "https://jobs.pradagroup.com/job/Arezzo-Design-Architect/1243250501/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:47:22.438Z",
+      "crawledAt": "2026-07-22T23:03:42.068Z",
+      "firstSeenAt": "2026-07-22T11:47:22.438Z",
       "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "country": "CH",
       "addressRegion": "TI",
-      "_qualityScore": 81,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -167,7 +132,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:47:21.909Z",
+      "crawledAt": "2026-07-22T23:03:41.478Z",
       "firstSeenAt": "2026-07-07T22:19:25.934Z",
       "needsRetranslation": true,
       "salaryMin": 79000,
