@@ -8844,6 +8844,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-telelavoro-ratifica-accordo.title': 'Télétravail pour les frontaliers : l\'accord a été ratifié',
     'blog.article.frontalieri-telelavoro-ratifica-accordo.excerpt': 'Le Conseil des Ministres a approuvé le DdL pour le télétravail : les frontaliers pourront travailler à domicile jusqu\'à 25% sans perdre leur statut.',
     'blog.article.frontalieri-telelavoro-ratifica-accordo.imageAlt': 'Bureau à domicile d\'un frontalier avec vue sur le lac de Lugano',
+    'blog.article.frontalieri-ticino-numeri-in-calo.title': 'Frontaliers en baisse au Tessin',
+    'blog.article.frontalieri-ticino-numeri-in-calo.excerpt': '78 562 frontaliers enregistrés au Tessin au cours des trois premiers mois de l\'année, en baisse de 0,2 % par rapport au trimestre précédent et de 0,5 % par rapport à la même période de l\'année précédente.',
+    'blog.article.frontalieri-ticino-numeri-in-calo.imageAlt': 'Un frontalière en autoroute',
 };
 
 export default blogMetaFr;

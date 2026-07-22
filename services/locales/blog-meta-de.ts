@@ -8841,6 +8841,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-telelavoro-ratifica-accordo.title': 'Telearbeit für Grenzgänger: Das Abkommen wurde ratifiziert',
     'blog.article.frontalieri-telelavoro-ratifica-accordo.excerpt': 'Der Ministerrat hat das DdL für Telearbeit genehmigt: Grenzgänger können bis zu 25% von zu Hause aus arbeiten, ohne ihren Status zu verlieren.',
     'blog.article.frontalieri-telelavoro-ratifica-accordo.imageAlt': 'Homeoffice eines Grenzgängers mit Blick auf den Luganersee',
+    'blog.article.frontalieri-ticino-numeri-in-calo.title': 'Grenzgänger, Zahlen sinken im Tessin in den ersten drei Monaten des Jahres',
+    'blog.article.frontalieri-ticino-numeri-in-calo.excerpt': '78.562 registrierte Grenzgänger im Tessin in den ersten drei Monaten des Jahres, was einem Rückgang von 0,2% gegenüber dem Vorquartal und 0,5% gegenüber dem gleichen Zeitraum des Vorjahres entspricht.',
+    'blog.article.frontalieri-ticino-numeri-in-calo.imageAlt': 'Ein Frontalier auf der Autobahn',
 };
 
 export default blogMetaDe;

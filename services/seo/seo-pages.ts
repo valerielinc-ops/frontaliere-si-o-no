@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3448,
+ "numberOfItems": 3449,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8216,7 +8216,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3445, "name": "Impiegato di commercio in Ticino: guida per fro...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-impiegato-commercio-ticino` },
           { "@type": "ListItem", "position": 3446, "name": "Frontalieri disoccupati: l'UE approva riforma o...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupati-ue-riforma-onerosa-ticino` },
           { "@type": "ListItem", "position": 3447, "name": "Telelavoro per frontalieri: ratificato l'accordo", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-telelavoro-ratifica-accordo` },
-          { "@type": "ListItem", "position": 3448, "name": "Frontalieri in Ticino: i dati del primo trimest...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-dati-2026` }
+          { "@type": "ListItem", "position": 3448, "name": "Frontalieri in Ticino: i dati del primo trimest...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-dati-2026` },
+          { "@type": "ListItem", "position": 3449, "name": "Frontalieri, numeri in calo in Ticino nei primi...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-numeri-in-calo` }
  ]
  },
  {
