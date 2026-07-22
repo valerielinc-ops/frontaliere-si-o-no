@@ -106,6 +106,7 @@ export async function persistMailtrapEvent(db, eventData) {
  subscriberUpdate.complained_at = FieldValue.serverTimestamp();
  } else if (type === 'suppressed') {
  subscriberUpdate.status = 'suppressed';
+ subscriberUpdate.suppressed_at = FieldValue.serverTimestamp();
  subscriberUpdate.isActive = false;
  subscriberUpdate.active = false;
  }
