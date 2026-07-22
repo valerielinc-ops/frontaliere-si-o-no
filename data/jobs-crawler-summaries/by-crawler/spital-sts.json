@@ -1,16 +1,16 @@
 {
   "key": "spital-sts",
   "label": "Spital STS",
-  "generatedAt": "2026-07-22T11:43:48.758Z",
-  "total": 12,
+  "generatedAt": "2026-07-22T22:07:50.930Z",
+  "total": 10,
   "newCount": 0,
   "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 9871,
-  "avgDurationMs": 9871,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 8817,
+  "avgDurationMs": 8817,
   "durationHistory": [
-    9871
+    8817
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/c735b6c9-bb78-44c9-a6b5-cf337dfb9268/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T11:43:40.458Z",
+      "crawledAt": "2026-07-22T22:07:43.203Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/8cec1871-b8e2-485c-9208-53217f9197dc/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T11:43:41.083Z",
+      "crawledAt": "2026-07-22T22:07:43.805Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/de8683f2-389a-4677-a8c5-b7e9ea7b3230/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T11:43:41.778Z",
+      "crawledAt": "2026-07-22T22:07:44.422Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/205f7aed-85d3-4fce-a3ad-c786a6947cce/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T11:43:42.612Z",
+      "crawledAt": "2026-07-22T22:07:45.006Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/01086ffd-7b84-466f-ae86-6a320e273ccf/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T11:43:43.260Z",
+      "crawledAt": "2026-07-22T22:07:45.542Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/2da73495-02a6-4a71-b701-54aeb342a2aa/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T11:43:43.904Z",
+      "crawledAt": "2026-07-22T22:07:46.192Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/92b6b8f4-f853-4391-87cb-c4902774cb5f/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T11:43:44.580Z",
+      "crawledAt": "2026-07-22T22:07:46.774Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/76d795d3-05d0-41f2-bc81-3e02f720b9cc/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T11:43:45.298Z",
+      "crawledAt": "2026-07-22T22:07:47.361Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -323,7 +323,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/9d7c5690-b2bb-45ab-bc45-892b3e7ab107/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T11:43:45.948Z",
+      "crawledAt": "2026-07-22T22:07:47.945Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -360,7 +360,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/611860a3-ab8c-4087-a707-18b02d2e47d5/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T11:43:46.579Z",
+      "crawledAt": "2026-07-22T22:07:48.548Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -385,8 +385,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "spital-sts-df2efc9b819e",
       "slug": "fachfrau-fachmann-gesundheit-cfc-per-fruh-e-spatdienst-medizin-spital-sts-thun",
@@ -466,5 +465,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
