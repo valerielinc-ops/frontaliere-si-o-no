@@ -1,6 +1,6 @@
 {
   "crawlerKey": "postauto",
-  "assembledAt": "2026-07-21T22:48:21.721Z",
+  "assembledAt": "2026-07-22T11:33:29.094Z",
   "jobs": [
     {
       "id": "postauto-318dbdb3c660",
@@ -33,7 +33,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74193-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:48:19.260Z",
+      "crawledAt": "2026-07-22T11:33:26.891Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -59,13 +59,15 @@
         "ticket-controller-in-and-customer-advice-postauto-ag-chur",
         "controleur-de-billetterie-in-et-conseil-client-postauto-ag-chur",
         "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
-        "ticketkontrolleur-in-und-kundenberatung-post-2"
+        "ticketkontrolleur-in-und-kundenberatung-post-2",
+        "ticketkontrolleur-in-und-kundenberatung-post"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
           "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
-          "ticketkontrolleur-in-und-kundenberatung-post-2"
+          "ticketkontrolleur-in-und-kundenberatung-post-2",
+          "ticketkontrolleur-in-und-kundenberatung-post"
         ],
         "en": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
@@ -77,6 +79,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:34.678Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -121,7 +124,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74207-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:48:18.122Z",
+      "crawledAt": "2026-07-22T11:33:25.632Z",
       "addressLocality": "Brugg AG",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -157,6 +160,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:33.292Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -175,7 +179,7 @@
       "slug": "postbus-driver-in-postauto-chur",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-chur",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-chur",
         "de": "postauto-fahrer-in-postauto-chur",
         "fr": "pilote-postbus-in-postauto-chur"
       },
@@ -201,7 +205,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74217-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:48:17.137Z",
+      "crawledAt": "2026-07-22T11:33:24.403Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -226,15 +230,19 @@
         "postauto-fahrer-in-postauto-chur",
         "pilote-postbus-in-postauto-ag-chur",
         "autista-postbus-postauto-ag-chur",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-chur",
         "postbus-driver-in-postauto-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-chur",
-          "autista-postbus-postauto-ag-chur"
+          "autista-postbus-postauto-ag-chur",
+          "postbus-driver-in-postauto-chur"
         ],
         "en": [
           "postauto-fahrer-in-postauto-chur",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-chur"
         ],
         "fr": [
@@ -287,7 +295,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/73577-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:48:16.127Z",
+      "crawledAt": "2026-07-22T11:33:23.146Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "streetAddress": "",
@@ -312,12 +320,14 @@
         "postauto-fahrer-in-postauto-sarnen",
         "postbus-driver-in-postauto-ag-sarnen",
         "pilote-postbus-in-postauto-ag-sarnen",
-        "autista-postbus-postauto-ag-sarnen"
+        "autista-postbus-postauto-ag-sarnen",
+        "autista-postbus-postauto-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-sarnen",
-          "autista-postbus-postauto-ag-sarnen"
+          "autista-postbus-postauto-ag-sarnen",
+          "autista-postbus-postauto-sarnen"
         ],
         "en": [
           "postauto-fahrer-in-postauto-sarnen",
@@ -347,7 +357,7 @@
       "slug": "postbus-driver-in-postauto-stans",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-stans",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-stans",
         "de": "postauto-fahrer-in-postauto-stans",
         "fr": "pilote-postbus-in-postauto-stans"
       },
@@ -373,7 +383,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/73719-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:48:15.059Z",
+      "crawledAt": "2026-07-22T11:33:21.888Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "streetAddress": "",
@@ -396,13 +406,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postauto-fahrer-in-postauto-stans",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-stans",
         "postbus-driver-in-postauto-ag-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-stans"
+          "postauto-fahrer-in-postauto-stans",
+          "postbus-driver-in-postauto-stans"
         ],
         "en": [
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-stans"
         ]
       },
@@ -451,7 +465,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74239-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:48:13.923Z",
+      "crawledAt": "2026-07-22T11:33:20.620Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -476,12 +490,14 @@
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
         "security-specialist-in-public-transport-postauto-ag-wallisellen",
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen",
-        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen"
+        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
+        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
-          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen"
+          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
+          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
@@ -537,7 +553,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74240-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:48:13.024Z",
+      "crawledAt": "2026-07-22T11:33:19.339Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -560,11 +576,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
         ],
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
-          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur"
+          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
+          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
@@ -579,7 +597,9 @@
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
         "security-specialist-in-public-transport-postauto-ag-winterthur",
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
-        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur"
+        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
+        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
       ],
       "firstSeenAt": "2026-07-04T11:33:25.279Z",
       "salaryMin": 73500,
@@ -626,7 +646,7 @@
       "url": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/73694-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:48:11.822Z",
+      "crawledAt": "2026-07-22T11:33:18.076Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "streetAddress": "",
@@ -651,12 +671,14 @@
         "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
         "lateral-entrant-in-as-postbus-driver-in-postauto-ag-stans",
         "entree-laterale-in-comme-pilote-postbus-in-postauto-ag-stans",
-        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans"
+        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans",
+        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
           "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
-          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans"
+          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans",
+          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-stans"
         ],
         "en": [
           "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
@@ -712,7 +734,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74278-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:48:10.823Z",
+      "crawledAt": "2026-07-22T11:33:16.826Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -734,11 +756,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-chur"
+        "postauto-fahrer-in-postauto-chur",
+        "postbus-driver-in-postauto-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-chur"
+          "postauto-fahrer-in-postauto-chur",
+          "postbus-driver-in-postauto-ag-chur"
         ],
         "en": [
           "postauto-fahrer-in-postauto-chur"
@@ -792,7 +816,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74268-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:48:09.705Z",
+      "crawledAt": "2026-07-22T11:33:15.559Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -828,6 +852,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:15:00.874Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -846,7 +871,7 @@
       "slug": "postbus-driver-in-postauto-trimmis",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-trimmis",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-trimmis",
         "de": "postauto-fahrer-in-postauto-trimmis",
         "fr": "pilote-postbus-in-postauto-trimmis"
       },
@@ -872,7 +897,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74276-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:48:08.686Z",
+      "crawledAt": "2026-07-22T11:33:14.295Z",
       "addressLocality": "Trimmis",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -896,15 +921,19 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-trimmis",
         "pilote-postbus-in-postauto-ag-trimmis",
-        "postbus-driver-in-postauto-ag-trimmis"
+        "postbus-driver-in-postauto-ag-trimmis",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-trimmis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-trimmis",
-          "postbus-driver-in-postauto-ag-trimmis"
+          "postbus-driver-in-postauto-ag-trimmis",
+          "postbus-driver-in-postauto-trimmis"
         ],
         "en": [
           "postauto-fahrer-in-postauto-trimmis",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-trimmis"
         ],
         "fr": [
@@ -957,7 +986,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74275-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:48:07.544Z",
+      "crawledAt": "2026-07-22T11:33:13.048Z",
       "addressLocality": "Lenzerheide/Lai",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -979,11 +1008,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-lenzerheide-lai"
+        "postauto-fahrer-in-postauto-lenzerheide-lai",
+        "postbus-driver-in-postauto-ag-lenzerheide-lai"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-lenzerheide-lai"
+          "postauto-fahrer-in-postauto-lenzerheide-lai",
+          "postbus-driver-in-postauto-ag-lenzerheide-lai"
         ],
         "en": [
           "postauto-fahrer-in-postauto-lenzerheide-lai"
@@ -1011,7 +1042,7 @@
       "slug": "postbus-driver-in-postauto-schiers",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-schiers",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-schiers",
         "de": "postauto-fahrer-in-postauto-schiers",
         "fr": "pilote-postbus-in-postauto-schiers"
       },
@@ -1037,7 +1068,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74280-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:48:06.534Z",
+      "crawledAt": "2026-07-22T11:33:11.804Z",
       "addressLocality": "Schiers",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1061,15 +1092,19 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-schiers",
         "pilote-postbus-in-postauto-ag-schiers",
-        "postbus-driver-in-postauto-ag-schiers"
+        "postbus-driver-in-postauto-ag-schiers",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-schiers",
-          "postbus-driver-in-postauto-ag-schiers"
+          "postbus-driver-in-postauto-ag-schiers",
+          "postbus-driver-in-postauto-schiers"
         ],
         "en": [
           "postauto-fahrer-in-postauto-schiers",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-schiers"
         ],
         "fr": [
@@ -1122,7 +1157,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74291-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:48:05.552Z",
+      "crawledAt": "2026-07-22T11:33:10.557Z",
       "addressLocality": "Laax GR",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1144,11 +1179,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-laax-gr"
+        "postauto-fahrer-in-postauto-laax-gr",
+        "postbus-driver-in-postauto-ag-laax-gr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-laax-gr"
+          "postauto-fahrer-in-postauto-laax-gr",
+          "postbus-driver-in-postauto-ag-laax-gr"
         ],
         "en": [
           "postauto-fahrer-in-postauto-laax-gr"
@@ -1176,7 +1213,7 @@
       "slug": "postbus-driver-in-postauto-endingen",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-endingen",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-endingen",
         "de": "postauto-fahrer-in-postauto-endingen",
         "fr": "pilote-postbus-in-postauto-endingen"
       },
@@ -1202,7 +1239,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74294-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:48:04.546Z",
+      "crawledAt": "2026-07-22T11:33:09.158Z",
       "addressLocality": "Endingen",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1226,15 +1263,19 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-endingen",
         "pilote-postbus-in-postauto-ag-endingen",
-        "postbus-driver-in-postauto-ag-endingen"
+        "postbus-driver-in-postauto-ag-endingen",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-endingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-endingen",
-          "postbus-driver-in-postauto-ag-endingen"
+          "postbus-driver-in-postauto-ag-endingen",
+          "postbus-driver-in-postauto-endingen"
         ],
         "en": [
           "postauto-fahrer-in-postauto-endingen",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-endingen"
         ],
         "fr": [
@@ -1287,7 +1328,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74295-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:48:03.555Z",
+      "crawledAt": "2026-07-22T11:33:07.905Z",
       "addressLocality": "Ilanz",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1309,11 +1350,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-ilanz"
+        "postauto-fahrer-in-postauto-ilanz",
+        "postbus-driver-in-postauto-ag-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-ilanz"
+          "postauto-fahrer-in-postauto-ilanz",
+          "postbus-driver-in-postauto-ag-ilanz"
         ],
         "en": [
           "postauto-fahrer-in-postauto-ilanz"
@@ -1341,7 +1384,7 @@
       "slug": "postbus-driver-in-postauto-wilderswil",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-wilderswil",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-postauto-ag-wilderswil",
         "de": "postauto-fahrer-in-postauto-wilderswil",
         "fr": "pilote-postbus-in-postauto-wilderswil"
       },
@@ -1367,7 +1410,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74075-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:48:02.536Z",
+      "crawledAt": "2026-07-22T11:33:05.828Z",
       "addressLocality": "Wilderswil",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1390,13 +1433,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postauto-fahrer-in-postauto-wilderswil",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-wilderswil",
         "postbus-driver-postauto-ag-wilderswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-wilderswil"
+          "postauto-fahrer-in-postauto-wilderswil",
+          "postbus-driver-in-postauto-wilderswil"
         ],
         "en": [
+          "postauto-fahrer-in-post",
           "postbus-driver-postauto-ag-wilderswil"
         ]
       },
@@ -1445,7 +1492,7 @@
       "url": "https://job.post.ch/default/job/Sales-Managerin-Gesch%C3%A4ftskunden-Arc-jurassien/74314-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:48:01.410Z",
+      "crawledAt": "2026-07-22T11:33:04.565Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "",
@@ -1467,11 +1514,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-manager-in-geschaftskunden-arc-jurassien-postauto-basel"
+        "sales-manager-in-geschaftskunden-arc-jurassien-postauto-basel",
+        "responsabile-vendite-nei-clienti-aziendali-arc-jurassien-postauto-ag-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-manager-in-geschaftskunden-arc-jurassien-postauto-basel"
+          "sales-manager-in-geschaftskunden-arc-jurassien-postauto-basel",
+          "responsabile-vendite-nei-clienti-aziendali-arc-jurassien-postauto-ag-basel"
         ],
         "en": [
           "sales-manager-in-geschaftskunden-arc-jurassien-postauto-basel"
@@ -1525,7 +1574,7 @@
       "url": "https://job.post.ch/default/job/Safety-Driver-AmiGo/74292-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:48:00.404Z",
+      "crawledAt": "2026-07-22T11:33:02.036Z",
       "addressLocality": "Altstätten SG",
       "addressRegion": "AR",
       "streetAddress": "",
@@ -1547,14 +1596,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "safety-driver-amigo-postauto-altstatten-sg"
+        "safety-driver-amigo-postauto-altstatten-sg",
+        "driver-di-sicurezza-amigo-postauto-ag-altstatten-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "safety-driver-amigo-postauto-altstatten-sg"
+          "safety-driver-amigo-postauto-altstatten-sg",
+          "driver-di-sicurezza-amigo-postauto-ag-altstatten-sg"
         ]
       },
       "firstSeenAt": "2026-07-20T12:51:59.916Z",
+      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 98500,
       "baseSalary": {
@@ -1599,7 +1651,7 @@
       "url": "https://job.post.ch/default/job/Kundenbetreuerin-Flottenmanagement-Gesch%C3%A4ftskunden/74191-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:47:59.428Z",
+      "crawledAt": "2026-07-22T11:33:00.777Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1622,14 +1674,18 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-post"
         ],
         "it": [
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
+          "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf"
         ]
       },
       "previousSlugs": [
-        "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
+        "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
+        "kundenbetreuer-in-flottenmanagement-geschaftskunden-post",
+        "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf"
       ],
       "firstSeenAt": "2026-07-14T22:07:15.144Z",
       "salaryMin": 94500,
@@ -1676,7 +1732,7 @@
       "url": "https://job.post.ch/default/job/Teamleiterin-Fahrpersonal/74343-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:47:58.454Z",
+      "crawledAt": "2026-07-22T11:32:59.584Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "streetAddress": "",
@@ -1698,11 +1754,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-fahrpersonal-postauto-weinfelden"
+        "teamleiter-in-fahrpersonal-postauto-weinfelden",
+        "team-leader-nel-personale-di-guida-postauto-ag-weinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-fahrpersonal-postauto-weinfelden"
+          "teamleiter-in-fahrpersonal-postauto-weinfelden",
+          "team-leader-nel-personale-di-guida-postauto-ag-weinfelden"
         ],
         "en": [
           "teamleiter-in-fahrpersonal-postauto-weinfelden"
@@ -1756,7 +1814,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74357-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:47:57.036Z",
+      "crawledAt": "2026-07-22T11:32:57.863Z",
       "addressLocality": "Appenzell",
       "addressRegion": "AI",
       "streetAddress": "",
@@ -1778,16 +1836,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-appenzell"
+        "postauto-fahrer-in-postauto-appenzell",
+        "postbus-driver-in-postauto-ag-appenzell"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "postauto-fahrer-in-postauto-appenzell",
+          "postbus-driver-in-postauto-ag-appenzell"
+        ],
+        "en": [
           "postauto-fahrer-in-postauto-appenzell"
         ],
         "fr": [
-          "postauto-fahrer-in-postauto-appenzell"
-        ],
-        "en": [
           "postauto-fahrer-in-postauto-appenzell"
         ]
       },
@@ -1804,93 +1864,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "postauto-180ae9b3fe95",
-      "slug": "personale-nel-centro-di-controllo-di-disposizione-postauto-spiez",
-      "slugByLocale": {
-        "it": "personale-nel-centro-di-controllo-di-disposizione-postauto-spiez",
-        "en": "personnel-in-disposition-control-center-center-postauto-spiez",
-        "de": "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
-        "fr": "personnel-dans-le-centre-de-controle-de-disposition-postauto-spiez"
-      },
-      "company": "PostAuto AG",
-      "companyKey": "postauto",
-      "companyDomain": "postauto.ch",
-      "title": "Sachbearbeiter:in Disposition Leitstelle Mitte",
-      "titleByLocale": {
-        "it": "Personale: nel centro di controllo di disposizione",
-        "en": "Personnel: in disposition control center center",
-        "de": "Sachbearbeiter:in Disposition Leitstelle Mitte",
-        "fr": "Personnel: dans le centre de contrôle de disposition"
-      },
-      "description": "Bist du bereit, den Puls der täglichen Betriebssteuerung mitzugestalten? Liebst du es, komplexe Abläufe zu koordinieren und blitzschnell zu reagieren? Hast du Freude daran, mit digitalen Tools den Betrieb aktiv mitzugestalten? Mit dir sichern wir den reibungslosen Betrieb unseres Liniennetzes, auch dann, wenn es mal nicht nach Plan läuft. PostAuto stellt seine Flotte bis 2035 auf elektrische Antriebe um. Mit deinem Beitrag und deiner vollen Überzeugung trägst du entscheidend dazu bei, dass diese Transformation gelingt\n\nDas kannst du bewirken\n\n-\n\nDu überwachst den Linienbetrieb in Echtzeit und steuerst bei Abweichungen gezielt gegen, um die Qualität und Pünktlichkeit sicherzustellen.\n\nDu steuerst den Verkehr selbstständig und zielgerichtet, triffst rasche Entscheidungen bei Störungen und koordinierst wirkungsvoll alle notwendigen Massnahmen – vom Fahrzeugeinsatz bis zur Personaldisposition.\n\nDu informierst Fahrgäste sowie interne und externe Stellen transparent über Ereignisse und Störungen.\n\nIn enger Zusammenarbeit mit Partnern wie Bahngesellschaften oder Blaulichtorganisationen disponierst du kurzfristig Personal und Fahrzeuge.\n\nDu setzt moderne Systeme wie ISA, Planbox und den Störungsmanager effizient ein, um Abläufe zu optimieren.\n\nDu wirkst aktiv an der Weiterentwicklung von Prozessen und Tools der Leitstelle mit und bringst eigene Ideen zur Verbesserung ein.\n\nIm Rahmen der Notfallorganisation übernimmst du eine zentrale Rolle und handelst verantwortungsvoll bei besonderen Lagen wie Unfällen, Naturereignissen oder Sicherheitsvorfällen – schnell, umsichtig und lösungsorientiert.\n\nDas bringst du mit\n\nEine abgeschlossene Berufslehre (EFZ), idealerweise im kaufmännischen, technischen oder logistischen Bereich, bildet die Grundlage für diese Funktion.\n\nDu hast Erfahrung in der Disposition, Leitstelle oder einem vergleichbaren Umfeld – idealerweise im öffentlichen Verkehr.\n\nFundierte Kenntnisse im Umgang mit digitalen Tools und Systemen wie ISA, Planbox oder dem Störungsmanager sowie Sicherheit im Einsatz von MS 365 werden vorausgesetzt.\n\nDu verfügst über ausgeprägte Kommunikationsfähigkeiten, ein sicheres Auftreten und bringst Teamgeist sowie Eigenverantwortung mit.\n\nDu arbeitest gerne im Schichtbetrieb, auch an Wochenenden, Feiertagen und im Pikettdienst, übernimmst in Randzeiten Verantwortung.\n\nDu kommunizierst mündlich und schriftlich gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
-      "descriptionByLocale": {
-        "it": "Sei pronto ad aiutare a plasmare il polso del controllo operativo quotidiano? Ti piace coordinare processi complessi e reagire rapidamente? Ti piace modellare attivamente l'azienda con strumenti digitali? Con Lei garantiamo il funzionamento regolare della nostra rete di linea, anche se non va secondo il piano. PostBus commuta la sua flotta a unità elettriche entro il 2035. Con il vostro contributo e la vostra piena convinzione, apportate un contributo decisivo al successo di questa trasformazione. Puoi farlo. - Monitora l'operazione di linea in tempo reale e controlla le deviazioni per garantire qualità e puntualità. Si controlla il traffico in modo indipendente e mirato, prendere decisioni rapide in caso di interruzioni e coordinare efficacemente tutte le misure necessarie – dall'uso del veicolo alla gestione del personale. Informate i passeggeri e gli organismi interni ed esterni in modo trasparente su eventi e interruzioni. In stretta collaborazione con partner come compagnie ferroviarie o organizzazioni di luce blu, si dispone di personale e veicoli a breve preavviso. Si utilizzano sistemi moderni come ISA, Planbox e Disruption Manager in modo efficiente per ottimizzare i processi. Partecipate attivamente all'ulteriore sviluppo di processi e strumenti del centro di controllo e portate le vostre idee per il miglioramento. Nell'ambito dell'organizzazione di emergenza, si assume un ruolo centrale e agisce responsabilmente in situazioni particolari come incidenti, eventi naturali o incidenti di sicurezza – rapidamente, prudentemente e orientati alla soluzione. Lo porti con te. Un apprendistato professionale completato (EFZ), idealmente nel settore commerciale, tecnico o logistico, costituisce la base per questa funzione. Si ha esperienza in disposizione, centro di controllo o un ambiente paragonabile – idealmente nei trasporti pubblici. È richiesta una conoscenza approfondita di strumenti e sistemi digitali come ISA, Planbox o il gestore di interruzioni, nonché la sicurezza nell'uso di MS 365. Hai forti capacità di comunicazione, un aspetto sicuro e portare spirito di squadra e responsabilità personale. Ti piace lavorare a turni, anche nei fine settimana, nelle vacanze e nel pikettdienst, assumerti la responsabilità in tempi marginali. Comunichi bene per via orale e per iscritto in tedesco e hai buone conoscenze (orali) in una seconda lingua nazionale.",
-        "en": "Are you ready to help shape the pulse of daily operational control? Do you love to coordinate complex processes and react quickly? Do you enjoy actively shaping the company with digital tools? With you we ensure the smooth operation of our line network, even if it does not go according to plan. PostBus will switch its fleet to electric drives by 2035. With your contribution and your full conviction, you make a decisive contribution to the success of this transformation. You can do that. - You monitor the line operation in real time and control against deviations in order to ensure quality and punctuality. You control the traffic independently and purposefully, make quick decisions in the event of disruptions and effectively coordinate all necessary measures – from vehicle use to personnel management. You inform passengers and internal and external bodies transparently about events and disruptions. In close cooperation with partners such as railway companies or blue light organizations, you will dispose of staff and vehicles at short notice. You use modern systems such as ISA, Planbox and the Disruption Manager efficiently to optimize processes. You actively participate in the further development of processes and tools of the control center and bring your own ideas for improvement. As part of the emergency organization, you take on a central role and act responsibly in special situations such as accidents, natural events or security incidents – quickly, prudently and solution-oriented. You bring that with you A completed vocational apprenticeship (EFZ), ideally in the commercial, technical or logistical sector, forms the basis for this function. You have experience in disposition, control center or a comparable environment – ideally in public transport. In-depth knowledge of digital tools and systems such as ISA, Planbox or the disruption manager as well as security in the use of MS 365 is required. You have strong communication skills, a secure appearance and bring team spirit and personal responsibility. You like to work in shifts, also on weekends, holidays and in the pikettdienst, take on responsibility in marginal times. You communicate well orally and in writing in German and have good (oral) knowledge in a second national language.",
-        "de": "Bist du bereit, den Puls der täglichen Betriebssteuerung mitzugestalten? Liebst du es, komplexe Abläufe zu koordinieren und blitzschnell zu reagieren? Hast du Freude daran, mit digitalen Tools den Betrieb aktiv mitzugestalten? Mit dir sichern wir den reibungslosen Betrieb unseres Liniennetzes, auch dann, wenn es mal nicht nach Plan läuft. PostAuto stellt seine Flotte bis 2035 auf elektrische Antriebe um. Mit deinem Beitrag und deiner vollen Überzeugung trägst du entscheidend dazu bei, dass diese Transformation gelingt\n\nDas kannst du bewirken\n\n-\n\nDu überwachst den Linienbetrieb in Echtzeit und steuerst bei Abweichungen gezielt gegen, um die Qualität und Pünktlichkeit sicherzustellen.\n\nDu steuerst den Verkehr selbstständig und zielgerichtet, triffst rasche Entscheidungen bei Störungen und koordinierst wirkungsvoll alle notwendigen Massnahmen – vom Fahrzeugeinsatz bis zur Personaldisposition.\n\nDu informierst Fahrgäste sowie interne und externe Stellen transparent über Ereignisse und Störungen.\n\nIn enger Zusammenarbeit mit Partnern wie Bahngesellschaften oder Blaulichtorganisationen disponierst du kurzfristig Personal und Fahrzeuge.\n\nDu setzt moderne Systeme wie ISA, Planbox und den Störungsmanager effizient ein, um Abläufe zu optimieren.\n\nDu wirkst aktiv an der Weiterentwicklung von Prozessen und Tools der Leitstelle mit und bringst eigene Ideen zur Verbesserung ein.\n\nIm Rahmen der Notfallorganisation übernimmst du eine zentrale Rolle und handelst verantwortungsvoll bei besonderen Lagen wie Unfällen, Naturereignissen oder Sicherheitsvorfällen – schnell, umsichtig und lösungsorientiert.\n\nDas bringst du mit\n\nEine abgeschlossene Berufslehre (EFZ), idealerweise im kaufmännischen, technischen oder logistischen Bereich, bildet die Grundlage für diese Funktion.\n\nDu hast Erfahrung in der Disposition, Leitstelle oder einem vergleichbaren Umfeld – idealerweise im öffentlichen Verkehr.\n\nFundierte Kenntnisse im Umgang mit digitalen Tools und Systemen wie ISA, Planbox oder dem Störungsmanager sowie Sicherheit im Einsatz von MS 365 werden vorausgesetzt.\n\nDu verfügst über ausgeprägte Kommunikationsfähigkeiten, ein sicheres Auftreten und bringst Teamgeist sowie Eigenverantwortung mit.\n\nDu arbeitest gerne im Schichtbetrieb, auch an Wochenenden, Feiertagen und im Pikettdienst, übernimmst in Randzeiten Verantwortung.\n\nDu kommunizierst mündlich und schriftlich gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
-        "fr": "Êtes-vous prêt à aider à façonner le pouls du contrôle opérationnel quotidien? Aimez-vous coordonner des processus complexes et réagir rapidement? Vous aimez façonner activement l'entreprise avec des outils numériques? Avec vous, nous assurons le bon fonctionnement de notre réseau de lignes, même si cela ne va pas selon le plan. PostBus changera sa flotte en entraînements électriques d'ici 2035. Avec votre contribution et votre conviction, vous contribuez de manière décisive au succès de cette transformation. Tu peux le faire. - Vous surveillez le fonctionnement de la ligne en temps réel et contrôlez les écarts afin d'assurer la qualité et la ponctualité. Vous contrôlez le trafic de manière indépendante et délibérée, prenez des décisions rapides en cas de perturbation et coordonnez efficacement toutes les mesures nécessaires – de l'utilisation du véhicule à la gestion du personnel. Vous informez les passagers et les organismes internes et externes de manière transparente des événements et des perturbations. En étroite collaboration avec des partenaires tels que des compagnies ferroviaires ou des organismes de lumière bleue, vous disposerez de personnel et de véhicules à bref délai. Vous utilisez des systèmes modernes tels que ISA, Planbox et le gestionnaire de perturbations efficacement pour optimiser les processus. Vous participez activement au développement des processus et des outils du centre de contrôle et apportez vos propres idées d'amélioration. Dans le cadre de l'organisation d'urgence, vous assumez un rôle central et agissez de manière responsable dans des situations particulières telles que des accidents, des événements naturels ou des incidents de sécurité – rapidement, avec prudence et en fonction des solutions. Apporte ça avec toi. Un apprentissage professionnel achevé (EFZ), idéalement dans le secteur commercial, technique ou logistique, constitue la base de cette fonction. Vous avez une expérience dans la disposition, le centre de contrôle ou un environnement comparable – idéalement dans les transports en commun. Une connaissance approfondie des outils et systèmes numériques tels que ISA, Planbox ou le gestionnaire des perturbations ainsi que la sécurité dans l'utilisation de MS 365 sont nécessaires. Vous avez de solides compétences en communication, une apparence sûre et apportez l'esprit d'équipe et la responsabilité personnelle. Vous aimez travailler par équipes, aussi le week-end, les vacances et dans le pikettdienst, prendre la responsabilité dans les temps marginaux. Vous communiquez bien oralement et par écrit en allemand et avez une bonne connaissance (orale) dans une deuxième langue nationale."
-      },
-      "location": "Spiez",
-      "canton": "BE",
-      "url": "https://job.post.ch/default/job/Sachbearbeiterin-Disposition-Leitstelle-Mitte/74218-de_DE",
-      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:20:56.038Z",
-      "addressLocality": "Spiez",
-      "addressRegion": "BE",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Pianificazione trasporti",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti pubblici / Autobus",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-06",
-      "validThrough": "2026-07-28",
-      "pensum": "80-100%",
-      "applyUrl": "https://job.post.ch/default/job/Sachbearbeiterin-Disposition-Leitstelle-Mitte/74218-de_DE",
-      "jobReqId": "74218",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
-        "personnel-in-disposition-control-center-center-postauto-ag-spiez",
-        "personnel-dans-le-centre-de-controle-de-disposition-postauto-ag-spiez",
-        "personale-nel-centro-di-controllo-di-disposizione-postauto-ag-spiez"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
-          "personale-nel-centro-di-controllo-di-disposizione-postauto-ag-spiez"
-        ],
-        "en": [
-          "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
-          "personnel-in-disposition-control-center-center-postauto-ag-spiez"
-        ],
-        "fr": [
-          "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
-          "personnel-dans-le-centre-de-controle-de-disposition-postauto-ag-spiez"
-        ]
-      },
-      "firstSeenAt": "2026-07-06T14:41:06.973Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
