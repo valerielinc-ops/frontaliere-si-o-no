@@ -1,16 +1,16 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-07-22T12:22:04.216Z",
+  "generatedAt": "2026-07-22T22:56:29.025Z",
   "total": 11,
   "newCount": 1,
-  "updatedCount": 6,
+  "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 3457,
-  "avgDurationMs": 3457,
+  "unchangedCount": 3,
+  "durationMs": 3652,
+  "avgDurationMs": 3652,
   "durationHistory": [
-    3457
+    3652
   ],
   "newJobs": [
     {
@@ -266,6 +266,43 @@
         "translation": 23,
         "completeness": 22
       }
+    },
+    {
+      "title": "UX Designer",
+      "slug": "ux-designer-board-international-chiasso-switzerland",
+      "url": "https://boardinternationalsa.applytojob.com/apply/42P29rSL79/UX-Designer",
+      "applyUrl": "https://boardinternationalsa.applytojob.com/apply/42P29rSL79/UX-Designer",
+      "company": "Board International",
+      "companyKey": "board-international",
+      "companyDomain": "board.com",
+      "location": "Chiasso, Switzerland",
+      "addressLocality": "Chiasso, Switzerland",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "board-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-06-26",
+      "employmentType": "full time",
+      "contractType": "full-time",
+      "validThrough": "2026-09-24",
+      "id": "board-international-88f4e636005c",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "",
+      "postalCode": "6830",
+      "firstSeenAt": "2026-06-26T10:55:42.338Z",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 22
+      }
     }
   ],
   "removedJobs": [],
@@ -378,44 +415,6 @@
         "cleanliness": 25,
         "richness": 24,
         "translation": 21,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "UX Designer",
-      "slug": "ux-designer-board-international-chiasso-switzerland",
-      "url": "https://boardinternationalsa.applytojob.com/apply/42P29rSL79/UX-Designer",
-      "applyUrl": "https://boardinternationalsa.applytojob.com/apply/42P29rSL79/UX-Designer",
-      "company": "Board International",
-      "companyKey": "board-international",
-      "companyDomain": "board.com",
-      "location": "Chiasso, Switzerland",
-      "addressLocality": "Chiasso, Switzerland",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "board-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-26",
-      "employmentType": "full time",
-      "contractType": "full-time",
-      "validThrough": "2026-09-24",
-      "id": "board-international-88f4e636005c",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "6830",
-      "firstSeenAt": "2026-06-26T10:55:42.338Z",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 23,
         "completeness": 22
       }
     }
