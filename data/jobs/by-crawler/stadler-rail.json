@@ -51,7 +51,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-23T23:11:28.052Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -322,7 +321,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:58.477Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -496,7 +494,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:57.316Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -598,7 +595,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:56.168Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -702,7 +698,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:56.736Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -775,7 +770,6 @@
         ]
       },
       "firstSeenAt": "2026-06-25T12:13:52.564Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -888,7 +882,6 @@
         "gestore-di-categoria-trazione-stadler-rail-frauenfeld"
       ],
       "firstSeenAt": "2026-06-10T07:52:55.597Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1505,7 +1498,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:47.552Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1650,7 +1642,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:48.695Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1723,7 +1714,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:49.842Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2244,7 +2234,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:41.768Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -2380,18 +2369,28 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "network-engineer-stadler-rail-ch",
-        "network-ingegnere-stadler-rail-wallisellen"
+        "network-ingegnere-stadler-rail-wallisellen",
+        "qa-ingegnere-stadler-rail-wallisellen",
+        "qa-engineer-stadler-rail-ch",
+        "qa-ingenieur-stadler-rail-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "network-engineer-stadler-rail-ch",
-          "network-ingegnere-stadler-rail-wallisellen"
+          "network-ingegnere-stadler-rail-wallisellen",
+          "qa-ingegnere-stadler-rail-wallisellen",
+          "qa-engineer-stadler-rail-ch",
+          "qa-ingenieur-stadler-rail-wallisellen"
         ],
         "de": [
           "network-engineer-stadler-rail-ch"
         ],
         "fr": [
-          "network-engineer-stadler-rail-ch"
+          "network-engineer-stadler-rail-ch",
+          "qa-ingenieur-stadler-rail-wallisellen"
+        ],
+        "en": [
+          "qa-engineer-stadler-rail-ch"
         ]
       },
       "firstSeenAt": "2026-06-29T14:38:59.304Z",
@@ -2617,7 +2616,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:33.124Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -2764,7 +2762,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:34.259Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2913,7 +2910,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:36.596Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -2986,7 +2982,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:37.178Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -3067,7 +3062,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:36.016Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3143,7 +3137,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:29:48.086Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3325,7 +3318,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-30T12:22:42.205Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3482,7 +3474,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:30.233Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -3630,7 +3621,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:29:07.531Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -4281,7 +4271,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:15:17.774Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4354,7 +4343,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:16.948Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -4425,7 +4413,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:15.805Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4506,7 +4493,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:18.705Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -4581,7 +4567,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:21.015Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -4664,7 +4649,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:19.266Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4739,7 +4723,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:18.107Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4812,7 +4795,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.541Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5165,7 +5147,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-10T07:52:13.484Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -5469,7 +5450,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:08:16.903Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5545,7 +5525,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:08:16.399Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5620,7 +5599,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:08.272Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5928,7 +5906,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:07.695Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6151,7 +6128,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:04.800Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6230,7 +6206,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:16.482Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -6826,7 +6801,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:59.048Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6904,7 +6878,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:57.895Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -7007,7 +6980,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:55.613Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7690,7 +7662,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:51.564Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7776,7 +7747,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:52.151Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8077,7 +8047,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:37.139Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -8157,7 +8126,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T13:39:34.568Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8234,7 +8202,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T23:31:39.510Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -8613,7 +8580,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:30.234Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -8787,7 +8753,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:30.817Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -8965,7 +8930,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:31.968Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -9356,7 +9320,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:27.909Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9454,7 +9417,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:24.438Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9552,7 +9514,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:23.841Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -9651,7 +9612,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:25.019Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9808,7 +9768,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:21.519Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9912,7 +9871,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:22.094Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -10065,7 +10023,6 @@
         ]
       },
       "firstSeenAt": "2026-06-15T15:26:48.378Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10226,7 +10183,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T11:32:23.026Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -10414,7 +10370,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:18.644Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -10607,7 +10562,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:17.494Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -10713,7 +10667,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:18.071Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -10932,7 +10885,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-16T22:40:13.754Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -11030,7 +10982,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:14.059Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -11130,7 +11081,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:16.910Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -11229,7 +11179,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:16.346Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -11331,7 +11280,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:14.628Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -11426,7 +11374,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:12.904Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -11652,7 +11599,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:11.738Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -11756,7 +11702,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:12.325Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -11860,7 +11805,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:10.595Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -11963,7 +11907,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:10.034Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -12079,7 +12022,6 @@
         "testing-commissioning-engineer-stadler-rail-wallisellen"
       ],
       "firstSeenAt": "2026-06-10T07:53:09.447Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -12152,7 +12094,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:08.867Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -12228,7 +12169,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T13:01:52.676Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -12387,7 +12327,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:07.142Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -12460,7 +12399,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:07.715Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -12608,7 +12546,6 @@
         ]
       },
       "firstSeenAt": "2026-06-20T11:55:32.127Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -12831,7 +12768,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:03.680Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -13059,8 +12995,7 @@
           "maxValue": 156500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-6845c3003018",
@@ -13121,7 +13056,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:24:13.310Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -13269,7 +13203,6 @@
         ]
       },
       "firstSeenAt": "2026-06-21T22:49:03.910Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -13498,7 +13431,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:01.951Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -13527,16 +13459,16 @@
       "title": "Systemingenieur:in Türsysteme",
       "titleByLocale": {
         "de": "Systemingenieur:in Türsysteme",
-        "it": "Systemingenieur:in Türsysteme",
-        "en": "Systemingenieur:in Türsysteme",
-        "fr": "Systemingenieur:in Türsysteme"
+        "it": "Ingegnere di sistema: nei sistemi di porta",
+        "en": "System Engineer: in door systems",
+        "fr": "Ingénieur système: dans les systèmes de porte"
       },
       "description": "PROFIL\n\n• Abgeschlossenes Studium auf Hochschulniveau (FH/Universität) in Systemtechnik, Mechatronik, Maschinenbau oder einer vergleichbaren Fachrichtung\n\n• Mehrjährige Berufserfahrung im Bereich Schienenfahrzeuge oder in einem industriellen Umfeld von Vorteil\n\n• Fundiertes Verständnis von mechanischen und elektrischen Systemen sowie deren Integration in komplexe Gesamtprojekte\n\n• Verhandlungssichere Deutsch- und gute Englischkenntnisse (mindestens Niveau B2) in Wort und Schrift\n\n• Hohe Eigenverantwortung und ausgeprägte Kommunikations- und Koordinationsfähigkeiten\n\nAUFGABEN\n\n• Verantwortung für die technische Begleitung des gesamten Entstehungsprozesses von Türsystemen, von der Konzeptphase bis zur Typenabnahme beim Kunden\n\n• Erhebung, Analyse und Abstimmung der kunden-, fahrzeug- und systemspezifischen Anforderungen an das Türsystem\n\n• Erstellung von Systemspezifikationen, technischen Konzepten und Lösungsansätzen unter Berücksichtigung von Kundenanforderungen, Normen und internen Standards\n\n• Koordination und Steuerung der Umsetzung des Türsystems in enger Zusammenarbeit mit internen Fachbereichen, Kunden und Lieferanten\n\n• Übernahme der vollständigen Systemverantwortung für das Türsystem hinsichtlich Funktion, Performance, Qualität, Kosten und Terminen\n\n• Sicherstellung der technischen Integration des Türsystems sowie Begleitung von Reviews, Validierungen, Tests und Freigaben über den gesamten Entwicklungsprozess",
       "descriptionByLocale": {
         "de": "PROFIL\n\n• Abgeschlossenes Studium auf Hochschulniveau (FH/Universität) in Systemtechnik, Mechatronik, Maschinenbau oder einer vergleichbaren Fachrichtung\n\n• Mehrjährige Berufserfahrung im Bereich Schienenfahrzeuge oder in einem industriellen Umfeld von Vorteil\n\n• Fundiertes Verständnis von mechanischen und elektrischen Systemen sowie deren Integration in komplexe Gesamtprojekte\n\n• Verhandlungssichere Deutsch- und gute Englischkenntnisse (mindestens Niveau B2) in Wort und Schrift\n\n• Hohe Eigenverantwortung und ausgeprägte Kommunikations- und Koordinationsfähigkeiten\n\nAUFGABEN\n\n• Verantwortung für die technische Begleitung des gesamten Entstehungsprozesses von Türsystemen, von der Konzeptphase bis zur Typenabnahme beim Kunden\n\n• Erhebung, Analyse und Abstimmung der kunden-, fahrzeug- und systemspezifischen Anforderungen an das Türsystem\n\n• Erstellung von Systemspezifikationen, technischen Konzepten und Lösungsansätzen unter Berücksichtigung von Kundenanforderungen, Normen und internen Standards\n\n• Koordination und Steuerung der Umsetzung des Türsystems in enger Zusammenarbeit mit internen Fachbereichen, Kunden und Lieferanten\n\n• Übernahme der vollständigen Systemverantwortung für das Türsystem hinsichtlich Funktion, Performance, Qualität, Kosten und Terminen\n\n• Sicherstellung der technischen Integration des Türsystems sowie Begleitung von Reviews, Validierungen, Tests und Freigaben über den gesamten Entwicklungsprozess",
-        "it": "PROFIL\n\n• Abgeschlossenes Studium auf Hochschulniveau (FH/Universität) in Systemtechnik, Mechatronik, Maschinenbau oder einer vergleichbaren Fachrichtung\n\n• Mehrjährige Berufserfahrung im Bereich Schienenfahrzeuge oder in einem industriellen Umfeld von Vorteil\n\n• Fundiertes Verständnis von mechanischen und elektrischen Systemen sowie deren Integration in komplexe Gesamtprojekte\n\n• Verhandlungssichere Deutsch- und gute Englischkenntnisse (mindestens Niveau B2) in Wort und Schrift\n\n• Hohe Eigenverantwortung und ausgeprägte Kommunikations- und Koordinationsfähigkeiten\n\nAUFGABEN\n\n• Verantwortung für die technische Begleitung des gesamten Entstehungsprozesses von Türsystemen, von der Konzeptphase bis zur Typenabnahme beim Kunden\n\n• Erhebung, Analyse und Abstimmung der kunden-, fahrzeug- und systemspezifischen Anforderungen an das Türsystem\n\n• Erstellung von Systemspezifikationen, technischen Konzepten und Lösungsansätzen unter Berücksichtigung von Kundenanforderungen, Normen und internen Standards\n\n• Koordination und Steuerung der Umsetzung des Türsystems in enger Zusammenarbeit mit internen Fachbereichen, Kunden und Lieferanten\n\n• Übernahme der vollständigen Systemverantwortung für das Türsystem hinsichtlich Funktion, Performance, Qualität, Kosten und Terminen\n\n• Sicherstellung der technischen Integration des Türsystems sowie Begleitung von Reviews, Validierungen, Tests und Freigaben über den gesamten Entwicklungsprozess",
-        "en": "PROFIL\n\n• Abgeschlossenes Studium auf Hochschulniveau (FH/Universität) in Systemtechnik, Mechatronik, Maschinenbau oder einer vergleichbaren Fachrichtung\n\n• Mehrjährige Berufserfahrung im Bereich Schienenfahrzeuge oder in einem industriellen Umfeld von Vorteil\n\n• Fundiertes Verständnis von mechanischen und elektrischen Systemen sowie deren Integration in komplexe Gesamtprojekte\n\n• Verhandlungssichere Deutsch- und gute Englischkenntnisse (mindestens Niveau B2) in Wort und Schrift\n\n• Hohe Eigenverantwortung und ausgeprägte Kommunikations- und Koordinationsfähigkeiten\n\nAUFGABEN\n\n• Verantwortung für die technische Begleitung des gesamten Entstehungsprozesses von Türsystemen, von der Konzeptphase bis zur Typenabnahme beim Kunden\n\n• Erhebung, Analyse und Abstimmung der kunden-, fahrzeug- und systemspezifischen Anforderungen an das Türsystem\n\n• Erstellung von Systemspezifikationen, technischen Konzepten und Lösungsansätzen unter Berücksichtigung von Kundenanforderungen, Normen und internen Standards\n\n• Koordination und Steuerung der Umsetzung des Türsystems in enger Zusammenarbeit mit internen Fachbereichen, Kunden und Lieferanten\n\n• Übernahme der vollständigen Systemverantwortung für das Türsystem hinsichtlich Funktion, Performance, Qualität, Kosten und Terminen\n\n• Sicherstellung der technischen Integration des Türsystems sowie Begleitung von Reviews, Validierungen, Tests und Freigaben über den gesamten Entwicklungsprozess",
-        "fr": "PROFIL\n\n• Abgeschlossenes Studium auf Hochschulniveau (FH/Universität) in Systemtechnik, Mechatronik, Maschinenbau oder einer vergleichbaren Fachrichtung\n\n• Mehrjährige Berufserfahrung im Bereich Schienenfahrzeuge oder in einem industriellen Umfeld von Vorteil\n\n• Fundiertes Verständnis von mechanischen und elektrischen Systemen sowie deren Integration in komplexe Gesamtprojekte\n\n• Verhandlungssichere Deutsch- und gute Englischkenntnisse (mindestens Niveau B2) in Wort und Schrift\n\n• Hohe Eigenverantwortung und ausgeprägte Kommunikations- und Koordinationsfähigkeiten\n\nAUFGABEN\n\n• Verantwortung für die technische Begleitung des gesamten Entstehungsprozesses von Türsystemen, von der Konzeptphase bis zur Typenabnahme beim Kunden\n\n• Erhebung, Analyse und Abstimmung der kunden-, fahrzeug- und systemspezifischen Anforderungen an das Türsystem\n\n• Erstellung von Systemspezifikationen, technischen Konzepten und Lösungsansätzen unter Berücksichtigung von Kundenanforderungen, Normen und internen Standards\n\n• Koordination und Steuerung der Umsetzung des Türsystems in enger Zusammenarbeit mit internen Fachbereichen, Kunden und Lieferanten\n\n• Übernahme der vollständigen Systemverantwortung für das Türsystem hinsichtlich Funktion, Performance, Qualität, Kosten und Terminen\n\n• Sicherstellung der technischen Integration des Türsystems sowie Begleitung von Reviews, Validierungen, Tests und Freigaben über den gesamten Entwicklungsprozess"
+        "it": "PROFESSIONALE\n\n• Laurea completa a livello universitario (FH/università) in ingegneria dei sistemi, meccatronica, ingegneria meccanica o una disciplina comparabile\n\n• Diversi anni di esperienza professionale nel settore dei veicoli ferroviari o in un ambiente industriale\n\n• Comprensione approfondita dei sistemi meccanici ed elettrici nonché la loro integrazione in progetti complessi\n\n• A prova di negoziazione tedesco e buone abilità inglesi (almeno livello B2) in parola e scrittura\n\n• Alta responsabilità personale e forti capacità di comunicazione e coordinamento\n\nTASKS\n\n• Responsabilità per il supporto tecnico dell’intero processo di sviluppo dei sistemi di porte, dalla fase di progettazione all’approvazione del tipo del cliente\n\n• Raccolta, analisi e coordinamento dei requisiti specifici del cliente, del veicolo e del sistema per il sistema delle porte\n\n• Creazione di specifiche di sistema, concetti tecnici e soluzioni tenendo conto delle esigenze del cliente, delle norme e degli standard interni\n\n• Coordinamento e controllo dell'attuazione del sistema delle porte in stretta collaborazione con i dipartimenti interni, i clienti e i fornitori\n\n• Assumendo piena responsabilità del sistema per il sistema porta in termini di funzione, prestazioni, qualità, costi e appuntamenti\n\n• Garantire l'integrazione tecnica del sistema porta e sostenere recensioni, validazioni, test e approvazioni durante tutto il processo di sviluppo",
+        "en": "PROFILE\n\n• Completed degree at university level (FH/university) in systems engineering, mechatronics, mechanical engineering or a comparable discipline\n\n• Several years of professional experience in the field of rail vehicles or in an industrial environment\n\n• In-depth understanding of mechanical and electrical systems as well as their integration into complex overall projects\n\n• Negotiation-proof German and good English skills (at least level B2) in word and writing\n\n• High personal responsibility and strong communication and coordination skills\n\nTASKS\n\n• Responsibility for the technical support of the entire development process of door systems, from the concept phase to the customer’s type approval\n\n• Collection, analysis and coordination of customer, vehicle and system-specific requirements for the door system\n\n• Creation of system specifications, technical concepts and solutions taking into account customer requirements, norms and internal standards\n\n• Coordination and control of the implementation of the door system in close cooperation with internal departments, customers and suppliers\n\n• Assuming full system responsibility for the door system in terms of function, performance, quality, costs and appointments\n\n• Ensuring the technical integration of the door system and supporting reviews, validations, tests and approvals throughout the development process",
+        "fr": "PROFIL\n\n• Diplôme universitaire (FH/universitaire) en génie des systèmes, mécatronique, génie mécanique ou discipline comparable\n\n• Plusieurs années d'expérience professionnelle dans le domaine des véhicules ferroviaires ou dans un environnement industriel\n\n• Compréhension approfondie des systèmes mécaniques et électriques ainsi que leur intégration dans des projets globaux complexes\n\n• Compétences en allemand et en anglais (au moins niveau B2) en mots et en écriture\n\n• Haute responsabilité personnelle et compétences solides en communication et en coordination\n\nTÂCHES\n\n• Responsabilité du support technique de l'ensemble du processus de développement des systèmes de porte, de la phase de concept à l'homologation de type du client\n\n• Collecte, analyse et coordination des exigences spécifiques du client, du véhicule et du système pour le système de porte\n\n• Création de spécifications du système, de concepts techniques et de solutions tenant compte des exigences du client, des normes et des normes internes\n\n• Coordination et contrôle de la mise en œuvre du système de porte en étroite collaboration avec les services internes, les clients et les fournisseurs\n\n• En assumant l'entière responsabilité du système de porte en termes de fonction, de performance, de qualité, de coûts et de nominations\n\n• Assurer l'intégration technique du système de porte et soutenir les examens, validations, essais et homologations tout au long du processus de développement"
       },
       "location": "St. Margrethen",
       "canton": "SG",
@@ -13562,7 +13494,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -13592,16 +13523,16 @@
       "title": "Sales & Project Assistant",
       "titleByLocale": {
         "en": "Sales & Project Assistant",
-        "it": "Sales & Project Assistant",
+        "it": "Sales &amp; Project Assistant",
         "de": "Sales & Project Assistent",
-        "fr": "Sales & Project Assistant"
+        "fr": "Assistant Vente & Projet"
       },
       "description": "PROFILE\n\n• Bachelor’s degree in engineering, Business Administration, or a related field, or equivalent professional experience\n\n• Initial professional experience in a comparable role is considered an advantage\n\n• Highly motivated, proactive, and flexible individual with strong organizational skills\n\n• Hands-on mentality with a strong drive to take ownership and actively contribute to achieving results\n\n• Excellent communication and interpersonal skills, with the ability to collaborate effectively across different functions\n\n• Strong conceptual and analytical thinking skills, combined with an independent and structured working style\n\n• Strong Microsoft Office skills, especially in Excel and PowerPoint, SAP-user skills are an advantage\n\n• Fluent German (minimum C1 level) and very good English language skills, both written and spoken\n\nTASKS\n\n• Preparation of tender and bid documentation\n\n• Creation of calculations, business presentations, and collection of relevant information to support sales and project activities\n\n• Preparation and analysis of monthly order intake reports\n\n• Planning, organizing, and coordinating meetings, workshops, and corporate events, including agenda preparation\n\n• Preparation and consolidation of monthly order review documentation\n\n• Monitoring and controlling project budgets on a monthly basis in close collaboration with the Project Management team\n\n• Management and maintenance of project-related data, documentation, and records to ensure accuracy, traceability, and compliance",
       "descriptionByLocale": {
         "en": "PROFILE\n\n• Bachelor’s degree in engineering, Business Administration, or a related field, or equivalent professional experience\n\n• Initial professional experience in a comparable role is considered an advantage\n\n• Highly motivated, proactive, and flexible individual with strong organizational skills\n\n• Hands-on mentality with a strong drive to take ownership and actively contribute to achieving results\n\n• Excellent communication and interpersonal skills, with the ability to collaborate effectively across different functions\n\n• Strong conceptual and analytical thinking skills, combined with an independent and structured working style\n\n• Strong Microsoft Office skills, especially in Excel and PowerPoint, SAP-user skills are an advantage\n\n• Fluent German (minimum C1 level) and very good English language skills, both written and spoken\n\nTASKS\n\n• Preparation of tender and bid documentation\n\n• Creation of calculations, business presentations, and collection of relevant information to support sales and project activities\n\n• Preparation and analysis of monthly order intake reports\n\n• Planning, organizing, and coordinating meetings, workshops, and corporate events, including agenda preparation\n\n• Preparation and consolidation of monthly order review documentation\n\n• Monitoring and controlling project budgets on a monthly basis in close collaboration with the Project Management team\n\n• Management and maintenance of project-related data, documentation, and records to ensure accuracy, traceability, and compliance",
-        "it": "PROFILE\n\n• Bachelor’s degree in engineering, Business Administration, or a related field, or equivalent professional experience\n\n• Initial professional experience in a comparable role is considered an advantage\n\n• Highly motivated, proactive, and flexible individual with strong organizational skills\n\n• Hands-on mentality with a strong drive to take ownership and actively contribute to achieving results\n\n• Excellent communication and interpersonal skills, with the ability to collaborate effectively across different functions\n\n• Strong conceptual and analytical thinking skills, combined with an independent and structured working style\n\n• Strong Microsoft Office skills, especially in Excel and PowerPoint, SAP-user skills are an advantage\n\n• Fluent German (minimum C1 level) and very good English language skills, both written and spoken\n\nTASKS\n\n• Preparation of tender and bid documentation\n\n• Creation of calculations, business presentations, and collection of relevant information to support sales and project activities\n\n• Preparation and analysis of monthly order intake reports\n\n• Planning, organizing, and coordinating meetings, workshops, and corporate events, including agenda preparation\n\n• Preparation and consolidation of monthly order review documentation\n\n• Monitoring and controlling project budgets on a monthly basis in close collaboration with the Project Management team\n\n• Management and maintenance of project-related data, documentation, and records to ensure accuracy, traceability, and compliance",
-        "de": "PROFILE\n\n• Bachelor’s degree in engineering, Business Administration, or a related field, or equivalent professional experience\n\n• Initial professional experience in a comparable role is considered an advantage\n\n• Highly motivated, proactive, and flexible individual with strong organizational skills\n\n• Hands-on mentality with a strong drive to take ownership and actively contribute to achieving results\n\n• Excellent communication and interpersonal skills, with the ability to collaborate effectively across different functions\n\n• Strong conceptual and analytical thinking skills, combined with an independent and structured working style\n\n• Strong Microsoft Office skills, especially in Excel and PowerPoint, SAP-user skills are an advantage\n\n• Fluent German (minimum C1 level) and very good English language skills, both written and spoken\n\nTASKS\n\n• Preparation of tender and bid documentation\n\n• Creation of calculations, business presentations, and collection of relevant information to support sales and project activities\n\n• Preparation and analysis of monthly order intake reports\n\n• Planning, organizing, and coordinating meetings, workshops, and corporate events, including agenda preparation\n\n• Preparation and consolidation of monthly order review documentation\n\n• Monitoring and controlling project budgets on a monthly basis in close collaboration with the Project Management team\n\n• Management and maintenance of project-related data, documentation, and records to ensure accuracy, traceability, and compliance",
-        "fr": "PROFILE\n\n• Bachelor’s degree in engineering, Business Administration, or a related field, or equivalent professional experience\n\n• Initial professional experience in a comparable role is considered an advantage\n\n• Highly motivated, proactive, and flexible individual with strong organizational skills\n\n• Hands-on mentality with a strong drive to take ownership and actively contribute to achieving results\n\n• Excellent communication and interpersonal skills, with the ability to collaborate effectively across different functions\n\n• Strong conceptual and analytical thinking skills, combined with an independent and structured working style\n\n• Strong Microsoft Office skills, especially in Excel and PowerPoint, SAP-user skills are an advantage\n\n• Fluent German (minimum C1 level) and very good English language skills, both written and spoken\n\nTASKS\n\n• Preparation of tender and bid documentation\n\n• Creation of calculations, business presentations, and collection of relevant information to support sales and project activities\n\n• Preparation and analysis of monthly order intake reports\n\n• Planning, organizing, and coordinating meetings, workshops, and corporate events, including agenda preparation\n\n• Preparation and consolidation of monthly order review documentation\n\n• Monitoring and controlling project budgets on a monthly basis in close collaboration with the Project Management team\n\n• Management and maintenance of project-related data, documentation, and records to ensure accuracy, traceability, and compliance"
+        "it": "PROFESSIONALE\n\n• Laurea in ingegneria, amministrazione aziendale, o un campo correlato, o equivalente esperienza professionale\n\n• L'esperienza professionale iniziale in un ruolo comparabile è considerata un vantaggio\n\n• Altamente motivato, proattivo e flessibile individuo con forti capacità organizzative\n\n• mentalità Hands-on con un forte sforzo di prendere la proprietà e contribuire attivamente al raggiungimento dei risultati\n\n• Ottima comunicazione e competenze interpersonali, con la capacità di collaborare efficacemente attraverso diverse funzioni\n\n• Forte capacità di pensiero concettuale e analitico, combinata con uno stile di lavoro indipendente e strutturato\n\n• Forte competenze Microsoft Office, soprattutto in Excel e PowerPoint, le competenze SAP-utente sono un vantaggio\n\n• Tedesco fluente (livello minimo C1) e ottime capacità di lingua inglese, sia scritte che parlate\n\nTASKS\n\n• Preparazione dell'offerta e documentazione dell'offerta\n\n• Creazione di calcoli, presentazioni aziendali e raccolta di informazioni rilevanti per sostenere le attività di vendita e progetto\n\n• Preparazione e analisi delle relazioni mensili di immissione degli ordini\n\n• Pianificazione, organizzazione e coordinamento di incontri, workshop e eventi aziendali, compresa la preparazione dell'agenda\n\n• Preparazione e consolidamento della documentazione mensile di revisione dell'ordine\n\n• Monitoraggio e controllo dei bilanci dei progetti su base mensile in stretta collaborazione con il team Project Management\n\n• Gestione e manutenzione dei dati relativi al progetto, documentazione e record per garantire accuratezza, tracciabilità e conformità",
+        "de": "PROFIL\n\n• Bachelor-Abschluss in Ingenieurwissenschaften, Betriebswirtschaft oder einem verwandten Bereich oder gleichwertige Berufserfahrung\n\n• Erste Berufserfahrung in einer vergleichbaren Rolle gilt als Vorteil\n\n• Hochmotivierte, proaktive und flexible Person mit starken organisatorischen Fähigkeiten\n\n• Hands-on-Mentalität mit einem starken Antrieb, Verantwortung zu übernehmen und aktiv dazu beizutragen, Ergebnisse zu erzielen\n\n• Hervorragende Kommunikation und zwischenmenschliche Fähigkeiten mit der Fähigkeit, effektiv über verschiedene Funktionen hinweg zusammenzuarbeiten\n\n• Starke konzeptionelle und analytische Denkfähigkeiten, kombiniert mit einem unabhängigen und strukturierten Arbeitsstil\n\n• Starke Microsoft Office-Fähigkeiten, insbesondere in Excel und PowerPoint, SAP-Benutzerkenntnisse sind von Vorteil\n\n• Fließendes Deutsch (Mindestniveau C1) und sehr gute Englischkenntnisse, sowohl geschrieben als auch gesprochen\n\nAUFGABEN\n\n• Erstellung der Ausschreibungs- und Angebotsunterlagen\n\n• Erstellung von Berechnungen, Geschäftspräsentationen und Sammlung relevanter Informationen zur Unterstützung von Vertriebs- und Projektaktivitäten\n\n• Erstellung und Analyse der monatlichen Auftragseingangsberichte\n\n• Planung, Organisation und Koordination von Meetings, Workshops und Firmenveranstaltungen, einschließlich der Vorbereitung von Agendas\n\n• Erstellung und Konsolidierung der monatlichen Auftragsüberprüfungsdokumentation\n\n• Monitoring und Controlling von Projektbudgets monatlich in enger Zusammenarbeit mit dem Projektmanagement-Team\n\n• Verwaltung und Pflege von projektbezogenen Daten, Dokumentationen und Aufzeichnungen zur Gewährleistung von Genauigkeit, Rückverfolgbarkeit und Compliance",
+        "fr": "PROFIL\n\n• Baccalauréat en ingénierie, administration des affaires, ou un domaine connexe, ou une expérience professionnelle équivalente\n\n• L'expérience professionnelle initiale dans un rôle comparable est considérée comme un avantage\n\n• Individuel très motivé, proactif et flexible possédant de solides compétences organisationnelles\n\n• La mentalité pratique avec une forte volonté d'appropriation et de contribuer activement à l'obtention de résultats\n\n• Excellente communication et aptitudes interpersonnelles, avec la capacité de collaborer efficacement entre différentes fonctions\n\n• Forte capacité de réflexion conceptuelle et analytique, combinée à un style de travail indépendant et structuré\n\n• Fortes compétences Microsoft Office, en particulier dans Excel et PowerPoint, les compétences SAP-utilisateur sont un avantage\n\n• L'allemand (niveau minimum C1) et de très bonnes compétences en anglais, à la fois écrites et parlées\n\nTÂCHES\n\n• Préparation de la documentation relative aux offres et aux soumissions\n\n• Création de calculs, présentations d'affaires et collecte d'informations pertinentes pour soutenir les ventes et les activités de projet\n\n• Préparation et analyse des rapports mensuels de réception des commandes\n\n• Planification, organisation et coordination de réunions, d'ateliers et de manifestations d'entreprise, y compris la préparation de l'ordre du jour\n\n• Préparation et regroupement de la documentation mensuelle sur l'examen des commandes\n\n• Suivi et contrôle mensuels des budgets des projets en étroite collaboration avec l'équipe de gestion de projet\n\n• Gestion et tenue à jour des données, des documents et des dossiers liés au projet pour assurer l'exactitude, la traçabilité et la conformité"
       },
       "location": "Wallisellen",
       "canton": "ZH",
@@ -13627,7 +13558,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -13786,7 +13716,25 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-business-partner-stadler-rail-ch",
+          "partenaire-d-affaires-rh-stadler-rail-winterthur",
+          "hr-business-partner-stadler-rail-winterthur"
+        ],
+        "de": [
+          "hr-business-partner-stadler-rail-ch"
+        ],
+        "fr": [
+          "partenaire-d-affaires-rh-stadler-rail-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "hr-business-partner-stadler-rail-ch",
+        "partenaire-d-affaires-rh-stadler-rail-winterthur",
+        "hr-business-partner-stadler-rail-winterthur"
+      ]
     },
     {
       "id": "stadler-rail-4ae491879948",
@@ -14120,9 +14068,9 @@
       "slug": "servizio-clienti-coordinatore-stadler-rail-wallisellen",
       "slugByLocale": {
         "de": "customer-service-coordinator-stadler-rail-ch",
-        "it": "servizio-clienti-coordinatore-stadler-rail-wallisellen",
+        "it": "customer-service-coordinator-stadler-rail-ch-2",
         "en": "customer-service-coordinator-stadler-rail-ch-2",
-        "fr": "service-client-coordinateur-stadler-rail-wallisellen"
+        "fr": "customer-service-coordinator-stadler-rail-ch-2"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -14168,7 +14116,7 @@
       "previousSlugsByLocale": {
         "it": [
           "customer-service-coordinator-stadler-rail-ch",
-          "customer-service-coordinator-stadler-rail-ch-2"
+          "servizio-clienti-coordinatore-stadler-rail-wallisellen"
         ],
         "fr": [
           "customer-service-coordinator-stadler-rail-ch-2",
@@ -14178,6 +14126,7 @@
       "previousSlugs": [
         "customer-service-coordinator-stadler-rail-ch",
         "customer-service-coordinator-stadler-rail-ch-2",
+        "servizio-clienti-coordinatore-stadler-rail-wallisellen",
         "service-client-coordinateur-stadler-rail-wallisellen"
       ],
       "salaryMin": 73500,

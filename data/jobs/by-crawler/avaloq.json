@@ -30,7 +30,7 @@
         "it": "Senior Business Analista - Financial Instruments Data",
         "en": "Senior Business Analyst - Financial Instruments Data",
         "fr": "Senior Business Analyste - Financial Instruments Data",
-        "de": "Senior Business Analyst - Financial Instruments Data"
+        "de": "Senior Business Analyst - Finanzinstrumente Daten"
       },
       "descriptionByLocale": {
         "it": "Senior Business Analyst - Financial Instruments Data",
@@ -57,7 +57,15 @@
         }
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-21T23:12:14.019Z"
+      "firstSeenAt": "2026-07-21T23:12:14.019Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-business-analista-financial-instruments-data-avaloq-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-business-analista-financial-instruments-data-avaloq-zurich"
+      ]
     },
     {
       "title": "HR Projects & Business Management Lead",
@@ -197,8 +205,7 @@
         }
       },
       "streetAddress": "Via Industria 1",
-      "firstSeenAt": "2026-07-06T22:35:18.217Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-07-06T22:35:18.217Z"
     },
     {
       "title": "AI Software Engineer",
@@ -719,7 +726,7 @@
         "it": "solution-consulente-avaloq-zurich",
         "en": "solution-consultant-avaloq-zurich",
         "de": "solution-berater-avaloq-zurich",
-        "fr": "conseiller-en-solutions-avaloq-zurich"
+        "fr": "solution-consultant-avaloq-zurich"
       },
       "id": "avaloq-4c138311e50e",
       "salaryMin": 51500,
@@ -739,7 +746,8 @@
       "firstSeenAt": "2026-05-18T11:52:44.678Z",
       "previousSlugs": [
         "consulente-della-soluzione-avaloq-zurich",
-        "solution-consultant-avaloq-zurich"
+        "solution-consultant-avaloq-zurich",
+        "conseiller-en-solutions-avaloq-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -749,7 +757,8 @@
           "solution-consultant-avaloq-zurich"
         ],
         "fr": [
-          "solution-consultant-avaloq-zurich"
+          "solution-consultant-avaloq-zurich",
+          "conseiller-en-solutions-avaloq-zurich"
         ]
       }
     },
@@ -889,8 +898,7 @@
       },
       "previousSlugs": [
         "head-of-financial-planning-analysis-and-controlling-avaloq-zurich"
-      ],
-      "needsRetranslation": true
+      ]
     }
   ]
 }
