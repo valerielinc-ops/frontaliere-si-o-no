@@ -1099,16 +1099,25 @@ export function borderMunicipalityPagesPlugin(rootDir: string): Plugin {
       // Explicit major GC checkpoint (established pattern — see
       // jobsSeoPagesPlugin.ts's cache-clear + gc() before its own heavier
       // write/flush phases; NODE_OPTIONS=--expose-gc is set in `build:ci`,
-      // see package.json). The loop above renders `municipalities.length *
-      // LOCALES.length` full pages up front, each a large tree of
-      // template-literal HTML plus hydration JSON — all of it garbage the
-      // instant renderPage() returns, but nothing forces V8 to reclaim it
-      // before the flush below starts its own disk-write allocations. This
-      // plugin has been observed as the last logged plugin before an OOM
-      // (build-locale(it) run 88762670606, exit 143 "runner received a
-      // shutdown signal") on a run where it shares the ~11 GB closeBundle
-      // RSS plateau with static-pages and other SSG plugins — freeing this
-      // loop's dead state before the flush trims the peak this plugin adds.
+      // see package.json). NOTE on what this actually reclaims: the final
+      // `rendered.html` strings themselves are NOT garbage here — they're
+      // live, referenced by `collector`'s internal Map (2560 entries,
+      // `municipalities.length * LOCALES.length * 2` paths, all still below
+      // WriteCollector's 5000-entry auto-flush threshold so none of them
+      // have flushed yet) and stay that way until collector.flush() below
+      // runs. What this gc() DOES free is the substantial *intermediate*
+      // garbage renderPage() sheds per call and never retains — breadcrumb
+      // arrays, `estimateCommute`/`nearestCrossings` distance-calc arrays,
+      // the hydration-data object before its `safeJson()` stringify, the
+      // scenario/FAQ template strings folded into the final HTML — across
+      // 1280 renders that's a lot of short-lived allocation with no
+      // checkpoint forcing V8 to sweep it before flush() starts its own
+      // work. This plugin has been observed as the last logged plugin
+      // before an OOM (build-locale(it) run 88762670606, exit 143 "runner
+      // received a shutdown signal") on a run where it shares the ~11 GB
+      // closeBundle RSS plateau with static-pages and other SSG plugins —
+      // freeing the loop's non-retained garbage here trims the peak this
+      // plugin adds on top of that shared plateau.
       if (typeof (globalThis as { gc?: () => void }).gc === 'function') {
         (globalThis as { gc: () => void }).gc();
       }

@@ -5040,6 +5040,19 @@ ${hrefTags}
  // mirrors the same order of magnitude as WriteCollector's own 5000-entry
  // auto-flush threshold (batchWrite.ts) without adding a full-GC pause on
  // every single iteration.
+ //
+ // Caveat: 2000 and 5000 aren't coprime-free of overlap, so this blocking
+ // gc() can occasionally land close to a background auto-flush spawned by
+ // `collector.add()` crossing its own threshold. They don't race in the
+ // data sense — flushWrites() closes over an already-snapshotted batch
+ // array and writes via fs.promises (libuv thread pool, off the JS main
+ // thread), so gc() can't corrupt or duplicate a write. The realistic
+ // downside is additive, not multiplicative: a synchronous gc() pause
+ // blocks the event loop, which can momentarily delay the background
+ // flush's own `.then()`/`.finally()` bookkeeping until the pause ends —
+ // a small extra stall, not a collision. If this turns out to cost more
+ // wall-time than expected, that's covered by this PR's revert-trigger
+ // (see PR body `## Non implementato`), not something to guess about here.
  if ((count + skipped) % 2000 === 0 && typeof (globalThis as { gc?: () => void }).gc === 'function') {
    (globalThis as { gc: () => void }).gc();
  }
