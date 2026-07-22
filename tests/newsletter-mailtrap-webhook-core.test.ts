@@ -160,6 +160,26 @@ describe('newsletterMailtrapWebhookCore — job alert bounce handling', () => {
   });
 });
 
+describe('newsletterMailtrapWebhookCore — suppression (account-level suspension)', () => {
+  it('stamps suppressed_at alongside status=suppressed, same as the unsubscribed_at/complained_at siblings', async () => {
+    const db = createFakeDb();
+
+    const result = await persistMailtrapEvent(db as any, {
+      event: 'suspension',
+      email: 'fullmailbox@example.com',
+      message_id: 'm-suspend',
+      timestamp: 1700000300,
+    });
+
+    expect(result).toMatchObject({ processed: true, type: 'suppressed' });
+    const subscriberSet = db.__sets.find(
+      (s) => s.collection === 'newsletter_subscribers' && s.docId === 'fullmailbox@example.com',
+    );
+    expect(subscriberSet!.data.status).toBe('suppressed');
+    expect(subscriberSet!.data.suppressed_at).toBeTruthy();
+  });
+});
+
 describe('newsletterMailtrapWebhookCore — malformed "Name <email>" recipient (root-cause fix)', () => {
   it('keys the subscriber doc by the bare address, not the raw "Name <email>" string', async () => {
     const db = createFakeDb();

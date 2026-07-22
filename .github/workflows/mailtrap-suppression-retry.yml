@@ -1,0 +1,97 @@
+name: Mailtrap Suppression Retry
+
+# Mailtrap permanently suppresses an address on the first "hard bounce" it
+# sees — but the dominant real-world cause (live-verified via Mailtrap's own
+# Suppressions API) is `message_bounce_category: "Over quota"`, i.e. a full
+# mailbox (SMTP 4.2.2), which is a TEMPORARY condition Mailtrap never
+# auto-retries. Eligibility is decided from OUR OWN Firestore data only
+# (grace period since our own suppressed_at) — Mailtrap's Suppressions API
+# proved unreliable at listing/classifying the backlog when tested live (see
+# scripts/lib/mailtrapSuppressionRetry.mjs) and is used only best-effort, per
+# eligible address, to remove the provider-side block. Capped per run
+# (MAX_REACTIVATIONS_PER_RUN) so the current ~2k backlog drains gradually
+# across several weekly runs instead of resending to everyone at once.
+on:
+  schedule:
+    # Weekly, Wednesday 04:21 UTC — clear of newsletter-sunset (Mon 04:11),
+    # job-alert-sunset (Mon 04:00), and the daily newsletter send (03:33 UTC).
+    - cron: '21 4 * * 3'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'dry-run (default) or apply'
+        required: false
+        default: 'dry-run'
+        type: choice
+        options:
+          - dry-run
+          - apply
+
+permissions:
+  contents: read
+  issues: write
+
+# Never overlap with itself (paginates + mutates provider state + Firestore).
+concurrency:
+  group: mailtrap-suppression-retry
+  cancel-in-progress: false
+
+jobs:
+  retry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "❌ FIREBASE_SERVICE_ACCOUNT_JSON missing"
+            exit 1
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Run suppression retry
+        env:
+          # Scheduled runs apply; manual runs use the chosen mode (default
+          # dry-run — safe to inspect before acting).
+          MODE: ${{ github.event_name == 'schedule' && 'apply' || inputs.mode || 'dry-run' }}
+        run: |
+          echo "📨 Mailtrap suppression retry mode=$MODE"
+          case "$MODE" in
+            apply) node scripts/mailtrap-suppression-retry.mjs --apply ;;
+            *)     node scripts/mailtrap-suppression-retry.mjs ;;
+          esac
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
