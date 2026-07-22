@@ -8845,6 +8845,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-numeri-in-calo.title': 'Frontier, numbers falling in Ticino in the first three months of the year',
     'blog.article.frontalieri-ticino-numeri-in-calo.excerpt': '78,562 border workers registered in Ticino in the first three months of the year, down 0.2% compared to the previous quarter and 0.5% compared to the same period of the previous year.',
     'blog.article.frontalieri-ticino-numeri-in-calo.imageAlt': 'A frontaliere in autostrada',
+    'blog.article.tragedia-lavoro-blenio-aquila.title': 'Tragedy at work in Blenio: the details of the accident',
+    'blog.article.tragedia-lavoro-blenio-aquila.excerpt': 'A 67-year-old man lost his life in an accident at work in Aquila di Blenio. This is the second tragic event in a few days in the same area.',
+    'blog.article.tragedia-lavoro-blenio-aquila.imageAlt': 'Mountain landscape in the Blenio Valley, Ticino',
 };
 
 export default blogMetaEn;

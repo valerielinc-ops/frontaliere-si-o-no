@@ -8846,6 +8846,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-numeri-in-calo.title': 'Frontalieri, numeri in calo in Ticino nei primi tre mesi dell\'anno',
     'blog.article.frontalieri-ticino-numeri-in-calo.excerpt': '78.562 frontalieri registrati in Ticino nei primi tre mesi dell\'anno, in calo dello 0,2% rispetto al trimestre precedente e dello 0,5% rispetto allo stesso periodo dell\'anno precedente.',
     'blog.article.frontalieri-ticino-numeri-in-calo.imageAlt': 'Un frontaliere in autostrada',
+    'blog.article.tragedia-lavoro-blenio-aquila.title': 'Tragedia sul lavoro a Blenio: i dettagli dell\'incidente',
+    'blog.article.tragedia-lavoro-blenio-aquila.excerpt': 'Un 67enne ha perso la vita in un infortunio sul lavoro ad Aquila di Blenio. Si tratta del secondo tragico evento in pochi giorni nel medesimo comprensorio.',
+    'blog.article.tragedia-lavoro-blenio-aquila.imageAlt': 'Paesaggio montano nella Valle di Blenio, Ticino',
 };
 
 export default blogMetaIt;

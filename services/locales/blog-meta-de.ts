@@ -8844,6 +8844,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-ticino-numeri-in-calo.title': 'Grenzgänger, Zahlen sinken im Tessin in den ersten drei Monaten des Jahres',
     'blog.article.frontalieri-ticino-numeri-in-calo.excerpt': '78.562 registrierte Grenzgänger im Tessin in den ersten drei Monaten des Jahres, was einem Rückgang von 0,2% gegenüber dem Vorquartal und 0,5% gegenüber dem gleichen Zeitraum des Vorjahres entspricht.',
     'blog.article.frontalieri-ticino-numeri-in-calo.imageAlt': 'Ein Frontalier auf der Autobahn',
+    'blog.article.tragedia-lavoro-blenio-aquila.title': 'Tragödie bei der Arbeit in Blenio: Die Details des Unfalls',
+    'blog.article.tragedia-lavoro-blenio-aquila.excerpt': 'Ein 67-Jähriger kam bei einem Arbeitsunfall in Aquila di Blenio ums Leben. Es ist das zweite tragische Ereignis innerhalb weniger Tage im selben Gebiet.',
+    'blog.article.tragedia-lavoro-blenio-aquila.imageAlt': 'Berglandschaft im Bleniotal, Tessin',
 };
 
 export default blogMetaDe;

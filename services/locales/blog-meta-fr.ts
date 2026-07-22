@@ -8847,6 +8847,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-numeri-in-calo.title': 'Frontaliers en baisse au Tessin',
     'blog.article.frontalieri-ticino-numeri-in-calo.excerpt': '78 562 frontaliers enregistrés au Tessin au cours des trois premiers mois de l\'année, en baisse de 0,2 % par rapport au trimestre précédent et de 0,5 % par rapport à la même période de l\'année précédente.',
     'blog.article.frontalieri-ticino-numeri-in-calo.imageAlt': 'Un frontalière en autoroute',
+    'blog.article.tragedia-lavoro-blenio-aquila.title': 'Tragédie au travail à Blenio : les détails de l\'accident',
+    'blog.article.tragedia-lavoro-blenio-aquila.excerpt': 'Un homme de 67 ans a perdu la vie dans un accident du travail à Aquila di Blenio. Il s\'agit du deuxième événement tragique en quelques jours dans le même quartier.',
+    'blog.article.tragedia-lavoro-blenio-aquila.imageAlt': 'Paysage de montagne dans la vallée de Blenio, Tessin',
 };
 
 export default blogMetaFr;
