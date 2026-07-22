@@ -11398,5 +11398,119 @@
         "pending": 2
       }
     ]
+  },
+  {
+    "timestamp": "2026-07-22T13:36:52.118Z",
+    "label": "before",
+    "total": 24673,
+    "needsRetranslation": 1523,
+    "suppressed": 35,
+    "incomplete": 96,
+    "complete": 24577,
+    "missingByLocale": {
+      "it": 60,
+      "en": 31,
+      "de": 41,
+      "fr": 43
+    },
+    "topPending": [
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 19
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 4
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Sulzer",
+        "pending": 3
+      },
+      {
+        "company": "Avaloq",
+        "pending": 2
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-22T15:03:48.544Z",
+    "label": "after",
+    "total": 24673,
+    "needsRetranslation": 1194,
+    "suppressed": 37,
+    "incomplete": 95,
+    "complete": 24578,
+    "missingByLocale": {
+      "it": 60,
+      "en": 31,
+      "de": 39,
+      "fr": 43
+    },
+    "topPending": [
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 19
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 4
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Sulzer",
+        "pending": 3
+      },
+      {
+        "company": "Avaloq",
+        "pending": 2
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      }
+    ]
   }
 ]
