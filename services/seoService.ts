@@ -4825,6 +4825,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-ticino-dati-2026': { name: 'Statistiche frontalieri', path: '/articoli-svizzera/frontalieri-ticino-dati-2026/', parent: 'blog' },
     'blog-frontalieri-ticino-numeri-in-calo': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-ticino-numeri-in-calo', parent: 'blog' },
     'blog-tragedia-lavoro-blenio-aquila': { name: 'Cronaca Ticino', path: '/articoli-frontaliere/tragedia-lavoro-blenio-aquila', parent: 'blog' },
+    'blog-auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato': { name: 'Di più Auto', path: '/articoli-svizzera/auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -1447,6 +1447,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-dati-2026.title': 'Border workers in Ticino: data for the first quarter of 2026',
     'blog.article.frontalieri-ticino-dati-2026.excerpt': 'Ticino recorded a slight contraction in border crossers (-0.2%), while at the Swiss level a constant growth of 1.9% was confirmed.',
     'blog.article.frontalieri-ticino-dati-2026.imageAlt': 'Panoramic view of Lugano and its lake on a sunny day',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.title': 'More Cars: new market does not take off, Swiss prefer second-hand',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.excerpt': 'The Swiss market for new cars remains essentially unchanged. The increase in electric car registrations is not taking off.',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.imageAlt': 'Electric car in a parking lot in Lugano.',
 };
 
 export default blogMetaChEn;
