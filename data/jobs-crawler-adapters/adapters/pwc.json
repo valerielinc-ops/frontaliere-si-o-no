@@ -11,13 +11,13 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-07-21T22:08:45.398Z",
+  "updatedAt": "2026-07-22T11:40:41.467Z",
   "seedMetaByUrl": {
-    "https://jobs.pwc.ch/job-vacancies/assistant-comptable/22f2c1ed-4659-41ec-b8c1-f3d6a0338bf1": {
+    "https://jobs.pwc.ch/job-vacancies/assistant-comptable/ed7aeb13-a4cc-4722-9a8f-2d6c5d1c7e0f": {
       "location": "Lausanne",
       "canton": "VD",
       "company": "PwC Switzerland",
-      "postedDate": "2026-07-20"
+      "postedDate": "2026-07-22"
     },
     "https://jobs.pwc.ch/job-vacancies/associate-senior-associate-beratung-gesundheitswesen/5f922783-5f07-45ba-a861-84f1bf827d83": {
       "location": "Bern",
@@ -466,12 +466,6 @@
     "https://jobs.pwc.ch/job-vacancies/senior-associate-assistant-manager-audit-trade-industries-services/f0e7ad7e-a4c2-4b53-bb46-a87d942985e5": {
       "location": "Zug",
       "canton": "ZG",
-      "company": "PwC Switzerland",
-      "postedDate": "2025-09-24"
-    },
-    "https://jobs.pwc.ch/job-vacancies/stagiaire-mpc-3+1-service-et-administration/4b9a55f3-840f-4263-80da-91eb0235a0a7": {
-      "location": "Lausanne",
-      "canton": "VD",
       "company": "PwC Switzerland",
       "postedDate": "2025-09-24"
     },
