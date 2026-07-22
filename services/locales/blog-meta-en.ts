@@ -8848,6 +8848,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tragedia-lavoro-blenio-aquila.title': 'Tragedy at work in Blenio: the details of the accident',
     'blog.article.tragedia-lavoro-blenio-aquila.excerpt': 'A 67-year-old man lost his life in an accident at work in Aquila di Blenio. This is the second tragic event in a few days in the same area.',
     'blog.article.tragedia-lavoro-blenio-aquila.imageAlt': 'Mountain landscape in the Blenio Valley, Ticino',
+    'blog.article.dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.title': 'Wage data of frontier workers in tax returns',
+    'blog.article.dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.excerpt': 'According to the source, the salary data of the old frontier workers will be included in the tax return.',
+    'blog.article.dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.imageAlt': 'Panorama of Lake Lugano',
 };
 
 export default blogMetaEn;
