@@ -8842,6 +8842,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-telelavoro-ratifica-accordo.title': 'Telework for border workers: agreement ratified',
     'blog.article.frontalieri-telelavoro-ratifica-accordo.excerpt': 'The Council of Ministers has approved the DdL for teleworking: border workers will be able to work from home up to 25% without losing their status.',
     'blog.article.frontalieri-telelavoro-ratifica-accordo.imageAlt': 'Home office of a cross-border worker with a view of Lake Lugano',
+    'blog.article.frontalieri-ticino-numeri-in-calo.title': 'Frontier, numbers falling in Ticino in the first three months of the year',
+    'blog.article.frontalieri-ticino-numeri-in-calo.excerpt': '78,562 border workers registered in Ticino in the first three months of the year, down 0.2% compared to the previous quarter and 0.5% compared to the same period of the previous year.',
+    'blog.article.frontalieri-ticino-numeri-in-calo.imageAlt': 'A frontaliere in autostrada',
 };
 
 export default blogMetaEn;

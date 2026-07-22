@@ -8843,6 +8843,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-telelavoro-ratifica-accordo.title': 'Telelavoro per frontalieri: ratificato l\'accordo',
     'blog.article.frontalieri-telelavoro-ratifica-accordo.excerpt': 'Il Consiglio dei Ministri ha approvato il DdL per il telelavoro: i frontalieri potranno lavorare da casa fino al 25% senza perdere lo status.',
     'blog.article.frontalieri-telelavoro-ratifica-accordo.imageAlt': 'Ufficio domestico di un frontaliere con vista sul Lago di Lugano',
+    'blog.article.frontalieri-ticino-numeri-in-calo.title': 'Frontalieri, numeri in calo in Ticino nei primi tre mesi dell\'anno',
+    'blog.article.frontalieri-ticino-numeri-in-calo.excerpt': '78.562 frontalieri registrati in Ticino nei primi tre mesi dell\'anno, in calo dello 0,2% rispetto al trimestre precedente e dello 0,5% rispetto allo stesso periodo dell\'anno precedente.',
+    'blog.article.frontalieri-ticino-numeri-in-calo.imageAlt': 'Un frontaliere in autostrada',
 };
 
 export default blogMetaIt;
