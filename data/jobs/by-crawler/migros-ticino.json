@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migros-ticino",
-  "assembledAt": "2026-07-22T12:26:49.766Z",
+  "assembledAt": "2026-07-22T10:35:30.801Z",
   "jobs": [
     {
       "id": "company-mwe1ur",
@@ -92,95 +92,6 @@
       },
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "country": "CH"
-    },
-    {
-      "id": "company-wnug04",
-      "slug": "applicazione-non-richiesta-groupe-micarna-courtepin",
-      "company": "groupe Micarna",
-      "title": "Candidature spontanée",
-      "location": "Courtepin",
-      "canton": "FR",
-      "category": "other",
-      "contract": "full-time",
-      "currency": "CHF",
-      "description": "Tu es convaincu(e) que tes compétences et/ou ton expérience correspondent à l’univers de Micarna ? Même si aucun poste correspondant n’est actuellement vacant, n’hésite pas à nous envoyer ta candidature spontanée. Nous serons ravis de découvrir ton profil !\n\n## Mansioni\n- Collaboration avec le leader de la production de viande\n\n## Requisiti\n- Tu es très motivé et tu recherches un défi dans une entreprise de production\n- Formation initiale ou continue complétée\n- Français (Bonnes connaissances)\n\n## Contatto\n## Candidature et contact André Teixeira Rodrigues",
-      "requirements": [
-        "Tu es très motivé et tu recherches un défi dans une entreprise de production",
-        "Formation initiale ou continue complétée",
-        "Français (Bonnes connaissances)"
-      ],
-      "featured": false,
-      "postedDate": "2026-07-22",
-      "url": "https://jobs.migros.ch/fr/nos-entreprises/job/groupe-micarna/candidature-spontanee/70774cd8-ff94-4623-86f9-6585717706dd",
-      "source": "Company Careers Crawler",
-      "_migrosResponsibilities": [
-        "Collaboration avec le leader de la production de viande"
-      ],
-      "_migrosBenefits": [],
-      "_migrosWorkPercentage": "",
-      "companyKey": "migros-ticino",
-      "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-22T12:25:35.969Z",
-      "firstSeenAt": "2026-07-22T12:25:35.969Z",
-      "slugByLocale": {
-        "de": "candidature-spontanee-groupe-micarna-courtepin",
-        "en": "candidature-spontanee-groupe-micarna-courtepin",
-        "fr": "candidature-spontanee-groupe-micarna-courtepin-wnug04",
-        "it": "applicazione-non-richiesta-groupe-micarna-courtepin"
-      },
-      "titleByLocale": {
-        "fr": "Candidature spontanée",
-        "it": "Candidature spontanée",
-        "en": "Candidature spontanée",
-        "de": "Candidature spontanée"
-      },
-      "descriptionByLocale": {
-        "fr": "Tu es convaincu(e) que tes compétences et/ou ton expérience correspondent à l’univers de Micarna ? Même si aucun poste correspondant n’est actuellement vacant, n’hésite pas à nous envoyer ta candidature spontanée. Nous serons ravis de découvrir ton profil !\n\n## Mansioni\n- Collaboration avec le leader de la production de viande\n\n## Requisiti\n- Tu es très motivé et tu recherches un défi dans une entreprise de production\n- Formation initiale ou continue complétée\n- Français (Bonnes connaissances)\n\n## Contatto\n## Candidature et contact André Teixeira Rodrigues",
-        "it": "Tu es convaincu(e) que tes compétences et/ou ton expérience correspondent à l’univers de Micarna ? Même si aucun poste correspondant n’est actuellement vacant, n’hésite pas à nous envoyer ta candidature spontanée. Nous serons ravis de découvrir ton profil !\n\n## Mansioni\n- Collaboration avec le leader de la production de viande\n\n## Requisiti\n- Tu es très motivé et tu recherches un défi dans une entreprise de production\n- Formation initiale ou continue complétée\n- Français (Bonnes connaissances)\n\n## Contatto\n## Candidature et contact André Teixeira Rodrigues",
-        "en": "Tu es convaincu(e) que tes compétences et/ou ton expérience correspondent à l’univers de Micarna ? Même si aucun poste correspondant n’est actuellement vacant, n’hésite pas à nous envoyer ta candidature spontanée. Nous serons ravis de découvrir ton profil !\n\n## Mansioni\n- Collaboration avec le leader de la production de viande\n\n## Requisiti\n- Tu es très motivé et tu recherches un défi dans une entreprise de production\n- Formation initiale ou continue complétée\n- Français (Bonnes connaissances)\n\n## Contatto\n## Candidature et contact André Teixeira Rodrigues",
-        "de": "Tu es convaincu(e) que tes compétences et/ou ton expérience correspondent à l’univers de Micarna ? Même si aucun poste correspondant n’est actuellement vacant, n’hésite pas à nous envoyer ta candidature spontanée. Nous serons ravis de découvrir ton profil !\n\n## Mansioni\n- Collaboration avec le leader de la production de viande\n\n## Requisiti\n- Tu es très motivé et tu recherches un défi dans une entreprise de production\n- Formation initiale ou continue complétée\n- Français (Bonnes connaissances)\n\n## Contatto\n## Candidature et contact André Teixeira Rodrigues"
-      },
-      "needsRetranslation": true,
-      "requirementsByLocale": {
-        "it": [],
-        "en": [],
-        "de": [],
-        "fr": [
-          "Tu es très motivé et tu recherches un défi dans une entreprise de production",
-          "Formation initiale ou continue complétée",
-          "Français (Bonnes connaissances)"
-        ]
-      },
-      "sourceLang": "fr",
-      "previousSlugsByLocale": {
-        "en": [
-          "unsolicited-application-groupe-micarna-courtepin"
-        ],
-        "de": [
-          "unerbetene-anwendung-groupe-micarna-courtepin"
-        ]
-      },
-      "previousSlugs": [
-        "unsolicited-application-groupe-micarna-courtepin",
-        "unerbetene-anwendung-groupe-micarna-courtepin"
-      ],
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Courtepin",
-      "addressRegion": "FR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH"
@@ -2586,7 +2497,7 @@
       "_migrosWorkPercentage": "",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-22T12:25:35.969Z",
+      "crawledAt": "2026-07-21T23:00:56.788Z",
       "firstSeenAt": "2026-07-21T23:00:56.788Z",
       "titleByLocale": {
         "fr": "Responsable de secteur (F/H/D)",
@@ -2619,12 +2530,47 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-secteur-m-w-d-societe-cooperative-migros-geneve"
+          "responsable-de-secteur-m-w-d-societe-cooperative-migros-geneve",
+          "gerant-de-magasin-m-w-d-societe-cooperative-migros-geneve",
+          "store-manager-m-f-d-societe-cooperative-migros-geneve-geneve",
+          "filialleiter-m-w-d-societe-cooperative-migros-geneve-geneve",
+          "gerant-de-magasin-m-w-d-societe-cooperative-migros-geneve-ym9gj1",
+          "cuisinier-f-m-d-societe-cooperative-migros-geneve-geneve",
+          "chef-f-h-d-societe-cooperative-migros-geneve-geneve",
+          "koch-f-h-d-societe-cooperative-migros-geneve-geneve",
+          "cuisinier-m-w-d-societe-cooperative-migros-geneve-2t8v9n",
+          "cuisinier-m-w-d-societe-cooperative-migros-geneve",
+          "fornello-f-h-d-societe-cooperative-migros-geneve-geneve",
+          "cooker-f-h-d-societe-cooperative-migros-geneve-geneve",
+          "kocher-f-h-d-societe-cooperative-migros-geneve-geneve"
+        ],
+        "en": [
+          "store-manager-m-f-d-societe-cooperative-migros-geneve-geneve"
+        ],
+        "de": [
+          "filialleiter-m-w-d-societe-cooperative-migros-geneve-geneve"
+        ],
+        "fr": [
+          "gerant-de-magasin-m-w-d-societe-cooperative-migros-geneve-ym9gj1"
         ]
       },
       "previousSlugs": [
-        "responsable-de-secteur-m-w-d-societe-cooperative-migros-geneve"
+        "responsable-de-secteur-m-w-d-societe-cooperative-migros-geneve",
+        "gerant-de-magasin-m-w-d-societe-cooperative-migros-geneve",
+        "store-manager-m-f-d-societe-cooperative-migros-geneve-geneve",
+        "filialleiter-m-w-d-societe-cooperative-migros-geneve-geneve",
+        "gerant-de-magasin-m-w-d-societe-cooperative-migros-geneve-ym9gj1",
+        "cuisinier-f-m-d-societe-cooperative-migros-geneve-geneve",
+        "chef-f-h-d-societe-cooperative-migros-geneve-geneve",
+        "koch-f-h-d-societe-cooperative-migros-geneve-geneve",
+        "cuisinier-m-w-d-societe-cooperative-migros-geneve-2t8v9n",
+        "cuisinier-m-w-d-societe-cooperative-migros-geneve",
+        "fornello-f-h-d-societe-cooperative-migros-geneve-geneve",
+        "cooker-f-h-d-societe-cooperative-migros-geneve-geneve",
+        "kocher-f-h-d-societe-cooperative-migros-geneve-geneve"
       ],
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2639,10 +2585,7 @@
       "addressRegion": "GE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "needsRetranslation": true,
-      "salaryMin": 60500,
-      "salaryMax": 91500
+      "country": "CH"
     },
     {
       "id": "company-vugjgy",
@@ -3795,16 +3738,16 @@
       "_migrosWorkPercentage": "",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-22T12:25:35.969Z",
+      "crawledAt": "2026-07-20T12:21:44.323Z",
       "firstSeenAt": "2026-07-20T12:21:44.323Z",
       "slugByLocale": {
         "fr": "instructeur-de-fitness-f-m-d-activ-fitness-zurich-0038b2",
-        "it": "fitness-instructor-m-w-d-activ-fitness-zurich",
+        "it": "istruttore-di-fitness-f-m-d-activ-fitness-zurich-0038b2",
         "de": "fitness-instructor-m-w-d-activ-fitness-zurich-hm96zi",
         "en": "fitness-instructor-m-w-d-activ-fitness-zurich-hm96zi"
       },
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (f/m/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (f/m/d)",
         "fr": "Instructeur de fitness (f/m/d)"
@@ -3835,14 +3778,16 @@
         "it": [
           "fitness-instructor-w-m-d-activ-fitness-zurich-hm96zi",
           "fitness-instructor-w-m-d-activ-fitness-zurich",
-          "istruttore-di-fitness-f-m-d-activ-fitness-zurich-0038b2"
+          "fitness-instructor-m-w-d-activ-fitness-zurich"
         ]
       },
       "previousSlugs": [
         "fitness-instructor-w-m-d-activ-fitness-zurich-hm96zi",
         "fitness-instructor-w-m-d-activ-fitness-zurich",
-        "istruttore-di-fitness-f-m-d-activ-fitness-zurich-0038b2"
+        "fitness-instructor-m-w-d-activ-fitness-zurich"
       ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3857,10 +3802,7 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      "country": "CH"
     },
     {
       "id": "company-2ndjc9",
@@ -4232,16 +4174,16 @@
       "_migrosWorkPercentage": "",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-22T12:25:35.969Z",
+      "crawledAt": "2026-07-20T12:21:44.323Z",
       "firstSeenAt": "2026-07-20T12:21:44.323Z",
       "slugByLocale": {
         "fr": "instructeur-de-fitness-f-m-d-activ-fitness-aarau",
-        "it": "fitness-instructor-m-w-d-activ-fitness-aarau",
+        "it": "istruttore-di-fitness-f-m-d-activ-fitness-aarau-cb9e94",
         "en": "fitness-instructor-m-w-d-activ-fitness-aarau-hw33mc",
         "de": "fitness-instructor-m-w-d-activ-fitness-aarau-hw33mc"
       },
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (f/m/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (f/m/d)",
         "fr": "Instructeur de fitness (f/m/d)"
@@ -4268,6 +4210,8 @@
         "fr": []
       },
       "sourceLang": "de",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -4283,17 +4227,14 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "previousSlugs": [
-        "istruttore-di-fitness-f-m-d-activ-fitness-aarau-cb9e94"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "istruttore-di-fitness-f-m-d-activ-fitness-aarau-cb9e94"
+          "fitness-instructor-m-w-d-activ-fitness-aarau"
         ]
       },
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      "previousSlugs": [
+        "fitness-instructor-m-w-d-activ-fitness-aarau"
+      ]
     },
     {
       "id": "company-gg4iav",
@@ -7064,7 +7005,7 @@
     },
     {
       "id": "company-9uudmp",
-      "slug": "collaboratore-multiuso-h-f-d-societe-cooperative-migros-vaud-ecublens",
+      "slug": "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-ecublens",
       "company": "Société coopérative Migros Vaud",
       "title": "Collaborateur polyvalent (H/F/D)",
       "location": "Ecublens",
@@ -7096,10 +7037,10 @@
       "_migrosWorkPercentage": "",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-22T12:25:35.969Z",
+      "crawledAt": "2026-07-20T22:33:23.216Z",
       "firstSeenAt": "2026-07-20T12:21:44.323Z",
       "titleByLocale": {
-        "it": "Collaborateur polyvalent (H/F/D)",
+        "it": "Collaboratore multiuso (H/F/D)",
         "fr": "Collaborateur polyvalent (H/F/D)",
         "en": "Multipurpose Collaborator (H/F/D)",
         "de": "Mehrzweck-Kollaborator (H/F/D)"
@@ -7162,7 +7103,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -7528,7 +7468,7 @@
     },
     {
       "id": "company-encs83",
-      "slug": "collaboratore-in-servizio-in-camera-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
+      "slug": "collaborateur-trice-service-en-salle-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
       "company": "Société coopérative Migros Neuchâtel-Fribourg",
       "title": "Collaborateur/trice service en salle",
       "location": "Marin-Epagnier",
@@ -7563,10 +7503,10 @@
       "_migrosWorkPercentage": "69%",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-22T12:25:35.969Z",
+      "crawledAt": "2026-07-21T23:00:56.788Z",
       "firstSeenAt": "2026-07-21T11:33:44.311Z",
       "titleByLocale": {
-        "it": "Collaborateur/trice service en salle",
+        "it": "Servizio camera collaboratrice",
         "fr": "Collaborateur/trice service en salle",
         "en": "Collaborator in room service",
         "de": "Mitarbeiter im Room Service"
@@ -7628,7 +7568,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -15883,10 +15822,10 @@
       "_migrosWorkPercentage": "315%",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-22T12:25:35.969Z",
+      "crawledAt": "2026-07-20T12:21:44.323Z",
       "firstSeenAt": "2026-07-15T22:53:23.022Z",
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (f/m/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (f/m/d)",
         "fr": "Instructeur de condition physique (f/m/d)"
@@ -15898,7 +15837,7 @@
         "fr": "Êtes-vous sociable et souhaitez partager votre enthousiasme pour la santé et la condition physique? Vous aimez travailler en équipe et comprendre comment répondre aux besoins des clients et motiver les clients à atteindre leurs objectifs? Alors tu as raison avec nous !\n\n## Mansioni\n- Vous accompagnez et accompagnez nos clients tout au long du processus de formation\n- Vous créez des plans de formation et surveillez les formations et leurs réalisations\n- Assurer la propreté et l'hygiène dans le studio\n- Vous organisez des formations d'introduction et vendez des abonnements\n- Vous assumez diverses tâches administratives, créez des contrats et acquérez activement de futurs clients\n\n## Exigences\n- Désiré: Expérience comme instructeur de fitness\n- Achevé la formation de base ou de perfectionnement: Formation en tant qu'instructeur de fitness avec certificat BLS/AED valide\n- Vous avez un style de vente ainsi qu'un haut niveau de service et de conseil expertise\n- Vous êtes une personnalité motivée et responsable qui inspire nos clients\n- Vous êtes flexible et aimez travailler le soir ainsi que les week-ends et jours fériés\n- Vous aimez travailler en équipe\n- Vous avez un permis de travail valide\n- Allemand (bonne connaissance)\n\n## Cosa de friamo\n- Emplacement central: Nos studios sont situés dans un emplacement central bien développé\n- Abonnement mobile: Abonnement national à partir de CHF 10.– / mois (Swisscom /digitec connect)\n- Migros Bank : compte privé et d'investissement sans frais avec intérêts préférentiels\n- Offres des employés: Divers rabais dans le domaine des vacances et de l'assurance (Hertz jusqu'à 10%, Generali 25%, Axa assurance jusqu'à 15%, etc.)\n- Du-culture: Nous défendons une coexistence respectueuse au niveau des yeux\n\n## Contatto\n## Demande et contact Céline Lässer ## Processus de recrutement Sélection préalable des demandes Nous examinons continuellement les demandes reçues, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancer ou de se retirer du processus de recrutement sera communiquée par téléphone ou par courriel. Durée jusqu'à la rétroaction: Jusqu'à trois semaines de discussion technique Lors d'une discussion technique, le gestionnaire et/ou un autre spécialiste et, le cas échéant, l'équipe demandent des connaissances spécifiques pour l'exécution du travail. Si possible, il est temps de mieux connaître le lieu de travail et l'équipe dans une conversation libre. Durée jusqu'à retour d'information : jusqu'à trois semaines d'offre et d'émission de contrat Après notre offre orale, les points de contrat les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé par la poste. Durée de la rétroaction : Jusqu'à trois semaines\n\n**Grade di occupation:** 315 %"
       },
       "slugByLocale": {
-        "it": "fitness-instructor-m-w-d-activ-fitness-bern",
+        "it": "istruttore-di-fitness-f-m-d-activ-fitness-bern",
         "en": "fitness-instructor-m-w-d-activ-fitness-bern-94d9wk",
         "de": "fitness-instructor-m-w-d-activ-fitness-bern-94d9wk",
         "fr": "instructeur-de-condition-physique-f-m-d-activ-fitness-bern"
@@ -15923,7 +15862,7 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-bern-94d9wk",
           "fitness-instructor-w-m-d-activ-fitness-bern",
-          "istruttore-di-fitness-f-m-d-activ-fitness-bern"
+          "fitness-instructor-m-w-d-activ-fitness-bern"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-bern-94d9wk"
@@ -15932,7 +15871,7 @@
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-bern-94d9wk",
         "fitness-instructor-w-m-d-activ-fitness-bern",
-        "istruttore-di-fitness-f-m-d-activ-fitness-bern"
+        "fitness-instructor-m-w-d-activ-fitness-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -15949,7 +15888,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -30376,16 +30314,16 @@
       "_migrosWorkPercentage": "",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-22T12:25:35.969Z",
+      "crawledAt": "2026-07-20T12:21:44.323Z",
       "firstSeenAt": "2026-07-10T10:32:43.492Z",
       "slugByLocale": {
-        "it": "fitness-instructor-m-w-d-activ-fitness-winterthur",
+        "it": "istruttore-di-fitness-f-m-d-activ-fitness-winterthur",
         "en": "fitness-instructor-m-w-d-activ-fitness-winterthur-z2duja",
         "de": "fitness-instructor-m-w-d-activ-fitness-winterthur-z2duja",
         "fr": "instructeur-de-fitness-f-m-d-activ-fitness-winterthur"
       },
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (f/m/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (f/m/d)",
         "fr": "Instructeur de fitness (f/m/d)"
@@ -30431,7 +30369,7 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-winterthur-z2duja",
           "fitness-instructor-w-m-d-activ-fitness-winterthur",
-          "istruttore-di-fitness-f-m-d-activ-fitness-winterthur"
+          "fitness-instructor-m-w-d-activ-fitness-winterthur"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-winterthur-z2duja"
@@ -30440,9 +30378,8 @@
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-winterthur-z2duja",
         "fitness-instructor-w-m-d-activ-fitness-winterthur",
-        "istruttore-di-fitness-f-m-d-activ-fitness-winterthur"
+        "fitness-instructor-m-w-d-activ-fitness-winterthur"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -40131,16 +40068,16 @@
       "_migrosWorkPercentage": "815%",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-22T12:25:35.969Z",
+      "crawledAt": "2026-07-20T12:21:44.323Z",
       "firstSeenAt": "2026-07-03T23:14:35.303Z",
       "slugByLocale": {
-        "it": "fitness-instructor-m-w-d-activ-fitness-kloten",
+        "it": "istruttore-di-fitness-f-m-d-activ-fitness-kloten",
         "en": "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
         "de": "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
         "fr": "instructeur-de-fitness-f-m-d-activ-fitness-kloten"
       },
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (f/m/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (f/m/d)",
         "fr": "Instructeur de fitness (f/m/d)"
@@ -40187,15 +40124,14 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
           "fitness-instructor-w-m-d-activ-fitness-kloten",
-          "istruttore-di-fitness-f-m-d-activ-fitness-kloten"
+          "fitness-instructor-m-w-d-activ-fitness-kloten"
         ]
       },
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
         "fitness-instructor-w-m-d-activ-fitness-kloten",
-        "istruttore-di-fitness-f-m-d-activ-fitness-kloten"
+        "fitness-instructor-m-w-d-activ-fitness-kloten"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -41074,11 +41010,11 @@
       "_migrosWorkPercentage": "80-100%",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-22T12:25:35.969Z",
+      "crawledAt": "2026-07-20T12:21:44.323Z",
       "firstSeenAt": "2026-07-03T12:10:52.243Z",
       "titleByLocale": {
         "de": "Stv. Filialleiter*in",
-        "it": "Gestore ramo",
+        "it": "Vice Direttore di Filiale",
         "en": "Branch manager",
         "fr": "Directeur de branche"
       },
@@ -41114,7 +41050,8 @@
           "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4"
         ],
         "en": [
-          "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4"
+          "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
+          "stv-branch-manager-in-denner-ag-schaffhausen"
         ],
         "fr": [
           "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4"
@@ -41122,7 +41059,8 @@
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner-ag-schaffhausen",
-        "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4"
+        "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
+        "stv-branch-manager-in-denner-ag-schaffhausen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -41140,7 +41078,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8200",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -42280,17 +42217,17 @@
       "_migrosWorkPercentage": "",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-22T12:25:35.969Z",
+      "crawledAt": "2026-07-21T11:33:44.311Z",
       "firstSeenAt": "2026-07-21T11:33:44.311Z",
       "slugByLocale": {
         "de": "mehrzweck-kasse-societe-cooperative-migros-vaud-epalinges",
         "en": "multipurpose-cashier-societe-cooperative-migros-vaud-epalinges",
         "fr": "caissier-polyvalent-societe-cooperative-migros-vaud-epalinges-chcegs",
-        "it": "caissier-polyvalent-societe-cooperative-migros-vaud-epalinges"
+        "it": "cassiere-multiuso-societe-cooperative-migros-vaud-epalinges"
       },
       "titleByLocale": {
         "fr": "Caissier polyvalent",
-        "it": "Caissier polyvalent",
+        "it": "Cassiere multiuso",
         "en": "Multipurpose cashier",
         "de": "Mehrzweck-Kasse"
       },
@@ -42315,6 +42252,8 @@
         ]
       },
       "sourceLang": "fr",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -42330,17 +42269,14 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "previousSlugs": [
-        "cassiere-multiuso-societe-cooperative-migros-vaud-epalinges"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "cassiere-multiuso-societe-cooperative-migros-vaud-epalinges"
+          "caissier-polyvalent-societe-cooperative-migros-vaud-epalinges"
         ]
       },
-      "needsRetranslation": true,
-      "salaryMin": 60500,
-      "salaryMax": 91500
+      "previousSlugs": [
+        "caissier-polyvalent-societe-cooperative-migros-vaud-epalinges"
+      ]
     },
     {
       "id": "company-5eltvg",
@@ -48141,10 +48077,10 @@
       "_migrosWorkPercentage": "",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-22T12:25:35.969Z",
+      "crawledAt": "2026-07-20T12:21:44.323Z",
       "firstSeenAt": "2026-07-01T12:19:35.353Z",
       "titleByLocale": {
-        "it": "Fachleiter*in Produktion",
+        "it": "Specialist Manager* in Produzione",
         "en": "Specialist Manager* in Production",
         "de": "Fachleiter*in Produktion",
         "fr": "Spécialiste en production*"
@@ -48156,7 +48092,7 @@
         "fr": "En tant que responsable de production spécialisé, vous vous assurez que nos clients se sentent complètement à la maison! Préparer la nourriture et les boissons tous les jours et les présenter de façon appétissante. ## Mansioni - Production d'aliments chauds et froids - Ordres et gestion - Planification du personnel - Qualité - et assurance du processus - Maintenir l'ordre et la propreté au travail conformément aux lignes directrices HACCP ##\n• Exigences - Expérience professionnelle: dans le commerce de détail ou dans la gastronomie - Formation de base ou de perfectionnement: dans le commerce de détail ou dans la gastronomie - Haute qualité et sensibilisation aux responsabilités - Travail indépendant et flexibilité - Méthodes de travail fiables et précises (y compris de bonnes connaissances HACCP) - Allemand (très bonne connaissance) ## Cosa de Friamo - Partie du groupe Migros : Dans le cadre du groupe Migros, vous bénéficiez de structures stables, d'opportunités de carrière variées et d'avantages intéressants - Travail en santé : Bénéficiez de notre gestion de la santé et de prestations d'assurance attrayantes - Abonnement pratique: Les employés reçoivent des conditions très avantageuses pour l'abonnement privé Handy incl. Famille et amis - Caisse de retraite professionnelle: La Caisse de retraite Migros offre des services attrayants avec une forte participation des salariés - Points Cumulus: Vous collectez des points Cumulus supplémentaires dans le domaine de l'alimentation et non alimentaire - Club School Migros: Nous participons à des cours de club jusqu'à max. CHF 1000.– (en frais de 100 %) - Loisirs et offres culturelles:\n• Nous offrons divers rabais et billets gratuits dans le domaine des loisirs et de la culture - Offres sportives et de fitness: Avec nous vous obtenez des abonnements de fitness à prix réduit dans le parc de fitness Activ Fitness et Migros ## Contatto ## Demande et contact Selina Blumenthal ## Processus de recrutement Sélection préalable des demandes Nous revoyons continuellement les demandes reçues, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée de la rétroaction : jusqu'à trois semaines de discussion technique Lors d'une discussion technique, le gestionnaire et/ou un autre spécialiste et, le cas échéant, l'équipe demandent des connaissances spécifiques pour l'exécution du travail. Si possible, il est temps de mieux connaître le lieu de travail et l'équipe dans une conversation libre. Durée jusqu'à la rétroaction : jusqu'à trois semaines de travail d'essai Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et vice versa, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée de la rétroaction : Jusqu'à trois semaines Apprenez à connaître l'équipe Si quelqu'un s'inscrit dans l'équipe est un facteur important pour les employés et les employeurs lorsqu'ils décident d'un emploi ou non. Dans un cadre décontracté, nous donnons donc l'occasion à chacun de se connaître. Offer & Contract Exhibition (Digital) Après notre offre orale, les points de contrat les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé à la signature numérique par courrier électronique. Durée de la rétroaction: Jusqu'à une semaine"
       },
       "slugByLocale": {
-        "it": "fachleiter-in-produktion-genossenschaft-migros-luzern",
+        "it": "specialist-manager-in-produzione-genossenschaft-migros-luzern-luzern",
         "en": "specialist-manager-in-production-genossenschaft-migros-luzern-luzern",
         "de": "fachleiter-in-produktion-genossenschaft-migros-luzern-sm52lj",
         "fr": "specialiste-en-production-genossenschaft-migros-luzern-luzern"
@@ -48179,7 +48115,7 @@
         "it": [
           "fachleiter-in-produktion-genossenschaft-migros-luzern-sm52lj",
           "capo-della-produzione-genossenschaft-migros-luzern-luzern",
-          "specialist-manager-in-produzione-genossenschaft-migros-luzern-luzern"
+          "fachleiter-in-produktion-genossenschaft-migros-luzern"
         ],
         "en": [
           "fachleiter-in-produktion-genossenschaft-migros-luzern-sm52lj"
@@ -48191,7 +48127,7 @@
       "previousSlugs": [
         "fachleiter-in-produktion-genossenschaft-migros-luzern-sm52lj",
         "capo-della-produzione-genossenschaft-migros-luzern-luzern",
-        "specialist-manager-in-produzione-genossenschaft-migros-luzern-luzern"
+        "fachleiter-in-produktion-genossenschaft-migros-luzern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -48209,7 +48145,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -54245,7 +54180,7 @@
       "_migrosWorkPercentage": "592%",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-22T12:25:35.969Z",
+      "crawledAt": "2026-07-21T23:00:56.788Z",
       "firstSeenAt": "2026-06-29T14:19:58.281Z",
       "titleByLocale": {
         "fr": "Responsable Comptabilité (f/h/d)",
@@ -54287,16 +54222,25 @@
           "cuisinier-traiteur-m-w-d-societe-cooperative-migros-valais-martigny-ldzuv0",
           "catering-cook-e-h-d-societe-cooperative-migros-valais-martigny",
           "verpflegungskoch-e-h-d-societe-cooperative-migros-valais-martigny",
-          "cuisinier-traiteur-m-w-d-societe-cooperative-migros-valais-martigny"
+          "cuisinier-traiteur-m-w-d-societe-cooperative-migros-valais-martigny",
+          "tecnico-di-manutenzione-refrigerazione-f-m-d-societe-cooperative-migros-valais-martigny",
+          "refrigeration-maintenance-technician-f-m-d-societe-cooperative-migros-valais-martigny",
+          "kaltewartungstechniker-f-m-d-societe-cooperative-migros-valais-martigny",
+          "technicien-de-maintenance-frigoriste-m-w-d-societe-cooperative-migros-valais-martigny-najwqd",
+          "technicien-de-maintenance-frigoriste-m-w-d-societe-cooperative-migros-valais-martigny"
         ],
         "en": [
-          "catering-cook-e-h-d-societe-cooperative-migros-valais-martigny"
+          "catering-cook-e-h-d-societe-cooperative-migros-valais-martigny",
+          "refrigeration-maintenance-technician-f-m-d-societe-cooperative-migros-valais-martigny"
         ],
         "de": [
-          "verpflegungskoch-e-h-d-societe-cooperative-migros-valais-martigny"
+          "verpflegungskoch-e-h-d-societe-cooperative-migros-valais-martigny",
+          "kaltewartungstechniker-f-m-d-societe-cooperative-migros-valais-martigny"
         ],
         "fr": [
-          "cuisinier-traiteur-m-w-d-societe-cooperative-migros-valais-martigny-ldzuv0"
+          "cuisinier-traiteur-m-w-d-societe-cooperative-migros-valais-martigny-ldzuv0",
+          "technicien-de-maintenance-frigoriste-m-w-d-societe-cooperative-migros-valais-martigny-najwqd",
+          "technicien-de-maintenance-frigoriste-m-w-d-societe-cooperative-migros-valais-martigny"
         ]
       },
       "previousSlugs": [
@@ -54304,7 +54248,12 @@
         "cuisinier-traiteur-m-w-d-societe-cooperative-migros-valais-martigny-ldzuv0",
         "catering-cook-e-h-d-societe-cooperative-migros-valais-martigny",
         "verpflegungskoch-e-h-d-societe-cooperative-migros-valais-martigny",
-        "cuisinier-traiteur-m-w-d-societe-cooperative-migros-valais-martigny"
+        "cuisinier-traiteur-m-w-d-societe-cooperative-migros-valais-martigny",
+        "tecnico-di-manutenzione-refrigerazione-f-m-d-societe-cooperative-migros-valais-martigny",
+        "refrigeration-maintenance-technician-f-m-d-societe-cooperative-migros-valais-martigny",
+        "kaltewartungstechniker-f-m-d-societe-cooperative-migros-valais-martigny",
+        "technicien-de-maintenance-frigoriste-m-w-d-societe-cooperative-migros-valais-martigny-najwqd",
+        "technicien-de-maintenance-frigoriste-m-w-d-societe-cooperative-migros-valais-martigny"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -54322,7 +54271,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1920",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -60779,10 +60727,10 @@
       "_migrosWorkPercentage": "291%",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-22T12:25:35.969Z",
+      "crawledAt": "2026-07-20T12:21:44.323Z",
       "firstSeenAt": "2026-06-25T23:11:16.787Z",
       "titleByLocale": {
-        "it": "Collaborateur Halte-Jeux (H/F/D)",
+        "it": "Collaboratore Stop-Games (H/F/D)",
         "fr": "Collaborateur Halte-Jeux (H/F/D)",
         "en": "Collaborator Stop-Games (H/F/D)",
         "de": "Collaborator Stop-Games (H/F/D)"
@@ -60794,7 +60742,7 @@
         "de": "Botschafter des Fähnrichs und vertrauenswürdige Person, kümmern Sie sich um die Kinder unserer Kundschaft und wachen über ihre Zufriedenheit und Loyalität durch qualitativ hochwertigen Service, von der Eröffnung bis zum Abschluss des Stop-Spiels\n\n## Mansioni\n- Sie heißen Gäste und Kinder herzlich willkommen\n- Sie versorgen Kinder mit dem Spielmaterial (Buntstifte, Zeichenpapier, Spielzeug, etc.) und bereiten die Malzeichnungen vor.\n- Sie kümmern sich um das Wohl des Kindes (Trinken, Hygiene, etc.) und überwachen die Spiele der Kinder, indem Sie bei Konflikten oder gefährlichen Spielen eingreifen.\n- Sie garantieren die Einhaltung aktueller Hygienestandards und sorgen für die Desinfektion von Geräten und Spielplätzen.\n- Sie pflegen Ordnung und Sauberkeit und unterstützen bei Bedarf alle Bereiche des Ladens unter Einhaltung der geltenden Verfahren.\n- Sie sind verantwortlich für das Öffnen und Schließen des Spielstopps.\n\n## erforderlich\n- Erste bestätigte Erfahrungen in der Kinderbetreuung: erwartet\n- Abgeschlossene berufliche Bildung (CFC): als sozialpädagogische Assistentin (SEA) oder gleichwertige Ausbildung\n- Sie profitieren von mehrjähriger Erfahrung in der Begleitung von Kindern\n- Sie sind organisiert, selbsttragend und in der Lage, Initiativen zu ergreifen.\n- Sie profitieren von einem Erste-Hilfe-Training\n- Französisch (sehr gute Kenntnisse)\n\n## Cosa offeriamo\n- Betriebsrente: Pensionskasse finanziert vom Arbeitgeber zu 17%.\n- Restaurant: 20% Rabatt in Migros Vaud Restaurants.\n- Cumulus Punkte: Cumulus Punkte Multiplikation für unsere Mitarbeiter\n\n## Contatto\n## Bewerbung und Kontakt Migros Vaud Recruitment Center\n\n**Grado di occupazione:** 291%"
       },
       "slugByLocale": {
-        "it": "collaborateur-halte-jeux-m-w-d-societe-cooperative-migros-vaud-crissier",
+        "it": "collaboratore-stop-games-h-f-d-societe-cooperative-migros-vaud-crissier",
         "en": "collaborator-stop-games-h-f-d-societe-cooperative-migros-vaud-crissier",
         "de": "collaborateur-halte-jeux-m-w-d-societe-cooperative-migros-vaud-crissier-wg0ehg",
         "fr": "collaborateur-halte-jeux-m-w-d-societe-cooperative-migros-vaud-crissier-wg0ehg"
@@ -60817,13 +60765,13 @@
         "it": [
           "collaborateur-halte-jeux-m-w-d-societe-cooperative-migros-vaud-crissier-wg0ehg",
           "collaborateur-halte-jeux-h-f-d-societe-cooperative-migros-vaud-crissier",
-          "collaboratore-stop-games-h-f-d-societe-cooperative-migros-vaud-crissier"
+          "collaborateur-halte-jeux-m-w-d-societe-cooperative-migros-vaud-crissier"
         ]
       },
       "previousSlugs": [
         "collaborateur-halte-jeux-m-w-d-societe-cooperative-migros-vaud-crissier-wg0ehg",
         "collaborateur-halte-jeux-h-f-d-societe-cooperative-migros-vaud-crissier",
-        "collaboratore-stop-games-h-f-d-societe-cooperative-migros-vaud-crissier"
+        "collaborateur-halte-jeux-m-w-d-societe-cooperative-migros-vaud-crissier"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -60842,8 +60790,7 @@
       "postalCode": "1003",
       "country": "CH",
       "salaryMin": 60500,
-      "salaryMax": 91500,
-      "needsRetranslation": true
+      "salaryMax": 91500
     },
     {
       "id": "company-q3kur9",
@@ -74032,7 +73979,7 @@
       "_migrosWorkPercentage": "",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-22T12:25:35.969Z",
+      "crawledAt": "2026-07-21T23:00:56.788Z",
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "titleByLocale": {
         "de": "Mitarbeiter*in Reinigung & Aufsicht",
@@ -74069,18 +74016,34 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-reinigung-aufsicht-fitnesspark-oberhofen-am-thunersee"
+          "mitarbeiter-in-reinigung-aufsicht-fitnesspark-oberhofen-am-thunersee",
+          "collaboratore-trice-in-reinigung-aufsicht-fitnesspark-luzern-6rc573",
+          "employee-in-cleaning-supervision-fitnesspark-luzern",
+          "mitarbeiter-in-reinigung-aufsicht-fitnesspark-luzern-6rc573",
+          "employe-en-nettoyage-et-supervision-fitnesspark-luzern",
+          "mitarbeiter-in-reinigung-aufsicht-fitnesspark-luzern"
         ],
         "en": [
-          "mitarbeiter-in-reinigung-aufsicht-fitnesspark-oberhofen-am-thunersee-tapilw"
+          "mitarbeiter-in-reinigung-aufsicht-fitnesspark-oberhofen-am-thunersee-tapilw",
+          "employee-in-cleaning-supervision-fitnesspark-luzern"
         ],
         "fr": [
-          "mitarbeiter-in-reinigung-aufsicht-fitnesspark-oberhofen-am-thunersee-tapilw"
+          "mitarbeiter-in-reinigung-aufsicht-fitnesspark-oberhofen-am-thunersee-tapilw",
+          "employe-en-nettoyage-et-supervision-fitnesspark-luzern"
+        ],
+        "de": [
+          "mitarbeiter-in-reinigung-aufsicht-fitnesspark-luzern-6rc573",
+          "mitarbeiter-in-reinigung-aufsicht-fitnesspark-luzern"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-reinigung-aufsicht-fitnesspark-oberhofen-am-thunersee",
-        "mitarbeiter-in-reinigung-aufsicht-fitnesspark-oberhofen-am-thunersee-tapilw"
+        "mitarbeiter-in-reinigung-aufsicht-fitnesspark-oberhofen-am-thunersee-tapilw",
+        "collaboratore-trice-in-reinigung-aufsicht-fitnesspark-luzern-6rc573",
+        "employee-in-cleaning-supervision-fitnesspark-luzern",
+        "mitarbeiter-in-reinigung-aufsicht-fitnesspark-luzern-6rc573",
+        "employe-en-nettoyage-et-supervision-fitnesspark-luzern",
+        "mitarbeiter-in-reinigung-aufsicht-fitnesspark-luzern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -97643,11 +97606,11 @@
       "_migrosWorkPercentage": "",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-22T12:25:35.969Z",
+      "crawledAt": "2026-07-20T12:21:44.323Z",
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "titleByLocale": {
         "de": "Nachwuchsprogramm: Marktleiter*in Supermarkt",
-        "it": "Nachwuchsprogramm: Marktleiter*in Supermarkt",
+        "it": "Programma di giovani talenti: Market manager* in supermercato",
         "en": "Young talent program: Supermarket store manager",
         "fr": "Programme jeunesse : Responsable du supermarché"
       },
@@ -97658,7 +97621,7 @@
         "fr": "Migros Aare vous prépare à diriger une succursale Migros de manière indépendante et réussie. La formation compacte et pratique est adaptée individuellement à vous. En 12 à 18 mois, vous serez parfaitement préparé à votre futur rôle de leadership. Votre candidature sera prise en compte pour toutes les succursales du canton souhaité. Mansioni - Gestion de la succursale orientée client - Responsable de la fraîcheur, de la qualité et de la disponibilité des produits - Responsable de la gestion et du développement des chefs de secteur, des chefs de service et des employés ainsi que de la promotion des jeunes talents - Atteindre les objectifs de vente et de coûts - Assurer les processus définis\n• Exigences - Idéalement plus de 3 ans d'expérience professionnelle : dans le secteur des supermarchés - Formation de base ou continue complétée : dans le commerce de détail ou une formation équivalente dans le secteur alimentaire - Plusieurs années d'expérience professionnelle dans un poste de direction - Un niveau de formation continue plus élevé (de préférence un spécialiste du commerce de détail, une école de gestion hôtelière ou autre HFP) - Enthousiasme pour le commerce de détail - Aimer diriger et soutenir des employés - Forte orientation client et attitude convaincante - Engagement, résilience et flexibilité - Compétences sociales élevées, esprit d'équipe et sociabilité - Allemand (parlant couramment les affaires)\n• Cosa offriamo - Mobilité: Participation à un abonnement annuel aux transports publics, réduction sur le carburant (Migrol), contribution annuelle réduite à Mobility car Sharing et droit à une réduction de flotte - Abonnement de téléphonie mobile : diverses réductions sur les abonnements mobiles - Prévoyance professionnelle : des prestations supérieures à la moyenne garantissent la sécurité financière des collaborateurs dans la troisième phase de la vie - Prestations sociales : conditions de travail attractives avec de très bonnes prestations sociales - Points Cumulus : plusieurs points Cumulus sur les produits alimentaires et non alimentaires - Banque Migros : gestion de compte gratuite, intérêts préférentiels sur le capital ou réduction sur les taux d'intérêt sur les hypothèques à taux fixe nouvellement conclues - École-club Migros : généreuse contribution financière aux cours choisis par vous-même - Offres de loisirs et culturelles : diverses réductions sur offres de vacances, séjours linguistiques, vacances Migros, Interhome et événements - Offres de sport et de fitness : participations aux frais d'abonnement à plus de 50 parcs fitness, bien-être et aquatiques Migros - Soutien ciblé : soutien de nos collaborateurs à tous les niveaux avec des mesures ciblées de développement du personnel - Formation et formation continue : soutien à la formation professionnelle et continue - Responsabilité et liberté personnelles : domaines de tâches variés avec un haut niveau de responsabilité personnelle Contatto Application & Contact Melanie Knuchel Recruiting Partner +41 58 565 85 85 ## Remarque destinée aux prestataires de services de personnel Pour ce poste, nous ne considérons que les candidatures directes."
       },
       "slugByLocale": {
-        "it": "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn",
+        "it": "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-solothurn",
         "en": "young-talent-program-supermarket-store-manager-genossenschaft-migros-aare-solothurn",
         "de": "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn-7668ya",
         "fr": "programme-jeunesse-responsable-du-supermarche-genossenschaft-migros-aare-solothurn"
@@ -97682,7 +97645,7 @@
       "previousSlugsByLocale": {
         "it": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn-7668ya",
-          "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-solothurn"
+          "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn"
         ],
         "en": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn-7668ya"
@@ -97693,7 +97656,7 @@
       },
       "previousSlugs": [
         "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn-7668ya",
-        "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-solothurn"
+        "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -97711,7 +97674,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4500",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -99374,11 +99336,11 @@
       "_migrosWorkPercentage": "",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-22T12:25:35.969Z",
+      "crawledAt": "2026-07-20T12:21:44.323Z",
       "firstSeenAt": "2026-06-03T06:44:54.971Z",
       "titleByLocale": {
         "de": "Lehrperson Ballett im Stundenlohn",
-        "it": "Lehrperson Ballett im Stundenlohn",
+        "it": "Maestro Ballet nel salario orario",
         "en": "Ballet Teacher (Hourly Basis)",
         "fr": "Enseignant de ballet à l'heure"
       },
@@ -99415,7 +99377,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen",
+        "it": "maestro-ballet-nel-salario-orario-genossenschaft-migros-ostschweiz-st-gallen",
         "en": "ballet-teacher-hourly-basis-genossenschaft-migros-ostschweiz-st-gallen-78ume2",
         "de": "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-78ume2",
         "fr": "enseignant-de-ballet-a-l-heure-genossenschaft-migros-ostschweiz-st-gallen-78ume2"
@@ -99424,12 +99386,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-78ume2",
-          "maestro-ballet-nel-salario-orario-genossenschaft-migros-ostschweiz-st-gallen"
+          "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
         ]
       },
       "previousSlugs": [
         "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-78ume2",
-        "maestro-ballet-nel-salario-orario-genossenschaft-migros-ostschweiz-st-gallen"
+        "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -99447,7 +99409,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -119479,11 +119440,11 @@
       "_migrosWorkPercentage": "909%",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-22T12:25:35.969Z",
+      "crawledAt": "2026-07-20T12:21:44.323Z",
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "titleByLocale": {
         "de": "Chefmetzger*in",
-        "it": "Chefmetzger*in",
+        "it": "Macellaio capo*",
         "en": "Head Butcher",
         "fr": "Boucher en chef"
       },
@@ -119507,7 +119468,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "chefmetzger-in-genossenschaft-migros-zurich-bulach",
+        "it": "capo-macellaio-genossenschaft-migros-zurich-bulach",
         "en": "head-butcher-genossenschaft-migros-zurich-bulach",
         "de": "chefmetzger-in-genossenschaft-migros-zurich-bulach-ix8whl",
         "fr": "boucher-en-chef-genossenschaft-migros-zurich-bulach"
@@ -119516,7 +119477,7 @@
       "previousSlugsByLocale": {
         "it": [
           "chefmetzger-in-genossenschaft-migros-zurich-bulach-ix8whl",
-          "capo-macellaio-genossenschaft-migros-zurich-bulach"
+          "chefmetzger-in-genossenschaft-migros-zurich-bulach"
         ],
         "en": [
           "chefmetzger-in-genossenschaft-migros-zurich-bulach-ix8whl"
@@ -119527,7 +119488,7 @@
       },
       "previousSlugs": [
         "chefmetzger-in-genossenschaft-migros-zurich-bulach-ix8whl",
-        "capo-macellaio-genossenschaft-migros-zurich-bulach"
+        "chefmetzger-in-genossenschaft-migros-zurich-bulach"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -119545,7 +119506,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -122180,11 +122140,11 @@
       "_migrosWorkPercentage": "074%",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-22T12:25:35.969Z",
+      "crawledAt": "2026-07-20T12:21:44.323Z",
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "titleByLocale": {
         "de": "Nachwuchsprogramm: Marktleiter*in Supermarkt",
-        "it": "Nachwuchsprogramm: Marktleiter*in Supermarkt",
+        "it": "Programma di giovani talenti: Market manager* in supermercato",
         "en": "Young talent program: Supermarket store manager",
         "fr": "Programme jeunesse : Responsable du supermarché"
       },
@@ -122210,7 +122170,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-aarau",
+        "it": "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-aarau",
         "en": "young-talent-program-supermarket-store-manager-genossenschaft-migros-aare-aarau",
         "de": "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-aarau-u3lv0t",
         "fr": "programme-jeunesse-responsable-du-supermarche-genossenschaft-migros-aare-aarau"
@@ -122220,7 +122180,7 @@
         "it": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-aarau-u3lv0t",
           "programma-di-giovani-talenti-market-manager-in-supermercato-genossenschaft-migros-aare-aarau",
-          "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-aarau"
+          "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-aarau"
         ],
         "en": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-aarau-u3lv0t",
@@ -122236,7 +122196,7 @@
         "programma-di-giovani-talenti-market-manager-in-supermercato-genossenschaft-migros-aare-aarau",
         "young-talent-program-market-manager-in-supermarket-genossenschaft-migros-aare-aarau",
         "programme-de-jeunes-talents-gestionnaire-de-marche-au-supermarche-genossenschaft-migros-aare-aarau",
-        "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-aarau"
+        "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-aarau"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -122254,7 +122214,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -124290,11 +124249,11 @@
       "_migrosWorkPercentage": "646%",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-22T12:25:35.969Z",
+      "crawledAt": "2026-07-20T12:21:44.323Z",
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "titleByLocale": {
         "de": "Nachwuchsprogramm: Marktleiter*in Supermarkt",
-        "it": "Nachwuchsprogramm: Marktleiter*in Supermarkt",
+        "it": "Programma di giovani talenti: Market manager* in supermercato",
         "en": "Young talent program: Supermarket store manager",
         "fr": "Programme jeunesse : Responsable du supermarché"
       },
@@ -124347,7 +124306,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-bern",
+        "it": "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-bern",
         "en": "young-talent-program-supermarket-store-manager-genossenschaft-migros-aare-bern",
         "de": "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-bern-4bpow0",
         "fr": "programme-jeunesse-responsable-du-supermarche-genossenschaft-migros-aare-bern"
@@ -124357,7 +124316,7 @@
         "it": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-bern-4bpow0",
           "programma-di-giovani-talenti-market-manager-in-supermercato-genossenschaft-migros-aare-bern",
-          "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-bern"
+          "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-bern"
         ],
         "en": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-bern-4bpow0",
@@ -124373,7 +124332,7 @@
         "programma-di-giovani-talenti-market-manager-in-supermercato-genossenschaft-migros-aare-bern",
         "young-talent-program-market-manager-in-supermarket-genossenschaft-migros-aare-bern",
         "programme-de-jeunes-talents-gestionnaire-de-marche-au-supermarche-genossenschaft-migros-aare-bern",
-        "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-bern"
+        "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -124391,7 +124350,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },

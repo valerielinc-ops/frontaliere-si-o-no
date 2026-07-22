@@ -4309,8 +4309,8 @@
       "slug": "titolo-a-le-mont-sur-loussanne-schindler-le-mont-sur-lausanne-a7fbf1",
       "slugByLocale": {
         "it": "titolo-a-le-mont-sur-loussanne-schindler-le-mont-sur-lausanne-a7fbf1",
-        "en": "administrative-apprentice-in-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne",
-        "de": "kaufmannische-r-lernende-r-in-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne",
+        "en": "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-2",
+        "de": "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-2",
         "fr": "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne"
       },
       "company": "Schindler",
@@ -4335,7 +4335,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Le-Mont-sur-Lausanne-Apprentissage-d'Employ%C3%A9-e-de-commerce-CFC-pour-2027-Vaud/1410237633/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T11:34:36.138Z",
+      "crawledAt": "2026-07-21T11:22:01.533Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4361,7 +4361,9 @@
         "auszubildender-im-aufzugsbau-in-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne",
         "administrative-assistant-schindler-le-mont-sur-lausanne",
         "kaufmannische-r-angestellte-r-schindler-le-mont-sur-lausanne",
-        "titel-im-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne"
+        "titel-im-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne",
+        "administrative-apprentice-in-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne",
+        "kaufmannische-r-lernende-r-in-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4372,13 +4374,16 @@
         "en": [
           "elevator-apprentice-in-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne",
           "administrative-assistant-schindler-le-mont-sur-lausanne",
-          "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-2"
+          "administrative-apprentice-in-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne"
         ],
         "de": [
           "auszubildender-im-aufzugsbau-in-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne",
           "kaufmannische-r-angestellte-r-schindler-le-mont-sur-lausanne",
           "titel-im-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne",
-          "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-2"
+          "kaufmannische-r-lernende-r-in-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne"
+        ],
+        "fr": [
+          "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-01T12:43:47.088Z",
@@ -5403,7 +5408,7 @@
       "url": "https://job.schindler.com/SBB/job/Sion-Apprentissage-d'Employ%C3%A9-e-de-commerce-CFC-pour-2027-Vala/1410238433/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T11:34:22.718Z",
+      "crawledAt": "2026-07-21T11:21:44.625Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -5423,16 +5428,19 @@
       "previousSlugs": [
         "responsabile-del-consenso-ai-cookie-schindler-bussigny",
         "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny",
-        "gestionnaire-de-consentements-pour-les-cookies-schindler-sion"
+        "gestionnaire-de-consentements-pour-les-cookies-schindler-sion",
+        "cookie-consent-manager-schindler-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-del-consenso-ai-cookie-schindler-bussigny",
           "gestionnaire-de-consentements-pour-les-cookies-schindler-sion"
+        ],
+        "en": [
+          "cookie-consent-manager-schindler-sion"
         ]
       },
       "firstSeenAt": "2026-07-01T12:43:43.278Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
