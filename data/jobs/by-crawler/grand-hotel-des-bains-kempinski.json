@@ -1325,7 +1325,19 @@
       },
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
-      "firstSeenAt": "2026-07-21T11:14:40.063Z"
+      "firstSeenAt": "2026-07-21T11:14:40.063Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "amministratore-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+        ],
+        "fr": [
+          "intendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "amministratore-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+        "intendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+      ]
     }
   ]
 }
