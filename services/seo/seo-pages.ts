@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3445,
+ "numberOfItems": 3446,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8213,7 +8213,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3442, "name": "Grigioni: traffico di sviamento, UDC critica il...", "url": `${BASE_URL}/articoli-frontaliere/grigioni-traffico-sviamento-udc` },
           { "@type": "ListItem", "position": 3443, "name": "Telelavoro per frontalieri: il Governo approva ...", "url": `${BASE_URL}/articoli-frontaliere/telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge` },
           { "@type": "ListItem", "position": 3444, "name": "Di più Swiss: nuovo CCL per personale di terra,...", "url": `${BASE_URL}/articoli-frontaliere/di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore` },
-          { "@type": "ListItem", "position": 3445, "name": "Impiegato di commercio in Ticino: guida per fro...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-impiegato-commercio-ticino` }
+          { "@type": "ListItem", "position": 3445, "name": "Impiegato di commercio in Ticino: guida per fro...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-impiegato-commercio-ticino` },
+          { "@type": "ListItem", "position": 3446, "name": "Frontalieri disoccupati: l'UE approva riforma o...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupati-ue-riforma-onerosa-ticino` }
  ]
  },
  {
