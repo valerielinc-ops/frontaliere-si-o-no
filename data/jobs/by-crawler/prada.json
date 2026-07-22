@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "prada-d95cd7de3867",
-      "slug": "design-architect-prada-group-arezzo-design-architect",
+      "slug": "design-architetto-prada-group-arezzo-design-architect",
       "slugByLocale": {
         "en": "design-architect-prada-group-arezzo-design-architect",
-        "it": "design-architect-prada-group-arezzo-design-architect",
-        "de": "design-architect-prada-group-arezzo-design-architect",
-        "fr": "design-architect-prada-group-arezzo-design-architect"
+        "it": "design-architetto-prada-group-arezzo-design-architect",
+        "de": "design-architekt-prada-group-arezzo-design-architect",
+        "fr": "architecte-de-conception-prada-group-arezzo-design-architect"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -60,7 +60,21 @@
       },
       "country": "CH",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-07-22T11:47:22.438Z"
+      "firstSeenAt": "2026-07-22T11:47:22.438Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "design-architect-prada-group-arezzo-design-architect"
+        ],
+        "de": [
+          "design-architect-prada-group-arezzo-design-architect"
+        ],
+        "fr": [
+          "design-architect-prada-group-arezzo-design-architect"
+        ]
+      },
+      "previousSlugs": [
+        "design-architect-prada-group-arezzo-design-architect"
+      ]
     },
     {
       "id": "prada-332f237b0ca4",
@@ -118,15 +132,7 @@
         }
       },
       "country": "CH",
-      "addressRegion": "GR",
-      "previousSlugsByLocale": {
-        "en": [
-          "miu-miu-store-manager-saint-moritz-prada-mendrisio"
-        ]
-      },
-      "previousSlugs": [
-        "miu-miu-store-manager-saint-moritz-prada-mendrisio"
-      ]
+      "addressRegion": "GR"
     }
   ]
 }
