@@ -218,8 +218,15 @@ Allow: /
 User-agent: AhrefsBot
 Disallow: /
 
+# SemrushBot — unblocked 2026-07-22 (owner decision). robots.txt has no IP
+# concept, so this directive can't be scoped the way the Cloudflare firewall
+# rule is: real enforcement stays at the CF layer (scripts/
+# cf-locale-failover-setup.mjs, TRUSTED_CRAWLER_IP_RANGES), which only lets
+# through Semrush's published Site Audit crawler range (85.208.98.128/25) —
+# any other client sending a "SemrushBot" UA still gets 403'd there. This
+# Allow only stops Semrush's own compliant crawler from self-throttling.
 User-agent: SemrushBot
-Disallow: /
+Allow: /
 
 User-agent: DotBot
 Disallow: /
