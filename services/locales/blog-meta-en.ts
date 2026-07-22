@@ -8839,6 +8839,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-ue-riforma-onerosa-ticino.title': 'Unemployed border workers: EU approves burdensome reform for Switzerland',
     'blog.article.frontalieri-disoccupati-ue-riforma-onerosa-ticino.excerpt': 'The European Parliament has approved a reform redefining the competences of unemployed frontier workers.',
     'blog.article.frontalieri-disoccupati-ue-riforma-onerosa-ticino.imageAlt': 'Aerial view of Lugano city center with people walking along the main street.',
+    'blog.article.frontalieri-telelavoro-ratifica-accordo.title': 'Telework for border workers: agreement ratified',
+    'blog.article.frontalieri-telelavoro-ratifica-accordo.excerpt': 'The Council of Ministers has approved the DdL for teleworking: border workers will be able to work from home up to 25% without losing their status.',
+    'blog.article.frontalieri-telelavoro-ratifica-accordo.imageAlt': 'Home office of a cross-border worker with a view of Lake Lugano',
 };
 
 export default blogMetaEn;

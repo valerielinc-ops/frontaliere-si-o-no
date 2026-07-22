@@ -8838,6 +8838,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-ue-riforma-onerosa-ticino.title': 'Arbeitslose Grenzgänger: EU verabschiedet kostenintensive Reform für die Schweiz',
     'blog.article.frontalieri-disoccupati-ue-riforma-onerosa-ticino.excerpt': 'Das Europäische Parlament hat eine Reform verabschiedet, die die Zuständigkeiten arbeitsloser Grenzgänger neu definiert.',
     'blog.article.frontalieri-disoccupati-ue-riforma-onerosa-ticino.imageAlt': 'Luftbild des Stadtzentrums von Lugano mit Menschen, die entlang der Hauptstraße gehen.',
+    'blog.article.frontalieri-telelavoro-ratifica-accordo.title': 'Telearbeit für Grenzgänger: Das Abkommen wurde ratifiziert',
+    'blog.article.frontalieri-telelavoro-ratifica-accordo.excerpt': 'Der Ministerrat hat das DdL für Telearbeit genehmigt: Grenzgänger können bis zu 25% von zu Hause aus arbeiten, ohne ihren Status zu verlieren.',
+    'blog.article.frontalieri-telelavoro-ratifica-accordo.imageAlt': 'Homeoffice eines Grenzgängers mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

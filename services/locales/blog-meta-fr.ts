@@ -8841,6 +8841,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-ue-riforma-onerosa-ticino.title': 'Chômeurs frontaliers : l\'UE approuve une réforme coûteuse pour la Suisse',
     'blog.article.frontalieri-disoccupati-ue-riforma-onerosa-ticino.excerpt': 'Le Parlement européen a approuvé une réforme qui redéfinit les compétences en matière de travailleurs frontaliers au chômage.',
     'blog.article.frontalieri-disoccupati-ue-riforma-onerosa-ticino.imageAlt': 'Vue aérienne du centre-ville de Lugano avec des gens qui marchent le long de la rue principale.',
+    'blog.article.frontalieri-telelavoro-ratifica-accordo.title': 'Télétravail pour les frontaliers : l\'accord a été ratifié',
+    'blog.article.frontalieri-telelavoro-ratifica-accordo.excerpt': 'Le Conseil des Ministres a approuvé le DdL pour le télétravail : les frontaliers pourront travailler à domicile jusqu\'à 25% sans perdre leur statut.',
+    'blog.article.frontalieri-telelavoro-ratifica-accordo.imageAlt': 'Bureau à domicile d\'un frontalier avec vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;

@@ -4821,6 +4821,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore': { name: 'Di più Swiss: nuovo CCL per personale di', path: '/articoli-svizzera/di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore/', parent: 'blog' },
     'blog-frontaliere-impiegato-commercio-ticino': { name: 'Frontaliere impiegato commercio', path: '/articoli-frontaliere/frontaliere-impiegato-commercio-ticino', parent: 'blog' },
     'blog-frontalieri-disoccupati-ue-riforma-onerosa-ticino': { name: 'Frontalieri disoccupati', path: '/articoli-frontaliere/frontalieri-disoccupati-ue-riforma-onerosa-ticino', parent: 'blog' },
+    'blog-frontalieri-telelavoro-ratifica-accordo': { name: 'Telelavoro Frontalieri', path: '/articoli-frontaliere/frontalieri-telelavoro-ratifica-accordo', parent: 'blog' },
  };
 
  const info = sectionNames[section];
