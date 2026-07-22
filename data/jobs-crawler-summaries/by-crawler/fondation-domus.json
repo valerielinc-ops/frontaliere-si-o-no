@@ -1,16 +1,16 @@
 {
   "key": "fondation-domus",
   "label": "Fondation Domus",
-  "generatedAt": "2026-07-22T11:40:03.891Z",
-  "total": 3,
+  "generatedAt": "2026-07-22T22:51:07.641Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5570,
-  "avgDurationMs": 5570,
+  "unchangedCount": 0,
+  "durationMs": 5850,
+  "avgDurationMs": 5850,
   "durationHistory": [
-    5570
+    5850
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/53cd9483-dd08-4087-8305-56a97a8ddc88/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T11:40:01.337Z",
+      "crawledAt": "2026-07-22T22:51:05.144Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/02f5712b-2dbf-4071-9c69-9da352bd74e8/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T11:40:01.688Z",
+      "crawledAt": "2026-07-22T22:51:05.482Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -86,45 +86,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "fondation-domus-c7035e55eb7f",
-      "slug": "responsabile-risorse-umane-membro-della-direzione-80-fondation-domus-ardon",
-      "company": "Fondation Domus",
-      "companyKey": "fondation-domus",
-      "companyDomain": "fondation-domus.ch",
-      "title": "Responsable ressources humaines - membre de la direction À 80%",
-      "location": "Ardon",
-      "canton": "VS",
-      "url": "https://www.jobup.ch/fr/emplois/detail/7b82cc50-8baf-45ac-af38-d733661d06d0/?source=[platform]",
-      "source": "Fondation Domus Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-21T12:56:05.628Z",
-      "addressLocality": "Ardon",
-      "postalCode": "1957",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Social / Fondation",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/7b82cc50-8baf-45ac-af38-d733661d06d0/?source=[platform]",
-      "firstSeenAt": "2026-06-29T13:10:09.198Z",
-      "salaryMin": 66800,
-      "salaryMax": 101200,
-      "addressRegion": "VS",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
