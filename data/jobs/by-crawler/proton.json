@@ -1,6 +1,6 @@
 {
   "crawlerKey": "proton",
-  "assembledAt": "2026-07-21T22:42:31.142Z",
+  "assembledAt": "2026-07-22T11:44:20.420Z",
   "jobs": [
     {
       "id": "proton-11f0ca12984d",
@@ -33,7 +33,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4653905101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:27.634Z",
+      "crawledAt": "2026-07-22T11:44:16.046Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -110,7 +110,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4836677101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:27.331Z",
+      "crawledAt": "2026-07-22T11:44:15.742Z",
       "addressLocality": "London UK, Geneva CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -187,7 +187,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4892444101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:27.028Z",
+      "crawledAt": "2026-07-22T11:44:15.439Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -221,6 +221,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:16:34.622Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -266,7 +267,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4897535101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:26.724Z",
+      "crawledAt": "2026-07-22T11:44:15.136Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -300,6 +301,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:16:34.320Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -345,7 +347,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4848439101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:26.417Z",
+      "crawledAt": "2026-07-22T11:44:14.834Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -379,6 +381,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:16:34.020Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -424,7 +427,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4612377101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:26.103Z",
+      "crawledAt": "2026-07-22T11:44:14.531Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -470,7 +473,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "proton-388def4c9118",
@@ -503,7 +507,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4666726101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:25.798Z",
+      "crawledAt": "2026-07-22T11:44:14.228Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -547,7 +551,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "proton-45018d9aa734",
@@ -580,7 +585,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4588886101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:25.492Z",
+      "crawledAt": "2026-07-22T11:44:13.925Z",
       "addressLocality": "Barcelona",
       "addressCountry": "CH",
       "country": "CH",
@@ -612,6 +617,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:16:33.114Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -657,7 +663,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4652948101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:25.188Z",
+      "crawledAt": "2026-07-22T11:44:13.621Z",
       "addressLocality": "Vilnius",
       "addressCountry": "CH",
       "country": "CH",
@@ -701,7 +707,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "proton-548fc6c7342d",
@@ -734,7 +741,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4766179101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:24.884Z",
+      "crawledAt": "2026-07-22T11:44:13.319Z",
       "addressLocality": "London",
       "addressCountry": "CH",
       "country": "CH",
@@ -811,7 +818,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4725157101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:24.579Z",
+      "crawledAt": "2026-07-22T11:44:13.016Z",
       "addressLocality": "Barcelona",
       "addressCountry": "CH",
       "country": "CH",
@@ -892,7 +899,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4864462101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:24.278Z",
+      "crawledAt": "2026-07-22T11:44:12.714Z",
       "addressLocality": "Geneva, Switzerland, Paris, France",
       "addressCountry": "CH",
       "country": "CH",
@@ -969,7 +976,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4908174101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:23.976Z",
+      "crawledAt": "2026-07-22T11:44:12.412Z",
       "addressLocality": "Paris, London",
       "addressCountry": "CH",
       "country": "CH",
@@ -985,6 +992,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-07T22:25:20.902Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1030,7 +1038,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4877317101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:23.642Z",
+      "crawledAt": "2026-07-22T11:44:12.086Z",
       "addressLocality": "Geneva, Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -1056,6 +1064,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:16:31.606Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1101,7 +1110,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4881699101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:23.340Z",
+      "crawledAt": "2026-07-22T11:44:11.784Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1133,6 +1142,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:16:31.304Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1161,7 +1171,7 @@
       "companyDomain": "proton.me",
       "title": "Senior Hardware Buyer",
       "titleByLocale": {
-        "it": "Comprare hardware senior",
+        "it": "Senior Hardware Buyer",
         "en": "Senior Hardware Buyer",
         "de": "Senior Hardware Käufer",
         "fr": "Acheteur principal de matériel"
@@ -1178,7 +1188,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4849865101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:23.038Z",
+      "crawledAt": "2026-07-22T11:44:11.482Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -1194,6 +1204,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-03T23:16:31.002Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1239,7 +1250,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4899457101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:22.732Z",
+      "crawledAt": "2026-07-22T11:44:11.180Z",
       "addressLocality": "London",
       "addressCountry": "CH",
       "country": "CH",
@@ -1316,7 +1327,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4630103101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:22.428Z",
+      "crawledAt": "2026-07-22T11:44:10.877Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1395,7 +1406,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4917440101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:22.124Z",
+      "crawledAt": "2026-07-22T11:44:10.574Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1431,6 +1442,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:09:52.924Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1476,7 +1488,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4926609101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:21.812Z",
+      "crawledAt": "2026-07-22T11:44:10.269Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -1508,6 +1520,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:27:46.373Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1553,7 +1566,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4929052101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:21.507Z",
+      "crawledAt": "2026-07-22T11:44:09.959Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -1585,6 +1598,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:50:14.708Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1630,7 +1644,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4932186101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:21.200Z",
+      "crawledAt": "2026-07-22T11:44:09.653Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1707,7 +1721,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4183145101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:20.892Z",
+      "crawledAt": "2026-07-22T11:44:09.350Z",
       "addressLocality": "Paris, Geneva, London",
       "addressCountry": "CH",
       "country": "CH",
@@ -1736,6 +1750,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:16:30.096Z",
+      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 163000,
       "baseSalary": {
@@ -1781,7 +1796,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4928995101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:20.590Z",
+      "crawledAt": "2026-07-22T11:44:09.043Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1813,6 +1828,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:50:13.800Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1858,7 +1874,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4823205101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:20.286Z",
+      "crawledAt": "2026-07-22T11:44:08.738Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1894,6 +1910,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:16:29.492Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1939,7 +1956,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4903325101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:19.977Z",
+      "crawledAt": "2026-07-22T11:44:08.433Z",
       "addressLocality": "Paris, Geneva, London",
       "addressCountry": "CH",
       "country": "CH",
@@ -1993,7 +2010,7 @@
       "slug": "responsabile-design-proton-geneva-switzerland-london-england-united-kingdom",
       "slugByLocale": {
         "it": "responsabile-design-proton-geneva-switzerland-london-england-united-kingdom",
-        "en": "head-of-design-proton-ch",
+        "en": "head-of-design-proton-geneva-switzerland-london-england-united-kingdom",
         "de": "leiter-design-proton-geneva-switzerland-london-england-united-kingdom",
         "fr": "responsable-design-proton-geneva-switzerland-london-england-united-kingdom"
       },
@@ -2019,7 +2036,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4848724101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:19.673Z",
+      "crawledAt": "2026-07-22T11:44:08.130Z",
       "addressLocality": "Geneva, Switzerland, London, England, United Kingdom",
       "addressCountry": "CH",
       "country": "CH",
@@ -2047,6 +2064,9 @@
           "head-of-design-proton-ch"
         ],
         "fr": [
+          "head-of-design-proton-ch"
+        ],
+        "en": [
           "head-of-design-proton-ch"
         ]
       },
@@ -2096,7 +2116,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4392372101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:19.370Z",
+      "crawledAt": "2026-07-22T11:44:07.827Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -2177,7 +2197,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4857528101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:19.061Z",
+      "crawledAt": "2026-07-22T11:44:07.524Z",
       "addressLocality": "Taipei",
       "addressCountry": "CH",
       "country": "CH",
@@ -2254,7 +2274,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4660027101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:18.758Z",
+      "crawledAt": "2026-07-22T11:44:07.220Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -2333,7 +2353,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4767553101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:18.448Z",
+      "crawledAt": "2026-07-22T11:44:06.918Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -2410,7 +2430,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4814505101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:18.139Z",
+      "crawledAt": "2026-07-22T11:44:06.613Z",
       "addressLocality": "Taipei",
       "addressCountry": "CH",
       "country": "CH",
@@ -2497,7 +2517,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4914620101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:17.828Z",
+      "crawledAt": "2026-07-22T11:44:06.307Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -2558,7 +2578,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4655985101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:17.523Z",
+      "crawledAt": "2026-07-22T11:44:05.999Z",
       "addressLocality": "Barcelona",
       "addressCountry": "CH",
       "country": "CH",
@@ -2574,6 +2594,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-07T22:25:15.088Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2619,7 +2640,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4715670101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:17.101Z",
+      "crawledAt": "2026-07-22T11:44:05.605Z",
       "addressLocality": "London",
       "addressCountry": "CH",
       "country": "CH",
@@ -2700,7 +2721,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4868059101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:42:16.783Z",
+      "crawledAt": "2026-07-22T11:44:05.287Z",
       "addressLocality": "Geneva, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2716,6 +2737,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-20T22:42:47.750Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "baseSalary": {
@@ -2790,7 +2812,8 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "proton-46355ae6fb08",
@@ -2866,7 +2889,8 @@
         }
       },
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
