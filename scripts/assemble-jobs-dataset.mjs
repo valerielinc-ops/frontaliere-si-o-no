@@ -48,7 +48,7 @@ import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { assembleUrlKey } from './lib/job-url-key.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts } from './lib/crawler-template.mjs';
-import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP } from './lib/dedicated-crawler-common.mjs';
+import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, findSwissCityInText, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
@@ -285,6 +285,29 @@ export function applyPerLocaleSlugCollisionGuard(jobs) {
       if (!slug || slug === myBaseSlug) continue;
       const owner = baseSlugOwners.get(`${canton}|${slug}`);
       if (!owner || owner === myId) continue;
+
+      // Recurrence guard: this exact slug string was already dropped by this
+      // guard in a prior assemble run (tracked in previousSlugs). Deterministic
+      // MT engines (Argos/CTranslate2) regenerate byte-identical output for the
+      // same source text, so re-flagging needsRetranslation here just
+      // recreates the identical collision on every future run — permanently
+      // destroying an otherwise-correct translation instead of fixing anything
+      // (confirmed incident: Fisiocare Sagl / EOC — Ente Ospedaliero Cantonale
+      // physiotherapist postings stuck needsRetranslation for 12-36 days with
+      // fully correct per-crawler titleByLocale/descriptionByLocale). Once a
+      // collision recurs, the fix isn't a new translation — it's a unique
+      // slug — so disambiguate and stop looping instead of deleting again.
+      const recurring = Array.isArray(job.previousSlugs) && job.previousSlugs.includes(slug);
+      if (recurring) {
+        const disambiguator = stableSlugHash(job) || String(job.id || '').slice(-6) || 'dup';
+        job.slugByLocale[locale] = appendSlugDisambiguator(slug, disambiguator);
+        count++;
+        if (details.length < 10) {
+          details.push(`${canton}/${locale}/${slug}: ${myId} → owned by ${owner} (disambiguated, repeat collision)`);
+        }
+        continue;
+      }
+
       addPreviousSlugForLocale(job, locale, slug, DEFAULT_PREV_SLUG_CAP, 'assemble-jobs-dataset.collision-guard');
       delete job.slugByLocale[locale];
       if (job.titleByLocale && typeof job.titleByLocale === 'object') {
