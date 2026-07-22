@@ -25,10 +25,11 @@
         "it": "Assistente medico",
         "de": "Arzthelferin"
       },
-      "slug": "assistant-e-medical-e-swiss-medical-network",
+      "slug": "assistente-medico-swiss-medical-network-saint-imier",
       "slugByLocale": {
         "en": "assistant-e-medical-e-swiss-medical-network",
-        "it": "assistant-e-medical-e-swiss-medical-network"
+        "it": "assistente-medico-swiss-medical-network-saint-imier",
+        "de": "arzthelferin-swiss-medical-network-saint-imier"
       },
       "category": "admin",
       "datePosted": "2026-07-21",
@@ -55,7 +56,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-21T22:08:03.008Z"
+      "firstSeenAt": "2026-07-21T22:08:03.008Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138857539-chef-fe-de-rang",
@@ -79,10 +88,11 @@
         "it": "Capo del rango",
         "de": "Reihenleiter"
       },
-      "slug": "chef-fe-de-rang-swiss-medical-network",
+      "slug": "capo-del-rango-swiss-medical-network-montreux",
       "slugByLocale": {
-        "en": "chef-fe-de-rang-swiss-medical-network",
-        "it": "chef-fe-de-rang-swiss-medical-network"
+        "en": "head-of-rank-swiss-medical-network-montreux",
+        "it": "capo-del-rango-swiss-medical-network-montreux",
+        "de": "reihenleiter-swiss-medical-network-montreux"
       },
       "category": "management",
       "datePosted": "2026-07-21",
@@ -109,7 +119,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-21T22:08:03.008Z"
+      "firstSeenAt": "2026-07-21T22:08:03.008Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-rang-swiss-medical-network"
+        ],
+        "en": [
+          "chef-fe-de-rang-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-rang-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138788849-tso-ou-instrumentiste-au-bloc-operatoire",
@@ -165,20 +186,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "tso-ou-instrumentiste-au-bloc-operatoire-swiss-medical-network",
-          "tso-o-strumentalista-dell-unita-operativa-swiss-medical-network-neuchatel"
-        ],
-        "en": [
-          "tso-ou-instrumentiste-au-bloc-operatoire-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "tso-ou-instrumentiste-au-bloc-operatoire-swiss-medical-network",
-        "tso-o-strumentalista-dell-unita-operativa-swiss-medical-network-neuchatel"
-      ]
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138659948-medizinische-praxisassistenz-fur-allgemeine-innere-medizin",
@@ -205,8 +213,9 @@
       },
       "slug": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network",
       "slugByLocale": {
-        "en": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network",
-        "it": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network"
+        "en": "medical-practice-assistant-for-general-internal-medicine-swiss-medical-network-stein-am-rhein",
+        "it": "assistente-medico-per-la-medicina-interna-generale-swiss-medical-network-stein-am-rhein",
+        "fr": "assistant-de-medecine-pour-la-medecine-interne-generale-swiss-medical-network-stein-am-rhein"
       },
       "category": "healthcare",
       "datePosted": "2026-07-21",
@@ -291,20 +300,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-responsable-d-unite-swiss-medical-network",
-          "dottore-responsabile-dell-unita-swiss-medical-network-montreux"
-        ],
-        "en": [
-          "medecin-responsable-d-unite-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "medecin-responsable-d-unite-swiss-medical-network",
-        "dottore-responsabile-dell-unita-swiss-medical-network-montreux"
-      ]
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138086609-facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-",

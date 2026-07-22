@@ -141,13 +141,11 @@
       "pensumMax": 80,
       "pensum": "60 - 80%",
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-mpa-onkologie-spital-oberengadin-samedan",
-        "assistente-medico-mpa-oncologia-spital-oberengadin-samedan"
+        "medizinische-r-praxisassistent-in-mpa-onkologie-spital-oberengadin-samedan"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-mpa-onkologie-spital-oberengadin-samedan",
-          "assistente-medico-mpa-oncologia-spital-oberengadin-samedan"
+          "medizinische-r-praxisassistent-in-mpa-onkologie-spital-oberengadin-samedan"
         ],
         "en": [
           "medizinische-r-praxisassistent-in-mpa-onkologie-spital-oberengadin-samedan"
@@ -224,13 +222,11 @@
       "pensumMax": 80,
       "pensum": "50 - 80%",
       "previousSlugs": [
-        "hebamme-spital-oberengadin-samedan",
-        "mutua-spital-oberengadin-samedan"
+        "hebamme-spital-oberengadin-samedan"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hebamme-spital-oberengadin-samedan",
-          "mutua-spital-oberengadin-samedan"
+          "hebamme-spital-oberengadin-samedan"
         ],
         "en": [
           "hebamme-spital-oberengadin-samedan"
@@ -306,13 +302,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "chefarztin-chefarzt-gynakologie-geburtshilfe-spital-oberengadin-samedan",
-        "medico-principale-medico-principale-ginecologia-ostetricia-spital-oberengadin-samedan"
+        "chefarztin-chefarzt-gynakologie-geburtshilfe-spital-oberengadin-samedan"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chefarztin-chefarzt-gynakologie-geburtshilfe-spital-oberengadin-samedan",
-          "medico-principale-medico-principale-ginecologia-ostetricia-spital-oberengadin-samedan"
+          "chefarztin-chefarzt-gynakologie-geburtshilfe-spital-oberengadin-samedan"
         ],
         "en": [
           "chefarztin-chefarzt-gynakologie-geburtshilfe-spital-oberengadin-samedan"
@@ -497,12 +491,12 @@
     },
     {
       "id": "spital-oberengadin-dc44d5fad4c0",
-      "slug": "fachfrau-fachmann-operationstechnik-saison-spital-oberengadin-samedan",
+      "slug": "specialista-specialist-operations-technology-season-spital-oberengadin-samedan",
       "slugByLocale": {
         "de": "fachfrau-fachmann-operationstechnik-saison-spital-oberengadin-samedan",
-        "it": "fachfrau-fachmann-operationstechnik-saison-spital-oberengadin-samedan",
-        "en": "fachfrau-fachmann-operationstechnik-saison-spital-oberengadin-samedan",
-        "fr": "fachfrau-fachmann-operationstechnik-saison-spital-oberengadin-samedan"
+        "it": "specialista-specialist-operations-technology-season-spital-oberengadin-samedan",
+        "en": "specialist-specialist-operations-technology-season-spital-oberengadin-samedan",
+        "fr": "specialiste-specialiste-operations-technologie-saison-spital-oberengadin-samedan"
       },
       "company": "Spital Oberengadin",
       "companyKey": "spital-oberengadin",
@@ -561,7 +555,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-21T22:29:48.884Z"
+      "firstSeenAt": "2026-07-21T22:29:48.884Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-operationstechnik-saison-spital-oberengadin-samedan"
+        ],
+        "en": [
+          "fachfrau-fachmann-operationstechnik-saison-spital-oberengadin-samedan"
+        ],
+        "fr": [
+          "fachfrau-fachmann-operationstechnik-saison-spital-oberengadin-samedan"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-operationstechnik-saison-spital-oberengadin-samedan"
+      ]
     },
     {
       "id": "spital-oberengadin-5ff82297f9bb",
@@ -649,8 +657,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-innere-medizin-80-bis-100-bewerbungen-von-arztinnen-und-arzten-kurz",
         "it": "oberarztin-oberarzt-innere-medizin-80-bis-100-bewerbungen-von-arztinnen-e-arzten-kurz-vor-facharzttitel-sind-ebenfalls-willkommen-spital-oberengadin-samedan",
-        "en": "oberarztin-oberarzt-innere-medizin-80-bis-100-bewerbungen-von-arztinnen-und-arzten-kurz",
-        "fr": "oberarztin-oberarzt-innere-medizin-80-bis-100-bewerbungen-von-arztinnen-und-arzten-kurz"
+        "en": "senior-physician-senior-physician-internal-medicine-80-to-100-applications-from-doctors-shortly-before-specialist-titles",
+        "fr": "medecin-principal-medecin-principal-medecine-interne-80-a-100-les-demandes-des-medecins-peu-avant-les-titres-de"
       },
       "company": "Spital Oberengadin",
       "companyKey": "spital-oberengadin",
@@ -699,6 +707,12 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-innere-medizin-80-bis-100-bewerbungen-von-arztinnen-und-arzten-kurz"
+        ],
+        "en": [
+          "oberarztin-oberarzt-innere-medizin-80-bis-100-bewerbungen-von-arztinnen-und-arzten-kurz"
+        ],
+        "fr": [
           "oberarztin-oberarzt-innere-medizin-80-bis-100-bewerbungen-von-arztinnen-und-arzten-kurz"
         ]
       },

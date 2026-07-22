@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "fondation-domus-31792ee5fbd1",
-      "slug": "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch",
+      "slug": "responsabile-risorse-umane-membro-della-direzione-80-fondation-domus-ardon-e2fc13",
       "slugByLocale": {
         "fr": "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch",
-        "it": "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch",
-        "en": "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch",
-        "de": "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch"
+        "it": "responsabile-risorse-umane-membro-della-direzione-80-fondation-domus-ardon-e2fc13",
+        "en": "human-resources-officer-member-of-management-80-fondation-domus-ardon-e2fc13",
+        "de": "human-resources-officer-mitglied-der-geschaftsleitung-80-fondation-domus-ardon-e2fc13"
       },
       "company": "Fondation Domus",
       "companyKey": "fondation-domus",
@@ -64,16 +64,30 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-07-21T23:36:42.880Z"
+      "firstSeenAt": "2026-07-21T23:36:42.880Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch"
+        ],
+        "en": [
+          "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch"
+        ],
+        "de": [
+          "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch"
+      ]
     },
     {
       "id": "fondation-domus-3baf057e3cdb",
-      "slug": "infirmier-en-psychiatrie-60-fondation-domus-ch",
+      "slug": "infermiera-in-psichiatria-60-fondation-domus-ardon",
       "slugByLocale": {
         "fr": "infirmier-en-psychiatrie-60-fondation-domus-ch",
-        "it": "infirmier-en-psychiatrie-60-fondation-domus-ch",
-        "en": "infirmier-en-psychiatrie-60-fondation-domus-ch",
-        "de": "infirmier-en-psychiatrie-60-fondation-domus-ch"
+        "it": "infermiera-in-psichiatria-60-fondation-domus-ardon",
+        "en": "nurse-in-psychiatry-60-fondation-domus-ardon",
+        "de": "krankenschwester-in-der-psychiatrie-60-fondation-domus-ardon"
       },
       "company": "Fondation Domus",
       "companyKey": "fondation-domus",
@@ -128,7 +142,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-07-21T23:36:42.519Z"
+      "firstSeenAt": "2026-07-21T23:36:42.519Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-en-psychiatrie-60-fondation-domus-ch"
+        ],
+        "en": [
+          "infirmier-en-psychiatrie-60-fondation-domus-ch"
+        ],
+        "de": [
+          "infirmier-en-psychiatrie-60-fondation-domus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-en-psychiatrie-60-fondation-domus-ch"
+      ]
     },
     {
       "id": "fondation-domus-c7035e55eb7f",
@@ -178,21 +206,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch",
-        "responsabile-risorse-umane-membro-della-direzione-80-fondation-domus-ardon"
+        "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch",
-          "responsabile-risorse-umane-membro-della-direzione-80-fondation-domus-ardon"
+          "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch"
         ],
         "en": [
           "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch"
         ],
         "de": [
-          "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch"
-        ],
-        "fr": [
           "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch"
         ]
       },
