@@ -306,7 +306,7 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-checklist-2026.excerpt': 'Documenti necessari, permessi e assicurazione sanitaria per lavoratori transfrontalieri nel 2026',
     'blog.article.frontalieri-checklist-2026.imageAlt': 'Frontaliere che presenta documenti al primo giorno di lavoro a Lugano',
     'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.title': 'Frontaliere scelta comune residenza Italia Svizzera 2026 single',
-    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.excerpt': 'Sottotitolo con dati concreti DALLA FONTE (max 160 chars)',
+    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.excerpt': 'Guida 2026 per frontalieri single: come scegliere il comune di residenza in Svizzera tra residenza fiscale, registrazione cantonale e costi da valutare.',
     'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.imageAlt': 'scena svizzera nazionale/cantonale',
     'blog.article.banca-svizzera-segreto.title': 'Banche svizzere: ancora rifugio per denaro sporco?',
     'blog.article.banca-svizzera-segreto.excerpt': 'Analisi delle riforme del settore bancario svizzero e del segreto bancario.',

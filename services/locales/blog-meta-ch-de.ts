@@ -306,7 +306,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-checklist-2026.excerpt': 'Benötigte Dokumente, Genehmigungen und Krankenversicherung für Grenzgänger im Jahr 2026',
     'blog.article.frontalieri-checklist-2026.imageAlt': 'Frontalierer präsentiert Dokumente am ersten Arbeitstag in Lugano',
     'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.title': 'Grenzgänger Gemeindewahl Wohnsitz Italien Schweiz 2026 Single',
-    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.excerpt': 'Untertitel mit konkreten Daten AUS DER QUELLE (max 160 Chars)',
+    'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.excerpt': 'Leitfaden 2026 für alleinstehende Grenzgänger: Wahl der Wohngemeinde in der Schweiz – Steueransässigkeit, kantonale Anmeldung und Kosten im Überblick.',
     'blog.article.frontaliere-scelta-comune-residenza-italia-svizzera-2026-single.imageAlt': 'scena svizzera nazionale/cantonale',
     'blog.article.banca-svizzera-segreto.title': 'Schweizer Banken: Noch Unterschlupf für schmutziges Geld?',
     'blog.article.banca-svizzera-segreto.excerpt': 'Analyse der Reformen des Schweizer Bankensektors und des Bankgeheimnisses.',
