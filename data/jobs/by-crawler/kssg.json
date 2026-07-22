@@ -154,8 +154,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "kssg-028940f3db3c",
@@ -403,7 +402,7 @@
       "title": "Pflegeexpert/in APN 70%",
       "titleByLocale": {
         "it": "Professionista/in APN 70 %",
-        "en": "Pflegeexpert/in APN 70%",
+        "en": "Care expert/in APN 70 %",
         "de": "Pflegeexpert/in APN 70%",
         "fr": "Expert en soins/en APN 70 %"
       },
@@ -452,7 +451,6 @@
         "esperto-a-di-cure-apn-70-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-10T12:48:52.679Z",
-      "needsRetranslation": true,
       "salaryMin": 40300,
       "salaryMax": 60900,
       "baseSalary": {
@@ -1327,7 +1325,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 40-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 40-100%",
+        "it": "Dipl. Infermieristica professionale 40-100 %",
         "en": "Dipl. Nursing professional 40-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 40-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 40-100 %"
@@ -1377,7 +1375,6 @@
         "dipl-infermieristica-professionale-40-100-hoch-health-ostschweiz-uznach"
       ],
       "firstSeenAt": "2026-07-12T22:28:15.713Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1405,7 +1402,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 40-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 40-100%",
+        "it": "Dipl. Infermieristica professionale 40-100 %",
         "en": "Dipl. Nursing professional 40-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 40-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 40-100 %"
@@ -1458,7 +1455,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:28:16.733Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1487,7 +1483,7 @@
       "title": "Ergotherapeut/in 40-100%",
       "titleByLocale": {
         "it": "Terapista/in 40-100 %",
-        "en": "Ergotherapeut/in 40-100%",
+        "en": "Occupational therapist/in 40-100 %",
         "de": "Ergotherapeut/in 40-100%",
         "fr": "Ergothérapie/en 40-100 %"
       },
@@ -1555,7 +1551,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T13:08:14.846Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1676,7 +1671,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 40-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 40-100%",
+        "it": "Dipl. Infermieristica professionale 40-100 %",
         "en": "Dipl. Nursing professional 40-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 40-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 40-100 %"
@@ -1731,7 +1726,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T13:08:10.400Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1759,7 +1753,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Radiologiefachfrau/-mann HF 80-100%",
       "titleByLocale": {
-        "it": "Dipl. Radiologiefachfrau/-mann HF 80-100%",
+        "it": "Dipl. Specialista di radiologia HF 80-100 %",
         "en": "Dipl. Radiology specialist HF 80-100 %",
         "de": "Dipl. Radiologiefachfrau/-mann HF 80-100%",
         "fr": "Dipl. Spécialiste de radiologie HF 80-100 %"
@@ -1809,7 +1803,6 @@
         "specialista-certificato-in-radiologia-hf-80-100-hoch-health-ostschweiz-st"
       ],
       "firstSeenAt": "2026-07-13T13:08:08.181Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2400,7 +2393,7 @@
       "title": "Ausbildung zur dipl. Fachperson Operationstechnik HF",
       "titleByLocale": {
         "it": "Allenamento per dipl. Specialist Operations Engineering HF",
-        "en": "Ausbildung zur dipl. Fachperson Operationstechnik HF",
+        "en": "Training for dipl. Specialist Operations Engineering HF",
         "de": "Ausbildung zur dipl. Fachperson Operationstechnik HF",
         "fr": "Formation pour les dipl. Spécialiste des opérations Génie HF"
       },
@@ -2449,7 +2442,6 @@
         "formazione-per-tecnico-di-sala-operatoria-diplomato-hf-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-14T11:56:35.015Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2554,7 +2546,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 50-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 50-100%",
+        "it": "Dipl. Infermieristica professionale 50-100 %",
         "en": "Dipl. Nursing professional 50-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 50-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 50-100 %"
@@ -2604,7 +2596,6 @@
         "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-14T11:56:33.872Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2633,7 +2624,7 @@
       "title": "Dipl. Pflegefachfrau/-mann Springerpool 20-100%",
       "titleByLocale": {
         "it": "Dipl. Specialista di cura Springerpool 20-100 %",
-        "en": "Dipl. Pflegefachfrau/-mann Springerpool 20-100%",
+        "en": "Dipl. Care specialist Springerpool 20-100 %",
         "de": "Dipl. Pflegefachfrau/-mann Springerpool 20-100%",
         "fr": "Dipl. Spécialiste des soins Springerpool 20-100 %"
       },
@@ -2701,7 +2692,6 @@
         "infermiere-iinfermiere-diploma-springerpool-20-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-14T11:56:36.096Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2806,7 +2796,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 50-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 50-100%",
+        "it": "Dipl. Infermieristica professionale 50-100 %",
         "en": "Dipl. Nursing professional 50-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 50-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 50-100 %"
@@ -2856,7 +2846,6 @@
         "dipl-infermieristica-professionale-50-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-14T11:56:42.741Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2961,7 +2950,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 40-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 40-100%",
+        "it": "Dipl. Infermieristica professionale 40-100 %",
         "en": "Dipl. Nursing professional 40-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 40-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 40-100 %"
@@ -3011,7 +3000,6 @@
         "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-14T11:56:39.418Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3272,7 +3260,7 @@
       "companyDomain": "kssg.ch",
       "title": "Lehrorthoptist/in 40-60%",
       "titleByLocale": {
-        "it": "Lehrorthoptist/in 40-60%",
+        "it": "Ortofrutticoli 40-60 %",
         "en": "Orthoptist/in 40-60 %",
         "de": "Lehrorthoptist/in 40-60%",
         "fr": "Orthoptiste/en 40-60 %"
@@ -3310,24 +3298,68 @@
         "lehrorthoptist-in-40-60-kssg-ch",
         "ortofrutticoli-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "ortofrutticoli-in-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "lehrorthoptist-in-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "lehrorthoptist-in-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "responsabile-notfallpflege-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "head-of-emergency-care-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "leiter-in-notfallpflege-80-100-kssg-ch",
+        "responsable-des-soins-d-urgence-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "dipl-expert-emergency-care-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "dipl-expert-emergency-care-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "dipl-expertin-experte-notfallpflege-60-80-kssg-ch",
+        "dipl-expert-soins-d-urgence-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "dipl-expertin-experte-notfallpflege-60-100-kssg-ch",
+        "ict-application-manager-in-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "ict-applikationsmanager-in-80-100-kssg-ch",
+        "gestionnaire-d-applications-tic-dans-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "ict-digital-workplace-application-ingegnere-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "ict-digital-workplace-application-engineer-80-100-kssg-ch",
+        "ict-digital-workplace-application-ingenieur-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "stv-responsabile-notfallpflege-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "stv-head-of-emergency-care-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "stv-leiter-in-notfallpflege-80-100-kssg-ch",
+        "stv-chef-des-soins-d-urgence-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrorthoptist-in-40-60-kssg-ch",
           "ortofrutticoli-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "ortofrutticoli-in-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-          "lehrorthoptist-in-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+          "lehrorthoptist-in-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "responsabile-notfallpflege-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "head-of-emergency-care-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "leiter-in-notfallpflege-80-100-kssg-ch",
+          "responsable-des-soins-d-urgence-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "dipl-expert-emergency-care-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "dipl-expert-emergency-care-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "dipl-expertin-experte-notfallpflege-60-80-kssg-ch",
+          "dipl-expert-soins-d-urgence-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "dipl-expertin-experte-notfallpflege-60-100-kssg-ch",
+          "ict-application-manager-in-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "ict-applikationsmanager-in-80-100-kssg-ch",
+          "gestionnaire-d-applications-tic-dans-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "ict-digital-workplace-application-ingegnere-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "ict-digital-workplace-application-engineer-80-100-kssg-ch",
+          "ict-digital-workplace-application-ingenieur-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "stv-responsabile-notfallpflege-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ],
         "en": [
-          "lehrorthoptist-in-40-60-kssg-ch"
+          "lehrorthoptist-in-40-60-kssg-ch",
+          "stv-head-of-emergency-care-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "ict-application-manager-in-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ],
         "fr": [
-          "lehrorthoptist-in-40-60-kssg-ch"
+          "lehrorthoptist-in-40-60-kssg-ch",
+          "stv-chef-des-soins-d-urgence-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "responsable-des-soins-d-urgence-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "gestionnaire-d-applications-tic-dans-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        ],
+        "de": [
+          "stv-leiter-in-notfallpflege-80-100-kssg-ch",
+          "leiter-in-notfallpflege-80-100-kssg-ch",
+          "ict-applikationsmanager-in-80-100-kssg-ch"
         ]
       },
       "firstSeenAt": "2026-07-15T22:53:00.212Z",
-      "needsRetranslation": true,
       "salaryMin": 34500,
       "salaryMax": 52200,
       "baseSalary": {
@@ -3510,7 +3542,7 @@
       "title": "Dipl. Pflegefachfrau/-mann Springerpool 80-100%",
       "titleByLocale": {
         "it": "Dipl. Specialista di cura Springerpool 80-100 %",
-        "en": "Dipl. Pflegefachfrau/-mann Springerpool 80-100%",
+        "en": "Dipl. Care specialist Springerpool 80-100 %",
         "de": "Dipl. Pflegefachfrau/-mann Springerpool 80-100%",
         "fr": "Dipl. Spécialiste des soins Springerpool 80-100 %"
       },
@@ -3559,7 +3591,6 @@
         "diplomata-di-assistenza-infermieristica-springerpool-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-15T22:52:55.800Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3665,7 +3696,7 @@
       "title": "Dipl. Pflegefachfrau/-mann Springerpool 50-100%",
       "titleByLocale": {
         "it": "Dipl. Specialista di cura Springerpool 50-100 %",
-        "en": "Dipl. Pflegefachfrau/-mann Springerpool 50-100%",
+        "en": "Dipl. Care specialist Springerpool 50-100 %",
         "de": "Dipl. Pflegefachfrau/-mann Springerpool 50-100%",
         "fr": "Dipl. Spécialiste des soins Springerpool 50-100 %"
       },
@@ -3714,7 +3745,6 @@
         "infermiere-qualificato-springerpool-50-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-15T22:52:53.788Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3958,7 +3988,6 @@
         "apprendistato-come-logistiker-in-cfc-hoch-health-ostschweiz-wil"
       ],
       "firstSeenAt": "2026-07-15T22:52:47.777Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -4113,7 +4142,6 @@
         "operatore-logistico-a-100-hoch-health-ostschweiz-grabs"
       ],
       "firstSeenAt": "2026-07-15T22:52:48.783Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4545,7 +4573,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T23:01:34.293Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4824,7 +4851,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 40-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 40-100%",
+        "it": "Dipl. Infermieristica professionale 40-100 %",
         "en": "Dipl. Nursing professional 40-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 40-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 40-100 %"
@@ -4874,7 +4901,6 @@
         "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-st-gallen-9fa340"
       ],
       "firstSeenAt": "2026-07-16T12:31:26.611Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5007,7 +5033,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 80-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 80-100%",
+        "it": "Dipl. Infermieristica professionale 80-100 %",
         "en": "Dipl. Nursing professional 80-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 80-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 80-100 %"
@@ -5057,7 +5083,6 @@
         "dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-17T11:42:53.493Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5162,7 +5187,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 40-60%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 40-60%",
+        "it": "Dipl. Infermieristica professionale 40-60 %",
         "en": "Dipl. Nursing professional 40-60 %",
         "de": "Dipl. Pflegefachfrau/-mann 40-60%",
         "fr": "Dipl. Professionnels des soins infirmiers 40-60 %"
@@ -5212,7 +5237,6 @@
         "dipl-pflegefachfrau-mann-40-60-hoch-health-ostschweiz-wil"
       ],
       "firstSeenAt": "2026-07-17T11:42:52.499Z",
-      "needsRetranslation": true,
       "salaryMin": 34500,
       "salaryMax": 52200,
       "baseSalary": {
@@ -5317,7 +5341,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Radiologiefachfrau/-mann HF 80-100%",
       "titleByLocale": {
-        "it": "Dipl. Radiologiefachfrau/-mann HF 80-100%",
+        "it": "Dipl. Specialista di radiologia HF 80-100 %",
         "en": "Dipl. Radiology specialist HF 80-100 %",
         "de": "Dipl. Radiologiefachfrau/-mann HF 80-100%",
         "fr": "Dipl. Spécialiste de radiologie HF 80-100 %"
@@ -5367,7 +5391,6 @@
         "specialista-certificato-in-radiologia-hf-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-17T11:42:48.625Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5395,7 +5418,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann Nachdiplomstudium (NDS) Intensivpflege 80-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann Nachdiplomstudium (NDS) Intensivpflege 80-100%",
+        "it": "Dipl. Studi post-laurea specialistici (NDS) Cura intensiva 80-100 %",
         "en": "Dipl. Nursing specialist post-graduate studies (NDS) Intensive care 80-100 %",
         "de": "Dipl. Pflegefachfrau/-mann Nachdiplomstudium (NDS) Intensivpflege 80-100%",
         "fr": "Dipl. Soins intensifs 80-100 %"
@@ -5445,7 +5468,6 @@
         "dipl-studi-post-laurea-specialistici-nds-cura-intensiva-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-18T11:08:20.633Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7223,7 +7245,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 80-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 80-100%",
+        "it": "Dipl. Infermieristica professionale 80-100 %",
         "en": "Dipl. Nursing professional 80-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 80-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 80-100 %"
@@ -7308,7 +7330,6 @@
         "dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-693830"
       ],
       "firstSeenAt": "2026-07-18T11:08:12.539Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7336,7 +7357,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 50-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 50-100%",
+        "it": "Dipl. Infermieristica professionale 50-100 %",
         "en": "Dipl. Nursing professional 50-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 50-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 50-100 %"
@@ -7386,7 +7407,6 @@
         "dipl-infermieristica-professionale-50-100-hoch-health-ostschweiz-grabs"
       ],
       "firstSeenAt": "2026-07-18T11:08:11.503Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7541,7 +7561,6 @@
         "capo-team-consulenza-alimentare-e-diabetologica-60-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-19T11:33:02.082Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7619,7 +7638,6 @@
         "medico-specialista-in-oncologia-medica-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-19T11:33:01.089Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -8008,7 +8026,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T13:12:47.265Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -8191,7 +8208,7 @@
       "title": "Physiotherapeut/in 50-100%",
       "titleByLocale": {
         "it": "Fisioterapista/in 50-100 %",
-        "en": "Physiotherapeut/in 50-100%",
+        "en": "Physiotherapist/in 50-100 %",
         "de": "Physiotherapeut/in 50-100%",
         "fr": "Physiothérapeute/en 50-100 %"
       },
@@ -8240,7 +8257,6 @@
         "fisioterapista-50-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-20T13:12:41.496Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8345,7 +8361,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann Nachdiplomstudium (NDS) Intensivpflege 80-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann Nachdiplomstudium (NDS) Intensivpflege 80-100%",
+        "it": "Dipl. Studi post-laurea specialistici (NDS) Cura intensiva 80-100 %",
         "en": "Dipl. Nursing specialist post-graduate studies (NDS) Intensive care 80-100 %",
         "de": "Dipl. Pflegefachfrau/-mann Nachdiplomstudium (NDS) Intensivpflege 80-100%",
         "fr": "Dipl. Soins intensifs 80-100 %"
@@ -8398,7 +8414,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T23:08:52.229Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8426,7 +8441,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 70-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 70-100%",
+        "it": "Dipl. Infermieristica professionale 70-100 %",
         "en": "Dipl. Nursing professional 70-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 70-100%",
         "fr": "Dipl. Spécialiste des soins infirmiers 70-100 %"
@@ -8479,7 +8494,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:59:45.074Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8584,7 +8598,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 80-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 80-100%",
+        "it": "Dipl. Infermieristica professionale 80-100 %",
         "en": "Dipl. Nursing professional 80-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 80-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 80-100 %"
@@ -8634,7 +8648,6 @@
         "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil"
       ],
       "firstSeenAt": "2026-07-21T11:59:43.052Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8663,16 +8676,16 @@
       "title": "Unterassistent/in 2027",
       "titleByLocale": {
         "de": "Unterassistent/in 2027",
-        "it": "Unterassistent/in 2027",
-        "en": "Unterassistent/in 2027",
-        "fr": "Unterassistent/in 2027"
+        "it": "Sub-assistante/in 2027",
+        "en": "Sub-assistant/in 2027",
+        "fr": "Sous-assistant/en 2027"
       },
       "description": "Unterassistent/in 2027\n\nArbeitsort Wil\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\nFür die Absolvierung des Praktischen Jahres bei HOCH Health Ostschweiz am Standort Wil bieten wir dir als Unterassistentin und Unterassistent in den untenstehenden Fachbereichen Unterassistenzstellen an. Bitte beachte, dass der Standort Wil nur Praktika im Rahmen des Klinisch Praktischen Jahres anbietet.\n\nFachbereich\nVerfügbarer Zeitraum\n\nKlinik für Innere Medizin\nBewerbungen für die Klinik für Innere Medizin werden über folgenden Link entgegengenommen.\n\nKlinik für Chirurgie\nKlinik für Orthopädie und Traumatologie\n\nJanuar bis Februar\nMitte April bis Mitte Mai\nOktober bis Dezember\n\nKlinik für Gynäkologie und Geburtshilfe\n(Bieten Famulaturen an)\nFebruar bis Juni\nAugust (1 Mt.)\n\nIhre Bewerbung\n\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Elina Boos, Fachspezialistin HR Bildung, Telefon +41 71 494 27 36\n\n• Nutze deine Chance und absolviere deine Unterassistenz bei HOCH Health Ostschweiz\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
       "descriptionByLocale": {
         "de": "Unterassistent/in 2027\n\nArbeitsort Wil\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\nFür die Absolvierung des Praktischen Jahres bei HOCH Health Ostschweiz am Standort Wil bieten wir dir als Unterassistentin und Unterassistent in den untenstehenden Fachbereichen Unterassistenzstellen an. Bitte beachte, dass der Standort Wil nur Praktika im Rahmen des Klinisch Praktischen Jahres anbietet.\n\nFachbereich\nVerfügbarer Zeitraum\n\nKlinik für Innere Medizin\nBewerbungen für die Klinik für Innere Medizin werden über folgenden Link entgegengenommen.\n\nKlinik für Chirurgie\nKlinik für Orthopädie und Traumatologie\n\nJanuar bis Februar\nMitte April bis Mitte Mai\nOktober bis Dezember\n\nKlinik für Gynäkologie und Geburtshilfe\n(Bieten Famulaturen an)\nFebruar bis Juni\nAugust (1 Mt.)\n\nIhre Bewerbung\n\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Elina Boos, Fachspezialistin HR Bildung, Telefon +41 71 494 27 36\n\n• Nutze deine Chance und absolviere deine Unterassistenz bei HOCH Health Ostschweiz\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "it": "Unterassistent/in 2027\n\nArbeitsort Wil\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\nFür die Absolvierung des Praktischen Jahres bei HOCH Health Ostschweiz am Standort Wil bieten wir dir als Unterassistentin und Unterassistent in den untenstehenden Fachbereichen Unterassistenzstellen an. Bitte beachte, dass der Standort Wil nur Praktika im Rahmen des Klinisch Praktischen Jahres anbietet.\n\nFachbereich\nVerfügbarer Zeitraum\n\nKlinik für Innere Medizin\nBewerbungen für die Klinik für Innere Medizin werden über folgenden Link entgegengenommen.\n\nKlinik für Chirurgie\nKlinik für Orthopädie und Traumatologie\n\nJanuar bis Februar\nMitte April bis Mitte Mai\nOktober bis Dezember\n\nKlinik für Gynäkologie und Geburtshilfe\n(Bieten Famulaturen an)\nFebruar bis Juni\nAugust (1 Mt.)\n\nIhre Bewerbung\n\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Elina Boos, Fachspezialistin HR Bildung, Telefon +41 71 494 27 36\n\n• Nutze deine Chance und absolviere deine Unterassistenz bei HOCH Health Ostschweiz\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "en": "Unterassistent/in 2027\n\nArbeitsort Wil\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\nFür die Absolvierung des Praktischen Jahres bei HOCH Health Ostschweiz am Standort Wil bieten wir dir als Unterassistentin und Unterassistent in den untenstehenden Fachbereichen Unterassistenzstellen an. Bitte beachte, dass der Standort Wil nur Praktika im Rahmen des Klinisch Praktischen Jahres anbietet.\n\nFachbereich\nVerfügbarer Zeitraum\n\nKlinik für Innere Medizin\nBewerbungen für die Klinik für Innere Medizin werden über folgenden Link entgegengenommen.\n\nKlinik für Chirurgie\nKlinik für Orthopädie und Traumatologie\n\nJanuar bis Februar\nMitte April bis Mitte Mai\nOktober bis Dezember\n\nKlinik für Gynäkologie und Geburtshilfe\n(Bieten Famulaturen an)\nFebruar bis Juni\nAugust (1 Mt.)\n\nIhre Bewerbung\n\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Elina Boos, Fachspezialistin HR Bildung, Telefon +41 71 494 27 36\n\n• Nutze deine Chance und absolviere deine Unterassistenz bei HOCH Health Ostschweiz\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "fr": "Unterassistent/in 2027\n\nArbeitsort Wil\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\nFür die Absolvierung des Praktischen Jahres bei HOCH Health Ostschweiz am Standort Wil bieten wir dir als Unterassistentin und Unterassistent in den untenstehenden Fachbereichen Unterassistenzstellen an. Bitte beachte, dass der Standort Wil nur Praktika im Rahmen des Klinisch Praktischen Jahres anbietet.\n\nFachbereich\nVerfügbarer Zeitraum\n\nKlinik für Innere Medizin\nBewerbungen für die Klinik für Innere Medizin werden über folgenden Link entgegengenommen.\n\nKlinik für Chirurgie\nKlinik für Orthopädie und Traumatologie\n\nJanuar bis Februar\nMitte April bis Mitte Mai\nOktober bis Dezember\n\nKlinik für Gynäkologie und Geburtshilfe\n(Bieten Famulaturen an)\nFebruar bis Juni\nAugust (1 Mt.)\n\nIhre Bewerbung\n\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Elina Boos, Fachspezialistin HR Bildung, Telefon +41 71 494 27 36\n\n• Nutze deine Chance und absolviere deine Unterassistenz bei HOCH Health Ostschweiz\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung"
+        "it": "Sub-assistante/in 2027\n\nLuogo di lavoro Wil\n\nElenco dei lavori\n\nI vostri compiti e prospettive\n\nPer il completamento dell'anno pratico presso la HOCH Health Eastern Svizzera presso la sede di Wil, vi offriamo posizioni sub-assistanti e sub-assistanti nelle aree specialistiche qui sotto. Si prega di notare che la posizione di Wil offre solo stage come parte dell'Anno pratico clinico.\n\nOggetto\nPeriodo disponibile\n\nClinica per la medicina interna\nLe domande per la clinica per la medicina interna sono accettate tramite il seguente link.\n\nClinica per chirurgia\nClinica per Ortopedia e Traumatologia\n\nGennaio a febbraio\nDa metà aprile a metà maggio\nOttobre a dicembre\n\nClinica per Ginecologia e Ostetricia\n(Offerte facoltà)\nFebbraio a giugno\nAgosto (1 Mt.)\n\nLa tua richiesta\n\n• Puoi saperne di più su questo interessante stage sul nostro sito web o da Elina Boos, HR Education Specialist, telefono +41 71 494 27 36\n\n• Sfrutta la tua possibilità e completa la tua sub-assistenza presso HOCH Health Eastern Svizzera\n\nSu di noi\n\nL'assistenza sanitaria è la nostra professione e la nostra vocazione. Come il più grande datore di lavoro della Svizzera orientale, ci impegniamo a offrire ai nostri dipendenti un ambiente di lavoro versatile. Promuoviamo lo sviluppo individuale e quindi contribuiamo attivamente al futuro comune. Ci concentriamo sullo spirito di squadra, sulla cooperazione interdisciplinare e sulle soluzioni innovative.\n\nCompatibilità con la famiglia Vantaggi Alloggio ammobiliato Workplace health management Istruzione e formazione",
+        "en": "Sub-assistant/in 2027\n\nPlace of work Wil\n\nJob listing\n\nYour tasks and perspectives\n\nFor the completion of the practical year at HOCH Health Eastern Switzerland at the Wil location, we offer you sub-assistant and sub-assistant positions in the specialist areas below. Please note that the Wil location only offers internships as part of the Clinical Practical Year.\n\nSubject area\nAvailable period\n\nClinic for Internal Medicine\nApplications for the Clinic for Internal Medicine are accepted via the following link.\n\nClinic for surgery\nClinic for Orthopaedics and Traumatology\n\nJanuary to February\nMid-April to mid-May\nOctober to December\n\nClinic for Gynecology and Obstetrics\n(Offer faculties)\nFebruary to June\nAugust (1 Mt.)\n\nYour application\n\n• You can find out more about this exciting internship on our website or from Elina Boos, HR Education specialist, telephone +41 71 494 27 36\n\n• Take your chance and complete your sub-assistance at HOCH Health Eastern Switzerland\n\nAbout us\n\nHealthcare is our profession and our calling. As the largest employer in Eastern Switzerland, we are committed to offering our employees a versatile working environment. We promote individual development and thus make an active contribution to the common future. We focus on team spirit, interdisciplinary cooperation and innovative solutions.\n\nWork-family compatibility Benefits Furnished accommodation Workplace health management Education and training",
+        "fr": "Sous-assistant/en 2027\n\nLieu de travail Wil\n\nListe des emplois\n\nVos tâches et perspectives\n\nPour l'achèvement de l'année pratique à HOCH Health Eastern Suisse à l'emplacement Wil, nous vous proposons des postes sub-assistants et sub-assistants dans les domaines spécialisés ci-dessous. Veuillez noter que l'emplacement Wil offre uniquement des stages dans le cadre de l'année clinique pratique.\n\nDomaine\nPériode disponible\n\nClinique de médecine interne\nLes demandes pour la Clinique de médecine interne sont acceptées par le lien suivant.\n\nClinique de chirurgie\nClinique d'orthopédie et de traumatologie\n\nJanvier à février\nMi-avril à mi-mai\nOctobre à décembre\n\nClinique de gynécologie et d'obstétrique\n(Offre des facultés)\nFévrier à juin\nAoût (1 Mt.)\n\nVotre demande\n\n• Vous pouvez en savoir plus sur ce stage passionnant sur notre site ou auprès d'Elina Boos, spécialiste de l'éducation des RH, téléphone +41 71 494 27 36\n\n• Profitez de votre chance et complètez votre sous-assistance à HOCH Health Eastern Suisse\n\nÀ propos de nous\n\nLa santé est notre métier et notre vocation. En tant que plus grand employeur de Suisse orientale, nous nous engageons à offrir à nos employés un environnement de travail polyvalent. Nous encourageons le développement individuel et contribuons ainsi activement à l'avenir commun. Nous nous concentrons sur l'esprit d'équipe, la coopération interdisciplinaire et les solutions innovantes.\n\nCompatibilité travail-famille Prestations Hébergement meublé Gestion de la santé au travail Éducation et formation"
       },
       "location": "Praktikum",
       "canton": "SG",
@@ -8709,7 +8722,6 @@
       "previousSlugs": [
         "unterassistent-in-2027-kssg-ch"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8739,16 +8751,16 @@
       "title": "Unterassistent/in 2026",
       "titleByLocale": {
         "de": "Unterassistent/in 2026",
-        "it": "Unterassistent/in 2026",
-        "en": "Unterassistent/in 2026",
-        "fr": "Unterassistent/in 2026"
+        "it": "Sub-assistante/in 2026",
+        "en": "Sub-assistant/in 2026",
+        "fr": "Sous-assistant/en 2026"
       },
       "description": "Unterassistent/in 2026\n\nArbeitsort Wil\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\nFür die Absolvierung des Praktischen Jahres bei HOCH Health Ostschweiz am Standort Wil bieten wir dir als Unterassistentin und Unterassistent in den untenstehenden Fachbereichen Unterassistenzstellen an. Bitte beachte, dass der Standort Wil nur Praktika im Rahmen des Klinisch Praktischen Jahres anbietet.\n\nFachbereich\nVerfügbarer Zeitraum\n\nKlinik für Innere Medizin\nBewerbungen für die Klinik für Innere Medizin werden über folgenden Link entgegengenommen.\n\nKlinik für Chirurgie\nKlinik für Orthopädie und Traumatologie\nAugust bis Oktober\nDezember\n\nKlinik für Gynäkologie und Geburtshilfe\n(Bieten Famulaturen an)\nDezember (1 Mt.)\n\nIhre Bewerbung\n\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Elina Boos, Fachspezialistin HR Bildung, Telefon +41 71 494 27 36\n\n• Nutze deine Chance und absolviere deine Unterassistenz bei HOCH Health Ostschweiz\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
       "descriptionByLocale": {
         "de": "Unterassistent/in 2026\n\nArbeitsort Wil\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\nFür die Absolvierung des Praktischen Jahres bei HOCH Health Ostschweiz am Standort Wil bieten wir dir als Unterassistentin und Unterassistent in den untenstehenden Fachbereichen Unterassistenzstellen an. Bitte beachte, dass der Standort Wil nur Praktika im Rahmen des Klinisch Praktischen Jahres anbietet.\n\nFachbereich\nVerfügbarer Zeitraum\n\nKlinik für Innere Medizin\nBewerbungen für die Klinik für Innere Medizin werden über folgenden Link entgegengenommen.\n\nKlinik für Chirurgie\nKlinik für Orthopädie und Traumatologie\nAugust bis Oktober\nDezember\n\nKlinik für Gynäkologie und Geburtshilfe\n(Bieten Famulaturen an)\nDezember (1 Mt.)\n\nIhre Bewerbung\n\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Elina Boos, Fachspezialistin HR Bildung, Telefon +41 71 494 27 36\n\n• Nutze deine Chance und absolviere deine Unterassistenz bei HOCH Health Ostschweiz\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "it": "Unterassistent/in 2026\n\nArbeitsort Wil\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\nFür die Absolvierung des Praktischen Jahres bei HOCH Health Ostschweiz am Standort Wil bieten wir dir als Unterassistentin und Unterassistent in den untenstehenden Fachbereichen Unterassistenzstellen an. Bitte beachte, dass der Standort Wil nur Praktika im Rahmen des Klinisch Praktischen Jahres anbietet.\n\nFachbereich\nVerfügbarer Zeitraum\n\nKlinik für Innere Medizin\nBewerbungen für die Klinik für Innere Medizin werden über folgenden Link entgegengenommen.\n\nKlinik für Chirurgie\nKlinik für Orthopädie und Traumatologie\nAugust bis Oktober\nDezember\n\nKlinik für Gynäkologie und Geburtshilfe\n(Bieten Famulaturen an)\nDezember (1 Mt.)\n\nIhre Bewerbung\n\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Elina Boos, Fachspezialistin HR Bildung, Telefon +41 71 494 27 36\n\n• Nutze deine Chance und absolviere deine Unterassistenz bei HOCH Health Ostschweiz\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "en": "Unterassistent/in 2026\n\nArbeitsort Wil\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\nFür die Absolvierung des Praktischen Jahres bei HOCH Health Ostschweiz am Standort Wil bieten wir dir als Unterassistentin und Unterassistent in den untenstehenden Fachbereichen Unterassistenzstellen an. Bitte beachte, dass der Standort Wil nur Praktika im Rahmen des Klinisch Praktischen Jahres anbietet.\n\nFachbereich\nVerfügbarer Zeitraum\n\nKlinik für Innere Medizin\nBewerbungen für die Klinik für Innere Medizin werden über folgenden Link entgegengenommen.\n\nKlinik für Chirurgie\nKlinik für Orthopädie und Traumatologie\nAugust bis Oktober\nDezember\n\nKlinik für Gynäkologie und Geburtshilfe\n(Bieten Famulaturen an)\nDezember (1 Mt.)\n\nIhre Bewerbung\n\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Elina Boos, Fachspezialistin HR Bildung, Telefon +41 71 494 27 36\n\n• Nutze deine Chance und absolviere deine Unterassistenz bei HOCH Health Ostschweiz\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "fr": "Unterassistent/in 2026\n\nArbeitsort Wil\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\nFür die Absolvierung des Praktischen Jahres bei HOCH Health Ostschweiz am Standort Wil bieten wir dir als Unterassistentin und Unterassistent in den untenstehenden Fachbereichen Unterassistenzstellen an. Bitte beachte, dass der Standort Wil nur Praktika im Rahmen des Klinisch Praktischen Jahres anbietet.\n\nFachbereich\nVerfügbarer Zeitraum\n\nKlinik für Innere Medizin\nBewerbungen für die Klinik für Innere Medizin werden über folgenden Link entgegengenommen.\n\nKlinik für Chirurgie\nKlinik für Orthopädie und Traumatologie\nAugust bis Oktober\nDezember\n\nKlinik für Gynäkologie und Geburtshilfe\n(Bieten Famulaturen an)\nDezember (1 Mt.)\n\nIhre Bewerbung\n\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Elina Boos, Fachspezialistin HR Bildung, Telefon +41 71 494 27 36\n\n• Nutze deine Chance und absolviere deine Unterassistenz bei HOCH Health Ostschweiz\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung"
+        "it": "Sub-assistante/in 2026\n\nLuogo di lavoro Wil\n\nElenco dei lavori\n\nI vostri compiti e prospettive\n\nPer il completamento dell'anno pratico presso la HOCH Health Eastern Svizzera presso la sede di Wil, vi offriamo posizioni sub-assistanti e sub-assistanti nelle aree specialistiche qui sotto. Si prega di notare che la posizione di Wil offre solo stage come parte dell'Anno pratico clinico.\n\nOggetto\nPeriodo disponibile\n\nClinica per la medicina interna\nLe domande per la clinica per la medicina interna sono accettate tramite il seguente link.\n\nClinica per chirurgia\nClinica per Ortopedia e Traumatologia\nDa agosto a ottobre\nDicembre\n\nClinica per Ginecologia e Ostetricia\n(Offerte facoltà)\nDicembre (1 Mt.)\n\nLa tua richiesta\n\n• Puoi saperne di più su questo interessante stage sul nostro sito web o da Elina Boos, HR Education Specialist, telefono +41 71 494 27 36\n\n• Sfrutta la tua possibilità e completa la tua sub-assistenza presso HOCH Health Eastern Svizzera\n\nSu di noi\n\nL'assistenza sanitaria è la nostra professione e la nostra vocazione. Come il più grande datore di lavoro della Svizzera orientale, ci impegniamo a offrire ai nostri dipendenti un ambiente di lavoro versatile. Promuoviamo lo sviluppo individuale e quindi contribuiamo attivamente al futuro comune. Ci concentriamo sullo spirito di squadra, sulla cooperazione interdisciplinare e sulle soluzioni innovative.\n\nCompatibilità con la famiglia Vantaggi Alloggio ammobiliato Workplace health management Istruzione e formazione",
+        "en": "Sub-assistant/in 2026\n\nPlace of work Wil\n\nJob listing\n\nYour tasks and perspectives\n\nFor the completion of the practical year at HOCH Health Eastern Switzerland at the Wil location, we offer you sub-assistant and sub-assistant positions in the specialist areas below. Please note that the Wil location only offers internships as part of the Clinical Practical Year.\n\nSubject area\nAvailable period\n\nClinic for Internal Medicine\nApplications for the Clinic for Internal Medicine are accepted via the following link.\n\nClinic for surgery\nClinic for Orthopaedics and Traumatology\nAugust to October\nDecember\n\nClinic for Gynecology and Obstetrics\n(Offer faculties)\nDecember (1 Mt.)\n\nYour application\n\n• You can find out more about this exciting internship on our website or from Elina Boos, HR Education specialist, telephone +41 71 494 27 36\n\n• Take your chance and complete your sub-assistance at HOCH Health Eastern Switzerland\n\nAbout us\n\nHealthcare is our profession and our calling. As the largest employer in Eastern Switzerland, we are committed to offering our employees a versatile working environment. We promote individual development and thus make an active contribution to the common future. We focus on team spirit, interdisciplinary cooperation and innovative solutions.\n\nWork-family compatibility Benefits Furnished accommodation Workplace health management Education and training",
+        "fr": "Sous-assistant/en 2026\n\nLieu de travail Wil\n\nListe des emplois\n\nVos tâches et perspectives\n\nPour l'achèvement de l'année pratique à HOCH Health Eastern Suisse à l'emplacement Wil, nous vous proposons des postes sub-assistants et sub-assistants dans les domaines spécialisés ci-dessous. Veuillez noter que l'emplacement Wil offre uniquement des stages dans le cadre de l'année clinique pratique.\n\nDomaine\nPériode disponible\n\nClinique de médecine interne\nLes demandes pour la Clinique de médecine interne sont acceptées par le lien suivant.\n\nClinique de chirurgie\nClinique d'orthopédie et de traumatologie\nAoût à octobre\nDécembre\n\nClinique de gynécologie et d'obstétrique\n(Offre des facultés)\nDécembre (1 Mt.)\n\nVotre demande\n\n• Vous pouvez en savoir plus sur ce stage passionnant sur notre site ou auprès d'Elina Boos, spécialiste de l'éducation des RH, téléphone +41 71 494 27 36\n\n• Profitez de votre chance et complètez votre sous-assistance à HOCH Health Eastern Suisse\n\nÀ propos de nous\n\nLa santé est notre métier et notre vocation. En tant que plus grand employeur de Suisse orientale, nous nous engageons à offrir à nos employés un environnement de travail polyvalent. Nous encourageons le développement individuel et contribuons ainsi activement à l'avenir commun. Nous nous concentrons sur l'esprit d'équipe, la coopération interdisciplinaire et les solutions innovantes.\n\nCompatibilité travail-famille Prestations Hébergement meublé Gestion de la santé au travail Éducation et formation"
       },
       "location": "Praktikum",
       "canton": "SG",
@@ -8785,7 +8797,6 @@
       "previousSlugs": [
         "unterassistent-in-2026-kssg-ch"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8815,16 +8826,16 @@
       "title": "Med. Praxisassistent/in 50%",
       "titleByLocale": {
         "de": "Med. Praxisassistent/in 50%",
-        "it": "Med. Praxisassistent/in 50%",
-        "en": "Med. Praxisassistent/in 50%",
-        "fr": "Med. Praxisassistent/in 50%"
+        "it": "Med. Assistente pratico/in 50%",
+        "en": "Med. Practical assistant/in 50%",
+        "fr": "Med. Assistant pratique/en 50%"
       },
       "description": "Med. Praxisassistent/in 50%\n\nKlinik für Innere Medizin\n\nArbeitsort Uznach\n\nStellenanzeige\n\nIhre Aufgaben und Perspektiven\n\n• Verantwortung für die Organisation der Sprechstunden und für eine effiziente Terminkoordination\n\n• Telefonbedienung von internen und externen Stellen sowie Bearbeitung von E-Mails und allgemeine Korrespondenzen der Medizinischen Klinik\n\n• Durchführung von venösen und kapillarer Blutentnahmen\n\n• Unterstützung der Ärzteschaft von Assistenzärztinnen/-ärzten bis zu Kaderärztinnen/ärzten\n\nWas Sie für diese Stelle mitbringen\n\n• Abgeschlossene Ausbildung als Med. Praxisassistent/in EFZ mit Erfahrung im Spitalumfeld\n\n• Spass an der selbstständigen Arbeit in einem kleinen, familiären Team\n\n• Sehr gute Kenntnisse in MS Office sowie KISIM-Kenntnisse sind von Vorteil\n\n• Eine offene und flexible Persönlichkeit mit Freude am Patientenkontakt\n\nUnser Angebot an Sie\n\n• Geregelte Büroarbeitszeiten von Montag bis Freitag\n\n• Eine familiäre Atmosphäre in einem aufgestellten Team\n\n• Breites Spektrum an fachlichen und persönlichen Fort- und Weiterbildungsmöglichkeiten\n\n• Vielfältige Mitarbeitervorteile rund um Gesundheit, Beruf und Familie – inklusive attraktiver Vergünstigungen wie gratis Parkplatz und Vergünstigungen im Restaurant\n\nIhre Bewerbung\n\n• Eintritt per sofort oder nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfahren Sie von Frau Lea Schmid, Teamleiterin Administration, Telefon +41 55 285 40 62\n\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Herrn Lucius Graf, Teamleiter HR Beratung Kliniken, Telefon +41 71 494 90 85\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
       "descriptionByLocale": {
         "de": "Med. Praxisassistent/in 50%\n\nKlinik für Innere Medizin\n\nArbeitsort Uznach\n\nStellenanzeige\n\nIhre Aufgaben und Perspektiven\n\n• Verantwortung für die Organisation der Sprechstunden und für eine effiziente Terminkoordination\n\n• Telefonbedienung von internen und externen Stellen sowie Bearbeitung von E-Mails und allgemeine Korrespondenzen der Medizinischen Klinik\n\n• Durchführung von venösen und kapillarer Blutentnahmen\n\n• Unterstützung der Ärzteschaft von Assistenzärztinnen/-ärzten bis zu Kaderärztinnen/ärzten\n\nWas Sie für diese Stelle mitbringen\n\n• Abgeschlossene Ausbildung als Med. Praxisassistent/in EFZ mit Erfahrung im Spitalumfeld\n\n• Spass an der selbstständigen Arbeit in einem kleinen, familiären Team\n\n• Sehr gute Kenntnisse in MS Office sowie KISIM-Kenntnisse sind von Vorteil\n\n• Eine offene und flexible Persönlichkeit mit Freude am Patientenkontakt\n\nUnser Angebot an Sie\n\n• Geregelte Büroarbeitszeiten von Montag bis Freitag\n\n• Eine familiäre Atmosphäre in einem aufgestellten Team\n\n• Breites Spektrum an fachlichen und persönlichen Fort- und Weiterbildungsmöglichkeiten\n\n• Vielfältige Mitarbeitervorteile rund um Gesundheit, Beruf und Familie – inklusive attraktiver Vergünstigungen wie gratis Parkplatz und Vergünstigungen im Restaurant\n\nIhre Bewerbung\n\n• Eintritt per sofort oder nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfahren Sie von Frau Lea Schmid, Teamleiterin Administration, Telefon +41 55 285 40 62\n\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Herrn Lucius Graf, Teamleiter HR Beratung Kliniken, Telefon +41 71 494 90 85\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "it": "Med. Praxisassistent/in 50%\n\nKlinik für Innere Medizin\n\nArbeitsort Uznach\n\nStellenanzeige\n\nIhre Aufgaben und Perspektiven\n\n• Verantwortung für die Organisation der Sprechstunden und für eine effiziente Terminkoordination\n\n• Telefonbedienung von internen und externen Stellen sowie Bearbeitung von E-Mails und allgemeine Korrespondenzen der Medizinischen Klinik\n\n• Durchführung von venösen und kapillarer Blutentnahmen\n\n• Unterstützung der Ärzteschaft von Assistenzärztinnen/-ärzten bis zu Kaderärztinnen/ärzten\n\nWas Sie für diese Stelle mitbringen\n\n• Abgeschlossene Ausbildung als Med. Praxisassistent/in EFZ mit Erfahrung im Spitalumfeld\n\n• Spass an der selbstständigen Arbeit in einem kleinen, familiären Team\n\n• Sehr gute Kenntnisse in MS Office sowie KISIM-Kenntnisse sind von Vorteil\n\n• Eine offene und flexible Persönlichkeit mit Freude am Patientenkontakt\n\nUnser Angebot an Sie\n\n• Geregelte Büroarbeitszeiten von Montag bis Freitag\n\n• Eine familiäre Atmosphäre in einem aufgestellten Team\n\n• Breites Spektrum an fachlichen und persönlichen Fort- und Weiterbildungsmöglichkeiten\n\n• Vielfältige Mitarbeitervorteile rund um Gesundheit, Beruf und Familie – inklusive attraktiver Vergünstigungen wie gratis Parkplatz und Vergünstigungen im Restaurant\n\nIhre Bewerbung\n\n• Eintritt per sofort oder nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfahren Sie von Frau Lea Schmid, Teamleiterin Administration, Telefon +41 55 285 40 62\n\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Herrn Lucius Graf, Teamleiter HR Beratung Kliniken, Telefon +41 71 494 90 85\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "en": "Med. Praxisassistent/in 50%\n\nKlinik für Innere Medizin\n\nArbeitsort Uznach\n\nStellenanzeige\n\nIhre Aufgaben und Perspektiven\n\n• Verantwortung für die Organisation der Sprechstunden und für eine effiziente Terminkoordination\n\n• Telefonbedienung von internen und externen Stellen sowie Bearbeitung von E-Mails und allgemeine Korrespondenzen der Medizinischen Klinik\n\n• Durchführung von venösen und kapillarer Blutentnahmen\n\n• Unterstützung der Ärzteschaft von Assistenzärztinnen/-ärzten bis zu Kaderärztinnen/ärzten\n\nWas Sie für diese Stelle mitbringen\n\n• Abgeschlossene Ausbildung als Med. Praxisassistent/in EFZ mit Erfahrung im Spitalumfeld\n\n• Spass an der selbstständigen Arbeit in einem kleinen, familiären Team\n\n• Sehr gute Kenntnisse in MS Office sowie KISIM-Kenntnisse sind von Vorteil\n\n• Eine offene und flexible Persönlichkeit mit Freude am Patientenkontakt\n\nUnser Angebot an Sie\n\n• Geregelte Büroarbeitszeiten von Montag bis Freitag\n\n• Eine familiäre Atmosphäre in einem aufgestellten Team\n\n• Breites Spektrum an fachlichen und persönlichen Fort- und Weiterbildungsmöglichkeiten\n\n• Vielfältige Mitarbeitervorteile rund um Gesundheit, Beruf und Familie – inklusive attraktiver Vergünstigungen wie gratis Parkplatz und Vergünstigungen im Restaurant\n\nIhre Bewerbung\n\n• Eintritt per sofort oder nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfahren Sie von Frau Lea Schmid, Teamleiterin Administration, Telefon +41 55 285 40 62\n\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Herrn Lucius Graf, Teamleiter HR Beratung Kliniken, Telefon +41 71 494 90 85\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "fr": "Med. Praxisassistent/in 50%\n\nKlinik für Innere Medizin\n\nArbeitsort Uznach\n\nStellenanzeige\n\nIhre Aufgaben und Perspektiven\n\n• Verantwortung für die Organisation der Sprechstunden und für eine effiziente Terminkoordination\n\n• Telefonbedienung von internen und externen Stellen sowie Bearbeitung von E-Mails und allgemeine Korrespondenzen der Medizinischen Klinik\n\n• Durchführung von venösen und kapillarer Blutentnahmen\n\n• Unterstützung der Ärzteschaft von Assistenzärztinnen/-ärzten bis zu Kaderärztinnen/ärzten\n\nWas Sie für diese Stelle mitbringen\n\n• Abgeschlossene Ausbildung als Med. Praxisassistent/in EFZ mit Erfahrung im Spitalumfeld\n\n• Spass an der selbstständigen Arbeit in einem kleinen, familiären Team\n\n• Sehr gute Kenntnisse in MS Office sowie KISIM-Kenntnisse sind von Vorteil\n\n• Eine offene und flexible Persönlichkeit mit Freude am Patientenkontakt\n\nUnser Angebot an Sie\n\n• Geregelte Büroarbeitszeiten von Montag bis Freitag\n\n• Eine familiäre Atmosphäre in einem aufgestellten Team\n\n• Breites Spektrum an fachlichen und persönlichen Fort- und Weiterbildungsmöglichkeiten\n\n• Vielfältige Mitarbeitervorteile rund um Gesundheit, Beruf und Familie – inklusive attraktiver Vergünstigungen wie gratis Parkplatz und Vergünstigungen im Restaurant\n\nIhre Bewerbung\n\n• Eintritt per sofort oder nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfahren Sie von Frau Lea Schmid, Teamleiterin Administration, Telefon +41 55 285 40 62\n\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Herrn Lucius Graf, Teamleiter HR Beratung Kliniken, Telefon +41 71 494 90 85\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung"
+        "it": "Med. Assistente pratico/in 50%\n\nClinica per la medicina interna\n\nLuogo di lavoro Uznach\n\nElenco dei lavori\n\nI vostri compiti e prospettive\n\n• Responsabilità per l'organizzazione delle ore di consultazione e per un coordinamento efficiente delle nomine\n\n• Funzionamento telefonico di organismi interni ed esterni, nonché elaborazione di e-mail e corrispondenza generale della Clinica Medica\n\n• Esecuzione del sangue venoso e capillare\n\n• Sostegno della professione medica da medici assistenti a medici cadre\n\nChe cosa porta per questo lavoro\n\n• Formazione completa come Med. Assistente/in EFZ pratica con esperienza nell'ambiente ospedaliero\n\n• Goditi di lavorare in modo indipendente in un piccolo team di famiglia\n\n• Conoscenza molto buona di MS Office così come la conoscenza KISIM è un vantaggio\n\n• Una personalità aperta e flessibile con piacere nel contatto paziente\n\nLa nostra offerta a voi\n\n• Ore di ufficio regolamentate dal lunedì al venerdì\n\n• Un'atmosfera familiare in un team consolidato\n\n• Ampia gamma di opportunità di formazione professionale e personale\n\n• Vari vantaggi per i dipendenti in termini di salute, lavoro e famiglia – compresi i vantaggi interessanti come il parcheggio gratuito e i vantaggi nel ristorante\n\nLa tua richiesta\n\n• Entrata immediata o di accordo\n\n• Maggiori informazioni su questo lavoro emozionante da Ms. Lea Schmid, Team Leader Administration, telefono +41 55 285 40 62\n\n• Si prega di contattare il Sig. Lucius Graf, Team Leader HR Consulting Clinics, telefono +41 71 494 90 85\n\nSu di noi\n\nL'assistenza sanitaria è la nostra professione e la nostra vocazione. Come il più grande datore di lavoro della Svizzera orientale, ci impegniamo a offrire ai nostri dipendenti un ambiente di lavoro versatile. Promuoviamo lo sviluppo individuale e quindi contribuiamo attivamente al futuro comune. Ci concentriamo sullo spirito di squadra, sulla cooperazione interdisciplinare e sulle soluzioni innovative.\n\nCompatibilità con la famiglia Vantaggi Alloggio ammobiliato Workplace health management Istruzione e formazione",
+        "en": "Med. Practical assistant/in 50%\n\nClinic for Internal Medicine\n\nPlace of work Uznach\n\nJob listing\n\nYour tasks and perspectives\n\n• Responsibility for the organisation of consultation hours and for efficient appointment coordination\n\n• Telephone operation of internal and external bodies as well as processing of e-mails and general correspondences of the Medical Clinic\n\n• Performing venous and capillary blood sampling\n\n• Support of the medical profession from assistant doctors to cadre doctors\n\nWhat you bring for this job\n\n• Completed education as a Med. Practice assistant/in EFZ with experience in the hospital environment\n\n• Enjoy working independently in a small, family team\n\n• Very good knowledge of MS Office as well as KISIM knowledge is an advantage\n\n• An open and flexible personality with pleasure in patient contact\n\nOur offer to you\n\n• Regulated office hours from Monday to Friday\n\n• A family atmosphere in an established team\n\n• Broad spectrum of professional and personal training opportunities\n\n• Various employee benefits around health, work and family – including attractive perks such as free parking and perks in the restaurant\n\nYour application\n\n• Entry by immediate or by agreement\n\n• Find out more about this exciting job from Ms. Lea Schmid, Team Leader Administration, telephone +41 55 285 40 62\n\n• Ask questions about the application process Please contact Mr. Lucius Graf, Team Leader HR Consulting Clinics, telephone +41 71 494 90 85\n\nAbout us\n\nHealthcare is our profession and our calling. As the largest employer in Eastern Switzerland, we are committed to offering our employees a versatile working environment. We promote individual development and thus make an active contribution to the common future. We focus on team spirit, interdisciplinary cooperation and innovative solutions.\n\nWork-family compatibility Benefits Furnished accommodation Workplace health management Education and training",
+        "fr": "Med. Assistant pratique/en 50%\n\nClinique de médecine interne\n\nLieu de travail Uznach\n\nListe des emplois\n\nVos tâches et perspectives\n\n• Responsabilité de l'organisation des heures de consultation et de la coordination efficace des nominations\n\n• Fonctionnement téléphonique des organes internes et externes ainsi que traitement des courriels et correspondances générales de la clinique médicale\n\n• Effectuer un prélèvement sanguin veineux et capillaire\n\n• Soutien de la profession médicale des médecins adjoints aux médecins cadres\n\nCe que vous apportez pour ce travail\n\n• Achevé l'éducation en tant qu'assistant de médecine/en EFZ avec une expérience dans l'environnement hospitalier\n\n• Profitez de travailler de façon indépendante dans une petite équipe familiale\n\n• Très bonne connaissance de MS Office ainsi que KISIM connaissance est un avantage\n\n• Une personnalité ouverte et flexible avec plaisir en contact avec le patient\n\nNotre offre à vous\n\n• Heures de bureau réglementées du lundi au vendredi\n\n• Une ambiance familiale dans une équipe établie\n\n• Large éventail de possibilités de formation professionnelle et personnelle\n\n• Divers avantages pour les employés autour de la santé, du travail et de la famille – y compris des avantages attrayants tels que le stationnement gratuit et les avantages dans le restaurant\n\nVotre demande\n\n• Entrée immédiate ou par accord\n\n• En savoir plus sur ce travail passionnant de Mme Lea Schmid, Team Leader Administration, téléphone +41 55 285 40 62\n\n• Posez des questions sur le processus de candidature Veuillez contacter M. Lucius Graf, Team Leader HR Consulting Clinics, téléphone +41 71 494 90 85\n\nÀ propos de nous\n\nLa santé est notre métier et notre vocation. En tant que plus grand employeur de Suisse orientale, nous nous engageons à offrir à nos employés un environnement de travail polyvalent. Nous encourageons le développement individuel et contribuons ainsi activement à l'avenir commun. Nous nous concentrons sur l'esprit d'équipe, la coopération interdisciplinaire et les solutions innovantes.\n\nCompatibilité travail-famille Prestations Hébergement meublé Gestion de la santé au travail Éducation et formation"
       },
       "location": "Festanstellung",
       "canton": "SG",
@@ -8861,7 +8872,6 @@
       "previousSlugs": [
         "med-praxisassistent-in-50-kssg-ch"
       ],
-      "needsRetranslation": true,
       "salaryMin": 28800,
       "salaryMax": 43500,
       "baseSalary": {
@@ -8891,16 +8901,16 @@
       "title": "Stationsleiter/in 80-100%",
       "titleByLocale": {
         "de": "Stationsleiter/in 80-100%",
-        "it": "Stationsleiter/in 80-100%",
-        "en": "Stationsleiter/in 80-100%",
-        "fr": "Stationsleiter/in 80-100%"
+        "it": "Responsabile stazione/in 80-100 %",
+        "en": "Station manager/in 80-100 %",
+        "fr": "Gestionnaire de station/dans 80-100 %"
       },
       "description": "Stationsleiter/in 80-100%\n\nInterdisziplinäre internistische Bettenabteilung\n\nArbeitsort Uznach\n\nStellenanzeige\n\nIhre Aufgaben und Perspektiven\n\n• Fachliche und personelle Führung von ca. 20 Mitarbeitenden, inkl. Verantwortung für die Planung, Koordination und Organisation der Abteilung\n\n• Operative Mitarbeit in der Pflege\n\n• Sicherstellen einer qualitativ und quantitativ fachgerechten Pflege\n\n• Mitwirken bei der Weiterentwicklung von unternehmerischen und bereichsspezifischen Projekten\n\n• Mitgestaltung einer aktiven und positiven Team- und Klinikkultur\n\nWas Sie für diese Stelle mitbringen\n\n• Ausbildung als Dipl. Pflegefachperson HF/FH mit mindestens 5 Jahren Berufserfahrung im Akutbereich in der Schweiz\n\n• Ausgewiesene Führungserfahrung von mindestens 2 Jahren, abgeschlossene Leadership-Ausbildung von Vorteil oder Bereitschaft, die interne Führungsausbildung zu absolvieren\n\n• Innovative, wertschätzende, kooperative und empathische Persönlichkeit\n\n• Freude an selbstständiger Arbeitsweise und Veränderungen zu gestalten\n\n• Hohe Organisations- und Kommunikationsfähigkeit, Verantwortungsbewusstsein, Belastbarkeit und Flexibilität\n\nUnser Angebot an Sie\n\n• Ein dynamisches, gut funktionierendes und interprofessionelles Team, welches sich auf Augenhöhe begegnet und kollegial zusammenarbeitet\n\n• Interessantes und anspruchsvolles Aufgabengebiet, in dem Sie Ihre Fachkompetenz anwenden und erweitern können\n\n• Familiäre Zusammenarbeit in spezialisiertem, interdisziplinären Umfeld\n\n• Breites Spektrum an fachlichen und persönlichen Fort- und Weiterbildungsmöglichkeiten\n\n• Diverse Angebote für Mitarbeitende im Bereich Gesundheitsförderung, Job und Familie, Mobilität, diverse Vergünstigungen, etc.\n\nIhre Bewerbung\n\n• Eintritt per sofort oder nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfahren Sie von Frau Jacqueline Bender, CNO Dept. Pflege & Therap. Dienste, Telefon +41 71 494 23 10\n\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Frau Nicole Hofer, HR Business Partner, Telefon +41 71 494 22 94\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
       "descriptionByLocale": {
         "de": "Stationsleiter/in 80-100%\n\nInterdisziplinäre internistische Bettenabteilung\n\nArbeitsort Uznach\n\nStellenanzeige\n\nIhre Aufgaben und Perspektiven\n\n• Fachliche und personelle Führung von ca. 20 Mitarbeitenden, inkl. Verantwortung für die Planung, Koordination und Organisation der Abteilung\n\n• Operative Mitarbeit in der Pflege\n\n• Sicherstellen einer qualitativ und quantitativ fachgerechten Pflege\n\n• Mitwirken bei der Weiterentwicklung von unternehmerischen und bereichsspezifischen Projekten\n\n• Mitgestaltung einer aktiven und positiven Team- und Klinikkultur\n\nWas Sie für diese Stelle mitbringen\n\n• Ausbildung als Dipl. Pflegefachperson HF/FH mit mindestens 5 Jahren Berufserfahrung im Akutbereich in der Schweiz\n\n• Ausgewiesene Führungserfahrung von mindestens 2 Jahren, abgeschlossene Leadership-Ausbildung von Vorteil oder Bereitschaft, die interne Führungsausbildung zu absolvieren\n\n• Innovative, wertschätzende, kooperative und empathische Persönlichkeit\n\n• Freude an selbstständiger Arbeitsweise und Veränderungen zu gestalten\n\n• Hohe Organisations- und Kommunikationsfähigkeit, Verantwortungsbewusstsein, Belastbarkeit und Flexibilität\n\nUnser Angebot an Sie\n\n• Ein dynamisches, gut funktionierendes und interprofessionelles Team, welches sich auf Augenhöhe begegnet und kollegial zusammenarbeitet\n\n• Interessantes und anspruchsvolles Aufgabengebiet, in dem Sie Ihre Fachkompetenz anwenden und erweitern können\n\n• Familiäre Zusammenarbeit in spezialisiertem, interdisziplinären Umfeld\n\n• Breites Spektrum an fachlichen und persönlichen Fort- und Weiterbildungsmöglichkeiten\n\n• Diverse Angebote für Mitarbeitende im Bereich Gesundheitsförderung, Job und Familie, Mobilität, diverse Vergünstigungen, etc.\n\nIhre Bewerbung\n\n• Eintritt per sofort oder nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfahren Sie von Frau Jacqueline Bender, CNO Dept. Pflege & Therap. Dienste, Telefon +41 71 494 23 10\n\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Frau Nicole Hofer, HR Business Partner, Telefon +41 71 494 22 94\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "it": "Stationsleiter/in 80-100%\n\nInterdisziplinäre internistische Bettenabteilung\n\nArbeitsort Uznach\n\nStellenanzeige\n\nIhre Aufgaben und Perspektiven\n\n• Fachliche und personelle Führung von ca. 20 Mitarbeitenden, inkl. Verantwortung für die Planung, Koordination und Organisation der Abteilung\n\n• Operative Mitarbeit in der Pflege\n\n• Sicherstellen einer qualitativ und quantitativ fachgerechten Pflege\n\n• Mitwirken bei der Weiterentwicklung von unternehmerischen und bereichsspezifischen Projekten\n\n• Mitgestaltung einer aktiven und positiven Team- und Klinikkultur\n\nWas Sie für diese Stelle mitbringen\n\n• Ausbildung als Dipl. Pflegefachperson HF/FH mit mindestens 5 Jahren Berufserfahrung im Akutbereich in der Schweiz\n\n• Ausgewiesene Führungserfahrung von mindestens 2 Jahren, abgeschlossene Leadership-Ausbildung von Vorteil oder Bereitschaft, die interne Führungsausbildung zu absolvieren\n\n• Innovative, wertschätzende, kooperative und empathische Persönlichkeit\n\n• Freude an selbstständiger Arbeitsweise und Veränderungen zu gestalten\n\n• Hohe Organisations- und Kommunikationsfähigkeit, Verantwortungsbewusstsein, Belastbarkeit und Flexibilität\n\nUnser Angebot an Sie\n\n• Ein dynamisches, gut funktionierendes und interprofessionelles Team, welches sich auf Augenhöhe begegnet und kollegial zusammenarbeitet\n\n• Interessantes und anspruchsvolles Aufgabengebiet, in dem Sie Ihre Fachkompetenz anwenden und erweitern können\n\n• Familiäre Zusammenarbeit in spezialisiertem, interdisziplinären Umfeld\n\n• Breites Spektrum an fachlichen und persönlichen Fort- und Weiterbildungsmöglichkeiten\n\n• Diverse Angebote für Mitarbeitende im Bereich Gesundheitsförderung, Job und Familie, Mobilität, diverse Vergünstigungen, etc.\n\nIhre Bewerbung\n\n• Eintritt per sofort oder nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfahren Sie von Frau Jacqueline Bender, CNO Dept. Pflege & Therap. Dienste, Telefon +41 71 494 23 10\n\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Frau Nicole Hofer, HR Business Partner, Telefon +41 71 494 22 94\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "en": "Stationsleiter/in 80-100%\n\nInterdisziplinäre internistische Bettenabteilung\n\nArbeitsort Uznach\n\nStellenanzeige\n\nIhre Aufgaben und Perspektiven\n\n• Fachliche und personelle Führung von ca. 20 Mitarbeitenden, inkl. Verantwortung für die Planung, Koordination und Organisation der Abteilung\n\n• Operative Mitarbeit in der Pflege\n\n• Sicherstellen einer qualitativ und quantitativ fachgerechten Pflege\n\n• Mitwirken bei der Weiterentwicklung von unternehmerischen und bereichsspezifischen Projekten\n\n• Mitgestaltung einer aktiven und positiven Team- und Klinikkultur\n\nWas Sie für diese Stelle mitbringen\n\n• Ausbildung als Dipl. Pflegefachperson HF/FH mit mindestens 5 Jahren Berufserfahrung im Akutbereich in der Schweiz\n\n• Ausgewiesene Führungserfahrung von mindestens 2 Jahren, abgeschlossene Leadership-Ausbildung von Vorteil oder Bereitschaft, die interne Führungsausbildung zu absolvieren\n\n• Innovative, wertschätzende, kooperative und empathische Persönlichkeit\n\n• Freude an selbstständiger Arbeitsweise und Veränderungen zu gestalten\n\n• Hohe Organisations- und Kommunikationsfähigkeit, Verantwortungsbewusstsein, Belastbarkeit und Flexibilität\n\nUnser Angebot an Sie\n\n• Ein dynamisches, gut funktionierendes und interprofessionelles Team, welches sich auf Augenhöhe begegnet und kollegial zusammenarbeitet\n\n• Interessantes und anspruchsvolles Aufgabengebiet, in dem Sie Ihre Fachkompetenz anwenden und erweitern können\n\n• Familiäre Zusammenarbeit in spezialisiertem, interdisziplinären Umfeld\n\n• Breites Spektrum an fachlichen und persönlichen Fort- und Weiterbildungsmöglichkeiten\n\n• Diverse Angebote für Mitarbeitende im Bereich Gesundheitsförderung, Job und Familie, Mobilität, diverse Vergünstigungen, etc.\n\nIhre Bewerbung\n\n• Eintritt per sofort oder nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfahren Sie von Frau Jacqueline Bender, CNO Dept. Pflege & Therap. Dienste, Telefon +41 71 494 23 10\n\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Frau Nicole Hofer, HR Business Partner, Telefon +41 71 494 22 94\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "fr": "Stationsleiter/in 80-100%\n\nInterdisziplinäre internistische Bettenabteilung\n\nArbeitsort Uznach\n\nStellenanzeige\n\nIhre Aufgaben und Perspektiven\n\n• Fachliche und personelle Führung von ca. 20 Mitarbeitenden, inkl. Verantwortung für die Planung, Koordination und Organisation der Abteilung\n\n• Operative Mitarbeit in der Pflege\n\n• Sicherstellen einer qualitativ und quantitativ fachgerechten Pflege\n\n• Mitwirken bei der Weiterentwicklung von unternehmerischen und bereichsspezifischen Projekten\n\n• Mitgestaltung einer aktiven und positiven Team- und Klinikkultur\n\nWas Sie für diese Stelle mitbringen\n\n• Ausbildung als Dipl. Pflegefachperson HF/FH mit mindestens 5 Jahren Berufserfahrung im Akutbereich in der Schweiz\n\n• Ausgewiesene Führungserfahrung von mindestens 2 Jahren, abgeschlossene Leadership-Ausbildung von Vorteil oder Bereitschaft, die interne Führungsausbildung zu absolvieren\n\n• Innovative, wertschätzende, kooperative und empathische Persönlichkeit\n\n• Freude an selbstständiger Arbeitsweise und Veränderungen zu gestalten\n\n• Hohe Organisations- und Kommunikationsfähigkeit, Verantwortungsbewusstsein, Belastbarkeit und Flexibilität\n\nUnser Angebot an Sie\n\n• Ein dynamisches, gut funktionierendes und interprofessionelles Team, welches sich auf Augenhöhe begegnet und kollegial zusammenarbeitet\n\n• Interessantes und anspruchsvolles Aufgabengebiet, in dem Sie Ihre Fachkompetenz anwenden und erweitern können\n\n• Familiäre Zusammenarbeit in spezialisiertem, interdisziplinären Umfeld\n\n• Breites Spektrum an fachlichen und persönlichen Fort- und Weiterbildungsmöglichkeiten\n\n• Diverse Angebote für Mitarbeitende im Bereich Gesundheitsförderung, Job und Familie, Mobilität, diverse Vergünstigungen, etc.\n\nIhre Bewerbung\n\n• Eintritt per sofort oder nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfahren Sie von Frau Jacqueline Bender, CNO Dept. Pflege & Therap. Dienste, Telefon +41 71 494 23 10\n\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Frau Nicole Hofer, HR Business Partner, Telefon +41 71 494 22 94\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung"
+        "it": "Responsabile stazione/in 80-100 %\n\nDipartimento di letto interdisciplinare interdisciplinare\n\nLuogo di lavoro Uznach\n\nElenco dei lavori\n\nI vostri compiti e prospettive\n\n• Gestione professionale e del personale di circa 20 dipendenti, compresa la responsabilità di pianificazione, coordinamento e organizzazione del dipartimento\n\n• Cooperazione operativa nella cura\n\n• Garantire la cura professionale qualitativa e quantitativa\n\n• Partecipazione all'ulteriore sviluppo di progetti imprenditoriali e settoriali\n\n• Creare un team attivo e positivo e la cultura clinica\n\nChe cosa porta per questo lavoro\n\n• Allenamento come Dipl. Specialista HF/FH con almeno 5 anni di esperienza professionale nel settore acuto in Svizzera\n\n• Provata esperienza di leadership di almeno 2 anni, completato formazione di leadership di vantaggio o la volontà di completare la formazione di leadership interna\n\n• Personalità innovativa, apprezzativa, cooperativa ed empatica\n\n• Godetevi il lavoro indipendente e apportate modifiche\n\n• Alte capacità organizzative e di comunicazione, senso di responsabilità, resilienza e flessibilità\n\nLa nostra offerta a voi\n\n• Un team dinamico, ben funzionante e interprofessionale che si incontra a livello degli occhi e collabora in collaborazione\n\n• Area interessante e impegnativa di responsabilità in cui è possibile applicare e ampliare la vostra competenza\n\n• Cooperazione familiare in un ambiente specializzato e interdisciplinare\n\n• Ampia gamma di opportunità di formazione professionale e personale\n\n• Varie offerte per i dipendenti nel campo della promozione della salute, del lavoro e della famiglia, della mobilità, dei vari vantaggi, ecc.\n\nLa tua richiesta\n\n• Entrata immediata o di accordo\n\n• Potete scoprire di più su questo lavoro emozionante dalla signora Jacqueline Bender, CNO Dept. Care & Therapy. Servizi, telefono +41 71 494 23 10\n\n• Fai domande sul processo di applicazione Si prega di contattare Ms Nicole Hofer, HR Business Partner, telefono +41 71 494 22 94\n\nSu di noi\n\nL'assistenza sanitaria è la nostra professione e la nostra vocazione. Come il più grande datore di lavoro della Svizzera orientale, ci impegniamo a offrire ai nostri dipendenti un ambiente di lavoro versatile. Promuoviamo lo sviluppo individuale e quindi contribuiamo attivamente al futuro comune. Ci concentriamo sullo spirito di squadra, sulla cooperazione interdisciplinare e sulle soluzioni innovative.\n\nCompatibilità con la famiglia Vantaggi Alloggio ammobiliato Workplace health management Istruzione e formazione",
+        "en": "Station manager/in 80-100 %\n\nInterdisciplinary Interdisciplinary Bed Department\n\nPlace of work Uznach\n\nJob listing\n\nYour tasks and perspectives\n\n• Professional and personnel management of about 20 employees, including responsibility for planning, coordination and organization of the department\n\n• Operational cooperation in care\n\n• Ensuring qualitative and quantitative professional care\n\n• Participation in the further development of entrepreneurial and sector-specific projects\n\n• Creating an active and positive team and clinic culture\n\nWhat you bring for this job\n\n• Training as a Dipl. Care specialist HF/FH with at least 5 years of professional experience in the acute field in Switzerland\n\n• Proven leadership experience of at least 2 years, completed leadership training of advantage or willingness to complete internal leadership training\n\n• Innovative, appreciative, cooperative and empathetic personality\n\n• Enjoy independent work and make changes\n\n• High organisational and communication skills, sense of responsibility, resilience and flexibility\n\nOur offer to you\n\n• A dynamic, well-functioning and interprofessional team that meets at eye level and collaborates collaboratively\n\n• Interesting and challenging area of responsibility in which you can apply and expand your expertise\n\n• Family cooperation in a specialized, interdisciplinary environment\n\n• Broad spectrum of professional and personal training opportunities\n\n• Various offers for employees in the field of health promotion, job and family, mobility, various benefits, etc.\n\nYour application\n\n• Entry by immediate or by agreement\n\n• You can find out more about this exciting job from Mrs. Jacqueline Bender, CNO Dept. Care & Therapy. Services, telephone +41 71 494 23 10\n\n• Ask questions about the application process Please contact Ms Nicole Hofer, HR Business Partner, telephone +41 71 494 22 94\n\nAbout us\n\nHealthcare is our profession and our calling. As the largest employer in Eastern Switzerland, we are committed to offering our employees a versatile working environment. We promote individual development and thus make an active contribution to the common future. We focus on team spirit, interdisciplinary cooperation and innovative solutions.\n\nWork-family compatibility Benefits Furnished accommodation Workplace health management Education and training",
+        "fr": "Gestionnaire de station/dans 80-100 %\n\nDépartement interdisciplinaire des lits\n\nLieu de travail Uznach\n\nListe des emplois\n\nVos tâches et perspectives\n\n• Gestion professionnelle et du personnel d'une vingtaine d'employés, y compris la planification, la coordination et l'organisation du ministère\n\n• Coopération opérationnelle en matière de soins\n\n• Assurer des soins professionnels qualitatifs et quantitatifs\n\n• Participation à la poursuite du développement de projets d ' entreprise et de projets sectoriels\n\n• Créer une équipe active et positive et une culture clinique\n\nCe que vous apportez pour ce travail\n\n• Entraînement en tant que Dipl. Spécialiste des soins HF/FH ayant au moins 5 ans d'expérience professionnelle dans le domaine aigu en Suisse\n\n• Expérience de leadership éprouvée d'au moins 2 ans, formation de leadership terminée d'avantage ou volonté de terminer la formation de leadership interne\n\n• Personnalité innovante, reconnaissante, coopérative et empathique\n\n• Profitez d'un travail indépendant et apportez des changements\n\n• Compétences organisationnelles et de communication élevées, sens des responsabilités, résilience et flexibilité\n\nNotre offre à vous\n\n• Une équipe dynamique, performante et interprofessionnelle qui se réunit au niveau des yeux et collabore en collaboration\n\n• Domaine de responsabilité intéressant et stimulant dans lequel vous pouvez postuler et élargir votre expertise\n\n• Coopération familiale dans un environnement spécialisé et interdisciplinaire\n\n• Large éventail de possibilités de formation professionnelle et personnelle\n\n• Diverses offres pour les employés dans le domaine de la promotion de la santé, de l'emploi et de la famille, de la mobilité, de diverses prestations, etc.\n\nVotre demande\n\n• Entrée immédiate ou par accord\n\n• Vous pouvez en savoir plus sur ce travail passionnant de Mme Jacqueline Bender, CNO Dept. Care & Therapy. Services, téléphone +41 71 494 23 10\n\n• Posez des questions sur le processus de candidature Veuillez contacter Mme Nicole Hofer, associée d'affaires RH, téléphone +41 71 494 22 94\n\nÀ propos de nous\n\nLa santé est notre métier et notre vocation. En tant que plus grand employeur de Suisse orientale, nous nous engageons à offrir à nos employés un environnement de travail polyvalent. Nous encourageons le développement individuel et contribuons ainsi activement à l'avenir commun. Nous nous concentrons sur l'esprit d'équipe, la coopération interdisciplinaire et les solutions innovantes.\n\nCompatibilité travail-famille Prestations Hébergement meublé Gestion de la santé au travail Éducation et formation"
       },
       "location": "Festanstellung",
       "canton": "SG",
@@ -8937,7 +8947,6 @@
       "previousSlugs": [
         "stationsleiter-in-80-100-kssg-ch"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8967,16 +8976,16 @@
       "title": "Unterassistent/in",
       "titleByLocale": {
         "de": "Unterassistent/in",
-        "it": "Unterassistent/in",
-        "en": "Unterassistent/in",
-        "fr": "Unterassistent/in"
+        "it": "Sub-assistante",
+        "en": "Sub-assistant",
+        "fr": "Sous-assistant"
       },
       "description": "Unterassistent/in\n\nAllgemeine innere Medizin, Hausarztmedizin, Notfallmedizin\n\nArbeitsort St. Gallen\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\n• Mitbetreuung der Patientinnen und Patienten auf den Stationen der Inneren Medizin\n\n• Durchführung einer fundierten Anamnese und körperlichen Untersuchung\n\n• Durchführung und Interpretation diagnostischer Verfahren wie EKG, Schellong-Test, Mini-Mental-Test sowie weiterer medizinischer Untersuchungen\n\n• Teilnahme an Visiten, interdisziplinären Fallbesprechungen, Diagnostikverfahren, Rapporten und Fort- und Weiterbildungsveranstaltungen\n\n• Unterstützung bei kleineren Interventionen sowie Anwendung von Scores zur Krankheitsbewertung\n\nWas du für diese Stelle mitbringst\n\n• Du befindest dich im Wahlstudienjahr oder absolvierst derzeit dein Praktisches Jahr (PJ)\n\n• Ausgeprägtes Interesse an der Fachrichtung Innere Medizin\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mindestens Niveau C1)\n\n• Hohe Leistungs- und Lernbereitschaft, Teamfähigkeit und verantwortungsbewusstes Arbeiten\n\nUnser Angebot an dich\n\n• Anstellungsdauer von 2 bis 4 Monaten, mit Start jeweils am ersten des Monats\n\n• Die Anerkennung des PJ-Tertials über die Universität Zürich\n\n• Engagierte und strukturierte Betreuung durch unser ärztliches Team mit gezielter Förderung\n\n• Unterkunftsmöglichkeit im Personalhaus\n\n• Monatliche Rotationen in folgende Fachgebiete sind möglich: Allgemeine Innere Medizin, Kardiologie, Gastroenterologie, Onkologie, Hämatologie, Palliativstation, Nephrologie, Rheumatologie, Lungenzentrum, internistisches Notfallzentrum.\n\nDeine Bewerbung\n\n• Bewerbungen werden für den Zeitraum 2026 bis 2028 entgegengenommen\n\n• Mehr zu dieser spannenden Stelle und den Verfügbarkeiten erfährst du von unserem Team Ärztliche Koordination, Telefon +41 71 494 90 96\n\n• Bei Fragen zum Bewerbungsprozess kannst du dich an Elina Boos, Fachspezialistin HR Bildung, Telefon +41 71 494 27 36 wenden\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
       "descriptionByLocale": {
         "de": "Unterassistent/in\n\nAllgemeine innere Medizin, Hausarztmedizin, Notfallmedizin\n\nArbeitsort St. Gallen\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\n• Mitbetreuung der Patientinnen und Patienten auf den Stationen der Inneren Medizin\n\n• Durchführung einer fundierten Anamnese und körperlichen Untersuchung\n\n• Durchführung und Interpretation diagnostischer Verfahren wie EKG, Schellong-Test, Mini-Mental-Test sowie weiterer medizinischer Untersuchungen\n\n• Teilnahme an Visiten, interdisziplinären Fallbesprechungen, Diagnostikverfahren, Rapporten und Fort- und Weiterbildungsveranstaltungen\n\n• Unterstützung bei kleineren Interventionen sowie Anwendung von Scores zur Krankheitsbewertung\n\nWas du für diese Stelle mitbringst\n\n• Du befindest dich im Wahlstudienjahr oder absolvierst derzeit dein Praktisches Jahr (PJ)\n\n• Ausgeprägtes Interesse an der Fachrichtung Innere Medizin\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mindestens Niveau C1)\n\n• Hohe Leistungs- und Lernbereitschaft, Teamfähigkeit und verantwortungsbewusstes Arbeiten\n\nUnser Angebot an dich\n\n• Anstellungsdauer von 2 bis 4 Monaten, mit Start jeweils am ersten des Monats\n\n• Die Anerkennung des PJ-Tertials über die Universität Zürich\n\n• Engagierte und strukturierte Betreuung durch unser ärztliches Team mit gezielter Förderung\n\n• Unterkunftsmöglichkeit im Personalhaus\n\n• Monatliche Rotationen in folgende Fachgebiete sind möglich: Allgemeine Innere Medizin, Kardiologie, Gastroenterologie, Onkologie, Hämatologie, Palliativstation, Nephrologie, Rheumatologie, Lungenzentrum, internistisches Notfallzentrum.\n\nDeine Bewerbung\n\n• Bewerbungen werden für den Zeitraum 2026 bis 2028 entgegengenommen\n\n• Mehr zu dieser spannenden Stelle und den Verfügbarkeiten erfährst du von unserem Team Ärztliche Koordination, Telefon +41 71 494 90 96\n\n• Bei Fragen zum Bewerbungsprozess kannst du dich an Elina Boos, Fachspezialistin HR Bildung, Telefon +41 71 494 27 36 wenden\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "it": "Unterassistent/in\n\nAllgemeine innere Medizin, Hausarztmedizin, Notfallmedizin\n\nArbeitsort St. Gallen\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\n• Mitbetreuung der Patientinnen und Patienten auf den Stationen der Inneren Medizin\n\n• Durchführung einer fundierten Anamnese und körperlichen Untersuchung\n\n• Durchführung und Interpretation diagnostischer Verfahren wie EKG, Schellong-Test, Mini-Mental-Test sowie weiterer medizinischer Untersuchungen\n\n• Teilnahme an Visiten, interdisziplinären Fallbesprechungen, Diagnostikverfahren, Rapporten und Fort- und Weiterbildungsveranstaltungen\n\n• Unterstützung bei kleineren Interventionen sowie Anwendung von Scores zur Krankheitsbewertung\n\nWas du für diese Stelle mitbringst\n\n• Du befindest dich im Wahlstudienjahr oder absolvierst derzeit dein Praktisches Jahr (PJ)\n\n• Ausgeprägtes Interesse an der Fachrichtung Innere Medizin\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mindestens Niveau C1)\n\n• Hohe Leistungs- und Lernbereitschaft, Teamfähigkeit und verantwortungsbewusstes Arbeiten\n\nUnser Angebot an dich\n\n• Anstellungsdauer von 2 bis 4 Monaten, mit Start jeweils am ersten des Monats\n\n• Die Anerkennung des PJ-Tertials über die Universität Zürich\n\n• Engagierte und strukturierte Betreuung durch unser ärztliches Team mit gezielter Förderung\n\n• Unterkunftsmöglichkeit im Personalhaus\n\n• Monatliche Rotationen in folgende Fachgebiete sind möglich: Allgemeine Innere Medizin, Kardiologie, Gastroenterologie, Onkologie, Hämatologie, Palliativstation, Nephrologie, Rheumatologie, Lungenzentrum, internistisches Notfallzentrum.\n\nDeine Bewerbung\n\n• Bewerbungen werden für den Zeitraum 2026 bis 2028 entgegengenommen\n\n• Mehr zu dieser spannenden Stelle und den Verfügbarkeiten erfährst du von unserem Team Ärztliche Koordination, Telefon +41 71 494 90 96\n\n• Bei Fragen zum Bewerbungsprozess kannst du dich an Elina Boos, Fachspezialistin HR Bildung, Telefon +41 71 494 27 36 wenden\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "en": "Unterassistent/in\n\nAllgemeine innere Medizin, Hausarztmedizin, Notfallmedizin\n\nArbeitsort St. Gallen\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\n• Mitbetreuung der Patientinnen und Patienten auf den Stationen der Inneren Medizin\n\n• Durchführung einer fundierten Anamnese und körperlichen Untersuchung\n\n• Durchführung und Interpretation diagnostischer Verfahren wie EKG, Schellong-Test, Mini-Mental-Test sowie weiterer medizinischer Untersuchungen\n\n• Teilnahme an Visiten, interdisziplinären Fallbesprechungen, Diagnostikverfahren, Rapporten und Fort- und Weiterbildungsveranstaltungen\n\n• Unterstützung bei kleineren Interventionen sowie Anwendung von Scores zur Krankheitsbewertung\n\nWas du für diese Stelle mitbringst\n\n• Du befindest dich im Wahlstudienjahr oder absolvierst derzeit dein Praktisches Jahr (PJ)\n\n• Ausgeprägtes Interesse an der Fachrichtung Innere Medizin\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mindestens Niveau C1)\n\n• Hohe Leistungs- und Lernbereitschaft, Teamfähigkeit und verantwortungsbewusstes Arbeiten\n\nUnser Angebot an dich\n\n• Anstellungsdauer von 2 bis 4 Monaten, mit Start jeweils am ersten des Monats\n\n• Die Anerkennung des PJ-Tertials über die Universität Zürich\n\n• Engagierte und strukturierte Betreuung durch unser ärztliches Team mit gezielter Förderung\n\n• Unterkunftsmöglichkeit im Personalhaus\n\n• Monatliche Rotationen in folgende Fachgebiete sind möglich: Allgemeine Innere Medizin, Kardiologie, Gastroenterologie, Onkologie, Hämatologie, Palliativstation, Nephrologie, Rheumatologie, Lungenzentrum, internistisches Notfallzentrum.\n\nDeine Bewerbung\n\n• Bewerbungen werden für den Zeitraum 2026 bis 2028 entgegengenommen\n\n• Mehr zu dieser spannenden Stelle und den Verfügbarkeiten erfährst du von unserem Team Ärztliche Koordination, Telefon +41 71 494 90 96\n\n• Bei Fragen zum Bewerbungsprozess kannst du dich an Elina Boos, Fachspezialistin HR Bildung, Telefon +41 71 494 27 36 wenden\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "fr": "Unterassistent/in\n\nAllgemeine innere Medizin, Hausarztmedizin, Notfallmedizin\n\nArbeitsort St. Gallen\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\n• Mitbetreuung der Patientinnen und Patienten auf den Stationen der Inneren Medizin\n\n• Durchführung einer fundierten Anamnese und körperlichen Untersuchung\n\n• Durchführung und Interpretation diagnostischer Verfahren wie EKG, Schellong-Test, Mini-Mental-Test sowie weiterer medizinischer Untersuchungen\n\n• Teilnahme an Visiten, interdisziplinären Fallbesprechungen, Diagnostikverfahren, Rapporten und Fort- und Weiterbildungsveranstaltungen\n\n• Unterstützung bei kleineren Interventionen sowie Anwendung von Scores zur Krankheitsbewertung\n\nWas du für diese Stelle mitbringst\n\n• Du befindest dich im Wahlstudienjahr oder absolvierst derzeit dein Praktisches Jahr (PJ)\n\n• Ausgeprägtes Interesse an der Fachrichtung Innere Medizin\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mindestens Niveau C1)\n\n• Hohe Leistungs- und Lernbereitschaft, Teamfähigkeit und verantwortungsbewusstes Arbeiten\n\nUnser Angebot an dich\n\n• Anstellungsdauer von 2 bis 4 Monaten, mit Start jeweils am ersten des Monats\n\n• Die Anerkennung des PJ-Tertials über die Universität Zürich\n\n• Engagierte und strukturierte Betreuung durch unser ärztliches Team mit gezielter Förderung\n\n• Unterkunftsmöglichkeit im Personalhaus\n\n• Monatliche Rotationen in folgende Fachgebiete sind möglich: Allgemeine Innere Medizin, Kardiologie, Gastroenterologie, Onkologie, Hämatologie, Palliativstation, Nephrologie, Rheumatologie, Lungenzentrum, internistisches Notfallzentrum.\n\nDeine Bewerbung\n\n• Bewerbungen werden für den Zeitraum 2026 bis 2028 entgegengenommen\n\n• Mehr zu dieser spannenden Stelle und den Verfügbarkeiten erfährst du von unserem Team Ärztliche Koordination, Telefon +41 71 494 90 96\n\n• Bei Fragen zum Bewerbungsprozess kannst du dich an Elina Boos, Fachspezialistin HR Bildung, Telefon +41 71 494 27 36 wenden\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung"
+        "it": "Sub-assistante\n\nMedicina interna generale, medicina familiare, medicina di emergenza\n\nLuogo di lavoro San Gallo\n\nElenco dei lavori\n\nI vostri compiti e prospettive\n\n• Assistenza dei pazienti nelle stazioni di Medicina Interna\n\n• Condurre una storia ben fondata e un esame fisico\n\n• Condurre e interpretare procedure diagnostiche come ECG, Schellong test, mini-mental test e altri esami medici\n\n• Partecipazione a visite, riunioni di casi interdisciplinari, procedure diagnostiche, relazioni ed eventi formativi\n\n• Supporto per interventi più piccoli e applicazione di punteggi per la valutazione delle malattie\n\nChe cosa porta per questo lavoro\n\n• Sei nell'anno elettivo o stai completando il tuo anno pratico (PJ)\n\n• Forte interesse nel campo della medicina interna\n\n• Conoscenza molto buona del tedesco in parola e scrittura (almeno livello C1)\n\n• Alta disponibilità a svolgere e imparare, lavoro di squadra e lavoro responsabile\n\nLa nostra offerta a voi\n\n• Durata dell'occupazione da 2 a 4 mesi, a partire dal primo di ogni mese\n\n• Il riconoscimento del PJ-Tertial attraverso l'Università di Zurigo\n\n• Cura emessa e strutturata dal nostro team medico con supporto mirato\n\n• Alloggio nella casa del personale\n\n• Sono possibili rotazioni mensili nelle seguenti aree tematiche: Medicina interna generale, cardiologia, gastroenterologia, oncologia, ematologia, cura palliativa, nefrologia, reumatologia, centro polmonare, centro di emergenza internistica.\n\nLa tua richiesta\n\n• Le domande saranno ricevute per il periodo 2026-2028\n\n• Potete scoprire di più su questo lavoro emozionante e le disponibilità dal nostro team Medical Coordination, telefono +41 71 494 90 96\n\n• Se avete domande sul processo di applicazione, si prega di contattare Elina Boos, HR Education Specialist, telefono +41 71 494 27 36\n\nSu di noi\n\nL'assistenza sanitaria è la nostra professione e la nostra vocazione. Come il più grande datore di lavoro della Svizzera orientale, ci impegniamo a offrire ai nostri dipendenti un ambiente di lavoro versatile. Promuoviamo lo sviluppo individuale e quindi contribuiamo attivamente al futuro comune. Ci concentriamo sullo spirito di squadra, sulla cooperazione interdisciplinare e sulle soluzioni innovative.\n\nCompatibilità con la famiglia Vantaggi Alloggio ammobiliato Workplace health management Istruzione e formazione",
+        "en": "Sub-assistant\n\nGeneral internal medicine, family medicine, emergency medicine\n\nPlace of work St. Gallen\n\nJob listing\n\nYour tasks and perspectives\n\n• Assistance of patients on the stations of Internal Medicine\n\n• Conducting a well-founded history and physical examination\n\n• Conduct and interpret diagnostic procedures such as ECG, Schellong test, mini-mental test and other medical examinations\n\n• Participation in visits, interdisciplinary case meetings, diagnostic procedures, reports and training events\n\n• Support for smaller interventions and application of scores for disease assessment\n\nWhat you bring for this job\n\n• You are in the elective year or are currently completing your practical year (PJ)\n\n• Strong interest in the field of internal medicine\n\n• Very good knowledge of German in word and writing (at least level C1)\n\n• High willingness to perform and learn, teamwork and responsible work\n\nOur offer to you\n\n• Duration of employment of 2 to 4 months, starting from the first of each month\n\n• The recognition of the PJ-Tertial via the University of Zurich\n\n• Committed and structured care by our medical team with targeted support\n\n• Accommodation in the staff house\n\n• Monthly rotations in the following subject areas are possible: General internal medicine, cardiology, gastroenterology, oncology, hematology, palliative care, nephrology, rheumatology, pulmonary center, internistic emergency center.\n\nYour application\n\n• Applications will be received for the period 2026 to 2028\n\n• You can find out more about this exciting job and the availabilities from our team Medical Coordination, telephone +41 71 494 90 96\n\n• If you have any questions about the application process, please contact Elina Boos, HR Education specialist, telephone +41 71 494 27 36\n\nAbout us\n\nHealthcare is our profession and our calling. As the largest employer in Eastern Switzerland, we are committed to offering our employees a versatile working environment. We promote individual development and thus make an active contribution to the common future. We focus on team spirit, interdisciplinary cooperation and innovative solutions.\n\nWork-family compatibility Benefits Furnished accommodation Workplace health management Education and training",
+        "fr": "Sous-assistant\n\nMédecine interne générale, médecine familiale, médecine d'urgence\n\nLieu de travail St. Gallen\n\nListe des emplois\n\nVos tâches et perspectives\n\n• Assistance aux patients aux postes de médecine interne\n\n• Réalisation d'un historique et d'un examen physique fondés\n\n• Mener et interpréter des procédures diagnostiques telles que ECG, test de Schellong, mini-test mental et autres examens médicaux\n\n• Participation à des visites, réunions interdisciplinaires de cas, procédures de diagnostic, rapports et formations\n\n• Appui aux interventions de moindre envergure et application des résultats pour l'évaluation des maladies\n\nCe que vous apportez pour ce travail\n\n• Vous êtes dans l'année au choix ou terminez votre année pratique (PJ)\n\n• Fort intérêt pour la médecine interne\n\n• Très bonne connaissance de l'allemand en paroles et en écriture (au moins niveau C1)\n\n• Haute volonté d'accomplir et d'apprendre, travail d'équipe et travail responsable\n\nNotre offre à vous\n\n• Durée de l'emploi de 2 à 4 mois, à partir du premier de chaque mois\n\n• La reconnaissance du PJ-Tertial par l'Université de Zurich\n\n• Soins engagés et structurés par notre équipe médicale avec un soutien ciblé\n\n• Hébergement dans la maison du personnel\n\n• Des rotations mensuelles dans les domaines suivants sont possibles: médecine interne générale, cardiologie, gastroentérologie, oncologie, hématologie, soins palliatifs, néphrologie, rhumatologie, centre pulmonaire, centre d'urgence interniste.\n\nVotre demande\n\n• Les demandes seront reçues pour la période 2026-2028\n\n• Vous pouvez en savoir plus sur ce travail passionnant et les disponibilités de notre équipe Coordination médicale, téléphone +41 71 494 90 96\n\n• Si vous avez des questions sur le processus de candidature, veuillez contacter Elina Boos, spécialiste de l'éducation des RH, téléphone +41 71 494 27 36\n\nÀ propos de nous\n\nLa santé est notre métier et notre vocation. En tant que plus grand employeur de Suisse orientale, nous nous engageons à offrir à nos employés un environnement de travail polyvalent. Nous encourageons le développement individuel et contribuons ainsi activement à l'avenir commun. Nous nous concentrons sur l'esprit d'équipe, la coopération interdisciplinaire et les solutions innovantes.\n\nCompatibilité travail-famille Prestations Hébergement meublé Gestion de la santé au travail Éducation et formation"
       },
       "location": "Praktikum",
       "canton": "SG",
@@ -9013,7 +9022,6 @@
       "previousSlugs": [
         "unterassistent-in-kssg-ch"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9043,16 +9051,16 @@
       "title": "Oberärztin/-arzt Gastroenterologie/Hepatologie 100%",
       "titleByLocale": {
         "de": "Oberärztin/-arzt Gastroenterologie/Hepatologie 100%",
-        "it": "Oberärztin/-arzt Gastroenterologie/Hepatologie 100%",
-        "en": "Oberärztin/-arzt Gastroenterologie/Hepatologie 100%",
-        "fr": "Oberärztin/-arzt Gastroenterologie/Hepatologie 100%"
+        "it": "Senior medico gastroenterologia/epatologia 100%",
+        "en": "Senior physician gastroenterology/hepatology 100%",
+        "fr": "Gastroentérologie/hépatologie chez le médecin principal 100%"
       },
       "description": "Oberärztin/-arzt Gastroenterologie/Hepatologie 100%\n\nKlinik für Gastroenterologie / Hepatologie\n\nArbeitsort St. Gallen\n\nStellenanzeige\n\nIhre Aufgaben und Perspektiven\n\n• Betreuung von Patientinnen und Patienten über das gesamte Spektrum der klinischen Hepatologie (inkl. Lebertransplantationsabklärungen und Nachbetreuung transplantierter Patientinnen und Patienten)\n\n• Betreuung von Patientinnen und Patienten mit seltenen Lebererkrankungen\n\n• Mitverantwortung für die stationäre und ambulante Versorgung, Teilnahme am Konsiliar- und Bereitschaftsdienst\n\n• Führung, Supervision und Ausbildung von Assistenzärztinnen und -ärzten, studentische Lehre\n\n• Enge interdisziplinäre Zusammenarbeit mit internen und externen Partnern (z.B. Transplantationszentrum, interventionelle Radiologie, Viszeralchirurgie, Innere Medizin, Hausarztmedizin etc.)\n\nWas Sie für diese Stelle mitbringen\n\n• Abgeschlossener Facharzttitel in Gastroenterologie (bei ausländischer Titelverleihung inkl. MEBEKO-Anerkennung)\n\n• Idealerweise Facharzttitel in Hepatologie oder Interesse diesen bei uns klinikintern zu erwerben\n\n• Teamorientierte, belastbare und engagierte Persönlichkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mind. C1-Niveau)\n\n• Fundierte Erfahrung in Abdomensonographie sowie wünschenswerte Kenntnisse in der Kontrastmittelsonographie und Leberbiopsien\n\nUnser Angebot an Sie\n\n• Verantwortungsvolle Tätigkeit in einem modernen Arbeitsumfeld mit einem engagierten, kollegialen Team und abwechslungsreichem klinischem Alltag\n\n• Umfassende hepatologische Betreuung komplexer Patientinnen und Patienten inklusive Durchführung moderner diagnostischer und interventioneller Verfahren\n\n• Mitarbeit an Leberkomplexbehandlungen, interdisziplinären Fallbesprechungen und endoskopischen Untersuchungen (Gastroskopien, Varizenligaturen, Koloskopien)\n\n• Vielfältige Fort-, Weiterbildungs- und Forschungsmöglichkeiten\n\n• Attraktive Mitarbeitenden-Benefits in den Bereichen Gesundheit, Familie, Mobilität und Vergünstigungen\n\nIhre Bewerbung\n\n• Eintritt per sofort oder nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfahren Sie von Frau Neda Eric, Leiterin Administration, Telefon +41 71 494 10 65\n\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Herrn Lucius Graf, Teamleiter HR Beratung Kliniken, Telefon +41 71 494 90 85\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
       "descriptionByLocale": {
         "de": "Oberärztin/-arzt Gastroenterologie/Hepatologie 100%\n\nKlinik für Gastroenterologie / Hepatologie\n\nArbeitsort St. Gallen\n\nStellenanzeige\n\nIhre Aufgaben und Perspektiven\n\n• Betreuung von Patientinnen und Patienten über das gesamte Spektrum der klinischen Hepatologie (inkl. Lebertransplantationsabklärungen und Nachbetreuung transplantierter Patientinnen und Patienten)\n\n• Betreuung von Patientinnen und Patienten mit seltenen Lebererkrankungen\n\n• Mitverantwortung für die stationäre und ambulante Versorgung, Teilnahme am Konsiliar- und Bereitschaftsdienst\n\n• Führung, Supervision und Ausbildung von Assistenzärztinnen und -ärzten, studentische Lehre\n\n• Enge interdisziplinäre Zusammenarbeit mit internen und externen Partnern (z.B. Transplantationszentrum, interventionelle Radiologie, Viszeralchirurgie, Innere Medizin, Hausarztmedizin etc.)\n\nWas Sie für diese Stelle mitbringen\n\n• Abgeschlossener Facharzttitel in Gastroenterologie (bei ausländischer Titelverleihung inkl. MEBEKO-Anerkennung)\n\n• Idealerweise Facharzttitel in Hepatologie oder Interesse diesen bei uns klinikintern zu erwerben\n\n• Teamorientierte, belastbare und engagierte Persönlichkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mind. C1-Niveau)\n\n• Fundierte Erfahrung in Abdomensonographie sowie wünschenswerte Kenntnisse in der Kontrastmittelsonographie und Leberbiopsien\n\nUnser Angebot an Sie\n\n• Verantwortungsvolle Tätigkeit in einem modernen Arbeitsumfeld mit einem engagierten, kollegialen Team und abwechslungsreichem klinischem Alltag\n\n• Umfassende hepatologische Betreuung komplexer Patientinnen und Patienten inklusive Durchführung moderner diagnostischer und interventioneller Verfahren\n\n• Mitarbeit an Leberkomplexbehandlungen, interdisziplinären Fallbesprechungen und endoskopischen Untersuchungen (Gastroskopien, Varizenligaturen, Koloskopien)\n\n• Vielfältige Fort-, Weiterbildungs- und Forschungsmöglichkeiten\n\n• Attraktive Mitarbeitenden-Benefits in den Bereichen Gesundheit, Familie, Mobilität und Vergünstigungen\n\nIhre Bewerbung\n\n• Eintritt per sofort oder nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfahren Sie von Frau Neda Eric, Leiterin Administration, Telefon +41 71 494 10 65\n\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Herrn Lucius Graf, Teamleiter HR Beratung Kliniken, Telefon +41 71 494 90 85\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "it": "Oberärztin/-arzt Gastroenterologie/Hepatologie 100%\n\nKlinik für Gastroenterologie / Hepatologie\n\nArbeitsort St. Gallen\n\nStellenanzeige\n\nIhre Aufgaben und Perspektiven\n\n• Betreuung von Patientinnen und Patienten über das gesamte Spektrum der klinischen Hepatologie (inkl. Lebertransplantationsabklärungen und Nachbetreuung transplantierter Patientinnen und Patienten)\n\n• Betreuung von Patientinnen und Patienten mit seltenen Lebererkrankungen\n\n• Mitverantwortung für die stationäre und ambulante Versorgung, Teilnahme am Konsiliar- und Bereitschaftsdienst\n\n• Führung, Supervision und Ausbildung von Assistenzärztinnen und -ärzten, studentische Lehre\n\n• Enge interdisziplinäre Zusammenarbeit mit internen und externen Partnern (z.B. Transplantationszentrum, interventionelle Radiologie, Viszeralchirurgie, Innere Medizin, Hausarztmedizin etc.)\n\nWas Sie für diese Stelle mitbringen\n\n• Abgeschlossener Facharzttitel in Gastroenterologie (bei ausländischer Titelverleihung inkl. MEBEKO-Anerkennung)\n\n• Idealerweise Facharzttitel in Hepatologie oder Interesse diesen bei uns klinikintern zu erwerben\n\n• Teamorientierte, belastbare und engagierte Persönlichkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mind. C1-Niveau)\n\n• Fundierte Erfahrung in Abdomensonographie sowie wünschenswerte Kenntnisse in der Kontrastmittelsonographie und Leberbiopsien\n\nUnser Angebot an Sie\n\n• Verantwortungsvolle Tätigkeit in einem modernen Arbeitsumfeld mit einem engagierten, kollegialen Team und abwechslungsreichem klinischem Alltag\n\n• Umfassende hepatologische Betreuung komplexer Patientinnen und Patienten inklusive Durchführung moderner diagnostischer und interventioneller Verfahren\n\n• Mitarbeit an Leberkomplexbehandlungen, interdisziplinären Fallbesprechungen und endoskopischen Untersuchungen (Gastroskopien, Varizenligaturen, Koloskopien)\n\n• Vielfältige Fort-, Weiterbildungs- und Forschungsmöglichkeiten\n\n• Attraktive Mitarbeitenden-Benefits in den Bereichen Gesundheit, Familie, Mobilität und Vergünstigungen\n\nIhre Bewerbung\n\n• Eintritt per sofort oder nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfahren Sie von Frau Neda Eric, Leiterin Administration, Telefon +41 71 494 10 65\n\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Herrn Lucius Graf, Teamleiter HR Beratung Kliniken, Telefon +41 71 494 90 85\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "en": "Oberärztin/-arzt Gastroenterologie/Hepatologie 100%\n\nKlinik für Gastroenterologie / Hepatologie\n\nArbeitsort St. Gallen\n\nStellenanzeige\n\nIhre Aufgaben und Perspektiven\n\n• Betreuung von Patientinnen und Patienten über das gesamte Spektrum der klinischen Hepatologie (inkl. Lebertransplantationsabklärungen und Nachbetreuung transplantierter Patientinnen und Patienten)\n\n• Betreuung von Patientinnen und Patienten mit seltenen Lebererkrankungen\n\n• Mitverantwortung für die stationäre und ambulante Versorgung, Teilnahme am Konsiliar- und Bereitschaftsdienst\n\n• Führung, Supervision und Ausbildung von Assistenzärztinnen und -ärzten, studentische Lehre\n\n• Enge interdisziplinäre Zusammenarbeit mit internen und externen Partnern (z.B. Transplantationszentrum, interventionelle Radiologie, Viszeralchirurgie, Innere Medizin, Hausarztmedizin etc.)\n\nWas Sie für diese Stelle mitbringen\n\n• Abgeschlossener Facharzttitel in Gastroenterologie (bei ausländischer Titelverleihung inkl. MEBEKO-Anerkennung)\n\n• Idealerweise Facharzttitel in Hepatologie oder Interesse diesen bei uns klinikintern zu erwerben\n\n• Teamorientierte, belastbare und engagierte Persönlichkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mind. C1-Niveau)\n\n• Fundierte Erfahrung in Abdomensonographie sowie wünschenswerte Kenntnisse in der Kontrastmittelsonographie und Leberbiopsien\n\nUnser Angebot an Sie\n\n• Verantwortungsvolle Tätigkeit in einem modernen Arbeitsumfeld mit einem engagierten, kollegialen Team und abwechslungsreichem klinischem Alltag\n\n• Umfassende hepatologische Betreuung komplexer Patientinnen und Patienten inklusive Durchführung moderner diagnostischer und interventioneller Verfahren\n\n• Mitarbeit an Leberkomplexbehandlungen, interdisziplinären Fallbesprechungen und endoskopischen Untersuchungen (Gastroskopien, Varizenligaturen, Koloskopien)\n\n• Vielfältige Fort-, Weiterbildungs- und Forschungsmöglichkeiten\n\n• Attraktive Mitarbeitenden-Benefits in den Bereichen Gesundheit, Familie, Mobilität und Vergünstigungen\n\nIhre Bewerbung\n\n• Eintritt per sofort oder nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfahren Sie von Frau Neda Eric, Leiterin Administration, Telefon +41 71 494 10 65\n\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Herrn Lucius Graf, Teamleiter HR Beratung Kliniken, Telefon +41 71 494 90 85\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "fr": "Oberärztin/-arzt Gastroenterologie/Hepatologie 100%\n\nKlinik für Gastroenterologie / Hepatologie\n\nArbeitsort St. Gallen\n\nStellenanzeige\n\nIhre Aufgaben und Perspektiven\n\n• Betreuung von Patientinnen und Patienten über das gesamte Spektrum der klinischen Hepatologie (inkl. Lebertransplantationsabklärungen und Nachbetreuung transplantierter Patientinnen und Patienten)\n\n• Betreuung von Patientinnen und Patienten mit seltenen Lebererkrankungen\n\n• Mitverantwortung für die stationäre und ambulante Versorgung, Teilnahme am Konsiliar- und Bereitschaftsdienst\n\n• Führung, Supervision und Ausbildung von Assistenzärztinnen und -ärzten, studentische Lehre\n\n• Enge interdisziplinäre Zusammenarbeit mit internen und externen Partnern (z.B. Transplantationszentrum, interventionelle Radiologie, Viszeralchirurgie, Innere Medizin, Hausarztmedizin etc.)\n\nWas Sie für diese Stelle mitbringen\n\n• Abgeschlossener Facharzttitel in Gastroenterologie (bei ausländischer Titelverleihung inkl. MEBEKO-Anerkennung)\n\n• Idealerweise Facharzttitel in Hepatologie oder Interesse diesen bei uns klinikintern zu erwerben\n\n• Teamorientierte, belastbare und engagierte Persönlichkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mind. C1-Niveau)\n\n• Fundierte Erfahrung in Abdomensonographie sowie wünschenswerte Kenntnisse in der Kontrastmittelsonographie und Leberbiopsien\n\nUnser Angebot an Sie\n\n• Verantwortungsvolle Tätigkeit in einem modernen Arbeitsumfeld mit einem engagierten, kollegialen Team und abwechslungsreichem klinischem Alltag\n\n• Umfassende hepatologische Betreuung komplexer Patientinnen und Patienten inklusive Durchführung moderner diagnostischer und interventioneller Verfahren\n\n• Mitarbeit an Leberkomplexbehandlungen, interdisziplinären Fallbesprechungen und endoskopischen Untersuchungen (Gastroskopien, Varizenligaturen, Koloskopien)\n\n• Vielfältige Fort-, Weiterbildungs- und Forschungsmöglichkeiten\n\n• Attraktive Mitarbeitenden-Benefits in den Bereichen Gesundheit, Familie, Mobilität und Vergünstigungen\n\nIhre Bewerbung\n\n• Eintritt per sofort oder nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfahren Sie von Frau Neda Eric, Leiterin Administration, Telefon +41 71 494 10 65\n\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Herrn Lucius Graf, Teamleiter HR Beratung Kliniken, Telefon +41 71 494 90 85\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung"
+        "it": "Senior medico gastroenterologia/epatologia 100%\n\nClinica di Gastroenterologia / Epatologia\n\nLuogo di lavoro San Gallo\n\nElenco dei lavori\n\nI vostri compiti e prospettive\n\n• Cura dei pazienti attraverso l'intero spettro di epatologia clinica (comprese le valutazioni del trapianto di fegato e la cura di follow-up dei pazienti trapiantati)\n\n• Cura dei pazienti con malattie epatiche rare\n\n• Co-responsabilità per l'assistenza ospedaliera e ambulatoria, partecipazione alla consulenza e al servizio on-call\n\n• Leadership, supervisione e formazione dei medici assistenti, insegnamento degli studenti\n\n• Chiudere la cooperazione interdisciplinare con partner interni ed esterni (ad esempio centro di trapianto, radiologia interventistica, chirurgia viscerale, medicina interna, medicina familiare ecc.)\n\nChe cosa porta per questo lavoro\n\n• Titolo specialistico completo in gastroenterologia (per il premio di titolo straniero compreso il riconoscimento MEBEKO)\n\n• Idealmente, titolo specializzato in epatologia o interesse ad acquisire questo in-house con noi\n\n• personalità orientata al team, resiliente e impegnata\n\n• Molto buona conoscenza del tedesco nelle parole e nella scrittura (almeno C1 livello)\n\n• Esperienza approfondita nella sonografia addominale e conoscenza auspicabile in contrasto media sonografia e biopsie epatiche\n\nLa nostra offerta a voi\n\n• Lavoro responsabile in un ambiente di lavoro moderno con un team impegnato e collegiale e una variegata vita quotidiana clinica\n\n• Cura epatologica completa di pazienti complessi tra cui l'implementazione di procedure diagnostiche e interventistiche moderne\n\n• Collaborazione in trattamenti complessi epatici, discussioni di casi interdisciplinari e esami endoscopici (gastroscopie, legature varicose, colonoscopie)\n\n• Diverse opportunità di formazione e di ricerca\n\n• Prestazioni interessanti dei dipendenti nei settori della salute, della famiglia, della mobilità e dei benefici\n\nLa tua richiesta\n\n• Entrata immediata o di accordo\n\n• Puoi saperne di più su questo lavoro emozionante da Neda Eric, Responsabile Amministrazione, telefono +41 71 494 10 65\n\n• Si prega di contattare il Sig. Lucius Graf, Team Leader HR Consulting Clinics, telefono +41 71 494 90 85\n\nSu di noi\n\nL'assistenza sanitaria è la nostra professione e la nostra vocazione. Come il più grande datore di lavoro della Svizzera orientale, ci impegniamo a offrire ai nostri dipendenti un ambiente di lavoro versatile. Promuoviamo lo sviluppo individuale e quindi contribuiamo attivamente al futuro comune. Ci concentriamo sullo spirito di squadra, sulla cooperazione interdisciplinare e sulle soluzioni innovative.\n\nCompatibilità con la famiglia Vantaggi Alloggio ammobiliato Workplace health management Istruzione e formazione",
+        "en": "Senior physician gastroenterology/hepatology 100%\n\nClinic of Gastroenterology / Hepatology\n\nPlace of work St. Gallen\n\nJob listing\n\nYour tasks and perspectives\n\n• Care of patients across the entire spectrum of clinical hepatology (including liver transplant assessments and follow-up care of transplanted patients)\n\n• Care of patients with rare liver diseases\n\n• Co-responsibility for inpatient and ambulatory care, participation in consultancy and on-call service\n\n• Leadership, supervision and training of assistant doctors, student teaching\n\n• Close interdisciplinary cooperation with internal and external partners (e.g. transplant center, interventional radiology, visceral surgery, internal medicine, family medicine etc.)\n\nWhat you bring for this job\n\n• Completed specialist title in gastroenterology (for foreign title award including MEBEKO recognition)\n\n• Ideally, specialist title in hepatology or interest in acquiring this in-house with us\n\n• Team-oriented, resilient and committed personality\n\n• Very good knowledge of German in words and writing (at least C1 level)\n\n• In-depth experience in abdominal sonography and desirable knowledge in contrast medium sonography and liver biopsies\n\nOur offer to you\n\n• Responsible work in a modern working environment with a committed, collegial team and varied clinical everyday life\n\n• Comprehensive hepatological care of complex patients including the implementation of modern diagnostic and interventional procedures\n\n• Collaboration in liver complex treatments, interdisciplinary case discussions and endoscopic examinations (gastroscopies, varicose ligatures, colonoscopies)\n\n• Diverse training, further education and research opportunities\n\n• Attractive employee benefits in the areas of health, family, mobility and benefits\n\nYour application\n\n• Entry by immediate or by agreement\n\n• You can find out more about this exciting job from Neda Eric, Head of Administration, telephone +41 71 494 10 65\n\n• Ask questions about the application process Please contact Mr. Lucius Graf, Team Leader HR Consulting Clinics, telephone +41 71 494 90 85\n\nAbout us\n\nHealthcare is our profession and our calling. As the largest employer in Eastern Switzerland, we are committed to offering our employees a versatile working environment. We promote individual development and thus make an active contribution to the common future. We focus on team spirit, interdisciplinary cooperation and innovative solutions.\n\nWork-family compatibility Benefits Furnished accommodation Workplace health management Education and training",
+        "fr": "Gastroentérologie/hépatologie chez le médecin principal 100%\n\nClinique de gastroentérologie / Hépatologie\n\nLieu de travail St. Gallen\n\nListe des emplois\n\nVos tâches et perspectives\n\n• Soins des patients dans l'ensemble du spectre de l'hépatologie clinique (y compris évaluation de la transplantation hépatique et suivi des patients transplantés)\n\n• Soins aux patients atteints de maladies hépatiques rares\n\n• Coresponsabilité des soins hospitaliers et ambulatoires, participation aux services de conseil et de garde\n\n• Leadership, supervision et formation des médecins adjoints, enseignement étudiant\n\n• Coopération interdisciplinaire étroite avec les partenaires internes et externes (par exemple centre de transplantation, radiologie interventionnelle, chirurgie viscérale, médecine interne, médecine familiale, etc.)\n\nCe que vous apportez pour ce travail\n\n• Titre spécialisé en gastroentérologie (pour le prix de titre étranger, y compris la reconnaissance MEBEKO)\n\n• Idéalement, le titre de spécialiste en hépatologie ou l'intérêt d'acquérir cette maison avec nous\n\n• Personnalité orientée vers l'équipe, résiliente et engagée\n\n• Très bonne connaissance de l'allemand en mots et en écriture (au moins niveau C1)\n\n• Expérience approfondie en sonographie abdominale et connaissance souhaitable en sonographie moyenne contrastée et en biopsies hépatiques\n\nNotre offre à vous\n\n• Travail responsable dans un environnement de travail moderne avec une équipe engagée, collégiale et une vie quotidienne clinique variée\n\n• Soins hépatologiques complets pour les patients complexes, y compris la mise en œuvre de procédures modernes de diagnostic et d'intervention\n\n• Collaboration dans les traitements complexes hépatiques, les discussions de cas interdisciplinaires et les examens endoscopiques (gastroscopies, ligatures varices, coloscopies)\n\n• Différentes possibilités de formation, de perfectionnement et de recherche\n\n• Avantages sociaux attrayants dans les domaines de la santé, de la famille, de la mobilité et des avantages sociaux\n\nVotre demande\n\n• Entrée immédiate ou par accord\n\n• Vous pouvez en savoir plus sur ce travail passionnant de Neda Eric, Chef de l'administration, téléphone +41 71 494 10 65\n\n• Posez des questions sur le processus de candidature Veuillez contacter M. Lucius Graf, Team Leader HR Consulting Clinics, téléphone +41 71 494 90 85\n\nÀ propos de nous\n\nLa santé est notre métier et notre vocation. En tant que plus grand employeur de Suisse orientale, nous nous engageons à offrir à nos employés un environnement de travail polyvalent. Nous encourageons le développement individuel et contribuons ainsi activement à l'avenir commun. Nous nous concentrons sur l'esprit d'équipe, la coopération interdisciplinaire et les solutions innovantes.\n\nCompatibilité travail-famille Prestations Hébergement meublé Gestion de la santé au travail Éducation et formation"
       },
       "location": "Festanstellung",
       "canton": "SG",
@@ -9089,7 +9097,6 @@
       "previousSlugs": [
         "oberarztin-arzt-gastroenterologie-hepatologie-100-kssg-ch"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9119,16 +9126,16 @@
       "title": "Assistenzärztin/-arzt 80-100%",
       "titleByLocale": {
         "de": "Assistenzärztin/-arzt 80-100%",
-        "it": "Assistenzärztin/-arzt 80-100%",
-        "en": "Assistenzärztin/-arzt 80-100%",
-        "fr": "Assistenzärztin/-arzt 80-100%"
+        "it": "Assistente medico 80-100 %",
+        "en": "Assistant doctor 80-100 %",
+        "fr": "Assistant médecin 80-100 %"
       },
       "description": "Assistenzärztin/-arzt 80-100%\n\nKlinik für Nephrologie, Transplantationsmedizin\n\nArbeitsort St. Gallen\n\nIhre Aufgaben und Perspektiven\n\n• Betreuung von Patientinnen und Patienten mit komplexen Krankheitsbildern unter enger Anleitung des ärztlichen Kaders\n\n• Ausbildung in allen Bereichen der Nephrologie und in der Transplantationsmedizin\n\n• Lernen, in vielschichtigen Aufgabenstellungen Entscheidungen zu treffen\n\n• Aktive Teilnahme an internen und externen Fortbildungen\n\n• Teilnahme an verschiedenen interdisziplinären Boards sowie in klinischen Studien\n\nWas Sie für diese Stelle mitbringen\n\n• Abgeschlossenes Medizinstudium und Berufserfahrungen in einer medizinischen A-Klinik\n\n• Facharzttitel für Innere Medizin oder kurz vor Abschluss sowie Interesse an einer Facharztausbildung für Nephrologie\n\n• Teamfähigkeit, Belastbarkeit und eine zuverlässige Arbeitsweise\n\n• Kenntnisse des Schweizerischen Gesundheitssystems sind von Vorteil\n\n• Sehr gute Deutschkenntnisse (mindestens C1) in Wort und Schrift\n\nUnser Angebot an Sie\n\n• Familienfreundliche Arbeitszeiten wie auch Teilzeitarbeit möglich\n\n• Spannendes und abwechslungsreiches Fachgebiet\n\n• Interdisziplinäre und interprofessionelle Zusammenarbeit\n\n• Breites Spektrum an fachlichen und persönlichen Fort- und Weiterbildungsmöglichkeiten\n\n• Diverse Angebote für Mitarbeitende im Bereich Gesundheitsförderung, Job und Familie, Mobilität, diverse Vergünstigungen etc.\n\n​\n\nIhre Bewerbung\n\n• Eintritt nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfahren Sie von Herrn Dr. Christian Bucher, Klinikleiter a. i., Kontaktaufnahme via Sekretariat, Telefon +41 71 494 10 32\n\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Sara Reisenhofer-Weber, HR Business Partner, Telefon +41 71 494 38 61\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
       "descriptionByLocale": {
         "de": "Assistenzärztin/-arzt 80-100%\n\nKlinik für Nephrologie, Transplantationsmedizin\n\nArbeitsort St. Gallen\n\nIhre Aufgaben und Perspektiven\n\n• Betreuung von Patientinnen und Patienten mit komplexen Krankheitsbildern unter enger Anleitung des ärztlichen Kaders\n\n• Ausbildung in allen Bereichen der Nephrologie und in der Transplantationsmedizin\n\n• Lernen, in vielschichtigen Aufgabenstellungen Entscheidungen zu treffen\n\n• Aktive Teilnahme an internen und externen Fortbildungen\n\n• Teilnahme an verschiedenen interdisziplinären Boards sowie in klinischen Studien\n\nWas Sie für diese Stelle mitbringen\n\n• Abgeschlossenes Medizinstudium und Berufserfahrungen in einer medizinischen A-Klinik\n\n• Facharzttitel für Innere Medizin oder kurz vor Abschluss sowie Interesse an einer Facharztausbildung für Nephrologie\n\n• Teamfähigkeit, Belastbarkeit und eine zuverlässige Arbeitsweise\n\n• Kenntnisse des Schweizerischen Gesundheitssystems sind von Vorteil\n\n• Sehr gute Deutschkenntnisse (mindestens C1) in Wort und Schrift\n\nUnser Angebot an Sie\n\n• Familienfreundliche Arbeitszeiten wie auch Teilzeitarbeit möglich\n\n• Spannendes und abwechslungsreiches Fachgebiet\n\n• Interdisziplinäre und interprofessionelle Zusammenarbeit\n\n• Breites Spektrum an fachlichen und persönlichen Fort- und Weiterbildungsmöglichkeiten\n\n• Diverse Angebote für Mitarbeitende im Bereich Gesundheitsförderung, Job und Familie, Mobilität, diverse Vergünstigungen etc.\n\n​\n\nIhre Bewerbung\n\n• Eintritt nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfahren Sie von Herrn Dr. Christian Bucher, Klinikleiter a. i., Kontaktaufnahme via Sekretariat, Telefon +41 71 494 10 32\n\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Sara Reisenhofer-Weber, HR Business Partner, Telefon +41 71 494 38 61\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "it": "Assistenzärztin/-arzt 80-100%\n\nKlinik für Nephrologie, Transplantationsmedizin\n\nArbeitsort St. Gallen\n\nIhre Aufgaben und Perspektiven\n\n• Betreuung von Patientinnen und Patienten mit komplexen Krankheitsbildern unter enger Anleitung des ärztlichen Kaders\n\n• Ausbildung in allen Bereichen der Nephrologie und in der Transplantationsmedizin\n\n• Lernen, in vielschichtigen Aufgabenstellungen Entscheidungen zu treffen\n\n• Aktive Teilnahme an internen und externen Fortbildungen\n\n• Teilnahme an verschiedenen interdisziplinären Boards sowie in klinischen Studien\n\nWas Sie für diese Stelle mitbringen\n\n• Abgeschlossenes Medizinstudium und Berufserfahrungen in einer medizinischen A-Klinik\n\n• Facharzttitel für Innere Medizin oder kurz vor Abschluss sowie Interesse an einer Facharztausbildung für Nephrologie\n\n• Teamfähigkeit, Belastbarkeit und eine zuverlässige Arbeitsweise\n\n• Kenntnisse des Schweizerischen Gesundheitssystems sind von Vorteil\n\n• Sehr gute Deutschkenntnisse (mindestens C1) in Wort und Schrift\n\nUnser Angebot an Sie\n\n• Familienfreundliche Arbeitszeiten wie auch Teilzeitarbeit möglich\n\n• Spannendes und abwechslungsreiches Fachgebiet\n\n• Interdisziplinäre und interprofessionelle Zusammenarbeit\n\n• Breites Spektrum an fachlichen und persönlichen Fort- und Weiterbildungsmöglichkeiten\n\n• Diverse Angebote für Mitarbeitende im Bereich Gesundheitsförderung, Job und Familie, Mobilität, diverse Vergünstigungen etc.\n\n​\n\nIhre Bewerbung\n\n• Eintritt nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfahren Sie von Herrn Dr. Christian Bucher, Klinikleiter a. i., Kontaktaufnahme via Sekretariat, Telefon +41 71 494 10 32\n\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Sara Reisenhofer-Weber, HR Business Partner, Telefon +41 71 494 38 61\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "en": "Assistenzärztin/-arzt 80-100%\n\nKlinik für Nephrologie, Transplantationsmedizin\n\nArbeitsort St. Gallen\n\nIhre Aufgaben und Perspektiven\n\n• Betreuung von Patientinnen und Patienten mit komplexen Krankheitsbildern unter enger Anleitung des ärztlichen Kaders\n\n• Ausbildung in allen Bereichen der Nephrologie und in der Transplantationsmedizin\n\n• Lernen, in vielschichtigen Aufgabenstellungen Entscheidungen zu treffen\n\n• Aktive Teilnahme an internen und externen Fortbildungen\n\n• Teilnahme an verschiedenen interdisziplinären Boards sowie in klinischen Studien\n\nWas Sie für diese Stelle mitbringen\n\n• Abgeschlossenes Medizinstudium und Berufserfahrungen in einer medizinischen A-Klinik\n\n• Facharzttitel für Innere Medizin oder kurz vor Abschluss sowie Interesse an einer Facharztausbildung für Nephrologie\n\n• Teamfähigkeit, Belastbarkeit und eine zuverlässige Arbeitsweise\n\n• Kenntnisse des Schweizerischen Gesundheitssystems sind von Vorteil\n\n• Sehr gute Deutschkenntnisse (mindestens C1) in Wort und Schrift\n\nUnser Angebot an Sie\n\n• Familienfreundliche Arbeitszeiten wie auch Teilzeitarbeit möglich\n\n• Spannendes und abwechslungsreiches Fachgebiet\n\n• Interdisziplinäre und interprofessionelle Zusammenarbeit\n\n• Breites Spektrum an fachlichen und persönlichen Fort- und Weiterbildungsmöglichkeiten\n\n• Diverse Angebote für Mitarbeitende im Bereich Gesundheitsförderung, Job und Familie, Mobilität, diverse Vergünstigungen etc.\n\n​\n\nIhre Bewerbung\n\n• Eintritt nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfahren Sie von Herrn Dr. Christian Bucher, Klinikleiter a. i., Kontaktaufnahme via Sekretariat, Telefon +41 71 494 10 32\n\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Sara Reisenhofer-Weber, HR Business Partner, Telefon +41 71 494 38 61\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "fr": "Assistenzärztin/-arzt 80-100%\n\nKlinik für Nephrologie, Transplantationsmedizin\n\nArbeitsort St. Gallen\n\nIhre Aufgaben und Perspektiven\n\n• Betreuung von Patientinnen und Patienten mit komplexen Krankheitsbildern unter enger Anleitung des ärztlichen Kaders\n\n• Ausbildung in allen Bereichen der Nephrologie und in der Transplantationsmedizin\n\n• Lernen, in vielschichtigen Aufgabenstellungen Entscheidungen zu treffen\n\n• Aktive Teilnahme an internen und externen Fortbildungen\n\n• Teilnahme an verschiedenen interdisziplinären Boards sowie in klinischen Studien\n\nWas Sie für diese Stelle mitbringen\n\n• Abgeschlossenes Medizinstudium und Berufserfahrungen in einer medizinischen A-Klinik\n\n• Facharzttitel für Innere Medizin oder kurz vor Abschluss sowie Interesse an einer Facharztausbildung für Nephrologie\n\n• Teamfähigkeit, Belastbarkeit und eine zuverlässige Arbeitsweise\n\n• Kenntnisse des Schweizerischen Gesundheitssystems sind von Vorteil\n\n• Sehr gute Deutschkenntnisse (mindestens C1) in Wort und Schrift\n\nUnser Angebot an Sie\n\n• Familienfreundliche Arbeitszeiten wie auch Teilzeitarbeit möglich\n\n• Spannendes und abwechslungsreiches Fachgebiet\n\n• Interdisziplinäre und interprofessionelle Zusammenarbeit\n\n• Breites Spektrum an fachlichen und persönlichen Fort- und Weiterbildungsmöglichkeiten\n\n• Diverse Angebote für Mitarbeitende im Bereich Gesundheitsförderung, Job und Familie, Mobilität, diverse Vergünstigungen etc.\n\n​\n\nIhre Bewerbung\n\n• Eintritt nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfahren Sie von Herrn Dr. Christian Bucher, Klinikleiter a. i., Kontaktaufnahme via Sekretariat, Telefon +41 71 494 10 32\n\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Sara Reisenhofer-Weber, HR Business Partner, Telefon +41 71 494 38 61\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung"
+        "it": "Assistente medico 80-100 %\n\nClinica di Neftologia, Medicina di Trapianto\n\nLuogo di lavoro San Gallo\n\nI vostri compiti e prospettive\n\n• Cura dei pazienti con immagini cliniche complesse sotto stretta supervisione del cadre medico\n\n• Istruzione in tutti i settori della neftologia e della medicina del trapianto\n\n• Imparare a prendere decisioni in compiti complessi\n\n• Partecipazione attiva alla formazione interna ed esterna\n\n• Partecipazione a varie tavole interdisciplinari e in studi clinici\n\nChe cosa porta per questo lavoro\n\n• Studi medici completi e esperienza professionale in un medico A-clinico\n\n• Titolo specialistico per la medicina interna o poco prima della laurea e interesse per la formazione specialistica in nefrologia\n\n• Lavoro di squadra, resilienza e un modo affidabile di lavorare\n\n• La conoscenza del sistema sanitario svizzero è un vantaggio\n\n• Conoscenza molto buona del tedesco (almeno C1) in parola e scrittura\n\nLa nostra offerta a voi\n\n• Ore lavorative adatte alle famiglie e possibilità di lavoro a tempo parziale\n\n• Eccitante e variegato campo di competenza\n\n• Cooperazione interdisciplinare e interprofessionale\n\n• Ampia gamma di opportunità di formazione professionale e personale\n\n• Varie offerte per i dipendenti nel campo della promozione della salute, del lavoro e della famiglia, della mobilità, dei vari vantaggi, ecc.\n\n​\n\nLa tua richiesta\n\n• Entrata per accordo\n\n• Potete scoprire di più su questa posizione emozionante dal Dr. Christian Bucher, direttore della clinica a. i., contatto via segreteria, telefono +41 71 494 10 32\n\n• Contatta Sara Reisenhofer-Weber, HR Business Partner, telefono +41 71 494 38 61\n\nSu di noi\n\nL'assistenza sanitaria è la nostra professione e la nostra vocazione. Come il più grande datore di lavoro della Svizzera orientale, ci impegniamo a offrire ai nostri dipendenti un ambiente di lavoro versatile. Promuoviamo lo sviluppo individuale e quindi contribuiamo attivamente al futuro comune. Ci concentriamo sullo spirito di squadra, sulla cooperazione interdisciplinare e sulle soluzioni innovative.\n\nCompatibilità con la famiglia Vantaggi Alloggio ammobiliato Workplace health management Istruzione e formazione",
+        "en": "Assistant doctor 80-100 %\n\nClinic of Nephrology, Transplantation Medicine\n\nPlace of work St. Gallen\n\nYour tasks and perspectives\n\n• Care of patients with complex clinical pictures under close supervision of the medical cadre\n\n• Education in all areas of nephrology and transplantation medicine\n\n• Learning to make decisions in complex tasks\n\n• Active participation in internal and external training\n\n• Participation in various interdisciplinary boards as well as in clinical studies\n\nWhat you bring for this job\n\n• Completed medical studies and professional experience in a medical A-clinic\n\n• Specialist title for internal medicine or shortly before graduation and interest in specialist training in nephrology\n\n• Teamwork, resilience and a reliable way of working\n\n• Knowledge of the Swiss health system is an advantage\n\n• Very good knowledge of German (at least C1) in word and writing\n\nOur offer to you\n\n• Family-friendly working hours as well as part-time work possible\n\n• Exciting and varied field of expertise\n\n• Interdisciplinary and interprofessional cooperation\n\n• Broad spectrum of professional and personal training opportunities\n\n• Various offers for employees in the field of health promotion, job and family, mobility, various benefits, etc.\n\n​\n\nYour application\n\n• Entry by arrangement\n\n• You can find out more about this exciting position from Dr. Christian Bucher, clinic director a. i., contact via secretariat, telephone +41 71 494 10 32\n\n• Ask questions about the application process Please contact Sara Reisenhofer-Weber, HR Business Partner, telephone +41 71 494 38 61\n\nAbout us\n\nHealthcare is our profession and our calling. As the largest employer in Eastern Switzerland, we are committed to offering our employees a versatile working environment. We promote individual development and thus make an active contribution to the common future. We focus on team spirit, interdisciplinary cooperation and innovative solutions.\n\nWork-family compatibility Benefits Furnished accommodation Workplace health management Education and training",
+        "fr": "Assistant médecin 80-100 %\n\nClinique de néphrologie, Médecine de la transplantation\n\nLieu de travail St. Gallen\n\nVos tâches et perspectives\n\n• Soins aux patients présentant des images cliniques complexes sous surveillance étroite du cadre médical\n\n• Éducation dans tous les domaines de la néphrologie et de la transplantation\n\n• Apprendre à prendre des décisions dans des tâches complexes\n\n• Participation active à la formation interne et externe\n\n• Participation à divers conseils interdisciplinaires ainsi qu'à des études cliniques\n\nCe que vous apportez pour ce travail\n\n• Études médicales terminées et expérience professionnelle dans une clinique médicale A\n\n• Titre de spécialiste en médecine interne ou peu avant l'obtention du diplôme et intérêt pour la formation spécialisée en néphrologie\n\n• Travail d'équipe, résilience et un mode de travail fiable\n\n• La connaissance du système de santé suisse est un avantage\n\n• Très bonne connaissance de l'allemand (au moins C1) en paroles et en écriture\n\nNotre offre à vous\n\n• Heures de travail favorables à la famille et à temps partiel possibles\n\n• Domaine d'expertise passionnant et varié\n\n• Coopération interdisciplinaire et interprofessionnelle\n\n• Large éventail de possibilités de formation professionnelle et personnelle\n\n• Diverses offres pour les employés dans le domaine de la promotion de la santé, de l'emploi et de la famille, de la mobilité, de diverses prestations, etc.\n\n​\n\nVotre demande\n\n• Entrée par arrangement\n\n• Vous pouvez en savoir plus sur ce poste passionnant du Dr Christian Bucher, directeur de clinique a. i., contact par secrétariat, téléphone +41 71 494 10 32\n\n• Posez des questions sur le processus de candidature Veuillez contacter Sara Reisenhofer-Weber, HR Business Partner, téléphone +41 71 494 38 61\n\nÀ propos de nous\n\nLa santé est notre métier et notre vocation. En tant que plus grand employeur de Suisse orientale, nous nous engageons à offrir à nos employés un environnement de travail polyvalent. Nous encourageons le développement individuel et contribuons ainsi activement à l'avenir commun. Nous nous concentrons sur l'esprit d'équipe, la coopération interdisciplinaire et les solutions innovantes.\n\nCompatibilité travail-famille Prestations Hébergement meublé Gestion de la santé au travail Éducation et formation"
       },
       "location": "Befristete Anstellung",
       "canton": "SG",
@@ -9165,7 +9172,6 @@
       "previousSlugs": [
         "assistenzarztin-arzt-80-100-kssg-ch"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9231,17 +9237,40 @@
       "previousSlugsByLocale": {
         "de": [
           "mitarbeiter-in-reinigung-50-60-kssg-ch",
-          "mitarbeiter-in-reinigung-50-60-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+          "mitarbeiter-in-reinigung-50-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "mitarbeiter-in-reinigung-40-hoch-health-wil",
+          "mitarbeiter-in-reinigung-40-kssg-ch",
+          "mitarbeiter-in-reinigung-40-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung"
         ],
         "it": [
           "mitarbeiter-in-reinigung-50-60-kssg-ch",
-          "collaboratore-trice-reinigung-50-60-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+          "collaboratore-trice-reinigung-50-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "collaboratore-trice-reinigung-40-hoch-health-ostschweiz-wil",
+          "employee-cleaner-40-hoch-health-ostschweiz-wil",
+          "mitarbeiter-in-reinigung-40-hoch-health-wil",
+          "employe-nettoyeur-40-hoch-health-ostschweiz-wil",
+          "mitarbeiter-in-reinigung-40-kssg-ch",
+          "mitarbeiter-in-reinigung-40-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung",
+          "collaboratore-trice-reinigung-40-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung"
+        ],
+        "en": [
+          "employee-cleaner-40-hoch-health-ostschweiz-wil"
+        ],
+        "fr": [
+          "employe-nettoyeur-40-hoch-health-ostschweiz-wil"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-reinigung-50-60-kssg-ch",
         "mitarbeiter-in-reinigung-50-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "collaboratore-trice-reinigung-50-60-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "collaboratore-trice-reinigung-50-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "collaboratore-trice-reinigung-40-hoch-health-ostschweiz-wil",
+        "employee-cleaner-40-hoch-health-ostschweiz-wil",
+        "mitarbeiter-in-reinigung-40-hoch-health-wil",
+        "employe-nettoyeur-40-hoch-health-ostschweiz-wil",
+        "mitarbeiter-in-reinigung-40-kssg-ch",
+        "mitarbeiter-in-reinigung-40-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung",
+        "collaboratore-trice-reinigung-40-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung"
       ],
       "firstSeenAt": "2026-07-09T12:12:42.311Z",
       "salaryMin": 34500,
@@ -9256,8 +9285,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "kssg-fa4098092163",
@@ -9490,8 +9518,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "kssg-33d36aa699eb",
@@ -9584,7 +9611,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 60-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 60-100%",
+        "it": "Dipl. Infermieristica professionale 60-100 %",
         "en": "Dipl. Nursing professional 60-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 60-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 60-100 %"
@@ -9660,8 +9687,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "kssg-e4ac9cdd1c8b",
@@ -9678,7 +9704,7 @@
       "title": "Physiotherapeut/in 20-30%",
       "titleByLocale": {
         "it": "Fisioterapista/in 20-30 %",
-        "en": "Physiotherapeut/in 20-30%",
+        "en": "Physiotherapist/in 20-30 %",
         "de": "Physiotherapeut/in 20-30%",
         "fr": "Physiothérapeute/en 20-30 %"
       },
@@ -9735,8 +9761,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "kssg-6ea9c257469a",
@@ -9752,7 +9777,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 40-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 40-100%",
+        "it": "Dipl. Infermieristica professionale 40-100 %",
         "en": "Dipl. Nursing professional 40-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 40-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 40-100 %"
@@ -9838,8 +9863,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

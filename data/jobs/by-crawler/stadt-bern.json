@@ -163,7 +163,7 @@
         "it": "Supporto ICT - Service Desk",
         "en": "ICT Supporter - Service Desk",
         "de": "ICT Supporter*in - Service Desk",
-        "fr": "Supporteur TIC - Service Desk"
+        "fr": "ICT Supporter*in - Service Desk"
       },
       "description": "Zur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine engagierte und serviceorientierte Persönlichkeit. Wenn du Freude am Kundensupport hast und in einem dynamischen IT-Umfeld arbeiten möchtest, freuen wir uns auf deine Bewerbung.\n\nAufgaben:\n• Beantworten von schriftlichen und mündlichen Anfragen unserer Kundschaft sowie Bereitstellung von kompetenten Lösungen\n\n• Bearbeiten von Fragen, Bestellungen und Vorfällen im Zusammenhang mit Hardware, Anwendungen, Zugängen oder Netzwerkverbindungen\n\n• Analysieren, dokumentieren und lösen von Fällen, um sicherzustellen, dass alle Anfragen effizient und vollständig bearbeitet werden\n\n• Proaktives Informieren unserer Kundschaft über den Status ihrer Anfragen sowie Lösen, Eskalieren oder Weiterleiten von Vorfällen bei Bedarf\n\n• Du stellst den Kontakt zwischen dem Servicedesk und den relevanten Teams sicher, mit denen wir eng zusammenarbeiten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als ICT-Fachmann / ICT-Fachfrau EFZ oder eine vergleichbare Qualifikation\n\n• Erfahrung im telefonischen Support sowie eine rasche Auffassungsgabe, um sich schnell in neue Themengebiete einzuarbeiten\n\n• Eine ausgeprägte Kundenorientierung und Freude am Umgang mit Menschen\n\n• Hohe Einsatzbereitschaft und Flexibilität, auch in herausfordernden Situationen\n\n• Kommunikationsstärke und Zielstrebigkeit, um Lösungen effizient und zielgerichtet umzusetzen\n\n• Teamplayer-Mentalität mit einer positiven und kooperativen Arbeitsweise\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
       "descriptionByLocale": {
@@ -214,7 +214,7 @@
       "slug": "cura-professionale-stadt-bern-bern",
       "slugByLocale": {
         "it": "cura-professionale-stadt-bern-bern",
-        "en": "care-professional-stadt-bern-bern",
+        "en": "betreuungsfachperson-stadt-bern",
         "de": "betreuungsfachperson-stadt-bern-bern",
         "fr": "professionnel-de-soins-stadt-bern-bern"
       },
@@ -224,7 +224,7 @@
       "title": "Betreuungsfachperson",
       "titleByLocale": {
         "it": "Cura professionale",
-        "en": "Care professional",
+        "en": "Betreuungsfachperson",
         "de": "Betreuungsfachperson",
         "fr": "Professionnel de soins"
       },
@@ -264,6 +264,8 @@
         "tertiary-care-professional-stadt-bern-bern",
         "betreuungsfachperson-tertiar-stadt-bern-bern",
         "specialiste-des-soins-tertiaires-stadt-bern-bern",
+        "care-professional-stadt-bern-bern",
+        "cura-professionale-stadt-bern-bern",
         "betreuungsfachperson-stadt-bern"
       ],
       "previousSlugsByLocale": {
@@ -272,11 +274,13 @@
           "terziario-professionale-stadt-bern-bern",
           "tertiary-care-professional-stadt-bern-bern",
           "betreuungsfachperson-tertiar-stadt-bern-bern",
-          "specialiste-des-soins-tertiaires-stadt-bern-bern"
+          "specialiste-des-soins-tertiaires-stadt-bern-bern",
+          "cura-professionale-stadt-bern-bern"
         ],
         "en": [
           "betreuungsfachperson-stadt-bern-bern",
           "tertiary-care-professional-stadt-bern-bern",
+          "care-professional-stadt-bern-bern",
           "betreuungsfachperson-stadt-bern"
         ],
         "de": [
@@ -424,11 +428,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-amp",
-        "programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-datenarchitektur-stadt-bern-bern"
+        "programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-datenarchitektur-stadt-bern-bern",
+        "programm-e-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-datenarchitektur-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-amp"
+          "programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-amp",
+          "programm-e-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-datenarchitektur-stadt-bern"
         ],
         "en": [
           "programm-und-projektleiter-in-data-excellence-schwerpunkt-datenmanagement-datenarchitektur-stadt-bern-bern"
@@ -502,12 +508,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-in-digitale-unternehmensarchitektur-stadt-bern-bern",
-        "leiter-in-digitale-unternehmensarchitektur-stadt-bern"
+        "leiter-in-digitale-unternehmensarchitektur-stadt-bern",
+        "responsabile-dell-architettura-digitale-aziendale-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-digitale-unternehmensarchitektur-stadt-bern-bern",
-          "leiter-in-digitale-unternehmensarchitektur-stadt-bern"
+          "leiter-in-digitale-unternehmensarchitektur-stadt-bern",
+          "responsabile-dell-architettura-digitale-aziendale-stadt-bern-bern"
         ],
         "en": [
           "leiter-in-digitale-unternehmensarchitektur-stadt-bern-bern"
@@ -1115,11 +1123,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kinder-amp-jugendbetreuer-in-stadt-bern-bern"
+        "kinder-amp-jugendbetreuer-in-stadt-bern-bern",
+        "fornitore-di-assistenza-per-bambini-e-giovani-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kinder-amp-jugendbetreuer-in-stadt-bern-bern"
+          "kinder-amp-jugendbetreuer-in-stadt-bern-bern",
+          "fornitore-di-assistenza-per-bambini-e-giovani-stadt-bern-bern"
         ],
         "en": [
           "kinder-amp-jugendbetreuer-in-stadt-bern-bern"
@@ -1784,12 +1794,12 @@
     },
     {
       "id": "stadt-bern-78d70b3a62ff",
-      "slug": "personale-nella-protezione-degli-adulti-stadt-bern-bern",
+      "slug": "sachbearbeiter-in-erwachsenenschutz-stadt-bern-bern",
       "slugByLocale": {
         "de": "sachbearbeiter-in-erwachsenenschutz-stadt-bern-bern",
-        "it": "personale-nella-protezione-degli-adulti-stadt-bern-bern",
-        "en": "personnel-in-adult-protection-stadt-bern-bern",
-        "fr": "personnel-de-protection-des-adultes-stadt-bern-bern"
+        "it": "sachbearbeiter-in-erwachsenenschutz-stadt-bern-bern",
+        "en": "sachbearbeiter-in-erwachsenenschutz-stadt-bern-bern",
+        "fr": "sachbearbeiter-in-erwachsenenschutz-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -1845,21 +1855,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-22T11:15:00.411Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-erwachsenenschutz-stadt-bern-bern"
-        ],
-        "en": [
-          "sachbearbeiter-in-erwachsenenschutz-stadt-bern-bern"
-        ],
-        "fr": [
-          "sachbearbeiter-in-erwachsenenschutz-stadt-bern-bern"
-        ]
-      },
-      "previousSlugs": [
-        "sachbearbeiter-in-erwachsenenschutz-stadt-bern-bern"
-      ]
+      "firstSeenAt": "2026-07-22T11:15:00.411Z"
     }
   ]
 }
