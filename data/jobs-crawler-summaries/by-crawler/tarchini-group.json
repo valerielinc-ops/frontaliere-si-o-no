@@ -1,16 +1,16 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-07-22T11:15:18.226Z",
-  "total": 4,
+  "generatedAt": "2026-07-22T22:05:46.515Z",
+  "total": 3,
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 0,
+  "updatedCount": 3,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 5446,
-  "avgDurationMs": 5446,
+  "durationMs": 4748,
+  "avgDurationMs": 4748,
   "durationHistory": [
-    5446
+    4748
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -124,7 +124,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Segretaria/o GIG Europe SA",
       "slug": "segretaria-o-gig-europe-sa-tarchini-group-manno",
@@ -143,7 +145,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-07-22",
+      "postedDate": "2026-06-16",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -163,6 +165,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
