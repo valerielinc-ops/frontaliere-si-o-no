@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pictet",
-  "assembledAt": "2026-07-22T11:20:46.593Z",
+  "assembledAt": "2026-07-22T22:08:48.065Z",
   "jobs": [
     {
       "id": "pictet-56f2e15d8e4f",
@@ -33,7 +33,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124729&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:20:44.499Z",
+      "crawledAt": "2026-07-22T22:08:45.594Z",
       "addressLocality": "Frankfurt",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -51,6 +51,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-16T11:10:21.527Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -79,7 +80,7 @@
       "title": "Business Compliance Manager - Contrat à durée maximale",
       "titleByLocale": {
         "it": "Business Compliance Manager - Contratto con durata massima",
-        "en": "Business Compliance Manager - Contract with maximum duration",
+        "en": "Business Compliance Manager - Contrat à durée maximale",
         "de": "Business Compliance Manager - Vertrag mit maximaler Laufzeit",
         "fr": "Business Compliance Manager - Contrat à durée maximale"
       },
@@ -95,7 +96,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124725&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T11:20:43.913Z",
+      "crawledAt": "2026-07-22T22:08:45.149Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -117,14 +118,16 @@
         "responsabile-della-conformita-aziendale-pictet-group-geneva",
         "business-compliance-manager-pictet-geneva",
         "gestionnaire-de-la-conformite-des-entreprises-pictet-group-geneva",
-        "business-compliance-manager-contrat-a-duree-maximale-pictet-group-geneva"
+        "business-compliance-manager-contrat-a-duree-maximale-pictet-group-geneva",
+        "business-compliance-manager-contratto-con-durata-massima-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "business-compliance-manager-contrat-a-duree-maximale-pictet-geneva",
           "responsabile-della-conformita-aziendale-pictet-group-geneva",
           "business-compliance-manager-pictet-geneva",
-          "gestionnaire-de-la-conformite-des-entreprises-pictet-group-geneva"
+          "gestionnaire-de-la-conformite-des-entreprises-pictet-group-geneva",
+          "business-compliance-manager-contratto-con-durata-massima-pictet-group-geneva"
         ],
         "en": [
           "business-compliance-manager-contrat-a-duree-maximale-pictet-geneva",
@@ -139,6 +142,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:10:20.889Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -183,7 +187,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124745&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T11:20:43.316Z",
+      "crawledAt": "2026-07-22T22:08:44.572Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -201,11 +205,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "client-business-compliance-aml-onboarding-pictet-geneva"
+        "client-business-compliance-aml-onboarding-pictet-geneva",
+        "compliance-clienti-business-aml-onboarding-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "client-business-compliance-aml-onboarding-pictet-geneva"
+          "client-business-compliance-aml-onboarding-pictet-geneva",
+          "compliance-clienti-business-aml-onboarding-pictet-group-geneva"
         ]
       },
       "firstSeenAt": "2026-07-16T11:10:20.207Z",
@@ -229,7 +235,7 @@
         "it": "client-relationship-officer-contratto-a-termine-16-mesi-pictet-group-luxembourg",
         "en": "client-relationship-officer-fixed-term-contract-16-months-pictet-luxembourg",
         "de": "client-relationship-officer-festvertrag-16-monate-pictet-group-luxembourg",
-        "fr": "agent-de-relations-avec-la-clientele-contrat-a-duree-determinee-16-mois-pictet-group-luxembourg"
+        "fr": "client-relationship-officer-fixed-term-contract-16-months-pictet-group-luxembourg"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -239,7 +245,7 @@
         "it": "Client Relationship Officer (contratto a termine - 16 mesi)",
         "en": "Client Relationship Officer (Fixed-term contract - 16 months)",
         "de": "Client Relationship Officer (Festvertrag - 16 Monate)",
-        "fr": "Agent de relations avec la clientèle (contrat à durée déterminée - 16 mois)"
+        "fr": "Client Relationship Officer (Fixed-term contract - 16 months)"
       },
       "description": "Your team\n\nThe Pictet Group is one of the world’s leading independent wealth and asset managers. Founded in 1805 and headquartered in Geneva, Switzerland, the Group is represented at 30 offices in financial centres worldwide, and currently employs over 5200 people. Pictet has been present since 1989 in Luxembourg, where it employs over 700 people.\n\nPictet Wealth Management combines more than 200 years of Swiss banking heritage with global investment expertise. The Partner-owned financial service group offers a comprehensive service for wealthy individuals and families including discretionary and advisory investment solutions and family office services.\n\nWe are seeking to recruit a Client Relationship Officer to strengthen our Luxembourg-based team. The Client Relationship Officer will be responsible for all operational dimensions of daily banking activities with the aim to deliver a world-class client experience by ensuring front operational excellence.\n\nYour role\n\n• Be the point of entry for all operational requests from bankers or clients\n\n• Process payments and transfers while ensuring call backs are systematically performed and support for other transactional activity where needed\n\n• Ensure telephone call coverage is in place in the team\n\n• Place orders on the market or perform 4-eyes on orders other placed\n\n• Secure strict follow-up of client documentation\n\n• Administer the end-to-end account-opening process, taking into consideration local regulatory specificities\n\n• Procure KYC information and update complementary documents in the systems.\n\n• Process workflow requests in the systems (client codifications, credit card requests, credit lines, pricing exceptions, etc.)\n\n• Adjust to all existing policies and directives and support the implementation of new ones, where needed\n\n• Build close relationships with relevant internal stakeholders\n\n• Support assistance with administrative tasks when required\n\n• Ensure a close follow-up of all your tasks\n\nYour profile\n\nRequested experience:\n\n• Bachelor’s degree or similar relevant qualification\n\n• Minimum of 2 to 3 years of experience in a similar function, in a private bank\n\n• A definite interest in financial markets and current international affairs\n\n• Familiarity with banking regulation, tax and, AML and KYC is an asset\n\nSoft skills:\n\n• Strong team spirit and open-minded\n\n• Attention to detail\n\n• Able to work independently and diligently with a strong sense of responsibility\n\n• Reliable, flexible and resilient, and the ability to multi-task\n\n• Service and solutions oriented and proactive mindset\n\nLanguage skills:\n\n• Fluent in English\n\n• Fluent in Swedish or Danish\n\n• French is a plus\n\nNote\n\nWe will not accept any CVs from agencies.\n\nIn accordance with the provisions of the Luxembourg law of 23 July 2016 amending the law of 29 March 2013, candidates may be required to provide an extract from their criminal record. This document, issued by the authorities, must not be older than three months. Such a document will be requested with the aim of carrying out a character check on candidates, bearing in mind the area of activity of our establishment and, more particularly, the tasks described in the job description.\n\nFlexible and modern ways of working\n\nAs a responsible and supportive employer, we promote the well-being of our employees through a set of flexible working arrangements, ranging from a work-from-home policy for eligible functions to opportunities for annualised part-time leave and extended parental leave.\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
       "descriptionByLocale": {
@@ -253,7 +259,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124739&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:20:42.582Z",
+      "crawledAt": "2026-07-22T22:08:43.982Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -272,21 +278,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "client-relationship-officer-fixed-term-contract-16-months-pictet-luxembourg",
+        "agent-de-relations-avec-la-clientele-contrat-a-duree-determinee-16-mois-pictet-group-luxembourg",
+        "client-relationship-officer-contratto-a-termine-16-mesi-pictet-group-luxembourg",
         "client-relationship-officer-fixed-term-contract-16-months-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "client-relationship-officer-fixed-term-contract-16-months-pictet-luxembourg"
+          "client-relationship-officer-fixed-term-contract-16-months-pictet-luxembourg",
+          "client-relationship-officer-contratto-a-termine-16-mesi-pictet-group-luxembourg"
         ],
         "de": [
           "client-relationship-officer-fixed-term-contract-16-months-pictet-luxembourg"
         ],
         "fr": [
           "client-relationship-officer-fixed-term-contract-16-months-pictet-luxembourg",
+          "agent-de-relations-avec-la-clientele-contrat-a-duree-determinee-16-mois-pictet-group-luxembourg",
           "client-relationship-officer-fixed-term-contract-16-months-pictet-group-luxembourg"
         ]
       },
       "firstSeenAt": "2026-07-16T11:10:19.536Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -307,7 +318,7 @@
         "it": "controllore-fondi-contratto-a-termine-12-mesi-pictet-group-luxembourg",
         "en": "funds-controller-fixed-term-contract-12-months-pictet-luxembourg",
         "de": "funds-controller-festvertrag-12-monate-pictet-group-luxembourg",
-        "fr": "controleur-des-fonds-contrat-a-duree-determinee-12-mois-pictet-group-luxembourg"
+        "fr": "funds-controller-fixed-term-contract-12-months-pictet-group-luxembourg"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -317,7 +328,7 @@
         "it": "Controllore fondi (Contratto a termine - 12 mesi)",
         "en": "Funds Controller (Fixed-term contract - 12 months)",
         "de": "Funds Controller (Festvertrag - 12 Monate)",
-        "fr": "Contrôleur des fonds (contrat à durée déterminée - 12 mois)"
+        "fr": "Funds Controller (Fixed-term contract - 12 months)"
       },
       "description": "Your team\n\nThe Pictet Group is one of the world’s leading independent wealth and asset managers. Founded in 1805 and headquartered in Geneva, Switzerland, the Group is represented at 30 offices in financial centres worldwide, and currently employs over 5200 people. Pictet has been present since 1989 in Luxembourg, where it employs over 700 people.\n\nFundPartner Solutions provides a full suite of fund administration and private label funds services. The global team of industry experts specialises in fund domiciliation, registration and governance, as well as risk compliance and investment management services.\n\nOperations provide secure and efficient processing of Pictet’s banking transactions and investment funds. Our teams ensure all activities follow regulations and manage risks.\n\nBy developing and maintaining a modern, robust infrastructure, we guarantee reliable, high-quality services for Pictet wealth management, asset management and real estate clients.\n\nAssigned to the Funds Accounting Department , the Funds Controller is responsible for processing the NAV calculation, analysing and commenting NAV exceptions and preparing share class hedging instructions.\n\nYour role\n\n• Process the NAV calculation of in-house and third-party funds in accordance with the\n production planning and in compliance with established processes and procedures\n\n• Check the plausibility of the NAV variation (performance versus benchmark, control\n prices, corporate actions impact).\n\n• Investigate and address NAV exceptions.\n\n• Reconcile cash, portfolio trades, register trades with depositary bank.\n\n• Respect deadlines of NAV publications.\n\n• Liaise efficiently with second level controllers, management, and clients in accordance\n with escalation and communication protocols.\n\n• Ensure adequate share class hedging (prepare instructions, control spot and forward\n effect).\n\n• Address client requests (inside and outside the Group) to guarantee a quality service.\n\n• Contribute to all tasks relating to the lifecycle of funds.\n\nYour profile\n\nQualifications and experience\n\n• University degree (at least BAC +3) in Economics, Accounting or Finance.\n\n• 1-2 years' experience in a funds accounting.\n\nTechnical skills\n\n• Understanding of Fund Administration and the relationships with the different stakeholders.\n\n• Knowledge of investment funds and main financial products (bonds, equities, derivatives).\n\n• Knowledge of financial products and their valuation\n\n• Knowledge of Multifonds accounting software an asset.\n\n• Good command of the Microsoft office application.\n\nSoft skills\n\n• Rigor, ability to cope with stress.\n\n• Ability to navigate in a consistently changing environment.\n\n• Good analytical and communication skills.\n\n• Sense of initiative, motivation and dynamism.\n\nLanguage skills\n\n• Fluent in French and good command of English.\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
       "descriptionByLocale": {
@@ -331,7 +342,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124715&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:20:41.928Z",
+      "crawledAt": "2026-07-22T22:08:43.388Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -350,21 +361,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "funds-controller-fixed-term-contract-12-months-pictet-luxembourg",
+        "controleur-des-fonds-contrat-a-duree-determinee-12-mois-pictet-group-luxembourg",
+        "controllore-fondi-contratto-a-termine-12-mesi-pictet-group-luxembourg",
         "funds-controller-fixed-term-contract-12-months-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "funds-controller-fixed-term-contract-12-months-pictet-luxembourg"
+          "funds-controller-fixed-term-contract-12-months-pictet-luxembourg",
+          "controllore-fondi-contratto-a-termine-12-mesi-pictet-group-luxembourg"
         ],
         "de": [
           "funds-controller-fixed-term-contract-12-months-pictet-luxembourg"
         ],
         "fr": [
           "funds-controller-fixed-term-contract-12-months-pictet-luxembourg",
+          "controleur-des-fonds-contrat-a-duree-determinee-12-mois-pictet-group-luxembourg",
           "funds-controller-fixed-term-contract-12-months-pictet-group-luxembourg"
         ]
       },
       "firstSeenAt": "2026-07-16T11:10:18.421Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -409,7 +425,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124754&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:20:41.327Z",
+      "crawledAt": "2026-07-22T22:08:42.828Z",
       "addressLocality": "Hong Kong",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -438,7 +454,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pictet-ebed259e08f7",
@@ -471,7 +488,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124743&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:20:40.655Z",
+      "crawledAt": "2026-07-22T22:08:42.349Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -489,11 +506,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "group-tax-expert-pictet-luxembourg"
+        "group-tax-expert-pictet-luxembourg",
+        "esperto-fiscale-di-gruppo-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "group-tax-expert-pictet-luxembourg"
+          "group-tax-expert-pictet-luxembourg",
+          "esperto-fiscale-di-gruppo-pictet-group-luxembourg"
         ],
         "de": [
           "group-tax-expert-pictet-luxembourg"
@@ -547,7 +566,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124756&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:20:39.894Z",
+      "crawledAt": "2026-07-22T22:08:41.696Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -565,11 +584,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internal-communication-specialist-pictet-geneva"
+        "internal-communication-specialist-pictet-geneva",
+        "internal-communication-specialista-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internal-communication-specialist-pictet-geneva"
+          "internal-communication-specialist-pictet-geneva",
+          "internal-communication-specialista-pictet-group-geneva"
         ],
         "de": [
           "internal-communication-specialist-pictet-geneva"
@@ -623,7 +644,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124137&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:20:39.221Z",
+      "crawledAt": "2026-07-22T22:08:41.040Z",
       "addressLocality": "Tokyo",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -641,11 +662,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-manager-pictet-tokyo"
+        "product-manager-pictet-tokyo",
+        "responsabile-del-prodotto-pictet-group-tokyo"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-manager-pictet-tokyo"
+          "product-manager-pictet-tokyo",
+          "responsabile-del-prodotto-pictet-group-tokyo"
         ],
         "de": [
           "product-manager-pictet-tokyo"
@@ -655,6 +678,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:19:25.054Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -672,8 +696,8 @@
       "id": "pictet-db445e2a0d29",
       "slug": "equity-analista-pictet-group-geneva",
       "slugByLocale": {
-        "en": "equity-analyst-pictet-geneva",
         "it": "equity-analista-pictet-group-geneva",
+        "en": "equity-analyst-pictet-geneva",
         "de": "aktienanalyst-pictet-group-geneva",
         "fr": "equity-analyste-pictet-group-geneva"
       },
@@ -682,15 +706,15 @@
       "companyDomain": "pictet.com",
       "title": "Equity Analyst",
       "titleByLocale": {
-        "en": "Equity Analyst",
         "it": "Equity Analista",
+        "en": "Equity Analyst",
         "de": "Aktienanalyst",
         "fr": "Equity Analyste"
       },
       "description": "Your team\n\nPictet Wealth Management combines more than 200 years of Swiss banking heritage with global investment expertise. The partner-owned financial services group provides a comprehensive offering for wealthy individuals and families, including discretionary and advisory investment solutions and family office services.\n\nWe are seeking a diligent and insightful Buy-Side Analyst to join our Research team. You will conduct in-depth fundamental research on companies across developed markets, with a specific focus on Technology, develop comprehensive financial models, and deliver high-conviction investment recommendations to internal stakeholders, especially portfolio managers and advisors. You will report to a senior analyst responsible for Technology research and investments.\n\nYour role\n\n• Assisting the senior Technology equity research analyst covering the Technology sector.\n• Taking over some of the existing coverage of the Technology sector.\n• Expanding existing coverage of the Technology sector.\n\n• Building and maintaining complex, dynamic financial models to forecast future earnings and returns.\n• Conducting management interviews, attending conferences, and interacting with sell side analysts.\n• Designing and deploying AI-driven tools and workflows to accelerate and improve idea generation and fundamental research.\n\n• Sourcing and researching investment ideas to be invested in the Technology portfolio.\n• Publishing investment content on internal and external platforms.\n• Making stock recommendations to internal and external stakeholders.\n• Participating in marketing and servicing activities for internal and external stakeholders.\n\n.\n\nYour profile\n\n• University degree: ideally Master’s degree or a postgraduate qualification such as a CFA.\n• A minimum of 5 years of equity research experience on the buy side or sell side, in the Technology sector. Prior exposure to an Anglo-Saxon firm is a strong plus.\n• Native or equivalent written and spoken English, fluent or better written and spoken French.\n\n• Strong fundamental equity research capabilities with excellent quantitative (but not quant) skills, and a first-principles-based approach to analysis and communication.\n• Outstanding written communication skills (investment memos, research notes) and excellent presentation skills to convey complex ideas clearly and convincingly.\n\n• Complete proficiency in Bloomberg (terminal and Excel API), Microsoft Excel and PowerPoint; solid working knowledge of VBA.\n• Confident and effective user of AI tools (e.g. ChatGPT, Claude and similar applications) to enhance research productivity, insight generation and workflow efficiency.\n\n• Independent-minded, intuitive, self-starter personality with a strong sense of ownership and accountability.\n• Ability to work under pressure and to meet demanding deadlines.\n• Must be resident in Switzerland, or willing to relocate.\n\nApplications for candidates without the minimum required experience in the Technology will not be considered and will be rejected automatically. Bloomberg, Excel, VBA, and other specific skills will be tested and evaluated specifically, in writing.\n\nWe do not speculate, we invest, if you are unsure about the difference, please don’t apply.\n\nref: JTA/AJ/CS\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
       "descriptionByLocale": {
-        "en": "Your team\n\nPictet Wealth Management combines more than 200 years of Swiss banking heritage with global investment expertise. The partner-owned financial services group provides a comprehensive offering for wealthy individuals and families, including discretionary and advisory investment solutions and family office services.\n\nWe are seeking a diligent and insightful Buy-Side Analyst to join our Research team. You will conduct in-depth fundamental research on companies across developed markets, with a specific focus on Technology, develop comprehensive financial models, and deliver high-conviction investment recommendations to internal stakeholders, especially portfolio managers and advisors. You will report to a senior analyst responsible for Technology research and investments.\n\nYour role\n\n• Assisting the senior Technology equity research analyst covering the Technology sector.\n• Taking over some of the existing coverage of the Technology sector.\n• Expanding existing coverage of the Technology sector.\n\n• Building and maintaining complex, dynamic financial models to forecast future earnings and returns.\n• Conducting management interviews, attending conferences, and interacting with sell side analysts.\n• Designing and deploying AI-driven tools and workflows to accelerate and improve idea generation and fundamental research.\n\n• Sourcing and researching investment ideas to be invested in the Technology portfolio.\n• Publishing investment content on internal and external platforms.\n• Making stock recommendations to internal and external stakeholders.\n• Participating in marketing and servicing activities for internal and external stakeholders.\n\n.\n\nYour profile\n\n• University degree: ideally Master’s degree or a postgraduate qualification such as a CFA.\n• A minimum of 5 years of equity research experience on the buy side or sell side, in the Technology sector. Prior exposure to an Anglo-Saxon firm is a strong plus.\n• Native or equivalent written and spoken English, fluent or better written and spoken French.\n\n• Strong fundamental equity research capabilities with excellent quantitative (but not quant) skills, and a first-principles-based approach to analysis and communication.\n• Outstanding written communication skills (investment memos, research notes) and excellent presentation skills to convey complex ideas clearly and convincingly.\n\n• Complete proficiency in Bloomberg (terminal and Excel API), Microsoft Excel and PowerPoint; solid working knowledge of VBA.\n• Confident and effective user of AI tools (e.g. ChatGPT, Claude and similar applications) to enhance research productivity, insight generation and workflow efficiency.\n\n• Independent-minded, intuitive, self-starter personality with a strong sense of ownership and accountability.\n• Ability to work under pressure and to meet demanding deadlines.\n• Must be resident in Switzerland, or willing to relocate.\n\nApplications for candidates without the minimum required experience in the Technology will not be considered and will be rejected automatically. Bloomberg, Excel, VBA, and other specific skills will be tested and evaluated specifically, in writing.\n\nWe do not speculate, we invest, if you are unsure about the difference, please don’t apply.\n\nref: JTA/AJ/CS\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
         "it": "La tua squadra\n\nPictet Wealth Management combina oltre 200 anni di patrimonio bancario svizzero con competenze di investimento globali. Il gruppo di servizi finanziari di proprietà dei partner offre un'offerta completa per persone e famiglie ricche, tra cui soluzioni di investimento discrezionali e consultive e servizi di ufficio familiare.\n\nStiamo cercando un diligente e intuitivo Buy-Side Analyst per aderire al nostro team di ricerca. Condurrai ricerche fondamentali approfondite sulle aziende di tutti i mercati sviluppati, con un focus specifico sulla tecnologia, svilupperai modelli finanziari completi, e fornirai raccomandazioni di investimento ad alta concorrenza agli stakeholder interni, in particolare ai responsabili del portafoglio e ai consulenti. Ti riferirai a un analista senior responsabile della ricerca e degli investimenti in tecnologia.\n\nIl tuo ruolo\n\n• Assistere l'analista di ricerca dell'equità tecnologica senior che copre il settore tecnologico.\n• Prendendo in esame una parte della copertura esistente del settore tecnologico.\n• Ampliamento della copertura esistente del settore tecnologico.\n\n• Costruire e mantenere modelli finanziari complessi e dinamici per prevedere guadagni e rendimenti futuri.\n• Condurre colloqui di gestione, partecipare a conferenze, e interagire con gli analisti laterali di vendita.\n• Progettazione e distribuzione di strumenti e flussi di lavoro basati su AI per accelerare e migliorare la generazione di idee e la ricerca fondamentale.\n\n• Sourcing e ricerca di idee di investimento da investire nel portafoglio tecnologico.\n• Pubblicazione di contenuti di investimento su piattaforme interne ed esterne.\n• Promuovere raccomandazioni stock a stakeholder interni ed esterni.\n• Partecipazione alle attività di marketing e assistenza per gli stakeholder interni ed esterni.\n\n.\n\nIl tuo profilo\n\n• Laurea universitaria: idealmente laurea o una qualifica post-laurea come un CFA.\n• Un minimo di 5 anni di esperienza di ricerca azionaria sul lato di acquisto o di vendita, nel settore tecnologico. L'esposizione precedente ad una ditta anglosassone è un vantaggio forte.\n• Originaria o equivalente scritto e parlato inglese, fluente o meglio scritto e parlato francese.\n\n• Forte capacità fondamentali di ricerca azionaria con eccellenti capacità quantitative (ma non quanti) e un approccio basato su principi di analisi e comunicazione.\n• Competenze di comunicazione scritta (memoria di investimento, note di ricerca) e eccellenti capacità di presentazione per trasmettere idee complesse in modo chiaro e convincente.\n\n• Completa competenza in Bloomberg (terminal e Excel API), Microsoft Excel e PowerPoint; solida conoscenza di lavoro di VBA.\n• Utilizzo sicuro ed efficace degli strumenti AI (ad esempio ChatGPT, Claude e applicazioni simili) per migliorare la produttività della ricerca, la generazione di informazioni e l'efficienza del flusso di lavoro.\n\n• Personalità indipendente, intuitiva, autoprotagonista con un forte senso di proprietà e responsabilità.\n• Capacità di lavorare sotto pressione e di rispettare le scadenze.\n• Deve essere residente in Svizzera, o disposto a trasferirsi.\n\nLe domande di candidati senza l'esperienza minima richiesta nella tecnologia non saranno considerate e saranno respinte automaticamente. Bloomberg, Excel, VBA e altre abilità specifiche saranno testate e valutate specificamente, per iscritto.\n\nNon speculare, investiamo, se non sei sicuro della differenza, non applicare.\n\nref: JTA/AJ/CS\n\nNota\n\nNon accetteremo alcun CV tramite agenzie\n\nDiversità e inclusione\n\nPictet è un datore di lavoro pari opportunità e si impegna a creare un ambiente diverso. Rispettiamo tutti gli individui e cerchiamo la loro inclusione nel posto di lavoro.\n\nApplicare\n\nSalva lavoro\n\nEmail a un contatto\n\nTorna alla lista\n\n\n\n\n\nIl lavoro è stato inviato\n\nSi prega di fornire le informazioni qui sotto",
+        "en": "Your team\n\nPictet Wealth Management combines more than 200 years of Swiss banking heritage with global investment expertise. The partner-owned financial services group provides a comprehensive offering for wealthy individuals and families, including discretionary and advisory investment solutions and family office services.\n\nWe are seeking a diligent and insightful Buy-Side Analyst to join our Research team. You will conduct in-depth fundamental research on companies across developed markets, with a specific focus on Technology, develop comprehensive financial models, and deliver high-conviction investment recommendations to internal stakeholders, especially portfolio managers and advisors. You will report to a senior analyst responsible for Technology research and investments.\n\nYour role\n\n• Assisting the senior Technology equity research analyst covering the Technology sector.\n• Taking over some of the existing coverage of the Technology sector.\n• Expanding existing coverage of the Technology sector.\n\n• Building and maintaining complex, dynamic financial models to forecast future earnings and returns.\n• Conducting management interviews, attending conferences, and interacting with sell side analysts.\n• Designing and deploying AI-driven tools and workflows to accelerate and improve idea generation and fundamental research.\n\n• Sourcing and researching investment ideas to be invested in the Technology portfolio.\n• Publishing investment content on internal and external platforms.\n• Making stock recommendations to internal and external stakeholders.\n• Participating in marketing and servicing activities for internal and external stakeholders.\n\n.\n\nYour profile\n\n• University degree: ideally Master’s degree or a postgraduate qualification such as a CFA.\n• A minimum of 5 years of equity research experience on the buy side or sell side, in the Technology sector. Prior exposure to an Anglo-Saxon firm is a strong plus.\n• Native or equivalent written and spoken English, fluent or better written and spoken French.\n\n• Strong fundamental equity research capabilities with excellent quantitative (but not quant) skills, and a first-principles-based approach to analysis and communication.\n• Outstanding written communication skills (investment memos, research notes) and excellent presentation skills to convey complex ideas clearly and convincingly.\n\n• Complete proficiency in Bloomberg (terminal and Excel API), Microsoft Excel and PowerPoint; solid working knowledge of VBA.\n• Confident and effective user of AI tools (e.g. ChatGPT, Claude and similar applications) to enhance research productivity, insight generation and workflow efficiency.\n\n• Independent-minded, intuitive, self-starter personality with a strong sense of ownership and accountability.\n• Ability to work under pressure and to meet demanding deadlines.\n• Must be resident in Switzerland, or willing to relocate.\n\nApplications for candidates without the minimum required experience in the Technology will not be considered and will be rejected automatically. Bloomberg, Excel, VBA, and other specific skills will be tested and evaluated specifically, in writing.\n\nWe do not speculate, we invest, if you are unsure about the difference, please don’t apply.\n\nref: JTA/AJ/CS\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
         "de": "Dein Team\n\nPictet Wealth Management verbindet mehr als 200 Jahre Schweizer Bankerbe mit globaler Investmentexpertise. Die partnerschaftlich geführte Finanzdienstleistungsgruppe bietet ein umfassendes Angebot für wohlhabende Einzelpersonen und Familien, einschließlich diskretionärer und beratender Anlagelösungen und Family Office-Services.\n\nWir suchen einen sorgfältigen und aufschlussreichen Buy-Side-Analysten, der unserem Research-Team beitritt. Sie führen eine gründliche Grundlagenforschung zu Unternehmen in entwickelten Märkten durch, mit einem besonderen Schwerpunkt auf Technologie, entwickeln umfassende Finanzmodelle und liefern Anlageempfehlungen mit hoher Überzeugung für interne Stakeholder, insbesondere Portfoliomanager und Berater. Sie berichten an einen Senior Analysten, der für Technologieforschung und Investitionen verantwortlich ist.\n\nDeine Rolle\n\n• Unterstützung des Senior Technology Equity Research Analysten für den Technologiesektor.\n• Übernahme eines Teils der bestehenden Abdeckung des Technologiesektors.\n• Erweiterung der bestehenden Abdeckung des Technologiesektors.\n\n• Aufbau und Pflege komplexer, dynamischer Finanzmodelle zur Vorhersage zukünftiger Erträge und Renditen.\n• Durchführung von Management-Interviews, Teilnahme an Konferenzen und Interaktion mit Sell Side Analysten.\n• Design und Einsatz von KI-gestützten Tools und Workflows zur Beschleunigung und Verbesserung der Ideengenerierung und Grundlagenforschung.\n\n• Beschaffung und Erforschung von Anlageideen, die in das Technologieportfolio investiert werden sollen.\n• Veröffentlichung von Anlageinhalten auf internen und externen Plattformen.\n• Erstellung von Bestandsempfehlungen für interne und externe Stakeholder.\n• Teilnahme an Marketing- und Serviceaktivitäten für interne und externe Stakeholder.\n\n.\n\nDein Profil\n\n• Universitätsabschluss: Idealerweise Master-Abschluss oder eine postgraduale Qualifikation wie ein CFA.\n• Mindestens 5 Jahre Erfahrung im Aktienresearch auf der Kauf- oder Verkaufsseite im Technologiesektor. Eine vorherige Exposition gegenüber einem angelsächsischen Unternehmen ist ein starkes Plus.\n• Muttersprachliches oder gleichwertiges geschriebenes und gesprochenes Englisch, fließend oder besser geschriebenes und gesprochenes Französisch.\n\n• Starke grundlegende Equity-Research-Fähigkeiten mit hervorragenden quantitativen (aber nicht quantitativen) Fähigkeiten und einem auf ersten Prinzipien basierenden Analyse- und Kommunikationsansatz.\n• Hervorragende schriftliche Kommunikationsfähigkeiten (Investmentmemos, Research Notes) und hervorragende Präsentationsfähigkeiten, um komplexe Ideen klar und überzeugend zu vermitteln.\n\n• Vollständige Kenntnisse in Bloomberg (Terminal und Excel API), Microsoft Excel und PowerPoint; solide Kenntnisse in VBA.\n• Vertrauensvoller und effektiver Benutzer von KI-Tools (z. B. ChatGPT, Claude und ähnliche Anwendungen), um die Forschungsproduktivität, die Generierung von Erkenntnissen und die Workflow-Effizienz zu verbessern.\n\n• Unabhängige, intuitive, Selbststarter-Persönlichkeit mit einem starken Gefühl von Besitz und Verantwortlichkeit.\n• Fähigkeit, unter Druck zu arbeiten und anspruchsvolle Termine einzuhalten.\n• Muss in der Schweiz ansässig sein oder bereit sein, umzuziehen.\n\nBewerbungen für Kandidaten ohne die erforderliche Mindesterfahrung in der Technologie werden nicht berücksichtigt und automatisch abgelehnt. Bloomberg, Excel, VBA und andere spezifische Fähigkeiten werden speziell schriftlich getestet und bewertet.\n\nWir spekulieren nicht, wir investieren, wenn Sie sich über den Unterschied nicht sicher sind, bewerben Sie sich bitte nicht.\n\nref: JTA/AJ/CS\n\nAnmerkung:\n\nWir akzeptieren keine CVs über Agenturen\n\nVielfalt & Inklusion\n\nPictet ist ein Arbeitgeber für Chancengleichheit und engagiert sich für die Schaffung eines vielfältigen Umfelds. Wir respektieren alle Menschen und suchen ihre Einbeziehung in den Arbeitsplatz.\n\nBeantragen\n\nSave Job\n\nE-Mail an einen Kontakt\n\nZurück zur Liste\n\n\n\n\n\nDer Job wurde geschickt an\n\nBitte geben Sie die nachstehenden Informationen an:",
         "fr": "Votre équipe\n\nPictet Wealth Management combine plus de 200 ans d'héritage bancaire suisse avec une expertise en investissement mondial. Le groupe de services financiers appartenant à des partenaires offre une offre complète aux personnes et aux familles riches, y compris des solutions d'investissement discrétionnaires et consultatives et des services de bureau familial.\n\nNous cherchons à rejoindre notre équipe de recherche avec diligence et perspicacité. Vous effectuerez des recherches fondamentales approfondies sur les entreprises sur les marchés développés, en mettant l'accent sur la technologie, développerez des modèles financiers complets et fournirez des recommandations d'investissement à haute conviction aux intervenants internes, en particulier aux gestionnaires de portefeuille et aux conseillers. Vous ferez rapport à un analyste principal responsable de la recherche et des investissements technologiques.\n\nVotre rôle\n\n• Aider l'analyste principal en recherche sur les fonds propres technologiques dans le secteur de la technologie.\n• Prise en charge d'une partie de la couverture existante du secteur de la technologie.\n• Élargir la couverture actuelle du secteur de la technologie.\n\n• Construire et maintenir des modèles financiers complexes et dynamiques pour prévoir les gains et les rendements futurs.\n• Mener des entrevues de gestion, assister à des conférences et interagir avec des analystes de la vente.\n• Concevoir et déployer des outils et des flux de travail axés sur l'IA pour accélérer et améliorer la production d'idées et la recherche fondamentale.\n\n• Sourcing et recherche d'idées d'investissement à investir dans le portefeuille Technologie.\n• Publication de contenus d'investissement sur des plateformes internes et externes.\n• Faire des recommandations d'inventaire aux intervenants internes et externes.\n• Participation à des activités de marketing et de service pour les intervenants internes et externes.\n\n.\n\nVotre profil\n\n• Diplôme universitaire: idéalement Master ou diplôme de troisième cycle comme une CFA.\n• Un minimum de 5 ans d'expérience de recherche en actions du côté des achats ou de la vente, dans le secteur de la technologie. Une exposition antérieure à une entreprise anglo-saxonne est un plus fort.\n• Natif ou équivalent écrit et parlé anglais, couramment ou mieux écrit et parlé français.\n\n• De solides capacités de recherche en équité fondamentale avec d'excellentes compétences quantitatives (mais pas quantiques) et une approche fondée sur les premiers principes en matière d'analyse et de communication.\n• Compétences exceptionnelles en communication écrite (notes d'investissement, notes de recherche) et excellentes compétences en présentation pour transmettre des idées complexes de façon claire et convaincante.\n\n• Compétence complète en Bloomberg (API terminal et Excel), Microsoft Excel et PowerPoint; solide connaissance de travail de VBA.\n• Utilisation fiable et efficace d'outils d'IA (p. ex. ChatGPT, Claude et applications similaires) pour améliorer la productivité de la recherche, la production de perspicacité et l'efficacité du workflow.\n\n• Personnalité indépendante, intuitive et autodidacte, avec un fort sentiment d'appropriation et de responsabilité.\n• Capacité de travailler sous pression et de respecter des délais exigeants.\n• Il doit résider en Suisse ou vouloir déménager.\n\nLes candidatures pour les candidats sans l'expérience minimale requise dans la technologie ne seront pas prises en considération et seront rejetées automatiquement. Bloomberg, Excel, VBA, et d'autres compétences spécifiques seront testés et évalués spécifiquement, par écrit.\n\nNous ne spéculons pas, nous investissons, si vous n'êtes pas sûr de la différence, s'il vous plaît ne postulez pas.\n\nRéf: JTA/AJ/CS\n\nRemarque\n\nNous n'accepterons aucun CV par l'intermédiaire des agences\n\nDiversité et inclusion\n\nPictet est un employeur à chances égales et s'engage à créer un environnement diversifié. Nous respectons toutes les personnes et cherchons à les inclure dans le milieu de travail.\n\nAppliquer\n\nEnregistrer l'emploi\n\nCourriel à un contact\n\nRetour à la liste\n\n\n\n\n\nLe travail a été envoyé à\n\nVeuillez fournir les informations ci-dessous."
       },
@@ -699,7 +723,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124760&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:20:37.880Z",
+      "crawledAt": "2026-07-22T22:08:40.034Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -715,9 +739,24 @@
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124760&selected_lang=en_GB",
       "jobReqId": "124760",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "equity-analyst-pictet-geneva",
+        "equity-analista-pictet-group-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "equity-analyst-pictet-geneva",
+          "equity-analista-pictet-group-geneva"
+        ],
+        "de": [
+          "equity-analyst-pictet-geneva"
+        ],
+        "fr": [
+          "equity-analyst-pictet-geneva"
+        ]
       },
+      "firstSeenAt": "2026-07-22T11:20:37.880Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -729,22 +768,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-22T11:20:37.880Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "equity-analyst-pictet-geneva"
-        ],
-        "de": [
-          "equity-analyst-pictet-geneva"
-        ],
-        "fr": [
-          "equity-analyst-pictet-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "equity-analyst-pictet-geneva"
-      ]
+      }
     },
     {
       "id": "pictet-046cf6134422",
@@ -839,7 +863,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
