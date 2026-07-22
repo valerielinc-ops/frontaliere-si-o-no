@@ -119,23 +119,36 @@ function removeFromBlogArticles(articleId) {
 }
 
 // ── Remove i18n keys from a meta file + delete per-article body file ────
+// Checked against BOTH the frontaliere section (blog-meta-{locale}.ts /
+// blog-body/{locale}/) AND the svizzera section (blog-meta-ch-{locale}.ts /
+// blog-body-ch/{locale}/) — an article id only ever lives in one, but
+// checking only the former left svizzera-section removals silently
+// orphaning the body file + meta keys (existsSync just skips, no error).
 function removeI18nKeys(articleId, locale) {
-  // 1. Remove meta keys from blog-meta-{locale}.ts
-  const metaFile = `services/locales/blog-meta-${locale}.ts`;
-  if (existsSync(resolve(metaFile))) {
-    let src = read(metaFile);
-    const escaped = escapeRegex(articleId);
-    const keyRegex = new RegExp(`\\s*'blog\\.article\\.${escaped}\\.[^']*':\\s*'[^']*',?\\n?`, 'g');
-    src = src.replace(keyRegex, '');
-    write(metaFile, src);
-    console.error(`  ✅ ${metaFile} aggiornato`);
+  // 1. Remove meta keys from blog-meta-{locale}.ts / blog-meta-ch-{locale}.ts
+  for (const metaFile of [
+    `services/locales/blog-meta-${locale}.ts`,
+    `services/locales/blog-meta-ch-${locale}.ts`,
+  ]) {
+    if (existsSync(resolve(metaFile))) {
+      let src = read(metaFile);
+      const escaped = escapeRegex(articleId);
+      const keyRegex = new RegExp(`\\s*'blog\\.article\\.${escaped}\\.[^']*':\\s*'[^']*',?\\n?`, 'g');
+      src = src.replace(keyRegex, '');
+      write(metaFile, src);
+      console.error(`  ✅ ${metaFile} aggiornato`);
+    }
   }
 
-  // 2. Delete per-article body file
-  const bodyFile = `services/locales/blog-body/${locale}/${articleId}.ts`;
-  if (existsSync(resolve(bodyFile))) {
-    unlinkSync(resolve(bodyFile));
-    console.error(`  🗑️  ${bodyFile} eliminato`);
+  // 2. Delete per-article body file from blog-body/ / blog-body-ch/
+  for (const bodyFile of [
+    `services/locales/blog-body/${locale}/${articleId}.ts`,
+    `services/locales/blog-body-ch/${locale}/${articleId}.ts`,
+  ]) {
+    if (existsSync(resolve(bodyFile))) {
+      unlinkSync(resolve(bodyFile));
+      console.error(`  🗑️  ${bodyFile} eliminato`);
+    }
   }
 }
 
@@ -241,6 +254,10 @@ function gitAddAll() {
     'services/locales/blog-meta-en.ts',
     'services/locales/blog-meta-de.ts',
     'services/locales/blog-meta-fr.ts',
+    'services/locales/blog-meta-ch-it.ts',
+    'services/locales/blog-meta-ch-en.ts',
+    'services/locales/blog-meta-ch-de.ts',
+    'services/locales/blog-meta-ch-fr.ts',
     'services/seoService.ts',
     'public/sitemap-blog.xml',
   ];

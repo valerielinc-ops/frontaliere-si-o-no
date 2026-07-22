@@ -43,10 +43,12 @@ const PLACEHOLDER_PATTERNS = [
 
 const FILES_TO_SCAN = [];
 
-// Add all blog-meta-{lang}.ts files
+// Add all blog-meta-{lang}.ts files (frontaliere section) AND
+// blog-meta-ch-{lang}.ts files (svizzera section) — without the second
+// pattern, the entire svizzera-section corpus was invisible this validator.
 const localesDir = 'services/locales';
 for (const file of readdirSync(localesDir)) {
-  if (/^blog-meta-[a-z]{2}\.ts$/.test(file)) {
+  if (/^blog-meta-(?:ch-)?[a-z]{2}\.ts$/.test(file)) {
     FILES_TO_SCAN.push(join(localesDir, file));
   }
 }
@@ -59,26 +61,29 @@ for (let n = 2; n <= 20; n++) {
   try { statSync(p); FILES_TO_SCAN.push(p); } catch { break; }
 }
 
-// Add all blog body files
-const blogBodyRoot = 'services/locales/blog-body';
-try {
-  const langEntries = readdirSync(blogBodyRoot).filter((name) => {
-    try {
-      return statSync(join(blogBodyRoot, name)).isDirectory();
-    } catch {
-      return false;
-    }
-  });
-  for (const lang of langEntries) {
-    const langDir = join(blogBodyRoot, lang);
-    for (const file of readdirSync(langDir)) {
-      if (file.endsWith('.ts')) {
-        FILES_TO_SCAN.push(join(langDir, file));
+// Add all blog body files — both blog-body (frontaliere section) and
+// blog-body-ch (svizzera section); scanning only the former left the
+// entire svizzera-section corpus unchecked for placeholder leaks.
+for (const blogBodyRoot of ['services/locales/blog-body', 'services/locales/blog-body-ch']) {
+  try {
+    const langEntries = readdirSync(blogBodyRoot).filter((name) => {
+      try {
+        return statSync(join(blogBodyRoot, name)).isDirectory();
+      } catch {
+        return false;
+      }
+    });
+    for (const lang of langEntries) {
+      const langDir = join(blogBodyRoot, lang);
+      for (const file of readdirSync(langDir)) {
+        if (file.endsWith('.ts')) {
+          FILES_TO_SCAN.push(join(langDir, file));
+        }
       }
     }
+  } catch (err) {
+    // blog-body directory may not exist in some checkouts; that's fine
   }
-} catch (err) {
-  // blog-body directory may not exist in some checkouts; that's fine
 }
 
 const violations = [];
@@ -95,8 +100,14 @@ for (const filePath of FILES_TO_SCAN) {
   const lines = content.split('\n');
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
+    // Case-insensitive: the IT template is the only hardcoded source (see
+    // create-article.mjs), EN/DE/FR variants are produced ad-hoc by the LLM
+    // translating the unfilled IT skeleton — case varies by run (found live:
+    // DE "(max 160 Chars)" vs the literal-cased "max 160 chars" pattern
+    // below, which silently missed it).
+    const lineLower = line.toLowerCase();
     for (const pattern of PLACEHOLDER_PATTERNS) {
-      if (line.includes(pattern)) {
+      if (lineLower.includes(pattern.toLowerCase())) {
         violations.push({
           file: filePath,
           line: i + 1,
@@ -153,17 +164,21 @@ const FOREIGN_ORIGIN_ARTICLES = new Set([
   'pfaffikon-kanton-schwyz-franzosi-einbrecher',
 ]);
 
-const itMeta = parseTitles(join(localesDir, 'blog-meta-it.ts'));
 const untranslated = [];
 
-for (const locale of ['en', 'de', 'fr']) {
-  const locMeta = parseTitles(join(localesDir, `blog-meta-${locale}.ts`));
-  for (const [articleId, fields] of Object.entries(locMeta)) {
-    if (!itMeta[articleId]) continue;
-    if (FOREIGN_ORIGIN_ARTICLES.has(articleId)) continue;
-    for (const field of ['title', 'excerpt']) {
-      if (fields[field] && itMeta[articleId][field] && fields[field] === itMeta[articleId][field]) {
-        untranslated.push({ locale, articleId, field, value: fields[field].slice(0, 80) });
+// Checked per section — frontaliere (blog-meta-{loc}.ts) and svizzera
+// (blog-meta-ch-{loc}.ts) — svizzera was previously unchecked entirely.
+for (const metaPrefix of ['blog-meta', 'blog-meta-ch']) {
+  const itMeta = parseTitles(join(localesDir, `${metaPrefix}-it.ts`));
+  for (const locale of ['en', 'de', 'fr']) {
+    const locMeta = parseTitles(join(localesDir, `${metaPrefix}-${locale}.ts`));
+    for (const [articleId, fields] of Object.entries(locMeta)) {
+      if (!itMeta[articleId]) continue;
+      if (FOREIGN_ORIGIN_ARTICLES.has(articleId)) continue;
+      for (const field of ['title', 'excerpt']) {
+        if (fields[field] && itMeta[articleId][field] && fields[field] === itMeta[articleId][field]) {
+          untranslated.push({ locale: `${metaPrefix}-${locale}`, articleId, field, value: fields[field].slice(0, 80) });
+        }
       }
     }
   }
