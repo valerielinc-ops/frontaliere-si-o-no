@@ -3883,16 +3883,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-frontaliere-scelta-comune-residenza-italia-svizzera-2026-single': {
     title: 'Frontaliere scelta comune residenza Italia Svizzera 2026 single',
-    description: 'Meta description 150-160 chars (HARD CAP: ≤ 160 caratteri). Dati aggiornati 2026 per frontalieri in Ticino.',
+    description: 'Guida 2026 per frontalieri single: come scegliere il comune di residenza in Svizzera tra residenza fiscale, registrazione cantonale e costi da valutare.',
     keywords: 'frontalieri, ticino, svizzera, italia, scelta, comune, residenza, single',
     ogTitle: 'Frontaliere scelta comune residenza Italia Svizzera 2026 single',
-    ogDescription: 'OG desc (≤ 160 caratteri)',
+    ogDescription: 'Guida 2026 per frontalieri single: come scegliere il comune di residenza in Svizzera tra residenza fiscale, registrazione cantonale e costi da valutare.',
     canonicalPath: '/articoli-svizzera/frontaliere-scelta-comune-residenza-italia-svizzera-2026-single/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Frontaliere scelta comune residenza Italia Svizzera 2026 single",
-      "description": "Meta description 150-160 chars (HARD CAP: ≤ 160 caratteri). Dati aggiornati 2026 per frontalieri in Ticino.",
+      "description": "Guida 2026 per frontalieri single: come scegliere il comune di residenza in Svizzera tra residenza fiscale, registrazione cantonale e costi da valutare.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",

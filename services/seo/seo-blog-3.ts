@@ -511,7 +511,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Headline JSON-LD",
+ "headline": "Controlli e arresti di frontalieri per autoeinbrüche nel Ticino",
  "description": "Due stranieri arrestati nel Ticino per autoeinbrüche lungo i valichi di Gaggiolo e Brogeda. Controlli rafforzati e normative più severe per la sicurezza.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/auto-intrusione-frontalieri-ticino.webp`,
