@@ -2411,8 +2411,8 @@
       "slugByLocale": {
         "it": "cloud-engineer-devops-zurich-insurance-sede-ticino-lugano",
         "en": "devops-zurich-insurance-sede-ticino-lugano-hfdxdi",
-        "de": "devops-zurich-insurance-sede-ticino-lugano-hfdxdi",
-        "fr": "ingenieur-cloud-devops-zurich-insurance-sede-ticino-lugano"
+        "de": "webentwicklung-zurich-insurance-sede-ticino-lugano",
+        "fr": "operations-de-developpement-zurich-insurance-sede-ticino-lugano"
       },
       "requirementsByLocale": {
         "it": [],
@@ -2432,12 +2432,17 @@
           "devops-zurich-insurance-sede-ticino-lugano-hfdxdi"
         ],
         "fr": [
+          "devops-zurich-insurance-sede-ticino-lugano-hfdxdi",
+          "ingenieur-cloud-devops-zurich-insurance-sede-ticino-lugano"
+        ],
+        "de": [
           "devops-zurich-insurance-sede-ticino-lugano-hfdxdi"
         ]
       },
       "previousSlugs": [
         "devops-zurich-insurance-sede-ticino-lugano",
-        "devops-zurich-insurance-sede-ticino-lugano-hfdxdi"
+        "devops-zurich-insurance-sede-ticino-lugano-hfdxdi",
+        "ingenieur-cloud-devops-zurich-insurance-sede-ticino-lugano"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -2519,8 +2524,7 @@
         "it": [
           "marketing-executive-zurich-insurance-sede-ticino-lugano",
           "esecutivo-di-marketing-zurich-insurance-sede-ticino-lugano",
-          "marketing-executive-zurich-insurance-sede-ticino-lugano-ss6gbg",
-          "responsabile-marketing-zurich-insurance-sede-ticino-lugano"
+          "marketing-executive-zurich-insurance-sede-ticino-lugano-ss6gbg"
         ],
         "de": [
           "marketing-manager-zurich-insurance-sede-ticino-lugano",
@@ -2531,8 +2535,7 @@
         "marketing-executive-zurich-insurance-sede-ticino-lugano",
         "esecutivo-di-marketing-zurich-insurance-sede-ticino-lugano",
         "marketing-manager-zurich-insurance-sede-ticino-lugano",
-        "marketing-executive-zurich-insurance-sede-ticino-lugano-ss6gbg",
-        "responsabile-marketing-zurich-insurance-sede-ticino-lugano"
+        "marketing-executive-zurich-insurance-sede-ticino-lugano-ss6gbg"
       ],
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -3724,7 +3727,7 @@
       "slugByLocale": {
         "it": "asesor-a-de-normativa-zurich-insurance-sede-ticino-2024-hicimos-mas-de-qcd39a",
         "en": "regulatory-advisor-zurich-insurance-sede-ticino-2024-hicimos-mas-de",
-        "de": "regulierungsberater-in-zurich-insurance-sede-ticino-2024-hicimos-mas-de",
+        "de": "berater-fur-regulatorik-zurich-insurance-sede-ticino-2024-hicimos-mas-de",
         "fr": "asesor-a-de-normativa-zurich-insurance-sede-ticino-2024-hicimos-mas-de-qcd39a"
       },
       "requirementsByLocale": {},
@@ -3732,10 +3735,14 @@
       "previousSlugsByLocale": {
         "it": [
           "asesor-a-de-normativa-zurich-insurance-sede-ticino-2024-hicimos-mas-de"
+        ],
+        "de": [
+          "regulierungsberater-in-zurich-insurance-sede-ticino-2024-hicimos-mas-de"
         ]
       },
       "previousSlugs": [
-        "asesor-a-de-normativa-zurich-insurance-sede-ticino-2024-hicimos-mas-de"
+        "asesor-a-de-normativa-zurich-insurance-sede-ticino-2024-hicimos-mas-de",
+        "regulierungsberater-in-zurich-insurance-sede-ticino-2024-hicimos-mas-de"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
