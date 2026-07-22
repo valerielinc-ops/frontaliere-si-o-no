@@ -100,8 +100,14 @@ for (const filePath of FILES_TO_SCAN) {
   const lines = content.split('\n');
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
+    // Case-insensitive: the IT template is the only hardcoded source (see
+    // create-article.mjs), EN/DE/FR variants are produced ad-hoc by the LLM
+    // translating the unfilled IT skeleton — case varies by run (found live:
+    // DE "(max 160 Chars)" vs the literal-cased "max 160 chars" pattern
+    // below, which silently missed it).
+    const lineLower = line.toLowerCase();
     for (const pattern of PLACEHOLDER_PATTERNS) {
-      if (line.includes(pattern)) {
+      if (lineLower.includes(pattern.toLowerCase())) {
         violations.push({
           file: filePath,
           line: i + 1,
