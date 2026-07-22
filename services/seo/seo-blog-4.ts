@@ -829,7 +829,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "BlogPost JSON-LD",
+ "headline": "Salute Ticino: prevenzione e burocrazia 2026",
  "description": "Analisi delle strategie di Bertolaso per migliorare prevenzione, screening e snellire procedure in Ticino e frontiera svizzera nel 2026. Dati aggiornati 2026",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/salute-prevenzione-burocrazia-svizzera.webp`,
