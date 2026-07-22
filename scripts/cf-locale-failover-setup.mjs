@@ -39,7 +39,10 @@
  *       SEO traffic, no clicks, no monetizable traffic. (It also keeps Worker
  *       invocations down — the WAF runs BEFORE the Worker — a bonus, not the
  *       reason.) Real search + AI-search crawlers are deliberately NOT
- *       matched (#1867).
+ *       matched (#1867). TRUSTED_CRAWLER_IP_RANGES (2026-07-22) carves an
+ *       IP-verified exception out of this block — currently Semrush's own
+ *       Site Audit crawler range, unblocked by source IP (not by UA removal,
+ *       which a spoofed UA from elsewhere would still bypass this block for).
  *    b) unidentified-scripted-traffic-challenge — `managed_challenge` (NOT a
  *       hard block — too uncertain to block outright) for requests with an
  *       empty User-Agent or the literal UA "node": live traffic analysis
@@ -145,6 +148,18 @@ const BLOCKED_CRAWLER_UAS = [
 // genuine human through.
 const CHALLENGED_UAS = ['', 'node'];
 
+// IP-verified exception to the block above (owner request, 2026-07-22):
+// Semrush's own Site Audit tool (`SemrushBot-SI` UA) was getting 403'd by the
+// 2026-07-20 zone-wide block — an over-widening side effect, not the original
+// intent. Carved out by SOURCE IP (owner-supplied range), not by removing
+// "SemrushBot" from BLOCKED_CRAWLER_UAS, because a UA string is trivially
+// spoofed: this way a "SemrushBot" UA from any OTHER IP still gets blocked,
+// only requests actually originating from Semrush's published crawler range
+// pass. Excluded from the block expression AND added to the allowlist skip
+// below so other zone security (WAF managed rules, Bot Fight Mode) doesn't
+// re-block it downstream of the custom ruleset.
+const TRUSTED_CRAWLER_IP_RANGES = ['85.208.98.128/25'];
+
 // The crawlers this site deliberately welcomes — organic-search + AI-search
 // visibility channels. Mirrors the owner's original allowlist rule (adopted
 // under management 2026-07-20; was a "foreign" rule with Amazonbot/Bytespider
@@ -181,7 +196,9 @@ const MANAGED_FIREWALL_RULES = [
     description: 'locale-bot-throttle-noindex-scrapers (managed by scripts/cf-locale-failover-setup.mjs)',
     action: 'block',
     expression:
-      '(http.host eq "frontaliereticino.ch" and (' +
+      '(http.host eq "frontaliereticino.ch" and not (ip.src in {' +
+      TRUSTED_CRAWLER_IP_RANGES.join(' ') +
+      '}) and (' +
       BLOCKED_CRAWLER_UAS.map((ua) => `http.user_agent contains "${ua}"`).join(' or ') +
       '))',
   },
@@ -200,7 +217,7 @@ const MANAGED_FIREWALL_RULES = [
       'Allowlist verified SEO + AI crawlers — skip ALL security so crawlers are never challenged + our IP (never challenge/rate-limit us)',
     action: 'skip',
     expression:
-      `(ip.src eq ${OWNER_IP}) or ((` +
+      `(ip.src eq ${OWNER_IP}) or (ip.src in {${TRUSTED_CRAWLER_IP_RANGES.join(' ')}}) or ((` +
       VERIFIED_CRAWLER_UAS.map((ua) => `http.user_agent contains "${ua}"`).join(') or (') +
       ') or (cf.client.bot))',
     action_parameters: {
