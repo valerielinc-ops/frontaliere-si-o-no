@@ -1444,6 +1444,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.title': 'More Swiss: new CCL for ground staff, week drops to 40 hours',
     'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.excerpt': 'Swiss ground staff approve the new collective bargaining agreement (CCL) which provides for a reduction in weekly working hours from 42 to 40 hours.',
     'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.imageAlt': 'A photo of a Swiss airport with a ground crew member in the foreground.',
+    'blog.article.frontalieri-ticino-dati-2026.title': 'Border workers in Ticino: data for the first quarter of 2026',
+    'blog.article.frontalieri-ticino-dati-2026.excerpt': 'Ticino recorded a slight contraction in border crossers (-0.2%), while at the Swiss level a constant growth of 1.9% was confirmed.',
+    'blog.article.frontalieri-ticino-dati-2026.imageAlt': 'Panoramic view of Lugano and its lake on a sunny day',
 };
 
 export default blogMetaChEn;

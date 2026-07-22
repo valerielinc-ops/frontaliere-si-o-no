@@ -1444,6 +1444,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.title': 'Di più Swiss: nuovo CCL per personale di terra, settimana scende a 40 ore',
     'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.excerpt': 'Il personale di terra della Swiss approva il nuovo contratto collettivo di lavoro (CCL) che prevede una riduzione dell\'orario di lavoro settimanale da 42 a 40 ore.',
     'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.imageAlt': 'Una foto di un aeroporto svizzero con un pilota di terra in primo piano.',
+    'blog.article.frontalieri-ticino-dati-2026.title': 'Frontalieri in Ticino: i dati del primo trimestre 2026',
+    'blog.article.frontalieri-ticino-dati-2026.excerpt': 'Il Ticino registra una lieve contrazione dei frontalieri (-0,2%), mentre a livello svizzero si conferma una crescita costante dell\'1,9%.',
+    'blog.article.frontalieri-ticino-dati-2026.imageAlt': 'Vista panoramica di Lugano e del suo lago in una giornata di sole',
 };
 
 export default blogMetaChIt;
