@@ -678,6 +678,22 @@ const CLAUDE_CLI_BIN = (process.env.CLAUDE_CLI_BIN || 'claude').trim();
 // callLLM's fallback loop). Process-local, never persisted — see that comment
 // for why this isn't routed through markModelExhausted.
 let _claudeCliBinaryMissing = false;
+// Same process-local, never-persisted pattern as _claudeCliBinaryMissing, but
+// for a timeout storm instead of a missing binary (run 29824354962: 159/162
+// claude-cli/haiku calls hit the hard 60s timeout — CI-runner CPU contention
+// from N parallel `claude` subprocesses each cold-loading this repo's full
+// CLAUDE.md/AGENTS.md + SessionStart hook, ~30min of the run burned on calls
+// that were never going to finish in time). claude-cli/haiku is exempt from
+// the normal markModelExhausted timeout circuit breaker (_isLastResortProvider,
+// see the comment above that function) because for most callers a single
+// timeout is a transient blip worth retrying next call. But once several
+// timeouts land back-to-back within one run, that's not a blip — it's the
+// subprocess itself unable to finish in time — and every further attempt is
+// a guaranteed 60s loss for a fallback that already has a template result
+// ready. Trip after CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD consecutive timeouts.
+let _claudeCliConsecutiveTimeouts = 0;
+let _claudeCliTimeoutStormDetected = false;
+const CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD = 8;
 
 // ── API keys (lazy-loaded from environment) ──────────────────
 function getGhModelsPat()       { return (process.env.GH_MODELS_PAT || '').trim(); }
@@ -827,7 +843,7 @@ function getApiKeyForProvider(provider) {
     // No real key — auth is the CLAUDE_CODE_OAUTH_TOKEN env var, read directly
     // by the `claude` CLI subprocess. Gate on RC flag + token presence so the
     // chain only offers this model when both are actually usable. Mirrors Local.
-    case PROVIDER.CLAUDE_CLI:  return (!_claudeCliBinaryMissing && isClaudeCliFallbackEnabled() && hasClaudeCodeOauthToken()) ? 'claude-cli-no-key' : '';
+    case PROVIDER.CLAUDE_CLI:  return (!_claudeCliBinaryMissing && !_claudeCliTimeoutStormDetected && isClaudeCliFallbackEnabled() && hasClaudeCodeOauthToken()) ? 'claude-cli-no-key' : '';
     default: return '';
   }
 }
@@ -2130,6 +2146,8 @@ export function resetState() {
   _stats.errors = [];
   _responseCache.clear();
   _claudeCliBinaryMissing = false;
+  _claudeCliConsecutiveTimeouts = 0;
+  _claudeCliTimeoutStormDetected = false;
 }
 
 /** Remove a specific model from the exhausted set so it can be retried */
@@ -3176,6 +3194,16 @@ async function _callLocal(model, messages, opts) {
  * CI env (`env: process.env` below, incl. secrets) — `--tools ""` is the
  * flag that actually matters for keeping this a plain one-shot completion
  * with no agentic/tool-call capability, regardless of permission mode.
+ * `--safe-mode` disables this repo's own CLAUDE.md/AGENTS.md auto-discovery,
+ * hooks (incl. the SessionStart worktree-prune script) and MCP servers
+ * (GitNexus) for this subprocess — unlike `--bare` it keeps OAuth auth
+ * working. Confirmed live (2026-07-22): without it, a one-shot completion
+ * cold-loads ~34K tokens of project system prompt per call (vs ~600-6.7K
+ * with `--safe-mode`, most of it dedupable across concurrent calls via
+ * prompt caching) and forks the SessionStart hook every invocation; run
+ * 29824354962 hit 159/162 hard 60s timeouts under AI_CONCURRENCY=5 on a
+ * resource-constrained CI runner, burning roughly half the run's wall clock
+ * on calls that could never finish in time.
  */
 async function _callClaudeCli(model, messages, opts) {
   const apiModel = getApiModelId(model); // e.g. 'haiku' — CLI resolves the alias to its current model
@@ -3188,6 +3216,7 @@ async function _callClaudeCli(model, messages, opts) {
     '--output-format', 'json',
     '--tools', '',
     '--permission-mode', 'bypassPermissions',
+    '--safe-mode',
   ];
   if (systemPrompt) args.push('--system-prompt', systemPrompt);
   if (opts.jsonSchema) args.push('--json-schema', JSON.stringify(opts.jsonSchema.schema || opts.jsonSchema));
@@ -3652,6 +3681,7 @@ export async function callLLM(messages, opts = {}) {
       // ✅ Success — boost this model's score so it stays near the top
       recordModelSuccess(model);
       _consecutive429.delete(model); // FRO-325: reset 429 counter on success
+      if (provider === PROVIDER.CLAUDE_CLI) _claudeCliConsecutiveTimeouts = 0;
 
       if (i > 0) {
         console.warn(`✅ Fallback to ${model} succeeded (score → ${_modelScores.get(model) || 0})`);
@@ -3728,16 +3758,29 @@ export async function callLLM(messages, opts = {}) {
       // intentionally raises the timeout floor for slow CPU inference, so a
       // timeout there is expected load, not a dead provider.
       const isTimeoutFailure = e.name === 'AbortError' || e.name === 'TimeoutError' || /timeout|aborted/i.test(msg);
+      let markedExhausted = false;
       if (isTimeoutFailure && !_isLastResortProvider(model)) {
         markModelExhausted(model, 'timeout');
         _stats.exhausted++;
+        markedExhausted = true;
+      }
+      // claude-cli's own timeout-storm circuit breaker (see
+      // _claudeCliTimeoutStormDetected declaration) — separate from the
+      // markModelExhausted path above, which _isLastResortProvider exempts
+      // claude-cli from.
+      if (isTimeoutFailure && provider === PROVIDER.CLAUDE_CLI) {
+        _claudeCliConsecutiveTimeouts++;
+        if (_claudeCliConsecutiveTimeouts >= CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD) {
+          _claudeCliTimeoutStormDetected = true;
+          console.warn(`🚫 [${model}] ${_claudeCliConsecutiveTimeouts} consecutive timeouts — disabling claude-cli fallback for the rest of this run`);
+        }
       }
       recordModelFailure(model, {
         nonRetryable: !!e.nonRetryable,
         exhausted: isExhausted || isTimeoutFailure,
       });
 
-      console.warn(`❌ [${model}] Failed${isTimeoutFailure ? ' (timeout → exhausted)' : ''} (score → ${_modelScores.get(model) || 0}): ${msg.slice(0, 200)}`);
+      console.warn(`❌ [${model}] Failed${markedExhausted ? ' (timeout → exhausted)' : ''} (score → ${_modelScores.get(model) || 0}): ${msg.slice(0, 200)}`);
       // Continue to next model in chain
     }
   }
