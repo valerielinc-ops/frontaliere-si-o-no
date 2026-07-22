@@ -4822,6 +4822,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-impiegato-commercio-ticino': { name: 'Frontaliere impiegato commercio', path: '/articoli-frontaliere/frontaliere-impiegato-commercio-ticino', parent: 'blog' },
     'blog-frontalieri-disoccupati-ue-riforma-onerosa-ticino': { name: 'Frontalieri disoccupati', path: '/articoli-frontaliere/frontalieri-disoccupati-ue-riforma-onerosa-ticino', parent: 'blog' },
     'blog-frontalieri-telelavoro-ratifica-accordo': { name: 'Telelavoro Frontalieri', path: '/articoli-frontaliere/frontalieri-telelavoro-ratifica-accordo', parent: 'blog' },
+    'blog-frontalieri-ticino-dati-2026': { name: 'Statistiche frontalieri', path: '/articoli-svizzera/frontalieri-ticino-dati-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

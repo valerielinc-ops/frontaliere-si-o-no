@@ -504,6 +504,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione': { it: 'mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione', en: 'swisscom-loses-contract-over-534-hours-of-experience', de: 'swisscom-verliert-vertrag-ueber-534-stunden-erfahrung', fr: 'swisscom-perd-un-contract-sur-534-heures-d-experience' },
  'grigioni-traffico-sviamento-udc': { it: 'grigioni-traffico-sviamento-udc', en: 'grisons-diversion-traffic-udc', de: 'graubuenden-ausweichverkehr-svp', fr: 'grisons-trafic-evitement-udc' },
  'di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore': { it: 'di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore', en: 'swiss-new-ccl-for-ground-crew', de: 'neu-im-schweiz-ccl-fur-bodenpersonal', fr: 'nouveau-ccl-suisse-pour-l-equipage-terre' },
+ 'frontalieri-ticino-dati-2026': { it: 'frontalieri-ticino-dati-2026', en: 'cross-border-workers-ticino-q1-2026-data', de: 'grenzganger-ticino-daten-erstes-quartal-2026', fr: 'travailleurs-frontaliers-ticino-donnees-t1-2026' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

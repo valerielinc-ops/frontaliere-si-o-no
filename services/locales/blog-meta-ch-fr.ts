@@ -1444,6 +1444,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.title': 'Plus de Swiss : nouvelle CCT à 40h pour le personnel au sol',
     'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.excerpt': 'Le personnel au sol de Swiss approuve la nouvelle convention collective de travail (CCT) qui prévoit une réduction du temps de travail hebdomadaire de 42 à 40 heures.',
     'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.imageAlt': 'Une photo d\'un aéroport suisse avec un membre de l\'équipage au premier plan.',
+    'blog.article.frontalieri-ticino-dati-2026.title': 'Frontaliers au Tessin : les données du premier trimestre 2026',
+    'blog.article.frontalieri-ticino-dati-2026.excerpt': 'Le Tessin enregistre une légère contraction des frontaliers (-0,2%), tandis qu\'au niveau suisse une croissance constante de 1,9% se confirme.',
+    'blog.article.frontalieri-ticino-dati-2026.imageAlt': 'Vue panoramique de Lugano et de son lac par une journée ensoleillée',
 };
 
 export default blogMetaChFr;

@@ -1444,6 +1444,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.title': 'Mehr Swiss: Neuer GAV für Bodenpersonal, Woche sinkt auf 40 Stunden',
     'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.excerpt': 'Das Bodenpersonal der Swiss genehmigt den neuen Gesamtarbeitsvertrag (GAV), der eine Verkürzung der Wochenarbeitszeit von 42 auf 40 Stunden vorsieht.',
     'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.imageAlt': 'Eine Foto eines Schweizer Flughafens mit einem Bodenpersonal in Vordergrund.',
+    'blog.article.frontalieri-ticino-dati-2026.title': 'Grenzgänger im Tessin: Die Daten des ersten Quartals 2026',
+    'blog.article.frontalieri-ticino-dati-2026.excerpt': 'Das Tessin verzeichnet einen leichten Rückgang der Grenzgänger (-0,2%), während auf Schweizer Ebene ein konstantes Wachstum von 1,9% bestätigt wird.',
+    'blog.article.frontalieri-ticino-dati-2026.imageAlt': 'Panoramablick auf Lugano und den See an einem sonnigen Tag',
 };
 
 export default blogMetaChDe;

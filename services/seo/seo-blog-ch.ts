@@ -18660,6 +18660,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-ticino-dati-2026': {
+    title: 'Frontalieri in Ticino: i dati del primo trimestre 2026',
+    description: 'I dati UST sul primo trimestre 2026: calo dello 0,2% per i frontalieri in Ticino, mentre a livello nazionale la crescita si attesta all\'1,9%. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, dati, primo, trimestre, registra',
+    ogTitle: 'Frontalieri in Ticino: i dati del primo trimestre 2026',
+    ogDescription: 'Analisi dei dati UST sul primo trimestre 2026 per i frontalieri in Ticino e in Svizzera.',
+    canonicalPath: '/articoli-svizzera/frontalieri-ticino-dati-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri in Ticino: i dati del primo trimestre 2026",
+      "description": "I dati UST sul primo trimestre 2026: calo dello 0,2% per i frontalieri in Ticino, mentre a livello nazionale la crescita si attesta all'1,9%. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-dati-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano e del suo lago in una giornata di sole"
+      },
+      "datePublished": "2026-07-22T07:16:45+00:00",
+      "dateModified": "2026-07-22T07:16:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-ticino-dati-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
