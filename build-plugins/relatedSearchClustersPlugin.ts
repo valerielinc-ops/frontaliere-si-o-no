@@ -2883,6 +2883,25 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       profileRecord('build-contexts', __tContextBuild);
       console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${contexts.length} clusters survived match-≥${MIN_MATCHING_JOBS} filter`);
       tokenIndex.clear(); // GC haystacks + posting lists before the render/emit loop runs
+      // The `.clear()` above only drops references — nothing forces V8 to
+      // actually reclaim the haystack cache + posting lists (~45 MB, see
+      // TokenIndex comment above) before the render/emit loop starts
+      // allocating its own working set. Explicit gc() here mirrors the
+      // established jobsSeoPagesPlugin.ts pattern (clear a dead big
+      // structure, then force-collect it immediately) and is one of the
+      // sibling fixes for the build-locale(it) OOM incident (runs
+      // 29867257038 / 29881848735) — see staticPagesPlugin.ts /
+      // borderMunicipalityPagesPlugin.ts for the other two. Deliberately
+      // NOT placed inside the per-cluster loop below: that loop already has
+      // its own tuned backpressure (`awaitDrainSlot(2)` every 2000 iters,
+      // see the comment there) after a PREVIOUS regression where extra heap
+      // pressure inside this exact loop doubled per-page render time
+      // (0.59 ms → 1.18 ms, run 26490352942) — adding a blocking full-GC on
+      // top of that tuned mechanism risks reintroducing the same class of
+      // wall-time regression instead of a clean memory win.
+      if (typeof (globalThis as { gc?: () => void }).gc === 'function') {
+        (globalThis as { gc: () => void }).gc();
+      }
 
       if (contexts.length === 0) {
         printRelatedSearchProfile();
@@ -3251,6 +3270,16 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       byKeywordCity.clear();
       byLocale.clear();
       byLocaleCity.clear();
+      // As above: `.clear()` only drops references. Force the actual
+      // reclaim here too, right before saveToCache's own ~3,200-syscall
+      // burst and before the next SSG plugin's closeBundle starts —
+      // matching the same clear()+gc() pattern this file already applied
+      // to `tokenIndex` above, and the sibling fix in staticPagesPlugin.ts
+      // / borderMunicipalityPagesPlugin.ts for the same build-locale(it)
+      // OOM incident (runs 29867257038 / 29881848735).
+      if (typeof (globalThis as { gc?: () => void }).gc === 'function') {
+        (globalThis as { gc: () => void }).gc();
+      }
 
       // Persist for next build. patchMasterSitemap is intentionally skipped
       // here — it patches a file owned by another plugin and is re-run on
