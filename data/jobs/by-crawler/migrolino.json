@@ -1973,10 +1973,10 @@
       "id": "migrolino-72175da6e72f",
       "slug": "personale-di-vendita-migrolino-saas-fee",
       "slugByLocale": {
-        "it": "personale-di-vendita-migrolino-saas-fee",
-        "en": "sales-staff-migrolino-saas-fee",
+        "it": "personale-di-vendita-migrolino-saas-fee-8a9a4c",
+        "en": "sales-staff-migrolino-saas-fee-8a9a4c",
         "de": "verkaufsmitarbeiter-in-migrolino-saas-fee",
-        "fr": "personnel-de-vente-migrolino-saas-fee"
+        "fr": "personnel-de-vente-migrolino-saas-fee-8a9a4c"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
@@ -2000,7 +2000,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/c511ac78-1c62-47cf-aa33-218563b5c1ff",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T11:19:49.804Z",
+      "crawledAt": "2026-07-21T22:17:41.837Z",
       "addressLocality": "Saas-Fee",
       "addressRegion": "VS",
       "streetAddress": "Obere Dorfstrasse 21",
@@ -2019,18 +2019,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-saas-fee",
-        "personale-di-vendita-migrolino-saas-fee"
+        "sales-staff-migrolino-saas-fee",
+        "personnel-de-vente-migrolino-saas-fee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-migrolino-saas-fee",
-          "personale-di-vendita-migrolino-saas-fee"
+          "verkaufsmitarbeiter-in-migrolino-saas-fee"
         ],
         "en": [
-          "verkaufsmitarbeiter-in-migrolino-saas-fee"
+          "verkaufsmitarbeiter-in-migrolino-saas-fee",
+          "sales-staff-migrolino-saas-fee"
         ],
         "fr": [
-          "verkaufsmitarbeiter-in-migrolino-saas-fee"
+          "verkaufsmitarbeiter-in-migrolino-saas-fee",
+          "personnel-de-vente-migrolino-saas-fee"
         ]
       },
       "firstSeenAt": "2026-07-21T11:15:54.094Z",

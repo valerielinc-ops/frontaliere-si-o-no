@@ -1125,9 +1125,9 @@
     },
     {
       "id": "buehler-f4da5f5ab9df",
-      "slug": "ald-scientist-m-f-d-buehler-alzenau",
+      "slug": "ald-scienziato-m-f-d-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "ald-scientist-m-f-d-buehler-alzenau",
+        "it": "ald-scienziato-m-f-d-buhler-group-alzenau",
         "en": "ald-scientist-m-f-d-buehler-alzenau",
         "de": "ald-scientist-m-w-d-buhler-group-alzenau",
         "fr": "ald-scientifique-m-f-d-buhler-group-alzenau"
@@ -1184,7 +1184,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ald-scientist-m-f-d-buehler-alzenau"
+        ]
+      },
+      "previousSlugs": [
+        "ald-scientist-m-f-d-buehler-alzenau"
+      ]
     },
     {
       "id": "buehler-a08c43969ad5",
@@ -2293,7 +2301,7 @@
         "it": "automation-ingegnere-plc-m-w-d-buhler-group-braunschweig",
         "en": "automation-engineer-plc-m-w-d-buhler-group-braunschweig",
         "de": "automation-engineer-plc-m-w-d-buehler-braunschweig",
-        "fr": "automation-engineer-plc-m-w-d-buehler-braunschweig"
+        "fr": "ingenieur-automatisateur-m-f-d-buhler-group-braunschweig"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -2340,6 +2348,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "automation-engineer-plc-m-w-d-buehler-braunschweig"
+        ],
+        "fr": [
           "automation-engineer-plc-m-w-d-buehler-braunschweig"
         ]
       },
