@@ -1,18 +1,19 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-07-21T22:49:15.175Z",
+  "generatedAt": "2026-07-22T12:13:09.891Z",
   "total": 6,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 16540,
-  "avgDurationMs": 16540,
+  "durationMs": 18271,
+  "avgDurationMs": 18271,
   "durationHistory": [
-    16540
+    18271
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://www.mikron.com/en/manufacturing-methodology-engineer-mfd",
       "applyUrl": "https://www.mikron.com/en/manufacturing-methodology-engineer-mfd",
@@ -36,19 +37,18 @@
         "canton": "NE",
         "location": "Boudry"
       },
+      "firstSeenAt": "2026-07-21T22:49:15.173Z",
       "addressLocality": "Boudry",
       "addressCountry": "CH",
       "addressRegion": "NE",
-      "_qualityScore": 66,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 8,
+        "translation": 17,
         "completeness": 15
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "url": "https://www.mikron.com/en/giovane-ingegnere-meccanico-madrelingua-francese",
       "applyUrl": "https://www.mikron.com/en/giovane-ingegnere-meccanico-madrelingua-francese",
@@ -190,7 +190,7 @@
       "salaryMin": 50500,
       "salaryMax": 77000,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -229,7 +229,7 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
