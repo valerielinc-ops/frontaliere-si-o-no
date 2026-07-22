@@ -26,6 +26,7 @@ import { buildNearestExchangeAmountPath } from '../../services/exchangeSsgPaths'
 import { buildShareURL } from '../../services/urlStateService';
 import { useNavigationOptional } from '@/services/NavigationContext';
 import InlineNetDeltaBadge from './InlineNetDeltaBadge';
+import { isNewsletterCtaEligible } from '@/services/newsletterCtaState';
 
 interface Props {
  result: SimulationResult;
@@ -800,28 +801,51 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  </div>
  )}
 
- {/* Salary alert — one-tap "avvisami per netto ≥ X" (issue #4469) */}
- <Suspense fallback={null}>
+ {/* Salary alert — one-tap "avvisami per netto ≥ X" (issue #4469).
+ CLS fix (CWV regression on `/`, issue #4678): `fallback={null}` reserved
+ zero space, so this card's own lazy-chunk resolution (not just its
+ internal state) popped ~190px into the results flow after first paint —
+ real CLS regardless of the component's "renders unconditionally" claim.
+ Mirrors the internal `threshold <= 0` early-return here so the reserved
+ slot only appears when the real component is guaranteed to render. */}
+ {itResident.netIncomeMonthly >= 100 && (
+ <Suspense fallback={<div aria-hidden="true" className="mb-6 min-h-[190px] rounded-2xl bg-surface-raised animate-pulse" />}>
  <SalaryAlertCTA netMonthlyCHF={itResident.netIncomeMonthly} />
  </Suspense>
+ )}
 
- {/* E3: Post-simulation consulting CTA — inline box pointing to /consulenza */}
+ {/* E3: Post-simulation consulting CTA — inline box pointing to /consulenza.
+ Gated by an ASYNC Remote Config flag (unknowable at this scope until the
+ lazy chunk resolves AND the flag read completes) — unlike the siblings
+ below, there's no safe reserved height: a wrong reserve would trade
+ pop-in CLS for collapse CLS on the RC-disabled path. Left fallback={null}
+ intentionally (same tradeoff already accepted for unfilled Auto Ad slots,
+ #2908). */}
  <Suspense fallback={null}>
  <ConsultingCTA />
  </Suspense>
 
- {/* Calculator↔job-board reverse bridge (issue #4307) */}
- <Suspense fallback={null}>
+ {/* Calculator↔job-board reverse bridge (issue #4307). Same CLS fix as
+ SalaryAlertCTA above: hoist the component's own null-guard
+ (`annualIncomeCHF <= 0`) to gate the reserved slot. */}
+ {inputs.annualIncomeCHF > 0 && (
+ <Suspense fallback={<div aria-hidden="true" className="mt-6 min-h-[90px] rounded-2xl bg-surface-raised animate-pulse" />}>
  <CalculatorJobBridge annualIncomeCHF={inputs.annualIncomeCHF} />
  </Suspense>
+ )}
 
- {/* Same job in other cantons — net comparison (issue #4471) */}
- <Suspense fallback={null}>
+ {/* Same job in other cantons — net comparison (issue #4471). Same CLS fix:
+ hoist the component's own null-guard (`grossAnnualCHF <= 0`). */}
+ {inputs.annualIncomeCHF > 0 && (
+ <Suspense fallback={<div aria-hidden="true" className="mt-6 min-h-[360px] rounded-2xl bg-surface-raised animate-pulse" />}>
  <CantonNetComparison grossAnnualCHF={inputs.annualIncomeCHF} />
  </Suspense>
+ )}
 
- {/* TI municipal multiplier — CH-resident net refinement (issue #4470) */}
- <Suspense fallback={null}>
+ {/* TI municipal multiplier — CH-resident net refinement (issue #4470).
+ No internal null-guard (always renders once mounted) — reserved slot
+ needs no extra gating condition. */}
+ <Suspense fallback={<div aria-hidden="true" className="mt-2 min-h-[230px] rounded-2xl bg-surface-raised animate-pulse" />}>
  <TicinoMunicipalTax
  baseChTaxAnnualCHF={chResident.taxes}
  baseNetMonthlyCHF={chResident.netIncomeMonthly}
@@ -837,10 +861,16 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  </p>
  </div>
 
- {/* Post-calculation newsletter CTA */}
- <Suspense fallback={null}>
+ {/* Post-calculation newsletter CTA. CLS fix: mirrors the reserved-slot +
+ synchronous-eligibility gate already shipped for the same component in
+ MobileCalcLayout.tsx (`newsletterCtaState.ts`, #3529) — this desktop/
+ full-results usage was the one place still rendering it with
+ `fallback={null}` and no eligibility gate. */}
+ {isNewsletterCtaEligible() && (
+ <Suspense fallback={<div aria-hidden="true" className="mt-6 min-h-[683px] rounded-2xl bg-surface-raised animate-pulse" />}>
  <SubscriptionCTA />
  </Suspense>
+ )}
 
  {/* AdSense: in-page multiplex after high-intent simulation_complete moment — reserve space to prevent CLS */}
  <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.CALCULATOR_POST_RESULT.placeholderMinHeight}px` } as React.CSSProperties} className="my-6 min-h-[var(--ad-mh)] xl:min-h-[600px] [contain:content]" />}>
