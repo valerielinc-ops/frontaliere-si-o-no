@@ -1447,6 +1447,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-dati-2026.title': 'Frontaliers au Tessin : les données du premier trimestre 2026',
     'blog.article.frontalieri-ticino-dati-2026.excerpt': 'Le Tessin enregistre une légère contraction des frontaliers (-0,2%), tandis qu\'au niveau suisse une croissance constante de 1,9% se confirme.',
     'blog.article.frontalieri-ticino-dati-2026.imageAlt': 'Vue panoramique de Lugano et de son lac par une journée ensoleillée',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.title': 'Le marché du neuf : les Suisses préfèrent l\'occasion',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.excerpt': 'Le marché suisse des voitures neuves reste globalement stable. L\'augmentation des immatriculations de voitures électriques ne décolle pas.',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.imageAlt': 'Voiture électrique dans un parking de Lugano.',
 };
 
 export default blogMetaChFr;

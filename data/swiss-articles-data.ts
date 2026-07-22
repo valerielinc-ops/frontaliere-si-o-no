@@ -4337,6 +4337,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato',
+    category: 'fiscale',
+    date: '2026-07-22T20:10:58.935Z',
+    image: '/images/blog/auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -1447,6 +1447,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-dati-2026.title': 'Frontalieri in Ticino: i dati del primo trimestre 2026',
     'blog.article.frontalieri-ticino-dati-2026.excerpt': 'Il Ticino registra una lieve contrazione dei frontalieri (-0,2%), mentre a livello svizzero si conferma una crescita costante dell\'1,9%.',
     'blog.article.frontalieri-ticino-dati-2026.imageAlt': 'Vista panoramica di Lugano e del suo lago in una giornata di sole',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.title': 'Di più Auto: mercato del nuovo non decolla, svizzeri preferiscono l\'usato',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.excerpt': 'Il mercato svizzero delle vetture nuove rimane sostanzialmente fermo. L\'aumento delle immatricolazioni di auto elettriche non decolla.',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.imageAlt': 'Auto elettrica in un parcheggio di Lugano.',
 };
 
 export default blogMetaChIt;

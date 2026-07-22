@@ -1447,6 +1447,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-ticino-dati-2026.title': 'Grenzgänger im Tessin: Die Daten des ersten Quartals 2026',
     'blog.article.frontalieri-ticino-dati-2026.excerpt': 'Das Tessin verzeichnet einen leichten Rückgang der Grenzgänger (-0,2%), während auf Schweizer Ebene ein konstantes Wachstum von 1,9% bestätigt wird.',
     'blog.article.frontalieri-ticino-dati-2026.imageAlt': 'Panoramablick auf Lugano und den See an einem sonnigen Tag',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.title': 'Mehr Auto: Neuwagenmarkt hebt nicht ab, Schweizer bevorzugen Gebrauchtwagen',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.excerpt': 'Der Schweizer Neuwagenmarkt stagniert im Wesentlichen. Die Zunahme der Zulassungen von Elektroautos nimmt nicht ab.',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.imageAlt': 'Elektroauto in einem Parkplatz in Lugano.',
 };
 
 export default blogMetaChDe;

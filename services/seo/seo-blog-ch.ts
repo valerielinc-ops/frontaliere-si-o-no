@@ -18699,6 +18699,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato': {
+    title: 'Di più Auto: mercato del nuovo non decolla, svizzeri preferiscono l\'usato',
+    description: 'Il mercato svizzero delle vetture nuove rimane sostanzialmente fermo. L\'aumento delle immatricolazioni di auto elettriche non decolla. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, auto, mercato, nuovo, decolla',
+    ogTitle: 'Di più Auto: mercato del nuovo non decolla, svizzeri preferiscono l\'usato',
+    ogDescription: 'Il mercato svizzero delle vetture nuove rimane sostanzialmente fermo. L\'aumento delle immatricolazioni di auto elettriche non decolla.',
+    canonicalPath: '/articoli-svizzera/auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più Auto: mercato del nuovo non decolla, svizzeri preferiscono l'usato",
+      "description": "Il mercato svizzero delle vetture nuove rimane sostanzialmente fermo. L'aumento delle immatricolazioni di auto elettriche non decolla. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Auto elettrica in un parcheggio di Lugano."
+      },
+      "datePublished": "2026-07-22T20:10:58+00:00",
+      "dateModified": "2026-07-22T20:10:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
