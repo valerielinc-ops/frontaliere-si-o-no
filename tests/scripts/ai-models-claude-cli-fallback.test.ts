@@ -174,4 +174,59 @@ describe('ai-models Claude CLI Haiku fallback', () => {
     await expect(callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain })).rejects.toThrow();
     expect(spawnMock).toHaveBeenCalledTimes(1);
   });
+
+  describe('timeout-storm circuit breaker (independent of markModelExhausted)', () => {
+    beforeEach(() => {
+      vi.useFakeTimers();
+    });
+
+    afterEach(() => {
+      vi.useRealTimers();
+    });
+
+    it('disables claude-cli after repeated consecutive timeouts instead of waiting out the full 60s on every remaining call', async () => {
+      // Regression test for run 29824354962 (send-newsletter, 2026-07-21):
+      // claude-cli/haiku is deliberately exempt from markModelExhausted's
+      // normal timeout circuit breaker (see _isLastResortProvider) because for
+      // most callers a single timeout is a transient blip worth retrying next
+      // call. But under CI-runner CPU contention it hit the hard 60s timeout
+      // 159/162 times back to back, burning roughly half the run's wall clock
+      // on calls that could never finish in time. This is the separate,
+      // in-process-only breaker (_claudeCliTimeoutStormDetected) that caps
+      // that worst case once a systemic timeout streak is unambiguous.
+      process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = '1';
+      process.env.CLAUDE_CODE_OAUTH_TOKEN = 'test-oauth-token';
+
+      spawnMock.mockImplementation(() => ({
+        stdout: { on: () => {} },
+        stderr: { on: () => {} },
+        on: () => {}, // never fires 'close'/'error' — mirrors a hung subprocess
+        kill: vi.fn(),
+      }));
+
+      const msgs = [{ role: 'user', content: 'Write a briefing' }];
+      const chain = [AI_MODELS.CLAUDE_CLI_HAIKU];
+      const THRESHOLD = 8; // keep in sync with CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD in ai-models.mjs
+
+      for (let i = 0; i < THRESHOLD; i++) {
+        // deadlineMs shrinks _callClaudeCli's 60s floor down to its 15s floor
+        // so the fake-timer advance below doesn't need to simulate a full minute.
+        const deadlineMs = Date.now() + 15_000;
+        const promise = callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain, deadlineMs });
+        const assertion = expect(promise).rejects.toThrow();
+        await vi.advanceTimersByTimeAsync(15_000);
+        await assertion;
+      }
+
+      expect(spawnMock).toHaveBeenCalledTimes(THRESHOLD);
+
+      // Streak reached the threshold — model must now be reported unavailable...
+      expect(getPreferredModel({ chain })).toBeNull();
+
+      // ...and a further call must fail fast with no model available, not
+      // spawn (and wait out) yet another doomed subprocess.
+      await expect(callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain })).rejects.toThrow();
+      expect(spawnMock).toHaveBeenCalledTimes(THRESHOLD);
+    });
+  });
 });
