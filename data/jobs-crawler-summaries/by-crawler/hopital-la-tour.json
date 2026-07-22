@@ -1,16 +1,16 @@
 {
   "key": "hopital-la-tour",
   "label": "Hôpital de La Tour",
-  "generatedAt": "2026-07-21T23:22:49.969Z",
-  "total": 9,
+  "generatedAt": "2026-07-22T12:54:16.193Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3113,
-  "avgDurationMs": 3113,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3684,
+  "avgDurationMs": 3684,
   "durationHistory": [
-    3113
+    3684
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/aide-hospitalier-iere-au-centre-de-la-douleur-cdi-a-60",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T23:22:47.851Z",
+      "crawledAt": "2026-07-22T12:54:13.635Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/aide-hospitalier-iere-a-luco-cdi-a-75",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T23:22:47.853Z",
+      "crawledAt": "2026-07-22T12:54:13.638Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/medecin-interne-medecin-assistant-en-chirurgie-pediatrique",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T23:22:47.854Z",
+      "crawledAt": "2026-07-22T12:54:13.640Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/facturiste-cdm-6-mois",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T23:22:47.856Z",
+      "crawledAt": "2026-07-22T12:54:13.643Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/coordinateur-de-maintenance-a-100",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T23:22:47.860Z",
+      "crawledAt": "2026-07-22T12:54:13.646Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/secretaire-medicale-en-endoscopie-a-100-cdi",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T23:22:47.861Z",
+      "crawledAt": "2026-07-22T12:54:13.648Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/ergotherapeute-a-80-cdi",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T23:22:47.862Z",
+      "crawledAt": "2026-07-22T12:54:13.649Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/medecin-urgentiste-senior",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T23:22:47.865Z",
+      "crawledAt": "2026-07-22T12:54:13.653Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -311,8 +311,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "hopital-la-tour-7c34dafcc2d1",
       "slug": "stagiaire-en-business-intelligence-hopital-la-tour-meyrin",
@@ -352,5 +351,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
