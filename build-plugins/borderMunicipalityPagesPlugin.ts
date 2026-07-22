@@ -1096,6 +1096,23 @@ export function borderMunicipalityPagesPlugin(rootDir: string): Plugin {
         }
       }
 
+      // Explicit major GC checkpoint (established pattern — see
+      // jobsSeoPagesPlugin.ts's cache-clear + gc() before its own heavier
+      // write/flush phases; NODE_OPTIONS=--expose-gc is set in `build:ci`,
+      // see package.json). The loop above renders `municipalities.length *
+      // LOCALES.length` full pages up front, each a large tree of
+      // template-literal HTML plus hydration JSON — all of it garbage the
+      // instant renderPage() returns, but nothing forces V8 to reclaim it
+      // before the flush below starts its own disk-write allocations. This
+      // plugin has been observed as the last logged plugin before an OOM
+      // (build-locale(it) run 88762670606, exit 143 "runner received a
+      // shutdown signal") on a run where it shares the ~11 GB closeBundle
+      // RSS plateau with static-pages and other SSG plugins — freeing this
+      // loop's dead state before the flush trims the peak this plugin adds.
+      if (typeof (globalThis as { gc?: () => void }).gc === 'function') {
+        (globalThis as { gc: () => void }).gc();
+      }
+
       const sitemapXml = buildSitemap(municipalities.map((municipality) => ({ municipality, dateStamp })));
       fs.mkdirSync(distDir, { recursive: true });
       fs.writeFileSync(path.join(distDir, SITEMAP_NAME), sitemapXml, 'utf-8');

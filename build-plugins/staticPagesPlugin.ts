@@ -1198,9 +1198,26 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // when canton has ≥ 2 × JOBS_PER_LISTING_PAGE jobs (20) and cap at 25 pages.
  const TI_JOBS_PER_LISTING = 20;
  const TI_MAX_LISTING_PAGES = 25;
+ // Single shared parse of data/jobs.json, reused by the TI pagination/company
+ // navigators below AND the non-TI canton nav-entry computation further down.
+ // Previously each of those 3 blocks independently re-read + JSON.parse'd the
+ // same ~22k-entry file back-to-back with no GC pressure relief between them
+ // — three near-identical large parses alive in memory in quick succession
+ // right at the start of static-pages' closeBundle, compounding the shared
+ // RSS plateau implicated in the build-locale(it) OOM incident (runs
+ // 29867257038 / 29881848735, exit 143 "runner received a shutdown signal").
+ // One parse, reused everywhere below, is byte-identical output for a
+ // fraction of the transient allocation.
+ let jobsRawShared: Array<Record<string, unknown>> = [];
+ try {
+   const parsedJobsRawShared = JSON.parse(fs.readFileSync(np.resolve(rootDir, 'data/jobs.json'), 'utf-8'));
+   if (Array.isArray(parsedJobsRawShared)) jobsRawShared = parsedJobsRawShared as Array<Record<string, unknown>>;
+ } catch (e) {
+   console.warn('[static-pages] Could not read/parse data/jobs.json for TI/non-TI nav computations:', e);
+ }
  let tiPaginationPages = 0;
  try {
-   const jobsRaw = JSON.parse(fs.readFileSync(np.resolve(rootDir, 'data/jobs.json'), 'utf-8')) as Array<Record<string, unknown>>;
+   const jobsRaw = jobsRawShared;
    if (Array.isArray(jobsRaw)) {
      // Count TI canton jobs the same way jobsSeoPagesPlugin counts them
      // (canton field OR location heuristic). For the navigator we don't need
@@ -1233,7 +1250,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  };
  const tiTopCompanies: Array<{ slug: string; label: string }> = [];
  try {
-   const jobsRaw = JSON.parse(fs.readFileSync(np.resolve(rootDir, 'data/jobs.json'), 'utf-8')) as Array<Record<string, unknown>>;
+   const jobsRaw = jobsRawShared;
    if (Array.isArray(jobsRaw)) {
      const tiCities = /^(lugano|bellinzona|locarno|mendrisio|chiasso|biasca|airolo|stabio|massagno|paradiso|caslano|breganzona|viganello|cadenazzo|tesserete|gordola|losone|minusio|bedano|agno|manno)\b/i;
      const companyCounts = new Map<string, { name: string; count: number }>();
@@ -1362,7 +1379,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  };
  const nonTiCantonNavEntries: NonTiCantonNavEntry[] = [];
  try {
-   const jobsRaw = JSON.parse(fs.readFileSync(np.resolve(rootDir, 'data/jobs.json'), 'utf-8')) as Array<Record<string, unknown>>;
+   const jobsRaw = jobsRawShared;
    if (Array.isArray(jobsRaw)) {
      // Aggregate per-canton job sets ONCE. The resolveJobCanton heuristic
      // in shared/cantonSection.ts mirrors what jobsSeoPagesPlugin uses to
@@ -1515,6 +1532,22 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }
 
  console.log(`\x1b[36m[static-pages]\x1b[0m Non-TI canton nav entries: ${nonTiCantonNavEntries.length} cantons (avg ${nonTiCantonNavEntries.length > 0 ? Math.round(nonTiCantonNavEntries.reduce((s, e) => s + e.editorialSlots.it.length + e.sectorSlugs.it.length + e.companyHubs.it.length + e.cityHubs.length, 0) / nonTiCantonNavEntries.length) : 0} links/canton in IT)`);
+
+ // Explicit major GC checkpoint (established pattern — see
+ // jobsSeoPagesPlugin.ts's `expiredSoftLandingCache.clear()` + gc() before
+ // its own heavier write/flush phases). `jobsRawShared` (the ~22k-entry
+ // parsed jobs.json) plus the per-canton Maps built above are dead state
+ // past this point — nothing below reads them again. The OOM evidence for
+ // build-locale(it) (runs 29867257038 / 29881848735) shows the runner dying
+ // within ~7.5s of this exact log line, mid-plugin, before static-pages'
+ // own [profile-mem] checkpoint ever fires — freeing this dead state here,
+ // before the ~2500-line per-URL emit loop below starts, trims the peak RSS
+ // this plugin contributes to the shared ~11 GB closeBundle plateau.
+ // NODE_OPTIONS=--expose-gc is set in `build:ci` (see package.json); guarded
+ // for local dev runs without the flag.
+ if (typeof (globalThis as { gc?: () => void }).gc === 'function') {
+   (globalThis as { gc: () => void }).gc();
+ }
 
  /* ── 0. Find entry JS/CSS bundle + Italian locale chunk ────── */
  // IMPORTANT: Extract from Vite-generated index.html to get the correct entry
@@ -4993,6 +5026,22 @@ ${hrefTags}
  const flatLoc = np.join(distDir, locPath + '.html');
  _qw(flatLoc, locPageHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, ''));
  count++;
+ }
+
+ // Periodic GC checkpoint (established pattern — see jobsSeoPagesPlugin.ts).
+ // This loop iterates every sitemap URL (+ up to 3 hreflang variants each),
+ // and each buildPage() call allocates a large tree of template-literal
+ // strings, breadcrumb/JSON-LD objects and (for locale variants) translated
+ // structured-data clones. Without an explicit checkpoint that garbage is
+ // reclaimed only on V8's own scavenge/mark-compact schedule, which during a
+ // long synchronous-ish loop can lag far enough behind allocation rate to
+ // let RSS climb uninterrupted toward the runner's OOM ceiling (build-locale
+ // (it) OOM incident, runs 29867257038 / 29881848735). Every 2000 URLs
+ // mirrors the same order of magnitude as WriteCollector's own 5000-entry
+ // auto-flush threshold (batchWrite.ts) without adding a full-GC pause on
+ // every single iteration.
+ if ((count + skipped) % 2000 === 0 && typeof (globalThis as { gc?: () => void }).gc === 'function') {
+   (globalThis as { gc: () => void }).gc();
  }
  }
 
