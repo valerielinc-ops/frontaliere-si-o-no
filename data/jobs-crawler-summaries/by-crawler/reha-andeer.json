@@ -1,16 +1,16 @@
 {
   "key": "reha-andeer",
   "label": "Reha Andeer",
-  "generatedAt": "2026-07-22T11:16:39.886Z",
-  "total": 3,
+  "generatedAt": "2026-07-22T22:05:34.473Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 8075,
-  "avgDurationMs": 8075,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6042,
+  "avgDurationMs": 6042,
   "durationHistory": [
-    8075
+    6042
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://reha-andeer.ch/offene-stellen/",
       "source": "Reha Andeer Dedicated Parser (WordPress HTML + PDF)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T11:16:36.214Z",
+      "crawledAt": "2026-07-22T22:05:30.730Z",
       "addressLocality": "Andeer",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -52,8 +52,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "reha-andeer-2026-stelleninserat-nachtwache-dad4ae1a3395",
       "slug": "guardia-notturna-reha-andeer-andeer",
@@ -93,45 +92,7 @@
         "translation": 25,
         "completeness": 22
       }
-    },
-    {
-      "id": "reha-andeer-stelleninserat-pflegehelferin-2026-a622dd6e5882",
-      "slug": "assistente-infermieristico-reha-andeer-andeer-326382",
-      "company": "Reha Andeer",
-      "companyKey": "reha-andeer",
-      "companyDomain": "reha-andeer.ch",
-      "title": "Pflegehelferin",
-      "location": "Andeer",
-      "canton": "GR",
-      "url": "https://reha-andeer.ch/wp-content/uploads/2025/11/Stelleninserat-Pflegehelferin-2026.pdf",
-      "applyUrl": "https://reha-andeer.ch/offene-stellen/",
-      "source": "Reha Andeer Dedicated Parser (WordPress HTML + PDF)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:02:25.763Z",
-      "addressLocality": "Andeer",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7440",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Gesundheitswesen / Rehabilitation",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-20",
-      "firstSeenAt": "2026-05-20T05:41:04.851Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
