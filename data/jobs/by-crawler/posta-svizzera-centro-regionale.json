@@ -29,7 +29,7 @@
         "it": "waffenplatz-feldpostunteroffizier-in-st-gallen-post",
         "en": "waffenplatz-feldpostunteroffizier-in-st-gallen-post",
         "de": "waffenplatz-feldpostunteroffizier-in-st-gallen-post",
-        "fr": "waffenplatz-feldpostunteroffizier-in-st-gallen-post"
+        "fr": "waffenplatz-feldpostunterofizier-dans-st-gallen-die-schweizerische-post-st-gallen"
       },
       "sourceLang": "de",
       "department": "",
@@ -1394,7 +1394,7 @@
       "slug": "postbus-driver-in-postauto-wilderswil",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-wilderswil",
-        "en": "postbus-driver-postauto-wilderswil",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-wilderswil",
         "fr": "pilote-postbus-in-postauto-wilderswil"
       },
@@ -1441,7 +1441,6 @@
           "postauto-fahrer-in-post"
         ],
         "en": [
-          "postauto-fahrer-in-post",
           "postbus-driver-postauto-wilderswil"
         ]
       },
@@ -2209,7 +2208,7 @@
       "slug": "housekeeper-in-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "housekeeper-in-die-schweizerische-post-bern",
-        "en": "housekeeper-in-die-schweizerische-post-bern",
+        "en": "hauswart-in-post",
         "de": "hauswart-in-die-schweizerische-post-bern",
         "fr": "femme-de-menage-die-schweizerische-post-bern"
       },
@@ -2251,9 +2250,6 @@
           "hauswart-in-post"
         ],
         "fr": [
-          "hauswart-in-post"
-        ],
-        "en": [
           "hauswart-in-post"
         ]
       },
@@ -2360,7 +2356,7 @@
         "it": "consegna-in-pacchetti-die-schweizerische-post-buchs-ag",
         "en": "delivery-in-packages-die-schweizerische-post-buchs-ag",
         "de": "zusteller-in-pakete-die-schweizerische-post-hinwil",
-        "fr": "livreur-de-colis-die-schweizerische-post-buchs-ag"
+        "fr": "livraison-en-paquets-die-schweizerische-post-buchs-ag"
       },
       "sourceLang": "de",
       "department": "",
@@ -2409,7 +2405,6 @@
         ],
         "fr": [
           "zusteller-in-pakete-post",
-          "livraison-en-paquets-die-schweizerische-post-buchs-ag",
           "livreur-de-colis-die-schweizerische-post-buchs-ag"
         ]
       },
@@ -2417,7 +2412,6 @@
         "zusteller-in-pakete-post-2",
         "zusteller-in-pakete-post",
         "zusteller-in-pakete-die-schweizerische-post-buchs-ag",
-        "livraison-en-paquets-die-schweizerische-post-buchs-ag",
         "livreur-de-colis-die-schweizerische-post-buchs-ag"
       ]
     },
@@ -2523,7 +2517,7 @@
       "slug": "postbus-driver-in-postauto-endingen",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-endingen",
-        "en": "postbus-driver-in-postauto-endingen",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-endingen",
         "fr": "pilote-postbus-in-postauto-endingen"
       },
@@ -2565,9 +2559,6 @@
           "postauto-fahrer-in-post"
         ],
         "fr": [
-          "postauto-fahrer-in-post"
-        ],
-        "en": [
           "postauto-fahrer-in-post"
         ]
       },
@@ -2833,7 +2824,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-langnau-im-emmental",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-langnau-im-emmental",
-        "en": "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
         "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-langnau-im-emmental"
       },
@@ -2859,7 +2850,6 @@
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-post",
-          "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
           "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental"
         ],
         "fr": [
@@ -2869,7 +2859,6 @@
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-2",
         "zusteller-in-briefe-und-pakete-post",
-        "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
         "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental"
       ],
       "id": "posta-svizzera-centro-regionale-b70af024254b",
@@ -3212,7 +3201,7 @@
       "slug": "postbus-driver-in-postauto-schiers",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-schiers",
-        "en": "postbus-driver-in-postauto-schiers",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-schiers",
         "fr": "pilote-postbus-in-postauto-schiers"
       },
@@ -3254,9 +3243,6 @@
           "postauto-fahrer-in-post"
         ],
         "fr": [
-          "postauto-fahrer-in-post"
-        ],
-        "en": [
           "postauto-fahrer-in-post"
         ]
       },
@@ -3366,7 +3352,7 @@
       "slug": "postbus-driver-in-postauto-trimmis",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-trimmis",
-        "en": "postbus-driver-in-postauto-trimmis",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-trimmis",
         "fr": "pilote-postbus-in-postauto-trimmis"
       },
@@ -3408,9 +3394,6 @@
           "postauto-fahrer-in-post"
         ],
         "fr": [
-          "postauto-fahrer-in-post"
-        ],
-        "en": [
           "postauto-fahrer-in-post"
         ]
       },
@@ -4856,7 +4839,7 @@
       "slug": "postbus-driver-in-postauto-stans",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-stans",
-        "en": "postbus-driver-in-postauto-stans",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-stans",
         "fr": "pilote-postbus-in-postauto-stans"
       },
@@ -4877,9 +4860,6 @@
       "crawledAt": "",
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-post"
-        ],
-        "en": [
           "postauto-fahrer-in-post"
         ]
       },
@@ -5157,7 +5137,7 @@
       "slug": "postbus-driver-in-postauto-chur",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-chur",
-        "en": "postbus-driver-in-postauto-chur",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-chur",
         "fr": "pilote-postbus-in-postauto-chur"
       },
@@ -5200,9 +5180,6 @@
           "postauto-fahrer-in-post"
         ],
         "fr": [
-          "postauto-fahrer-in-post"
-        ],
-        "en": [
           "postauto-fahrer-in-post"
         ]
       },
@@ -5704,7 +5681,7 @@
       "slugByLocale": {
         "it": "assistente-per-la-gestione-della-proprieta-la-poste-suisse-renens-vd",
         "en": "assistant-property-management-assistant-la-poste-suisse-renens-vd",
-        "de": "assistenz-der-immobilienverwaltung-la-poste-suisse-renens-vd",
+        "de": "assistante-assistant-gerance-immobiliere-post",
         "fr": "assistante-assistant-gerance-immobiliere-la-poste-suisse-renens-vd"
       },
       "sourceLang": "fr",
@@ -5748,7 +5725,6 @@
           "assistante-assistant-gerance-immobiliere-post"
         ],
         "de": [
-          "assistante-assistant-gerance-immobiliere-post",
           "assistenz-der-immobilienverwaltung-la-poste-suisse-renens-vd"
         ]
       },

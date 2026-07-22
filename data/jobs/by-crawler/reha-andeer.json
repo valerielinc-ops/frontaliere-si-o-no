@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "reha-andeer-stelleninserat-pflegehelferin-223c33846989",
-      "slug": "pflegehelferin-reha-andeer-andeer",
+      "slug": "assistente-infermieristico-reha-andeer-andeer",
       "slugByLocale": {
         "de": "pflegehelferin-reha-andeer-andeer",
-        "it": "pflegehelferin-reha-andeer-andeer",
-        "en": "pflegehelferin-reha-andeer-andeer",
-        "fr": "pflegehelferin-reha-andeer-andeer"
+        "it": "assistente-infermieristico-reha-andeer-andeer",
+        "en": "nursing-assistant-reha-andeer-andeer",
+        "fr": "assistant-infirmier-reha-andeer-andeer"
       },
       "company": "Reha Andeer",
       "companyKey": "reha-andeer",
@@ -64,13 +64,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-21T22:06:04.288Z"
+      "firstSeenAt": "2026-07-21T22:06:04.288Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelferin-reha-andeer-andeer"
+        ],
+        "en": [
+          "pflegehelferin-reha-andeer-andeer"
+        ],
+        "fr": [
+          "pflegehelferin-reha-andeer-andeer"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelferin-reha-andeer-andeer"
+      ]
     },
     {
       "id": "reha-andeer-stelleninserat-pflegehelferin-2026-a622dd6e5882",
-      "slug": "pflegehelferin-reha-andeer",
+      "slug": "assistente-infermieristico-reha-andeer-andeer-326382",
       "slugByLocale": {
-        "it": "pflegehelferin-reha-andeer",
+        "it": "assistente-infermieristico-reha-andeer-andeer-326382",
         "en": "care-assistant-reha-andeer-andeer",
         "de": "pflegehelferin-reha-andeer-andeer",
         "fr": "assistant-en-soins-reha-andeer-andeer"
@@ -143,8 +157,7 @@
           "pflegehelferin-reha-andeer"
         ],
         "de": [
-          "in-den-warenkorb-reha-andeer-andeer",
-          "pflegehelferin-reha-andeer-andeer"
+          "in-den-warenkorb-reha-andeer-andeer"
         ]
       },
       "firstSeenAt": "2026-05-20T05:41:04.851Z",
