@@ -302,7 +302,7 @@
     "https://team.lidl.ch/fr/jobs/collaborateur-collaboratrice-libre-service-et-vente-40-fribourg-696132",
     "https://team.lidl.ch/fr/jobs/collaborateur-collaboratrice-libre-service-et-vente-m-w-d-40-noville-711935",
     "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-courgevaux-663192",
-    "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-mont-sur-lausanne-676669",
+    "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-lausanne-668614",
     "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-payerne-663191",
     "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-conthey-648471",
     "https://team.lidl.ch/fr/jobs/gerant-gerante-de-magasin-h-f-d-80-100-lausanne-676093",
@@ -327,7 +327,7 @@
     "https://team.lidl.ch/it/jobs/ch-lavoro-per-studenti-vendita-m-f-d-20-60-biasca-679101"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-07-21T22:05:21.551Z",
+  "updatedAt": "2026-07-22T11:15:23.408Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-60-kreuzlingen-695002": {
       "location": "Kreuzlingen",
@@ -3011,15 +3011,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-mont-sur-lausanne-676669": {
-      "location": "Mont-sur-Lausanne",
-      "addressLocality": "Mont-sur-Lausanne",
-      "canton": "VD",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
     "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-arbedo-castione-588228": {
       "location": "Arbedo-Castione",
       "addressLocality": "Arbedo-Castione",
@@ -3037,6 +3028,15 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
+    },
+    "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-lausanne-668614": {
+      "location": "Lausanne",
+      "addressLocality": "Lausanne",
+      "canton": "VD",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
     },
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-morges-705931": {
       "location": "Morges",
