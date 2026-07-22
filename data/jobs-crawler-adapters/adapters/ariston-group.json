@@ -13,7 +13,7 @@
     "https://careers.aristongroup.com/sitemap_index.xml"
   ],
   "notes": "Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only Ticino/Grigioni jobs via shared Swiss target-location matching.",
-  "updatedAt": "2026-07-22T11:26:35.104Z",
+  "updatedAt": "2026-07-22T22:21:02.647Z",
   "seedMetaByUrl": {
     "https://careers.aristongroup.com/job/Langenfeld-KEY-ACCOUNT-MANAGEMENT-VENTILATION-%28MWD%29-IM-GEBIET-BADEN-W%C3%9CRTTEMBERG-Lang-40764/1224230001/": {
       "location": "Langenfeld (Rheinland), DE, 40764",
@@ -51,12 +51,6 @@
       "company": "Ariston Group",
       "postedDate": "2026-07-17"
     },
-    "https://careers.aristongroup.com/job/Munchenstein-SERVICETECHNIKER-%C3%96LGAS-ATMO-%28MW%29-M%C3%BCnc-4142/1278156701/": {
-      "location": "Münchenstein, CH, 4142",
-      "canton": "BL",
-      "company": "Ariston Group",
-      "postedDate": "2026-06-24"
-    },
     "https://careers.aristongroup.com/job/Hechingen-SERVICETECHNIKER-%28MWD%29-FREIBURG-UND-UMGEBUNG-Hech-72379/1281305901/": {
       "location": "Hechingen, DE, 72379",
       "canton": "",
@@ -68,12 +62,6 @@
       "canton": "AG",
       "company": "Ariston Group",
       "postedDate": "2026-07-20"
-    },
-    "https://careers.aristongroup.com/job/Thun-SERVICETECHNIKER-GAS-Thun-3600/1151381101/": {
-      "location": "Thun, CH, 3600",
-      "canton": "BE",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-21"
     },
     "https://careers.aristongroup.com/job/Gerlafingen-TEAMLEITER-SERVICE-GAS-%28MW%29-Gerl-4563/1383520233/": {
       "location": "Gerlafingen, CH, 4563",
@@ -140,6 +128,12 @@
       "canton": "GE",
       "company": "Ariston Group",
       "postedDate": "2026-07-10"
+    },
+    "https://careers.aristongroup.com/job/Thun-SERVICETECHNIKER-GAS-Thun-3600/1151381101/": {
+      "location": "Thun, CH, 3600",
+      "canton": "BE",
+      "company": "Ariston Group",
+      "postedDate": "2026-07-21"
     }
   }
 }
