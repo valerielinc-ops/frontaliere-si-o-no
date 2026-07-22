@@ -15,7 +15,12 @@ import { join } from 'path';
 import { detectBodyRepetition, dedupeRepeatedParagraphs } from './lib/article-body-repetition.mjs';
 
 const LOCALES = ['it', 'en', 'de', 'fr'];
-const BODY_DIR = 'services/locales/blog-body';
+// Both body dirs share the same {id}.ts-per-locale layout (create-article.mjs
+// bodyDir: 'blog-body' for frontaliere articles, 'blog-body-ch' for svizzera
+// articles) — this script originally only scanned the former, so the two
+// live repetition bugs that motivated PR #4650 (both blog-body-ch) survived
+// the fix's own repair pass. Scan both.
+const BODY_DIRS = ['services/locales/blog-body', 'services/locales/blog-body-ch'];
 const FIX = process.argv.includes('--fix');
 
 function extractBodies(content, id) {
@@ -47,65 +52,69 @@ function detectRepetition(bodies) {
 }
 
 // Main
-const itDir = join(BODY_DIR, 'it');
-const files = readdirSync(itDir).filter(f => f.endsWith('.ts'));
-
+let totalScanned = 0;
 let totalFixed = 0;
 const fixedArticles = [];
 
-for (const file of files) {
-  const id = file.replace('.ts', '');
-  const itContent = readFileSync(join(itDir, file), 'utf-8');
-  const bodies = extractBodies(itContent, id);
-  const issues = detectRepetition(bodies);
-  
-  if (issues.length === 0) continue;
-  
-  console.log(`\n❌ ${id}: ${issues.join('; ')}`);
-  
-  if (!FIX) continue;
+for (const BODY_DIR of BODY_DIRS) {
+  const itDir = join(BODY_DIR, 'it');
+  const files = readdirSync(itDir).filter(f => f.endsWith('.ts'));
+  totalScanned += files.length;
 
-  // Fix all 4 locales
-  for (const locale of LOCALES) {
-    const filePath = join(BODY_DIR, locale, file);
-    let content;
-    try {
-      content = readFileSync(filePath, 'utf-8');
-    } catch { continue; }
+  for (const file of files) {
+    const id = file.replace('.ts', '');
+    const itContent = readFileSync(join(itDir, file), 'utf-8');
+    const bodies = extractBodies(itContent, id);
+    const issues = detectRepetition(bodies);
 
-    const localeBodies = extractBodies(content, id);
-    // Pass a shallow copy — dedupeRepeatedParagraphs mutates its argument,
-    // and localeBodies is compared against the result below per field.
-    const dedupedBodies = dedupeRepeatedParagraphs({ ...localeBodies });
-    let changed = false;
+    if (issues.length === 0) continue;
 
-    for (const field of ['body1', 'body2', 'body3']) {
-      if (!localeBodies[field] || !dedupedBodies[field]) continue;
-      if (dedupedBodies[field] !== localeBodies[field]) {
-        const key = `blog.article.${id}.${field}`;
-        const oldPattern = new RegExp(`('${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}':\\s*')(?:[^'\\\\]|\\\\.)*'`, 's');
-        const newVal = escapeForTS(dedupedBodies[field]);
-        // Replacer FUNCTION — newVal is real article body text and a literal
-        // "$" + digit inside it (e.g. a dollar amount) would otherwise be
-        // re-expanded as a $1 capture-group backreference by
-        // String.prototype.replace() (docs/AGENTS-HISTORY.md#blog-meta-replace-backref).
-        content = content.replace(oldPattern, (_m, g1) => `${g1}${newVal}'`);
-        changed = true;
+    console.log(`\n❌ [${BODY_DIR}] ${id}: ${issues.join('; ')}`);
+
+    if (!FIX) continue;
+
+    // Fix all 4 locales
+    for (const locale of LOCALES) {
+      const filePath = join(BODY_DIR, locale, file);
+      let content;
+      try {
+        content = readFileSync(filePath, 'utf-8');
+      } catch { continue; }
+
+      const localeBodies = extractBodies(content, id);
+      // Pass a shallow copy — dedupeRepeatedParagraphs mutates its argument,
+      // and localeBodies is compared against the result below per field.
+      const dedupedBodies = dedupeRepeatedParagraphs({ ...localeBodies });
+      let changed = false;
+
+      for (const field of ['body1', 'body2', 'body3']) {
+        if (!localeBodies[field] || !dedupedBodies[field]) continue;
+        if (dedupedBodies[field] !== localeBodies[field]) {
+          const key = `blog.article.${id}.${field}`;
+          const oldPattern = new RegExp(`('${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}':\\s*')(?:[^'\\\\]|\\\\.)*'`, 's');
+          const newVal = escapeForTS(dedupedBodies[field]);
+          // Replacer FUNCTION — newVal is real article body text and a literal
+          // "$" + digit inside it (e.g. a dollar amount) would otherwise be
+          // re-expanded as a $1 capture-group backreference by
+          // String.prototype.replace() (docs/AGENTS-HISTORY.md#blog-meta-replace-backref).
+          content = content.replace(oldPattern, (_m, g1) => `${g1}${newVal}'`);
+          changed = true;
+        }
+      }
+
+      if (changed) {
+        writeFileSync(filePath, content, 'utf-8');
+        console.log(`  ✅ Fixed ${locale}/${file}`);
       }
     }
 
-    if (changed) {
-      writeFileSync(filePath, content, 'utf-8');
-      console.log(`  ✅ Fixed ${locale}/${file}`);
-    }
+    totalFixed++;
+    fixedArticles.push(`${BODY_DIR}/${id}`);
   }
-
-  totalFixed++;
-  fixedArticles.push(id);
 }
 
 console.log(`\n${'='.repeat(60)}`);
-console.log(`Scanned: ${files.length} articles`);
+console.log(`Scanned: ${totalScanned} articles across ${BODY_DIRS.length} body dirs`);
 console.log(`Issues found: ${totalFixed > 0 || !FIX ? 'see above' : 'none'}`);
 if (FIX) {
   console.log(`Fixed: ${totalFixed} articles across ${LOCALES.length} locales`);
