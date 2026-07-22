@@ -1,35 +1,33 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-07-21T22:05:06.238Z",
-  "total": 7,
+  "generatedAt": "2026-07-22T11:14:57.070Z",
+  "total": 6,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 35164,
-  "avgDurationMs": 35164,
+  "unchangedCount": 0,
+  "durationMs": 33052,
+  "avgDurationMs": 33052,
   "durationHistory": [
-    35164
+    33052
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "spital-zollikerberg-5f58ce2b513a",
-      "slug": "testa-capo-dell-ingegneria-medica-op-spital-zollikerberg-zollikerberg",
+      "id": "spital-zollikerberg-da98be0e31fa",
+      "slug": "dipl-expertin-dipl-experte-intensivpflege-wir-konnen-beatmung-e-gute-stimmung-spital-zollikerberg",
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
-      "title": "Leiterin / Leiter Instrumentierpflege OP Medizintechnische Bereiche",
-      "needsRetranslation": true,
+      "title": "Dipl. Expertin / Dipl. Experte Intensivpflege - Wir können Beatmung und gute Stimmung",
+      "needsRetranslation": false,
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=3dc30036-e741-4dfb-a01a-3b5d37cad5f1,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=b4e2638e-6fb6-4e55-986d-ddc7e1dd4f19,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:01:21.824Z",
+      "crawledAt": "2026-07-22T11:14:54.370Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -38,23 +36,22 @@
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "OTHER",
-      "experienceLevel": "senior",
+      "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=3dc30036-e741-4dfb-a01a-3b5d37cad5f1,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=b4e2638e-6fb6-4e55-986d-ddc7e1dd4f19,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
