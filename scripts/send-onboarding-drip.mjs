@@ -9,8 +9,10 @@
  * State lives per-user on the newsletter_subscribers/{email} doc — drip_started_at,
  * drip_last_step, drip_last_sent_at, drip_segment, drip_completed — so there are
  * NO double sends: each run only sends step (drip_last_step + 1) and only once it
- * is due. Unsubscribed / inactive subscribers are skipped → unsubscribe stops the
- * sequence. Sends go through the shared email cascade (scripts/lib/email-cascade.mjs),
+ * is due. Subscribers excluded via the canonical NEWSLETTER_EXCLUDED_STATUSES
+ * (unsubscribed/inactive/bounced/complained/suppressed, see
+ * services/emailSuppression.mjs) are skipped on `status` directly, not just the
+ * isActive/active booleans. Sends go through the shared email cascade (scripts/lib/email-cascade.mjs),
  * so provider daily caps (Mailjet 200/day, etc.) are respected exactly like the
  * weekly newsletter. Per-user scheduled-send integrates with #3798 (reuses
  * scripts/lib/send-schedule.mjs — not a second scheduler).
@@ -41,6 +43,7 @@ import {
   resolveEffectivePreferredHour,
   computeScheduledSendAt,
 } from './lib/send-schedule.mjs';
+import { isNewsletterExcluded } from '../services/emailSuppression.mjs';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const DEFAULT_FROM_EMAIL = 'Frontaliere Ticino <newsletter@frontaliereticino.ch>';
@@ -87,7 +90,14 @@ function toDate(v) {
 
 function isUnsubscribedOrInactive(data) {
   if (!data) return true;
-  if (data.status === 'unsubscribed') return true;
+  // Canonical cross-sender exclusion set (services/emailSuppression.mjs):
+  // unsubscribed/inactive + the address-level hard signals bounced/complained/
+  // suppressed. Checked directly on `status` — not just isActive/active — so a
+  // status left stale by a reactivation flow (e.g. scripts/mailtrap-suppression-retry.mjs
+  // flips isActive/active back to true on retry) can never resume a drip whose
+  // status hasn't actually cleared (#4679: onboarding drip kept retrying
+  // already-suppressed addresses).
+  if (isNewsletterExcluded(data.status)) return true;
   if (data.unsubscribed_at) return true;
   if (data.isActive === false) return true;
   if (data.active === false) return true;
