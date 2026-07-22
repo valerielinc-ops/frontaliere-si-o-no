@@ -1,33 +1,32 @@
 {
   "key": "diakoniewerk-neumuenster",
   "label": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)",
-  "generatedAt": "2026-07-22T12:50:29.917Z",
-  "total": 6,
+  "generatedAt": "2026-07-22T23:20:32.815Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 37580,
-  "avgDurationMs": 37580,
+  "durationMs": 36038,
+  "avgDurationMs": 36038,
   "durationHistory": [
-    37580
+    36038
   ],
   "newJobs": [],
   "updatedJobs": [
     {
-      "id": "diakoniewerk-neumuenster-ad1a460a025a",
-      "slug": "dipl-expertin-dipl-experte-intensivpflege-wir-konnen-beatmung-e-gute-stimmung-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
+      "id": "diakoniewerk-neumuenster-b7d18b70f209",
+      "slug": "dipl-expert-dipl-expert-emergency-care-nds-hf-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
       "companyKey": "diakoniewerk-neumuenster",
       "companyDomain": "diakoniewerk-neumuenster.ch",
-      "title": "Dipl. Expertin / Dipl. Experte Intensivpflege - Wir können Beatmung und gute Stimmung",
-      "needsRetranslation": false,
+      "title": "Dipl. Expertin / Dipl. Experte Notfallpflege NDS HF",
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=b4e2638e-6fb6-4e55-986d-ddc7e1dd4f19,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=c5d3707d-4795-48e8-a2be-fdfb7491deca,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T12:50:27.632Z",
+      "crawledAt": "2026-07-22T12:50:27.631Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -41,14 +40,17 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=b4e2638e-6fb6-4e55-986d-ddc7e1dd4f19,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=c5d3707d-4795-48e8-a2be-fdfb7491deca,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T15:19:47.620Z",
-      "_qualityScore": 85,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
