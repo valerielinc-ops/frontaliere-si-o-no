@@ -1,16 +1,16 @@
 {
   "key": "tl-lausanne",
   "label": "tl (Transports publics de la région lausannoise)",
-  "generatedAt": "2026-07-21T11:17:14.195Z",
-  "total": 6,
+  "generatedAt": "2026-07-22T11:24:08.221Z",
+  "total": 5,
   "newCount": 1,
   "updatedCount": 4,
-  "removedCount": 1,
-  "unchangedCount": 1,
-  "durationMs": 7302,
-  "avgDurationMs": 7302,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 6726,
+  "avgDurationMs": 6726,
   "durationHistory": [
-    7302
+    6726
   ],
   "newJobs": [
     {
@@ -26,7 +26,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Sp%C3%A9cialiste-planification-des-projets-d&apos;infrastructures-et-b%C3%A2timents/1409785733/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T11:17:11.574Z",
+      "crawledAt": "2026-07-22T11:24:05.810Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Constructeurs%C2%B7rices-de-voies-ferr%C3%A9es/1415576133/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T11:17:08.878Z",
+      "crawledAt": "2026-07-22T11:24:03.136Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Automaticien%C2%B7ne-pour-le-m%C3%A9tro-m2/1415387433/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T11:17:09.566Z",
+      "crawledAt": "2026-07-22T11:24:03.747Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -142,7 +142,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Chef%C2%B7fe-circulation-des-trains-ligne-du-m%C3%A9tro-m1/1414245133/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T11:17:10.238Z",
+      "crawledAt": "2026-07-22T11:24:04.373Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Conductrices-et-conducteurs-de-bus-et-trolleybus/1281245901/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T11:17:10.910Z",
+      "crawledAt": "2026-07-22T11:24:04.984Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -220,7 +220,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Sp%C3%A9cialiste-planification-des-projets-d'infrastructures-et-b%C3%A2timents/1409785733/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-20T22:03:08.263Z",
+      "crawledAt": "2026-07-21T11:17:11.574Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -246,9 +246,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "id": "tl-lausanne-420730b1cc49",
       "slug": "meccanica-del-treno-per-la-linea-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
@@ -290,5 +288,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
