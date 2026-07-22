@@ -8837,6 +8837,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-impiegato-commercio-ticino.title': 'Impiegato di commercio in Ticino: guida per frontalieri',
     'blog.article.frontaliere-impiegato-commercio-ticino.excerpt': 'Scopri i requisiti, il ruolo e le regole fiscali per lavorare come impiegato di commercio in Canton Ticino da frontaliere nel 2024.',
     'blog.article.frontaliere-impiegato-commercio-ticino.imageAlt': 'Vista professionale su Lugano, Ticino',
+    'blog.article.frontalieri-disoccupati-ue-riforma-onerosa-ticino.title': 'Frontalieri disoccupati: l\'UE approva riforma onerosa per la Svizzera',
+    'blog.article.frontalieri-disoccupati-ue-riforma-onerosa-ticino.excerpt': 'Il Parlamento europeo ha approvato una riforma che ridefinisce le competenze in materia di lavoratori frontalieri disoccupati.',
+    'blog.article.frontalieri-disoccupati-ue-riforma-onerosa-ticino.imageAlt': 'Una vista aerea del centro di Lugano con persone che camminano lungo la via principale.',
 };
 
 export default blogMetaIt;

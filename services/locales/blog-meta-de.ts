@@ -8835,6 +8835,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-impiegato-commercio-ticino.title': 'Kaufmännischer Angestellter im Tessin: Leitfaden für Grenzgänger',
     'blog.article.frontaliere-impiegato-commercio-ticino.excerpt': 'Erfahren Sie mehr über die Anforderungen, die Rolle und die steuerlichen Regeln, um 2024 als Grenzgänger als Kaufmann im Kanton Tessin zu arbeiten.',
     'blog.article.frontaliere-impiegato-commercio-ticino.imageAlt': 'Professioneller Blick auf Lugano, Tessin',
+    'blog.article.frontalieri-disoccupati-ue-riforma-onerosa-ticino.title': 'Arbeitslose Grenzgänger: EU verabschiedet kostenintensive Reform für die Schweiz',
+    'blog.article.frontalieri-disoccupati-ue-riforma-onerosa-ticino.excerpt': 'Das Europäische Parlament hat eine Reform verabschiedet, die die Zuständigkeiten arbeitsloser Grenzgänger neu definiert.',
+    'blog.article.frontalieri-disoccupati-ue-riforma-onerosa-ticino.imageAlt': 'Luftbild des Stadtzentrums von Lugano mit Menschen, die entlang der Hauptstraße gehen.',
 };
 
 export default blogMetaDe;

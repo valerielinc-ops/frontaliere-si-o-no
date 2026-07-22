@@ -8836,6 +8836,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-impiegato-commercio-ticino.title': 'Trade clerk in Ticino: guide for border workers',
     'blog.article.frontaliere-impiegato-commercio-ticino.excerpt': 'Learn about the requirements, role and tax rules to work as a trade clerk in Canton Ticino as a border worker in 2024.',
     'blog.article.frontaliere-impiegato-commercio-ticino.imageAlt': 'Professional view over Lugano, Ticino',
+    'blog.article.frontalieri-disoccupati-ue-riforma-onerosa-ticino.title': 'Unemployed border workers: EU approves burdensome reform for Switzerland',
+    'blog.article.frontalieri-disoccupati-ue-riforma-onerosa-ticino.excerpt': 'The European Parliament has approved a reform redefining the competences of unemployed frontier workers.',
+    'blog.article.frontalieri-disoccupati-ue-riforma-onerosa-ticino.imageAlt': 'Aerial view of Lugano city center with people walking along the main street.',
 };
 
 export default blogMetaEn;

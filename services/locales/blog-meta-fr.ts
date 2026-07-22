@@ -8838,6 +8838,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-impiegato-commercio-ticino.title': 'Employés du commerce au Tessin: guide transfrontalier',
     'blog.article.frontaliere-impiegato-commercio-ticino.excerpt': 'Découvrez les exigences, le rôle et les règles fiscales pour travailler comme employé de commerce dans le canton du Tessin en tant que frontalier en 2024.',
     'blog.article.frontaliere-impiegato-commercio-ticino.imageAlt': 'Vue professionnelle sur Lugano, Tessin',
+    'blog.article.frontalieri-disoccupati-ue-riforma-onerosa-ticino.title': 'Chômeurs frontaliers : l\'UE approuve une réforme coûteuse pour la Suisse',
+    'blog.article.frontalieri-disoccupati-ue-riforma-onerosa-ticino.excerpt': 'Le Parlement européen a approuvé une réforme qui redéfinit les compétences en matière de travailleurs frontaliers au chômage.',
+    'blog.article.frontalieri-disoccupati-ue-riforma-onerosa-ticino.imageAlt': 'Vue aérienne du centre-ville de Lugano avec des gens qui marchent le long de la rue principale.',
 };
 
 export default blogMetaFr;
