@@ -6,8 +6,9 @@
  * "1 errore" (issue 223 — A6, 496 affected articles).
  *
  * What it does:
- *   1. Iterates over every IT article body file in
- *      services/locales/blog-body/it/*.ts
+ *   1. Iterates over every article body file in
+ *      services/locales/blog-body/<locale>/*.ts (or blog-body-ch/<locale>/*.ts
+ *      when --section svizzera is passed)
  *   2. Skips files that already contain AI-search markers
  *      (## In breve + ## Fatti chiave) detected via hasAiSearchOptimization()
  *   3. For each remaining article, calls the centralized AI client
@@ -17,9 +18,10 @@
  *      body1 once translated, when --translate is passed).
  *
  * USAGE
- *   node scripts/backfill-ai-search-optimization.mjs            # DRY-RUN (default)
- *   node scripts/backfill-ai-search-optimization.mjs --apply    # actually write
- *   node scripts/backfill-ai-search-optimization.mjs --limit 20 # first 20 only
+ *   node scripts/backfill-ai-search-optimization.mjs                     # DRY-RUN (default)
+ *   node scripts/backfill-ai-search-optimization.mjs --apply             # actually write
+ *   node scripts/backfill-ai-search-optimization.mjs --limit 20          # first 20 only
+ *   node scripts/backfill-ai-search-optimization.mjs --section svizzera  # blog-body-ch instead
  *   node scripts/backfill-ai-search-optimization.mjs --help
  *
  * DRY-RUN OUTPUT
@@ -48,7 +50,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
 const SUPPORTED_LOCALES = ['it', 'en', 'de', 'fr'];
-const bodyDirFor = (locale) => path.join(ROOT, 'services', 'locales', 'blog-body', locale);
 
 // ── CLI parsing ─────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -73,7 +74,32 @@ for (const loc of LOCALES) {
     process.exit(1);
   }
 }
+
+// ── Section selection (--section=frontaliere|svizzera, default frontaliere) ──
+// Switches the body-dir enumeration between the cross-border (blog-body) and
+// the Switzerland-wide (blog-body-ch) article sets — same pattern used by
+// fix-faq-locales.mjs / audit-articles-factcheck.mjs / batch-add-faq-to-articles.mjs.
+function getSectionArg() {
+  let section = 'frontaliere';
+  const eqMatch = args.find((a) => /^--section=/.test(a));
+  if (eqMatch) section = eqMatch.split('=')[1];
+  const inline = getArg('--section');
+  if (inline) section = inline;
+  if (!['frontaliere', 'svizzera'].includes(section)) {
+    console.error(`Invalid --section="${section}". Valid: frontaliere, svizzera`);
+    process.exit(1);
+  }
+  return section;
+}
+const SECTION = getSectionArg();
+const SECTION_BODY_SUBDIR = SECTION === 'svizzera' ? 'blog-body-ch' : 'blog-body';
+const bodyDirFor = (locale) => path.join(ROOT, 'services', 'locales', SECTION_BODY_SUBDIR, locale);
 const BODY_DIR_IT = bodyDirFor('it'); // Kept for backwards-compatible export
+// Section-namespaced failure log so --section svizzera doesn't clobber/read
+// the frontaliere failure log for the same locale.
+const failuresPathFor = (locale) => path.join(
+  ROOT, 'data', `backfill-failures-${locale}${SECTION === 'svizzera' ? '-ch' : ''}.json`,
+);
 
 if (HELP) {
   console.log(`backfill-ai-search-optimization.mjs
@@ -81,6 +107,7 @@ if (HELP) {
   --apply             Write changes to disk (default: DRY-RUN)
   --limit N           Process at most N articles per locale
   --locale L          Locale to process: it (default), en, de, fr, all, or comma-separated list
+  --section NAME      Article section: frontaliere (default) | svizzera
   --retry-failures    Only process articles listed in data/backfill-failures-{locale}.json
   --show-sample       Print the AI-generated block for the first article
   --help, -h          Show this help
@@ -268,7 +295,7 @@ async function runLocaleBackfill(locale, callLLM, AI_MODELS) {
   // were fixed by other runs are silently skipped.
   let targets = needing.slice(0, LIMIT);
   if (RETRY_FAILURES) {
-    const failuresPath = path.join(ROOT, 'data', `backfill-failures-${locale}.json`);
+    const failuresPath = failuresPathFor(locale);
     if (!existsSync(failuresPath)) {
       console.log(`[${locale}] --retry-failures: no failure log at ${path.relative(ROOT, failuresPath)}, skipping locale`);
       return { locale, written: 0, failed: 0 };
@@ -350,7 +377,7 @@ RÈGLES STRICTES:
 
   // Failure tracking — written to data/backfill-failures-{locale}.json so a
   // future --retry-failures run (or manual triage) can target the survivors.
-  const failuresPath = path.join(ROOT, 'data', `backfill-failures-${locale}.json`);
+  const failuresPath = failuresPathFor(locale);
   /** @type {Array<{articleId: string, filePath: string, reason: string, when: string}>} */
   const failures = [];
 
