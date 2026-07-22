@@ -51,18 +51,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch",
-        "responsabile-risorse-umane-membro-della-direzione-80-fondation-domus-ardon-e2fc13"
+        "responsabile-risorse-umane-membro-della-direzione-80-fondation-domus-ardon-e2fc13",
+        "responsabile-risorse-umane-membro-della-direzione-80-fondation-domus-ardon",
+        "human-resources-officer-member-of-management-80-fondation-domus-ardon",
+        "human-resources-officer-mitglied-der-geschaftsleitung-80-fondation-domus-ardon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch",
-          "responsabile-risorse-umane-membro-della-direzione-80-fondation-domus-ardon-e2fc13"
+          "responsabile-risorse-umane-membro-della-direzione-80-fondation-domus-ardon-e2fc13",
+          "responsabile-risorse-umane-membro-della-direzione-80-fondation-domus-ardon",
+          "human-resources-officer-member-of-management-80-fondation-domus-ardon",
+          "human-resources-officer-mitglied-der-geschaftsleitung-80-fondation-domus-ardon"
         ],
         "en": [
-          "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch"
+          "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch",
+          "human-resources-officer-member-of-management-80-fondation-domus-ardon"
         ],
         "de": [
-          "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch"
+          "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch",
+          "human-resources-officer-mitglied-der-geschaftsleitung-80-fondation-domus-ardon"
         ]
       },
       "firstSeenAt": "2026-07-21T23:36:42.880Z",
@@ -95,7 +103,7 @@
       "title": "Infirmier en psychiatrie (60%)",
       "titleByLocale": {
         "it": "Infermiera in psichiatria (60%)",
-        "en": "Infirmier en psychiatrie (60%)",
+        "en": "Nurse in Psychiatry (60%)",
         "de": "Krankenschwester in der Psychiatrie (60%)",
         "fr": "Infirmier en psychiatrie (60%)"
       },
@@ -146,7 +154,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T23:36:42.519Z",
-      "needsRetranslation": true,
       "salaryMin": 36300,
       "salaryMax": 54900,
       "baseSalary": {

@@ -82,8 +82,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-03b2f5bee704",
@@ -163,8 +162,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-7c5971359b10",
@@ -656,7 +654,7 @@
         "it": "Insegnante di Materie Tessili e Design, Cicli 1 e 2, 6 ore",
         "en": "Secondary Subject Teacher Textiles and Design Cycles 1 and 2, 6 Lessons",
         "de": "Stv. Fachlehrperson Textiles Gestalten Zyklen 1 und 2, 6 Lektionen",
-        "fr": "Stv. Fachlehrperson Textiles Gestalten Zyklen 1 und 2, 6 Lektionen"
+        "fr": "Stv. Textiles spécialisés Cycles de conception 1 et 2, 6 leçons"
       },
       "description": "Porträt\nWillkommen in Wimmis!\nAn der Schule Wimmis unterrichten 48 Lehrpersonen rund 400 Schülerinnen und Schüler an drei Standorten. Im Schulhaus Oberdorf befinden sich 6 Klassen.\nUnser Team - unsere Stärke!\n\nAufgaben\nAls Fachlehrerperson unterrichten, fördern und unterstützen Sie Kinder der 1., 2. und 3./4. Klasse im Fach Textiles Gestalten. Sie unterrichten insgesamt 6 Lektionen. Der Unterricht findet am Donnerstag von 8.20-11.50 und 13.30-15.05 Uhr statt.\n\nSie unterrichten während der Mutterschaftsvertretung und einem anschliessenden Urlaub als Stellvertreterin. Eine Weiterführung ab Sommer 2027 in eine unbefristete Anstellung ist evtl. möglich.\n\nSie engagieren sich im Unterrichtsteam und sind bereit, an der Schul- und Organisationsentwicklung mitzuarbeiten.\n\nAnforderungen\nHaben Sie ein Herz für Kinder und können diese begeistern und motivieren? Verfügen Sie über ein Lehrdiplom für den Bereich Gestalten? Sind Sie eine engagierte, kommunikative und humorvolle Persönlichkeit mit Freude und Interesse an der Zusammenarbeit mit dem Stufen- und Schulhausteam? Pflegen Sie einen offenen und direkten Austausch mit den Eltern sowie allen anderen Anspruchsgruppen?\n\nFalls ja sind Sie genau die Lehrperson, die wir für unser Team suchen!\n\nWir bieten\n- tolle TTG-Räume\n- gut ausgestattete Schulinfrastruktur mit moderner ICT-Umgebung\n- angenehmes Arbeitsklima in einem engagierten, offenen Team\n- Unterstützung durch Lehrpersonen, IF-Lehrpersonen, Schulsozialarbeit und Schulleitung\n- guter ÖV-Anschluss, sehr gute Erreichbarkeit mit dem Auto dank direktem Autobahnanschluss und Gratisparkplatz",
       "descriptionByLocale": {
@@ -708,7 +706,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.472Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -794,8 +791,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-3375ea3cfa0b",
@@ -864,7 +860,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:15:22.057Z",
-      "needsRetranslation": true,
       "salaryMin": 31500,
       "salaryMax": 47800,
       "baseSalary": {
@@ -1205,7 +1200,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:51:43.182Z",
-      "needsRetranslation": true,
       "salaryMin": 58200,
       "salaryMax": 88400,
       "baseSalary": {
@@ -2094,7 +2088,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:46:19.626Z",
-      "needsRetranslation": true,
       "salaryMin": 37700,
       "salaryMax": 57200,
       "baseSalary": {
@@ -2175,7 +2168,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T22:07:43.337Z",
-      "needsRetranslation": true,
       "salaryMin": 4100,
       "salaryMax": 6200,
       "baseSalary": {
@@ -3849,21 +3841,42 @@
       "previousSlugs": [
         "logopadie-6-lektionen-ab-1-8-2026-oder-nach-vereinbarung-schule-studen-aegerten-studen-39897",
         "logopadie-6-lektionen-ab-1-8-2026-oder-nach-vereinbarung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-k-39897",
-        "logopala-6-lektionen-ab-1-8-2026-o-nach-vereinbarung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-studen"
+        "logopala-6-lektionen-ab-1-8-2026-o-nach-vereinbarung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-studen",
+        "if-lehrperson-im-kg-e-in-1-2-kl-in-studen-16-lektionen-ab-1-8-2026-o-nach-vereinbarung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-studen",
+        "if-teacher-in-the-kg-and-in-1-2-kl-in-studen-16-lessons-from-1-8-2026-or-by-agreement-ksml-kantonaler-stellenmarkt-39896",
+        "if-lehrperson-im-kg-und-in-1-2-kl-in-studen-16-lektionen-ab-1-8-2026-oder-nach-39896",
+        "if-enseignant-au-kg-et-au-1-2-kl-a-studen-16-lecons-du-1-8-2026-ou-d-accord-ksml-kantonaler-stellenmarkt-fur-39896",
+        "if-lehrperson-im-kg-e-in-1-2-kl-in-studen-16-lektionen-ab-1-8-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-studen",
+        "if-teacher-in-the-kg-and-in-1-2-kl-in-studen-16-lessons-from-1-8-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-37328",
+        "if-lehrperson-im-kg-und-in-1-2-kl-in-studen-16-lektionen-ab-1-8-2026-schule-studen-37328",
+        "if-enseignant-au-kg-et-au-1-2-kl-a-studen-16-lecons-du-1-8-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-37328",
+        "if-lehrperson-im-kg-und-in-1-2-kl-in-studen-16-lektionen-ab-1-8-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-37328"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logopadie-6-lektionen-ab-1-8-2026-oder-nach-vereinbarung-schule-studen-aegerten-studen-39897",
-          "logopala-6-lektionen-ab-1-8-2026-o-nach-vereinbarung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-studen"
+          "logopala-6-lektionen-ab-1-8-2026-o-nach-vereinbarung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-studen",
+          "if-lehrperson-im-kg-e-in-1-2-kl-in-studen-16-lektionen-ab-1-8-2026-o-nach-vereinbarung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-studen",
+          "if-teacher-in-the-kg-and-in-1-2-kl-in-studen-16-lessons-from-1-8-2026-or-by-agreement-ksml-kantonaler-stellenmarkt-39896",
+          "if-lehrperson-im-kg-und-in-1-2-kl-in-studen-16-lektionen-ab-1-8-2026-oder-nach-39896",
+          "if-enseignant-au-kg-et-au-1-2-kl-a-studen-16-lecons-du-1-8-2026-ou-d-accord-ksml-kantonaler-stellenmarkt-fur-39896",
+          "if-lehrperson-im-kg-e-in-1-2-kl-in-studen-16-lektionen-ab-1-8-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-studen",
+          "if-teacher-in-the-kg-and-in-1-2-kl-in-studen-16-lessons-from-1-8-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-37328",
+          "if-lehrperson-im-kg-und-in-1-2-kl-in-studen-16-lektionen-ab-1-8-2026-schule-studen-37328",
+          "if-enseignant-au-kg-et-au-1-2-kl-a-studen-16-lecons-du-1-8-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-37328",
+          "if-lehrperson-im-kg-und-in-1-2-kl-in-studen-16-lektionen-ab-1-8-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-37328"
         ],
         "en": [
-          "logopadie-6-lektionen-ab-1-8-2026-oder-nach-vereinbarung-schule-studen-aegerten-studen-39897"
+          "logopadie-6-lektionen-ab-1-8-2026-oder-nach-vereinbarung-schule-studen-aegerten-studen-39897",
+          "if-teacher-in-the-kg-and-in-1-2-kl-in-studen-16-lessons-from-1-8-2026-or-by-agreement-ksml-kantonaler-stellenmarkt-39896"
         ],
         "de": [
-          "logopadie-6-lektionen-ab-1-8-2026-oder-nach-vereinbarung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-k-39897"
+          "logopadie-6-lektionen-ab-1-8-2026-oder-nach-vereinbarung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-k-39897",
+          "if-lehrperson-im-kg-und-in-1-2-kl-in-studen-16-lektionen-ab-1-8-2026-oder-nach-39896"
         ],
         "fr": [
-          "logopadie-6-lektionen-ab-1-8-2026-oder-nach-vereinbarung-schule-studen-aegerten-studen-39897"
+          "logopadie-6-lektionen-ab-1-8-2026-oder-nach-vereinbarung-schule-studen-aegerten-studen-39897",
+          "if-enseignant-au-kg-et-au-1-2-kl-a-studen-16-lecons-du-1-8-2026-ou-d-accord-ksml-kantonaler-stellenmarkt-fur-39896"
         ]
       },
       "firstSeenAt": "2026-07-10T10:24:04.342Z",
@@ -4037,7 +4050,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T22:44:55.081Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4856,15 +4868,15 @@
       "titleByLocale": {
         "de": "Lehrperson für Integrative Förderung IF an einer 3./4. Mehrjahrgangsklasse, 14 Lektionen",
         "it": "Lehrperson per Integrative Förderung IF an einer 3./4. Mehrjahrgangsklasse, 14 Lektionen",
-        "en": "Lehrperson für Integrative Förderung IF an einer 3./4. Mehrjahrgangsklasse, 14 Lektionen",
-        "fr": "Lehrperson für Integrative Förderung IF an einer 3./4. Mehrjahrgangsklasse, 14 Lektionen"
+        "en": "Teacher for Integrative Promotion IF at a 3./4. Multi-year class, 14 lessons",
+        "fr": "Enseignant pour la promotion intégrative FI à un 3./4. Cours pluriannuel, 14 leçons"
       },
       "description": "Porträt\nDie Primarschule Hinterdorf, Langnau i.E. umfasst 4 Primarklassen und 2 Kindergartenklassen.\nEine konstruktive Zusammenarbeit mit allen Beteiligten, ein positives Lern- und Arbeitsklima und wertschätzende Beziehungen sind uns wichtig.\n\nAufgaben\n- Sie sind zuständig für die integrative Förderung (Kombination aus IF, eU, MRDV und 4 Lektionen Regelunterricht) an einer 3./4.-Klasse:\n- Förderung in Gruppen- und Einzelsetting\n- Zusammenarbeit im Kollegium und mit den MR-Lehrpersonen im Schulhaus und der Gemeinde\n- Zusammenarbeit mit Eltern und Fachstellen\n\n- Stundenplan DI Nachmittag, DO ganzer Tag, FR Vormittag\n\nAnforderungen\n- Lehrperson mit Erfahrung Zyklus 1 oder 2\n- abgeschlossene oder laufende Ausbildung in schulischer Heilpädagogik von Vorteil\n- Bereitschaft, Sportlektionen zu begleiten, resp. zu unterrichten\n\nWir bieten\n- Übergabe durch die Stelleninhaberin\n- IF-Team mit weiteren Heilpädagoginnen\n- Es stehen ein Arbeitsraum für das IF-Team, wie auch ein Unterrichtsraum für Gruppen- und Halbklassenunterricht zur Verfügung.\n- Aufteilung und Stundenplan nach Absprache\n- Die installierte Zusammenarbeit des IF-Teams der Schule Langnau bietet fachlichen Austausch und Unterstützung.\n- Mit ÖV gut erreichbar.\n- Online Bewerbung erwünscht\n- Vorstellungsgespräche nach Absprache",
       "descriptionByLocale": {
         "de": "Porträt\nDie Primarschule Hinterdorf, Langnau i.E. umfasst 4 Primarklassen und 2 Kindergartenklassen.\nEine konstruktive Zusammenarbeit mit allen Beteiligten, ein positives Lern- und Arbeitsklima und wertschätzende Beziehungen sind uns wichtig.\n\nAufgaben\n- Sie sind zuständig für die integrative Förderung (Kombination aus IF, eU, MRDV und 4 Lektionen Regelunterricht) an einer 3./4.-Klasse:\n- Förderung in Gruppen- und Einzelsetting\n- Zusammenarbeit im Kollegium und mit den MR-Lehrpersonen im Schulhaus und der Gemeinde\n- Zusammenarbeit mit Eltern und Fachstellen\n\n- Stundenplan DI Nachmittag, DO ganzer Tag, FR Vormittag\n\nAnforderungen\n- Lehrperson mit Erfahrung Zyklus 1 oder 2\n- abgeschlossene oder laufende Ausbildung in schulischer Heilpädagogik von Vorteil\n- Bereitschaft, Sportlektionen zu begleiten, resp. zu unterrichten\n\nWir bieten\n- Übergabe durch die Stelleninhaberin\n- IF-Team mit weiteren Heilpädagoginnen\n- Es stehen ein Arbeitsraum für das IF-Team, wie auch ein Unterrichtsraum für Gruppen- und Halbklassenunterricht zur Verfügung.\n- Aufteilung und Stundenplan nach Absprache\n- Die installierte Zusammenarbeit des IF-Teams der Schule Langnau bietet fachlichen Austausch und Unterstützung.\n- Mit ÖV gut erreichbar.\n- Online Bewerbung erwünscht\n- Vorstellungsgespräche nach Absprache",
-        "it": "Porträt\nDie Primarschule Hinterdorf, Langnau i.E. umfasst 4 Primarklassen und 2 Kindergartenklassen.\nEine konstruktive Zusammenarbeit mit allen Beteiligten, ein positives Lern- und Arbeitsklima und wertschätzende Beziehungen sind uns wichtig.\n\nAufgaben\n- Sie sind zuständig für die integrative Förderung (Kombination aus IF, eU, MRDV und 4 Lektionen Regelunterricht) an einer 3./4.-Klasse:\n- Förderung in Gruppen- und Einzelsetting\n- Zusammenarbeit im Kollegium und mit den MR-Lehrpersonen im Schulhaus und der Gemeinde\n- Zusammenarbeit mit Eltern und Fachstellen\n\n- Stundenplan DI Nachmittag, DO ganzer Tag, FR Vormittag\n\nAnforderungen\n- Lehrperson mit Erfahrung Zyklus 1 oder 2\n- abgeschlossene oder laufende Ausbildung in schulischer Heilpädagogik von Vorteil\n- Bereitschaft, Sportlektionen zu begleiten, resp. zu unterrichten\n\nWir bieten\n- Übergabe durch die Stelleninhaberin\n- IF-Team mit weiteren Heilpädagoginnen\n- Es stehen ein Arbeitsraum für das IF-Team, wie auch ein Unterrichtsraum für Gruppen- und Halbklassenunterricht zur Verfügung.\n- Aufteilung und Stundenplan nach Absprache\n- Die installierte Zusammenarbeit des IF-Teams der Schule Langnau bietet fachlichen Austausch und Unterstützung.\n- Mit ÖV gut erreichbar.\n- Online Bewerbung erwünscht\n- Vorstellungsgespräche nach Absprache",
-        "en": "Porträt\nDie Primarschule Hinterdorf, Langnau i.E. umfasst 4 Primarklassen und 2 Kindergartenklassen.\nEine konstruktive Zusammenarbeit mit allen Beteiligten, ein positives Lern- und Arbeitsklima und wertschätzende Beziehungen sind uns wichtig.\n\nAufgaben\n- Sie sind zuständig für die integrative Förderung (Kombination aus IF, eU, MRDV und 4 Lektionen Regelunterricht) an einer 3./4.-Klasse:\n- Förderung in Gruppen- und Einzelsetting\n- Zusammenarbeit im Kollegium und mit den MR-Lehrpersonen im Schulhaus und der Gemeinde\n- Zusammenarbeit mit Eltern und Fachstellen\n\n- Stundenplan DI Nachmittag, DO ganzer Tag, FR Vormittag\n\nAnforderungen\n- Lehrperson mit Erfahrung Zyklus 1 oder 2\n- abgeschlossene oder laufende Ausbildung in schulischer Heilpädagogik von Vorteil\n- Bereitschaft, Sportlektionen zu begleiten, resp. zu unterrichten\n\nWir bieten\n- Übergabe durch die Stelleninhaberin\n- IF-Team mit weiteren Heilpädagoginnen\n- Es stehen ein Arbeitsraum für das IF-Team, wie auch ein Unterrichtsraum für Gruppen- und Halbklassenunterricht zur Verfügung.\n- Aufteilung und Stundenplan nach Absprache\n- Die installierte Zusammenarbeit des IF-Teams der Schule Langnau bietet fachlichen Austausch und Unterstützung.\n- Mit ÖV gut erreichbar.\n- Online Bewerbung erwünscht\n- Vorstellungsgespräche nach Absprache",
-        "fr": "Porträt\nDie Primarschule Hinterdorf, Langnau i.E. umfasst 4 Primarklassen und 2 Kindergartenklassen.\nEine konstruktive Zusammenarbeit mit allen Beteiligten, ein positives Lern- und Arbeitsklima und wertschätzende Beziehungen sind uns wichtig.\n\nAufgaben\n- Sie sind zuständig für die integrative Förderung (Kombination aus IF, eU, MRDV und 4 Lektionen Regelunterricht) an einer 3./4.-Klasse:\n- Förderung in Gruppen- und Einzelsetting\n- Zusammenarbeit im Kollegium und mit den MR-Lehrpersonen im Schulhaus und der Gemeinde\n- Zusammenarbeit mit Eltern und Fachstellen\n\n- Stundenplan DI Nachmittag, DO ganzer Tag, FR Vormittag\n\nAnforderungen\n- Lehrperson mit Erfahrung Zyklus 1 oder 2\n- abgeschlossene oder laufende Ausbildung in schulischer Heilpädagogik von Vorteil\n- Bereitschaft, Sportlektionen zu begleiten, resp. zu unterrichten\n\nWir bieten\n- Übergabe durch die Stelleninhaberin\n- IF-Team mit weiteren Heilpädagoginnen\n- Es stehen ein Arbeitsraum für das IF-Team, wie auch ein Unterrichtsraum für Gruppen- und Halbklassenunterricht zur Verfügung.\n- Aufteilung und Stundenplan nach Absprache\n- Die installierte Zusammenarbeit des IF-Teams der Schule Langnau bietet fachlichen Austausch und Unterstützung.\n- Mit ÖV gut erreichbar.\n- Online Bewerbung erwünscht\n- Vorstellungsgespräche nach Absprache"
+        "it": "Ritratto\nLa scuola primaria Hinterdorf, Langnau i.E. comprende 4 classi primarie e 2 classi di asilo.\nLa cooperazione costruttiva con tutte le parti coinvolte, l'apprendimento positivo e l'ambiente di lavoro e le relazioni rispettose sono importanti per noi.\n\nCompiti\n- Sono responsabili della promozione integrativa (combinazione di IF, eU, MRDV e 4 lezioni standard) in una 3a 4a classe:\n- Promozione in gruppo e impostazione individuale\n- Collaborazione al college e con gli insegnanti MR nella scuola e nella comunità\n- Cooperazione con i genitori e gli organismi specializzati\n\n- Orario DI pomeriggio, DO full day, FR mattina\n\nRequisiti\n- Maestro con esperienza Ciclo 1 o 2\n- Formazione completa o continua nell'educazione curativa benefica\n- Volontà di accompagnare lezioni di sport o di insegnare\n\nOffriamo\n- Consegna dal titolare del post\n- IF team con altri pedagoghi curativi\n- C'è una sala di lavoro per il team IF, così come una classe per lezioni di gruppo e di mezza classe.\n- Distribuzione e calendario per accordo\n- La collaborazione installata del team IF della Langnau School offre uno scambio professionale e un supporto.\n- Facilmente accessibile con i mezzi pubblici.\n- Richiesta online richiesta\n- Intervista a disposizione",
+        "en": "Portrait\nThe primary school Hinterdorf, Langnau i.E. comprises 4 primary classes and 2 kindergarten classes.\nConstructive cooperation with all parties involved, a positive learning and working environment and respectful relationships are important to us.\n\nTasks\n- They are responsible for the integrative promotion (combination of IF, eU, MRDV and 4 lessons standard lessons) in a 3rd/4th class:\n- Promotion in group and individual setting\n- Collaboration in the college and with the MR teachers in the schoolhouse and the community\n- Cooperation with parents and specialist bodies\n\n- Timetable DI afternoon, DO full day, FR morning\n\nRequirements\n- Teacher with experience Cycle 1 or 2\n- Completed or ongoing education in curative curative education beneficial\n- Willingness to accompany sports lessons or to teach\n\nWe offer\n- Handover by the post holder\n- IF team with other curative pedagogues\n- There is a working room for the IF team, as well as a classroom for group and half-class lessons.\n- Distribution and timetable by agreement\n- The installed cooperation of the IF team of the Langnau School offers professional exchange and support.\n- Easily accessible with public transport.\n- Online application requested\n- Interview by arrangement",
+        "fr": "Portrait\nL'école primaire Hinterdorf, Langnau i.E. comprend 4 classes primaires et 2 classes maternelles.\nUne coopération constructive avec toutes les parties concernées, un environnement d'apprentissage et de travail positif et des relations respectueuses sont importants pour nous.\n\nTâches\n- Ils sont responsables de la promotion intégrative (combinaison IF, eU, MRDV et 4 leçons standard) en 3ème/4ème classe:\n- Promotion en groupe et en individuel\n- Collaboration au collège et avec les professeurs de MR de l'école et de la communauté\n- Coopération avec les parents et les organismes spécialisés\n\n- Horaire DI après-midi, DO journée complète, FR matin\n\nExigences\n- Enseignant avec expérience Cycle 1 ou 2\n- L'éducation curative complète ou continue est bénéfique\n- Volonté d'accompagner des leçons de sport ou d'enseigner\n\nNous offrons\n- Remise par le titulaire du poste\n- Équipe FI avec d'autres pédagogues curatifs\n- Il y a une salle de travail pour l'équipe de la FI, ainsi qu'une salle de classe pour les cours de groupe et demi-classe.\n- Répartition et calendrier par accord\n- La coopération installée de l'équipe IF de l'école Langnau offre un échange professionnel et un soutien.\n- Facilement accessible avec les transports en commun.\n- Demande en ligne\n- Entretien par arrangement"
       },
       "location": "Langnau",
       "canton": "BE",
@@ -4891,7 +4903,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-fur-integrative-forderung-if-an-einer-3-4-mehrjahrgangsklasse-14-lektionen-39786"
@@ -5346,7 +5357,7 @@
         "it": "Livello di aiuto di base",
         "en": "Basic class aid level",
         "de": "Klassenhilfe Basisstufe",
-        "fr": "Klassenhilfe Basisstufe"
+        "fr": "Niveau d'aide de base"
       },
       "description": "Porträt\nDie Schule Gurzelen ist eine kleine, familiäre Schule. Die knapp 80 Kinder werden in 4 Klassen unterrichtet. Wir führen zwei Basisstufen und auf der Primarstufe zwei Mischklassen (3./4.Klasse und 5./6. Klasse). Die Schülerinnen und Schüler der Oberstufe besuchen das Oberstufenzentrum in Wattenwil oder in Seftigen.\n\nAufgaben\nSie arbeiten zum Schuljahresstart am Mittwoch von 8.20 Uhr bis 9.50 Uhr und am Freitag von 10.20 Uhr bis 11.50 Uhr in der Basisstufe mit.\nSie beaufsichtigen und unterstützen Kinder bei Gruppen oder Einzelarbeiten. Sie stellen die Aufsicht in verschiedenen Räumen sicher. Sie helfen bei alltäglichen und nicht direkt unterrichtsrelevanten Handlungen mit.\n\nAnforderungen\nSie sind offen für eine konstruktive Zusammenarbeit und arbeiten gerne mit Kindern.\n\nWir bieten\n- 30 Arbeitsstunden als Klassenhilfe\n- Angenehmes Arbeitsklima in einem kleinen Team\n- Überschaubare, ländliche Schule",
       "descriptionByLocale": {
@@ -5396,7 +5407,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:46:19.623Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5425,7 +5435,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Klassenhilfe 3.–6. Klasse (16–18 Std. pro Woche)",
       "titleByLocale": {
-        "it": "Klassenhilfe 3.–6. Klasse (16–18 Std. pro Woche)",
+        "it": "Aiuto di classe 3°–6° classe (16–18 ore settimanali)",
         "en": "Class aid 3rd–6th class (16–18 hours per week)",
         "de": "Klassenhilfe 3.–6. Klasse (16–18 Std. pro Woche)",
         "fr": "Aides de catégorie 3e à 6e classe (16 à 18 heures par semaine)"
@@ -5479,7 +5489,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:15:21.257Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5772,7 +5781,7 @@
       "title": "IF-Lehrperson ( 6L bVSA) Zyklus 3 in Spiez",
       "titleByLocale": {
         "it": "Istruttore IF ( 6L bVSA) Ciclo 3 a Spiez",
-        "en": "IF-Lehrperson ( 6L bVSA) Zyklus 3 in Spiez",
+        "en": "IF instructor ( 6L bVSA) Cycle 3 in Spiez",
         "de": "IF-Lehrperson ( 6L bVSA) Zyklus 3 in Spiez",
         "fr": "instructeur IF ( 6L bVSA) Cycle 3 à Spiez"
       },
@@ -5826,7 +5835,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:51:43.172Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -6393,7 +6401,7 @@
       "title": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
       "titleByLocale": {
         "it": "Flexible, kreative e vielseitige Lehrperson (Z2/3) 50%",
-        "en": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
+        "en": "Flexible, creative and versatile teacher (Z2/3) 50 %",
         "de": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
         "fr": "Enseignant(e) flexible, créatif(ve) et polyvalent(e) (Z2/3) 50%"
       },
@@ -6445,7 +6453,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.463Z",
-      "needsRetranslation": true,
       "salaryMin": 34300,
       "salaryMax": 52000,
       "baseSalary": {
@@ -6751,7 +6758,7 @@
       "title": "Fachlehrperson Sek1, 16.5 Lektionen, 2. Quartal im SJ 26/27",
       "titleByLocale": {
         "it": "Insegnante specializzato Sek1, 16.5 lezioni, 2° trimestre in SJ 26/27",
-        "en": "Fachlehrperson Sek1, 16.5 Lektionen, 2. Quartal im SJ 26/27",
+        "en": "Specialist teacher Sek1, 16.5 lessons, 2nd quarter in SJ 26/27",
         "de": "Fachlehrperson Sek1, 16.5 Lektionen, 2. Quartal im SJ 26/27",
         "fr": "Professeur spécialiste Sek1, 16,5 leçons, 2ème trimestre en SJ 26/27"
       },
@@ -7545,7 +7552,7 @@
       "title": "DaZ-Lehrperson",
       "titleByLocale": {
         "it": "Istruttore DAZ",
-        "en": "DaZ-Lehrperson",
+        "en": "DAZ instructor",
         "de": "DaZ-Lehrperson",
         "fr": "instructeur DAZ"
       },
@@ -7597,7 +7604,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:24:04.329Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -7799,7 +7805,7 @@
       "title": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
       "titleByLocale": {
         "it": "Das Weissenheim cerca: Insegnante di classe, Ciclo 2, 14 lezioni",
-        "en": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
+        "en": "The Weissenheim is looking for: class teacher, cycle 2, 14 lessons",
         "de": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
         "fr": "Das Weissenheim recherche : Enseignant·e de classe, Cycle 2, 14 leçons"
       },
@@ -7857,7 +7863,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.458Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -7922,7 +7927,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-16T22:55:33.368Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8257,7 +8261,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:55:33.367Z",
-      "needsRetranslation": true,
       "salaryMin": 41100,
       "salaryMax": 62400,
       "baseSalary": {
@@ -8468,16 +8471,16 @@
       "title": "25 Stunden Klassenhilfe Z3, Oberstufe",
       "titleByLocale": {
         "de": "25 Stunden Klassenhilfe Z3, Oberstufe",
-        "it": "25 Stunden Klassenhilfe Z3, Oberstufe",
-        "en": "25 Stunden Klassenhilfe Z3, Oberstufe",
-        "fr": "25 Stunden Klassenhilfe Z3, Oberstufe"
+        "it": "25 ore di aiuto di classe Z3, scuola superiore",
+        "en": "25 hours class aid Z3, upper school",
+        "fr": "25 heures d'aide scolaire Z3, lycée"
       },
       "description": "Porträt\nMITEINANDER STARK - Beziehung, Entschiedenheit, Vernetzung und Selbstwirksamkeit sind bei uns wichtig. In einem heterogenen Umfeld werden Grundlagen für lebenslanges Lernen vermittelt.\nMit bestmöglichen Rahmenbedingungen und hohem Engagement arbeiten wir an einer guten und gesunden Entwicklung unserer Schule und der Lernenden.\n\nAufgaben\n- Sie übernehmen ab 10.08, mindestens vier, maximal alle offenen 25 Stunden Klassenhilfe. Es handelt sich um insgesamt 19 Stunden in drei siebten Klassen und 6 Stunden an einer neunten Klasse\n- Sie stehen je nach Pensum und Klasse zur Verfügung\n- Sie sind bereit sich auf ein dynamisches Arbeitsumfeld mit Jugendlichen aus Bern West einzulassen und haben eine offene, wertschätzende Haltung\n- Sie sind der Schule im Rahmen Ihrer Anstellung verpflichtet\n- Die Zusammenarbeit mit den Klassenlehrpersonen, dem Kollegium und der Schulleitung ist für Sie selbstverständlich\n- eine Fortführung im zweiten Semester bis Juli 2027 ist vorgesehen\n\nAnforderungen\nGrosse persönliche Flexibilität und Belastbarkeit sowie die Begabung, Jugendliche im Unterricht zu motivieren und sich den Herausforderungen anzunehmen. Bereitschaft zur Zusammenarbeit, Flexibilität und Teamfähigkeit, wenn möglich ein Lehrdiplom für pädagogische Arbeit. Bitte reichen Sie Ihren CV und ein kurzes Motivations-Schreiben per Mail an denise.steinacher@bern.ch ein, das KSML-Portal wird erst am 03.08.26 wieder geöffnet.\n\nWir bieten\n- Schöne Schulanlage am Kornweg in Bethlehem\n- hilfsbereites Kollegium\n- sehr gute Infrastruktur, gute Anbindung an ÖV",
       "descriptionByLocale": {
         "de": "Porträt\nMITEINANDER STARK - Beziehung, Entschiedenheit, Vernetzung und Selbstwirksamkeit sind bei uns wichtig. In einem heterogenen Umfeld werden Grundlagen für lebenslanges Lernen vermittelt.\nMit bestmöglichen Rahmenbedingungen und hohem Engagement arbeiten wir an einer guten und gesunden Entwicklung unserer Schule und der Lernenden.\n\nAufgaben\n- Sie übernehmen ab 10.08, mindestens vier, maximal alle offenen 25 Stunden Klassenhilfe. Es handelt sich um insgesamt 19 Stunden in drei siebten Klassen und 6 Stunden an einer neunten Klasse\n- Sie stehen je nach Pensum und Klasse zur Verfügung\n- Sie sind bereit sich auf ein dynamisches Arbeitsumfeld mit Jugendlichen aus Bern West einzulassen und haben eine offene, wertschätzende Haltung\n- Sie sind der Schule im Rahmen Ihrer Anstellung verpflichtet\n- Die Zusammenarbeit mit den Klassenlehrpersonen, dem Kollegium und der Schulleitung ist für Sie selbstverständlich\n- eine Fortführung im zweiten Semester bis Juli 2027 ist vorgesehen\n\nAnforderungen\nGrosse persönliche Flexibilität und Belastbarkeit sowie die Begabung, Jugendliche im Unterricht zu motivieren und sich den Herausforderungen anzunehmen. Bereitschaft zur Zusammenarbeit, Flexibilität und Teamfähigkeit, wenn möglich ein Lehrdiplom für pädagogische Arbeit. Bitte reichen Sie Ihren CV und ein kurzes Motivations-Schreiben per Mail an denise.steinacher@bern.ch ein, das KSML-Portal wird erst am 03.08.26 wieder geöffnet.\n\nWir bieten\n- Schöne Schulanlage am Kornweg in Bethlehem\n- hilfsbereites Kollegium\n- sehr gute Infrastruktur, gute Anbindung an ÖV",
-        "it": "Porträt\nMITEINANDER STARK - Beziehung, Entschiedenheit, Vernetzung und Selbstwirksamkeit sind bei uns wichtig. In einem heterogenen Umfeld werden Grundlagen für lebenslanges Lernen vermittelt.\nMit bestmöglichen Rahmenbedingungen und hohem Engagement arbeiten wir an einer guten und gesunden Entwicklung unserer Schule und der Lernenden.\n\nAufgaben\n- Sie übernehmen ab 10.08, mindestens vier, maximal alle offenen 25 Stunden Klassenhilfe. Es handelt sich um insgesamt 19 Stunden in drei siebten Klassen und 6 Stunden an einer neunten Klasse\n- Sie stehen je nach Pensum und Klasse zur Verfügung\n- Sie sind bereit sich auf ein dynamisches Arbeitsumfeld mit Jugendlichen aus Bern West einzulassen und haben eine offene, wertschätzende Haltung\n- Sie sind der Schule im Rahmen Ihrer Anstellung verpflichtet\n- Die Zusammenarbeit mit den Klassenlehrpersonen, dem Kollegium und der Schulleitung ist für Sie selbstverständlich\n- eine Fortführung im zweiten Semester bis Juli 2027 ist vorgesehen\n\nAnforderungen\nGrosse persönliche Flexibilität und Belastbarkeit sowie die Begabung, Jugendliche im Unterricht zu motivieren und sich den Herausforderungen anzunehmen. Bereitschaft zur Zusammenarbeit, Flexibilität und Teamfähigkeit, wenn möglich ein Lehrdiplom für pädagogische Arbeit. Bitte reichen Sie Ihren CV und ein kurzes Motivations-Schreiben per Mail an denise.steinacher@bern.ch ein, das KSML-Portal wird erst am 03.08.26 wieder geöffnet.\n\nWir bieten\n- Schöne Schulanlage am Kornweg in Bethlehem\n- hilfsbereites Kollegium\n- sehr gute Infrastruktur, gute Anbindung an ÖV",
-        "en": "Porträt\nMITEINANDER STARK - Beziehung, Entschiedenheit, Vernetzung und Selbstwirksamkeit sind bei uns wichtig. In einem heterogenen Umfeld werden Grundlagen für lebenslanges Lernen vermittelt.\nMit bestmöglichen Rahmenbedingungen und hohem Engagement arbeiten wir an einer guten und gesunden Entwicklung unserer Schule und der Lernenden.\n\nAufgaben\n- Sie übernehmen ab 10.08, mindestens vier, maximal alle offenen 25 Stunden Klassenhilfe. Es handelt sich um insgesamt 19 Stunden in drei siebten Klassen und 6 Stunden an einer neunten Klasse\n- Sie stehen je nach Pensum und Klasse zur Verfügung\n- Sie sind bereit sich auf ein dynamisches Arbeitsumfeld mit Jugendlichen aus Bern West einzulassen und haben eine offene, wertschätzende Haltung\n- Sie sind der Schule im Rahmen Ihrer Anstellung verpflichtet\n- Die Zusammenarbeit mit den Klassenlehrpersonen, dem Kollegium und der Schulleitung ist für Sie selbstverständlich\n- eine Fortführung im zweiten Semester bis Juli 2027 ist vorgesehen\n\nAnforderungen\nGrosse persönliche Flexibilität und Belastbarkeit sowie die Begabung, Jugendliche im Unterricht zu motivieren und sich den Herausforderungen anzunehmen. Bereitschaft zur Zusammenarbeit, Flexibilität und Teamfähigkeit, wenn möglich ein Lehrdiplom für pädagogische Arbeit. Bitte reichen Sie Ihren CV und ein kurzes Motivations-Schreiben per Mail an denise.steinacher@bern.ch ein, das KSML-Portal wird erst am 03.08.26 wieder geöffnet.\n\nWir bieten\n- Schöne Schulanlage am Kornweg in Bethlehem\n- hilfsbereites Kollegium\n- sehr gute Infrastruktur, gute Anbindung an ÖV",
-        "fr": "Porträt\nMITEINANDER STARK - Beziehung, Entschiedenheit, Vernetzung und Selbstwirksamkeit sind bei uns wichtig. In einem heterogenen Umfeld werden Grundlagen für lebenslanges Lernen vermittelt.\nMit bestmöglichen Rahmenbedingungen und hohem Engagement arbeiten wir an einer guten und gesunden Entwicklung unserer Schule und der Lernenden.\n\nAufgaben\n- Sie übernehmen ab 10.08, mindestens vier, maximal alle offenen 25 Stunden Klassenhilfe. Es handelt sich um insgesamt 19 Stunden in drei siebten Klassen und 6 Stunden an einer neunten Klasse\n- Sie stehen je nach Pensum und Klasse zur Verfügung\n- Sie sind bereit sich auf ein dynamisches Arbeitsumfeld mit Jugendlichen aus Bern West einzulassen und haben eine offene, wertschätzende Haltung\n- Sie sind der Schule im Rahmen Ihrer Anstellung verpflichtet\n- Die Zusammenarbeit mit den Klassenlehrpersonen, dem Kollegium und der Schulleitung ist für Sie selbstverständlich\n- eine Fortführung im zweiten Semester bis Juli 2027 ist vorgesehen\n\nAnforderungen\nGrosse persönliche Flexibilität und Belastbarkeit sowie die Begabung, Jugendliche im Unterricht zu motivieren und sich den Herausforderungen anzunehmen. Bereitschaft zur Zusammenarbeit, Flexibilität und Teamfähigkeit, wenn möglich ein Lehrdiplom für pädagogische Arbeit. Bitte reichen Sie Ihren CV und ein kurzes Motivations-Schreiben per Mail an denise.steinacher@bern.ch ein, das KSML-Portal wird erst am 03.08.26 wieder geöffnet.\n\nWir bieten\n- Schöne Schulanlage am Kornweg in Bethlehem\n- hilfsbereites Kollegium\n- sehr gute Infrastruktur, gute Anbindung an ÖV"
+        "it": "Ritratto\nTOGETHER STRONG - Rapporti, determinazione, networking e auto-efficacia sono importanti per noi. In un ambiente eterogeneo, vengono insegnate le basi per l'apprendimento permanente.\nCon le migliori condizioni quadro possibili e un alto livello di impegno, lavoriamo su un buon e sano sviluppo della nostra scuola e degli studenti.\n\nCompiti\n- Prenderai il sopravvento dalle 10.08, almeno quattro, massimo tutte aperte 25 ore di aiuto di classe. Si tratta di un totale di 19 ore in tre settima classi e 6 ore in una nona classe.\n- Sono disponibili a seconda della quantità e della classe\n- Siete pronti ad impegnarsi in un ambiente di lavoro dinamico con i giovani di Berna Ovest e avere un atteggiamento aperto e apprezzativo\n- Siete obbligati a lavorare per la scuola come parte del vostro lavoro\n- La cooperazione con gli insegnanti di classe, l'università e la gestione della scuola è una questione naturalmente per voi\n- una continuazione nel secondo semestre fino a luglio 2027 è prevista\n\nRequisiti\nGrande flessibilità personale e resilienza così come la capacità di motivare i giovani in classe e di affrontare le sfide. Volontà di cooperazione, flessibilità e lavoro di squadra, se possibile un diploma di insegnamento per il lavoro educativo. Invia il tuo CV e una breve lettera di motivazione via e-mail a denise.steinacher@bern.ch, il portale KSML non verrà riaperto fino al 03.08.26.\n\nOffriamo\n- Bellissimo complesso scolastico sul Corno di Betlemme\n- College utile\n- infrastruttura molto buona, buon collegamento con i trasporti pubblici",
+        "en": "Portrait\nTOGETHER STRONG - Relationship, determination, networking and self-efficacy are important to us. In a heterogeneous environment, the foundations for lifelong learning are taught.\nWith the best possible framework conditions and a high level of commitment, we work on a good and healthy development of our school and the learners.\n\nTasks\n- You will take over from 10.08, at least four, maximum all open 25 hours of class help. It is a total of 19 hours in three seventh classes and 6 hours in a ninth class.\n- They are available depending on the amount and class\n- You are ready to engage in a dynamic working environment with young people from Bern West and have an open, appreciative attitude\n- You are obliged to work for the school as part of your employment\n- The cooperation with the class teachers, the college and the school management is a matter of course for you\n- a continuation in the second semester until July 2027 is planned\n\nRequirements\nGreat personal flexibility and resilience as well as the ability to motivate young people in class and to take on the challenges. Willingness for cooperation, flexibility and teamwork, if possible a teaching diploma for educational work. Please submit your CV and a short motivation letter by e-mail to denise.steinacher@bern.ch, the KSML portal will not be reopened until 03.08.26.\n\nWe offer\n- Beautiful school complex on the Kornweg in Bethlehem\n- Helpful College\n- very good infrastructure, good connection to public transport",
+        "fr": "Portrait\nTOGETHER STRONG - La relation, la détermination, le réseautage et l'auto-efficacité sont importants pour nous. Dans un environnement hétérogène, les bases de l'apprentissage tout au long de la vie sont enseignées.\nAvec les meilleures conditions-cadres possibles et un haut niveau d'engagement, nous travaillons sur un développement sain et bon de notre école et des apprenants.\n\nTâches\n- Vous prendrez le relais de 10.08, au moins quatre, maximum toutes ouvertes 25 heures d'aide de classe. Il s'agit d'un total de 19 heures dans trois septièmes classes et de 6 heures dans une neuvième classe.\n- Ils sont disponibles selon le montant et la classe\n- Vous êtes prêt à vous engager dans un environnement de travail dynamique avec des jeunes de Berne-Ouest et avez une attitude ouverte et reconnaissante\n- Vous êtes obligé de travailler pour l'école dans le cadre de votre emploi\n- La coopération avec les professeurs de classe, le collège et la direction de l'école est une question bien sûr pour vous\n- une continuation au second semestre jusqu'à juillet 2027 est prévue\n\nExigences\nGrande flexibilité personnelle et résilience, ainsi que la capacité de motiver les jeunes en classe et de relever les défis. Volonté de coopération, flexibilité et travail d'équipe, si possible un diplôme d'enseignement pour le travail éducatif. Veuillez soumettre votre CV et une courte lettre de motivation par courriel à denise.steinacher@bern.ch, le portail KSML ne sera pas rouvert avant 03.08.26.\n\nNous offrons\n- Magnifique complexe scolaire sur le Kornweg à Bethléem\n- Collège utile\n- très bonne infrastructure, bonne connexion aux transports publics"
       },
       "location": "Bern",
       "canton": "BE",
@@ -8504,7 +8507,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8768,7 +8770,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.452Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -9106,7 +9107,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:46:19.616Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -9477,7 +9477,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.449Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -9800,20 +9799,33 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachlehrperson-5-6-10-lektionen-sport-franzosisch-nmg-mui-montag-und-freitag-schule-39726",
-        "fachlehrperson-5-6-10-lektionen-sport-franzosisch-nmg-mui-montag-und-freitag-ksml-kantonaler-stellenmarkt-fur-39726"
+        "fachlehrperson-5-6-10-lektionen-sport-franzosisch-nmg-mui-montag-und-freitag-ksml-kantonaler-stellenmarkt-fur-39726",
+        "fachlehrperson-5-6-8-lektionen-franzosisch-sport-bildn-gestalten-montag-e-freitag-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-grosshochstetten",
+        "specialist-teacher-5-6-8-lessons-french-sports-teaching-design-monday-and-friday-ksml-kantonaler-stellenmarkt-fur-39727",
+        "fachlehrperson-5-6-8-lektionen-franzosisch-sport-bildn-gestalten-montag-und-freitag-schule-39727",
+        "professeur-specialise-5-6-8-lecons-francais-sport-enseignement-design-lundi-et-vendredi-ksml-kantonaler-39727",
+        "fachlehrperson-5-6-8-lektionen-franzosisch-sport-bildn-gestalten-montag-und-freitag-ksml-kantonaler-stellenmarkt-f-39727"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachlehrperson-5-6-10-lektionen-sport-franzosisch-nmg-mui-montag-und-freitag-schule-39726"
+          "fachlehrperson-5-6-10-lektionen-sport-franzosisch-nmg-mui-montag-und-freitag-schule-39726",
+          "fachlehrperson-5-6-8-lektionen-franzosisch-sport-bildn-gestalten-montag-e-freitag-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-grosshochstetten",
+          "specialist-teacher-5-6-8-lessons-french-sports-teaching-design-monday-and-friday-ksml-kantonaler-stellenmarkt-fur-39727",
+          "fachlehrperson-5-6-8-lektionen-franzosisch-sport-bildn-gestalten-montag-und-freitag-schule-39727",
+          "professeur-specialise-5-6-8-lecons-francais-sport-enseignement-design-lundi-et-vendredi-ksml-kantonaler-39727",
+          "fachlehrperson-5-6-8-lektionen-franzosisch-sport-bildn-gestalten-montag-und-freitag-ksml-kantonaler-stellenmarkt-f-39727"
         ],
         "en": [
-          "fachlehrperson-5-6-10-lektionen-sport-franzosisch-nmg-mui-montag-und-freitag-schule-39726"
+          "fachlehrperson-5-6-10-lektionen-sport-franzosisch-nmg-mui-montag-und-freitag-schule-39726",
+          "specialist-teacher-5-6-8-lessons-french-sports-teaching-design-monday-and-friday-ksml-kantonaler-stellenmarkt-fur-39727"
         ],
         "de": [
-          "fachlehrperson-5-6-10-lektionen-sport-franzosisch-nmg-mui-montag-und-freitag-ksml-kantonaler-stellenmarkt-fur-39726"
+          "fachlehrperson-5-6-10-lektionen-sport-franzosisch-nmg-mui-montag-und-freitag-ksml-kantonaler-stellenmarkt-fur-39726",
+          "fachlehrperson-5-6-8-lektionen-franzosisch-sport-bildn-gestalten-montag-und-freitag-schule-39727"
         ],
         "fr": [
-          "fachlehrperson-5-6-10-lektionen-sport-franzosisch-nmg-mui-montag-und-freitag-schule-39726"
+          "fachlehrperson-5-6-10-lektionen-sport-franzosisch-nmg-mui-montag-und-freitag-schule-39726",
+          "professeur-specialise-5-6-8-lecons-francais-sport-enseignement-design-lundi-et-vendredi-ksml-kantonaler-39727"
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.460Z",
@@ -9829,8 +9841,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "ksml-50931f2b88a5",
@@ -9935,7 +9946,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Wir suchen dich; IF Lehrperson 6 Lektionen 3. Klasse",
       "titleByLocale": {
-        "it": "Wir suchen dich; IF Lehrperson 6 Lektionen 3. Klasse",
+        "it": "Ti stiamo cercando; IF Maestro 6 Lezioni di terza classe",
         "en": "We are looking for you; IF Teacher 6 Lessons 3rd Class",
         "de": "Wir suchen dich; IF Lehrperson 6 Lektionen 3. Klasse",
         "fr": "Nous vous recherchons; IF Enseignant 6 leçons 3ème classe"
@@ -9999,8 +10010,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "ksml-380728042d3d",
@@ -10017,7 +10027,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Teilpensum 5./6. Klasse, 7 - 9.5 Lektionen D, NMG, BG, (M+I)",
       "titleByLocale": {
-        "it": "Teilpensum 5./6. Klasse, 7 - 9.5 Lektionen D, NMG, BG, (M+I)",
+        "it": "5 ° / 6 ° grado, 7 - 9,5 lezioni D, NMG, BG, (M+I)",
         "en": "Sub-board 5./6. Class, 7 - 9.5 Lessons",
         "de": "Teilpensum 5./6. Klasse, 7 - 9.5 Lektionen D, NMG, BG, (M+I)",
         "fr": "Sous-tableau 5./6. Classe 7 - 9.5 Enseignements"
@@ -10093,8 +10103,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "ksml-acfb2af0e4dc",
@@ -10111,7 +10120,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Stellvertretung Franz 4. Kl. & BG 5./6. Kl., 7 Lektionen",
       "titleByLocale": {
-        "it": "Stellvertretung Franz 4. Kl. & BG 5./6. Kl., 7 Lektionen",
+        "it": "Vice Franz 4. Kl. & BG 5./6. Kl., 7 lezioni",
         "en": "Deputy Franz 4. Kl. & BG 5./6. Kl., 7 lessons",
         "de": "Stellvertretung Franz 4. Kl. & BG 5./6. Kl., 7 Lektionen",
         "fr": "Conseiller Franz 4. Kl. & BG 5./6. Kl., 7 leçons"
@@ -10176,8 +10185,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "ksml-18b0ac8213f4",
@@ -10195,7 +10203,7 @@
       "title": "Oberstufenlehrperson 23 L.",
       "titleByLocale": {
         "it": "Insegnante di scuola superiore 23 L.",
-        "en": "Oberstufenlehrperson 23 L.",
+        "en": "High school teacher 23 L.",
         "de": "Oberstufenlehrperson 23 L.",
         "fr": "Enseignant(e) de lycée 23 L."
       },
@@ -10264,8 +10272,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "ksml-7ce0e7db0b74",
@@ -10365,7 +10372,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Fachlehrperson Zyklus 3 (Sek.1), Total 22L. Math., Franz., Deutsch, Englisch",
       "titleByLocale": {
-        "it": "Fachlehrperson Zyklus 3 (Sek.1), Total 22L. Math., Franz., Deutsch, Englisch",
+        "it": "Istruttore specializzato Ciclo 3 (Sec.1), Totale 22L. Math., Franz., Tedesco, Inglese",
         "en": "Specialist instructor Cycle 3 (Sec.1), Total 22L. Math., Franz., German, English",
         "de": "Fachlehrperson Zyklus 3 (Sek.1), Total 22L. Math., Franz., Deutsch, Englisch",
         "fr": "instructeur spécialisé Cycle 3 (Sec.1), Total 22L. Math., Franz., allemand, anglais"
@@ -10429,8 +10436,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "ksml-8879834d26ef",
