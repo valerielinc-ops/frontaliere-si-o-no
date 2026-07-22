@@ -11,7 +11,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 
-const BLOG_BODY_IT_DIR = path.resolve(__dirname, '..', 'services', 'locales', 'blog-body', 'it');
+// Both blog-body (frontaliere section) and blog-body-ch (svizzera section)
+// share the same {id}.ts-per-locale layout — checking only the former left
+// the entire svizzera-section corpus (479 articles) ungated for thin content.
+const BLOG_BODY_IT_DIRS = [
+  path.resolve(__dirname, '..', 'services', 'locales', 'blog-body', 'it'),
+  path.resolve(__dirname, '..', 'services', 'locales', 'blog-body-ch', 'it'),
+];
 const MIN_WORDS = 300;
 
 function countWords(text: string): number {
@@ -19,10 +25,12 @@ function countWords(text: string): number {
 }
 
 function getArticleFiles(): string[] {
-  if (!fs.existsSync(BLOG_BODY_IT_DIR)) return [];
-  return fs.readdirSync(BLOG_BODY_IT_DIR)
-    .filter(f => f.endsWith('.ts'))
-    .map(f => path.join(BLOG_BODY_IT_DIR, f));
+  return BLOG_BODY_IT_DIRS.flatMap((dir) => {
+    if (!fs.existsSync(dir)) return [];
+    return fs.readdirSync(dir)
+      .filter(f => f.endsWith('.ts'))
+      .map(f => path.join(dir, f));
+  });
 }
 
 describe('article body word count', () => {
