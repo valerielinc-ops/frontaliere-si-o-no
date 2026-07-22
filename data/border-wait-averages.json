@@ -11,7 +11,7 @@
   },
   "chiasso-centro": {
     "morning": "0-2 min",
-    "evening": "0-5 min"
+    "evening": "0-8 min"
   },
   "chiasso-strada": {
     "morning": "5-25 min",
@@ -51,13 +51,15 @@
     "morning": "2 min"
   },
   "konstanz-tagerwilen-gottlieber-strasse": {
-    "morning": "2 min"
+    "morning": "2 min",
+    "evening": "1-2 min"
   },
   "laufenburg-laufenburg-ag": {
     "morning": "1-2 min"
   },
   "moillesulaz": {
-    "morning": "3 min"
+    "morning": "3 min",
+    "evening": "1-2 min"
   },
   "passo-dello-spluga": {
     "morning": "0-2 min"
@@ -77,7 +79,7 @@
   },
   "thonex-vallard": {
     "morning": "3-4 min",
-    "evening": "1-2 min"
+    "evening": "2 min"
   },
   "waldshut-tiengen-koblenz-ag": {
     "morning": "2 min"
