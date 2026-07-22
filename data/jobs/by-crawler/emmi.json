@@ -8721,11 +8721,17 @@
         ]
       },
       "previousSlugs": [
-        "hr-business-partner-emmi-ch"
+        "hr-business-partner-emmi-ch",
+        "partner-commerciale-delle-risorse-umane-emmi-bischofszell",
+        "partner-comercial-de-recursos-humanos-emmi-bischofszell"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-business-partner-emmi-ch"
+          "hr-business-partner-emmi-ch",
+          "partner-commerciale-delle-risorse-umane-emmi-bischofszell"
+        ],
+        "en": [
+          "partner-comercial-de-recursos-humanos-emmi-bischofszell"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.183Z",
@@ -8807,22 +8813,28 @@
       "previousSlugs": [
         "sales-support-foodservcie-emmi-ch",
         "soutien-aux-ventes-foodservcie-emmi-luzern-luzern",
-        "sales-coordinator-foodservice-emmi-ch"
+        "sales-coordinator-foodservice-emmi-ch",
+        "assistenza-commerciale-foodservcie-emmi-luzern-luzern",
+        "sales-coordinator-foodservice-emmi-luzern-luzern",
+        "sales-coordinateur-foodservice-emmi-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sales-support-foodservcie-emmi-ch",
-          "sales-coordinator-foodservice-emmi-ch"
+          "sales-coordinator-foodservice-emmi-ch",
+          "assistenza-commerciale-foodservcie-emmi-luzern-luzern"
         ],
         "en": [
-          "sales-support-foodservcie-emmi-ch"
+          "sales-support-foodservcie-emmi-ch",
+          "sales-coordinator-foodservice-emmi-luzern-luzern"
         ],
         "de": [
           "sales-support-foodservcie-emmi-ch"
         ],
         "fr": [
           "sales-support-foodservcie-emmi-ch",
-          "soutien-aux-ventes-foodservcie-emmi-luzern-luzern"
+          "soutien-aux-ventes-foodservcie-emmi-luzern-luzern",
+          "sales-coordinateur-foodservice-emmi-luzern-luzern"
         ]
       },
       "firstSeenAt": "2026-06-11T22:34:33.274Z",
