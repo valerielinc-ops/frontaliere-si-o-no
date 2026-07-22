@@ -157,6 +157,52 @@ describe('applyPerLocaleSlugCollisionGuard', () => {
     expect((jobA as any).previousSlugs).toContain('projektmanager-m-w-d-acme-corp-leibstadt');
   });
 
+  it('disambiguates instead of deleting when the exact same slug collided before (recurring collision)', () => {
+    // Regression: a job whose translated EN slug already collided once (this
+    // run's assemble already dropped it and recorded it in previousSlugs) hits
+    // the SAME collision again — because deterministic MT regenerates the
+    // identical string on retry. Confirmed live: Fisiocare Sagl / EOC –
+    // Ente Ospedaliero Cantonale physiotherapist postings stuck
+    // needsRetranslation for 12-36 days despite fully correct per-crawler
+    // translations, because delete+reflag never breaks a deterministic loop.
+    const jobA: JobFixture = {
+      id: 'job-a',
+      url: 'https://employer.example/jobs/a',
+      canton: 'AG',
+      slug: 'ingegnere-di-calcolo-acme-corp-leibstadt',
+      slugByLocale: {
+        it: 'ingegnere-di-calcolo-acme-corp-leibstadt',
+        en: 'projektmanager-m-w-d-acme-corp-leibstadt',
+      },
+      titleByLocale: {
+        it: 'Ingegnere di calcolo',
+        en: 'Projektmanager (m/w/d)',
+      },
+      // Already dropped this exact EN slug in a prior assemble run.
+      previousSlugs: ['projektmanager-m-w-d-acme-corp-leibstadt'],
+    };
+    const jobB: JobFixture = {
+      id: 'job-b',
+      url: 'https://employer.example/jobs/b',
+      canton: 'AG',
+      slug: 'projektmanager-m-w-d-acme-corp-leibstadt',
+      slugByLocale: { it: 'projektmanager-m-w-d-acme-corp-leibstadt' },
+      titleByLocale: { it: 'Projektmanager (m/w/d)' },
+    };
+
+    const report = applyPerLocaleSlugCollisionGuard([jobA, jobB]);
+
+    expect(report.count).toBe(1);
+    // Title is PRESERVED — nothing was actually wrong with the translation.
+    expect(jobA.titleByLocale.en).toBe('Projektmanager (m/w/d)');
+    // Slug is disambiguated (unique suffix), not deleted.
+    expect(jobA.slugByLocale.en).not.toBeUndefined();
+    expect(jobA.slugByLocale.en).not.toBe('projektmanager-m-w-d-acme-corp-leibstadt');
+    expect(jobA.slugByLocale.en!.startsWith('projektmanager-m-w-d-acme-corp-leibstadt-')).toBe(true);
+    // No retranslation flag — there is nothing to retranslate.
+    expect(jobA.needsRetranslation).toBeUndefined();
+  });
+
   it('caps the details list at 10 to keep build logs short', () => {
     const owner = {
       url: 'owner', canton: 'AG', slug: 'shared-slug-acme-corp-aarau',
