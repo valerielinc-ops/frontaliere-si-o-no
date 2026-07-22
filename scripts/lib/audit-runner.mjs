@@ -35,7 +35,7 @@
 // more RAM, parallelism can be opted into via AUDIT_WORKERS=N (TODO).
 
 import { readFile, readdir, stat } from 'node:fs/promises';
-import { join, dirname } from 'node:path';
+import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeAuditReport, auditReportPath } from './auditReport.mjs';
 
@@ -192,6 +192,47 @@ export async function walkHtmlFiles(dir) {
   return out;
 }
 
+// FNV-1a — fast, deterministic, language-independent (no crypto import needed
+// for a non-adversarial bucket assignment). Same path always hashes to the
+// same bucket on every machine/run, which is what the rotation below relies on.
+function fnv1a(str) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = Math.imul(h, 0x01000193);
+  }
+  return h >>> 0;
+}
+
+/**
+ * Deterministic ROTATING sample of `files`. Every file hashes to one of
+ * `totalBuckets` buckets (stable across runs); this call keeps only the
+ * files whose bucket equals `salt % totalBuckets`. Over `totalBuckets`
+ * consecutive calls with `salt` incrementing (e.g. GITHUB_RUN_NUMBER), every
+ * file gets scanned at least once — full corpus coverage is preserved, just
+ * spread across a bounded run window instead of happening on every single
+ * run. This is NOT the same guarantee as scanning everything every run; it
+ * trades per-run completeness for wall-clock, on the premise (true for this
+ * repo's push-triggered validate-dist cadence) that runs happen often enough
+ * for the window to stay short. See scripts/audit-all.mjs's --sample-rate
+ * docs for the CI wiring and rationale (AGENTS.md non-negotiable #1: this
+ * must never be silent — sampling metadata is always printed in the
+ * audit-all summary and returned from runAudits()).
+ *
+ * @param {string[]} files absolute paths from walkHtmlFiles
+ * @param {string} distDir base dir (for a machine/run-independent relative hash key)
+ * @param {number} rate 0 < rate <= 1; 1 = no sampling (identity)
+ * @param {number} salt rotation position (e.g. run number); any integer
+ * @returns {{ sampled: string[], totalBuckets: number, activeBucket: number }}
+ */
+export function sampleFiles(files, distDir, rate, salt) {
+  const totalBuckets = Math.max(1, Math.round(1 / rate));
+  if (totalBuckets <= 1) return { sampled: files, totalBuckets: 1, activeBucket: 0 };
+  const activeBucket = ((salt % totalBuckets) + totalBuckets) % totalBuckets;
+  const sampled = files.filter((f) => fnv1a(relative(distDir, f)) % totalBuckets === activeBucket);
+  return { sampled, totalBuckets, activeBucket };
+}
+
 /**
  * Run all auditors against every HTML file under `distDir`.
  *
@@ -211,10 +252,11 @@ export async function walkHtmlFiles(dir) {
  *   walkElapsedSec: number,
  *   collectElapsedSec: number,
  *   filesScanned: number,
- *   reports: Array<AuditorResult & { name: string, reportPath: string|null, elapsedSec: number }>
+ *   reports: Array<AuditorResult & { name: string, reportPath: string|null, elapsedSec: number }>,
+ *   sampling: { totalBuckets: number, activeBucket: number, filesOnDisk: number, filesScanned: number } | null
  * }>}
  */
-export async function runAudits({ distDir, auditors, verbose = true, writeReports = true }) {
+export async function runAudits({ distDir, auditors, verbose = true, writeReports = true, sampleRate = 1, sampleSalt = 0 }) {
   if (!Array.isArray(auditors) || auditors.length === 0) {
     throw new Error('runAudits: no auditors registered');
   }
@@ -232,9 +274,24 @@ export async function runAudits({ distDir, auditors, verbose = true, writeReport
   }
 
   const tWalk0 = performance.now();
-  const files = await walkHtmlFiles(distDir);
+  const allFiles = await walkHtmlFiles(distDir);
   const walkElapsedSec = (performance.now() - tWalk0) / 1000;
-  if (verbose) console.log(`[audit-runner] walked ${files.length} HTML files in ${walkElapsedSec.toFixed(2)}s`);
+  if (verbose) console.log(`[audit-runner] walked ${allFiles.length} HTML files in ${walkElapsedSec.toFixed(2)}s`);
+
+  const rate = sampleRate > 0 && sampleRate <= 1 ? sampleRate : 1;
+  const { sampled: files, totalBuckets, activeBucket } = rate < 1
+    ? sampleFiles(allFiles, distDir, rate, sampleSalt)
+    : { sampled: allFiles, totalBuckets: 1, activeBucket: 0 };
+  const sampling = totalBuckets > 1
+    ? { totalBuckets, activeBucket, filesOnDisk: allFiles.length, filesScanned: files.length }
+    : null;
+  if (sampling && verbose) {
+    console.log(
+      `[audit-runner] SAMPLED run: bucket ${activeBucket + 1}/${totalBuckets} — ` +
+      `scanning ${files.length}/${allFiles.length} files (${((files.length / allFiles.length) * 100).toFixed(1)}%). ` +
+      `Full corpus coverage requires ${totalBuckets} consecutive runs (rotates via sampleSalt).`,
+    );
+  }
 
   const strict = process.env.AUDIT_STRICT === '1';
   if (strict && verbose) console.log('[audit-runner] AUDIT_STRICT=1 (mutation detection on)');
@@ -323,7 +380,7 @@ export async function runAudits({ distDir, auditors, verbose = true, writeReport
   }
 
   const totalElapsedSec = (performance.now() - t0) / 1000;
-  return { totalElapsedSec, walkElapsedSec, collectElapsedSec, filesScanned: scanned, reports };
+  return { totalElapsedSec, walkElapsedSec, collectElapsedSec, filesScanned: scanned, reports, sampling };
 }
 
 /**
