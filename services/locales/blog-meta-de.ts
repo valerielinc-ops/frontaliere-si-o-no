@@ -8847,6 +8847,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tragedia-lavoro-blenio-aquila.title': 'Tragödie bei der Arbeit in Blenio: Die Details des Unfalls',
     'blog.article.tragedia-lavoro-blenio-aquila.excerpt': 'Ein 67-Jähriger kam bei einem Arbeitsunfall in Aquila di Blenio ums Leben. Es ist das zweite tragische Ereignis innerhalb weniger Tage im selben Gebiet.',
     'blog.article.tragedia-lavoro-blenio-aquila.imageAlt': 'Berglandschaft im Bleniotal, Tessin',
+    'blog.article.dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.title': 'Lohndaten der Grenzgänger in der Steuererklärung',
+    'blog.article.dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.excerpt': 'Laut Quelle sollen die Lohndaten der alten Grenzgänger in die Steuererklärung aufgenommen werden.',
+    'blog.article.dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.imageAlt': 'Panorama des Luganersees',
 };
 
 export default blogMetaDe;

@@ -8849,6 +8849,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tragedia-lavoro-blenio-aquila.title': 'Tragedia sul lavoro a Blenio: i dettagli dell\'incidente',
     'blog.article.tragedia-lavoro-blenio-aquila.excerpt': 'Un 67enne ha perso la vita in un infortunio sul lavoro ad Aquila di Blenio. Si tratta del secondo tragico evento in pochi giorni nel medesimo comprensorio.',
     'blog.article.tragedia-lavoro-blenio-aquila.imageAlt': 'Paesaggio montano nella Valle di Blenio, Ticino',
+    'blog.article.dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.title': 'Dati salariali dei frontalieri in dichiarazione dei redditi',
+    'blog.article.dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.excerpt': 'Secondo la fonte, i dati salariali dei vecchi frontalieri saranno inclusi nella dichiarazione dei redditi.',
+    'blog.article.dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.imageAlt': 'Panorama del Lago di Lugano',
 };
 
 export default blogMetaIt;
