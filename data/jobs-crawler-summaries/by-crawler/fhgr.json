@@ -1,16 +1,16 @@
 {
   "key": "fhgr",
   "label": "Fachhochschule Graubünden",
-  "generatedAt": "2026-07-22T11:31:51.513Z",
+  "generatedAt": "2026-07-22T22:29:27.853Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 8158,
-  "avgDurationMs": 8158,
+  "durationMs": 8114,
+  "avgDurationMs": 8114,
   "durationHistory": [
-    8158
+    8114
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/802/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T11:31:45.914Z",
+      "crawledAt": "2026-07-22T22:29:22.198Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/801/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T11:31:47.015Z",
+      "crawledAt": "2026-07-22T22:29:23.363Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -100,7 +100,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T11:31:48.090Z",
+      "crawledAt": "2026-07-22T22:29:24.552Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -160,7 +160,7 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "addressRegion": "GR",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
