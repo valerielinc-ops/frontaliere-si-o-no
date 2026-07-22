@@ -1,16 +1,16 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-07-22T11:14:57.070Z",
-  "total": 6,
+  "generatedAt": "2026-07-22T22:05:28.768Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 33052,
-  "avgDurationMs": 33052,
+  "durationMs": 36046,
+  "avgDurationMs": 36046,
   "durationHistory": [
-    33052
+    36046
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -21,7 +21,6 @@
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
       "title": "Dipl. Expertin / Dipl. Experte Intensivpflege - Wir können Beatmung und gute Stimmung",
-      "needsRetranslation": false,
       "location": "Zollikerberg",
       "canton": "ZH",
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=b4e2638e-6fb6-4e55-986d-ddc7e1dd4f19,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
@@ -43,12 +42,15 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=b4e2638e-6fb6-4e55-986d-ddc7e1dd4f19,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "_qualityScore": 85,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
