@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-07-22T11:14:35.630Z",
+  "generatedAt": "2026-07-22T22:05:08.003Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10314,
-  "avgDurationMs": 10314,
+  "durationMs": 13974,
+  "avgDurationMs": 13974,
   "durationHistory": [
-    10314
+    13974
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -258,10 +258,10 @@
       "sourceLang": "it",
       "id": "sintetica-2161482f648c",
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
-      "_qualityScore": 83,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 10,
         "translation": 25,
         "completeness": 15
       }
@@ -293,7 +293,6 @@
       },
       "sourceLang": "it",
       "id": "sintetica-4302b766b847",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "_qualityScore": 75,
       "_qualityBreakdown": {
@@ -582,10 +581,10 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "_qualityScore": 88,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 10,
         "translation": 25,
         "completeness": 20
       }
@@ -617,7 +616,6 @@
       },
       "sourceLang": "it",
       "id": "sintetica-4302b766b847",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
       "salaryMin": 60500,
