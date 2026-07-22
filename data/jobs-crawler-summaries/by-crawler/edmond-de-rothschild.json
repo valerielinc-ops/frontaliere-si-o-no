@@ -1,18 +1,58 @@
 {
   "key": "edmond-de-rothschild",
   "label": "Edmond de Rothschild",
-  "generatedAt": "2026-07-21T23:45:55.815Z",
+  "generatedAt": "2026-07-22T13:01:56.279Z",
   "total": 7,
   "newCount": 1,
-  "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6604,
-  "avgDurationMs": 6604,
+  "updatedCount": 6,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 7405,
+  "avgDurationMs": 7405,
   "durationHistory": [
-    6604
+    7405
   ],
   "newJobs": [
+    {
+      "id": "edmond-de-rothschild-6d5585982f58",
+      "slug": "compliance-officer-cdd-edmond-de-rothschild-ch",
+      "company": "Edmond de Rothschild",
+      "companyKey": "edmond-de-rothschild",
+      "companyDomain": "edmond-de-rothschild.com",
+      "title": "Compliance Officer - CDD",
+      "needsRetranslation": true,
+      "location": "Switzerland",
+      "canton": "GE",
+      "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2859",
+      "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-22T13:01:50.631Z",
+      "addressLocality": "Switzerland",
+      "addressRegion": "GE",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Legale",
+      "contract": "full-time",
+      "employmentType": "CONTRACTOR",
+      "experienceLevel": "mid",
+      "sector": "Banca / Gestione patrimoniale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-22",
+      "applyUrl": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2859",
+      "jobReqId": "2859",
+      "_qualityScore": 63,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "edmond-de-rothschild-f860842788ec",
       "slug": "auditeur-interne-it-responsable-de-missions-edmond-de-rothschild-ch",
@@ -20,13 +60,13 @@
       "companyKey": "edmond-de-rothschild",
       "companyDomain": "edmond-de-rothschild.com",
       "title": "Auditeur Interne IT - Responsable de Missions",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Switzerland",
       "canton": "GE",
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2864",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T23:45:50.968Z",
+      "crawledAt": "2026-07-22T13:01:51.171Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -43,16 +83,15 @@
       "postedDate": "2026-07-21",
       "applyUrl": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2864",
       "jobReqId": "2864",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-21T23:45:50.968Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "edmond-de-rothschild-9df42d163950",
       "slug": "compliance-project-data-officer-edmond-de-rothschild-ch",
@@ -66,7 +105,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2818",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T23:45:51.483Z",
+      "crawledAt": "2026-07-22T13:01:51.696Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -105,7 +144,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2796",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T23:45:51.988Z",
+      "crawledAt": "2026-07-22T13:01:52.244Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -144,7 +183,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2753",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T23:45:52.476Z",
+      "crawledAt": "2026-07-22T13:01:52.761Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -183,7 +222,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2677",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T23:45:52.961Z",
+      "crawledAt": "2026-07-22T13:01:53.307Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -222,7 +261,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2675",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T23:45:53.456Z",
+      "crawledAt": "2026-07-22T13:01:53.872Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -249,8 +288,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "edmond-de-rothschild-6cc4751e0a0b",
       "slug": "dipendente-in-custodia-titoli-registrati-edmond-de-rothschild-switzerland",
@@ -293,5 +331,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
