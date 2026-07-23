@@ -19245,6 +19245,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ia-cambia-lavoro-ma-non-sostituisce-persone': {
+    title: 'Di più Adecco, «l\'IA cambia il lavoro ma non sostituisce le persone»',
+    description: 'Il presidente di Adecco, Denis Machuel, afferma che l\'intelligenza artificiale (IA) non sostituisce le persone, ma le aiuta a lavorare meglio. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, adecco, cambia, lavoro, sostituisce',
+    ogTitle: 'Di più Adecco, «l\'IA cambia il lavoro ma non sostituisce le persone»',
+    ogDescription: 'Il presidente di Adecco, Denis Machuel, afferma che l\'intelligenza artificiale (IA) non sostituisce le persone, ma le aiuta a lavorare meglio.',
+    canonicalPath: '/articoli-svizzera/ia-cambia-lavoro-ma-non-sostituisce-persone/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più Adecco, «l'IA cambia il lavoro ma non sostituisce le persone»",
+      "description": "Il presidente di Adecco, Denis Machuel, afferma che l'intelligenza artificiale (IA) non sostituisce le persone, ma le aiuta a lavorare meglio. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ia-cambia-lavoro-ma-non-sostituisce-persone.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un manager parla di IA e lavoro in Svizzera"
+      },
+      "datePublished": "2026-07-23T19:03:02+00:00",
+      "dateModified": "2026-07-23T19:03:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ia-cambia-lavoro-ma-non-sostituisce-persone/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

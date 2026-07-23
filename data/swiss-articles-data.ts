@@ -4463,6 +4463,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ia-cambia-lavoro-ma-non-sostituisce-persone',
+    category: 'fiscale',
+    date: '2026-07-23T19:03:02.568Z',
+    image: '/images/blog/ia-cambia-lavoro-ma-non-sostituisce-persone.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

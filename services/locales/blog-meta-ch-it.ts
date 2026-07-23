@@ -1489,6 +1489,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aziende-svizzere-in-borsa.title': 'Di più dati aziendali positivi, ma la borsa storce il naso: che succede?',
     'blog.article.aziende-svizzere-in-borsa.excerpt': 'Gli esperti cercano spiegazioni per il comportamento dei mercati azionari svizzeri.',
     'blog.article.aziende-svizzere-in-borsa.imageAlt': 'Un\'immagine di un mercato azionario svizzero.',
+    'blog.article.ia-cambia-lavoro-ma-non-sostituisce-persone.title': 'Di più Adecco, «l\'IA cambia il lavoro ma non sostituisce le persone»',
+    'blog.article.ia-cambia-lavoro-ma-non-sostituisce-persone.excerpt': 'Il presidente di Adecco, Denis Machuel, afferma che l\'intelligenza artificiale (IA) non sostituisce le persone, ma le aiuta a lavorare meglio.',
+    'blog.article.ia-cambia-lavoro-ma-non-sostituisce-persone.imageAlt': 'Un manager parla di IA e lavoro in Svizzera',
 };
 
 export default blogMetaChIt;
