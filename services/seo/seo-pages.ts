@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3479,
+ "numberOfItems": 3480,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8247,7 +8247,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3476, "name": "Svizzera, il passaggio delle azioni al manager ...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-il-passaggio-delle-azioni-al-manager-non-e-sempre-reddito-imponibile` },
           { "@type": "ListItem", "position": 3477, "name": "Cantiere Nsif, lavori avanzati e tempistiche ri...", "url": `${BASE_URL}/articoli-frontaliere/cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate` },
           { "@type": "ListItem", "position": 3478, "name": "Zali e le pressioni per un'assunzione: l'EOC pr...", "url": `${BASE_URL}/articoli-frontaliere/zali-e-le-pressioni-per-un-assunzione` },
-          { "@type": "ListItem", "position": 3479, "name": "frontaliere ingegnere ticino stipendio requisiti", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ingegnere-ticino-stipendio` }
+          { "@type": "ListItem", "position": 3479, "name": "frontaliere ingegnere ticino stipendio requisiti", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ingegnere-ticino-stipendio` },
+          { "@type": "ListItem", "position": 3480, "name": "Di più dati aziendali positivi, ma la borsa sto...", "url": `${BASE_URL}/articoli-frontaliere/aziende-svizzere-in-borsa` }
  ]
  },
  {

@@ -1486,6 +1486,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.zali-e-le-pressioni-per-un-assunzione.title': 'Zali und der Einstellungsdruck: EOC distanziert sich von der Vergangenheit',
     'blog.article.zali-e-le-pressioni-per-un-assunzione.excerpt': 'Der neue Vorstandsvorsitzende Andrea Bersani distanziert sich von der Vergangenheit hinsichtlich des Drucks auf eine Anstellung.',
     'blog.article.zali-e-le-pressioni-per-un-assunzione.imageAlt': 'Eine Szene mit dem Luganer See und der Stadt Lugano, Schweiz',
+    'blog.article.aziende-svizzere-in-borsa.title': 'Mehr positive Unternehmensdaten, aber die Tasche krummelt die Nase: Was ist los?',
+    'blog.article.aziende-svizzere-in-borsa.excerpt': 'Experten suchen nach Erklärungen für das Verhalten der Schweizer Aktienmärkte.',
+    'blog.article.aziende-svizzere-in-borsa.imageAlt': 'Ein Bild von einem Schweizer Aktienmarkt.',
 };
 
 export default blogMetaChDe;

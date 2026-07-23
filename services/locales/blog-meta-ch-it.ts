@@ -1486,6 +1486,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.zali-e-le-pressioni-per-un-assunzione.title': 'Zali e le pressioni per un\'assunzione: l\'EOC prende le distanze dal passato',
     'blog.article.zali-e-le-pressioni-per-un-assunzione.excerpt': 'Il neo presidente del CdA Andrea Bersani prende le distanze dal passato riguardo alle pressioni per un\'assunzione.',
     'blog.article.zali-e-le-pressioni-per-un-assunzione.imageAlt': 'Una scena con il Lago di Lugano e la città di Lugano, in Svizzera',
+    'blog.article.aziende-svizzere-in-borsa.title': 'Di più dati aziendali positivi, ma la borsa storce il naso: che succede?',
+    'blog.article.aziende-svizzere-in-borsa.excerpt': 'Gli esperti cercano spiegazioni per il comportamento dei mercati azionari svizzeri.',
+    'blog.article.aziende-svizzere-in-borsa.imageAlt': 'Un\'immagine di un mercato azionario svizzero.',
 };
 
 export default blogMetaChIt;

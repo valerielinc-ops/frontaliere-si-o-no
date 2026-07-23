@@ -1486,6 +1486,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.zali-e-le-pressioni-per-un-assunzione.title': 'Zali et les pressions pour un recrutement',
     'blog.article.zali-e-le-pressioni-per-un-assunzione.excerpt': 'Le nouveau président du conseil d\'administration Andrea Bersani prend ses distances par rapport au passé en ce qui concerne les pressions pour un recrutement.',
     'blog.article.zali-e-le-pressioni-per-un-assunzione.imageAlt': 'Une scène avec le lac de Lugano et la ville de Lugano, Suisse',
+    'blog.article.aziende-svizzere-in-borsa.title': 'Plus de données positives, mais la bourse se détourne',
+    'blog.article.aziende-svizzere-in-borsa.excerpt': 'Les experts cherchent des explications sur le comportement des marchés boursiers suisses.',
+    'blog.article.aziende-svizzere-in-borsa.imageAlt': 'Une image d\'un marché boursier suisse.',
 };
 
 export default blogMetaChFr;
