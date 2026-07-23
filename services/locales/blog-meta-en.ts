@@ -8896,6 +8896,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-ingegnere-ticino-stipendio.title': 'border engineer Ticino salary requirements',
     'blog.article.frontaliere-ingegnere-ticino-stipendio.excerpt': 'New Frontier Agreement in force since 1/1/2024: deductible €10,000, tax at source only in Switzerland, Italian tax credit to avoid double taxation.',
     'blog.article.frontaliere-ingegnere-ticino-stipendio.imageAlt': 'Frontier engineer near Lake Lugano with Alpine view',
+    'blog.article.tasse-frontalieri-nessuna-stangata.title': 'Border taxes, no stranglehold on low incomes',
+    'blog.article.tasse-frontalieri-nessuna-stangata.excerpt': 'No barbed wire for low income frontiersmen',
+    'blog.article.tasse-frontalieri-nessuna-stangata.imageAlt': 'a Swiss-Italian border worker',
 };
 
 export default blogMetaEn;

@@ -4855,6 +4855,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-zali-e-le-pressioni-per-un-assunzione': { name: 'Fatti chiave', path: '/articoli-svizzera/zali-e-le-pressioni-per-un-assunzione/', parent: 'blog' },
     'blog-frontaliere-ingegnere-ticino-stipendio': { name: 'frontaliere ingegnere', path: '/articoli-frontaliere/frontaliere-ingegnere-ticino-stipendio', parent: 'blog' },
     'blog-aziende-svizzere-in-borsa': { name: 'Dati aziendali positivi, ma la borsa', path: '/articoli-svizzera/aziende-svizzere-in-borsa/', parent: 'blog' },
+    'blog-tasse-frontalieri-nessuna-stangata': { name: 'Tasse frontalieri', path: '/articoli-frontaliere/tasse-frontalieri-nessuna-stangata', parent: 'blog' },
  };
 
  const info = sectionNames[section];

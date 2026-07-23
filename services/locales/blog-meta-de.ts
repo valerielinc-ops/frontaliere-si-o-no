@@ -8895,6 +8895,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-ingegnere-ticino-stipendio.title': 'grenzgänger Ingenieur Tessin Gehaltsvoraussetzungen',
     'blog.article.frontaliere-ingegnere-ticino-stipendio.excerpt': 'Neues Frontalieri-Abkommen in Kraft seit 01.01.2024: Selbstbehalt von € 10\'000, Quellensteuer nur in der Schweiz, italienische Steuergutschrift zur Vermeidung von Doppelbesteuerung.',
     'blog.article.frontaliere-ingegnere-ticino-stipendio.imageAlt': 'Grenzgänger Ingenieur am Luganersee mit Alpenblick',
+    'blog.article.tasse-frontalieri-nessuna-stangata.title': 'Grenzsteuern, keine Engpässe für niedrige Einkommen',
+    'blog.article.tasse-frontalieri-nessuna-stangata.excerpt': 'Kein Stau für Grenzgänger mit geringem Einkommen',
+    'blog.article.tasse-frontalieri-nessuna-stangata.imageAlt': 'ein Frontalier, der in der Schweiz arbeitet',
 };
 
 export default blogMetaDe;
