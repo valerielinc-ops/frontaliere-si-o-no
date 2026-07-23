@@ -10,6 +10,7 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.fust.ch/offene-stellen/bauleiter-in/e759dd00-96e4-498f-9bb5-4a45caa644d3",
     "https://jobs.fust.ch/offene-stellen/sachbearbeiter-in-logistik-administration/007a2735-dba3-401d-914a-6d2581994100",
     "https://jobs.fust.ch/offene-stellen/verkaeufer-in-planer-in-kuechen-baeder/0b0c41f1-89f1-4cad-b43e-5a61cb1f0e12",
     "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/a6c1f91a-86df-42c5-b502-020f144f8127",
@@ -29,7 +30,6 @@
     "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/8bf84d8f-f5ea-4a91-9cca-96ddab293fe2",
     "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-facility-management-betriebsunterhalt/7ddc9511-d28f-48b2-ac1e-eac105346180",
     "https://jobs.fust.ch/offene-stellen/kundendienstmitarbeiter-in/099128f6-7924-48d3-948d-6e3e8a6458ec",
-    "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-intralogistik-bereich-kommissionierung/a068765b-a75f-4890-a0e8-915597f09f6e",
     "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/69051fb2-01eb-4a08-9792-d04ffefec0a9",
     "https://jobs.fust.ch/offene-stellen/monteur-fuer-den-austausch-von-kuecheneinbaugeraeten/17cda0d9-8ab4-4fe3-94b5-1207304936b0",
     "https://jobs.fust.ch/offene-stellen/monteur-fuer-den-austausch-von-kuecheneinbaugeraeten/a8aea8f2-2a6d-4fa2-a31c-f43c5685153a",
@@ -54,6 +54,12 @@
     "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/21021947-89fa-4b58-a4cc-d77c490fe420"
   ],
   "seedMetaByUrl": {
+    "https://jobs.fust.ch/offene-stellen/bauleiter-in/e759dd00-96e4-498f-9bb5-4a45caa644d3": {
+      "location": "Berna",
+      "canton": "BE",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
     "https://jobs.fust.ch/offene-stellen/sachbearbeiter-in-logistik-administration/007a2735-dba3-401d-914a-6d2581994100": {
       "location": "San Gallo",
       "canton": "SG",
@@ -163,12 +169,6 @@
       "contract": "A tempo indeterminato"
     },
     "https://jobs.fust.ch/offene-stellen/kundendienstmitarbeiter-in/099128f6-7924-48d3-948d-6e3e8a6458ec": {
-      "location": "San Gallo",
-      "canton": "SG",
-      "company": "Fust",
-      "contract": "A tempo indeterminato"
-    },
-    "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-intralogistik-bereich-kommissionierung/a068765b-a75f-4890-a0e8-915597f09f6e": {
       "location": "San Gallo",
       "canton": "SG",
       "company": "Fust",
@@ -308,5 +308,5 @@
     }
   },
   "notes": "Fust (Coop Group) — Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch with JSON-LD JobPosting.",
-  "updatedAt": "2026-07-23T11:18:46.821Z"
+  "updatedAt": "2026-07-23T22:09:02.827Z"
 }
