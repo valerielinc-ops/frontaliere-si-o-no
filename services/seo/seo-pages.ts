@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3461,
+ "numberOfItems": 3462,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8229,7 +8229,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3458, "name": "Terzo pilastro 3a svizzero: vantaggi 2026 nel C...", "url": `${BASE_URL}/articoli-frontaliere/terzo-pilastro-3a-vantaggi-2026-canton-san-gallo` },
           { "@type": "ListItem", "position": 3459, "name": "Sempre meno frontalieri in Ticino: calo lieve m...", "url": `${BASE_URL}/articoli-frontaliere/sempre-meno-frontalieri-ticino-calof-lievelie` },
           { "@type": "ListItem", "position": 3460, "name": "Permesso G per frontalieri: procedura e obbligh...", "url": `${BASE_URL}/articoli-frontaliere/permesso-frontaliere-g-procedura-ticino` },
-          { "@type": "ListItem", "position": 3461, "name": "Quanto guadagna un muratore frontaliere in Ticino?", "url": `${BASE_URL}/articoli-frontaliere/stipendio-muratore-frontaliere-ticino` }
+          { "@type": "ListItem", "position": 3461, "name": "Quanto guadagna un muratore frontaliere in Ticino?", "url": `${BASE_URL}/articoli-frontaliere/stipendio-muratore-frontaliere-ticino` },
+          { "@type": "ListItem", "position": 3462, "name": "Terzo pilastro 3a: vantaggi per i frontalieri n...", "url": `${BASE_URL}/articoli-frontaliere/terzo-pilastro-3a-vantaggi-2026-basilea` }
  ]
  },
  {

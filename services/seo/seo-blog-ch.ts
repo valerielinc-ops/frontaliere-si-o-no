@@ -18894,6 +18894,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-terzo-pilastro-3a-vantaggi-2026-basilea': {
+    title: 'Terzo pilastro 3a: vantaggi per i frontalieri nel canton Basilea',
+    description: 'La nuova convenzione doppie imposizioni Italia-Svizzera e il Nuovo Accordo Frontalieri prevedono vantaggi per i frontalieri nel canton Basilea. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, terzo, pilastro, vantaggi, canton',
+    ogTitle: 'Terzo pilastro 3a: vantaggi per i frontalieri nel canton Basilea',
+    ogDescription: 'La nuova convenzione doppie imposizioni Italia-Svizzera e il Nuovo Accordo Frontalieri prevedono vantaggi per i frontalieri nel canton Basilea.',
+    canonicalPath: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026-basilea/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Terzo pilastro 3a: vantaggi per i frontalieri nel canton Basilea",
+      "description": "La nuova convenzione doppie imposizioni Italia-Svizzera e il Nuovo Accordo Frontalieri prevedono vantaggi per i frontalieri nel canton Basilea. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/terzo-pilastro-3a-vantaggi-2026-basilea.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Descrizione dell'immagine in italiano, massimo 125 caratteri"
+      },
+      "datePublished": "2026-07-23T05:15:40+00:00",
+      "dateModified": "2026-07-23T05:15:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026-basilea/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

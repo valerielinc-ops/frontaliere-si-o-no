@@ -1462,6 +1462,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-frontaliere-g-procedura-ticino.title': 'Permesso G per frontalieri: procedura e obblighi in Ticino',
     'blog.article.permesso-frontaliere-g-procedura-ticino.excerpt': 'Guida pratica alla richiesta del nuovo permesso G per frontalieri in Ticino: documenti, obblighi di notifica e tasse di procedura aggiornate.',
     'blog.article.permesso-frontaliere-g-procedura-ticino.imageAlt': 'Edificio amministrativo in Ticino',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.title': 'Terzo pilastro 3a: vantaggi per i frontalieri nel canton Basilea',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.excerpt': 'La nuova convenzione doppie imposizioni Italia-Svizzera e il regime transitorio per i frontalieri.',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.imageAlt': 'Descrizione dell\'immagine in italiano, massimo 125 caratteri',
 };
 
 export default blogMetaChIt;

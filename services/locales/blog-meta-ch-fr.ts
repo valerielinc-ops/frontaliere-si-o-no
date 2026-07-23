@@ -1462,6 +1462,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-frontaliere-g-procedura-ticino.title': 'Permis G pour frontaliers : procédure et obligations au Tessin',
     'blog.article.permesso-frontaliere-g-procedura-ticino.excerpt': 'Guide pratique pour demander le nouveau permis G pour les frontaliers au Tessin : documents, obligations de notification et frais de procédure mis à jour.',
     'blog.article.permesso-frontaliere-g-procedura-ticino.imageAlt': 'Bâtiment administratif au Tessin',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.title': 'Troisième pilier 3a : avantages pour les frontaliers dans le canton de Bâle',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.excerpt': 'La nouvelle convention double imposition Italie-Suisse et le régime transitoire pour les frontaliers.',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.imageAlt': 'Descrizione dell\'immagine in francese, massimo 125 caratteri',
 };
 
 export default blogMetaChFr;

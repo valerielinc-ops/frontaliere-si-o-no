@@ -1462,6 +1462,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-frontaliere-g-procedura-ticino.title': 'G Permit for frontier workers: procedure and obligations in Ticino',
     'blog.article.permesso-frontaliere-g-procedura-ticino.excerpt': 'Practical guide to applying for the new G permit for border workers in Ticino: documents, notification obligations and updated procedure fees.',
     'blog.article.permesso-frontaliere-g-procedura-ticino.imageAlt': 'Administrative building in Ticino',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.title': 'Third pillar 3a: benefits for border workers in the canton of Basel',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.excerpt': 'The new Italy-Switzerland double taxation convention and the transitional regime for border workers.',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.imageAlt': 'Descrizione dell\'immagine in inglese, massimo 125 caratteri',
 };
 
 export default blogMetaChEn;

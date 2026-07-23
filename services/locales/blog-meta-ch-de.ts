@@ -1462,6 +1462,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-frontaliere-g-procedura-ticino.title': 'Grenzgängerbewilligung G: Verfahren und Pflichten im Tessin',
     'blog.article.permesso-frontaliere-g-procedura-ticino.excerpt': 'Praktischer Leitfaden zur Beantragung der neuen Bewilligung G für Grenzgänger im Tessin: Dokumente, Meldepflichten und Verfahrensgebühren aktualisiert.',
     'blog.article.permesso-frontaliere-g-procedura-ticino.imageAlt': 'Verwaltungsgebäude im Tessin',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.title': 'Dritte Säule 3a: Vorteile für Grenzgänger im Kanton Basel',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.excerpt': 'Das neue Doppelbesteuerungsabkommen Italien-Schweiz und die Übergangsregelung für Grenzgänger.',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.imageAlt': 'Descrizione dell\'immagine in tedesco, massimo 125 caratteri',
 };
 
 export default blogMetaChDe;
