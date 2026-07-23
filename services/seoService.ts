@@ -4841,6 +4841,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mappa-frontalieri-lombardi-ticino': { name: 'Frontalieri in Ticino', path: '/articoli-svizzera/mappa-frontalieri-lombardi-ticino/', parent: 'blog' },
     'blog-ingegnere-frontaliero-ticino-stipendio-requisiti': { name: 'Lavorare come ingegnere in Ticino da', path: '/articoli-frontaliere/ingegnere-frontaliero-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-reddito-cittadinanza-svizzera-indagine': { name: 'Cronaca nazionale', path: '/articoli-svizzera/reddito-cittadinanza-svizzera-indagine/', parent: 'blog' },
+    'blog-lite-lombardia-svizzera-frontalieri': { name: 'Fisco Frontalieri', path: '/articoli-frontaliere/lite-lombardia-svizzera-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

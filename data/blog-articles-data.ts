@@ -26657,6 +26657,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'lite-lombardia-svizzera-frontalieri',
+ category: 'fiscale',
+ date: '2026-07-23T06:46:09.512Z',
+ image: '/images/blog/lite-lombardia-svizzera-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

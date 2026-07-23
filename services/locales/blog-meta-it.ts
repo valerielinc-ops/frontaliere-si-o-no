@@ -8873,6 +8873,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ingegnere-frontaliero-ticino-stipendio-requisiti.title': 'Lavorare come ingegnere in Ticino: requisiti e riconoscimento titolo',
     'blog.article.ingegnere-frontaliero-ticino-stipendio-requisiti.excerpt': 'I requisiti per lavorare come ingegnere in Ticino da frontaliere, lo stipendio medio, il riconoscimento del titolo di studio e il permesso G.',
     'blog.article.ingegnere-frontaliero-ticino-stipendio-requisiti.imageAlt': 'Un ingegnere lavora in un ufficio a Lugano.',
+    'blog.article.lite-lombardia-svizzera-frontalieri.title': 'Lite Lombardia e Svizzera: il nodo fiscale dei frontalieri',
+    'blog.article.lite-lombardia-svizzera-frontalieri.excerpt': 'Analisi della disputa tra Lombardia e Svizzera sul trattamento fiscale dei vecchi frontalieri e l\'impatto del nuovo accordo in vigore dal 2024.',
+    'blog.article.lite-lombardia-svizzera-frontalieri.imageAlt': 'Vista panoramica di Lugano e del lago, contesto lavoro frontaliere Ticino',
 };
 
 export default blogMetaIt;
