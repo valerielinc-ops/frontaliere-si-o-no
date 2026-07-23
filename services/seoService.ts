@@ -4844,6 +4844,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lite-lombardia-svizzera-frontalieri': { name: 'Fisco Frontalieri', path: '/articoli-frontaliere/lite-lombardia-svizzera-frontalieri', parent: 'blog' },
     'blog-frontalieri-rallentamento-ticino-crescita-grigioni': { name: 'Frontalieri in Ticino e Grigioni', path: '/articoli-svizzera/frontalieri-rallentamento-ticino-crescita-grigioni/', parent: 'blog' },
     'blog-ozono-ticino-qualita-aria': { name: 'Qualità aria Ticino', path: '/articoli-frontaliere/ozono-ticino-qualita-aria', parent: 'blog' },
+    'blog-alta-volont-di-scambio-per-la-borsa-svizzera': { name: 'Borsa svizzera', path: '/articoli-svizzera/alta-volont-di-scambio-per-la-borsa-svizzera/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

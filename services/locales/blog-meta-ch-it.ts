@@ -1474,6 +1474,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.title': 'Frontalieri: rallentamento in Ticino, crescita nei Grigioni',
     'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.excerpt': 'Il numero di frontalieri in Ticino è rimasto stabile nel terzo trimestre 2025, mentre nei Grigioni è aumentato a un nuovo massimo storico.',
     'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.imageAlt': 'Frontalieri a lavoro in Ticino',
+    'blog.article.alta-volont-di-scambio-per-la-borsa-svizzera.title': 'Alti volumi di scambio per la Borsa svizzera',
+    'blog.article.alta-volont-di-scambio-per-la-borsa-svizzera.excerpt': 'Il gruppo SIX ha registrato un aumento del fatturato e un netto incremento degli utili nel primo semestre 2026.',
+    'blog.article.alta-volont-di-scambio-per-la-borsa-svizzera.imageAlt': 'La Borsa svizzera a Lugano',
 };
 
 export default blogMetaChIt;

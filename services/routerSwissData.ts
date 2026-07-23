@@ -514,6 +514,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'mappa-frontalieri-lombardi-ticino': { it: 'mappa-frontalieri-lombardi-ticino', en: 'map-lombard-cross-border-workers-ticino', de: 'karte-lombardische-grenzgaenger-tessin', fr: 'carte-frontaliers-lombards-ticino' },
  'reddito-cittadinanza-svizzera-indagine': { it: 'reddito-cittadinanza-svizzera-indagine', en: 'citizenship-income-swiss-investigation', de: 'buergergeld-schweiz-untersuchung', fr: 'revenu-citoyennete-enquete-suisse' },
  'frontalieri-rallentamento-ticino-crescita-grigioni': { it: 'frontalieri-rallentamento-ticino-crescita-grigioni', en: 'frontalieri-rallentamento-ticino-crescita-grigioni', de: 'frontalier-rueckgang-ticino-zuwachs-grigioni', fr: 'frontaliers-recul-ticino-croissance-grigioni' },
+ 'alta-volont-di-scambio-per-la-borsa-svizzera': { it: 'alta-volont-di-scambio-per-la-borsa-svizzera', en: 'high-volumes-of-trading-for-the-swiss-stock-exchange', de: 'hohe-handelsvolumina-fur-die-borse-zurich', fr: 'hautes-quantites-dechangees-pour-l-echange-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

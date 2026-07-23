@@ -1474,6 +1474,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.title': 'Frontier workers: slowdown in Ticino, growth in Graubünden',
     'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.excerpt': 'The number of border workers in Ticino remained stable in the third quarter of 2025, while in Graubünden it increased to a new all-time high.',
     'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.imageAlt': 'Frontalieri at work in Ticino',
+    'blog.article.alta-volont-di-scambio-per-la-borsa-svizzera.title': 'High trading volumes for the Swiss Stock Exchange',
+    'blog.article.alta-volont-di-scambio-per-la-borsa-svizzera.excerpt': 'Group SIX recorded an increase in turnover and a net increase in profits in the first half of 2026.',
+    'blog.article.alta-volont-di-scambio-per-la-borsa-svizzera.imageAlt': 'The Swiss Stock Exchange in Lugano',
 };
 
 export default blogMetaChEn;
