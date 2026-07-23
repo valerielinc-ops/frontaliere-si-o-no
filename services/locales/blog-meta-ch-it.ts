@@ -1471,6 +1471,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.reddito-cittadinanza-svizzera-indagine.title': 'Reddito di cittadinanza e capitali in Svizzera: i fatti',
     'blog.article.reddito-cittadinanza-svizzera-indagine.excerpt': 'Una coppia residente in Italia, beneficiaria di sussidi, al centro di accertamenti per capitali trasferiti da conti svizzeri.',
     'blog.article.reddito-cittadinanza-svizzera-indagine.imageAlt': 'Palazzo bancario a Lugano, Svizzera',
+    'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.title': 'Frontalieri: rallentamento in Ticino, crescita nei Grigioni',
+    'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.excerpt': 'Il numero di frontalieri in Ticino è rimasto stabile nel terzo trimestre 2025, mentre nei Grigioni è aumentato a un nuovo massimo storico.',
+    'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.imageAlt': 'Frontalieri a lavoro in Ticino',
 };
 
 export default blogMetaChIt;

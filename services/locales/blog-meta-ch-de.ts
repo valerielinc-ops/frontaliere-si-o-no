@@ -1471,6 +1471,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.reddito-cittadinanza-svizzera-indagine.title': 'Staatsbürgerschafts- und Kapitaleinkommen in der Schweiz: Die Fakten',
     'blog.article.reddito-cittadinanza-svizzera-indagine.excerpt': 'Ein in Italien wohnhaftes Ehepaar, das Subventionen erhält, im Untersuchungszentrum für Gelder, die von Schweizer Konten überwiesen werden.',
     'blog.article.reddito-cittadinanza-svizzera-indagine.imageAlt': 'Bankgebäude in Lugano, Schweiz',
+    'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.title': 'Grenzgänger: Verlangsamung im Tessin, Wachstum in Graubünden',
+    'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.excerpt': 'Die Zahl der Grenzgänger im Tessin blieb im dritten Quartal 2025 stabil, während sie in Graubünden auf ein neues Allzeithoch anstieg.',
+    'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.imageAlt': 'Frontalier an der Arbeit in Tessin',
 };
 
 export default blogMetaChDe;

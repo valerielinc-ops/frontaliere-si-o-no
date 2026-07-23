@@ -1471,6 +1471,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.reddito-cittadinanza-svizzera-indagine.title': 'Citizenship and capital income in Switzerland: the facts',
     'blog.article.reddito-cittadinanza-svizzera-indagine.excerpt': 'A couple resident in Italy, beneficiary of subsidies, at the centre of assessments for capital transferred from Swiss accounts.',
     'blog.article.reddito-cittadinanza-svizzera-indagine.imageAlt': 'Bank building in Lugano, Switzerland',
+    'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.title': 'Frontier workers: slowdown in Ticino, growth in Graubünden',
+    'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.excerpt': 'The number of border workers in Ticino remained stable in the third quarter of 2025, while in Graubünden it increased to a new all-time high.',
+    'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.imageAlt': 'Frontalieri at work in Ticino',
 };
 
 export default blogMetaChEn;

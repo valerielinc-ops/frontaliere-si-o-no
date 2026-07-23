@@ -4409,6 +4409,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'frontalieri-rallentamento-ticino-crescita-grigioni',
+    category: 'fiscale',
+    date: '2026-07-23T06:58:04.519Z',
+    image: '/images/blog/frontalieri-rallentamento-ticino-crescita-grigioni.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -1471,6 +1471,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.reddito-cittadinanza-svizzera-indagine.title': 'Revenu de citoyenneté et capitaux en Suisse : les faits',
     'blog.article.reddito-cittadinanza-svizzera-indagine.excerpt': 'Un couple résidant en Italie, bénéficiaire de subsides, au centre de constatations pour capitaux transférés de comptes suisses.',
     'blog.article.reddito-cittadinanza-svizzera-indagine.imageAlt': 'Bâtiment bancaire à Lugano, Suisse',
+    'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.title': 'Frontaliers : ralentissement au Tessin, croissance dans les Grisons',
+    'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.excerpt': 'Le nombre de frontaliers au Tessin est resté stable au troisième trimestre 2025, tandis que dans les Grisons, il a atteint un nouveau plus haut historique.',
+    'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.imageAlt': 'Frontaliers au travail au Tessin',
 };
 
 export default blogMetaChFr;
