@@ -54,13 +54,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lkw-rangierer-umschlag-abendverlad-m-w-d-planzer-marstetten",
-        "interruttore-di-camion-spedizione-serale-busta-m-f-d-planzer-marstetten"
+        "lkw-rangierer-umschlag-abendverlad-m-w-d-planzer-marstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lkw-rangierer-umschlag-abendverlad-m-w-d-planzer-marstetten",
-          "interruttore-di-camion-spedizione-serale-busta-m-f-d-planzer-marstetten"
+          "lkw-rangierer-umschlag-abendverlad-m-w-d-planzer-marstetten"
         ],
         "en": [
           "lkw-rangierer-umschlag-abendverlad-m-w-d-planzer-marstetten"
@@ -135,13 +133,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "paketzusteller-m-w-d-planzer-seewen",
-        "consegna-dei-pacchi-m-f-d-planzer-seewen"
+        "paketzusteller-m-w-d-planzer-seewen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "paketzusteller-m-w-d-planzer-seewen",
-          "consegna-dei-pacchi-m-f-d-planzer-seewen"
+          "paketzusteller-m-w-d-planzer-seewen"
         ],
         "en": [
           "paketzusteller-m-w-d-planzer-seewen"
@@ -166,12 +162,12 @@
     },
     {
       "id": "planzer-4affc3746f5b",
-      "slug": "nachtchauffeur-kat-ce-m-w-d-planzer-seewen",
+      "slug": "autista-notturno-cat-ce-m-f-d-planzer-seewen",
       "slugByLocale": {
         "de": "nachtchauffeur-kat-ce-m-w-d-planzer-seewen",
-        "it": "nachtchauffeur-kat-ce-m-w-d-planzer-seewen",
-        "en": "nachtchauffeur-kat-ce-m-w-d-planzer-seewen",
-        "fr": "nachtchauffeur-kat-ce-m-w-d-planzer-seewen"
+        "it": "autista-notturno-cat-ce-m-f-d-planzer-seewen",
+        "en": "night-chauffeur-cat-ce-m-f-d-planzer-seewen",
+        "fr": "chauffeur-de-nuit-cat-ce-m-f-d-planzer-seewen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -231,23 +227,27 @@
       "firstSeenAt": "2026-07-22T22:05:34.531Z",
       "previousSlugsByLocale": {
         "it": [
-          "autista-cat-ce-m-f-d-planzer-bioggio"
+          "autista-cat-ce-m-f-d-planzer-bioggio",
+          "nachtchauffeur-kat-ce-m-w-d-planzer-seewen"
         ],
         "en": [
-          "driver-cat-ec-m-f-d-planzer-bioggio"
+          "driver-cat-ec-m-f-d-planzer-bioggio",
+          "nachtchauffeur-kat-ce-m-w-d-planzer-seewen"
         ],
         "de": [
           "fahrzeugklasse-ec-m-w-d-planzer-bioggio"
         ],
         "fr": [
-          "cat-chauffeur-ce-m-f-d-planzer-bioggio"
+          "cat-chauffeur-ce-m-f-d-planzer-bioggio",
+          "nachtchauffeur-kat-ce-m-w-d-planzer-seewen"
         ]
       },
       "previousSlugs": [
         "autista-cat-ce-m-f-d-planzer-bioggio",
         "driver-cat-ec-m-f-d-planzer-bioggio",
         "fahrzeugklasse-ec-m-w-d-planzer-bioggio",
-        "cat-chauffeur-ce-m-f-d-planzer-bioggio"
+        "cat-chauffeur-ce-m-f-d-planzer-bioggio",
+        "nachtchauffeur-kat-ce-m-w-d-planzer-seewen"
       ]
     },
     {
@@ -301,13 +301,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistiker-wareneingang-crossdocking-m-w-d-planzer-kallnach",
-        "logistica-in-entrata-merci-crossdocking-m-f-d-planzer-kallnach"
+        "logistiker-wareneingang-crossdocking-m-w-d-planzer-kallnach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-wareneingang-crossdocking-m-w-d-planzer-kallnach",
-          "logistica-in-entrata-merci-crossdocking-m-f-d-planzer-kallnach"
+          "logistiker-wareneingang-crossdocking-m-w-d-planzer-kallnach"
         ],
         "en": [
           "logistiker-wareneingang-crossdocking-m-w-d-planzer-kallnach"
@@ -382,13 +380,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeur-quereinstieg-zu-c-ce-m-w-d-planzer-marstetten",
-        "chauffeur-cambio-carriera-zu-c-ce-m-w-d-planzer-marstetten"
+        "chauffeur-quereinstieg-zu-c-ce-m-w-d-planzer-marstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-quereinstieg-zu-c-ce-m-w-d-planzer-marstetten",
-          "chauffeur-cambio-carriera-zu-c-ce-m-w-d-planzer-marstetten"
+          "chauffeur-quereinstieg-zu-c-ce-m-w-d-planzer-marstetten"
         ],
         "en": [
           "chauffeur-quereinstieg-zu-c-ce-m-w-d-planzer-marstetten"
@@ -496,12 +492,12 @@
     },
     {
       "id": "planzer-09f9a48f752d",
-      "slug": "teamleiter-umschlag-paket-m-w-d-planzer-bern",
+      "slug": "pacchetto-busta-capo-squadra-m-f-d-planzer-bern",
       "slugByLocale": {
         "de": "teamleiter-umschlag-paket-m-w-d-planzer-bern",
-        "it": "teamleiter-umschlag-paket-m-w-d-planzer-bern",
-        "en": "teamleiter-umschlag-paket-m-w-d-planzer-bern",
-        "fr": "teamleiter-umschlag-paket-m-w-d-planzer-bern"
+        "it": "pacchetto-busta-capo-squadra-m-f-d-planzer-bern",
+        "en": "team-leader-envelope-package-m-f-d-planzer-bern",
+        "fr": "emballage-du-chef-d-equipe-m-f-d-planzer-bern"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -558,7 +554,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-22T22:05:31.637Z"
+      "firstSeenAt": "2026-07-22T22:05:31.637Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-umschlag-paket-m-w-d-planzer-bern"
+        ],
+        "en": [
+          "teamleiter-umschlag-paket-m-w-d-planzer-bern"
+        ],
+        "fr": [
+          "teamleiter-umschlag-paket-m-w-d-planzer-bern"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-umschlag-paket-m-w-d-planzer-bern"
+      ]
     },
     {
       "id": "planzer-c49e23fde569",
@@ -566,8 +576,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-paketsortierung-spatschicht-im-stundenlohn-m-w-d-planzer-zurich-altstetten",
         "it": "collaboratore-trice-paketsortierung-spatschicht-im-stundenlohn-m-w-d-planzer-zurich-altstetten",
-        "en": "mitarbeiter-paketsortierung-spatschicht-im-stundenlohn-m-w-d-planzer-zurich-altstetten",
-        "fr": "mitarbeiter-paketsortierung-spatschicht-im-stundenlohn-m-w-d-planzer-zurich-altstetten"
+        "en": "employee-package-sorting-late-shift-in-hourly-wage-m-f-d-planzer-zurich-altstetten",
+        "fr": "ensemble-d-employes-triant-le-quart-tardif-du-salaire-horaire-m-f-d-planzer-zurich-altstetten"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -615,6 +625,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-paketsortierung-spatschicht-im-stundenlohn-m-w-d-planzer-zurich-altstetten"
+        ],
+        "en": [
+          "mitarbeiter-paketsortierung-spatschicht-im-stundenlohn-m-w-d-planzer-zurich-altstetten"
+        ],
+        "fr": [
+          "mitarbeiter-paketsortierung-spatschicht-im-stundenlohn-m-w-d-planzer-zurich-altstetten"
         ]
       },
       "previousSlugs": [
@@ -640,8 +656,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-paketsortierung-fruhschicht-im-stundenlohn-m-w-d-planzer-zurich-altstetten",
         "it": "collaboratore-trice-paketsortierung-fruhschicht-im-stundenlohn-m-w-d-planzer-zurich-altstetten",
-        "en": "mitarbeiter-paketsortierung-fruhschicht-im-stundenlohn-m-w-d-planzer-zurich-altstetten",
-        "fr": "mitarbeiter-paketsortierung-fruhschicht-im-stundenlohn-m-w-d-planzer-zurich-altstetten"
+        "en": "employee-package-sorting-early-shift-in-hourly-wage-m-f-d-planzer-zurich-altstetten",
+        "fr": "tri-de-l-ensemble-des-salaries-planzer-zurich-altstetten"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -689,6 +705,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-paketsortierung-fruhschicht-im-stundenlohn-m-w-d-planzer-zurich-altstetten"
+        ],
+        "en": [
+          "mitarbeiter-paketsortierung-fruhschicht-im-stundenlohn-m-w-d-planzer-zurich-altstetten"
+        ],
+        "fr": [
+          "mitarbeiter-paketsortierung-fruhschicht-im-stundenlohn-m-w-d-planzer-zurich-altstetten"
         ]
       },
       "previousSlugs": [
@@ -710,11 +732,11 @@
     },
     {
       "id": "planzer-e1e6a517ae58",
-      "slug": "chauffeur-kat-ce-m-w-d-planzer-st-gallen",
+      "slug": "gatto-di-chauffeur-ce-m-f-d-planzer-st-gallen",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-m-w-d-planzer-st-gallen",
-        "it": "chauffeur-kat-ce-m-w-d-planzer-st-gallen",
-        "en": "chauffeur-kat-ce-m-w-d-planzer-st-gallen",
+        "it": "gatto-di-chauffeur-ce-m-f-d-planzer-st-gallen",
+        "en": "chauffeur-cat-ce-m-f-d-planzer-st-gallen",
         "fr": "chauffeur-kat-ce-m-w-d-planzer-st-gallen"
       },
       "company": "Planzer",
@@ -772,7 +794,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-22T22:05:29.609Z"
+      "firstSeenAt": "2026-07-22T22:05:29.609Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-m-w-d-planzer-st-gallen"
+        ],
+        "en": [
+          "chauffeur-kat-ce-m-w-d-planzer-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-m-w-d-planzer-st-gallen"
+      ]
     },
     {
       "id": "planzer-34c6ec8503de",
@@ -866,7 +899,7 @@
       "slugByLocale": {
         "it": "cat-b-m-f-d-planzer-grand-lancy",
         "en": "chauffeur-colis-cat-b-m-f-d-planzer-grand-lancy",
-        "de": "chauffeur-colis-cat-b-m-w-d-planzer-grand-lancy",
+        "de": "kategorie-b-m-w-d-planzer-grand-lancy",
         "fr": "chauffeur-colis-cat-b-m-f-d-planzer-grand-lancy"
       },
       "company": "Planzer",
@@ -912,7 +945,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chauffeur-colis-cat-b-m-f-d-planzer-grand-lancy",
-        "kategorie-b-m-w-d-planzer-grand-lancy",
         "chauffeur-colis-cat-b-m-w-d-planzer-grand-lancy"
       ],
       "previousSlugsByLocale": {
@@ -921,7 +953,6 @@
         ],
         "de": [
           "chauffeur-colis-cat-b-m-f-d-planzer-grand-lancy",
-          "kategorie-b-m-w-d-planzer-grand-lancy",
           "chauffeur-colis-cat-b-m-w-d-planzer-grand-lancy"
         ]
       },
