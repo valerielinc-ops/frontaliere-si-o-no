@@ -1483,6 +1483,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dazi-usa-svizzera-luglio-2026.title': 'Dazi USA: il punto sulle tariffe per la Svizzera',
     'blog.article.dazi-usa-svizzera-luglio-2026.excerpt': 'In scadenza i 150 giorni della tariffa USA al 10%. Berna monitora l\'incertezza sui dazi e le accuse sul lavoro forzato. Ecco lo scenario economico.',
     'blog.article.dazi-usa-svizzera-luglio-2026.imageAlt': 'Palazzo federale a Berna in una giornata estiva',
+    'blog.article.zali-e-le-pressioni-per-un-assunzione.title': 'Zali e le pressioni per un\'assunzione: l\'EOC prende le distanze dal passato',
+    'blog.article.zali-e-le-pressioni-per-un-assunzione.excerpt': 'Il neo presidente del CdA Andrea Bersani prende le distanze dal passato riguardo alle pressioni per un\'assunzione.',
+    'blog.article.zali-e-le-pressioni-per-un-assunzione.imageAlt': 'Una scena con il Lago di Lugano e la città di Lugano, in Svizzera',
 };
 
 export default blogMetaChIt;

@@ -1483,6 +1483,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dazi-usa-svizzera-luglio-2026.title': 'US Duties: the point on tariffs for Switzerland',
     'blog.article.dazi-usa-svizzera-luglio-2026.excerpt': 'The 150 days of the US rate at 10% expires. Bern monitors uncertainty over duties and allegations of forced labor. Here is the economic scenario.',
     'blog.article.dazi-usa-svizzera-luglio-2026.imageAlt': 'Federal Palace in Bern on a summer day',
+    'blog.article.zali-e-le-pressioni-per-un-assunzione.title': 'Zali and hiring pressures: the EoC distances itself from the past',
+    'blog.article.zali-e-le-pressioni-per-un-assunzione.excerpt': 'The new Chairman of the Board of Directors Andrea Bersani distances himself from the past with regard to pressures for hiring.',
+    'blog.article.zali-e-le-pressioni-per-un-assunzione.imageAlt': 'A scene with Lake Lugano and the city of Lugano, Switzerland',
 };
 
 export default blogMetaChEn;
