@@ -132,8 +132,8 @@
       "slugByLocale": {
         "it": "pharmaceutical-technology-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma-d18wk3",
         "en": "pharmaceutical-technology-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma-d18wk3",
-        "de": "pharmaceutical-technology-techniker-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma-d18wk3",
-        "fr": "pharmaceutical-technology-technicien-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma-d18wk3"
+        "de": "pharmaceutical-technology-techniker-ibsa-institut-biochimique-ma-9357e6",
+        "fr": "pharmaceutical-technology-technicien-ibsa-institut-biochimique-ma-9357e6"
       },
       "requirementsByLocale": {
         "it": [
@@ -150,10 +150,18 @@
       "previousSlugsByLocale": {
         "it": [
           "pharmaceutical-technology-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma"
+        ],
+        "de": [
+          "pharmaceutical-technology-techniker-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma-d18wk3"
+        ],
+        "fr": [
+          "pharmaceutical-technology-technicien-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma-d18wk3"
         ]
       },
       "previousSlugs": [
-        "pharmaceutical-technology-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma"
+        "pharmaceutical-technology-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma",
+        "pharmaceutical-technology-techniker-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma-d18wk3",
+        "pharmaceutical-technology-technicien-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma-d18wk3"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,

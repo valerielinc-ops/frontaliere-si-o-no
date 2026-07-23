@@ -159534,9 +159534,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "venditrice-venditore-food-m-w-d-coop-genossenschaft-solduno-ticino-r1pg5b",
-        "en": "venditrice-venditore-food-m-w-d-coop-genossenschaft-solduno-ticino-r1pg5b",
-        "de": "venditrice-venditore-food-m-w-d-coop-genossenschaft-solduno-ticino-r1pg5b",
-        "fr": "venditrice-venditore-food-m-w-d-coop-genossenschaft-solduno-ticino-r1pg5b"
+        "en": "seller-seller-food-f-m-d-coop-genossenschaft-solduno",
+        "de": "verkaufer-verkaufer-lebensmittel-m-m-d-coop-genossenschaft-solduno",
+        "fr": "vendeur-vendeur-de-nourriture-f-m-d-coop-genossenschaft-solduno"
       },
       "requirementsByLocale": {
         "it": [
@@ -159561,11 +159561,25 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "venditrice-venditore-food-m-w-d-coop-genossenschaft-solduno-ticino-r1pg5b"
+        ],
+        "de": [
+          "venditrice-venditore-food-m-w-d-coop-genossenschaft-solduno-ticino-r1pg5b"
+        ],
+        "fr": [
+          "venditrice-venditore-food-m-w-d-coop-genossenschaft-solduno-ticino-r1pg5b"
+        ]
+      },
+      "previousSlugs": [
+        "venditrice-venditore-food-m-w-d-coop-genossenschaft-solduno-ticino-r1pg5b"
+      ]
     },
     {
       "id": "company-d7wad8",
-      "slug": "verkaufsberater-in-interdiscount-jegenstorf",
+      "slug": "consulente-commerciale-in-interdiscount-jegenstorf",
       "company": "Interdiscount",
       "title": "Verkaufsberater:in",
       "location": "Jegenstorf",
@@ -159596,10 +159610,10 @@
         "fr": "## Consultant en ventes:\n\n** Interdiscompte** — Jegenstorf, Jegenstorf, Svizzera\n\n## Chez Interdiscount, nous offrons à nos clients la meilleure expérience d'achat en Suisse. S'engager dans un environnement de travail dynamique et entrepreneurial. Prenez des responsabilités, soyez proactif avec nous et développez-vous.\n\n## Tâche\n- Vous conseillez nos clients professionnellement et avec engagement.\n- Vous vendez notre gamme de produits avec conviction et passion.\n- Vous êtes conjointement responsable d'une présentation attrayante des marchandises et l'utilisez avec profit.\n- Vous traitez notre reçu de marchandises et sortez avec soin.\n\n## Exigences\n- Profitez des conseils aux clients\n- Fiabilité, honnêteté et loyauté\n- Motivation pour la formation personnelle et professionnelle\n- Flair pour nouveaux produits techniques\n- une formation sur les ventes terminée; une expérience professionnelle en électronique à domicile ou en salle d'entraînement est bénéfique\n\n## Ce que nous offrons\n\n## Votre personne à contacter\nAlexandra Studer\nMarketing des ressources humaines\n+41 31 764 42 61\n\n**Tipo:** Temps partiel\n**Sede:** Jegenstorf"
       },
       "slugByLocale": {
-        "it": "verkaufsberater-in-interdiscount-jegenstorf-d7wad8",
-        "en": "verkaufsberater-in-interdiscount-jegenstorf-d7wad8",
+        "it": "consulente-commerciale-in-interdiscount-jegenstorf",
+        "en": "sales-consultant-in-interdiscount-jegenstorf",
         "de": "verkaufsberater-in-interdiscount-jegenstorf-d7wad8",
-        "fr": "verkaufsberater-in-interdiscount-jegenstorf-d7wad8"
+        "fr": "consultant-en-ventes-interdiscount-jegenstorf"
       },
       "requirementsByLocale": {},
       "addressLocality": "Jegenstorf",
@@ -159618,7 +159632,23 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-interdiscount-jegenstorf-d7wad8",
+          "verkaufsberater-in-interdiscount-jegenstorf"
+        ],
+        "en": [
+          "verkaufsberater-in-interdiscount-jegenstorf-d7wad8"
+        ],
+        "fr": [
+          "verkaufsberater-in-interdiscount-jegenstorf-d7wad8"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-interdiscount-jegenstorf-d7wad8",
+        "verkaufsberater-in-interdiscount-jegenstorf"
+      ]
     },
     {
       "id": "company-k8mlhz",
@@ -159654,9 +159684,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-parfumerie-e-kosmetik-coop-genossenschaft-zurich-k8mlhz",
-        "en": "verkaufsberater-in-parfumerie-und-kosmetik-coop-genossenschaft-zurich-k8mlhz",
+        "en": "sales-consultants-in-perfumery-and-cosmetics-coop-genossenschaft-zurich",
         "de": "verkaufsberater-in-parfumerie-und-kosmetik-coop-genossenschaft-zurich-k8mlhz",
-        "fr": "verkaufsberater-in-parfumerie-und-kosmetik-coop-genossenschaft-zurich-k8mlhz"
+        "fr": "consultants-en-vente-en-parfumerie-et-cosmetiques-coop-genossenschaft-zurich"
       },
       "requirementsByLocale": {},
       "addressLocality": "Zürich",
@@ -159675,7 +159705,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "verkaufsberater-in-parfumerie-und-kosmetik-coop-genossenschaft-zurich-k8mlhz"
+        ],
+        "fr": [
+          "verkaufsberater-in-parfumerie-und-kosmetik-coop-genossenschaft-zurich-k8mlhz"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-parfumerie-und-kosmetik-coop-genossenschaft-zurich-k8mlhz"
+      ]
     },
     {
       "id": "company-pp8umb",
@@ -159713,9 +159754,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "venditrice-venditore-food-m-w-d-coop-genossenschaft-solduno-ticino-pp8umb",
-        "en": "venditrice-venditore-food-m-w-d-coop-genossenschaft-solduno-ticino-pp8umb",
-        "de": "venditrice-venditore-food-m-w-d-coop-genossenschaft-solduno-ticino-pp8umb",
-        "fr": "venditrice-venditore-food-m-w-d-coop-genossenschaft-solduno-ticino-pp8umb"
+        "en": "seller-seller-food-f-m-d-coop-genossenschaft-solduno-675329",
+        "de": "verkaufer-verkaufer-lebensmittel-m-m-d-coop-genossenschaft-solduno-675329",
+        "fr": "vendeur-vendeur-de-nourriture-f-m-d-coop-genossenschaft-solduno-675329"
       },
       "requirementsByLocale": {
         "it": [
@@ -159740,7 +159781,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "venditrice-venditore-food-m-w-d-coop-genossenschaft-solduno-ticino-pp8umb"
+        ],
+        "de": [
+          "venditrice-venditore-food-m-w-d-coop-genossenschaft-solduno-ticino-pp8umb"
+        ],
+        "fr": [
+          "venditrice-venditore-food-m-w-d-coop-genossenschaft-solduno-ticino-pp8umb"
+        ]
+      },
+      "previousSlugs": [
+        "venditrice-venditore-food-m-w-d-coop-genossenschaft-solduno-ticino-pp8umb"
+      ]
     },
     {
       "id": "company-9n36kt",
@@ -159780,9 +159835,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "venditrice-venditore-non-food-m-w-d-coop-genossenschaft-losone-ticino-9n36kt",
-        "en": "venditrice-venditore-non-food-m-w-d-coop-genossenschaft-losone-ticino-9n36kt",
-        "de": "venditrice-venditore-non-food-m-w-d-coop-genossenschaft-losone-ticino-9n36kt",
-        "fr": "venditrice-venditore-non-food-m-w-d-coop-genossenschaft-losone-ticino-9n36kt"
+        "en": "seller-non-food-seller-f-m-d-coop-genossenschaft-losone",
+        "de": "verkaufer-non-food-verkaufer-w-m-d-coop-genossenschaft-losone",
+        "fr": "vendeur-non-vendeur-f-m-d-coop-genossenschaft-losone"
       },
       "requirementsByLocale": {
         "it": [
@@ -159809,11 +159864,25 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "venditrice-venditore-non-food-m-w-d-coop-genossenschaft-losone-ticino-9n36kt"
+        ],
+        "de": [
+          "venditrice-venditore-non-food-m-w-d-coop-genossenschaft-losone-ticino-9n36kt"
+        ],
+        "fr": [
+          "venditrice-venditore-non-food-m-w-d-coop-genossenschaft-losone-ticino-9n36kt"
+        ]
+      },
+      "previousSlugs": [
+        "venditrice-venditore-non-food-m-w-d-coop-genossenschaft-losone-ticino-9n36kt"
+      ]
     },
     {
       "id": "company-osnx0z",
-      "slug": "stv-geschaftsfuhrer-in-coop-genossenschaft-ins-bern",
+      "slug": "stv-amministratore-delegato-in-coop-genossenschaft-ins",
       "company": "Coop Genossenschaft",
       "title": "Stv. Geschäftsführer:in",
       "location": "Ins",
@@ -159846,10 +159915,10 @@
         "fr": "## Stv. administrateur délégué:in\n\n**Coopérative Coop** — Ins, Berne, Svizzera\n\n## Tâche\n- Pour vous, en tant que directeur général de Stv., la meilleure expérience d'achat possible signifie : une gestion optimale en termes de disponibilité des ventes, de présentation des marchandises et de promotion des ventes.\n- Les employés dirigent, mais aussi promeuvent : C'est une gestion moderne pour vous.\n- Le fait que les principes d'affaires soient respectés dans votre ministère est bien sûr une question pour vous.\n- Aussi clair pour vous: respect des directives de qualité et de POS telles que la fraîcheur/qualité, l'hygiène, la régulation de la température et les dates d'expiration.\n- Si la direction est absente, vous prenez en charge la gestion du point de vente.\n\n## Exigences\n- Achevé la formation de base dans le commerce de détail ou l'expérience professionnelle correspondante dans le secteur des ventes? Les deux nous conviennent.\n- Tâches de gestion dans une fonction comparable: Vous avez de l'expérience avec cela.\n- Vous donnez tout – pour l'entreprise et les clients.\n- Vous maîtrisez parfaitement l'allemand : en paroles et en écriture.\n- Vous êtes sympathique, orientés vers l'équipe et bien groomed.\n- Avantages: 5 fois le nombre de super points dans le supermarché\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop\n- Heures de travail: 6 semaines de congés\n- Formation: soutien à l'éducation et à la formation externes\n- Durabilité: Engagement envers les personnes et les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nAlessio Schmid\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Ins"
       },
       "slugByLocale": {
-        "it": "stv-geschaftsfuhrer-in-coop-genossenschaft-ins-bern-osnx0z",
-        "en": "stv-geschaftsfuhrer-in-coop-genossenschaft-ins-bern-osnx0z",
+        "it": "stv-amministratore-delegato-in-coop-genossenschaft-ins",
+        "en": "stv-managing-director-in-coop-genossenschaft-ins",
         "de": "stv-geschaftsfuhrer-in-coop-genossenschaft-ins-bern-osnx0z",
-        "fr": "stv-geschaftsfuhrer-in-coop-genossenschaft-ins-bern-osnx0z"
+        "fr": "stv-administrateur-delegue-in-coop-genossenschaft-ins"
       },
       "requirementsByLocale": {
         "it": [],
@@ -159875,11 +159944,27 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-geschaftsfuhrer-in-coop-genossenschaft-ins-bern-osnx0z",
+          "stv-geschaftsfuhrer-in-coop-genossenschaft-ins-bern"
+        ],
+        "en": [
+          "stv-geschaftsfuhrer-in-coop-genossenschaft-ins-bern-osnx0z"
+        ],
+        "fr": [
+          "stv-geschaftsfuhrer-in-coop-genossenschaft-ins-bern-osnx0z"
+        ]
+      },
+      "previousSlugs": [
+        "stv-geschaftsfuhrer-in-coop-genossenschaft-ins-bern-osnx0z",
+        "stv-geschaftsfuhrer-in-coop-genossenschaft-ins-bern"
+      ]
     },
     {
       "id": "company-loqqc4",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-volketswil-zurich",
+      "slug": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-volketswil",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Volketswil",
@@ -159917,10 +160002,10 @@
         "fr": "## Metzger:in (spécialiste de la viande / spécialiste de la viande)\n\n**Coop Genossenschaft** — Volketswil, Zurich, Svizzera\n\n## Tâche\n- La viande et la saucisse sont exactement votre chose: amical et ouvert d'esprit, vous conseillez et servez les clients exigeants derrière le comptoir en plein air.\n- Fraisement coupé et habillé: Vous préparez les produits de viande professionnellement.\n- Vous cultivez les biens et les aidez à mieux les vendre.\n- Il est clair pour vous que vous respectez les exigences de qualité et les directives telles que la fraîcheur et la qualité, l'hygiène, la réglementation de la température et les dates d'expiration sans exception.\n\n## Exigences\n- Vous avez suivi une formation de base en tant que spécialiste de la viande (f/m/d), boucher:in, vendeur de viande:in ou cuisinier (f/m/d).\n- Avec votre expérience professionnelle dans une boucherie soignée, vous marquez également avec nous.\n- En tant que prestataire de services, vous vous engagez toujours pleinement.\n- Vous maîtrisez la langue allemande verbalement et par écrit très bien.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nValeria Mazziari Randazzo\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Volketswil"
       },
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-volketswil-zurich-loqqc4",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-volketswil-zurich-loqqc4",
+        "it": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-volketswil",
+        "en": "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-volketswil",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-volketswil-zurich-loqqc4",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-volketswil-zurich-loqqc4"
+        "fr": "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-volketswil"
       },
       "requirementsByLocale": {
         "it": [],
@@ -159946,11 +160031,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-volketswil-zurich-loqqc4",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-volketswil-zurich"
+        ],
+        "en": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-volketswil-zurich-loqqc4"
+        ],
+        "fr": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-volketswil-zurich-loqqc4"
+        ]
+      },
+      "previousSlugs": [
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-volketswil-zurich-loqqc4",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-volketswil-zurich"
+      ]
     },
     {
       "id": "company-etke3d",
-      "slug": "verkaufer-in-food-coop-neuhausen-am-rheinfall-schaffhausen",
+      "slug": "venditore-in-food-coop-genossenschaft-neuhausen-am-rheinfall",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Neuhausen am Rheinfall",
@@ -159988,10 +160089,10 @@
         "fr": "## Vendeur:dans la nourriture\n\n**Coop Genossenschaft** — Neuhausen am Rheinfall, Schaffhausen, Svizzera\n\n## Tâche\n- Vous aimez la variété, donc vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, que ce soit la fraîcheur et la qualité, l'hygiène, les règlements de température ou la date d'expiration.\n- Votre engagement aux caisses enregistreuses est également varié si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans la vente? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nChristelle Heitz\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Neuhausen sur les chutes du Rhin"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-neuhausen-am-rheinfall-schaffhausen-etke3d",
-        "en": "verkaufer-in-food-coop-neuhausen-am-rheinfall-schaffhausen-etke3d",
+        "it": "venditore-in-food-coop-genossenschaft-neuhausen-am-rheinfall",
+        "en": "seller-in-food-coop-genossenschaft-neuhausen-am-rheinfall",
         "de": "verkaufer-in-food-coop-neuhausen-am-rheinfall-schaffhausen-etke3d",
-        "fr": "verkaufer-in-food-coop-neuhausen-am-rheinfall-schaffhausen-etke3d"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-neuhausen-am-rheinfall"
       },
       "requirementsByLocale": {
         "it": [],
@@ -160033,16 +160134,20 @@
           "verkaufer-in-frischprodukte-coop-genossenschaft-neuhausen-am-rheinfall",
           "fresh-produce-salesperson-coop-genossenschaft-neuhausen-am-rheinfall-obd7h0",
           "vendeur-de-produits-frais-coop-genossenschaft-neuhausen-am-rheinfall-obd7h0",
-          "verkaufer-in-frischprodukte-coop-neuhausen-am-rheinfall-schaffhausen"
+          "verkaufer-in-frischprodukte-coop-neuhausen-am-rheinfall-schaffhausen",
+          "verkaufer-in-food-coop-neuhausen-am-rheinfall-schaffhausen-etke3d",
+          "verkaufer-in-food-coop-neuhausen-am-rheinfall-schaffhausen"
         ],
         "en": [
-          "fresh-produce-salesperson-coop-genossenschaft-neuhausen-am-rheinfall"
+          "fresh-produce-salesperson-coop-genossenschaft-neuhausen-am-rheinfall",
+          "verkaufer-in-food-coop-neuhausen-am-rheinfall-schaffhausen-etke3d"
         ],
         "de": [
           "verkaufer-in-frischprodukte-coop-genossenschaft-neuhausen-am-rheinfall-obd7h0"
         ],
         "fr": [
-          "vendeur-de-produits-frais-coop-genossenschaft-neuhausen-am-rheinfall"
+          "vendeur-de-produits-frais-coop-genossenschaft-neuhausen-am-rheinfall",
+          "verkaufer-in-food-coop-neuhausen-am-rheinfall-schaffhausen-etke3d"
         ]
       },
       "previousSlugs": [
@@ -160059,7 +160164,9 @@
         "verkaufer-in-frischprodukte-coop-genossenschaft-neuhausen-am-rheinfall",
         "fresh-produce-salesperson-coop-genossenschaft-neuhausen-am-rheinfall-obd7h0",
         "vendeur-de-produits-frais-coop-genossenschaft-neuhausen-am-rheinfall-obd7h0",
-        "verkaufer-in-frischprodukte-coop-neuhausen-am-rheinfall-schaffhausen"
+        "verkaufer-in-frischprodukte-coop-neuhausen-am-rheinfall-schaffhausen",
+        "verkaufer-in-food-coop-neuhausen-am-rheinfall-schaffhausen-etke3d",
+        "verkaufer-in-food-coop-neuhausen-am-rheinfall-schaffhausen"
       ]
     },
     {
@@ -160101,9 +160208,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-kosmetik-e-parfumerie-coop-city-kriens-luzern-lxa488",
-        "en": "verkaufsberater-in-kosmetik-und-parfumerie-coop-city-kriens-luzern-lxa488",
+        "en": "sales-consultants-in-cosmetics-and-perfumery-coop-genossenschaft-kriens",
         "de": "verkaufsberater-in-kosmetik-und-parfumerie-coop-city-kriens-luzern-lxa488",
-        "fr": "verkaufsberater-in-kosmetik-und-parfumerie-coop-city-kriens-luzern-lxa488"
+        "fr": "consultants-en-produits-cosmetiques-et-parfumerie-coop-genossenschaft-kriens"
       },
       "requirementsByLocale": {},
       "addressLocality": "Kriens",
@@ -160122,11 +160229,22 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "verkaufsberater-in-kosmetik-und-parfumerie-coop-city-kriens-luzern-lxa488"
+        ],
+        "fr": [
+          "verkaufsberater-in-kosmetik-und-parfumerie-coop-city-kriens-luzern-lxa488"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-kosmetik-und-parfumerie-coop-city-kriens-luzern-lxa488"
+      ]
     },
     {
       "id": "company-fhdvjq",
-      "slug": "verkaufsberater-in-boutique-livique-altendorf-schwyz",
+      "slug": "consulente-vendite-in-boutique-coop-genossenschaft-altendorf",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in Boutique",
       "location": "Altendorf",
@@ -160164,10 +160282,10 @@
         "fr": "## Conseiller commercial: en Boutique\n\n**Coopérative de coop** — Altendorf, Schwyz, Svizzera\n\n## Tâche\n- Vos idées intérieures sont créatives et inspirantes. Cela garantit une expérience d'achat positive pour nos clients.\n- Toujours amical, toujours compétent: Cela rend nos clients très satisfaits.\n- Avec l'équipe, vous créez une image de magasin inspirante.\n- La gestion consciencieuse des marchandises, l'entretien des étagères et l'entreposage des livraisons sont de votre responsabilité.\n- Vous aimez installer et démonter nos objets d'exposition ? Alors vous avez raison avec nous.\n\n## Exigences\n- Vous êtes un vendeur et un consultant et la satisfaction du client vous motive.\n- Connaissez-vous le mobilier ? Un grand avantage.\n- Sur papier, vous convainquez si vous avez terminé des études de vente ou de l'expérience dans les ventes.\n- Vous pouvez bien parler allemand – verbalement et par écrit.\n- Le fait que vous devriez être flexible dans les ventes pendant les temps d'utilisation (de Mo. à Sa.) est une question bien sûr pour vous.\n\n## Ce que nous offrons\n- Réductions: réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, rabais personnel également pour les partenaires:in (habitant dans le même ménage)\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année d'âge, conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nYves Sanarica\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Altendorf"
       },
       "slugByLocale": {
-        "it": "verkaufsberater-in-boutique-livique-altendorf-schwyz-fhdvjq",
-        "en": "verkaufsberater-in-boutique-livique-altendorf-schwyz-fhdvjq",
+        "it": "consulente-vendite-in-boutique-coop-genossenschaft-altendorf",
+        "en": "sales-advisor-in-boutique-coop-genossenschaft-altendorf",
         "de": "verkaufsberater-in-boutique-livique-altendorf-schwyz-fhdvjq",
-        "fr": "verkaufsberater-in-boutique-livique-altendorf-schwyz-fhdvjq"
+        "fr": "conseiller-commercial-en-boutique-coop-genossenschaft-altendorf"
       },
       "requirementsByLocale": {
         "it": [],
@@ -160193,7 +160311,23 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-boutique-livique-altendorf-schwyz-fhdvjq",
+          "verkaufsberater-in-boutique-livique-altendorf-schwyz"
+        ],
+        "en": [
+          "verkaufsberater-in-boutique-livique-altendorf-schwyz-fhdvjq"
+        ],
+        "fr": [
+          "verkaufsberater-in-boutique-livique-altendorf-schwyz-fhdvjq"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-boutique-livique-altendorf-schwyz-fhdvjq",
+        "verkaufsberater-in-boutique-livique-altendorf-schwyz"
+      ]
     },
     {
       "id": "company-y6oyvp",
@@ -160234,9 +160368,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-damenunterbekleidung-e-oberbekleidung-coop-city-luzern-y6oyvp",
-        "en": "verkaufsberater-in-damenunterbekleidung-und-oberbekleidung-coop-city-luzern-y6oyvp",
+        "en": "sales-consultant-in-women-s-underwear-and-outerwear-coop-genossenschaft-luzern",
         "de": "verkaufsberater-in-damenunterbekleidung-und-oberbekleidung-coop-city-luzern-y6oyvp",
-        "fr": "verkaufsberater-in-damenunterbekleidung-und-oberbekleidung-coop-city-luzern-y6oyvp"
+        "fr": "consultant-en-ventes-en-sous-vetements-et-vetements-de-dessus-pour-femmes-coop-genossenschaft-luzern"
       },
       "requirementsByLocale": {},
       "addressLocality": "Luzern",
@@ -160255,11 +160389,22 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "verkaufsberater-in-damenunterbekleidung-und-oberbekleidung-coop-city-luzern-y6oyvp"
+        ],
+        "fr": [
+          "verkaufsberater-in-damenunterbekleidung-und-oberbekleidung-coop-city-luzern-y6oyvp"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-damenunterbekleidung-und-oberbekleidung-coop-city-luzern-y6oyvp"
+      ]
     },
     {
       "id": "company-j6i2tc",
-      "slug": "verkaufer-in-food-coop-embrach-zurich",
+      "slug": "venditore-in-food-coop-genossenschaft-embrach",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Embrach",
@@ -160297,10 +160442,10 @@
         "fr": "## Vendeur:dans la nourriture\n\n**Coop Genossenschaft** — Embrach, Zurich, Svizzera\n\n## Tâche\n- Vous aimez la variété, donc vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, que ce soit la fraîcheur et la qualité, l'hygiène, les règlements de température ou la date d'expiration.\n- Votre engagement aux caisses enregistreuses est également varié si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans la vente? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nChristelle Heitz\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Embrach"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-embrach-zurich-j6i2tc",
-        "en": "verkaufer-in-food-coop-embrach-zurich-j6i2tc",
+        "it": "venditore-in-food-coop-genossenschaft-embrach",
+        "en": "seller-in-food-coop-genossenschaft-embrach",
         "de": "verkaufer-in-food-coop-embrach-zurich-j6i2tc",
-        "fr": "verkaufer-in-food-coop-embrach-zurich-j6i2tc"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-embrach"
       },
       "requirementsByLocale": {
         "it": [],
@@ -160332,28 +160477,34 @@
           "venditore-trice-food-coop-genossenschaft-embrach",
           "verkaufer-in-food-coop-embrach-zurich-2kwwwj",
           "salesperson-food-coop-genossenschaft-embrach-2kwwwj",
-          "vendeur-se-food-coop-genossenschaft-embrach-2kwwwj"
+          "vendeur-se-food-coop-genossenschaft-embrach-2kwwwj",
+          "verkaufer-in-food-coop-embrach-zurich-j6i2tc",
+          "verkaufer-in-food-coop-embrach-zurich"
         ],
         "en": [
-          "salesperson-food-coop-genossenschaft-embrach-2kwwwj"
+          "salesperson-food-coop-genossenschaft-embrach-2kwwwj",
+          "verkaufer-in-food-coop-embrach-zurich-j6i2tc"
         ],
         "de": [
           "verkaufer-in-food-coop-embrach-zurich-2kwwwj"
         ],
         "fr": [
-          "vendeur-se-food-coop-genossenschaft-embrach-2kwwwj"
+          "vendeur-se-food-coop-genossenschaft-embrach-2kwwwj",
+          "verkaufer-in-food-coop-embrach-zurich-j6i2tc"
         ]
       },
       "previousSlugs": [
         "venditore-trice-food-coop-genossenschaft-embrach",
         "verkaufer-in-food-coop-embrach-zurich-2kwwwj",
         "salesperson-food-coop-genossenschaft-embrach-2kwwwj",
-        "vendeur-se-food-coop-genossenschaft-embrach-2kwwwj"
+        "vendeur-se-food-coop-genossenschaft-embrach-2kwwwj",
+        "verkaufer-in-food-coop-embrach-zurich-j6i2tc",
+        "verkaufer-in-food-coop-embrach-zurich"
       ]
     },
     {
       "id": "company-rwwxbo",
-      "slug": "verkaufer-in-food-coop-bellach-solothurn",
+      "slug": "venditore-in-food-coop-genossenschaft-bellach",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Bellach",
@@ -160391,10 +160542,10 @@
         "fr": "## Vendeur:dans la nourriture\n\n**Coopérative Coop** — Bellach, Soleure, Svizzera\n\n## Tâche\n- Vous aimez la variété, donc vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, que ce soit la fraîcheur et la qualité, l'hygiène, les règlements de température ou la date d'expiration.\n- Votre engagement aux caisses enregistreuses est également varié si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans la vente? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nAllemand Steiner\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Bellach"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-bellach-solothurn-rwwxbo",
-        "en": "verkaufer-in-food-coop-bellach-solothurn-rwwxbo",
+        "it": "venditore-in-food-coop-genossenschaft-bellach",
+        "en": "seller-in-food-coop-genossenschaft-bellach",
         "de": "verkaufer-in-food-coop-bellach-solothurn-rwwxbo",
-        "fr": "verkaufer-in-food-coop-bellach-solothurn-rwwxbo"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-bellach"
       },
       "requirementsByLocale": {
         "it": [],
@@ -160420,11 +160571,27 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-bellach-solothurn-rwwxbo",
+          "verkaufer-in-food-coop-bellach-solothurn"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-bellach-solothurn-rwwxbo"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-bellach-solothurn-rwwxbo"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-bellach-solothurn-rwwxbo",
+        "verkaufer-in-food-coop-bellach-solothurn"
+      ]
     },
     {
       "id": "company-ye91y7",
-      "slug": "rayonleiter-in-convenience-fleisch-coop-saanen-bern",
+      "slug": "conduttore-rayon-in-convenienza-carne-coop-genossenschaft-saanen",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Convenience / Fleisch",
       "location": "Saanen",
@@ -160462,10 +160629,10 @@
         "fr": "## Chauffeur de rayon: en pratique / viande\n\n**Coopérative de coop** — Saanen, Berne, Svizzera\n\n## Tâche\n- Votre but quand vous dirigez le Rayon Convenience and Meat? Une agréable fraîcheur et une expérience shopping pour vos clients.\n- Vous fournissez un réapprovisionnement régulier afin que les produits soient toujours disponibles. Et si les marchandises sont sur l'étagère, il réveille le désir d'essayer.\n- Si votre client a une question ou une préoccupation, vous êtes compétent et heureux de fournir des informations.\n- Le respect est essentiel pour vous lorsque vous dirigez votre équipe. Donc vous faites une bonne humeur.\n\n## Exigences\n- Achevé la formation de base dans le commerce de détail, en tant que spécialiste de la viande (f/m/d), cuisinier/chef (f/m/d) ou expérience professionnelle correspondante dans le domaine de la commodité/viande? Tous ces domaines conviennent à ce travail.\n- Avec les ventes et le leadership dans une fonction similaire, vous êtes familier.\n- Avez-vous déjà une connaissance de la commodité et de la viande? Un grand avantage.\n- Vous aimez conseiller les gens et partager votre intérêt pour des produits de qualité et des connaissances culinaires.\n- Vous avez une très bonne emprise sur l'allemand – verbalement et par écrit.\n- En ce qui concerne les temps de déploiement, vous êtes flexible.\n- Penser à de nouveaux systèmes est facile pour vous.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec un large éventail de possibilités de développement, soutien aux offres de formation complémentaire du LGAV et de la Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nAllemand Steiner\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Saanen"
       },
       "slugByLocale": {
-        "it": "rayonleiter-in-convenience-fleisch-coop-saanen-bern-ye91y7",
-        "en": "rayonleiter-in-convenience-fleisch-coop-saanen-bern-ye91y7",
+        "it": "conduttore-rayon-in-convenienza-carne-coop-genossenschaft-saanen",
+        "en": "rayon-conductor-in-convenience-meat-coop-genossenschaft-saanen",
         "de": "rayonleiter-in-convenience-fleisch-coop-saanen-bern-ye91y7",
-        "fr": "rayonleiter-in-convenience-fleisch-coop-saanen-bern-ye91y7"
+        "fr": "chauffeur-de-rayon-en-pratique-viande-coop-genossenschaft-saanen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -160491,11 +160658,27 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-convenience-fleisch-coop-saanen-bern-ye91y7",
+          "rayonleiter-in-convenience-fleisch-coop-saanen-bern"
+        ],
+        "en": [
+          "rayonleiter-in-convenience-fleisch-coop-saanen-bern-ye91y7"
+        ],
+        "fr": [
+          "rayonleiter-in-convenience-fleisch-coop-saanen-bern-ye91y7"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-convenience-fleisch-coop-saanen-bern-ye91y7",
+        "rayonleiter-in-convenience-fleisch-coop-saanen-bern"
+      ]
     },
     {
       "id": "company-ypnorv",
-      "slug": "verkaufer-in-food-coop-bettlach-solothurn",
+      "slug": "venditore-in-food-coop-genossenschaft-bettlach",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Bettlach",
@@ -160533,10 +160716,10 @@
         "fr": "## Vendeur:dans la nourriture\n\n**Coopérative de coop** — Bettlach, Soleure, Svizzera\n\n## Tâche\n- Vous aimez la variété, donc vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, que ce soit la fraîcheur et la qualité, l'hygiène, les règlements de température ou la date d'expiration.\n- Votre engagement aux caisses enregistreuses est également varié si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans la vente? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nAllemand Steiner\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Rire au lit"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-bettlach-solothurn-ypnorv",
-        "en": "verkaufer-in-food-coop-bettlach-solothurn-ypnorv",
+        "it": "venditore-in-food-coop-genossenschaft-bettlach",
+        "en": "seller-in-food-coop-genossenschaft-bettlach",
         "de": "verkaufer-in-food-coop-bettlach-solothurn-ypnorv",
-        "fr": "verkaufer-in-food-coop-bettlach-solothurn-ypnorv"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-bettlach"
       },
       "requirementsByLocale": {
         "it": [],
@@ -160568,28 +160751,34 @@
           "commesso-a-alimentari-coop-genossenschaft-bettlach",
           "verkaufer-in-food-coop-genossenschaft-bettlach-solothurn-tpanae",
           "food-sales-assistant-coop-genossenschaft-bettlach-tpanae",
-          "vendeur-euse-en-alimentation-coop-genossenschaft-bettlach-tpanae"
+          "vendeur-euse-en-alimentation-coop-genossenschaft-bettlach-tpanae",
+          "verkaufer-in-food-coop-bettlach-solothurn-ypnorv",
+          "verkaufer-in-food-coop-bettlach-solothurn"
         ],
         "en": [
-          "food-sales-assistant-coop-genossenschaft-bettlach-tpanae"
+          "food-sales-assistant-coop-genossenschaft-bettlach-tpanae",
+          "verkaufer-in-food-coop-bettlach-solothurn-ypnorv"
         ],
         "de": [
           "verkaufer-in-food-coop-genossenschaft-bettlach-solothurn-tpanae"
         ],
         "fr": [
-          "vendeur-euse-en-alimentation-coop-genossenschaft-bettlach-tpanae"
+          "vendeur-euse-en-alimentation-coop-genossenschaft-bettlach-tpanae",
+          "verkaufer-in-food-coop-bettlach-solothurn-ypnorv"
         ]
       },
       "previousSlugs": [
         "commesso-a-alimentari-coop-genossenschaft-bettlach",
         "verkaufer-in-food-coop-genossenschaft-bettlach-solothurn-tpanae",
         "food-sales-assistant-coop-genossenschaft-bettlach-tpanae",
-        "vendeur-euse-en-alimentation-coop-genossenschaft-bettlach-tpanae"
+        "vendeur-euse-en-alimentation-coop-genossenschaft-bettlach-tpanae",
+        "verkaufer-in-food-coop-bettlach-solothurn-ypnorv",
+        "verkaufer-in-food-coop-bettlach-solothurn"
       ]
     },
     {
       "id": "company-iiwf7m",
-      "slug": "verkaufer-in-food-coop-bettlach-solothurn-2",
+      "slug": "venditore-in-food-coop-genossenschaft-bettlach-c726e9",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Bettlach",
@@ -160627,10 +160816,10 @@
         "fr": "## Vendeur:dans la nourriture\n\n**Coopérative de coop** — Bettlach, Soleure, Svizzera\n\n## Tâche\n- Vous aimez la variété, donc vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, que ce soit la fraîcheur et la qualité, l'hygiène, les règlements de température ou la date d'expiration.\n- Votre engagement aux caisses enregistreuses est également varié si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans la vente? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nAllemand Steiner\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Rire au lit"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-bettlach-solothurn-iiwf7m",
-        "en": "verkaufer-in-food-coop-bettlach-solothurn-iiwf7m",
+        "it": "venditore-in-food-coop-genossenschaft-bettlach-c726e9",
+        "en": "seller-in-food-coop-genossenschaft-bettlach-c726e9",
         "de": "verkaufer-in-food-coop-bettlach-solothurn-iiwf7m",
-        "fr": "verkaufer-in-food-coop-bettlach-solothurn-iiwf7m"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-bettlach-c726e9"
       },
       "requirementsByLocale": {
         "it": [],
@@ -160656,11 +160845,27 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-bettlach-solothurn-iiwf7m",
+          "verkaufer-in-food-coop-bettlach-solothurn-2"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-bettlach-solothurn-iiwf7m"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-bettlach-solothurn-iiwf7m"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-bettlach-solothurn-iiwf7m",
+        "verkaufer-in-food-coop-bettlach-solothurn-2"
+      ]
     },
     {
       "id": "company-uac6rm",
-      "slug": "verkaufer-in-frischprodukte-fleisch-convenience-coop-embrach-zurich",
+      "slug": "venditore-in-prodotti-freschi-carne-convenienza-coop-genossenschaft-embrach",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte (Fleisch & Convenience)",
       "location": "Embrach",
@@ -160698,10 +160903,10 @@
         "fr": "## Vendeur: en produits frais (viande et commodité)\n\n**Coop Genossenschaft** — Embrach, Zurich, Svizzera\n\n## Tâche\n- Vous aimez la variété, donc vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, que ce soit la fraîcheur et la qualité, l'hygiène, les règlements de température ou la date d'expiration.\n- Votre engagement aux caisses enregistreuses est également varié si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans la vente? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nChristelle Heitz\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Embrach"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-fleisch-convenience-coop-embrach-zurich-uac6rm",
-        "en": "verkaufer-in-frischprodukte-fleisch-convenience-coop-embrach-zurich-uac6rm",
+        "it": "venditore-in-prodotti-freschi-carne-convenienza-coop-genossenschaft-embrach",
+        "en": "seller-in-fresh-products-meat-convenience-coop-genossenschaft-embrach",
         "de": "verkaufer-in-frischprodukte-fleisch-convenience-coop-embrach-zurich-uac6rm",
-        "fr": "verkaufer-in-frischprodukte-fleisch-convenience-coop-embrach-zurich-uac6rm"
+        "fr": "vendeur-en-produits-frais-viande-et-commodite-coop-genossenschaft-embrach"
       },
       "requirementsByLocale": {
         "it": [],
@@ -160727,11 +160932,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-frischprodukte-fleisch-convenience-coop-embrach-zurich-uac6rm",
+          "verkaufer-in-frischprodukte-fleisch-convenience-coop-embrach-zurich"
+        ],
+        "en": [
+          "verkaufer-in-frischprodukte-fleisch-convenience-coop-embrach-zurich-uac6rm"
+        ],
+        "fr": [
+          "verkaufer-in-frischprodukte-fleisch-convenience-coop-embrach-zurich-uac6rm"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-frischprodukte-fleisch-convenience-coop-embrach-zurich-uac6rm",
+        "verkaufer-in-frischprodukte-fleisch-convenience-coop-embrach-zurich"
+      ]
     },
     {
       "id": "company-p75561",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-wadenswil-zurich",
+      "slug": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-wadenswil",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Wädenswil",
@@ -160769,10 +160990,10 @@
         "fr": "## Metzger:in (spécialiste de la viande / spécialiste de la viande)\n\n**Coop Genossenschaft** — Wädenswil, Zurich, Svizzera\n\n## Tâche\n- La viande et la saucisse sont exactement votre chose: amical et ouvert d'esprit, vous conseillez et servez les clients exigeants derrière le comptoir en plein air.\n- Fraisement coupé et habillé: Vous préparez les produits de viande professionnellement.\n- Vous cultivez les biens et les aidez à mieux les vendre.\n- Il est clair pour vous que vous respectez les exigences de qualité et les directives telles que la fraîcheur et la qualité, l'hygiène, la réglementation de la température et les dates d'expiration sans exception.\n\n## Exigences\n- Vous avez suivi une formation de base en tant que spécialiste de la viande (f/m/d), boucher:in, vendeur de viande:in ou cuisinier (f/m/d).\n- Avec votre expérience professionnelle dans une boucherie soignée, vous marquez également avec nous.\n- En tant que prestataire de services, vous vous engagez toujours pleinement.\n- Vous maîtrisez la langue allemande verbalement et par écrit très bien.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec un large éventail de possibilités de développement, soutien aux offres de formation complémentaire du LGAV et de la Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nValeria Mazziari Randazzo\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Wädenswil"
       },
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-wadenswil-zurich-p75561",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-wadenswil-zurich-p75561",
+        "it": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-wadenswil",
+        "en": "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-wadenswil",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-wadenswil-zurich-p75561",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-wadenswil-zurich-p75561"
+        "fr": "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-wadenswil"
       },
       "requirementsByLocale": {
         "it": [],
@@ -160805,16 +161026,20 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-wadenswil-zurich-tv96fh",
           "meat-cutter-butcher-coop-genossenschaft-wadenswil-tv96fh",
           "specialiste-de-la-viande-coop-genossenschaft-wadenswil-tv96fh",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wadenswil"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wadenswil",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-wadenswil-zurich-p75561",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-wadenswil-zurich"
         ],
         "en": [
-          "meat-cutter-butcher-coop-genossenschaft-wadenswil-tv96fh"
+          "meat-cutter-butcher-coop-genossenschaft-wadenswil-tv96fh",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-wadenswil-zurich-p75561"
         ],
         "de": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-wadenswil-zurich-tv96fh"
         ],
         "fr": [
-          "specialiste-de-la-viande-coop-genossenschaft-wadenswil-tv96fh"
+          "specialiste-de-la-viande-coop-genossenschaft-wadenswil-tv96fh",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-wadenswil-zurich-p75561"
         ]
       },
       "previousSlugs": [
@@ -160822,7 +161047,9 @@
         "metzger-in-fleischfachfrau-fleischfachmann-coop-wadenswil-zurich-tv96fh",
         "meat-cutter-butcher-coop-genossenschaft-wadenswil-tv96fh",
         "specialiste-de-la-viande-coop-genossenschaft-wadenswil-tv96fh",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wadenswil"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wadenswil",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-wadenswil-zurich-p75561",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-wadenswil-zurich"
       ]
     }
   ]

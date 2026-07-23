@@ -6,7 +6,9 @@
       "id": "alpiq-4d715dc319cd",
       "slug": "market-risk-manager-all-90-100-alpiq-olten",
       "slugByLocale": {
-        "it": "market-risk-manager-all-90-100-alpiq-olten"
+        "it": "market-risk-manager-all-90-100-alpiq-olten",
+        "de": "market-risk-manager-alle-90-100-alpiq-olten",
+        "fr": "gestionnaire-des-risques-du-marche-tous-90-100-alpiq-olten"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -182,17 +184,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "structured-products-trader-spanish-market-alpiq-olten",
-          "prodotti-strutturati-trader-mercato-spagnolo-alpiq-olten"
-        ]
-      },
-      "previousSlugs": [
-        "structured-products-trader-spanish-market-alpiq-olten",
-        "prodotti-strutturati-trader-mercato-spagnolo-alpiq-olten"
-      ]
+      }
     },
     {
       "id": "alpiq-e1fbe0ada2de",
@@ -253,15 +245,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "archivist-in-all-100-alpiq-olten"
-        ]
-      },
-      "previousSlugs": [
-        "archivist-in-all-100-alpiq-olten"
-      ]
+      }
     },
     {
       "id": "alpiq-6f6e2e4039a0",
@@ -323,15 +307,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "head-internal-audit-all-100-alpiq-olten"
-        ]
-      },
-      "previousSlugs": [
-        "head-internal-audit-all-100-alpiq-olten"
-      ]
+      "crawlerMissStreak": 1
     },
     {
       "id": "alpiq-dbe206690861",
@@ -392,15 +368,7 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten"
-        ]
-      },
-      "previousSlugs": [
-        "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten"
-      ]
+      }
     },
     {
       "id": "alpiq-70d91ad872b7",
@@ -461,15 +429,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "electricien-ne-automaticien-ne-alpiq-martigny"
-        ]
-      },
-      "previousSlugs": [
-        "electricien-ne-automaticien-ne-alpiq-martigny"
-      ]
+      }
     }
   ]
 }

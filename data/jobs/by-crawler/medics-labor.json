@@ -53,13 +53,11 @@
       "requirementsByLocale": {},
       "externalId": "0132",
       "previousSlugs": [
-        "fachmitarbeiter-in-probenannahme-medics-labor-bern",
-        "specialista-per-campionamento-medics-labor-ag-bern"
+        "fachmitarbeiter-in-probenannahme-medics-labor-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachmitarbeiter-in-probenannahme-medics-labor-bern",
-          "specialista-per-campionamento-medics-labor-ag-bern"
+          "fachmitarbeiter-in-probenannahme-medics-labor-bern"
         ],
         "en": [
           "fachmitarbeiter-in-probenannahme-medics-labor-bern"
@@ -84,12 +82,12 @@
     },
     {
       "id": "medics-labor-c8edd2cc4884",
-      "slug": "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern",
+      "slug": "biomedica-r-analista-nella-patologia-hf-medics-labor-ag-bern",
       "slugByLocale": {
         "de": "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern",
-        "it": "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern",
-        "en": "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern",
-        "fr": "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern"
+        "it": "biomedica-r-analista-nella-patologia-hf-medics-labor-ag-bern",
+        "en": "biomedical-r-analyst-in-hf-pathology-medics-labor-ag-bern",
+        "fr": "analyste-biomedical-en-pathologie-hf-medics-labor-ag-bern"
       },
       "company": "Medics Labor AG",
       "companyKey": "medics-labor",
@@ -145,7 +143,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-22T23:13:19.942Z"
+      "firstSeenAt": "2026-07-22T23:13:19.942Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern"
+        ],
+        "en": [
+          "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern"
+        ],
+        "fr": [
+          "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern"
+        ]
+      },
+      "previousSlugs": [
+        "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern"
+      ]
     }
   ]
 }

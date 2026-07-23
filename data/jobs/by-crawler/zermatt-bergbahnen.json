@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "zermatt-bergbahnen-1d2568bbb7e6",
-      "slug": "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen",
+      "slug": "meccanico-di-costruzione-zermatt-bergbahnen-zermatt",
       "slugByLocale": {
         "de": "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen",
-        "it": "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen",
-        "en": "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen",
-        "fr": "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen"
+        "it": "meccanico-di-costruzione-zermatt-bergbahnen-zermatt",
+        "en": "construction-machinery-mechanic-zermatt-bergbahnen-zermatt",
+        "fr": "mecanicien-des-machines-de-construction-zermatt-bergbahnen-zermatt"
       },
       "company": "Zermatt Bergbahnen",
       "companyKey": "zermatt-bergbahnen",
@@ -60,7 +60,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-22T22:31:46.759Z"
+      "firstSeenAt": "2026-07-22T22:31:46.759Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen"
+        ],
+        "en": [
+          "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen"
+        ],
+        "fr": [
+          "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen"
+        ]
+      },
+      "previousSlugs": [
+        "baumaschinenmechaniker-in-zermatt-zermatt-bergbahnen"
+      ]
     },
     {
       "id": "zermatt-bergbahnen-8f99e52ee84e",
@@ -182,13 +196,11 @@
       "sourceLang": "de",
       "crawledAt": "2026-07-22T22:31:45.414Z",
       "previousSlugs": [
-        "sachbearbeiter-in-lohnbuchhaltung-zermatt-zermatt-bergbahnen",
-        "dipendente-regista-zermatt-bergbahnen-zermatt"
+        "sachbearbeiter-in-lohnbuchhaltung-zermatt-zermatt-bergbahnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-lohnbuchhaltung-zermatt-zermatt-bergbahnen",
-          "dipendente-regista-zermatt-bergbahnen-zermatt"
+          "sachbearbeiter-in-lohnbuchhaltung-zermatt-zermatt-bergbahnen"
         ],
         "en": [
           "sachbearbeiter-in-lohnbuchhaltung-zermatt-zermatt-bergbahnen"
@@ -336,13 +348,11 @@
       "sourceLang": "de",
       "crawledAt": "2026-07-22T22:31:43.925Z",
       "previousSlugs": [
-        "lehrstelle-seilbahn-mechatroniker-in-efz-seilbahner-in-eba-zermatt-zermatt-bergbahnen",
-        "apprendistato-seilbahn-mechatroniker-in-cfc-seilbahner-in-afp-zermatt-bergbahnen-zermatt"
+        "lehrstelle-seilbahn-mechatroniker-in-efz-seilbahner-in-eba-zermatt-zermatt-bergbahnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-seilbahn-mechatroniker-in-efz-seilbahner-in-eba-zermatt-zermatt-bergbahnen",
-          "apprendistato-seilbahn-mechatroniker-in-cfc-seilbahner-in-afp-zermatt-bergbahnen-zermatt"
+          "lehrstelle-seilbahn-mechatroniker-in-efz-seilbahner-in-eba-zermatt-zermatt-bergbahnen"
         ],
         "en": [
           "lehrstelle-seilbahn-mechatroniker-in-efz-seilbahner-in-eba-zermatt-zermatt-bergbahnen"
