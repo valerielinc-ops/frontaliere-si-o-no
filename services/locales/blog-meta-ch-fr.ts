@@ -1468,6 +1468,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mappa-frontalieri-lombardi-ticino.title': 'Frontaliers : d\'où viennent les travailleurs au Tessin',
     'blog.article.mappa-frontalieri-lombardi-ticino.excerpt': 'Les données de l\'Office fédéral de la statistique révèlent l\'origine des travailleurs avec le permis G : boom en Brianza, stable Como et Varese.',
     'blog.article.mappa-frontalieri-lombardi-ticino.imageAlt': 'Vue panoramique d\'une ville tessinoise avec infrastructures urbaines',
+    'blog.article.reddito-cittadinanza-svizzera-indagine.title': 'Revenu de citoyenneté et capitaux en Suisse : les faits',
+    'blog.article.reddito-cittadinanza-svizzera-indagine.excerpt': 'Un couple résidant en Italie, bénéficiaire de subsides, au centre de constatations pour capitaux transférés de comptes suisses.',
+    'blog.article.reddito-cittadinanza-svizzera-indagine.imageAlt': 'Bâtiment bancaire à Lugano, Suisse',
 };
 
 export default blogMetaChFr;

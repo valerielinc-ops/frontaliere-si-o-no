@@ -4400,6 +4400,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'reddito-cittadinanza-svizzera-indagine',
+    category: 'fiscale',
+    date: '2026-07-23T06:32:17.449Z',
+    image: '/images/blog/reddito-cittadinanza-svizzera-indagine.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

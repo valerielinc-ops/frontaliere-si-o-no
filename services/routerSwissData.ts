@@ -512,6 +512,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'permesso-frontaliere-g-procedura-ticino': { it: 'permesso-frontaliere-g-procedura-ticino', en: 'g-permit-procedure-ticino', de: 'g-bewilligung-verfahren-tessin', fr: 'permis-g-procedure-tessin' },
  'terzo-pilastro-3a-vantaggi-2026-basilea': { it: 'terzo-pilastro-3a-vantaggi-2026-basilea', en: 'slug-terzo-pilastro-3a-vantaggi-2026-basilea', de: 'slug-terzo-pilastro-3a-vantaggi-2026-basilea', fr: 'slug-terzo-pilastro-3a-vantaggi-2026-basilea' },
  'mappa-frontalieri-lombardi-ticino': { it: 'mappa-frontalieri-lombardi-ticino', en: 'map-lombard-cross-border-workers-ticino', de: 'karte-lombardische-grenzgaenger-tessin', fr: 'carte-frontaliers-lombards-ticino' },
+ 'reddito-cittadinanza-svizzera-indagine': { it: 'reddito-cittadinanza-svizzera-indagine', en: 'citizenship-income-swiss-investigation', de: 'buergergeld-schweiz-untersuchung', fr: 'revenu-citoyennete-enquete-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

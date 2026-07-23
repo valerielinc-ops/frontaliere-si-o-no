@@ -1468,6 +1468,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mappa-frontalieri-lombardi-ticino.title': 'Frontalieri: da dove arrivano i lavoratori in Ticino',
     'blog.article.mappa-frontalieri-lombardi-ticino.excerpt': 'I dati dell\'Ufficio federale di statistica rivelano la provenienza dei lavoratori con permesso G: boom in Brianza, stabili Como e Varese.',
     'blog.article.mappa-frontalieri-lombardi-ticino.imageAlt': 'Veduta panoramica di una città ticinese con infrastrutture urbane',
+    'blog.article.reddito-cittadinanza-svizzera-indagine.title': 'Reddito di cittadinanza e capitali in Svizzera: i fatti',
+    'blog.article.reddito-cittadinanza-svizzera-indagine.excerpt': 'Una coppia residente in Italia, beneficiaria di sussidi, al centro di accertamenti per capitali trasferiti da conti svizzeri.',
+    'blog.article.reddito-cittadinanza-svizzera-indagine.imageAlt': 'Palazzo bancario a Lugano, Svizzera',
 };
 
 export default blogMetaChIt;

@@ -1468,6 +1468,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mappa-frontalieri-lombardi-ticino.title': 'Frontier workers: where workers arrive in Ticino',
     'blog.article.mappa-frontalieri-lombardi-ticino.excerpt': 'Data from the Federal Statistical Office reveal the origin of workers with G: boom permits in Brianza, Como and Varese buildings.',
     'blog.article.mappa-frontalieri-lombardi-ticino.imageAlt': 'Panoramic view of a Ticino city with urban infrastructure',
+    'blog.article.reddito-cittadinanza-svizzera-indagine.title': 'Citizenship and capital income in Switzerland: the facts',
+    'blog.article.reddito-cittadinanza-svizzera-indagine.excerpt': 'A couple resident in Italy, beneficiary of subsidies, at the centre of assessments for capital transferred from Swiss accounts.',
+    'blog.article.reddito-cittadinanza-svizzera-indagine.imageAlt': 'Bank building in Lugano, Switzerland',
 };
 
 export default blogMetaChEn;
