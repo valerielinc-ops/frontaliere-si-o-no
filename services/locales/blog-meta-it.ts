@@ -8852,6 +8852,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.title': 'Dati salariali dei frontalieri in dichiarazione dei redditi',
     'blog.article.dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.excerpt': 'Secondo la fonte, i dati salariali dei vecchi frontalieri saranno inclusi nella dichiarazione dei redditi.',
     'blog.article.dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.imageAlt': 'Panorama del Lago di Lugano',
+    'blog.article.frontaliere-educatore-ticino-stipendio-requisiti.title': 'Lavorare come educatore in Ticino: stipendio e requisiti',
+    'blog.article.frontaliere-educatore-ticino-stipendio-requisiti.excerpt': 'Il Nuovo Accordo Frontalieri è stato firmato il 23 dicembre 2020 e viene applicato dal 1° gennaio 2024. Questo accordo prevede l\'esenzione di €7\'500 per i vecchi frontalieri e una franchigia di €10\'000 per i nuovi frontalieri.',
+    'blog.article.frontaliere-educatore-ticino-stipendio-requisiti.imageAlt': 'Una scena di Lugano, con il lago in primo piano, visto dalla città.',
 };
 
 export default blogMetaIt;

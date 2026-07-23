@@ -8850,6 +8850,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.title': 'Lohndaten der Grenzgänger in der Steuererklärung',
     'blog.article.dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.excerpt': 'Laut Quelle sollen die Lohndaten der alten Grenzgänger in die Steuererklärung aufgenommen werden.',
     'blog.article.dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.imageAlt': 'Panorama des Luganersees',
+    'blog.article.frontaliere-educatore-ticino-stipendio-requisiti.title': 'Als Pädagoge im Tessin arbeiten: Gehalt und Voraussetzungen',
+    'blog.article.frontaliere-educatore-ticino-stipendio-requisiti.excerpt': 'Die Neue Frontalieri-Vereinbarung wurde am 23. Dezember 2020 unterzeichnet und gilt ab dem 1. Januar 2024. Diese Vereinbarung sieht die Befreiung von € 7\'500 für alte Grenzgänger und eine Selbstbeteiligung von € 10\'000 für neue Grenzgänger vor.',
+    'blog.article.frontaliere-educatore-ticino-stipendio-requisiti.imageAlt': 'Eine Szene von Lugano, mit dem See im Vordergrund, gesehen von der Stadt.',
 };
 
 export default blogMetaDe;

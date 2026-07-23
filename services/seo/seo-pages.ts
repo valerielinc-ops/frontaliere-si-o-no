@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3452,
+ "numberOfItems": 3453,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8220,7 +8220,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3449, "name": "Frontalieri, numeri in calo in Ticino nei primi...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-numeri-in-calo` },
           { "@type": "ListItem", "position": 3450, "name": "Tragedia sul lavoro a Blenio: i dettagli dell'i...", "url": `${BASE_URL}/articoli-frontaliere/tragedia-lavoro-blenio-aquila` },
           { "@type": "ListItem", "position": 3451, "name": "Di più Auto: mercato del nuovo non decolla, svi...", "url": `${BASE_URL}/articoli-frontaliere/auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato` },
-          { "@type": "ListItem", "position": 3452, "name": "Dati salariali dei frontalieri in dichiarazione...", "url": `${BASE_URL}/articoli-frontaliere/dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi` }
+          { "@type": "ListItem", "position": 3452, "name": "Dati salariali dei frontalieri in dichiarazione...", "url": `${BASE_URL}/articoli-frontaliere/dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi` },
+          { "@type": "ListItem", "position": 3453, "name": "Lavorare come educatore in Ticino: stipendio e ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-educatore-ticino-stipendio-requisiti` }
  ]
  },
  {
