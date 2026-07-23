@@ -18894,6 +18894,279 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-terzo-pilastro-3a-vantaggi-2026-basilea': {
+    title: 'Terzo pilastro 3a: vantaggi per i frontalieri nel canton Basilea',
+    description: 'La nuova convenzione doppie imposizioni Italia-Svizzera e il Nuovo Accordo Frontalieri prevedono vantaggi per i frontalieri nel canton Basilea. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, terzo, pilastro, vantaggi, canton',
+    ogTitle: 'Terzo pilastro 3a: vantaggi per i frontalieri nel canton Basilea',
+    ogDescription: 'La nuova convenzione doppie imposizioni Italia-Svizzera e il Nuovo Accordo Frontalieri prevedono vantaggi per i frontalieri nel canton Basilea.',
+    canonicalPath: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026-basilea/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Terzo pilastro 3a: vantaggi per i frontalieri nel canton Basilea",
+      "description": "La nuova convenzione doppie imposizioni Italia-Svizzera e il Nuovo Accordo Frontalieri prevedono vantaggi per i frontalieri nel canton Basilea. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/terzo-pilastro-3a-vantaggi-2026-basilea.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Descrizione dell'immagine in italiano, massimo 125 caratteri"
+      },
+      "datePublished": "2026-07-23T05:15:40+00:00",
+      "dateModified": "2026-07-23T05:15:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026-basilea/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mappa-frontalieri-lombardi-ticino': {
+    title: 'Frontalieri: da dove arrivano i lavoratori in Ticino',
+    description: 'Analisi dei dati BFS sui frontalieri in Ticino: boom in Brianza, stabili Como e Varese. Scopri le cifre aggiornate e le implicazioni del mercato del lavoro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dove, arrivano, lavoratori, dati',
+    ogTitle: 'Frontalieri: da dove arrivano i lavoratori in Ticino',
+    ogDescription: 'I dati ufficiali del 2025 mostrano un aumento del 30% dei frontalieri in Ticino. Analisi dei flussi dalle province lombarde.',
+    canonicalPath: '/articoli-svizzera/mappa-frontalieri-lombardi-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: da dove arrivano i lavoratori in Ticino",
+      "description": "Analisi dei dati BFS sui frontalieri in Ticino: boom in Brianza, stabili Como e Varese. Scopri le cifre aggiornate e le implicazioni del mercato del lavoro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mappa-frontalieri-lombardi-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di una città ticinese con infrastrutture urbane"
+      },
+      "datePublished": "2026-07-23T05:51:44+00:00",
+      "dateModified": "2026-07-23T05:51:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mappa-frontalieri-lombardi-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-reddito-cittadinanza-svizzera-indagine': {
+    title: 'Reddito di cittadinanza e capitali in Svizzera: i fatti',
+    description: 'Indagine su una coppia che percepiva sussidi pur detenendo capitali in Svizzera: i fatti emersi e le implicazioni per la trasparenza finanziaria.',
+    keywords: 'frontalieri, ticino, svizzera, italia, reddito, cittadinanza, capitali, fatti',
+    ogTitle: 'Indagine reddito di cittadinanza e capitali in Svizzera',
+    ogDescription: 'Indagine su una coppia che percepiva sussidi pur detenendo capitali in Svizzera: i fatti emersi e le implicazioni per la trasparenza finanziaria.',
+    canonicalPath: '/articoli-svizzera/reddito-cittadinanza-svizzera-indagine/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Reddito di cittadinanza e capitali in Svizzera: i fatti",
+      "description": "Indagine su una coppia che percepiva sussidi pur detenendo capitali in Svizzera: i fatti emersi e le implicazioni per la trasparenza finanziaria.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/reddito-cittadinanza-svizzera-indagine.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo bancario a Lugano, Svizzera"
+      },
+      "datePublished": "2026-07-23T06:32:17+00:00",
+      "dateModified": "2026-07-23T06:32:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/reddito-cittadinanza-svizzera-indagine/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-rallentamento-ticino-crescita-grigioni': {
+    title: 'Frontalieri: rallentamento in Ticino, crescita nei Grigioni',
+    description: 'Il numero di frontalieri in Ticino è rimasto stabile nel terzo trimestre 2025, mentre nei Grigioni è aumentato a un nuovo massimo storico. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, rallentamento, crescita, grigioni, numero',
+    ogTitle: 'Frontalieri: rallentamento in Ticino, crescita nei Grigioni',
+    ogDescription: 'Il numero di frontalieri in Ticino è rimasto stabile nel terzo trimestre 2025, mentre nei Grigioni è aumentato a un nuovo massimo storico.',
+    canonicalPath: '/articoli-svizzera/frontalieri-rallentamento-ticino-crescita-grigioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: rallentamento in Ticino, crescita nei Grigioni",
+      "description": "Il numero di frontalieri in Ticino è rimasto stabile nel terzo trimestre 2025, mentre nei Grigioni è aumentato a un nuovo massimo storico. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-rallentamento-ticino-crescita-grigioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri a lavoro in Ticino"
+      },
+      "datePublished": "2026-07-23T06:58:04+00:00",
+      "dateModified": "2026-07-23T06:58:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-rallentamento-ticino-crescita-grigioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-alta-volont-di-scambio-per-la-borsa-svizzera': {
+    title: 'Alti volumi di scambio per la Borsa svizzera | Frontaliere Ticino',
+    description: 'Il gruppo SIX ha registrato un aumento del fatturato e un netto incremento degli utili nel primo semestre 2026. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, alti, volumi, scambio, borsa',
+    ogTitle: 'Alti volumi di scambio per la Borsa svizzera',
+    ogDescription: 'Il gruppo SIX ha registrato un aumento del fatturato e un netto incremento degli utili nel primo semestre 2026.',
+    canonicalPath: '/articoli-svizzera/alta-volont-di-scambio-per-la-borsa-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Alti volumi di scambio per la Borsa svizzera",
+      "description": "Il gruppo SIX ha registrato un aumento del fatturato e un netto incremento degli utili nel primo semestre 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/alta-volont-di-scambio-per-la-borsa-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La Borsa svizzera a Lugano"
+      },
+      "datePublished": "2026-07-23T07:55:15+00:00",
+      "dateModified": "2026-07-23T07:55:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/alta-volont-di-scambio-per-la-borsa-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lavori-tilo-chi-cambia': {
+    title: 'Lavori all\'infrastruttura, ecco cosa cambia per i TILO',
+    description: 'Modifiche alla circolazione ferroviaria per lavori infrastrutturali interesseranno diversi collegamenti TILO tra fine luglio e agosto 2026. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavori, infrastruttura, ecco, cosa',
+    ogTitle: 'Lavori all\'infrastruttura, ecco cosa cambia per i TILO',
+    ogDescription: 'Modifiche alla circolazione ferroviaria per lavori infrastrutturali interesseranno diversi collegamenti TILO tra fine luglio e agosto 2026.',
+    canonicalPath: '/articoli-svizzera/lavori-tilo-chi-cambia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavori all'infrastruttura, ecco cosa cambia per i TILO",
+      "description": "Modifiche alla circolazione ferroviaria per lavori infrastrutturali interesseranno diversi collegamenti TILO tra fine luglio e agosto 2026. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavori-tilo-chi-cambia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I lavori di manutenzione ai binari del Tilo a Lugano"
+      },
+      "datePublished": "2026-07-23T08:23:00+00:00",
+      "dateModified": "2026-07-23T08:23:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lavori-tilo-chi-cambia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-dazi-usa-svizzera-luglio-2026': {
+    title: 'Dazi USA: il punto sulle tariffe per la Svizzera',
+    description: 'Scadono i 150 giorni della tariffa USA al 10% sui prodotti svizzeri. Analisi del rischio dazi e posizione del Consiglio federale sulle accuse di lavoro forzato.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dazi, punto, sulle, tariffe',
+    ogTitle: 'Dazi USA sulla Svizzera: cosa sapere dopo la scadenza',
+    ogDescription: 'Scadono i 150 giorni della tariffa USA al 10% sui prodotti svizzeri. Analisi del rischio dazi e posizione del Consiglio federale.',
+    canonicalPath: '/articoli-svizzera/dazi-usa-svizzera-luglio-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dazi USA: il punto sulle tariffe per la Svizzera",
+      "description": "Scadono i 150 giorni della tariffa USA al 10% sui prodotti svizzeri. Analisi del rischio dazi e posizione del Consiglio federale sulle accuse di lavoro forzato.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dazi-usa-svizzera-luglio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna in una giornata estiva"
+      },
+      "datePublished": "2026-07-23T08:57:21+00:00",
+      "dateModified": "2026-07-23T08:57:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dazi-usa-svizzera-luglio-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

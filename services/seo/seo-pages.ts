@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3460,
+ "numberOfItems": 3474,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8228,7 +8228,21 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3457, "name": "Richiesta nuovo permesso per frontalieri (G) - ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-permessi-g` },
           { "@type": "ListItem", "position": 3458, "name": "Terzo pilastro 3a svizzero: vantaggi 2026 nel C...", "url": `${BASE_URL}/articoli-frontaliere/terzo-pilastro-3a-vantaggi-2026-canton-san-gallo` },
           { "@type": "ListItem", "position": 3459, "name": "Sempre meno frontalieri in Ticino: calo lieve m...", "url": `${BASE_URL}/articoli-frontaliere/sempre-meno-frontalieri-ticino-calof-lievelie` },
-          { "@type": "ListItem", "position": 3460, "name": "Permesso G per frontalieri: procedura e obbligh...", "url": `${BASE_URL}/articoli-frontaliere/permesso-frontaliere-g-procedura-ticino` }
+          { "@type": "ListItem", "position": 3460, "name": "Permesso G per frontalieri: procedura e obbligh...", "url": `${BASE_URL}/articoli-frontaliere/permesso-frontaliere-g-procedura-ticino` },
+          { "@type": "ListItem", "position": 3461, "name": "Quanto guadagna un muratore frontaliere in Ticino?", "url": `${BASE_URL}/articoli-frontaliere/stipendio-muratore-frontaliere-ticino` },
+          { "@type": "ListItem", "position": 3462, "name": "Terzo pilastro 3a: vantaggi per i frontalieri n...", "url": `${BASE_URL}/articoli-frontaliere/terzo-pilastro-3a-vantaggi-2026-basilea` },
+          { "@type": "ListItem", "position": 3463, "name": "Permesso G apprendisti: durata estesa per l'int...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-apprendisti-durata-tirocinio` },
+          { "@type": "ListItem", "position": 3464, "name": "Frontalieri: da dove arrivano i lavoratori in T...", "url": `${BASE_URL}/articoli-frontaliere/mappa-frontalieri-lombardi-ticino` },
+          { "@type": "ListItem", "position": 3465, "name": "Lavorare come ingegnere in Ticino: requisiti e ...", "url": `${BASE_URL}/articoli-frontaliere/ingegnere-frontaliero-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3466, "name": "Reddito di cittadinanza e capitali in Svizzera:...", "url": `${BASE_URL}/articoli-frontaliere/reddito-cittadinanza-svizzera-indagine` },
+          { "@type": "ListItem", "position": 3467, "name": "Lite Lombardia e Svizzera: il nodo fiscale dei ...", "url": `${BASE_URL}/articoli-frontaliere/lite-lombardia-svizzera-frontalieri` },
+          { "@type": "ListItem", "position": 3468, "name": "Frontalieri: rallentamento in Ticino, crescita ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-rallentamento-ticino-crescita-grigioni` },
+          { "@type": "ListItem", "position": 3469, "name": "Ozono in Ticino: limiti superati e implicazioni", "url": `${BASE_URL}/articoli-frontaliere/ozono-ticino-qualita-aria` },
+          { "@type": "ListItem", "position": 3470, "name": "Alti volumi di scambio per la Borsa svizzera", "url": `${BASE_URL}/articoli-frontaliere/alta-volont-di-scambio-per-la-borsa-svizzera` },
+          { "@type": "ListItem", "position": 3471, "name": "Frontalieri, ecco dove vivono: il balzo in diec...", "url": `${BASE_URL}/articoli-frontaliere/frontalieripendolarismo-2025-ticino-lombardia` },
+          { "@type": "ListItem", "position": 3472, "name": "Lavori all'infrastruttura, ecco cosa cambia per...", "url": `${BASE_URL}/articoli-frontaliere/lavori-tilo-chi-cambia` },
+          { "@type": "ListItem", "position": 3473, "name": "Cuoco frontaliere in Ticino: stipendio, requisi...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-cuoco-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3474, "name": "Dazi USA: il punto sulle tariffe per la Svizzera", "url": `${BASE_URL}/articoli-frontaliere/dazi-usa-svizzera-luglio-2026` }
  ]
  },
  {

@@ -4835,6 +4835,20 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-terzo-pilastro-3a-vantaggi-2026-canton-san-gallo': { name: 'Terzo pilastro 3a svizzero', path: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026-canton-san-gallo/', parent: 'blog' },
     'blog-sempre-meno-frontalieri-ticino-calof-lievelie': { name: 'Frontalieri in Ticino', path: '/articoli-frontaliere/sempre-meno-frontalieri-ticino-calof-lievelie', parent: 'blog' },
     'blog-permesso-frontaliere-g-procedura-ticino': { name: 'Permesso G frontalieri', path: '/articoli-svizzera/permesso-frontaliere-g-procedura-ticino/', parent: 'blog' },
+    'blog-stipendio-muratore-frontaliere-ticino': { name: 'Ticino', path: '/articoli-frontaliere/stipendio-muratore-frontaliere-ticino', parent: 'blog' },
+    'blog-terzo-pilastro-3a-vantaggi-2026-basilea': { name: 'Terzo pilastro 3a: vantaggi per i', path: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026-basilea/', parent: 'blog' },
+    'blog-permesso-g-apprendisti-durata-tirocinio': { name: 'Permesso G Apprendisti', path: '/articoli-frontaliere/permesso-g-apprendisti-durata-tirocinio', parent: 'blog' },
+    'blog-mappa-frontalieri-lombardi-ticino': { name: 'Frontalieri in Ticino', path: '/articoli-svizzera/mappa-frontalieri-lombardi-ticino/', parent: 'blog' },
+    'blog-ingegnere-frontaliero-ticino-stipendio-requisiti': { name: 'Lavorare come ingegnere in Ticino da', path: '/articoli-frontaliere/ingegnere-frontaliero-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-reddito-cittadinanza-svizzera-indagine': { name: 'Cronaca nazionale', path: '/articoli-svizzera/reddito-cittadinanza-svizzera-indagine/', parent: 'blog' },
+    'blog-lite-lombardia-svizzera-frontalieri': { name: 'Fisco Frontalieri', path: '/articoli-frontaliere/lite-lombardia-svizzera-frontalieri', parent: 'blog' },
+    'blog-frontalieri-rallentamento-ticino-crescita-grigioni': { name: 'Frontalieri in Ticino e Grigioni', path: '/articoli-svizzera/frontalieri-rallentamento-ticino-crescita-grigioni/', parent: 'blog' },
+    'blog-ozono-ticino-qualita-aria': { name: 'Qualità aria Ticino', path: '/articoli-frontaliere/ozono-ticino-qualita-aria', parent: 'blog' },
+    'blog-alta-volont-di-scambio-per-la-borsa-svizzera': { name: 'Borsa svizzera', path: '/articoli-svizzera/alta-volont-di-scambio-per-la-borsa-svizzera/', parent: 'blog' },
+    'blog-frontalieripendolarismo-2025-ticino-lombardia': { name: 'Frontalieri, pendolarismo, Lombardia', path: '/articoli-frontaliere/frontalieripendolarismo-2025-ticino-lombardia', parent: 'blog' },
+    'blog-lavori-tilo-chi-cambia': { name: 'Lavori all\'infrastruttura, TILO', path: '/articoli-svizzera/lavori-tilo-chi-cambia/', parent: 'blog' },
+    'blog-frontaliere-cuoco-ticino-stipendio-requisiti': { name: 'Lavorare come cuoco in Ticino da', path: '/articoli-frontaliere/frontaliere-cuoco-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-dazi-usa-svizzera-luglio-2026': { name: 'Dazi USA', path: '/articoli-svizzera/dazi-usa-svizzera-luglio-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

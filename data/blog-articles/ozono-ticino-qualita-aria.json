@@ -1,0 +1,40 @@
+{
+  "id": "ozono-ticino-qualita-aria",
+  "slug": "ozono-ticino-qualita-aria",
+  "publishedAt": "2026-07-23T07:42:37.169Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 2.533395775632687,
+    "confidence": 0.8,
+    "finalScore": 2.0267166205061495,
+    "topK": [
+      {
+        "slug": "grigioni-viabilita-olimpica-2026",
+        "cosine": 0.844465258544229
+      },
+      {
+        "slug": "code-e-non-solo-in-autostrada",
+        "cosine": 0.8371232912583211
+      },
+      {
+        "slug": "limite-velocita-30-ticino-inquinamento-acustico",
+        "cosine": 0.8330303579935475
+      },
+      {
+        "slug": "divieti-social-media-minori",
+        "cosine": 0.8320427871512601
+      },
+      {
+        "slug": "auto-elettriche-ricarica-breganzona",
+        "cosine": 0.8208049958193974
+      }
+    ],
+    "score": 1.0133583102530748,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}
