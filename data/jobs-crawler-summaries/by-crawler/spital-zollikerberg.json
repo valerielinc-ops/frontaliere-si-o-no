@@ -1,34 +1,33 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-07-23T11:16:53.985Z",
-  "total": 11,
+  "generatedAt": "2026-07-23T22:05:20.219Z",
+  "total": 9,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 41696,
-  "avgDurationMs": 41696,
+  "unchangedCount": 0,
+  "durationMs": 37097,
+  "avgDurationMs": 37097,
   "durationHistory": [
-    41696
+    37097
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "spital-zollikerberg-da98be0e31fa",
-      "slug": "dipl-expertin-dipl-experte-intensivpflege-wir-konnen-beatmung-e-gute-stimmung-spital-zollikerberg",
+      "id": "spital-zollikerberg-707cc07947dc",
+      "slug": "segretario-medico-segretario-medico-clinica-femminile-middle-office-spital-zollikerberg-zollikerberg",
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
-      "title": "Dipl. Expertin / Dipl. Experte Intensivpflege - Wir können Beatmung und gute Stimmung",
+      "title": "Arztsekretärin / Arztsekretär Frauenklinik Middle Office /",
+      "needsRetranslation": false,
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=b4e2638e-6fb6-4e55-986d-ddc7e1dd4f19,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=580acfb1-d4b3-4ba1-8f05-3259f87b4690,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T11:14:54.370Z",
+      "crawledAt": "2026-07-22T22:05:26.291Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -42,7 +41,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=b4e2638e-6fb6-4e55-986d-ddc7e1dd4f19,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=580acfb1-d4b3-4ba1-8f05-3259f87b4690,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -55,5 +54,7 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
