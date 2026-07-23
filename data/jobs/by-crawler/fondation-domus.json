@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fondation-domus",
-  "assembledAt": "2026-07-22T22:51:07.641Z",
+  "assembledAt": "2026-07-23T12:19:27.102Z",
   "jobs": [
     {
       "id": "fondation-domus-31792ee5fbd1",
@@ -33,7 +33,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/02f5712b-2dbf-4071-9c69-9da352bd74e8/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T22:51:05.482Z",
+      "crawledAt": "2026-07-23T12:19:24.400Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -53,14 +53,16 @@
         "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch",
         "responsabile-risorse-umane-membro-della-direzione-80-fondation-domus-ardon",
         "human-resources-officer-member-of-management-80-fondation-domus-ardon",
-        "human-resources-officer-mitglied-der-geschaftsleitung-80-fondation-domus-ardon"
+        "human-resources-officer-mitglied-der-geschaftsleitung-80-fondation-domus-ardon",
+        "responsabile-risorse-umane-membro-della-direzione-80-fondation-domus-ardon-e2fc13"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch",
           "responsabile-risorse-umane-membro-della-direzione-80-fondation-domus-ardon",
           "human-resources-officer-member-of-management-80-fondation-domus-ardon",
-          "human-resources-officer-mitglied-der-geschaftsleitung-80-fondation-domus-ardon"
+          "human-resources-officer-mitglied-der-geschaftsleitung-80-fondation-domus-ardon",
+          "responsabile-risorse-umane-membro-della-direzione-80-fondation-domus-ardon-e2fc13"
         ],
         "en": [
           "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch",
@@ -91,7 +93,7 @@
       "slug": "infermiera-in-psichiatria-60-fondation-domus-ardon",
       "slugByLocale": {
         "it": "infermiera-in-psichiatria-60-fondation-domus-ardon",
-        "en": "nurse-in-psychiatry-60-fondation-domus-ardon",
+        "en": "infirmier-en-psychiatrie-60-fondation-domus-ardon",
         "de": "krankenschwester-in-der-psychiatrie-60-fondation-domus-ardon",
         "fr": "infirmier-en-psychiatrie-60-fondation-domus-ch"
       },
@@ -101,7 +103,7 @@
       "title": "Infirmier en psychiatrie (60%)",
       "titleByLocale": {
         "it": "Infermiera in psichiatria (60%)",
-        "en": "Nurse in psychiatry (60%)",
+        "en": "Infirmier en psychiatrie (60%)",
         "de": "Krankenschwester in der Psychiatrie (60%)",
         "fr": "Infirmier en psychiatrie (60%)"
       },
@@ -117,7 +119,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/53cd9483-dd08-4087-8305-56a97a8ddc88/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T22:51:05.144Z",
+      "crawledAt": "2026-07-23T12:19:24.058Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -135,14 +137,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infirmier-en-psychiatrie-60-fondation-domus-ch",
+        "nurse-in-psychiatry-60-fondation-domus-ardon",
+        "infermiera-in-psichiatria-60-fondation-domus-ardon",
         "infirmier-en-psychiatrie-60-fondation-domus-ardon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-en-psychiatrie-60-fondation-domus-ch"
+          "infirmier-en-psychiatrie-60-fondation-domus-ch",
+          "infermiera-in-psichiatria-60-fondation-domus-ardon"
         ],
         "en": [
           "infirmier-en-psychiatrie-60-fondation-domus-ch",
+          "nurse-in-psychiatry-60-fondation-domus-ardon",
           "infirmier-en-psychiatrie-60-fondation-domus-ardon"
         ],
         "de": [
@@ -150,6 +156,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T23:36:42.519Z",
+      "needsRetranslation": true,
       "salaryMin": 36300,
       "salaryMax": 54900,
       "baseSalary": {

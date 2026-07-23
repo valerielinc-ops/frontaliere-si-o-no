@@ -49,10 +49,14 @@
     "https://jobs.ruag.ch/offene-stellen/projektleiterin-pbfm/d86b2c63-e35b-45ae-857f-41b464a08926",
     "https://jobs.ruag.ch/offene-stellen/specialist-customer-service-order-management/2f430d11-1204-4857-968e-123c7f2cbfe7",
     "https://jobs.ruag.ch/offene-stellen/werkpilotin-helikopter/de249484-dfbe-4492-8443-de5f373d6322",
-    "https://jobs.ruag.ch/offene-stellen/senior-data-analyst-data-scientist/38468955-6d7c-4831-a000-86fd26faf616"
+    "https://jobs.ruag.ch/offene-stellen/senior-data-analyst-data-scientist/38468955-6d7c-4831-a000-86fd26faf616",
+    "https://jobs.ruag.ch/open-vacancies/system-engineer-tactical-datalinks/9b17b3c6-86e1-4281-bd74-00c13138bba2",
+    "https://jobs.ruag.ch/offene-stellen/netzwerk-architektin-mit-devsecops-flair/af7f31ee-2182-4328-ab14-63933b5ed641",
+    "https://jobs.ruag.ch/offene-stellen/logistikerin/74b70f82-db11-44b3-b309-2faa86cd668c",
+    "https://jobs.ruag.ch/offene-stellen/konfigurationsmanagerin/1536961d-4930-4453-97a4-2d6676cc07d2"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-07-22T22:45:46.688Z",
+  "updatedAt": "2026-07-23T12:24:33.387Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/facility-manager-technics-betriebselektrikerin/190b7508-d7e8-403d-b49f-7c2f57a59965": {
       "location": "Altdorf",
@@ -293,6 +297,30 @@
       "canton": "BE",
       "company": "RUAG AG",
       "postedDate": "2026-07-21"
+    },
+    "https://jobs.ruag.ch/open-vacancies/system-engineer-tactical-datalinks/9b17b3c6-86e1-4281-bd74-00c13138bba2": {
+      "location": "Wangen",
+      "canton": "",
+      "company": "RUAG AG",
+      "postedDate": "2026-07-23"
+    },
+    "https://jobs.ruag.ch/offene-stellen/netzwerk-architektin-mit-devsecops-flair/af7f31ee-2182-4328-ab14-63933b5ed641": {
+      "location": "Zürich Seebach",
+      "canton": "ZH",
+      "company": "RUAG AG",
+      "postedDate": "2026-07-23"
+    },
+    "https://jobs.ruag.ch/offene-stellen/logistikerin/74b70f82-db11-44b3-b309-2faa86cd668c": {
+      "location": "Emmen",
+      "canton": "LU",
+      "company": "RUAG AG",
+      "postedDate": "2026-07-23"
+    },
+    "https://jobs.ruag.ch/offene-stellen/konfigurationsmanagerin/1536961d-4930-4453-97a4-2d6676cc07d2": {
+      "location": "Thun",
+      "canton": "BE",
+      "company": "RUAG AG",
+      "postedDate": "2026-07-23"
     }
   }
 }
