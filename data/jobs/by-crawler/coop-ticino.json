@@ -125612,7 +125612,8 @@
         "it": [
           "venditore-in-food-coop-genossenschaft-st-gallen-7b0857",
           "verkaufer-in-food-coop-city-st-gallen-sankt-gallen",
-          "venditore-in-food-coop-genossenschaft-st-gallen"
+          "venditore-in-food-coop-genossenschaft-st-gallen",
+          "verkaufer-in-frischprodukte-coop-genossenschaft-st-gallen"
         ],
         "en": [
           "seller-in-food-coop-genossenschaft-st-gallen",
@@ -125644,7 +125645,8 @@
         "seller-in-food-coop-genossenschaft-st-gallen-sankt-gallen-457ll7",
         "vendeur-dans-la-nourriture-coop-genossenschaft-st-gallen-sankt-gallen-457ll7",
         "seller-in-food-coop-city-st-gallen-sankt-gallen-457ll7",
-        "vendeur-dans-la-nourriture-coop-city-st-gallen-sankt-gallen-457ll7"
+        "vendeur-dans-la-nourriture-coop-city-st-gallen-sankt-gallen-457ll7",
+        "verkaufer-in-frischprodukte-coop-genossenschaft-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -144148,18 +144150,30 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-swissmill-zurich"
+          "logistiker-in-swissmill-zurich",
+          "impiegata-impiegato-in-logistica-coop-genossenschaft-zurich-x5sn1h",
+          "logistiker-in-coop-genossenschaft-zurich"
         ],
         "en": [
-          "logistiker-in-swissmill-zurich-br32hr"
+          "logistiker-in-swissmill-zurich-br32hr",
+          "logistician-in-coop-genossenschaft-zurich"
         ],
         "fr": [
-          "logistiker-in-swissmill-zurich-br32hr"
+          "logistiker-in-swissmill-zurich-br32hr",
+          "logisticien-in-coop-genossenschaft-zurich"
+        ],
+        "de": [
+          "logistiker-in-coop-genossenschaft-zurich-x5sn1h"
         ]
       },
       "previousSlugs": [
         "logistiker-in-swissmill-zurich-br32hr",
-        "logistiker-in-swissmill-zurich"
+        "logistiker-in-swissmill-zurich",
+        "impiegata-impiegato-in-logistica-coop-genossenschaft-zurich-x5sn1h",
+        "logistiker-in-coop-genossenschaft-zurich",
+        "logistician-in-coop-genossenschaft-zurich",
+        "logistiker-in-coop-genossenschaft-zurich-x5sn1h",
+        "logisticien-in-coop-genossenschaft-zurich"
       ],
       "needsRetranslation": true,
       "salaryMin": 73500,
@@ -148294,12 +148308,16 @@
       "previousSlugsByLocale": {
         "it": [
           "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern",
-          "application-manager-in-sap-operations-senior-interdiscount-jegenstorf"
+          "application-manager-in-sap-operations-senior-interdiscount-jegenstorf",
+          "gestore-delle-applicazioni-sap-operations-senior-interdiscount-jegenstorf-bern",
+          "responsabile-applicativo-sap-operations-senior-interdiscount-jegenstorf-bern"
         ]
       },
       "previousSlugs": [
         "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern",
-        "application-manager-in-sap-operations-senior-interdiscount-jegenstorf"
+        "application-manager-in-sap-operations-senior-interdiscount-jegenstorf",
+        "gestore-delle-applicazioni-sap-operations-senior-interdiscount-jegenstorf-bern",
+        "responsabile-applicativo-sap-operations-senior-interdiscount-jegenstorf-bern"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
