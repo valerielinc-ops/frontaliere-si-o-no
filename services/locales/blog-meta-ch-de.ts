@@ -1483,6 +1483,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dazi-usa-svizzera-luglio-2026.title': 'US-Zölle: Der Tarifpunkt für die Schweiz',
     'blog.article.dazi-usa-svizzera-luglio-2026.excerpt': 'Die 150 Tage des US-Tarifs von 10% sind abgelaufen. Bern überwacht die Unsicherheit über Zölle und Vorwürfe der Zwangsarbeit. Das ist das wirtschaftliche Szenario.',
     'blog.article.dazi-usa-svizzera-luglio-2026.imageAlt': 'Bundeshaus in Bern an einem Sommertag',
+    'blog.article.zali-e-le-pressioni-per-un-assunzione.title': 'Zali und der Einstellungsdruck: EOC distanziert sich von der Vergangenheit',
+    'blog.article.zali-e-le-pressioni-per-un-assunzione.excerpt': 'Der neue Vorstandsvorsitzende Andrea Bersani distanziert sich von der Vergangenheit hinsichtlich des Drucks auf eine Anstellung.',
+    'blog.article.zali-e-le-pressioni-per-un-assunzione.imageAlt': 'Eine Szene mit dem Luganer See und der Stadt Lugano, Schweiz',
 };
 
 export default blogMetaChDe;

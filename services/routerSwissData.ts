@@ -517,6 +517,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'alta-volont-di-scambio-per-la-borsa-svizzera': { it: 'alta-volont-di-scambio-per-la-borsa-svizzera', en: 'high-volumes-of-trading-for-the-swiss-stock-exchange', de: 'hohe-handelsvolumina-fur-die-borse-zurich', fr: 'hautes-quantites-dechangees-pour-l-echange-suisse' },
  'lavori-tilo-chi-cambia': { it: 'lavori-tilo-chi-cambia', en: 'tilo-works-what-changes', de: 'tilo-arbeiten-was-andert', fr: 'travaux-tilo-quels-changements' },
  'dazi-usa-svizzera-luglio-2026': { it: 'dazi-usa-svizzera-luglio-2026', en: 'usa-tariffs-switzerland-july-2026', de: 'usa-zolle-schweiz-juli-2026', fr: 'droits-douane-usa-suisse-juillet-2026' },
+ 'zali-e-le-pressioni-per-un-assunzione': { it: 'zali-e-le-pressioni-per-un-assunzione', en: 'zali-and-the-pressures-for-an-hiring', de: 'zali-und-die-drucke-fur-eine-anstellung', fr: 'zali-et-les-pressions-pour-un-embauche' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

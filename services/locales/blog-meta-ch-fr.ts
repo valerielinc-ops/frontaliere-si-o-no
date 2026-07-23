@@ -1483,6 +1483,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dazi-usa-svizzera-luglio-2026.title': 'Droits US : le point sur les tarifs pour la Suisse',
     'blog.article.dazi-usa-svizzera-luglio-2026.excerpt': 'À l\'expiration des 150 jours du tarif américain à 10 %. Berne surveille l\'incertitude sur les droits de douane et les accusations de travail forcé. Voici le scénario économique.',
     'blog.article.dazi-usa-svizzera-luglio-2026.imageAlt': 'Palais fédéral à Berne par une journée d\'été',
+    'blog.article.zali-e-le-pressioni-per-un-assunzione.title': 'Zali et les pressions pour un recrutement',
+    'blog.article.zali-e-le-pressioni-per-un-assunzione.excerpt': 'Le nouveau président du conseil d\'administration Andrea Bersani prend ses distances par rapport au passé en ce qui concerne les pressions pour un recrutement.',
+    'blog.article.zali-e-le-pressioni-per-un-assunzione.imageAlt': 'Une scène avec le lac de Lugano et la ville de Lugano, Suisse',
 };
 
 export default blogMetaChFr;
