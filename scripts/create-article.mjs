@@ -10234,14 +10234,19 @@ const invokedDirectly = (() => {
 
 if (invokedDirectly) {
   // When LOCAL_LLM_ENABLED and the model fills the runner disk, even
-  // process.stdout writes fail with ENOSPC — Node.js crashes with an unhandled
-  // 'error' event on WriteStream, masking the real cause. Handle it explicitly
-  // so the process exits non-zero with a clear message instead.
-  process.stdout.on('error', (err) => {
+  // process.stdout/stderr writes fail with ENOSPC — Node.js crashes with an
+  // unhandled 'error' event on WriteStream, masking the real cause. Handle it
+  // explicitly on BOTH streams (almost all diagnostic logging in this file goes
+  // through console.error → stderr, the actual stream that crashed run
+  // 30020742048 — the stdout-only guard added in #4308 didn't cover it) so the
+  // process exits non-zero with a clear message instead.
+  const handleEnospc = (err) => {
     if (err.code !== 'ENOSPC') return;
     try { process.stderr.write('[create-article] ENOSPC: disk full. Reduce ARTICLE_LOCAL_MODEL to qwen2.5:7b\n'); } catch {}
     process.exitCode = 1;
-  });
+  };
+  process.stdout.on('error', handleEnospc);
+  process.stderr.on('error', handleEnospc);
   main().catch((e) => {
   // Transient free-model pool exhaustion (every model in the fallback chain hit
   // its daily quota / rate limit) is NOT a code bug — free-tier daily limits
