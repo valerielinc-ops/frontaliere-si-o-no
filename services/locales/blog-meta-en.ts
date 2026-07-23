@@ -8851,6 +8851,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.title': 'Wage data of frontier workers in tax returns',
     'blog.article.dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.excerpt': 'According to the source, the salary data of the old frontier workers will be included in the tax return.',
     'blog.article.dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.imageAlt': 'Panorama of Lake Lugano',
+    'blog.article.frontaliere-educatore-ticino-stipendio-requisiti.title': 'Working as an educator in Ticino: salary and requirements',
+    'blog.article.frontaliere-educatore-ticino-stipendio-requisiti.excerpt': 'The New Frontier Agreement was signed on 23 December 2020 and is applicable from 1 January 2024. This agreement provides for an exemption of €7,500 for old border guards and a deductible of €10,000 for new border guards.',
+    'blog.article.frontaliere-educatore-ticino-stipendio-requisiti.imageAlt': 'A view of Lugano, with the lake in the foreground, seen from the city.',
 };
 
 export default blogMetaEn;

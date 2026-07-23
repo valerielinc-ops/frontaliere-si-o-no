@@ -4827,6 +4827,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tragedia-lavoro-blenio-aquila': { name: 'Cronaca Ticino', path: '/articoli-frontaliere/tragedia-lavoro-blenio-aquila', parent: 'blog' },
     'blog-auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato': { name: 'Di più Auto', path: '/articoli-svizzera/auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato/', parent: 'blog' },
     'blog-dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi': { name: 'Dati salariali vecchi frontalieri', path: '/articoli-frontaliere/dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi', parent: 'blog' },
+    'blog-frontaliere-educatore-ticino-stipendio-requisiti': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/frontaliere-educatore-ticino-stipendio-requisiti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

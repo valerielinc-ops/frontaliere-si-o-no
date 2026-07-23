@@ -8853,6 +8853,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.title': 'Données salariales des frontaliers dans la déclaration de revenus',
     'blog.article.dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.excerpt': 'Selon la source, les données salariales des anciens frontaliers seront incluses dans la déclaration de revenus.',
     'blog.article.dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.imageAlt': 'Panorama du lac de Lugano',
+    'blog.article.frontaliere-educatore-ticino-stipendio-requisiti.title': 'Travailler comme éducateur au Tessin : salaire et exigences',
+    'blog.article.frontaliere-educatore-ticino-stipendio-requisiti.excerpt': 'Le nouvel accord frontalier a été signé le 23 décembre 2020 et est applicable à partir du 1er janvier 2024. Cet accord prévoit l\'exonération de 7\'500 € pour les anciens frontaliers et une franchise de 10\'000 € pour les nouveaux frontaliers.',
+    'blog.article.frontaliere-educatore-ticino-stipendio-requisiti.imageAlt': 'Une vue de Lugano, avec le lac en premier plan, vue de la ville.',
 };
 
 export default blogMetaFr;
