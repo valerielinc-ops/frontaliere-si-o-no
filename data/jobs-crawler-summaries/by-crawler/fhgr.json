@@ -1,16 +1,16 @@
 {
   "key": "fhgr",
   "label": "Fachhochschule Graubünden",
-  "generatedAt": "2026-07-23T11:55:33.250Z",
+  "generatedAt": "2026-07-23T22:26:46.998Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7476,
-  "avgDurationMs": 7476,
+  "durationMs": 8650,
+  "avgDurationMs": 8650,
   "durationHistory": [
-    7476
+    8650
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/802/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:55:27.968Z",
+      "crawledAt": "2026-07-23T22:26:40.797Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/801/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:55:28.969Z",
+      "crawledAt": "2026-07-23T22:26:42.028Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -100,7 +100,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:55:29.972Z",
+      "crawledAt": "2026-07-23T22:26:43.226Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -126,48 +126,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "fhgr-336e10fce3be",
-      "slug": "personale-del-progetto-scientifico-fachhochschule-graubunden-chur",
-      "company": "Fachhochschule Graubünden",
-      "companyKey": "fhgr",
-      "companyDomain": "fhgr.ch",
-      "title": "Wissenschaftliche/n Projektmitarbeiter/-in",
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://jobs.fhgr.ch/Vacancies/800/Description/1",
-      "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:44:19.781Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Formazione / Ricerca",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Formazione / Ricerca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://jobs.fhgr.ch/Vacancies/800/Application/CheckLogin/1",
-      "department": "Schweizerisches Institut für Informationswissenschaft (SII)",
-      "contractDuration": "temporary",
-      "firstSeenAt": "2026-07-08T11:25:52.248Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
