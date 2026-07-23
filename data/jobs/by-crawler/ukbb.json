@@ -93,8 +93,8 @@
       "slugByLocale": {
         "de": "pflegeexpert-in-bscn-oder-mscn-80-90-neonatologie-ukbb-basel",
         "it": "pflegeexpert-in-bscn-o-mscn-80-90-neonatologie-universitats-kinderspital-beider-basel",
-        "en": "pflegeexpert-in-bscn-oder-mscn-80-90-neonatologie-ukbb-basel",
-        "fr": "pflegeexpert-in-bscn-oder-mscn-80-90-neonatologie-ukbb-basel"
+        "en": "nursing-expert-bscn-or-mscn-80-90-neonatology-universitats-kinderspital-beider-basel-basel",
+        "fr": "expert-en-soins-infirmiers-bscn-ou-mscn-80-90-neonatologie-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -146,10 +146,10 @@
           "expert-en-soins-infirmiers-bscn-ou-mscn-80-90-neonatologie-universitats-kinderspital-beider-basel-basel"
         ],
         "en": [
-          "nursing-expert-bscn-or-mscn-80-90-neonatology-universitats-kinderspital-beider-basel-basel"
+          "pflegeexpert-in-bscn-oder-mscn-80-90-neonatologie-ukbb-basel"
         ],
         "fr": [
-          "expert-en-soins-infirmiers-bscn-ou-mscn-80-90-neonatologie-universitats-kinderspital-beider-basel-basel"
+          "pflegeexpert-in-bscn-oder-mscn-80-90-neonatologie-ukbb-basel"
         ]
       },
       "previousSlugs": [
@@ -174,12 +174,12 @@
     },
     {
       "id": "ukbb-cbd44b0596aa",
-      "slug": "zivildienst-in-der-pflege-ukbb-basel",
+      "slug": "servizio-civile-in-cura-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
         "de": "zivildienst-in-der-pflege-ukbb-basel",
-        "it": "zivildienst-in-der-pflege-ukbb-basel",
-        "en": "zivildienst-in-der-pflege-ukbb-basel",
-        "fr": "zivildienst-in-der-pflege-ukbb-basel"
+        "it": "servizio-civile-in-cura-universitats-kinderspital-beider-basel-basel",
+        "en": "civil-service-in-care-universitats-kinderspital-beider-basel-basel",
+        "fr": "fonction-publique-en-matiere-de-soins-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -235,7 +235,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-23T11:16:46.384Z"
+      "firstSeenAt": "2026-07-23T11:16:46.384Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zivildienst-in-der-pflege-ukbb-basel"
+        ],
+        "en": [
+          "zivildienst-in-der-pflege-ukbb-basel"
+        ],
+        "fr": [
+          "zivildienst-in-der-pflege-ukbb-basel"
+        ]
+      },
+      "previousSlugs": [
+        "zivildienst-in-der-pflege-ukbb-basel"
+      ]
     },
     {
       "id": "ukbb-25ad632f41f4",
@@ -460,12 +474,12 @@
     },
     {
       "id": "ukbb-c664e9eda8b6",
-      "slug": "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-ukbb-basel",
+      "slug": "bachelor-of-science-in-infermieristica-modulo-b-aggiuntivo-in-pediatria-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
         "de": "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-ukbb-basel",
-        "it": "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-ukbb-basel",
-        "en": "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-ukbb-basel",
-        "fr": "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-ukbb-basel"
+        "it": "bachelor-of-science-in-infermieristica-modulo-b-aggiuntivo-in-pediatria-universitats-kinderspital-beider-basel-basel",
+        "en": "bachelor-of-science-in-nursing-additional-module-b-in-pediatrics-universitats-kinderspital-beider-basel-basel-c84300",
+        "fr": "baccalaureat-en-sciences-infirmieres-module-b-supplementaire-en-pediatrie-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -521,7 +535,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-23T11:16:42.720Z"
+      "firstSeenAt": "2026-07-23T11:16:42.720Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-ukbb-basel"
+        ],
+        "en": [
+          "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-ukbb-basel"
+        ],
+        "fr": [
+          "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-ukbb-basel"
+        ]
+      },
+      "previousSlugs": [
+        "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-ukbb-basel"
+      ]
     },
     {
       "id": "ukbb-0ae582508fe6",
@@ -603,7 +631,7 @@
         "de": "pflegeexpert-in-bscn-oder-mscn-80-90-ukbb-basel",
         "it": "pflegeexpert-in-bscn-o-mscn-80-90-universitats-kinderspital-beider-basel",
         "en": "pflegeexpert-in-bscn-oder-mscn-80-90-universitats-kinderspital-beider-basel-basel",
-        "fr": "pflegeexpert-in-bscn-oder-mscn-80-90-ukbb-basel"
+        "fr": "expert-en-soins-en-bscn-ou-mscn-80-90-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -649,6 +677,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegeexpert-in-bscn-oder-mscn-80-90-ukbb-basel"
+        ],
+        "fr": [
           "pflegeexpert-in-bscn-oder-mscn-80-90-ukbb-basel"
         ]
       },
@@ -744,12 +775,12 @@
     },
     {
       "id": "ukbb-b60309e8338b",
-      "slug": "praktikant-in-ict-80-100-ukbb-basel",
+      "slug": "stage-in-tic-80-100-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
         "de": "praktikant-in-ict-80-100-ukbb-basel",
-        "it": "praktikant-in-ict-80-100-ukbb-basel",
-        "en": "praktikant-in-ict-80-100-ukbb-basel",
-        "fr": "praktikant-in-ict-80-100-ukbb-basel"
+        "it": "stage-in-tic-80-100-universitats-kinderspital-beider-basel-basel",
+        "en": "internship-in-ict-80-100-universitats-kinderspital-beider-basel-basel",
+        "fr": "stage-dans-les-tic-80-100-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -805,7 +836,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-23T11:16:40.010Z"
+      "firstSeenAt": "2026-07-23T11:16:40.010Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-ict-80-100-ukbb-basel"
+        ],
+        "en": [
+          "praktikant-in-ict-80-100-ukbb-basel"
+        ],
+        "fr": [
+          "praktikant-in-ict-80-100-ukbb-basel"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-ict-80-100-ukbb-basel"
+      ]
     },
     {
       "id": "ukbb-8f8a88ec37c9",
@@ -882,12 +927,12 @@
     },
     {
       "id": "ukbb-d8c3191921bc",
-      "slug": "dipl-fachperson-op-technik-hf-topa-ukbb-basel",
+      "slug": "dipl-tecnologia-operativa-specializzata-hf-topa-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
         "de": "dipl-fachperson-op-technik-hf-topa-ukbb-basel",
-        "it": "dipl-fachperson-op-technik-hf-topa-ukbb-basel",
+        "it": "dipl-tecnologia-operativa-specializzata-hf-topa-universitats-kinderspital-beider-basel-basel",
         "en": "dipl-fachperson-op-technik-hf-topa-universitats-kinderspital-beider-basel-basel",
-        "fr": "dipl-fachperson-op-technik-hf-topa-ukbb-basel"
+        "fr": "dipl-technologie-d-exploitation-specialisee-hf-topa-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -943,16 +988,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-23T11:16:38.626Z"
+      "firstSeenAt": "2026-07-23T11:16:38.626Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachperson-op-technik-hf-topa-ukbb-basel"
+        ],
+        "fr": [
+          "dipl-fachperson-op-technik-hf-topa-ukbb-basel"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachperson-op-technik-hf-topa-ukbb-basel"
+      ]
     },
     {
       "id": "ukbb-c2586ba44121",
-      "slug": "praktikant-in-ict-schwerpunkt-support-100-ukbb-basel",
+      "slug": "internship-in-ict-focus-on-support-100-universitats-kinderspital-beider-basel-basel-b49a1d",
       "slugByLocale": {
         "de": "praktikant-in-ict-schwerpunkt-support-100-ukbb-basel",
-        "it": "praktikant-in-ict-schwerpunkt-support-100-ukbb-basel",
+        "it": "internship-in-ict-focus-on-support-100-universitats-kinderspital-beider-basel-basel-b49a1d",
         "en": "praktikant-in-ict-schwerpunkt-support-100-universitats-kinderspital-beider-basel-basel",
-        "fr": "praktikant-in-ict-schwerpunkt-support-100-ukbb-basel"
+        "fr": "stage-dans-les-tic-focus-sur-le-soutien-100-universitats-kinderspital-beider-basel-basel-b49a1d"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -1008,7 +1064,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-23T11:16:37.990Z"
+      "firstSeenAt": "2026-07-23T11:16:37.990Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-ict-schwerpunkt-support-100-ukbb-basel"
+        ],
+        "fr": [
+          "praktikant-in-ict-schwerpunkt-support-100-ukbb-basel"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-ict-schwerpunkt-support-100-ukbb-basel"
+      ]
     },
     {
       "id": "ukbb-8586fb63861a",
@@ -1085,12 +1152,12 @@
     },
     {
       "id": "ukbb-908577387a59",
-      "slug": "arztsekretar-in-orthopadie-60-100-ukbb-basel",
+      "slug": "arztsekretar-in-orthopala-60-100-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
         "de": "arztsekretar-in-orthopadie-60-100-ukbb-basel",
-        "it": "arztsekretar-in-orthopadie-60-100-ukbb-basel",
-        "en": "arztsekretar-in-orthopadie-60-100-ukbb-basel",
-        "fr": "arztsekretar-in-orthopadie-60-100-ukbb-basel"
+        "it": "arztsekretar-in-orthopala-60-100-universitats-kinderspital-beider-basel-basel",
+        "en": "medical-secretary-in-orthopaedics-60-100-universitats-kinderspital-beider-basel-basel",
+        "fr": "secretaire-medical-en-orthopedie-60-100-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -1146,7 +1213,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-23T11:16:36.655Z"
+      "firstSeenAt": "2026-07-23T11:16:36.655Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-orthopadie-60-100-ukbb-basel"
+        ],
+        "en": [
+          "arztsekretar-in-orthopadie-60-100-ukbb-basel"
+        ],
+        "fr": [
+          "arztsekretar-in-orthopadie-60-100-ukbb-basel"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-orthopadie-60-100-ukbb-basel"
+      ]
     },
     {
       "id": "ukbb-e8455878d4f9",
@@ -1223,12 +1304,12 @@
     },
     {
       "id": "ukbb-53fcff05d9d3",
-      "slug": "arztsekretar-in-50-padiatrische-mkg-chirurgie-jobsharing-ukbb-basel",
+      "slug": "segreteria-medica-50-pediatrico-mkg-surgery-condivisione-del-lavoro-universitats-kinderspital-beider-basel-basel-b35efc",
       "slugByLocale": {
         "de": "arztsekretar-in-50-padiatrische-mkg-chirurgie-jobsharing-ukbb-basel",
-        "it": "arztsekretar-in-50-padiatrische-mkg-chirurgie-jobsharing-ukbb-basel",
-        "en": "arztsekretar-in-50-padiatrische-mkg-chirurgie-jobsharing-ukbb-basel",
-        "fr": "arztsekretar-in-50-padiatrische-mkg-chirurgie-jobsharing-ukbb-basel"
+        "it": "segreteria-medica-50-pediatrico-mkg-surgery-condivisione-del-lavoro-universitats-kinderspital-beider-basel-basel-b35efc",
+        "en": "medical-secretary-50-pediatric-mkg-surgery-job-sharing-universitats-kinderspital-beider-basel-basel-b35efc",
+        "fr": "secretaire-medical-50-mkg-chirurgie-pediatrique-partenariat-d-emploi-universitats-kinderspital-beider-basel-basel-b35efc"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -1284,7 +1365,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-23T11:16:35.373Z"
+      "firstSeenAt": "2026-07-23T11:16:35.373Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-50-padiatrische-mkg-chirurgie-jobsharing-ukbb-basel"
+        ],
+        "en": [
+          "arztsekretar-in-50-padiatrische-mkg-chirurgie-jobsharing-ukbb-basel"
+        ],
+        "fr": [
+          "arztsekretar-in-50-padiatrische-mkg-chirurgie-jobsharing-ukbb-basel"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-50-padiatrische-mkg-chirurgie-jobsharing-ukbb-basel"
+      ]
     },
     {
       "id": "ukbb-9e42f154c11e",
@@ -1365,8 +1460,8 @@
       "slugByLocale": {
         "de": "oberarzt-in-fur-die-padiatrische-nephrologie-50-80-ukbb-basel",
         "it": "oberarzt-in-per-la-padiatrische-nephrologie-50-80-universitats-kinderspital-beider-basel",
-        "en": "oberarzt-in-fur-die-padiatrische-nephrologie-50-80-ukbb-basel",
-        "fr": "oberarzt-in-fur-die-padiatrische-nephrologie-50-80-ukbb-basel"
+        "en": "senior-physician-for-pediatric-nephrology-50-80-universitats-kinderspital-beider-basel-basel",
+        "fr": "medecin-principal-en-nephrologie-pediatrique-50-80-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -1413,6 +1508,12 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-in-fur-die-padiatrische-nephrologie-50-80-ukbb-basel"
+        ],
+        "en": [
+          "oberarzt-in-fur-die-padiatrische-nephrologie-50-80-ukbb-basel"
+        ],
+        "fr": [
+          "oberarzt-in-fur-die-padiatrische-nephrologie-50-80-ukbb-basel"
         ]
       },
       "previousSlugs": [
@@ -1434,12 +1535,12 @@
     },
     {
       "id": "ukbb-1f5eeb5d2d8c",
-      "slug": "oberarzt-in-radiologie-80-100-ukbb-basel",
+      "slug": "radiologia-medico-senior-80-100-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
         "de": "oberarzt-in-radiologie-80-100-ukbb-basel",
-        "it": "oberarzt-in-radiologie-80-100-ukbb-basel",
-        "en": "oberarzt-in-radiologie-80-100-ukbb-basel",
-        "fr": "oberarzt-in-radiologie-80-100-ukbb-basel"
+        "it": "radiologia-medico-senior-80-100-universitats-kinderspital-beider-basel-basel",
+        "en": "senior-physician-radiology-80-100-universitats-kinderspital-beider-basel-basel",
+        "fr": "radiologie-medecin-senior-80-100-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -1495,7 +1596,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-23T11:16:33.348Z"
+      "firstSeenAt": "2026-07-23T11:16:33.348Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-in-radiologie-80-100-ukbb-basel"
+        ],
+        "en": [
+          "oberarzt-in-radiologie-80-100-ukbb-basel"
+        ],
+        "fr": [
+          "oberarzt-in-radiologie-80-100-ukbb-basel"
+        ]
+      },
+      "previousSlugs": [
+        "oberarzt-in-radiologie-80-100-ukbb-basel"
+      ]
     },
     {
       "id": "ukbb-6fd3021bdf30",
@@ -1734,18 +1849,14 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "praktikant-in-ict-80-100-ukbb-basel",
-          "praktikant-in-ict-80-100-universitats-kinderspital-beider-basel-basel"
+          "praktikant-in-ict-80-100-ukbb-basel"
         ],
         "it": [
-          "praktikant-in-ict-80-100-ukbb-basel",
-          "tirocinante-ict-80-100-universitats-kinderspital-beider-basel-basel"
+          "praktikant-in-ict-80-100-ukbb-basel"
         ]
       },
       "previousSlugs": [
-        "praktikant-in-ict-80-100-ukbb-basel",
-        "praktikant-in-ict-80-100-universitats-kinderspital-beider-basel-basel",
-        "tirocinante-ict-80-100-universitats-kinderspital-beider-basel-basel"
+        "praktikant-in-ict-80-100-ukbb-basel"
       ],
       "firstSeenAt": "2026-05-19T20:46:03.566Z",
       "salaryMin": 52000,
@@ -1842,14 +1953,12 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100-ukbb-basel",
         "dipl-carriera-hf-o-esperto-nell-assistenza-di-emergenza-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
-        "dipl-ing-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
-        "dipl-professionista-della-salute-hf-o-esperto-in-cura-d-emergenza-nds-hf-80-100-universitats-kinderspital-beider-basel"
+        "dipl-ing-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100-universitats-kinderspital-beider-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100-ukbb-basel",
-          "dipl-carriera-hf-o-esperto-nell-assistenza-di-emergenza-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
-          "dipl-professionista-della-salute-hf-o-esperto-in-cura-d-emergenza-nds-hf-80-100-universitats-kinderspital-beider-basel"
+          "dipl-carriera-hf-o-esperto-nell-assistenza-di-emergenza-nds-hf-80-100-universitats-kinderspital-beider-basel-basel"
         ],
         "de": [
           "dipl-ing-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100-universitats-kinderspital-beider-basel-basel"
@@ -1921,13 +2030,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "arztsekretar-in-50-padiatrische-mkg-chirurgie-jobsharing-ukbb-basel",
-        "segreteria-medica-50-pediatrico-mkg-surgery-condivisione-del-lavoro-universitats-kinderspital-beider-basel-basel",
         "arztsekretar-in-50-padiatrische-mkg-chirurgie-jobsharing-ukbb-basel-94d69w"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-50-padiatrische-mkg-chirurgie-jobsharing-ukbb-basel",
-          "segreteria-medica-50-pediatrico-mkg-surgery-condivisione-del-lavoro-universitats-kinderspital-beider-basel-basel"
+          "arztsekretar-in-50-padiatrische-mkg-chirurgie-jobsharing-ukbb-basel"
         ],
         "en": [
           "arztsekretar-in-50-padiatrische-mkg-chirurgie-jobsharing-ukbb-basel"
@@ -2010,15 +2117,13 @@
         "coordinatore-di-nomina-in-neuropaediatrics-80-temporaneo-fino-al-30-06-2027-universitats-kinderspital-beider-basel-basel",
         "terminkoordinator-in-neuropadiatrie-80-befristet-bis-30-06-2027-universitats-kinderspital-beider-basel-basel",
         "appointment-coordinator-in-neuropaediatrics-80-temporary-until-30-06-2027-universitats-kinderspital-beider-basel-basel",
-        "coordinatrice-des-nominations-en-neuropaediatrics-80-temporaire-jusqu-au-30-06-2027-universitats-kinderspital-beider",
-        "coordinatore-di-nomina-in-neuropediatria-80-temporaneo-fino-al-30-06-2027-universitats-kinderspital-beider-basel-basel"
+        "coordinatrice-des-nominations-en-neuropaediatrics-80-temporaire-jusqu-au-30-06-2027-universitats-kinderspital-beider"
       ],
       "previousSlugsByLocale": {
         "it": [
           "terminkoordinator-in-neuropadiatrie-80-befristet-bis-30-06-2027-ukbb-basel",
           "terminkoordinator-in-neuropadiatrie-80-befristet-bis-30-06-2027-universitats-kinderspital-beider-basel",
-          "coordinatore-di-nomina-in-neuropaediatrics-80-temporaneo-fino-al-30-06-2027-universitats-kinderspital-beider-basel-basel",
-          "coordinatore-di-nomina-in-neuropediatria-80-temporaneo-fino-al-30-06-2027-universitats-kinderspital-beider-basel-basel"
+          "coordinatore-di-nomina-in-neuropaediatrics-80-temporaneo-fino-al-30-06-2027-universitats-kinderspital-beider-basel-basel"
         ],
         "en": [
           "terminkoordinator-in-neuropadiatrie-80-befristet-bis-30-06-2027-universitats-kinderspital-beider-basel-basel",
@@ -2125,20 +2230,16 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-oder-mpa-efz-mit-psg-eeg-erfahrung-60-80-ukbb-basel",
-          "dipl-pflegefachperson-hf-oder-mpa-efz-mit-psg-eeg-erfahrung-60-80-universitats-kinderspital-beider-basel-basel"
+          "dipl-pflegefachperson-hf-oder-mpa-efz-mit-psg-eeg-erfahrung-60-80-ukbb-basel"
         ],
         "it": [
           "dipl-pflegefachperson-hf-oder-mpa-efz-mit-psg-eeg-erfahrung-60-80-ukbb-basel",
-          "dipl-pflegefachperson-hf-o-mpa-efz-con-esperienza-psg-eeg-60-80-universitats-kinderspital-beider-basel-basel",
-          "dipl-pflegefachperson-hf-o-mpa-cfc-con-psg-eeg-erfahrung-60-80-universitats-kinderspital-beider-basel-basel"
+          "dipl-pflegefachperson-hf-o-mpa-efz-con-esperienza-psg-eeg-60-80-universitats-kinderspital-beider-basel-basel"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-oder-mpa-efz-mit-psg-eeg-erfahrung-60-80-ukbb-basel",
-        "dipl-pflegefachperson-hf-o-mpa-efz-con-esperienza-psg-eeg-60-80-universitats-kinderspital-beider-basel-basel",
-        "dipl-pflegefachperson-hf-oder-mpa-efz-mit-psg-eeg-erfahrung-60-80-universitats-kinderspital-beider-basel-basel",
-        "dipl-pflegefachperson-hf-o-mpa-cfc-con-psg-eeg-erfahrung-60-80-universitats-kinderspital-beider-basel-basel"
+        "dipl-pflegefachperson-hf-o-mpa-efz-con-esperienza-psg-eeg-60-80-universitats-kinderspital-beider-basel-basel"
       ],
       "firstSeenAt": "2026-05-19T20:46:01.531Z",
       "salaryMin": 49600,
@@ -2229,18 +2330,14 @@
       "previousSlugsByLocale": {
         "de": [
           "medizinische-r-praxisassistent-in-mpa-notfall-40-ukbb-basel",
-          "medizinische-r-praxisassistent-in-mpa-notfall-40-universitats-kinderspital-beider-basel-basel",
           "medizinische-r-praxisassistent-in-mpa-notfall-40-universitats-kinderspital-beider-basel-basel-t544g6"
         ],
         "it": [
-          "medizinische-r-praxisassistent-in-mpa-notfall-40-ukbb-basel",
-          "assistente-medico-pediatrica-mpa-servizio-di-emergenza-universitats-kinderspital-beider-basel-basel"
+          "medizinische-r-praxisassistent-in-mpa-notfall-40-ukbb-basel"
         ]
       },
       "previousSlugs": [
         "medizinische-r-praxisassistent-in-mpa-notfall-40-ukbb-basel",
-        "medizinische-r-praxisassistent-in-mpa-notfall-40-universitats-kinderspital-beider-basel-basel",
-        "assistente-medico-pediatrica-mpa-servizio-di-emergenza-universitats-kinderspital-beider-basel-basel",
         "medizinische-r-praxisassistent-in-mpa-notfall-40-universitats-kinderspital-beider-basel-basel-t544g6"
       ],
       "firstSeenAt": "2026-05-19T20:45:59.501Z",
@@ -2309,18 +2406,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "zivildienst-in-der-pflege-ukbb-basel",
-          "zivildienst-in-der-pflege-universitats-kinderspital-beider-basel-basel"
+          "zivildienst-in-der-pflege-ukbb-basel"
         ],
         "it": [
-          "zivildienst-in-der-pflege-ukbb-basel",
-          "servizio-civile-in-assistenza-sanitaria-universitats-kinderspital-beider-basel-basel"
+          "zivildienst-in-der-pflege-ukbb-basel"
         ]
       },
       "previousSlugs": [
-        "zivildienst-in-der-pflege-ukbb-basel",
-        "zivildienst-in-der-pflege-universitats-kinderspital-beider-basel-basel",
-        "servizio-civile-in-assistenza-sanitaria-universitats-kinderspital-beider-basel-basel"
+        "zivildienst-in-der-pflege-ukbb-basel"
       ],
       "firstSeenAt": "2026-05-19T20:45:58.853Z",
       "salaryMin": 62000,
@@ -2398,18 +2491,14 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "oberarzt-in-fur-die-padiatrische-nephrologie-50-80-ukbb-basel",
-          "oberarzt-in-fur-die-padiatrische-nephrologie-50-80-universitats-kinderspital-beider-basel-basel"
+          "oberarzt-in-fur-die-padiatrische-nephrologie-50-80-ukbb-basel"
         ],
         "it": [
-          "oberarzt-in-fur-die-padiatrische-nephrologie-50-80-ukbb-basel",
-          "ospedalista-pediatrica-nefrologia-50-80-universitats-kinderspital-beider-basel-basel"
+          "oberarzt-in-fur-die-padiatrische-nephrologie-50-80-ukbb-basel"
         ]
       },
       "previousSlugs": [
-        "oberarzt-in-fur-die-padiatrische-nephrologie-50-80-ukbb-basel",
-        "oberarzt-in-fur-die-padiatrische-nephrologie-50-80-universitats-kinderspital-beider-basel-basel",
-        "ospedalista-pediatrica-nefrologia-50-80-universitats-kinderspital-beider-basel-basel"
+        "oberarzt-in-fur-die-padiatrische-nephrologie-50-80-ukbb-basel"
       ],
       "firstSeenAt": "2026-05-19T20:45:58.200Z",
       "salaryMin": 49600,
@@ -2502,18 +2591,14 @@
       "previousSlugsByLocale": {
         "de": [
           "ausbildung-dipl-fachperson-operationstechnik-hf-schwerpunkt-padiatrie-ukbb-basel",
-          "ausbildung-dipl-fachperson-operationstechnik-hf-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-basel",
           "ausbildung-dipl-fachperson-operationstechnik-hf-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-base-t7oqfv"
         ],
         "it": [
-          "ausbildung-dipl-fachperson-operationstechnik-hf-schwerpunkt-padiatrie-ukbb-basel",
-          "formazione-in-diploma-di-tecnico-operativo-hf-specializzazione-in-pediatria-universitats-kinderspital-beider-basel-basel"
+          "ausbildung-dipl-fachperson-operationstechnik-hf-schwerpunkt-padiatrie-ukbb-basel"
         ]
       },
       "previousSlugs": [
         "ausbildung-dipl-fachperson-operationstechnik-hf-schwerpunkt-padiatrie-ukbb-basel",
-        "ausbildung-dipl-fachperson-operationstechnik-hf-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-basel",
-        "formazione-in-diploma-di-tecnico-operativo-hf-specializzazione-in-pediatria-universitats-kinderspital-beider-basel-basel",
         "ausbildung-dipl-fachperson-operationstechnik-hf-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-base-t7oqfv"
       ],
       "firstSeenAt": "2026-05-19T20:45:57.558Z",
@@ -2582,13 +2667,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-fachperson-op-technik-hf-topa-ukbb-basel",
-        "dipl-op-tecnico-hf-topa-universitats-kinderspital-beider-basel-basel",
         "dipl-fachperson-op-technik-hf-topa-ukbb-basel-7o3723"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachperson-op-technik-hf-topa-ukbb-basel",
-          "dipl-op-tecnico-hf-topa-universitats-kinderspital-beider-basel-basel"
+          "dipl-fachperson-op-technik-hf-topa-ukbb-basel"
         ],
         "fr": [
           "dipl-fachperson-op-technik-hf-topa-ukbb-basel"
@@ -2690,18 +2773,14 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "oberarzt-in-radiologie-80-100-ukbb-basel",
-          "oberarzt-in-radiologie-80-100-universitats-kinderspital-beider-basel-basel"
+          "oberarzt-in-radiologie-80-100-ukbb-basel"
         ],
         "it": [
-          "oberarzt-in-radiologie-80-100-ukbb-basel",
-          "ospedalista-radiologia-pediatrica-80-100-universitats-kinderspital-beider-basel-basel"
+          "oberarzt-in-radiologie-80-100-ukbb-basel"
         ]
       },
       "previousSlugs": [
-        "oberarzt-in-radiologie-80-100-ukbb-basel",
-        "oberarzt-in-radiologie-80-100-universitats-kinderspital-beider-basel-basel",
-        "ospedalista-radiologia-pediatrica-80-100-universitats-kinderspital-beider-basel-basel"
+        "oberarzt-in-radiologie-80-100-ukbb-basel"
       ],
       "firstSeenAt": "2026-05-19T20:45:55.401Z",
       "salaryMin": 85500,
@@ -2801,18 +2880,14 @@
       "previousSlugsByLocale": {
         "de": [
           "dipl-expert-in-anasthesiepflege-nds-hf-80-100-ukbb-basel",
-          "dipl-expert-in-anasthesiepflege-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
           "dipl-expert-in-anasthesiepflege-nds-hf-80-100-universitats-kinderspital-beider-basel-basel-u7rbnp"
         ],
         "it": [
-          "dipl-expert-in-anasthesiepflege-nds-hf-80-100-ukbb-basel",
-          "esperto-a-anestesia-pediatrica-nds-hf-80-100-universitats-kinderspital-beider-basel-basel"
+          "dipl-expert-in-anasthesiepflege-nds-hf-80-100-ukbb-basel"
         ]
       },
       "previousSlugs": [
         "dipl-expert-in-anasthesiepflege-nds-hf-80-100-ukbb-basel",
-        "dipl-expert-in-anasthesiepflege-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
-        "esperto-a-anestesia-pediatrica-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
         "dipl-expert-in-anasthesiepflege-nds-hf-80-100-universitats-kinderspital-beider-basel-basel-u7rbnp"
       ],
       "firstSeenAt": "2026-05-19T20:45:54.707Z",
@@ -2882,13 +2957,11 @@
       "previousSlugs": [
         "praktikant-in-ict-schwerpunkt-support-100-ukbb-basel",
         "praktikant-in-ict-schwerpunkt-support-100-universitats-kinderspital-beider-basel-basel",
-        "internship-in-ict-focus-on-support-100-universitats-kinderspital-beider-basel-basel",
         "praktikant-in-ict-schwerpunkt-support-100-ukbb-basel-qmcm33"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-ict-schwerpunkt-support-100-ukbb-basel",
-          "internship-in-ict-focus-on-support-100-universitats-kinderspital-beider-basel-basel"
+          "praktikant-in-ict-schwerpunkt-support-100-ukbb-basel"
         ],
         "en": [
           "praktikant-in-ict-schwerpunkt-support-100-universitats-kinderspital-beider-basel-basel"
@@ -2989,18 +3062,14 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-ukbb-basel",
-          "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-universitats-kinderspital-beider-basel-basel"
+          "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-ukbb-basel"
         ],
         "it": [
-          "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-ukbb-basel",
-          "bachelor-in-scienze-infermieristiche-modulo-addizionale-b-in-pneumologia-pediatrica-universitats-kinderspital-beider"
+          "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-ukbb-basel"
         ]
       },
       "previousSlugs": [
-        "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-ukbb-basel",
-        "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-universitats-kinderspital-beider-basel-basel",
-        "bachelor-in-scienze-infermieristiche-modulo-addizionale-b-in-pneumologia-pediatrica-universitats-kinderspital-beider"
+        "bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-padiatrie-ukbb-basel"
       ],
       "firstSeenAt": "2026-05-19T20:45:54.054Z",
       "salaryMin": 62000,
@@ -3068,14 +3137,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "arztsekretar-in-orthopadie-60-ukbb-basel",
-        "arztsekretar-in-orthopadie-60-100-ukbb-basel",
-        "arztsekretar-in-orthopala-60-universitats-kinderspital-beider-basel-basel"
+        "arztsekretar-in-orthopadie-60-100-ukbb-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretar-in-orthopadie-60-ukbb-basel",
-          "arztsekretar-in-orthopadie-60-100-ukbb-basel",
-          "arztsekretar-in-orthopala-60-universitats-kinderspital-beider-basel-basel"
+          "arztsekretar-in-orthopadie-60-100-ukbb-basel"
         ],
         "en": [
           "arztsekretar-in-orthopadie-60-ukbb-basel"
@@ -3174,13 +3241,11 @@
       },
       "previousSlugs": [
         "pflegeexpert-in-bscn-oder-mscn-80-90-ukbb-basel",
-        "pflegeexperte-in-bscn-oder-mscn-80-90-universitats-kinderspital-beider-basel-basel",
-        "esperta-professionista-in-assistenza-infermieristica-bscn-mscn-80-90-universitats-kinderspital-beider-basel-basel"
+        "pflegeexperte-in-bscn-oder-mscn-80-90-universitats-kinderspital-beider-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegeexpert-in-bscn-oder-mscn-80-90-ukbb-basel",
-          "esperta-professionista-in-assistenza-infermieristica-bscn-mscn-80-90-universitats-kinderspital-beider-basel-basel"
+          "pflegeexpert-in-bscn-oder-mscn-80-90-ukbb-basel"
         ],
         "de": [
           "pflegeexperte-in-bscn-oder-mscn-80-90-universitats-kinderspital-beider-basel-basel"
@@ -3276,18 +3341,14 @@
       "previousSlugsByLocale": {
         "de": [
           "bachelor-of-science-in-der-pflege-6-wochiges-wahlpflichtpraktikum-in-der-padiatrie-ukbb",
-          "bachelor-of-science-in-der-pflege-6-wochiges-wahlpflichtpraktikum-in-der-padiatrie-universitats-kinderspital-beider",
           "bachelor-of-science-in-der-pflege-6-wochiges-wahlpflichtpraktikum-in-der-padiatrie-universitats-kinderspital-beid-rqb3kp"
         ],
         "it": [
-          "bachelor-of-science-in-der-pflege-6-wochiges-wahlpflichtpraktikum-in-der-padiatrie-ukbb",
-          "tirocinio-di-specializzazione-in-pneumatologia-pediatrica-6-settimane-universitats-kinderspital-beider-basel-basel"
+          "bachelor-of-science-in-der-pflege-6-wochiges-wahlpflichtpraktikum-in-der-padiatrie-ukbb"
         ]
       },
       "previousSlugs": [
         "bachelor-of-science-in-der-pflege-6-wochiges-wahlpflichtpraktikum-in-der-padiatrie-ukbb",
-        "bachelor-of-science-in-der-pflege-6-wochiges-wahlpflichtpraktikum-in-der-padiatrie-universitats-kinderspital-beider",
-        "tirocinio-di-specializzazione-in-pneumatologia-pediatrica-6-settimane-universitats-kinderspital-beider-basel-basel",
         "bachelor-of-science-in-der-pflege-6-wochiges-wahlpflichtpraktikum-in-der-padiatrie-universitats-kinderspital-beid-rqb3kp"
       ],
       "firstSeenAt": "2026-05-19T20:45:50.805Z",
@@ -3357,14 +3418,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medizinische-r-praxisassistent-in-mpa-80-100-ukbb-basel",
-        "medizinische-r-praxisassistent-in-mpa-80-100-universitats-kinderspital-beider-basel-basel",
-        "assistente-medico-mpa-80-100-universitats-kinderspital-beider-basel-basel"
+        "medizinische-r-praxisassistent-in-mpa-80-100-universitats-kinderspital-beider-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisassistent-in-mpa-80-100-ukbb-basel",
-          "medizinische-r-praxisassistent-in-mpa-80-100-universitats-kinderspital-beider-basel-basel",
-          "assistente-medico-mpa-80-100-universitats-kinderspital-beider-basel-basel"
+          "medizinische-r-praxisassistent-in-mpa-80-100-universitats-kinderspital-beider-basel-basel"
         ],
         "en": [
           "medizinische-r-praxisassistent-in-mpa-80-100-universitats-kinderspital-beider-basel-basel"
