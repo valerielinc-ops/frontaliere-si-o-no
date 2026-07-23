@@ -1,16 +1,16 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-07-22T22:52:04.864Z",
-  "total": 5,
+  "generatedAt": "2026-07-23T11:23:53.135Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 1,
-  "unchangedCount": 1,
-  "durationMs": 14454,
-  "avgDurationMs": 14454,
+  "unchangedCount": 0,
+  "durationMs": 16201,
+  "avgDurationMs": 16201,
   "durationHistory": [
-    14454
+    16201
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -161,47 +161,6 @@
   ],
   "removedJobs": [
     {
-      "url": "https://www.mikron.com/en/quality-technician-specialist-mfd-0",
-      "applyUrl": "https://www.mikron.com/en/quality-technician-specialist-mfd-0",
-      "title": "Quality Technician Specialist (m/f/d)",
-      "company": "Mikron Group",
-      "companyKey": "mikron",
-      "location": "Boudry",
-      "canton": "NE",
-      "country": "CH",
-      "postalCode": "2017",
-      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
-      "slug": "quality-technician-specialist-m-f-d-mikron",
-      "sourceLang": "fr",
-      "category": "production",
-      "datePosted": "2026-06-29",
-      "source": "mikron-html-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Manifattura / Precision Manufacturing",
-      "_targetScope": {
-        "canton": "NE",
-        "location": "Boudry"
-      },
-      "firstSeenAt": "2026-06-29T22:57:28.302Z",
-      "addressLocality": "Boudry",
-      "addressCountry": "CH",
-      "addressRegion": "NE",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
-  "unchangedJobs": [
-    {
       "url": "https://www.mikron.com/en/formateur-dapprentissage-pour-former-les-apprentis-polymecaniciens-0",
       "applyUrl": "https://www.mikron.com/en/formateur-dapprentissage-pour-former-les-apprentis-polymecaniciens-0",
       "title": "Formateur d’apprentissage pour former les apprentis polymécaniciens",
@@ -240,5 +199,6 @@
         "completeness": 20
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
