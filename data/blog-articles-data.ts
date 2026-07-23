@@ -26639,6 +26639,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'permesso-g-apprendisti-durata-tirocinio',
+ category: 'novita',
+ date: '2026-07-23T05:44:18.039Z',
+ image: '/images/blog/permesso-g-apprendisti-durata-tirocinio.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

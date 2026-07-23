@@ -8867,6 +8867,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stipendio-muratore-frontaliere-ticino.title': 'Quanto guadagna un muratore frontaliere in Ticino?',
     'blog.article.stipendio-muratore-frontaliere-ticino.excerpt': 'La retribuzione di un muratore frontaliere in Ticino è influenzata dalle norme fiscali e dai trattati internazionali.',
     'blog.article.stipendio-muratore-frontaliere-ticino.imageAlt': 'Vista del lago di Lugano',
+    'blog.article.permesso-g-apprendisti-durata-tirocinio.title': 'Permesso G apprendisti: durata estesa per l\'intero tirocinio',
+    'blog.article.permesso-g-apprendisti-durata-tirocinio.excerpt': 'Il Consiglio degli Stati approva la mozione per un permesso G valido per l\'intera durata dell\'apprendistato, superando l\'obbligo del rinnovo annuale.',
+    'blog.article.permesso-g-apprendisti-durata-tirocinio.imageAlt': 'Giovani apprendisti in un centro di formazione in Ticino',
 };
 
 export default blogMetaIt;

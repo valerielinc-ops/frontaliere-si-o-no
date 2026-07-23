@@ -8866,6 +8866,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stipendio-muratore-frontaliere-ticino.title': 'How much does a border bricklayer earn in Ticino?',
     'blog.article.stipendio-muratore-frontaliere-ticino.excerpt': 'The remuneration of a border bricklayer in Ticino is influenced by tax rules and international treaties.',
     'blog.article.stipendio-muratore-frontaliere-ticino.imageAlt': 'View of Lake Lugano',
+    'blog.article.permesso-g-apprendisti-durata-tirocinio.title': 'G apprenticeship leave: extended duration for the entire internship',
+    'blog.article.permesso-g-apprendisti-durata-tirocinio.excerpt': 'The Council of States approves the motion for a G permit valid for the entire duration of the apprenticeship, exceeding the obligation of annual renewal.',
+    'blog.article.permesso-g-apprendisti-durata-tirocinio.imageAlt': 'Young apprentices at a training center in Ticino',
 };
 
 export default blogMetaEn;

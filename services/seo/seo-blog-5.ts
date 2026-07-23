@@ -54126,6 +54126,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-g-apprendisti-durata-tirocinio': {
+    title: 'Permesso G apprendisti: durata estesa per l\'intero tirocinio',
+    description: 'Il Consiglio degli Stati approva la mozione per estendere il permesso G agli apprendisti frontalieri per tutta la durata del tirocinio. Scopri le novità.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, apprendisti, durata, estesa',
+    ogTitle: 'Permesso G apprendisti: durata estesa per l\'intero tirocinio',
+    ogDescription: 'Il Consiglio degli Stati approva la mozione per estendere il permesso G agli apprendisti frontalieri per tutta la durata del tirocinio.',
+    canonicalPath: '/articoli-frontaliere/permesso-g-apprendisti-durata-tirocinio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso G apprendisti: durata estesa per l'intero tirocinio",
+      "description": "Il Consiglio degli Stati approva la mozione per estendere il permesso G agli apprendisti frontalieri per tutta la durata del tirocinio. Scopri le novità.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-g-apprendisti-durata-tirocinio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovani apprendisti in un centro di formazione in Ticino"
+      },
+      "datePublished": "2026-07-23T05:44:18+00:00",
+      "dateModified": "2026-07-23T05:44:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permesso-g-apprendisti-durata-tirocinio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
