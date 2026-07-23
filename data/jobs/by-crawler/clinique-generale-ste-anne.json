@@ -52,13 +52,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne",
-        "supporto-in-sala-operatoria-o-assistente-tecnico-specializzato-in-sala-operatoria-atsso-clinique-generale-ste-anne"
+        "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne",
-          "supporto-in-sala-operatoria-o-assistente-tecnico-specializzato-in-sala-operatoria-atsso-clinique-generale-ste-anne"
+          "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne"
         ],
         "en": [
           "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne"
@@ -80,11 +78,11 @@
     },
     {
       "id": "clinique-generale-ste-anne-2e8776d2d57e",
-      "slug": "assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical-clinique-generale-ste-anne",
+      "slug": "assistente-medico-h-f-apertura-di-un-nuovo-centro-medico-clinique-generale-ste-anne-fribourg",
       "slugByLocale": {
         "fr": "assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical-clinique-generale-ste-anne",
-        "it": "assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical-clinique-generale-ste-anne",
-        "en": "assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical-clinique-generale-ste-anne",
+        "it": "assistente-medico-h-f-apertura-di-un-nuovo-centro-medico-clinique-generale-ste-anne-fribourg",
+        "en": "medical-assistant-h-f-opening-of-a-new-medical-centre-clinique-generale-ste-anne-fribourg",
         "de": "assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical-clinique-generale-ste-anne"
       },
       "company": "Clinique Générale Ste-Anne",
@@ -141,7 +139,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-23T12:36:51.026Z"
+      "firstSeenAt": "2026-07-23T12:36:51.026Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical-clinique-generale-ste-anne"
+        ],
+        "en": [
+          "assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical-clinique-generale-ste-anne"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical-clinique-generale-ste-anne"
+      ]
     }
   ]
 }

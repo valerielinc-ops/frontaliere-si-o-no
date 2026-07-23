@@ -9,7 +9,7 @@
         "it": "salute-professionale-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "en": "professional-health-spital-thurgau-stgag-kantonsspital-munsterlingen-2bef5b",
         "de": "fachmann-frau-gesundheit-stgag-ch",
-        "fr": "sante-professionnelle-spital-thurgau-stgag-munsterlingen"
+        "fr": "fachmann-frau-gesundheit-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -69,8 +69,6 @@
         "professionista-della-salute-fage-spital-thurgau-stgag-munsterlingen",
         "health-professional-fage-spital-thurgau-stgag-munsterlingen",
         "professionnels-de-la-sante-fage-spital-thurgau-stgag-munsterlingen",
-        "fachmann-frau-gesundheit-spital-thurgau-stgag-munsterlingen",
-        "salute-professionale-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "sante-professionnelle-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
@@ -90,8 +88,7 @@
           "fachmann-frau-gesundheit-fage-spital-thurgau-stgag-munsterlingen",
           "professionista-della-salute-fage-spital-thurgau-stgag-munsterlingen",
           "health-professional-fage-spital-thurgau-stgag-munsterlingen",
-          "professionnels-de-la-sante-fage-spital-thurgau-stgag-munsterlingen",
-          "salute-professionale-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "professionnels-de-la-sante-fage-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "professional-female-health-intensive-care-unit-spital-thurgau-stgag-kantonsspital-frauenfeld",
@@ -106,7 +103,6 @@
           "sante-professionnelle-spital-thurgau-stgag-kantonsspital-munsterlingen-2bef5b",
           "unite-de-soins-intensifs-de-sante-professionnelle-feminine-spital-thurgau-stgag-kantonsspital-frauenfeld",
           "professionnels-de-la-sante-fage-spital-thurgau-stgag-ambulatorium-arbon",
-          "fachmann-frau-gesundheit-spital-thurgau-stgag-munsterlingen",
           "sante-professionnelle-spital-thurgau-stgag-munsterlingen"
         ]
       },
@@ -185,15 +181,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "de": [
-          "sozialarbeiter-in-fh-stgag-ch"
-        ]
-      },
-      "previousSlugs": [
-        "sozialarbeiter-in-fh-stgag-ch"
-      ]
+      }
     },
     {
       "id": "stgag-69c86a92d5a3",
@@ -598,26 +586,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "psychologen-in-stgag-ch",
-          "psicologi-in-spital-thurgau-stgag-munsterlingen"
+          "psychologen-in-stgag-ch"
         ],
         "en": [
-          "psychologen-in-stgag-ch",
-          "psychologists-in-spital-thurgau-stgag-munsterlingen"
+          "psychologen-in-stgag-ch"
         ],
         "fr": [
-          "psychologen-in-stgag-ch",
-          "psychologues-in-spital-thurgau-stgag-munsterlingen"
-        ],
-        "de": [
           "psychologen-in-stgag-ch"
         ]
       },
       "previousSlugs": [
-        "psychologen-in-stgag-ch",
-        "psicologi-in-spital-thurgau-stgag-munsterlingen",
-        "psychologists-in-spital-thurgau-stgag-munsterlingen",
-        "psychologues-in-spital-thurgau-stgag-munsterlingen"
+        "psychologen-in-stgag-ch"
       ],
       "firstSeenAt": "2026-07-20T22:04:14.229Z",
       "salaryMin": 57500,
