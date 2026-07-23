@@ -8899,6 +8899,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tasse-frontalieri-nessuna-stangata.title': 'Border taxes, no stranglehold on low incomes',
     'blog.article.tasse-frontalieri-nessuna-stangata.excerpt': 'No barbed wire for low income frontiersmen',
     'blog.article.tasse-frontalieri-nessuna-stangata.imageAlt': 'a Swiss-Italian border worker',
+    'blog.article.livigno-s-chanf-in-treno.title': 'More GR: between Livigno and S-chanf by train, the project is developed',
+    'blog.article.livigno-s-chanf-in-treno.excerpt': 'A rail link between Livigno and S-chanf could be made in the future.',
+    'blog.article.livigno-s-chanf-in-treno.imageAlt': 'A train station in Ticino with trains connecting Livigno and S-chanf.',
 };
 
 export default blogMetaEn;

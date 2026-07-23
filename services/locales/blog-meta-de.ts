@@ -8898,6 +8898,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tasse-frontalieri-nessuna-stangata.title': 'Grenzsteuern, keine Engpässe für niedrige Einkommen',
     'blog.article.tasse-frontalieri-nessuna-stangata.excerpt': 'Kein Stau für Grenzgänger mit geringem Einkommen',
     'blog.article.tasse-frontalieri-nessuna-stangata.imageAlt': 'ein Frontalier, der in der Schweiz arbeitet',
+    'blog.article.livigno-s-chanf-in-treno.title': 'Mehr GR: Zwischen Livigno und S-chanf mit dem Zug wird das Projekt entwickelt',
+    'blog.article.livigno-s-chanf-in-treno.excerpt': 'Eine Bahnverbindung zwischen Livigno und S-chanf könnte in Zukunft realisiert werden.',
+    'blog.article.livigno-s-chanf-in-treno.imageAlt': 'Ein Bahnhof in der Schweiz mit Zügen, die Livigno und S-chanf verbinden.',
 };
 
 export default blogMetaDe;
