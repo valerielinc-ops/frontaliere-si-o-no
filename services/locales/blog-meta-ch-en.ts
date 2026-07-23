@@ -1465,6 +1465,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.title': 'Third pillar 3a: benefits for border workers in the canton of Basel',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.excerpt': 'The new Italy-Switzerland double taxation convention and the transitional regime for border workers.',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.imageAlt': 'Descrizione dell\'immagine in inglese, massimo 125 caratteri',
+    'blog.article.mappa-frontalieri-lombardi-ticino.title': 'Frontier workers: where workers arrive in Ticino',
+    'blog.article.mappa-frontalieri-lombardi-ticino.excerpt': 'Data from the Federal Statistical Office reveal the origin of workers with G: boom permits in Brianza, Como and Varese buildings.',
+    'blog.article.mappa-frontalieri-lombardi-ticino.imageAlt': 'Panoramic view of a Ticino city with urban infrastructure',
 };
 
 export default blogMetaChEn;

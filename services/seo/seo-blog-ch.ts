@@ -18933,6 +18933,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mappa-frontalieri-lombardi-ticino': {
+    title: 'Frontalieri: da dove arrivano i lavoratori in Ticino',
+    description: 'Analisi dei dati BFS sui frontalieri in Ticino: boom in Brianza, stabili Como e Varese. Scopri le cifre aggiornate e le implicazioni del mercato del lavoro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dove, arrivano, lavoratori, dati',
+    ogTitle: 'Frontalieri: da dove arrivano i lavoratori in Ticino',
+    ogDescription: 'I dati ufficiali del 2025 mostrano un aumento del 30% dei frontalieri in Ticino. Analisi dei flussi dalle province lombarde.',
+    canonicalPath: '/articoli-svizzera/mappa-frontalieri-lombardi-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: da dove arrivano i lavoratori in Ticino",
+      "description": "Analisi dei dati BFS sui frontalieri in Ticino: boom in Brianza, stabili Como e Varese. Scopri le cifre aggiornate e le implicazioni del mercato del lavoro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mappa-frontalieri-lombardi-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di una città ticinese con infrastrutture urbane"
+      },
+      "datePublished": "2026-07-23T05:51:44+00:00",
+      "dateModified": "2026-07-23T05:51:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mappa-frontalieri-lombardi-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

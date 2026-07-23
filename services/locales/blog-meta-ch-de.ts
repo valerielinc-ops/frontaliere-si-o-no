@@ -1465,6 +1465,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.title': 'Dritte Säule 3a: Vorteile für Grenzgänger im Kanton Basel',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.excerpt': 'Das neue Doppelbesteuerungsabkommen Italien-Schweiz und die Übergangsregelung für Grenzgänger.',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.imageAlt': 'Descrizione dell\'immagine in tedesco, massimo 125 caratteri',
+    'blog.article.mappa-frontalieri-lombardi-ticino.title': 'Grenzgänger: Woher kommen die Arbeiter im Tessin?',
+    'blog.article.mappa-frontalieri-lombardi-ticino.excerpt': 'Die Daten des Bundesamtes für Statistik zeigen die Herkunft der Arbeitnehmer mit der Genehmigung G: Boom in der Brianza, Gebäude Como und Varese.',
+    'blog.article.mappa-frontalieri-lombardi-ticino.imageAlt': 'Panoramablick auf eine Stadt im Tessin mit städtischer Infrastruktur',
 };
 
 export default blogMetaChDe;

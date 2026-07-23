@@ -4391,6 +4391,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'mappa-frontalieri-lombardi-ticino',
+    category: 'pratico',
+    date: '2026-07-23T05:51:44.220Z',
+    image: '/images/blog/mappa-frontalieri-lombardi-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
