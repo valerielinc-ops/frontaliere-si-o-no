@@ -1,16 +1,16 @@
 {
   "key": "gim-architekten",
   "label": "GIM Architekten AG",
-  "generatedAt": "2026-07-23T11:53:46.390Z",
+  "generatedAt": "2026-07-23T22:12:35.887Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4518,
-  "avgDurationMs": 4518,
+  "durationMs": 5752,
+  "avgDurationMs": 5752,
   "durationHistory": [
-    4518
+    5752
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/1d796c78-bfb5-4f59-abbc-afa0ee492061/",
       "source": "GIM Architekten AG Dedicated Parser (jobs.ch)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:53:43.527Z",
+      "crawledAt": "2026-07-23T22:12:32.379Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -86,7 +86,7 @@
       "firstSeenAt": "2026-07-04T10:49:57.799Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
