@@ -4853,6 +4853,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzera-il-passaggio-delle-azioni-al-manager-non-e-sempre-reddito-imponibile': { name: 'Svizzera, il passaggio delle azioni al', path: '/articoli-frontaliere/svizzera-il-passaggio-delle-azioni-al-manager-non-e-sempre-reddito-imponibile', parent: 'blog' },
     'blog-cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate': { name: 'Cantiere Nsif', path: '/articoli-frontaliere/cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate', parent: 'blog' },
     'blog-zali-e-le-pressioni-per-un-assunzione': { name: 'Fatti chiave', path: '/articoli-svizzera/zali-e-le-pressioni-per-un-assunzione/', parent: 'blog' },
+    'blog-frontaliere-ingegnere-ticino-stipendio': { name: 'frontaliere ingegnere', path: '/articoli-frontaliere/frontaliere-ingegnere-ticino-stipendio', parent: 'blog' },
  };
 
  const info = sectionNames[section];
