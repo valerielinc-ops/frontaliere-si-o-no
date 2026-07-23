@@ -1,16 +1,16 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-07-23T11:23:53.135Z",
+  "generatedAt": "2026-07-23T22:17:38.876Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 16201,
-  "avgDurationMs": 16201,
+  "durationMs": 16671,
+  "avgDurationMs": 16671,
   "durationHistory": [
-    16201
+    16671
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -159,46 +159,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://www.mikron.com/en/formateur-dapprentissage-pour-former-les-apprentis-polymecaniciens-0",
-      "applyUrl": "https://www.mikron.com/en/formateur-dapprentissage-pour-former-les-apprentis-polymecaniciens-0",
-      "title": "Formateur d’apprentissage pour former les apprentis polymécaniciens",
-      "company": "Mikron Group",
-      "companyKey": "mikron",
-      "location": "Boudry",
-      "canton": "NE",
-      "country": "CH",
-      "postalCode": "2017",
-      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
-      "slug": "formateur-d-apprentissage-pour-former-les-apprentis-polymecaniciens-mikron",
-      "sourceLang": "fr",
-      "category": "hr",
-      "datePosted": "2026-06-29",
-      "source": "mikron-html-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Manifattura / Precision Manufacturing",
-      "_targetScope": {
-        "canton": "NE",
-        "location": "Boudry"
-      },
-      "firstSeenAt": "2026-06-29T22:57:28.302Z",
-      "addressLocality": "Boudry",
-      "addressCountry": "CH",
-      "addressRegion": "NE",
-      "salaryMin": 50500,
-      "salaryMax": 77000,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
