@@ -1,37 +1,35 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-07-22T22:08:27.143Z",
-  "total": 372,
+  "generatedAt": "2026-07-23T11:34:39.340Z",
+  "total": 375,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 101605,
-  "avgDurationMs": 101605,
+  "unchangedCount": 0,
+  "durationMs": 146545,
+  "avgDurationMs": 146545,
   "durationHistory": [
-    101605
+    146545
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+      "title": "Drogistin / Drogist (w/m/d)",
       "company": "Galenica AG (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3118763.4031942",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=3115702.4025676",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Pharma-Assistent / Pharma-Assistentin (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "descriptionIt": "Drogistin / Drogist (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "applyUrl": "",
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-d7dda1",
-      "id": "galenica-74d20cf71733",
+      "slug": "galenica-galenica-ag-drogistin-drogist-w-m-d-bern",
+      "id": "galenica-443ba1deff26",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -42,14 +40,16 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 86,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 25,
+        "translation": 23,
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
