@@ -8892,6 +8892,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate.title': 'Baustelle Nsif, fortgeschrittene Arbeiten und eingehaltene Zeitpläne',
     'blog.article.cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate.excerpt': 'Die Baustelle Nsif in Lugano befindet sich im Vormarsch, wobei 60% des Betons und die Hälfte des vorgesehenen Stahls verwendet werden.',
     'blog.article.cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate.imageAlt': 'Das Nsif-Bauprojekt in Lugano, im Gange',
+    'blog.article.frontaliere-ingegnere-ticino-stipendio.title': 'grenzgänger Ingenieur Tessin Gehaltsvoraussetzungen',
+    'blog.article.frontaliere-ingegnere-ticino-stipendio.excerpt': 'Neues Frontalieri-Abkommen in Kraft seit 01.01.2024: Selbstbehalt von € 10\'000, Quellensteuer nur in der Schweiz, italienische Steuergutschrift zur Vermeidung von Doppelbesteuerung.',
+    'blog.article.frontaliere-ingegnere-ticino-stipendio.imageAlt': 'Grenzgänger Ingenieur am Luganersee mit Alpenblick',
 };
 
 export default blogMetaDe;

@@ -8893,6 +8893,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate.title': 'Nsif construction site, advanced works and deadlines respected',
     'blog.article.cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate.excerpt': 'The Nsif site in Lugano is in progress, with 60% of the concrete and half of the expected steel used.',
     'blog.article.cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate.imageAlt': 'The Nsif construction site in Lugano, in progress',
+    'blog.article.frontaliere-ingegnere-ticino-stipendio.title': 'border engineer Ticino salary requirements',
+    'blog.article.frontaliere-ingegnere-ticino-stipendio.excerpt': 'New Frontier Agreement in force since 1/1/2024: deductible €10,000, tax at source only in Switzerland, Italian tax credit to avoid double taxation.',
+    'blog.article.frontaliere-ingegnere-ticino-stipendio.imageAlt': 'Frontier engineer near Lake Lugano with Alpine view',
 };
 
 export default blogMetaEn;

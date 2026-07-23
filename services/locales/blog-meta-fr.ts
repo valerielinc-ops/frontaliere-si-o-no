@@ -8895,6 +8895,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate.title': 'Chantier Nsif, travaux avancés et délais respectés',
     'blog.article.cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate.excerpt': 'Le chantier Nsif à Lugano est en phase d\'avancement, avec 60% du béton et la moitié de l\'acier prévu utilisé.',
     'blog.article.cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate.imageAlt': 'Le chantier de construction Nsif à Lugano, en cours de réalisation',
+    'blog.article.frontaliere-ingegnere-ticino-stipendio.title': 'frontalière ingénieur ticino salaire exigences',
+    'blog.article.frontaliere-ingegnere-ticino-stipendio.excerpt': 'Nouvel accord frontalier en vigueur depuis le 1/1/2024 : franchise de 10\'000 € , impôt à la source uniquement en Suisse, crédit d\'impôt italien pour éviter la double imposition.',
+    'blog.article.frontaliere-ingegnere-ticino-stipendio.imageAlt': 'Frontalier ingénieur près du lac de Lugano avec vue sur les Alpes',
 };
 
 export default blogMetaFr;
