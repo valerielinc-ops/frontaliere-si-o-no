@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-07-04T11:38:40.513Z",
-    "label": "after",
-    "total": 19459,
-    "needsRetranslation": 2234,
-    "suppressed": 300,
-    "incomplete": 759,
-    "complete": 18700,
-    "missingByLocale": {
-      "it": 403,
-      "en": 283,
-      "de": 377,
-      "fr": 161
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 571
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 61
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 22
-      },
-      {
-        "company": "Manor AG",
-        "pending": 21
-      },
-      {
-        "company": "Julius Baer",
-        "pending": 19
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 14
-      },
-      {
-        "company": "FELFEL",
-        "pending": 8
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 6
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "Roche",
-        "pending": 4
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-04T15:19:07.495Z",
-    "label": "before",
-    "total": 22138,
-    "needsRetranslation": 8280,
-    "suppressed": 300,
-    "incomplete": 3074,
-    "complete": 19064,
-    "missingByLocale": {
-      "it": 2655,
-      "en": 2343,
-      "de": 693,
-      "fr": 2166
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 518
-      },
-      {
-        "company": "Kanton Aargau",
-        "pending": 427
-      },
-      {
-        "company": "OTTO'S AG",
-        "pending": 162
-      },
-      {
-        "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
-        "pending": 145
-      },
-      {
-        "company": "Kantonale Verwaltung Zürich",
-        "pending": 138
-      },
-      {
-        "company": "Medbase",
-        "pending": 130
-      },
-      {
-        "company": "Etat de Fribourg",
-        "pending": 118
-      },
-      {
-        "company": "Manor AG",
-        "pending": 104
-      },
-      {
-        "company": "ETAVIS Arnold",
-        "pending": 85
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 81
-      }
-    ]
-  },
-  {
     "timestamp": "2026-07-04T15:21:52.328Z",
     "label": "after",
     "total": 22138,
@@ -11510,6 +11396,120 @@
       {
         "company": "Kantonsspital Aarau (KSA)",
         "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-23T17:42:46.978Z",
+    "label": "before",
+    "total": 24835,
+    "needsRetranslation": 7573,
+    "suppressed": 37,
+    "incomplete": 207,
+    "complete": 24628,
+    "missingByLocale": {
+      "it": 155,
+      "en": 118,
+      "de": 60,
+      "fr": 142
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 33
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Universitäts-Kinderspital beider Basel",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 11
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 9
+      },
+      {
+        "company": "Jumbo, Division der Coop Genossenschaft",
+        "pending": 5
+      },
+      {
+        "company": "SRO AG (Spital Region Oberaargau)",
+        "pending": 5
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Solothurner Spitäler AG (soH)",
+        "pending": 4
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-23T17:53:59.525Z",
+    "label": "after",
+    "total": 24835,
+    "needsRetranslation": 1219,
+    "suppressed": 37,
+    "incomplete": 207,
+    "complete": 24628,
+    "missingByLocale": {
+      "it": 155,
+      "en": 118,
+      "de": 60,
+      "fr": 142
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 33
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Universitäts-Kinderspital beider Basel",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 11
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 9
+      },
+      {
+        "company": "Jumbo, Division der Coop Genossenschaft",
+        "pending": 5
+      },
+      {
+        "company": "SRO AG (Spital Region Oberaargau)",
+        "pending": 5
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Solothurner Spitäler AG (soH)",
+        "pending": 4
       }
     ]
   }

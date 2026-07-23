@@ -66,7 +66,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.906Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -509,7 +508,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.891Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -724,12 +722,29 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufer-in-elektro-hornbach-luzern-littau",
-        "assistente-alle-vendite-elettriche-hornbach-luzern-littau"
+        "assistente-alle-vendite-elettriche-hornbach-luzern-littau",
+        "assistente-alle-vendite-di-rivestimenti-e-decorazioni-hornbach-luzern-littau",
+        "seller-in-flooring-decoration-hornbach-luzern-littau",
+        "verkaufer-in-bodenbelage-dekoration-hornbach-luzern-littau",
+        "vendeur-en-plancher-decoration-hornbach-luzern-littau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-elektro-hornbach-luzern-littau",
-          "assistente-alle-vendite-elettriche-hornbach-luzern-littau"
+          "assistente-alle-vendite-elettriche-hornbach-luzern-littau",
+          "assistente-alle-vendite-di-rivestimenti-e-decorazioni-hornbach-luzern-littau",
+          "seller-in-flooring-decoration-hornbach-luzern-littau",
+          "verkaufer-in-bodenbelage-dekoration-hornbach-luzern-littau",
+          "vendeur-en-plancher-decoration-hornbach-luzern-littau"
+        ],
+        "en": [
+          "seller-in-flooring-decoration-hornbach-luzern-littau"
+        ],
+        "de": [
+          "verkaufer-in-bodenbelage-dekoration-hornbach-luzern-littau"
+        ],
+        "fr": [
+          "vendeur-en-plancher-decoration-hornbach-luzern-littau"
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.900Z",
@@ -968,7 +983,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.896Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1703,7 +1717,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.882Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {

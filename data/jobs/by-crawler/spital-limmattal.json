@@ -17,7 +17,7 @@
       "title": "Dipl. Pflegefachperson HF/FH im Flex-Pool",
       "titleByLocale": {
         "it": "Dipl. Infermiera HF/FH nella piscina flex",
-        "en": "Dipl. Nurse HF/FH in the flex pool",
+        "en": "Dipl. Pflegefachperson HF/FH im Flex-Pool",
         "de": "Dipl. Pflegefachperson HF/FH im Flex-Pool",
         "fr": "Dipl. Infirmière HF/FH dans le bassin flexible"
       },
@@ -51,11 +51,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-im-flex-pool-spital-limmattal-ch"
+        "dipl-pflegefachperson-hf-fh-im-flex-pool-spital-limmattal-ch",
+        "dipl-infermiera-hf-fh-nella-piscina-flex-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-im-flex-pool-spital-limmattal-ch"
+          "dipl-pflegefachperson-hf-fh-im-flex-pool-spital-limmattal-ch",
+          "dipl-infermiera-hf-fh-nella-piscina-flex-spital-limmattal-schlieren"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-im-flex-pool-spital-limmattal-ch"
@@ -205,11 +207,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fachfrau-mann-gesundheit-efz-fage-spital-limmattal-ch"
+        "lehrstelle-fachfrau-mann-gesundheit-efz-fage-spital-limmattal-ch",
+        "apprendistato-fachfrau-mann-gesundheit-cfc-fage-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-mann-gesundheit-efz-fage-spital-limmattal-ch"
+          "lehrstelle-fachfrau-mann-gesundheit-efz-fage-spital-limmattal-ch",
+          "apprendistato-fachfrau-mann-gesundheit-cfc-fage-spital-limmattal-schlieren"
         ],
         "en": [
           "lehrstelle-fachfrau-mann-gesundheit-efz-fage-spital-limmattal-ch"
@@ -282,12 +286,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-fachfrau-mann-gesundheit-fage-u2013-im-pflegezentrum-spital-limmattal-ch",
-        "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch"
+        "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch",
+        "apprendistato-fachfrau-mann-gesundheit-fage-u2013-im-pflegezentrum-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-fachfrau-mann-gesundheit-fage-u2013-im-pflegezentrum-spital-limmattal-ch",
-          "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch"
+          "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch",
+          "apprendistato-fachfrau-mann-gesundheit-fage-u2013-im-pflegezentrum-spital-limmattal-schlieren"
         ],
         "en": [
           "lehrstelle-fachfrau-mann-gesundheit-fage-u2013-im-pflegezentrum-spital-limmattal-ch"
@@ -445,13 +451,15 @@
         "arztsekret-u00e4r-in-f-u00fcr-chefarztsekretariat-an-u00e4sthesie-80-arbeitstage-montag",
         "segretariato-medico-u00e4r-in-f-u00fcr-segretariato-medico-capo-an-u00e4sthesie-80-giorni-lavorativi-dal-lunedi-al",
         "medical-secretariat-u00e4r-in-f-u00fcr-chief-medical-secretariat-an-u00e4sthesie-80-working-days-monday-to-thursday",
-        "arztsekretar-in-fur-chefarztsekretariat-anasthesie-80-arbeitstage-montag-bis-donnerstag"
+        "arztsekretar-in-fur-chefarztsekretariat-anasthesie-80-arbeitstage-montag-bis-donnerstag",
+        "segretariato-medicoar-in-fur-segretariato-medico-capo-anasthesie-80-giorni-lavorativi-dal-lunedi-al-giovedi-spital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekret-u00e4r-in-f-u00fcr-chefarztsekretariat-an-u00e4sthesie-80-arbeitstage-montag",
           "segretariato-medico-u00e4r-in-f-u00fcr-segretariato-medico-capo-an-u00e4sthesie-80-giorni-lavorativi-dal-lunedi-al",
-          "arztsekretar-in-fur-chefarztsekretariat-anasthesie-80-arbeitstage-montag-bis-donnerstag"
+          "arztsekretar-in-fur-chefarztsekretariat-anasthesie-80-arbeitstage-montag-bis-donnerstag",
+          "segretariato-medicoar-in-fur-segretariato-medico-capo-anasthesie-80-giorni-lavorativi-dal-lunedi-al-giovedi-spital"
         ],
         "en": [
           "arztsekret-u00e4r-in-f-u00fcr-chefarztsekretariat-an-u00e4sthesie-80-arbeitstage-montag",
@@ -534,6 +542,7 @@
         "infermiera-hf-fh-f-u00fcr-oncologia-h-u00e4matologia-80-spital-limmattal-schlieren",
         "dipl-nurse-hf-fh-f-u00fcr-oncology-h-u00e4matology-80-spital-limmattal-schlieren",
         "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-80-spital-limmattal-ch",
+        "infermiera-hf-fh-fur-oncologia-hamatologia-80-spital-limmattal-schlieren",
         "formazione-professionale-dipl-infermiera-hf-fh-fur-stazione-del-letto-medico-spital-limmattal-schlieren",
         "vocational-trainer-dipl-nurse-hf-fh-fur-medical-bed-station-spital-limmattal-schlieren",
         "berufsbildner-in-dipl-pflegefachperson-hf-fh-fur-medizinische-bettenstation-spital-limmattal-schlieren",
@@ -548,6 +557,7 @@
           "dipl-pflegefachperson-hf-fh-f-u00fcr-onkologie-h-u00e4matologie-80-spital-limmattal-ch",
           "infermiera-hf-fh-f-u00fcr-oncologia-h-u00e4matologia-80-spital-limmattal-schlieren",
           "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-80-spital-limmattal-ch",
+          "infermiera-hf-fh-fur-oncologia-hamatologia-80-spital-limmattal-schlieren",
           "formazione-professionale-dipl-infermiera-hf-fh-fur-stazione-del-letto-medico-spital-limmattal-schlieren",
           "vocational-trainer-dipl-nurse-hf-fh-fur-medical-bed-station-spital-limmattal-schlieren",
           "berufsbildner-in-dipl-pflegefachperson-hf-fh-fur-medizinische-bettenstation-spital-limmattal-schlieren",
@@ -635,12 +645,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verwaltungsr-u00e4tin-verwaltungsrat-spitalverband-limmattal-spital-limmattal-ch",
-        "verwaltungsratin-verwaltungsrat-spitalverband-limmattal-spital-limmattal-ch"
+        "verwaltungsratin-verwaltungsrat-spitalverband-limmattal-spital-limmattal-ch",
+        "consiglio-di-amministrazione-consiglio-di-amministrazione-spitalverband-limmattal-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verwaltungsr-u00e4tin-verwaltungsrat-spitalverband-limmattal-spital-limmattal-ch",
-          "verwaltungsratin-verwaltungsrat-spitalverband-limmattal-spital-limmattal-ch"
+          "verwaltungsratin-verwaltungsrat-spitalverband-limmattal-spital-limmattal-ch",
+          "consiglio-di-amministrazione-consiglio-di-amministrazione-spitalverband-limmattal-spital-limmattal-schlieren"
         ],
         "en": [
           "verwaltungsr-u00e4tin-verwaltungsrat-spitalverband-limmattal-spital-limmattal-ch"
@@ -681,7 +693,7 @@
       "title": "Dipl. Expertin oder Experte Intensivpflege NDS HF",
       "titleByLocale": {
         "it": "Dipl. Expertin o Experte Intensivpflege NDS HF",
-        "en": "Dipl. Expert or expert intensive care NDS HF",
+        "en": "Dipl. Expertin oder Experte Intensivpflege NDS HF",
         "de": "Dipl. Expertin oder Experte Intensivpflege NDS HF",
         "fr": "Dipl. Expert ou expert en soins intensifs NDS HF"
       },
@@ -971,14 +983,16 @@
         "mpa-segreteria-del-dottore-u00e4rin-zbm-80-gratuito-di-mercoledi-spital-limmattal-schlieren",
         "mpa-doctor-s-secretariat-u00e4rin-zbm-80-wednesday-free-spital-limmattal-schlieren",
         "mpa-secretariat-du-docteur-u00e4rin-zbm-80-mercredi-gratuit-spital-limmattal-schlieren",
-        "arztsekretarin-kauffrau-mpa-oder-fage-80-mittwoch-frei-spital-limmattal-ch"
+        "arztsekretarin-kauffrau-mpa-oder-fage-80-mittwoch-frei-spital-limmattal-ch",
+        "mpa-segreteria-del-dottorearin-zbm-80-gratuito-di-mercoledi-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mpa-arztsekret-u00e4rin-zbm-80-mittwoch-frei-spital-limmattal-ch",
           "arztsekret-u00e4rin-kauffrau-mpa-oder-fage-80-mittwoch-frei-spital-limmattal-ch",
           "mpa-segreteria-del-dottore-u00e4rin-zbm-80-gratuito-di-mercoledi-spital-limmattal-schlieren",
-          "arztsekretarin-kauffrau-mpa-oder-fage-80-mittwoch-frei-spital-limmattal-ch"
+          "arztsekretarin-kauffrau-mpa-oder-fage-80-mittwoch-frei-spital-limmattal-ch",
+          "mpa-segreteria-del-dottorearin-zbm-80-gratuito-di-mercoledi-spital-limmattal-schlieren"
         ],
         "en": [
           "mpa-arztsekret-u00e4rin-zbm-80-mittwoch-frei-spital-limmattal-ch",
@@ -1400,13 +1414,15 @@
         "di-u00e4tk-u00f6chin-di-u00e4tkoch-60-bis-100-spital-limmattal-ch",
         "di-u00e4tk-u00f6chin-di-u00e4tkoch-60-al-100-spital-limmattal-schlieren",
         "di-u00e4tk-u00f6chin-di-u00e4tkoch-60-a-100-spital-limmattal-schlieren",
-        "diatkochin-diatkoch-60-bis-100-spital-limmattal-ch"
+        "diatkochin-diatkoch-60-bis-100-spital-limmattal-ch",
+        "diatkochin-diatkoch-60-al-100-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
           "di-u00e4tk-u00f6chin-di-u00e4tkoch-60-bis-100-spital-limmattal-ch",
           "di-u00e4tk-u00f6chin-di-u00e4tkoch-60-al-100-spital-limmattal-schlieren",
-          "diatkochin-diatkoch-60-bis-100-spital-limmattal-ch"
+          "diatkochin-diatkoch-60-bis-100-spital-limmattal-ch",
+          "diatkochin-diatkoch-60-al-100-spital-limmattal-schlieren"
         ],
         "en": [
           "di-u00e4tk-u00f6chin-di-u00e4tkoch-60-bis-100-spital-limmattal-ch"
@@ -1490,14 +1506,16 @@
         "senior-physician-angiology-60-agreement-on-workload-spital-limmattal-schlieren",
         "medecin-principal-ober-u00e4rztin-angiologie-60-collusion-pensum-m-u00f6glich-spital-limmattal-schlieren",
         "medico-senior-ober-u00e4rztin-angiologia-60-collusione-pensum-m-u00f6glich-spital-limmattal-schlieren",
-        "oberarzt-oberarztin-angiologie-60-absprache-pensum-moglich-spital-limmattal-ch"
+        "oberarzt-oberarztin-angiologie-60-absprache-pensum-moglich-spital-limmattal-ch",
+        "medico-senior-oberarztin-angiologia-60-collusione-pensum-moglich-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-ober-u00e4rztin-angiologie-60-absprache-pensum-m-u00f6glich-spital-limmattal-ch",
           "primario-a-angiologia-60-accordo-sul-grado-dioccupazione-spital-limmattal-schlieren",
           "medico-senior-ober-u00e4rztin-angiologia-60-collusione-pensum-m-u00f6glich-spital-limmattal-schlieren",
-          "oberarzt-oberarztin-angiologie-60-absprache-pensum-moglich-spital-limmattal-ch"
+          "oberarzt-oberarztin-angiologie-60-absprache-pensum-moglich-spital-limmattal-ch",
+          "medico-senior-oberarztin-angiologia-60-collusione-pensum-moglich-spital-limmattal-schlieren"
         ],
         "en": [
           "oberarzt-ober-u00e4rztin-angiologie-60-absprache-pensum-m-u00f6glich-spital-limmattal-ch",
@@ -1858,7 +1876,7 @@
       "slug": "testa-di-terapia-della-mano-terapia-occupazionale-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "testa-di-terapia-della-mano-terapia-occupazionale-spital-limmattal-schlieren",
-        "en": "specialist-management-hand-therapy-occupational-therapy-spital-limmattal-schlieren",
+        "en": "fachleitung-handtherapie-ergotherapie-spital-limmattal-schlieren",
         "de": "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch",
         "fr": "chef-de-la-hand-therapy-ergotherapie-spital-limmattal-schlieren"
       },
@@ -1868,7 +1886,7 @@
       "title": "Fachleitung Handtherapie / Ergotherapie",
       "titleByLocale": {
         "it": "Testa di terapia della mano / Terapia occupazionale",
-        "en": "Head of Hand Therapy / Occupational Therapy",
+        "en": "Fachleitung Handtherapie / Ergotherapie",
         "de": "Fachleitung Handtherapie / Ergotherapie",
         "fr": "Chef de la Hand Therapy / Ergothérapie"
       },
@@ -1904,15 +1922,19 @@
       "previousSlugs": [
         "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch",
         "head-of-hand-therapy-occupational-therapy-spital-limmattal-schlieren",
+        "specialist-management-hand-therapy-occupational-therapy-spital-limmattal-schlieren",
+        "testa-di-terapia-della-mano-terapia-occupazionale-spital-limmattal-schlieren",
         "fachleitung-handtherapie-ergotherapie-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch"
+          "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch",
+          "testa-di-terapia-della-mano-terapia-occupazionale-spital-limmattal-schlieren"
         ],
         "en": [
           "head-of-hand-therapy-occupational-therapy-spital-limmattal-schlieren",
           "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch",
+          "specialist-management-hand-therapy-occupational-therapy-spital-limmattal-schlieren",
           "fachleitung-handtherapie-ergotherapie-spital-limmattal-schlieren"
         ],
         "fr": [
@@ -1985,13 +2007,15 @@
         "leitung-administration-departement-operative-kliniken-projektleitung-spital-u00e4rztliche",
         "responsabile-del-dipartimento-di-amministrazione-delle-cliniche-operative-project-management-spital-u00e4rztliche",
         "head-of-administration-department-of-operative-clinics-project-management-spital-u00e4rztliche-departments-spital",
-        "leitung-administration-departement-operative-kliniken-projektleitung-spital-arztliche"
+        "leitung-administration-departement-operative-kliniken-projektleitung-spital-arztliche",
+        "responsabile-del-dipartimento-di-amministrazione-delle-cliniche-operative-project-management-spital-arztliche"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitung-administration-departement-operative-kliniken-projektleitung-spital-u00e4rztliche",
           "responsabile-del-dipartimento-di-amministrazione-delle-cliniche-operative-project-management-spital-u00e4rztliche",
-          "leitung-administration-departement-operative-kliniken-projektleitung-spital-arztliche"
+          "leitung-administration-departement-operative-kliniken-projektleitung-spital-arztliche",
+          "responsabile-del-dipartimento-di-amministrazione-delle-cliniche-operative-project-management-spital-arztliche"
         ],
         "en": [
           "leitung-administration-departement-operative-kliniken-projektleitung-spital-u00e4rztliche",
@@ -2251,7 +2275,7 @@
       "companyDomain": "spital-limmattal.ch",
       "title": "MPA Adipositaszentrum 60% - 80 %",
       "titleByLocale": {
-        "it": "Centro di obesità MPA 60% - 80%",
+        "it": "MPA Adipositaszentrum 60% - 80 %",
         "en": "MPA obesity center 60% - 80%",
         "de": "MPA Adipositaszentrum 60% - 80 %",
         "fr": "AMP Adipositaszentrum 60 % - 80 %"
@@ -2981,7 +3005,7 @@
       "title": "Dipl. Expertin oder Experte NDS HF Notfallpflege",
       "titleByLocale": {
         "it": "Dipl. Expertin o Experte NDS HF Notfallpflege",
-        "en": "Dipl. Expert or expert NDS HF emergency care",
+        "en": "Dipl. Expertin oder Experte NDS HF Notfallpflege",
         "de": "Dipl. Expertin oder Experte NDS HF Notfallpflege",
         "fr": "Dipl. Expert ou expert NDS HF soins d'urgence"
       },
@@ -3389,6 +3413,7 @@
         "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte-inte",
         "dipl-nurse-hf-fh-f-u00fcr-2-j-u00e4hr-nds-pour-dipl-expert-expert-soins-intensifs-nds-hf-spital-limmattal-schlieren",
         "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-zur-dipl-expertin-experte-intensivpflege",
+        "dipl-infermiera-hf-fh-fur-il-2-jahr-nds-per-dipl-expert-expert-cura-intensiva-nds-hf-spital-limmattal-schlieren",
         "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-zur-dipl-expertin-experte-notfallpflege-nds-hf-spital-limmattal"
       ],
       "previousSlugsByLocale": {
@@ -3397,6 +3422,7 @@
           "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte-intensivpflege-nds-hf-spital-limma",
           "dipl-infermiera-hf-fh-f-u00fcr-il-2-j-u00e4hr-nds-per-dipl-expert-expert-cura-intensiva-nds-hf-spital-limmattal",
           "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-zur-dipl-expertin-experte-intensivpflege",
+          "dipl-infermiera-hf-fh-fur-il-2-jahr-nds-per-dipl-expert-expert-cura-intensiva-nds-hf-spital-limmattal-schlieren",
           "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-zur-dipl-expertin-experte-notfallpflege-nds-hf-spital-limmattal"
         ],
         "en": [
