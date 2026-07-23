@@ -8864,6 +8864,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.title': 'Sempre meno frontalieri in Ticino: calo lieve ma costante',
     'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.excerpt': 'Il numero di frontalieri registrati in Ticino si è attestato a 78.562 unità, segnando una lieve flessione rispetto ai periodi precedenti.',
     'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.imageAlt': 'Un frontaliere guarda con preoccupazione il numero di frontalieri in Ticino, con un riflesso sul lago di Lugano allo sfondo.',
+    'blog.article.stipendio-muratore-frontaliere-ticino.title': 'Quanto guadagna un muratore frontaliere in Ticino?',
+    'blog.article.stipendio-muratore-frontaliere-ticino.excerpt': 'La retribuzione di un muratore frontaliere in Ticino è influenzata dalle norme fiscali e dai trattati internazionali.',
+    'blog.article.stipendio-muratore-frontaliere-ticino.imageAlt': 'Vista del lago di Lugano',
 };
 
 export default blogMetaIt;

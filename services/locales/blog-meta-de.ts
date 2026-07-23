@@ -8862,6 +8862,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.title': 'Immer weniger Grenzgänger im Tessin: leichter, aber stetiger Rückgang',
     'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.excerpt': 'Die Zahl der im Tessin registrierten Grenzgänger belief sich auf 78.562, was einen leichten Rückgang gegenüber den Vorperioden darstellt.',
     'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.imageAlt': 'Ein Frontaliere schaut besorgt auf die Zahl der Frontalier in Ticino, mit einem Reflex des Luganer Sees im Hintergrund.',
+    'blog.article.stipendio-muratore-frontaliere-ticino.title': 'Wie viel verdient ein Grenzmaurer im Tessin?',
+    'blog.article.stipendio-muratore-frontaliere-ticino.excerpt': 'Die Entlohnung eines Grenzmauerers im Tessin wird durch Steuervorschriften und internationale Verträge beeinflusst.',
+    'blog.article.stipendio-muratore-frontaliere-ticino.imageAlt': 'Blick auf den Luganer See',
 };
 
 export default blogMetaDe;
