@@ -54282,6 +54282,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieripendolarismo-2025-ticino-lombardia': {
+    title: 'Frontalieri, ecco dove vivono: il balzo in dieci anni della Brianza',
+    description: 'Il numero di lavoratori frontalieri provenienti dalla Lombardia è aumentato del 16% in dieci anni. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ecco, dove, vivono, balzo',
+    ogTitle: 'Frontalieri, ecco dove vivono: il balzo in dieci anni della Brianza',
+    ogDescription: 'Il numero di lavoratori frontalieri provenienti dalla Lombardia è aumentato del 16% in dieci anni.',
+    canonicalPath: '/articoli-frontaliere/frontalieripendolarismo-2025-ticino-lombardia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri, ecco dove vivono: il balzo in dieci anni della Brianza",
+      "description": "Il numero di lavoratori frontalieri provenienti dalla Lombardia è aumentato del 16% in dieci anni. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieripendolarismo-2025-ticino-lombardia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un pendolare che attraversa il confine tra Italia e Svizzera"
+      },
+      "datePublished": "2026-07-23T08:13:20+00:00",
+      "dateModified": "2026-07-23T08:13:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieripendolarismo-2025-ticino-lombardia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

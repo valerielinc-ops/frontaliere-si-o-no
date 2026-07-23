@@ -8878,6 +8878,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ozono-ticino-qualita-aria.title': 'Ozone in Ticino: limits exceeded and implications',
     'blog.article.ozono-ticino-qualita-aria.excerpt': 'The air quality in Ticino improves, but ozone remains a problem. Analysis of exceedances of limits and structural causes.',
     'blog.article.ozono-ticino-qualita-aria.imageAlt': 'Air quality monitoring station in Ticino',
+    'blog.article.frontalieripendolarismo-2025-ticino-lombardia.title': 'Frontiersmen, this is where they live: the leap in ten years of Brianza',
+    'blog.article.frontalieripendolarismo-2025-ticino-lombardia.excerpt': 'The number of frontier workers from Lombardy increased by 16%',
+    'blog.article.frontalieripendolarismo-2025-ticino-lombardia.imageAlt': 'Image of a commuter crossing the border between Italy and Switzerland',
 };
 
 export default blogMetaEn;
