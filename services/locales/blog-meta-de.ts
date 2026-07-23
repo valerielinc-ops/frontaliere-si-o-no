@@ -8871,6 +8871,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ingegnere-frontaliero-ticino-stipendio-requisiti.title': 'Arbeiten als Ingenieur im Tessin: Voraussetzungen und Anerkennung des Titels',
     'blog.article.ingegnere-frontaliero-ticino-stipendio-requisiti.excerpt': 'Die Voraussetzungen, um als Grenzgänger als Ingenieur im Tessin zu arbeiten, das Durchschnittsgehalt, die Anerkennung des Bildungsabschlusses und die Erlaubnis G.',
     'blog.article.ingegnere-frontaliero-ticino-stipendio-requisiti.imageAlt': 'Ein Ingenieur arbeitet in einem Büro in Lugano.',
+    'blog.article.lite-lombardia-svizzera-frontalieri.title': 'Lite Lombardei und Schweiz: der Steuerknoten für Grenzgänger',
+    'blog.article.lite-lombardia-svizzera-frontalieri.excerpt': 'Analyse des Streits zwischen der Lombardei und der Schweiz über die steuerliche Behandlung alter Grenzgänger und die Auswirkungen des neuen Abkommens, das ab 2024 in Kraft tritt.',
+    'blog.article.lite-lombardia-svizzera-frontalieri.imageAlt': 'Panoramablick auf Lugano und den See, Kontext Grenzgänger Tessin',
 };
 
 export default blogMetaDe;

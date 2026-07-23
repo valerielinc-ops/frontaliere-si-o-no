@@ -8872,6 +8872,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ingegnere-frontaliero-ticino-stipendio-requisiti.title': 'Working as an engineer in Ticino: requirements and title recognition',
     'blog.article.ingegnere-frontaliero-ticino-stipendio-requisiti.excerpt': 'The requirements to work as an engineer in Ticino as a border worker, the average salary, the recognition of the qualification and the G permit.',
     'blog.article.ingegnere-frontaliero-ticino-stipendio-requisiti.imageAlt': 'An engineer working in an office in Lugano.',
+    'blog.article.lite-lombardia-svizzera-frontalieri.title': 'Lite Lombardy and Switzerland: the tax hub for border workers',
+    'blog.article.lite-lombardia-svizzera-frontalieri.excerpt': 'Analysis of the dispute between Lombardy and Switzerland over the tax treatment of old border workers and the impact of the new agreement in force since 2024.',
+    'blog.article.lite-lombardia-svizzera-frontalieri.imageAlt': 'Panoramic view of Lugano and the lake, Ticino cross-border work context',
 };
 
 export default blogMetaEn;
