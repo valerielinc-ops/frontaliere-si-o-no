@@ -28,7 +28,7 @@
       "crawledAt": "2026-07-22T23:07:57.741Z",
       "firstSeenAt": "2026-07-21T11:35:09.458Z",
       "titleByLocale": {
-        "it": "Material Planner (IPU)",
+        "it": "Materiale Planner (IPU)",
         "en": "Material Planner (IPU)",
         "de": "Materialplaner (IPU)",
         "fr": "Planificateur de matériaux (IPU)"
@@ -95,7 +95,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000
     },
@@ -256,7 +255,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000
     },
@@ -330,7 +328,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000
     },
@@ -402,7 +399,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -478,7 +474,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500
     },
@@ -639,7 +634,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -798,7 +792,6 @@
           "internship-strategischer-einkauf-80-100-abb-svizzera-sede-ticino-schaffhausen-gzgcmy"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000
     },
@@ -871,8 +864,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 107000,
-      "salaryMax": 187500,
-      "needsRetranslation": true
+      "salaryMax": 187500
     },
     {
       "id": "company-8nzt91",
@@ -944,7 +936,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000
     },
@@ -1016,7 +1007,6 @@
       "addressRegion": "SH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000
     },
@@ -1074,13 +1064,21 @@
           "technical-support-ingegnere-80-100-abb-svizzera-sede-ticino-quartino",
           "technical-support-engineer-80-100-abb-svizzera-sede-ticino-quartino",
           "technical-support-engineer-80-100-abb-svizzera-sede-ticino-quartino-ticino",
-          "technischer-support-ingenieur-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+          "technischer-support-ingenieur-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+          "80-100-senior-technical-support-ingegnere-abb-svizzera-sede-ticino-untersiggenthal-aargau-qoecth",
+          "80-100-senior-technical-support-engineer-abb-svizzera-sede-ticino-untersiggenthal-aargau-qoecth",
+          "80-100-senior-technical-support-ingenieur-abb-svizzera-sede-ticino-untersiggenthal-aargau-qoecth",
+          "80-100-senior-technical-support-engineer-abb-svizzera-sede-ticino-untersiggenthal-aargau"
         ],
         "de": [
           "technical-support-ingenieur-80-100-abb-svizzera-sede-ticino-biel-berne-tooege"
         ],
         "fr": [
-          "technical-support-ingenieur-80-100-abb-svizzera-sede-ticino-biel-berne-tooege"
+          "technical-support-ingenieur-80-100-abb-svizzera-sede-ticino-biel-berne-tooege",
+          "80-100-senior-technical-support-ingenieur-abb-svizzera-sede-ticino-untersiggenthal-aargau-qoecth"
+        ],
+        "en": [
+          "80-100-senior-technical-support-engineer-abb-svizzera-sede-ticino-untersiggenthal-aargau-qoecth"
         ]
       },
       "previousSlugs": [
@@ -1091,7 +1089,11 @@
         "technical-support-ingegnere-80-100-abb-svizzera-sede-ticino-quartino",
         "technical-support-engineer-80-100-abb-svizzera-sede-ticino-quartino",
         "technical-support-engineer-80-100-abb-svizzera-sede-ticino-quartino-ticino",
-        "technischer-support-ingenieur-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+        "technischer-support-ingenieur-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+        "80-100-senior-technical-support-ingegnere-abb-svizzera-sede-ticino-untersiggenthal-aargau-qoecth",
+        "80-100-senior-technical-support-engineer-abb-svizzera-sede-ticino-untersiggenthal-aargau-qoecth",
+        "80-100-senior-technical-support-ingenieur-abb-svizzera-sede-ticino-untersiggenthal-aargau-qoecth",
+        "80-100-senior-technical-support-engineer-abb-svizzera-sede-ticino-untersiggenthal-aargau"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -1182,7 +1184,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500
     },
@@ -1337,7 +1338,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500
     },
@@ -1665,7 +1665,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000
     },
@@ -1825,7 +1824,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
-      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -1857,7 +1855,7 @@
       "titleByLocale": {
         "it": "(80 - 100%) Allenatore tecnico - Elettronica di potenza",
         "en": "(80 - 100%) Technical Trainer - Power Electronics",
-        "de": "(80 - 100%) Technical Trainer - Power Electronics",
+        "de": "(80 - 100%) Technischer Trainer - Power Electronics",
         "fr": "(80 - 100%) Technical Trainer - Power Electronics"
       },
       "descriptionByLocale": {
@@ -1911,7 +1909,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000
     },
@@ -1984,7 +1981,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8200",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000
     },
@@ -2152,7 +2148,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000
     },
@@ -2234,7 +2229,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000
     },
@@ -2380,7 +2374,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8610",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500
     },
@@ -2620,7 +2613,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -2711,7 +2703,6 @@
         "senior-r-d-ingenieur-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "senior-r-d-firmware-ingenieur-80-100-abb-svizzera-sede-ticino-quartino-ticino"
       ],
-      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000
     }
