@@ -8883,6 +8883,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-cuoco-ticino-stipendio-requisiti.title': 'Grenzköchin im Tessin: Gehalt, Voraussetzungen und Anerkennung',
     'blog.article.frontaliere-cuoco-ticino-stipendio-requisiti.excerpt': 'Kennen Sie die Anforderungen und Löhne der Köche im Tessin für Grenzgänger.',
     'blog.article.frontaliere-cuoco-ticino-stipendio-requisiti.imageAlt': 'Ein Grenzgänger Küchenchef arbeitet in einer Küche in Locarno',
+    'blog.article.assistenza-fiscale-svizzera-italia-inammissibile-il-ricorso-contro-lo-scambio-di.title': 'Steuerhilfe Schweiz-Italien, Beschwerde gegen Informationsaustausch unzulässig',
+    'blog.article.assistenza-fiscale-svizzera-italia-inammissibile-il-ricorso-contro-lo-scambio-di.excerpt': 'Das Schweizerische Bundesgericht hat die Klage eines italienischen Steuerpflichtigen gegen den angeforderten Austausch von Bankinformationen für unzulässig erklärt',
+    'blog.article.assistenza-fiscale-svizzera-italia-inammissibile-il-ricorso-contro-lo-scambio-di.imageAlt': 'Redaktionelles Bild zu: Assistenza fiscale Svizzera-Italia, inammissibile il ricorso contro lo scambio di informazioni',
+    'blog.article.svizzera-il-passaggio-delle-azioni-al-manager-non-e-sempre-reddito-imponibile.title': 'Schweiz: Azionen-Übertrag an Manager nicht immer steuerpflichtig',
+    'blog.article.svizzera-il-passaggio-delle-azioni-al-manager-non-e-sempre-reddito-imponibile.excerpt': 'In der Schweiz gilt die unentgeltliche Übertragung von Aktien an einen Geschäftsführer nicht immer als zu versteuerndes Einkommen, wenn die Erbfolge der',
+    'blog.article.svizzera-il-passaggio-delle-azioni-al-manager-non-e-sempre-reddito-imponibile.imageAlt': 'Redaktionelles Bild zu: Svizzera, il passaggio delle azioni al manager non è sempre reddito imponibile',
 };
 
 export default blogMetaDe;
