@@ -1459,6 +1459,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.title': 'Dritte Säule 3a Schweiz: Vorteile 2026 im Kanton St. Gallen',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'Das Doppelbesteuerungsabkommen Italien-Schweiz wurde am 9. Dezember 1976 unterzeichnet. Die neuen Grenzgänger haben eine Selbstbeteiligung von 10.000 €.',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.imageAlt': 'Lugano und See Lugano',
+    'blog.article.permesso-frontaliere-g-procedura-ticino.title': 'Grenzgängerbewilligung G: Verfahren und Pflichten im Tessin',
+    'blog.article.permesso-frontaliere-g-procedura-ticino.excerpt': 'Praktischer Leitfaden zur Beantragung der neuen Bewilligung G für Grenzgänger im Tessin: Dokumente, Meldepflichten und Verfahrensgebühren aktualisiert.',
+    'blog.article.permesso-frontaliere-g-procedura-ticino.imageAlt': 'Verwaltungsgebäude im Tessin',
 };
 
 export default blogMetaChDe;

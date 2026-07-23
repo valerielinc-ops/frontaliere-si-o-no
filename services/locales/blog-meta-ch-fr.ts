@@ -1459,6 +1459,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.title': 'Troisième pilier 3a suisse : avantages 2026 dans le canton de Saint-Gall',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'La convention double imposition Italie-Suisse a été signée le 9 décembre 1976. Les nouveaux frontaliers bénéficient d\'une franchise de 10 000 € .',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.imageAlt': 'Lugano et lac Lugano',
+    'blog.article.permesso-frontaliere-g-procedura-ticino.title': 'Permis G pour frontaliers : procédure et obligations au Tessin',
+    'blog.article.permesso-frontaliere-g-procedura-ticino.excerpt': 'Guide pratique pour demander le nouveau permis G pour les frontaliers au Tessin : documents, obligations de notification et frais de procédure mis à jour.',
+    'blog.article.permesso-frontaliere-g-procedura-ticino.imageAlt': 'Bâtiment administratif au Tessin',
 };
 
 export default blogMetaChFr;

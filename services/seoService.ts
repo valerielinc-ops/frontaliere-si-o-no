@@ -4834,6 +4834,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-permessi-g': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-permessi-g', parent: 'blog' },
     'blog-terzo-pilastro-3a-vantaggi-2026-canton-san-gallo': { name: 'Terzo pilastro 3a svizzero', path: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026-canton-san-gallo/', parent: 'blog' },
     'blog-sempre-meno-frontalieri-ticino-calof-lievelie': { name: 'Frontalieri in Ticino', path: '/articoli-frontaliere/sempre-meno-frontalieri-ticino-calof-lievelie', parent: 'blog' },
+    'blog-permesso-frontaliere-g-procedura-ticino': { name: 'Permesso G frontalieri', path: '/articoli-svizzera/permesso-frontaliere-g-procedura-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
