@@ -18972,6 +18972,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-reddito-cittadinanza-svizzera-indagine': {
+    title: 'Reddito di cittadinanza e capitali in Svizzera: i fatti',
+    description: 'Indagine su una coppia che percepiva sussidi pur detenendo capitali in Svizzera: i fatti emersi e le implicazioni per la trasparenza finanziaria.',
+    keywords: 'frontalieri, ticino, svizzera, italia, reddito, cittadinanza, capitali, fatti',
+    ogTitle: 'Indagine reddito di cittadinanza e capitali in Svizzera',
+    ogDescription: 'Indagine su una coppia che percepiva sussidi pur detenendo capitali in Svizzera: i fatti emersi e le implicazioni per la trasparenza finanziaria.',
+    canonicalPath: '/articoli-svizzera/reddito-cittadinanza-svizzera-indagine/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Reddito di cittadinanza e capitali in Svizzera: i fatti",
+      "description": "Indagine su una coppia che percepiva sussidi pur detenendo capitali in Svizzera: i fatti emersi e le implicazioni per la trasparenza finanziaria.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/reddito-cittadinanza-svizzera-indagine.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo bancario a Lugano, Svizzera"
+      },
+      "datePublished": "2026-07-23T06:32:17+00:00",
+      "dateModified": "2026-07-23T06:32:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/reddito-cittadinanza-svizzera-indagine/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

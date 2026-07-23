@@ -1468,6 +1468,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mappa-frontalieri-lombardi-ticino.title': 'Grenzgänger: Woher kommen die Arbeiter im Tessin?',
     'blog.article.mappa-frontalieri-lombardi-ticino.excerpt': 'Die Daten des Bundesamtes für Statistik zeigen die Herkunft der Arbeitnehmer mit der Genehmigung G: Boom in der Brianza, Gebäude Como und Varese.',
     'blog.article.mappa-frontalieri-lombardi-ticino.imageAlt': 'Panoramablick auf eine Stadt im Tessin mit städtischer Infrastruktur',
+    'blog.article.reddito-cittadinanza-svizzera-indagine.title': 'Staatsbürgerschafts- und Kapitaleinkommen in der Schweiz: Die Fakten',
+    'blog.article.reddito-cittadinanza-svizzera-indagine.excerpt': 'Ein in Italien wohnhaftes Ehepaar, das Subventionen erhält, im Untersuchungszentrum für Gelder, die von Schweizer Konten überwiesen werden.',
+    'blog.article.reddito-cittadinanza-svizzera-indagine.imageAlt': 'Bankgebäude in Lugano, Schweiz',
 };
 
 export default blogMetaChDe;
