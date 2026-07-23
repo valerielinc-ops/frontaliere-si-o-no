@@ -4836,6 +4836,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sempre-meno-frontalieri-ticino-calof-lievelie': { name: 'Frontalieri in Ticino', path: '/articoli-frontaliere/sempre-meno-frontalieri-ticino-calof-lievelie', parent: 'blog' },
     'blog-permesso-frontaliere-g-procedura-ticino': { name: 'Permesso G frontalieri', path: '/articoli-svizzera/permesso-frontaliere-g-procedura-ticino/', parent: 'blog' },
     'blog-stipendio-muratore-frontaliere-ticino': { name: 'Ticino', path: '/articoli-frontaliere/stipendio-muratore-frontaliere-ticino', parent: 'blog' },
+    'blog-terzo-pilastro-3a-vantaggi-2026-basilea': { name: 'Terzo pilastro 3a: vantaggi per i', path: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026-basilea/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
