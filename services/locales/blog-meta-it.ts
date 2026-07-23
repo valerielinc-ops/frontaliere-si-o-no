@@ -8891,6 +8891,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-il-passaggio-delle-azioni-al-manager-non-e-sempre-reddito-imponibile.title': 'Svizzera, il passaggio delle azioni al manager non è sempre reddito imponibile',
     'blog.article.svizzera-il-passaggio-delle-azioni-al-manager-non-e-sempre-reddito-imponibile.excerpt': 'In Svizzera, il trasferimento gratuito di azioni a un manager non è sempre considerato reddito imponibile, se la causa prevalente è la successione i',
     'blog.article.svizzera-il-passaggio-delle-azioni-al-manager-non-e-sempre-reddito-imponibile.imageAlt': 'Immagine editoriale relativa a: Svizzera, il passaggio delle azioni al manager non è sempre reddito imponibile',
+    'blog.article.cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate.title': 'Cantiere Nsif, lavori avanzati e tempistiche rispettate',
+    'blog.article.cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate.excerpt': 'Il cantiere Nsif a Lugano è in fase di avanzamento, con il 60% del calcestruzzo e la metà dell\'acciaio previsto utilizzato.',
+    'blog.article.cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate.imageAlt': 'Il cantiere Nsif a Lugano, in fase di avanzamento',
 };
 
 export default blogMetaIt;
