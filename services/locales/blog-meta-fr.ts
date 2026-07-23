@@ -8883,6 +8883,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieripendolarismo-2025-ticino-lombardia.title': 'Frontaliers, c\'est là qu\'ils vivent : le saut en dix ans de la Brianza',
     'blog.article.frontalieripendolarismo-2025-ticino-lombardia.excerpt': 'Le nombre de travailleurs frontaliers en provenance de Lombardie a augmenté de 16 %',
     'blog.article.frontalieripendolarismo-2025-ticino-lombardia.imageAlt': 'Image d\'un commutateur franchissant la frontière entre l\'Italie et la Suisse',
+    'blog.article.frontaliere-cuoco-ticino-stipendio-requisiti.title': 'Cuisinier frontalier au Tessin : salaire, exigences et reconnaissance',
+    'blog.article.frontaliere-cuoco-ticino-stipendio-requisiti.excerpt': 'Savoir quelles sont les exigences et les salaires des cuisiniers du Tessin pour les frontaliers.',
+    'blog.article.frontaliere-cuoco-ticino-stipendio-requisiti.imageAlt': 'Un chef frontalier travaille dans une cuisine à Locarno',
 };
 
 export default blogMetaFr;
