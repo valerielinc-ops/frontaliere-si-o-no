@@ -1465,6 +1465,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.title': 'Terzo pilastro 3a: vantaggi per i frontalieri nel canton Basilea',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.excerpt': 'La nuova convenzione doppie imposizioni Italia-Svizzera e il regime transitorio per i frontalieri.',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.imageAlt': 'Descrizione dell\'immagine in italiano, massimo 125 caratteri',
+    'blog.article.mappa-frontalieri-lombardi-ticino.title': 'Frontalieri: da dove arrivano i lavoratori in Ticino',
+    'blog.article.mappa-frontalieri-lombardi-ticino.excerpt': 'I dati dell\'Ufficio federale di statistica rivelano la provenienza dei lavoratori con permesso G: boom in Brianza, stabili Como e Varese.',
+    'blog.article.mappa-frontalieri-lombardi-ticino.imageAlt': 'Veduta panoramica di una città ticinese con infrastrutture urbane',
 };
 
 export default blogMetaChIt;

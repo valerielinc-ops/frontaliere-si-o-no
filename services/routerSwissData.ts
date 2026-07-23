@@ -511,6 +511,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'terzo-pilastro-3a-vantaggi-2026-canton-san-gallo': { it: 'terzo-pilastro-3a-vantaggi-2026-canton-san-gallo', en: 'third-pillar-3a-swiss-benefits-2026-canton-sankt-gallen', de: 'dritter-stutzpfeiler-3a-schweizer-vorteile-2026-kanton-sankt-gallen', fr: 'troisieme-pilier-3a-suisse-avantages-2026-canton-saint-gall' },
  'permesso-frontaliere-g-procedura-ticino': { it: 'permesso-frontaliere-g-procedura-ticino', en: 'g-permit-procedure-ticino', de: 'g-bewilligung-verfahren-tessin', fr: 'permis-g-procedure-tessin' },
  'terzo-pilastro-3a-vantaggi-2026-basilea': { it: 'terzo-pilastro-3a-vantaggi-2026-basilea', en: 'slug-terzo-pilastro-3a-vantaggi-2026-basilea', de: 'slug-terzo-pilastro-3a-vantaggi-2026-basilea', fr: 'slug-terzo-pilastro-3a-vantaggi-2026-basilea' },
+ 'mappa-frontalieri-lombardi-ticino': { it: 'mappa-frontalieri-lombardi-ticino', en: 'map-lombard-cross-border-workers-ticino', de: 'karte-lombardische-grenzgaenger-tessin', fr: 'carte-frontaliers-lombards-ticino' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -1465,6 +1465,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.title': 'Troisième pilier 3a : avantages pour les frontaliers dans le canton de Bâle',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.excerpt': 'La nouvelle convention double imposition Italie-Suisse et le régime transitoire pour les frontaliers.',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.imageAlt': 'Descrizione dell\'immagine in francese, massimo 125 caratteri',
+    'blog.article.mappa-frontalieri-lombardi-ticino.title': 'Frontaliers : d\'où viennent les travailleurs au Tessin',
+    'blog.article.mappa-frontalieri-lombardi-ticino.excerpt': 'Les données de l\'Office fédéral de la statistique révèlent l\'origine des travailleurs avec le permis G : boom en Brianza, stable Como et Varese.',
+    'blog.article.mappa-frontalieri-lombardi-ticino.imageAlt': 'Vue panoramique d\'une ville tessinoise avec infrastructures urbaines',
 };
 
 export default blogMetaChFr;

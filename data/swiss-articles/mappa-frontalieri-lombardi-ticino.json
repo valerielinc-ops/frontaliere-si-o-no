@@ -1,0 +1,19 @@
+{
+  "id": "mappa-frontalieri-lombardi-ticino",
+  "slug": "mappa-frontalieri-lombardi-ticino",
+  "publishedAt": "2026-07-23T05:51:47.692Z",
+  "cluster": "mobilita",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 150.27002549999997,
+    "confidence": 1,
+    "finalScore": 150.27002549999997,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 150.27002549999997,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}
