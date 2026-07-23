@@ -18855,6 +18855,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-frontaliere-g-procedura-ticino': {
+    title: 'Permesso G per frontalieri: procedura e obblighi in Ticino',
+    description: 'Scopri come richiedere il permesso G per frontalieri in Ticino: procedura, obblighi di notifica, costi e documenti necessari per lavorare in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, procedura, obblighi, pratica',
+    ogTitle: 'Permesso G frontaliere: guida alla richiesta in Ticino',
+    ogDescription: 'Guida pratica alla richiesta del permesso G per frontalieri in Ticino: documenti, obblighi e procedura ufficiale.',
+    canonicalPath: '/articoli-svizzera/permesso-frontaliere-g-procedura-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso G per frontalieri: procedura e obblighi in Ticino",
+      "description": "Scopri come richiedere il permesso G per frontalieri in Ticino: procedura, obblighi di notifica, costi e documenti necessari per lavorare in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-frontaliere-g-procedura-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo in Ticino"
+      },
+      "datePublished": "2026-07-23T04:27:50+00:00",
+      "dateModified": "2026-07-23T04:27:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-frontaliere-g-procedura-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
