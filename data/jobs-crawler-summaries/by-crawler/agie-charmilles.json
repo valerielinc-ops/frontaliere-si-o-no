@@ -1,16 +1,16 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-07-23T12:37:57.348Z",
+  "generatedAt": "2026-07-23T22:42:07.615Z",
   "total": 56,
   "newCount": 0,
   "updatedCount": 42,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 86610,
-  "avgDurationMs": 86610,
+  "durationMs": 88966,
+  "avgDurationMs": 88966,
   "durationHistory": [
-    86610
+    88966
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1106,81 +1106,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Spindle Repair Advisor / Service Techniker 2nd Level Spindles",
-      "slug": "spindle-repair-advisor-service-techniker-2nd-level-spindles-agie-charmilles-biel-bienne",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-spindle-repair-advisor-service-techniker-2nd-level-spindles/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/06eb419458cfe1e1f148061683774fe61cdb0ab2cfc9a751dd3b8dc5952fabc5b1e562e13e3a8aa394758b2814ca2a0c7808ee7faa1ba164bda00b45c491d1",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Biel",
-      "addressLocality": "Biel",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-01",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "id": "agie-charmilles-c4613e489507",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "currency": "CHF",
-      "postalCode": "2501",
-      "firstSeenAt": "2026-07-01T11:05:52.288Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Spindle Repair Advisor / Service Techniker 2nd Level Spindles 100%",
-      "slug": "spindle-repair-advisor-service-techniker-2nd-level-spindles-100-agie-charmilles-biel-bienne",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-spindle-repair-advisor-service-techniker-2nd-level-spindles-100/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/f9ac2fbd816e5b337ca68b042f1bd86093d96958596859469026573fff1a4ed4c47f6e647b09a03d2ccfadb206a7d563641a803c93220bffc627046116387e",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Biel/Bienne",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-02",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "id": "agie-charmilles-e3c911426ae3",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "currency": "CHF",
-      "postalCode": "2501",
-      "firstSeenAt": "2026-07-02T10:31:03.815Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
