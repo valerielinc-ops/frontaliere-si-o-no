@@ -11398,5 +11398,119 @@
         "pending": 2
       }
     ]
+  },
+  {
+    "timestamp": "2026-07-23T13:34:29.625Z",
+    "label": "before",
+    "total": 24660,
+    "needsRetranslation": 1396,
+    "suppressed": 38,
+    "incomplete": 104,
+    "complete": 24556,
+    "missingByLocale": {
+      "it": 58,
+      "en": 34,
+      "de": 48,
+      "fr": 45
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 30
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "Jumbo, Division der Coop Genossenschaft",
+        "pending": 4
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 3
+      },
+      {
+        "company": "Alpiq",
+        "pending": 2
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "IKEA",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-23T15:00:45.581Z",
+    "label": "after",
+    "total": 24660,
+    "needsRetranslation": 1097,
+    "suppressed": 40,
+    "incomplete": 99,
+    "complete": 24561,
+    "missingByLocale": {
+      "it": 58,
+      "en": 32,
+      "de": 45,
+      "fr": 45
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 30
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "Jumbo, Division der Coop Genossenschaft",
+        "pending": 4
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Alpiq",
+        "pending": 2
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "IKEA",
+        "pending": 2
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 2
+      }
+    ]
   }
 ]
