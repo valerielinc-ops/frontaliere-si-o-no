@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-buelach",
-  "assembledAt": "2026-07-22T22:52:22.875Z",
+  "assembledAt": "2026-07-23T10:47:03.783Z",
   "jobs": [
     {
       "id": "spital-buelach-292bab1d5f97",
@@ -3207,84 +3207,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:30:27.726Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-buelach-780f73ae8f69",
-      "slug": "ricevitore-in-spital-bulach-bulach",
-      "slugByLocale": {
-        "it": "ricevitore-in-spital-bulach-bulach",
-        "en": "receptionist-in-spital-bulach-bulach",
-        "de": "receptionist-in-spital-buelach-bulach",
-        "fr": "receptionniste-in-spital-bulach-bulach"
-      },
-      "company": "Spital Bülach",
-      "companyKey": "spital-buelach",
-      "companyDomain": "spitalbuelach.ch",
-      "title": "Réceptionist:in",
-      "titleByLocale": {
-        "it": "Ricevitore:in",
-        "en": "Receptionist:in",
-        "de": "Réceptionist:in",
-        "fr": "Réceptionniste:in"
-      },
-      "description": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Kompetente Auskunftserteilung am Empfang und Telefon\n\n• Patientenaufnahme ausserhalb der Bürozeiten sowie bei Nichtbesetzung des Notfallempfangs (24/7)\n\n• Mutation von Patientenerfassungsdaten\n\n• Verschiedene administrative Aufgaben\n\n• Übernahme von ca. 2 bis 3 Nachtdiensten monatlich\n\nAnforderungen:\n• Freude am täglichen Kontakt mit Menschen und ausgeprägte Dienstleistungsorientierung\n\n• Kaufmännische Ausbildung und Erfahrung am Empfang und Telefon\n\n• Gute mündliche Deutsch-, Englisch- und Französischkenntnisse\n\n• Sicherer Umgang mit den üblichen IT-Anwendungen\n\n• Bereitschaft zu flexiblen Arbeitszeiten, auch nachts und an Wochenenden\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P14-Geburt.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-      "descriptionByLocale": {
-        "it": "<b>Bülach Ospedale cresce - crescere con esso.\n\nCompiti:\n• Fornitura di informazioni complete alla reception e al telefono\n\n• ammissione del paziente fuori orario di ufficio e in caso di non occupazione della reception di emergenza (24/7)\n\n• Mutazione dei dati di registrazione del paziente\n\n• Vari compiti amministrativi\n\n• Presa di circa 2 a 3 servizi notturni mensili\n\nRequisiti\n• Gioia di contatto quotidiano con le persone e un forte orientamento di servizio\n\n• Istruzione commerciale ed esperienza alla reception e al telefono\n\n• Buone competenze orali tedesco, inglese e francese\n\n• Gestione sicura delle consuete applicazioni IT\n\n• Volontà di lavorare ore flessibili, anche di notte e nei fine settimana\n\nOffriamo:\nP1-oeV.svg,P2-food.svg,P3-rewards.svg,P4-change kit.svg,P5-social benefit.svg,P6-health care.svg,P14-birth.svg,P11-valuation.svg,P13-coffee break. #\n\nCon i suoi 170 posti letto e circa 1.200 dipendenti, il Bülach Hospital fornisce assistenza medica per 180.000 persone nella zona di Zurigo e nelle regioni limitrofe. Ogni anno, trattiamo e curiamo circa 10.000 pazienti malati e oltre 78.000 pazienti ambulanti. In totale, circa 1.400 bambini vedono la luce della giornata all'ospedale di Bülach ogni anno.",
-        "en": "<b>Bülach Hospital grows - grow with it.</b>\n\nTasks:\n• Competent information provision at reception and telephone\n\n• Patient admission outside office hours and in case of non-occupation of emergency reception (24/7)\n\n• Mutation of patient registration data\n\n• Various administrative tasks\n\n• Takeover of approximately 2 to 3 night services monthly\n\nRequirements\n• Joy of daily contact with people and a strong service orientation\n\n• Commercial education and experience at reception and telephone\n\n• Good oral German, English and French skills\n\n• Secure handling of the usual IT applications\n\n• Willingness to work flexible hours, including at night and on weekends\n\nWe offer:\nP1-oeV.svg,P2-food.svg,P3-rewards.svg,P4-changing kit.svg,P5-social benefits.svg,P6-health care.svg,P14-birth.svg,P11-valuation.svg,P13-coffee break. svg\n\nWith its 170 beds and around 1,200 employees, the Bülach Hospital provides medical care for 180,000 people in the Zurich Underland and neighbouring regions. Every year, we treat and care for around 10,000 inpatient patients and over 78,000 outpatients. In total, around 1,400 babies see the light of day in Bülach Hospital every year.",
-        "de": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Kompetente Auskunftserteilung am Empfang und Telefon\n\n• Patientenaufnahme ausserhalb der Bürozeiten sowie bei Nichtbesetzung des Notfallempfangs (24/7)\n\n• Mutation von Patientenerfassungsdaten\n\n• Verschiedene administrative Aufgaben\n\n• Übernahme von ca. 2 bis 3 Nachtdiensten monatlich\n\nAnforderungen:\n• Freude am täglichen Kontakt mit Menschen und ausgeprägte Dienstleistungsorientierung\n\n• Kaufmännische Ausbildung und Erfahrung am Empfang und Telefon\n\n• Gute mündliche Deutsch-, Englisch- und Französischkenntnisse\n\n• Sicherer Umgang mit den üblichen IT-Anwendungen\n\n• Bereitschaft zu flexiblen Arbeitszeiten, auch nachts und an Wochenenden\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P14-Geburt.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-        "fr": "<b>L'hôpital de Bülach pousse - pousse avec.</b>\n\nTâches :\n• Information compétente à la réception et au téléphone\n\n• Admission des patients en dehors des heures de bureau et en cas de non-occupation de l'accueil d'urgence (24/7)\n\n• Mutation des données d'enregistrement des patients\n\n• Diverses tâches administratives\n\n• Prise en charge d'environ 2 à 3 services de nuit par mois\n\nExigences\n• Joy du contact quotidien avec les gens et une forte orientation de service\n\n• Éducation commerciale et expérience à la réception et au téléphone\n\n• Bonnes compétences orales en allemand, anglais et français\n\n• Gestion sécurisée des applications informatiques habituelles\n\n• Volonté de travailler des heures flexibles, y compris la nuit et le week-end\n\nNous offrons:\nP1-oeV.svg,P2-food.svg,P3-rewards.svg,P4-changement kit.svg,P5-social benefits.svg,P6-health care.svg,P14- Birth.svg,P11-valuation.svg,P13-coffee break. svg\n\nAvec ses 170 lits et ses quelque 1 200 employés, l'hôpital Bülach fournit des soins médicaux à 180 000 personnes dans les sous-terres de Zurich et les régions voisines. Chaque année, nous traitons et soigneons environ 10 000 patients hospitalisés et plus de 78 000 patients externes. Au total, environ 1 400 bébés voient chaque année le jour à l'hôpital Bülach."
-      },
-      "needsRetranslation": false,
-      "location": "Bülach",
-      "canton": "ZH",
-      "url": "https://job.spitalbuelach.ch/offene-stellen/receptionist-in/4251f862-0641-4b59-b813-2b34d4fa5294",
-      "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:52:19.986Z",
-      "addressLocality": "Bülach",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8180",
-      "streetAddress": "Spitalstrasse 24",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-09",
-      "applyUrl": "https://jobs.spitalbuelach.ch/rceptionistin-de-f1420.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "receptionist-in-spital-buelach-bulach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "receptionist-in-spital-buelach-bulach"
-        ],
-        "en": [
-          "receptionist-in-spital-buelach-bulach"
-        ],
-        "fr": [
-          "receptionist-in-spital-buelach-bulach"
-        ]
-      },
-      "firstSeenAt": "2026-07-09T22:30:27.708Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
