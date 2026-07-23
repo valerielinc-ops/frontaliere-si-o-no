@@ -1456,6 +1456,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.evoluzione-frontalieri-dati-ust.title': 'Grenzgänger in der Schweiz: die aktuellen Daten des Jahrzehnts',
     'blog.article.evoluzione-frontalieri-dati-ust.excerpt': 'Analyse des Bundesamtes für Statistik über das Phänomen des Grenzgängertums: Die Lombardei wächst, der Sprung der Provinz Monza und Brianza fällt auf.',
     'blog.article.evoluzione-frontalieri-dati-ust.imageAlt': 'Panoramablick auf Lugano und seinen See im schweizerischen städtischen Kontext',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.title': 'Dritte Säule 3a Schweiz: Vorteile 2026 im Kanton St. Gallen',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'Das Doppelbesteuerungsabkommen Italien-Schweiz wurde am 9. Dezember 1976 unterzeichnet. Die neuen Grenzgänger haben eine Selbstbeteiligung von 10.000 €.',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.imageAlt': 'Lugano und See Lugano',
 };
 
 export default blogMetaChDe;

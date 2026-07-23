@@ -4364,6 +4364,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'terzo-pilastro-3a-vantaggi-2026-canton-san-gallo',
+    category: 'fiscale',
+    date: '2026-07-23T04:10:42.678Z',
+    image: '/images/blog/terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

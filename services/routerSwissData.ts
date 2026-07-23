@@ -508,6 +508,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato': { it: 'auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato', en: 'auto-market-of-new-not-declines-swiss-people-prefer-used', de: 'auto-markt-neu-nicht-dekliniert-schweizer-people-preferieren-benutzt', fr: 'auto-marche-de-nouveau-pas-dekliniert-suisse-les-people-preferent-les-emplois' },
  'poverta-lavorativa-ticino-sfida-dignita': { it: 'poverta-lavorativa-ticino-sfida-dignita', en: 'poverta-lavorativa-ticino', de: 'arbeitslosigkeit-ticino', fr: 'poverta-lavorativa-ticino' },
  'evoluzione-frontalieri-dati-ust': { it: 'evoluzione-frontalieri-dati-ust', en: 'evolution-cross-border-workers-swiss-data', de: 'entwicklung-grenzgaenger-schweizer-daten', fr: 'evolution-frontaliers-donnees-suisses' },
+ 'terzo-pilastro-3a-vantaggi-2026-canton-san-gallo': { it: 'terzo-pilastro-3a-vantaggi-2026-canton-san-gallo', en: 'third-pillar-3a-swiss-benefits-2026-canton-sankt-gallen', de: 'dritter-stutzpfeiler-3a-schweizer-vorteile-2026-kanton-sankt-gallen', fr: 'troisieme-pilier-3a-suisse-avantages-2026-canton-saint-gall' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
