@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-07-23T11:34:13.145Z",
+  "assembledAt": "2026-07-23T22:07:32.836Z",
   "jobs": [
     {
       "id": "abraxas-5dccc3b1e7f6",
@@ -17,7 +17,7 @@
       "title": "Werkstudent Customer Service (Sales Support) 60–70 %",
       "titleByLocale": {
         "it": "Werkstudent Servizio Clienti (Sales Support) 60–70 %",
-        "en": "Working student Customer Service (Sales Support) 60–70%",
+        "en": "Werkstudent Customer Service (Sales Support) 60–70 %",
         "de": "Werkstudent Kundendienst (Sales Support) 60–70 %",
         "fr": "Werkstudent Service Client (Sales Support) 60–70 %"
       },
@@ -33,7 +33,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/werkstudent-customer-service-sales-support-60-70-1268",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:34:09.830Z",
+      "crawledAt": "2026-07-23T22:07:30.270Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -57,18 +58,18 @@
       "pensum": "60 - 70%",
       "previousSlugs": [
         "werkstudent-customer-service-sales-support-60-70-abraxas-st-gallen",
-        "werkstudent-servizio-clienti-sales-support-60-70-abraxas-informatik-ag-st-gallen",
         "collaboratore-trice-servizio-clienti-sales-support-60-abraxas-informatik-ag-st-gallen",
         "mitarbeiter-in-customer-service-sales-support-60-abraxas-st-gallen",
-        "collaborateur-trice-service-client-sales-support-60-abraxas-informatik-ag-st-gallen"
+        "collaborateur-trice-service-client-sales-support-60-abraxas-informatik-ag-st-gallen",
+        "werkstudent-servizio-clienti-sales-support-60-70-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "werkstudent-customer-service-sales-support-60-70-abraxas-st-gallen",
-          "werkstudent-servizio-clienti-sales-support-60-70-abraxas-informatik-ag-st-gallen",
           "collaboratore-trice-servizio-clienti-sales-support-60-abraxas-informatik-ag-st-gallen",
           "mitarbeiter-in-customer-service-sales-support-60-abraxas-st-gallen",
-          "collaborateur-trice-service-client-sales-support-60-abraxas-informatik-ag-st-gallen"
+          "collaborateur-trice-service-client-sales-support-60-abraxas-informatik-ag-st-gallen",
+          "werkstudent-servizio-clienti-sales-support-60-70-abraxas-informatik-ag-st-gallen"
         ],
         "de": [
           "mitarbeiter-in-customer-service-sales-support-60-abraxas-st-gallen"
@@ -122,7 +123,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/solution-architektin-querschnittservices-80-100-9285",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:34:09.304Z",
+      "crawledAt": "2026-07-23T22:07:29.751Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -190,7 +191,7 @@
       "title": "Software-Engineer 80–100 %",
       "titleByLocale": {
         "it": "Software-Ingegnere 80–100 %",
-        "en": "Software Engineer 80-100%",
+        "en": "Software-Engineer 80–100 %",
         "de": "Software-Ingenieur 80–100 %",
         "fr": "Software-Ingénieur 80–100 %"
       },
@@ -206,7 +207,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-80-100-9347",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:34:08.770Z",
+      "crawledAt": "2026-07-23T22:07:29.195Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -283,7 +285,7 @@
       "title": "Software Engineer C#/.net 80–100 %",
       "titleByLocale": {
         "it": "Software Ingegnere C#/.net 80–100 %",
-        "en": "Software Engineer C#/.net 80-100%",
+        "en": "Software Engineer C#/.net 80–100 %",
         "de": "Software Ingenieur C#/.net 80–100 %",
         "fr": "Software Ingénieur C#/.net 80–100 %"
       },
@@ -299,7 +301,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-cnet-80-100-8664",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:34:08.238Z",
+      "crawledAt": "2026-07-23T22:07:28.643Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -363,7 +366,7 @@
       "title": "Software Engineer – Data Migration 80 - 100%",
       "titleByLocale": {
         "it": "Software Ingegnere – Data Migration 80 - 100%",
-        "en": "Software Engineer – Data Migration 80 – 100%",
+        "en": "Software Engineer – Data Migration 80 - 100%",
         "de": "Software Ingenieur – Data Migration 80 - 100%",
         "fr": "Software Ingénieur – Data Migration 80 - 100%"
       },
@@ -379,7 +382,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-data-migration-80-100-3974",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:34:07.719Z",
+      "crawledAt": "2026-07-23T22:07:28.119Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -430,7 +434,7 @@
       "title": "ServiceNow Engineer KI & Automation 80-100%",
       "titleByLocale": {
         "it": "ServiceNow Ingegnere KI & Automation 80-100%",
-        "en": "ServiceNow Engineer KI & Automation 80-100 %",
+        "en": "ServiceNow Engineer KI & Automation 80-100%",
         "de": "ServiceNow Ingenieur KI & Automation 80-100%",
         "fr": "ServiceNow Ingénieur KI & Automation 80-100%"
       },
@@ -446,7 +450,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-engineer-ki-amp-automation-80-100-3223",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:34:07.191Z",
+      "crawledAt": "2026-07-23T22:07:27.587Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -510,7 +515,7 @@
       "title": "Senior Software-Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior Software-Ingegnere 80–100 %",
-        "en": "Senior Software Engineer 80-100%",
+        "en": "Senior Software-Engineer 80–100 %",
         "de": "Senior Software-Ingenieur 80–100 %",
         "fr": "Senior Software-Ingénieur 80–100 %"
       },
@@ -526,7 +531,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-software-engineer-80-100-8049",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:34:06.674Z",
+      "crawledAt": "2026-07-23T22:07:27.052Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -548,18 +554,20 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-07-22T22:11:01.072Z",
+      "previousSlugs": [
+        "senior-software-engineer-80-100-abraxas-zurich-flughafen",
+        "senior-software-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-80-100-abraxas-zurich-flughafen"
+          "senior-software-engineer-80-100-abraxas-zurich-flughafen",
+          "senior-software-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
           "senior-software-engineer-80-100-abraxas-zurich-flughafen"
         ]
       },
-      "previousSlugs": [
-        "senior-software-engineer-80-100-abraxas-zurich-flughafen"
-      ],
+      "firstSeenAt": "2026-07-22T22:11:01.072Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -588,7 +596,7 @@
       "title": "Senior Software Engineer C#/.NET 80–100 %",
       "titleByLocale": {
         "it": "Senior Software Ingegnere C#/.NET 80–100 %",
-        "en": "Senior Software Engineer C#/.NET 80-100%",
+        "en": "Senior Software Engineer C#/.NET 80–100 %",
         "de": "Senior Software Ingenieur C#/.NET 80–100 %",
         "fr": "Senior Software Ingénieur C#/.NET 80–100 %"
       },
@@ -604,7 +612,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-software-engineer-cnet-80-100-3342",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:34:06.153Z",
+      "crawledAt": "2026-07-23T22:07:26.521Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -668,7 +677,7 @@
       "title": "Senior OpenStack Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior OpenStack Ingegnere 80–100 %",
-        "en": "Senior OpenStack Engineer 80-100%",
+        "en": "Senior OpenStack Engineer 80–100 %",
         "de": "Senior OpenStack Ingenieur 80–100 %",
         "fr": "Senior OpenStack Ingénieur 80–100 %"
       },
@@ -684,7 +693,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-openstack-engineer-80-100-1267",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:34:05.612Z",
+      "crawledAt": "2026-07-23T22:07:25.996Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -774,7 +784,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/security-architect-mit-schwerpunkt-ai-security-80-100-9038",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:34:05.089Z",
+      "crawledAt": "2026-07-23T22:07:25.472Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -857,7 +868,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/projekt-management-officer-pmo-im-bereich-dgf-40-60-2400",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:34:04.571Z",
+      "crawledAt": "2026-07-23T22:07:24.945Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -941,7 +952,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/leiterin-solution-architektur-80-100-7399",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:34:04.052Z",
+      "crawledAt": "2026-07-23T22:07:24.419Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1009,7 +1020,7 @@
       "title": "Lead Software Engineer – Data Migration 80 - 100%",
       "titleByLocale": {
         "it": "Lead Software Ingegnere – Data Migration 80 - 100%",
-        "en": "Lead Software Engineer – Data Migration 80 – 100%",
+        "en": "Lead Software Engineer – Data Migration 80 - 100%",
         "de": "Lead Software Ingenieur – Data Migration 80 - 100%",
         "fr": "Lead Software Ingénieur – Data Migration 80 - 100%"
       },
@@ -1025,7 +1036,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lead-software-engineer-data-migration-80-100-8076",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:34:03.478Z",
+      "crawledAt": "2026-07-23T22:07:23.892Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1062,37 +1074,108 @@
       }
     },
     {
-      "id": "abraxas-8fc9e1d909c1",
-      "slug": "ict-system-ingegnere-80-100-abraxas-informatik-ag-bern",
+      "id": "abraxas-f8a55d71589b",
+      "slug": "ict-system-engineer-citrix-80-100-abraxas-zurich-flughafen",
       "slugByLocale": {
-        "it": "ict-system-ingegnere-80-100-abraxas-informatik-ag-bern",
-        "en": "ict-system-engineer-80-100-abraxas-bern",
-        "de": "ict-system-engineer-80-100-abraxas-bern",
-        "fr": "ict-system-ingenieur-80-100-abraxas-informatik-ag-bern"
+        "de": "ict-system-engineer-citrix-80-100-abraxas-zurich-flughafen",
+        "it": "ict-system-engineer-citrix-80-100-abraxas-zurich-flughafen",
+        "en": "ict-system-engineer-citrix-80-100-abraxas-zurich-flughafen",
+        "fr": "ict-system-engineer-citrix-80-100-abraxas-zurich-flughafen"
       },
       "company": "Abraxas Informatik AG",
       "companyKey": "abraxas",
       "companyDomain": "abraxas.ch",
-      "title": "ICT-System Engineer 80–100 %",
+      "title": "ICT-System Engineer Citrix 80–100 %",
       "titleByLocale": {
-        "it": "ICT-System Ingegnere 80–100 %",
-        "en": "ICT System Engineer 80-100%",
-        "de": "ICT-System Ingenieur 80–100 %",
-        "fr": "ICT-System Ingénieur 80–100 %"
+        "de": "ICT-System Ingenieur Citrix 80–100 %",
+        "en": "ICT-System Engineer Citrix 80–100 %",
+        "it": "ICT-System Ingegnere Citrix 80–100 %",
+        "fr": "ICT-System Ingénieur Citrix 80–100 %"
+      },
+      "description": "Du betreust komplexe Microsoft- und Citrix-Kundeninfrastrukturen und sorgst für einen sicheren, stabilen und effizienten Betrieb. Dabei bringst du dein Fachwissen in die Weiterentwicklung unserer IT-Systeme ein und arbeitest eng mit internen Stakeholdern und Kunden zusammen.\nFür unseren Standort Zürich Kloten suchen wir per 1. Januar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit als ICT System Engineer.\nDeine Rolle\n• Weiterentwicklung von Kundenumgebungen On-Premise- und Cloud-Umgebungen\n• Betrieb, Administration und Weiterentwicklung von Citrix Virtual Apps and Desktops Umgebungen\n• Administration und Betrieb von Microsoft 365, Azure und Windows 11\n• Intune- und SCCM-Verwaltung zur Geräte- und Softwaresteuerung\n• Aufbau und Betreuung von Server Umgebungen\n• 2nd-/3rd-Level Support inkl. Incident- und Problem-Management\n• Betreuung von Windows-Serverdiensten (AD, DHCP, GPO, Printservice)\n• Integration neuer Kundenstandorte in die bestehende Infrastruktur\n• Mitarbeit in IT-Projekten zur Weiterentwicklung der Systemlandschaft\n• Umsetzung von Sicherheitsrichtlinien und Teilnahme am Pikettdienst\nDein Profil\n• Abgeschlossene Informatikausbildung oder vergleichbare Qualifikation (z. B. HF, FH, eidg. Fachausweis)\n• Fundierte Kenntnisse in Windows-Servern, Clients, M365 und Azure\n• Erfahrung im Betrieb von Citrix Virtual Apps and Desktops\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Freude an Kundenberatung und professionelles Auftreten\n• Fliessende Deutschkenntnisse in Wort und Schrift (C1-Level)\n• Bereitschaft zur Pikettverfügbarkeit und zur Arbeit in dynamischen Umgebungen\n• Zertifizierungen im Bereich Citrix oder Microsoft Azure sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "descriptionByLocale": {
+        "de": "Du betreust komplexe Microsoft- und Citrix-Kundeninfrastrukturen und sorgst für einen sicheren, stabilen und effizienten Betrieb. Dabei bringst du dein Fachwissen in die Weiterentwicklung unserer IT-Systeme ein und arbeitest eng mit internen Stakeholdern und Kunden zusammen.\nFür unseren Standort Zürich Kloten suchen wir per 1. Januar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit als ICT System Engineer.\nDeine Rolle\n• Weiterentwicklung von Kundenumgebungen On-Premise- und Cloud-Umgebungen\n• Betrieb, Administration und Weiterentwicklung von Citrix Virtual Apps and Desktops Umgebungen\n• Administration und Betrieb von Microsoft 365, Azure und Windows 11\n• Intune- und SCCM-Verwaltung zur Geräte- und Softwaresteuerung\n• Aufbau und Betreuung von Server Umgebungen\n• 2nd-/3rd-Level Support inkl. Incident- und Problem-Management\n• Betreuung von Windows-Serverdiensten (AD, DHCP, GPO, Printservice)\n• Integration neuer Kundenstandorte in die bestehende Infrastruktur\n• Mitarbeit in IT-Projekten zur Weiterentwicklung der Systemlandschaft\n• Umsetzung von Sicherheitsrichtlinien und Teilnahme am Pikettdienst\nDein Profil\n• Abgeschlossene Informatikausbildung oder vergleichbare Qualifikation (z. B. HF, FH, eidg. Fachausweis)\n• Fundierte Kenntnisse in Windows-Servern, Clients, M365 und Azure\n• Erfahrung im Betrieb von Citrix Virtual Apps and Desktops\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Freude an Kundenberatung und professionelles Auftreten\n• Fliessende Deutschkenntnisse in Wort und Schrift (C1-Level)\n• Bereitschaft zur Pikettverfügbarkeit und zur Arbeit in dynamischen Umgebungen\n• Zertifizierungen im Bereich Citrix oder Microsoft Azure sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "it": "Du betreust komplexe Microsoft- und Citrix-Kundeninfrastrukturen und sorgst für einen sicheren, stabilen und effizienten Betrieb. Dabei bringst du dein Fachwissen in die Weiterentwicklung unserer IT-Systeme ein und arbeitest eng mit internen Stakeholdern und Kunden zusammen.\nFür unseren Standort Zürich Kloten suchen wir per 1. Januar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit als ICT System Engineer.\nDeine Rolle\n• Weiterentwicklung von Kundenumgebungen On-Premise- und Cloud-Umgebungen\n• Betrieb, Administration und Weiterentwicklung von Citrix Virtual Apps and Desktops Umgebungen\n• Administration und Betrieb von Microsoft 365, Azure und Windows 11\n• Intune- und SCCM-Verwaltung zur Geräte- und Softwaresteuerung\n• Aufbau und Betreuung von Server Umgebungen\n• 2nd-/3rd-Level Support inkl. Incident- und Problem-Management\n• Betreuung von Windows-Serverdiensten (AD, DHCP, GPO, Printservice)\n• Integration neuer Kundenstandorte in die bestehende Infrastruktur\n• Mitarbeit in IT-Projekten zur Weiterentwicklung der Systemlandschaft\n• Umsetzung von Sicherheitsrichtlinien und Teilnahme am Pikettdienst\nDein Profil\n• Abgeschlossene Informatikausbildung oder vergleichbare Qualifikation (z. B. HF, FH, eidg. Fachausweis)\n• Fundierte Kenntnisse in Windows-Servern, Clients, M365 und Azure\n• Erfahrung im Betrieb von Citrix Virtual Apps and Desktops\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Freude an Kundenberatung und professionelles Auftreten\n• Fliessende Deutschkenntnisse in Wort und Schrift (C1-Level)\n• Bereitschaft zur Pikettverfügbarkeit und zur Arbeit in dynamischen Umgebungen\n• Zertifizierungen im Bereich Citrix oder Microsoft Azure sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "en": "Du betreust komplexe Microsoft- und Citrix-Kundeninfrastrukturen und sorgst für einen sicheren, stabilen und effizienten Betrieb. Dabei bringst du dein Fachwissen in die Weiterentwicklung unserer IT-Systeme ein und arbeitest eng mit internen Stakeholdern und Kunden zusammen.\nFür unseren Standort Zürich Kloten suchen wir per 1. Januar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit als ICT System Engineer.\nDeine Rolle\n• Weiterentwicklung von Kundenumgebungen On-Premise- und Cloud-Umgebungen\n• Betrieb, Administration und Weiterentwicklung von Citrix Virtual Apps and Desktops Umgebungen\n• Administration und Betrieb von Microsoft 365, Azure und Windows 11\n• Intune- und SCCM-Verwaltung zur Geräte- und Softwaresteuerung\n• Aufbau und Betreuung von Server Umgebungen\n• 2nd-/3rd-Level Support inkl. Incident- und Problem-Management\n• Betreuung von Windows-Serverdiensten (AD, DHCP, GPO, Printservice)\n• Integration neuer Kundenstandorte in die bestehende Infrastruktur\n• Mitarbeit in IT-Projekten zur Weiterentwicklung der Systemlandschaft\n• Umsetzung von Sicherheitsrichtlinien und Teilnahme am Pikettdienst\nDein Profil\n• Abgeschlossene Informatikausbildung oder vergleichbare Qualifikation (z. B. HF, FH, eidg. Fachausweis)\n• Fundierte Kenntnisse in Windows-Servern, Clients, M365 und Azure\n• Erfahrung im Betrieb von Citrix Virtual Apps and Desktops\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Freude an Kundenberatung und professionelles Auftreten\n• Fliessende Deutschkenntnisse in Wort und Schrift (C1-Level)\n• Bereitschaft zur Pikettverfügbarkeit und zur Arbeit in dynamischen Umgebungen\n• Zertifizierungen im Bereich Citrix oder Microsoft Azure sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "fr": "Du betreust komplexe Microsoft- und Citrix-Kundeninfrastrukturen und sorgst für einen sicheren, stabilen und effizienten Betrieb. Dabei bringst du dein Fachwissen in die Weiterentwicklung unserer IT-Systeme ein und arbeitest eng mit internen Stakeholdern und Kunden zusammen.\nFür unseren Standort Zürich Kloten suchen wir per 1. Januar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit als ICT System Engineer.\nDeine Rolle\n• Weiterentwicklung von Kundenumgebungen On-Premise- und Cloud-Umgebungen\n• Betrieb, Administration und Weiterentwicklung von Citrix Virtual Apps and Desktops Umgebungen\n• Administration und Betrieb von Microsoft 365, Azure und Windows 11\n• Intune- und SCCM-Verwaltung zur Geräte- und Softwaresteuerung\n• Aufbau und Betreuung von Server Umgebungen\n• 2nd-/3rd-Level Support inkl. Incident- und Problem-Management\n• Betreuung von Windows-Serverdiensten (AD, DHCP, GPO, Printservice)\n• Integration neuer Kundenstandorte in die bestehende Infrastruktur\n• Mitarbeit in IT-Projekten zur Weiterentwicklung der Systemlandschaft\n• Umsetzung von Sicherheitsrichtlinien und Teilnahme am Pikettdienst\nDein Profil\n• Abgeschlossene Informatikausbildung oder vergleichbare Qualifikation (z. B. HF, FH, eidg. Fachausweis)\n• Fundierte Kenntnisse in Windows-Servern, Clients, M365 und Azure\n• Erfahrung im Betrieb von Citrix Virtual Apps and Desktops\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Freude an Kundenberatung und professionelles Auftreten\n• Fliessende Deutschkenntnisse in Wort und Schrift (C1-Level)\n• Bereitschaft zur Pikettverfügbarkeit und zur Arbeit in dynamischen Umgebungen\n• Zertifizierungen im Bereich Citrix oder Microsoft Azure sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken."
+      },
+      "location": "Zürich-Flughafen",
+      "canton": "ZH",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-citrix-80-100-3914",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-23T22:07:23.364Z",
+      "needsRetranslation": true,
+      "addressLocality": "Zürich-Flughafen",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8058",
+      "streetAddress": "",
+      "category": "IT / Infrastruttura",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-23",
+      "applyUrl": "https://apply.refline.ch/215876/2512/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "215876-2512",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-23T22:07:23.364Z"
+    },
+    {
+      "id": "abraxas-a33cc5665148",
+      "slug": "ict-system-engineer-betrieb-80-100-abraxas-bern",
+      "slugByLocale": {
+        "de": "ict-system-engineer-betrieb-80-100-abraxas-bern",
+        "it": "ict-system-engineer-betrieb-80-100-abraxas-bern",
+        "en": "ict-system-engineer-betrieb-80-100-abraxas-bern",
+        "fr": "ict-system-engineer-betrieb-80-100-abraxas-bern"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "ICT-System Engineer Betrieb 80–100 %",
+      "titleByLocale": {
+        "de": "ICT-System Ingenieur Betrieb 80–100 %",
+        "en": "ICT-System Engineer Betrieb 80–100 %",
+        "it": "ICT-System Ingegnere Betrieb 80–100 %",
+        "fr": "ICT-System Ingénieur Betrieb 80–100 %"
       },
       "description": "Du betreust komplexe Microsoft-Kundeninfrastrukturen und sorgst für einen sicheren, stabilen und effizienten Betrieb. Dabei bringst du dein Fachwissen in die Weiterentwicklung unserer IT-Systeme ein und arbeitest eng mit internen Stakeholdern und Kunden zusammen.\nFür unsere Standorte St. Gallen, St. Gallen-Winkeln, Kloten oder Bern suchen wir per 1. Oktober 2026 oder nach Vereinbarung eine engagierte Persönlichkeit als ICT System Engineer.\nDeine Rolle\n• Automatisieren von Abläufen ServiceNow (JavaScript) und Gitlab, Ansible AWX\n• Weiterentwicklung von Kundenumgebungen On-Premise- und Cloud-Umgebungen\n• Administration und Betrieb von Microsoft 365, Azure und Windows 11\n• Intune- und SCCM-Verwaltung zur Geräte- und Softwaresteuerung\n• Aufbau und Betreuung von Server Umgebungen\n• 2nd-/3rd-Level Support inkl. Incident- und Problem-Management\n• Betreuung von Windows-Serverdiensten (AD, DHCP, GPO, Printservice)\n• Integration neuer Kundenstandorte in die bestehende Infrastruktur\n• Mitarbeit in IT-Projekten zur Weiterentwicklung der Systemlandschaft\n• Umsetzung von Sicherheitsrichtlinien und Teilnahme am Pikettdienst\nDein Profil\n• Abgeschlossene Informatikausbildung oder vergleichbare Qualifikation (z. B. HF, FH, eidg. Fachausweis)\n• Powershell, JavaScript, Ansible\n• Fundierte Kenntnisse in Windows-Servern, Clients, M365 und Azure\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Freude an Kundenberatung und professionelles Auftreten\n• Fliessende Deutschkenntnisse in Wort und Schrift (C1-Level)\n• Bereitschaft zur Pikettverfügbarkeit und zur Arbeit in dynamischen Umgebungen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
       "descriptionByLocale": {
-        "it": "Gestisci complesse infrastrutture dei clienti Microsoft e assicurati operazioni sicure, stabili ed efficienti. Contribuirai la tua esperienza all'ulteriore sviluppo dei nostri sistemi IT e lavorerai a stretto contatto con gli stakeholder e i clienti interni. Per le nostre posizioni St. Gallen, St. Gallen angoli, Kloten o Berna stiamo cercando 1. Ottobre 2026 o su appuntamento una personalità dedicata come ICT System Engineer. Il tuo ruolo\n• Automazione di ServiceNow (JavaScript) e Gitlab, Ansible AWX\n• Ulteriore sviluppo degli ambienti dei clienti in ambienti cloud e on-premise\n• Amministrazione e funzionamento di Microsoft 365, Azure e Windows 11\n• Gestione intune e SCCM per il controllo di dispositivi e software\n• Creazione e manutenzione di ambienti server\n• Sostegno di livello 2nd/3rd incl. Gestione degli infortuni e dei problemi\n• Supporto dei servizi server Windows (AD, DHCP, GPO, Printservice)\n• Integrazione di nuove sedi dei clienti nell'infrastruttura esistente\n• Collaborazione in progetti IT per l'ulteriore sviluppo del paesaggio del sistema\n• Attuazione delle politiche di sicurezza e partecipazione al Pikettdienst Il tuo profilo\n• Formazione informatica completata o qualificazione comparabile (ad esempio HF, FH, certificato professionale federale)\n• Powershell, JavaScript, Ansible\n• Conoscenza approfondita di server Windows, client, M365 e Azure\n• Rapida comprensione e grande disponibilità ad imparare\n• Divertimento di consulenza clienti e aspetto professionale\n• Capacità tedesche fluide nella parola e nella scrittura (livello C1)\n• Prontezza al lavoro in ambienti dinamici I tuoi vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti Manteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
-        "en": "You manage complex Microsoft customer infrastructures and ensure secure, stable and efficient operations. You will contribute your expertise to the further development of our IT systems and work closely with internal stakeholders and customers. For our locations St. Gallen, St. Gallen angles, Kloten or Bern we are looking for 1. October 2026 or by appointment a dedicated personality as ICT System Engineer. Your role\n• Automating ServiceNow (JavaScript) and Gitlab, Ansible AWX\n• Further development of customer environments on-premise and cloud environments\n• Administration and operation of Microsoft 365, Azure and Windows 11\n• Intune and SCCM management for device and software control\n• Establishment and maintenance of server environments\n• 2nd/3rd level support incl. Incident and problem management\n• Support of Windows server services (AD, DHCP, GPO, Printservice)\n• Integration of new customer locations into the existing infrastructure\n• Collaboration in IT projects for the further development of the system landscape\n• Implementation of security policies and participation in the Pikettdienst Your profile\n• Completed computer science training or comparable qualification (e.g. HF, FH, Federal Professional Certificate)\n• Powershell, JavaScript, Ansible\n• In-depth knowledge of Windows servers, clients, M365 and Azure\n• Rapid comprehension and a high willingness to learn\n• Enjoyment of customer advice and professional appearance\n• Fluent German skills in word and writing (C1 level)\n• Readiness to work in dynamic environments Your Benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees We maintain an open you culture – so feel free to send us your application directly in the you form.",
         "de": "Du betreust komplexe Microsoft-Kundeninfrastrukturen und sorgst für einen sicheren, stabilen und effizienten Betrieb. Dabei bringst du dein Fachwissen in die Weiterentwicklung unserer IT-Systeme ein und arbeitest eng mit internen Stakeholdern und Kunden zusammen.\nFür unsere Standorte St. Gallen, St. Gallen-Winkeln, Kloten oder Bern suchen wir per 1. Oktober 2026 oder nach Vereinbarung eine engagierte Persönlichkeit als ICT System Engineer.\nDeine Rolle\n• Automatisieren von Abläufen ServiceNow (JavaScript) und Gitlab, Ansible AWX\n• Weiterentwicklung von Kundenumgebungen On-Premise- und Cloud-Umgebungen\n• Administration und Betrieb von Microsoft 365, Azure und Windows 11\n• Intune- und SCCM-Verwaltung zur Geräte- und Softwaresteuerung\n• Aufbau und Betreuung von Server Umgebungen\n• 2nd-/3rd-Level Support inkl. Incident- und Problem-Management\n• Betreuung von Windows-Serverdiensten (AD, DHCP, GPO, Printservice)\n• Integration neuer Kundenstandorte in die bestehende Infrastruktur\n• Mitarbeit in IT-Projekten zur Weiterentwicklung der Systemlandschaft\n• Umsetzung von Sicherheitsrichtlinien und Teilnahme am Pikettdienst\nDein Profil\n• Abgeschlossene Informatikausbildung oder vergleichbare Qualifikation (z. B. HF, FH, eidg. Fachausweis)\n• Powershell, JavaScript, Ansible\n• Fundierte Kenntnisse in Windows-Servern, Clients, M365 und Azure\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Freude an Kundenberatung und professionelles Auftreten\n• Fliessende Deutschkenntnisse in Wort und Schrift (C1-Level)\n• Bereitschaft zur Pikettverfügbarkeit und zur Arbeit in dynamischen Umgebungen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "fr": "Vous gérez des infrastructures clientes complexes de Microsoft et assurez des opérations sûres, stables et efficaces. Vous apporterez votre expertise au développement de nos systèmes informatiques et travaillerez en étroite collaboration avec les intervenants internes et les clients. Pour nos emplacements St. Gallen, St. Gallen angles, Kloten ou Berne nous cherchons 1. Octobre 2026 ou sur rendez-vous une personnalité dédiée en tant qu'ingénieur système TIC. Votre rôle\n• Service d'automatisationNow (JavaScript) et Gitlab, Ansible AWX\n• Poursuite du développement des environnements client sur site et cloud\n• Administration et fonctionnement de Microsoft 365, Azure et Windows 11\n• Gestion Intune et SCCM pour le contrôle des appareils et logiciels\n• Création et maintenance d'environnements serveurs\n• Support 2ème/3ème niveau incl. Gestion des incidents et des problèmes\n• Prise en charge des services de serveur Windows (AD, DHCP, GPO, Printservice)\n• Intégration de nouveaux emplacements clients dans l'infrastructure existante\n• Collaboration à des projets informatiques pour le développement du paysage système\n• Mise en œuvre des politiques de sécurité et participation au Pikettdienst Votre profil\n• Formation en informatique terminée ou qualification comparable (p. ex. HF, FH, certificat professionnel fédéral)\n• Powershell, JavaScript, Ansible\n• Connaissance approfondie des serveurs Windows, clients, M365 et Azure\n• Compréhension rapide et grande volonté d'apprendre\n• Appréciation des conseils clients et de l'apparence professionnelle\n• Compétences linguistiques en allemand (niveau C1)\n• Disponibilité au travail dans des environnements dynamiques Vos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à 100% de formation financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés Nous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
+        "it": "Du betreust komplexe Microsoft-Kundeninfrastrukturen und sorgst für einen sicheren, stabilen und effizienten Betrieb. Dabei bringst du dein Fachwissen in die Weiterentwicklung unserer IT-Systeme ein und arbeitest eng mit internen Stakeholdern und Kunden zusammen.\nFür unsere Standorte St. Gallen, St. Gallen-Winkeln, Kloten oder Bern suchen wir per 1. Oktober 2026 oder nach Vereinbarung eine engagierte Persönlichkeit als ICT System Engineer.\nDeine Rolle\n• Automatisieren von Abläufen ServiceNow (JavaScript) und Gitlab, Ansible AWX\n• Weiterentwicklung von Kundenumgebungen On-Premise- und Cloud-Umgebungen\n• Administration und Betrieb von Microsoft 365, Azure und Windows 11\n• Intune- und SCCM-Verwaltung zur Geräte- und Softwaresteuerung\n• Aufbau und Betreuung von Server Umgebungen\n• 2nd-/3rd-Level Support inkl. Incident- und Problem-Management\n• Betreuung von Windows-Serverdiensten (AD, DHCP, GPO, Printservice)\n• Integration neuer Kundenstandorte in die bestehende Infrastruktur\n• Mitarbeit in IT-Projekten zur Weiterentwicklung der Systemlandschaft\n• Umsetzung von Sicherheitsrichtlinien und Teilnahme am Pikettdienst\nDein Profil\n• Abgeschlossene Informatikausbildung oder vergleichbare Qualifikation (z. B. HF, FH, eidg. Fachausweis)\n• Powershell, JavaScript, Ansible\n• Fundierte Kenntnisse in Windows-Servern, Clients, M365 und Azure\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Freude an Kundenberatung und professionelles Auftreten\n• Fliessende Deutschkenntnisse in Wort und Schrift (C1-Level)\n• Bereitschaft zur Pikettverfügbarkeit und zur Arbeit in dynamischen Umgebungen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "en": "Du betreust komplexe Microsoft-Kundeninfrastrukturen und sorgst für einen sicheren, stabilen und effizienten Betrieb. Dabei bringst du dein Fachwissen in die Weiterentwicklung unserer IT-Systeme ein und arbeitest eng mit internen Stakeholdern und Kunden zusammen.\nFür unsere Standorte St. Gallen, St. Gallen-Winkeln, Kloten oder Bern suchen wir per 1. Oktober 2026 oder nach Vereinbarung eine engagierte Persönlichkeit als ICT System Engineer.\nDeine Rolle\n• Automatisieren von Abläufen ServiceNow (JavaScript) und Gitlab, Ansible AWX\n• Weiterentwicklung von Kundenumgebungen On-Premise- und Cloud-Umgebungen\n• Administration und Betrieb von Microsoft 365, Azure und Windows 11\n• Intune- und SCCM-Verwaltung zur Geräte- und Softwaresteuerung\n• Aufbau und Betreuung von Server Umgebungen\n• 2nd-/3rd-Level Support inkl. Incident- und Problem-Management\n• Betreuung von Windows-Serverdiensten (AD, DHCP, GPO, Printservice)\n• Integration neuer Kundenstandorte in die bestehende Infrastruktur\n• Mitarbeit in IT-Projekten zur Weiterentwicklung der Systemlandschaft\n• Umsetzung von Sicherheitsrichtlinien und Teilnahme am Pikettdienst\nDein Profil\n• Abgeschlossene Informatikausbildung oder vergleichbare Qualifikation (z. B. HF, FH, eidg. Fachausweis)\n• Powershell, JavaScript, Ansible\n• Fundierte Kenntnisse in Windows-Servern, Clients, M365 und Azure\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Freude an Kundenberatung und professionelles Auftreten\n• Fliessende Deutschkenntnisse in Wort und Schrift (C1-Level)\n• Bereitschaft zur Pikettverfügbarkeit und zur Arbeit in dynamischen Umgebungen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "fr": "Du betreust komplexe Microsoft-Kundeninfrastrukturen und sorgst für einen sicheren, stabilen und effizienten Betrieb. Dabei bringst du dein Fachwissen in die Weiterentwicklung unserer IT-Systeme ein und arbeitest eng mit internen Stakeholdern und Kunden zusammen.\nFür unsere Standorte St. Gallen, St. Gallen-Winkeln, Kloten oder Bern suchen wir per 1. Oktober 2026 oder nach Vereinbarung eine engagierte Persönlichkeit als ICT System Engineer.\nDeine Rolle\n• Automatisieren von Abläufen ServiceNow (JavaScript) und Gitlab, Ansible AWX\n• Weiterentwicklung von Kundenumgebungen On-Premise- und Cloud-Umgebungen\n• Administration und Betrieb von Microsoft 365, Azure und Windows 11\n• Intune- und SCCM-Verwaltung zur Geräte- und Softwaresteuerung\n• Aufbau und Betreuung von Server Umgebungen\n• 2nd-/3rd-Level Support inkl. Incident- und Problem-Management\n• Betreuung von Windows-Serverdiensten (AD, DHCP, GPO, Printservice)\n• Integration neuer Kundenstandorte in die bestehende Infrastruktur\n• Mitarbeit in IT-Projekten zur Weiterentwicklung der Systemlandschaft\n• Umsetzung von Sicherheitsrichtlinien und Teilnahme am Pikettdienst\nDein Profil\n• Abgeschlossene Informatikausbildung oder vergleichbare Qualifikation (z. B. HF, FH, eidg. Fachausweis)\n• Powershell, JavaScript, Ansible\n• Fundierte Kenntnisse in Windows-Servern, Clients, M365 und Azure\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Freude an Kundenberatung und professionelles Auftreten\n• Fliessende Deutschkenntnisse in Wort und Schrift (C1-Level)\n• Bereitschaft zur Pikettverfügbarkeit und zur Arbeit in dynamischen Umgebungen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken."
       },
       "location": "Bern",
       "canton": "BE",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-80-100-3625",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-betrieb-80-100-9116",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:34:02.952Z",
+      "crawledAt": "2026-07-23T22:07:22.839Z",
+      "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1106,38 +1189,16 @@
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-04",
+      "postedDate": "2026-07-23",
       "applyUrl": "https://apply.refline.ch/215876/2485/index.html?lang=de&cid=1",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "externalId": "215876-2485",
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "previousSlugs": [
-        "ict-system-engineer-80-100-abraxas-bern",
-        "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern",
-        "system-engineer-devops-deutsch-80-100-abraxas-bern",
-        "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern",
-        "ict-system-ingegnere-80-100-abraxas-informatik-ag-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ict-system-engineer-80-100-abraxas-bern",
-          "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern",
-          "system-engineer-devops-deutsch-80-100-abraxas-bern",
-          "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern",
-          "ict-system-ingegnere-80-100-abraxas-informatik-ag-bern"
-        ],
-        "de": [
-          "system-engineer-devops-deutsch-80-100-abraxas-bern"
-        ],
-        "fr": [
-          "ict-system-engineer-80-100-abraxas-bern",
-          "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:00:00.855Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1149,7 +1210,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-23T22:07:22.839Z"
     },
     {
       "id": "abraxas-1acbe596f23a",
@@ -1166,7 +1228,7 @@
       "title": "ICT System Engineer mit Projektleitungserfahrung 80–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere con Projektleitungserfahrung 80–100 %",
-        "en": "ICT System Engineer with project management experience 80-100%",
+        "en": "ICT System Engineer mit Projektleitungserfahrung 80–100 %",
         "de": "ICT System Ingenieur mit Projektleitungserfahrung 80–100 %",
         "fr": "ICT System Ingénieur mit Projektleitungserfahrung 80–100 %"
       },
@@ -1182,7 +1244,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-mit-projektleitungserfahrung-80-100-1145",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:34:02.427Z",
+      "crawledAt": "2026-07-23T22:07:22.317Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1249,7 +1312,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-devops-80-100-6206",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:34:01.905Z",
+      "crawledAt": "2026-07-23T22:07:21.787Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1300,7 +1364,7 @@
       "title": "ICT System Engineer 80–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere 80–100 %",
-        "en": "ICT System Engineer 80-100%",
+        "en": "ICT System Engineer 80–100 %",
         "de": "ICT System Ingenieur 80–100 %",
         "fr": "ICT System Ingénieur 80–100 %"
       },
@@ -1316,7 +1380,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-80-100-5708",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:34:01.384Z",
+      "crawledAt": "2026-07-23T22:07:21.259Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1380,7 +1445,7 @@
       "title": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere – IAM (WAF/IDP) 80%–100 %",
-        "en": "ICT System Engineer – IAM (WAF/IDP) 80%-100%",
+        "en": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
         "de": "ICT System Ingenieur – IAM (WAF/IDP) 80%–100 %",
         "fr": "ICT System Ingénieur – IAM (WAF/IDP) 80%–100 %"
       },
@@ -1396,7 +1461,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-7949",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:34:00.848Z",
+      "crawledAt": "2026-07-23T22:07:20.731Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1447,7 +1513,7 @@
       "title": "DevOps Engineer 80–100 %",
       "titleByLocale": {
         "it": "DevOps Ingegnere 80–100 %",
-        "en": "DevOps Engineer 80-100%",
+        "en": "DevOps Engineer 80–100 %",
         "de": "DevOps Ingenieur 80–100 %",
         "fr": "DevOps Ingénieur 80–100 %"
       },
@@ -1463,7 +1529,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/devops-engineer-80-100-7012",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:34:00.302Z",
+      "crawledAt": "2026-07-23T22:07:20.200Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1530,6 +1597,84 @@
       }
     },
     {
+      "id": "abraxas-cdc5597b1779",
+      "slug": "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen",
+      "slugByLocale": {
+        "de": "bereichscontroller-in-60-80-abraxas-st-gallen",
+        "it": "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen",
+        "en": "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen",
+        "fr": "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "Bereichscontroller:in 60–80 %",
+      "titleByLocale": {
+        "de": "Bereichscontroller:in 60–80 %",
+        "it": "Bereichscontroller:in 60–80 %",
+        "en": "Bereichscontroller:in 60–80 %",
+        "fr": "Bereichscontroller:in 60–80 %"
+      },
+      "description": "Im Bereich Finanzen & Controlling suchen wir Verstärkung für unser Controlling-Team. Du übernimmst die Verantwortung für einen Unternehmensbereich und pflegst einen intensiven Austausch mit diesem. Dabei sorgst du für finanzielle Transparenz, unterstützt die Führungskräfte bei ihren Entscheidungen und übernimmst bei der Weiterentwicklung des Bereichs eine wichtige Rolle.\nDeine Rolle\n• Verantwortlich für das Controlling eines Unternehmensbereichs\n• Beratung der Linie in allen betriebswirtschaftlichen Fragen\n• Mitarbeit und Teilverantwortung bei Budget, Forecast und rollierender Planung\n• Mitarbeit in Projekten zur Weiterentwicklung der Controllingprozesse und -instrumente\n• Erstellung von periodischen Management- und Finanzreportings, Ergebnisanalysen sowie Ad-hoc Auswertungen\n• Verantwortlich für das Projektcontrolling und die Pflege des Projektcontrollingsystems im Bereich\n• Prüfung von Investitions- und Gemeinkostenprojekte\n• Mitarbeit bei der Weiterentwicklung des SAP-Systems\n• Bewirtschaftung des BI-Tools DeltaMaster\n• Organisation und Durchführung von Schulungen\nDein Profil\n• Fachausweis in Finanz- und Rechnungswesen oder Fach-/Hochschulabschluss (mit Vertiefung Accounting / Controlling) - allenfalls in fortgeschrittenem Bachelor-Studium\n• Erste Erfahrung im Rechnungswesen, insbesondere in der Kosten- und Leistungsrechnung\n• Erfahrung im SAP Umfeld (Module FI/CO und PS), mit BI-Tool DeltaMaster sowie mit Microsoft Power BI von Vorteil\n• Sicheres Auftreten, Freude an der Beratung von Führungskräften\n• Versiert in der Anwendung MS-Office insbesondere Excel\n• Zahlenflair, analytisches Denken und Erkennen von komplexen Zusammenhängen\n• Fliessende Deutschkenntnisse in Wort und Schrift\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "descriptionByLocale": {
+        "de": "Im Bereich Finanzen & Controlling suchen wir Verstärkung für unser Controlling-Team. Du übernimmst die Verantwortung für einen Unternehmensbereich und pflegst einen intensiven Austausch mit diesem. Dabei sorgst du für finanzielle Transparenz, unterstützt die Führungskräfte bei ihren Entscheidungen und übernimmst bei der Weiterentwicklung des Bereichs eine wichtige Rolle.\nDeine Rolle\n• Verantwortlich für das Controlling eines Unternehmensbereichs\n• Beratung der Linie in allen betriebswirtschaftlichen Fragen\n• Mitarbeit und Teilverantwortung bei Budget, Forecast und rollierender Planung\n• Mitarbeit in Projekten zur Weiterentwicklung der Controllingprozesse und -instrumente\n• Erstellung von periodischen Management- und Finanzreportings, Ergebnisanalysen sowie Ad-hoc Auswertungen\n• Verantwortlich für das Projektcontrolling und die Pflege des Projektcontrollingsystems im Bereich\n• Prüfung von Investitions- und Gemeinkostenprojekte\n• Mitarbeit bei der Weiterentwicklung des SAP-Systems\n• Bewirtschaftung des BI-Tools DeltaMaster\n• Organisation und Durchführung von Schulungen\nDein Profil\n• Fachausweis in Finanz- und Rechnungswesen oder Fach-/Hochschulabschluss (mit Vertiefung Accounting / Controlling) - allenfalls in fortgeschrittenem Bachelor-Studium\n• Erste Erfahrung im Rechnungswesen, insbesondere in der Kosten- und Leistungsrechnung\n• Erfahrung im SAP Umfeld (Module FI/CO und PS), mit BI-Tool DeltaMaster sowie mit Microsoft Power BI von Vorteil\n• Sicheres Auftreten, Freude an der Beratung von Führungskräften\n• Versiert in der Anwendung MS-Office insbesondere Excel\n• Zahlenflair, analytisches Denken und Erkennen von komplexen Zusammenhängen\n• Fliessende Deutschkenntnisse in Wort und Schrift\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "it": "Im Bereich Finanzen & Controlling suchen wir Verstärkung für unser Controlling-Team. Du übernimmst die Verantwortung für einen Unternehmensbereich und pflegst einen intensiven Austausch mit diesem. Dabei sorgst du für finanzielle Transparenz, unterstützt die Führungskräfte bei ihren Entscheidungen und übernimmst bei der Weiterentwicklung des Bereichs eine wichtige Rolle.\nDeine Rolle\n• Verantwortlich für das Controlling eines Unternehmensbereichs\n• Beratung der Linie in allen betriebswirtschaftlichen Fragen\n• Mitarbeit und Teilverantwortung bei Budget, Forecast und rollierender Planung\n• Mitarbeit in Projekten zur Weiterentwicklung der Controllingprozesse und -instrumente\n• Erstellung von periodischen Management- und Finanzreportings, Ergebnisanalysen sowie Ad-hoc Auswertungen\n• Verantwortlich für das Projektcontrolling und die Pflege des Projektcontrollingsystems im Bereich\n• Prüfung von Investitions- und Gemeinkostenprojekte\n• Mitarbeit bei der Weiterentwicklung des SAP-Systems\n• Bewirtschaftung des BI-Tools DeltaMaster\n• Organisation und Durchführung von Schulungen\nDein Profil\n• Fachausweis in Finanz- und Rechnungswesen oder Fach-/Hochschulabschluss (mit Vertiefung Accounting / Controlling) - allenfalls in fortgeschrittenem Bachelor-Studium\n• Erste Erfahrung im Rechnungswesen, insbesondere in der Kosten- und Leistungsrechnung\n• Erfahrung im SAP Umfeld (Module FI/CO und PS), mit BI-Tool DeltaMaster sowie mit Microsoft Power BI von Vorteil\n• Sicheres Auftreten, Freude an der Beratung von Führungskräften\n• Versiert in der Anwendung MS-Office insbesondere Excel\n• Zahlenflair, analytisches Denken und Erkennen von komplexen Zusammenhängen\n• Fliessende Deutschkenntnisse in Wort und Schrift\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "en": "Im Bereich Finanzen & Controlling suchen wir Verstärkung für unser Controlling-Team. Du übernimmst die Verantwortung für einen Unternehmensbereich und pflegst einen intensiven Austausch mit diesem. Dabei sorgst du für finanzielle Transparenz, unterstützt die Führungskräfte bei ihren Entscheidungen und übernimmst bei der Weiterentwicklung des Bereichs eine wichtige Rolle.\nDeine Rolle\n• Verantwortlich für das Controlling eines Unternehmensbereichs\n• Beratung der Linie in allen betriebswirtschaftlichen Fragen\n• Mitarbeit und Teilverantwortung bei Budget, Forecast und rollierender Planung\n• Mitarbeit in Projekten zur Weiterentwicklung der Controllingprozesse und -instrumente\n• Erstellung von periodischen Management- und Finanzreportings, Ergebnisanalysen sowie Ad-hoc Auswertungen\n• Verantwortlich für das Projektcontrolling und die Pflege des Projektcontrollingsystems im Bereich\n• Prüfung von Investitions- und Gemeinkostenprojekte\n• Mitarbeit bei der Weiterentwicklung des SAP-Systems\n• Bewirtschaftung des BI-Tools DeltaMaster\n• Organisation und Durchführung von Schulungen\nDein Profil\n• Fachausweis in Finanz- und Rechnungswesen oder Fach-/Hochschulabschluss (mit Vertiefung Accounting / Controlling) - allenfalls in fortgeschrittenem Bachelor-Studium\n• Erste Erfahrung im Rechnungswesen, insbesondere in der Kosten- und Leistungsrechnung\n• Erfahrung im SAP Umfeld (Module FI/CO und PS), mit BI-Tool DeltaMaster sowie mit Microsoft Power BI von Vorteil\n• Sicheres Auftreten, Freude an der Beratung von Führungskräften\n• Versiert in der Anwendung MS-Office insbesondere Excel\n• Zahlenflair, analytisches Denken und Erkennen von komplexen Zusammenhängen\n• Fliessende Deutschkenntnisse in Wort und Schrift\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "fr": "Im Bereich Finanzen & Controlling suchen wir Verstärkung für unser Controlling-Team. Du übernimmst die Verantwortung für einen Unternehmensbereich und pflegst einen intensiven Austausch mit diesem. Dabei sorgst du für finanzielle Transparenz, unterstützt die Führungskräfte bei ihren Entscheidungen und übernimmst bei der Weiterentwicklung des Bereichs eine wichtige Rolle.\nDeine Rolle\n• Verantwortlich für das Controlling eines Unternehmensbereichs\n• Beratung der Linie in allen betriebswirtschaftlichen Fragen\n• Mitarbeit und Teilverantwortung bei Budget, Forecast und rollierender Planung\n• Mitarbeit in Projekten zur Weiterentwicklung der Controllingprozesse und -instrumente\n• Erstellung von periodischen Management- und Finanzreportings, Ergebnisanalysen sowie Ad-hoc Auswertungen\n• Verantwortlich für das Projektcontrolling und die Pflege des Projektcontrollingsystems im Bereich\n• Prüfung von Investitions- und Gemeinkostenprojekte\n• Mitarbeit bei der Weiterentwicklung des SAP-Systems\n• Bewirtschaftung des BI-Tools DeltaMaster\n• Organisation und Durchführung von Schulungen\nDein Profil\n• Fachausweis in Finanz- und Rechnungswesen oder Fach-/Hochschulabschluss (mit Vertiefung Accounting / Controlling) - allenfalls in fortgeschrittenem Bachelor-Studium\n• Erste Erfahrung im Rechnungswesen, insbesondere in der Kosten- und Leistungsrechnung\n• Erfahrung im SAP Umfeld (Module FI/CO und PS), mit BI-Tool DeltaMaster sowie mit Microsoft Power BI von Vorteil\n• Sicheres Auftreten, Freude an der Beratung von Führungskräften\n• Versiert in der Anwendung MS-Office insbesondere Excel\n• Zahlenflair, analytisches Denken und Erkennen von komplexen Zusammenhängen\n• Fliessende Deutschkenntnisse in Wort und Schrift\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken."
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/bereichscontrollerin-60-80-7514",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-23T22:07:19.673Z",
+      "needsRetranslation": true,
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9001",
+      "streetAddress": "St. Leonhard-Strasse 80",
+      "category": "IT / Sviluppo software",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-23",
+      "applyUrl": "https://apply.refline.ch/215876/2474/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "215876-2474",
+      "pensumMin": 60,
+      "pensumMax": 80,
+      "pensum": "60 - 80%",
+      "previousSlugsByLocale": {
+        "it": [
+          "bereichscontroller-in-60-80-abraxas-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "bereichscontroller-in-60-80-abraxas-st-gallen"
+      ],
+      "salaryMin": 46000,
+      "salaryMax": 69600,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 46000,
+          "maxValue": 69600,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-23T22:07:19.673Z"
+    },
+    {
       "id": "abraxas-11cfca267105",
       "slug": "supporto-per-l-applicazione-in-epsipol-ordnungsbussen-tedesco-e-francese-80-100-abraxas-informatik-ag-munchenstein",
       "slugByLocale": {
@@ -1560,7 +1705,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-supporterin-epsipol-ordnungsbussen-deutsch-amp-franzoesisch-80-100-5077",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:33:59.744Z",
+      "crawledAt": "2026-07-23T22:07:19.145Z",
       "needsRetranslation": false,
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
@@ -1628,7 +1773,7 @@
       "title": "AIOps Transformation Lead 80-100%",
       "titleByLocale": {
         "it": "Responsabile Trasformazione AIOps 80-100%",
-        "en": "AIOps Transformation Lead 80-100 %",
+        "en": "AIOps Transformation Lead 80-100%",
         "de": "AIOps Transformation Lead 80-100%",
         "fr": "AIOps Transformation plomb 80- 100%"
       },
@@ -1644,7 +1789,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/aiops-transformation-lead-80-100-7995",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:33:59.194Z",
+      "crawledAt": "2026-07-23T22:07:18.612Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1724,7 +1870,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ai-solution-consultant-public-sector-80-100-4637",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:33:58.660Z",
+      "crawledAt": "2026-07-23T22:07:18.086Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1791,7 +1938,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-teamleiterin-80-100-3906",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:33:58.132Z",
+      "crawledAt": "2026-07-23T22:07:17.556Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1875,7 +2022,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-svm-amp-proj-80-100-3900",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:33:57.604Z",
+      "crawledAt": "2026-07-23T22:07:17.035Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1959,7 +2106,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-finanzen-80-100-5481",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:33:56.930Z",
+      "crawledAt": "2026-07-23T22:07:16.337Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2043,7 +2190,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-bpe-rest-amp-abareport-80-100-2411",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:33:56.236Z",
+      "crawledAt": "2026-07-23T22:07:15.649Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2081,150 +2228,82 @@
       }
     },
     {
-      "id": "abraxas-404b3ffed9ca",
-      "slug": "junior-solution-architetto-80-100-abraxas-informatik-ag-st-gallen",
+      "id": "abraxas-8fc9e1d909c1",
+      "slug": "ict-system-ingegnere-80-100-abraxas-informatik-ag-bern",
       "slugByLocale": {
-        "it": "junior-solution-architetto-80-100-abraxas-informatik-ag-st-gallen",
-        "en": "junior-solution-architect-80-100-abraxas-informatik-ag-st-gallen",
-        "de": "junior-solution-architekt-80-100-abraxas-st-gallen",
-        "fr": "solution-junior-architecte-80-100-abraxas-informatik-ag-st-gallen"
+        "it": "ict-system-ingegnere-80-100-abraxas-informatik-ag-bern",
+        "en": "ict-system-engineer-80-100-abraxas-bern",
+        "de": "ict-system-engineer-80-100-abraxas-bern",
+        "fr": "ict-system-ingenieur-80-100-abraxas-informatik-ag-bern"
       },
       "company": "Abraxas Informatik AG",
       "companyKey": "abraxas",
       "companyDomain": "abraxas.ch",
-      "title": "Junior Solution Architekt 80–100 %",
+      "title": "ICT-System Engineer 80–100 %",
       "titleByLocale": {
-        "it": "Junior Solution Architetto 80-100%",
-        "en": "Junior Solution Architect 80-100%",
-        "de": "Junior Solution Architekt 80–100 %",
-        "fr": "Solution junior Architecte 80-100%"
+        "it": "ICT-System Ingegnere 80–100 %",
+        "en": "ICT-System Engineer 80–100 %",
+        "de": "ICT-System Ingenieur 80–100 %",
+        "fr": "ICT-System Ingénieur 80–100 %"
       },
-      "description": "Als Junior Solution Architekt unterstützt du die Entwicklung und Gestaltung moderner IT-Infrastruktur- und Managed-Service-Lösungen für unsere Kunden im Public Sektor. Gemeinsam mit erfahrenen Solution Architekten, Sales-Teams und technischen Spezialisten analysierst du Kundenanforderungen, entwickelst passende Lösungsansätze und begleitest den gesamten Presales-Prozess bis zur Übergabe an die Delivery-Organisation. Die Position bietet einen idealen Einstieg in die Solution-Architektur mit klaren Entwicklungsmöglichkeiten hin zum Senior Solution Architekten.\nDeine Rolle\n• Unterstützung bei der Analyse von Kundenanforderungen und technischen Herausforderungen\n• Konzeption von IT-Infrastruktur- und Managed-Service-Lösungen\n• Erstellung von Lösungskonzepten, Architekturdiagrammen und technischen Dokumentationen\n• Bearbeitung von Ausschreibungen und Angeboten (Design und Ausarbeitung der technischen Lösung, Preiskalkulation, Präsentation der Lösung bei unseren Kunden)\n• Beratung und Begleitung unserer Kunden bei ihren IT-Vorhaben und Strategien\n• Enge Zusammenarbeit mit Sales, Engineering, Service Delivery und Projektmanagement\n• Beobachtung neuer Technologien und Markttrends im Bereich Infrastruktur und Managed-Services\nDein Profil\n• Abgeschlossenes Studium der Informatik, Wirtschaftsinformatik oder vergleichbare Ausbildung\n• Erste Berufserfahrung im Bereich IT-Infrastruktur, System Engineering oder Consulting\n• Fundierte Kenntnisse in moderner Public-Cloud Technologien (z. B. Azure / Microsoft 365, Google, AWS) und deren Architekturprinzipien\n• Analytisches Denken, Problemlösungsfähigkeit und ein hoher Anspruch an Qualität und Innovation\n• Hohe Lernbereitschaft und Eigeninitiative\n• Ausgeprägte Kunden- und Serviceorientierung\n• Sehr gute Kommunikations- und Präsentationsskills in Deutsch (C1) und gute Englischkenntnisse\n• Teamfähigkeit und Freude an interdisziplinärer Zusammenarbeit\n• Selbstständige und zuverlässige Arbeitsweise sowie Bereitschaft zur stetigen Weiterbildung\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "description": "Du betreust komplexe Microsoft-Kundeninfrastrukturen und sorgst für einen sicheren, stabilen und effizienten Betrieb. Dabei bringst du dein Fachwissen in die Weiterentwicklung unserer IT-Systeme ein und arbeitest eng mit internen Stakeholdern und Kunden zusammen.\nFür unsere Standorte St. Gallen, St. Gallen-Winkeln, Kloten oder Bern suchen wir per 1. Oktober 2026 oder nach Vereinbarung eine engagierte Persönlichkeit als ICT System Engineer.\nDeine Rolle\n• Automatisieren von Abläufen ServiceNow (JavaScript) und Gitlab, Ansible AWX\n• Weiterentwicklung von Kundenumgebungen On-Premise- und Cloud-Umgebungen\n• Administration und Betrieb von Microsoft 365, Azure und Windows 11\n• Intune- und SCCM-Verwaltung zur Geräte- und Softwaresteuerung\n• Aufbau und Betreuung von Server Umgebungen\n• 2nd-/3rd-Level Support inkl. Incident- und Problem-Management\n• Betreuung von Windows-Serverdiensten (AD, DHCP, GPO, Printservice)\n• Integration neuer Kundenstandorte in die bestehende Infrastruktur\n• Mitarbeit in IT-Projekten zur Weiterentwicklung der Systemlandschaft\n• Umsetzung von Sicherheitsrichtlinien und Teilnahme am Pikettdienst\nDein Profil\n• Abgeschlossene Informatikausbildung oder vergleichbare Qualifikation (z. B. HF, FH, eidg. Fachausweis)\n• Powershell, JavaScript, Ansible\n• Fundierte Kenntnisse in Windows-Servern, Clients, M365 und Azure\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Freude an Kundenberatung und professionelles Auftreten\n• Fliessende Deutschkenntnisse in Wort und Schrift (C1-Level)\n• Bereitschaft zur Pikettverfügbarkeit und zur Arbeit in dynamischen Umgebungen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
       "descriptionByLocale": {
-        "it": "In qualità di Junior Solution Architect, supporterete lo sviluppo e il design delle moderne infrastrutture IT e delle soluzioni di servizio gestite per i nostri clienti nel settore pubblico. Insieme a esperti architetti di soluzioni, team di vendita e specialisti tecnici, analizzerai i requisiti del cliente, svilupperai soluzioni adeguate e accompagnerai l'intero processo di presales fino a quando non sarà consegnato all'organizzazione di consegna. La posizione offre un ingresso ideale nell'architettura della soluzione con chiare possibilità di sviluppo per diventare un Senior Solution Architect. Il tuo ruolo\n• Supporto nell'analisi dei requisiti dei clienti e delle sfide tecniche\n• Progettazione di infrastrutture IT e soluzioni di servizio gestite\n• Creazione di concetti di soluzione, diagrammi architettonici e documentazione tecnica\n• Elaborazione di offerte e offerte (design e sviluppo della soluzione tecnica, prezzi, presentazione della soluzione ai nostri clienti)\n• Consulenza e supporto ai nostri clienti nei loro progetti e strategie IT\n• stretta collaborazione con le vendite, l'ingegneria, la consegna dei servizi e la gestione dei progetti\n• Osservazione delle nuove tecnologie e delle tendenze del mercato nelle infrastrutture e nei servizi gestiti Il tuo profilo\n• Laurea completa in informatica, informatica aziendale o formazione comparabile\n• Prima esperienza professionale in infrastrutture IT, ingegneria del sistema o consulenza\n• Conoscenza approfondita delle moderne tecnologie cloud pubbliche (ad esempio Azure / Microsoft 365, Google, AWS) e dei loro principi architettonici\n• Pensiero analitico, capacità di problem solving e elevati standard di qualità e innovazione\n• Elevata volontà di imparare e di propria iniziativa\n• Forte orientamento al cliente e al servizio\n• Molto buone capacità di comunicazione e presentazione in tedesco (C1) e buona conoscenza dell'inglese\n• Lavoro di squadra e godimento della collaborazione interdisciplinare\n• Metodi di lavoro indipendenti e affidabili e prontezza per un'ulteriore formazione continua I tuoi vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti Manteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
-        "en": "As a Junior Solution Architect, you will support the development and design of modern IT infrastructure and managed service solutions for our customers in the public sector. Together with experienced solution architects, sales teams and technical specialists, you will analyze customer requirements, develop suitable solutions and accompany the entire presales process until it is handed over to the delivery organization. The position offers an ideal entry into the solution architecture with clear development possibilities towards becoming a Senior Solution Architect. Your role\n• Support in the analysis of customer requirements and technical challenges\n• Design of IT infrastructure and managed service solutions\n• Creation of solution concepts, architectural diagrams and technical documentation\n• Processing of tenders and offers (design and development of the technical solution, pricing, presentation of the solution to our customers)\n• Consulting and supporting our customers in their IT projects and strategies\n• Close cooperation with sales, engineering, service delivery and project management\n• Observation of new technologies and market trends in infrastructure and managed services Your profile\n• Completed degree in computer science, business informatics or comparable training\n• First professional experience in IT infrastructure, system engineering or consulting\n• In-depth knowledge of modern public cloud technologies (e.g. Azure / Microsoft 365, Google, AWS) and their architectural principles\n• Analytical thinking, problem-solving skills and high standards of quality and innovation\n• High willingness to learn and own initiative\n• Strong customer and service orientation\n• Very good communication and presentation skills in German (C1) and good knowledge of English\n• Teamwork and enjoyment of interdisciplinary collaboration\n• Independent and reliable working methods as well as readiness for continuous further education Your Benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees We maintain an open you culture – so feel free to send us your application directly in the you form.",
-        "de": "Als Junior Solution Architekt unterstützt du die Entwicklung und Gestaltung moderner IT-Infrastruktur- und Managed-Service-Lösungen für unsere Kunden im Public Sektor. Gemeinsam mit erfahrenen Solution Architekten, Sales-Teams und technischen Spezialisten analysierst du Kundenanforderungen, entwickelst passende Lösungsansätze und begleitest den gesamten Presales-Prozess bis zur Übergabe an die Delivery-Organisation. Die Position bietet einen idealen Einstieg in die Solution-Architektur mit klaren Entwicklungsmöglichkeiten hin zum Senior Solution Architekten.\nDeine Rolle\n• Unterstützung bei der Analyse von Kundenanforderungen und technischen Herausforderungen\n• Konzeption von IT-Infrastruktur- und Managed-Service-Lösungen\n• Erstellung von Lösungskonzepten, Architekturdiagrammen und technischen Dokumentationen\n• Bearbeitung von Ausschreibungen und Angeboten (Design und Ausarbeitung der technischen Lösung, Preiskalkulation, Präsentation der Lösung bei unseren Kunden)\n• Beratung und Begleitung unserer Kunden bei ihren IT-Vorhaben und Strategien\n• Enge Zusammenarbeit mit Sales, Engineering, Service Delivery und Projektmanagement\n• Beobachtung neuer Technologien und Markttrends im Bereich Infrastruktur und Managed-Services\nDein Profil\n• Abgeschlossenes Studium der Informatik, Wirtschaftsinformatik oder vergleichbare Ausbildung\n• Erste Berufserfahrung im Bereich IT-Infrastruktur, System Engineering oder Consulting\n• Fundierte Kenntnisse in moderner Public-Cloud Technologien (z. B. Azure / Microsoft 365, Google, AWS) und deren Architekturprinzipien\n• Analytisches Denken, Problemlösungsfähigkeit und ein hoher Anspruch an Qualität und Innovation\n• Hohe Lernbereitschaft und Eigeninitiative\n• Ausgeprägte Kunden- und Serviceorientierung\n• Sehr gute Kommunikations- und Präsentationsskills in Deutsch (C1) und gute Englischkenntnisse\n• Teamfähigkeit und Freude an interdisziplinärer Zusammenarbeit\n• Selbstständige und zuverlässige Arbeitsweise sowie Bereitschaft zur stetigen Weiterbildung\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "fr": "En tant qu'architecte de solutions junior, vous soutiendrez le développement et la conception d'infrastructures informatiques modernes et de solutions de services gérés pour nos clients du secteur public. Avec des architectes de solutions expérimentés, des équipes de vente et des spécialistes techniques, vous analyserez les besoins des clients, développerez des solutions appropriées et accompagnerez tout le processus de prévente jusqu'à ce qu'il soit remis à l'organisme de livraison. La position offre une entrée idéale dans l'architecture de la solution avec des possibilités de développement claires pour devenir un Senior Solution Architect. Votre rôle\n• Soutien à l'analyse des besoins des clients et des défis techniques\n• Conception de l'infrastructure informatique et des solutions de services gérés\n• Création de concepts de solutions, de schémas architecturaux et de documentation technique\n• Traitement des offres et des offres (conception et développement de la solution technique, tarification, présentation de la solution à nos clients)\n• Conseil et soutien de nos clients dans leurs projets et stratégies informatiques\n• Coopération étroite avec les ventes, l'ingénierie, la prestation de services et la gestion de projets\n• Observation des nouvelles technologies et des tendances du marché dans les infrastructures et les services gérés Votre profil\n• Diplômé en informatique, informatique des entreprises ou formation comparable\n• Première expérience professionnelle en infrastructure informatique, ingénierie de systèmes ou conseil\n• Connaissance approfondie des technologies modernes du cloud public (par exemple Azure / Microsoft 365, Google, AWS) et de leurs principes architecturaux\n• La réflexion analytique, les compétences en résolution de problèmes et les normes élevées de qualité et d'innovation\n• Haute volonté d'apprendre et d'initiative\n• Une forte orientation client et service\n• Très bonnes compétences en communication et présentation en allemand (C1) et bonne connaissance de l'anglais\n• Travail d'équipe et jouissance de la collaboration interdisciplinaire\n• Méthodes de travail indépendantes et fiables et préparation à une formation continue Vos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à 100% de formation financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés Nous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/junior-solution-architekt-80-100-9473",
-      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-22T11:36:11.659Z",
-      "needsRetranslation": false,
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9001",
-      "streetAddress": "St. Leonhard-Strasse 80",
-      "category": "IT / Infrastruttura",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "entry",
-      "sector": "IT / Informatica per la pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://apply.refline.ch/215876/2480/index.html?lang=de&cid=1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "215876-2480",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "previousSlugs": [
-        "junior-solution-architekt-80-100-abraxas-st-gallen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "junior-solution-architekt-80-100-abraxas-st-gallen"
-        ],
-        "en": [
-          "junior-solution-architekt-80-100-abraxas-st-gallen"
-        ],
-        "fr": [
-          "junior-solution-architekt-80-100-abraxas-st-gallen"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:00:01.925Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "abraxas-e311678c2f5d",
-      "slug": "ai-solution-consulente-80-100-abraxas-informatik-ag-bern",
-      "slugByLocale": {
-        "it": "ai-solution-consulente-80-100-abraxas-informatik-ag-bern",
-        "en": "ai-solution-consultant-80-100-abraxas-bern",
-        "de": "ai-solution-consultant-80-100-abraxas-bern",
-        "fr": "conseiller-en-solutions-ai-80-100-abraxas-informatik-ag-bern"
-      },
-      "company": "Abraxas Informatik AG",
-      "companyKey": "abraxas",
-      "companyDomain": "abraxas.ch",
-      "title": "AI Solution Consultant 80–100 %",
-      "titleByLocale": {
-        "it": "AI Solution Consulente 80–100 %",
-        "en": "AI Solution Consultant 80–100 %",
-        "de": "AI Solution Berater 80–100 %",
-        "fr": "Conseiller en solutions AI 80–100 %"
-      },
-      "description": "Künstliche Intelligenz bietet der öffentlichen Verwaltung neue Möglichkeiten, Dienstleistungen effizienter zu gestalten und Mitarbeitende gezielt zu entlasten. Damit aus Ideen konkrete Vorhaben werden, braucht es Menschen, die Bedürfnisse verstehen, strukturieren und gemeinsam mit Fachbereichen in umsetzbare Lösungen überführen.\nAls AI Solution Consultant begleitest du Organisationen der öffentlichen Verwaltung bei ihren ersten Schritten im KI-Umfeld – von der Identifikation relevanter Anwendungsfälle über die Konkretisierung von Anforderungen bis hin zur Vorbereitung von Projekten und deren Umsetzung. Du bewegst dich an der Schnittstelle zwischen Kunden, Vertrieb, Fachabteilungen und Delivery-Teams.\nDeine Rolle\n• Beratung von Gemeinden, Kantonen und weiteren Organisationen der öffentlichen Verwaltung bei Fragestellungen rund um KI und Digitalisierung\n• Aufnahme, Strukturierung und Konkretisierung von Kundenbedürfnissen sowie Unterstützung bei der Formulierung von Anforderungen und Zielbildern\n• Begleitung von Kunden bei der Identifikation, Priorisierung und Ausarbeitung von KI-Use-Cases\n• Durchführung von Workshops, Assessments und Ideation-Formaten zur Entwicklung konkreter Lösungsansätze\n• Unterstützung bei der Qualifizierung und Weiterentwicklung von Leads sowie Überführung von Opportunitäten in konkrete Projekte\n• Erarbeitung von Business Cases, Grobkonzepten, Entscheidungsgrundlagen und Entwicklung von kundenspezifischen Value Propositions\n• Erstellung von Angeboten, Leistungsbeschreibungen und Projektaufträgen\n• Aufbau von Methoden, Templates und Beratungsleistungen im Umfeld von KI für die öffentliche Verwaltung\nDein Profil\n• Hochschulabschluss in Wirtschaftsinformatik, Informatik oder einer vergleichbaren Fachrichtung sowie Weiterbildung im Bereich Artificial Intelligence, Data Science, Digitalisierung oder Innovation (z. B. CAS/MAS oder vergleichbar)\n• Mehrjährige Erfahrung im Consulting, Business Development oder in Digitalisierungsprojekten – idealerweise im Umfeld der öffentlichen Verwaltung\n• Ausgeprägtes Verständnis für die Herausforderungen und Rahmenbedingungen von Gemeinden, Kantonen und öffentlichen Institutionen\n• Erfahrung in der Bedürfnisanalyse sowie deren Strukturierung und der Überführung in konkrete Projektvorhaben\n• Nachweisbare praktische Erfahrung bei der Identifikation, Konzeption oder Einführung von KI-Lösungen, GenAI-Anwendungen, Daten- oder Automatisierungsvorhaben\n• Ausgeprägte Kommunikations- und Moderationskompetenz sowie Freude am Austausch mit Fachbereichen und Entscheidungsträgern\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie sehr gute Deutschkenntnisse (C1-Level) in Wort und Schrift\nDeine Benefits\n• Attraktive Entwicklungsperspektiven im Consulting und KI-Umfeld\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-      "descriptionByLocale": {
-        "it": "L'intelligenza artificiale offre all'amministrazione pubblica nuove opportunità per rendere i servizi più efficienti e per alleviare i dipendenti in modo mirato. Affinché le idee diventino progetti concreti, le persone sono necessarie per comprendere le necessità, strutturarle e convertirle in soluzioni possibili insieme a aree specializzate.\nIn qualità di consulente AI Solution, accompagni le organizzazioni di pubblica amministrazione nei loro primi passi nell'ambiente AI – dall'identificazione dei casi di utilizzo rilevanti alla concretizzazione dei requisiti alla preparazione dei progetti e alla loro attuazione. Si sposta all'interfaccia tra clienti, vendite, dipartimenti specializzati e team di consegna.\nIl tuo ruolo\n• Consultare i comuni, i Cantoni e altre organizzazioni di pubblica amministrazione su questioni relative all'AI e alla digitalizzazione\n• Registrazione, strutturazione e concretizzazione delle esigenze dei clienti e supporto nella formulazione di requisiti e immagini target\n• Assistere i clienti nell'identificazione, la priorità e lo sviluppo dei casi di utilizzo AI\n• Condurre workshop, valutazioni e formati di ideazione per sviluppare soluzioni concrete\n• Sostegno alla qualificazione e all'ulteriore sviluppo dei conducenti e al trasferimento di opportunità in progetti concreti\n• Sviluppo di casi di business, concetti grezzi, base decisionale e sviluppo di proposizioni di valore specifiche del cliente\n• Preparazione di gare, specifiche e contratti di progetto\n• Sviluppo di metodi, modelli e servizi di consulenza nel campo dell'AI per l'amministrazione pubblica\nIl tuo profilo\n• Laurea universitaria in informatica aziendale, informatica o una disciplina simile, nonché ulteriore formazione nel campo dell'intelligenza artificiale, della scienza dei dati, della digitalizzazione o dell'innovazione (ad esempio CAS/MAS o comparabile)\n• Diversi anni di esperienza nei progetti di consulenza, sviluppo aziendale o digitalizzazione – idealmente nel settore della pubblica amministrazione\n• Forte comprensione delle sfide e delle condizioni quadro dei comuni, dei Cantoni e delle istituzioni pubbliche\n• Esperienza nell'analisi delle esigenze e nella loro strutturazione e trasferimento in progetti concreti\n• Dimostrare esperienza pratica nell'identificazione, progettazione o implementazione di soluzioni AI, applicazioni GenAI, progetti di dati o automazione\n• Forte capacità di comunicazione e moderazione, nonché il godimento dello scambio con dipartimenti e decisori\n• Metodo di lavoro indipendente, strutturato e orientato alla soluzione, nonché buona conoscenza del tedesco (livello C1) in parola e scrittura\nI tuoi vantaggi\n• Prospettive di sviluppo attraenti nell'ambiente di consulenza e AI\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
-        "en": "Artificial intelligence offers public administration new opportunities to make services more efficient and to relieve employees in a targeted manner. In order for ideas to become concrete projects, people are needed who understand needs, structure them and convert them into feasible solutions together with specialist areas.\nAs an AI Solution Consultant, you accompany public administration organizations in their first steps in the AI environment – from the identification of relevant use cases to the concretization of requirements to the preparation of projects and their implementation. You move at the interface between customers, sales, specialist departments and delivery teams.\nYour role\n• Advising municipalities, cantons and other public administration organisations on issues related to AI and digitalisation\n• Recording, structuring and concretizing customer needs as well as support in the formulation of requirements and target images\n• Assisting customers in the identification, prioritization and development of AI use cases\n• Conducting workshops, assessments and ideation formats to develop concrete solutions\n• Support in the qualification and further development of leads as well as transfer of opportunities into concrete projects\n• Development of business cases, rough concepts, decision-making basis and development of customer-specific value propositions\n• Preparation of tenders, specifications and project contracts\n• Development of methods, templates and consulting services in the field of AI for public administration\nYour profile\n• University degree in business informatics, computer science or a similar discipline, as well as further education in the field of artificial intelligence, data science, digitization or innovation (e.g. CAS/MAS or comparable)\n• Several years of experience in consulting, business development or digitalization projects – ideally in the area of public administration\n• Strong understanding of the challenges and framework conditions of municipalities, cantons and public institutions\n• Experience in needs analysis as well as their structuring and transfer into concrete project projects\n• Demonstrate practical experience in the identification, design or implementation of AI solutions, GenAI applications, data or automation projects\n• Strong communication and moderation skills as well as enjoyment of exchange with departments and decision-makers\n• Independent, structured and solution-oriented working method as well as very good knowledge of German (C1 level) in word and writing\nYour Benefits\n• Attractive development prospects in the consulting and AI environment\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
-        "de": "Künstliche Intelligenz bietet der öffentlichen Verwaltung neue Möglichkeiten, Dienstleistungen effizienter zu gestalten und Mitarbeitende gezielt zu entlasten. Damit aus Ideen konkrete Vorhaben werden, braucht es Menschen, die Bedürfnisse verstehen, strukturieren und gemeinsam mit Fachbereichen in umsetzbare Lösungen überführen.\nAls AI Solution Consultant begleitest du Organisationen der öffentlichen Verwaltung bei ihren ersten Schritten im KI-Umfeld – von der Identifikation relevanter Anwendungsfälle über die Konkretisierung von Anforderungen bis hin zur Vorbereitung von Projekten und deren Umsetzung. Du bewegst dich an der Schnittstelle zwischen Kunden, Vertrieb, Fachabteilungen und Delivery-Teams.\nDeine Rolle\n• Beratung von Gemeinden, Kantonen und weiteren Organisationen der öffentlichen Verwaltung bei Fragestellungen rund um KI und Digitalisierung\n• Aufnahme, Strukturierung und Konkretisierung von Kundenbedürfnissen sowie Unterstützung bei der Formulierung von Anforderungen und Zielbildern\n• Begleitung von Kunden bei der Identifikation, Priorisierung und Ausarbeitung von KI-Use-Cases\n• Durchführung von Workshops, Assessments und Ideation-Formaten zur Entwicklung konkreter Lösungsansätze\n• Unterstützung bei der Qualifizierung und Weiterentwicklung von Leads sowie Überführung von Opportunitäten in konkrete Projekte\n• Erarbeitung von Business Cases, Grobkonzepten, Entscheidungsgrundlagen und Entwicklung von kundenspezifischen Value Propositions\n• Erstellung von Angeboten, Leistungsbeschreibungen und Projektaufträgen\n• Aufbau von Methoden, Templates und Beratungsleistungen im Umfeld von KI für die öffentliche Verwaltung\nDein Profil\n• Hochschulabschluss in Wirtschaftsinformatik, Informatik oder einer vergleichbaren Fachrichtung sowie Weiterbildung im Bereich Artificial Intelligence, Data Science, Digitalisierung oder Innovation (z. B. CAS/MAS oder vergleichbar)\n• Mehrjährige Erfahrung im Consulting, Business Development oder in Digitalisierungsprojekten – idealerweise im Umfeld der öffentlichen Verwaltung\n• Ausgeprägtes Verständnis für die Herausforderungen und Rahmenbedingungen von Gemeinden, Kantonen und öffentlichen Institutionen\n• Erfahrung in der Bedürfnisanalyse sowie deren Strukturierung und der Überführung in konkrete Projektvorhaben\n• Nachweisbare praktische Erfahrung bei der Identifikation, Konzeption oder Einführung von KI-Lösungen, GenAI-Anwendungen, Daten- oder Automatisierungsvorhaben\n• Ausgeprägte Kommunikations- und Moderationskompetenz sowie Freude am Austausch mit Fachbereichen und Entscheidungsträgern\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie sehr gute Deutschkenntnisse (C1-Level) in Wort und Schrift\nDeine Benefits\n• Attraktive Entwicklungsperspektiven im Consulting und KI-Umfeld\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "fr": "L'intelligence artificielle offre à l'administration publique de nouvelles occasions de rendre les services plus efficaces et de soulager les employés de façon ciblée. Pour que les idées deviennent des projets concrets, il faut des personnes qui comprennent les besoins, les structurent et les transforment en solutions réalisables avec des domaines spécialisés.\nEn tant que consultant en solutions d'IA, vous accompagnez les organismes d'administration publique dans leurs premières étapes dans l'environnement d'IA – de l'identification des cas d'utilisation pertinents à la concrétisation des exigences à la préparation des projets et leur mise en œuvre. Vous vous déplacez à l'interface entre les clients, les ventes, les départements spécialisés et les équipes de livraison.\nVotre rôle\n• Conseiller les municipalités, les cantons et les autres organisations de l'administration publique sur les questions liées à l'IA et à la numérisation\n• Enregistrement, structuration et concrétisation des besoins des clients ainsi que soutien dans la formulation des exigences et des images cibles\n• Aider les clients à identifier, hiérarchiser et développer les cas d'utilisation de l'IA\n• Organisation d ' ateliers, d ' évaluations et de formules d ' idées pour élaborer des solutions concrètes\n• Appui à la qualification et au développement des pistes ainsi qu'au transfert des opportunités vers des projets concrets\n• Développement d'analyses de rentabilisation, de concepts rudimentaires, de bases décisionnelles et de propositions de valeur spécifiques à la clientèle\n• Préparation des appels d'offres, des cahiers des charges et des contrats de projet\n• Élaboration de méthodes, modèles et services de conseil dans le domaine de l'IA pour l'administration publique\nVotre profil\n• Diplôme universitaire en informatique des affaires, en informatique ou dans une discipline similaire, ainsi que formation continue dans le domaine de l'intelligence artificielle, de la science des données, de la numérisation ou de l'innovation (p. ex. CAS/MAS ou comparable)\n• Plusieurs années d'expérience dans les projets de conseil, de développement d'entreprise ou de numérisation – idéalement dans le domaine de l'administration publique\n• Meilleure compréhension des défis et des conditions-cadres des municipalités, des cantons et des institutions publiques\n• Expérience de l'analyse des besoins ainsi que de leur structuration et de leur transfert dans des projets concrets\n• Démontrer une expérience pratique dans l'identification, la conception ou la mise en œuvre de solutions AI, applications GenAI, projets de données ou d'automatisation\n• Des compétences solides en communication et en modération ainsi qu'en échange avec les ministères et les décideurs\n• Méthode de travail indépendante, structurée et orientée vers la solution ainsi que très bonne connaissance de l'allemand (niveau C1) en paroles et en écriture\nVos avantages\n• Perspectives de développement attractives dans l'environnement de conseil et d'IA\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à 100% de formation financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
+        "it": "Gestisci complesse infrastrutture dei clienti Microsoft e assicurati operazioni sicure, stabili ed efficienti. Contribuirai la tua esperienza all'ulteriore sviluppo dei nostri sistemi IT e lavorerai a stretto contatto con gli stakeholder e i clienti interni. Per le nostre posizioni St. Gallen, St. Gallen angoli, Kloten o Berna stiamo cercando 1. Ottobre 2026 o su appuntamento una personalità dedicata come ICT System Engineer. Il tuo ruolo\n• Automazione di ServiceNow (JavaScript) e Gitlab, Ansible AWX\n• Ulteriore sviluppo degli ambienti dei clienti in ambienti cloud e on-premise\n• Amministrazione e funzionamento di Microsoft 365, Azure e Windows 11\n• Gestione intune e SCCM per il controllo di dispositivi e software\n• Creazione e manutenzione di ambienti server\n• Sostegno di livello 2nd/3rd incl. Gestione degli infortuni e dei problemi\n• Supporto dei servizi server Windows (AD, DHCP, GPO, Printservice)\n• Integrazione di nuove sedi dei clienti nell'infrastruttura esistente\n• Collaborazione in progetti IT per l'ulteriore sviluppo del paesaggio del sistema\n• Attuazione delle politiche di sicurezza e partecipazione al Pikettdienst Il tuo profilo\n• Formazione informatica completata o qualificazione comparabile (ad esempio HF, FH, certificato professionale federale)\n• Powershell, JavaScript, Ansible\n• Conoscenza approfondita di server Windows, client, M365 e Azure\n• Rapida comprensione e grande disponibilità ad imparare\n• Divertimento di consulenza clienti e aspetto professionale\n• Capacità tedesche fluide nella parola e nella scrittura (livello C1)\n• Prontezza al lavoro in ambienti dinamici I tuoi vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti Manteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
+        "en": "You manage complex Microsoft customer infrastructures and ensure secure, stable and efficient operations. You will contribute your expertise to the further development of our IT systems and work closely with internal stakeholders and customers. For our locations St. Gallen, St. Gallen angles, Kloten or Bern we are looking for 1. October 2026 or by appointment a dedicated personality as ICT System Engineer. Your role\n• Automating ServiceNow (JavaScript) and Gitlab, Ansible AWX\n• Further development of customer environments on-premise and cloud environments\n• Administration and operation of Microsoft 365, Azure and Windows 11\n• Intune and SCCM management for device and software control\n• Establishment and maintenance of server environments\n• 2nd/3rd level support incl. Incident and problem management\n• Support of Windows server services (AD, DHCP, GPO, Printservice)\n• Integration of new customer locations into the existing infrastructure\n• Collaboration in IT projects for the further development of the system landscape\n• Implementation of security policies and participation in the Pikettdienst Your profile\n• Completed computer science training or comparable qualification (e.g. HF, FH, Federal Professional Certificate)\n• Powershell, JavaScript, Ansible\n• In-depth knowledge of Windows servers, clients, M365 and Azure\n• Rapid comprehension and a high willingness to learn\n• Enjoyment of customer advice and professional appearance\n• Fluent German skills in word and writing (C1 level)\n• Readiness to work in dynamic environments Your Benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees We maintain an open you culture – so feel free to send us your application directly in the you form.",
+        "de": "Du betreust komplexe Microsoft-Kundeninfrastrukturen und sorgst für einen sicheren, stabilen und effizienten Betrieb. Dabei bringst du dein Fachwissen in die Weiterentwicklung unserer IT-Systeme ein und arbeitest eng mit internen Stakeholdern und Kunden zusammen.\nFür unsere Standorte St. Gallen, St. Gallen-Winkeln, Kloten oder Bern suchen wir per 1. Oktober 2026 oder nach Vereinbarung eine engagierte Persönlichkeit als ICT System Engineer.\nDeine Rolle\n• Automatisieren von Abläufen ServiceNow (JavaScript) und Gitlab, Ansible AWX\n• Weiterentwicklung von Kundenumgebungen On-Premise- und Cloud-Umgebungen\n• Administration und Betrieb von Microsoft 365, Azure und Windows 11\n• Intune- und SCCM-Verwaltung zur Geräte- und Softwaresteuerung\n• Aufbau und Betreuung von Server Umgebungen\n• 2nd-/3rd-Level Support inkl. Incident- und Problem-Management\n• Betreuung von Windows-Serverdiensten (AD, DHCP, GPO, Printservice)\n• Integration neuer Kundenstandorte in die bestehende Infrastruktur\n• Mitarbeit in IT-Projekten zur Weiterentwicklung der Systemlandschaft\n• Umsetzung von Sicherheitsrichtlinien und Teilnahme am Pikettdienst\nDein Profil\n• Abgeschlossene Informatikausbildung oder vergleichbare Qualifikation (z. B. HF, FH, eidg. Fachausweis)\n• Powershell, JavaScript, Ansible\n• Fundierte Kenntnisse in Windows-Servern, Clients, M365 und Azure\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Freude an Kundenberatung und professionelles Auftreten\n• Fliessende Deutschkenntnisse in Wort und Schrift (C1-Level)\n• Bereitschaft zur Pikettverfügbarkeit und zur Arbeit in dynamischen Umgebungen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "fr": "Vous gérez des infrastructures clientes complexes de Microsoft et assurez des opérations sûres, stables et efficaces. Vous apporterez votre expertise au développement de nos systèmes informatiques et travaillerez en étroite collaboration avec les intervenants internes et les clients. Pour nos emplacements St. Gallen, St. Gallen angles, Kloten ou Berne nous cherchons 1. Octobre 2026 ou sur rendez-vous une personnalité dédiée en tant qu'ingénieur système TIC. Votre rôle\n• Service d'automatisationNow (JavaScript) et Gitlab, Ansible AWX\n• Poursuite du développement des environnements client sur site et cloud\n• Administration et fonctionnement de Microsoft 365, Azure et Windows 11\n• Gestion Intune et SCCM pour le contrôle des appareils et logiciels\n• Création et maintenance d'environnements serveurs\n• Support 2ème/3ème niveau incl. Gestion des incidents et des problèmes\n• Prise en charge des services de serveur Windows (AD, DHCP, GPO, Printservice)\n• Intégration de nouveaux emplacements clients dans l'infrastructure existante\n• Collaboration à des projets informatiques pour le développement du paysage système\n• Mise en œuvre des politiques de sécurité et participation au Pikettdienst Votre profil\n• Formation en informatique terminée ou qualification comparable (p. ex. HF, FH, certificat professionnel fédéral)\n• Powershell, JavaScript, Ansible\n• Connaissance approfondie des serveurs Windows, clients, M365 et Azure\n• Compréhension rapide et grande volonté d'apprendre\n• Appréciation des conseils clients et de l'apparence professionnelle\n• Compétences linguistiques en allemand (niveau C1)\n• Disponibilité au travail dans des environnements dynamiques Vos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à 100% de formation financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés Nous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
       },
       "location": "Bern",
       "canton": "BE",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ai-solution-consultant-80-100-9539",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-80-100-3625",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T11:36:07.356Z",
+      "crawledAt": "2026-07-23T11:34:02.952Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3000",
       "streetAddress": "",
-      "category": "IT / Sviluppo software",
+      "category": "IT / Infrastruttura",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-16",
-      "applyUrl": "https://apply.refline.ch/215876/2499/index.html?lang=de&cid=1",
+      "postedDate": "2026-07-04",
+      "applyUrl": "https://apply.refline.ch/215876/2485/index.html?lang=de&cid=1",
       "requirements": [],
       "requirementsByLocale": {},
-      "externalId": "215876-2499",
-      "pensumMin": 80,
+      "externalId": "215876-2485",
+      "pensumMin": 100,
       "pensumMax": 100,
-      "pensum": "80 - 100%",
+      "pensum": "100%",
       "previousSlugs": [
-        "ai-solution-consultant-80-100-abraxas-bern"
+        "ict-system-engineer-80-100-abraxas-bern",
+        "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern",
+        "system-engineer-devops-deutsch-80-100-abraxas-bern",
+        "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern",
+        "ict-system-ingegnere-80-100-abraxas-informatik-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-solution-consultant-80-100-abraxas-bern"
+          "ict-system-engineer-80-100-abraxas-bern",
+          "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern",
+          "system-engineer-devops-deutsch-80-100-abraxas-bern",
+          "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern",
+          "ict-system-ingegnere-80-100-abraxas-informatik-ag-bern"
+        ],
+        "de": [
+          "system-engineer-devops-deutsch-80-100-abraxas-bern"
+        ],
+        "fr": [
+          "ict-system-engineer-80-100-abraxas-bern",
+          "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern"
         ]
       },
-      "firstSeenAt": "2026-07-16T12:12:13.650Z",
+      "firstSeenAt": "2026-07-04T10:00:00.855Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2237,7 +2316,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     }
   ]
 }
