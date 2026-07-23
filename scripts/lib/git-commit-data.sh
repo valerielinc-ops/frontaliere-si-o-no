@@ -230,20 +230,27 @@ expand_path_to_files() {
   local normalized_path="${raw_path%/}"
 
   if [[ "$raw_path" == */ ]] || [[ -d "$normalized_path" ]]; then
-    # Include tracked files from git index/history (works even if some files
-    # are not currently present in working tree).
-    while IFS= read -r tracked; do
-      [ -n "$tracked" ] || continue
-      append_resolved_file "$tracked"
-    done < <(git ls-files "$normalized_path" 2>/dev/null || true)
+    # Only files that actually differ from HEAD (modified/staged) or are new
+    # (untracked) belong here — an unmodified tracked file is already
+    # identical on origin/main, so re-hashing/re-snapshotting it changes
+    # nothing (the grouped-isolated path below seeds its private index
+    # straight from origin/main via `read-tree`; unmentioned files stay as-is
+    # by construction). Walking EVERY tracked+local file in a large shared
+    # directory (e.g. data/jobs/by-crawler/, 500+ files) via `git ls-files` +
+    # `find` — on every one of up to MAX_PUSH_ATTEMPTS retries under push
+    # contention — is pure waste for callers whose EXTRA_PATHS never touch
+    # these directories at all (sync-gsc-orphans.mjs only writes its own
+    # orphan-specific files: each retry cycle still paid ~2.5min hashing
+    # ~1850 untouched files, blowing the 30min job budget, issue #4698).
+    while IFS= read -r changed; do
+      [ -n "$changed" ] || continue
+      append_resolved_file "$changed"
+    done < <(git diff --name-only HEAD -- "$normalized_path" 2>/dev/null || true)
 
-    # Include local untracked/generated files currently present in the folder.
-    if [[ -d "$normalized_path" ]]; then
-      while IFS= read -r local_file; do
-        [ -n "$local_file" ] || continue
-        append_resolved_file "$local_file"
-      done < <(find "$normalized_path" -type f 2>/dev/null || true)
-    fi
+    while IFS= read -r untracked; do
+      [ -n "$untracked" ] || continue
+      append_resolved_file "$untracked"
+    done < <(git ls-files --others --exclude-standard "$normalized_path" 2>/dev/null || true)
     return 0
   fi
 
