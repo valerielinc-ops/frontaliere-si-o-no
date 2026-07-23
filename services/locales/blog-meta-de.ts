@@ -8880,6 +8880,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieripendolarismo-2025-ticino-lombardia.title': 'Frontalieri, hier leben sie: der Sprung in zehn Jahren Brianza',
     'blog.article.frontalieripendolarismo-2025-ticino-lombardia.excerpt': 'Die Zahl der Grenzgänger aus der Lombardei stieg um 16%',
     'blog.article.frontalieripendolarismo-2025-ticino-lombardia.imageAlt': 'Bild eines Pendlers, der die Grenze zwischen Italien und der Schweiz überschreitet',
+    'blog.article.frontaliere-cuoco-ticino-stipendio-requisiti.title': 'Grenzköchin im Tessin: Gehalt, Voraussetzungen und Anerkennung',
+    'blog.article.frontaliere-cuoco-ticino-stipendio-requisiti.excerpt': 'Kennen Sie die Anforderungen und Löhne der Köche im Tessin für Grenzgänger.',
+    'blog.article.frontaliere-cuoco-ticino-stipendio-requisiti.imageAlt': 'Ein Grenzgänger Küchenchef arbeitet in einer Küche in Locarno',
 };
 
 export default blogMetaDe;

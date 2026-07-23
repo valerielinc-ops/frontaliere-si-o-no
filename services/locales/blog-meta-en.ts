@@ -8881,6 +8881,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieripendolarismo-2025-ticino-lombardia.title': 'Frontiersmen, this is where they live: the leap in ten years of Brianza',
     'blog.article.frontalieripendolarismo-2025-ticino-lombardia.excerpt': 'The number of frontier workers from Lombardy increased by 16%',
     'blog.article.frontalieripendolarismo-2025-ticino-lombardia.imageAlt': 'Image of a commuter crossing the border between Italy and Switzerland',
+    'blog.article.frontaliere-cuoco-ticino-stipendio-requisiti.title': 'Border chef in Ticino: salary, requirements and recognition',
+    'blog.article.frontaliere-cuoco-ticino-stipendio-requisiti.excerpt': 'Know what are the requirements and salaries of chefs in Ticino for border workers.',
+    'blog.article.frontaliere-cuoco-ticino-stipendio-requisiti.imageAlt': 'A cross-border chef works in a kitchen in Locarno',
 };
 
 export default blogMetaEn;
