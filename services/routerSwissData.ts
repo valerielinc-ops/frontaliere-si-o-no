@@ -516,6 +516,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontalieri-rallentamento-ticino-crescita-grigioni': { it: 'frontalieri-rallentamento-ticino-crescita-grigioni', en: 'frontalieri-rallentamento-ticino-crescita-grigioni', de: 'frontalier-rueckgang-ticino-zuwachs-grigioni', fr: 'frontaliers-recul-ticino-croissance-grigioni' },
  'alta-volont-di-scambio-per-la-borsa-svizzera': { it: 'alta-volont-di-scambio-per-la-borsa-svizzera', en: 'high-volumes-of-trading-for-the-swiss-stock-exchange', de: 'hohe-handelsvolumina-fur-die-borse-zurich', fr: 'hautes-quantites-dechangees-pour-l-echange-suisse' },
  'lavori-tilo-chi-cambia': { it: 'lavori-tilo-chi-cambia', en: 'tilo-works-what-changes', de: 'tilo-arbeiten-was-andert', fr: 'travaux-tilo-quels-changements' },
+ 'dazi-usa-svizzera-luglio-2026': { it: 'dazi-usa-svizzera-luglio-2026', en: 'usa-tariffs-switzerland-july-2026', de: 'usa-zolle-schweiz-juli-2026', fr: 'droits-douane-usa-suisse-juillet-2026' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -1480,6 +1480,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lavori-tilo-chi-cambia.title': 'Infrastructure work, here\'s what\'s changing for the lime trees',
     'blog.article.lavori-tilo-chi-cambia.excerpt': 'Changes to rail traffic for infrastructure work will affect several TILO connections between the end of July and August 2026.',
     'blog.article.lavori-tilo-chi-cambia.imageAlt': 'Tilo train at Lugano with construction signs',
+    'blog.article.dazi-usa-svizzera-luglio-2026.title': 'US Duties: the point on tariffs for Switzerland',
+    'blog.article.dazi-usa-svizzera-luglio-2026.excerpt': 'The 150 days of the US rate at 10% expires. Bern monitors uncertainty over duties and allegations of forced labor. Here is the economic scenario.',
+    'blog.article.dazi-usa-svizzera-luglio-2026.imageAlt': 'Federal Palace in Bern on a summer day',
 };
 
 export default blogMetaChEn;

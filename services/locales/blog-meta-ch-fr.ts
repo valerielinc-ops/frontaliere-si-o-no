@@ -1480,6 +1480,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lavori-tilo-chi-cambia.title': 'Vous travaillez sur l\'infrastructure, voici ce qui change pour les TILO',
     'blog.article.lavori-tilo-chi-cambia.excerpt': 'Des modifications à la circulation ferroviaire pour des travaux d\'infrastructure affecteront PLUSIEURS liaisons TILO entre fin juillet et août 2026.',
     'blog.article.lavori-tilo-chi-cambia.imageAlt': 'Le train Tilo à Lugano avec les panneaux de chantier',
+    'blog.article.dazi-usa-svizzera-luglio-2026.title': 'Droits US : le point sur les tarifs pour la Suisse',
+    'blog.article.dazi-usa-svizzera-luglio-2026.excerpt': 'À l\'expiration des 150 jours du tarif américain à 10 %. Berne surveille l\'incertitude sur les droits de douane et les accusations de travail forcé. Voici le scénario économique.',
+    'blog.article.dazi-usa-svizzera-luglio-2026.imageAlt': 'Palais fédéral à Berne par une journée d\'été',
 };
 
 export default blogMetaChFr;
