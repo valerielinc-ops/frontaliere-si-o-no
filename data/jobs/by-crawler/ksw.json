@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksw",
-  "assembledAt": "2026-07-23T11:17:07.443Z",
+  "assembledAt": "2026-07-23T10:26:33.027Z",
   "jobs": [
     {
       "id": "ksw-67d0a4e982b5",
@@ -2067,7 +2067,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4033629",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:16:57.449Z",
+      "crawledAt": "2026-07-22T22:16:41.883Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2087,18 +2087,29 @@
       "department": "Zentrum für Kinder- und Jugendmedizin",
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-imc-padiatrie-ksw-ch",
-        "specialista-di-allattamento-imc-pediatrics-kantonsspital-winterthur-ksw-winterthur"
+        "specialista-infermieristica-specialista-in-allattamento-imc-lindberg-kantonsspital-winterthur-ksw-winterthur",
+        "nursing-specialist-nursing-specialist-imc-lindberg-kantonsspital-winterthur-ksw-winterthur",
+        "pflegefachfrau-pflegefachmann-imc-lindberg-ksw-ch",
+        "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-imc-lindberg-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-imc-padiatrie-ksw-ch",
-          "specialista-di-allattamento-imc-pediatrics-kantonsspital-winterthur-ksw-winterthur"
+          "specialista-infermieristica-specialista-in-allattamento-imc-lindberg-kantonsspital-winterthur-ksw-winterthur",
+          "nursing-specialist-nursing-specialist-imc-lindberg-kantonsspital-winterthur-ksw-winterthur",
+          "pflegefachfrau-pflegefachmann-imc-lindberg-ksw-ch",
+          "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-imc-lindberg-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
-          "pflegefachfrau-pflegefachmann-imc-padiatrie-ksw-ch"
+          "pflegefachfrau-pflegefachmann-imc-padiatrie-ksw-ch",
+          "nursing-specialist-nursing-specialist-imc-lindberg-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
-          "pflegefachfrau-pflegefachmann-imc-padiatrie-ksw-ch"
+          "pflegefachfrau-pflegefachmann-imc-padiatrie-ksw-ch",
+          "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-imc-lindberg-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "de": [
+          "pflegefachfrau-pflegefachmann-imc-lindberg-ksw-ch"
         ]
       },
       "firstSeenAt": "2026-07-07T11:57:14.448Z",

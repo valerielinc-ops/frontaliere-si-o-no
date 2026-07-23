@@ -2251,8 +2251,8 @@
       "id": "hess-carrosserie-3c26c2d49943",
       "slug": "inbetriebnahmespezialist-hot-commissioning-80-100-m-w-d-hess-bellach",
       "slugByLocale": {
-        "it": "inbetriebnahmespezialist-hot-commissioning-80-100-m-w-d-hess-bellach",
         "en": "inbetriebnahmespezialist-hot-commissioning-80-100-m-w-d-hess-bellach",
+        "it": "inbetriebnahmespezialist-hot-commissioning-80-100-m-w-d-hess-bellach",
         "de": "inbetriebnahmespezialist-hot-commissioning-80-100-m-w-d-hess-bellach",
         "fr": "inbetriebnahmespezialist-hot-commissioning-80-100-m-w-d-hess-bellach"
       },
@@ -2261,24 +2261,24 @@
       "companyDomain": "hess-ag.ch",
       "title": "Inbetriebnahmespezialist \"Hot Commissioning\" 80-100% (m/w/d)",
       "titleByLocale": {
-        "it": "Inbetriebnahmespezialist \"Hot Commissioning\" 80-100% (m/w/d)",
         "en": "Inbetriebnahmespezialist \"Hot Commissioning\" 80-100% (m/w/d)",
-        "de": "Inbetriebnahmespezialist \"Hot Commissioning\" 80-100% (m/w/d)",
-        "fr": "Inbetriebnahmespezialist \"Hot Commissioning\" 80-100% (m/w/d)"
+        "it": "Inbetriebnahmespe cerc\" 80-100% (m/p/d)",
+        "de": "ISSION \"Hot Inbetriebsetzung\" 80-100 % (m/w/d)",
+        "fr": "Spécialiste de mise en service \"Hot Commissioning\" 80-100% (h/f/d)"
       },
       "description": "Inbetriebnahmespezialist \"Hot Commissioning\" 80-100% (m/w/d) bei Carrosserie HESS AG in Bellach. HESS ist der Schweizer Pionier im Fahrzeugbau (Bus- und Nutzfahrzeugbau) mit Sitz in Bellach (SO).",
       "descriptionByLocale": {
-        "it": "Inbetriebnahmespezialist \"Hot Commissioning\" 80-100% (m/w/d) bei Carrosserie HESS AG in Bellach. HESS ist der Schweizer Pionier im Fahrzeugbau (Bus- und Nutzfahrzeugbau) mit Sitz in Bellach (SO).",
-        "en": "Inbetriebnahmespezialist \"Hot Commissioning\" 80-100% (m/w/d) bei Carrosserie HESS AG in Bellach. HESS ist der Schweizer Pionier im Fahrzeugbau (Bus- und Nutzfahrzeugbau) mit Sitz in Bellach (SO).",
-        "de": "Inbetriebnahmespezialist \"Hot Commissioning\" 80-100% (m/w/d) bei Carrosserie HESS AG in Bellach. HESS ist der Schweizer Pionier im Fahrzeugbau (Bus- und Nutzfahrzeugbau) mit Sitz in Bellach (SO).",
-        "fr": "Inbetriebnahmespezialist \"Hot Commissioning\" 80-100% (m/w/d) bei Carrosserie HESS AG à Bellach. HESS ist der Schweizer Pionier im Fahrzeugbau (Bus- und Nutzfahrzeugbau) mit Sitz à Bellach (SO)."
+        "en": "Description - Inbetriebnahmespetialist \"Hot Commissioning\" 80-100% (m/w/d) bei Carrosseriese HESS AG in Bellach. - HESS ist der Schwezer Pionier im Fahrzeugbau (Bus- und Nutzfahrzeugbau) mit Sitz in Bellach (SO).",
+        "it": "Descrizione\n- Inbetriebnahmespezialist \"Hot Commissioning\" 80-100% (m/w/d) bei Carrosserie HESS AG in Bellach.\n- HESS ist der Schweizer Pionier im Fahrzeugbau (Bus- und Nutzfahrzeugbau) mit Sitz in Bellach (SO).",
+        "de": "Beschreibung -Visionspetialist \"Hot Commissioning\" 80-100% (m/w/d) mit Carrosseriese HESS AG in Bellach. - HESS ist der Schwezer Pionier im Fahrzeugbau (Bus- und39bau) mit Sitz in Bellach (SO).",
+        "fr": "Description - Inbetriebnahmespetialiste \"Hot Commissioning\" 80-100% (m/w/d) bei Carrosseriese HESS AG à Bellach. - HESS ist der Schwezer Pionier im Fahrzeugbau (Bus- und Nutzfahrzeugbau) mit Sitz à Bellach (SO)."
       },
       "location": "Bellach",
       "canton": "SO",
       "url": "https://jobs.hess-ag.ch/publication/inbetriebnahmespezialist-hot-commissioning/cuwbzf30l5dbo0dpvywcpzrme217y1wyimkprryrzyuf7ts3zqfruz47lfbq2lze",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-23T12:29:02.031Z",
+      "crawledAt": "2026-07-22T22:27:14.941Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -2296,10 +2296,10 @@
       "applyUrl": "https://jobs.hess-ag.ch/publication/inbetriebnahmespezialist-hot-commissioning/cuwbzf30l5dbo0dpvywcpzrme217y1wyimkprryrzyuf7ts3zqfruz47lfbq2lze",
       "jobReqId": "78935",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "en": []
+      },
       "department": "Reparatur und Service",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-22T22:27:14.941Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2311,7 +2311,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-22T22:27:14.941Z"
     },
     {
       "id": "hess-carrosserie-1b14428a7477",

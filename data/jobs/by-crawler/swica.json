@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swica",
-  "assembledAt": "2026-07-23T11:56:04.285Z",
+  "assembledAt": "2026-07-23T10:51:58.023Z",
   "jobs": [
     {
       "id": "swica-acab7cc332c2",
@@ -438,7 +438,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-fallmanagement-krankentaggeld-alle/89735a66-1b63-4240-87d7-cff574aa1984",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:55:43.283Z",
+      "crawledAt": "2026-07-22T22:29:38.072Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -458,18 +458,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-fallmanagement-krankentaggeld-alle-swica-winterthur",
-        "indennita-di-malattia-di-gestione-tutti-swica-gesundheitsorganisation-winterthur"
+        "indennita-di-malattia-di-gestione-tutti-swica-gesundheitsorganisation-winterthur",
+        "team-leader-case-management-tutti-swica-gesundheitsorganisation-winterthur",
+        "team-leader-case-management-all-swica-gesundheitsorganisation-winterthur",
+        "teamleiter-fallmanagement-alle-swica-winterthur",
+        "chef-d-equipe-gestion-des-cas-tous-swica-gesundheitsorganisation-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-fallmanagement-krankentaggeld-alle-swica-winterthur",
-          "indennita-di-malattia-di-gestione-tutti-swica-gesundheitsorganisation-winterthur"
+          "indennita-di-malattia-di-gestione-tutti-swica-gesundheitsorganisation-winterthur",
+          "team-leader-case-management-tutti-swica-gesundheitsorganisation-winterthur",
+          "team-leader-case-management-all-swica-gesundheitsorganisation-winterthur",
+          "teamleiter-fallmanagement-alle-swica-winterthur",
+          "chef-d-equipe-gestion-des-cas-tous-swica-gesundheitsorganisation-winterthur"
         ],
         "en": [
-          "sachbearbeiter-fallmanagement-krankentaggeld-alle-swica-winterthur"
+          "sachbearbeiter-fallmanagement-krankentaggeld-alle-swica-winterthur",
+          "team-leader-case-management-all-swica-gesundheitsorganisation-winterthur"
         ],
         "fr": [
-          "sachbearbeiter-fallmanagement-krankentaggeld-alle-swica-winterthur"
+          "sachbearbeiter-fallmanagement-krankentaggeld-alle-swica-winterthur",
+          "chef-d-equipe-gestion-des-cas-tous-swica-gesundheitsorganisation-winterthur"
+        ],
+        "de": [
+          "teamleiter-fallmanagement-alle-swica-winterthur"
         ]
       },
       "firstSeenAt": "2026-07-04T12:28:43.931Z",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stiftung-diaconis",
-  "assembledAt": "2026-07-23T11:49:04.664Z",
+  "assembledAt": "2026-07-23T10:51:01.010Z",
   "jobs": [
     {
       "id": "stiftung-diaconis-169",
@@ -435,7 +435,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_135/Mitarbeiter-in-Pflege-DPC-40-90-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:48:58.982Z",
+      "crawledAt": "2026-07-22T22:06:00.993Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -457,7 +457,10 @@
         "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern",
         "cura-dei-dipendenti-dpc-60-stiftung-diaconis-bern",
         "collaboratore-trice-pflege-dpc-40-90-stiftung-diaconis-bern",
-        "collaboratore-trice-pflege-dpc-60-stiftung-diaconis-bern"
+        "collaboratore-trice-pflege-nachtdienst-80-100-stiftung-diaconis-bern",
+        "night-care-assistant-80-100-stiftung-diaconis-bern",
+        "mitarbeiter-in-pflege-nachtdienst-80-100-stiftung-diaconis-bern",
+        "infirmier-e-de-nuit-80-100-stiftung-diaconis-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -465,18 +468,24 @@
           "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern",
           "cura-dei-dipendenti-dpc-60-stiftung-diaconis-bern",
           "collaboratore-trice-pflege-dpc-40-90-stiftung-diaconis-bern",
-          "collaboratore-trice-pflege-dpc-60-stiftung-diaconis-bern"
+          "collaboratore-trice-pflege-nachtdienst-80-100-stiftung-diaconis-bern",
+          "night-care-assistant-80-100-stiftung-diaconis-bern",
+          "mitarbeiter-in-pflege-nachtdienst-80-100-stiftung-diaconis-bern",
+          "infirmier-e-de-nuit-80-100-stiftung-diaconis-bern"
         ],
         "en": [
           "mitarbeiter-in-pflege-dpc-40-90-stiftung-diaconis-bern",
-          "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern"
+          "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern",
+          "night-care-assistant-80-100-stiftung-diaconis-bern"
         ],
         "de": [
-          "mitarbeiter-in-pflege-dpc-40-90-stiftung-diaconis-bern"
+          "mitarbeiter-in-pflege-dpc-40-90-stiftung-diaconis-bern",
+          "mitarbeiter-in-pflege-nachtdienst-80-100-stiftung-diaconis-bern"
         ],
         "fr": [
           "mitarbeiter-in-pflege-dpc-40-90-stiftung-diaconis-bern",
-          "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern"
+          "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern",
+          "infirmier-e-de-nuit-80-100-stiftung-diaconis-bern"
         ]
       },
       "firstSeenAt": "2026-07-16T11:07:24.244Z",
