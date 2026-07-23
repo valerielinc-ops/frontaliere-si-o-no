@@ -1,19 +1,21 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-07-22T22:05:28.768Z",
-  "total": 8,
+  "generatedAt": "2026-07-23T11:16:53.985Z",
+  "total": 11,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 36046,
-  "avgDurationMs": 36046,
+  "unchangedCount": 1,
+  "durationMs": 41696,
+  "avgDurationMs": 41696,
   "durationHistory": [
-    36046
+    41696
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spital-zollikerberg-da98be0e31fa",
       "slug": "dipl-expertin-dipl-experte-intensivpflege-wir-konnen-beatmung-e-gute-stimmung-spital-zollikerberg",
@@ -44,7 +46,7 @@
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -53,7 +55,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
