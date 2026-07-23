@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3458,
+ "numberOfItems": 3459,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8226,7 +8226,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3455, "name": "Ticino: orari di lavoro anticipati per l'allert...", "url": `${BASE_URL}/articoli-frontaliere/anticipo-orari-lavoro-canicola-ticino` },
           { "@type": "ListItem", "position": 3456, "name": "Frontalieri in Svizzera: i dati aggiornati del ...", "url": `${BASE_URL}/articoli-frontaliere/evoluzione-frontalieri-dati-ust` },
           { "@type": "ListItem", "position": 3457, "name": "Richiesta nuovo permesso per frontalieri (G) - ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-permessi-g` },
-          { "@type": "ListItem", "position": 3458, "name": "Terzo pilastro 3a svizzero: vantaggi 2026 nel C...", "url": `${BASE_URL}/articoli-frontaliere/terzo-pilastro-3a-vantaggi-2026-canton-san-gallo` }
+          { "@type": "ListItem", "position": 3458, "name": "Terzo pilastro 3a svizzero: vantaggi 2026 nel C...", "url": `${BASE_URL}/articoli-frontaliere/terzo-pilastro-3a-vantaggi-2026-canton-san-gallo` },
+          { "@type": "ListItem", "position": 3459, "name": "Sempre meno frontalieri in Ticino: calo lieve m...", "url": `${BASE_URL}/articoli-frontaliere/sempre-meno-frontalieri-ticino-calof-lievelie` }
  ]
  },
  {

@@ -26621,6 +26621,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sempre-meno-frontalieri-ticino-calof-lievelie',
+ category: 'fiscale',
+ date: '2026-07-23T04:20:56.246Z',
+ image: '/images/blog/sempre-meno-frontalieri-ticino-calof-lievelie.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
