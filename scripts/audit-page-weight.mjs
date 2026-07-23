@@ -19,6 +19,7 @@ import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
+import { HEALTH_FACILITIES_SECTION_RX } from './lib/healthFacilitiesSections.mjs';
 import { insertBounded } from './lib/boundedTopN.mjs';
 
 // 215 KB cap (was 200 KB). The TI job-board landing
@@ -84,6 +85,7 @@ function featureForPath(relPath) {
   if (FUEL_SECTION_RX.test(p)) return 'fuel-daily';
   if (BLOG_SECTION_RX.test(p) || /(?:^|\/)(?:blog|articles)\//.test(p)) return 'blog';
   if (/(?:^|\/)(?:traffico-dogane|border-wait|wartezeit-grenze|temps-attente-douane)\//.test(p)) return 'border-wait';
+  if (HEALTH_FACILITIES_SECTION_RX.test(p)) return 'health-facilities';
   if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';
   return 'spa-other';
 }
