@@ -20,6 +20,7 @@ const {
   sharedExtract,
   runAudits,
   filterAuditors,
+  sampleFiles,
 } = runnerModule as unknown as {
   walkHtmlFiles: (dir: string) => Promise<string[]>;
   sharedExtract: (html: string) => {
@@ -37,14 +38,23 @@ const {
     }>;
     verbose?: boolean;
     writeReports?: boolean;
+    sampleRate?: number;
+    sampleSalt?: number;
   }) => Promise<{
     totalElapsedSec: number;
     walkElapsedSec: number;
     collectElapsedSec: number;
     filesScanned: number;
     reports: Array<{ name: string; passed: boolean; elapsedSec: number }>;
+    sampling: { totalBuckets: number; activeBucket: number; filesOnDisk: number; filesScanned: number } | null;
   }>;
   filterAuditors: <T extends { name: string }>(all: T[], csv?: string) => T[];
+  sampleFiles: (
+    files: string[],
+    distDir: string,
+    rate: number,
+    salt: number,
+  ) => { sampled: string[]; totalBuckets: number; activeBucket: number };
 };
 
 describe('walkHtmlFiles', () => {
@@ -266,5 +276,89 @@ describe('runAudits — AUDIT_STRICT mutation detection (vincolo N3)', () => {
     };
     const result = await runAudits({ distDir: root, auditors: [a], verbose: false, writeReports: false });
     expect(result.filesScanned).toBe(1);
+  });
+});
+
+// Coverage for the opt-in CI speed lever (AUDIT_SAMPLE_RATE/AUDIT_SAMPLE_SALT
+// in .github/workflows/post-deploy-validate-dist.yml's audit:all step). The
+// core guarantee this must hold: rotating `sampleSalt` across `totalBuckets`
+// consecutive calls must union back to the full corpus — a sampled run only
+// trades per-run completeness for wall-clock if that union holds.
+describe('sampleFiles', () => {
+  const distDir = '/fake/dist';
+  const files = Array.from({ length: 400 }, (_, i) => `${distDir}/page-${i}/index.html`);
+
+  it('rate=1 is the identity (no filtering, single bucket)', () => {
+    const { sampled, totalBuckets, activeBucket } = sampleFiles(files, distDir, 1, 0);
+    expect(sampled).toHaveLength(files.length);
+    expect(totalBuckets).toBe(1);
+    expect(activeBucket).toBe(0);
+  });
+
+  it('rotating salt across totalBuckets consecutive calls unions back to 100% of files', () => {
+    const rate = 0.25;
+    const seen = new Set<string>();
+    let totalBuckets = 0;
+    for (let salt = 0; salt < 4; salt++) {
+      const result = sampleFiles(files, distDir, rate, salt);
+      totalBuckets = result.totalBuckets;
+      result.sampled.forEach((f) => seen.add(f));
+    }
+    expect(totalBuckets).toBe(4);
+    expect(seen.size).toBe(files.length);
+  });
+
+  it('same (rate, salt) is deterministic across calls (same files every time)', () => {
+    const a = sampleFiles(files, distDir, 0.25, 2);
+    const b = sampleFiles(files, distDir, 0.25, 2);
+    expect(a.sampled).toEqual(b.sampled);
+  });
+
+  it('a given salt only ever returns files from its own bucket (no cross-bucket leakage)', () => {
+    const a = sampleFiles(files, distDir, 0.25, 0).sampled;
+    const b = sampleFiles(files, distDir, 0.25, 1).sampled;
+    const overlap = a.filter((f) => b.includes(f));
+    expect(overlap).toHaveLength(0);
+  });
+
+  it('sampled size is roughly proportional to rate (within a reasonable band)', () => {
+    const { sampled } = sampleFiles(files, distDir, 0.25, 0);
+    const fraction = sampled.length / files.length;
+    expect(fraction).toBeGreaterThan(0.15);
+    expect(fraction).toBeLessThan(0.35);
+  });
+});
+
+describe('runAudits — sampling (end-to-end)', () => {
+  let root: string;
+  beforeAll(() => {
+    root = mkdtempSync(join(tmpdir(), 'audit-runner-sampling-'));
+    for (let i = 0; i < 40; i++) {
+      writeFileSync(join(root, `page-${i}.html`), `<html><body>${i}</body></html>`);
+    }
+  });
+  afterAll(() => { rmSync(root, { recursive: true, force: true }); });
+
+  it('defaults to scanning every file when sampleRate is omitted (backward-compat)', async () => {
+    let count = 0;
+    const a = { name: 'count', collect: () => { count++; }, report: () => ({ passed: true, offendersTotal: 0, offenders: [] }) };
+    const result = await runAudits({ distDir: root, auditors: [a], verbose: false, writeReports: false });
+    expect(count).toBe(40);
+    expect(result.filesScanned).toBe(40);
+    expect(result.sampling).toBeNull();
+  });
+
+  it('scans a bounded subset when sampleRate < 1, and reports sampling metadata', async () => {
+    let count = 0;
+    const a = { name: 'count', collect: () => { count++; }, report: () => ({ passed: true, offendersTotal: 0, offenders: [] }) };
+    const result = await runAudits({
+      distDir: root, auditors: [a], verbose: false, writeReports: false, sampleRate: 0.25, sampleSalt: 1,
+    });
+    expect(count).toBe(result.filesScanned);
+    expect(result.filesScanned).toBeLessThan(40);
+    expect(result.filesScanned).toBeGreaterThan(0);
+    expect(result.sampling).toEqual({
+      totalBuckets: 4, activeBucket: 1, filesOnDisk: 40, filesScanned: result.filesScanned,
+    });
   });
 });

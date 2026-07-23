@@ -996,6 +996,24 @@ jobs:
           # name. Cheap (single equality check per file per audit) and
           # catches accidental side-effects during future audit migrations.
           AUDIT_STRICT: '1'
+          # Rotating sample (scripts/lib/audit-runner.mjs's sampleFiles(),
+          # only read by `npm run audit:all` below — every other gate in this
+          # step ignores these two vars and keeps scanning 100%). audit:all's
+          # walk+collect over the full dist/ corpus (~3.3M pages) is this
+          # job's dominant cost (~54min of the ~71min job wall time, run
+          # 29883145419) — the walk itself (~3.5min) is cheap; the per-file
+          # read+regex collect pass is what scales with corpus size. At
+          # rate=0.25 with AUDIT_SAMPLE_SALT rotating every run via
+          # github.run_number, every page in dist/ still gets scanned at
+          # least once within 4 consecutive runs — this repo's validate-dist
+          # cadence (pushes land every 15-60 min in practice) keeps that
+          # window well under 4 hours. This does NOT lower any gate's
+          # pass/fail threshold (AGENTS.md non-negotiable #1) — it trades
+          # per-run completeness for wall-clock, with the rotation
+          # guaranteeing bounded-time full coverage instead of permanent
+          # blind spots. See scripts/audit-all.mjs's file-header docs.
+          AUDIT_SAMPLE_RATE: '0.25'
+          AUDIT_SAMPLE_SALT: ${{ github.run_number }}
         run: |
           # MAX_PARALLEL=4 — bumped after live measurement on run
           # 26087963151. audit:all peaked at ~1 GB RSS and held the whole

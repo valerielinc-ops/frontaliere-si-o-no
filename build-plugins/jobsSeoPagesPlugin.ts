@@ -7777,7 +7777,7 @@ ${staticAnalyticsHtml}
  locale: 'it' | 'en' | 'de' | 'fr',
  ): CompanyHubFaqItem[] => {
  const items: CompanyHubFaqItem[] = [];
- const roleTitles = [...new Set(jobs.map((j: any) => String(j?.titleByLocale?.[locale] || j?.title || '').trim()).filter(Boolean))].slice(0, 5);
+ const roleTitles = [...new Set(jobs.map((j: any) => stripLiteralMarkdownFromTitle(String(j?.titleByLocale?.[locale] || j?.title || '').trim())).filter(Boolean))].slice(0, 5);
  const count = jobs.length;
  if (roleTitles.length > 0) {
  const q = locale === 'it' ? `Quali posizioni offre ${companyName} in questo momento?`
@@ -12029,7 +12029,7 @@ ${staticAnalyticsHtml}
  // jobCompany/jobLocation/jobCanton/etc. are hoisted above the for-locale
  // loop (per-slug invariants); displayCanton/escDisplayCanton/cantonForSignal
  // are NOT (they vary by locale — see note above the loop).
- const jobTitle = String(ejData?.titleByLocale?.[locale] || ejData?.title || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || slugInfo?.title || copy.title);
+ const jobTitle = stripLiteralMarkdownFromTitle(String(ejData?.titleByLocale?.[locale] || ejData?.title || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || slugInfo?.title || copy.title));
  const jobDescription = stripLeadingSectionLabel(String(ejData?.descriptionByLocale?.[locale] || ejData?.descriptionByLocale?.it || ejData?.description || gscInfo?.descriptionByLocale?.[locale] || gscInfo?.descriptionByLocale?.it || ''));
  // SERP title via the shared role>city>company>brand cascade — same
  // composer as ACTIVE job pages, so an expired listing reads like a job
@@ -12282,7 +12282,7 @@ ${staticAnalyticsHtml}
  const jSlug = localizedSlug(j, locale);
  const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
  const jHref = withSlash(jPath);
- const jTitle = String(j?.titleByLocale?.[locale] || j.title || '');
+ const jTitle = stripLiteralMarkdownFromTitle(String(j?.titleByLocale?.[locale] || j.title || ''));
  return `<li><a href="${jHref}">${esc(jTitle)}</a> — ${esc(j.location)}</li>`;
  }).join('');
  staticBodyParts.push(`<section><h2>${companyJobsHeading}</h2><ul>${companyJobsList}</ul></section>`);
@@ -12349,7 +12349,7 @@ ${staticAnalyticsHtml}
  const jSlug = localizedSlug(j, locale);
  const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
  const jHref = withSlash(jPath);
- const jTitle = String(j?.titleByLocale?.[locale] || j.title || '');
+ const jTitle = stripLiteralMarkdownFromTitle(String(j?.titleByLocale?.[locale] || j.title || ''));
  const jCompany = String(j.company || '');
  const jLoc = String(j.location || '');
  return `<li><a href="${jHref}">${esc(jTitle)}</a>${jCompany ? ` \u2014 ${esc(jCompany)}` : ''}${jLoc ? `, ${esc(jLoc)}` : ''}</li>`;

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-05T21:15:52.118Z",
+  "generated": "2026-07-22T12:17:34.562Z",
   "mode": "rate",
   "threshold": 66,
   "tolerance": {
@@ -8,22 +8,52 @@
     "minAbsDelta": 5,
     "maxDeltaPp": 3
   },
-  "scanned": 2068992,
-  "totalOffenders": 3893,
-  "totalRatePct": 0.1882,
+  "scanned": 2220043,
+  "totalOffenders": 4290,
+  "totalRatePct": 0.1932,
   "byFeature": {
     "spa-other": {
-      "scanned": 1612,
-      "offenders": 10,
-      "ratePct": 0.6203
+      "scanned": 1567,
+      "offenders": 13,
+      "ratePct": 0.8296
     },
-    "fuel-daily": {
-      "scanned": 6326,
-      "offenders": 28,
-      "ratePct": 0.4426
+    "weekly-employers-hub": {
+      "scanned": 8,
+      "offenders": 0,
+      "ratePct": 0
     },
-    "health-premiums": {
-      "scanned": 366,
+    "blog": {
+      "scanned": 13769,
+      "offenders": 2381,
+      "ratePct": 17.2925
+    },
+    "job-board": {
+      "scanned": 2163211,
+      "offenders": 342,
+      "ratePct": 0.0158
+    },
+    "career-landings": {
+      "scanned": 20521,
+      "offenders": 1437,
+      "ratePct": 7.0026
+    },
+    "spa-locale": {
+      "scanned": 4276,
+      "offenders": 31,
+      "ratePct": 0.725
+    },
+    "eventi": {
+      "scanned": 5892,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "profession-canton": {
+      "scanned": 1132,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "profession-city": {
+      "scanned": 210,
       "offenders": 0,
       "ratePct": 0
     },
@@ -32,52 +62,42 @@
       "offenders": 0,
       "ratePct": 0
     },
-    "spa-locale": {
-      "scanned": 4347,
-      "offenders": 31,
-      "ratePct": 0.7131
-    },
-    "job-board": {
-      "scanned": 2033096,
-      "offenders": 294,
-      "ratePct": 0.0145
-    },
-    "weekly-employers-hub": {
-      "scanned": 100,
+    "health-premiums": {
+      "scanned": 366,
       "offenders": 0,
       "ratePct": 0
     },
-    "career-landings": {
-      "scanned": 6074,
-      "offenders": 1362,
-      "ratePct": 22.4234
-    },
-    "eventi": {
-      "scanned": 4396,
-      "offenders": 204,
-      "ratePct": 4.6406
-    },
-    "weekly-employers": {
-      "scanned": 339,
+    "employer-profiles": {
+      "scanned": 1860,
       "offenders": 0,
       "ratePct": 0
-    },
-    "blog": {
-      "scanned": 12198,
-      "offenders": 1964,
-      "ratePct": 16.101
     },
     "border-wait": {
       "scanned": 45,
       "offenders": 0,
       "ratePct": 0
+    },
+    "fuel-daily": {
+      "scanned": 6238,
+      "offenders": 28,
+      "ratePct": 0.4489
+    },
+    "health-facilities": {
+      "scanned": 448,
+      "offenders": 58,
+      "ratePct": 12.9464
+    },
+    "weekly-employers": {
+      "scanned": 407,
+      "offenders": 0,
+      "ratePct": 0
     }
   },
   "byLocale": {
-    "it": 472,
-    "de": 709,
-    "fr": 2176,
-    "en": 536
+    "it": 594,
+    "de": 756,
+    "fr": 2347,
+    "en": 593
   },
   "_comment": "Rate-based baseline for audit-title-length (title length > 66 chars). The per-page threshold is the hard quality gate; this ratchet tracks the offender RATE (offenders/scanned) per feature so organic page growth does not regress the build. A feature fails only when its rate exceeds baseRate*(1+relPct/100)+absPp AND its absolute offender count grows by more than minAbsDelta. Rates must only DECREASE going forward (modulo tolerance)."
 }

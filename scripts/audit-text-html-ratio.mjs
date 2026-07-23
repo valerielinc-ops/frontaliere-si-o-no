@@ -23,6 +23,7 @@ import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { EJP_STRIPPED_MARKER } from '../build-plugins/shared/ejpMarker.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 import { EVENTS_SECTION_RX } from './lib/eventsSections.mjs';
+import { HEALTH_FACILITIES_SECTION_RX } from './lib/healthFacilitiesSections.mjs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
 import { insertBounded } from './lib/boundedTopN.mjs';
@@ -100,6 +101,7 @@ export function classifyFeature(relPath) {
   // shipped (#3125/#3243), causing the #3232 regression (same
   // classifier-drift class as #2853/#2910 fuel/svizzera leaks).
   if (EVENTS_SECTION_RX.test(p)) return 'eventi';
+  if (HEALTH_FACILITIES_SECTION_RX.test(p)) return 'health-facilities';
   if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';
   return 'spa-other';
 }

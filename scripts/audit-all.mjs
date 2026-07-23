@@ -18,6 +18,18 @@
  *   node scripts/audit-all.mjs --dist=path/to/dist   # default: ./dist
  *   AUDIT_STRICT=1 node scripts/audit-all.mjs        # detect AST mutation
  *
+ * Sampling (opt-in, CI speed lever — see scripts/lib/audit-runner.mjs's
+ * sampleFiles() for the rotation guarantee this relies on):
+ *   AUDIT_SAMPLE_RATE=0.25 AUDIT_SAMPLE_SALT=$GITHUB_RUN_NUMBER node scripts/audit-all.mjs
+ * Defaults to rate=1 (no sampling, full scan) when unset — every invocation
+ * outside the one CI step that opts in keeps scanning 100% of dist/, exactly
+ * as before this option existed. AUDIT_SAMPLE_SALT should increment every
+ * run (e.g. the GitHub Actions run number) so the sampled slice rotates —
+ * over `round(1/AUDIT_SAMPLE_RATE)` consecutive runs, every file in dist/
+ * gets scanned at least once. This trades per-run completeness for
+ * wall-clock; it does NOT lower any gate's pass/fail threshold — see
+ * AGENTS.md non-negotiable #1 and the rationale in audit-runner.mjs.
+ *
  * Exit codes:
  *   0 — every audit passed
  *   1 — one or more audits failed (gate or threshold)
@@ -70,6 +82,12 @@ const distArg = getArg('dist', DEFAULT_DIST);
 const auditFilter = getArg('audits', undefined); // CSV of audit names
 const verbose = !args.includes('--quiet');
 
+// Opt-in sampling (see file header docs above). CLI flags take precedence
+// over env vars so a local `--sample-rate=` override doesn't require
+// unsetting the CI env var; both default to "off" (full scan).
+const sampleRate = Number(getArg('sample-rate', process.env.AUDIT_SAMPLE_RATE ?? '1'));
+const sampleSalt = Number(getArg('sample-salt', process.env.AUDIT_SAMPLE_SALT ?? '0'));
+
 async function main() {
   const s = await stat(distArg).catch(() => null);
   if (!s || !s.isDirectory()) {
@@ -93,7 +111,7 @@ async function main() {
     console.log(`audit-all: auditors = ${selected.map((a) => a.name).join(', ')}`);
   }
 
-  const result = await runAudits({ distDir: distArg, auditors: selected, verbose, writeReports: true });
+  const result = await runAudits({ distDir: distArg, auditors: selected, verbose, writeReports: true, sampleRate, sampleSalt });
 
   const fails = result.reports.filter((r) => !r.passed);
   const passes = result.reports.length - fails.length;
@@ -105,6 +123,13 @@ async function main() {
     console.log(`audit-all: walked ${result.filesScanned} files in ${result.totalElapsedSec.toFixed(2)}s total`);
     console.log(`audit-all:   - walk:    ${result.walkElapsedSec.toFixed(2)}s`);
     console.log(`audit-all:   - collect: ${result.collectElapsedSec.toFixed(2)}s`);
+    if (result.sampling) {
+      const { activeBucket, totalBuckets, filesOnDisk, filesScanned } = result.sampling;
+      console.log(
+        `audit-all:   - SAMPLED: bucket ${activeBucket + 1}/${totalBuckets} — ${filesScanned}/${filesOnDisk} files ` +
+        `(${((filesScanned / filesOnDisk) * 100).toFixed(1)}%). Full coverage needs ${totalBuckets} consecutive runs.`,
+      );
+    }
     console.log('══════════════════════════════════════════════════════════════════════');
   }
 
