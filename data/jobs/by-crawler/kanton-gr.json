@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-07-23T12:33:25.700Z",
+  "assembledAt": "2026-07-23T22:15:57.574Z",
   "jobs": [
     {
       "id": "kanton-gr-8ba2e44bad5e",
@@ -9,7 +9,7 @@
         "it": "addetto-a-specializzato-a-in-albergo-gestione-alberghiera-cfp-kantonale-verwaltung-graubunden-landquart",
         "en": "specialist-in-hotel-and-hospitality-management-efz-kantonale-verwaltung-graubunden-landquart",
         "de": "fachmann-frau-hotellerie-hauswirtschaft-efz-kantonale-verwaltung-graubunden-landquart",
-        "fr": "specialiste-en-hotellerie-gestion-hoteliere-cfc-kantonale-verwaltung-graubunden-landquart"
+        "fr": "apprentissage-professionnel-hotelier-efz-kantonale-verwaltung-graubunden-landquart"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/514915/2643/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:22.707Z",
+      "crawledAt": "2026-07-23T22:15:55.138Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -84,20 +84,27 @@
       "applicationDeadline": "2026-07-31",
       "previousSlugsByLocale": {
         "de": [
-          "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch"
+          "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch",
+          "fachmann-frau-hotellerie-hauswirtschaft-efz-kantonale-verwaltung-graubunden-landquart"
         ],
         "it": [
-          "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch"
+          "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch",
+          "addetto-a-specializzato-a-in-albergo-gestione-alberghiera-cfp-kantonale-verwaltung-graubunden-landquart"
         ],
         "fr": [
+          "specialiste-en-hotellerie-gestion-hoteliere-cfc-kantonale-verwaltung-graubunden-landquart",
           "apprentissage-professionnel-hotelier-efz-kantonale-verwaltung-graubunden-landquart"
         ]
       },
       "previousSlugs": [
         "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch",
+        "specialiste-en-hotellerie-gestion-hoteliere-cfc-kantonale-verwaltung-graubunden-landquart",
+        "fachmann-frau-hotellerie-hauswirtschaft-efz-kantonale-verwaltung-graubunden-landquart",
+        "addetto-a-specializzato-a-in-albergo-gestione-alberghiera-cfp-kantonale-verwaltung-graubunden-landquart",
         "apprentissage-professionnel-hotelier-efz-kantonale-verwaltung-graubunden-landquart"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -143,7 +150,7 @@
       "url": "https://apply.refline.ch/514915/2438/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:22.040Z",
+      "crawledAt": "2026-07-23T22:15:54.456Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -194,16 +201,21 @@
       "applicationDeadline": "2026-07-31",
       "previousSlugsByLocale": {
         "de": [
-          "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
+          "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch",
+          "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kantonale-verwaltung-graubunden-scuol"
         ],
         "it": [
-          "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
+          "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch",
+          "apprendista-meccanico-automobilistico-efz-automobili-kantonale-verwaltung-graubunden-scuol"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
+        "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch",
+        "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kantonale-verwaltung-graubunden-scuol",
+        "apprendista-meccanico-automobilistico-efz-automobili-kantonale-verwaltung-graubunden-scuol"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -249,7 +261,7 @@
       "url": "https://apply.refline.ch/514915/2437/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:21.370Z",
+      "crawledAt": "2026-07-23T22:15:53.777Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -300,16 +312,21 @@
       "applicationDeadline": "2026-07-31",
       "previousSlugsByLocale": {
         "de": [
-          "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
+          "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch",
+          "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kantonale-verwaltung-graubunden-scuol"
         ],
         "it": [
-          "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
+          "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch",
+          "apprendista-specializzato-in-automobili-efz-automobili-personali-kantonale-verwaltung-graubunden-scuol"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
+        "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch",
+        "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kantonale-verwaltung-graubunden-scuol",
+        "apprendista-specializzato-in-automobili-efz-automobili-personali-kantonale-verwaltung-graubunden-scuol"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -355,7 +372,7 @@
       "url": "https://apply.refline.ch/514915/2319/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:20.701Z",
+      "crawledAt": "2026-07-23T22:15:53.098Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -406,16 +423,21 @@
       "applicationDeadline": "2026-07-31",
       "previousSlugsByLocale": {
         "de": [
-          "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
+          "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch",
+          "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kantonale-verwaltung-graubunden-scuol"
         ],
         "it": [
-          "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
+          "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch",
+          "apprendista-specializzato-in-manutenzione-veicoli-efz-servizio-tecnico-scuol-kantonale-verwaltung-graubunden-scuol"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
+        "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch",
+        "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kantonale-verwaltung-graubunden-scuol",
+        "apprendista-specializzato-in-manutenzione-veicoli-efz-servizio-tecnico-scuol-kantonale-verwaltung-graubunden-scuol"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -434,9 +456,9 @@
       "id": "kanton-gr-262c7a4b9052",
       "slug": "candidato-a-in-riqualificazione-in-come-bauleiter-in-im-bezirk-3-kantonale-verwaltung-graubunden-samedan",
       "slugByLocale": {
-        "de": "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch",
         "it": "candidato-a-in-riqualificazione-in-come-bauleiter-in-im-bezirk-3-kantonale-verwaltung-graubunden-samedan",
         "en": "lateral-entrant-as-construction-manager-in-district-3-kantonale-verwaltung-graubunden-samedan",
+        "de": "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch",
         "fr": "entree-laterale-en-tant-que-directeur-de-la-construction-dans-le-district-3-kantonale-verwaltung-graubunden-samedan"
       },
       "company": "Kantonale Verwaltung Graubünden",
@@ -444,16 +466,16 @@
       "companyDomain": "gr.ch",
       "title": "Quereinsteiger/-in als Bauleiter/-in im Bezirk 3",
       "titleByLocale": {
-        "de": "Quereinsteiger/-in als Bauleiter/-in im Bezirk 3",
         "it": "Candidato/a in riqualificazione/-in come Bauleiter/-in im Bezirk 3",
         "en": "Lateral entrant as construction manager in district 3",
+        "de": "Quereinsteiger/-in als Bauleiter/-in im Bezirk 3",
         "fr": "Entrée latérale en tant que directeur de la construction dans le district 3"
       },
       "description": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM).\n\nWir suchen für die Abteilung Strassenerhaltung im Bezirk 3 Samedan per 1. November 2026 oder nach Vereinbarung eine/-n Quereinsteiger/-in als Bauleiter/-in\n\nAufgaben\n• Mitarbeit bei der Leitung und Kontrolle der zugeteilten Baustellen als Bauherrenvertreter/-in\n\n• Terminierung und Koordination der Arbeiten\n\n• Sicherstellen von Qualität, Ausmass und Ausführung der gesamten Vertragsarbeit\n\n• Erstellen von Kostenvoranschlägen, Ausschreibungsunterlagen und Abrechnungen\n\n• Überwachung des Budgets\n\n• Erledigung technischer Aufgaben für den Strassenunterhalt\n\n• Leisten von Pikettdienst als Einsatzleiter/-in\n\nAnforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n\n• Einige Jahre Berufserfahrung, idealerweise im Tiefbau\n\n• Bereitschaft, als Quereinsteiger/-in die notwendigen Weiterbildungen zur Ausübung von Bauleitungsaufgaben zu absolvieren\n\n• Lernbereitschaft und Durchsetzungsvermögen\n\n• Persönlichkeit mit hoher Sozialkompetenz, Organisations- und Verhandlungsgeschick sowie Teamfähigkeit\n\n• Allgemeine Arbeitssprache ist Deutsch, gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
       "descriptionByLocale": {
-        "de": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM).\n\nWir suchen für die Abteilung Strassenerhaltung im Bezirk 3 Samedan per 1. November 2026 oder nach Vereinbarung eine/-n Quereinsteiger/-in als Bauleiter/-in\n\nAufgaben\n• Mitarbeit bei der Leitung und Kontrolle der zugeteilten Baustellen als Bauherrenvertreter/-in\n\n• Terminierung und Koordination der Arbeiten\n\n• Sicherstellen von Qualität, Ausmass und Ausführung der gesamten Vertragsarbeit\n\n• Erstellen von Kostenvoranschlägen, Ausschreibungsunterlagen und Abrechnungen\n\n• Überwachung des Budgets\n\n• Erledigung technischer Aufgaben für den Strassenunterhalt\n\n• Leisten von Pikettdienst als Einsatzleiter/-in\n\nAnforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n\n• Einige Jahre Berufserfahrung, idealerweise im Tiefbau\n\n• Bereitschaft, als Quereinsteiger/-in die notwendigen Weiterbildungen zur Ausübung von Bauleitungsaufgaben zu absolvieren\n\n• Lernbereitschaft und Durchsetzungsvermögen\n\n• Persönlichkeit mit hoher Sozialkompetenz, Organisations- und Verhandlungsgeschick sowie Teamfähigkeit\n\n• Allgemeine Arbeitssprache ist Deutsch, gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
         "it": "L'ufficio di ingegneria civile è responsabile della progettazione, costruzione, manutenzione e funzionamento delle strade cantonali, nonché dell'ingegneria idraulica e del trasporto lento a Grigioni. Ci occupiamo anche della manutenzione operativa delle strade nazionali sul territorio cantonale. L’infrastruttura stradale del cantone comprende oltre 1.450 edifici artificiali, tra cui ponti ad altezze ariose fino a 90 metri e gallerie fino a 3 chilometri di lunghezza. Le sfide che la natura del nostro cantone di montagna porta in estate e in inverno rendono il nostro lavoro impegnativo e versatile. Come ufficio certificato Friendly Work Space, la salute e la soddisfazione dei nostri circa 480 dipendenti sono particolarmente importanti per noi. Per questo motivo, siamo impegnati nella gestione sistematica della salute professionale (BGM).\n\nStiamo cercando il reparto manutenzione stradale nel distretto 3 Samedan per 1. Novembre 2026 o per accordo un entrante laterale come direttore di costruzione\n\nCompiti\n• Cooperazione nella gestione e nel controllo dei cantieri assegnati come rappresentante del cliente\n\n• Terminizzazione e coordinamento del lavoro\n\n• Garantire la qualità, la portata e l'esecuzione dell'intero lavoro contrattuale\n\n• Preparazione delle stime, dei documenti d'appalto e dei conti\n\n• Monitoraggio del bilancio\n\n• Completamento dei compiti tecnici di manutenzione stradale\n\n• Esecuzione di Picettdienst come direttore operativo/in\n\nRequisiti\n• Apprendistato completo in costruzione\n\n• Alcuni anni di esperienza professionale, idealmente in ingegneria civile\n\n• Volontà di completare l'ulteriore formazione necessaria per l'esercizio dei compiti di gestione delle costruzioni come una intraente laterale\n\n• Prontezza per imparare e affermare\n\n• Personalità con alte competenze sociali, capacità organizzative e di negoziazione, nonché competenze di squadra\n\n• La lingua di lavoro generale è tedesca, la buona conoscenza di diverse lingue cantonali è vantaggiosa",
         "en": "The civil engineering office is responsible for the design, construction, maintenance and operation of the cantonal roads as well as the hydraulic engineering and slow transport in Graubünden. We also take care of the operational maintenance of the national roads on the cantonal territory. The canton’s road infrastructure comprises over 1,450 artificial buildings, including bridges at airy heights of up to 90 meters and tunnels of up to 3 kilometers in length. The challenges that the nature of our mountain canton brings in summer and winter make our work demanding and versatile. As a Friendly Work Space certified office, the health and satisfaction of our approximately 480 employees are particularly important to us. For this reason, we are committed to systematic occupational health management (BGM).\n\nWe are looking for the road maintenance department in the district 3 Samedan per 1. November 2026 or by arrangement a lateral entrant as construction manager\n\nTasks\n• Co-operation in the management and control of the allocated construction sites as a client representative\n\n• Termination and coordination of work\n\n• Ensuring the quality, extent and execution of the entire contract work\n\n• Preparation of estimates, tender documents and accounts\n\n• Budget monitoring\n\n• Completion of technical road maintenance tasks\n\n• Performing of Picettdienst as operational manager/in\n\nRequirements\n• Completed apprenticeship in construction\n\n• Some years of professional experience, ideally in civil engineering\n\n• Willingness to complete the necessary further training for the exercise of construction management tasks as a lateral entrant\n\n• Readiness to learn and assert\n\n• Personality with high social skills, organisational and negotiation skills as well as team skills\n\n• General working language is German, good knowledge of several cantonal languages is advantageous",
+        "de": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM).\n\nWir suchen für die Abteilung Strassenerhaltung im Bezirk 3 Samedan per 1. November 2026 oder nach Vereinbarung eine/-n Quereinsteiger/-in als Bauleiter/-in\n\nAufgaben\n• Mitarbeit bei der Leitung und Kontrolle der zugeteilten Baustellen als Bauherrenvertreter/-in\n\n• Terminierung und Koordination der Arbeiten\n\n• Sicherstellen von Qualität, Ausmass und Ausführung der gesamten Vertragsarbeit\n\n• Erstellen von Kostenvoranschlägen, Ausschreibungsunterlagen und Abrechnungen\n\n• Überwachung des Budgets\n\n• Erledigung technischer Aufgaben für den Strassenunterhalt\n\n• Leisten von Pikettdienst als Einsatzleiter/-in\n\nAnforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n\n• Einige Jahre Berufserfahrung, idealerweise im Tiefbau\n\n• Bereitschaft, als Quereinsteiger/-in die notwendigen Weiterbildungen zur Ausübung von Bauleitungsaufgaben zu absolvieren\n\n• Lernbereitschaft und Durchsetzungsvermögen\n\n• Persönlichkeit mit hoher Sozialkompetenz, Organisations- und Verhandlungsgeschick sowie Teamfähigkeit\n\n• Allgemeine Arbeitssprache ist Deutsch, gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
         "fr": "Le bureau du génie civil est chargé de la conception, de la construction, de l'entretien et de l'exploitation des routes cantonales ainsi que de l'ingénierie hydraulique et du transport lent à Graubünden. Nous nous occupons également de l'entretien opérationnel des routes nationales sur le territoire cantonal. L'infrastructure routière cantonale comprend plus de 1.450 bâtiments artificiels, y compris des ponts à des hauteurs aérées allant jusqu'à 90 mètres et des tunnels pouvant atteindre 3 kilomètres de long. Les défis que la nature de notre canton de montagne apporte en été et en hiver rendent notre travail exigeant et polyvalent. En tant que bureau certifié Friendly Work Space, la santé et la satisfaction de nos quelque 480 employés sont particulièrement importantes pour nous. C'est pourquoi nous nous engageons à assurer une gestion systématique de la santé au travail.\n\nNous cherchons le service d'entretien de la route dans le district 3 Samedan par 1. Novembre 2026 ou par arrangement un entrant latéral comme directeur de construction\n\nTâche\n• Coopération dans la gestion et le contrôle des chantiers en tant que représentant du client\n\n• Clôture et coordination des travaux\n\n• Assurer la qualité, l'étendue et l'exécution de l'ensemble des travaux contractuels\n\n• Établissement des estimations, des documents d'appel d'offres et des comptes\n\n• Contrôle budgétaire\n\n• Achèvement des travaux d ' entretien technique des routes\n\n• Réalisation de Picettdienst en tant que gestionnaire opérationnel\n\nExigences\n• Apprentissage complet dans la construction\n\n• Quelques années d'expérience professionnelle, idéalement en génie civil\n\n• Volonté de compléter la formation complémentaire nécessaire à l'exercice des tâches de gestion de la construction en tant qu'entrant latéral\n\n• Aptitude à apprendre et à affirmer\n\n• Personnalité avec de hautes compétences sociales, d'organisation et de négociation ainsi que des compétences en équipe\n\n• La langue de travail générale est l'allemand, une bonne connaissance de plusieurs langues cantonales est avantageuse"
       },
       "location": "Samedan",
@@ -461,7 +483,7 @@
       "url": "https://apply.refline.ch/514915/2787/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:20.031Z",
+      "crawledAt": "2026-07-23T22:15:52.415Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -476,17 +498,20 @@
       "postedDate": "2026-07-23",
       "applyUrl": "https://apply.refline.ch/514915/2787/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Tiefbauamt Graubünden, Bezirk 3 Samedan",
       "applicationDeadline": "2026-08-16",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
+      "previousSlugs": [
+        "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch",
+        "candidato-a-in-riqualificazione-in-come-bauleiter-in-im-bezirk-3-kantonale-verwaltung-graubunden-samedan"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch"
+          "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch",
+          "candidato-a-in-riqualificazione-in-come-bauleiter-in-im-bezirk-3-kantonale-verwaltung-graubunden-samedan"
         ],
         "en": [
           "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch"
@@ -495,31 +520,28 @@
           "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch"
         ]
       },
-      "previousSlugs": [
-        "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch"
-      ],
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "firstSeenAt": "2026-07-23T12:33:20.031Z",
+      "salaryMin": 79000,
+      "salaryMax": 120000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-07-23T12:33:20.031Z"
+      "addressRegion": "GR"
     },
     {
       "id": "kanton-gr-2521bcc974e0",
       "slug": "specialist-caregivers-riconoscimento-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "de": "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kanton-gr-ch",
         "it": "specialist-caregivers-riconoscimento-kantonale-verwaltung-graubunden-chur",
         "en": "specialist-caregivers-recognition-contributions-kantonale-verwaltung-graubunden-chur",
+        "de": "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kanton-gr-ch",
         "fr": "aides-specialisees-contributions-de-reconnaissance-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
@@ -527,16 +549,16 @@
       "companyDomain": "gr.ch",
       "title": "Fachmitarbeiter/-in betreuende Bezugspersonen / Anerkennungsbeiträge",
       "titleByLocale": {
-        "de": "Fachmitarbeiter/-in betreuende Bezugspersonen / Anerkennungsbeiträge",
         "it": "Specialist caregivers / Riconoscimento",
         "en": "Specialist caregivers / Recognition contributions",
+        "de": "Fachmitarbeiter/-in betreuende Bezugspersonen / Anerkennungsbeiträge",
         "fr": "Aides spécialisées / Contributions de reconnaissance"
       },
       "description": "Das Gesundheitsamt ist eine zentrale Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Es setzt die bundes- und kantonalrechtlichen Vorgaben um und leistet damit einen wesentlichen Beitrag zu einer qualitativ hochstehenden, sicheren und zukunftsfähigen Gesundheitsversorgung im Kanton.\n\nDas Amt gliedert sich in folgende Fachbereiche: Bewilligungen und Aufsicht über Gesundheitsberufe und -institutionen, kantonsärztlicher Dienst, Heilmittel- und Betäubungsmittelkontrolle, Finanzen und Controlling, Gesundheitsförderung und Prävention sowie der Sanitätsnotruf Graubünden.\n\nDie Abteilung Alters- und Langzeitpflege setzt ab Januar 2027 die im Rahmen der Teilrevision des Krankenpflegegesetzes festgelegte Auszahlung von Betreuungsbeiträgen um.\n\nAufgaben\n• Beratung von Antragstellenden, betreuungsbedürftigen Personen und anerkannten Stellen für den Bereich der Anerkennungsbeiträge Betreuung\n\n• Verantwortung für den gesamten Antragsprozess, von der Entgegennahme, Prüfung und Bearbeitung der Anträge und Anspruchsvoraussetzungen, bis zur Auszahlung in Zusammenarbeit mit internen und externen Stellen\n\n• Führung der elektronischen Dossiers\n\nAnforderungen\n• Sie haben einen Abschluss im Bereich Pflege, medizinische Praxisassistenz, Soziales oder einer vergleichbaren Ausbildung\n\n• Sie bringen mehrjährige Berufserfahrung im Bereich Pflege oder Soziales, Beratung oder ähnlichem mit\n\n• Sie haben sowohl Freude am Umgang und Kontakt mit betreuenden Bezugspersonen, Leistungsempfängern, Leistungserbringern als auch an Abklärungen im Bereich der Rahmenbedingungen und freuen sich, mit uns diese Stelle aufzubauen und weiterzuentwickeln\n\n• Sie sind versiert im Umgang mit MS Office-Programmen respektive M365 und setzen die gängigen Anwendungen sicher und effizient ein, ausserdem sind Sie erfahren im Umgang mit digitalen Fachapplikationen\n\n• Sie kommunizieren stilsicher auf Deutsch, sowohl mündlich als auch schriftlich. Gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil",
       "descriptionByLocale": {
-        "de": "Das Gesundheitsamt ist eine zentrale Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Es setzt die bundes- und kantonalrechtlichen Vorgaben um und leistet damit einen wesentlichen Beitrag zu einer qualitativ hochstehenden, sicheren und zukunftsfähigen Gesundheitsversorgung im Kanton.\n\nDas Amt gliedert sich in folgende Fachbereiche: Bewilligungen und Aufsicht über Gesundheitsberufe und -institutionen, kantonsärztlicher Dienst, Heilmittel- und Betäubungsmittelkontrolle, Finanzen und Controlling, Gesundheitsförderung und Prävention sowie der Sanitätsnotruf Graubünden.\n\nDie Abteilung Alters- und Langzeitpflege setzt ab Januar 2027 die im Rahmen der Teilrevision des Krankenpflegegesetzes festgelegte Auszahlung von Betreuungsbeiträgen um.\n\nAufgaben\n• Beratung von Antragstellenden, betreuungsbedürftigen Personen und anerkannten Stellen für den Bereich der Anerkennungsbeiträge Betreuung\n\n• Verantwortung für den gesamten Antragsprozess, von der Entgegennahme, Prüfung und Bearbeitung der Anträge und Anspruchsvoraussetzungen, bis zur Auszahlung in Zusammenarbeit mit internen und externen Stellen\n\n• Führung der elektronischen Dossiers\n\nAnforderungen\n• Sie haben einen Abschluss im Bereich Pflege, medizinische Praxisassistenz, Soziales oder einer vergleichbaren Ausbildung\n\n• Sie bringen mehrjährige Berufserfahrung im Bereich Pflege oder Soziales, Beratung oder ähnlichem mit\n\n• Sie haben sowohl Freude am Umgang und Kontakt mit betreuenden Bezugspersonen, Leistungsempfängern, Leistungserbringern als auch an Abklärungen im Bereich der Rahmenbedingungen und freuen sich, mit uns diese Stelle aufzubauen und weiterzuentwickeln\n\n• Sie sind versiert im Umgang mit MS Office-Programmen respektive M365 und setzen die gängigen Anwendungen sicher und effizient ein, ausserdem sind Sie erfahren im Umgang mit digitalen Fachapplikationen\n\n• Sie kommunizieren stilsicher auf Deutsch, sowohl mündlich als auch schriftlich. Gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil",
         "it": "L'Ufficio sanitario è un dipartimento centrale del Dipartimento di Giustizia, Sicurezza e Salute del Cantone dei Grigioni. Realizza i requisiti di legge federale e cantonale e contribuisce in modo significativo all'assistenza sanitaria di alta qualità, sicura e sostenibile nel Cantone.\n\nL'Ufficio è suddiviso nelle seguenti aree specializzate: approvazione e supervisione di professioni e istituzioni sanitarie, assistenza medica cantonale, controllo dei medicinali e dei narcotici, finanza e controllo, promozione e prevenzione della salute, nonché la chiamata medica di emergenza Graubünden.\n\nDal gennaio 2027, il Dipartimento di Old-Age e Long-Term Care implementerà il pagamento dei contributi di assistenza stipulati nel quadro della revisione parziale della legge di infermieristica.\n\nCompiti\n• Consulenza di candidati, persone che hanno bisogno di assistenza e di enti riconosciuti nel settore dei contributi di riconoscimento\n\n• Responsabilità per l'intero processo di applicazione, dal ricevimento, dall'esame e dal trattamento delle domande e dei requisiti di ammissibilità, al pagamento in collaborazione con gli organismi interni ed esterni\n\n• Gestione dei dossier elettronici\n\nRequisiti\n• Hai una laurea in allattamento, assistenza medica, affari sociali o formazione comparabile\n\n• Hai diversi anni di esperienza professionale nel campo della cura o degli affari sociali, della consulenza o simili\n\n• Ti piace trattare e contattare caregiver, destinatari, fornitori di servizi e chiarimenti nell'ambito delle condizioni quadro e sono felici di stabilire e sviluppare questa posizione con noi.\n\n• Si è ben versato nel trattare con programmi MS Office o M365 e utilizzare le applicazioni comuni in modo sicuro ed efficiente, e si è anche sperimentato nel trattare con applicazioni specialistiche digitali.\n\n• Comunicano con stile in tedesco, sia verbalmente che per iscritto. Buona conoscenza di diverse lingue cantonali è un vantaggio",
         "en": "The Health Office is a central department of the Department of Justice, Security and Health of the Canton of Graubünden. It implements federal and cantonal law requirements and thus makes a significant contribution to high-quality, secure and sustainable health care in the canton.\n\nThe Office is divided into the following specialist areas: approvals and supervision of health professions and institutions, cantonal medical service, control of medicinal products and narcotics, finance and controlling, health promotion and prevention as well as the emergency medical call Graubünden.\n\nFrom January 2027, the Department of Old-Age and Long-Term Care will implement the payment of care contributions stipulated in the framework of the partial revision of the Nursing Act.\n\nTasks\n• Advising applicants, persons in need of care and recognised bodies in the field of recognition contributions\n\n• Responsibility for the entire application process, from receipt, examination and processing of applications and eligibility requirements, to payment in cooperation with internal and external bodies\n\n• Management of electronic dossiers\n\nRequirements\n• You have a degree in nursing, medical practice assistance, social affairs or comparable training\n\n• You have several years of professional experience in the field of care or social affairs, counselling or similar\n\n• You enjoy dealing with and contacting caregivers, recipients, service providers as well as clarifications in the area of framework conditions and are happy to establish and develop this position with us.\n\n• You are well versed in dealing with MS Office programs or M365 and use the common applications safely and efficiently, and you are also experienced in dealing with digital specialist applications.\n\n• They communicate stylishly in German, both verbally and in writing. Good knowledge of several cantonal languages is an advantage",
+        "de": "Das Gesundheitsamt ist eine zentrale Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Es setzt die bundes- und kantonalrechtlichen Vorgaben um und leistet damit einen wesentlichen Beitrag zu einer qualitativ hochstehenden, sicheren und zukunftsfähigen Gesundheitsversorgung im Kanton.\n\nDas Amt gliedert sich in folgende Fachbereiche: Bewilligungen und Aufsicht über Gesundheitsberufe und -institutionen, kantonsärztlicher Dienst, Heilmittel- und Betäubungsmittelkontrolle, Finanzen und Controlling, Gesundheitsförderung und Prävention sowie der Sanitätsnotruf Graubünden.\n\nDie Abteilung Alters- und Langzeitpflege setzt ab Januar 2027 die im Rahmen der Teilrevision des Krankenpflegegesetzes festgelegte Auszahlung von Betreuungsbeiträgen um.\n\nAufgaben\n• Beratung von Antragstellenden, betreuungsbedürftigen Personen und anerkannten Stellen für den Bereich der Anerkennungsbeiträge Betreuung\n\n• Verantwortung für den gesamten Antragsprozess, von der Entgegennahme, Prüfung und Bearbeitung der Anträge und Anspruchsvoraussetzungen, bis zur Auszahlung in Zusammenarbeit mit internen und externen Stellen\n\n• Führung der elektronischen Dossiers\n\nAnforderungen\n• Sie haben einen Abschluss im Bereich Pflege, medizinische Praxisassistenz, Soziales oder einer vergleichbaren Ausbildung\n\n• Sie bringen mehrjährige Berufserfahrung im Bereich Pflege oder Soziales, Beratung oder ähnlichem mit\n\n• Sie haben sowohl Freude am Umgang und Kontakt mit betreuenden Bezugspersonen, Leistungsempfängern, Leistungserbringern als auch an Abklärungen im Bereich der Rahmenbedingungen und freuen sich, mit uns diese Stelle aufzubauen und weiterzuentwickeln\n\n• Sie sind versiert im Umgang mit MS Office-Programmen respektive M365 und setzen die gängigen Anwendungen sicher und effizient ein, ausserdem sind Sie erfahren im Umgang mit digitalen Fachapplikationen\n\n• Sie kommunizieren stilsicher auf Deutsch, sowohl mündlich als auch schriftlich. Gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil",
         "fr": "Le Bureau de la santé est un département central du Département de la justice, de la sécurité et de la santé du canton des Grisons. Il applique les lois fédérales et cantonales et apporte ainsi une contribution significative à des soins de santé de qualité, sûrs et durables dans le canton.\n\nL'Office est divisé en domaines spécialisés suivants: approbation et supervision des professions et institutions de santé, service médical cantonal, contrôle des médicaments et des stupéfiants, finances et contrôle, promotion et prévention de la santé, ainsi que l'appel médical d'urgence Graubünden.\n\nÀ compter de janvier 2027, le ministère de la Vieillesse et des Soins de longue durée mettra en oeuvre le paiement des cotisations de soins stipulées dans le cadre de la révision partielle de la Loi sur les soins infirmiers.\n\nTâche\n• Conseiller les demandeurs, les personnes ayant besoin de soins et les organismes reconnus dans le domaine des contributions de reconnaissance\n\n• Responsabilité de l'ensemble du processus de demande, de la réception, de l'examen et du traitement des demandes et des conditions d'éligibilité, au paiement en coopération avec les organismes internes et externes\n\n• Gestion des dossiers électroniques\n\nExigences\n• Vous avez un diplôme en soins infirmiers, assistance médicale, affaires sociales ou formation comparable\n\n• Vous avez plusieurs années d'expérience professionnelle dans le domaine des soins ou des affaires sociales, du conseil ou d'autres domaines similaires\n\n• Vous aimez traiter avec les soignants, les bénéficiaires, les fournisseurs de services et communiquer avec eux, ainsi que des précisions dans le domaine des conditions-cadres, et vous êtes heureux d'établir et de développer cette position avec nous.\n\n• Vous êtes bien renseigné dans le traitement des programmes MS Office ou M365 et utilisez les applications communes en toute sécurité et efficacement, et vous êtes également expérimenté dans le traitement des applications numériques spécialisées.\n\n• Ils communiquent élégamment en allemand, verbalement et par écrit. Une bonne connaissance de plusieurs langues cantonales est un avantage"
       },
       "location": "Chur",
@@ -544,7 +566,7 @@
       "url": "https://apply.refline.ch/514915/2790/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:19.361Z",
+      "crawledAt": "2026-07-23T22:15:51.734Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -559,18 +581,22 @@
       "postedDate": "2026-07-23",
       "applyUrl": "https://apply.refline.ch/514915/2790/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Gesundheitsamt",
       "applicationDeadline": "2026-08-20",
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugs": [
+        "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kanton-gr-ch",
+        "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur",
+        "specialist-caregivers-riconoscimento-kantonale-verwaltung-graubunden-chur"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kanton-gr-ch",
-          "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur"
+          "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur",
+          "specialist-caregivers-riconoscimento-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur"
@@ -579,10 +605,7 @@
           "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur"
         ]
       },
-      "previousSlugs": [
-        "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kanton-gr-ch",
-        "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur"
-      ],
+      "firstSeenAt": "2026-07-23T12:33:19.361Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -595,16 +618,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-07-23T12:33:19.361Z"
+      "addressRegion": "GR"
     },
     {
       "id": "kanton-gr-09ca40144e10",
       "slug": "collaboratore-trice-in-forstliche-ausbildung-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "de": "mitarbeiter-in-forstliche-ausbildung-kanton-gr-ch",
         "it": "collaboratore-trice-in-forstliche-ausbildung-kantonale-verwaltung-graubunden-chur",
         "en": "forestry-training-staff-kantonale-verwaltung-graubunden-chur",
+        "de": "mitarbeiter-in-forstliche-ausbildung-kanton-gr-ch",
         "fr": "personnel-de-formation-forestiere-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
@@ -612,16 +634,16 @@
       "companyDomain": "gr.ch",
       "title": "Mitarbeiter/-in forstliche Ausbildung",
       "titleByLocale": {
-        "de": "Mitarbeiter/-in forstliche Ausbildung",
         "it": "Collaboratore/trice/-in forstliche Ausbildung",
         "en": "Forestry training staff",
+        "de": "Mitarbeiter/-in forstliche Ausbildung",
         "fr": "Personnel de formation forestière"
       },
       "description": "Das Amt für Wald und Naturgefahren (AWN) ist die kantonale Fachstelle für den Wald und den Schutz vor Naturgefahren. Die Mitarbeitenden des AWN setzen sich für die Bedürfnisse der Gesellschaft am Wald ein und stellen sicher, dass mit dem Wald nachhaltig umgegangen wird.\n\nDu sorgst dafür, dass der Bündner Wald\n\n• Menschen, Tiere und Infrastruktur schützen kann,\n\n• Lebensraum für vielfältige Tier- und Pflanzenarten ist,\n\n• Rohstofflieferant von Holz, Wasser und Energie ist,\n\n• weiterhin ein Erholungs- und Freizeitraum für die Menschen sein kann.\n\nWir suchen per sofort oder nach Vereinbarung eine/-n Mitarbeiter/-in forstliche Ausbildung (70-100%)\n\nAufgaben\n• Du unterstützt den Ausbildungsleiter bei der Organisation sowie Durchführung der überbetrieblichen Kurse und den Qualifikationsverfahren\n\n• Als Stellvertreter/-in des Ausbildungsleiters bist du Ansprechperson für die Lernenden, Berufsbildner und Waldarbeiter bei Fragen zur Grund- und Weiterbildung im forstlichen Bereich\n\n• In den überbetrieblichen Kursen stehst du als Kursleiter/-in und/oder Instruktor/-in im Einsatz\n\n• Du wirkst bei der Organisation der Arbeitswelt (OdA) Wald Graubünden mit\n\n• Entsprechend deiner Qualifikationen unterstützt du den Bereich in weiteren Themenbereichen wie Arbeitssicherheit, Organisation und Durchführung von Inventuren, Datenerhebungen und Waldbauworkshops\n\nAnforderungen\n• Abschluss einer höheren forstlichen Ausbildung (Fachhochschule oder Försterschule) oder vergleichbare Ausbildung\n\n• Erfahrung und Freude im Umgang mit Lernenden\n\n• Initiative, teamorientierte und zuverlässige Arbeitsweise\n\n• Gute IT-Kenntnisse\n\n• Führerausweiskategorie BE oder Bereitschaft, diesen zu erwerben\n\n• Allgemeine Arbeitssprache ist Deutsch; gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil",
       "descriptionByLocale": {
-        "de": "Das Amt für Wald und Naturgefahren (AWN) ist die kantonale Fachstelle für den Wald und den Schutz vor Naturgefahren. Die Mitarbeitenden des AWN setzen sich für die Bedürfnisse der Gesellschaft am Wald ein und stellen sicher, dass mit dem Wald nachhaltig umgegangen wird.\n\nDu sorgst dafür, dass der Bündner Wald\n\n• Menschen, Tiere und Infrastruktur schützen kann,\n\n• Lebensraum für vielfältige Tier- und Pflanzenarten ist,\n\n• Rohstofflieferant von Holz, Wasser und Energie ist,\n\n• weiterhin ein Erholungs- und Freizeitraum für die Menschen sein kann.\n\nWir suchen per sofort oder nach Vereinbarung eine/-n Mitarbeiter/-in forstliche Ausbildung (70-100%)\n\nAufgaben\n• Du unterstützt den Ausbildungsleiter bei der Organisation sowie Durchführung der überbetrieblichen Kurse und den Qualifikationsverfahren\n\n• Als Stellvertreter/-in des Ausbildungsleiters bist du Ansprechperson für die Lernenden, Berufsbildner und Waldarbeiter bei Fragen zur Grund- und Weiterbildung im forstlichen Bereich\n\n• In den überbetrieblichen Kursen stehst du als Kursleiter/-in und/oder Instruktor/-in im Einsatz\n\n• Du wirkst bei der Organisation der Arbeitswelt (OdA) Wald Graubünden mit\n\n• Entsprechend deiner Qualifikationen unterstützt du den Bereich in weiteren Themenbereichen wie Arbeitssicherheit, Organisation und Durchführung von Inventuren, Datenerhebungen und Waldbauworkshops\n\nAnforderungen\n• Abschluss einer höheren forstlichen Ausbildung (Fachhochschule oder Försterschule) oder vergleichbare Ausbildung\n\n• Erfahrung und Freude im Umgang mit Lernenden\n\n• Initiative, teamorientierte und zuverlässige Arbeitsweise\n\n• Gute IT-Kenntnisse\n\n• Führerausweiskategorie BE oder Bereitschaft, diesen zu erwerben\n\n• Allgemeine Arbeitssprache ist Deutsch; gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil",
         "it": "L'Ufficio per i rischi forestali e naturali (AWN) è lo specialista cantonale per la silvicoltura e la protezione contro i pericoli naturali. I dipendenti dell'AWN sono impegnati alle esigenze della società nella foresta e assicurano che la foresta sia gestita in modo sostenibile.\n\nAssicurati che il Bundner Wald\n\n• può proteggere le persone, gli animali e le infrastrutture,\n\n• habitat per una varietà di specie animali e vegetali,\n\n• è un fornitore di materia prima di legno, acqua ed energia,\n\n• può continuare ad essere uno spazio ricreativo e ricreativo per le persone.\n\nStiamo cercando un dipendente nella formazione forestale immediatamente o per accordo (70-100%)\n\nCompiti\n• Lei sostiene il responsabile della formazione nell'organizzazione e nell'attuazione dei corsi e delle procedure di qualificazione intercompany\n\n• In qualità di vicedirettore della formazione, siete la persona di contatto per gli studenti, i formatori professionali e i lavoratori forestali con domande sulla formazione di base e ulteriore nel settore forestale.\n\n• Nei corsi inter-aziendali, si sono impiegati come istruttore di corso e/o istruttore.\n\n• Sei coinvolto nell'organizzazione del mondo del lavoro (OdA) Wald Graubünden\n\n• A seconda delle tue qualifiche, supporterai l'area in altri temi come la sicurezza del lavoro, l'organizzazione e l'implementazione di inventori, raccolta dati e laboratori forestali.\n\nRequisiti\n• Completamento dell'istruzione forestale superiore (università tecnica o scuola forestale) o formazione comparabile\n\n• Esperienza e gioia nel trattare con gli studenti\n\n• Iniziativa, team-oriented e modo di lavoro affidabile\n\n• Buone competenze IT\n\n• Titolo di guida categoria BE o la volontà di acquisire\n\n• La lingua di lavoro generale è tedesca; la buona conoscenza di diverse lingue cantonali è un vantaggio",
         "en": "The Office for Forest and Natural Hazards (AWN) is the cantonal specialist for forestry and protection against natural hazards. The employees of the AWN are committed to the needs of society in the forest and ensure that the forest is handled sustainably.\n\nYou make sure that the Bundner Wald\n\n• can protect people, animals and infrastructure,\n\n• habitat for a variety of animal and plant species,\n\n• is a raw material supplier of wood, water and energy,\n\n• can continue to be a recreational and leisure space for people.\n\nWe are looking for an employee in forestry training immediately or by agreement (70-100%)\n\nTasks\n• You support the training manager in the organization and implementation of the intercompany courses and qualification procedures\n\n• As a deputy of the training director, you are the contact person for learners, vocational trainers and forest workers with questions about basic and further training in the forestry sector.\n\n• In the inter-company courses, you are employed as a course instructor and/or instructor.\n\n• You are involved in the organization of the working world (OdA) Wald Graubünden\n\n• Depending on your qualifications, you will support the area in other topics such as occupational safety, organisation and implementation of inventories, data collection and forestry workshops.\n\nRequirements\n• Completion of higher forestry education (technical college or forestry school) or comparable education\n\n• Experience and joy in dealing with learners\n\n• Initiative, team-oriented and reliable way of working\n\n• Good IT skills\n\n• Driving licence category BE or willingness to acquire it\n\n• General working language is German; Good knowledge of several cantonal languages is an advantage",
+        "de": "Das Amt für Wald und Naturgefahren (AWN) ist die kantonale Fachstelle für den Wald und den Schutz vor Naturgefahren. Die Mitarbeitenden des AWN setzen sich für die Bedürfnisse der Gesellschaft am Wald ein und stellen sicher, dass mit dem Wald nachhaltig umgegangen wird.\n\nDu sorgst dafür, dass der Bündner Wald\n\n• Menschen, Tiere und Infrastruktur schützen kann,\n\n• Lebensraum für vielfältige Tier- und Pflanzenarten ist,\n\n• Rohstofflieferant von Holz, Wasser und Energie ist,\n\n• weiterhin ein Erholungs- und Freizeitraum für die Menschen sein kann.\n\nWir suchen per sofort oder nach Vereinbarung eine/-n Mitarbeiter/-in forstliche Ausbildung (70-100%)\n\nAufgaben\n• Du unterstützt den Ausbildungsleiter bei der Organisation sowie Durchführung der überbetrieblichen Kurse und den Qualifikationsverfahren\n\n• Als Stellvertreter/-in des Ausbildungsleiters bist du Ansprechperson für die Lernenden, Berufsbildner und Waldarbeiter bei Fragen zur Grund- und Weiterbildung im forstlichen Bereich\n\n• In den überbetrieblichen Kursen stehst du als Kursleiter/-in und/oder Instruktor/-in im Einsatz\n\n• Du wirkst bei der Organisation der Arbeitswelt (OdA) Wald Graubünden mit\n\n• Entsprechend deiner Qualifikationen unterstützt du den Bereich in weiteren Themenbereichen wie Arbeitssicherheit, Organisation und Durchführung von Inventuren, Datenerhebungen und Waldbauworkshops\n\nAnforderungen\n• Abschluss einer höheren forstlichen Ausbildung (Fachhochschule oder Försterschule) oder vergleichbare Ausbildung\n\n• Erfahrung und Freude im Umgang mit Lernenden\n\n• Initiative, teamorientierte und zuverlässige Arbeitsweise\n\n• Gute IT-Kenntnisse\n\n• Führerausweiskategorie BE oder Bereitschaft, diesen zu erwerben\n\n• Allgemeine Arbeitssprache ist Deutsch; gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil",
         "fr": "L'Office for Forest and Natural Hazards (AWN) est le spécialiste cantonal de la foresterie et de la protection contre les risques naturels. Les employés de l'AWN sont déterminés à répondre aux besoins de la société dans la forêt et à veiller à ce que la forêt soit gérée de manière durable.\n\nAssurez-vous que le Bundner Wald\n\n• peut protéger les personnes, les animaux et les infrastructures,\n\n• habitat pour une variété d'espèces animales et végétales,\n\n• est un fournisseur de matière première en bois, eau et énergie,\n\n• peut continuer à être un espace de loisirs pour les gens.\n\nNous sommes à la recherche d'un employé en formation forestière immédiatement ou par accord (70-100%)\n\nTâche\n• Vous soutenez le responsable de la formation dans l'organisation et la mise en œuvre des cours interentreprises et des procédures de qualification\n\n• En tant que député du directeur de la formation, vous êtes la personne de contact pour les apprenants, les formateurs professionnels et les travailleurs forestiers avec des questions sur la formation de base et la formation continue dans le secteur forestier.\n\n• Dans les cours interentreprises, vous êtes employé comme instructeur et/ou instructeur.\n\n• Vous êtes impliqué dans l'organisation du monde du travail (OdA) Wald Graubünden\n\n• En fonction de vos qualifications, vous soutenirz le domaine dans d'autres domaines tels que la sécurité au travail, l'organisation et la mise en œuvre des inventaires, la collecte de données et les ateliers forestiers.\n\nExigences\n• Achèvement de l'enseignement supérieur forestier (collège technique ou école forestière) ou de l'enseignement comparable\n\n• Expérience et joie avec les apprenants\n\n• Initiative, méthode de travail axée sur l'équipe et fiable\n\n• Bonnes compétences en TI\n\n• Catégorie de permis de conduire BE ou volonté de l'acquérir\n\n• La langue de travail générale est l'allemand; une bonne connaissance de plusieurs langues cantonales est un avantage"
       },
       "location": "Chur",
@@ -629,7 +651,7 @@
       "url": "https://apply.refline.ch/514915/2783/pub/2/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:18.692Z",
+      "crawledAt": "2026-07-23T22:15:51.055Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -644,17 +666,21 @@
       "postedDate": "2026-07-23",
       "applyUrl": "https://apply.refline.ch/514915/2783/pub/2/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Amt für Wald und Naturgefahren",
       "applicationDeadline": "2026-08-23",
       "pensumMin": 70,
       "pensumMax": 100,
       "pensum": "70-100%",
+      "previousSlugs": [
+        "mitarbeiter-in-forstliche-ausbildung-kanton-gr-ch",
+        "mitarbeiter-in-forstliche-ausbildung-kantonale-verwaltung-graubunden-chur",
+        "collaboratore-trice-in-forstliche-ausbildung-kantonale-verwaltung-graubunden-chur"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-forstliche-ausbildung-kanton-gr-ch"
+          "mitarbeiter-in-forstliche-ausbildung-kanton-gr-ch",
+          "collaboratore-trice-in-forstliche-ausbildung-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "mitarbeiter-in-forstliche-ausbildung-kantonale-verwaltung-graubunden-chur"
@@ -663,10 +689,8 @@
           "mitarbeiter-in-forstliche-ausbildung-kantonale-verwaltung-graubunden-chur"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-forstliche-ausbildung-kanton-gr-ch",
-        "mitarbeiter-in-forstliche-ausbildung-kantonale-verwaltung-graubunden-chur"
-      ],
+      "firstSeenAt": "2026-07-23T12:33:18.692Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -679,16 +703,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-07-23T12:33:18.692Z"
+      "addressRegion": "GR"
     },
     {
       "id": "kanton-gr-40b8b619d8d8",
       "slug": "persona-responsabile-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "de": "sachbearbeiter-in-kanton-gr-ch",
         "it": "persona-responsabile-kantonale-verwaltung-graubunden-chur",
         "en": "person-in-charge-kantonale-verwaltung-graubunden-chur",
+        "de": "sachbearbeiter-in-kanton-gr-ch",
         "fr": "responsable-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
@@ -696,16 +719,16 @@
       "companyDomain": "gr.ch",
       "title": "Sachbearbeiter/-in",
       "titleByLocale": {
-        "de": "Sachbearbeiter/-in",
         "it": "Persona responsabile",
         "en": "Person in charge",
+        "de": "Sachbearbeiter/-in",
         "fr": "Responsable"
       },
       "description": "Aufgaben\n• Selbstständige Bearbeitung administrativer und organisatorischer Aufgaben\n\n• Formelle und inhaltliche Kontrolle sowie redaktionelle und sprachliche Überarbeitung von Amts- und Departementsverfügungen sowie Regierungsanträgen\n\n• Mitwirkung im rotierenden Telefon- und Postdienst\n\n• Allgemeine Büro- und Administrationsarbeiten\n\nAnforderungen\n• Abgeschlossene kaufmännische Ausbildung oder gleichwertige Qualifikation\n\n• Sehr gute mündliche und schriftliche Ausdrucksweise in Deutsch, Kenntnisse einer weiteren Kantonssprache sind von Vorteil\n\n• Sorgfältige, strukturierte und zuverlässige Arbeitsweise\n\n• Hohe Genauigkeit, Diskretion und Verantwortungsbewusstsein\n\n• Erfahrung in der öffentlichen Verwaltung von Vorteil\n\n• Sicherer Umgang mit MS Office, CMI-Kenntnisse von Vorteil\n\n• IT Affinität sowie Interesse an digitalen Arbeitsprozessen und neuen Anwendungen",
       "descriptionByLocale": {
-        "de": "Aufgaben\n• Selbstständige Bearbeitung administrativer und organisatorischer Aufgaben\n\n• Formelle und inhaltliche Kontrolle sowie redaktionelle und sprachliche Überarbeitung von Amts- und Departementsverfügungen sowie Regierungsanträgen\n\n• Mitwirkung im rotierenden Telefon- und Postdienst\n\n• Allgemeine Büro- und Administrationsarbeiten\n\nAnforderungen\n• Abgeschlossene kaufmännische Ausbildung oder gleichwertige Qualifikation\n\n• Sehr gute mündliche und schriftliche Ausdrucksweise in Deutsch, Kenntnisse einer weiteren Kantonssprache sind von Vorteil\n\n• Sorgfältige, strukturierte und zuverlässige Arbeitsweise\n\n• Hohe Genauigkeit, Diskretion und Verantwortungsbewusstsein\n\n• Erfahrung in der öffentlichen Verwaltung von Vorteil\n\n• Sicherer Umgang mit MS Office, CMI-Kenntnisse von Vorteil\n\n• IT Affinität sowie Interesse an digitalen Arbeitsprozessen und neuen Anwendungen",
         "it": "Compiti\n• Trattamento indipendente dei compiti amministrativi e organizzativi\n\n• Controllo formale e sostanziale nonché revisione editoriale e linguistica dei decreti amministrativi e dipartimentali e delle applicazioni governative\n\n• Partecipazione al servizio telefonico e postale rotante\n\n• Lavori generali di ufficio e amministrazione\n\nRequisiti\n• Istruzione commerciale o qualifica equivalente completata\n\n• Molto buona espressione orale e scritta in tedesco, la conoscenza di un'altra lingua cantonale è un vantaggio\n\n• Metodi di lavoro accurati, strutturati e affidabili\n\n• Alta precisione, discrezione e responsabilità\n\n• L'esperienza dell'amministrazione pubblica è utile\n\n• Gestione sicura di MS Office, la conoscenza CMI è un vantaggio\n\n• affinità IT e interesse nei processi di lavoro digitali e nuove applicazioni",
         "en": "Tasks\n• Independent processing of administrative and organisational tasks\n\n• Formal and substantive control as well as editorial and linguistic revision of administrative and departmental decrees and government applications\n\n• Participation in the rotating telephone and postal service\n\n• General office and administration work\n\nRequirements\n• Commercial education or equivalent qualification completed\n\n• Very good oral and written expression in German, knowledge of another cantonal language is an advantage\n\n• Careful, structured and reliable working methods\n\n• High accuracy, discretion and responsibility\n\n• Public administration experience is beneficial\n\n• Secure handling of MS Office, CMI knowledge is an advantage\n\n• IT affinity and interest in digital work processes and new applications",
+        "de": "Aufgaben\n• Selbstständige Bearbeitung administrativer und organisatorischer Aufgaben\n\n• Formelle und inhaltliche Kontrolle sowie redaktionelle und sprachliche Überarbeitung von Amts- und Departementsverfügungen sowie Regierungsanträgen\n\n• Mitwirkung im rotierenden Telefon- und Postdienst\n\n• Allgemeine Büro- und Administrationsarbeiten\n\nAnforderungen\n• Abgeschlossene kaufmännische Ausbildung oder gleichwertige Qualifikation\n\n• Sehr gute mündliche und schriftliche Ausdrucksweise in Deutsch, Kenntnisse einer weiteren Kantonssprache sind von Vorteil\n\n• Sorgfältige, strukturierte und zuverlässige Arbeitsweise\n\n• Hohe Genauigkeit, Diskretion und Verantwortungsbewusstsein\n\n• Erfahrung in der öffentlichen Verwaltung von Vorteil\n\n• Sicherer Umgang mit MS Office, CMI-Kenntnisse von Vorteil\n\n• IT Affinität sowie Interesse an digitalen Arbeitsprozessen und neuen Anwendungen",
         "fr": "Tâche\n• Traitement indépendant des tâches administratives et organisationnelles\n\n• Contrôle formel et matériel ainsi que révision éditoriale et linguistique des décrets administratifs et départementaux et des demandes gouvernementales\n\n• Participation au service téléphonique et postal tournant\n\n• Travaux généraux et administratifs\n\nExigences\n• Études commerciales ou qualifications équivalentes complétées\n\n• Très bonne expression orale et écrite en allemand, connaissance d'une autre langue cantonale est un avantage\n\n• Méthodes de travail prudentes, structurées et fiables\n\n• Haute précision, discrétion et responsabilité\n\n• L'expérience de l'administration publique est bénéfique\n\n• Gestion sécurisée de MS Office, la connaissance CMI est un avantage\n\n• affinité informatique et intérêt pour les processus de travail numériques et les nouvelles applications"
       },
       "location": "Chur",
@@ -713,7 +736,7 @@
       "url": "https://apply.refline.ch/514915/2757/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:18.025Z",
+      "crawledAt": "2026-07-23T22:15:50.373Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -728,57 +751,57 @@
       "postedDate": "2026-07-23",
       "applyUrl": "https://apply.refline.ch/514915/2757/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Amt für Volksschule und Sport",
       "applicationDeadline": "2026-08-16",
       "pensumMin": 40,
       "pensumMax": 60,
       "pensum": "40-60%",
+      "previousSlugs": [
+        "sachbearbeiter-in-kanton-gr-ch",
+        "sachbearbeiter-in-kanton-gr-ch-2",
+        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
+        "persona-responsabile-kantonale-verwaltung-graubunden-chur"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-kanton-gr-ch",
           "sachbearbeiter-in-kanton-gr-ch-2",
+          "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
+          "persona-responsabile-kantonale-verwaltung-graubunden-chur"
+        ],
+        "en": [
           "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur"
         ],
         "de": [
           "sachbearbeiter-in-kanton-gr-ch-2"
         ],
-        "en": [
-          "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur"
-        ],
         "fr": [
           "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-in-kanton-gr-ch",
-        "sachbearbeiter-in-kanton-gr-ch-2",
-        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur"
-      ],
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "firstSeenAt": "2026-07-23T12:33:18.025Z",
+      "salaryMin": 79000,
+      "salaryMax": 120000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-07-23T12:33:18.025Z"
+      "addressRegion": "GR"
     },
     {
       "id": "kanton-gr-b15ca23adb65",
       "slug": "wissenschaftliche-r-collaboratore-trice-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "de": "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch",
         "it": "wissenschaftliche-r-collaboratore-trice-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur",
         "en": "scientific-staff-in-the-ratische-museum-kantonale-verwaltung-graubunden-chur",
+        "de": "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch",
         "fr": "personnel-scientifique-au-musee-ratische-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
@@ -786,16 +809,16 @@
       "companyDomain": "gr.ch",
       "title": "Wissenschaftliche/-r Mitarbeiter/-in, im Rätischen Museum",
       "titleByLocale": {
-        "de": "Wissenschaftliche/-r Mitarbeiter/-in, im Rätischen Museum",
         "it": "Wissenschaftliche/-r Collaboratore/trice/-in, im Rätischen Museum",
         "en": "Scientific staff, in the Rätische Museum",
+        "de": "Wissenschaftliche/-r Mitarbeiter/-in, im Rätischen Museum",
         "fr": "Personnel scientifique au Musée Rätische"
       },
       "description": "Wir suchen für das Rätische Museum im Amt für Kultur per 1. Oktober 2026 oder nach Vereinbarung eine/-n wissenschaftliche/-n Mitarbeiter/-in für unser Team Ausstellungen und Vermittlung.\n\nAufgaben\n• Projektleitung oder Mitarbeit beim Planen und Umsetzen von Sonderausstellungen, inkl. inhaltlicher Erarbeitung, Objektrecherchen und Verfassen von Ausstellungstexten\n\n• Organisation und Durchführung von Begleitprogrammen mit Führungen und Veranstaltungen\n\n• Beantworten von Anfragen zu Objekten aus der Sammlung sowie zu weiteren Themen rund um die Geschichte Graubündens\n\n• Unterstützung des Teams bei der Sammlungserweiterung und -inventarisierung\n\n• Diverse Recherche- und Textarbeiten\n\nAnforderungen\n• Abgeschlossenes Studium in Geschichte oder einem verwandten geisteswissenschaftlichen Fachgebiet\n\n• Museumspraxis und Erfahrung in der Vermittlung historischer Inhalte\n\n• Projektleitungserfahrung\n\n• Selbständige, strukturierte Arbeitsweise und organisatorische Fähigkeiten\n\n• Kommunikations- und Auftrittskompetenz\n\n• Flexible, kooperative und teamfähige Persönlichkeit\n\n• Stilsicheres Deutsch\n\n• Kenntnisse des Kantons und mindestens einer zweiten Kantonssprache",
       "descriptionByLocale": {
-        "de": "Wir suchen für das Rätische Museum im Amt für Kultur per 1. Oktober 2026 oder nach Vereinbarung eine/-n wissenschaftliche/-n Mitarbeiter/-in für unser Team Ausstellungen und Vermittlung.\n\nAufgaben\n• Projektleitung oder Mitarbeit beim Planen und Umsetzen von Sonderausstellungen, inkl. inhaltlicher Erarbeitung, Objektrecherchen und Verfassen von Ausstellungstexten\n\n• Organisation und Durchführung von Begleitprogrammen mit Führungen und Veranstaltungen\n\n• Beantworten von Anfragen zu Objekten aus der Sammlung sowie zu weiteren Themen rund um die Geschichte Graubündens\n\n• Unterstützung des Teams bei der Sammlungserweiterung und -inventarisierung\n\n• Diverse Recherche- und Textarbeiten\n\nAnforderungen\n• Abgeschlossenes Studium in Geschichte oder einem verwandten geisteswissenschaftlichen Fachgebiet\n\n• Museumspraxis und Erfahrung in der Vermittlung historischer Inhalte\n\n• Projektleitungserfahrung\n\n• Selbständige, strukturierte Arbeitsweise und organisatorische Fähigkeiten\n\n• Kommunikations- und Auftrittskompetenz\n\n• Flexible, kooperative und teamfähige Persönlichkeit\n\n• Stilsicheres Deutsch\n\n• Kenntnisse des Kantons und mindestens einer zweiten Kantonssprache",
         "it": "Stiamo cercando il Museo Rätische nell'Ufficio della Cultura a partire da 1. Ottobre 2026 o su appuntamento un dipendente scientifico per le mostre e la mediazione del nostro team.\n\nCompiti\n• Gestione del progetto o cooperazione nella progettazione e realizzazione di mostre speciali, tra cui sviluppo di contenuti, ricerca di oggetti e scrittura di testi espositivi\n\n• Organizzazione e realizzazione di programmi di accompagnamento con visite guidate ed eventi\n\n• Rispondi alle richieste di oggetti della collezione e altri argomenti relativi alla storia dei Grigioni\n\n• Sostenere il team nell'espansione e nell'inventario delle collezioni\n\n• Vari lavori di ricerca e testo\n\nRequisiti\n• Studi completati nella storia o in un campo umano correlato\n\n• Pratica e esperienza del museo nel trasmettere contenuti storici\n\n• Esperienza di gestione del progetto\n\n• Metodi di lavoro indipendenti e strutturati e competenze organizzative\n\n• Competenze di comunicazione e performance\n\n• Personalità flessibile, cooperativa e responsabile del team\n\n• Stylistic tedesco\n\n• Conoscenza del cantone e almeno una seconda lingua cantonale",
         "en": "We are looking for the Rätische Museum in the Office of Culture as of 1. October 2026 or by appointment a scientific employee for our team exhibitions and mediation.\n\nTasks\n• Project management or cooperation in the planning and implementation of special exhibitions, including content development, object research and writing of exhibition texts\n\n• Organisation and implementation of accompanying programmes with guided tours and events\n\n• Answer inquiries about objects from the collection and other topics related to the history of Graubünden\n\n• Supporting the team in collection expansion and inventory\n\n• Various research and text work\n\nRequirements\n• Completed studies in history or a related humanities field\n\n• Museum practice and experience in conveying historical content\n\n• Project management experience\n\n• Independent, structured working methods and organisational skills\n\n• Communication and performance competence\n\n• Flexible, cooperative and team-capable personality\n\n• Stylistic German\n\n• Knowledge of the canton and at least one second cantonal language",
+        "de": "Wir suchen für das Rätische Museum im Amt für Kultur per 1. Oktober 2026 oder nach Vereinbarung eine/-n wissenschaftliche/-n Mitarbeiter/-in für unser Team Ausstellungen und Vermittlung.\n\nAufgaben\n• Projektleitung oder Mitarbeit beim Planen und Umsetzen von Sonderausstellungen, inkl. inhaltlicher Erarbeitung, Objektrecherchen und Verfassen von Ausstellungstexten\n\n• Organisation und Durchführung von Begleitprogrammen mit Führungen und Veranstaltungen\n\n• Beantworten von Anfragen zu Objekten aus der Sammlung sowie zu weiteren Themen rund um die Geschichte Graubündens\n\n• Unterstützung des Teams bei der Sammlungserweiterung und -inventarisierung\n\n• Diverse Recherche- und Textarbeiten\n\nAnforderungen\n• Abgeschlossenes Studium in Geschichte oder einem verwandten geisteswissenschaftlichen Fachgebiet\n\n• Museumspraxis und Erfahrung in der Vermittlung historischer Inhalte\n\n• Projektleitungserfahrung\n\n• Selbständige, strukturierte Arbeitsweise und organisatorische Fähigkeiten\n\n• Kommunikations- und Auftrittskompetenz\n\n• Flexible, kooperative und teamfähige Persönlichkeit\n\n• Stilsicheres Deutsch\n\n• Kenntnisse des Kantons und mindestens einer zweiten Kantonssprache",
         "fr": "Nous sommes à la recherche du Musée Rätische dans l'Office de la Culture à partir de 1. Octobre 2026 ou sur rendez-vous un employé scientifique pour nos expositions d'équipe et la médiation.\n\nTâche\n• Gestion de projet ou coopération dans la planification et la mise en œuvre d'expositions spéciales, y compris l'élaboration de contenu, la recherche d'objets et la rédaction de textes d'exposition\n\n• Organisation et mise en œuvre de programmes d'accompagnement avec visites guidées et manifestations\n\n• Répondre aux questions sur les objets de la collection et d'autres sujets liés à l'histoire des Grisons\n\n• Soutenir l'équipe dans l'expansion de la collecte et l'inventaire\n\n• Divers travaux de recherche et de texte\n\nExigences\n• Études terminées dans le domaine de l'histoire ou des sciences humaines connexes\n\n• Pratique et expérience des musées dans la transmission du contenu historique\n\n• Expérience de gestion de projet\n\n• Méthodes de travail et compétences organisationnelles indépendantes et structurées\n\n• Compétence en matière de communication et de performance\n\n• Personnalité flexible, coopérative et capable d'équipe\n\n• Allemand stylistique\n\n• Connaissance du canton et au moins une seconde langue cantonale"
       },
       "location": "Chur",
@@ -803,7 +826,7 @@
       "url": "https://apply.refline.ch/514915/2791/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:17.355Z",
+      "crawledAt": "2026-07-23T22:15:49.694Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -818,17 +841,21 @@
       "postedDate": "2026-07-23",
       "applyUrl": "https://apply.refline.ch/514915/2791/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Amt für Kultur, Rätisches Museum",
       "applicationDeadline": "2026-08-26",
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
+      "previousSlugs": [
+        "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch",
+        "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur",
+        "wissenschaftliche-r-collaboratore-trice-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch"
+          "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch",
+          "wissenschaftliche-r-collaboratore-trice-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur"
@@ -837,10 +864,7 @@
           "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur"
         ]
       },
-      "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch",
-        "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur"
-      ],
+      "firstSeenAt": "2026-07-23T12:33:17.355Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -853,16 +877,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-07-23T12:33:17.355Z"
+      "addressRegion": "GR"
     },
     {
       "id": "kanton-gr-9d0e171d2e9f",
       "slug": "capo-reparto-in-operazioni-ict-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "de": "abteilungsleiter-in-ict-betrieb-kanton-gr-ch",
         "it": "capo-reparto-in-operazioni-ict-kantonale-verwaltung-graubunden-chur",
         "en": "head-of-department-in-ict-operations-kantonale-verwaltung-graubunden-chur",
+        "de": "abteilungsleiter-in-ict-betrieb-kanton-gr-ch",
         "fr": "chef-de-departement-dans-les-operations-tic-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
@@ -870,16 +893,16 @@
       "companyDomain": "gr.ch",
       "title": "Abteilungsleiter/-in ICT-Betrieb",
       "titleByLocale": {
-        "de": "Abteilungsleiter/-in ICT-Betrieb",
         "it": "Capo reparto/in operazioni ICT",
         "en": "Head of department/in ICT operations",
+        "de": "Abteilungsleiter/-in ICT-Betrieb",
         "fr": "Chef de département/dans les opérations TIC"
       },
       "description": "Bist du bereit, den digitalen Wandel mitzugestalten? Als ICT Dienstleistungs- und Kompetenzzentrum der kantonalen Verwaltung Graubünden unterstützen wir unsere internen Kunden mit einer sicheren Basisinfrastruktur und fortschrittlichen Applikationen. Gemeinsam mit dir bringen wir die digitale Transformation des Kanton Graubünden voran.\n\nWir als Amt für Informatik suchen dazu per sofort oder nach Vereinbarung eine/-n Abteilungsl eiter/-in ICT-Betrieb\n\nAufgaben\n• Du trägst die Gesamtverantwortung für den technischen Betrieb der kantonalen Informatik\n\n• Du gewährleistest eine sichere und aktuelle ICT-Grundversorgung für unsere Kunden\n\n• Du führst ein Team von rund 30 Personen mit fachlichem Know-how und einem starken Teamgeist\n\n• Du behältst den Überblick über Kosten und Budget\n\n• Du kümmerst dich um Beschaffungen und bereitest Verträge sowie Verfügungen vor\n\n• Du leitest übergreifende Projekte und vertrittst das AFI im kantonalen Führungsstab\n\nAnforderungen\n• Ein abgeschlossenes technisches Informatikstudium oder in einem vergleichbaren Bereich\n\n• Mehrjährige Berufserfahrung in einer Führungsposition\n\n• Eine durchsetzungsstarke, qualitätsbewusste und belastbare Persönlichkeit mit Innovationsgeist und Eigeninitiative\n\n• Kommunikationsstärke und eine strukturierte, teamorientierte Arbeitsweise – flexibel und umsetzungsstark\n\n• Ein vorausschauender analytischer Blick auf den Markt, mit Gespür für Trends und Entwicklungen\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie gute Englischkenntnisse",
       "descriptionByLocale": {
-        "de": "Bist du bereit, den digitalen Wandel mitzugestalten? Als ICT Dienstleistungs- und Kompetenzzentrum der kantonalen Verwaltung Graubünden unterstützen wir unsere internen Kunden mit einer sicheren Basisinfrastruktur und fortschrittlichen Applikationen. Gemeinsam mit dir bringen wir die digitale Transformation des Kanton Graubünden voran.\n\nWir als Amt für Informatik suchen dazu per sofort oder nach Vereinbarung eine/-n Abteilungsl eiter/-in ICT-Betrieb\n\nAufgaben\n• Du trägst die Gesamtverantwortung für den technischen Betrieb der kantonalen Informatik\n\n• Du gewährleistest eine sichere und aktuelle ICT-Grundversorgung für unsere Kunden\n\n• Du führst ein Team von rund 30 Personen mit fachlichem Know-how und einem starken Teamgeist\n\n• Du behältst den Überblick über Kosten und Budget\n\n• Du kümmerst dich um Beschaffungen und bereitest Verträge sowie Verfügungen vor\n\n• Du leitest übergreifende Projekte und vertrittst das AFI im kantonalen Führungsstab\n\nAnforderungen\n• Ein abgeschlossenes technisches Informatikstudium oder in einem vergleichbaren Bereich\n\n• Mehrjährige Berufserfahrung in einer Führungsposition\n\n• Eine durchsetzungsstarke, qualitätsbewusste und belastbare Persönlichkeit mit Innovationsgeist und Eigeninitiative\n\n• Kommunikationsstärke und eine strukturierte, teamorientierte Arbeitsweise – flexibel und umsetzungsstark\n\n• Ein vorausschauender analytischer Blick auf den Markt, mit Gespür für Trends und Entwicklungen\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie gute Englischkenntnisse",
         "it": "Sei pronto ad aiutare a plasmare la trasformazione digitale? Come centro di assistenza e competenza ICT dell'amministrazione cantonale dei Grigioni, sosteniamo i nostri clienti interni con un'infrastruttura di base sicura e applicazioni avanzate. Insieme a voi, stiamo avanzando la trasformazione digitale del Canton Grigioni.\n\nNoi, come Ufficio per la Scienza Informatica, stiamo cercando una società ICT immediatamente o con accordo.\n\nCompiti\n• Lei ha la responsabilità generale del funzionamento tecnico della scienza informatica cantonale\n\n• Garantisci un servizio ICT di base sicuro e aggiornato per i nostri clienti\n\n• Si guida una squadra di circa 30 persone con know-how professionale e uno spirito di squadra forte\n\n• Tieni traccia dei costi e del budget\n\n• Ti occupi degli appalti e prepari contratti e disposizioni\n\n• Voi guidate progetti di overarching e rappresentate l'AFI nel team di gestione cantonale\n\nRequisiti\n• Una laurea in informatica tecnica completata o in un campo comparabile\n\n• Diversi anni di esperienza professionale in una posizione di gestione\n\n• Una personalità assertiva, consapevole della qualità e resiliente con uno spirito innovativo e un'iniziativa\n\n• Forza di comunicazione e un modo di lavoro strutturato e orientato al team – flessibile e forte\n\n• Una visione analitica previsionale del mercato, con un senso di tendenze e sviluppi\n\n• Molto buona conoscenza del tedesco in parola e scrittura e buona conoscenza dell'inglese",
         "en": "Are you ready to help shape the digital transformation? As an ICT service and competence center of the cantonal administration of Graubünden, we support our internal customers with a secure basic infrastructure and advanced applications. Together with you, we are advancing the digital transformation of the Canton of Graubünden.\n\nWe, as the Office for Computer Science, are looking for an ICT company immediately or by agreement.\n\nTasks\n• You have overall responsibility for the technical operation of cantonal computer science\n\n• You ensure a secure and up-to-date basic ICT service for our customers\n\n• You lead a team of around 30 people with professional know-how and a strong team spirit\n\n• You keep track of costs and budget\n\n• You take care of procurements and prepare contracts and provisions\n\n• You lead overarching projects and represent the AFI in the cantonal management team\n\nRequirements\n• A completed technical computer science degree or in a comparable field\n\n• Several years of professional experience in a management position\n\n• An assertive, quality-conscious and resilient personality with an innovative spirit and initiative\n\n• Communication strength and a structured, team-oriented way of working – flexible and strong\n\n• A forward-looking analytical view of the market, with a sense of trends and developments\n\n• Very good knowledge of German in word and writing and good knowledge of English",
+        "de": "Bist du bereit, den digitalen Wandel mitzugestalten? Als ICT Dienstleistungs- und Kompetenzzentrum der kantonalen Verwaltung Graubünden unterstützen wir unsere internen Kunden mit einer sicheren Basisinfrastruktur und fortschrittlichen Applikationen. Gemeinsam mit dir bringen wir die digitale Transformation des Kanton Graubünden voran.\n\nWir als Amt für Informatik suchen dazu per sofort oder nach Vereinbarung eine/-n Abteilungsl eiter/-in ICT-Betrieb\n\nAufgaben\n• Du trägst die Gesamtverantwortung für den technischen Betrieb der kantonalen Informatik\n\n• Du gewährleistest eine sichere und aktuelle ICT-Grundversorgung für unsere Kunden\n\n• Du führst ein Team von rund 30 Personen mit fachlichem Know-how und einem starken Teamgeist\n\n• Du behältst den Überblick über Kosten und Budget\n\n• Du kümmerst dich um Beschaffungen und bereitest Verträge sowie Verfügungen vor\n\n• Du leitest übergreifende Projekte und vertrittst das AFI im kantonalen Führungsstab\n\nAnforderungen\n• Ein abgeschlossenes technisches Informatikstudium oder in einem vergleichbaren Bereich\n\n• Mehrjährige Berufserfahrung in einer Führungsposition\n\n• Eine durchsetzungsstarke, qualitätsbewusste und belastbare Persönlichkeit mit Innovationsgeist und Eigeninitiative\n\n• Kommunikationsstärke und eine strukturierte, teamorientierte Arbeitsweise – flexibel und umsetzungsstark\n\n• Ein vorausschauender analytischer Blick auf den Markt, mit Gespür für Trends und Entwicklungen\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie gute Englischkenntnisse",
         "fr": "Êtes-vous prêt à aider à façonner la transformation numérique? En tant que centre de services et de compétences TIC de l'administration cantonale de Graubünden, nous soutenons nos clients internes avec une infrastructure de base sécurisée et des applications avancées. Avec vous, nous faisons avancer la transformation numérique du canton des Grisons.\n\nNous, en tant que Bureau de l'informatique, sommes à la recherche d'une entreprise de TIC immédiatement ou par accord.\n\nTâche\n• Vous avez la responsabilité générale du fonctionnement technique de l'informatique cantonale\n\n• Vous assurez un service informatique de base sécurisé et à jour pour nos clients\n\n• Vous dirigez une équipe d'environ 30 personnes avec un savoir-faire professionnel et un esprit d'équipe fort\n\n• Vous gardez une trace des coûts et du budget\n\n• Vous prenez soin des achats et préparez les contrats et les dispositions\n\n• Vous dirigez des projets globaux et représentez l'AFI dans l'équipe de gestion cantonale\n\nExigences\n• Diplôme technique en informatique ou dans un domaine comparable\n\n• Plusieurs années d'expérience professionnelle dans un poste de gestion\n\n• Une personnalité affirmée, consciente de la qualité et résiliente avec un esprit et une initiative innovants\n\n• La force de la communication et un mode de travail structuré et axé sur l'équipe – flexible et fort\n\n• Une vue analytique prospective du marché, avec un sens des tendances et des développements\n\n• Très bonne connaissance de l'allemand en paroles et en écriture et bonne connaissance de l'anglais"
       },
       "location": "Chur",
@@ -887,7 +910,7 @@
       "url": "https://apply.refline.ch/514915/2789/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:16.685Z",
+      "crawledAt": "2026-07-23T22:15:49.016Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -902,14 +925,22 @@
       "postedDate": "2026-07-23",
       "applyUrl": "https://apply.refline.ch/514915/2789/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Amt für Informatik",
       "applicationDeadline": "2026-08-12",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
+      "previousSlugs": [
+        "abteilungsleiter-in-ict-betrieb-kanton-gr-ch",
+        "supporto-ict-kantonale-verwaltung-graubunden-chur",
+        "ict-supporter-in-kantonale-verwaltung-graubunden-chur",
+        "ict-supporter-in-kanton-gr-ch",
+        "soutien-aux-tic-kantonale-verwaltung-graubunden-chur-0b2e30",
+        "supporto-delle-tic-in-kantonale-verwaltung-graubunden-chur-0b2e30",
+        "abteilungsleiter-in-ict-betrieb-kantonale-verwaltung-graubunden-chur",
+        "capo-reparto-in-operazioni-ict-kantonale-verwaltung-graubunden-chur"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "abteilungsleiter-in-ict-betrieb-kanton-gr-ch",
@@ -918,7 +949,8 @@
           "ict-supporter-in-kanton-gr-ch",
           "soutien-aux-tic-kantonale-verwaltung-graubunden-chur-0b2e30",
           "supporto-delle-tic-in-kantonale-verwaltung-graubunden-chur-0b2e30",
-          "abteilungsleiter-in-ict-betrieb-kantonale-verwaltung-graubunden-chur"
+          "abteilungsleiter-in-ict-betrieb-kantonale-verwaltung-graubunden-chur",
+          "capo-reparto-in-operazioni-ict-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "ict-supporter-in-kantonale-verwaltung-graubunden-chur",
@@ -932,37 +964,28 @@
           "abteilungsleiter-in-ict-betrieb-kantonale-verwaltung-graubunden-chur"
         ]
       },
-      "previousSlugs": [
-        "abteilungsleiter-in-ict-betrieb-kanton-gr-ch",
-        "supporto-ict-kantonale-verwaltung-graubunden-chur",
-        "ict-supporter-in-kantonale-verwaltung-graubunden-chur",
-        "ict-supporter-in-kanton-gr-ch",
-        "soutien-aux-tic-kantonale-verwaltung-graubunden-chur-0b2e30",
-        "supporto-delle-tic-in-kantonale-verwaltung-graubunden-chur-0b2e30",
-        "abteilungsleiter-in-ict-betrieb-kantonale-verwaltung-graubunden-chur"
-      ],
-      "salaryMin": 60000,
-      "salaryMax": 102000,
+      "firstSeenAt": "2026-07-23T12:33:16.685Z",
+      "salaryMin": 92000,
+      "salaryMax": 156500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60000,
-          "maxValue": 102000,
+          "minValue": 92000,
+          "maxValue": 156500,
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-07-23T12:33:16.685Z"
+      "addressRegion": "GR"
     },
     {
       "id": "kanton-gr-0cb47b5e28d1",
       "slug": "sachbearbeiter-in-beitragswesen-e-finanzen-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "de": "sachbearbeiter-in-beitragswesen-und-finanzen-kanton-gr-ch",
         "it": "sachbearbeiter-in-beitragswesen-e-finanzen-kantonale-verwaltung-graubunden-chur",
         "en": "contribution-and-finance-officers-kantonale-verwaltung-graubunden-chur",
+        "de": "sachbearbeiter-in-beitragswesen-und-finanzen-kanton-gr-ch",
         "fr": "fonctionnaires-des-contributions-et-des-finances-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
@@ -970,16 +993,16 @@
       "companyDomain": "gr.ch",
       "title": "Sachbearbeiter/-in Beitragswesen und Finanzen",
       "titleByLocale": {
-        "de": "Sachbearbeiter/-in Beitragswesen und Finanzen",
         "it": "Sachbearbeiter/-in Beitragswesen e Finanzen",
         "en": "Contribution and finance officers",
+        "de": "Sachbearbeiter/-in Beitragswesen und Finanzen",
         "fr": "Fonctionnaires des contributions et des finances"
       },
       "description": "Das Amt für Berufsbildung (AFB) ist eine Dienststelle des Erziehungs-, Kultur- und Umweltschutzdepartements (EKUD) und setzt die bildungspolitischen Aufträge von Bund und Kanton im Bereich der beruflichen Grundbildung um. Es ist zudem Kompetenzstelle in Fragen der Berufs-, Schul- und Studienwahl sowie begleitende Instanz über die ganze Berufslaufbahn hinweg.\n\nDie Abteilung Beitragswesen und Finanzen betreut alle finanziellen Angelegenheiten des Amts für Berufsbildung. Darunter fallen unter anderem die Mitwirkung bei der Ausarbeitung von Leistungsaufträgen, die Subventionsprüfung und Beitragszahlungen der Berufsfachschulen und Brückenangeboten oder die Auszahlung und Weiterverrechnung der Kosten der Qualifikationsverfahren.\n\nWir suchen per 1. Januar 2027 oder nach Vereinbarung eine/-n Sachbearbeiter/-in Beitragswesen und Finanzen (befristet bis 31. Dezember 2028).\n\nAufgaben\n• Selbständige Führung der Kreditoren- und Debitorenbuchhaltung\n\n• Unterstützung bei der finanziellen Abwicklung der Qualifikationsverfahren\n\n• Prüfung der ausserkantonalen Schulgeldrechnungen\n\n• Mithilfe bei der Verarbeitung der überbetrieblichen Kursabrechnungen\n\n• Allgemeine Arbeiten im Rechnungswesen\n\nAnforderungen\n• Eine kaufmännische berufliche Grundbildung (allenfalls mit weiterführender Ausbildung im Rechnungswesen)\n\n• Gute Kenntnisse in den gängigen MS-Office Programmen (insbesondere Excel) und Interesse an spezifischen Fachanwendungen\n\n• Rasche Auffassungsgabe für komplexe Zusammenhänge sowie ein hohes Mass an Selbstständigkeit\n\n• Flexibilität, Belastbarkeit, Diskretion und Teamfähigkeit sowie eine exakte, mitdenkende, speditive und zuverlässige Arbeitsweise\n\n• Gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil",
       "descriptionByLocale": {
-        "de": "Das Amt für Berufsbildung (AFB) ist eine Dienststelle des Erziehungs-, Kultur- und Umweltschutzdepartements (EKUD) und setzt die bildungspolitischen Aufträge von Bund und Kanton im Bereich der beruflichen Grundbildung um. Es ist zudem Kompetenzstelle in Fragen der Berufs-, Schul- und Studienwahl sowie begleitende Instanz über die ganze Berufslaufbahn hinweg.\n\nDie Abteilung Beitragswesen und Finanzen betreut alle finanziellen Angelegenheiten des Amts für Berufsbildung. Darunter fallen unter anderem die Mitwirkung bei der Ausarbeitung von Leistungsaufträgen, die Subventionsprüfung und Beitragszahlungen der Berufsfachschulen und Brückenangeboten oder die Auszahlung und Weiterverrechnung der Kosten der Qualifikationsverfahren.\n\nWir suchen per 1. Januar 2027 oder nach Vereinbarung eine/-n Sachbearbeiter/-in Beitragswesen und Finanzen (befristet bis 31. Dezember 2028).\n\nAufgaben\n• Selbständige Führung der Kreditoren- und Debitorenbuchhaltung\n\n• Unterstützung bei der finanziellen Abwicklung der Qualifikationsverfahren\n\n• Prüfung der ausserkantonalen Schulgeldrechnungen\n\n• Mithilfe bei der Verarbeitung der überbetrieblichen Kursabrechnungen\n\n• Allgemeine Arbeiten im Rechnungswesen\n\nAnforderungen\n• Eine kaufmännische berufliche Grundbildung (allenfalls mit weiterführender Ausbildung im Rechnungswesen)\n\n• Gute Kenntnisse in den gängigen MS-Office Programmen (insbesondere Excel) und Interesse an spezifischen Fachanwendungen\n\n• Rasche Auffassungsgabe für komplexe Zusammenhänge sowie ein hohes Mass an Selbstständigkeit\n\n• Flexibilität, Belastbarkeit, Diskretion und Teamfähigkeit sowie eine exakte, mitdenkende, speditive und zuverlässige Arbeitsweise\n\n• Gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil",
         "it": "L'Ufficio per l'Istruzione e la Formazione Professionale (AFB) è un dipartimento del Dipartimento dell'Istruzione, della Protezione Culturale e Ambientale (EKUD) e attua i compiti di politica educativa della Confederazione e del Cantone nel settore della formazione professionale di base. È anche un centro di competenza in materia di scelta professionale, scolastica e di studio, nonché un'autorità di accompagnamento per tutta la carriera.\n\nIl Dipartimento di Contributo e Finanza supervisiona tutte le questioni finanziarie dell'Ufficio per l'Educazione e la Formazione Professionale. Ciò comprende, tra l'altro, la partecipazione alla preparazione dei contratti di servizio, dei test di sovvenzione e dei contributi delle scuole professionali e delle offerte di ponti, o l'erogazione e l'iscrizione dei costi delle procedure di qualificazione.\n\nSiamo alla ricerca di un caso ufficiale il 1° gennaio 2027 o d'accordo (temporaneo fino al 31 dicembre 2028).\n\nCompiti\n• Gestione autonoma dei conti da pagare e dei conti da pagare\n\n• Sostegno alla gestione finanziaria delle procedure di qualificazione\n\n• Esame delle bollette di denaro della scuola extra-cantoneale\n\n• Assistenza nel trattamento dei corsi intercompany\n\n• Lavoro contabile generale\n\nRequisiti\n• Una formazione professionale di base commerciale (miglioremente con una formazione continua nella contabilità)\n\n• Buona conoscenza dei comuni programmi MS-Office (specialmente Excel) e interesse per specifiche applicazioni specialistiche\n\n• Rapida comprensione delle relazioni complesse e un alto grado di indipendenza\n\n• Flessibilità, resilienza, discrezionalità e lavoro di squadra, nonché un modo preciso, pensiero, previsionale e affidabile di lavorare\n\n• Buona conoscenza di diverse lingue cantonali è un vantaggio",
         "en": "The Office for Vocational Education and Training (AFB) is a department of the Department of Education, Cultural and Environmental Protection (EKUD) and implements the educational policy tasks of the Confederation and the Canton in the area of basic vocational training. It is also a competence centre in questions of vocational, school and study choice as well as an accompanying authority throughout the entire career.\n\nThe Department of Contribution and Finance supervises all financial matters of the Office for Vocational Education and Training. This includes, inter alia, participation in the preparation of service contracts, subsidy testing and contributions from vocational schools and bridge offers, or the disbursement and subscription of the costs of qualification procedures.\n\nWe are looking for a case officer on 1 January 2027 or by agreement (temporary until 31 December 2028).\n\nTasks\n• Self-employed management of accounts payable and accounts payable\n\n• Support for the financial management of qualification procedures\n\n• Examination of extra-cantonal school money bills\n\n• Assistance in the processing of inter-company courses\n\n• General accounting work\n\nRequirements\n• A commercial basic vocational training (at best with further training in accounting)\n\n• Good knowledge of the common MS-Office programs (especially Excel) and interest in specific specialist applications\n\n• Rapid comprehension of complex relationships and a high degree of independence\n\n• Flexibility, resilience, discretion and teamwork as well as an exact, thinking, forward-looking and reliable way of working\n\n• Good knowledge of several cantonal languages is an advantage",
+        "de": "Das Amt für Berufsbildung (AFB) ist eine Dienststelle des Erziehungs-, Kultur- und Umweltschutzdepartements (EKUD) und setzt die bildungspolitischen Aufträge von Bund und Kanton im Bereich der beruflichen Grundbildung um. Es ist zudem Kompetenzstelle in Fragen der Berufs-, Schul- und Studienwahl sowie begleitende Instanz über die ganze Berufslaufbahn hinweg.\n\nDie Abteilung Beitragswesen und Finanzen betreut alle finanziellen Angelegenheiten des Amts für Berufsbildung. Darunter fallen unter anderem die Mitwirkung bei der Ausarbeitung von Leistungsaufträgen, die Subventionsprüfung und Beitragszahlungen der Berufsfachschulen und Brückenangeboten oder die Auszahlung und Weiterverrechnung der Kosten der Qualifikationsverfahren.\n\nWir suchen per 1. Januar 2027 oder nach Vereinbarung eine/-n Sachbearbeiter/-in Beitragswesen und Finanzen (befristet bis 31. Dezember 2028).\n\nAufgaben\n• Selbständige Führung der Kreditoren- und Debitorenbuchhaltung\n\n• Unterstützung bei der finanziellen Abwicklung der Qualifikationsverfahren\n\n• Prüfung der ausserkantonalen Schulgeldrechnungen\n\n• Mithilfe bei der Verarbeitung der überbetrieblichen Kursabrechnungen\n\n• Allgemeine Arbeiten im Rechnungswesen\n\nAnforderungen\n• Eine kaufmännische berufliche Grundbildung (allenfalls mit weiterführender Ausbildung im Rechnungswesen)\n\n• Gute Kenntnisse in den gängigen MS-Office Programmen (insbesondere Excel) und Interesse an spezifischen Fachanwendungen\n\n• Rasche Auffassungsgabe für komplexe Zusammenhänge sowie ein hohes Mass an Selbstständigkeit\n\n• Flexibilität, Belastbarkeit, Diskretion und Teamfähigkeit sowie eine exakte, mitdenkende, speditive und zuverlässige Arbeitsweise\n\n• Gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil",
         "fr": "L ' Office de l ' enseignement et de la formation professionnels (AFB) est un département du Département de l ' éducation, de la protection culturelle et de l ' environnement (EKUD) et met en œuvre la politique éducative de la Confédération et du canton dans le domaine de la formation professionnelle de base. Il s'agit également d'un centre de compétences en matière de choix professionnel, scolaire et d'études, ainsi que d'une autorité d'accompagnement tout au long de la carrière.\n\nLe ministère de la Contribution et des Finances supervise toutes les questions financières du Bureau de l'enseignement et de la formation professionnels. Cela comprend, entre autres, la participation à la préparation des contrats de services, les tests de subvention et les contributions des écoles professionnelles et des offres de raccordement, ou le déboursement et la souscription des coûts des procédures de qualification.\n\nNous sommes à la recherche d'un agent de cas le 1er janvier 2027 ou par accord (temporaire jusqu'au 31 décembre 2028).\n\nTâche\n• Gestion indépendante des comptes créditeurs et des comptes créditeurs\n\n• Soutien à la gestion financière des procédures de qualification\n\n• Examen des factures d'argent extra-cantonales de l'école\n\n• Assistance au traitement des cours interentreprises\n\n• Comptabilité générale\n\nExigences\n• Une formation professionnelle de base commerciale (au mieux avec une formation continue en comptabilité)\n\n• Bonne connaissance des programmes communs de MS-Office (en particulier Excel) et intérêt pour des applications spécialisées spécifiques\n\n• Une compréhension rapide des relations complexes et un degré élevé d'indépendance\n\n• Flexibilité, résilience, discrétion et travail d'équipe ainsi qu'une manière de travailler exacte, réfléchie, tournée vers l'avenir et fiable\n\n• Une bonne connaissance de plusieurs langues cantonales est un avantage"
       },
       "location": "Chur",
@@ -987,7 +1010,7 @@
       "url": "https://apply.refline.ch/514915/2792/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:16.017Z",
+      "crawledAt": "2026-07-23T22:15:48.333Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1002,17 +1025,21 @@
       "postedDate": "2026-07-23",
       "applyUrl": "https://apply.refline.ch/514915/2792/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Amt für Berufsbildung",
       "applicationDeadline": "2026-08-19",
       "pensumMin": 50,
       "pensumMax": 50,
       "pensum": "50%",
+      "previousSlugs": [
+        "sachbearbeiter-in-beitragswesen-und-finanzen-kanton-gr-ch",
+        "sachbearbeiter-in-beitragswesen-und-finanzen-kantonale-verwaltung-graubunden-chur",
+        "sachbearbeiter-in-beitragswesen-e-finanzen-kantonale-verwaltung-graubunden-chur"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-beitragswesen-und-finanzen-kanton-gr-ch"
+          "sachbearbeiter-in-beitragswesen-und-finanzen-kanton-gr-ch",
+          "sachbearbeiter-in-beitragswesen-e-finanzen-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "sachbearbeiter-in-beitragswesen-und-finanzen-kantonale-verwaltung-graubunden-chur"
@@ -1021,10 +1048,8 @@
           "sachbearbeiter-in-beitragswesen-und-finanzen-kantonale-verwaltung-graubunden-chur"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-in-beitragswesen-und-finanzen-kanton-gr-ch",
-        "sachbearbeiter-in-beitragswesen-und-finanzen-kantonale-verwaltung-graubunden-chur"
-      ],
+      "firstSeenAt": "2026-07-23T12:33:16.017Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1037,8 +1062,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-07-23T12:33:16.017Z"
+      "addressRegion": "GR"
     },
     {
       "id": "kanton-gr-0874fd1298f4",
@@ -1071,7 +1095,7 @@
       "url": "https://apply.refline.ch/514915/2760/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:15.347Z",
+      "crawledAt": "2026-07-23T22:15:47.651Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1094,11 +1118,13 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kanton-gr-ch",
-        "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kantonale-verwaltung-graubunden-chur"
+        "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kantonale-verwaltung-graubunden-chur",
+        "zeichner-konstrukteur-in-specializzazione-strassenprojektierung-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kanton-gr-ch"
+          "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kanton-gr-ch",
+          "zeichner-konstrukteur-in-specializzazione-strassenprojektierung-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kantonale-verwaltung-graubunden-chur"
@@ -1153,7 +1179,7 @@
       "url": "https://apply.refline.ch/514915/2759/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:14.672Z",
+      "crawledAt": "2026-07-23T22:15:46.971Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1176,12 +1202,14 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kanton-gr-ch",
-        "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur"
+        "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur",
+        "project-manager-in-esecuzione-sezione-direttore-in-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kanton-gr-ch",
-          "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur"
+          "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur",
+          "project-manager-in-esecuzione-sezione-direttore-in-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur"
@@ -1236,7 +1264,7 @@
       "url": "https://apply.refline.ch/514915/2780/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:14.002Z",
+      "crawledAt": "2026-07-23T22:15:46.285Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1258,11 +1286,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "sozialarbeiter-in-oder-sozialpadagoge-in-kanton-gr-ch"
+        "sozialarbeiter-in-oder-sozialpadagoge-in-kanton-gr-ch",
+        "sozialarbeiter-in-o-sozialpadagoge-in-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-oder-sozialpadagoge-in-kanton-gr-ch"
+          "sozialarbeiter-in-oder-sozialpadagoge-in-kanton-gr-ch",
+          "sozialarbeiter-in-o-sozialpadagoge-in-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "sozialarbeiter-in-oder-sozialpadagoge-in-kanton-gr-ch"
@@ -1272,6 +1302,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T12:36:37.170Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1317,7 +1348,7 @@
       "url": "https://apply.refline.ch/514915/2781/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:13.332Z",
+      "crawledAt": "2026-07-23T22:15:45.603Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1339,11 +1370,13 @@
       "pensumMax": 80,
       "pensum": "60-80%",
       "previousSlugs": [
-        "sozialarbeiter-in-kanton-gr-ch"
+        "sozialarbeiter-in-kanton-gr-ch",
+        "lavoratore-sociale-kantonale-verwaltung-graubunden-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-kanton-gr-ch"
+          "sozialarbeiter-in-kanton-gr-ch",
+          "lavoratore-sociale-kantonale-verwaltung-graubunden-ilanz"
         ],
         "en": [
           "sozialarbeiter-in-kanton-gr-ch"
@@ -1398,7 +1431,7 @@
       "url": "https://apply.refline.ch/514915/2779/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:12.642Z",
+      "crawledAt": "2026-07-23T22:15:44.911Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1420,11 +1453,13 @@
       "pensumMax": 80,
       "pensum": "60-80%",
       "previousSlugs": [
-        "sekretar-in-kanton-gr-ch"
+        "sekretar-in-kanton-gr-ch",
+        "segretario-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sekretar-in-kanton-gr-ch"
+          "sekretar-in-kanton-gr-ch",
+          "segretario-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "sekretar-in-kanton-gr-ch"
@@ -1479,7 +1514,7 @@
       "url": "https://apply.refline.ch/514915/2736/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:11.972Z",
+      "crawledAt": "2026-07-23T22:15:44.232Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1502,12 +1537,14 @@
       "pensum": "60%",
       "previousSlugs": [
         "assistent-in-generalsekretar-kanton-gr-ch",
-        "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur"
+        "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur",
+        "segretario-aggiunto-generale-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-generalsekretar-kanton-gr-ch",
-          "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur"
+          "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur",
+          "segretario-aggiunto-generale-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur"
@@ -1562,7 +1599,7 @@
       "url": "https://apply.refline.ch/514915/2784/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:11.301Z",
+      "crawledAt": "2026-07-23T22:15:43.545Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1584,11 +1621,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "werkmeister-in-arbeitsagogin-arbeitsagoge-kanton-gr-ch"
+        "werkmeister-in-arbeitsagogin-arbeitsagoge-kanton-gr-ch",
+        "maestro-operaio-attore-di-lavoro-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "werkmeister-in-arbeitsagogin-arbeitsagoge-kanton-gr-ch"
+          "werkmeister-in-arbeitsagogin-arbeitsagoge-kanton-gr-ch",
+          "maestro-operaio-attore-di-lavoro-kantonale-verwaltung-graubunden-cazis"
         ],
         "en": [
           "werkmeister-in-arbeitsagogin-arbeitsagoge-kanton-gr-ch"
@@ -1643,7 +1682,7 @@
       "url": "https://apply.refline.ch/514915/2782/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:10.631Z",
+      "crawledAt": "2026-07-23T22:15:42.864Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1665,11 +1704,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "teamleiter-in-sicherheit-kanton-gr-ch"
+        "teamleiter-in-sicherheit-kanton-gr-ch",
+        "team-leader-sicurezza-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-sicherheit-kanton-gr-ch"
+          "teamleiter-in-sicherheit-kanton-gr-ch",
+          "team-leader-sicurezza-kantonale-verwaltung-graubunden-cazis"
         ],
         "en": [
           "teamleiter-in-sicherheit-kanton-gr-ch"
@@ -1724,7 +1765,7 @@
       "url": "https://apply.refline.ch/514915/2785/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:09.963Z",
+      "crawledAt": "2026-07-23T22:15:42.184Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1748,13 +1789,15 @@
       "previousSlugs": [
         "assistente-sociale-kantonale-verwaltung-graubunden-cazis",
         "sozialarbeiter-in-kanton-gr-ch",
-        "sozialarbeiter-in-kanton-gr-ch-2"
+        "sozialarbeiter-in-kanton-gr-ch-2",
+        "lavoratore-sociale-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-sociale-kantonale-verwaltung-graubunden-cazis",
           "sozialarbeiter-in-kanton-gr-ch",
-          "sozialarbeiter-in-kanton-gr-ch-2"
+          "sozialarbeiter-in-kanton-gr-ch-2",
+          "lavoratore-sociale-kantonale-verwaltung-graubunden-cazis"
         ],
         "en": [
           "sozialarbeiter-in-kanton-gr-ch-2"
@@ -1809,7 +1852,7 @@
       "url": "https://apply.refline.ch/514915/2786/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:09.294Z",
+      "crawledAt": "2026-07-23T22:15:41.502Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1831,11 +1874,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "teamleiter-in-administration-kanton-gr-ch"
+        "teamleiter-in-administration-kanton-gr-ch",
+        "leader-in-amministrazione-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-administration-kanton-gr-ch"
+          "teamleiter-in-administration-kanton-gr-ch",
+          "leader-in-amministrazione-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "teamleiter-in-administration-kanton-gr-ch"
@@ -1890,7 +1935,7 @@
       "url": "https://apply.refline.ch/514915/2709/pub/11/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:08.623Z",
+      "crawledAt": "2026-07-23T22:15:40.821Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1913,12 +1958,14 @@
       "pensum": "50%",
       "previousSlugs": [
         "projektkoordinator-in-facility-management-kanton-gr-ch",
-        "projektkoordinator-in-facility-management-kantonale-verwaltung-graubunden-chur"
+        "projektkoordinator-in-facility-management-kantonale-verwaltung-graubunden-chur",
+        "coordinatore-del-progetto-in-gestione-delle-strutture-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektkoordinator-in-facility-management-kanton-gr-ch",
-          "projektkoordinator-in-facility-management-kantonale-verwaltung-graubunden-chur"
+          "projektkoordinator-in-facility-management-kantonale-verwaltung-graubunden-chur",
+          "coordinatore-del-progetto-in-gestione-delle-strutture-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "projektkoordinator-in-facility-management-kantonale-verwaltung-graubunden-chur"
@@ -1956,7 +2003,7 @@
       "companyDomain": "gr.ch",
       "title": "Strassenwart/-in",
       "titleByLocale": {
-        "it": "Streetkeeper/in",
+        "it": "Strassenwart/-in",
         "en": "Road Maintenance Worker",
         "de": "Strassenwart/-in",
         "fr": "Agent de Maintenance Routière"
@@ -1973,7 +2020,7 @@
       "url": "https://apply.refline.ch/514915/2754/pub/4/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:07.951Z",
+      "crawledAt": "2026-07-23T22:15:40.140Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -2000,13 +2047,15 @@
         "streetkeeper-in-kantonale-verwaltung-graubunden-thusis",
         "gardien-de-rue-in-kantonale-verwaltung-graubunden-thusis",
         "road-maintenance-officer-kantonale-verwaltung-graubunden-thusis",
-        "road-maintenance-in-kantonale-verwaltung-graubunden-thusis"
+        "road-maintenance-in-kantonale-verwaltung-graubunden-thusis",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-thusis-f3e3c1"
       ],
       "previousSlugsByLocale": {
         "it": [
           "strassenwart-in-kanton-gr-ch",
           "strassenwart-in-kantonale-verwaltung-graubunden-thusis",
-          "road-maintenance-in-kantonale-verwaltung-graubunden-thusis"
+          "road-maintenance-in-kantonale-verwaltung-graubunden-thusis",
+          "streetkeeper-in-kantonale-verwaltung-graubunden-thusis-f3e3c1"
         ],
         "en": [
           "strassenwart-in-kanton-gr-ch",
@@ -2018,6 +2067,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:21:06.855Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2063,7 +2113,7 @@
       "url": "https://apply.refline.ch/514915/2758/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:07.283Z",
+      "crawledAt": "2026-07-23T22:15:39.458Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2086,11 +2136,13 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "projektleiter-in-biodiversitat-und-landschaftsqualitat-kanton-gr-ch",
-        "projektleiter-in-biodiversitat-und-landschaftsqualitat-kantonale-verwaltung-graubunden-chur"
+        "projektleiter-in-biodiversitat-und-landschaftsqualitat-kantonale-verwaltung-graubunden-chur",
+        "projektleiter-in-biodiversitat-e-landschaftsqualitat-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-biodiversitat-und-landschaftsqualitat-kanton-gr-ch"
+          "projektleiter-in-biodiversitat-und-landschaftsqualitat-kanton-gr-ch",
+          "projektleiter-in-biodiversitat-e-landschaftsqualitat-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "projektleiter-in-biodiversitat-und-landschaftsqualitat-kantonale-verwaltung-graubunden-chur"
@@ -2145,7 +2197,7 @@
       "url": "https://apply.refline.ch/514915/2753/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:06.614Z",
+      "crawledAt": "2026-07-23T22:15:38.777Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2167,11 +2219,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "verwaltungsassistent-in-aufenthalt-und-dienste-kanton-gr-ch"
+        "verwaltungsassistent-in-aufenthalt-und-dienste-kanton-gr-ch",
+        "verwaltungsassistent-in-aufenthalt-e-dienste-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungsassistent-in-aufenthalt-und-dienste-kanton-gr-ch"
+          "verwaltungsassistent-in-aufenthalt-und-dienste-kanton-gr-ch",
+          "verwaltungsassistent-in-aufenthalt-e-dienste-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "firstSeenAt": "2026-07-02T11:34:15.802Z",
@@ -2220,7 +2274,7 @@
       "url": "https://apply.refline.ch/514915/2756/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:05.944Z",
+      "crawledAt": "2026-07-23T22:15:38.091Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2242,14 +2296,17 @@
       "pensumMax": 100,
       "pensum": "50-100%",
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-fage-kanton-gr-ch"
+        "fachfrau-fachmann-gesundheit-efz-fage-kanton-gr-ch",
+        "fachfrau-fachmann-gesundheit-cfc-fage-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-efz-fage-kanton-gr-ch"
+          "fachfrau-fachmann-gesundheit-efz-fage-kanton-gr-ch",
+          "fachfrau-fachmann-gesundheit-cfc-fage-kantonale-verwaltung-graubunden-cazis"
         ]
       },
       "firstSeenAt": "2026-07-02T11:34:15.179Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2295,7 +2352,7 @@
       "url": "https://apply.refline.ch/514915/2752/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:04.607Z",
+      "crawledAt": "2026-07-23T22:15:36.728Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2320,14 +2377,16 @@
         "fachperson-fur-den-abklarungsdienst-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch",
         "mitglied-kindes-e-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
         "mitglied-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
-        "mitglied-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch"
+        "mitglied-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch",
+        "fachperson-per-den-abklarungsdienst-kindes-e-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-fur-den-abklarungsdienst-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch",
           "mitglied-kindes-e-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
           "mitglied-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
-          "mitglied-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch"
+          "mitglied-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch",
+          "fachperson-per-den-abklarungsdienst-kindes-e-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur"
         ],
         "de": [
           "mitglied-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch"
@@ -2382,7 +2441,7 @@
       "url": "https://apply.refline.ch/514915/2750/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:03.936Z",
+      "crawledAt": "2026-07-23T22:15:36.044Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2409,14 +2468,16 @@
         "legal-r-employee-in-kantonale-verwaltung-graubunden-chur",
         "avocat-r-employe-in-kantonale-verwaltung-graubunden-chur",
         "juristische-r-mitarbeiter-in-kanton-gr-ch",
-        "juristische-r-mitarbeiter-in-kantonale-verwaltung-graubunden-chur"
+        "juristische-r-mitarbeiter-in-kantonale-verwaltung-graubunden-chur",
+        "collaboratore-trice-in-scancenter-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-scancenter-kanton-gr-ch",
           "juristische-r-collaboratore-trice-in-kantonale-verwaltung-graubunden-chur",
           "legal-r-employee-in-kantonale-verwaltung-graubunden-chur",
-          "avocat-r-employe-in-kantonale-verwaltung-graubunden-chur"
+          "avocat-r-employe-in-kantonale-verwaltung-graubunden-chur",
+          "collaboratore-trice-in-scancenter-kantonale-verwaltung-graubunden-chur"
         ],
         "de": [
           "juristische-r-mitarbeiter-in-kanton-gr-ch",
@@ -2469,7 +2530,7 @@
       "url": "https://apply.refline.ch/514915/2751/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:03.263Z",
+      "crawledAt": "2026-07-23T22:15:35.345Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2492,11 +2553,13 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "mitarbeiter-in-administration-kanton-gr-ch",
-        "mitarbeiter-in-administration-kantonale-verwaltung-graubunden-ilanz"
+        "mitarbeiter-in-administration-kantonale-verwaltung-graubunden-ilanz",
+        "collaboratore-trice-in-administration-kantonale-verwaltung-graubunden-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-administration-kanton-gr-ch"
+          "mitarbeiter-in-administration-kanton-gr-ch",
+          "collaboratore-trice-in-administration-kantonale-verwaltung-graubunden-ilanz"
         ],
         "en": [
           "mitarbeiter-in-administration-kantonale-verwaltung-graubunden-ilanz"
@@ -2524,7 +2587,7 @@
       "id": "kanton-gr-69754a7e3212",
       "slug": "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart",
       "slugByLocale": {
-        "it": "stage-giuridico-presso-il-landgericht-kantonale-verwaltung-graubunden-landquart",
+        "it": "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart",
         "en": "legal-internship-at-the-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart",
         "de": "juristisches-praktikum-am-regionalgericht-landquart-kanton-gr-ch",
         "fr": "stage-juridique-au-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart"
@@ -2534,7 +2597,7 @@
       "companyDomain": "gr.ch",
       "title": "Juristisches Praktikum am Regionalgericht Landquart",
       "titleByLocale": {
-        "it": "Stage giuridico presso il Landgericht",
+        "it": "Juristisches Praktikum am Regionalgericht Landquart",
         "en": "Legal internship at the Regionalgericht Landquart",
         "de": "Juristisches Praktikum am Regionalgericht Landquart",
         "fr": "Stage juridique au Regionalgericht Landquart"
@@ -2551,7 +2614,7 @@
       "url": "https://apply.refline.ch/514915/2749/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:02.581Z",
+      "crawledAt": "2026-07-23T22:15:34.615Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -2574,15 +2637,20 @@
       "pensum": "100%",
       "previousSlugs": [
         "juristisches-praktikum-am-regionalgericht-landquart-kanton-gr-ch",
-        "tirocinio-legale-presso-il-tribunale-regionale-di-landquart-kantonale-verwaltung-graubunden-landquart"
+        "tirocinio-legale-presso-il-tribunale-regionale-di-landquart-kantonale-verwaltung-graubunden-landquart",
+        "stage-giuridico-presso-il-landgericht-kantonale-verwaltung-graubunden-landquart",
+        "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
           "juristisches-praktikum-am-regionalgericht-landquart-kanton-gr-ch",
-          "tirocinio-legale-presso-il-tribunale-regionale-di-landquart-kantonale-verwaltung-graubunden-landquart"
+          "tirocinio-legale-presso-il-tribunale-regionale-di-landquart-kantonale-verwaltung-graubunden-landquart",
+          "stage-giuridico-presso-il-landgericht-kantonale-verwaltung-graubunden-landquart",
+          "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart"
         ]
       },
       "firstSeenAt": "2026-07-02T11:34:12.050Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2628,7 +2696,7 @@
       "url": "https://apply.refline.ch/514915/2746/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:01.911Z",
+      "crawledAt": "2026-07-23T22:15:33.922Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2650,11 +2718,13 @@
       "pensumMax": 50,
       "pensum": "50%",
       "previousSlugs": [
-        "assistenz-digitale-transformation-kanton-gr-ch"
+        "assistenz-digitale-transformation-kanton-gr-ch",
+        "assistenza-trasformazione-digitale-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenz-digitale-transformation-kanton-gr-ch"
+          "assistenz-digitale-transformation-kanton-gr-ch",
+          "assistenza-trasformazione-digitale-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "assistenz-digitale-transformation-kanton-gr-ch"
@@ -2709,7 +2779,7 @@
       "url": "https://apply.refline.ch/514915/2681/pub/10/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:01.241Z",
+      "crawledAt": "2026-07-23T22:15:33.239Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2732,12 +2802,14 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "projektleiter-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch",
-        "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
+        "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur",
+        "procedura-di-ordinazione-del-project-manager-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch",
-          "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
+          "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur",
+          "procedura-di-ordinazione-del-project-manager-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
@@ -2792,7 +2864,7 @@
       "url": "https://apply.refline.ch/514915/0912/pub/41/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:33:00.558Z",
+      "crawledAt": "2026-07-23T22:15:32.536Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2846,16 +2918,21 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "de": [
-          "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
+          "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
+          "werde-polizist-in-bei-der-kapo-gr-kantonale-verwaltung-graubunden-chur"
         ],
         "it": [
-          "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
+          "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
+          "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
+        "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
+        "werde-polizist-in-bei-der-kapo-gr-kantonale-verwaltung-graubunden-chur",
+        "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
