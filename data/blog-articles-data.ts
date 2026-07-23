@@ -26648,6 +26648,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ingegnere-frontaliero-ticino-stipendio-requisiti',
+ category: 'fiscale',
+ date: '2026-07-23T06:20:25.032Z',
+ image: '/images/blog/ingegnere-frontaliero-ticino-stipendio-requisiti.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

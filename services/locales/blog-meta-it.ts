@@ -8870,6 +8870,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.permesso-g-apprendisti-durata-tirocinio.title': 'Permesso G apprendisti: durata estesa per l\'intero tirocinio',
     'blog.article.permesso-g-apprendisti-durata-tirocinio.excerpt': 'Il Consiglio degli Stati approva la mozione per un permesso G valido per l\'intera durata dell\'apprendistato, superando l\'obbligo del rinnovo annuale.',
     'blog.article.permesso-g-apprendisti-durata-tirocinio.imageAlt': 'Giovani apprendisti in un centro di formazione in Ticino',
+    'blog.article.ingegnere-frontaliero-ticino-stipendio-requisiti.title': 'Lavorare come ingegnere in Ticino: requisiti e riconoscimento titolo',
+    'blog.article.ingegnere-frontaliero-ticino-stipendio-requisiti.excerpt': 'I requisiti per lavorare come ingegnere in Ticino da frontaliere, lo stipendio medio, il riconoscimento del titolo di studio e il permesso G.',
+    'blog.article.ingegnere-frontaliero-ticino-stipendio-requisiti.imageAlt': 'Un ingegnere lavora in un ufficio a Lugano.',
 };
 
 export default blogMetaIt;

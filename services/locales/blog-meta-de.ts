@@ -8868,6 +8868,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.permesso-g-apprendisti-durata-tirocinio.title': 'Auszubildenderausweis G: verlängerte Dauer für das gesamte Praktikum',
     'blog.article.permesso-g-apprendisti-durata-tirocinio.excerpt': 'Der Ständerat genehmigt die Motion für eine G-Bewilligung, die für die gesamte Dauer der Lehre gültig ist, über die Verpflichtung zur jährlichen Erneuerung hinaus.',
     'blog.article.permesso-g-apprendisti-durata-tirocinio.imageAlt': 'Junge Lernende in einem Ausbildungszentrum im Tessin',
+    'blog.article.ingegnere-frontaliero-ticino-stipendio-requisiti.title': 'Arbeiten als Ingenieur im Tessin: Voraussetzungen und Anerkennung des Titels',
+    'blog.article.ingegnere-frontaliero-ticino-stipendio-requisiti.excerpt': 'Die Voraussetzungen, um als Grenzgänger als Ingenieur im Tessin zu arbeiten, das Durchschnittsgehalt, die Anerkennung des Bildungsabschlusses und die Erlaubnis G.',
+    'blog.article.ingegnere-frontaliero-ticino-stipendio-requisiti.imageAlt': 'Ein Ingenieur arbeitet in einem Büro in Lugano.',
 };
 
 export default blogMetaDe;

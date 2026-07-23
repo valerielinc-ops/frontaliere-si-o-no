@@ -8871,6 +8871,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.permesso-g-apprendisti-durata-tirocinio.title': 'Permis G apprentis : durée prolongée pour l\'ensemble de l\'apprentissage',
     'blog.article.permesso-g-apprendisti-durata-tirocinio.excerpt': 'Le Conseil des Etats approuve la motion pour un permis G valable pour toute la durée de l\'apprentissage, dépassant l\'obligation du renouvellement annuel.',
     'blog.article.permesso-g-apprendisti-durata-tirocinio.imageAlt': 'Jeunes apprentis dans un centre de formation au Tessin',
+    'blog.article.ingegnere-frontaliero-ticino-stipendio-requisiti.title': 'Travailler comme ingénieur au Tessin : exigences et reconnaissance du titre',
+    'blog.article.ingegnere-frontaliero-ticino-stipendio-requisiti.excerpt': 'Les exigences pour travailler comme ingénieur au Tessin en tant que frontalier, le salaire moyen, la reconnaissance du diplôme d\'études et le permis G.',
+    'blog.article.ingegnere-frontaliero-ticino-stipendio-requisiti.imageAlt': 'Un ingénieur travaille dans un bureau à Lugano.',
 };
 
 export default blogMetaFr;
