@@ -1,6 +1,6 @@
 {
   "crawlerKey": "on-running",
-  "assembledAt": "2026-07-23T11:21:44.377Z",
+  "assembledAt": "2026-07-23T22:10:41.538Z",
   "jobs": [
     {
       "id": "on-running-8504ca9fbbb7",
@@ -33,7 +33,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8028745?gh_jid=8028745",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.383Z",
+      "crawledAt": "2026-07-23T22:10:36.388Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -57,14 +57,95 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "sr-lead-commercial-project-strategic-initiatives-12-months-maternity-cover-on-running-ch"
+        "sr-lead-commercial-project-strategic-initiatives-12-months-maternity-cover-on-running-ch",
+        "sr-lead-commercial-project-strategic-initiatives-12-months-sostituzione-maternita-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sr-lead-commercial-project-strategic-initiatives-12-months-maternity-cover-on-running-ch"
+          "sr-lead-commercial-project-strategic-initiatives-12-months-maternity-cover-on-running-ch",
+          "sr-lead-commercial-project-strategic-initiatives-12-months-sostituzione-maternita-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.201Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "needsRetranslation": true
+    },
+    {
+      "id": "on-running-0a6188e49fe9",
+      "slug": "senior-specialista-talent-acquisition-apparel-accessories-12-month-sostituzione-maternita-on-running-zurich",
+      "slugByLocale": {
+        "it": "senior-specialista-talent-acquisition-apparel-accessories-12-month-sostituzione-maternita-on-running-zurich",
+        "en": "senior-specialist-talent-acquisition-apparel-accessories-12-month-maternity-cover-on",
+        "de": "senior-spezialist-talent-acquisition-apparel-accessories-12-month-mutterschaftsvertretung-on-running-zurich",
+        "fr": "senior-specialiste-talent-acquisition-apparel-accessories-12-month-remplacement-maternite-on-running-zurich"
+      },
+      "company": "On Running",
+      "companyKey": "on-running",
+      "companyDomain": "on-running.com",
+      "title": "Senior Specialist - Talent Acquisition Apparel & Accessories (12-month Maternity Cover)",
+      "titleByLocale": {
+        "it": "Senior Specialista - Talent Acquisition Apparel & Accessories (12-month Sostituzione maternità)",
+        "en": "Senior Specialist - Talent Acquisition Apparel & Accessories (12-month Maternity Cover)",
+        "de": "Senior Spezialist - Talent Acquisition Bekleidung & Accessoires (12-monatige Mutterschaftsvertretung)",
+        "fr": "Spécialiste Senior - Acquisition de Talents Vêtements & Accessoires (Contrat de maternité de 12 mois)"
+      },
+      "description": "At a Glance\n\nWe are looking for a Senior Specialist to join our Product Talent Acquisition team. You will be a hands-on contributor focused on delivering key Product Creation hires, collaborating closely with hiring managers and the broader TA team to build efficient, high-quality hiring processes. You bring strong sourcing and stakeholder management skills, and a deep commitment to candidate experience and excellent outcomes.\n\nYour Mission\n\n• Manage full-cycle recruitment processes for Apparel and Accessories Product Creation roles\n\n• Partner with Apparel and Accessories Product Creation leaders to understand hiring needs, align on role profiles, and develop search strategies\n\n• Drive sourcing, screening, stakeholder communication, and offer management with a focus on quality and clarity\n\n• Collaborate with recruiting coordination and TA operations to ensure smooth and professional candidate experiences\n\n• Use data and insights to support hiring decisions and improve search effectiveness\n\n• Support broader TA initiatives such as tooling, processes, and employer branding as needed\n\nYour Story\n\n• You bring extensive experience in Talent Acquisition with a focus on Product roles within fast-paced and international environments.\n\n• Background in consumer goods companies or creative industries is highly preferred\n\n• You have a proven track record of hiring across a range of disciplines within Product Creation\n\n• A keen awareness of global and cultural trends that shape the world of brands\n\n• You are confident partnering with hiring managers, providing market insights and clear recommendations\n\n• You are proactive and hands-on with sourcing, skilled in tools like LinkedIn Recruiter and ATS platforms (Greenhouse, Workday, etc.)\n\n• You are passionate about delivering an excellent candidate experience and representing the brand professionally\n\n• You thrive in collaborative, fast-moving environments and handle multiple priorities effectively\n\n• Background in consumer goods companies, Luxury or creative industries is highly preferred\n\nYour Team:\n\nBeing part of the talent team at On means consistently questioning the status quo. We don’t do things just because they are what “HR does”. We build, grow, enable, and empower the team to drive the future of On. Because this is what matters to us. Because we are On.",
+      "descriptionByLocale": {
+        "it": "A una lancia\n\nCerchiamo un Senior Specialist per entrare nel nostro team di acquisizione di prodotti. Sarete un collaboratore pratico focalizzato sulla fornitura di noli di creazione di prodotti chiave, collaborando strettamente con i responsabili del noleggio e il team più ampio TA per costruire processi di assunzione efficienti e di alta qualità. Porterete forti capacità di approvvigionamento e gestione degli stakeholder, e un profondo impegno per l'esperienza dei candidati e risultati eccellenti.\n\nLa tua missione\n\n- Gestire processi di reclutamento a ciclo pieno per ruoli di creazione di prodotti per il settore Electric e il settore del settore del trasporto aereo\n\n- Partner con i leader della creazione di prodotti di Rarel e di Accessori per comprendere le esigenze di assunzione, allineare i profili dei ruoli e sviluppare strategie di ricerca\n\n- Guidare l'approvvigionamento, lo screening, la comunicazione degli stakeholder e offrire la gestione con un focus sulla qualità e la chiarezza\n\n- Dilagando con il reclutamento di coordinamento e operazioni di TA per garantire esperienze fluide e professionali candidati\n\n- Utilizzare dati e approfondimenti per supportare le decisioni di assunzione e migliorare l'efficacia della ricerca\n\n- Sostenere iniziative più ampie di AT come strumenti, processi e marchi di imprese, se necessario\n\nLa tua storia\n\n- Portate una vasta esperienza in Acquisizione di un prodotto con un focus sui ruoli del prodotto in ambienti veloci e internazionali.\n\n- Le imprese di beni di consumo o le industrie creative sono altamente preferite\n\n- Hai un curriculum di assunzione in una serie di discipline all'interno della creazione del prodotto\n\n- Una profonda consapevolezza delle tendenze globali e culturali che plasmano il mondo dei marchi\n\n- Siete fiduciosi partner con i manager di assunzione, fornendo informazioni di mercato e chiare raccomandazioni\n\n- Sei proattivo e pratico con approvvigionamento, esperto in strumenti come LinkedIn Recruiter e piattaforme ATS (Greenhouse, Workday, ecc.)\n\n- Sei appassionato di offrire un'eccellente esperienza candidato e rappresentare il marchio professionalmente\n\n- Si prospera in ambienti collaborativi e in rapida evoluzione e gestire in modo efficace più priorità\n\n- Il contesto delle imprese di beni di consumo, del lusso o delle industrie creative è altamente preferito\n\nLa tua squadra\n\nEssere parte del talent team di On significa mettere costantemente in discussione lo status quo. Noi non facciamo le cose solo perché sono ciò che fa HR. Costruiamo, cresciamo, abilitamo e potenziamo il team a guidare il futuro di On. Perché è questo che conta per noi. Perché siamo On.",
+        "en": "At a Glance\n\nWe are looking for a Senior Specialist to join our Product Talent Acquisition team. You will be a hands-on contributor focused on delivering key Product Creation hires, collaborating closely with hiring managers and the broader TA team to build efficient, high-quality hiring processes. You bring strong sourcing and stakeholder management skills, and a deep commitment to candidate experience and excellent outcomes.\n\nYour Mission\n\n• Manage full-cycle recruitment processes for Apparel and Accessories Product Creation roles\n\n• Partner with Apparel and Accessories Product Creation leaders to understand hiring needs, align on role profiles, and develop search strategies\n\n• Drive sourcing, screening, stakeholder communication, and offer management with a focus on quality and clarity\n\n• Collaborate with recruiting coordination and TA operations to ensure smooth and professional candidate experiences\n\n• Use data and insights to support hiring decisions and improve search effectiveness\n\n• Support broader TA initiatives such as tooling, processes, and employer branding as needed\n\nYour Story\n\n• You bring extensive experience in Talent Acquisition with a focus on Product roles within fast-paced and international environments.\n\n• Background in consumer goods companies or creative industries is highly preferred\n\n• You have a proven track record of hiring across a range of disciplines within Product Creation\n\n• A keen awareness of global and cultural trends that shape the world of brands\n\n• You are confident partnering with hiring managers, providing market insights and clear recommendations\n\n• You are proactive and hands-on with sourcing, skilled in tools like LinkedIn Recruiter and ATS platforms (Greenhouse, Workday, etc.)\n\n• You are passionate about delivering an excellent candidate experience and representing the brand professionally\n\n• You thrive in collaborative, fast-moving environments and handle multiple priorities effectively\n\n• Background in consumer goods companies, Luxury or creative industries is highly preferred\n\nYour Team:\n\nBeing part of the talent team at On means consistently questioning the status quo. We don’t do things just because they are what “HR does”. We build, grow, enable, and empower the team to drive the future of On. Because this is what matters to us. Because we are On.",
+        "de": "Auf einen Blick\n\nWir suchen einen Senior Specialist, der unserem Team zur Produkttalentenerwerb beitritt. Sie werden ein praktischer Mitarbeiter sein, der sich auf die Bereitstellung wichtiger Product Creation-Anstellungen konzentriert, und eng mit den Personalleitern und dem breiteren TA-Team zusammenarbeiten, um effiziente, qualitativ hochwertige Einstellungsprozesse aufzubauen. Sie bringen starke Fähigkeiten im Beschaffungs- und Stakeholdermanagement und ein tiefes Engagement für die Erfahrung von Kandidaten und hervorragende Ergebnisse.\n\nIhre Mission\n\n- Verwalten Sie die Ganzzyklus-Rekrutierungsprozesse für Apparel und Zubehör Produktkreation Rollen\n\n- Partner mit Apparel und Zubehör Product Creation Leaders, um die Bedürfnisse der Einstellung zu verstehen, Rollenprofile zu harmonisieren und Suchstrategien zu entwickeln\n\n- Förderung von Beschaffung, Screening, Stakeholder-Kommunikation und bieten Management mit Fokus auf Qualität und Klarheit\n\n- Zusammenarbeit mit der Personalbeschaffung und der Koordinierung der TA-Operationen, um reibungslose und professionelle Bewerbererfahrungen zu gewährleisten\n\n- Verwenden Sie Daten und Erkenntnisse, um Einstellungsentscheidungen zu unterstützen und die Effektivität der Suche zu verbessern\n\n- Unterstützung umfassenderer TA-Initiativen wie Werkzeugbau, Prozesse und Employer Branding bei Bedarf\n\nIhre Geschichte\n\n- Sie bringen umfangreiche Erfahrung in der Talent Acquisition mit einem Fokus auf Produktrollen in schnelllebigen und internationalen Umgebungen.\n\n- Hintergrund in Konsumgüterunternehmen oder Kreativindustrien wird sehr bevorzugt\n\n- Sie haben eine nachgewiesene Erfolgsbilanz der Einstellung in einer Reihe von Disziplinen innerhalb der Produkt-Erstellung\n\n- Ein ausgeprägtes Bewusstsein für globale und kulturelle Trends, die die Welt der Marken prägen\n\n- Sie sind zuversichtlich, mit Personalberatern zusammenzuarbeiten, Markteinblicke und klare Empfehlungen zu liefern\n\n- Sie sind proaktiv und hands-on mit Sourcing, qualifizierte in Tools wie LinkedIn Recruiter und ATS-Plattformen (Greenhouse, Workday, etc.)\n\n- Sie sind leidenschaftlich über eine ausgezeichnete Kandidatenerfahrung und die Vertretung der Marke professionell\n\n- Sie gedeihen in kollaborativen, schnelllebigen Umgebungen und behandeln mehrere Prioritäten effektiv\n\n- Hintergrund in Konsumgüterunternehmen, Luxus- oder Kreativindustrien wird sehr bevorzugt\n\nIhr Team\n\nDass wir Teil des Talentteams bei On sind, bedeutet, den Status Quo konsequent zu hinterfragen. Wir tun nicht die Dinge, nur weil sie das sind, was, HR tut. Wir bauen, wachsen, aktivieren und stärken das Team, um die Zukunft von On zu steuern. Denn das ist es, was uns wichtig ist.",
+        "fr": "Chez GENCE\n\nNous cherchons un spécialiste senior pour rejoindre notre équipe d'acquisition de talents produits. Vous serez un contributeur pratique axé sur la prestation de contrats clés de création de produits, en collaboration étroite avec les gestionnaires d'embauche et l'équipe de TA plus large pour construire des processus d'embauche efficaces et de haute qualité.\n\nVotre mission\n\n- Gérer les processus de recrutement en cycle complet pour les rôles de création de produits Apparel et Accessoires\n\n- Partenaire avec Apparel et Accessoires Chefs de la Création de produits pour comprendre les besoins en embauche, s'aligner sur les profils de rôles et élaborer des stratégies de recherche\n\n- Encourager l'approvisionnement, le dépistage, la communication avec les intervenants et offrir une gestion axée sur la qualité et la clarté\n\n- Collaborer avec la coordination du recrutement et les opérations d'AT pour assurer une expérience de candidat fluide et professionnelle\n\n- Utiliser les données et les idées pour appuyer les décisions d'embauche et améliorer l'efficacité de la recherche\n\n- Appuyer des initiatives plus vastes comme l'outillage, les processus et l'image de marque de l'employeur au besoin\n\nVotre histoire\n\n- Vous apportez une vaste expérience en acquisition de talents en mettant l'accent sur les rôles de produit dans des environnements rapides et internationaux.\n\n- Les entreprises de biens de consommation ou les industries créatives sont très privilégiées\n\n- Vous avez fait preuve d'une expérience de recrutement dans une gamme de disciplines au sein de la Création de produits\n\n- Une prise de conscience des tendances mondiales et culturelles qui façonnent le monde des marques\n\n- Vous êtes confiant en partenariat avec les gestionnaires d'embauche, fournissant des perspectives du marché et des recommandations claires\n\n- Vous êtes proactif et pratique avec l'approvisionnement, qualifié dans des outils comme LinkedIn Recruiter et les plateformes ATS (Greenhouse, Workday, etc.)\n\n- Vous êtes passionné par la prestation d'une excellente expérience candidate et représentant la marque professionnellement\n\n- Vous vous développez dans des environnements collaboratifs et rapides et vous traitez efficacement de multiples priorités\n\n- Le contexte des sociétés de biens de consommation, des industries de luxe ou de création est hautement préféré\n\nVotre équipe\n\nFaire partie de l'équipe de talent à On signifie remettre en question le statu quo. Nous ne faisons pas les choses juste parce qu'elles sont ce que, RH fait,. Nous construisons, développons, permettons et autonomisons l'équipe pour conduire l'avenir de On. Parce que c'est ce qui compte pour nous. Parce que nous sommes en marche."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://boards.greenhouse.io/onrunning/jobs/7959864?gh_jid=7959864",
+      "source": "On Running Dedicated Parser (Greenhouse)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-23T22:10:36.386Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "streetAddress": "Förrlibuckstrasse 190",
+      "postalCode": "8005",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sportswear / Calzature sportive",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-27",
+      "applyUrl": "https://boards.greenhouse.io/onrunning/jobs/7959864?gh_jid=7959864",
+      "jobReqId": "7959864",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "previousSlugs": [
+        "senior-specialist-talent-acquisition-apparel-accessories-12-month-maternity-cover-on",
+        "senior-specialista-talent-acquisition-apparel-accessories-12-month-sostituzione-maternita-on-running-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-specialist-talent-acquisition-apparel-accessories-12-month-maternity-cover-on",
+          "senior-specialista-talent-acquisition-apparel-accessories-12-month-sostituzione-maternita-on-running-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T11:36:27.198Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -109,7 +190,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7727073?gh_jid=7727073",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.382Z",
+      "crawledAt": "2026-07-23T22:10:36.386Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -133,90 +214,16 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-tooling-engineer-on-running-ch"
+        "senior-specialist-tooling-engineer-on-running-ch",
+        "senior-specialista-tooling-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-tooling-engineer-on-running-ch"
+          "senior-specialist-tooling-engineer-on-running-ch",
+          "senior-specialista-tooling-ingegnere-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.199Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "on-running-0a6188e49fe9",
-      "slug": "senior-specialista-talent-acquisition-apparel-accessories-12-month-sostituzione-maternita-on-running-zurich",
-      "slugByLocale": {
-        "it": "senior-specialista-talent-acquisition-apparel-accessories-12-month-sostituzione-maternita-on-running-zurich",
-        "en": "senior-specialist-talent-acquisition-apparel-accessories-12-month-maternity-cover-on",
-        "de": "senior-spezialist-talent-acquisition-apparel-accessories-12-month-mutterschaftsvertretung-on-running-zurich",
-        "fr": "senior-specialiste-talent-acquisition-apparel-accessories-12-month-remplacement-maternite-on-running-zurich"
-      },
-      "company": "On Running",
-      "companyKey": "on-running",
-      "companyDomain": "on-running.com",
-      "title": "Senior Specialist - Talent Acquisition Apparel & Accessories (12-month Maternity Cover)",
-      "titleByLocale": {
-        "it": "Senior Specialista - Talent Acquisition Apparel & Accessories (12-month Sostituzione maternità)",
-        "en": "Senior Specialist - Talent Acquisition Apparel & Accessories (12-month Maternity Cover)",
-        "de": "Senior Spezialist - Talent Acquisition Bekleidung & Accessoires (12-monatige Mutterschaftsvertretung)",
-        "fr": "Spécialiste Senior - Acquisition de Talents Vêtements & Accessoires (Contrat de maternité de 12 mois)"
-      },
-      "description": "At a Glance\n\nWe are looking for a Senior Specialist to join our Product Talent Acquisition team. You will be a hands-on contributor focused on delivering key Product Creation hires, collaborating closely with hiring managers and the broader TA team to build efficient, high-quality hiring processes. You bring strong sourcing and stakeholder management skills, and a deep commitment to candidate experience and excellent outcomes.\n\nYour Mission\n\n• Manage full-cycle recruitment processes for Apparel and Accessories Product Creation roles\n\n• Partner with Apparel and Accessories Product Creation leaders to understand hiring needs, align on role profiles, and develop search strategies\n\n• Drive sourcing, screening, stakeholder communication, and offer management with a focus on quality and clarity\n\n• Collaborate with recruiting coordination and TA operations to ensure smooth and professional candidate experiences\n\n• Use data and insights to support hiring decisions and improve search effectiveness\n\n• Support broader TA initiatives such as tooling, processes, and employer branding as needed\n\nYour Story\n\n• You bring extensive experience in Talent Acquisition with a focus on Product roles within fast-paced and international environments.\n\n• Background in consumer goods companies or creative industries is highly preferred\n\n• You have a proven track record of hiring across a range of disciplines within Product Creation\n\n• A keen awareness of global and cultural trends that shape the world of brands\n\n• You are confident partnering with hiring managers, providing market insights and clear recommendations\n\n• You are proactive and hands-on with sourcing, skilled in tools like LinkedIn Recruiter and ATS platforms (Greenhouse, Workday, etc.)\n\n• You are passionate about delivering an excellent candidate experience and representing the brand professionally\n\n• You thrive in collaborative, fast-moving environments and handle multiple priorities effectively\n\n• Background in consumer goods companies, Luxury or creative industries is highly preferred\n\nYour Team:\n\nBeing part of the talent team at On means consistently questioning the status quo. We don’t do things just because they are what “HR does”. We build, grow, enable, and empower the team to drive the future of On. Because this is what matters to us. Because we are On.",
-      "descriptionByLocale": {
-        "it": "A una lancia\n\nCerchiamo un Senior Specialist per entrare nel nostro team di acquisizione di prodotti. Sarete un collaboratore pratico focalizzato sulla fornitura di noli di creazione di prodotti chiave, collaborando strettamente con i responsabili del noleggio e il team più ampio TA per costruire processi di assunzione efficienti e di alta qualità. Porterete forti capacità di approvvigionamento e gestione degli stakeholder, e un profondo impegno per l'esperienza dei candidati e risultati eccellenti.\n\nLa tua missione\n\n- Gestire processi di reclutamento a ciclo pieno per ruoli di creazione di prodotti per il settore Electric e il settore del settore del trasporto aereo\n\n- Partner con i leader della creazione di prodotti di Rarel e di Accessori per comprendere le esigenze di assunzione, allineare i profili dei ruoli e sviluppare strategie di ricerca\n\n- Guidare l'approvvigionamento, lo screening, la comunicazione degli stakeholder e offrire la gestione con un focus sulla qualità e la chiarezza\n\n- Dilagando con il reclutamento di coordinamento e operazioni di TA per garantire esperienze fluide e professionali candidati\n\n- Utilizzare dati e approfondimenti per supportare le decisioni di assunzione e migliorare l'efficacia della ricerca\n\n- Sostenere iniziative più ampie di AT come strumenti, processi e marchi di imprese, se necessario\n\nLa tua storia\n\n- Portate una vasta esperienza in Acquisizione di un prodotto con un focus sui ruoli del prodotto in ambienti veloci e internazionali.\n\n- Le imprese di beni di consumo o le industrie creative sono altamente preferite\n\n- Hai un curriculum di assunzione in una serie di discipline all'interno della creazione del prodotto\n\n- Una profonda consapevolezza delle tendenze globali e culturali che plasmano il mondo dei marchi\n\n- Siete fiduciosi partner con i manager di assunzione, fornendo informazioni di mercato e chiare raccomandazioni\n\n- Sei proattivo e pratico con approvvigionamento, esperto in strumenti come LinkedIn Recruiter e piattaforme ATS (Greenhouse, Workday, ecc.)\n\n- Sei appassionato di offrire un'eccellente esperienza candidato e rappresentare il marchio professionalmente\n\n- Si prospera in ambienti collaborativi e in rapida evoluzione e gestire in modo efficace più priorità\n\n- Il contesto delle imprese di beni di consumo, del lusso o delle industrie creative è altamente preferito\n\nLa tua squadra\n\nEssere parte del talent team di On significa mettere costantemente in discussione lo status quo. Noi non facciamo le cose solo perché sono ciò che fa HR. Costruiamo, cresciamo, abilitamo e potenziamo il team a guidare il futuro di On. Perché è questo che conta per noi. Perché siamo On.",
-        "en": "At a Glance\n\nWe are looking for a Senior Specialist to join our Product Talent Acquisition team. You will be a hands-on contributor focused on delivering key Product Creation hires, collaborating closely with hiring managers and the broader TA team to build efficient, high-quality hiring processes. You bring strong sourcing and stakeholder management skills, and a deep commitment to candidate experience and excellent outcomes.\n\nYour Mission\n\n• Manage full-cycle recruitment processes for Apparel and Accessories Product Creation roles\n\n• Partner with Apparel and Accessories Product Creation leaders to understand hiring needs, align on role profiles, and develop search strategies\n\n• Drive sourcing, screening, stakeholder communication, and offer management with a focus on quality and clarity\n\n• Collaborate with recruiting coordination and TA operations to ensure smooth and professional candidate experiences\n\n• Use data and insights to support hiring decisions and improve search effectiveness\n\n• Support broader TA initiatives such as tooling, processes, and employer branding as needed\n\nYour Story\n\n• You bring extensive experience in Talent Acquisition with a focus on Product roles within fast-paced and international environments.\n\n• Background in consumer goods companies or creative industries is highly preferred\n\n• You have a proven track record of hiring across a range of disciplines within Product Creation\n\n• A keen awareness of global and cultural trends that shape the world of brands\n\n• You are confident partnering with hiring managers, providing market insights and clear recommendations\n\n• You are proactive and hands-on with sourcing, skilled in tools like LinkedIn Recruiter and ATS platforms (Greenhouse, Workday, etc.)\n\n• You are passionate about delivering an excellent candidate experience and representing the brand professionally\n\n• You thrive in collaborative, fast-moving environments and handle multiple priorities effectively\n\n• Background in consumer goods companies, Luxury or creative industries is highly preferred\n\nYour Team:\n\nBeing part of the talent team at On means consistently questioning the status quo. We don’t do things just because they are what “HR does”. We build, grow, enable, and empower the team to drive the future of On. Because this is what matters to us. Because we are On.",
-        "de": "Auf einen Blick\n\nWir suchen einen Senior Specialist, der unserem Team zur Produkttalentenerwerb beitritt. Sie werden ein praktischer Mitarbeiter sein, der sich auf die Bereitstellung wichtiger Product Creation-Anstellungen konzentriert, und eng mit den Personalleitern und dem breiteren TA-Team zusammenarbeiten, um effiziente, qualitativ hochwertige Einstellungsprozesse aufzubauen. Sie bringen starke Fähigkeiten im Beschaffungs- und Stakeholdermanagement und ein tiefes Engagement für die Erfahrung von Kandidaten und hervorragende Ergebnisse.\n\nIhre Mission\n\n- Verwalten Sie die Ganzzyklus-Rekrutierungsprozesse für Apparel und Zubehör Produktkreation Rollen\n\n- Partner mit Apparel und Zubehör Product Creation Leaders, um die Bedürfnisse der Einstellung zu verstehen, Rollenprofile zu harmonisieren und Suchstrategien zu entwickeln\n\n- Förderung von Beschaffung, Screening, Stakeholder-Kommunikation und bieten Management mit Fokus auf Qualität und Klarheit\n\n- Zusammenarbeit mit der Personalbeschaffung und der Koordinierung der TA-Operationen, um reibungslose und professionelle Bewerbererfahrungen zu gewährleisten\n\n- Verwenden Sie Daten und Erkenntnisse, um Einstellungsentscheidungen zu unterstützen und die Effektivität der Suche zu verbessern\n\n- Unterstützung umfassenderer TA-Initiativen wie Werkzeugbau, Prozesse und Employer Branding bei Bedarf\n\nIhre Geschichte\n\n- Sie bringen umfangreiche Erfahrung in der Talent Acquisition mit einem Fokus auf Produktrollen in schnelllebigen und internationalen Umgebungen.\n\n- Hintergrund in Konsumgüterunternehmen oder Kreativindustrien wird sehr bevorzugt\n\n- Sie haben eine nachgewiesene Erfolgsbilanz der Einstellung in einer Reihe von Disziplinen innerhalb der Produkt-Erstellung\n\n- Ein ausgeprägtes Bewusstsein für globale und kulturelle Trends, die die Welt der Marken prägen\n\n- Sie sind zuversichtlich, mit Personalberatern zusammenzuarbeiten, Markteinblicke und klare Empfehlungen zu liefern\n\n- Sie sind proaktiv und hands-on mit Sourcing, qualifizierte in Tools wie LinkedIn Recruiter und ATS-Plattformen (Greenhouse, Workday, etc.)\n\n- Sie sind leidenschaftlich über eine ausgezeichnete Kandidatenerfahrung und die Vertretung der Marke professionell\n\n- Sie gedeihen in kollaborativen, schnelllebigen Umgebungen und behandeln mehrere Prioritäten effektiv\n\n- Hintergrund in Konsumgüterunternehmen, Luxus- oder Kreativindustrien wird sehr bevorzugt\n\nIhr Team\n\nDass wir Teil des Talentteams bei On sind, bedeutet, den Status Quo konsequent zu hinterfragen. Wir tun nicht die Dinge, nur weil sie das sind, was, HR tut. Wir bauen, wachsen, aktivieren und stärken das Team, um die Zukunft von On zu steuern. Denn das ist es, was uns wichtig ist.",
-        "fr": "Chez GENCE\n\nNous cherchons un spécialiste senior pour rejoindre notre équipe d'acquisition de talents produits. Vous serez un contributeur pratique axé sur la prestation de contrats clés de création de produits, en collaboration étroite avec les gestionnaires d'embauche et l'équipe de TA plus large pour construire des processus d'embauche efficaces et de haute qualité.\n\nVotre mission\n\n- Gérer les processus de recrutement en cycle complet pour les rôles de création de produits Apparel et Accessoires\n\n- Partenaire avec Apparel et Accessoires Chefs de la Création de produits pour comprendre les besoins en embauche, s'aligner sur les profils de rôles et élaborer des stratégies de recherche\n\n- Encourager l'approvisionnement, le dépistage, la communication avec les intervenants et offrir une gestion axée sur la qualité et la clarté\n\n- Collaborer avec la coordination du recrutement et les opérations d'AT pour assurer une expérience de candidat fluide et professionnelle\n\n- Utiliser les données et les idées pour appuyer les décisions d'embauche et améliorer l'efficacité de la recherche\n\n- Appuyer des initiatives plus vastes comme l'outillage, les processus et l'image de marque de l'employeur au besoin\n\nVotre histoire\n\n- Vous apportez une vaste expérience en acquisition de talents en mettant l'accent sur les rôles de produit dans des environnements rapides et internationaux.\n\n- Les entreprises de biens de consommation ou les industries créatives sont très privilégiées\n\n- Vous avez fait preuve d'une expérience de recrutement dans une gamme de disciplines au sein de la Création de produits\n\n- Une prise de conscience des tendances mondiales et culturelles qui façonnent le monde des marques\n\n- Vous êtes confiant en partenariat avec les gestionnaires d'embauche, fournissant des perspectives du marché et des recommandations claires\n\n- Vous êtes proactif et pratique avec l'approvisionnement, qualifié dans des outils comme LinkedIn Recruiter et les plateformes ATS (Greenhouse, Workday, etc.)\n\n- Vous êtes passionné par la prestation d'une excellente expérience candidate et représentant la marque professionnellement\n\n- Vous vous développez dans des environnements collaboratifs et rapides et vous traitez efficacement de multiples priorités\n\n- Le contexte des sociétés de biens de consommation, des industries de luxe ou de création est hautement préféré\n\nVotre équipe\n\nFaire partie de l'équipe de talent à On signifie remettre en question le statu quo. Nous ne faisons pas les choses juste parce qu'elles sont ce que, RH fait,. Nous construisons, développons, permettons et autonomisons l'équipe pour conduire l'avenir de On. Parce que c'est ce qui compte pour nous. Parce que nous sommes en marche."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://boards.greenhouse.io/onrunning/jobs/7959864?gh_jid=7959864",
-      "source": "On Running Dedicated Parser (Greenhouse)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.381Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "streetAddress": "Förrlibuckstrasse 190",
-      "postalCode": "8005",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sportswear / Calzature sportive",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-27",
-      "applyUrl": "https://boards.greenhouse.io/onrunning/jobs/7959864?gh_jid=7959864",
-      "jobReqId": "7959864",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zürich"
-      },
-      "previousSlugs": [
-        "senior-specialist-talent-acquisition-apparel-accessories-12-month-maternity-cover-on"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-specialist-talent-acquisition-apparel-accessories-12-month-maternity-cover-on"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T11:36:27.198Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -261,7 +268,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7835371?gh_jid=7835371",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.376Z",
+      "crawledAt": "2026-07-23T22:10:36.384Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -285,11 +292,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-group-capex-on-running-ch"
+        "senior-specialist-group-capex-on-running-ch",
+        "senior-specialista-group-capex-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-group-capex-on-running-ch"
+          "senior-specialist-group-capex-on-running-ch",
+          "senior-specialista-group-capex-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.190Z",
@@ -337,7 +346,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7721405?gh_jid=7721405",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.374Z",
+      "crawledAt": "2026-07-23T22:10:36.383Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -361,11 +370,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-footwear-design-on-running-ch"
+        "senior-specialist-footwear-design-on-running-ch",
+        "senior-specialista-footwear-design-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-footwear-design-on-running-ch"
+          "senior-specialist-footwear-design-on-running-ch",
+          "senior-specialista-footwear-design-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.189Z",
@@ -413,7 +424,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8064121?gh_jid=8064121",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.372Z",
+      "crawledAt": "2026-07-23T22:10:36.382Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -437,11 +448,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-finance-systems-on-running-ch"
+        "senior-specialist-finance-systems-on-running-ch",
+        "senior-specialista-finanza-systems-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-finance-systems-on-running-ch"
+          "senior-specialist-finance-systems-on-running-ch",
+          "senior-specialista-finanza-systems-on-running-zurich"
         ],
         "de": [
           "senior-specialist-finance-systems-on-running-ch"
@@ -495,7 +508,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8016535?gh_jid=8016535",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.371Z",
+      "crawledAt": "2026-07-23T22:10:36.380Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -519,11 +532,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-color-designer-performance-footwear-on-running-ch"
+        "senior-specialist-color-designer-performance-footwear-on-running-ch",
+        "senior-specialista-color-designer-performance-footwear-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-color-designer-performance-footwear-on-running-ch"
+          "senior-specialist-color-designer-performance-footwear-on-running-ch",
+          "senior-specialista-color-designer-performance-footwear-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.188Z",
@@ -538,7 +553,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "on-running-9f6e3c44a8b9",
@@ -571,7 +587,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8037837?gh_jid=8037837",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.369Z",
+      "crawledAt": "2026-07-23T22:10:36.379Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -595,11 +611,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-accounting-emea-9-months-contract-on-running-ch"
+        "senior-specialist-accounting-emea-9-months-contract-on-running-ch",
+        "senior-specialista-accounting-emea-9-months-contract-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-accounting-emea-9-months-contract-on-running-ch"
+          "senior-specialist-accounting-emea-9-months-contract-on-running-ch",
+          "senior-specialista-accounting-emea-9-months-contract-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.187Z",
@@ -614,7 +632,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "on-running-28a871ee9abc",
@@ -647,7 +666,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7641466?gh_jid=7641466",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.368Z",
+      "crawledAt": "2026-07-23T22:10:36.377Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -671,11 +690,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-pattern-engineer-on-running-ch"
+        "senior-lead-pattern-engineer-on-running-ch",
+        "senior-lead-pattern-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-pattern-engineer-on-running-ch"
+          "senior-lead-pattern-engineer-on-running-ch",
+          "senior-lead-pattern-ingegnere-on-running-zurich"
         ],
         "de": [
           "senior-lead-pattern-engineer-on-running-ch"
@@ -729,7 +750,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8038187?gh_jid=8038187",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.366Z",
+      "crawledAt": "2026-07-23T22:10:36.376Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -753,11 +774,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-legal-counsel-intellectual-property-brand-protection-on-running-ch"
+        "senior-lead-legal-counsel-intellectual-property-brand-protection-on-running-ch",
+        "senior-lead-consulenza-legale-proprieta-intellettuale-e-protezione-del-marchio-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-legal-counsel-intellectual-property-brand-protection-on-running-ch"
+          "senior-lead-legal-counsel-intellectual-property-brand-protection-on-running-ch",
+          "senior-lead-consulenza-legale-proprieta-intellettuale-e-protezione-del-marchio-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.184Z",
@@ -805,7 +828,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8025652?gh_jid=8025652",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.365Z",
+      "crawledAt": "2026-07-23T22:10:36.375Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -829,11 +852,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-last-engineer-on-running-ch"
+        "senior-lead-last-engineer-on-running-ch",
+        "senior-lead-last-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-last-engineer-on-running-ch"
+          "senior-lead-last-engineer-on-running-ch",
+          "senior-lead-last-ingegnere-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.183Z",
@@ -881,7 +906,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8053160?gh_jid=8053160",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.363Z",
+      "crawledAt": "2026-07-23T22:10:36.373Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -905,11 +930,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-footwear-testing-on-running-ch"
+        "senior-lead-footwear-testing-on-running-ch",
+        "senior-lead-testing-calzature-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-footwear-testing-on-running-ch"
+          "senior-lead-footwear-testing-on-running-ch",
+          "senior-lead-testing-calzature-on-running-zurich"
         ],
         "de": [
           "senior-lead-footwear-testing-on-running-ch"
@@ -960,7 +987,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7908053?gh_jid=7908053",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.362Z",
+      "crawledAt": "2026-07-23T22:10:36.371Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -984,11 +1011,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-footwear-developer-on-running-ch"
+        "senior-lead-footwear-developer-on-running-ch",
+        "senior-lead-footwear-sviluppatore-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-footwear-developer-on-running-ch"
+          "senior-lead-footwear-developer-on-running-ch",
+          "senior-lead-footwear-sviluppatore-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.182Z",
@@ -1036,7 +1065,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7995040?gh_jid=7995040",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.360Z",
+      "crawledAt": "2026-07-23T22:10:36.369Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1104,7 +1133,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8028776?gh_jid=8028776",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.357Z",
+      "crawledAt": "2026-07-23T22:10:36.367Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1128,11 +1157,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-expansion-management-6-months-maternity-cover-on-running-ch"
+        "senior-lead-expansion-management-6-months-maternity-cover-on-running-ch",
+        "senior-lead-expansion-management-6-months-sostituzione-maternita-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-expansion-management-6-months-maternity-cover-on-running-ch"
+          "senior-lead-expansion-management-6-months-maternity-cover-on-running-ch",
+          "senior-lead-expansion-management-6-months-sostituzione-maternita-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.178Z",
@@ -1180,7 +1211,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8056606?gh_jid=8056606",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.356Z",
+      "crawledAt": "2026-07-23T22:10:36.366Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1204,11 +1235,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-exhibiton-programming-on-running-ch"
+        "senior-lead-exhibiton-programming-on-running-ch",
+        "senior-lead-programmazione-exhibiton-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-exhibiton-programming-on-running-ch"
+          "senior-lead-exhibiton-programming-on-running-ch",
+          "senior-lead-programmazione-exhibiton-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-13T12:20:12.988Z",
@@ -1256,7 +1289,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7999992?gh_jid=7999992",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.355Z",
+      "crawledAt": "2026-07-23T22:10:36.365Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1280,17 +1313,20 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-diversity-equity-inclusion-belonging-deib-on-running-ch"
+        "senior-lead-diversity-equity-inclusion-belonging-deib-on-running-ch",
+        "senior-lead-diversita-equita-inclusione-belonging-deib-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-diversity-equity-inclusion-belonging-deib-on-running-ch"
+          "senior-lead-diversity-equity-inclusion-belonging-deib-on-running-ch",
+          "senior-lead-diversita-equita-inclusione-belonging-deib-on-running-zurich"
         ],
         "fr": [
           "senior-lead-diversity-equity-inclusion-belonging-deib-on-running-ch"
         ]
       },
       "firstSeenAt": "2026-07-10T22:05:50.668Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1335,7 +1371,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8028097?gh_jid=8028097",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.354Z",
+      "crawledAt": "2026-07-23T22:10:36.364Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1359,11 +1395,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-distributor-operations-on-running-ch"
+        "senior-lead-distributor-operations-on-running-ch",
+        "senior-lead-operazioni-distributori-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-distributor-operations-on-running-ch"
+          "senior-lead-distributor-operations-on-running-ch",
+          "senior-lead-operazioni-distributori-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.177Z",
@@ -1411,7 +1449,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7745510?gh_jid=7745510",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.352Z",
+      "crawledAt": "2026-07-23T22:10:36.363Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1435,11 +1473,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-copy-on-running-ch"
+        "senior-lead-copy-on-running-ch",
+        "responsabile-senior-copiato-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-copy-on-running-ch"
+          "senior-lead-copy-on-running-ch",
+          "responsabile-senior-copiato-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.174Z",
@@ -1487,7 +1527,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8053064?gh_jid=8053064",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.351Z",
+      "crawledAt": "2026-07-23T22:10:36.361Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1511,6 +1551,7 @@
         "location": "Zürich"
       },
       "firstSeenAt": "2026-07-09T22:39:08.716Z",
+      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "baseSalary": {
@@ -1555,7 +1596,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8053185?gh_jid=8053185",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.347Z",
+      "crawledAt": "2026-07-23T22:10:36.358Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1580,12 +1621,14 @@
       },
       "previousSlugs": [
         "lead-apparel-material-development-performance-on-running-ch",
-        "senior-lead-apparel-material-development-performance-on-running-ch"
+        "senior-lead-apparel-material-development-performance-on-running-ch",
+        "piombo-apparel-material-development-performance-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lead-apparel-material-development-performance-on-running-ch",
-          "senior-lead-apparel-material-development-performance-on-running-ch"
+          "senior-lead-apparel-material-development-performance-on-running-ch",
+          "piombo-apparel-material-development-performance-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-09T22:39:08.697Z",
@@ -1633,7 +1676,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7573654?gh_jid=7573654",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.344Z",
+      "crawledAt": "2026-07-23T22:10:36.352Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1657,11 +1700,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-director-of-creative-apparel-marketing-on-running-ch"
+        "senior-director-of-creative-apparel-marketing-on-running-ch",
+        "senior-direttore-of-creative-apparel-marketing-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-director-of-creative-apparel-marketing-on-running-ch"
+          "senior-director-of-creative-apparel-marketing-on-running-ch",
+          "senior-direttore-of-creative-apparel-marketing-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.171Z",
@@ -1709,7 +1754,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7402412?gh_jid=7402412",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.342Z",
+      "crawledAt": "2026-07-23T22:10:36.351Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1733,11 +1778,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-director-of-brand-apparel-marketing-on-running-ch"
+        "senior-director-of-brand-apparel-marketing-on-running-ch",
+        "senior-direttore-of-brand-apparel-marketing-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-director-of-brand-apparel-marketing-on-running-ch"
+          "senior-director-of-brand-apparel-marketing-on-running-ch",
+          "senior-direttore-of-brand-apparel-marketing-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.169Z",
@@ -1785,7 +1832,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8044980?gh_jid=8044980",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.336Z",
+      "crawledAt": "2026-07-23T22:10:36.349Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1809,11 +1856,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "sample-maker-on-running-ch"
+        "sample-maker-on-running-ch",
+        "produttore-di-campioni-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sample-maker-on-running-ch"
+          "sample-maker-on-running-ch",
+          "produttore-di-campioni-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.168Z",
@@ -1861,7 +1910,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7606445?gh_jid=7606445",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.332Z",
+      "crawledAt": "2026-07-23T22:10:36.348Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1885,11 +1934,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-tooling-engineer-on-running-ch"
+        "lead-tooling-engineer-on-running-ch",
+        "lead-tooling-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-tooling-engineer-on-running-ch"
+          "lead-tooling-engineer-on-running-ch",
+          "lead-tooling-ingegnere-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.165Z",
@@ -1937,7 +1988,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7547837?gh_jid=7547837",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.330Z",
+      "crawledAt": "2026-07-23T22:10:36.346Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1962,11 +2013,13 @@
       },
       "previousSlugs": [
         "lead-spatial-designer-emea-on-running-ch",
-        "chef-concepteur-spatial-emea-on-running-zurich"
+        "chef-concepteur-spatial-emea-on-running-zurich",
+        "piombo-designer-spaziale-emea-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-spatial-designer-emea-on-running-ch"
+          "lead-spatial-designer-emea-on-running-ch",
+          "piombo-designer-spaziale-emea-on-running-zurich"
         ],
         "de": [
           "lead-spatial-designer-emea-on-running-ch"
@@ -2021,7 +2074,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7972381?gh_jid=7972381",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.326Z",
+      "crawledAt": "2026-07-23T22:10:36.344Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2045,11 +2098,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-generative-intelligence-and-search-ecosystem-analyst-on-running-ch"
+        "lead-generative-intelligence-and-search-ecosystem-analyst-on-running-ch",
+        "lead-generative-intelligence-and-search-ecosystem-analista-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-generative-intelligence-and-search-ecosystem-analyst-on-running-ch"
+          "lead-generative-intelligence-and-search-ecosystem-analyst-on-running-ch",
+          "lead-generative-intelligence-and-search-ecosystem-analista-on-running-zurich"
         ],
         "de": [
           "lead-generative-intelligence-and-search-ecosystem-analyst-on-running-ch"
@@ -2103,7 +2158,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8054189?gh_jid=8054189",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.323Z",
+      "crawledAt": "2026-07-23T22:10:36.342Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2127,11 +2182,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-footwear-developer-pad-young-movers-on-running-ch"
+        "lead-footwear-developer-pad-young-movers-on-running-ch",
+        "lead-footwear-sviluppatore-pad-young-movers-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-footwear-developer-pad-young-movers-on-running-ch"
+          "lead-footwear-developer-pad-young-movers-on-running-ch",
+          "lead-footwear-sviluppatore-pad-young-movers-on-running-zurich"
         ],
         "de": [
           "lead-footwear-developer-pad-young-movers-on-running-ch"
@@ -2185,7 +2242,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7622098?gh_jid=7622098",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.321Z",
+      "crawledAt": "2026-07-23T22:10:36.341Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2209,6 +2266,7 @@
         "location": "Zürich"
       },
       "firstSeenAt": "2026-07-21T11:48:07.032Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2253,7 +2311,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8066650?gh_jid=8066650",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.314Z",
+      "crawledAt": "2026-07-23T22:10:36.339Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2277,11 +2335,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-construction-project-management-on-running-ch"
+        "lead-construction-project-management-on-running-ch",
+        "lead-costruzione-project-management-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-construction-project-management-on-running-ch"
+          "lead-construction-project-management-on-running-ch",
+          "lead-costruzione-project-management-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-16T11:42:24.262Z",
@@ -2329,7 +2389,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7962925?gh_jid=7962925",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.312Z",
+      "crawledAt": "2026-07-23T22:10:36.338Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2353,11 +2413,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-commercialization-engineer-on-running-ch"
+        "lead-commercialization-engineer-on-running-ch",
+        "lead-commercialization-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-commercialization-engineer-on-running-ch"
+          "lead-commercialization-engineer-on-running-ch",
+          "lead-commercialization-ingegnere-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.160Z",
@@ -2381,7 +2443,7 @@
         "it": "lead-test-di-abbigliamento-on-running-zurich",
         "en": "lead-apparel-testing-on-running-ch",
         "de": "blei-bekleidungstests-on-running-zurich",
-        "fr": "le-plomb-essai-d-habillement-on-running-zurich"
+        "fr": "responsable-tests-de-vetements-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -2405,7 +2467,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7775612?gh_jid=7775612",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.309Z",
+      "crawledAt": "2026-07-23T22:10:36.337Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2430,13 +2492,17 @@
       },
       "previousSlugs": [
         "lead-apparel-testing-on-running-ch",
+        "le-plomb-essai-d-habillement-on-running-zurich",
+        "lead-test-di-abbigliamento-on-running-zurich",
         "responsable-tests-de-vetements-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-apparel-testing-on-running-ch"
+          "lead-apparel-testing-on-running-ch",
+          "lead-test-di-abbigliamento-on-running-zurich"
         ],
         "fr": [
+          "le-plomb-essai-d-habillement-on-running-zurich",
           "responsable-tests-de-vetements-on-running-zurich"
         ]
       },
@@ -2485,7 +2551,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8079396?gh_jid=8079396",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.303Z",
+      "crawledAt": "2026-07-23T22:10:36.334Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2508,10 +2574,14 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "firstSeenAt": "2026-07-22T22:50:30.308Z",
+      "previousSlugs": [
+        "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch",
+        "risorse-umane-specialista-south-europe-italian-or-french-speaker-on-running-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch"
+          "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch",
+          "risorse-umane-specialista-south-europe-italian-or-french-speaker-on-running-zurich"
         ],
         "de": [
           "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch"
@@ -2520,9 +2590,7 @@
           "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch"
         ]
       },
-      "previousSlugs": [
-        "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch"
-      ],
+      "firstSeenAt": "2026-07-22T22:50:30.308Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2567,7 +2635,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7840993?gh_jid=7840993",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.300Z",
+      "crawledAt": "2026-07-23T22:10:36.333Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2591,11 +2659,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-strategy-operations-footwear-product-creation-on-running-ch"
+        "head-of-strategy-operations-footwear-product-creation-on-running-ch",
+        "responsabile-strategy-operations-footwear-product-creation-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-strategy-operations-footwear-product-creation-on-running-ch"
+          "head-of-strategy-operations-footwear-product-creation-on-running-ch",
+          "responsabile-strategy-operations-footwear-product-creation-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.153Z",
@@ -2643,7 +2713,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7857798?gh_jid=7857798",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.293Z",
+      "crawledAt": "2026-07-23T22:10:36.329Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2667,11 +2737,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-product-development-accessories-on-running-ch"
+        "head-of-product-development-accessories-on-running-ch",
+        "responsabile-product-development-accessories-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-product-development-accessories-on-running-ch"
+          "head-of-product-development-accessories-on-running-ch",
+          "responsabile-product-development-accessories-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.150Z",
@@ -2719,7 +2791,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7954022?gh_jid=7954022",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.278Z",
+      "crawledAt": "2026-07-23T22:10:36.326Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2743,11 +2815,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-functional-communications-on-running-ch"
+        "head-of-functional-communications-on-running-ch",
+        "responsabile-functional-communications-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-functional-communications-on-running-ch"
+          "head-of-functional-communications-on-running-ch",
+          "responsabile-functional-communications-on-running-zurich"
         ],
         "de": [
           "head-of-functional-communications-on-running-ch"
@@ -2801,7 +2875,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8046508?gh_jid=8046508",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.273Z",
+      "crawledAt": "2026-07-23T22:10:36.324Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2825,11 +2899,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-business-process-excellence-on-running-ch"
+        "head-of-business-process-excellence-on-running-ch",
+        "responsabile-dell-eccellenza-dei-processi-aziendali-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-business-process-excellence-on-running-ch"
+          "head-of-business-process-excellence-on-running-ch",
+          "responsabile-dell-eccellenza-dei-processi-aziendali-on-running-zurich"
         ],
         "de": [
           "head-of-business-process-excellence-on-running-ch"
@@ -2883,7 +2959,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7841951?gh_jid=7841951",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.259Z",
+      "crawledAt": "2026-07-23T22:10:36.322Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2907,11 +2983,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "global-head-of-marketing-program-management-on-running-ch"
+        "global-head-of-marketing-program-management-on-running-ch",
+        "global-responsabile-marketing-program-management-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-head-of-marketing-program-management-on-running-ch"
+          "global-head-of-marketing-program-management-on-running-ch",
+          "global-responsabile-marketing-program-management-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.143Z",
@@ -2959,7 +3037,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8030127?gh_jid=8030127",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.257Z",
+      "crawledAt": "2026-07-23T22:10:36.321Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2983,11 +3061,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "fit-model-flexible-part-time-opportunity-on-running-ch"
+        "fit-model-flexible-part-time-opportunity-on-running-ch",
+        "fit-model-flexible-opportunita-part-time-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fit-model-flexible-part-time-opportunity-on-running-ch"
+          "fit-model-flexible-part-time-opportunity-on-running-ch",
+          "fit-model-flexible-opportunita-part-time-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.141Z",
@@ -3035,7 +3115,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7972311?gh_jid=7972311",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:21:37.242Z",
+      "crawledAt": "2026-07-23T22:10:36.316Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3059,11 +3139,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "director-of-product-testing-on-running-ch"
+        "director-of-product-testing-on-running-ch",
+        "direttore-of-product-testing-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-of-product-testing-on-running-ch"
+          "director-of-product-testing-on-running-ch",
+          "direttore-of-product-testing-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.134Z",
@@ -3108,7 +3190,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7699563?gh_jid=7699563",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-23T11:21:37.229Z",
+      "crawledAt": "2026-07-23T22:10:36.311Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3132,11 +3214,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "director-of-innovation-management-strategy-on-running-ch"
+        "director-of-innovation-management-strategy-on-running-ch",
+        "direttore-of-innovation-management-strategy-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-of-innovation-management-strategy-on-running-ch"
+          "director-of-innovation-management-strategy-on-running-ch",
+          "direttore-of-innovation-management-strategy-on-running-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -3226,83 +3310,6 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "on-running-896e3c77e2b4",
-      "slug": "senior-specialista-payroll-south-europe-on-running-zurich",
-      "slugByLocale": {
-        "it": "senior-specialista-payroll-south-europe-on-running-zurich",
-        "en": "senior-specialist-payroll-south-europe-on-running-ch",
-        "de": "senior-spezialist-payroll-south-europe-on-running-zurich",
-        "fr": "senior-specialiste-payroll-south-europe-on-running-zurich"
-      },
-      "company": "On Running",
-      "companyKey": "on-running",
-      "companyDomain": "on-running.com",
-      "title": "Senior Specialist - Payroll, South Europe",
-      "titleByLocale": {
-        "it": "Senior Specialista - Payroll, South Europe",
-        "en": "Senior Specialist - Payroll, South Europe",
-        "de": "Senior Spezialist - Payroll, Südeuropa",
-        "fr": "Spécialiste Senior - Paie, Europe du Sud"
-      },
-      "description": "In short\n\nOur Talent (HR) team is heavily expanding to support On’s explosive growth, and we are looking for an enthusiastic person to join us as Senior Payroll Specialist in the Talent Operations Team. This role is for someone who has experience in Payroll Operations, ideally in a fast-paced, scale-up and retail environment. The role is ideal for someone who enjoys researching new challenges, appreciates a streamlined and supportive process, and has a passion for innovative solutions. While France & Italy will be your main focus, you will also support other EMEA entities.\n\nYour Team:\n\nBeing part of the Talent team at On means doing things differently, we don’t do things just because they are what “HR does”. We build, grow, enable and empower the team to drive the future of On. The Talent Operations team strives to create and deliver a seamless and positive employee experience at all times. Because this is what matters to us. Because we are On.\n\nMission:\n\n• Process and manage the end-to-end payroll cycle in France, Italy, Spain and Portugal, ensuring accuracy and compliance with relevant regulations:\n\n• Preparation of payroll input for your external vendors, including regular pay, overtime, bonuses, benefit in kind and applicable deductions\n\n• Reviewing the payroll drafts provided by the external vendors, ensuring payroll accuracy in alignment with local payroll regulations\n\n• Managing different payroll schedules incl. Retail and ensuring timely salary payments and payslip distribution\n\n• Delivering month-end payroll reports to the finance team, reconcile payroll accounts and resolve any discrepancies identified together with Finance\n\n• Responsible for enrolling our team members into local benefits, such as health insurance and pension schemes.Address payroll-related inquiries and issues from employees and business leaders in a timely and professional manner\n\n• Prepare by law mandatory payroll documents such as Attestation employeur, Certificat de travail and others depending on the country specifics\n\n• Collaborate with Talent and Finance teams to ensure seamless integration between payroll, HR & Finance systems\n\n• Own the country specific solution for data integration or data feed between On systems (Workday) and external payroll vendor\n\n• Communication with authorities, insurances and other benefit providers in respective countries\n\n• Collaboration with internal teams such as HR specialists, Business Partners and Total Rewards, to drive forward new initiatives.\n\n• Design the payroll process in your respective countries in alignment with internal SOX controls, and contribute to the continuous optimization and automation of existing payroll process and systems\n\n• Set up of payroll operations in new markets/entities, in collaboration with regional lead, local HR Specialist and other internal On teams\n\n• Conduct regular audits of payroll records to ensure accuracy and compliance\n\n• Responsible for our ESS (equity) and fringe benefits reporting through payroll\n\n• Ensure compliance with more complex employment setups, such as cross-border employment or relocation cases\n\n• Eagerness to take over more payroll countries, as we open new markets.\n\nYour story:\n\n• 4+ years work experience in payroll in France or Italy. Any other country is a plus\n\n• Experience in payroll for Retail population for any of the countries of scope is a huge plus\n\n• Excellent operational, legislative and best practice payroll knowledge in France or Italy\n\n• Excellent stakeholder management, attention to detail, used to handling confidential data, and analytical approach\n\n• Experience working with external payroll providers\n\n• Excellent excel skills\n\n• Fluency in English and at least one other local language. Any other language is a plus",
-      "descriptionByLocale": {
-        "it": "Designazione delle merci\n\nIn breve\n\nIl nostro team di TT (HR) si sta espandendo fortemente per sostenere la crescita esplosiva di On.s, e stiamo cercando una persona entusiasta di unirsi a noi come Senior Payroll Specialist nel Team Operazioni di TT. Questo ruolo è per qualcuno che ha esperienza nelle operazioni di Payroll, idealmente in un ambiente veloce-paced, scala-up e retail. Il ruolo è ideale per chi gode di ricerca nuove sfide, apprezza un processo semplificato e di supporto, e ha una passione per soluzioni innovative.\n\nLa tua squadra\n\nEssere parte del team di Quint On significa fare le cose in modo diverso, non facciamo le cose solo perché sono ciò che fa HR. Costruiamo, cresciamo, abilitare e responsabilizziamo il team per guidare il futuro di On. Il team di Operazioni di Quint si sforza di creare e fornire un'esperienza dipendente senza soluzione di continuità e positiva in ogni momento. Perché questo è ciò che conta per noi. Perché siamo On.\n\nMissione\n\n- Elaborazione e gestione del ciclo di salari end-to-end in Francia, Italia, Spagna e Portogallo, garantendo l'accuratezza e il rispetto delle normative pertinenti: - Preparazione dei contributi ai salari per i vostri venditori esterni, tra cui retribuzione regolare, straordinari, bonus, benefici in natura e detrazioni applicabili - Revisione dei progetti di salari forniti dai venditori esterni, garanzia di precisione dei salari in allineamento con le norme locali sui salari - Gestione di diversi orari di paga incl.\n\nAl dettaglio e garantire pagamenti salariali tempestivi e distribuzione payslip - Consegna di rapporti di paga di fine mese al team finanziario, conciliare i conti di paga e risolvere eventuali discrepanze identificate insieme con Finanza - Responsabile per l'iscrizione dei nostri membri del team in prestazioni locali, come l'assicurazione sanitaria e regimi pensionistici.\n\nAffrontare le richieste e le questioni relative ai salari dei dipendenti e dei dirigenti aziendali in modo tempestivo e professionale - Preparare per legge documenti obbligatori dei salari come Attestation employeeur, Certificat de travail e altri a seconda delle specifiche del paese - Collaborare con squadre di TT e Finance per garantire l'integrazione senza soluzione di continuità tra i salari, sistemi HR & Finance - Propriezzare la soluzione specifica per l'integrazione dei dati o dei dati feed tra sistemi On (Working) e fornitori esterni di buste paga - Comunicazione con le autorità, le assicurazioni e altri fornitori di prestazioni nei rispettivi paesi -\n\nIl secondo programma di lavoro è stato realizzato con il sostegno di gruppi interni quali specialisti delle risorse umane, partner commerciali e Total Rewards, per portare avanti nuove iniziative.\n\n- Progettare il processo di compilazione dei salari nei rispettivi paesi in allineamento con i controlli interni SOX e contribuire alla continua ottimizzazione e automazione dei processi e dei sistemi di gestione dei salari esistenti - Impostare operazioni di gestione dei salari in nuovi mercati/enti, in collaborazione con leader regionali, HR Specialist locale e altri internal On team - Eseguire verifiche periodiche dei registri dei salari per garantire l'accuratezza e la conformità - Responsabile del nostro ESS (equity) e dei vantaggi collaterali attraverso il registro dei salari - Garantire il rispetto di impostazioni occupazionali più complesse, come l'occupazione transfrontaliera o\n\ncasi di ricollocazione - Eagerness per assumere più soldi paesi, come apriamo nuovi mercati.\n\nLa tua storia\n\n- 4+ anni di esperienza lavorativa in salari in Francia o in Italia. Ogni altro paese è un plus - Esperienza in salari per la popolazione al dettaglio per uno qualsiasi dei paesi di ambito è un enorme plus - Eccellente conoscenza operativa, legislativa e delle migliori pratiche salari in Francia o in Italia - Eccellente gestione delle parti interessate, attenzione ai dettagli, utilizzato per la gestione dei dati riservati, e approccio analitico - Esperienza lavorando con fornitori esterni di salari - Eccellente eccellenza competenze - Fluenza in inglese e almeno un'altra lingua locale.",
-        "en": "In short\n\nOur Talent (HR) team is heavily expanding to support On’s explosive growth, and we are looking for an enthusiastic person to join us as Senior Payroll Specialist in the Talent Operations Team. This role is for someone who has experience in Payroll Operations, ideally in a fast-paced, scale-up and retail environment. The role is ideal for someone who enjoys researching new challenges, appreciates a streamlined and supportive process, and has a passion for innovative solutions. While France & Italy will be your main focus, you will also support other EMEA entities.\n\nYour Team:\n\nBeing part of the Talent team at On means doing things differently, we don’t do things just because they are what “HR does”. We build, grow, enable and empower the team to drive the future of On. The Talent Operations team strives to create and deliver a seamless and positive employee experience at all times. Because this is what matters to us. Because we are On.\n\nMission:\n\n• Process and manage the end-to-end payroll cycle in France, Italy, Spain and Portugal, ensuring accuracy and compliance with relevant regulations:\n\n• Preparation of payroll input for your external vendors, including regular pay, overtime, bonuses, benefit in kind and applicable deductions\n\n• Reviewing the payroll drafts provided by the external vendors, ensuring payroll accuracy in alignment with local payroll regulations\n\n• Managing different payroll schedules incl. Retail and ensuring timely salary payments and payslip distribution\n\n• Delivering month-end payroll reports to the finance team, reconcile payroll accounts and resolve any discrepancies identified together with Finance\n\n• Responsible for enrolling our team members into local benefits, such as health insurance and pension schemes.Address payroll-related inquiries and issues from employees and business leaders in a timely and professional manner\n\n• Prepare by law mandatory payroll documents such as Attestation employeur, Certificat de travail and others depending on the country specifics\n\n• Collaborate with Talent and Finance teams to ensure seamless integration between payroll, HR & Finance systems\n\n• Own the country specific solution for data integration or data feed between On systems (Workday) and external payroll vendor\n\n• Communication with authorities, insurances and other benefit providers in respective countries\n\n• Collaboration with internal teams such as HR specialists, Business Partners and Total Rewards, to drive forward new initiatives.\n\n• Design the payroll process in your respective countries in alignment with internal SOX controls, and contribute to the continuous optimization and automation of existing payroll process and systems\n\n• Set up of payroll operations in new markets/entities, in collaboration with regional lead, local HR Specialist and other internal On teams\n\n• Conduct regular audits of payroll records to ensure accuracy and compliance\n\n• Responsible for our ESS (equity) and fringe benefits reporting through payroll\n\n• Ensure compliance with more complex employment setups, such as cross-border employment or relocation cases\n\n• Eagerness to take over more payroll countries, as we open new markets.\n\nYour story:\n\n• 4+ years work experience in payroll in France or Italy. Any other country is a plus\n\n• Experience in payroll for Retail population for any of the countries of scope is a huge plus\n\n• Excellent operational, legislative and best practice payroll knowledge in France or Italy\n\n• Excellent stakeholder management, attention to detail, used to handling confidential data, and analytical approach\n\n• Experience working with external payroll providers\n\n• Excellent excel skills\n\n• Fluency in English and at least one other local language. Any other language is a plus",
-        "de": "Warenbezeichnung\n\nKurz gefasst\n\nUnser Talent (HR) Team ist stark erweitert, um On,s explosives Wachstum zu unterstützen, und wir suchen eine begeisterte Person, die uns als Senior Payroll Specialist im Talent Operations Team begleitet. Diese Rolle ist für jemanden, der Erfahrung in Payroll Operations hat, ideal in einem schnelllebigen, Scale-up- und Retail-Umfeld. Diese Rolle ist ideal für jemanden, der gerne neue Herausforderungen erforscht, einen schlanken und unterstützenden Prozess schätzt und eine Leidenschaft für innovative Lösungen hat. Während Frankreich und Italien Ihr Hauptfokus sein wird, werden Sie auch andere EMEA-Entitäten unterstützen.\n\nIhr Team\n\nDas Talent-Team bei On zu sein bedeutet, Dinge anders zu machen, wir tun nichts, nur weil es das ist, was, HR tut. Wir bauen, wachsen, aktivieren und stärken das Team, um die Zukunft von On zu steuern. Das Talent-Operations-Team bemüht sich, zu jeder Zeit eine nahtlose und positive Mitarbeitererfahrung zu schaffen und zu liefern.\n\nAuftrag\n\n- Verarbeiten und verwalten Sie den Ende-zu-Ende-Lenkungszyklus in Frankreich, Italien, Spanien und Portugal, um die Genauigkeit und Einhaltung der einschlägigen Vorschriften zu gewährleisten: - Vorbereitung der Lohnsummeneingaben für Ihre externen Anbieter, einschließlich regelmäßiger Bezahlung, Überstunden, Boni, Sachleistungen und anwendbare Abzüge - Überprüfung der Lohnsummenentwürfe der externen Anbieter, Gewährleistung der Lohnsummengenauigkeit in Übereinstimmung mit den lokalen Lohnsummenvorschriften - Verwaltung verschiedener Lohnsummenpläne inkl.\n\nEinzelhandel und Sicherstellung der rechtzeitigen Gehaltszahlungen und Paylip-Distribution - Lieferung Monatsend-Payroll Berichte an das Finanzteam, vereinbaren Lohnbuchhaltung Konten und lösen alle Abweichungen identifiziert zusammen mit Finance - verantwortlich für die Einordnung unserer Teammitglieder in lokale Leistungen, wie Krankenversicherung und Rentensysteme.\n\nFragen und Probleme von Mitarbeitern und Führungskräften im Zusammenhang mit der Lohn- und Gehaltsabrechnung rechtzeitig und professionell beantworten - gesetzlich verpflichtende Lohn- und Gehaltsabrechnungsunterlagen wie Attestation employeur, Certificat de travail und andere je nach Landesspezifika vorbereiten - Zusammenarbeit mit Talent- und Finanzteams zur Gewährleistung einer nahtlosen Integration zwischen Lohn- und Gehaltsabrechnung, HR & Finance-Systemen - Besitzen Sie die länderspezifische Lösung für die Datenintegration oder Datenfeed zwischen On-Systemen (Workday) und externen Lohn- und Gehaltsabrechnungsanbietern - Kommunikation mit Behörden, Versicherungen und anderen Leistungsanbietern in den jeweiligen Ländern -\n\nZusammenarbeit mit internen Teams wie Personalspezialisten, Geschäftspartnern und Total Rewards, um neue Initiativen voranzutreiben.\n\n- Entwerfen Sie den Lohn- und Gehaltsabrechnungsprozess in Ihren jeweiligen Ländern in Abstimmung mit internen SOX-Kontrollen und tragen Sie zur kontinuierlichen Optimierung und Automatisierung des bestehenden Lohn- und Gehaltsabrechnungsprozesses und -systems bei - Einrichtung von Lohn- und Gehaltsabrechnungen in neuen Märkten/Unternehmen, in Zusammenarbeit mit regionalen Führungskräften, lokalen Personalspezialisten und anderen internen On-Teams - Durchführung regelmäßiger Prüfungen der Lohn- und Gehaltsabrechnungen zur Gewährleistung der Genauigkeit und Einhaltung - Verantwortlich für unsere ESS (Equity) und Nebenleistungen Berichterstattung über Lohn- und Gehaltsabrechnung - Sicherstellung der Einhaltung komplexerer Arbeitspläne, wie z.B. grenzüberschreitende Beschäftigung oder\n\nFälle von Standortverlagerungen - Eagerness, mehr Lohn- und Gehaltszahl Länder zu übernehmen, während wir neue Märkte öffnen.\n\nIhre Geschichte\n\n- 4+ Jahre Berufserfahrung in der Lohnbuchhaltung in Frankreich oder Italien. Jedes andere Land ist ein Plus - Erfahrung in der Lohnbuchhaltung für die Einzelhandelsbevölkerung in einem der Länder des Geltungsbereichs ist ein großes Plus - Ausgezeichnete operative, legislative und Best Practice Lohnbuchhaltung Kenntnisse in Frankreich oder Italien - Ausgezeichnete Stakeholder-Management, Liebe zum Detail, verwendet, um vertrauliche Daten zu behandeln, und analytische Ansatz - Erfahrung mit externen Lohnbuchhaltung Anbieter - Ausgezeichnete hervorragende Fähigkeiten - Fließfähigkeit in Englisch und mindestens eine andere lokale Sprache. Jede andere Sprache ist ein Plus",
-        "fr": "Désignation des marchandises\n\nBref\n\nNotre équipe Talent (HR) s'étend fortement pour soutenir la croissance explosive d'On, et nous recherchons une personne enthousiaste pour nous rejoindre en tant que Senior Payroll Specialist dans l'équipe Talent Operations. Ce rôle est pour quelqu'un qui a de l'expérience dans les opérations de Payroll, idéalement dans un environnement rapide, à l'échelle et de détail. Le rôle est idéal pour quelqu'un qui aime la recherche de nouveaux défis, apprécie un processus simplifié et solidaire, et a une passion pour des solutions innovantes.\n\nVotre équipe\n\nEn faisant partie de l'équipe Talent chez On, nous faisons les choses différemment, mais pas parce qu'elles sont ce que fait, RH. Nous construisons, développons, autorisons et autonomisons l'équipe pour conduire l'avenir d'On. L'équipe Talent Operations s'efforce de créer et de fournir une expérience d'employé transparente et positive en tout temps.\n\nMission\n\n- Traiter et gérer le cycle de fin de paie en France, Italie, Espagne et Portugal, en veillant à l'exactitude et au respect des réglementations pertinentes : - Préparation des données de paie pour vos fournisseurs externes, y compris la rémunération régulière, les heures supplémentaires, les primes, les avantages en nature et les déductions applicables - Révision des états de paie fournis par les fournisseurs externes, en veillant à l'exactitude des états de paie conformément aux réglementations locales en matière de paie - Gestion des différents calendriers de paie, y compris :\n\nRetail et paiement en temps opportun des salaires et distribution des feuillets de paie - Fournir des rapports de paie de fin de mois à l'équipe financière, rapprocher les comptes de paie et résoudre les écarts identifiés avec Finance - Responsable de l'inscription des membres de notre équipe aux prestations locales, comme l'assurance maladie et les régimes de retraite.\n\nTraiter les questions et les demandes de renseignements concernant les salaires des employés et des chefs d'entreprise de façon opportune et professionnelle - Préparer par la loi des documents obligatoires sur les salaires tels que Attestation employeur, Certificat de travail et autres selon les spécificités du pays - Collaborer avec les équipes Talent et Finance pour assurer une intégration harmonieuse entre les systèmes de paie, RH & Finance - Posséder la solution nationale spécifique pour l'intégration des données ou la transmission des données entre les systèmes On (Workday) et les fournisseurs externes de salaires - Communication avec les autorités, les assurances et les autres prestataires de prestations dans les pays respectifs -\n\nCollaboration avec des équipes internes comme des spécialistes des RH, des partenaires d'affaires et des récompenses totales, pour faire avancer de nouvelles initiatives.\n\n- Concevoir le processus de paie dans vos pays respectifs en fonction des contrôles internes SOX et contribuer à l'optimisation et à l'automatisation continues des processus et systèmes de paye existants - Mettre en place des opérations de paye dans de nouveaux marchés/entités, en collaboration avec le chef de file régional, le spécialiste local des RH et d'autres équipes internes - Effectuer des audits réguliers des dossiers de paye pour assurer l'exactitude et la conformité - Responsable de notre SSE (équité) et des rapports sur les avantages sociaux par le biais des états de paie - Veiller au respect des structures d'emploi plus complexes, comme les emplois transfrontaliers ou\n\ncas de réinstallation - Eagerness pour prendre en charge plus de pays de paie, alors que nous ouvrons de nouveaux marchés.\n\nVotre histoire\n\n- 4 ans et plus d'expérience en rémunération en France ou en Italie. Tout autre pays est un plus - Expérience en rémunération pour la population de détail pour l'un des pays de portée est un plus énorme - Excellente connaissance opérationnelle, législative et des meilleures pratiques en rémunération en France ou en Italie - Excellente gestion des parties prenantes, attention aux détails, utilisé pour traiter des données confidentielles, et approche analytique - Expérience en travaillant avec des fournisseurs externes de rémunération - Excellente compétence en excellence - Fluence en anglais et au moins une autre langue locale."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://boards.greenhouse.io/onrunning/jobs/7838184?gh_jid=7838184",
-      "source": "On Running Dedicated Parser (Greenhouse)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:40:40.348Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "streetAddress": "Förrlibuckstrasse 190",
-      "postalCode": "8005",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "internship",
-      "employmentType": "INTERN",
-      "experienceLevel": "senior",
-      "sector": "Sportswear / Calzature sportive",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://boards.greenhouse.io/onrunning/jobs/7838184?gh_jid=7838184",
-      "jobReqId": "7838184",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zürich"
-      },
-      "previousSlugs": [
-        "senior-specialist-payroll-south-europe-on-running-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-specialist-payroll-south-europe-on-running-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T11:36:27.193Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
           "unitText": "YEAR"
         }
       },
