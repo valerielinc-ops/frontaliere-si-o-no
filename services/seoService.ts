@@ -4830,6 +4830,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-educatore-ticino-stipendio-requisiti': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/frontaliere-educatore-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-poverta-lavorativa-ticino-sfida-dignita': { name: 'Povertà lavorativa in Ticino', path: '/articoli-svizzera/poverta-lavorativa-ticino-sfida-dignita/', parent: 'blog' },
     'blog-anticipo-orari-lavoro-canicola-ticino': { name: 'Frontalieri Ticino News', path: '/articoli-frontaliere/anticipo-orari-lavoro-canicola-ticino', parent: 'blog' },
+    'blog-evoluzione-frontalieri-dati-ust': { name: 'Statistiche frontalieri', path: '/articoli-svizzera/evoluzione-frontalieri-dati-ust/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

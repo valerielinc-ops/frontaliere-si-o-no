@@ -1453,6 +1453,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.poverta-lavorativa-ticino-sfida-dignita.title': 'Pauvreté de travail au Tessin : le défi silencieux',
     'blog.article.poverta-lavorativa-ticino-sfida-dignita.excerpt': 'Un quart de la population du Tessin risque la pauvreté au travail.',
     'blog.article.poverta-lavorativa-ticino-sfida-dignita.imageAlt': 'Scène de personnes debout sur le lac de Lugano, en Suisse, avec une expression de préoccupation et d\'incertitude sur leur situation économique.',
+    'blog.article.evoluzione-frontalieri-dati-ust.title': 'Frontières en Suisse : les données actualisées de la décennie',
+    'blog.article.evoluzione-frontalieri-dati-ust.excerpt': 'Analyse de l\'Office fédéral de la statistique sur le phénomène du frontalier : la Lombardie se développe, le bond de la province de Monza et de Brianza se distingue.',
+    'blog.article.evoluzione-frontalieri-dati-ust.imageAlt': 'Vue panoramique de Lugano et de son lac avec le contexte urbain suisse',
 };
 
 export default blogMetaChFr;

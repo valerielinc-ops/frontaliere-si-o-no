@@ -1453,6 +1453,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.poverta-lavorativa-ticino-sfida-dignita.title': 'Povertà lavorativa in Ticino: la sfida silenziosa',
     'blog.article.poverta-lavorativa-ticino-sfida-dignita.excerpt': 'Un quarto della popolazione del Ticino è a rischio di povertà lavorativa.',
     'blog.article.poverta-lavorativa-ticino-sfida-dignita.imageAlt': 'Scena di persone affacciate al lago di Lugano, in Svizzera, con un\'espressione di preoccupazione e incertezza sulle loro condizioni economiche.',
+    'blog.article.evoluzione-frontalieri-dati-ust.title': 'Frontalieri in Svizzera: i dati aggiornati del decennio',
+    'blog.article.evoluzione-frontalieri-dati-ust.excerpt': 'Analisi dell\'Ufficio federale di statistica sul fenomeno del frontalierato: cresce la Lombardia, spicca il balzo della provincia di Monza e Brianza.',
+    'blog.article.evoluzione-frontalieri-dati-ust.imageAlt': 'Veduta panoramica di Lugano e del suo lago con il contesto urbano svizzero',
 };
 
 export default blogMetaChIt;

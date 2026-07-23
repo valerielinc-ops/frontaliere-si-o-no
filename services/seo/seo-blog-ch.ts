@@ -18777,6 +18777,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-evoluzione-frontalieri-dati-ust': {
+    title: 'Frontalieri in Svizzera: i dati aggiornati del decennio',
+    description: 'Analisi dell\'Ufficio federale di statistica sui frontalieri: numeri, crescita in Ticino e il balzo della provincia di Monza e Brianza tra il 2015 e il 2025.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dati, aggiornati, decennio, analisi',
+    ogTitle: 'Frontalieri in Svizzera: dati e crescita del decennio',
+    ogDescription: 'Analisi dell\'Ufficio federale di statistica sui frontalieri: numeri, crescita in Ticino e il balzo della provincia di Monza e Brianza tra il 2015 e il 2025.',
+    canonicalPath: '/articoli-svizzera/evoluzione-frontalieri-dati-ust/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri in Svizzera: i dati aggiornati del decennio",
+      "description": "Analisi dell'Ufficio federale di statistica sui frontalieri: numeri, crescita in Ticino e il balzo della provincia di Monza e Brianza tra il 2015 e il 2025.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/evoluzione-frontalieri-dati-ust.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Lugano e del suo lago con il contesto urbano svizzero"
+      },
+      "datePublished": "2026-07-23T03:34:37+00:00",
+      "dateModified": "2026-07-23T03:34:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/evoluzione-frontalieri-dati-ust/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

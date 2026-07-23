@@ -4355,6 +4355,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'evoluzione-frontalieri-dati-ust',
+    category: 'novita',
+    date: '2026-07-23T03:34:37.826Z',
+    image: '/images/blog/evoluzione-frontalieri-dati-ust.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

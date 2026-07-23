@@ -1453,6 +1453,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.poverta-lavorativa-ticino-sfida-dignita.title': 'Arbeitsarmut im Tessin: Die stille Herausforderung',
     'blog.article.poverta-lavorativa-ticino-sfida-dignita.excerpt': 'Ein Viertel der Bevölkerung des Tessins ist von Erwerbsarmut bedroht.',
     'blog.article.poverta-lavorativa-ticino-sfida-dignita.imageAlt': 'Szene von Menschen am See von Lugano, Schweiz, mit einer Miene der Besorgnis und Unsicherheit über ihre wirtschaftliche Situation.',
+    'blog.article.evoluzione-frontalieri-dati-ust.title': 'Grenzgänger in der Schweiz: die aktuellen Daten des Jahrzehnts',
+    'blog.article.evoluzione-frontalieri-dati-ust.excerpt': 'Analyse des Bundesamtes für Statistik über das Phänomen des Grenzgängertums: Die Lombardei wächst, der Sprung der Provinz Monza und Brianza fällt auf.',
+    'blog.article.evoluzione-frontalieri-dati-ust.imageAlt': 'Panoramablick auf Lugano und seinen See im schweizerischen städtischen Kontext',
 };
 
 export default blogMetaChDe;
