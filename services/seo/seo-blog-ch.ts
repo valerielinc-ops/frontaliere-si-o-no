@@ -18816,6 +18816,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-terzo-pilastro-3a-vantaggi-2026-canton-san-gallo': {
+    title: 'Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo',
+    description: 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 dicembre 1976. I nuovi frontalieri hanno una franchigia di €10.000. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, terzo, pilastro, svizzero, vantaggi',
+    ogTitle: 'Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo',
+    ogDescription: 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 dicembre 1976. I nuovi frontalieri hanno una franchigia di €10.000.',
+    canonicalPath: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026-canton-san-gallo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo",
+      "description": "La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 dicembre 1976. I nuovi frontalieri hanno una franchigia di €10.000. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano e il Lago di Lugano"
+      },
+      "datePublished": "2026-07-23T04:10:42+00:00",
+      "dateModified": "2026-07-23T04:10:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026-canton-san-gallo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -1456,6 +1456,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.evoluzione-frontalieri-dati-ust.title': 'Frontier workers in Switzerland: updated data for the decade',
     'blog.article.evoluzione-frontalieri-dati-ust.excerpt': 'Analysis of the Federal Statistical Office on the frontier phenomenon: Lombardy is growing, the province of Monza and Brianza stands out.',
     'blog.article.evoluzione-frontalieri-dati-ust.imageAlt': 'Panoramic view of Lugano and its lake with the Swiss urban context',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.title': 'Swiss 3rd Pillar: Advantages 2026 in the Canton of St. Gallen',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'The Italy-Switzerland double taxation agreement was signed on 9 December 1976. The new frontier workers have a deductible of €10,000.',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.imageAlt': 'Lugano and Lake Lugano',
 };
 
 export default blogMetaChEn;
