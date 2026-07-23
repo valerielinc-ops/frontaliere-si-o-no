@@ -8861,6 +8861,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-permessi-g.title': 'Richiesta nuovo permesso per frontalieri (G) - Repubblica e Cantone Ticino',
     'blog.article.frontalieri-permessi-g.excerpt': 'I frontalieri devono notificare la propria presenza al Comune in cui pernotta in Svizzera.',
     'blog.article.frontalieri-permessi-g.imageAlt': 'Un frontaliere in attesa di passare il confine italo-svizzero.',
+    'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.title': 'Sempre meno frontalieri in Ticino: calo lieve ma costante',
+    'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.excerpt': 'Il numero di frontalieri registrati in Ticino si è attestato a 78.562 unità, segnando una lieve flessione rispetto ai periodi precedenti.',
+    'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.imageAlt': 'Un frontaliere guarda con preoccupazione il numero di frontalieri in Ticino, con un riflesso sul lago di Lugano allo sfondo.',
 };
 
 export default blogMetaIt;

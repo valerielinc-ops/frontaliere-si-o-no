@@ -8860,6 +8860,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-permessi-g.title': 'New permit request for border guards (G) - Republic and Canton of Ticino',
     'blog.article.frontalieri-permessi-g.excerpt': 'Border workers must notify their presence to the Municipality in which they are staying in Switzerland.',
     'blog.article.frontalieri-permessi-g.imageAlt': 'A frontaliere waiting to cross the Italian-Swiss border.',
+    'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.title': 'Fewer and fewer border crossings in Ticino: slight but steady decline',
+    'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.excerpt': 'The number of border crossers registered in Ticino stood at 78,562 units, marking a slight decrease compared to previous periods.',
+    'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.imageAlt': 'A frontaliere looks worriedly at the number of frontaliers in Ticino, with a reflection of Lake Lugano in the background.',
 };
 
 export default blogMetaEn;

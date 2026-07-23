@@ -54048,6 +54048,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sempre-meno-frontalieri-ticino-calof-lievelie': {
+    title: 'Sempre meno frontalieri in Ticino: calo lieve ma costante',
+    description: 'Il numero di frontalieri registrati in Ticino si è attestato a 78.562 unità, segnando una lieve flessione rispetto ai periodi precedenti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, sempre, meno, calo, lieve',
+    ogTitle: 'Sempre meno frontalieri in Ticino: calo lieve ma costante',
+    ogDescription: 'Il numero di frontalieri registrati in Ticino si è attestato a 78.562 unità, segnando una lieve flessione rispetto ai periodi precedenti.',
+    canonicalPath: '/articoli-frontaliere/sempre-meno-frontalieri-ticino-calof-lievelie',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sempre meno frontalieri in Ticino: calo lieve ma costante",
+      "description": "Il numero di frontalieri registrati in Ticino si è attestato a 78.562 unità, segnando una lieve flessione rispetto ai periodi precedenti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sempre-meno-frontalieri-ticino-calof-lievelie.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere guarda con preoccupazione il numero di frontalieri in Ticino, con un riflesso sul lago di Lugano allo sfondo."
+      },
+      "datePublished": "2026-07-23T04:20:56+00:00",
+      "dateModified": "2026-07-23T04:20:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sempre-meno-frontalieri-ticino-calof-lievelie/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

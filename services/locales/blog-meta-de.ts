@@ -8859,6 +8859,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-permessi-g.title': 'Neue Genehmigung für Grenzgänger beantragen',
     'blog.article.frontalieri-permessi-g.excerpt': 'Grenzgänger müssen ihre Anwesenheit der Gemeinde melden, in der sie in der Schweiz übernachten.',
     'blog.article.frontalieri-permessi-g.imageAlt': 'Ein Frontalier wartet auf die Grenzüberquerung.',
+    'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.title': 'Immer weniger Grenzgänger im Tessin: leichter, aber stetiger Rückgang',
+    'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.excerpt': 'Die Zahl der im Tessin registrierten Grenzgänger belief sich auf 78.562, was einen leichten Rückgang gegenüber den Vorperioden darstellt.',
+    'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.imageAlt': 'Ein Frontaliere schaut besorgt auf die Zahl der Frontalier in Ticino, mit einem Reflex des Luganer Sees im Hintergrund.',
 };
 
 export default blogMetaDe;

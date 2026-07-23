@@ -8862,6 +8862,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-permessi-g.title': 'Demande de nouveau permis pour frontaliers (G) - République et canton du Tessin',
     'blog.article.frontalieri-permessi-g.excerpt': 'Les frontaliers doivent notifier leur présence à la commune où ils séjournent en Suisse.',
     'blog.article.frontalieri-permessi-g.imageAlt': 'Un frontalière attend de passer la frontière italo-suisse.',
+    'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.title': 'Toujours moins de frontaliers au Tessin : baisse légère mais constante',
+    'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.excerpt': 'Le nombre de frontaliers enregistrés au Tessin s\'est élevé à 78 562 unités, marquant une légère baisse par rapport aux périodes précédentes.',
+    'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.imageAlt': 'Un frontalier regarde avec inquiétude le nombre de frontaliers au Tessin, avec une réflexion sur le lac de Lugano à l\'arrière-plan.',
 };
 
 export default blogMetaFr;
