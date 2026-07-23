@@ -26711,6 +26711,15 @@ const RAW_ARTICLES = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+ {
+ id: 'cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate',
+ category: 'novita',
+ date: '2026-07-23T17:23:31.425Z',
+ image: '/images/blog/cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

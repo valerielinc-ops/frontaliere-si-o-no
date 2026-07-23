@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3476,
+ "numberOfItems": 3477,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8244,7 +8244,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3473, "name": "Cuoco frontaliere in Ticino: stipendio, requisi...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-cuoco-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3474, "name": "Dazi USA: il punto sulle tariffe per la Svizzera", "url": `${BASE_URL}/articoli-frontaliere/dazi-usa-svizzera-luglio-2026` },
           { "@type": "ListItem", "position": 3475, "name": "Assistenza fiscale Svizzera-Italia, inammissibi...", "url": `${BASE_URL}/articoli-frontaliere/assistenza-fiscale-svizzera-italia-inammissibile-il-ricorso-contro-lo-scambio-di` },
-          { "@type": "ListItem", "position": 3476, "name": "Svizzera, il passaggio delle azioni al manager ...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-il-passaggio-delle-azioni-al-manager-non-e-sempre-reddito-imponibile` }
+          { "@type": "ListItem", "position": 3476, "name": "Svizzera, il passaggio delle azioni al manager ...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-il-passaggio-delle-azioni-al-manager-non-e-sempre-reddito-imponibile` },
+          { "@type": "ListItem", "position": 3477, "name": "Cantiere Nsif, lavori avanzati e tempistiche ri...", "url": `${BASE_URL}/articoli-frontaliere/cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate` }
  ]
  },
  {
