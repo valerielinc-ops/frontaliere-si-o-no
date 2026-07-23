@@ -1,16 +1,16 @@
 {
   "key": "fhgr",
   "label": "Fachhochschule Graubünden",
-  "generatedAt": "2026-07-22T22:29:27.853Z",
-  "total": 4,
+  "generatedAt": "2026-07-23T11:55:33.250Z",
+  "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 8114,
-  "avgDurationMs": 8114,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 7476,
+  "avgDurationMs": 7476,
   "durationHistory": [
-    8114
+    7476
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/802/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:29:22.198Z",
+      "crawledAt": "2026-07-23T11:55:27.968Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/801/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:29:23.363Z",
+      "crawledAt": "2026-07-23T11:55:28.969Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -100,7 +100,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:29:24.552Z",
+      "crawledAt": "2026-07-23T11:55:29.972Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -126,8 +126,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "fhgr-336e10fce3be",
       "slug": "personale-del-progetto-scientifico-fachhochschule-graubunden-chur",
@@ -169,5 +168,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
