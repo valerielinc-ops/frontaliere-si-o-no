@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sophia-genetics",
-  "assembledAt": "2026-07-22T11:40:47.567Z",
+  "assembledAt": "2026-07-23T11:21:46.022Z",
   "jobs": [
     {
       "id": "sophia-genetics-3058ea293ded",
@@ -33,7 +33,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/E4102E5646/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:40:42.043Z",
+      "crawledAt": "2026-07-23T11:21:39.728Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -97,7 +97,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/D92BC8459B/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:40:41.949Z",
+      "crawledAt": "2026-07-23T11:21:39.618Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -177,7 +177,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/AC77213E76/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:40:41.781Z",
+      "crawledAt": "2026-07-23T11:21:39.461Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -197,6 +197,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-08T22:10:53.271Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -241,7 +242,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/F52E4089C5/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:40:41.698Z",
+      "crawledAt": "2026-07-23T11:21:39.375Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -320,7 +321,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/8E7597EE55/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:40:41.450Z",
+      "crawledAt": "2026-07-23T11:21:39.101Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -400,7 +401,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/0D9E533066/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:40:41.370Z",
+      "crawledAt": "2026-07-23T11:21:39.004Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -480,7 +481,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/0C21CE35F7/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:40:41.184Z",
+      "crawledAt": "2026-07-23T11:21:38.838Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -562,7 +563,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/A5F8F7F93B/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:40:40.898Z",
+      "crawledAt": "2026-07-23T11:21:38.567Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -582,6 +583,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T12:25:47.424Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -626,7 +628,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/39F1F5A7B1/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:40:40.214Z",
+      "crawledAt": "2026-07-23T11:21:37.777Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zurich",
       "streetAddress": "",
@@ -657,7 +659,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sophia-genetics-a85899187eab",
@@ -722,7 +725,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
