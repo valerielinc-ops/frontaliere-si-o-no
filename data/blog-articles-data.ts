@@ -26675,6 +26675,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieripendolarismo-2025-ticino-lombardia',
+ category: 'pratico',
+ date: '2026-07-23T08:13:20.221Z',
+ image: '/images/blog/frontalieripendolarismo-2025-ticino-lombardia.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

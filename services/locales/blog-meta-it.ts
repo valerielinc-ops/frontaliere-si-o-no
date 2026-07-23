@@ -8879,6 +8879,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ozono-ticino-qualita-aria.title': 'Ozono in Ticino: limiti superati e implicazioni',
     'blog.article.ozono-ticino-qualita-aria.excerpt': 'La qualità dell\'aria in Ticino migliora, ma l\'ozono resta un problema. Analisi sui superamenti dei limiti e le cause strutturali.',
     'blog.article.ozono-ticino-qualita-aria.imageAlt': 'Stazione di monitoraggio della qualità dell\'aria in Ticino',
+    'blog.article.frontalieripendolarismo-2025-ticino-lombardia.title': 'Frontalieri, ecco dove vivono: il balzo in dieci anni della Brianza',
+    'blog.article.frontalieripendolarismo-2025-ticino-lombardia.excerpt': 'Il numero di lavoratori frontalieri provenienti dalla Lombardia è aumentato del 16%',
+    'blog.article.frontalieripendolarismo-2025-ticino-lombardia.imageAlt': 'Immagine di un pendolare che attraversa il confine tra Italia e Svizzera',
 };
 
 export default blogMetaIt;
