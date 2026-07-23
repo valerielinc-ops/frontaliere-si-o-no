@@ -8865,6 +8865,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.title': 'Toujours moins de frontaliers au Tessin : baisse légère mais constante',
     'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.excerpt': 'Le nombre de frontaliers enregistrés au Tessin s\'est élevé à 78 562 unités, marquant une légère baisse par rapport aux périodes précédentes.',
     'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.imageAlt': 'Un frontalier regarde avec inquiétude le nombre de frontaliers au Tessin, avec une réflexion sur le lac de Lugano à l\'arrière-plan.',
+    'blog.article.stipendio-muratore-frontaliere-ticino.title': 'Combien gagne un maçon frontalier au Tessin ?',
+    'blog.article.stipendio-muratore-frontaliere-ticino.excerpt': 'La rémunération d\'un maçon frontalier au Tessin est influencée par les règles fiscales et les traités internationaux.',
+    'blog.article.stipendio-muratore-frontaliere-ticino.imageAlt': 'Vue du lac de Lugano',
 };
 
 export default blogMetaFr;

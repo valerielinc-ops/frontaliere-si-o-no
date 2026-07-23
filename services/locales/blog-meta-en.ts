@@ -8863,6 +8863,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.title': 'Fewer and fewer border crossings in Ticino: slight but steady decline',
     'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.excerpt': 'The number of border crossers registered in Ticino stood at 78,562 units, marking a slight decrease compared to previous periods.',
     'blog.article.sempre-meno-frontalieri-ticino-calof-lievelie.imageAlt': 'A frontaliere looks worriedly at the number of frontaliers in Ticino, with a reflection of Lake Lugano in the background.',
+    'blog.article.stipendio-muratore-frontaliere-ticino.title': 'How much does a border bricklayer earn in Ticino?',
+    'blog.article.stipendio-muratore-frontaliere-ticino.excerpt': 'The remuneration of a border bricklayer in Ticino is influenced by tax rules and international treaties.',
+    'blog.article.stipendio-muratore-frontaliere-ticino.imageAlt': 'View of Lake Lugano',
 };
 
 export default blogMetaEn;
