@@ -4839,6 +4839,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-terzo-pilastro-3a-vantaggi-2026-basilea': { name: 'Terzo pilastro 3a: vantaggi per i', path: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026-basilea/', parent: 'blog' },
     'blog-permesso-g-apprendisti-durata-tirocinio': { name: 'Permesso G Apprendisti', path: '/articoli-frontaliere/permesso-g-apprendisti-durata-tirocinio', parent: 'blog' },
     'blog-mappa-frontalieri-lombardi-ticino': { name: 'Frontalieri in Ticino', path: '/articoli-svizzera/mappa-frontalieri-lombardi-ticino/', parent: 'blog' },
+    'blog-ingegnere-frontaliero-ticino-stipendio-requisiti': { name: 'Lavorare come ingegnere in Ticino da', path: '/articoli-frontaliere/ingegnere-frontaliero-ticino-stipendio-requisiti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

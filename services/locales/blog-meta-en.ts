@@ -8869,6 +8869,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.permesso-g-apprendisti-durata-tirocinio.title': 'G apprenticeship leave: extended duration for the entire internship',
     'blog.article.permesso-g-apprendisti-durata-tirocinio.excerpt': 'The Council of States approves the motion for a G permit valid for the entire duration of the apprenticeship, exceeding the obligation of annual renewal.',
     'blog.article.permesso-g-apprendisti-durata-tirocinio.imageAlt': 'Young apprentices at a training center in Ticino',
+    'blog.article.ingegnere-frontaliero-ticino-stipendio-requisiti.title': 'Working as an engineer in Ticino: requirements and title recognition',
+    'blog.article.ingegnere-frontaliero-ticino-stipendio-requisiti.excerpt': 'The requirements to work as an engineer in Ticino as a border worker, the average salary, the recognition of the qualification and the G permit.',
+    'blog.article.ingegnere-frontaliero-ticino-stipendio-requisiti.imageAlt': 'An engineer working in an office in Lugano.',
 };
 
 export default blogMetaEn;
