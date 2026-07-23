@@ -1,6 +1,6 @@
 {
   "crawlerKey": "holcim",
-  "assembledAt": "2026-07-23T11:43:23.468Z",
+  "assembledAt": "2026-07-23T22:18:07.139Z",
   "jobs": [
     {
       "id": "holcim-c6569cf25abe",
@@ -33,7 +33,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-People-Partnerin-AG-5303/1367342357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:20.220Z",
+      "crawledAt": "2026-07-23T22:18:04.437Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -58,10 +58,10 @@
           "people-partner-in-holcim-ch",
           "partner-delle-persone-in-holcim-group-eclepens"
         ],
-        "fr": [
+        "en": [
           "people-partner-in-holcim-ch"
         ],
-        "en": [
+        "fr": [
           "people-partner-in-holcim-ch"
         ]
       },
@@ -110,7 +110,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Oberdorf-Lastwagenf%C3%BChrerin-NW-6370/1358626157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:19.712Z",
+      "crawledAt": "2026-07-23T22:18:03.996Z",
       "addressLocality": "Oberdorf",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -189,7 +189,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/St_-Gallen-ChauffeureChauffeuse-St_-9000/1365498457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:19.222Z",
+      "crawledAt": "2026-07-23T22:18:03.554Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -263,7 +263,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Oberdorf-H&S-Koordinatorin-Kies-&-Beton-80-100-NW-6370/1358872357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:18.716Z",
+      "crawledAt": "2026-07-23T22:18:03.111Z",
       "addressLocality": "Oberdorf",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -339,7 +339,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Niederstetten-Lastwagenf%C3%BChrerin-Niederstetten-St_-9249/1367206557/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:18.207Z",
+      "crawledAt": "2026-07-23T22:18:02.644Z",
       "addressLocality": "Niederstetten",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -418,7 +418,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ingenbohl-Brunnen-Allrounderin-SZ-6440/1365697857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:17.692Z",
+      "crawledAt": "2026-07-23T22:18:02.177Z",
       "addressLocality": "Ingenbohl-Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -448,6 +448,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:53.801Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -492,7 +493,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Wil-Verkauf-und-Stoffstrommanager-Region-Nordost-St_-9500/1361727757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:17.199Z",
+      "crawledAt": "2026-07-23T22:18:01.740Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -569,7 +570,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Allrounder-Betriebsstoffe-Baumaschinenf%C3%BChrer-80-100-AG-5303/1360174757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:16.654Z",
+      "crawledAt": "2026-07-23T22:18:01.293Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -617,36 +618,36 @@
     },
     {
       "id": "holcim-13dd947bc254",
-      "slug": "people-business-partner-amp-lead-talent-attraction-80-m-w-d-holcim-ch",
+      "slug": "people-business-partner-lead-talent-attraction-80-m-f-d-holcim-group-zurich",
       "slugByLocale": {
-        "de": "people-business-partner-amp-lead-talent-attraction-80-m-w-d-holcim-ch",
-        "it": "people-business-partner-amp-lead-talent-attraction-80-m-w-d-holcim-ch",
+        "it": "people-business-partner-lead-talent-attraction-80-m-f-d-holcim-group-zurich",
         "en": "people-business-partner-lead-talent-attraction-80-m-w-d-holcim-group-zurich",
-        "fr": "people-business-partner-amp-lead-talent-attraction-80-m-w-d-holcim-ch"
+        "de": "people-business-partner-amp-lead-talent-attraction-80-m-w-d-holcim-ch",
+        "fr": "personnes-business-partner-lead-talent-attraction-80-m-f-d-holcim-group-zurich"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
       "companyDomain": "holcim.com",
       "title": "People Business Partner & Lead Talent Attraction 80% (m/w/d)",
       "titleByLocale": {
-        "de": "People Business Partner & Lead Talent Attraction 80% (m/w/d)",
-        "en": "People Business Partner & Lead Talent Attraction 80% (m/f/d)",
         "it": "People Business Partner & Lead Talent Attraction 80% (m/f/d)",
+        "en": "People Business Partner & Lead Talent Attraction 80% (m/w/d)",
+        "de": "People Business Partner & Lead Talent Attraction 80% (m/w/d)",
         "fr": "Personnes Business Partner & Lead Talent Attraction 80% (m/f/d)"
       },
       "description": "Wenn du Lust hast, die People-Arbeit ganzheitlich zu gestalten, nah an den Teams zu agieren und innovative Impulse zu setzen, bist du bei uns genau richtig!\n\nWas dich erwartet:\n\n• Strategisches Business Partnering: Du berätst und begleitest Führungskräfte und Mitarbeitende an unserem Hauptsitz in Zürich-Oerlikon in allen People-Belangen und agierst als vertrauensvolles, strategisches Bindeglied zum Business.\n\n•\n Lead Talent Attraction: Du verantwortest die strategische Ausrichtung der Talentakquise für die Deutschschweiz und steuerst den end-to-end Recruiting-Prozess in enger Zusammenarbeit mit unserem Kompetenzzentrum.\n\n•\n Datengestützte Impulse: Du überwachst People- und Rekrutierungs-KPIs (z. B. Time to Hire, Diversity, Quality of Hire), leitest zielgerichtete Massnahmen ab und stärkst aktiv unsere Arbeitgebermarke\n\n•\n Teamführung & Leadership: Du übernimmst die fachliche und personelle Führung sowie die gezielte Weiterentwicklung einer/s Mitarbeitenden im Bereich Talent Attraction (Employer Branding, Zusammenarbeit mit Hochschulen)\n\n•\n Enges Sparring auf Augenhöhe: Du rapportierst direkt an den Head Talent Central Europe West (CEW), arbeitest eng mit dem Business Partner Team Schweiz zusammen und treibst übergreifende People-Projekte aktiv voran.\n\nWas du mitbringst:\n\n• Fundierte Ausbildung: Du hast ein Master-Studium in den Bereichen Psychologie, Personalmanagement, Betriebswirtschaft oder einer vergleichbaren Fachrichtung erfolgreich abgeschlossen.\n\n•\n Talent-Background & Wechselwille: Du bringst mehrjährige Erfahrung im Talent-Management, Strategischer Talent Acquisition oder L&D mit und brennst darauf, diese Expertise nun erfolgreich im Business Partnering einzubringen oder vice versa.\n\n•\n Führung & Beratungskompetenz: Du besitzt nachweisbare Erfahrung in der Führung von Teams sowie Projekten und kommunizierst beratungsstark und souverän auf allen Hierarchieebenen bis hin zur Geschäftsleitung.\n\n•\n Digitales & analytisches Mindset: Du setzt bewährte sowie neue Technologien zielführend ein (KI, Successfactors, SAP, etc) und verfügst über starke analytische Fähigkeiten im Umgang mit People-Kennzahlen zur datenbasierten Entscheidung.\n\n•\n Growth Mindset & Mobilität: Eine ausgeprägte „People Value Creation“-Haltung, Empathie, Flexibilität und vernetztes Denken prägen deinen Arbeitsstil. Zudem bist du fliessend in Deutsch und Englisch und bringst regionale Mobilität mit.\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
       "descriptionByLocale": {
-        "de": "Wenn du Lust hast, die People-Arbeit ganzheitlich zu gestalten, nah an den Teams zu agieren und innovative Impulse zu setzen, bist du bei uns genau richtig!\n\nWas dich erwartet:\n\n• Strategisches Business Partnering: Du berätst und begleitest Führungskräfte und Mitarbeitende an unserem Hauptsitz in Zürich-Oerlikon in allen People-Belangen und agierst als vertrauensvolles, strategisches Bindeglied zum Business.\n\n•\n Lead Talent Attraction: Du verantwortest die strategische Ausrichtung der Talentakquise für die Deutschschweiz und steuerst den end-to-end Recruiting-Prozess in enger Zusammenarbeit mit unserem Kompetenzzentrum.\n\n•\n Datengestützte Impulse: Du überwachst People- und Rekrutierungs-KPIs (z. B. Time to Hire, Diversity, Quality of Hire), leitest zielgerichtete Massnahmen ab und stärkst aktiv unsere Arbeitgebermarke\n\n•\n Teamführung & Leadership: Du übernimmst die fachliche und personelle Führung sowie die gezielte Weiterentwicklung einer/s Mitarbeitenden im Bereich Talent Attraction (Employer Branding, Zusammenarbeit mit Hochschulen)\n\n•\n Enges Sparring auf Augenhöhe: Du rapportierst direkt an den Head Talent Central Europe West (CEW), arbeitest eng mit dem Business Partner Team Schweiz zusammen und treibst übergreifende People-Projekte aktiv voran.\n\nWas du mitbringst:\n\n• Fundierte Ausbildung: Du hast ein Master-Studium in den Bereichen Psychologie, Personalmanagement, Betriebswirtschaft oder einer vergleichbaren Fachrichtung erfolgreich abgeschlossen.\n\n•\n Talent-Background & Wechselwille: Du bringst mehrjährige Erfahrung im Talent-Management, Strategischer Talent Acquisition oder L&D mit und brennst darauf, diese Expertise nun erfolgreich im Business Partnering einzubringen oder vice versa.\n\n•\n Führung & Beratungskompetenz: Du besitzt nachweisbare Erfahrung in der Führung von Teams sowie Projekten und kommunizierst beratungsstark und souverän auf allen Hierarchieebenen bis hin zur Geschäftsleitung.\n\n•\n Digitales & analytisches Mindset: Du setzt bewährte sowie neue Technologien zielführend ein (KI, Successfactors, SAP, etc) und verfügst über starke analytische Fähigkeiten im Umgang mit People-Kennzahlen zur datenbasierten Entscheidung.\n\n•\n Growth Mindset & Mobilität: Eine ausgeprägte „People Value Creation“-Haltung, Empathie, Flexibilität und vernetztes Denken prägen deinen Arbeitsstil. Zudem bist du fliessend in Deutsch und Englisch und bringst regionale Mobilität mit.\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
-        "it": "Se si desidera progettare le persone lavorare olistico, agire vicino alle squadre e impostare impulsi innovativi, si è al posto giusto!\n\nCosa aspettarsi:\n\n• Strategic Business Partnering: Si consiglia e accompagna dirigenti e dipendenti presso la nostra sede a Zurigo-Oerlikon in tutte le questioni relative alle persone e agire come un collegamento strategico e fiducioso al business.\n\n•\n Lead Talent Attraction: Lei è responsabile dell'orientamento strategico dell'acquisizione di talenti per la Svizzera tedesca e gestisce il processo di reclutamento end-to-end in stretta collaborazione con il nostro centro di competenza.\n\n•\n Impulsi basati sui dati: monitori le persone e assunzioni KPI (ad esempio il tempo di noleggio, la diversità, la qualità del noleggio), prendi misure mirate e rafforza attivamente il nostro marchio datore di lavoro\n\n•\n leadership e leadership del team: si prende il controllo della leadership professionale e del personale, nonché l'ulteriore sviluppo mirato di un dipendente nel settore dell'attrazione del talento (branding del datore di lavoro, cooperazione con le università)\n\n•\n Chiudere il livello degli occhi: si riferisce direttamente al Head Talent Central Europe West (CEW), lavorare a stretto contatto con il Business Partner Team Svizzera e promuovere attivamente i progetti di cross-cutting persone.\n\nCosa porti:\n\n• Formazione approfondita: Hai completato con successo un master in psicologia, gestione delle risorse umane, amministrazione aziendale o una disciplina comparabile.\n\n•\n Talent background & volontà di cambiare: Lei porta diversi anni di esperienza nella gestione del talento, l'acquisizione strategica del talento o L&D e sono desiderosi di contribuire con successo a questa esperienza di business partnering o viceversa.\n\n•\n Leadership & consulenza competenza: Hai dimostrato esperienza nella gestione di team e progetti e comunicare con una consulenza forte e sicura a tutti i livelli gerarchici fino alla gestione.\n\n•\n Mindset digitale e analitico: si utilizzano tecnologie collaudate e nuove (AI, Successfactors, SAP, ecc.) e hanno forti competenze analitiche nel trattare con le persone figure chiave per il processo decisionale basato sui dati.\n\n•\n Crescita Mindset & Mobility: Un atteggiamento pronunciato “People Value Creation”, empatia, flessibilità e pensiero in rete modellano il tuo stile di lavoro. Inoltre, sei fluente in tedesco e inglese e portare mobilità regionale.\n\nLa nostra offerta:\n\n• Onboarding & ottenere iniziato: Attendere con ansia un ambiente di lavoro orientato al team, aperto e orientato al futuro. Vi accompagniamo dall'inizio con un'attenta formazione, pratica e strutturata, in modo da poter iniziare con successo.\n\n• Carriera & Sviluppo: creiamo opportunità. Con noi, siete al centro come una persona con i vostri punti di forza e potenziale individuali. Chiunque voglia è supportato da noi e può raggiungere molto.\n\n• Apprezzamento & Team Culture: Con noi, fai parte di un team forte e inclusivo che tiene insieme, condivide idee e master insieme. Una cultura di leadership affidabile assicura che il vostro impegno sia visto e apprezzato.\n\n• Flessibilità & Work-Life-Balance: Offriamo ore di lavoro flessibili, 41 ore, opportunità part-time, 25-30 giorni vacanze, acquisto vacanza, prolungato congedo di maternità e paternità\n\n• Compensazione attraente: Offriamo ai nostri dipendenti un pacchetto di compensazione attraente con molti benefici aggiuntivi e un ottimo fondo pensione\n\n• Vantaggi dei dipendenti: dai controlli Reka alle azioni a un prezzo preferenziale al mondo del vantaggio Swibeco - ci assicuriamo che vi sentite a vostro agio e beneficiate di attraenti servizi aggiuntivi",
-        "en": "If you want to design the people work holistically, to act close to the teams and to set innovative impulses, you are at the right place!\n\nWhat to expect:\n\n• Strategic Business Partnering: You advise and accompany executives and employees at our headquarters in Zurich-Oerlikon in all people-related matters and act as a trusting, strategic link to the business.\n\n•\n Lead Talent Attraction: You are responsible for the strategic orientation of talent acquisition for German-speaking Switzerland and manage the end-to-end recruiting process in close cooperation with our competence center.\n\n•\n Data-driven impulses: You monitor people and recruitment KPIs (e.g. Time to Hire, Diversity, Quality of Hire), derive targeted measures and actively strengthen our employer brand\n\n•\n Team leadership & leadership: You take over the professional and personnel leadership as well as the targeted further development of an employee in the area of talent attraction (employer branding, cooperation with universities)\n\n•\n Close sparring at eye level: You report directly to the Head Talent Central Europe West (CEW), work closely with the Business Partner Team Switzerland and actively promote cross-cutting people projects.\n\nWhat you bring:\n\n• In-depth training: You have successfully completed a master’s degree in psychology, human resources management, business administration or a comparable discipline.\n\n•\n Talent background & willingness to change: You bring several years of experience in talent management, strategic talent acquisition or L&D and are eager to successfully contribute this expertise to business partnering or vice versa.\n\n•\n Leadership & consulting competence: You have proven experience in the management of teams and projects and communicate with strong and confident advice at all hierarchical levels up to the management.\n\n•\n Digital & analytical mindset: You use proven and new technologies (AI, Successfactors, SAP, etc.) and have strong analytical skills in dealing with people key figures for data-based decision-making.\n\n•\n Growth Mindset & Mobility: A pronounced “People Value Creation” attitude, empathy, flexibility and networked thinking shape your working style. In addition, you are fluent in German and English and bring regional mobility.\n\nOur offer:\n\n• Onboarding & getting started: Look forward to a team-oriented, open and future-oriented working environment. We accompany you from the beginning with a careful training, practical and structured, so that you can start successfully.\n\n• Career & Development: We create opportunities. With us, you are at the center as a person with your individual strengths and potential. Anyone who wants to is supported by us and can achieve a lot.\n\n• Appreciation & Team Culture: With us, you are part of a strong and inclusive team that holds together, shares ideas and masters challenges together. A trusting leadership culture ensures that your commitment is seen and appreciated.\n\n• Flexibility & Work-Life-Balance: We offer flexible working hours, 41 hours, part-time opportunities, 25-30 days holidays, holiday purchase, extended maternity and paternity leave\n\n• Attractive compensation: We offer our employees an attractive compensation package with many additional benefits and a very good pension fund\n\n• Employee benefits: From Reka checks to shares at a preferential price to the Swibeco advantage world - we make sure that you feel comfortable and benefit from attractive additional services",
-        "fr": "Si vous voulez concevoir les gens de façon holistique, agir près des équipes et mettre des impulsions innovantes, vous êtes au bon endroit !\n\nÀ quoi s'attendre :\n\n• Partenaires stratégiques d'affaires: Vous conseillez et accompagnez les cadres et les employés de notre siège social à Zurich-Oerlikon dans toutes les affaires liées aux personnes et agissez comme un lien de confiance stratégique avec l'entreprise.\n\n•\n Lead Talent Attraction: Vous êtes responsable de l'orientation stratégique de l'acquisition de talents pour la Suisse germanophone et de gérer le processus de recrutement de bout en bout en étroite collaboration avec notre centre de compétences.\n\n•\n Pulsions dictées par les données : vous surveillez les personnes et recrutez des ICR (p. ex., temps d'embauche, diversité, qualité de l'embauche), prenez des mesures ciblées et renforcez activement notre marque d'employeurs\n\n•\n Leadership et leadership d'équipe: vous prenez en charge le leadership professionnel et personnel ainsi que le développement ciblé d'un employé dans le domaine de l'attraction des talents (image de marque de l'employeur, coopération avec les universités)\n\n•\n Fermez les yeux : vous faites directement rapport au Head Talent Central Europe West (CEW), travaillez en étroite collaboration avec le Business Partner Team Suisse et encouragez activement les projets transversaux.\n\nCe que vous apportez:\n\n• Formation approfondie : Vous avez réussi un master en psychologie, gestion des ressources humaines, administration des affaires ou une discipline comparable.\n\n•\n Contexte des talents et volonté de changer : Vous apportez plusieurs années d'expérience dans la gestion des talents, l'acquisition de talents stratégiques ou la L&D et êtes impatient de contribuer avec succès à cette expertise au partenariat d'affaires ou vice versa.\n\n•\n Compétence en leadership et conseil : Vous avez prouvé votre expérience dans la gestion d'équipes et de projets et communiquez avec des conseils forts et confiants à tous les niveaux hiérarchiques jusqu'à la direction.\n\n•\n L'état d'esprit numérique et analytique : Vous utilisez des technologies éprouvées et nouvelles (AI, facteurs de réussite, SAP, etc.) et avez de solides compétences analytiques pour traiter avec les personnes des chiffres clés pour la prise de décisions fondées sur les données.\n\n•\n Growth Mindset & Mobility: A proteged \"People Value Creation\" attitude, empathie, flexibilité et pensée en réseau façonnent votre style de travail. De plus, vous maîtrisez couramment l'allemand et l'anglais et apportez une mobilité régionale.\n\nNotre offre :\n\n• À bord et pour commencer : Prospectivez un environnement de travail axé sur l'équipe, ouvert et tourné vers l'avenir. Nous vous accompagnons dès le début avec une formation soignée, pratique et structurée, afin que vous puissiez commencer avec succès.\n\n• Carrière & Développement: Nous créons des opportunités. Avec nous, vous êtes au centre en tant que personne avec vos forces et votre potentiel individuels. Quiconque le veut est soutenu par nous et peut réaliser beaucoup.\n\n• Appréciation et culture d'équipe : Avec nous, vous faites partie d'une équipe forte et inclusive qui tient ensemble, partage des idées et maîtrise les défis. Une culture de leadership confiante garantit que votre engagement est vu et apprécié.\n\n• Flexibilité & Work-Life-Balance: Nous offrons des horaires flexibles, 41 heures, des possibilités à temps partiel, 25-30 jours de vacances, achat de vacances, congé de maternité et de paternité prolongé\n\n• Rémunération attractive: Nous offrons à nos employés une rémunération attractive avec de nombreux avantages supplémentaires et une très bonne caisse de retraite\n\n• Avantages sociaux: De Reka vérifie à des actions à un prix préférentiel au monde avantage Swibeco - nous nous assurons que vous vous sentez à l'aise et bénéficier de services supplémentaires attrayants"
+        "it": "Se si desidera progettare le persone lavorare olistico, agire vicino alle squadre e impostare impulsi innovativi, si è al posto giusto!\n\nCosa aspettarsi:\n\n• Strategic Business Partnering: Si consiglia e accompagna dirigenti e dipendenti presso la nostra sede a Zurigo-Oerlikon in tutte le questioni relative alle persone e agire come un collegamento strategico e fiducioso al business.\n\n•\nLead Talent Attraction: Lei è responsabile dell'orientamento strategico dell'acquisizione di talenti per la Svizzera tedesca e gestisce il processo di reclutamento end-to-end in stretta collaborazione con il nostro centro di competenza.\n\n•\nImpulsi basati sui dati: monitori le persone e assunzioni KPI (ad esempio il tempo di noleggio, la diversità, la qualità del noleggio), prendi misure mirate e rafforza attivamente il nostro marchio datore di lavoro\n\n•\nleadership e leadership del team: si prende il controllo della leadership professionale e del personale, nonché l'ulteriore sviluppo mirato di un dipendente nel settore dell'attrazione del talento (branding del datore di lavoro, cooperazione con le università)\n\n•\nChiudere il livello degli occhi: si riferisce direttamente al Head Talent Central Europe West (CEW), lavorare a stretto contatto con il Business Partner Team Svizzera e promuovere attivamente i progetti di cross-cutting persone.\n\nCosa porti:\n\n• Formazione approfondita: Hai completato con successo un master in psicologia, gestione delle risorse umane, amministrazione aziendale o una disciplina comparabile.\n\n•\nTalent background & volontà di cambiare: Lei porta diversi anni di esperienza nella gestione del talento, l'acquisizione strategica del talento o L&D e sono desiderosi di contribuire con successo a questa esperienza di business partnering o viceversa.\n\n•\nLeadership & consulenza competenza: Hai dimostrato esperienza nella gestione di team e progetti e comunicare con una consulenza forte e sicura a tutti i livelli gerarchici fino alla gestione.\n\n•\nMindset digitale e analitico: si utilizzano tecnologie collaudate e nuove (AI, Successfactors, SAP, ecc.) e hanno forti competenze analitiche nel trattare con le persone figure chiave per il processo decisionale basato sui dati.\n\n•\nCrescita Mindset & Mobility: Un atteggiamento pronunciato “People Value Creation”, empatia, flessibilità e pensiero in rete modellano il tuo stile di lavoro. Inoltre, sei fluente in tedesco e inglese e portare mobilità regionale.\n\nLa nostra offerta:\n\n• Onboarding & ottenere iniziato: Attendere con ansia un ambiente di lavoro orientato al team, aperto e orientato al futuro. Vi accompagniamo dall'inizio con un'attenta formazione, pratica e strutturata, in modo da poter iniziare con successo.\n\n• Carriera & Sviluppo: creiamo opportunità. Con noi, siete al centro come una persona con i vostri punti di forza e potenziale individuali. Chiunque voglia è supportato da noi e può raggiungere molto.\n\n• Apprezzamento & Team Culture: Con noi, fai parte di un team forte e inclusivo che tiene insieme, condivide idee e master insieme. Una cultura di leadership affidabile assicura che il vostro impegno sia visto e apprezzato.\n\n• Flessibilità & Work-Life-Balance: Offriamo ore di lavoro flessibili, 41 ore, opportunità part-time, 25-30 giorni vacanze, acquisto vacanza, prolungato congedo di maternità e paternità\n\n• Compensazione attraente: Offriamo ai nostri dipendenti un pacchetto di compensazione attraente con molti benefici aggiuntivi e un ottimo fondo pensione\n\n• Vantaggi dei dipendenti: dai controlli Reka alle azioni a un prezzo preferenziale al mondo del vantaggio Swibeco - ci assicuriamo che vi sentite a vostro agio e beneficiate di attraenti servizi aggiuntivi",
+        "en": "If you want to design the people work holistically, to act close to the teams and to set innovative impulses, you are at the right place!\n\nWhat to expect:\n\n• Strategic Business Partnering: You advise and accompany executives and employees at our headquarters in Zurich-Oerlikon in all people-related matters and act as a trusting, strategic link to the business.\n\n•\nLead Talent Attraction: You are responsible for the strategic orientation of talent acquisition for German-speaking Switzerland and manage the end-to-end recruiting process in close cooperation with our competence center.\n\n•\nData-driven impulses: You monitor people and recruitment KPIs (e.g. Time to Hire, Diversity, Quality of Hire), derive targeted measures and actively strengthen our employer brand\n\n•\nTeam leadership & leadership: You take over the professional and personnel leadership as well as the targeted further development of an employee in the area of talent attraction (employer branding, cooperation with universities)\n\n•\nClose sparring at eye level: You report directly to the Head Talent Central Europe West (CEW), work closely with the Business Partner Team Switzerland and actively promote cross-cutting people projects.\n\nWhat you bring:\n\n• In-depth training: You have successfully completed a master’s degree in psychology, human resources management, business administration or a comparable discipline.\n\n•\nTalent background & willingness to change: You bring several years of experience in talent management, strategic talent acquisition or L&D and are eager to successfully contribute this expertise to business partnering or vice versa.\n\n•\nLeadership & consulting competence: You have proven experience in the management of teams and projects and communicate with strong and confident advice at all hierarchical levels up to the management.\n\n•\nDigital & analytical mindset: You use proven and new technologies (AI, Successfactors, SAP, etc.) and have strong analytical skills in dealing with people key figures for data-based decision-making.\n\n•\nGrowth Mindset & Mobility: A pronounced “People Value Creation” attitude, empathy, flexibility and networked thinking shape your working style. In addition, you are fluent in German and English and bring regional mobility.\n\nOur offer:\n\n• Onboarding & getting started: Look forward to a team-oriented, open and future-oriented working environment. We accompany you from the beginning with a careful training, practical and structured, so that you can start successfully.\n\n• Career & Development: We create opportunities. With us, you are at the center as a person with your individual strengths and potential. Anyone who wants to is supported by us and can achieve a lot.\n\n• Appreciation & Team Culture: With us, you are part of a strong and inclusive team that holds together, shares ideas and masters challenges together. A trusting leadership culture ensures that your commitment is seen and appreciated.\n\n• Flexibility & Work-Life-Balance: We offer flexible working hours, 41 hours, part-time opportunities, 25-30 days holidays, holiday purchase, extended maternity and paternity leave\n\n• Attractive compensation: We offer our employees an attractive compensation package with many additional benefits and a very good pension fund\n\n• Employee benefits: From Reka checks to shares at a preferential price to the Swibeco advantage world - we make sure that you feel comfortable and benefit from attractive additional services",
+        "de": "Wenn du Lust hast, die People-Arbeit ganzheitlich zu gestalten, nah an den Teams zu agieren und innovative Impulse zu setzen, bist du bei uns genau richtig!\n\nWas dich erwartet:\n\n• Strategisches Business Partnering: Du berätst und begleitest Führungskräfte und Mitarbeitende an unserem Hauptsitz in Zürich-Oerlikon in allen People-Belangen und agierst als vertrauensvolles, strategisches Bindeglied zum Business.\n\n•\nLead Talent Attraction: Du verantwortest die strategische Ausrichtung der Talentakquise für die Deutschschweiz und steuerst den end-to-end Recruiting-Prozess in enger Zusammenarbeit mit unserem Kompetenzzentrum.\n\n•\nDatengestützte Impulse: Du überwachst People- und Rekrutierungs-KPIs (z. B. Time to Hire, Diversity, Quality of Hire), leitest zielgerichtete Massnahmen ab und stärkst aktiv unsere Arbeitgebermarke\n\n•\nTeamführung & Leadership: Du übernimmst die fachliche und personelle Führung sowie die gezielte Weiterentwicklung einer/s Mitarbeitenden im Bereich Talent Attraction (Employer Branding, Zusammenarbeit mit Hochschulen)\n\n•\nEnges Sparring auf Augenhöhe: Du rapportierst direkt an den Head Talent Central Europe West (CEW), arbeitest eng mit dem Business Partner Team Schweiz zusammen und treibst übergreifende People-Projekte aktiv voran.\n\nWas du mitbringst:\n\n• Fundierte Ausbildung: Du hast ein Master-Studium in den Bereichen Psychologie, Personalmanagement, Betriebswirtschaft oder einer vergleichbaren Fachrichtung erfolgreich abgeschlossen.\n\n•\nTalent-Background & Wechselwille: Du bringst mehrjährige Erfahrung im Talent-Management, Strategischer Talent Acquisition oder L&D mit und brennst darauf, diese Expertise nun erfolgreich im Business Partnering einzubringen oder vice versa.\n\n•\nFührung & Beratungskompetenz: Du besitzt nachweisbare Erfahrung in der Führung von Teams sowie Projekten und kommunizierst beratungsstark und souverän auf allen Hierarchieebenen bis hin zur Geschäftsleitung.\n\n•\nDigitales & analytisches Mindset: Du setzt bewährte sowie neue Technologien zielführend ein (KI, Successfactors, SAP, etc) und verfügst über starke analytische Fähigkeiten im Umgang mit People-Kennzahlen zur datenbasierten Entscheidung.\n\n•\nGrowth Mindset & Mobilität: Eine ausgeprägte „People Value Creation“-Haltung, Empathie, Flexibilität und vernetztes Denken prägen deinen Arbeitsstil. Zudem bist du fliessend in Deutsch und Englisch und bringst regionale Mobilität mit.\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
+        "fr": "Si vous voulez concevoir les gens de façon holistique, agir près des équipes et mettre des impulsions innovantes, vous êtes au bon endroit !\n\nÀ quoi s'attendre :\n\n• Partenaires stratégiques d'affaires: Vous conseillez et accompagnez les cadres et les employés de notre siège social à Zurich-Oerlikon dans toutes les affaires liées aux personnes et agissez comme un lien de confiance stratégique avec l'entreprise.\n\n•\nLead Talent Attraction: Vous êtes responsable de l'orientation stratégique de l'acquisition de talents pour la Suisse germanophone et de gérer le processus de recrutement de bout en bout en étroite collaboration avec notre centre de compétences.\n\n•\nPulsions dictées par les données : vous surveillez les personnes et recrutez des ICR (p. ex., temps d'embauche, diversité, qualité de l'embauche), prenez des mesures ciblées et renforcez activement notre marque d'employeurs\n\n•\nLeadership et leadership d'équipe: vous prenez en charge le leadership professionnel et personnel ainsi que le développement ciblé d'un employé dans le domaine de l'attraction des talents (image de marque de l'employeur, coopération avec les universités)\n\n•\nFermez les yeux : vous faites directement rapport au Head Talent Central Europe West (CEW), travaillez en étroite collaboration avec le Business Partner Team Suisse et encouragez activement les projets transversaux.\n\nCe que vous apportez:\n\n• Formation approfondie : Vous avez réussi un master en psychologie, gestion des ressources humaines, administration des affaires ou une discipline comparable.\n\n•\nContexte des talents et volonté de changer : Vous apportez plusieurs années d'expérience dans la gestion des talents, l'acquisition de talents stratégiques ou la L&D et êtes impatient de contribuer avec succès à cette expertise au partenariat d'affaires ou vice versa.\n\n•\nCompétence en leadership et conseil : Vous avez prouvé votre expérience dans la gestion d'équipes et de projets et communiquez avec des conseils forts et confiants à tous les niveaux hiérarchiques jusqu'à la direction.\n\n•\nL'état d'esprit numérique et analytique : Vous utilisez des technologies éprouvées et nouvelles (AI, facteurs de réussite, SAP, etc.) et avez de solides compétences analytiques pour traiter avec les personnes des chiffres clés pour la prise de décisions fondées sur les données.\n\n•\nGrowth Mindset & Mobility: A proteged \"People Value Creation\" attitude, empathie, flexibilité et pensée en réseau façonnent votre style de travail. De plus, vous maîtrisez couramment l'allemand et l'anglais et apportez une mobilité régionale.\n\nNotre offre :\n\n• À bord et pour commencer : Prospectivez un environnement de travail axé sur l'équipe, ouvert et tourné vers l'avenir. Nous vous accompagnons dès le début avec une formation soignée, pratique et structurée, afin que vous puissiez commencer avec succès.\n\n• Carrière & Développement: Nous créons des opportunités. Avec nous, vous êtes au centre en tant que personne avec vos forces et votre potentiel individuels. Quiconque le veut est soutenu par nous et peut réaliser beaucoup.\n\n• Appréciation et culture d'équipe : Avec nous, vous faites partie d'une équipe forte et inclusive qui tient ensemble, partage des idées et maîtrise les défis. Une culture de leadership confiante garantit que votre engagement est vu et apprécié.\n\n• Flexibilité & Work-Life-Balance: Nous offrons des horaires flexibles, 41 heures, des possibilités à temps partiel, 25-30 jours de vacances, achat de vacances, congé de maternité et de paternité prolongé\n\n• Rémunération attractive: Nous offrons à nos employés une rémunération attractive avec de nombreux avantages supplémentaires et une très bonne caisse de retraite\n\n• Avantages sociaux: De Reka vérifie à des actions à un prix préférentiel au monde avantage Swibeco - nous nous assurons que vous vous sentez à l'aise et bénéficier de services supplémentaires attrayants"
       },
       "location": "Zurich",
       "canton": "ZH",
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Zurich-People-Business-Partner-&-Lead-Talent-Attraction-80-%28mwd%29-CH-%C2%AD8050/1367462757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:16.154Z",
+      "crawledAt": "2026-07-23T22:18:00.857Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -661,9 +662,20 @@
       "postedDate": "2026-07-23",
       "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/Zurich-People-Business-Partner-&-Lead-Talent-Attraction-80-%28mwd%29-CH-%C2%AD8050/1367462757/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-23T11:43:16.154Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "people-business-partner-amp-lead-talent-attraction-80-m-w-d-holcim-ch"
+        ],
+        "fr": [
+          "people-business-partner-amp-lead-talent-attraction-80-m-w-d-holcim-ch"
+        ]
       },
+      "previousSlugs": [
+        "people-business-partner-amp-lead-talent-attraction-80-m-w-d-holcim-ch"
+      ],
       "salaryMin": 81200,
       "salaryMax": 123200,
       "baseSalary": {
@@ -675,8 +687,7 @@
           "maxValue": 123200,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-23T11:43:16.154Z"
+      }
     },
     {
       "id": "holcim-930d09a79c32",
@@ -709,7 +720,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Laborantin-Bindemitteltechnologie-80-100-AG-5303/1359795357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:15.655Z",
+      "crawledAt": "2026-07-23T22:18:00.419Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -786,7 +797,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-Project-Manager-VD-1312/1366460257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-23T11:43:15.136Z",
+      "crawledAt": "2026-07-23T22:17:59.907Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -816,6 +827,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:57:57.231Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -860,7 +872,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Anlagen-und-Apparatebauerin-GR-7204/1364250357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:14.633Z",
+      "crawledAt": "2026-07-23T22:17:59.467Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -937,7 +949,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Kehrsiten-Baumaschinenf%C3%BChrerin-Allrounderin-NW-6365/1366127957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:14.132Z",
+      "crawledAt": "2026-07-23T22:17:59.015Z",
       "addressLocality": "Kehrsiten",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1000,7 +1012,7 @@
       "title": "Spezialist:in Aufbereitungstechnik 80-100% (Operations Excellence Manager:in)",
       "titleByLocale": {
         "it": "Operazioni Excellence Manager AGG 80-100%",
-        "en": "Specialist:in processing technology 80-100% (Operations Excellence Manager:in)",
+        "en": "Spezialist:in Aufbereitungstechnik 80-100% (Operations Excellence Manager:in)",
         "de": "Spezialist:in Aufbereitungstechnik 80-100% (Operations Excellence Manager:in)",
         "fr": "Gestionnaire d'excellence des opérations AGG 80-100%"
       },
@@ -1016,7 +1028,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Spezialistin-Aufbereitungstechnik-80-100-%28Operations-Excellence-Managerin%29-AG-5303/1357553857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:13.636Z",
+      "crawledAt": "2026-07-23T22:17:58.566Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1056,6 +1068,7 @@
         "operazioni-excellence-manager-agg-80-100-holcim-group-wurenlingen"
       ],
       "firstSeenAt": "2026-07-08T22:25:51.964Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1100,7 +1113,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Praktikantin-Werkstudentin-Nachhaltigkeit-&-Prozessoptimierung-80-100-AG-5303/1361236157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:13.132Z",
+      "crawledAt": "2026-07-23T22:17:58.113Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1177,7 +1190,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-Responsable-Exploitation-%C3%89lectrique-%28BPEL-ou-IFCF%29-VD-1312/1354182257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-23T11:43:12.642Z",
+      "crawledAt": "2026-07-23T22:17:57.662Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1254,7 +1267,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-Installateur%C2%B7trice-%C3%A9lectricien%C2%B7ne-80-100-VD-1312/1351942457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-23T11:43:12.136Z",
+      "crawledAt": "2026-07-23T22:17:57.221Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1323,7 +1336,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Schichtfachmann-Schichtfachfrau-in-Siggenthal-AG-5303/1366828857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:11.641Z",
+      "crawledAt": "2026-07-23T22:17:56.777Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1400,7 +1413,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Birsfelden-Matrosein-BL-4127/1352166957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:11.131Z",
+      "crawledAt": "2026-07-23T22:17:56.320Z",
       "addressLocality": "Birsfelden",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1477,7 +1490,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Baumaschinenf%C3%BChrerin-GR-7204/1361159157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:10.626Z",
+      "crawledAt": "2026-07-23T22:17:55.878Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1496,7 +1509,6 @@
       "previousSlugs": [
         "baumaschinenfuhrer-in-holcim-ch",
         "baumaschinenfuhrer-in-holcim-group-untervaz",
-        "operatore-di-macchine-da-costruzione-in-holcim-group-untervaz",
         "operatore-di-macchine-da-costruzione-in-holcim-group-untervaz-f583ee",
         "construction-machinery-operator-in-holcim-group-untervaz-f583ee",
         "operateur-de-machines-de-construction-en-holcim-group-untervaz-f583ee",
@@ -1504,13 +1516,13 @@
         "operatore-di-macchine-da-costruzione-nella-cava-60-100-holcim-group-untervaz",
         "construction-machine-operator-in-the-quarry-60-100-holcim-group-untervaz",
         "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch",
-        "operateur-de-machines-de-construction-dans-la-carriere-60-100-holcim-group-untervaz"
+        "operateur-de-machines-de-construction-dans-la-carriere-60-100-holcim-group-untervaz",
+        "operatore-di-macchine-da-costruzione-in-holcim-group-untervaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "baumaschinenfuhrer-in-holcim-ch",
           "baumaschinenfuhrer-in-holcim-group-untervaz",
-          "operatore-di-macchine-da-costruzione-in-holcim-group-untervaz",
           "operatore-di-macchine-da-costruzione-in-holcim-group-untervaz-f583ee",
           "construction-machinery-operator-in-holcim-group-untervaz-f583ee",
           "operateur-de-machines-de-construction-en-holcim-group-untervaz-f583ee",
@@ -1518,20 +1530,21 @@
           "operatore-di-macchine-da-costruzione-nella-cava-60-100-holcim-group-untervaz",
           "construction-machine-operator-in-the-quarry-60-100-holcim-group-untervaz",
           "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch",
-          "operateur-de-machines-de-construction-dans-la-carriere-60-100-holcim-group-untervaz"
+          "operateur-de-machines-de-construction-dans-la-carriere-60-100-holcim-group-untervaz",
+          "operatore-di-macchine-da-costruzione-in-holcim-group-untervaz"
         ],
         "en": [
           "baumaschinenfuhrer-in-holcim-group-untervaz",
           "construction-machinery-operator-in-holcim-group-untervaz-f583ee",
           "construction-machine-operator-in-the-quarry-60-100-holcim-group-untervaz"
         ],
+        "de": [
+          "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch"
+        ],
         "fr": [
           "baumaschinenfuhrer-in-holcim-group-untervaz",
           "operateur-de-machines-de-construction-en-holcim-group-untervaz-f583ee",
           "operateur-de-machines-de-construction-dans-la-carriere-60-100-holcim-group-untervaz"
-        ],
-        "de": [
-          "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:52.438Z",
@@ -1579,7 +1592,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Bi%C3%A8re-Machiniste-polyvalent-Bi%C3%A8re-VD-1145/1366311957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-23T11:43:10.131Z",
+      "crawledAt": "2026-07-23T22:17:55.419Z",
       "addressLocality": "Bière",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1656,7 +1669,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Baumaschinenf%C3%BChrerin-im-Steinbruch-80-100-AG-5303/1366126257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:09.633Z",
+      "crawledAt": "2026-07-23T22:17:54.950Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1733,7 +1746,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Mitarbeiterin-f%C3%BCr-Betriebsstoffgruppe-AG-5303/1365752557/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:09.128Z",
+      "crawledAt": "2026-07-23T22:17:54.508Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1811,7 +1824,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Projektleiterin-80-100-AG-5303/1363974657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:08.635Z",
+      "crawledAt": "2026-07-23T22:17:54.062Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1888,7 +1901,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Projektleiterin-Elektrotechnik-&-Automatisierung-80-100-AG-5303/1354026357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:08.142Z",
+      "crawledAt": "2026-07-23T22:17:53.617Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1941,7 +1954,7 @@
       "title": "Health & Safety (H&S) Project Manager 80-100%",
       "titleByLocale": {
         "it": "Direttore del progetto Salute e sicurezza (H&S) 80-100%",
-        "en": "Health & Safety (H&S) Project Manager 80-100 %",
+        "en": "Health & Safety (H&S) Project Manager 80-100%",
         "de": "Health & Safety (H&S) Project Manager 80-100%",
         "fr": "Gestionnaire de projet Santé et sécurité (S et S) 80-100%"
       },
@@ -1957,7 +1970,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Health-&-Safety-%28H&S%29-Project-Manager-80-100-AG-5303/1361727957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:07.653Z",
+      "crawledAt": "2026-07-23T22:17:53.164Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1985,6 +1998,7 @@
         "health-amp-safety-h-amp-s-project-manager-80-100-holcim-ch"
       ],
       "firstSeenAt": "2026-07-08T22:25:42.496Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -2029,7 +2043,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Technikerin-HF-im-Bereich-Elektrotechnik-oder-Systemtechnik-GR-7204/1327558657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:07.075Z",
+      "crawledAt": "2026-07-23T22:17:52.709Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2060,6 +2074,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:47.422Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2104,7 +2119,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Schaffhausen-Lastwagenf%C3%BChrerin-Beton-Shaf-8207/1364150157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:06.578Z",
+      "crawledAt": "2026-07-23T22:17:52.270Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2183,7 +2198,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Schichtverantwortlicher-60-100-GR-7204/1364122157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:06.066Z",
+      "crawledAt": "2026-07-23T22:17:51.829Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2262,7 +2277,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Mechanikerin-80-100-AG-5303/829324802/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:05.566Z",
+      "crawledAt": "2026-07-23T22:17:51.383Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2323,7 +2338,7 @@
       "title": "Specialist Cash Collection & Debitoren",
       "titleByLocale": {
         "it": "Specialista Cash Collection & Debitoren",
-        "en": "Specialist Cash Collection & Debitors",
+        "en": "Specialist Cash Collection & Debitoren",
         "de": "Spezialist Cash Collection & Debitoren",
         "fr": "Spécialiste Cash Collection & Debitoren"
       },
@@ -2339,7 +2354,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Zurich-Specialist-Cash-Collection-&-Debitoren-CH-%C2%AD8050/1363033857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:05.075Z",
+      "crawledAt": "2026-07-23T22:17:50.943Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2367,6 +2382,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:51.030Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2411,7 +2427,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Spezialistin-Pr%C3%A4ventive-Instandhaltung-80-100-AG-5303/1360175157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:04.578Z",
+      "crawledAt": "2026-07-23T22:17:50.509Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2488,7 +2504,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Koch-K%C3%B6chin-Personalrestaurant-60-70-GR-7204/1361996657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:04.073Z",
+      "crawledAt": "2026-07-23T22:17:50.038Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2565,7 +2581,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Baumaschinenmechanikerin-AG-5303/1365325057/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:43:03.576Z",
+      "crawledAt": "2026-07-23T22:17:49.586Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2614,6 +2630,70 @@
       }
     },
     {
+      "id": "holcim-b0d6b9969cb3",
+      "slug": "international-mobility-manager-holcim-ch",
+      "slugByLocale": {
+        "en": "international-mobility-manager-holcim-ch",
+        "it": "international-mobility-manager-holcim-ch",
+        "de": "international-mobility-manager-holcim-ch",
+        "fr": "international-mobility-manager-holcim-ch"
+      },
+      "company": "Holcim Group",
+      "companyKey": "holcim",
+      "companyDomain": "holcim.com",
+      "title": "International Mobility Manager",
+      "titleByLocale": {
+        "en": "International Mobility Manager",
+        "it": "International Mobility Manager",
+        "de": "International Mobility Manager",
+        "fr": "International Mobility Manager"
+      },
+      "description": "About Holcim\n\nAs a global leader in innovative and sustainable building solutions, Holcim is enabling greener cities, smarter infrastructure, and improved living standards around the world. With sustainability at the core of our strategy, we are becoming a net-zero company, with our people and communities at the heart of our success. We are driving circular construction as a world leader in recycling to build more with less. Together with our 45,000 talented and passionate people around the world, we are building progress for people and the planet through four business segments: Cement, Ready-Mix Concrete, Aggregates, and Solutions & Products.\n\nRole Overview\n\nAt Holcim, we are on a mission to build progress for people and the planet. As the International Mobility Manager, you will play a vital role in this journey by ensuring ou r people are emp owered to make an impact wherever they are needed most. Based at our headquarters in Zug, you will actively support the operational setup and execution of our newly established Global Employment Company (GEC) in Switzerland, working under the direction of the Group Head of International Mobility. This role offers an exciting blend of build and operation: you will help translate strategic GEC framework designs into smooth, day-to-day operational processes, while managing complex international assignment lifecycles.\n\nResponsibilities\n\n•\n GEC Setup Support: Support the Head of International Mobility in operationalizing the new Zug GEC, assisting with the rollout of assignment workflows, administrative governance, and functional handoffs.\n\n•\n Assignment Lifecycle Management: Oversee the full international assignment lifecycle, acting as a primary operational contact for assignees and Corporate/Country People Partners - partnering closely with Talent Management to support seamless repatriation, career continuation, and succession pipeline integration.\n\n•\n Compliance Execution: Coordina te with external tax, immigration, and legal advisors to execute compliance requirements, leveraging Swiss posting frameworks and A1 protocols for assigned pools.\n\n•\n Compensation & Payroll Cycles: Support the annual compensation cycle for international assignees, coordinating salary reviews, shadow payroll data delivery, and balance sheet recalculations (COLA, hypothetical tax, etc.).\n\n•\n Vendor Delivery: Maintain day-to-day operational relationships with external vendors (tax, immigration, relocation), monitoring service levels, invoice processing, and operational quality.\n\n•\n Policy Guidelines & Documentation: Assist in drafting operational guidelines, standard operational procedures, and employee communications that reflect updated mobility policies and GEC framework updates.\n\nYour Profile\n\nEducation / Qualification\n\n•\n Bachelor’s degree in HR, Business Administration, International Law, or an equivalent professional qualification\n\nExperience\n\n•\n 5 - 8 years of experience managing complex international mobility portfolios within a global, decentralized organization.\n\n•\n Previous exposure to or practical experience working within a GEC structure is considered as a plus.\n\n•\n Strong track record in expatriate payroll coor dination, shadow payrolls, and tax equalization cycles.\n\n•\n Demonstrated experience in cross-functional project coordination, successfully collaborating with internal stakeholders (Finance, Legal, Payroll, L ocal HR) t o support organizational or process changes.\n\nKnowledge & Skills\n\n•\n Strong knowledge of international tax, immigration, and employment law, with the ability to translate regulations into clear, actionable advice for the business\n\n•\n Proven project management skills in a multi-faceted, global and multi-functional setup\n\n•\n Ability to communicate effectively with internal and external stakeholders, combined with excellent organizational and analytical skills to manage complex, multi-layered projects\n\n•\n Uncompromising ethics and discretion in handling sensitive executive compensation and personal data, combined with high analytical accuracy\n\nLanguage Requirements\n\n•\n Strong command of English\n\n•\n Additional languages such as German, French or Spanish are considered a plus\n\nBenefits\n\n•\n Hybrid work contract\n\n•\n Family Support: Subsidized child care and paid maternity/paternity leave\n\n•\n Professional Growth: Company-sponsored training and professional development.\n\n•\n Discounts and Perks: Subsidized meals, exclusive discounts, and company gifts for special occasions.\n\n•\n Long-service awards\n\n•\n Employee referral bonus\n\n•\n Pension and Savings: Access to a comprehensive pension fund and an employee savings scheme.\n\nHolcim is committed to a diverse and inclusive workplace. We support equal opportunities for everyone, regardless of race, national origin, gender, sexuality, disability, or age.\n\nImportant Notice: Holcim recruiters only contact candidates via official @[ holcim.com ] email addresses. We do not use Gmail or any other non-Holcim domains to conduct recruitment processes. Please verify the sender address before responding.\"",
+      "descriptionByLocale": {
+        "en": "About Holcim\n\nAs a global leader in innovative and sustainable building solutions, Holcim is enabling greener cities, smarter infrastructure, and improved living standards around the world. With sustainability at the core of our strategy, we are becoming a net-zero company, with our people and communities at the heart of our success. We are driving circular construction as a world leader in recycling to build more with less. Together with our 45,000 talented and passionate people around the world, we are building progress for people and the planet through four business segments: Cement, Ready-Mix Concrete, Aggregates, and Solutions & Products.\n\nRole Overview\n\nAt Holcim, we are on a mission to build progress for people and the planet. As the International Mobility Manager, you will play a vital role in this journey by ensuring ou r people are emp owered to make an impact wherever they are needed most. Based at our headquarters in Zug, you will actively support the operational setup and execution of our newly established Global Employment Company (GEC) in Switzerland, working under the direction of the Group Head of International Mobility. This role offers an exciting blend of build and operation: you will help translate strategic GEC framework designs into smooth, day-to-day operational processes, while managing complex international assignment lifecycles.\n\nResponsibilities\n\n•\n GEC Setup Support: Support the Head of International Mobility in operationalizing the new Zug GEC, assisting with the rollout of assignment workflows, administrative governance, and functional handoffs.\n\n•\n Assignment Lifecycle Management: Oversee the full international assignment lifecycle, acting as a primary operational contact for assignees and Corporate/Country People Partners - partnering closely with Talent Management to support seamless repatriation, career continuation, and succession pipeline integration.\n\n•\n Compliance Execution: Coordina te with external tax, immigration, and legal advisors to execute compliance requirements, leveraging Swiss posting frameworks and A1 protocols for assigned pools.\n\n•\n Compensation & Payroll Cycles: Support the annual compensation cycle for international assignees, coordinating salary reviews, shadow payroll data delivery, and balance sheet recalculations (COLA, hypothetical tax, etc.).\n\n•\n Vendor Delivery: Maintain day-to-day operational relationships with external vendors (tax, immigration, relocation), monitoring service levels, invoice processing, and operational quality.\n\n•\n Policy Guidelines & Documentation: Assist in drafting operational guidelines, standard operational procedures, and employee communications that reflect updated mobility policies and GEC framework updates.\n\nYour Profile\n\nEducation / Qualification\n\n•\n Bachelor’s degree in HR, Business Administration, International Law, or an equivalent professional qualification\n\nExperience\n\n•\n 5 - 8 years of experience managing complex international mobility portfolios within a global, decentralized organization.\n\n•\n Previous exposure to or practical experience working within a GEC structure is considered as a plus.\n\n•\n Strong track record in expatriate payroll coor dination, shadow payrolls, and tax equalization cycles.\n\n•\n Demonstrated experience in cross-functional project coordination, successfully collaborating with internal stakeholders (Finance, Legal, Payroll, L ocal HR) t o support organizational or process changes.\n\nKnowledge & Skills\n\n•\n Strong knowledge of international tax, immigration, and employment law, with the ability to translate regulations into clear, actionable advice for the business\n\n•\n Proven project management skills in a multi-faceted, global and multi-functional setup\n\n•\n Ability to communicate effectively with internal and external stakeholders, combined with excellent organizational and analytical skills to manage complex, multi-layered projects\n\n•\n Uncompromising ethics and discretion in handling sensitive executive compensation and personal data, combined with high analytical accuracy\n\nLanguage Requirements\n\n•\n Strong command of English\n\n•\n Additional languages such as German, French or Spanish are considered a plus\n\nBenefits\n\n•\n Hybrid work contract\n\n•\n Family Support: Subsidized child care and paid maternity/paternity leave\n\n•\n Professional Growth: Company-sponsored training and professional development.\n\n•\n Discounts and Perks: Subsidized meals, exclusive discounts, and company gifts for special occasions.\n\n•\n Long-service awards\n\n•\n Employee referral bonus\n\n•\n Pension and Savings: Access to a comprehensive pension fund and an employee savings scheme.\n\nHolcim is committed to a diverse and inclusive workplace. We support equal opportunities for everyone, regardless of race, national origin, gender, sexuality, disability, or age.\n\nImportant Notice: Holcim recruiters only contact candidates via official @[ holcim.com ] email addresses. We do not use Gmail or any other non-Holcim domains to conduct recruitment processes. Please verify the sender address before responding.\"",
+        "it": "About Holcim\n\nAs a global leader in innovative and sustainable building solutions, Holcim is enabling greener cities, smarter infrastructure, and improved living standards around the world. With sustainability at the core of our strategy, we are becoming a net-zero company, with our people and communities at the heart of our success. We are driving circular construction as a world leader in recycling to build more with less. Together with our 45,000 talented and passionate people around the world, we are building progress for people and the planet through four business segments: Cement, Ready-Mix Concrete, Aggregates, and Solutions & Products.\n\nRole Overview\n\nAt Holcim, we are on a mission to build progress for people and the planet. As the International Mobility Manager, you will play a vital role in this journey by ensuring ou r people are emp owered to make an impact wherever they are needed most. Based at our headquarters in Zug, you will actively support the operational setup and execution of our newly established Global Employment Company (GEC) in Switzerland, working under the direction of the Group Head of International Mobility. This role offers an exciting blend of build and operation: you will help translate strategic GEC framework designs into smooth, day-to-day operational processes, while managing complex international assignment lifecycles.\n\nResponsibilities\n\n•\n GEC Setup Support: Support the Head of International Mobility in operationalizing the new Zug GEC, assisting with the rollout of assignment workflows, administrative governance, and functional handoffs.\n\n•\n Assignment Lifecycle Management: Oversee the full international assignment lifecycle, acting as a primary operational contact for assignees and Corporate/Country People Partners - partnering closely with Talent Management to support seamless repatriation, career continuation, and succession pipeline integration.\n\n•\n Compliance Execution: Coordina te with external tax, immigration, and legal advisors to execute compliance requirements, leveraging Swiss posting frameworks and A1 protocols for assigned pools.\n\n•\n Compensation & Payroll Cycles: Support the annual compensation cycle for international assignees, coordinating salary reviews, shadow payroll data delivery, and balance sheet recalculations (COLA, hypothetical tax, etc.).\n\n•\n Vendor Delivery: Maintain day-to-day operational relationships with external vendors (tax, immigration, relocation), monitoring service levels, invoice processing, and operational quality.\n\n•\n Policy Guidelines & Documentation: Assist in drafting operational guidelines, standard operational procedures, and employee communications that reflect updated mobility policies and GEC framework updates.\n\nYour Profile\n\nEducation / Qualification\n\n•\n Bachelor’s degree in HR, Business Administration, International Law, or an equivalent professional qualification\n\nExperience\n\n•\n 5 - 8 years of experience managing complex international mobility portfolios within a global, decentralized organization.\n\n•\n Previous exposure to or practical experience working within a GEC structure is considered as a plus.\n\n•\n Strong track record in expatriate payroll coor dination, shadow payrolls, and tax equalization cycles.\n\n•\n Demonstrated experience in cross-functional project coordination, successfully collaborating with internal stakeholders (Finance, Legal, Payroll, L ocal HR) t o support organizational or process changes.\n\nKnowledge & Skills\n\n•\n Strong knowledge of international tax, immigration, and employment law, with the ability to translate regulations into clear, actionable advice for the business\n\n•\n Proven project management skills in a multi-faceted, global and multi-functional setup\n\n•\n Ability to communicate effectively with internal and external stakeholders, combined with excellent organizational and analytical skills to manage complex, multi-layered projects\n\n•\n Uncompromising ethics and discretion in handling sensitive executive compensation and personal data, combined with high analytical accuracy\n\nLanguage Requirements\n\n•\n Strong command of English\n\n•\n Additional languages such as German, French or Spanish are considered a plus\n\nBenefits\n\n•\n Hybrid work contract\n\n•\n Family Support: Subsidized child care and paid maternity/paternity leave\n\n•\n Professional Growth: Company-sponsored training and professional development.\n\n•\n Discounts and Perks: Subsidized meals, exclusive discounts, and company gifts for special occasions.\n\n•\n Long-service awards\n\n•\n Employee referral bonus\n\n•\n Pension and Savings: Access to a comprehensive pension fund and an employee savings scheme.\n\nHolcim is committed to a diverse and inclusive workplace. We support equal opportunities for everyone, regardless of race, national origin, gender, sexuality, disability, or age.\n\nImportant Notice: Holcim recruiters only contact candidates via official @[ holcim.com ] email addresses. We do not use Gmail or any other non-Holcim domains to conduct recruitment processes. Please verify the sender address before responding.\"",
+        "de": "About Holcim\n\nAs a global leader in innovative and sustainable building solutions, Holcim is enabling greener cities, smarter infrastructure, and improved living standards around the world. With sustainability at the core of our strategy, we are becoming a net-zero company, with our people and communities at the heart of our success. We are driving circular construction as a world leader in recycling to build more with less. Together with our 45,000 talented and passionate people around the world, we are building progress for people and the planet through four business segments: Cement, Ready-Mix Concrete, Aggregates, and Solutions & Products.\n\nRole Overview\n\nAt Holcim, we are on a mission to build progress for people and the planet. As the International Mobility Manager, you will play a vital role in this journey by ensuring ou r people are emp owered to make an impact wherever they are needed most. Based at our headquarters in Zug, you will actively support the operational setup and execution of our newly established Global Employment Company (GEC) in Switzerland, working under the direction of the Group Head of International Mobility. This role offers an exciting blend of build and operation: you will help translate strategic GEC framework designs into smooth, day-to-day operational processes, while managing complex international assignment lifecycles.\n\nResponsibilities\n\n•\n GEC Setup Support: Support the Head of International Mobility in operationalizing the new Zug GEC, assisting with the rollout of assignment workflows, administrative governance, and functional handoffs.\n\n•\n Assignment Lifecycle Management: Oversee the full international assignment lifecycle, acting as a primary operational contact for assignees and Corporate/Country People Partners - partnering closely with Talent Management to support seamless repatriation, career continuation, and succession pipeline integration.\n\n•\n Compliance Execution: Coordina te with external tax, immigration, and legal advisors to execute compliance requirements, leveraging Swiss posting frameworks and A1 protocols for assigned pools.\n\n•\n Compensation & Payroll Cycles: Support the annual compensation cycle for international assignees, coordinating salary reviews, shadow payroll data delivery, and balance sheet recalculations (COLA, hypothetical tax, etc.).\n\n•\n Vendor Delivery: Maintain day-to-day operational relationships with external vendors (tax, immigration, relocation), monitoring service levels, invoice processing, and operational quality.\n\n•\n Policy Guidelines & Documentation: Assist in drafting operational guidelines, standard operational procedures, and employee communications that reflect updated mobility policies and GEC framework updates.\n\nYour Profile\n\nEducation / Qualification\n\n•\n Bachelor’s degree in HR, Business Administration, International Law, or an equivalent professional qualification\n\nExperience\n\n•\n 5 - 8 years of experience managing complex international mobility portfolios within a global, decentralized organization.\n\n•\n Previous exposure to or practical experience working within a GEC structure is considered as a plus.\n\n•\n Strong track record in expatriate payroll coor dination, shadow payrolls, and tax equalization cycles.\n\n•\n Demonstrated experience in cross-functional project coordination, successfully collaborating with internal stakeholders (Finance, Legal, Payroll, L ocal HR) t o support organizational or process changes.\n\nKnowledge & Skills\n\n•\n Strong knowledge of international tax, immigration, and employment law, with the ability to translate regulations into clear, actionable advice for the business\n\n•\n Proven project management skills in a multi-faceted, global and multi-functional setup\n\n•\n Ability to communicate effectively with internal and external stakeholders, combined with excellent organizational and analytical skills to manage complex, multi-layered projects\n\n•\n Uncompromising ethics and discretion in handling sensitive executive compensation and personal data, combined with high analytical accuracy\n\nLanguage Requirements\n\n•\n Strong command of English\n\n•\n Additional languages such as German, French or Spanish are considered a plus\n\nBenefits\n\n•\n Hybrid work contract\n\n•\n Family Support: Subsidized child care and paid maternity/paternity leave\n\n•\n Professional Growth: Company-sponsored training and professional development.\n\n•\n Discounts and Perks: Subsidized meals, exclusive discounts, and company gifts for special occasions.\n\n•\n Long-service awards\n\n•\n Employee referral bonus\n\n•\n Pension and Savings: Access to a comprehensive pension fund and an employee savings scheme.\n\nHolcim is committed to a diverse and inclusive workplace. We support equal opportunities for everyone, regardless of race, national origin, gender, sexuality, disability, or age.\n\nImportant Notice: Holcim recruiters only contact candidates via official @[ holcim.com ] email addresses. We do not use Gmail or any other non-Holcim domains to conduct recruitment processes. Please verify the sender address before responding.\"",
+        "fr": "About Holcim\n\nAs a global leader in innovative and sustainable building solutions, Holcim is enabling greener cities, smarter infrastructure, and improved living standards around the world. With sustainability at the core of our strategy, we are becoming a net-zero company, with our people and communities at the heart of our success. We are driving circular construction as a world leader in recycling to build more with less. Together with our 45,000 talented and passionate people around the world, we are building progress for people and the planet through four business segments: Cement, Ready-Mix Concrete, Aggregates, and Solutions & Products.\n\nRole Overview\n\nAt Holcim, we are on a mission to build progress for people and the planet. As the International Mobility Manager, you will play a vital role in this journey by ensuring ou r people are emp owered to make an impact wherever they are needed most. Based at our headquarters in Zug, you will actively support the operational setup and execution of our newly established Global Employment Company (GEC) in Switzerland, working under the direction of the Group Head of International Mobility. This role offers an exciting blend of build and operation: you will help translate strategic GEC framework designs into smooth, day-to-day operational processes, while managing complex international assignment lifecycles.\n\nResponsibilities\n\n•\n GEC Setup Support: Support the Head of International Mobility in operationalizing the new Zug GEC, assisting with the rollout of assignment workflows, administrative governance, and functional handoffs.\n\n•\n Assignment Lifecycle Management: Oversee the full international assignment lifecycle, acting as a primary operational contact for assignees and Corporate/Country People Partners - partnering closely with Talent Management to support seamless repatriation, career continuation, and succession pipeline integration.\n\n•\n Compliance Execution: Coordina te with external tax, immigration, and legal advisors to execute compliance requirements, leveraging Swiss posting frameworks and A1 protocols for assigned pools.\n\n•\n Compensation & Payroll Cycles: Support the annual compensation cycle for international assignees, coordinating salary reviews, shadow payroll data delivery, and balance sheet recalculations (COLA, hypothetical tax, etc.).\n\n•\n Vendor Delivery: Maintain day-to-day operational relationships with external vendors (tax, immigration, relocation), monitoring service levels, invoice processing, and operational quality.\n\n•\n Policy Guidelines & Documentation: Assist in drafting operational guidelines, standard operational procedures, and employee communications that reflect updated mobility policies and GEC framework updates.\n\nYour Profile\n\nEducation / Qualification\n\n•\n Bachelor’s degree in HR, Business Administration, International Law, or an equivalent professional qualification\n\nExperience\n\n•\n 5 - 8 years of experience managing complex international mobility portfolios within a global, decentralized organization.\n\n•\n Previous exposure to or practical experience working within a GEC structure is considered as a plus.\n\n•\n Strong track record in expatriate payroll coor dination, shadow payrolls, and tax equalization cycles.\n\n•\n Demonstrated experience in cross-functional project coordination, successfully collaborating with internal stakeholders (Finance, Legal, Payroll, L ocal HR) t o support organizational or process changes.\n\nKnowledge & Skills\n\n•\n Strong knowledge of international tax, immigration, and employment law, with the ability to translate regulations into clear, actionable advice for the business\n\n•\n Proven project management skills in a multi-faceted, global and multi-functional setup\n\n•\n Ability to communicate effectively with internal and external stakeholders, combined with excellent organizational and analytical skills to manage complex, multi-layered projects\n\n•\n Uncompromising ethics and discretion in handling sensitive executive compensation and personal data, combined with high analytical accuracy\n\nLanguage Requirements\n\n•\n Strong command of English\n\n•\n Additional languages such as German, French or Spanish are considered a plus\n\nBenefits\n\n•\n Hybrid work contract\n\n•\n Family Support: Subsidized child care and paid maternity/paternity leave\n\n•\n Professional Growth: Company-sponsored training and professional development.\n\n•\n Discounts and Perks: Subsidized meals, exclusive discounts, and company gifts for special occasions.\n\n•\n Long-service awards\n\n•\n Employee referral bonus\n\n•\n Pension and Savings: Access to a comprehensive pension fund and an employee savings scheme.\n\nHolcim is committed to a diverse and inclusive workplace. We support equal opportunities for everyone, regardless of race, national origin, gender, sexuality, disability, or age.\n\nImportant Notice: Holcim recruiters only contact candidates via official @[ holcim.com ] email addresses. We do not use Gmail or any other non-Holcim domains to conduct recruitment processes. Please verify the sender address before responding.\""
+      },
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://careers.holcimgroup.com/job/Zug-International-Mobility-Manager-6300/1367556757/",
+      "source": "Holcim Group Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-23T22:17:49.144Z",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Materiali da costruzione / Cemento",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-23",
+      "applyUrl": "https://careers.holcimgroup.com/job/Zug-International-Mobility-Manager-6300/1367556757/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 96000,
+      "salaryMax": 146000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 146000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-23T22:17:49.144Z"
+    },
+    {
       "id": "holcim-b4c2960a8f8c",
       "slug": "responsabile-logistica-central-eastern-europe-cee-holcim-group-zug",
       "slugByLocale": {
@@ -2644,7 +2724,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Head-of-Logistics-Central-Eastern-Europe-%28CEE%29-6300/1365323157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:43:03.086Z",
+      "crawledAt": "2026-07-23T22:17:48.703Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2719,7 +2799,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Corporate-Communications-intern-for-6-months-6300/1362016757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:43:02.590Z",
+      "crawledAt": "2026-07-23T22:17:48.262Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2793,7 +2873,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Innovation-Process-Engineer-Thermal-6300/1358364657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:43:02.080Z",
+      "crawledAt": "2026-07-23T22:17:47.797Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2870,7 +2950,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Head-of-Ready-to-Operate-CCUS-6300/1357793157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:43:01.576Z",
+      "crawledAt": "2026-07-23T22:17:47.346Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
