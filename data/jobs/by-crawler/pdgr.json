@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pdgr",
-  "assembledAt": "2026-07-23T12:21:16.235Z",
+  "assembledAt": "2026-07-23T10:34:39.462Z",
   "jobs": [
     {
       "id": "pdgr-a093480a1d37",
@@ -2313,7 +2313,7 @@
       "title": "Ergotherapeut/in",
       "titleByLocale": {
         "it": "Ergotherapist",
-        "en": "Ergotherapeut/in",
+        "en": "Occupational therapist",
         "de": "Ergotherapeut/in",
         "fr": "Ergothérapeute"
       },
@@ -2329,7 +2329,7 @@
       "url": "https://www.pdgr.ch/jobs/ergotherapeut-in-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:20:45.065Z",
+      "crawledAt": "2026-07-22T22:53:38.941Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2352,19 +2352,26 @@
       "pensum": "10%",
       "previousSlugs": [
         "ergotherapeut-in-pdgr-ch",
-        "ergotherapist-psychiatrische-dienste-graubunden-chur"
+        "cook-psychiatrische-dienste-graubunden-chur",
+        "kochin-koch-pdgr-ch",
+        "kochin-koch-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeut-in-pdgr-ch",
-          "ergotherapist-psychiatrische-dienste-graubunden-chur"
+          "cook-psychiatrische-dienste-graubunden-chur",
+          "kochin-koch-pdgr-ch",
+          "kochin-koch-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
-          "ergotherapeut-in-pdgr-ch"
+          "ergotherapeut-in-pdgr-ch",
+          "cook-psychiatrische-dienste-graubunden-chur"
+        ],
+        "de": [
+          "kochin-koch-pdgr-ch"
         ]
       },
       "firstSeenAt": "2026-05-28T13:42:07.525Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {

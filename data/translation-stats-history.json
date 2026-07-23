@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-07-04T06:25:24.752Z",
-    "label": "after",
-    "total": 19874,
-    "needsRetranslation": 2442,
-    "suppressed": 384,
-    "incomplete": 1014,
-    "complete": 18860,
-    "missingByLocale": {
-      "it": 609,
-      "en": 423,
-      "de": 400,
-      "fr": 297
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 728
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 61
-      },
-      {
-        "company": "Zürcher Kantonalbank",
-        "pending": 53
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 22
-      },
-      {
-        "company": "Manor AG",
-        "pending": 21
-      },
-      {
-        "company": "Julius Baer",
-        "pending": 19
-      },
-      {
-        "company": "Thermo Fisher Scientific (Schweiz) AG",
-        "pending": 15
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 14
-      },
-      {
-        "company": "LANDI Aarau-West AG",
-        "pending": 9
-      },
-      {
-        "company": "FELFEL",
-        "pending": 8
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-04T10:21:24.666Z",
-    "label": "before",
-    "total": 19459,
-    "needsRetranslation": 2342,
-    "suppressed": 300,
-    "incomplete": 763,
-    "complete": 18696,
-    "missingByLocale": {
-      "it": 409,
-      "en": 330,
-      "de": 325,
-      "fr": 192
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 572
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 61
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 22
-      },
-      {
-        "company": "Manor AG",
-        "pending": 21
-      },
-      {
-        "company": "Julius Baer",
-        "pending": 19
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 14
-      },
-      {
-        "company": "FELFEL",
-        "pending": 8
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 6
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "Roche",
-        "pending": 4
-      }
-    ]
-  },
-  {
     "timestamp": "2026-07-04T11:38:40.513Z",
     "label": "after",
     "total": 19459,
@@ -11395,6 +11281,120 @@
       },
       {
         "company": "Alpiq",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-23T11:13:07.520Z",
+    "label": "before",
+    "total": 24654,
+    "needsRetranslation": 1160,
+    "suppressed": 38,
+    "incomplete": 104,
+    "complete": 24550,
+    "missingByLocale": {
+      "it": 58,
+      "en": 34,
+      "de": 48,
+      "fr": 45
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 30
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "Jumbo, Division der Coop Genossenschaft",
+        "pending": 4
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 3
+      },
+      {
+        "company": "Alpiq",
+        "pending": 2
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "IKEA",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-23T12:44:21.049Z",
+    "label": "after",
+    "total": 24654,
+    "needsRetranslation": 1090,
+    "suppressed": 37,
+    "incomplete": 97,
+    "complete": 24557,
+    "missingByLocale": {
+      "it": 56,
+      "en": 31,
+      "de": 45,
+      "fr": 44
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 30
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Jumbo, Division der Coop Genossenschaft",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Alpiq",
+        "pending": 2
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "IKEA",
+        "pending": 2
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
         "pending": 2
       }
     ]
