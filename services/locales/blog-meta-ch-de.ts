@@ -1450,6 +1450,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.title': 'Mehr Auto: Neuwagenmarkt hebt nicht ab, Schweizer bevorzugen Gebrauchtwagen',
     'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.excerpt': 'Der Schweizer Neuwagenmarkt stagniert im Wesentlichen. Die Zunahme der Zulassungen von Elektroautos nimmt nicht ab.',
     'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.imageAlt': 'Elektroauto in einem Parkplatz in Lugano.',
+    'blog.article.poverta-lavorativa-ticino-sfida-dignita.title': 'Arbeitsarmut im Tessin: Die stille Herausforderung',
+    'blog.article.poverta-lavorativa-ticino-sfida-dignita.excerpt': 'Ein Viertel der Bevölkerung des Tessins ist von Erwerbsarmut bedroht.',
+    'blog.article.poverta-lavorativa-ticino-sfida-dignita.imageAlt': 'Szene von Menschen am See von Lugano, Schweiz, mit einer Miene der Besorgnis und Unsicherheit über ihre wirtschaftliche Situation.',
 };
 
 export default blogMetaChDe;

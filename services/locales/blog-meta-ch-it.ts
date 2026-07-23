@@ -1450,6 +1450,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.title': 'Di più Auto: mercato del nuovo non decolla, svizzeri preferiscono l\'usato',
     'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.excerpt': 'Il mercato svizzero delle vetture nuove rimane sostanzialmente fermo. L\'aumento delle immatricolazioni di auto elettriche non decolla.',
     'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.imageAlt': 'Auto elettrica in un parcheggio di Lugano.',
+    'blog.article.poverta-lavorativa-ticino-sfida-dignita.title': 'Povertà lavorativa in Ticino: la sfida silenziosa',
+    'blog.article.poverta-lavorativa-ticino-sfida-dignita.excerpt': 'Un quarto della popolazione del Ticino è a rischio di povertà lavorativa.',
+    'blog.article.poverta-lavorativa-ticino-sfida-dignita.imageAlt': 'Scena di persone affacciate al lago di Lugano, in Svizzera, con un\'espressione di preoccupazione e incertezza sulle loro condizioni economiche.',
 };
 
 export default blogMetaChIt;

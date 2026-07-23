@@ -1450,6 +1450,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.title': 'More Cars: new market does not take off, Swiss prefer second-hand',
     'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.excerpt': 'The Swiss market for new cars remains essentially unchanged. The increase in electric car registrations is not taking off.',
     'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.imageAlt': 'Electric car in a parking lot in Lugano.',
+    'blog.article.poverta-lavorativa-ticino-sfida-dignita.title': 'Working poverty in Ticino: the silent challenge',
+    'blog.article.poverta-lavorativa-ticino-sfida-dignita.excerpt': 'A quarter of Ticino\'s population is at risk of working poverty.',
+    'blog.article.poverta-lavorativa-ticino-sfida-dignita.imageAlt': 'Scene of people standing by the lake in Lugano, Switzerland, with an expression of concern and uncertainty about their economic situation.',
 };
 
 export default blogMetaChEn;
