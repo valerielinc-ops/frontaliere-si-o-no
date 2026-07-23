@@ -8877,6 +8877,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lite-lombardia-svizzera-frontalieri.title': 'Lite Lombardie et Suisse : le nœud fiscal des frontaliers',
     'blog.article.lite-lombardia-svizzera-frontalieri.excerpt': 'Analyse du différend entre la Lombardie et la Suisse sur le traitement fiscal des anciens frontaliers et l\'impact du nouvel accord en vigueur depuis 2024.',
     'blog.article.lite-lombardia-svizzera-frontalieri.imageAlt': 'Vue panoramique de Lugano et du lac, contexte travail frontalier Tessin',
+    'blog.article.ozono-ticino-qualita-aria.title': 'Ozone au Tessin : limites dépassées et implications',
+    'blog.article.ozono-ticino-qualita-aria.excerpt': 'La qualité de l\'air au Tessin s\'améliore, mais l\'ozone reste un problème. Analyse des dépassements des limites et des causes structurelles.',
+    'blog.article.ozono-ticino-qualita-aria.imageAlt': 'Station de surveillance de la qualité de l\'air au Tessin',
 };
 
 export default blogMetaFr;

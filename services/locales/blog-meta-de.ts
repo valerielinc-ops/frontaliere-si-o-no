@@ -8874,6 +8874,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lite-lombardia-svizzera-frontalieri.title': 'Lite Lombardei und Schweiz: der Steuerknoten für Grenzgänger',
     'blog.article.lite-lombardia-svizzera-frontalieri.excerpt': 'Analyse des Streits zwischen der Lombardei und der Schweiz über die steuerliche Behandlung alter Grenzgänger und die Auswirkungen des neuen Abkommens, das ab 2024 in Kraft tritt.',
     'blog.article.lite-lombardia-svizzera-frontalieri.imageAlt': 'Panoramablick auf Lugano und den See, Kontext Grenzgänger Tessin',
+    'blog.article.ozono-ticino-qualita-aria.title': 'Ozon im Tessin: Grenzwerte überschritten und Auswirkungen',
+    'blog.article.ozono-ticino-qualita-aria.excerpt': 'Die Luftqualität im Tessin verbessert sich, aber Ozon bleibt ein Problem. Analyse von Grenzüberschreitungen und strukturellen Ursachen.',
+    'blog.article.ozono-ticino-qualita-aria.imageAlt': 'Luftqualitätsmessstation im Tessin',
 };
 
 export default blogMetaDe;
