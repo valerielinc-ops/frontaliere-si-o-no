@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kudelski-nagra",
-  "assembledAt": "2026-07-21T22:13:42.770Z",
+  "assembledAt": "2026-07-22T22:19:29.357Z",
   "jobs": [
     {
       "id": "kudelski-nagra-027fe8cc43fc",
@@ -33,7 +33,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15633",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-21T22:13:40.499Z",
+      "crawledAt": "2026-07-22T22:19:26.960Z",
       "addressLocality": "Switzerland",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -80,6 +80,71 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "kudelski-nagra-213b373baaf3",
+      "slug": "apprenti-e-employ-eacute-e-de-commerce-voie-2-kudelski-nagra-ch",
+      "slugByLocale": {
+        "it": "apprenti-e-employ-eacute-e-de-commerce-voie-2-kudelski-nagra-ch",
+        "en": "apprenti-e-employ-eacute-e-de-commerce-voie-2-kudelski-nagra-ch",
+        "de": "apprenti-e-employ-eacute-e-de-commerce-voie-2-kudelski-nagra-ch",
+        "fr": "apprenti-e-employe-e-de-commerce-voie-2-kudelski-nagra-switzerland"
+      },
+      "company": "Kudelski NAGRA",
+      "companyKey": "kudelski-nagra",
+      "companyDomain": "nagra.com",
+      "title": "Apprenti(e) Employé(e) de Commerce - Voie 2",
+      "titleByLocale": {
+        "it": "Apprenti(e) Employé(e) de Commerce - Voie 2",
+        "fr": "Apprenti(e) Employé(e) de Commerce - Voie 2",
+        "en": "Apprenti(e) Employé(e) de Commerce - Voie 2",
+        "de": "Apprenti(e) Employé(e) de Commerce - Voie 2"
+      },
+      "description": "Fixed term CDD at Kudelski Group, part of the Kudelski Group — a global leader in digital security and content protection technology.",
+      "descriptionByLocale": {
+        "it": "Fixed term CDD at Kudelski Group, part of the Kudelski Group — a global leader in digital security and content protection technology.",
+        "en": "Fixed term CDD at Kudelski Group, part of the Kudelski Group — a global leader in digital security and content protection technology.",
+        "de": "Fixed term CDD at Kudelski Group, part of the Kudelski Group — a global leader in digital security and content protection technology.",
+        "fr": "Fixed term CDD at Kudelski Group, part of the Kudelski Group — a global leader in digital security and content protection technology."
+      },
+      "location": "Switzerland",
+      "canton": "TI",
+      "url": "https://careers.nagra.com/?page=advertisement_display&id=15596",
+      "source": "Kudelski NAGRA Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-07-22T22:19:26.636Z",
+      "addressLocality": "Switzerland",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6900",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Sicurezza digitale / Media technology",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-22",
+      "applyUrl": "https://careers.nagra.com/?page=advertisement_display&id=15596",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-22T22:19:26.636Z"
     }
   ]
 }

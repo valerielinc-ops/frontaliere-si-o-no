@@ -1447,6 +1447,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-ticino-dati-2026.title': 'Grenzgänger im Tessin: Die Daten des ersten Quartals 2026',
     'blog.article.frontalieri-ticino-dati-2026.excerpt': 'Das Tessin verzeichnet einen leichten Rückgang der Grenzgänger (-0,2%), während auf Schweizer Ebene ein konstantes Wachstum von 1,9% bestätigt wird.',
     'blog.article.frontalieri-ticino-dati-2026.imageAlt': 'Panoramablick auf Lugano und den See an einem sonnigen Tag',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.title': 'Mehr Auto: Neuwagenmarkt hebt nicht ab, Schweizer bevorzugen Gebrauchtwagen',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.excerpt': 'Der Schweizer Neuwagenmarkt stagniert im Wesentlichen. Die Zunahme der Zulassungen von Elektroautos nimmt nicht ab.',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.imageAlt': 'Elektroauto in einem Parkplatz in Lugano.',
+    'blog.article.poverta-lavorativa-ticino-sfida-dignita.title': 'Arbeitsarmut im Tessin: Die stille Herausforderung',
+    'blog.article.poverta-lavorativa-ticino-sfida-dignita.excerpt': 'Ein Viertel der Bevölkerung des Tessins ist von Erwerbsarmut bedroht.',
+    'blog.article.poverta-lavorativa-ticino-sfida-dignita.imageAlt': 'Szene von Menschen am See von Lugano, Schweiz, mit einer Miene der Besorgnis und Unsicherheit über ihre wirtschaftliche Situation.',
+    'blog.article.evoluzione-frontalieri-dati-ust.title': 'Grenzgänger in der Schweiz: die aktuellen Daten des Jahrzehnts',
+    'blog.article.evoluzione-frontalieri-dati-ust.excerpt': 'Analyse des Bundesamtes für Statistik über das Phänomen des Grenzgängertums: Die Lombardei wächst, der Sprung der Provinz Monza und Brianza fällt auf.',
+    'blog.article.evoluzione-frontalieri-dati-ust.imageAlt': 'Panoramablick auf Lugano und seinen See im schweizerischen städtischen Kontext',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.title': 'Dritte Säule 3a Schweiz: Vorteile 2026 im Kanton St. Gallen',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'Das Doppelbesteuerungsabkommen Italien-Schweiz wurde am 9. Dezember 1976 unterzeichnet. Die neuen Grenzgänger haben eine Selbstbeteiligung von 10.000 €.',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.imageAlt': 'Lugano und See Lugano',
 };
 
 export default blogMetaChDe;

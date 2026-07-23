@@ -53814,6 +53814,279 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-ticino-numeri-in-calo': {
+    title: 'Frontalieri, numeri in calo in Ticino nei primi tre mesi dell\'anno',
+    description: 'Il numero di frontalieri in Ticino è in calo dei primi tre mesi dell\'anno. Questo è evidente dall\'ultima statistica rilasciata dall\'Ufficio Federale di',
+    keywords: 'frontalieri, ticino, svizzera, italia, numeri, calo, primi, mesi',
+    ogTitle: 'Frontalieri, numeri in calo in Ticino nei primi tre mesi dell\'anno',
+    ogDescription: 'Il numero di frontalieri in Ticino è in calo dei primi tre mesi dell\'anno.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-ticino-numeri-in-calo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri, numeri in calo in Ticino nei primi tre mesi dell'anno",
+      "description": "Il numero di frontalieri in Ticino è in calo dei primi tre mesi dell'anno. Questo è evidente dall'ultima statistica rilasciata dall'Ufficio Federale di",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-numeri-in-calo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere in autostrada"
+      },
+      "datePublished": "2026-07-22T13:43:13+00:00",
+      "dateModified": "2026-07-22T13:43:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-numeri-in-calo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tragedia-lavoro-blenio-aquila': {
+    title: 'Tragedia sul lavoro a Blenio: i dettagli dell\'incidente',
+    description: 'Un 67enne è deceduto a causa di un infortunio sul lavoro ad Aquila di Blenio. È il secondo tragico evento in pochi giorni nel comune ticinese. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, tragedia, lavoro, blenio, dettagli',
+    ogTitle: 'Tragedia sul lavoro a Blenio: i dettagli dell\'incidente',
+    ogDescription: 'Un 67enne è deceduto a causa di un infortunio sul lavoro ad Aquila di Blenio. È il secondo tragico evento in pochi giorni nel comune ticinese.',
+    canonicalPath: '/articoli-frontaliere/tragedia-lavoro-blenio-aquila',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tragedia sul lavoro a Blenio: i dettagli dell'incidente",
+      "description": "Un 67enne è deceduto a causa di un infortunio sul lavoro ad Aquila di Blenio. È il secondo tragico evento in pochi giorni nel comune ticinese. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tragedia-lavoro-blenio-aquila.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio montano nella Valle di Blenio, Ticino"
+      },
+      "datePublished": "2026-07-22T19:58:14+00:00",
+      "dateModified": "2026-07-22T19:58:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tragedia-lavoro-blenio-aquila/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi': {
+    title: 'Dati salariali dei frontalieri in dichiarazione dei redditi',
+    description: 'Secondo la fonte, i dati salariali dei vecchi frontalieri saranno inclusi nella dichiarazione dei redditi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dati, salariali, dichiarazione, redditi',
+    ogTitle: 'I dati salariali dei vecchi frontalieri finiscono nella dichiarazione dei redditi',
+    ogDescription: 'Secondo la fonte, i dati salariali dei vecchi frontalieri saranno inclusi nella dichiarazione dei redditi.',
+    canonicalPath: '/articoli-frontaliere/dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dati salariali dei frontalieri in dichiarazione dei redditi",
+      "description": "Secondo la fonte, i dati salariali dei vecchi frontalieri saranno inclusi nella dichiarazione dei redditi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del Lago di Lugano"
+      },
+      "datePublished": "2026-07-22T20:22:42+00:00",
+      "dateModified": "2026-07-22T20:22:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-educatore-ticino-stipendio-requisiti': {
+    title: 'Lavorare come educatore in Ticino: stipendio e requisiti',
+    description: 'Il Nuovo Accordo Frontalieri è stato firmato il 23 dicembre 2020 e prevede l\'esenzione di €7\'500 per i vecchi frontalieri e una franchigia di €10\'000 per i',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, educatore, stipendio, requisiti',
+    ogTitle: 'Lavorare come educatore in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G',
+    ogDescription: 'Il Nuovo Accordo Frontalieri è stato firmato il 23 dicembre 2020 e prevede l\'esenzione di €7\'500 per i vecchi frontalieri e una franchigia di €10\'000 per i',
+    canonicalPath: '/articoli-frontaliere/frontaliere-educatore-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come educatore in Ticino: stipendio e requisiti",
+      "description": "Il Nuovo Accordo Frontalieri è stato firmato il 23 dicembre 2020 e prevede l'esenzione di €7'500 per i vecchi frontalieri e una franchigia di €10'000 per i",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-educatore-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di Lugano, con il lago in primo piano, visto dalla città."
+      },
+      "datePublished": "2026-07-23T03:02:49+00:00",
+      "dateModified": "2026-07-23T03:02:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-educatore-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-anticipo-orari-lavoro-canicola-ticino': {
+    title: 'Ticino: orari di lavoro anticipati per l\'allerta canicola',
+    description: 'Mozione in Ticino per deroghe agli orari di lavoro durante l\'allerta canicola. Scopri come la proposta punta a tutelare la salute dei lavoratori all\'aperto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, orari, lavoro, anticipati, allerta',
+    ogTitle: 'Ticino: orari lavoro anticipati per canicola',
+    ogDescription: 'Mozione in Ticino per deroghe agli orari di lavoro durante l\'allerta canicola. Scopri come la proposta punta a tutelare la salute dei lavoratori all\'aperto.',
+    canonicalPath: '/articoli-frontaliere/anticipo-orari-lavoro-canicola-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino: orari di lavoro anticipati per l'allerta canicola",
+      "description": "Mozione in Ticino per deroghe agli orari di lavoro durante l'allerta canicola. Scopri come la proposta punta a tutelare la salute dei lavoratori all'aperto.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/anticipo-orari-lavoro-canicola-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantiere edile in Ticino durante una giornata di sole con lavoratori"
+      },
+      "datePublished": "2026-07-23T03:27:55+00:00",
+      "dateModified": "2026-07-23T03:27:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/anticipo-orari-lavoro-canicola-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-permessi-g': {
+    title: 'Richiesta nuovo permesso per frontalieri (G) - Repubblica e Cantone Ticino',
+    description: 'I frontalieri devono notificare la propria presenza al Comune in cui pernotta in Svizzera e devono presentarsi presso uno dei posti di Gendarmeria per il',
+    keywords: 'frontalieri, ticino, svizzera, italia, richiesta, nuovo, permesso, repubblica',
+    ogTitle: 'Richiesta nuovo permesso per frontalieri (G) - Repubblica e Cantone Ticino',
+    ogDescription: 'I frontalieri devono notificare la propria presenza al Comune in cui pernotta in Svizzera e devono presentarsi presso uno dei posti di Gendarmeria per il',
+    canonicalPath: '/articoli-frontaliere/frontalieri-permessi-g',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Richiesta nuovo permesso per frontalieri (G) - Repubblica e Cantone Ticino",
+      "description": "I frontalieri devono notificare la propria presenza al Comune in cui pernotta in Svizzera e devono presentarsi presso uno dei posti di Gendarmeria per il",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-permessi-g.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere in attesa di passare il confine italo-svizzero."
+      },
+      "datePublished": "2026-07-23T03:50:52+00:00",
+      "dateModified": "2026-07-23T03:50:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-permessi-g/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sempre-meno-frontalieri-ticino-calof-lievelie': {
+    title: 'Sempre meno frontalieri in Ticino: calo lieve ma costante',
+    description: 'Il numero di frontalieri registrati in Ticino si è attestato a 78.562 unità, segnando una lieve flessione rispetto ai periodi precedenti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, sempre, meno, calo, lieve',
+    ogTitle: 'Sempre meno frontalieri in Ticino: calo lieve ma costante',
+    ogDescription: 'Il numero di frontalieri registrati in Ticino si è attestato a 78.562 unità, segnando una lieve flessione rispetto ai periodi precedenti.',
+    canonicalPath: '/articoli-frontaliere/sempre-meno-frontalieri-ticino-calof-lievelie',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sempre meno frontalieri in Ticino: calo lieve ma costante",
+      "description": "Il numero di frontalieri registrati in Ticino si è attestato a 78.562 unità, segnando una lieve flessione rispetto ai periodi precedenti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sempre-meno-frontalieri-ticino-calof-lievelie.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere guarda con preoccupazione il numero di frontalieri in Ticino, con un riflesso sul lago di Lugano allo sfondo."
+      },
+      "datePublished": "2026-07-23T04:20:56+00:00",
+      "dateModified": "2026-07-23T04:20:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sempre-meno-frontalieri-ticino-calof-lievelie/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

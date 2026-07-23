@@ -1,18 +1,19 @@
 {
   "key": "victorinox",
   "label": "Victorinox",
-  "generatedAt": "2026-07-21T22:07:04.290Z",
-  "total": 14,
-  "newCount": 1,
-  "updatedCount": 12,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 11497,
-  "avgDurationMs": 11497,
+  "generatedAt": "2026-07-22T22:07:13.225Z",
+  "total": 13,
+  "newCount": 0,
+  "updatedCount": 13,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 10894,
+  "avgDurationMs": 10894,
   "durationHistory": [
-    11497
+    10894
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "victorinox-ac39f6f7b448",
       "slug": "business-application-supporter-m-w-d-victorinox-ibach-schwyz",
@@ -20,13 +21,13 @@
       "companyKey": "victorinox",
       "companyDomain": "victorinox.com",
       "title": "Business Application Supporter m/w/d",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Ibach-Schwyz",
       "canton": "SZ",
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-business-application-supporter-m-w-d_249.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:06:53.937Z",
+      "crawledAt": "2026-07-22T22:07:03.547Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -43,16 +44,15 @@
       "postedDate": "2026-07-21",
       "applyUrl": "https://victorinox-career.talent-soft.com/stelle/stelle-business-application-supporter-m-w-d_249.aspx",
       "jobReqId": "2026-249",
-      "_qualityScore": 69,
+      "firstSeenAt": "2026-07-21T22:06:53.937Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "victorinox-f97b4f940ca3",
       "slug": "business-application-integration-manager-erp-m-w-d-victorinox-ibach-schwyz",
@@ -66,7 +66,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-business-application-integration-manager-erp-m-w-d_248.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:06:54.514Z",
+      "crawledAt": "2026-07-22T22:07:04.112Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -105,7 +105,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-trade-compliance-specialist-m-w-d_247.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:06:55.104Z",
+      "crawledAt": "2026-07-22T22:07:04.671Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -144,7 +144,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-brand-strategy-manager-m-w-d_244.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:06:55.653Z",
+      "crawledAt": "2026-07-22T22:07:05.230Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -183,7 +183,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-sales-assistant-zermatt-m-w-d_241.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:06:56.202Z",
+      "crawledAt": "2026-07-22T22:07:05.791Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -222,7 +222,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-fachgruppenleiter-rundpolieren-m-w-d_237.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:06:56.793Z",
+      "crawledAt": "2026-07-22T22:07:06.351Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -261,7 +261,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-betriebsspezialist-m-w-d_238.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:06:57.341Z",
+      "crawledAt": "2026-07-22T22:07:06.944Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -300,7 +300,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-logistik-und-betriebsspezialist-m-w-d_236.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:06:57.878Z",
+      "crawledAt": "2026-07-22T22:07:07.510Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -339,7 +339,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-initiativbewerbung-ibach-m-w-d_209.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:06:58.415Z",
+      "crawledAt": "2026-07-22T22:07:08.068Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -378,7 +378,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-graphic-designer-m-w-d_233.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:06:58.954Z",
+      "crawledAt": "2026-07-22T22:07:08.634Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -417,7 +417,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-mitarbeiter-logistik-pick-pack-m-w-d_235.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:06:59.496Z",
+      "crawledAt": "2026-07-22T22:07:09.187Z",
       "addressLocality": "Seewen-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -456,7 +456,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-quality-coordinator-h-f-d_229.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:07:00.038Z",
+      "crawledAt": "2026-07-22T22:07:09.750Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "streetAddress": "",
@@ -495,7 +495,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-initiativbewerbung-delemont-m-w-d_211.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:07:00.589Z",
+      "crawledAt": "2026-07-22T22:07:10.334Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "streetAddress": "",
@@ -522,8 +522,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "victorinox-cc7818c12e2b",
       "slug": "it-support-specialista-m-w-d-victorinox-ibach-schwyz",
@@ -556,7 +555,7 @@
       "firstSeenAt": "2026-07-04T12:22:22.012Z",
       "salaryMin": 74500,
       "salaryMax": 127000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -565,5 +564,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

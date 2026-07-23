@@ -1,7 +1,61 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-07-21T23:09:30.387Z",
+  "assembledAt": "2026-07-22T23:28:48.225Z",
   "jobs": [
+    {
+      "id": "alpiq-4d715dc319cd",
+      "slug": "market-risk-manager-all-90-100-alpiq-olten",
+      "slugByLocale": {
+        "it": "market-risk-manager-all-90-100-alpiq-olten"
+      },
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Market Risk Manager (all) 90-100%",
+      "titleByLocale": {
+        "it": "Market Risk Manager (all) 90-100%"
+      },
+      "description": "Market Risk Manager (all) 90-100%\n\nOur CompanyAlpiq is one of Switzerland&rsquo;s leading electricity producers and a key energy services provider across Europe. Headquartered in Lausanne and powered by a strong portfolio of hydropower, nuclear, and renewable energy sources, we&rsquo;re all about impact, for the climate, for people, and for the&hellip;\n\nOlten - 100%\nPermanent",
+      "descriptionByLocale": {
+        "it": "Market Risk Manager (all) 90-100%\n\nOur CompanyAlpiq is one of Switzerland&rsquo;s leading electricity producers and a key energy services provider across Europe. Headquartered in Lausanne and powered by a strong portfolio of hydropower, nuclear, and renewable energy sources, we&rsquo;re all about impact, for the climate, for people, and for the&hellip;\n\nOlten - 100%\nPermanent"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "location": "Olten",
+      "canton": "",
+      "postalCode": "4600",
+      "streetAddress": "",
+      "addressLocality": "Olten",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-22",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9599",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9599&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-22T23:28:45.496Z",
+      "country": "CH",
+      "salaryMin": 96000,
+      "salaryMax": 146500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 146500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-22T23:28:45.496Z"
+    },
     {
       "id": "alpiq-c0ef4d9c8b9f",
       "slug": "product-manager-trading-and-origination-all-100-alpiq-olten",
@@ -47,7 +101,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T23:09:28.248Z",
+      "crawledAt": "2026-07-22T23:28:45.495Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -108,7 +162,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9598&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T23:09:28.248Z",
+      "crawledAt": "2026-07-22T23:28:45.495Z",
       "firstSeenAt": "2026-07-16T23:01:54.449Z",
       "country": "CH",
       "salaryMin": 68000,
@@ -179,7 +233,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9601&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T23:09:28.247Z",
+      "crawledAt": "2026-07-22T23:28:45.496Z",
       "firstSeenAt": "2026-07-06T12:57:17.444Z",
       "country": "CH",
       "salaryMin": 68000,
@@ -248,7 +302,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9606&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T23:09:28.248Z",
+      "crawledAt": "2026-07-22T12:02:04.254Z",
       "firstSeenAt": "2026-07-06T12:57:17.445Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -263,6 +317,7 @@
           "unitText": "YEAR"
         }
       },
+      "crawlerMissStreak": 1,
       "previousSlugsByLocale": {
         "it": [
           "head-internal-audit-all-100-alpiq-olten"
@@ -317,7 +372,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T23:09:28.247Z",
+      "crawledAt": "2026-07-22T23:28:45.495Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -383,7 +438,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T23:09:28.246Z",
+      "crawledAt": "2026-07-22T23:28:45.494Z",
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 61,
       "retranslationAttempts": 3,

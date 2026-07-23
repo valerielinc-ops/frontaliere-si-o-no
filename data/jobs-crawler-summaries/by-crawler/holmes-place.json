@@ -1,16 +1,16 @@
 {
   "key": "holmes-place",
   "label": "Holmes Place",
-  "generatedAt": "2026-07-21T23:15:36.008Z",
+  "generatedAt": "2026-07-22T22:56:10.900Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4803,
-  "avgDurationMs": 4803,
+  "durationMs": 5125,
+  "avgDurationMs": 5125,
   "durationHistory": [
-    4803
+    5125
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.holmesplace.ch/de/karriere",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T23:15:34.071Z",
+      "crawledAt": "2026-07-22T22:56:09.169Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -39,7 +39,7 @@
       "sector": "Fitness / Wellness",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-21",
+      "postedDate": "2026-07-22",
       "applyUrl": "https://www.holmesplace.ch/de/karriere",
       "_qualityScore": 56,
       "_qualityBreakdown": {

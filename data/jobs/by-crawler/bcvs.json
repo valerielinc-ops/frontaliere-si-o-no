@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bcvs",
-  "assembledAt": "2026-07-21T22:47:37.061Z",
+  "assembledAt": "2026-07-22T22:23:31.314Z",
   "jobs": [
     {
       "id": "bcvs-eb1d10e603b7",
@@ -33,7 +33,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/specialiste-tresorerie-devises-2540",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:47:31.895Z",
+      "crawledAt": "2026-07-22T22:23:28.035Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -68,15 +68,20 @@
         "investment-specialist-bcvs-sion",
         "specialista-in-investimenti-banque-cantonale-du-valais-sion",
         "specialiste-en-investissement-banque-cantonale-du-valais-sion",
-        "specialiste-tresorerie-devises-bcvs-sion"
+        "specialiste-tresorerie-devises-bcvs-sion",
+        "specialiste-tresorerie-devises-banque-cantonale-du-valais-sion",
+        "tesore-specializzato-valuta-banque-cantonale-du-valais-sion"
       ],
       "firstSeenAt": "2026-05-06T21:27:36.448Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-tresorerie-devises-bcvs-sion"
+          "specialiste-tresorerie-devises-bcvs-sion",
+          "tesore-specializzato-valuta-banque-cantonale-du-valais-sion"
         ],
         "fr": [
-          "specialiste-tresorerie-devises-bcvs-sion"
+          "specialiste-tresorerie-devises-bcvs-sion",
+          "specialiste-tresorerie-devises-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "specialiste-tresorerie-devises-bcvs-sion"
@@ -105,7 +110,7 @@
         "it": "personale-credito-back-office-banque-cantonale-du-valais-sion",
         "en": "personnel-credit-back-office-banque-cantonale-du-valais-sion",
         "de": "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
-        "fr": "personnel-departement-crediteur-banque-cantonale-du-valais-sion"
+        "fr": "employe-de-bureau-de-pret-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -129,7 +134,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/sachbearbeiter-in-kredit-backoffice-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:47:31.419Z",
+      "crawledAt": "2026-07-22T22:23:27.528Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -149,18 +154,22 @@
       "previousSlugs": [
         "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
         "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
+        "personnel-departement-crediteur-banque-cantonale-du-valais-sion",
+        "personale-credito-back-office-banque-cantonale-du-valais-sion",
         "employe-de-bureau-de-pret-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
-          "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion"
+          "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
+          "personale-credito-back-office-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion"
         ],
         "fr": [
           "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
+          "personnel-departement-crediteur-banque-cantonale-du-valais-sion",
           "employe-de-bureau-de-pret-banque-cantonale-du-valais-sion"
         ]
       },
@@ -209,7 +218,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-fichier-central-2593",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:47:30.944Z",
+      "crawledAt": "2026-07-22T22:23:27.020Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -237,12 +246,14 @@
       },
       "previousSlugs": [
         "gestionnaire-fichier-central-bcvs-sion",
-        "gestionnaire-fichier-central-banque-cantonale-du-valais-sion"
+        "gestionnaire-fichier-central-banque-cantonale-du-valais-sion",
+        "gestione-file-centrale-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-fichier-central-bcvs-sion",
-          "gestionnaire-fichier-central-banque-cantonale-du-valais-sion"
+          "gestionnaire-fichier-central-banque-cantonale-du-valais-sion",
+          "gestione-file-centrale-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "gestionnaire-fichier-central-bcvs-sion"
@@ -252,6 +263,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T10:53:41.259Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -296,7 +308,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-conseillere-bancaire-2596",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:47:30.326Z",
+      "crawledAt": "2026-07-22T22:23:26.607Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -327,11 +339,13 @@
         ]
       },
       "previousSlugs": [
-        "conseiller-conseillere-bancaire-bcvs-sierre"
+        "conseiller-conseillere-bancaire-bcvs-sierre",
+        "consulente-bancario-banque-cantonale-du-valais-sierre"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-bancaire-bcvs-sierre"
+          "conseiller-conseillere-bancaire-bcvs-sierre",
+          "consulente-bancario-banque-cantonale-du-valais-sierre"
         ],
         "en": [
           "conseiller-conseillere-bancaire-bcvs-sierre"
@@ -341,6 +355,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:12:48.710Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -385,7 +400,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-conseillere-clientele-des-entreprises-valais-central-2598",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:47:29.703Z",
+      "crawledAt": "2026-07-22T22:23:26.195Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -417,11 +432,13 @@
         ]
       },
       "previousSlugs": [
-        "conseiller-conseillere-clientele-des-entreprises-valais-central-bcvs-sion"
+        "conseiller-conseillere-clientele-des-entreprises-valais-central-bcvs-sion",
+        "business-advisor-vallese-centrale-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-clientele-des-entreprises-valais-central-bcvs-sion"
+          "conseiller-conseillere-clientele-des-entreprises-valais-central-bcvs-sion",
+          "business-advisor-vallese-centrale-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "conseiller-conseillere-clientele-des-entreprises-valais-central-bcvs-sion"
@@ -431,6 +448,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:01:18.698Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -475,7 +493,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/sales-manager-2600",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:47:29.232Z",
+      "crawledAt": "2026-07-22T22:23:25.783Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -509,17 +527,20 @@
         ]
       },
       "previousSlugs": [
-        "sales-manager-bcvs-sion"
+        "sales-manager-bcvs-sion",
+        "responsabile-vendite-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-manager-bcvs-sion"
+          "sales-manager-bcvs-sion",
+          "responsabile-vendite-banque-cantonale-du-valais-sion"
         ],
         "de": [
           "sales-manager-bcvs-sion"
         ]
       },
       "firstSeenAt": "2026-07-07T12:01:18.257Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -564,7 +585,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-des-prives-individuelle-2605",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:47:28.758Z",
+      "crawledAt": "2026-07-22T22:23:25.267Z",
       "addressLocality": "Monthey",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -597,11 +618,13 @@
         ]
       },
       "previousSlugs": [
-        "conseiller-ere-clientele-des-prives-individuelle-bcvs-monthey"
+        "conseiller-ere-clientele-des-prives-individuelle-bcvs-monthey",
+        "consulente-privato-cliente-individuale-banque-cantonale-du-valais-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-clientele-des-prives-individuelle-bcvs-monthey"
+          "conseiller-ere-clientele-des-prives-individuelle-bcvs-monthey",
+          "consulente-privato-cliente-individuale-banque-cantonale-du-valais-monthey"
         ],
         "en": [
           "conseiller-ere-clientele-des-prives-individuelle-bcvs-monthey"
@@ -611,6 +634,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T21:59:37.307Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -620,6 +644,190 @@
           "@type": "QuantitativeValue",
           "minValue": 60500,
           "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "bcvs-0f1acacc42ab",
+      "slug": "collaboratore-privato-del-cliente-banque-cantonale-du-valais-sion",
+      "slugByLocale": {
+        "it": "collaboratore-privato-del-cliente-banque-cantonale-du-valais-sion",
+        "en": "private-client-collaborator-banque-cantonale-du-valais-sion",
+        "de": "private-client-mitarbeiter-banque-cantonale-du-valais-sion",
+        "fr": "collaborateur-trice-clientele-des-prives-bcvs-sion"
+      },
+      "company": "Banque Cantonale du Valais",
+      "companyKey": "bcvs",
+      "companyDomain": "bcvs.ch",
+      "title": "Collaborateur-trice clientèle des privés",
+      "titleByLocale": {
+        "it": "Collaboratore privato del cliente",
+        "en": "Private Client Collaborator",
+        "de": "Private Client Mitarbeiter",
+        "fr": "Collaborateur-trice clientèle des privés"
+      },
+      "description": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nCollaborateur-trice clientèle des privés\n\n• Sion\n\n• 80-100%\n\nVous êtes au bénéfice d’une formation commerciale et disposez d’une première expérience du monde bancaire et/ou administrative? Si vous recherchez une opportunité où valoriser vos compétences et potentiellement évoluer vers des activités de conseil à la clientèle, ce poste est votre chance.\n\nConcrètement ?\n\n• Vous assisterez les conseillers à la clientèle des privés par des activités de soutien au conseil et à la vente\n\n• Vous répondrez aux demandes des clients aussi bien pour les prestations de base que les aspects liés aux crédits et placements\n\n• Vous vous formerez de manière permanente sur les directives et développerez vos connaissances des prestations et produits à disposition de ce type de clientèle (crédits hypothécaires et placements).\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation commerciale avec d’excellentes habiletés relationnelles\n\n• Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et appréciez le travail en équipe\n\n• Maîtrisant les outils informatiques, vous avez de fortes capacités analytiques\n\n• Vous êtes capable de gérer vos priorités et de travailler de manière autonome\n\nVous souhaitez nous rejoindre ?\n Rencontrons-nous !\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, d’ici au 14 août 2026 à l’adresse: recrutement@bcvs.ch .",
+      "descriptionByLocale": {
+        "it": "Nessun risultato\n\n•\n\nContatta un consulente Contatta un consulente\n\nGatto\n\nCollaboratore privato del cliente\n\n• Zion\n\n• 80-100%\n\nSi beneficia di formazione commerciale e si ha la prima esperienza nel mondo bancario e/o amministrativo? Se siete alla ricerca di un'opportunità per valutare le vostre abilità e potenzialmente evolvere in attività di consulenza clienti, questa posizione è la vostra occasione.\n\nIn particolare?\n\n• Aiuterai i clienti privati attraverso attività di consulenza e assistenza alle vendite\n\n• Risponderai alle richieste del cliente sia per i benefici di base che per gli aspetti di credito e di investimento\n\n• Ti allenerai continuamente sulle linee guida e svilupperai la tua conoscenza dei benefici e dei prodotti a disposizione di questi tipi di clienti (crediti e investimenti mobili).\n\nVuoi la sfida?\nQuesto post è per voi se...\n\n• Hai una formazione aziendale con eccellenti competenze relazionali\n\n• Dinamica e pragmatica, si beneficia di un forte senso di iniziativa e godere del lavoro di squadra\n\n• Mastering strumenti informatici, hai forti capacità analitiche\n\n• Siete in grado di gestire le vostre priorità e lavorare in modo indipendente\n\nVuoi unirti a noi?\nIncontriamoci!\nNon vediamo l'ora di scoprire la tua applicazione.\nPer fare questo, invia il tuo file completo a Marisa Berclaz, il nostro HR Business Partner, entro il 14 agosto 2026 a: recruit@bcvs.ch .",
+        "en": "No results\n\n•\n\nContact an advisor Contact an advisor\n\nCat\n\nPrivate Client Collaborator\n\n• Zion\n\n• 80-100%\n\nYou benefit from commercial training and have first experience in the banking and/or administrative world? If you are looking for an opportunity to value your skills and potentially evolve into customer consulting activities, this position is your chance.\n\nSpecifically?\n\n• You will assist private clients through counselling and sales support activities\n\n• You will respond to client requests for both basic benefits and credit and investment aspects\n\n• You will continuously train on the guidelines and develop your knowledge of the benefits and products available to these types of clients (mortgage credits and investments).\n\nDo you want the challenge?\nThis post is for you if...\n\n• You have business training with excellent relational skills\n\n• Dynamic and pragmatic, you benefit from a strong sense of initiative and enjoy teamwork\n\n• Mastering computer tools, you have strong analytical capabilities\n\n• You are able to manage your priorities and work independently\n\nWould you like to join us?\nLet's meet!\nWe look forward to discovering your application.\nTo do this, send your complete file to Marisa Berclaz, our HR Business Partner, by 14 August 2026 to: recruitment@bcvs.ch .",
+        "de": "Keine Ergebnisse\n\n•\n\nKontaktieren Sie einen Berater Kontaktieren Sie einen Berater\n\nKatze\n\nPrivate Client Mitarbeiter\n\n• Zion\n\n• 80-100%\n\nSie profitieren von einer kaufmännischen Ausbildung und haben erste Erfahrungen in der Bank- und/oder Verwaltungswelt? Wenn Sie nach einer Möglichkeit suchen, Ihre Fähigkeiten zu schätzen und sich möglicherweise in Kundenberatungsaktivitäten zu entwickeln, ist diese Position Ihre Chance.\n\nKonkret?\n\n• Sie unterstützen Privatkunden durch Beratung und Verkaufsunterstützung\n\n• Sie werden auf Kundenanfragen sowohl für grundlegende Vorteile als auch für Kredit- und Investitionsaspekte antworten.\n\n• Sie werden die Richtlinien kontinuierlich trainieren und Ihr Wissen über die Vorteile und Produkte entwickeln, die diesen Kunden zur Verfügung stehen (Hypothekenkredite und Investitionen).\n\nMöchten Sie die Herausforderung?\nDieser Artikel ist für dich, wenn...\n\n• Sie haben Business-Training mit ausgezeichneten relationalen Fähigkeiten\n\n• Dynamisch und pragmatisch profitieren Sie von einem starken Sinn für Initiative und genießen Teamwork\n\n• Mastering Computer-Tools, haben Sie starke analytische Fähigkeiten\n\n• Sie können Ihre Prioritäten verwalten und unabhängig arbeiten\n\nMöchten Sie sich uns anschließen?\nTreffen wir uns!\nWir freuen uns auf Ihre Bewerbung.\nZu diesem Zweck senden Sie Ihre vollständige Datei bis zum 14. August 2026 an Marisa Berclaz, unseren HR Business Partner, an: recruiting@bcvs.ch .",
+        "fr": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nCollaborateur-trice clientèle des privés\n\n• Sion\n\n• 80-100%\n\nVous êtes au bénéfice d’une formation commerciale et disposez d’une première expérience du monde bancaire et/ou administrative? Si vous recherchez une opportunité où valoriser vos compétences et potentiellement évoluer vers des activités de conseil à la clientèle, ce poste est votre chance.\n\nConcrètement ?\n\n• Vous assisterez les conseillers à la clientèle des privés par des activités de soutien au conseil et à la vente\n\n• Vous répondrez aux demandes des clients aussi bien pour les prestations de base que les aspects liés aux crédits et placements\n\n• Vous vous formerez de manière permanente sur les directives et développerez vos connaissances des prestations et produits à disposition de ce type de clientèle (crédits hypothécaires et placements).\n\nLe défi vous tente ?\nCe poste est fait pour vous si…\n\n• Vous disposez d’une formation commerciale avec d’excellentes habiletés relationnelles\n\n• Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et appréciez le travail en équipe\n\n• Maîtrisant les outils informatiques, vous avez de fortes capacités analytiques\n\n• Vous êtes capable de gérer vos priorités et de travailler de manière autonome\n\nVous souhaitez nous rejoindre ?\nRencontrons-nous !\nNous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, d’ici au 14 août 2026 à l’adresse: recrutement@bcvs.ch ."
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/collaborateur-trice-clientele-des-prives-2620",
+      "source": "Banque Cantonale du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-22T22:23:24.855Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "pensum": "80-100%",
+      "sector": "Banca / Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-22",
+      "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/collaborateur-trice-clientele-des-prives-2620",
+      "requirements": [
+        "Vous disposez d’une formation commerciale avec d’excellentes habiletés relationnelles",
+        "Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et appréciez le travail en équipe",
+        "Maîtrisant les outils informatiques, vous avez de fortes capacités analytiques",
+        "Vous êtes capable de gérer vos priorités et de travailler de manière autonome"
+      ],
+      "requirementsByLocale": {
+        "fr": [
+          "Vous disposez d’une formation commerciale avec d’excellentes habiletés relationnelles",
+          "Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et appréciez le travail en équipe",
+          "Maîtrisant les outils informatiques, vous avez de fortes capacités analytiques",
+          "Vous êtes capable de gérer vos priorités et de travailler de manière autonome"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-clientele-des-prives-bcvs-sion",
+        "collaboratore-privato-del-cliente-banque-cantonale-du-valais-sion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-clientele-des-prives-bcvs-sion",
+          "collaboratore-privato-del-cliente-banque-cantonale-du-valais-sion"
+        ],
+        "en": [
+          "collaborateur-trice-clientele-des-prives-bcvs-sion"
+        ],
+        "de": [
+          "collaborateur-trice-clientele-des-prives-bcvs-sion"
+        ]
+      },
+      "firstSeenAt": "2026-07-22T11:16:24.889Z",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "bcvs-67418c831e60",
+      "slug": "gestione-del-fornitore-individuale-banque-cantonale-du-valais-sion",
+      "slugByLocale": {
+        "it": "gestione-del-fornitore-individuale-banque-cantonale-du-valais-sion",
+        "en": "individual-provident-manager-banque-cantonale-du-valais-sion",
+        "de": "individueller-versorgungsmanager-banque-cantonale-du-valais-sion",
+        "fr": "gestionnaire-prevoyance-individuelle-bcvs-sion"
+      },
+      "company": "Banque Cantonale du Valais",
+      "companyKey": "bcvs",
+      "companyDomain": "bcvs.ch",
+      "title": "Gestionnaire prévoyance individuelle",
+      "titleByLocale": {
+        "it": "Gestione del fornitore individuale",
+        "en": "Individual Provident Manager",
+        "de": "Individueller Versorgungsmanager",
+        "fr": "Gestionnaire prévoyance individuelle"
+      },
+      "description": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nGestionnaire prévoyance individuelle\n\n• Sion\n\n• 80-100%\n\nVous bénéficiez d’une formation commerciale avec une spécialisation dans le domaine de la prévoyance professionnelle ou individuelle. Dans ce contexte, vous disposez d’une expérience approfondie dans le traitement de cas de prévoyance, avec des connaissances pointues des normes légales régissant ce domaine. Si vous recherchez une opportunité où valoriser vos compétences, alors ce poste est votre chance.\n\nConcrètement ?\n\n• Vous gérerez tout genre d’évènements relatifs à la prévoyance pour notre clientèle (accession à la propriété, invalidité, divorce, départ à l’étranger, rachat d’année de cotisation etc.).\n\n• Vous administrerez, sous votre responsabilité, les comptes clients épargne 3 et libre passage ainsi que les contrats de bancassurance.\n\n• Vous échangerez régulièrement avec des intervenants externes (institutions de prévoyance, fonds de garantie, institution supplétive, organe de révision, autorité de surveillance).\n\n• Vous collaborerez à la gestion opérationnelle des fondations épargne 3 et de libre passage BCVs ainsi qu’à l’établissement des comptes annuels.\n\n• Vous veillerez à la qualité et à la rapidité de traitement des dossiers.\n\n• Vous soutiendrez nos clients internes et externes et leur apportez les informations utiles.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation commerciale, avec spécialisation et expérience dans le domaine de la prévoyance individuelle, certificat ou brevet, un atout.\n\n• Vous possédez de bonnes connaissances d’allemand.\n\n• Vous êtes capable de gérer vos priorités et de travailler de manière autonome.\n\n• Vous accordez de l’importance à la qualité et à la précision de votre travail.\n\n• Vous êtes une personne pragmatique et rigoureuse ; vous apportez des solutions d’amélioration de manière constructive et dégagez une aisance relationnelle naturelle.\n\nVous souhaitez nous rejoindre ?\n Rencontrons-nous !\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, d’ici au 14 août 2026 à l’adresse: recrutement@bcvs.ch .",
+      "descriptionByLocale": {
+        "it": "Nessun risultato\n\n•\n\nContatta un consulente Contatta un consulente\n\nGatto\n\nGestione del fornitore individuale\n\n• Zion\n\n• 80-100%\n\nL'interessato beneficia della formazione commerciale con una specializzazione nel settore delle pensioni professionali o individuali. In questo contesto, avete una vasta esperienza nel trattare i casi di previsione, con una conoscenza avanzata delle norme legali che governano questo settore. Se stai cercando un'opportunità per valutare le tue abilità, questa posizione è la tua occasione.\n\nIn particolare?\n\n• Potrai gestire tutti i tipi di eventi di previsione per i nostri clienti (proprietà, disabilità, divorzio, partenza all'estero, buyback di anno di contributo, ecc).\n\n• Potrai amministrare, sotto la vostra responsabilità, risparmi 3 e conti pass gratuiti e contratti di assicurazione bancaria.\n\n• Si scambierà regolarmente con le parti interessate esterne (istituzioni di previsione, fondi di garanzia, istituzione complementare, organo di revisione, autorità di vigilanza).\n\n• Collaborerai nella gestione operativa delle basi di risparmio 3 e BCVs passaggio libero e nella creazione di conti annuali.\n\n• Garantirai la qualità e la velocità di elaborazione dei file.\n\n• Potrai supportare i nostri clienti interni ed esterni e fornire loro informazioni utili.\n\nVuoi la sfida?\nQuesto post è per voi se...\n\n• Hai una formazione commerciale, con specializzazione ed esperienza nel campo della fornitura personale, del certificato o del brevetto, di un bene.\n\n• Hai una buona conoscenza del tedesco.\n\n• Siete in grado di gestire le vostre priorità e lavorare in modo indipendente.\n\n• Apprezzi la qualità e l'accuratezza del tuo lavoro.\n\n• Sei una persona pragmatica e rigorosa; fornisci soluzioni di miglioramento costruttive e crei facilità relazionale naturale.\n\nVuoi unirti a noi?\nIncontriamoci!\nNon vediamo l'ora di scoprire la tua applicazione.\nPer fare questo, invia il tuo file completo a Marisa Berclaz, il nostro HR Business Partner, entro il 14 agosto 2026 a: recruit@bcvs.ch .",
+        "en": "No results\n\n•\n\nContact an advisor Contact an advisor\n\nCat\n\nIndividual Provident Manager\n\n• Zion\n\n• 80-100%\n\nYou benefit from commercial training with a specialisation in the field of occupational or individual pensions. In this context, you have extensive experience in dealing with foresight cases, with advanced knowledge of the legal standards governing this field. If you are looking for an opportunity to value your skills, then this position is your chance.\n\nSpecifically?\n\n• You will manage all kinds of foresight events for our clients (ownership, disability, divorce, departure abroad, buyback of contribution year etc.).\n\n• You will administer, under your responsibility, savings 3 and free pass accounts and bank insurance contracts.\n\n• You will exchange regularly with external stakeholders (foresight institutions, guarantee funds, supplementary institution, review body, supervisory authority).\n\n• You will collaborate in the operational management of the savings foundations 3 and BCVs free passage and in the establishment of annual accounts.\n\n• You will ensure the quality and speed of processing of files.\n\n• You will support our internal and external clients and provide them with useful information.\n\nDo you want the challenge?\nThis post is for you if...\n\n• You have commercial training, with specialisation and experience in the field of personal provision, certificate or patent, an asset.\n\n• You have good knowledge of German.\n\n• You are able to manage your priorities and work independently.\n\n• You value the quality and accuracy of your work.\n\n• You are a pragmatic and rigorous person; you provide constructive improvement solutions and create natural relational ease.\n\nWould you like to join us?\nLet's meet!\nWe look forward to discovering your application.\nTo do this, send your complete file to Marisa Berclaz, our HR Business Partner, by 14 August 2026 to: recruitment@bcvs.ch .",
+        "de": "Keine Ergebnisse\n\n•\n\nKontaktieren Sie einen Berater Kontaktieren Sie einen Berater\n\nKatze\n\nIndividueller Versorgungsmanager\n\n• Zion\n\n• 80-100%\n\nSie profitieren von einer kaufmännischen Ausbildung mit Spezialisierung auf den Bereich der beruflichen oder individuellen Altersvorsorge. In diesem Zusammenhang verfügen Sie über umfangreiche Erfahrungen im Umgang mit Foresight-Fällen, mit fortgeschrittenen Kenntnissen der rechtlichen Standards in diesem Bereich. Wenn Sie nach einer Gelegenheit suchen, Ihre Fähigkeiten zu schätzen, dann ist diese Position Ihre Chance.\n\nKonkret?\n\n• Sie werden alle Arten von Foresight-Events für unsere Kunden verwalten (Eigentum, Invalidität, Scheidung, Ausreise ins Ausland, Rückkauf des Beitragsjahres usw.).\n\n• Sie verwalten unter Ihrer Verantwortung Sparguthaben 3 und Freikartenkonten sowie Bankversicherungsverträge.\n\n• Sie tauschen sich regelmäßig mit externen Stakeholdern (Foresight-Institutionen, Garantiefonds, Zusatzinstitution, Überprüfungsstelle, Aufsichtsbehörde) aus.\n\n• Sie werden in der operativen Verwaltung der Sparkassen 3 und BCVs freie Passage und bei der Erstellung von Jahresabschlüssen zusammenarbeiten.\n\n• Sie werden die Qualität und Geschwindigkeit der Verarbeitung von Dateien sicherstellen.\n\n• Sie unterstützen unsere internen und externen Kunden und stellen ihnen nützliche Informationen zur Verfügung.\n\nMöchten Sie die Herausforderung?\nDieser Artikel ist für dich, wenn...\n\n• Sie haben eine kaufmännische Ausbildung, mit Spezialisierung und Erfahrung auf dem Gebiet der persönlichen Bereitstellung, Zertifikat oder Patent, ein Vermögenswert.\n\n• Sie haben gute Deutschkenntnisse.\n\n• Sie können Ihre Prioritäten verwalten und unabhängig arbeiten.\n\n• Sie schätzen die Qualität und Genauigkeit Ihrer Arbeit.\n\n• Sie sind eine pragmatische und rigorose Person; Sie bieten konstruktive Verbesserungslösungen und schaffen natürliche Beziehungsfreiheit.\n\nMöchten Sie sich uns anschließen?\nTreffen wir uns!\nWir freuen uns auf Ihre Bewerbung.\nZu diesem Zweck senden Sie Ihre vollständige Datei bis zum 14. August 2026 an Marisa Berclaz, unseren HR Business Partner, an: recruiting@bcvs.ch .",
+        "fr": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nGestionnaire prévoyance individuelle\n\n• Sion\n\n• 80-100%\n\nVous bénéficiez d’une formation commerciale avec une spécialisation dans le domaine de la prévoyance professionnelle ou individuelle. Dans ce contexte, vous disposez d’une expérience approfondie dans le traitement de cas de prévoyance, avec des connaissances pointues des normes légales régissant ce domaine. Si vous recherchez une opportunité où valoriser vos compétences, alors ce poste est votre chance.\n\nConcrètement ?\n\n• Vous gérerez tout genre d’évènements relatifs à la prévoyance pour notre clientèle (accession à la propriété, invalidité, divorce, départ à l’étranger, rachat d’année de cotisation etc.).\n\n• Vous administrerez, sous votre responsabilité, les comptes clients épargne 3 et libre passage ainsi que les contrats de bancassurance.\n\n• Vous échangerez régulièrement avec des intervenants externes (institutions de prévoyance, fonds de garantie, institution supplétive, organe de révision, autorité de surveillance).\n\n• Vous collaborerez à la gestion opérationnelle des fondations épargne 3 et de libre passage BCVs ainsi qu’à l’établissement des comptes annuels.\n\n• Vous veillerez à la qualité et à la rapidité de traitement des dossiers.\n\n• Vous soutiendrez nos clients internes et externes et leur apportez les informations utiles.\n\nLe défi vous tente ?\nCe poste est fait pour vous si…\n\n• Vous disposez d’une formation commerciale, avec spécialisation et expérience dans le domaine de la prévoyance individuelle, certificat ou brevet, un atout.\n\n• Vous possédez de bonnes connaissances d’allemand.\n\n• Vous êtes capable de gérer vos priorités et de travailler de manière autonome.\n\n• Vous accordez de l’importance à la qualité et à la précision de votre travail.\n\n• Vous êtes une personne pragmatique et rigoureuse ; vous apportez des solutions d’amélioration de manière constructive et dégagez une aisance relationnelle naturelle.\n\nVous souhaitez nous rejoindre ?\nRencontrons-nous !\nNous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, d’ici au 14 août 2026 à l’adresse: recrutement@bcvs.ch ."
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-prevoyance-individuelle-2622",
+      "source": "Banque Cantonale du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-22T22:23:24.440Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "pensum": "80-100%",
+      "sector": "Banca / Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-22",
+      "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-prevoyance-individuelle-2622",
+      "requirements": [
+        "Vous disposez d’une formation commerciale, avec spécialisation et expérience dans le domaine de la prévoyance individuelle, certificat ou brevet, un atout.",
+        "Vous possédez de bonnes connaissances d’allemand.",
+        "Vous êtes capable de gérer vos priorités et de travailler de manière autonome.",
+        "Vous accordez de l’importance à la qualité et à la précision de votre travail.",
+        "Vous êtes une personne pragmatique et rigoureuse ; vous apportez des solutions d’amélioration de manière constructive et dégagez une aisance relationnelle naturelle."
+      ],
+      "requirementsByLocale": {
+        "fr": [
+          "Vous possédez de bonnes connaissances d’allemand.",
+          "Vous êtes capable de gérer vos priorités et de travailler de manière autonome.",
+          "Vous accordez de l’importance à la qualité et à la précision de votre travail."
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-prevoyance-individuelle-bcvs-sion",
+        "gestionnaire-prevoyance-individuelle-banque-cantonale-du-valais-sion",
+        "gestione-del-fornitore-individuale-banque-cantonale-du-valais-sion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-prevoyance-individuelle-bcvs-sion",
+          "gestionnaire-prevoyance-individuelle-banque-cantonale-du-valais-sion",
+          "gestione-del-fornitore-individuale-banque-cantonale-du-valais-sion"
+        ],
+        "en": [
+          "gestionnaire-prevoyance-individuelle-bcvs-sion"
+        ],
+        "de": [
+          "gestionnaire-prevoyance-individuelle-bcvs-sion"
+        ]
+      },
+      "firstSeenAt": "2026-07-22T11:16:24.476Z",
+      "needsRetranslation": true,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
           "unitText": "YEAR"
         }
       }

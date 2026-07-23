@@ -1,6 +1,6 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-07-21T22:05:07.808Z",
+  "assembledAt": "2026-07-22T22:05:55.082Z",
   "jobs": [
     {
       "id": "talan-6e0c26bb9825",
@@ -34,7 +34,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126720699-developpeur-fiori-sapui5-btp?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:05:05.386Z",
+      "crawledAt": "2026-07-22T22:05:52.816Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -84,6 +84,87 @@
       }
     },
     {
+      "id": "talan-838cc2a04384",
+      "slug": "sviluppatore-abap-s-4hana-talan-geneva",
+      "slugByLocale": {
+        "it": "sviluppatore-abap-s-4hana-talan-geneva",
+        "en": "developer-abap-s-4hana-talan-geneva",
+        "de": "entwickler-abap-s-4hana-talan-geneva",
+        "fr": "developpeur-abap-s-4hana-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Développeur ABAP S/4HANA",
+      "titleByLocale": {
+        "it": "Sviluppatore ABAP S/4HANA",
+        "en": "Developer ABAP S/4HANA",
+        "de": "Entwickler ABAP S/4HANA",
+        "fr": "Développeur ABAP S/4HANA"
+      },
+      "description": "Objectif de la mission :\n Concevoir et développer des solutions techniques performantes dans un environnement SAP S/4HANA. Optimiser les programmes et requêtes pour assurer efficacité, maintenabilité et conformité aux bonnes pratiques SAP. Contribuer activement aux projets de transformation digitale et aux phases de conception technique.\n Responsabilités principales :\n\n• Développement et maintenance de programmes ABAP et ABAP OO.\n\n• Réalisation d’enhancements, BAdI et user-exits pour adapter les fonctionnalités aux besoins métiers.\n\n• Conception de CDS Views et exposition de services OData pour enrichir les applications.\n\n• Optimisation des performances des programmes et des requêtes sur S/4HANA.\n\n• Participation à la conception technique et à l’industrialisation du développement.\n\n• Collaboration avec les équipes fonctionnelles et techniques pour garantir la qualité et la fiabilité des livrables.\n\n• Maîtrise d’ABAP / ABAP OO et développement sur SAP S/4HANA.\n\n• Expérience en CDS Views, OData et performance tuning ABAP.\n\n• Connaissance des frameworks SAP et bonnes pratiques de développement.\n\n• Développement avancé ABAP et technologies modernes (AMDP, Fiori/UI5, SAP BTP).\n\n• Expérience en migration de données et intégration SAP via APIs.\n\n• Connaissance fonctionnelle des modules SAP FI, CO, MM, SD, HR.\n\n• Capacité à industrialiser les processus et appliquer DevOps pour SAP.\n\n• Maitrise du français courant et de l'anglais B2 minimum",
+      "descriptionByLocale": {
+        "it": "Obiettivo della missione: Progettazione e sviluppo di soluzioni tecniche efficienti in un ambiente SAP S/4HANA. Ottimizzare i programmi e le richieste per garantire efficacia, manutenzione e conformità alle best practice SAP. Contribuire attivamente a progetti di trasformazione digitale e fasi di progettazione tecnica. Responsabilità chiave:\n• Sviluppo e manutenzione dei programmi ABAP e ABAP OO.\n• Complimenti, BAdI e user-exits per adattare la funzionalità alle esigenze aziendali.\n• CDS Visualizza la mostra di progettazione e servizio OData per arricchire le applicazioni.\n• Ottimizzazione delle prestazioni e delle domande del programma su S/4HANA.\n• Partecipazione alla progettazione tecnica e all'industrializzazione dello sviluppo.\n• Collaborazione con team funzionali e tecnici per garantire la qualità e l'affidabilità dei prodotti.\n• Mastery di ABAP / ABAP OO e sviluppo su SAP S/4HANA.\n• Esperienza in CDS Views, OData e ABAP tuning prestazioni.\n• Conoscenza dei framework SAP e buone pratiche di sviluppo.\n• Sviluppo avanzato ABAP e tecnologie moderne (AMDP, Fiori/UI5, SAP BTP).\n• Esperienza nella migrazione dei dati e integrazione SAP tramite API.\n• Conoscenza funzionale dei moduli SAP FI, CO, MM, SD, HR.\n• Capacità di industrializzare i processi e applicare DevOps per SAP.\n• Mastery dell'attuale francese e minimo inglese B2",
+        "en": "Mission objective: Design and develop efficient technical solutions in a SAP S/4HANA environment. Optimize programs and requests to ensure effectiveness, maintenance and compliance with SAP best practices. Actively contribute to digital transformation projects and technical design phases. Key responsibilities:\n• Development and maintenance of ABAP and ABAP OO programs.\n• Accomplishments, BAdI and user-exits to adapt functionality to business needs.\n• CDS Views design and OData service exhibition to enrich applications.\n• Optimizing program performance and queries on S/4HANA.\n• Participation in the technical design and industrialization of development.\n• Collaboration with functional and technical teams to ensure the quality and reliability of deliverables.\n• Mastery of ABAP / ABAP OO and development on SAP S/4HANA.\n• Experience in CDS Views, OData and ABAP tuning performance.\n• Knowledge of SAP frameworks and good development practices.\n• Advanced development ABAP and modern technologies (AMDP, Fiori/UI5, SAP BTP).\n• Experience in data migration and SAP integration via APIs.\n• Functional knowledge of SAP FI, CO, MM, SD, HR modules.\n• Ability to industrialize processes and apply DevOps for SAP.\n• Mastery of current French and minimum English B2",
+        "de": "Missionsziel: Design und Entwicklung effizienter technischer Lösungen in einer SAP S/4HANA-Umgebung. Optimieren Sie Programme und Anforderungen, um die Effektivität, Wartung und Einhaltung der Best Practices von SAP sicherzustellen. Tragen Sie aktiv zu digitalen Transformationsprojekten und technischen Designphasen bei. Hauptzuständigkeiten:\n• Entwicklung und Wartung von ABAP und ABAP OO Programmen.\n• Leistungen, BAdI und User-Exits zur Anpassung der Funktionalität an die Geschäftsanforderungen.\n• CDS Views Design und OData Service Ausstellung, um Anwendungen zu bereichern.\n• Optimierung der Programmleistung und Abfragen auf S/4HANA.\n• Teilnahme an der technischen Gestaltung und Industrialisierung der Entwicklung.\n• Zusammenarbeit mit funktionalen und technischen Teams, um die Qualität und Zuverlässigkeit der Ergebnisse zu gewährleisten.\n• Beherrschung von ABAP / ABAP OO und Entwicklung auf SAP S/4HANA.\n• Erfahrung in CDS Views, OData und ABAP Tuning Performance.\n• Kenntnisse über SAP-Frameworks und gute Entwicklungspraktiken.\n• Fortgeschrittene Entwicklung ABAP und moderne Technologien (AMDP, Fiori/UI5, SAP BTP).\n• Erfahrung in Datenmigration und SAP-Integration über APIs.\n• Funktionale Kenntnisse der SAP FI, CO, MM, SD, HR Module.\n• Fähigkeit, Prozesse zu industrialisieren und DevOps für SAP anzuwenden.\n• Beherrschung der aktuellen Französisch und Mindest Englisch B2",
+        "fr": "Objectif de la mission :\nConcevoir et développer des solutions techniques performantes dans un environnement SAP S/4HANA. Optimiser les programmes et requêtes pour assurer efficacité, maintenabilité et conformité aux bonnes pratiques SAP. Contribuer activement aux projets de transformation digitale et aux phases de conception technique.\nResponsabilités principales :\n\n• Développement et maintenance de programmes ABAP et ABAP OO.\n\n• Réalisation d’enhancements, BAdI et user-exits pour adapter les fonctionnalités aux besoins métiers.\n\n• Conception de CDS Views et exposition de services OData pour enrichir les applications.\n\n• Optimisation des performances des programmes et des requêtes sur S/4HANA.\n\n• Participation à la conception technique et à l’industrialisation du développement.\n\n• Collaboration avec les équipes fonctionnelles et techniques pour garantir la qualité et la fiabilité des livrables.\n\n• Maîtrise d’ABAP / ABAP OO et développement sur SAP S/4HANA.\n\n• Expérience en CDS Views, OData et performance tuning ABAP.\n\n• Connaissance des frameworks SAP et bonnes pratiques de développement.\n\n• Développement avancé ABAP et technologies modernes (AMDP, Fiori/UI5, SAP BTP).\n\n• Expérience en migration de données et intégration SAP via APIs.\n\n• Connaissance fonctionnelle des modules SAP FI, CO, MM, SD, HR.\n\n• Capacité à industrialiser les processus et appliquer DevOps pour SAP.\n\n• Maitrise du français courant et de l'anglais B2 minimum"
+      },
+      "needsRetranslation": false,
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-22T22:05:52.815Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-15",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
+      "jobReqId": "744000126717821",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "developpeur-abap-s-4hana-talan-geneva-ge-switzerland",
+        "sviluppatore-abap-s-4hana-talan-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "developpeur-abap-s-4hana-talan-geneva-ge-switzerland",
+          "sviluppatore-abap-s-4hana-talan-geneva"
+        ],
+        "en": [
+          "developpeur-abap-s-4hana-talan-geneva-ge-switzerland"
+        ],
+        "de": [
+          "developpeur-abap-s-4hana-talan-geneva-ge-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-07-03T23:41:37.239Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-eb62a0c9e410",
       "slug": "consulente-e-fonctionnel-le-sap-fi-co-talan-geneva",
       "slugByLocale": {
@@ -114,7 +195,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000112844097-consultant-e-fonctionnel-le-sap-fi-co?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:05:05.386Z",
+      "crawledAt": "2026-07-22T22:05:52.815Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -191,7 +272,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126720720-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:05:05.385Z",
+      "crawledAt": "2026-07-22T22:05:52.814Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -241,87 +322,6 @@
       }
     },
     {
-      "id": "talan-838cc2a04384",
-      "slug": "sviluppatore-abap-s-4hana-talan-geneva",
-      "slugByLocale": {
-        "it": "sviluppatore-abap-s-4hana-talan-geneva",
-        "en": "developer-abap-s-4hana-talan-geneva",
-        "de": "entwickler-abap-s-4hana-talan-geneva",
-        "fr": "developpeur-abap-s-4hana-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Développeur ABAP S/4HANA",
-      "titleByLocale": {
-        "it": "Sviluppatore ABAP S/4HANA",
-        "en": "Developer ABAP S/4HANA",
-        "de": "Entwickler ABAP S/4HANA",
-        "fr": "Développeur ABAP S/4HANA"
-      },
-      "description": "Objectif de la mission :\n Concevoir et développer des solutions techniques performantes dans un environnement SAP S/4HANA. Optimiser les programmes et requêtes pour assurer efficacité, maintenabilité et conformité aux bonnes pratiques SAP. Contribuer activement aux projets de transformation digitale et aux phases de conception technique.\n Responsabilités principales :\n\n• Développement et maintenance de programmes ABAP et ABAP OO.\n\n• Réalisation d’enhancements, BAdI et user-exits pour adapter les fonctionnalités aux besoins métiers.\n\n• Conception de CDS Views et exposition de services OData pour enrichir les applications.\n\n• Optimisation des performances des programmes et des requêtes sur S/4HANA.\n\n• Participation à la conception technique et à l’industrialisation du développement.\n\n• Collaboration avec les équipes fonctionnelles et techniques pour garantir la qualité et la fiabilité des livrables.\n\n• Maîtrise d’ABAP / ABAP OO et développement sur SAP S/4HANA.\n\n• Expérience en CDS Views, OData et performance tuning ABAP.\n\n• Connaissance des frameworks SAP et bonnes pratiques de développement.\n\n• Développement avancé ABAP et technologies modernes (AMDP, Fiori/UI5, SAP BTP).\n\n• Expérience en migration de données et intégration SAP via APIs.\n\n• Connaissance fonctionnelle des modules SAP FI, CO, MM, SD, HR.\n\n• Capacité à industrialiser les processus et appliquer DevOps pour SAP.\n\n• Maitrise du français courant et de l'anglais B2 minimum",
-      "descriptionByLocale": {
-        "it": "Obiettivo della missione: Progettazione e sviluppo di soluzioni tecniche efficienti in un ambiente SAP S/4HANA. Ottimizzare i programmi e le richieste per garantire efficacia, manutenzione e conformità alle best practice SAP. Contribuire attivamente a progetti di trasformazione digitale e fasi di progettazione tecnica. Responsabilità chiave:\n• Sviluppo e manutenzione dei programmi ABAP e ABAP OO.\n• Complimenti, BAdI e user-exits per adattare la funzionalità alle esigenze aziendali.\n• CDS Visualizza la mostra di progettazione e servizio OData per arricchire le applicazioni.\n• Ottimizzazione delle prestazioni e delle domande del programma su S/4HANA.\n• Partecipazione alla progettazione tecnica e all'industrializzazione dello sviluppo.\n• Collaborazione con team funzionali e tecnici per garantire la qualità e l'affidabilità dei prodotti.\n• Mastery di ABAP / ABAP OO e sviluppo su SAP S/4HANA.\n• Esperienza in CDS Views, OData e ABAP tuning prestazioni.\n• Conoscenza dei framework SAP e buone pratiche di sviluppo.\n• Sviluppo avanzato ABAP e tecnologie moderne (AMDP, Fiori/UI5, SAP BTP).\n• Esperienza nella migrazione dei dati e integrazione SAP tramite API.\n• Conoscenza funzionale dei moduli SAP FI, CO, MM, SD, HR.\n• Capacità di industrializzare i processi e applicare DevOps per SAP.\n• Mastery dell'attuale francese e minimo inglese B2",
-        "en": "Mission objective: Design and develop efficient technical solutions in a SAP S/4HANA environment. Optimize programs and requests to ensure effectiveness, maintenance and compliance with SAP best practices. Actively contribute to digital transformation projects and technical design phases. Key responsibilities:\n• Development and maintenance of ABAP and ABAP OO programs.\n• Accomplishments, BAdI and user-exits to adapt functionality to business needs.\n• CDS Views design and OData service exhibition to enrich applications.\n• Optimizing program performance and queries on S/4HANA.\n• Participation in the technical design and industrialization of development.\n• Collaboration with functional and technical teams to ensure the quality and reliability of deliverables.\n• Mastery of ABAP / ABAP OO and development on SAP S/4HANA.\n• Experience in CDS Views, OData and ABAP tuning performance.\n• Knowledge of SAP frameworks and good development practices.\n• Advanced development ABAP and modern technologies (AMDP, Fiori/UI5, SAP BTP).\n• Experience in data migration and SAP integration via APIs.\n• Functional knowledge of SAP FI, CO, MM, SD, HR modules.\n• Ability to industrialize processes and apply DevOps for SAP.\n• Mastery of current French and minimum English B2",
-        "de": "Missionsziel: Design und Entwicklung effizienter technischer Lösungen in einer SAP S/4HANA-Umgebung. Optimieren Sie Programme und Anforderungen, um die Effektivität, Wartung und Einhaltung der Best Practices von SAP sicherzustellen. Tragen Sie aktiv zu digitalen Transformationsprojekten und technischen Designphasen bei. Hauptzuständigkeiten:\n• Entwicklung und Wartung von ABAP und ABAP OO Programmen.\n• Leistungen, BAdI und User-Exits zur Anpassung der Funktionalität an die Geschäftsanforderungen.\n• CDS Views Design und OData Service Ausstellung, um Anwendungen zu bereichern.\n• Optimierung der Programmleistung und Abfragen auf S/4HANA.\n• Teilnahme an der technischen Gestaltung und Industrialisierung der Entwicklung.\n• Zusammenarbeit mit funktionalen und technischen Teams, um die Qualität und Zuverlässigkeit der Ergebnisse zu gewährleisten.\n• Beherrschung von ABAP / ABAP OO und Entwicklung auf SAP S/4HANA.\n• Erfahrung in CDS Views, OData und ABAP Tuning Performance.\n• Kenntnisse über SAP-Frameworks und gute Entwicklungspraktiken.\n• Fortgeschrittene Entwicklung ABAP und moderne Technologien (AMDP, Fiori/UI5, SAP BTP).\n• Erfahrung in Datenmigration und SAP-Integration über APIs.\n• Funktionale Kenntnisse der SAP FI, CO, MM, SD, HR Module.\n• Fähigkeit, Prozesse zu industrialisieren und DevOps für SAP anzuwenden.\n• Beherrschung der aktuellen Französisch und Mindest Englisch B2",
-        "fr": "Objectif de la mission :\nConcevoir et développer des solutions techniques performantes dans un environnement SAP S/4HANA. Optimiser les programmes et requêtes pour assurer efficacité, maintenabilité et conformité aux bonnes pratiques SAP. Contribuer activement aux projets de transformation digitale et aux phases de conception technique.\nResponsabilités principales :\n\n• Développement et maintenance de programmes ABAP et ABAP OO.\n\n• Réalisation d’enhancements, BAdI et user-exits pour adapter les fonctionnalités aux besoins métiers.\n\n• Conception de CDS Views et exposition de services OData pour enrichir les applications.\n\n• Optimisation des performances des programmes et des requêtes sur S/4HANA.\n\n• Participation à la conception technique et à l’industrialisation du développement.\n\n• Collaboration avec les équipes fonctionnelles et techniques pour garantir la qualité et la fiabilité des livrables.\n\n• Maîtrise d’ABAP / ABAP OO et développement sur SAP S/4HANA.\n\n• Expérience en CDS Views, OData et performance tuning ABAP.\n\n• Connaissance des frameworks SAP et bonnes pratiques de développement.\n\n• Développement avancé ABAP et technologies modernes (AMDP, Fiori/UI5, SAP BTP).\n\n• Expérience en migration de données et intégration SAP via APIs.\n\n• Connaissance fonctionnelle des modules SAP FI, CO, MM, SD, HR.\n\n• Capacité à industrialiser les processus et appliquer DevOps pour SAP.\n\n• Maitrise du français courant et de l'anglais B2 minimum"
-      },
-      "needsRetranslation": false,
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:05:05.385Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-15",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
-      "jobReqId": "744000126717821",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "developpeur-abap-s-4hana-talan-geneva-ge-switzerland",
-        "sviluppatore-abap-s-4hana-talan-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "developpeur-abap-s-4hana-talan-geneva-ge-switzerland",
-          "sviluppatore-abap-s-4hana-talan-geneva"
-        ],
-        "en": [
-          "developpeur-abap-s-4hana-talan-geneva-ge-switzerland"
-        ],
-        "de": [
-          "developpeur-abap-s-4hana-talan-geneva-ge-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T23:41:37.239Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-8b2dd9df4445",
       "slug": "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland",
       "slugByLocale": {
@@ -352,7 +352,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000135283150-ms-cloud-engineer-product-specialist-m365-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:05:05.384Z",
+      "crawledAt": "2026-07-22T22:05:52.813Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -429,7 +429,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000137468618-lead-technique-mdm-semarchy-h-f-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:05:05.373Z",
+      "crawledAt": "2026-07-22T22:05:52.799Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -476,80 +476,6 @@
       }
     },
     {
-      "id": "talan-68cff378c8b2",
-      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
-        "de": "qa-engineer-ebanking-talan-geneve-switzerland",
-        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "QA Engineer Ebanking",
-      "titleByLocale": {
-        "it": "QA Ingegnere Ebanking",
-        "en": "QA Engineer Ebanking",
-        "de": "QA Ingenieur Ebanking",
-        "fr": "QA Ingénieur Ebanking"
-      },
-      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
-        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
-        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
-        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:05:05.371Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-14",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "jobReqId": "744000137693459",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "qa-engineer-ebanking-talan-geneve-switzerland",
-        "qa-ingegnere-ebanking-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "qa-engineer-ebanking-talan-geneve-switzerland",
-          "qa-ingegnere-ebanking-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-07-14T21:58:50.426Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-1ca4e7a55135",
       "slug": "consulente-sap-basis-talan-geneva",
       "slugByLocale": {
@@ -580,7 +506,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000136176174-consultant-sap-basis?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:05:05.371Z",
+      "crawledAt": "2026-07-22T22:05:52.797Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -627,6 +553,80 @@
       }
     },
     {
+      "id": "talan-68cff378c8b2",
+      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
+        "de": "qa-engineer-ebanking-talan-geneve-switzerland",
+        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "QA Engineer Ebanking",
+      "titleByLocale": {
+        "it": "QA Ingegnere Ebanking",
+        "en": "QA Engineer Ebanking",
+        "de": "QA Ingenieur Ebanking",
+        "fr": "QA Ingénieur Ebanking"
+      },
+      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
+        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
+        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
+        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-22T22:05:52.796Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-14",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "jobReqId": "744000137693459",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "qa-engineer-ebanking-talan-geneve-switzerland",
+        "qa-ingegnere-ebanking-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "qa-engineer-ebanking-talan-geneve-switzerland",
+          "qa-ingegnere-ebanking-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-07-14T21:58:50.426Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-87a4c9893f84",
       "slug": "sviluppo-aziendale-advisory-lead-dati-ai-talan-lausanne-vd-switzerland",
       "slugByLocale": {
@@ -657,7 +657,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000138091780-business-development-advisory-lead-data-ai?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:05:05.354Z",
+      "crawledAt": "2026-07-22T22:05:52.783Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "",
@@ -731,7 +731,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000138651729-stagiaire-commercial-et-marketing?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T22:05:05.348Z",
+      "crawledAt": "2026-07-22T22:05:52.778Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -808,7 +808,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000138653859-interniship-business-development-representative?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:05:05.344Z",
+      "crawledAt": "2026-07-22T22:05:52.775Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -855,42 +855,41 @@
       }
     },
     {
-      "id": "talan-2b500bb7c102",
-      "slug": "senior-consulente-e-dba-talan-geneve",
+      "id": "talan-e5ac3e9034ca",
+      "slug": "data-analista-expert-power-bi-talan-pully",
       "slugByLocale": {
-        "it": "senior-consulente-e-dba-talan-geneve",
-        "en": "senior-consultant-e-dba-talan-geneve-switzerland",
-        "de": "senior-berater-e-dba-talan-geneve",
-        "fr": "senior-consultant-e-dba-talan-geneve-switzerland"
+        "fr": "data-analyst-expert-power-bi-talan-pully-switzerland",
+        "it": "data-analista-expert-power-bi-talan-pully",
+        "en": "data-analyst-expert-power-bi-talan-pully-switzerland",
+        "de": "data-analyst-expert-power-bi-talan-pully-switzerland"
       },
       "company": "Talan",
       "companyKey": "talan",
       "companyDomain": "talan.com",
-      "title": "Sénior Consultant(e) DBA",
+      "title": "Data Analyst Expert Power BI",
       "titleByLocale": {
-        "it": "Sénior Consulente(e) DBA",
-        "en": "Senior DBA Consultant",
-        "de": "Sénior Berater(e) DBA",
-        "fr": "Sénior Consultant(e) DBA"
+        "fr": "Data Analyste Expert Power BI",
+        "en": "Data Analyst Expert Power BI",
+        "it": "Data Analista Expert Power BI",
+        "de": "Data Analyst Expert Power BI"
       },
-      "description": "Dans le cadre du renforcement de son équipe IT, notre client recherche un(e) Database Administrator (DBA) expérimenté(e) pour assurer la gestion, la performance et la sécurité de ses infrastructures bases de données dans un environnement multi-technologies.\n Database Administration\n\n• Installer, configurer et administrer des bases de données ( Oracle, Sybase, SQL Server, PostgreSQL, MongoDB )\n\n• Assurer le monitoring, la maintenance et l’optimisation des performances\n\n• Gérer les opérations de backup / restore et plans de reprise\n\n• Diagnostiquer et résoudre les incidents techniques (performance, erreurs, disponibilité)\n\n• Concevoir et mettre en œuvre des architectures bases de données :\n• haute disponibilité\n\n• clustering\n\n• réplication\n\n• Garantir la cohérence, l’intégrité et l’accessibilité des données\n\n• Collaborer avec les équipes de développement pour assurer la scalabilité et la performance des applications\n\n• Contribuer (si possible) à la mise en place de data lakes\n 🔐 Sécurité & Conformité\n\n• Appliquer et faire respecter les politiques de sécurité IT\n\n• Mettre en œuvre les bonnes pratiques de sécurité des bases de données\n\n• Assurer la conformité aux standards et exigences internes\n\n• Collaborer avec les parties prenantes sur les enjeux de sécurité et conformité\n 🤝 Collaboration & Amélioration continue\n\n• Travailler en étroite collaboration avec les équipes IT et métiers\n\n• Proposer des améliorations sur les architectures et processus existants\n\n• Assurer une veille technologique sur les solutions bases de données\n\n• Minimum 3 ans d’expérience en administration de bases de données\n\n• Expertise avérée sur :\n• Oracle\n\n• SQL Server\n\n• Sybase\n\n• Expérience sur :\n• Data Guard\n\n• RMAN\n\n• Une expérience data lake est un plus\n Compétences techniques\n Indispensables\n\n• Administration multi-SGBD (Oracle, SQL Server, Sybase)\n\n• Performance tuning\n\n• Backup / recovery (RMAN)\n\n• Haute disponibilité / réplication\n\n• DataGuard\n\n• PostgreSQL et MongoDB\n Appréciées (nice to have)\n\n• Architecture data lake\n\n• Environnements modernes data\n 🧠 Soft skills\n\n• Excellent relationnel et communication\n\n• Esprit analytique et résolution de problèmes\n\n• Rigueur, organisation et sens du détail\n\n• Capacité à gérer la pression et les priorités\n\n• Esprit d’équipe et adaptabilité\n 🌍 Langues\n\n• Français : courant\n\n• Anglais : courant",
+      "description": "Contexte\n Dans le cadre d'un projet de modernisation BI, notre client migre ses tableaux de bord Tableau vers Power BI et recherche un expert capable d'accompagner cette transformation.\n Objectif de la mission\n Concevoir les nouveaux modèles analytiques et dashboards Power BI, accompagner les équipes Data et garantir une migration réussie depuis Tableau.\n Missions principales:\n\n• Concevoir et développer des modèles sémantiques Power BI.\n\n• Créer et maintenir des DataMarts BI.\n\n• Collecter, préparer et structurer les données provenant de multiples sources.\n\n• Développer des rapports et tableaux de bord interactifs.\n\n• Rédiger des mesures DAX avancées et calculs complexes.\n\n• Administrer Power BI Service (Workspaces, RLS, OLS).\n\n• Optimiser les performances des datasets et rapports.\n\n• Assurer la qualité, la cohérence et la gouvernance des données.\n\n• Participer aux évolutions de l'architecture BI et Microsoft Fabric.\n\n• Former et accompagner les Data Analystes afin de les rendre autonomes.\n\n• Participer à la migration des rapports Tableau vers Power BI.\n\nCompétences obligatoires\n\n• Expertise Power BI (Desktop, Service, DAX, Power Query).\n\n• Expérience significative de migration Tableau → Power BI.\n\n• Bonne connaissance de Microsoft Fabric.\n\n• Solides compétences en modélisation de données (Star Schema, DataMart).\n\n• SQL avancé.\n\n• Gestion de la sécurité Power BI (RLS / OLS).\n Soft Skills\n\n• Excellente communication écrite et orale.\n\n• Forte capacité de pédagogie et de transmission.\n\n• Autonomie et esprit d'initiative.\n\n• Orientation utilisateur et sens du service.\n\n• Capacité à challenger les besoins métiers.\n Profil recherché\n\n• 5+ ans d'expérience sur Power BI.\n\n• Expérience avérée dans des projets de migration BI.\n\n• Référent technique Power BI capable d'accompagner et faire monter en compétences les équipes internes.\n\n• Bonne compréhension des enjeux Data, BI et gouvernance.",
       "descriptionByLocale": {
-        "it": "Come parte del rafforzamento del suo team IT, il nostro cliente sta cercando un esperto Database Administrator (DBA) per garantire la gestione, le prestazioni e la sicurezza delle sue infrastrutture di database in un ambiente multi-tecnologico. Amministrazione del database\n• Installare, configurare e amministrare database ( Oracle, Sybase, SQL Server, PostgreSQL, MongoDB)\n• Assicurare monitoraggio delle prestazioni, manutenzione e ottimizzazione\n• Gestione delle operazioni di backup / ripristino e piani di recupero\n• Diagnosi e risoluzione degli incidenti tecnici (prestazioni, errori, disponibilità)\n• Progettazione e realizzazione di architetture di database:\n• Alta disponibilità\n• clustering\n• replicazione\n• Garantire coerenza, integrità e accessibilità dei dati\n• Collabora con i team di sviluppo per garantire scalabilità e prestazioni applicative\n• Contribuire (se possibile) alla realizzazione dei laghi dati Sicurezza e conformità\n• Attuazione e applicazione delle politiche di sicurezza IT\n• Implementare buone pratiche di sicurezza del database\n• Garantire il rispetto delle norme e dei requisiti interni\n• Collabora con gli stakeholder sulle questioni di sicurezza e sulla conformità Collaborazione e miglioramento continuo\n• Lavorare a stretto contatto con i team IT e gli scambi\n• Proporre miglioramenti alle architetture e ai processi esistenti\n• Assicurare il monitoraggio tecnologico delle soluzioni di database\n• Minimo 3 anni di esperienza nell'amministrazione del database\n• Competenza su:\n• Oracle\n• Server SQL Server\n• Sybase\n• Esperienza su:\n• Protezione dei dati\n• RMAN\n• Un'esperienza data lago è un plus Competenza tecnica Indispensabile\n• Multi-SGBD Administration (Oracle, SQL Server, Sybase)\n• Regolazione delle prestazioni\n• Backup / recupero (RMAN)\n• Alta disponibilità / replica\n• DataGuard\n• PostgreSQL e MongoDB Apprezzato (bello avere)\n• Architettura data lago\n• Moderni ambienti di dati competenze morbide\n• Eccellente rapporto e comunicazione\n• Spirito analitico e problem solving\n• Rigor, organizzazione e senso del dettaglio\n• Capacità di gestire pressione e priorità\n• Spirito di squadra e adattabilità Lingue\n• Francese: attuale\n• Inglese: attuale",
-        "en": "As part of the strengthening of its IT team, our client is looking for an experienced Database Administrator (DBA) to ensure the management, performance and security of its database infrastructures in a multi-technology environment. Database Administration\n• Install, configure and administer databases ( Oracle, Sybase, SQL Server, PostgreSQL, MongoDB )\n• Ensure performance monitoring, maintenance and optimization\n• Manage backup / restore operations and recovery plans\n• Diagnosis and resolve technical incidents (performance, errors, availability)\n• Design and implement database architectures:\n• High availability\n• clustering\n• replication\n• Ensuring consistency, integrity and accessibility of data\n• Collaborate with development teams to ensure scalability and application performance\n• Contribute (if possible) to the implementation of data lakes Security & Compliance\n• Implement and enforce IT security policies\n• Implement good database security practices\n• Ensure compliance with internal standards and requirements\n• Collaborate with stakeholders on security issues and compliance Collaboration & Continuous Improvement\n• Work closely with IT teams and trades\n• Propose improvements on existing architectures and processes\n• Ensure technological monitoring of database solutions\n• Minimum 3 years of experience in database administration\n• Expertise on:\n• Oracle\n• SQL Server\n• Sybase\n• Experience on:\n• Data Guard\n• RMAN\n• A data lake experience is a plus Technical expertise Indispensable\n• Multi-SGBD Administration (Oracle, SQL Server, Sybase)\n• Performance tuning\n• Backup / recovery (RMAN)\n• High availability / replication\n• DataGuard\n• PostgreSQL and MongoDB Appreciated (nice to have)\n• Architecture data lake\n• Modern data environments Soft skills\n• Excellent relationship and communication\n• Analytical spirit and problem solving\n• Rigor, organization and sense of detail\n• Ability to manage pressure and priorities\n• Team spirit and adaptability Languages\n• French: current\n• English: current",
-        "de": "Im Rahmen der Stärkung des IT-Teams sucht unser Kunde einen erfahrenen Datenbankadministrator (DBA), um die Verwaltung, Leistung und Sicherheit seiner Datenbankinfrastrukturen in einer Multitechnologie-Umgebung zu gewährleisten. Datenbankverwaltung\n• Installation, Konfiguration und Verwaltung von Datenbanken (Oracle, Sybase, SQL Server, PostgreSQL, MongoDB)\n• Gewährleistung von Leistungsüberwachung, Wartung und Optimierung\n• Verwalten von Backup- / Wiederherstellungsvorgängen und Wiederherstellungsplänen\n• Diagnose und Behebung technischer Vorfälle (Leistung, Fehler, Verfügbarkeit)\n• Entwerfen und Implementieren von Datenbankarchitekturen:\n• Hohe Verfügbarkeit\n• Clustering\n• Replikation\n• Gewährleistung der Konsistenz, Integrität und Zugänglichkeit der Daten\n• Zusammenarbeit mit Entwicklungsteams, um Skalierbarkeit und Anwendungsleistung sicherzustellen\n• Beitrag (wenn möglich) zur Implementierung von Data Lakes Sicherheit & Compliance\n• Implementierung und Durchsetzung von IT-Sicherheitsrichtlinien\n• Implementierung guter Datenbanksicherheitspraktiken\n• Gewährleistung der Einhaltung interner Standards und Anforderungen\n• Zusammenarbeit mit Stakeholdern in Sicherheitsfragen und Compliance Zusammenarbeit & kontinuierliche Verbesserung\n• Enge Zusammenarbeit mit IT-Teams und Trades\n• Verbesserung bestehender Architekturen und Prozesse vorschlagen\n• Gewährleistung der technologischen Überwachung von Datenbanklösungen\n• Mindestens 3 Jahre Erfahrung in der Datenbankverwaltung\n• Fachwissen zu:\n• Orakel\n• SQL Server\n• Sybase\n• Erfahrungen mit:\n• Datensicherung\n• RMAN\n• Ein Data Lake Erlebnis ist ein Plus Technische Expertise Unverzichtbar\n• Multi-SGBD-Administration (Oracle, SQL Server, Sybase)\n• Leistungsabstimmung\n• Backup / Recovery (RMAN)\n• Hochverfügbarkeit / Replikation\n• DataGuard\n• PostgreSQL und MongoDB Geschätzt (nice to have)\n• Architektur Datensee\n• Moderne Datenumgebungen Soft Skills\n• Ausgezeichnete Beziehung und Kommunikation\n• Analytischer Geist und Problemlösung\n• Strenge, Organisation und Sinn für Details\n• Fähigkeit, Druck und Prioritäten zu verwalten\n• Teamgeist und Anpassungsfähigkeit Sprachen\n• Französisch: aktuell\n• Englisch: aktuell",
-        "fr": "Dans le cadre du renforcement de son équipe IT, notre client recherche un(e) Database Administrator (DBA) expérimenté(e) pour assurer la gestion, la performance et la sécurité de ses infrastructures bases de données dans un environnement multi-technologies.\nDatabase Administration\n\n• Installer, configurer et administrer des bases de données ( Oracle, Sybase, SQL Server, PostgreSQL, MongoDB )\n\n• Assurer le monitoring, la maintenance et l’optimisation des performances\n\n• Gérer les opérations de backup / restore et plans de reprise\n\n• Diagnostiquer et résoudre les incidents techniques (performance, erreurs, disponibilité)\n\n• Concevoir et mettre en œuvre des architectures bases de données :\n• haute disponibilité\n\n• clustering\n\n• réplication\n\n• Garantir la cohérence, l’intégrité et l’accessibilité des données\n\n• Collaborer avec les équipes de développement pour assurer la scalabilité et la performance des applications\n\n• Contribuer (si possible) à la mise en place de data lakes\n🔐 Sécurité & Conformité\n\n• Appliquer et faire respecter les politiques de sécurité IT\n\n• Mettre en œuvre les bonnes pratiques de sécurité des bases de données\n\n• Assurer la conformité aux standards et exigences internes\n\n• Collaborer avec les parties prenantes sur les enjeux de sécurité et conformité\n🤝 Collaboration & Amélioration continue\n\n• Travailler en étroite collaboration avec les équipes IT et métiers\n\n• Proposer des améliorations sur les architectures et processus existants\n\n• Assurer une veille technologique sur les solutions bases de données\n\n• Minimum 3 ans d’expérience en administration de bases de données\n\n• Expertise avérée sur :\n• Oracle\n\n• SQL Server\n\n• Sybase\n\n• Expérience sur :\n• Data Guard\n\n• RMAN\n\n• Une expérience data lake est un plus\nCompétences techniques\nIndispensables\n\n• Administration multi-SGBD (Oracle, SQL Server, Sybase)\n\n• Performance tuning\n\n• Backup / recovery (RMAN)\n\n• Haute disponibilité / réplication\n\n• DataGuard\n\n• PostgreSQL et MongoDB\nAppréciées (nice to have)\n\n• Architecture data lake\n\n• Environnements modernes data\n🧠 Soft skills\n\n• Excellent relationnel et communication\n\n• Esprit analytique et résolution de problèmes\n\n• Rigueur, organisation et sens du détail\n\n• Capacité à gérer la pression et les priorités\n\n• Esprit d’équipe et adaptabilité\n🌍 Langues\n\n• Français : courant\n\n• Anglais : courant"
+        "fr": "Contexte\n Dans le cadre d'un projet de modernisation BI, notre client migre ses tableaux de bord Tableau vers Power BI et recherche un expert capable d'accompagner cette transformation.\n Objectif de la mission\n Concevoir les nouveaux modèles analytiques et dashboards Power BI, accompagner les équipes Data et garantir une migration réussie depuis Tableau.\n Missions principales:\n\n• Concevoir et développer des modèles sémantiques Power BI.\n\n• Créer et maintenir des DataMarts BI.\n\n• Collecter, préparer et structurer les données provenant de multiples sources.\n\n• Développer des rapports et tableaux de bord interactifs.\n\n• Rédiger des mesures DAX avancées et calculs complexes.\n\n• Administrer Power BI Service (Workspaces, RLS, OLS).\n\n• Optimiser les performances des datasets et rapports.\n\n• Assurer la qualité, la cohérence et la gouvernance des données.\n\n• Participer aux évolutions de l'architecture BI et Microsoft Fabric.\n\n• Former et accompagner les Data Analystes afin de les rendre autonomes.\n\n• Participer à la migration des rapports Tableau vers Power BI.\n\nCompétences obligatoires\n\n• Expertise Power BI (Desktop, Service, DAX, Power Query).\n\n• Expérience significative de migration Tableau → Power BI.\n\n• Bonne connaissance de Microsoft Fabric.\n\n• Solides compétences en modélisation de données (Star Schema, DataMart).\n\n• SQL avancé.\n\n• Gestion de la sécurité Power BI (RLS / OLS).\n Soft Skills\n\n• Excellente communication écrite et orale.\n\n• Forte capacité de pédagogie et de transmission.\n\n• Autonomie et esprit d'initiative.\n\n• Orientation utilisateur et sens du service.\n\n• Capacité à challenger les besoins métiers.\n Profil recherché\n\n• 5+ ans d'expérience sur Power BI.\n\n• Expérience avérée dans des projets de migration BI.\n\n• Référent technique Power BI capable d'accompagner et faire monter en compétences les équipes internes.\n\n• Bonne compréhension des enjeux Data, BI et gouvernance.",
+        "it": "Contesto\n Come parte di un progetto di modernizzazione BI, il nostro cliente migra le sue dashboard a Power BI e cerca un esperto in grado di supportare questa trasformazione.\n Obiettivo\n Progettare nuovi modelli analitici e cruscotto Power BI, supportare i team Data e garantire una migrazione di successo da Tableau.\n Principali compiti:\n\n• Progettare e sviluppare modelli semantici Power BI.\n\n• Creare e mantenere BI DataMarts.\n\n• Raccogliere, preparare e strutturare i dati da più fonti.\n\n• Sviluppa report interattivi e dashboard.\n\n• Scrivere misurazioni DAX avanzate e calcoli complessi.\n\n• Administer Power BI Service (Workspaces, RLS, OLS).\n\n• Ottimizzare le prestazioni di dataset e reporting.\n\n• Assicurare qualità, coerenza e governance dei dati.\n\n• Partecipa all'evoluzione dell'architettura BI e Microsoft Fabric.\n\n• Allena e accompagna Data Analysts per renderli autonomi.\n\n• Partecipa alla migrazione dei rapporti di Tableau al Power BI.\n\nCompulsorio competenze\n\n• Expertise Power BI (Desktop, Service, DAX, Power Query).\n\n• Significativa esperienza di migrazione Tabella → Power BI.\n\n• Buona conoscenza di Microsoft Fabric.\n\n• Forte capacità di modellazione dei dati (Star Schema, DataMart).\n\n• Avanzato SQL.\n\n• Gestione della sicurezza BI (RLS/OLS).\n Abilità morbide\n\n• Ottima comunicazione scritta e orale.\n\n• Forte pedagogia e capacità di trasmissione.\n\n• Autonomia e iniziativa.\n\n• L'orientamento dell'utente e il senso del servizio.\n\n• Capacità di sfidare le esigenze aziendali.\n Profilo ricercato\n\n• 5+ anni di esperienza su Power BI.\n\n• Esperienza nei progetti di migrazione BI.\n\n• Riferimento tecnico Power BI in grado di accompagnare e dotare i team interni.\n\n• Buona comprensione dei problemi di dati, BI e governance.",
+        "en": "Background\n As part of a BI modernization project, our client migrates his dashboards to Power BI and seeks an expert able to support this transformation.\n Mission objective\n Design new Power BI analytical and dashboard models, support Data teams and ensure successful migration from Tableau.\n Main tasks:\n\n• Design and develop Power BI semantic models.\n\n• Create and maintain BI DataMarts.\n\n• Collect, prepare and structure data from multiple sources.\n\n• Develop interactive reports and dashboards.\n\n• Write advanced DAX measurements and complex calculations.\n\n• Administer Power BI Service (Workspaces, RLS, OLS).\n\n• Optimize dataset and reporting performance.\n\n• Ensure data quality, consistency and governance.\n\n• Participate in the evolution of BI and Microsoft Fabric architecture.\n\n• Train and accompany Data Analysts to make them autonomous.\n\n• Participate in the migration of Tableau reports to Power BI.\n\nCompulsory skills\n\n• Expertise Power BI (Desktop, Service, DAX, Power Query).\n\n• Significant migration experience Table → Power BI.\n\n• Good knowledge of Microsoft Fabric.\n\n• Strong data modeling skills (Star Schema, DataMart).\n\n• Advanced SQL.\n\n• Power BI Security Management (RLS/OLS).\n Soft Skills\n\n• Excellent written and oral communication.\n\n• Strong pedagogy and transmission capacity.\n\n• Autonomy and initiative.\n\n• User orientation and sense of service.\n\n• Ability to challenge business needs.\n Profile sought\n\n• 5+ years of experience on Power BI.\n\n• Experience in BI migration projects.\n\n• Power BI technical reference capable of accompanying and equipping in-house teams.\n\n• Good understanding of Data, BI and governance issues.",
+        "de": "Hintergrund\n Im Rahmen eines BI-Modernisierungsprojekts migriert unser Kunde seine Dashboards zu Power BI und sucht einen Experten, der diese Transformation unterstützen kann.\n Missionsziel\n Entwerfen Sie neue Power BI-Analyse- und Dashboard-Modelle, unterstützen Sie Datenteams und sorgen Sie für eine erfolgreiche Migration von Tableau.\n Hauptaufgaben:\n\n• Entwerfen und entwickeln Sie semantische Power BI-Modelle.\n\n• Erstellen und pflegen Sie BI DataMarts.\n\n• Sammeln, Aufbereiten und Strukturieren von Daten aus verschiedenen Quellen.\n\n• Erstellen Sie interaktive Berichte und Dashboards.\n\n• Schreiben Sie erweiterte DAX-Messungen und komplexe Berechnungen.\n\n• Verwalten Sie Power BI Service (Workspaces, RLS, OLS).\n\n• Optimieren Sie die Performance von Dataset und Reporting.\n\n• Sicherstellen von Datenqualität, Konsistenz und Governance.\n\n• Beteiligen Sie sich an der Entwicklung von BI und Microsoft Fabric Architektur.\n\n• Trainieren und begleiten Sie Data Analysten, um sie autonom zu machen.\n\n• Beteiligen Sie sich an der Migration von Tableau-Berichten zu Power BI.\n\nPflichtkompetenzen\n\n• Expertise Power BI (Desktop, Service, DAX, Power Query).\n\n• Signifikante Migrationserfahrung Tabelle → Power BI.\n\n• Gute Kenntnisse von Microsoft Fabric.\n\n• Starke Datenmodellierungsfähigkeiten (Star Schema, DataMart).\n\n• Advanced SQL.\n\n• Power BI Security Management (RLS/OLS).\n Soft Skills\n\n• Hervorragende schriftliche und mündliche Kommunikation.\n\n• Starke Pädagogik und Übertragungskapazität.\n\n• Autonomie und Initiative.\n\n• Benutzerorientierung und Servicegefühl.\n\n• Fähigkeit, geschäftliche Bedürfnisse herauszufordern.\n Profil gesucht\n\n• 5+ Jahre Erfahrung mit Power BI.\n\n• Erfahrung in BI Migrationsprojekten.\n\n• Technische Referenz für Power BI, die interne Teams begleiten und ausrüsten kann.\n\n• Gutes Verständnis von Daten, BI und Governance-Themen."
       },
-      "needsRetranslation": false,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000126257121-senior-consultant-e-dba-?oga=true",
+      "location": "Pully, , Switzerland",
+      "canton": "VD",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000139035790-data-analyst-expert-power-bi?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-20T22:00:53.615Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
+      "crawledAt": "2026-07-22T11:14:48.955Z",
+      "addressLocality": "Pully",
+      "addressRegion": "VD",
+      "postalCode": "",
+      "streetAddress": "",
       "addressCountry": "CH",
       "country": "CH",
       "category": "IT",
@@ -900,36 +899,35 @@
       "sector": "IT / SAP / AI Consulting",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-13",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000126257121-senior-consultant-e-dba-?oga=true",
-      "jobReqId": "744000126257121",
+      "postedDate": "2026-07-22",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000139035790-data-analyst-expert-power-bi?oga=true",
+      "jobReqId": "744000139035790",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-consultant-e-dba-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-consultant-e-dba-talan-geneve-switzerland"
-        ],
-        "de": [
-          "senior-consultant-e-dba-talan-geneve-switzerland"
-        ]
+      "requirementsByLocale": {
+        "fr": []
       },
-      "firstSeenAt": "2026-07-03T23:41:37.249Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
+      "salaryMin": 63000,
+      "salaryMax": 107500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
+          "minValue": 63000,
+          "maxValue": 107500,
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-07-22T11:14:48.955Z",
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "data-analyst-expert-power-bi-talan-pully-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "data-analyst-expert-power-bi-talan-pully-switzerland"
+      ]
     }
   ]
 }

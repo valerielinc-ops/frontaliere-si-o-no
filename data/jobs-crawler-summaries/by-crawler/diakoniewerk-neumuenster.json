@@ -1,35 +1,32 @@
 {
   "key": "diakoniewerk-neumuenster",
   "label": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)",
-  "generatedAt": "2026-07-21T23:12:29.700Z",
-  "total": 7,
+  "generatedAt": "2026-07-22T23:20:32.815Z",
+  "total": 8,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 34289,
-  "avgDurationMs": 34289,
+  "unchangedCount": 0,
+  "durationMs": 36038,
+  "avgDurationMs": 36038,
   "durationHistory": [
-    34289
+    36038
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "diakoniewerk-neumuenster-e93b3cd067e7",
-      "slug": "testa-capo-dell-ingegneria-medica-op-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
+      "id": "diakoniewerk-neumuenster-b7d18b70f209",
+      "slug": "dipl-expert-dipl-expert-emergency-care-nds-hf-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
       "companyKey": "diakoniewerk-neumuenster",
       "companyDomain": "diakoniewerk-neumuenster.ch",
-      "title": "Leiterin / Leiter Instrumentierpflege OP Medizintechnische Bereiche",
-      "needsRetranslation": true,
+      "title": "Dipl. Expertin / Dipl. Experte Notfallpflege NDS HF",
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=3dc30036-e741-4dfb-a01a-3b5d37cad5f1,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=c5d3707d-4795-48e8-a2be-fdfb7491deca,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:43:22.323Z",
+      "crawledAt": "2026-07-22T12:50:27.631Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -38,16 +35,16 @@
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "OTHER",
-      "experienceLevel": "senior",
+      "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=3dc30036-e741-4dfb-a01a-3b5d37cad5f1,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=c5d3707d-4795-48e8-a2be-fdfb7491deca,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T15:19:47.620Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "crawlerMissStreak": 2,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "crawlerMissStreak": 1,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -56,5 +53,7 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

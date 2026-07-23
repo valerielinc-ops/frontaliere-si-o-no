@@ -1,18 +1,56 @@
 {
   "key": "medics-labor",
   "label": "Medics Labor AG",
-  "generatedAt": "2026-07-21T23:00:23.158Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-07-22T23:13:24.962Z",
+  "total": 2,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6217,
-  "avgDurationMs": 6217,
+  "durationMs": 6777,
+  "avgDurationMs": 6777,
   "durationHistory": [
-    6217
+    6777
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "medics-labor-c8edd2cc4884",
+      "slug": "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern",
+      "company": "Medics Labor AG",
+      "companyKey": "medics-labor",
+      "companyDomain": "medics.ch",
+      "title": "Biomedizinische:r Analytiker:in HF Pathologie",
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://app.reflinejobs.io/1474/0123/pub/100/index.html",
+      "source": "Medics Labor Dedicated Parser (Refline 1474)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-22T23:13:19.942Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3001",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-22",
+      "applyUrl": "https://app.reflinejobs.io/1474/0123/pub/100/index.html",
+      "externalId": "0123",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "medics-labor-4ee2ac674e21",
@@ -27,7 +65,7 @@
       "url": "https://app.reflinejobs.io/1474/0132/pub/98/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T23:00:19.567Z",
+      "crawledAt": "2026-07-22T23:13:20.668Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",

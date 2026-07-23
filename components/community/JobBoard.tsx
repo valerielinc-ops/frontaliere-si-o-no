@@ -4590,10 +4590,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return () => io.disconnect();
  }, [isMobile, hasMoreMobileJobs, loadMoreMobile]);
 
+ // INP: computeSimilarJobs re-scores + sorts the full loaded pool (up to
+ // ~12k on the Switzerland-wide aggregator) every time a job card is opened.
+ // selectedJob updates synchronously as part of the click's route change, so
+ // without deferring, this recompute lands in the SAME commit as the click's
+ // paint and blocks the detail view from appearing (field p75 INP regression
+ // on /cerca-lavoro-svizzera/, #4675 — persisted after #4324's personalization
+ // defer). Deferring selectedJob here schedules the recompute at low
+ // priority so it yields to the click's own paint first, same technique as
+ // the deferred* personalization inputs above (#4302).
+ const deferredSelectedJobForRelated = useDeferredValue(selectedJob);
  const relatedJobs = useMemo(() => {
- if (!selectedJob) return [];
- return computeSimilarJobs(selectedJob, sortedJobs);
- }, [selectedJob, sortedJobs]);
+ if (!deferredSelectedJobForRelated) return [];
+ return computeSimilarJobs(deferredSelectedJobForRelated, sortedJobs);
+ }, [deferredSelectedJobForRelated, sortedJobs]);
 
  // Expired/orphan/bridge cascade: fetch expired-jobs.json only when needed.
  // When build-time seeded data exists (window.__EXPIRED_JOB_DATA__), pass the slug

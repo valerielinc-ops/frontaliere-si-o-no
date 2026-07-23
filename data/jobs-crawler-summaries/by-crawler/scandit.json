@@ -1,16 +1,16 @@
 {
   "key": "scandit",
   "label": "Scandit AG",
-  "generatedAt": "2026-07-21T23:03:41.702Z",
-  "total": 3,
+  "generatedAt": "2026-07-22T22:28:46.311Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4136,
-  "avgDurationMs": 4136,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5440,
+  "avgDurationMs": 5440,
   "durationHistory": [
-    4136
+    5440
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8043068",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T23:03:37.871Z",
+      "crawledAt": "2026-07-22T22:28:41.293Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -60,7 +60,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7588975",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T23:03:38.199Z",
+      "crawledAt": "2026-07-22T22:28:41.621Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -83,8 +83,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "scandit-6d21cb4b7a37",
       "slug": "computer-vision-ricerca-internship-image-to-sequence-modeling-e-g-transformers-scandit-ag-zurich",
@@ -123,5 +122,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

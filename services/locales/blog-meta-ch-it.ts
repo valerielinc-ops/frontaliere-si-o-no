@@ -1447,6 +1447,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-dati-2026.title': 'Frontalieri in Ticino: i dati del primo trimestre 2026',
     'blog.article.frontalieri-ticino-dati-2026.excerpt': 'Il Ticino registra una lieve contrazione dei frontalieri (-0,2%), mentre a livello svizzero si conferma una crescita costante dell\'1,9%.',
     'blog.article.frontalieri-ticino-dati-2026.imageAlt': 'Vista panoramica di Lugano e del suo lago in una giornata di sole',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.title': 'Di più Auto: mercato del nuovo non decolla, svizzeri preferiscono l\'usato',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.excerpt': 'Il mercato svizzero delle vetture nuove rimane sostanzialmente fermo. L\'aumento delle immatricolazioni di auto elettriche non decolla.',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.imageAlt': 'Auto elettrica in un parcheggio di Lugano.',
+    'blog.article.poverta-lavorativa-ticino-sfida-dignita.title': 'Povertà lavorativa in Ticino: la sfida silenziosa',
+    'blog.article.poverta-lavorativa-ticino-sfida-dignita.excerpt': 'Un quarto della popolazione del Ticino è a rischio di povertà lavorativa.',
+    'blog.article.poverta-lavorativa-ticino-sfida-dignita.imageAlt': 'Scena di persone affacciate al lago di Lugano, in Svizzera, con un\'espressione di preoccupazione e incertezza sulle loro condizioni economiche.',
+    'blog.article.evoluzione-frontalieri-dati-ust.title': 'Frontalieri in Svizzera: i dati aggiornati del decennio',
+    'blog.article.evoluzione-frontalieri-dati-ust.excerpt': 'Analisi dell\'Ufficio federale di statistica sul fenomeno del frontalierato: cresce la Lombardia, spicca il balzo della provincia di Monza e Brianza.',
+    'blog.article.evoluzione-frontalieri-dati-ust.imageAlt': 'Veduta panoramica di Lugano e del suo lago con il contesto urbano svizzero',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.title': 'Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 dicembre 1976. I nuovi frontalieri hanno una franchigia di €10.000.',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.imageAlt': 'Lugano e il Lago di Lugano',
 };
 
 export default blogMetaChIt;

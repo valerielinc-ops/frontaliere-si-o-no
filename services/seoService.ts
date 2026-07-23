@@ -4823,6 +4823,17 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-disoccupati-ue-riforma-onerosa-ticino': { name: 'Frontalieri disoccupati', path: '/articoli-frontaliere/frontalieri-disoccupati-ue-riforma-onerosa-ticino', parent: 'blog' },
     'blog-frontalieri-telelavoro-ratifica-accordo': { name: 'Telelavoro Frontalieri', path: '/articoli-frontaliere/frontalieri-telelavoro-ratifica-accordo', parent: 'blog' },
     'blog-frontalieri-ticino-dati-2026': { name: 'Statistiche frontalieri', path: '/articoli-svizzera/frontalieri-ticino-dati-2026/', parent: 'blog' },
+    'blog-frontalieri-ticino-numeri-in-calo': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-ticino-numeri-in-calo', parent: 'blog' },
+    'blog-tragedia-lavoro-blenio-aquila': { name: 'Cronaca Ticino', path: '/articoli-frontaliere/tragedia-lavoro-blenio-aquila', parent: 'blog' },
+    'blog-auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato': { name: 'Di più Auto', path: '/articoli-svizzera/auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato/', parent: 'blog' },
+    'blog-dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi': { name: 'Dati salariali vecchi frontalieri', path: '/articoli-frontaliere/dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi', parent: 'blog' },
+    'blog-frontaliere-educatore-ticino-stipendio-requisiti': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/frontaliere-educatore-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-poverta-lavorativa-ticino-sfida-dignita': { name: 'Povertà lavorativa in Ticino', path: '/articoli-svizzera/poverta-lavorativa-ticino-sfida-dignita/', parent: 'blog' },
+    'blog-anticipo-orari-lavoro-canicola-ticino': { name: 'Frontalieri Ticino News', path: '/articoli-frontaliere/anticipo-orari-lavoro-canicola-ticino', parent: 'blog' },
+    'blog-evoluzione-frontalieri-dati-ust': { name: 'Statistiche frontalieri', path: '/articoli-svizzera/evoluzione-frontalieri-dati-ust/', parent: 'blog' },
+    'blog-frontalieri-permessi-g': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-permessi-g', parent: 'blog' },
+    'blog-terzo-pilastro-3a-vantaggi-2026-canton-san-gallo': { name: 'Terzo pilastro 3a svizzero', path: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026-canton-san-gallo/', parent: 'blog' },
+    'blog-sempre-meno-frontalieri-ticino-calof-lievelie': { name: 'Frontalieri in Ticino', path: '/articoli-frontaliere/sempre-meno-frontalieri-ticino-calof-lievelie', parent: 'blog' },
  };
 
  const info = sectionNames[section];

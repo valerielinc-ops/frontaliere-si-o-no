@@ -18699,6 +18699,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato': {
+    title: 'Di più Auto: mercato del nuovo non decolla, svizzeri preferiscono l\'usato',
+    description: 'Il mercato svizzero delle vetture nuove rimane sostanzialmente fermo. L\'aumento delle immatricolazioni di auto elettriche non decolla. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, auto, mercato, nuovo, decolla',
+    ogTitle: 'Di più Auto: mercato del nuovo non decolla, svizzeri preferiscono l\'usato',
+    ogDescription: 'Il mercato svizzero delle vetture nuove rimane sostanzialmente fermo. L\'aumento delle immatricolazioni di auto elettriche non decolla.',
+    canonicalPath: '/articoli-svizzera/auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più Auto: mercato del nuovo non decolla, svizzeri preferiscono l'usato",
+      "description": "Il mercato svizzero delle vetture nuove rimane sostanzialmente fermo. L'aumento delle immatricolazioni di auto elettriche non decolla. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Auto elettrica in un parcheggio di Lugano."
+      },
+      "datePublished": "2026-07-22T20:10:58+00:00",
+      "dateModified": "2026-07-22T20:10:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-poverta-lavorativa-ticino-sfida-dignita': {
+    title: 'Povertà lavorativa in Ticino: la sfida silenziosa',
+    description: 'Un quarto della popolazione del Ticino è a rischio di povertà lavorativa. Servono salari dignitosi, spazi per chi ha più esperienza, opportunità vere per i',
+    keywords: 'frontalieri, ticino, svizzera, italia, povertà, lavorativa, sfida, silenziosa',
+    ogTitle: 'Povertà lavorativa in Ticino: la sfida silenziosa',
+    ogDescription: 'Un quarto della popolazione del Ticino è a rischio di povertà lavorativa. Servono salari dignitosi, spazi per chi ha più esperienza, opportunità vere per i',
+    canonicalPath: '/articoli-svizzera/poverta-lavorativa-ticino-sfida-dignita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Povertà lavorativa in Ticino: la sfida silenziosa",
+      "description": "Un quarto della popolazione del Ticino è a rischio di povertà lavorativa. Servono salari dignitosi, spazi per chi ha più esperienza, opportunità vere per i",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/poverta-lavorativa-ticino-sfida-dignita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena di persone affacciate al lago di Lugano, in Svizzera, con un'espressione di preoccupazione e incertezza sulle loro condizioni economiche."
+      },
+      "datePublished": "2026-07-23T03:12:35+00:00",
+      "dateModified": "2026-07-23T03:12:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/poverta-lavorativa-ticino-sfida-dignita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-evoluzione-frontalieri-dati-ust': {
+    title: 'Frontalieri in Svizzera: i dati aggiornati del decennio',
+    description: 'Analisi dell\'Ufficio federale di statistica sui frontalieri: numeri, crescita in Ticino e il balzo della provincia di Monza e Brianza tra il 2015 e il 2025.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dati, aggiornati, decennio, analisi',
+    ogTitle: 'Frontalieri in Svizzera: dati e crescita del decennio',
+    ogDescription: 'Analisi dell\'Ufficio federale di statistica sui frontalieri: numeri, crescita in Ticino e il balzo della provincia di Monza e Brianza tra il 2015 e il 2025.',
+    canonicalPath: '/articoli-svizzera/evoluzione-frontalieri-dati-ust/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri in Svizzera: i dati aggiornati del decennio",
+      "description": "Analisi dell'Ufficio federale di statistica sui frontalieri: numeri, crescita in Ticino e il balzo della provincia di Monza e Brianza tra il 2015 e il 2025.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/evoluzione-frontalieri-dati-ust.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Lugano e del suo lago con il contesto urbano svizzero"
+      },
+      "datePublished": "2026-07-23T03:34:37+00:00",
+      "dateModified": "2026-07-23T03:34:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/evoluzione-frontalieri-dati-ust/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-terzo-pilastro-3a-vantaggi-2026-canton-san-gallo': {
+    title: 'Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo',
+    description: 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 dicembre 1976. I nuovi frontalieri hanno una franchigia di €10.000. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, terzo, pilastro, svizzero, vantaggi',
+    ogTitle: 'Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo',
+    ogDescription: 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 dicembre 1976. I nuovi frontalieri hanno una franchigia di €10.000.',
+    canonicalPath: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026-canton-san-gallo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo",
+      "description": "La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 dicembre 1976. I nuovi frontalieri hanno una franchigia di €10.000. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano e il Lago di Lugano"
+      },
+      "datePublished": "2026-07-23T04:10:42+00:00",
+      "dateModified": "2026-07-23T04:10:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026-canton-san-gallo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bossard",
-  "assembledAt": "2026-07-21T22:14:52.055Z",
+  "assembledAt": "2026-07-22T11:25:14.399Z",
   "jobs": [
     {
       "id": "bossard-884e9228bd7a",
@@ -33,7 +33,7 @@
       "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Quality-Control-Specialist-100------im-akkreditierten-Umfeld-nach-ISO-IEC-17025--all-genders-_",
       "source": "Bossard Group Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:14:49.452Z",
+      "crawledAt": "2026-07-22T11:25:12.339Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Steinhauserstrasse 70",
@@ -66,6 +66,470 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:30:47.313Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "bossard-79d6d5105b4e",
+      "slug": "acquirente-80-tutti-i-generi-bossard-group-bossard-group-zug",
+      "slugByLocale": {
+        "it": "acquirente-80-tutti-i-generi-bossard-group-bossard-group-zug",
+        "en": "einkaufer-in-80-all-genders-bossard-group-bossard-zug",
+        "de": "einkaufer-in-80-all-genders-bossard-group-bossard-zug",
+        "fr": "acheteur-en-80-tous-les-sexes-bossard-group-zug"
+      },
+      "company": "Bossard Group",
+      "companyKey": "bossard",
+      "companyDomain": "bossard.com",
+      "title": "Einkäufer:in 80 % (all genders) | Bossard Group",
+      "titleByLocale": {
+        "it": "Acquirente 80% (tutti i generi) | Bossard Group",
+        "en": "Buyer:in 80% (all genders) | Bossard Group",
+        "de": "Einkäufer:in 80 % (all genders) | Bossard Group",
+        "fr": "Acheteur: en 80% (tous les sexes)"
+      },
+      "description": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nEinkäufer:in 80 % (all genders) | Bossard Group\n\nAls Einkäufer:in in unserem Team bist du verantwortlich für die termingerechte Versorgung unserer Zentrallager in der Schweiz, Frankreich und Dänemark. Du bearbeitest Bestellungen, pflegst Lieferantenbeziehungen und hältst unsere Daten aktuell – damit alles zur richtigen Zeit am richtigen Ort ist.\n\nDeine Aufgaben \n\n• Verantwortung für die optimale Verfügbarkeit von Waren und Dienstleistungen unter Berücksichtigung der Budgets, Ziele und der aktuellen Beschaffungsmarktsituation\n\n• Bearbeitung von Anfragen, Bestellungen, Auftragsbestätigungen, Offerten und Mahnungen, sowie Bedarfsmeldungen und Reklamationswesen\n\n• Weiterentwicklung einer optimalen Lieferantenbasis und -beziehung\n\n• Aktualisierung der Lieferanten- und Artikeldaten in den entsprechenden Systemen und im ERP\n\n• Umsetzung der Resultate aus der Beschaffungsmarktforschung\n\n• Enge Zusammenarbeit mit den Stakeholdern der Tochterfirmen innerhalb Europas (Verkauf, Qualität, Engineering, Sortimentsteam)\n\n• Teilnahme an Lieferantenbesuchen\n\n• Mitarbeit in Projekten\n\nDein Profil \n\n• Kaufmännische oder technische Grundausbildung mit kaufmännischer Weiterbildung\n\n• Vorzugsweise Weiterbildung in der Beschaffung (z.B. eidg. dipl. Einkaufsfachmann/frau)\n\n• Mindestens 5 Jahre Erfahrung im Einkauf oder AVOR/Disposition, vorzugsweise im internationalen Umfeld\n\n• Gute Kommunikationsfähigkeiten, Verantwortungsbewusstsein sowie eine analytische Vorgehensweise\n\n• Zielorientierte, eigenverantwortliche und selbständige Arbeitsweise\n\n• IT-Affinität mit sehr guten MS Office Kenntnissen sowie mit gängigen ERP-Systemen\n\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nKlingt spannend? Dann freuen wir uns, dich kennenzulernen! Bei Fragen bin ich gerne für dich da:\nCeline Späni – HR Business Partner\n celine.spaeni@bossard.com\n 041 749 63 49\n\nWir berücksichtigen nur Direktbewerbungen.",
+      "descriptionByLocale": {
+        "it": "Il Gruppo Bossard è un partner strategico leader per le soluzioni tecnologiche di fissaggio e assemblaggio industriali ai clienti OEM a livello globale con una comprovata esperienza nei servizi di ingegneria e logistica. Bossard fu fondata a Zug nel 1831. Il Gruppo Bossard impiega oltre 3.000 persone in 33 conteggi a livello mondiale ed è quotato sulla SIX Swiss Exchange. Scegli Bossard come il tuo datore di lavoro e beneficiare di condizioni di lavoro interessanti. Compratore:in 80% (tutti i generi) | Bossard Group Come acquirente: nel nostro team sei responsabile della fornitura tempestiva dei nostri magazzini centrali in Svizzera, Francia e Danimarca. Elabori ordini, mantieni i rapporti dei fornitori e mantieni i nostri dati aggiornati, in modo che tutto sia nel posto giusto al momento giusto. I tuoi compiti.\n• Responsabilità per la disponibilità ottimale di beni e servizi tenendo conto dei bilanci, degli obiettivi e della situazione attuale del mercato degli appalti\n• Elaborazione di richieste, ordini, conferme d'ordine, offerte e promemoria, nonché notifiche e reclami\n• Ulteriore sviluppo di una base di fornitore ottimale e rapporto\n• Aggiornamento dei dati dei fornitori e degli articoli nei sistemi corrispondenti e ERP\n• Attuazione dei risultati della ricerca sul mercato degli appalti\n• stretta collaborazione con le parti interessate delle filiali in Europa (vendita, qualità, ingegneria, team di gamma)\n• Partecipazione alle visite dei fornitori\n• Partecipazione a progetti Il tuo profilo\n• Formazione di base commerciale o tecnica con formazione commerciale\n• Preferibilmente ulteriore formazione negli appalti (ad esempio, dipl federale). Compratore/donna\n• Almeno 5 anni di esperienza nell'acquisto o AVOR/disposizione, preferibilmente in un ambiente internazionale\n• Buone capacità comunicative, responsabilità e approccio analitico\n• Metodo di lavoro autonomo, orientato all'obiettivo\n• affinità IT con una buona conoscenza MS Office e con sistemi ERP comuni\n• Buona conoscenza del tedesco e dell'inglese in parola e scrittura Sembra eccitante? Non vediamo l'ora di incontrarvi! Se avete domande, sarò volentieri lì per voi: Celine Späni – HR Business Partner celine.spaeni@bossard.com  041 749 63 49 Consideriamo solo applicazioni dirette.",
+        "en": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineering and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions. Buyer:in 80% (all genders) | Bossard Group As a buyer: in our team you are responsible for the timely supply of our central warehouses in Switzerland, France and Denmark. You process orders, maintain supplier relationships and keep our data up-to-date – so that everything is in the right place at the right time. Your tasks.\n• Responsibility for the optimal availability of goods and services taking into account budgets, objectives and the current procurement market situation\n• Processing of inquiries, orders, order confirmations, offers and reminders, as well as notifications and complaints\n• Further development of an optimal supplier base and relationship\n• Updating of supplier and article data in the corresponding systems and ERP\n• Implementation of results from procurement market research\n• Close cooperation with the stakeholders of the subsidiaries within Europe (sales, quality, engineering, range team)\n• Participation in supplier visits\n• Participation in projects Your profile \n• Commercial or technical basic training with commercial training\n• Preferably further training in procurement (e.g. federal dipl.) Buyer/woman\n• At least 5 years of experience in purchasing or AVOR/disposition, preferably in an international environment\n• Good communication skills, responsibility and an analytical approach\n• Target-oriented, self-responsible and independent working method\n• IT affinity with very good MS Office knowledge as well as with common ERP systems\n• Good knowledge of German and English in word and writing Sounds exciting? We look forward to meeting you! If you have any questions, I will gladly be there for you: Celine Späni – HR Business Partner celine.spaeni@bossard.com  041 749 63 49 We only consider direct applications.",
+        "de": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nEinkäufer:in 80 % (all genders) | Bossard Group\n\nAls Einkäufer:in in unserem Team bist du verantwortlich für die termingerechte Versorgung unserer Zentrallager in der Schweiz, Frankreich und Dänemark. Du bearbeitest Bestellungen, pflegst Lieferantenbeziehungen und hältst unsere Daten aktuell – damit alles zur richtigen Zeit am richtigen Ort ist.\n\nDeine Aufgaben \n\n• Verantwortung für die optimale Verfügbarkeit von Waren und Dienstleistungen unter Berücksichtigung der Budgets, Ziele und der aktuellen Beschaffungsmarktsituation\n\n• Bearbeitung von Anfragen, Bestellungen, Auftragsbestätigungen, Offerten und Mahnungen, sowie Bedarfsmeldungen und Reklamationswesen\n\n• Weiterentwicklung einer optimalen Lieferantenbasis und -beziehung\n\n• Aktualisierung der Lieferanten- und Artikeldaten in den entsprechenden Systemen und im ERP\n\n• Umsetzung der Resultate aus der Beschaffungsmarktforschung\n\n• Enge Zusammenarbeit mit den Stakeholdern der Tochterfirmen innerhalb Europas (Verkauf, Qualität, Engineering, Sortimentsteam)\n\n• Teilnahme an Lieferantenbesuchen\n\n• Mitarbeit in Projekten\n\nDein Profil \n\n• Kaufmännische oder technische Grundausbildung mit kaufmännischer Weiterbildung\n\n• Vorzugsweise Weiterbildung in der Beschaffung (z.B. eidg. dipl. Einkaufsfachmann/frau)\n\n• Mindestens 5 Jahre Erfahrung im Einkauf oder AVOR/Disposition, vorzugsweise im internationalen Umfeld\n\n• Gute Kommunikationsfähigkeiten, Verantwortungsbewusstsein sowie eine analytische Vorgehensweise\n\n• Zielorientierte, eigenverantwortliche und selbständige Arbeitsweise\n\n• IT-Affinität mit sehr guten MS Office Kenntnissen sowie mit gängigen ERP-Systemen\n\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nKlingt spannend? Dann freuen wir uns, dich kennenzulernen! Bei Fragen bin ich gerne für dich da:\nCeline Späni – HR Business Partner\n celine.spaeni@bossard.com\n 041 749 63 49\n\nWir berücksichtigen nur Direktbewerbungen.",
+        "fr": "Le Groupe Bossard est un partenaire stratégique de premier plan pour les solutions technologiques de fixation industrielle et d'assemblage pour les clients OEM dans le monde entier avec une expertise avérée en ingénierie et services logistiques. Bossard a été fondé à Zug en 1831. Le groupe Bossard emploie plus de 3 000 personnes dans 33 comtes du monde entier et est coté à la SIX Swiss Exchange. Choisissez Bossard comme employeur et profitez de conditions d'emploi attrayantes. Acheteur: en 80% (tous les sexes) En tant qu'acheteur: dans notre équipe, vous êtes responsable de l'approvisionnement en temps opportun de nos entrepôts centraux en Suisse, en France et au Danemark. Vous traitez les commandes, entretientz des relations avec les fournisseurs et maintenez nos données à jour – de sorte que tout soit au bon endroit au bon moment. Vos tâches.\n• Responsabilité de la disponibilité optimale des biens et services en tenant compte des budgets, des objectifs et de la situation actuelle des marchés publics\n• Traitement des demandes, commandes, confirmations de commande, offres et rappels, ainsi que des notifications et des plaintes\n• Développement d'une base de fournisseurs et d'une relation optimales\n• Mise à jour des données sur les fournisseurs et les articles dans les systèmes et le PGI correspondants\n• Mise en œuvre des résultats des études de marché\n• Coopération étroite avec les parties prenantes des filiales en Europe (ventes, qualité, ingénierie, équipe de gamme)\n• Participation aux visites des fournisseurs\n• Participation à des projets Votre profil\n• Formation de base commerciale ou technique avec formation commerciale\n• Formation continue de préférence en matière d'approvisionnement (p. ex., dipl. fédéral) Acheteur/femme\n• Au moins 5 ans d'expérience en achat ou AVOR/disposition, de préférence dans un environnement international\n• Bonnes compétences en communication, responsabilité et approche analytique\n• Méthode de travail ciblée, autoresponsable et indépendante\n• affinité informatique avec de très bonnes connaissances MS Office ainsi qu'avec des systèmes ERP communs\n• Bonne connaissance de l'allemand et de l'anglais en paroles et en écriture Ça semble excitant ? Nous sommes impatients de vous rencontrer! Si vous avez des questions, je serai volontiers là pour vous: Céline Späni – partenaire d'affaires RH Celine.spaeni@bossard.com  041 749 63 49 Nous ne considérons que les demandes directes."
+      },
+      "needsRetranslation": false,
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Einkufer-in-80----all-genders----Bossard-Group_",
+      "source": "Bossard Group Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-22T11:25:11.622Z",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "streetAddress": "Steinhauserstrasse 70",
+      "postalCode": "6301",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Tecnologia di assemblaggio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-02",
+      "applyUrl": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Einkufer-in-80----all-genders----Bossard-Group_",
+      "jobReqId": null,
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "einkaufer-in-80-all-genders-bossard-group-bossard-zug",
+        "acquirente-80-tutti-i-generi-bossard-group-bossard-group-zug"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "einkaufer-in-80-all-genders-bossard-group-bossard-zug",
+          "acquirente-80-tutti-i-generi-bossard-group-bossard-group-zug"
+        ],
+        "fr": [
+          "einkaufer-in-80-all-genders-bossard-group-bossard-zug"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T10:30:43.628Z",
+      "salaryMin": 55600,
+      "salaryMax": 84800,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 55600,
+          "maxValue": 84800,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "bossard-64f146844784",
+      "slug": "collaboratore-trice-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-group-zug",
+      "slugByLocale": {
+        "it": "collaboratore-trice-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-group-zug",
+        "en": "associate-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-group-zug",
+        "de": "mitarbeiter-in-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-zug",
+        "fr": "collaborateur-trice-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-group-zug"
+      },
+      "company": "Bossard Group",
+      "companyKey": "bossard",
+      "companyDomain": "bossard.com",
+      "title": "Mitarbeiter:in Auftragsbearbeitung 100% (all genders) | Bossard AG",
+      "titleByLocale": {
+        "it": "Collaboratore/trice Auftragsbearbeitung 100% (all genders) | Bossard AG",
+        "en": "Associate Auftragsbearbeitung 100% (all genders) | Bossard AG",
+        "de": "Mitarbeiter:in Auftragsbearbeitung 100% (all genders) | Bossard AG",
+        "fr": "Collaborateur/trice Auftragsbearbeitung 100% (all genders) | Bossard AG"
+      },
+      "description": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nMitarbeiter:in Auftragsbearbeitung 100% (all genders) | Bossard AG\n\nIn dieser interessanten Allrounder-Funktion unterstützt du unser Technologie- und Logistikcenter (TLZ) tatkräftig.\n\nDeine Aufgaben\n\n• Angelieferte Paketsendungen anhand der Lieferscheine identifizieren und gemäss SCS Vorschriften weiter verarbeiten\n\n• Verpackung und Etikettierung von Kundensendungen in Kartons und Paletten\n\n• Kommissionierung von Kundenaufträgen am Sorter / Logistiksorter\n\n• Periodisches Auffüllen von Verbrauchsmaterial am Arbeitsplatz, wie auch sachgerechte Entsorgung von Abfällen\n\n• Bei Auslastungsschwankungen ist die Bereitschaft zur Rotation innerhalb der Logistikabteilungen des TLZ Voraussetzung\n\nDein Anforderungsprofil\n\n• Abgeschlossene Lehre als Logistiker:in EFZ oder mehrjährige Erfahrung als Logistiker:in\n\n• SUVA-anerkannter Staplerausweis\n\n• Gute PC- und MS-Office-Anwenderkenntnisse\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Körperliche Belastbarkeit\n\nBist du eine zuverlässige und teamfähige Persönlichkeit und suchst eine abwechslungsreiche Arbeitsumgebung in einer vielseitigen Branche? Dann freut sich Dominik Udovicic, 041 749 61 16 auf deine schriftliche Bewerbung via unserem Online Formular.\n\nBei weiteren Fragen steht Dir Daniel Anderegg, Abteilungsleiter Auftragsbearbeitung unter der Telefonnummer +41 41 749 63 83, zur Verfügung.",
+      "descriptionByLocale": {
+        "it": "Il Gruppo Bossard è un partner strategico leader per le soluzioni tecnologiche di fissaggio e assemblaggio industriali ai clienti OEM a livello globale con una comprovata esperienza nei servizi di ingegneria e logistica. Bossard fu fondata a Zug nel 1831. Il Gruppo Bossard impiega oltre 3.000 persone in 33 conteggi a livello mondiale ed è quotato sulla SIX Swiss Exchange. Scegli Bossard come il tuo datore di lavoro e beneficiare di condizioni di lavoro interessanti. Dipendente: per l'elaborazione dell'ordine 100% (tutti i generi) | Bossard AG In questa interessante funzione all-rounder, supporterete attivamente il nostro Centro Tecnologia e Logistica (TLZ). I tuoi compiti\n• Identificare spedizioni a pacco consegna in base alle note di consegna e trattarle ulteriormente in conformità alle normative SCS\n• Imballaggio e etichettatura delle spedizioni dei clienti in cartoni e pallet\n• Selezione degli ordini del cliente sul sorter / sorter logistico\n• Ripieno periodico di materiali di consumo sul posto di lavoro, nonché il corretto smaltimento dei rifiuti\n• In caso di fluttuazioni di carico, la disponibilità per la rotazione all'interno dei dipartimenti logistici del TLZ è un presupposto Il tuo profilo di richiesta\n• Apprendistato completo come logistico: in EFZ o diversi anni di esperienza come logistico:in\n• Passante per carrelli elevatori riconosciuto SUVA\n• Buona conoscenza degli utenti di PC e MS Office\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Capacità fisica Sei una personalità affidabile e collaborativa e alla ricerca di un ambiente di lavoro vario in un settore diverso? Allora Dominik Udovicic, 041 749 61 16 non vede l'ora della vostra applicazione scritta tramite il nostro modulo online. Se avete ulteriori domande, Daniel Anderegg, capo dipartimento per l'elaborazione degli ordini, può contattarvi chiamando +41 41 749 63 83.",
+        "en": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineering and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions. Employee: in order processing 100% (all genders) | Bossard AG In this interesting all-rounder function, you will actively support our Technology and Logistics Center (TLZ). Your tasks\n• Identify delivered parcel shipments on the basis of the delivery notes and process them further in accordance with SCS regulations\n• Packaging and labelling of customer consignments in cartons and pallets\n• Picking of customer orders on the sorter / logistics sorter\n• Periodic filling of consumables at the workplace as well as proper disposal of waste\n• In the event of load fluctuations, the readiness for rotation within the logistics departments of the TLZ is a prerequisite Your requirement profile\n• Completed apprenticeship as a logistician:in EFZ or several years of experience as a logistician:in\n• SUVA-recognised forklift pass\n• Good PC and MS Office user knowledge\n• Very good knowledge of German in word and writing\n• Physical capacity Are you a reliable and collaborative personality and looking for a varied work environment in a diverse industry? Then Dominik Udovicic, 041 749 61 16 is looking forward to your written application via our online form. If you have any further questions, Daniel Anderegg, head of department for order processing, can contact you by calling +41 41 749 63 83.",
+        "de": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nMitarbeiter:in Auftragsbearbeitung 100% (all genders) | Bossard AG\n\nIn dieser interessanten Allrounder-Funktion unterstützt du unser Technologie- und Logistikcenter (TLZ) tatkräftig.\n\nDeine Aufgaben\n\n• Angelieferte Paketsendungen anhand der Lieferscheine identifizieren und gemäss SCS Vorschriften weiter verarbeiten\n\n• Verpackung und Etikettierung von Kundensendungen in Kartons und Paletten\n\n• Kommissionierung von Kundenaufträgen am Sorter / Logistiksorter\n\n• Periodisches Auffüllen von Verbrauchsmaterial am Arbeitsplatz, wie auch sachgerechte Entsorgung von Abfällen\n\n• Bei Auslastungsschwankungen ist die Bereitschaft zur Rotation innerhalb der Logistikabteilungen des TLZ Voraussetzung\n\nDein Anforderungsprofil\n\n• Abgeschlossene Lehre als Logistiker:in EFZ oder mehrjährige Erfahrung als Logistiker:in\n\n• SUVA-anerkannter Staplerausweis\n\n• Gute PC- und MS-Office-Anwenderkenntnisse\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Körperliche Belastbarkeit\n\nBist du eine zuverlässige und teamfähige Persönlichkeit und suchst eine abwechslungsreiche Arbeitsumgebung in einer vielseitigen Branche? Dann freut sich Dominik Udovicic, 041 749 61 16 auf deine schriftliche Bewerbung via unserem Online Formular.\n\nBei weiteren Fragen steht Dir Daniel Anderegg, Abteilungsleiter Auftragsbearbeitung unter der Telefonnummer +41 41 749 63 83, zur Verfügung.",
+        "fr": "Le Groupe Bossard est un partenaire stratégique de premier plan pour les solutions technologiques de fixation industrielle et d'assemblage pour les clients OEM dans le monde entier avec une expertise avérée en ingénierie et services logistiques. Bossard a été fondé à Zug en 1831. Le groupe Bossard emploie plus de 3 000 personnes dans 33 comtes du monde entier et est coté à la SIX Swiss Exchange. Choisissez Bossard comme employeur et profitez de conditions d'emploi attrayantes. Employé: dans le traitement des commandes 100% (tous les genres) Dans cette fonction tout-terrain intéressante, vous soutiendrez activement notre Centre de technologie et de logistique (TLZ). Vos tâches\n• Identifier les expéditions de colis livrées sur la base des notes de livraison et les traiter plus avant conformément aux règlements SCS\n• Emballage et étiquetage des envois clients en cartons et palettes\n• Choix des commandes des clients sur le trieur / trieur logistique\n• Remplissage périodique des consommables sur le lieu de travail et élimination correcte des déchets\n• En cas de fluctuations de charge, la préparation à la rotation au sein des départements logistiques du TLZ est une condition préalable Votre profil de demande\n• Achevé l'apprentissage comme logisticien:dans EFZ ou plusieurs années d'expérience comme logisticien:dans\n• Passage de chariot élévateur reconnu VUSA\n• Bonnes connaissances des utilisateurs de PC et de MS Office\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Capacité physique Êtes-vous une personnalité fiable et collaborative et à la recherche d'un environnement de travail varié dans une industrie diversifiée? Puis Dominik Udovicic, 041 749 61, attend avec impatience votre candidature écrite via notre formulaire en ligne. Si vous avez d'autres questions, Daniel Anderegg, responsable du traitement des commandes, peut vous contacter en composant le +41 41 749 63 83."
+      },
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Mitarbeiter-in-Auftragsbearbeitung-100---all-genders----Bossard-AG_",
+      "source": "Bossard Group Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-22T11:25:10.705Z",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "streetAddress": "Steinhauserstrasse 70",
+      "postalCode": "6301",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Tecnologia di assemblaggio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-05",
+      "applyUrl": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Mitarbeiter-in-Auftragsbearbeitung-100---all-genders----Bossard-AG_",
+      "jobReqId": null,
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-in-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-zug",
+        "collaboratore-trice-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-group-zug"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-zug",
+          "collaboratore-trice-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-group-zug"
+        ],
+        "en": [
+          "mitarbeiter-in-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-zug"
+        ],
+        "fr": [
+          "mitarbeiter-in-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-zug"
+        ]
+      },
+      "firstSeenAt": "2026-07-05T22:14:00.240Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "bossard-27515f2d4176",
+      "slug": "sachbearbeiter-in-smart-factory-logistics-80-100-all-genders-bossard-ag-bossard-zug",
+      "slugByLocale": {
+        "it": "sachbearbeiter-in-smart-factory-logistics-80-100-all-genders-bossard-ag-bossard-zug",
+        "en": "sachbearbeiter-in-smart-factory-logistics-80-100-all-genders-bossard-ag-bossard-zug",
+        "de": "sachbearbeiter-in-smart-factory-logistics-80-100-all-genders-bossard-ag-bossard-zug",
+        "fr": "sachbearbeiter-in-smart-factory-logistics-80-100-all-genders-bossard-ag-bossard-zug"
+      },
+      "company": "Bossard Group",
+      "companyKey": "bossard",
+      "companyDomain": "bossard.com",
+      "title": "Sachbearbeiter:in Smart Factory Logistics 80-100% (all genders) | Bossard AG",
+      "titleByLocale": {
+        "it": "Sachbearbeiter:in Smart Factory Logistica 80-100% (all genders) | Bossard AG",
+        "en": "Smart Factory Logistics 80-100% (all genders) | Bossard AG",
+        "de": "Sachbearbeiter:in Smart Factory Logistics 80-100% (all genders) | Bossard AG",
+        "fr": "Sachbearbeiter:in Smart Factory Logistique 80-100% (all genders) | Bossard AG"
+      },
+      "description": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nSachbearbeiter:in Smart Factory Logistics 80-100% (all genders) | Bossard AG\n\nWas dich erwartet\n\nIn dieser serviceorientierten Rolle sorgst du dafür, dass unsere Logistiksysteme bei Kund:innen reibungslos laufen. Du koordinierst den gesamten operativen Support, stellst die Systemverfügbarkeit sicher und bildest die zentrale Schnittstelle zwischen Kundschaft, Lieferanten und internen Teams.\n\nDeine Aufgaben\n\n• Täglicher Austausch mit Kunden und Lieferanten – telefonisch und schriftlich\n\n• Betreuung und Überwachung der installierten Bossard-Logistiksysteme mithilfe moderner Softwaretools\n\n• Sicherstellen der konstanten Verfügbarkeit aller bewirtschafteten Artikel\n\n• Kontrolle von Lieferantenrechnungen sowie Erstellung der Monatsrechnungen für Kunden\n\n• Analyse von System- und Nutzungsdaten inklusive Erstellung von Reports zur kontinuierlichen Optimierung\n\n• Auslösen und Koordinieren von Wartungs- und Reparaturaufträgen für das technische Unterhaltsteam\n\n• Unterstützung der Projektleitung sowie aktive Mitarbeit im Projektmanagement\n\nWas du mitbringst\n\n• Abgeschlossene Detailhandels- oder kaufmännische Ausbildung; technisches Verständnis ist ein Plus\n\n• Erste Erfahrung in Einkauf, Verkauf oder Logistik ist ein Plus\n\n• Sehr gute MS 365 Kenntnisse und hohe IT-Affinität\n\n• Sehr gute Deutsch- und Englischkenntnisse; Französisch von Vorteil\n\n• Freude an Prozessoptimierung, strukturierter Arbeitsweise und serviceorientiertem Denken\n\nInteresse?\nDann freuen wir uns über deine Bewerbung. Bei Fragen oder Anliegen darfst Du dich gerne bei mir melden. Dominik Udovicic, 041 749 61 16",
+      "descriptionByLocale": {
+        "it": "Il Gruppo Bossard è un partner strategico leader per le soluzioni tecnologiche di fissaggio e assemblaggio industriali ai clienti OEM a livello globale con una comprovata esperienza nell'ingegneria e nei servizi logistici. Bossard fu fondata a Zug nel 1831. Il Gruppo Bossard impiega oltre 3.000 persone in 33 contee a livello mondiale ed è quotato sulla SIX Swiss Exchange. Scegli Bossard come il tuo datore di lavoro e beneficiare di condizioni di lavoro interessanti.\n\nSmart Factory Logistics 80-100% (tutti i generi) | Bossard AG\n\nCosa aspettarsi\n\nIn questo ruolo orientato al servizio, si assicura che i nostri sistemi logistici funzionano senza problemi a Kund:innen. Coordinate tutto il supporto operativo, assicurate la disponibilità del sistema e formate l'interfaccia centrale tra clienti, fornitori e team interni.\n\nI tuoi compiti\n\n• Scambio giornaliero con clienti e fornitori – per telefono e per iscritto\n\n• Supporto e monitoraggio dei sistemi logistici installati Bossard utilizzando moderni strumenti software\n\n• Garantire la costante disponibilità di tutti gli articoli gestiti\n\n• Controllo delle fatture dei fornitori e preparazione delle fatture mensili per i clienti\n\n• Analisi dei dati di sistema e di utilizzo, compresa la creazione di report per l'ottimizzazione continua\n\n• Triggering e coordinamento degli ordini di manutenzione e riparazione per il team di manutenzione tecnica\n\n• Supporto per la gestione dei progetti e la partecipazione attiva alla gestione dei progetti\n\nCosa porti\n\n• Formazione completa al dettaglio o commerciale; La comprensione tecnica è un plus\n\n• La prima esperienza nell'acquisto, nella vendita o nella logistica è un plus\n\n• Molto buona conoscenza MS 365 e alta affinità IT\n\n• Ottima conoscenza del tedesco e dell'inglese; vantaggio francese\n\n• Ottimizzazione del processo, metodi di lavoro strutturati e pensiero orientato al servizio\n\nInteressante?\nAttendiamo con ansia la vostra applicazione. Se avete domande o dubbi, contattatemi. Dominik Udovicic, 041 749 61 16",
+        "en": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nSmart Factory Logistics 80-100% (all genders) | Bossard AG\n\nWhat to expect\n\nIn this service-oriented role, you ensure that our logistics systems run smoothly at Kund:innen. You coordinate all operational support, ensure system availability and form the central interface between customers, suppliers and internal teams.\n\nYour tasks\n\n• Daily exchange with customers and suppliers – by telephone and in writing\n\n• Support and monitoring of the installed Bossard logistics systems using modern software tools\n\n• Ensuring the constant availability of all managed items\n\n• Control of supplier invoices and preparation of monthly invoices for customers\n\n• Analysis of system and usage data including creation of reports for continuous optimization\n\n• Triggering and coordinating maintenance and repair orders for the technical maintenance team\n\n• Support for project management and active participation in project management\n\nWhat you bring\n\n• Completed retail or commercial training; Technical understanding is a plus\n\n• First experience in purchasing, selling or logistics is a plus\n\n• Very good MS 365 knowledge and high IT affinity\n\n• Very good knowledge of German and English; French advantage\n\n• Enjoying process optimization, structured working methods and service-oriented thinking\n\nInterested?\nWe look forward to your application. If you have any questions or concerns, please contact me. Dominik Udovicic, 041 749 61 16",
+        "de": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nSachbearbeiter:in Smart Factory Logistics 80-100% (all genders) | Bossard AG\n\nWas dich erwartet\n\nIn dieser serviceorientierten Rolle sorgst du dafür, dass unsere Logistiksysteme bei Kund:innen reibungslos laufen. Du koordinierst den gesamten operativen Support, stellst die Systemverfügbarkeit sicher und bildest die zentrale Schnittstelle zwischen Kundschaft, Lieferanten und internen Teams.\n\nDeine Aufgaben\n\n• Täglicher Austausch mit Kunden und Lieferanten – telefonisch und schriftlich\n\n• Betreuung und Überwachung der installierten Bossard-Logistiksysteme mithilfe moderner Softwaretools\n\n• Sicherstellen der konstanten Verfügbarkeit aller bewirtschafteten Artikel\n\n• Kontrolle von Lieferantenrechnungen sowie Erstellung der Monatsrechnungen für Kunden\n\n• Analyse von System- und Nutzungsdaten inklusive Erstellung von Reports zur kontinuierlichen Optimierung\n\n• Auslösen und Koordinieren von Wartungs- und Reparaturaufträgen für das technische Unterhaltsteam\n\n• Unterstützung der Projektleitung sowie aktive Mitarbeit im Projektmanagement\n\nWas du mitbringst\n\n• Abgeschlossene Detailhandels- oder kaufmännische Ausbildung; technisches Verständnis ist ein Plus\n\n• Erste Erfahrung in Einkauf, Verkauf oder Logistik ist ein Plus\n\n• Sehr gute MS 365 Kenntnisse und hohe IT-Affinität\n\n• Sehr gute Deutsch- und Englischkenntnisse; Französisch von Vorteil\n\n• Freude an Prozessoptimierung, strukturierter Arbeitsweise und serviceorientiertem Denken\n\nInteresse?\nDann freuen wir uns über deine Bewerbung. Bei Fragen oder Anliegen darfst Du dich gerne bei mir melden. Dominik Udovicic, 041 749 61 16",
+        "fr": "Le Groupe Bossard est un partenaire stratégique de premier plan pour les solutions technologiques de fixation industrielle et d'assemblage pour les clients OEM dans le monde entier avec une expertise éprouvée dans les services d'ingénierie et de logistique. Bossard a été fondé à Zug en 1831. Le groupe Bossard emploie plus de 3000 personnes dans 33 comtes du monde entier et est coté à la SIX Swiss Exchange. Choisissez Bossard comme employeur et profitez de conditions d'emploi attrayantes.\n\nSmart Factory Logistics 80-100% (tous les genres)\n\nÀ quoi s'attendre\n\nDans ce rôle orienté vers le service, vous veillez à ce que nos systèmes logistiques fonctionnent bien chez Kund:innen. Vous coordonnez tout le support opérationnel, assurez la disponibilité du système et formez l'interface centrale entre les clients, les fournisseurs et les équipes internes.\n\nVos tâches\n\n• Échange quotidien avec les clients et les fournisseurs – par téléphone et par écrit\n\n• Support et suivi des systèmes logistiques Bossard installés à l'aide d'outils logiciels modernes\n\n• Assurer la disponibilité constante de tous les éléments gérés\n\n• Contrôle des factures des fournisseurs et établissement des factures mensuelles pour les clients\n\n• Analyse des données de système et d'utilisation, y compris la création de rapports pour l'optimisation continue\n\n• Déclenchement et coordination des commandes d'entretien et de réparation pour l'équipe d'entretien technique\n\n• Appui à la gestion de projet et participation active à la gestion de projet\n\nCe que vous apportez\n\n• Formation au commerce ou au détail terminée; La compréhension technique est un plus\n\n• Première expérience dans l'achat, la vente ou la logistique est un plus\n\n• Très bonne connaissance MS 365 et haute affinité informatique\n\n• Très bonne connaissance de l'allemand et de l'anglais; avantage français\n\n• Optimisation des processus, méthodes de travail structurées et réflexion axée sur le service\n\nIntéressé ?\nNous attendons avec impatience votre candidature. Si vous avez des questions ou des préoccupations, veuillez communiquer avec moi. Il n'y a pas d'autre solution."
+      },
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Sachbearbeiter-in-Smart-Factory-Logistics-80-100---all-genders----Bossard-AG_",
+      "source": "Bossard Group Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-22T11:25:09.932Z",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "streetAddress": "Steinhauserstrasse 70",
+      "postalCode": "6301",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Tecnologia di assemblaggio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-14",
+      "applyUrl": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Sachbearbeiter-in-Smart-Factory-Logistics-80-100---all-genders----Bossard-AG_",
+      "jobReqId": null,
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-14T11:18:53.386Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "bossard-b3c91b82b0fa",
+      "slug": "acquirente-al-100-tutti-i-generi-bossard-group-bossard-group-zug",
+      "slugByLocale": {
+        "it": "acquirente-al-100-tutti-i-generi-bossard-group-bossard-group-zug",
+        "en": "einkaufer-in-100-all-genders-bossard-group-bossard-zug",
+        "de": "einkaufer-in-100-all-genders-bossard-group-bossard-zug",
+        "fr": "acheteur-en-100-tous-les-sexes-bossard-group-zug"
+      },
+      "company": "Bossard Group",
+      "companyKey": "bossard",
+      "companyDomain": "bossard.com",
+      "title": "Einkäufer:in 100 % (all genders) | Bossard Group",
+      "titleByLocale": {
+        "it": "Acquirente al 100% (tutti i generi) | Bossard Group",
+        "en": "Buyer:in 100% (all genders) | Bossard Group",
+        "de": "Einkäufer:in 100 % (all genders) | Bossard Group",
+        "fr": "Acheteur: en 100% (tous les sexes)"
+      },
+      "description": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nEinkäufer:in 100 % (all genders) | Bossard Group\n\nAls Einkäufer:in in unserem Team bist du verantwortlich für die termingerechte Versorgung unserer Zentrallager in der Schweiz, Frankreich und Dänemark. Du bearbeitest Bestellungen, pflegst Lieferantenbeziehungen und hältst unsere Daten aktuell – damit alles zur richtigen Zeit am richtigen Ort ist.\n\nDeine Aufgaben \n\n• Verantwortung für die optimale Verfügbarkeit von Waren und Dienstleistungen unter Berücksichtigung der Ziele und der aktuellen Beschaffungsmarktsituation\n\n• Bearbeitung von Anfragen, Bestellungen, Auftragsbestätigungen, Offerten und Mahnungen, sowie Bedarfsmeldungen und Reklamationswesen\n\n• Weiterentwicklung einer optimalen Lieferantenbasis und -beziehung\n\n• Aktualisierung der Lieferanten- und Artikeldaten in den entsprechenden Systemen und im ERP\n\n• Enge Zusammenarbeit mit den Stakeholdern der Tochterfirmen innerhalb Europas (Verkauf, Qualität, Engineering, Sortimentsteam)\n\n• Teilnahme an Lieferantenbesuchen\n\nDein Profil \n\n• Kaufmännische oder technische Grundausbildung mit kaufmännischer Weiterbildung\n\n• Vorzugsweise Weiterbildung in der Beschaffung (z.B. eidg. dipl. Einkaufsfachmann/frau)\n\n• Mindestens 5 Jahre Erfahrung im Einkauf oder AVOR/Disposition, vorzugsweise im internationalen Umfeld\n\n• Gute Kommunikationsfähigkeiten, Verantwortungsbewusstsein sowie eine analytische Vorgehensweise\n\n• Zielorientierte, eigenverantwortliche und selbständige Arbeitsweise\n\n• IT-Affinität mit sehr guten MS Office Kenntnissen sowie mit gängigen ERP-Systemen\n\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nKlingt spannend? Dann freuen wir uns, dich kennenzulernen! Bei Fragen bin ich gerne für dich da:\nCeline Späni – HR Business Partner\n celine.spaeni@bossard.com\n 041 749 63 49\n\nWir berücksichtigen nur Direktbewerbungen.",
+      "descriptionByLocale": {
+        "it": "Il Gruppo Bossard è un partner strategico leader per le soluzioni tecnologiche di fissaggio e assemblaggio industriali ai clienti OEM a livello globale con una comprovata esperienza nei servizi di ingegneria e logistica. Bossard fu fondata a Zug nel 1831. Il Gruppo Bossard impiega oltre 3.000 persone in 33 conteggi a livello mondiale ed è quotato sulla SIX Swiss Exchange. Scegli Bossard come il tuo datore di lavoro e beneficiare di condizioni di lavoro interessanti. Compratore:in 100% (tutti i generi) | Bossard Group Come acquirente: nel nostro team sei responsabile della fornitura tempestiva dei nostri magazzini centrali in Svizzera, Francia e Danimarca. Elabori ordini, mantieni i rapporti dei fornitori e mantieni i nostri dati aggiornati, in modo che tutto sia nel posto giusto al momento giusto. I tuoi compiti.\n• Responsabilità per la disponibilità ottimale di beni e servizi tenendo conto dei bilanci, degli obiettivi e della situazione attuale del mercato degli appalti\n• Elaborazione di richieste, ordini, conferme d'ordine, offerte e promemoria, nonché notifiche e reclami\n• Ulteriore sviluppo di una base di fornitore ottimale e rapporto\n• Aggiornamento dei dati dei fornitori e degli articoli nei sistemi corrispondenti e ERP\n• Attuazione dei risultati della ricerca sul mercato degli appalti\n• stretta collaborazione con le parti interessate delle filiali in Europa (vendita, qualità, ingegneria, team di gamma)\n• Partecipazione alle visite dei fornitori\n• Partecipazione a progetti Il tuo profilo\n• Formazione di base commerciale o tecnica con formazione commerciale\n• Preferibilmente ulteriore formazione negli appalti (ad esempio, dipl federale). Compratore/donna\n• Almeno 5 anni di esperienza nell'acquisto o AVOR/disposizione, preferibilmente in un ambiente internazionale\n• Buone capacità comunicative, responsabilità e approccio analitico\n• Metodo di lavoro autonomo, orientato all'obiettivo\n• affinità IT con una buona conoscenza MS Office e con sistemi ERP comuni\n• Buona conoscenza del tedesco e dell'inglese in parola e scrittura Sembra eccitante? Non vediamo l'ora di incontrarvi! Se avete domande, sarò volentieri lì per voi: Celine Späni – HR Business Partner celine.spaeni@bossard.com  041 749 63 49 Consideriamo solo applicazioni dirette.",
+        "en": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineering and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions. Buyer:in 100% (all genders) | Bossard Group As a buyer: in our team you are responsible for the timely supply of our central warehouses in Switzerland, France and Denmark. You process orders, maintain supplier relationships and keep our data up-to-date – so that everything is in the right place at the right time. Your tasks.\n• Responsibility for the optimal availability of goods and services taking into account budgets, objectives and the current procurement market situation\n• Processing of inquiries, orders, order confirmations, offers and reminders, as well as notifications and complaints\n• Further development of an optimal supplier base and relationship\n• Updating of supplier and article data in the corresponding systems and ERP\n• Implementation of results from procurement market research\n• Close cooperation with the stakeholders of the subsidiaries within Europe (sales, quality, engineering, range team)\n• Participation in supplier visits\n• Participation in projects Your profile \n• Commercial or technical basic training with commercial training\n• Preferably further training in procurement (e.g. federal dipl.) Buyer/woman\n• At least 5 years of experience in purchasing or AVOR/disposition, preferably in an international environment\n• Good communication skills, responsibility and an analytical approach\n• Target-oriented, self-responsible and independent working method\n• IT affinity with very good MS Office knowledge as well as with common ERP systems\n• Good knowledge of German and English in word and writing Sounds exciting? We look forward to meeting you! If you have any questions, I will gladly be there for you: Celine Späni – HR Business Partner celine.spaeni@bossard.com  041 749 63 49 We only consider direct applications.",
+        "de": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nEinkäufer:in 100 % (all genders) | Bossard Group\n\nAls Einkäufer:in in unserem Team bist du verantwortlich für die termingerechte Versorgung unserer Zentrallager in der Schweiz, Frankreich und Dänemark. Du bearbeitest Bestellungen, pflegst Lieferantenbeziehungen und hältst unsere Daten aktuell – damit alles zur richtigen Zeit am richtigen Ort ist.\n\nDeine Aufgaben \n\n• Verantwortung für die optimale Verfügbarkeit von Waren und Dienstleistungen unter Berücksichtigung der Ziele und der aktuellen Beschaffungsmarktsituation\n\n• Bearbeitung von Anfragen, Bestellungen, Auftragsbestätigungen, Offerten und Mahnungen, sowie Bedarfsmeldungen und Reklamationswesen\n\n• Weiterentwicklung einer optimalen Lieferantenbasis und -beziehung\n\n• Aktualisierung der Lieferanten- und Artikeldaten in den entsprechenden Systemen und im ERP\n\n• Enge Zusammenarbeit mit den Stakeholdern der Tochterfirmen innerhalb Europas (Verkauf, Qualität, Engineering, Sortimentsteam)\n\n• Teilnahme an Lieferantenbesuchen\n\nDein Profil \n\n• Kaufmännische oder technische Grundausbildung mit kaufmännischer Weiterbildung\n\n• Vorzugsweise Weiterbildung in der Beschaffung (z.B. eidg. dipl. Einkaufsfachmann/frau)\n\n• Mindestens 5 Jahre Erfahrung im Einkauf oder AVOR/Disposition, vorzugsweise im internationalen Umfeld\n\n• Gute Kommunikationsfähigkeiten, Verantwortungsbewusstsein sowie eine analytische Vorgehensweise\n\n• Zielorientierte, eigenverantwortliche und selbständige Arbeitsweise\n\n• IT-Affinität mit sehr guten MS Office Kenntnissen sowie mit gängigen ERP-Systemen\n\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nKlingt spannend? Dann freuen wir uns, dich kennenzulernen! Bei Fragen bin ich gerne für dich da:\nCeline Späni – HR Business Partner\n celine.spaeni@bossard.com\n 041 749 63 49\n\nWir berücksichtigen nur Direktbewerbungen.",
+        "fr": "Le Groupe Bossard est un partenaire stratégique de premier plan pour les solutions technologiques de fixation industrielle et d'assemblage pour les clients OEM dans le monde entier avec une expertise avérée en ingénierie et services logistiques. Bossard a été fondé à Zug en 1831. Le groupe Bossard emploie plus de 3 000 personnes dans 33 comtes du monde entier et est coté à la SIX Swiss Exchange. Choisissez Bossard comme employeur et profitez de conditions d'emploi attrayantes. Acheteur: en 100% (tous les sexes) En tant qu'acheteur: dans notre équipe, vous êtes responsable de l'approvisionnement en temps opportun de nos entrepôts centraux en Suisse, en France et au Danemark. Vous traitez les commandes, entretientz des relations avec les fournisseurs et maintenez nos données à jour – de sorte que tout soit au bon endroit au bon moment. Vos tâches.\n• Responsabilité de la disponibilité optimale des biens et services en tenant compte des budgets, des objectifs et de la situation actuelle des marchés publics\n• Traitement des demandes, commandes, confirmations de commande, offres et rappels, ainsi que des notifications et des plaintes\n• Développement d'une base de fournisseurs et d'une relation optimales\n• Mise à jour des données sur les fournisseurs et les articles dans les systèmes et le PGI correspondants\n• Mise en œuvre des résultats des études de marché\n• Coopération étroite avec les parties prenantes des filiales en Europe (ventes, qualité, ingénierie, équipe de gamme)\n• Participation aux visites des fournisseurs\n• Participation à des projets Votre profil\n• Formation de base commerciale ou technique avec formation commerciale\n• Formation continue de préférence en matière d'approvisionnement (p. ex., dipl. fédéral) Acheteur/femme\n• Au moins 5 ans d'expérience en achat ou AVOR/disposition, de préférence dans un environnement international\n• Bonnes compétences en communication, responsabilité et approche analytique\n• Méthode de travail ciblée, autoresponsable et indépendante\n• affinité informatique avec de très bonnes connaissances MS Office ainsi qu'avec des systèmes ERP communs\n• Bonne connaissance de l'allemand et de l'anglais en paroles et en écriture Ça semble excitant ? Nous sommes impatients de vous rencontrer! Si vous avez des questions, je serai volontiers là pour vous: Céline Späni – partenaire d'affaires RH Celine.spaeni@bossard.com  041 749 63 49 Nous ne considérons que les demandes directes."
+      },
+      "needsRetranslation": false,
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Einkufer-in-80---100----all-genders----Bossard-Group_",
+      "source": "Bossard Group Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-22T11:25:09.234Z",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "streetAddress": "Steinhauserstrasse 70",
+      "postalCode": "6301",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Tecnologia di assemblaggio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-02",
+      "applyUrl": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Einkufer-in-80---100----all-genders----Bossard-Group_",
+      "jobReqId": null,
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "einkaufer-in-100-all-genders-bossard-group-bossard-zug",
+        "acquirente-al-100-tutti-i-generi-bossard-group-bossard-group-zug"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "einkaufer-in-100-all-genders-bossard-group-bossard-zug",
+          "acquirente-al-100-tutti-i-generi-bossard-group-bossard-group-zug"
+        ],
+        "fr": [
+          "einkaufer-in-100-all-genders-bossard-group-bossard-zug"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T10:30:44.473Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "bossard-991c25cd89d3",
+      "slug": "account-manager-vendite-interne-bossard-ag-bossard-group-zug",
+      "slugByLocale": {
+        "it": "account-manager-vendite-interne-bossard-ag-bossard-group-zug",
+        "en": "account-manager-inside-sales-bossard-ag-bossard-zug",
+        "de": "verkaufsmitarbeiter-in-innendienst-80-100-all-genders-bossard-ag-bossard-zug",
+        "fr": "gestionnaire-de-comptes-dans-les-ventes-bossard-ag-bossard-group-zug"
+      },
+      "company": "Bossard Group",
+      "companyKey": "bossard",
+      "companyDomain": "bossard.com",
+      "title": "Verkaufsmitarbeiter:in Innendienst 80-100% (all genders) | Bossard AG",
+      "titleByLocale": {
+        "it": "Verkaufsmitarbeiter:in servizio interno 80-100% (all genders) | Bossard AG",
+        "en": "Account Manager Inside Sales | Bossard AG",
+        "de": "Verkaufsmitarbeiter:in Innendienst 80-100% (all genders) | Bossard AG",
+        "fr": "Gestionnaire de comptes dans les ventes, Bossard AG"
+      },
+      "description": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nVerkaufsmitarbeiter:in Innendienst 80-100% (all genders) | Bossard AG\n\nDeine Aufgaben\n\n• Aktiver Verkauf von Bossard Produkten und Dienstleistungen\n\n• Betreuung und Beratung deiner Kunden zusammen mit dem zuständigen Aussendienst\n\n• Pflege und Betreuung sowie Produktedisposition für die zugeteilten Logistikkunden\n\n• Selbständige Verhandlung von Preisen und Konditionen\n\n• Auftragserstellung und -überwachung\n\n• Bearbeitung von Beanstandungen und Rücksendungen\n\n• Projektkoordination mit den internen Stellen und den Kunden\n\n• Strategische Budget- und Massnahmenplanung in Zusammenarbeit mit deinen Vorgesetzten\n\n• Datenpflege von Rapporten und Kontaktdaten im CRM\n\nDein Anforderungsprofil\n\n• Kaufmännische Lehre mit technischem Flair oder technische Grundausbildung mit kaufmännischer Weiterbildung (Technischer Kaufmann, Verkaufsfachmann oder ähnlich)\n\n• Einige Jahre Erfahrung im Verkaufsinnendienst, idealerweise in einem Industrie- oder Handelsunternehmen\n\n• Sehr gute angewandte MS-Office Kenntnisse\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse, Grundkenntnisse in Englisch\n\n• Dienstleistungsorientierte Persönlichkeit, welche Freude im Umgang mit Kunden hat\n\nSuchst du eine Herausforderung mit aktivem Kundenkontakt in einer vielseitigen Branche? Dann freut sich Herr Dominik Udovicic auf deine schriftliche Bewerbung via unserem Online Formular.",
+      "descriptionByLocale": {
+        "it": "Descrizione The Bossard Group è un partner strategico leader per soluzioni tecnologiche di fissaggio e assemblaggio industriale per clienti OEM in tutto il mondo con comprovata esperienza in ingegneria e servizi logistici. Bossard è stata fondata a Zugo nel 1831. Bossard Group impiega oltre 3,000 persone in 33 paesi in tutto il mondo ed è quotata sul Six Swiss Exchange. Diventa un datore di lavoro Bossard e approfitta di condizioni di lavoro interessanti. Account Manager Inside Sales | Bossard AG\n• I tuoi compiti - Vendita attiva di prodotti e servizi Bossard - Assistenza e consulenza ai tuoi clienti insieme al servizio esterno competente - Cura e assistenza nonché disposizione dei prodotti per i clienti logistici assegnati - Negoziazione indipendente di prezzi e condizioni - Creazione e monitoraggio degli ordini - Elaborazione di reclami e resi - Coordinamento del progetto con gli uffici interni e i clienti - Pianificazione strategica del budget e delle misure in collaborazione con i tuoi superiori - Manutenzione dei dati dei rapporti e dei dati di contatto nel CRM Il tuo profilo dei requisiti - Apprendimento commerciale con talento tecnico o formazione tecnica di base con perfezionamento commerciale (tecnico commerciale, specialista di vendita o simile) - Alcuni anni di esperienza nel servizio interno di vendita, idealmente in un'azienda industriale o commerciale - Ottime conoscenze di MS Office applicate - Ottime conoscenze orali e scritte del tedesco,",
+        "en": "Description The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions for OEM customers worldwide with proven expertise in engineering and logistics services. Bossard was founded in Zug in 1831. Bossard Group employs more than 3,000 people in 33 countries worldwide and is listed on the SIX Swiss Exchange. Become an employer and a profiteer of attractive working conditions. Account Managers, Sales, Bossard AG\n• Your tasks - Active sale of Bossard products and services - Customer support and advice together with the responsible field service - Maintenance and support as well as product disposition for the assigned logistics customers - Self-negotiation of prices and conditions - Order creation and monitoring - Processing of complaints and returns - Projectko-Corruption with the internal agencies and the customer - Strategic budget and action planning in cooperation with your supervisor - Data maintenance of Repeating and contact details in CRM Your requirements profile - Commercial apprenticeship with technical flair or basic technical training with commercial training (technical merchant, sales specialist or similar) - Some years of experience in sales interior service, ideally in an industrial or commercial company - Very good applied MS-Office knowledge - Very good oral and written German knowledge, basic knowledge in English - Service-oriented personality, which has pleasure in dealing with customers\n• We offer - Attractive working conditions Contact - Suchst you a challenge with active customer contact in a versatile industry? Then Mr. Alexandre Udovicic is looking forward to your written application via our online form.",
+        "de": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nVerkaufsmitarbeiter:in Innendienst 80-100% (all genders) | Bossard AG\n\nDeine Aufgaben\n\n• Aktiver Verkauf von Bossard Produkten und Dienstleistungen\n\n• Betreuung und Beratung deiner Kunden zusammen mit dem zuständigen Aussendienst\n\n• Pflege und Betreuung sowie Produktedisposition für die zugeteilten Logistikkunden\n\n• Selbständige Verhandlung von Preisen und Konditionen\n\n• Auftragserstellung und -überwachung\n\n• Bearbeitung von Beanstandungen und Rücksendungen\n\n• Projektkoordination mit den internen Stellen und den Kunden\n\n• Strategische Budget- und Massnahmenplanung in Zusammenarbeit mit deinen Vorgesetzten\n\n• Datenpflege von Rapporten und Kontaktdaten im CRM\n\nDein Anforderungsprofil\n\n• Kaufmännische Lehre mit technischem Flair oder technische Grundausbildung mit kaufmännischer Weiterbildung (Technischer Kaufmann, Verkaufsfachmann oder ähnlich)\n\n• Einige Jahre Erfahrung im Verkaufsinnendienst, idealerweise in einem Industrie- oder Handelsunternehmen\n\n• Sehr gute angewandte MS-Office Kenntnisse\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse, Grundkenntnisse in Englisch\n\n• Dienstleistungsorientierte Persönlichkeit, welche Freude im Umgang mit Kunden hat\n\nSuchst du eine Herausforderung mit aktivem Kundenkontakt in einer vielseitigen Branche? Dann freut sich Herr Dominik Udovicic auf deine schriftliche Bewerbung via unserem Online Formular.",
+        "fr": "Description Le groupe Bossard est un partenaire stratégique de premier plan pour les solutions technologiques de fixation et d'assemblage industrielles pour les clients OEM dans le monde entier avec une expertise éprouvée en ingénierie et services logistiques. Bossard a été fondé à Zug en 1831. Bossard Group emploie plus de 3000 personnes dans 33 pays dans le monde et est coté sur la Bourse suisse SIX. Devenez employeur et un profiteur de conditions de travail attrayantes. Responsables de compte, Ventes, Bossard AG\n• Vos tâches - Vente active de produits et services Bossard - Service client et conseil avec le service responsable - Entretien et support ainsi que la disposition de produit pour les clients logistiques assignés - Auto-négociation des prix et des conditions - Création de commandes et de suivi - Traitement des plaintes et des retours - Projectko-Corruption avec les agences internes et le client - Budget stratégique et planification d'action en collaboration avec votre superviseur - Maintenance des données de Répéter et contacter en CRM\n• Votre profil d'exigences - Apprentissage commercial avec flair technique ou formation technique de base avec formation commerciale (commerçant technique, spécialiste de la vente ou similaire) - Quelques années d'expérience dans le service d'intérieur de vente, idéalement dans une entreprise industrielle ou commerciale - Très bonne application MS-Office connaissances - Très bonne connaissance orale et écrite allemande, connaissances de base en anglais - Personnalité orientée service, qui a plaisir à traiter avec les clients\n• Nous offrons - Conditions de travail attrayantes Contact - Suchst vous un défi avec contact client actif dans une industrie polyvalente? M. Alexandre Udovicic attend avec impatience votre candidature écrite via notre formulaire en ligne."
+      },
+      "needsRetranslation": false,
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Account-Manager-Inside-Sales---Bossard-AG_-1",
+      "source": "Bossard Group Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-22T11:25:08.529Z",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "streetAddress": "Steinhauserstrasse 70",
+      "postalCode": "6301",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendite",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Tecnologia di assemblaggio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-05",
+      "applyUrl": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Account-Manager-Inside-Sales---Bossard-AG_-1",
+      "jobReqId": null,
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "account-manager-inside-sales-bossard-ag-bossard-zug",
+        "verkaufsmitarbeiter-in-innendienst-80-100-all-genders-bossard-ag-bossard-zug",
+        "account-manager-vendite-interne-bossard-ag-bossard-group-zug"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "account-manager-inside-sales-bossard-ag-bossard-zug",
+          "verkaufsmitarbeiter-in-innendienst-80-100-all-genders-bossard-ag-bossard-zug",
+          "account-manager-vendite-interne-bossard-ag-bossard-group-zug"
+        ],
+        "de": [
+          "account-manager-inside-sales-bossard-ag-bossard-zug"
+        ],
+        "fr": [
+          "account-manager-inside-sales-bossard-ag-bossard-zug"
+        ]
+      },
+      "firstSeenAt": "2026-07-05T22:13:59.437Z",
+      "salaryMin": 96000,
+      "salaryMax": 146000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 146000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "bossard-51cc0d21cc16",
+      "slug": "dipendenti-logistici-nel-settore-della-fornitura-di-beni-esporta-100-tutti-i-sessi-bossard-ag-bossard-group-zug",
+      "slugByLocale": {
+        "it": "dipendenti-logistici-nel-settore-della-fornitura-di-beni-esporta-100-tutti-i-sessi-bossard-ag-bossard-group-zug",
+        "en": "logistics-employees-in-the-field-of-goods-provision-export-100-all-genders-bossard-ag-bossard-group-zug",
+        "de": "logistikmitarbeiter-in-bereich-warenbereitstellung-export-100-all-genders-bossard-ag",
+        "fr": "employes-de-logistique-dans-le-domaine-de-la-fourniture-de-biens-exportation-100-tous-les-genres-bossard-group-zug"
+      },
+      "company": "Bossard Group",
+      "companyKey": "bossard",
+      "companyDomain": "bossard.com",
+      "title": "Logistikmitarbeiter:in Bereich Warenbereitstellung Export 100% (all genders) | Bossard AG",
+      "titleByLocale": {
+        "it": "Dipendenti logistici: nel settore della fornitura di beni Esporta 100% (tutti i sessi) | Bossard AG",
+        "en": "Logistics employees: in the field of goods provision Export 100% (all genders) | Bossard AG",
+        "de": "Logistikmitarbeiter:in Bereich Warenbereitstellung Export 100% (all genders) | Bossard AG",
+        "fr": "Employés de logistique: dans le domaine de la fourniture de biens Exportation 100% (tous les genres)"
+      },
+      "description": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nLogistikmitarbeiter:in Bereich Warenbereitstellung Export 100% (all genders) | Bossard AG\n\nDeine Aufgaben:\n\n• Zusammenführen von Kundensendungen aus den übrigen Lagerbereichen (Paketpackerei und Sperriglager)\n\n• Bereitstellen und überprüfen von Exportsendungen aller Art\n\n• Ausdrucken von Kundenadressen und Lieferscheinen\n\n• Schrumpfen der exportfähigen Paletten und Bedienung des Palettenliftes\n\n• Kontrolle der versandbereiten Kundensendungen auf Vollständigkeit anhand der Ladelisten. Verdichten von Sendungen, wo sinnvoll\n\n• Periodisches Auffüllen von Verbrauchsmaterial am Arbeitsplatz, wie auch sachgerechte Entsorgung von Abfällen.\n\nDein Anforderungsprofil:\n\n• Logistiker:in EFZ\n\n• SUVA-anerkannter Staplerausweis von Vorteil\n\n• Gute PC- und MS-Office-Anwenderkenntnisse\n\n• Sehr gute Deutschkenntnisse, Englisch von Vorteil\n\n• Zuverlässige, teamfähige Person sowie eine klare und deutliche Ausdrucksweise\n\n• Körperliche Belastbarkeit\n\nBist du eine selbstbewusste Persönlichkeit und suchst eine abwechslungsreiche Arbeitsumgebung, dann freuen wir uns auf deine Bewerbungsunterlagen.",
+      "descriptionByLocale": {
+        "it": "Il Gruppo Bossard è un partner strategico leader per le soluzioni tecnologiche di fissaggio e assemblaggio industriali ai clienti OEM a livello globale con una comprovata esperienza nei servizi di ingegneria e logistica. Bossard fu fondata a Zug nel 1831. Il Gruppo Bossard impiega oltre 3.000 persone in 33 conteggi a livello mondiale ed è quotato sulla SIX Swiss Exchange. Scegli Bossard come il tuo datore di lavoro e beneficiare di condizioni di lavoro interessanti.\n\nDipendenti logistici: nel settore della fornitura di beni Esporta 100% (tutti i sessi) | Bossard AG\n\nI vostri compiti:\n\n• Riunendo le spedizioni dei clienti dalle altre aree di stoccaggio (pacchetto e magazzino ingombrante)\n\n• Disposizione e verifica delle spedizioni di esportazione di tutti i tipi\n\n• Stampa degli indirizzi dei clienti e delle note di consegna\n\n• Restringimento dei pallet esportabili e funzionamento dell'ascensore pallet\n\n• Controllare le spedizioni dei clienti pronti per la completezza sulla base delle liste di carico. Spedizioni di compressione se del caso\n\n• Ripieno periodico di materiali di consumo sul posto di lavoro, nonché il corretto smaltimento dei rifiuti.\n\nIl vostro profilo di requisito:\n\n• Logisticista: in EFZ\n\n• Passo carrello elevatore riconosciuto SUVA è vantaggioso\n\n• Buona conoscenza degli utenti di PC e MS Office\n\n• Conoscenza molto buona del tedesco, l'inglese è un vantaggio\n\n• Affidabile, squadra capace persona così come un'espressione chiara e chiara\n\n• Capacità fisica\n\nSe siete una personalità autosufficiente e siete alla ricerca di un ambiente di lavoro vario, non vediamo l'ora dei vostri documenti di applicazione.",
+        "en": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineering and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nLogistics employees: in the field of goods provision Export 100% (all genders) | Bossard AG\n\nYour tasks:\n\n• Bringing together customer shipments from the other storage areas (package and bulky warehouse)\n\n• Provision and verification of export shipments of all kinds\n\n• Printing of customer addresses and delivery notes\n\n• Shrinkage of exportable pallets and operation of the pallet lift\n\n• Check the ready-to-ship customer shipments for completeness on the basis of the loading lists. Compressing shipments where appropriate\n\n• Periodic filling of consumables at the workplace, as well as proper disposal of waste.\n\nYour requirement profile:\n\n• Logistician: in EFZ\n\n• SUVA-recognized forklift pass is advantageous\n\n• Good PC and MS Office user knowledge\n\n• Very good knowledge of German, English is an advantage\n\n• Reliable, team capable person as well as a clear and clear expression\n\n• Physical capacity\n\nIf you are a self-confident personality and are looking for a varied working environment, we look forward to your application documents.",
+        "de": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nLogistikmitarbeiter:in Bereich Warenbereitstellung Export 100% (all genders) | Bossard AG\n\nDeine Aufgaben:\n\n• Zusammenführen von Kundensendungen aus den übrigen Lagerbereichen (Paketpackerei und Sperriglager)\n\n• Bereitstellen und überprüfen von Exportsendungen aller Art\n\n• Ausdrucken von Kundenadressen und Lieferscheinen\n\n• Schrumpfen der exportfähigen Paletten und Bedienung des Palettenliftes\n\n• Kontrolle der versandbereiten Kundensendungen auf Vollständigkeit anhand der Ladelisten. Verdichten von Sendungen, wo sinnvoll\n\n• Periodisches Auffüllen von Verbrauchsmaterial am Arbeitsplatz, wie auch sachgerechte Entsorgung von Abfällen.\n\nDein Anforderungsprofil:\n\n• Logistiker:in EFZ\n\n• SUVA-anerkannter Staplerausweis von Vorteil\n\n• Gute PC- und MS-Office-Anwenderkenntnisse\n\n• Sehr gute Deutschkenntnisse, Englisch von Vorteil\n\n• Zuverlässige, teamfähige Person sowie eine klare und deutliche Ausdrucksweise\n\n• Körperliche Belastbarkeit\n\nBist du eine selbstbewusste Persönlichkeit und suchst eine abwechslungsreiche Arbeitsumgebung, dann freuen wir uns auf deine Bewerbungsunterlagen.",
+        "fr": "Le Groupe Bossard est un partenaire stratégique de premier plan pour les solutions technologiques de fixation industrielle et d'assemblage pour les clients OEM dans le monde entier avec une expertise avérée en ingénierie et services logistiques. Bossard a été fondé à Zug en 1831. Le groupe Bossard emploie plus de 3 000 personnes dans 33 comtes du monde entier et est coté à la SIX Swiss Exchange. Choisissez Bossard comme employeur et profitez de conditions d'emploi attrayantes.\n\nEmployés de logistique: dans le domaine de la fourniture de biens Exportation 100% (tous les genres)\n\nVos tâches:\n\n• Rassembler les envois des clients des autres zones d'entreposage (emballage et entrepôt en vrac)\n\n• Fourniture et vérification des expéditions d ' exportation de toutes sortes\n\n• Impression des adresses des clients et des notes de livraison\n\n• Réduction des palettes exportables et fonctionnement de l'ascenseur de palette\n\n• Vérifiez l'exhaustivité des expéditions des clients prêts à expédier sur la base des listes de chargement. Compresser les expéditions le cas échéant\n\n• Le remplissage périodique des consommables sur le lieu de travail, ainsi que l'élimination correcte des déchets.\n\nVotre profil d'exigence:\n\n• Logisticien: en EFZ\n\n• La passe de chariot élévateur reconnue par SUVA est avantageuse\n\n• Bonnes connaissances des utilisateurs de PC et de MS Office\n\n• Très bonne connaissance de l'allemand, l'anglais est un avantage\n\n• Une personne fiable, capable d'équipe ainsi qu'une expression claire et claire\n\n• Capacité physique\n\nSi vous êtes une personnalité de confiance et que vous recherchez un environnement de travail varié, nous attendons avec impatience vos documents de candidature."
+      },
+      "needsRetranslation": false,
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Logistikmitarbeiter-in-Bereich-Warenbereitstellung-Export-100---all-genders----Bossard-AG_",
+      "source": "Bossard Group Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-22T11:25:07.735Z",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "streetAddress": "Steinhauserstrasse 70",
+      "postalCode": "6301",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Tecnologia di assemblaggio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-16",
+      "applyUrl": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Logistikmitarbeiter-in-Bereich-Warenbereitstellung-Export-100---all-genders----Bossard-AG_",
+      "jobReqId": null,
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "logistikmitarbeiter-in-bereich-warenbereitstellung-export-100-all-genders-bossard-ag",
+        "dipendenti-logistici-nel-settore-della-fornitura-di-beni-esporta-100-tutti-i-sessi-bossard-ag-bossard-group-zug"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "logistikmitarbeiter-in-bereich-warenbereitstellung-export-100-all-genders-bossard-ag",
+          "dipendenti-logistici-nel-settore-della-fornitura-di-beni-esporta-100-tutti-i-sessi-bossard-ag-bossard-group-zug"
+        ],
+        "en": [
+          "logistikmitarbeiter-in-bereich-warenbereitstellung-export-100-all-genders-bossard-ag"
+        ],
+        "fr": [
+          "logistikmitarbeiter-in-bereich-warenbereitstellung-export-100-all-genders-bossard-ag"
+        ]
+      },
+      "firstSeenAt": "2026-07-16T22:08:46.836Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -154,471 +618,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "bossard-79d6d5105b4e",
-      "slug": "acquirente-80-tutti-i-generi-bossard-group-bossard-group-zug",
-      "slugByLocale": {
-        "it": "acquirente-80-tutti-i-generi-bossard-group-bossard-group-zug",
-        "en": "einkaufer-in-80-all-genders-bossard-group-bossard-zug",
-        "de": "einkaufer-in-80-all-genders-bossard-group-bossard-zug",
-        "fr": "acheteur-en-80-tous-les-sexes-bossard-group-zug"
       },
-      "company": "Bossard Group",
-      "companyKey": "bossard",
-      "companyDomain": "bossard.com",
-      "title": "Einkäufer:in 80 % (all genders) | Bossard Group",
-      "titleByLocale": {
-        "it": "Acquirente 80% (tutti i generi) | Bossard Group",
-        "en": "Buyer:in 80% (all genders) | Bossard Group",
-        "de": "Einkäufer:in 80 % (all genders) | Bossard Group",
-        "fr": "Acheteur: en 80% (tous les sexes)"
-      },
-      "description": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nEinkäufer:in 80 % (all genders) | Bossard Group\n\nAls Einkäufer:in in unserem Team bist du verantwortlich für die termingerechte Versorgung unserer Zentrallager in der Schweiz, Frankreich und Dänemark. Du bearbeitest Bestellungen, pflegst Lieferantenbeziehungen und hältst unsere Daten aktuell – damit alles zur richtigen Zeit am richtigen Ort ist.\n\nDeine Aufgaben \n\n• Verantwortung für die optimale Verfügbarkeit von Waren und Dienstleistungen unter Berücksichtigung der Budgets, Ziele und der aktuellen Beschaffungsmarktsituation\n\n• Bearbeitung von Anfragen, Bestellungen, Auftragsbestätigungen, Offerten und Mahnungen, sowie Bedarfsmeldungen und Reklamationswesen\n\n• Weiterentwicklung einer optimalen Lieferantenbasis und -beziehung\n\n• Aktualisierung der Lieferanten- und Artikeldaten in den entsprechenden Systemen und im ERP\n\n• Umsetzung der Resultate aus der Beschaffungsmarktforschung\n\n• Enge Zusammenarbeit mit den Stakeholdern der Tochterfirmen innerhalb Europas (Verkauf, Qualität, Engineering, Sortimentsteam)\n\n• Teilnahme an Lieferantenbesuchen\n\n• Mitarbeit in Projekten\n\nDein Profil \n\n• Kaufmännische oder technische Grundausbildung mit kaufmännischer Weiterbildung\n\n• Vorzugsweise Weiterbildung in der Beschaffung (z.B. eidg. dipl. Einkaufsfachmann/frau)\n\n• Mindestens 5 Jahre Erfahrung im Einkauf oder AVOR/Disposition, vorzugsweise im internationalen Umfeld\n\n• Gute Kommunikationsfähigkeiten, Verantwortungsbewusstsein sowie eine analytische Vorgehensweise\n\n• Zielorientierte, eigenverantwortliche und selbständige Arbeitsweise\n\n• IT-Affinität mit sehr guten MS Office Kenntnissen sowie mit gängigen ERP-Systemen\n\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nKlingt spannend? Dann freuen wir uns, dich kennenzulernen! Bei Fragen bin ich gerne für dich da:\nCeline Späni – HR Business Partner\n celine.spaeni@bossard.com\n 041 749 63 49\n\nWir berücksichtigen nur Direktbewerbungen.",
-      "descriptionByLocale": {
-        "it": "Il Gruppo Bossard è un partner strategico leader per le soluzioni tecnologiche di fissaggio e assemblaggio industriali ai clienti OEM a livello globale con una comprovata esperienza nei servizi di ingegneria e logistica. Bossard fu fondata a Zug nel 1831. Il Gruppo Bossard impiega oltre 3.000 persone in 33 conteggi a livello mondiale ed è quotato sulla SIX Swiss Exchange. Scegli Bossard come il tuo datore di lavoro e beneficiare di condizioni di lavoro interessanti. Compratore:in 80% (tutti i generi) | Bossard Group Come acquirente: nel nostro team sei responsabile della fornitura tempestiva dei nostri magazzini centrali in Svizzera, Francia e Danimarca. Elabori ordini, mantieni i rapporti dei fornitori e mantieni i nostri dati aggiornati, in modo che tutto sia nel posto giusto al momento giusto. I tuoi compiti.\n• Responsabilità per la disponibilità ottimale di beni e servizi tenendo conto dei bilanci, degli obiettivi e della situazione attuale del mercato degli appalti\n• Elaborazione di richieste, ordini, conferme d'ordine, offerte e promemoria, nonché notifiche e reclami\n• Ulteriore sviluppo di una base di fornitore ottimale e rapporto\n• Aggiornamento dei dati dei fornitori e degli articoli nei sistemi corrispondenti e ERP\n• Attuazione dei risultati della ricerca sul mercato degli appalti\n• stretta collaborazione con le parti interessate delle filiali in Europa (vendita, qualità, ingegneria, team di gamma)\n• Partecipazione alle visite dei fornitori\n• Partecipazione a progetti Il tuo profilo\n• Formazione di base commerciale o tecnica con formazione commerciale\n• Preferibilmente ulteriore formazione negli appalti (ad esempio, dipl federale). Compratore/donna\n• Almeno 5 anni di esperienza nell'acquisto o AVOR/disposizione, preferibilmente in un ambiente internazionale\n• Buone capacità comunicative, responsabilità e approccio analitico\n• Metodo di lavoro autonomo, orientato all'obiettivo\n• affinità IT con una buona conoscenza MS Office e con sistemi ERP comuni\n• Buona conoscenza del tedesco e dell'inglese in parola e scrittura Sembra eccitante? Non vediamo l'ora di incontrarvi! Se avete domande, sarò volentieri lì per voi: Celine Späni – HR Business Partner celine.spaeni@bossard.com  041 749 63 49 Consideriamo solo applicazioni dirette.",
-        "en": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineering and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions. Buyer:in 80% (all genders) | Bossard Group As a buyer: in our team you are responsible for the timely supply of our central warehouses in Switzerland, France and Denmark. You process orders, maintain supplier relationships and keep our data up-to-date – so that everything is in the right place at the right time. Your tasks.\n• Responsibility for the optimal availability of goods and services taking into account budgets, objectives and the current procurement market situation\n• Processing of inquiries, orders, order confirmations, offers and reminders, as well as notifications and complaints\n• Further development of an optimal supplier base and relationship\n• Updating of supplier and article data in the corresponding systems and ERP\n• Implementation of results from procurement market research\n• Close cooperation with the stakeholders of the subsidiaries within Europe (sales, quality, engineering, range team)\n• Participation in supplier visits\n• Participation in projects Your profile \n• Commercial or technical basic training with commercial training\n• Preferably further training in procurement (e.g. federal dipl.) Buyer/woman\n• At least 5 years of experience in purchasing or AVOR/disposition, preferably in an international environment\n• Good communication skills, responsibility and an analytical approach\n• Target-oriented, self-responsible and independent working method\n• IT affinity with very good MS Office knowledge as well as with common ERP systems\n• Good knowledge of German and English in word and writing Sounds exciting? We look forward to meeting you! If you have any questions, I will gladly be there for you: Celine Späni – HR Business Partner celine.spaeni@bossard.com  041 749 63 49 We only consider direct applications.",
-        "de": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nEinkäufer:in 80 % (all genders) | Bossard Group\n\nAls Einkäufer:in in unserem Team bist du verantwortlich für die termingerechte Versorgung unserer Zentrallager in der Schweiz, Frankreich und Dänemark. Du bearbeitest Bestellungen, pflegst Lieferantenbeziehungen und hältst unsere Daten aktuell – damit alles zur richtigen Zeit am richtigen Ort ist.\n\nDeine Aufgaben \n\n• Verantwortung für die optimale Verfügbarkeit von Waren und Dienstleistungen unter Berücksichtigung der Budgets, Ziele und der aktuellen Beschaffungsmarktsituation\n\n• Bearbeitung von Anfragen, Bestellungen, Auftragsbestätigungen, Offerten und Mahnungen, sowie Bedarfsmeldungen und Reklamationswesen\n\n• Weiterentwicklung einer optimalen Lieferantenbasis und -beziehung\n\n• Aktualisierung der Lieferanten- und Artikeldaten in den entsprechenden Systemen und im ERP\n\n• Umsetzung der Resultate aus der Beschaffungsmarktforschung\n\n• Enge Zusammenarbeit mit den Stakeholdern der Tochterfirmen innerhalb Europas (Verkauf, Qualität, Engineering, Sortimentsteam)\n\n• Teilnahme an Lieferantenbesuchen\n\n• Mitarbeit in Projekten\n\nDein Profil \n\n• Kaufmännische oder technische Grundausbildung mit kaufmännischer Weiterbildung\n\n• Vorzugsweise Weiterbildung in der Beschaffung (z.B. eidg. dipl. Einkaufsfachmann/frau)\n\n• Mindestens 5 Jahre Erfahrung im Einkauf oder AVOR/Disposition, vorzugsweise im internationalen Umfeld\n\n• Gute Kommunikationsfähigkeiten, Verantwortungsbewusstsein sowie eine analytische Vorgehensweise\n\n• Zielorientierte, eigenverantwortliche und selbständige Arbeitsweise\n\n• IT-Affinität mit sehr guten MS Office Kenntnissen sowie mit gängigen ERP-Systemen\n\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nKlingt spannend? Dann freuen wir uns, dich kennenzulernen! Bei Fragen bin ich gerne für dich da:\nCeline Späni – HR Business Partner\n celine.spaeni@bossard.com\n 041 749 63 49\n\nWir berücksichtigen nur Direktbewerbungen.",
-        "fr": "Le Groupe Bossard est un partenaire stratégique de premier plan pour les solutions technologiques de fixation industrielle et d'assemblage pour les clients OEM dans le monde entier avec une expertise avérée en ingénierie et services logistiques. Bossard a été fondé à Zug en 1831. Le groupe Bossard emploie plus de 3 000 personnes dans 33 comtes du monde entier et est coté à la SIX Swiss Exchange. Choisissez Bossard comme employeur et profitez de conditions d'emploi attrayantes. Acheteur: en 80% (tous les sexes) En tant qu'acheteur: dans notre équipe, vous êtes responsable de l'approvisionnement en temps opportun de nos entrepôts centraux en Suisse, en France et au Danemark. Vous traitez les commandes, entretientz des relations avec les fournisseurs et maintenez nos données à jour – de sorte que tout soit au bon endroit au bon moment. Vos tâches.\n• Responsabilité de la disponibilité optimale des biens et services en tenant compte des budgets, des objectifs et de la situation actuelle des marchés publics\n• Traitement des demandes, commandes, confirmations de commande, offres et rappels, ainsi que des notifications et des plaintes\n• Développement d'une base de fournisseurs et d'une relation optimales\n• Mise à jour des données sur les fournisseurs et les articles dans les systèmes et le PGI correspondants\n• Mise en œuvre des résultats des études de marché\n• Coopération étroite avec les parties prenantes des filiales en Europe (ventes, qualité, ingénierie, équipe de gamme)\n• Participation aux visites des fournisseurs\n• Participation à des projets Votre profil\n• Formation de base commerciale ou technique avec formation commerciale\n• Formation continue de préférence en matière d'approvisionnement (p. ex., dipl. fédéral) Acheteur/femme\n• Au moins 5 ans d'expérience en achat ou AVOR/disposition, de préférence dans un environnement international\n• Bonnes compétences en communication, responsabilité et approche analytique\n• Méthode de travail ciblée, autoresponsable et indépendante\n• affinité informatique avec de très bonnes connaissances MS Office ainsi qu'avec des systèmes ERP communs\n• Bonne connaissance de l'allemand et de l'anglais en paroles et en écriture Ça semble excitant ? Nous sommes impatients de vous rencontrer! Si vous avez des questions, je serai volontiers là pour vous: Céline Späni – partenaire d'affaires RH Celine.spaeni@bossard.com  041 749 63 49 Nous ne considérons que les demandes directes."
-      },
-      "needsRetranslation": false,
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Einkufer-in-80----all-genders----Bossard-Group_",
-      "source": "Bossard Group Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:14:48.017Z",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "streetAddress": "Steinhauserstrasse 70",
-      "postalCode": "6301",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Tecnologia di assemblaggio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "applyUrl": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Einkufer-in-80----all-genders----Bossard-Group_",
-      "jobReqId": null,
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "einkaufer-in-80-all-genders-bossard-group-bossard-zug",
-        "acquirente-80-tutti-i-generi-bossard-group-bossard-group-zug"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "einkaufer-in-80-all-genders-bossard-group-bossard-zug",
-          "acquirente-80-tutti-i-generi-bossard-group-bossard-group-zug"
-        ],
-        "fr": [
-          "einkaufer-in-80-all-genders-bossard-group-bossard-zug"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:30:43.628Z",
-      "salaryMin": 55600,
-      "salaryMax": 84800,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 55600,
-          "maxValue": 84800,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "bossard-64f146844784",
-      "slug": "collaboratore-trice-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-group-zug",
-      "slugByLocale": {
-        "it": "collaboratore-trice-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-group-zug",
-        "en": "associate-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-group-zug",
-        "de": "mitarbeiter-in-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-zug",
-        "fr": "collaborateur-trice-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-group-zug"
-      },
-      "company": "Bossard Group",
-      "companyKey": "bossard",
-      "companyDomain": "bossard.com",
-      "title": "Mitarbeiter:in Auftragsbearbeitung 100% (all genders) | Bossard AG",
-      "titleByLocale": {
-        "it": "Collaboratore/trice Auftragsbearbeitung 100% (all genders) | Bossard AG",
-        "en": "Associate Auftragsbearbeitung 100% (all genders) | Bossard AG",
-        "de": "Mitarbeiter:in Auftragsbearbeitung 100% (all genders) | Bossard AG",
-        "fr": "Collaborateur/trice Auftragsbearbeitung 100% (all genders) | Bossard AG"
-      },
-      "description": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nMitarbeiter:in Auftragsbearbeitung 100% (all genders) | Bossard AG\n\nIn dieser interessanten Allrounder-Funktion unterstützt du unser Technologie- und Logistikcenter (TLZ) tatkräftig.\n\nDeine Aufgaben\n\n• Angelieferte Paketsendungen anhand der Lieferscheine identifizieren und gemäss SCS Vorschriften weiter verarbeiten\n\n• Verpackung und Etikettierung von Kundensendungen in Kartons und Paletten\n\n• Kommissionierung von Kundenaufträgen am Sorter / Logistiksorter\n\n• Periodisches Auffüllen von Verbrauchsmaterial am Arbeitsplatz, wie auch sachgerechte Entsorgung von Abfällen\n\n• Bei Auslastungsschwankungen ist die Bereitschaft zur Rotation innerhalb der Logistikabteilungen des TLZ Voraussetzung\n\nDein Anforderungsprofil\n\n• Abgeschlossene Lehre als Logistiker:in EFZ oder mehrjährige Erfahrung als Logistiker:in\n\n• SUVA-anerkannter Staplerausweis\n\n• Gute PC- und MS-Office-Anwenderkenntnisse\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Körperliche Belastbarkeit\n\nBist du eine zuverlässige und teamfähige Persönlichkeit und suchst eine abwechslungsreiche Arbeitsumgebung in einer vielseitigen Branche? Dann freut sich Dominik Udovicic, 041 749 61 16 auf deine schriftliche Bewerbung via unserem Online Formular.\n\nBei weiteren Fragen steht Dir Daniel Anderegg, Abteilungsleiter Auftragsbearbeitung unter der Telefonnummer +41 41 749 63 83, zur Verfügung.",
-      "descriptionByLocale": {
-        "it": "Il Gruppo Bossard è un partner strategico leader per le soluzioni tecnologiche di fissaggio e assemblaggio industriali ai clienti OEM a livello globale con una comprovata esperienza nei servizi di ingegneria e logistica. Bossard fu fondata a Zug nel 1831. Il Gruppo Bossard impiega oltre 3.000 persone in 33 conteggi a livello mondiale ed è quotato sulla SIX Swiss Exchange. Scegli Bossard come il tuo datore di lavoro e beneficiare di condizioni di lavoro interessanti. Dipendente: per l'elaborazione dell'ordine 100% (tutti i generi) | Bossard AG In questa interessante funzione all-rounder, supporterete attivamente il nostro Centro Tecnologia e Logistica (TLZ). I tuoi compiti\n• Identificare spedizioni a pacco consegna in base alle note di consegna e trattarle ulteriormente in conformità alle normative SCS\n• Imballaggio e etichettatura delle spedizioni dei clienti in cartoni e pallet\n• Selezione degli ordini del cliente sul sorter / sorter logistico\n• Ripieno periodico di materiali di consumo sul posto di lavoro, nonché il corretto smaltimento dei rifiuti\n• In caso di fluttuazioni di carico, la disponibilità per la rotazione all'interno dei dipartimenti logistici del TLZ è un presupposto Il tuo profilo di richiesta\n• Apprendistato completo come logistico: in EFZ o diversi anni di esperienza come logistico:in\n• Passante per carrelli elevatori riconosciuto SUVA\n• Buona conoscenza degli utenti di PC e MS Office\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Capacità fisica Sei una personalità affidabile e collaborativa e alla ricerca di un ambiente di lavoro vario in un settore diverso? Allora Dominik Udovicic, 041 749 61 16 non vede l'ora della vostra applicazione scritta tramite il nostro modulo online. Se avete ulteriori domande, Daniel Anderegg, capo dipartimento per l'elaborazione degli ordini, può contattarvi chiamando +41 41 749 63 83.",
-        "en": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineering and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions. Employee: in order processing 100% (all genders) | Bossard AG In this interesting all-rounder function, you will actively support our Technology and Logistics Center (TLZ). Your tasks\n• Identify delivered parcel shipments on the basis of the delivery notes and process them further in accordance with SCS regulations\n• Packaging and labelling of customer consignments in cartons and pallets\n• Picking of customer orders on the sorter / logistics sorter\n• Periodic filling of consumables at the workplace as well as proper disposal of waste\n• In the event of load fluctuations, the readiness for rotation within the logistics departments of the TLZ is a prerequisite Your requirement profile\n• Completed apprenticeship as a logistician:in EFZ or several years of experience as a logistician:in\n• SUVA-recognised forklift pass\n• Good PC and MS Office user knowledge\n• Very good knowledge of German in word and writing\n• Physical capacity Are you a reliable and collaborative personality and looking for a varied work environment in a diverse industry? Then Dominik Udovicic, 041 749 61 16 is looking forward to your written application via our online form. If you have any further questions, Daniel Anderegg, head of department for order processing, can contact you by calling +41 41 749 63 83.",
-        "de": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nMitarbeiter:in Auftragsbearbeitung 100% (all genders) | Bossard AG\n\nIn dieser interessanten Allrounder-Funktion unterstützt du unser Technologie- und Logistikcenter (TLZ) tatkräftig.\n\nDeine Aufgaben\n\n• Angelieferte Paketsendungen anhand der Lieferscheine identifizieren und gemäss SCS Vorschriften weiter verarbeiten\n\n• Verpackung und Etikettierung von Kundensendungen in Kartons und Paletten\n\n• Kommissionierung von Kundenaufträgen am Sorter / Logistiksorter\n\n• Periodisches Auffüllen von Verbrauchsmaterial am Arbeitsplatz, wie auch sachgerechte Entsorgung von Abfällen\n\n• Bei Auslastungsschwankungen ist die Bereitschaft zur Rotation innerhalb der Logistikabteilungen des TLZ Voraussetzung\n\nDein Anforderungsprofil\n\n• Abgeschlossene Lehre als Logistiker:in EFZ oder mehrjährige Erfahrung als Logistiker:in\n\n• SUVA-anerkannter Staplerausweis\n\n• Gute PC- und MS-Office-Anwenderkenntnisse\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Körperliche Belastbarkeit\n\nBist du eine zuverlässige und teamfähige Persönlichkeit und suchst eine abwechslungsreiche Arbeitsumgebung in einer vielseitigen Branche? Dann freut sich Dominik Udovicic, 041 749 61 16 auf deine schriftliche Bewerbung via unserem Online Formular.\n\nBei weiteren Fragen steht Dir Daniel Anderegg, Abteilungsleiter Auftragsbearbeitung unter der Telefonnummer +41 41 749 63 83, zur Verfügung.",
-        "fr": "Le Groupe Bossard est un partenaire stratégique de premier plan pour les solutions technologiques de fixation industrielle et d'assemblage pour les clients OEM dans le monde entier avec une expertise avérée en ingénierie et services logistiques. Bossard a été fondé à Zug en 1831. Le groupe Bossard emploie plus de 3 000 personnes dans 33 comtes du monde entier et est coté à la SIX Swiss Exchange. Choisissez Bossard comme employeur et profitez de conditions d'emploi attrayantes. Employé: dans le traitement des commandes 100% (tous les genres) Dans cette fonction tout-terrain intéressante, vous soutiendrez activement notre Centre de technologie et de logistique (TLZ). Vos tâches\n• Identifier les expéditions de colis livrées sur la base des notes de livraison et les traiter plus avant conformément aux règlements SCS\n• Emballage et étiquetage des envois clients en cartons et palettes\n• Choix des commandes des clients sur le trieur / trieur logistique\n• Remplissage périodique des consommables sur le lieu de travail et élimination correcte des déchets\n• En cas de fluctuations de charge, la préparation à la rotation au sein des départements logistiques du TLZ est une condition préalable Votre profil de demande\n• Achevé l'apprentissage comme logisticien:dans EFZ ou plusieurs années d'expérience comme logisticien:dans\n• Passage de chariot élévateur reconnu VUSA\n• Bonnes connaissances des utilisateurs de PC et de MS Office\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Capacité physique Êtes-vous une personnalité fiable et collaborative et à la recherche d'un environnement de travail varié dans une industrie diversifiée? Puis Dominik Udovicic, 041 749 61, attend avec impatience votre candidature écrite via notre formulaire en ligne. Si vous avez d'autres questions, Daniel Anderegg, responsable du traitement des commandes, peut vous contacter en composant le +41 41 749 63 83."
-      },
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Mitarbeiter-in-Auftragsbearbeitung-100---all-genders----Bossard-AG_",
-      "source": "Bossard Group Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:14:47.079Z",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "streetAddress": "Steinhauserstrasse 70",
-      "postalCode": "6301",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Tecnologia di assemblaggio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-05",
-      "applyUrl": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Mitarbeiter-in-Auftragsbearbeitung-100---all-genders----Bossard-AG_",
-      "jobReqId": null,
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-zug",
-        "collaboratore-trice-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-group-zug"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-zug",
-          "collaboratore-trice-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-group-zug"
-        ],
-        "en": [
-          "mitarbeiter-in-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-zug"
-        ],
-        "fr": [
-          "mitarbeiter-in-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-zug"
-        ]
-      },
-      "firstSeenAt": "2026-07-05T22:14:00.240Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "bossard-27515f2d4176",
-      "slug": "sachbearbeiter-in-smart-factory-logistics-80-100-all-genders-bossard-ag-bossard-zug",
-      "slugByLocale": {
-        "it": "sachbearbeiter-in-smart-factory-logistics-80-100-all-genders-bossard-ag-bossard-zug",
-        "en": "sachbearbeiter-in-smart-factory-logistics-80-100-all-genders-bossard-ag-bossard-zug",
-        "de": "sachbearbeiter-in-smart-factory-logistics-80-100-all-genders-bossard-ag-bossard-zug",
-        "fr": "sachbearbeiter-in-smart-factory-logistics-80-100-all-genders-bossard-ag-bossard-zug"
-      },
-      "company": "Bossard Group",
-      "companyKey": "bossard",
-      "companyDomain": "bossard.com",
-      "title": "Sachbearbeiter:in Smart Factory Logistics 80-100% (all genders) | Bossard AG",
-      "titleByLocale": {
-        "it": "Sachbearbeiter:in Smart Factory Logistica 80-100% (all genders) | Bossard AG",
-        "en": "Smart Factory Logistics 80-100% (all genders) | Bossard AG",
-        "de": "Sachbearbeiter:in Smart Factory Logistics 80-100% (all genders) | Bossard AG",
-        "fr": "Sachbearbeiter:in Smart Factory Logistique 80-100% (all genders) | Bossard AG"
-      },
-      "description": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nSachbearbeiter:in Smart Factory Logistics 80-100% (all genders) | Bossard AG\n\nWas dich erwartet\n\nIn dieser serviceorientierten Rolle sorgst du dafür, dass unsere Logistiksysteme bei Kund:innen reibungslos laufen. Du koordinierst den gesamten operativen Support, stellst die Systemverfügbarkeit sicher und bildest die zentrale Schnittstelle zwischen Kundschaft, Lieferanten und internen Teams.\n\nDeine Aufgaben\n\n• Täglicher Austausch mit Kunden und Lieferanten – telefonisch und schriftlich\n\n• Betreuung und Überwachung der installierten Bossard-Logistiksysteme mithilfe moderner Softwaretools\n\n• Sicherstellen der konstanten Verfügbarkeit aller bewirtschafteten Artikel\n\n• Kontrolle von Lieferantenrechnungen sowie Erstellung der Monatsrechnungen für Kunden\n\n• Analyse von System- und Nutzungsdaten inklusive Erstellung von Reports zur kontinuierlichen Optimierung\n\n• Auslösen und Koordinieren von Wartungs- und Reparaturaufträgen für das technische Unterhaltsteam\n\n• Unterstützung der Projektleitung sowie aktive Mitarbeit im Projektmanagement\n\nWas du mitbringst\n\n• Abgeschlossene Detailhandels- oder kaufmännische Ausbildung; technisches Verständnis ist ein Plus\n\n• Erste Erfahrung in Einkauf, Verkauf oder Logistik ist ein Plus\n\n• Sehr gute MS 365 Kenntnisse und hohe IT-Affinität\n\n• Sehr gute Deutsch- und Englischkenntnisse; Französisch von Vorteil\n\n• Freude an Prozessoptimierung, strukturierter Arbeitsweise und serviceorientiertem Denken\n\nInteresse?\nDann freuen wir uns über deine Bewerbung. Bei Fragen oder Anliegen darfst Du dich gerne bei mir melden. Dominik Udovicic, 041 749 61 16",
-      "descriptionByLocale": {
-        "it": "Il Gruppo Bossard è un partner strategico leader per le soluzioni tecnologiche di fissaggio e assemblaggio industriali ai clienti OEM a livello globale con una comprovata esperienza nell'ingegneria e nei servizi logistici. Bossard fu fondata a Zug nel 1831. Il Gruppo Bossard impiega oltre 3.000 persone in 33 contee a livello mondiale ed è quotato sulla SIX Swiss Exchange. Scegli Bossard come il tuo datore di lavoro e beneficiare di condizioni di lavoro interessanti.\n\nSmart Factory Logistics 80-100% (tutti i generi) | Bossard AG\n\nCosa aspettarsi\n\nIn questo ruolo orientato al servizio, si assicura che i nostri sistemi logistici funzionano senza problemi a Kund:innen. Coordinate tutto il supporto operativo, assicurate la disponibilità del sistema e formate l'interfaccia centrale tra clienti, fornitori e team interni.\n\nI tuoi compiti\n\n• Scambio giornaliero con clienti e fornitori – per telefono e per iscritto\n\n• Supporto e monitoraggio dei sistemi logistici installati Bossard utilizzando moderni strumenti software\n\n• Garantire la costante disponibilità di tutti gli articoli gestiti\n\n• Controllo delle fatture dei fornitori e preparazione delle fatture mensili per i clienti\n\n• Analisi dei dati di sistema e di utilizzo, compresa la creazione di report per l'ottimizzazione continua\n\n• Triggering e coordinamento degli ordini di manutenzione e riparazione per il team di manutenzione tecnica\n\n• Supporto per la gestione dei progetti e la partecipazione attiva alla gestione dei progetti\n\nCosa porti\n\n• Formazione completa al dettaglio o commerciale; La comprensione tecnica è un plus\n\n• La prima esperienza nell'acquisto, nella vendita o nella logistica è un plus\n\n• Molto buona conoscenza MS 365 e alta affinità IT\n\n• Ottima conoscenza del tedesco e dell'inglese; vantaggio francese\n\n• Ottimizzazione del processo, metodi di lavoro strutturati e pensiero orientato al servizio\n\nInteressante?\nAttendiamo con ansia la vostra applicazione. Se avete domande o dubbi, contattatemi. Dominik Udovicic, 041 749 61 16",
-        "en": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nSmart Factory Logistics 80-100% (all genders) | Bossard AG\n\nWhat to expect\n\nIn this service-oriented role, you ensure that our logistics systems run smoothly at Kund:innen. You coordinate all operational support, ensure system availability and form the central interface between customers, suppliers and internal teams.\n\nYour tasks\n\n• Daily exchange with customers and suppliers – by telephone and in writing\n\n• Support and monitoring of the installed Bossard logistics systems using modern software tools\n\n• Ensuring the constant availability of all managed items\n\n• Control of supplier invoices and preparation of monthly invoices for customers\n\n• Analysis of system and usage data including creation of reports for continuous optimization\n\n• Triggering and coordinating maintenance and repair orders for the technical maintenance team\n\n• Support for project management and active participation in project management\n\nWhat you bring\n\n• Completed retail or commercial training; Technical understanding is a plus\n\n• First experience in purchasing, selling or logistics is a plus\n\n• Very good MS 365 knowledge and high IT affinity\n\n• Very good knowledge of German and English; French advantage\n\n• Enjoying process optimization, structured working methods and service-oriented thinking\n\nInterested?\nWe look forward to your application. If you have any questions or concerns, please contact me. Dominik Udovicic, 041 749 61 16",
-        "de": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nSachbearbeiter:in Smart Factory Logistics 80-100% (all genders) | Bossard AG\n\nWas dich erwartet\n\nIn dieser serviceorientierten Rolle sorgst du dafür, dass unsere Logistiksysteme bei Kund:innen reibungslos laufen. Du koordinierst den gesamten operativen Support, stellst die Systemverfügbarkeit sicher und bildest die zentrale Schnittstelle zwischen Kundschaft, Lieferanten und internen Teams.\n\nDeine Aufgaben\n\n• Täglicher Austausch mit Kunden und Lieferanten – telefonisch und schriftlich\n\n• Betreuung und Überwachung der installierten Bossard-Logistiksysteme mithilfe moderner Softwaretools\n\n• Sicherstellen der konstanten Verfügbarkeit aller bewirtschafteten Artikel\n\n• Kontrolle von Lieferantenrechnungen sowie Erstellung der Monatsrechnungen für Kunden\n\n• Analyse von System- und Nutzungsdaten inklusive Erstellung von Reports zur kontinuierlichen Optimierung\n\n• Auslösen und Koordinieren von Wartungs- und Reparaturaufträgen für das technische Unterhaltsteam\n\n• Unterstützung der Projektleitung sowie aktive Mitarbeit im Projektmanagement\n\nWas du mitbringst\n\n• Abgeschlossene Detailhandels- oder kaufmännische Ausbildung; technisches Verständnis ist ein Plus\n\n• Erste Erfahrung in Einkauf, Verkauf oder Logistik ist ein Plus\n\n• Sehr gute MS 365 Kenntnisse und hohe IT-Affinität\n\n• Sehr gute Deutsch- und Englischkenntnisse; Französisch von Vorteil\n\n• Freude an Prozessoptimierung, strukturierter Arbeitsweise und serviceorientiertem Denken\n\nInteresse?\nDann freuen wir uns über deine Bewerbung. Bei Fragen oder Anliegen darfst Du dich gerne bei mir melden. Dominik Udovicic, 041 749 61 16",
-        "fr": "Le Groupe Bossard est un partenaire stratégique de premier plan pour les solutions technologiques de fixation industrielle et d'assemblage pour les clients OEM dans le monde entier avec une expertise éprouvée dans les services d'ingénierie et de logistique. Bossard a été fondé à Zug en 1831. Le groupe Bossard emploie plus de 3000 personnes dans 33 comtes du monde entier et est coté à la SIX Swiss Exchange. Choisissez Bossard comme employeur et profitez de conditions d'emploi attrayantes.\n\nSmart Factory Logistics 80-100% (tous les genres)\n\nÀ quoi s'attendre\n\nDans ce rôle orienté vers le service, vous veillez à ce que nos systèmes logistiques fonctionnent bien chez Kund:innen. Vous coordonnez tout le support opérationnel, assurez la disponibilité du système et formez l'interface centrale entre les clients, les fournisseurs et les équipes internes.\n\nVos tâches\n\n• Échange quotidien avec les clients et les fournisseurs – par téléphone et par écrit\n\n• Support et suivi des systèmes logistiques Bossard installés à l'aide d'outils logiciels modernes\n\n• Assurer la disponibilité constante de tous les éléments gérés\n\n• Contrôle des factures des fournisseurs et établissement des factures mensuelles pour les clients\n\n• Analyse des données de système et d'utilisation, y compris la création de rapports pour l'optimisation continue\n\n• Déclenchement et coordination des commandes d'entretien et de réparation pour l'équipe d'entretien technique\n\n• Appui à la gestion de projet et participation active à la gestion de projet\n\nCe que vous apportez\n\n• Formation au commerce ou au détail terminée; La compréhension technique est un plus\n\n• Première expérience dans l'achat, la vente ou la logistique est un plus\n\n• Très bonne connaissance MS 365 et haute affinité informatique\n\n• Très bonne connaissance de l'allemand et de l'anglais; avantage français\n\n• Optimisation des processus, méthodes de travail structurées et réflexion axée sur le service\n\nIntéressé ?\nNous attendons avec impatience votre candidature. Si vous avez des questions ou des préoccupations, veuillez communiquer avec moi. Il n'y a pas d'autre solution."
-      },
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Sachbearbeiter-in-Smart-Factory-Logistics-80-100---all-genders----Bossard-AG_",
-      "source": "Bossard Group Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:14:46.079Z",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "streetAddress": "Steinhauserstrasse 70",
-      "postalCode": "6301",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Tecnologia di assemblaggio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-14",
-      "applyUrl": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Sachbearbeiter-in-Smart-Factory-Logistics-80-100---all-genders----Bossard-AG_",
-      "jobReqId": null,
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-14T11:18:53.386Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "bossard-b3c91b82b0fa",
-      "slug": "acquirente-al-100-tutti-i-generi-bossard-group-bossard-group-zug",
-      "slugByLocale": {
-        "it": "acquirente-al-100-tutti-i-generi-bossard-group-bossard-group-zug",
-        "en": "einkaufer-in-100-all-genders-bossard-group-bossard-zug",
-        "de": "einkaufer-in-100-all-genders-bossard-group-bossard-zug",
-        "fr": "acheteur-en-100-tous-les-sexes-bossard-group-zug"
-      },
-      "company": "Bossard Group",
-      "companyKey": "bossard",
-      "companyDomain": "bossard.com",
-      "title": "Einkäufer:in 100 % (all genders) | Bossard Group",
-      "titleByLocale": {
-        "it": "Acquirente al 100% (tutti i generi) | Bossard Group",
-        "en": "Buyer:in 100% (all genders) | Bossard Group",
-        "de": "Einkäufer:in 100 % (all genders) | Bossard Group",
-        "fr": "Acheteur: en 100% (tous les sexes)"
-      },
-      "description": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nEinkäufer:in 100 % (all genders) | Bossard Group\n\nAls Einkäufer:in in unserem Team bist du verantwortlich für die termingerechte Versorgung unserer Zentrallager in der Schweiz, Frankreich und Dänemark. Du bearbeitest Bestellungen, pflegst Lieferantenbeziehungen und hältst unsere Daten aktuell – damit alles zur richtigen Zeit am richtigen Ort ist.\n\nDeine Aufgaben \n\n• Verantwortung für die optimale Verfügbarkeit von Waren und Dienstleistungen unter Berücksichtigung der Ziele und der aktuellen Beschaffungsmarktsituation\n\n• Bearbeitung von Anfragen, Bestellungen, Auftragsbestätigungen, Offerten und Mahnungen, sowie Bedarfsmeldungen und Reklamationswesen\n\n• Weiterentwicklung einer optimalen Lieferantenbasis und -beziehung\n\n• Aktualisierung der Lieferanten- und Artikeldaten in den entsprechenden Systemen und im ERP\n\n• Enge Zusammenarbeit mit den Stakeholdern der Tochterfirmen innerhalb Europas (Verkauf, Qualität, Engineering, Sortimentsteam)\n\n• Teilnahme an Lieferantenbesuchen\n\nDein Profil \n\n• Kaufmännische oder technische Grundausbildung mit kaufmännischer Weiterbildung\n\n• Vorzugsweise Weiterbildung in der Beschaffung (z.B. eidg. dipl. Einkaufsfachmann/frau)\n\n• Mindestens 5 Jahre Erfahrung im Einkauf oder AVOR/Disposition, vorzugsweise im internationalen Umfeld\n\n• Gute Kommunikationsfähigkeiten, Verantwortungsbewusstsein sowie eine analytische Vorgehensweise\n\n• Zielorientierte, eigenverantwortliche und selbständige Arbeitsweise\n\n• IT-Affinität mit sehr guten MS Office Kenntnissen sowie mit gängigen ERP-Systemen\n\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nKlingt spannend? Dann freuen wir uns, dich kennenzulernen! Bei Fragen bin ich gerne für dich da:\nCeline Späni – HR Business Partner\n celine.spaeni@bossard.com\n 041 749 63 49\n\nWir berücksichtigen nur Direktbewerbungen.",
-      "descriptionByLocale": {
-        "it": "Il Gruppo Bossard è un partner strategico leader per le soluzioni tecnologiche di fissaggio e assemblaggio industriali ai clienti OEM a livello globale con una comprovata esperienza nei servizi di ingegneria e logistica. Bossard fu fondata a Zug nel 1831. Il Gruppo Bossard impiega oltre 3.000 persone in 33 conteggi a livello mondiale ed è quotato sulla SIX Swiss Exchange. Scegli Bossard come il tuo datore di lavoro e beneficiare di condizioni di lavoro interessanti. Compratore:in 100% (tutti i generi) | Bossard Group Come acquirente: nel nostro team sei responsabile della fornitura tempestiva dei nostri magazzini centrali in Svizzera, Francia e Danimarca. Elabori ordini, mantieni i rapporti dei fornitori e mantieni i nostri dati aggiornati, in modo che tutto sia nel posto giusto al momento giusto. I tuoi compiti.\n• Responsabilità per la disponibilità ottimale di beni e servizi tenendo conto dei bilanci, degli obiettivi e della situazione attuale del mercato degli appalti\n• Elaborazione di richieste, ordini, conferme d'ordine, offerte e promemoria, nonché notifiche e reclami\n• Ulteriore sviluppo di una base di fornitore ottimale e rapporto\n• Aggiornamento dei dati dei fornitori e degli articoli nei sistemi corrispondenti e ERP\n• Attuazione dei risultati della ricerca sul mercato degli appalti\n• stretta collaborazione con le parti interessate delle filiali in Europa (vendita, qualità, ingegneria, team di gamma)\n• Partecipazione alle visite dei fornitori\n• Partecipazione a progetti Il tuo profilo\n• Formazione di base commerciale o tecnica con formazione commerciale\n• Preferibilmente ulteriore formazione negli appalti (ad esempio, dipl federale). Compratore/donna\n• Almeno 5 anni di esperienza nell'acquisto o AVOR/disposizione, preferibilmente in un ambiente internazionale\n• Buone capacità comunicative, responsabilità e approccio analitico\n• Metodo di lavoro autonomo, orientato all'obiettivo\n• affinità IT con una buona conoscenza MS Office e con sistemi ERP comuni\n• Buona conoscenza del tedesco e dell'inglese in parola e scrittura Sembra eccitante? Non vediamo l'ora di incontrarvi! Se avete domande, sarò volentieri lì per voi: Celine Späni – HR Business Partner celine.spaeni@bossard.com  041 749 63 49 Consideriamo solo applicazioni dirette.",
-        "en": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineering and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions. Buyer:in 100% (all genders) | Bossard Group As a buyer: in our team you are responsible for the timely supply of our central warehouses in Switzerland, France and Denmark. You process orders, maintain supplier relationships and keep our data up-to-date – so that everything is in the right place at the right time. Your tasks.\n• Responsibility for the optimal availability of goods and services taking into account budgets, objectives and the current procurement market situation\n• Processing of inquiries, orders, order confirmations, offers and reminders, as well as notifications and complaints\n• Further development of an optimal supplier base and relationship\n• Updating of supplier and article data in the corresponding systems and ERP\n• Implementation of results from procurement market research\n• Close cooperation with the stakeholders of the subsidiaries within Europe (sales, quality, engineering, range team)\n• Participation in supplier visits\n• Participation in projects Your profile \n• Commercial or technical basic training with commercial training\n• Preferably further training in procurement (e.g. federal dipl.) Buyer/woman\n• At least 5 years of experience in purchasing or AVOR/disposition, preferably in an international environment\n• Good communication skills, responsibility and an analytical approach\n• Target-oriented, self-responsible and independent working method\n• IT affinity with very good MS Office knowledge as well as with common ERP systems\n• Good knowledge of German and English in word and writing Sounds exciting? We look forward to meeting you! If you have any questions, I will gladly be there for you: Celine Späni – HR Business Partner celine.spaeni@bossard.com  041 749 63 49 We only consider direct applications.",
-        "de": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nEinkäufer:in 100 % (all genders) | Bossard Group\n\nAls Einkäufer:in in unserem Team bist du verantwortlich für die termingerechte Versorgung unserer Zentrallager in der Schweiz, Frankreich und Dänemark. Du bearbeitest Bestellungen, pflegst Lieferantenbeziehungen und hältst unsere Daten aktuell – damit alles zur richtigen Zeit am richtigen Ort ist.\n\nDeine Aufgaben \n\n• Verantwortung für die optimale Verfügbarkeit von Waren und Dienstleistungen unter Berücksichtigung der Ziele und der aktuellen Beschaffungsmarktsituation\n\n• Bearbeitung von Anfragen, Bestellungen, Auftragsbestätigungen, Offerten und Mahnungen, sowie Bedarfsmeldungen und Reklamationswesen\n\n• Weiterentwicklung einer optimalen Lieferantenbasis und -beziehung\n\n• Aktualisierung der Lieferanten- und Artikeldaten in den entsprechenden Systemen und im ERP\n\n• Enge Zusammenarbeit mit den Stakeholdern der Tochterfirmen innerhalb Europas (Verkauf, Qualität, Engineering, Sortimentsteam)\n\n• Teilnahme an Lieferantenbesuchen\n\nDein Profil \n\n• Kaufmännische oder technische Grundausbildung mit kaufmännischer Weiterbildung\n\n• Vorzugsweise Weiterbildung in der Beschaffung (z.B. eidg. dipl. Einkaufsfachmann/frau)\n\n• Mindestens 5 Jahre Erfahrung im Einkauf oder AVOR/Disposition, vorzugsweise im internationalen Umfeld\n\n• Gute Kommunikationsfähigkeiten, Verantwortungsbewusstsein sowie eine analytische Vorgehensweise\n\n• Zielorientierte, eigenverantwortliche und selbständige Arbeitsweise\n\n• IT-Affinität mit sehr guten MS Office Kenntnissen sowie mit gängigen ERP-Systemen\n\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nKlingt spannend? Dann freuen wir uns, dich kennenzulernen! Bei Fragen bin ich gerne für dich da:\nCeline Späni – HR Business Partner\n celine.spaeni@bossard.com\n 041 749 63 49\n\nWir berücksichtigen nur Direktbewerbungen.",
-        "fr": "Le Groupe Bossard est un partenaire stratégique de premier plan pour les solutions technologiques de fixation industrielle et d'assemblage pour les clients OEM dans le monde entier avec une expertise avérée en ingénierie et services logistiques. Bossard a été fondé à Zug en 1831. Le groupe Bossard emploie plus de 3 000 personnes dans 33 comtes du monde entier et est coté à la SIX Swiss Exchange. Choisissez Bossard comme employeur et profitez de conditions d'emploi attrayantes. Acheteur: en 100% (tous les sexes) En tant qu'acheteur: dans notre équipe, vous êtes responsable de l'approvisionnement en temps opportun de nos entrepôts centraux en Suisse, en France et au Danemark. Vous traitez les commandes, entretientz des relations avec les fournisseurs et maintenez nos données à jour – de sorte que tout soit au bon endroit au bon moment. Vos tâches.\n• Responsabilité de la disponibilité optimale des biens et services en tenant compte des budgets, des objectifs et de la situation actuelle des marchés publics\n• Traitement des demandes, commandes, confirmations de commande, offres et rappels, ainsi que des notifications et des plaintes\n• Développement d'une base de fournisseurs et d'une relation optimales\n• Mise à jour des données sur les fournisseurs et les articles dans les systèmes et le PGI correspondants\n• Mise en œuvre des résultats des études de marché\n• Coopération étroite avec les parties prenantes des filiales en Europe (ventes, qualité, ingénierie, équipe de gamme)\n• Participation aux visites des fournisseurs\n• Participation à des projets Votre profil\n• Formation de base commerciale ou technique avec formation commerciale\n• Formation continue de préférence en matière d'approvisionnement (p. ex., dipl. fédéral) Acheteur/femme\n• Au moins 5 ans d'expérience en achat ou AVOR/disposition, de préférence dans un environnement international\n• Bonnes compétences en communication, responsabilité et approche analytique\n• Méthode de travail ciblée, autoresponsable et indépendante\n• affinité informatique avec de très bonnes connaissances MS Office ainsi qu'avec des systèmes ERP communs\n• Bonne connaissance de l'allemand et de l'anglais en paroles et en écriture Ça semble excitant ? Nous sommes impatients de vous rencontrer! Si vous avez des questions, je serai volontiers là pour vous: Céline Späni – partenaire d'affaires RH Celine.spaeni@bossard.com  041 749 63 49 Nous ne considérons que les demandes directes."
-      },
-      "needsRetranslation": false,
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Einkufer-in-80---100----all-genders----Bossard-Group_",
-      "source": "Bossard Group Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:14:45.292Z",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "streetAddress": "Steinhauserstrasse 70",
-      "postalCode": "6301",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Tecnologia di assemblaggio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "applyUrl": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Einkufer-in-80---100----all-genders----Bossard-Group_",
-      "jobReqId": null,
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "einkaufer-in-100-all-genders-bossard-group-bossard-zug",
-        "acquirente-al-100-tutti-i-generi-bossard-group-bossard-group-zug"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "einkaufer-in-100-all-genders-bossard-group-bossard-zug",
-          "acquirente-al-100-tutti-i-generi-bossard-group-bossard-group-zug"
-        ],
-        "fr": [
-          "einkaufer-in-100-all-genders-bossard-group-bossard-zug"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:30:44.473Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "bossard-991c25cd89d3",
-      "slug": "account-manager-vendite-interne-bossard-ag-bossard-group-zug",
-      "slugByLocale": {
-        "it": "account-manager-vendite-interne-bossard-ag-bossard-group-zug",
-        "en": "account-manager-inside-sales-bossard-ag-bossard-zug",
-        "de": "verkaufsmitarbeiter-in-innendienst-80-100-all-genders-bossard-ag-bossard-zug",
-        "fr": "gestionnaire-de-comptes-dans-les-ventes-bossard-ag-bossard-group-zug"
-      },
-      "company": "Bossard Group",
-      "companyKey": "bossard",
-      "companyDomain": "bossard.com",
-      "title": "Verkaufsmitarbeiter:in Innendienst 80-100% (all genders) | Bossard AG",
-      "titleByLocale": {
-        "it": "Verkaufsmitarbeiter:in servizio interno 80-100% (all genders) | Bossard AG",
-        "en": "Account Manager Inside Sales | Bossard AG",
-        "de": "Verkaufsmitarbeiter:in Innendienst 80-100% (all genders) | Bossard AG",
-        "fr": "Gestionnaire de comptes dans les ventes, Bossard AG"
-      },
-      "description": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nVerkaufsmitarbeiter:in Innendienst 80-100% (all genders) | Bossard AG\n\nDeine Aufgaben\n\n• Aktiver Verkauf von Bossard Produkten und Dienstleistungen\n\n• Betreuung und Beratung deiner Kunden zusammen mit dem zuständigen Aussendienst\n\n• Pflege und Betreuung sowie Produktedisposition für die zugeteilten Logistikkunden\n\n• Selbständige Verhandlung von Preisen und Konditionen\n\n• Auftragserstellung und -überwachung\n\n• Bearbeitung von Beanstandungen und Rücksendungen\n\n• Projektkoordination mit den internen Stellen und den Kunden\n\n• Strategische Budget- und Massnahmenplanung in Zusammenarbeit mit deinen Vorgesetzten\n\n• Datenpflege von Rapporten und Kontaktdaten im CRM\n\nDein Anforderungsprofil\n\n• Kaufmännische Lehre mit technischem Flair oder technische Grundausbildung mit kaufmännischer Weiterbildung (Technischer Kaufmann, Verkaufsfachmann oder ähnlich)\n\n• Einige Jahre Erfahrung im Verkaufsinnendienst, idealerweise in einem Industrie- oder Handelsunternehmen\n\n• Sehr gute angewandte MS-Office Kenntnisse\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse, Grundkenntnisse in Englisch\n\n• Dienstleistungsorientierte Persönlichkeit, welche Freude im Umgang mit Kunden hat\n\nSuchst du eine Herausforderung mit aktivem Kundenkontakt in einer vielseitigen Branche? Dann freut sich Herr Dominik Udovicic auf deine schriftliche Bewerbung via unserem Online Formular.",
-      "descriptionByLocale": {
-        "it": "Descrizione The Bossard Group è un partner strategico leader per soluzioni tecnologiche di fissaggio e assemblaggio industriale per clienti OEM in tutto il mondo con comprovata esperienza in ingegneria e servizi logistici. Bossard è stata fondata a Zugo nel 1831. Bossard Group impiega oltre 3,000 persone in 33 paesi in tutto il mondo ed è quotata sul Six Swiss Exchange. Diventa un datore di lavoro Bossard e approfitta di condizioni di lavoro interessanti. Account Manager Inside Sales | Bossard AG\n• I tuoi compiti - Vendita attiva di prodotti e servizi Bossard - Assistenza e consulenza ai tuoi clienti insieme al servizio esterno competente - Cura e assistenza nonché disposizione dei prodotti per i clienti logistici assegnati - Negoziazione indipendente di prezzi e condizioni - Creazione e monitoraggio degli ordini - Elaborazione di reclami e resi - Coordinamento del progetto con gli uffici interni e i clienti - Pianificazione strategica del budget e delle misure in collaborazione con i tuoi superiori - Manutenzione dei dati dei rapporti e dei dati di contatto nel CRM Il tuo profilo dei requisiti - Apprendimento commerciale con talento tecnico o formazione tecnica di base con perfezionamento commerciale (tecnico commerciale, specialista di vendita o simile) - Alcuni anni di esperienza nel servizio interno di vendita, idealmente in un'azienda industriale o commerciale - Ottime conoscenze di MS Office applicate - Ottime conoscenze orali e scritte del tedesco,",
-        "en": "Description The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions for OEM customers worldwide with proven expertise in engineering and logistics services. Bossard was founded in Zug in 1831. Bossard Group employs more than 3,000 people in 33 countries worldwide and is listed on the SIX Swiss Exchange. Become an employer and a profiteer of attractive working conditions. Account Managers, Sales, Bossard AG\n• Your tasks - Active sale of Bossard products and services - Customer support and advice together with the responsible field service - Maintenance and support as well as product disposition for the assigned logistics customers - Self-negotiation of prices and conditions - Order creation and monitoring - Processing of complaints and returns - Projectko-Corruption with the internal agencies and the customer - Strategic budget and action planning in cooperation with your supervisor - Data maintenance of Repeating and contact details in CRM Your requirements profile - Commercial apprenticeship with technical flair or basic technical training with commercial training (technical merchant, sales specialist or similar) - Some years of experience in sales interior service, ideally in an industrial or commercial company - Very good applied MS-Office knowledge - Very good oral and written German knowledge, basic knowledge in English - Service-oriented personality, which has pleasure in dealing with customers\n• We offer - Attractive working conditions Contact - Suchst you a challenge with active customer contact in a versatile industry? Then Mr. Alexandre Udovicic is looking forward to your written application via our online form.",
-        "de": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nVerkaufsmitarbeiter:in Innendienst 80-100% (all genders) | Bossard AG\n\nDeine Aufgaben\n\n• Aktiver Verkauf von Bossard Produkten und Dienstleistungen\n\n• Betreuung und Beratung deiner Kunden zusammen mit dem zuständigen Aussendienst\n\n• Pflege und Betreuung sowie Produktedisposition für die zugeteilten Logistikkunden\n\n• Selbständige Verhandlung von Preisen und Konditionen\n\n• Auftragserstellung und -überwachung\n\n• Bearbeitung von Beanstandungen und Rücksendungen\n\n• Projektkoordination mit den internen Stellen und den Kunden\n\n• Strategische Budget- und Massnahmenplanung in Zusammenarbeit mit deinen Vorgesetzten\n\n• Datenpflege von Rapporten und Kontaktdaten im CRM\n\nDein Anforderungsprofil\n\n• Kaufmännische Lehre mit technischem Flair oder technische Grundausbildung mit kaufmännischer Weiterbildung (Technischer Kaufmann, Verkaufsfachmann oder ähnlich)\n\n• Einige Jahre Erfahrung im Verkaufsinnendienst, idealerweise in einem Industrie- oder Handelsunternehmen\n\n• Sehr gute angewandte MS-Office Kenntnisse\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse, Grundkenntnisse in Englisch\n\n• Dienstleistungsorientierte Persönlichkeit, welche Freude im Umgang mit Kunden hat\n\nSuchst du eine Herausforderung mit aktivem Kundenkontakt in einer vielseitigen Branche? Dann freut sich Herr Dominik Udovicic auf deine schriftliche Bewerbung via unserem Online Formular.",
-        "fr": "Description Le groupe Bossard est un partenaire stratégique de premier plan pour les solutions technologiques de fixation et d'assemblage industrielles pour les clients OEM dans le monde entier avec une expertise éprouvée en ingénierie et services logistiques. Bossard a été fondé à Zug en 1831. Bossard Group emploie plus de 3000 personnes dans 33 pays dans le monde et est coté sur la Bourse suisse SIX. Devenez employeur et un profiteur de conditions de travail attrayantes. Responsables de compte, Ventes, Bossard AG\n• Vos tâches - Vente active de produits et services Bossard - Service client et conseil avec le service responsable - Entretien et support ainsi que la disposition de produit pour les clients logistiques assignés - Auto-négociation des prix et des conditions - Création de commandes et de suivi - Traitement des plaintes et des retours - Projectko-Corruption avec les agences internes et le client - Budget stratégique et planification d'action en collaboration avec votre superviseur - Maintenance des données de Répéter et contacter en CRM\n• Votre profil d'exigences - Apprentissage commercial avec flair technique ou formation technique de base avec formation commerciale (commerçant technique, spécialiste de la vente ou similaire) - Quelques années d'expérience dans le service d'intérieur de vente, idéalement dans une entreprise industrielle ou commerciale - Très bonne application MS-Office connaissances - Très bonne connaissance orale et écrite allemande, connaissances de base en anglais - Personnalité orientée service, qui a plaisir à traiter avec les clients\n• Nous offrons - Conditions de travail attrayantes Contact - Suchst vous un défi avec contact client actif dans une industrie polyvalente? M. Alexandre Udovicic attend avec impatience votre candidature écrite via notre formulaire en ligne."
-      },
-      "needsRetranslation": false,
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Account-Manager-Inside-Sales---Bossard-AG_-1",
-      "source": "Bossard Group Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:14:44.284Z",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "streetAddress": "Steinhauserstrasse 70",
-      "postalCode": "6301",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Vendite",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Tecnologia di assemblaggio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-05",
-      "applyUrl": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Account-Manager-Inside-Sales---Bossard-AG_-1",
-      "jobReqId": null,
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "account-manager-inside-sales-bossard-ag-bossard-zug",
-        "verkaufsmitarbeiter-in-innendienst-80-100-all-genders-bossard-ag-bossard-zug",
-        "account-manager-vendite-interne-bossard-ag-bossard-group-zug"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "account-manager-inside-sales-bossard-ag-bossard-zug",
-          "verkaufsmitarbeiter-in-innendienst-80-100-all-genders-bossard-ag-bossard-zug",
-          "account-manager-vendite-interne-bossard-ag-bossard-group-zug"
-        ],
-        "de": [
-          "account-manager-inside-sales-bossard-ag-bossard-zug"
-        ],
-        "fr": [
-          "account-manager-inside-sales-bossard-ag-bossard-zug"
-        ]
-      },
-      "firstSeenAt": "2026-07-05T22:13:59.437Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "bossard-51cc0d21cc16",
-      "slug": "dipendenti-logistici-nel-settore-della-fornitura-di-beni-esporta-100-tutti-i-sessi-bossard-ag-bossard-group-zug",
-      "slugByLocale": {
-        "it": "dipendenti-logistici-nel-settore-della-fornitura-di-beni-esporta-100-tutti-i-sessi-bossard-ag-bossard-group-zug",
-        "en": "logistics-employees-in-the-field-of-goods-provision-export-100-all-genders-bossard-ag-bossard-group-zug",
-        "de": "logistikmitarbeiter-in-bereich-warenbereitstellung-export-100-all-genders-bossard-ag",
-        "fr": "employes-de-logistique-dans-le-domaine-de-la-fourniture-de-biens-exportation-100-tous-les-genres-bossard-group-zug"
-      },
-      "company": "Bossard Group",
-      "companyKey": "bossard",
-      "companyDomain": "bossard.com",
-      "title": "Logistikmitarbeiter:in Bereich Warenbereitstellung Export 100% (all genders) | Bossard AG",
-      "titleByLocale": {
-        "it": "Dipendenti logistici: nel settore della fornitura di beni Esporta 100% (tutti i sessi) | Bossard AG",
-        "en": "Logistics employees: in the field of goods provision Export 100% (all genders) | Bossard AG",
-        "de": "Logistikmitarbeiter:in Bereich Warenbereitstellung Export 100% (all genders) | Bossard AG",
-        "fr": "Employés de logistique: dans le domaine de la fourniture de biens Exportation 100% (tous les genres)"
-      },
-      "description": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nLogistikmitarbeiter:in Bereich Warenbereitstellung Export 100% (all genders) | Bossard AG\n\nDeine Aufgaben:\n\n• Zusammenführen von Kundensendungen aus den übrigen Lagerbereichen (Paketpackerei und Sperriglager)\n\n• Bereitstellen und überprüfen von Exportsendungen aller Art\n\n• Ausdrucken von Kundenadressen und Lieferscheinen\n\n• Schrumpfen der exportfähigen Paletten und Bedienung des Palettenliftes\n\n• Kontrolle der versandbereiten Kundensendungen auf Vollständigkeit anhand der Ladelisten. Verdichten von Sendungen, wo sinnvoll\n\n• Periodisches Auffüllen von Verbrauchsmaterial am Arbeitsplatz, wie auch sachgerechte Entsorgung von Abfällen.\n\nDein Anforderungsprofil:\n\n• Logistiker:in EFZ\n\n• SUVA-anerkannter Staplerausweis von Vorteil\n\n• Gute PC- und MS-Office-Anwenderkenntnisse\n\n• Sehr gute Deutschkenntnisse, Englisch von Vorteil\n\n• Zuverlässige, teamfähige Person sowie eine klare und deutliche Ausdrucksweise\n\n• Körperliche Belastbarkeit\n\nBist du eine selbstbewusste Persönlichkeit und suchst eine abwechslungsreiche Arbeitsumgebung, dann freuen wir uns auf deine Bewerbungsunterlagen.",
-      "descriptionByLocale": {
-        "it": "Il Gruppo Bossard è un partner strategico leader per le soluzioni tecnologiche di fissaggio e assemblaggio industriali ai clienti OEM a livello globale con una comprovata esperienza nei servizi di ingegneria e logistica. Bossard fu fondata a Zug nel 1831. Il Gruppo Bossard impiega oltre 3.000 persone in 33 conteggi a livello mondiale ed è quotato sulla SIX Swiss Exchange. Scegli Bossard come il tuo datore di lavoro e beneficiare di condizioni di lavoro interessanti.\n\nDipendenti logistici: nel settore della fornitura di beni Esporta 100% (tutti i sessi) | Bossard AG\n\nI vostri compiti:\n\n• Riunendo le spedizioni dei clienti dalle altre aree di stoccaggio (pacchetto e magazzino ingombrante)\n\n• Disposizione e verifica delle spedizioni di esportazione di tutti i tipi\n\n• Stampa degli indirizzi dei clienti e delle note di consegna\n\n• Restringimento dei pallet esportabili e funzionamento dell'ascensore pallet\n\n• Controllare le spedizioni dei clienti pronti per la completezza sulla base delle liste di carico. Spedizioni di compressione se del caso\n\n• Ripieno periodico di materiali di consumo sul posto di lavoro, nonché il corretto smaltimento dei rifiuti.\n\nIl vostro profilo di requisito:\n\n• Logisticista: in EFZ\n\n• Passo carrello elevatore riconosciuto SUVA è vantaggioso\n\n• Buona conoscenza degli utenti di PC e MS Office\n\n• Conoscenza molto buona del tedesco, l'inglese è un vantaggio\n\n• Affidabile, squadra capace persona così come un'espressione chiara e chiara\n\n• Capacità fisica\n\nSe siete una personalità autosufficiente e siete alla ricerca di un ambiente di lavoro vario, non vediamo l'ora dei vostri documenti di applicazione.",
-        "en": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineering and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nLogistics employees: in the field of goods provision Export 100% (all genders) | Bossard AG\n\nYour tasks:\n\n• Bringing together customer shipments from the other storage areas (package and bulky warehouse)\n\n• Provision and verification of export shipments of all kinds\n\n• Printing of customer addresses and delivery notes\n\n• Shrinkage of exportable pallets and operation of the pallet lift\n\n• Check the ready-to-ship customer shipments for completeness on the basis of the loading lists. Compressing shipments where appropriate\n\n• Periodic filling of consumables at the workplace, as well as proper disposal of waste.\n\nYour requirement profile:\n\n• Logistician: in EFZ\n\n• SUVA-recognized forklift pass is advantageous\n\n• Good PC and MS Office user knowledge\n\n• Very good knowledge of German, English is an advantage\n\n• Reliable, team capable person as well as a clear and clear expression\n\n• Physical capacity\n\nIf you are a self-confident personality and are looking for a varied working environment, we look forward to your application documents.",
-        "de": "The Bossard Group is a leading strategic partner for industrial fastening and assembly technology solutions to OEM customers globally with proven expertise in engineereing and logistic services. Bossard was founded in Zug in 1831. The Bossard Group employs over 3,000 people in 33 countires world-wide and is listed on the SIX Swiss Exchange. Choose Bossard as your employer and benefit from attractive employment conditions.\n\nLogistikmitarbeiter:in Bereich Warenbereitstellung Export 100% (all genders) | Bossard AG\n\nDeine Aufgaben:\n\n• Zusammenführen von Kundensendungen aus den übrigen Lagerbereichen (Paketpackerei und Sperriglager)\n\n• Bereitstellen und überprüfen von Exportsendungen aller Art\n\n• Ausdrucken von Kundenadressen und Lieferscheinen\n\n• Schrumpfen der exportfähigen Paletten und Bedienung des Palettenliftes\n\n• Kontrolle der versandbereiten Kundensendungen auf Vollständigkeit anhand der Ladelisten. Verdichten von Sendungen, wo sinnvoll\n\n• Periodisches Auffüllen von Verbrauchsmaterial am Arbeitsplatz, wie auch sachgerechte Entsorgung von Abfällen.\n\nDein Anforderungsprofil:\n\n• Logistiker:in EFZ\n\n• SUVA-anerkannter Staplerausweis von Vorteil\n\n• Gute PC- und MS-Office-Anwenderkenntnisse\n\n• Sehr gute Deutschkenntnisse, Englisch von Vorteil\n\n• Zuverlässige, teamfähige Person sowie eine klare und deutliche Ausdrucksweise\n\n• Körperliche Belastbarkeit\n\nBist du eine selbstbewusste Persönlichkeit und suchst eine abwechslungsreiche Arbeitsumgebung, dann freuen wir uns auf deine Bewerbungsunterlagen.",
-        "fr": "Le Groupe Bossard est un partenaire stratégique de premier plan pour les solutions technologiques de fixation industrielle et d'assemblage pour les clients OEM dans le monde entier avec une expertise avérée en ingénierie et services logistiques. Bossard a été fondé à Zug en 1831. Le groupe Bossard emploie plus de 3 000 personnes dans 33 comtes du monde entier et est coté à la SIX Swiss Exchange. Choisissez Bossard comme employeur et profitez de conditions d'emploi attrayantes.\n\nEmployés de logistique: dans le domaine de la fourniture de biens Exportation 100% (tous les genres)\n\nVos tâches:\n\n• Rassembler les envois des clients des autres zones d'entreposage (emballage et entrepôt en vrac)\n\n• Fourniture et vérification des expéditions d ' exportation de toutes sortes\n\n• Impression des adresses des clients et des notes de livraison\n\n• Réduction des palettes exportables et fonctionnement de l'ascenseur de palette\n\n• Vérifiez l'exhaustivité des expéditions des clients prêts à expédier sur la base des listes de chargement. Compresser les expéditions le cas échéant\n\n• Le remplissage périodique des consommables sur le lieu de travail, ainsi que l'élimination correcte des déchets.\n\nVotre profil d'exigence:\n\n• Logisticien: en EFZ\n\n• La passe de chariot élévateur reconnue par SUVA est avantageuse\n\n• Bonnes connaissances des utilisateurs de PC et de MS Office\n\n• Très bonne connaissance de l'allemand, l'anglais est un avantage\n\n• Une personne fiable, capable d'équipe ainsi qu'une expression claire et claire\n\n• Capacité physique\n\nSi vous êtes une personnalité de confiance et que vous recherchez un environnement de travail varié, nous attendons avec impatience vos documents de candidature."
-      },
-      "needsRetranslation": false,
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Logistikmitarbeiter-in-Bereich-Warenbereitstellung-Export-100---all-genders----Bossard-AG_",
-      "source": "Bossard Group Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:14:43.458Z",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "streetAddress": "Steinhauserstrasse 70",
-      "postalCode": "6301",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Tecnologia di assemblaggio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-16",
-      "applyUrl": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Logistikmitarbeiter-in-Bereich-Warenbereitstellung-Export-100---all-genders----Bossard-AG_",
-      "jobReqId": null,
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "logistikmitarbeiter-in-bereich-warenbereitstellung-export-100-all-genders-bossard-ag",
-        "dipendenti-logistici-nel-settore-della-fornitura-di-beni-esporta-100-tutti-i-sessi-bossard-ag-bossard-group-zug"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "logistikmitarbeiter-in-bereich-warenbereitstellung-export-100-all-genders-bossard-ag",
-          "dipendenti-logistici-nel-settore-della-fornitura-di-beni-esporta-100-tutti-i-sessi-bossard-ag-bossard-group-zug"
-        ],
-        "en": [
-          "logistikmitarbeiter-in-bereich-warenbereitstellung-export-100-all-genders-bossard-ag"
-        ],
-        "fr": [
-          "logistikmitarbeiter-in-bereich-warenbereitstellung-export-100-all-genders-bossard-ag"
-        ]
-      },
-      "firstSeenAt": "2026-07-16T22:08:46.836Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1
     }
   ]
 }

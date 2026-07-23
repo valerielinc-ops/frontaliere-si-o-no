@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3448,
+ "numberOfItems": 3459,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8216,7 +8216,18 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3445, "name": "Impiegato di commercio in Ticino: guida per fro...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-impiegato-commercio-ticino` },
           { "@type": "ListItem", "position": 3446, "name": "Frontalieri disoccupati: l'UE approva riforma o...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupati-ue-riforma-onerosa-ticino` },
           { "@type": "ListItem", "position": 3447, "name": "Telelavoro per frontalieri: ratificato l'accordo", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-telelavoro-ratifica-accordo` },
-          { "@type": "ListItem", "position": 3448, "name": "Frontalieri in Ticino: i dati del primo trimest...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-dati-2026` }
+          { "@type": "ListItem", "position": 3448, "name": "Frontalieri in Ticino: i dati del primo trimest...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-dati-2026` },
+          { "@type": "ListItem", "position": 3449, "name": "Frontalieri, numeri in calo in Ticino nei primi...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-numeri-in-calo` },
+          { "@type": "ListItem", "position": 3450, "name": "Tragedia sul lavoro a Blenio: i dettagli dell'i...", "url": `${BASE_URL}/articoli-frontaliere/tragedia-lavoro-blenio-aquila` },
+          { "@type": "ListItem", "position": 3451, "name": "Di più Auto: mercato del nuovo non decolla, svi...", "url": `${BASE_URL}/articoli-frontaliere/auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato` },
+          { "@type": "ListItem", "position": 3452, "name": "Dati salariali dei frontalieri in dichiarazione...", "url": `${BASE_URL}/articoli-frontaliere/dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi` },
+          { "@type": "ListItem", "position": 3453, "name": "Lavorare come educatore in Ticino: stipendio e ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-educatore-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3454, "name": "Povertà lavorativa in Ticino: la sfida silenziosa", "url": `${BASE_URL}/articoli-frontaliere/poverta-lavorativa-ticino-sfida-dignita` },
+          { "@type": "ListItem", "position": 3455, "name": "Ticino: orari di lavoro anticipati per l'allert...", "url": `${BASE_URL}/articoli-frontaliere/anticipo-orari-lavoro-canicola-ticino` },
+          { "@type": "ListItem", "position": 3456, "name": "Frontalieri in Svizzera: i dati aggiornati del ...", "url": `${BASE_URL}/articoli-frontaliere/evoluzione-frontalieri-dati-ust` },
+          { "@type": "ListItem", "position": 3457, "name": "Richiesta nuovo permesso per frontalieri (G) - ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-permessi-g` },
+          { "@type": "ListItem", "position": 3458, "name": "Terzo pilastro 3a svizzero: vantaggi 2026 nel C...", "url": `${BASE_URL}/articoli-frontaliere/terzo-pilastro-3a-vantaggi-2026-canton-san-gallo` },
+          { "@type": "ListItem", "position": 3459, "name": "Sempre meno frontalieri in Ticino: calo lieve m...", "url": `${BASE_URL}/articoli-frontaliere/sempre-meno-frontalieri-ticino-calof-lievelie` }
  ]
  },
  {

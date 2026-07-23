@@ -1447,6 +1447,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-dati-2026.title': 'Border workers in Ticino: data for the first quarter of 2026',
     'blog.article.frontalieri-ticino-dati-2026.excerpt': 'Ticino recorded a slight contraction in border crossers (-0.2%), while at the Swiss level a constant growth of 1.9% was confirmed.',
     'blog.article.frontalieri-ticino-dati-2026.imageAlt': 'Panoramic view of Lugano and its lake on a sunny day',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.title': 'More Cars: new market does not take off, Swiss prefer second-hand',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.excerpt': 'The Swiss market for new cars remains essentially unchanged. The increase in electric car registrations is not taking off.',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.imageAlt': 'Electric car in a parking lot in Lugano.',
+    'blog.article.poverta-lavorativa-ticino-sfida-dignita.title': 'Working poverty in Ticino: the silent challenge',
+    'blog.article.poverta-lavorativa-ticino-sfida-dignita.excerpt': 'A quarter of Ticino\'s population is at risk of working poverty.',
+    'blog.article.poverta-lavorativa-ticino-sfida-dignita.imageAlt': 'Scene of people standing by the lake in Lugano, Switzerland, with an expression of concern and uncertainty about their economic situation.',
+    'blog.article.evoluzione-frontalieri-dati-ust.title': 'Frontier workers in Switzerland: updated data for the decade',
+    'blog.article.evoluzione-frontalieri-dati-ust.excerpt': 'Analysis of the Federal Statistical Office on the frontier phenomenon: Lombardy is growing, the province of Monza and Brianza stands out.',
+    'blog.article.evoluzione-frontalieri-dati-ust.imageAlt': 'Panoramic view of Lugano and its lake with the Swiss urban context',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.title': 'Swiss 3rd Pillar: Advantages 2026 in the Canton of St. Gallen',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'The Italy-Switzerland double taxation agreement was signed on 9 December 1976. The new frontier workers have a deductible of €10,000.',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.imageAlt': 'Lugano and Lake Lugano',
 };
 
 export default blogMetaChEn;

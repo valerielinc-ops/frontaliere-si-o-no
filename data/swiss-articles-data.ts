@@ -4337,6 +4337,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato',
+    category: 'fiscale',
+    date: '2026-07-22T20:10:58.935Z',
+    image: '/images/blog/auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'poverta-lavorativa-ticino-sfida-dignita',
+    category: 'fiscale',
+    date: '2026-07-23T03:12:34.993Z',
+    image: '/images/blog/poverta-lavorativa-ticino-sfida-dignita.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'evoluzione-frontalieri-dati-ust',
+    category: 'novita',
+    date: '2026-07-23T03:34:37.826Z',
+    image: '/images/blog/evoluzione-frontalieri-dati-ust.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'terzo-pilastro-3a-vantaggi-2026-canton-san-gallo',
+    category: 'fiscale',
+    date: '2026-07-23T04:10:42.678Z',
+    image: '/images/blog/terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

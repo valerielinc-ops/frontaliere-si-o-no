@@ -1,16 +1,16 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-07-21T22:06:05.918Z",
-  "total": 4,
+  "generatedAt": "2026-07-22T22:05:33.232Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 6003,
-  "avgDurationMs": 6003,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 5187,
+  "avgDurationMs": 5187,
   "durationHistory": [
-    6003
+    5187
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://apply.refline.ch/640332/0065/pub/4/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:06:00.841Z",
+      "crawledAt": "2026-07-22T22:05:28.742Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
       "url": "https://apply.refline.ch/640332/0047/pub/13/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:06:01.343Z",
+      "crawledAt": "2026-07-22T22:05:29.194Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -95,8 +95,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "privatklinik-hohenegg-d6a9741ea7a9",
       "slug": "hf-infermiera-con-un-focus-sulla-psichiatria-60-100-privatklinik-hohenegg-meilen",
@@ -130,7 +129,7 @@
       "firstSeenAt": "2026-06-17T23:11:53.425Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -173,7 +172,7 @@
       "firstSeenAt": "2026-06-17T23:11:52.993Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -182,5 +181,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

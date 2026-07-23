@@ -1447,6 +1447,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-dati-2026.title': 'Frontaliers au Tessin : les données du premier trimestre 2026',
     'blog.article.frontalieri-ticino-dati-2026.excerpt': 'Le Tessin enregistre une légère contraction des frontaliers (-0,2%), tandis qu\'au niveau suisse une croissance constante de 1,9% se confirme.',
     'blog.article.frontalieri-ticino-dati-2026.imageAlt': 'Vue panoramique de Lugano et de son lac par une journée ensoleillée',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.title': 'Le marché du neuf : les Suisses préfèrent l\'occasion',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.excerpt': 'Le marché suisse des voitures neuves reste globalement stable. L\'augmentation des immatriculations de voitures électriques ne décolle pas.',
+    'blog.article.auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato.imageAlt': 'Voiture électrique dans un parking de Lugano.',
+    'blog.article.poverta-lavorativa-ticino-sfida-dignita.title': 'Pauvreté de travail au Tessin : le défi silencieux',
+    'blog.article.poverta-lavorativa-ticino-sfida-dignita.excerpt': 'Un quart de la population du Tessin risque la pauvreté au travail.',
+    'blog.article.poverta-lavorativa-ticino-sfida-dignita.imageAlt': 'Scène de personnes debout sur le lac de Lugano, en Suisse, avec une expression de préoccupation et d\'incertitude sur leur situation économique.',
+    'blog.article.evoluzione-frontalieri-dati-ust.title': 'Frontières en Suisse : les données actualisées de la décennie',
+    'blog.article.evoluzione-frontalieri-dati-ust.excerpt': 'Analyse de l\'Office fédéral de la statistique sur le phénomène du frontalier : la Lombardie se développe, le bond de la province de Monza et de Brianza se distingue.',
+    'blog.article.evoluzione-frontalieri-dati-ust.imageAlt': 'Vue panoramique de Lugano et de son lac avec le contexte urbain suisse',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.title': 'Troisième pilier 3a suisse : avantages 2026 dans le canton de Saint-Gall',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'La convention double imposition Italie-Suisse a été signée le 9 décembre 1976. Les nouveaux frontaliers bénéficient d\'une franchise de 10 000 € .',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.imageAlt': 'Lugano et lac Lugano',
 };
 
 export default blogMetaChFr;

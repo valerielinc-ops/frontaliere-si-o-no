@@ -1,16 +1,16 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-07-21T22:10:25.924Z",
-  "total": 5,
+  "generatedAt": "2026-07-22T22:13:28.881Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 8981,
-  "avgDurationMs": 8981,
+  "unchangedCount": 0,
+  "durationMs": 8750,
+  "avgDurationMs": 8750,
   "durationHistory": [
-    8981
+    8750
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.somedia.ch/Leiterin-Digital-Product-Projects-80-100-de-j405.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:10:20.138Z",
+      "crawledAt": "2026-07-22T22:13:23.085Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -68,7 +68,7 @@
       "url": "https://jobs.somedia.ch/Verlagsleiterin-80-100-de-j403.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:10:18.959Z",
+      "crawledAt": "2026-07-22T22:13:21.889Z",
       "addressLocality": "Chur, Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -110,7 +110,7 @@
       "url": "https://jobs.somedia.ch/Lehrstelle-als-Kaufmann-frau-EFZ-Marketing-Kommunikation-2-de-j398.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:10:20.998Z",
+      "crawledAt": "2026-07-22T22:13:23.974Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -153,7 +153,7 @@
       "url": "https://jobs.somedia.ch/Geschaeftsfuehrerin-communicaziunch-100-de-j390.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:10:21.848Z",
+      "crawledAt": "2026-07-22T22:13:24.840Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -186,52 +186,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "somedia-6ab9c6ed4a49",
-      "slug": "responsabile-audio-video-100-somedia-ag-chur",
-      "company": "Somedia AG",
-      "companyKey": "somedia",
-      "companyDomain": "somedia.ch",
-      "title": "Leiter/in Audio & Video (100%)",
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://jobs.somedia.ch/Leiterin-Audio-Video-100-de-j396.html",
-      "source": "Somedia AG Dedicated Parser (Rexx Systems)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-21T12:04:49.645Z",
-      "addressLocality": "Chur",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7007",
-      "streetAddress": "Sommeraustrasse 32",
-      "category": "Ingegneria",
-      "sector": "Media / Editoria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-03",
-      "validThrough": "2027-01-01",
-      "applyUrl": "https://jobs.somedia.ch/Leiterin-Audio-Video-100-de-f396.html",
-      "_somediaMeta": {
-        "rexxId": "396",
-        "identifier": "",
-        "hiringOrganization": "Südostschweiz Radio AG"
-      },
-      "firstSeenAt": "2026-06-03T15:13:56.684Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "addressRegion": "GR",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
