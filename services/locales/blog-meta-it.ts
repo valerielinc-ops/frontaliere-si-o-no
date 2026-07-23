@@ -8897,6 +8897,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-ingegnere-ticino-stipendio.title': 'frontaliere ingegnere ticino stipendio requisiti',
     'blog.article.frontaliere-ingegnere-ticino-stipendio.excerpt': 'Nuovo Accordo Frontalieri vigente dal 1/1/2024: franchigia €10\'000, imposta alla fonte solo in Svizzera, credito d\'imposta italiano per evitare doppia imposizione.',
     'blog.article.frontaliere-ingegnere-ticino-stipendio.imageAlt': 'Ingegnere frontaliere vicino al lago di Lugano con vista sulle Alpi',
+    'blog.article.tasse-frontalieri-nessuna-stangata.title': 'Tasse frontalieri, nessuna stangata per i redditi bassi',
+    'blog.article.tasse-frontalieri-nessuna-stangata.excerpt': 'Nessuna stangata per i frontalieri con redditi bassi',
+    'blog.article.tasse-frontalieri-nessuna-stangata.imageAlt': 'un frontaliere che lavora in Ticino',
 };
 
 export default blogMetaIt;

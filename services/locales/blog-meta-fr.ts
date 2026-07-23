@@ -8898,6 +8898,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-ingegnere-ticino-stipendio.title': 'frontalière ingénieur ticino salaire exigences',
     'blog.article.frontaliere-ingegnere-ticino-stipendio.excerpt': 'Nouvel accord frontalier en vigueur depuis le 1/1/2024 : franchise de 10\'000 € , impôt à la source uniquement en Suisse, crédit d\'impôt italien pour éviter la double imposition.',
     'blog.article.frontaliere-ingegnere-ticino-stipendio.imageAlt': 'Frontalier ingénieur près du lac de Lugano avec vue sur les Alpes',
+    'blog.article.tasse-frontalieri-nessuna-stangata.title': 'Taxes frontalières, pas d\'étanchéité pour les bas revenus',
+    'blog.article.tasse-frontalieri-nessuna-stangata.excerpt': 'Pas d\'étanchéité pour les frontaliers à faibles revenus',
+    'blog.article.tasse-frontalieri-nessuna-stangata.imageAlt': 'un frontalier qui travaille en Suisse',
 };
 
 export default blogMetaFr;
