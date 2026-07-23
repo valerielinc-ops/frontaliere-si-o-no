@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-schwyz",
-  "assembledAt": "2026-07-23T11:27:52.236Z",
+  "assembledAt": "2026-07-23T10:48:24.094Z",
   "jobs": [
     {
       "id": "spital-schwyz-29bb2acb04d3",
@@ -99,7 +99,7 @@
       "companyDomain": "spital-schwyz.ch",
       "title": "Studienplatz Dipl. Expert:in Intensivpflege NDS HF Frühling 2027",
       "titleByLocale": {
-        "it": "Studienplatz Dipl. Expert:in Intensivpflege NDS HF Frühling 2027",
+        "it": "Posto di studio Esperto/a in terapia intensiva NDS SSS Primavera 2027",
         "en": "Study place Dipl. Expert/in Intensive Care NDS HF Spring 2027",
         "de": "Studienplatz Dipl. Expert:in Intensivpflege NDS HF Frühling 2027",
         "fr": "Place d'étude d'expert diplômé en soins intensifs NDS ES printemps 2027"
@@ -111,13 +111,12 @@
         "de": "Studienplatz für Diplom-Expert:in in Intensivpflege NDS HF Frühling 2027 — Spital Schwyz",
         "fr": "Place d'études Dipl. Expert:in Soins Intensifs NDS HF Printemps 2027 — Spital Schwyz"
       },
-      "needsRetranslation": true,
       "location": "Schwyz",
       "canton": "SZ",
       "url": "https://jobs.spital-schwyz.ch/Studienplatz-Dipl-Expertin-Intensivpflege-NDS-HF-Fruehling-de-j525.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-23T11:27:48.146Z",
+      "crawledAt": "2026-07-22T22:13:33.033Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -163,7 +162,7 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 80,
-      "retranslationAttempts": 22,
+      "retranslationAttempts": 23,
       "firstSeenAt": "2026-05-19T13:03:33.571Z",
       "salaryMin": 69500,
       "salaryMax": 106000,

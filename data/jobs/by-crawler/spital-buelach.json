@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-buelach",
-  "assembledAt": "2026-07-23T12:19:38.648Z",
+  "assembledAt": "2026-07-23T10:47:03.783Z",
   "jobs": [
     {
       "id": "spital-buelach-292bab1d5f97",
@@ -3453,7 +3453,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/physiotherapeut-in/60d1fb27-c198-4718-b5ee-a223c9cb122d",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T12:19:36.112Z",
+      "crawledAt": "2026-07-22T22:52:19.966Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3474,19 +3474,30 @@
       "previousSlugs": [
         "physiotherapeut-in-spital-buelach-bulach",
         "physiotherapeut-in-spital-bulach-bulach",
-        "fisioterapista-in-spital-bulach-bulach"
+        "ricevitore-in-spital-bulach-bulach",
+        "receptionist-in-spital-bulach-bulach",
+        "receptionist-in-spital-buelach-bulach",
+        "receptionniste-in-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeut-in-spital-buelach-bulach",
           "physiotherapeut-in-spital-bulach-bulach",
-          "fisioterapista-in-spital-bulach-bulach"
+          "ricevitore-in-spital-bulach-bulach",
+          "receptionist-in-spital-bulach-bulach",
+          "receptionist-in-spital-buelach-bulach",
+          "receptionniste-in-spital-bulach-bulach"
         ],
         "en": [
-          "physiotherapeut-in-spital-bulach-bulach"
+          "physiotherapeut-in-spital-bulach-bulach",
+          "receptionist-in-spital-bulach-bulach"
         ],
         "fr": [
-          "physiotherapeut-in-spital-bulach-bulach"
+          "physiotherapeut-in-spital-bulach-bulach",
+          "receptionniste-in-spital-bulach-bulach"
+        ],
+        "de": [
+          "receptionist-in-spital-buelach-bulach"
         ]
       },
       "firstSeenAt": "2026-07-21T12:14:59.063Z",

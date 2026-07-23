@@ -1,6 +1,6 @@
 {
   "crawlerKey": "solothurner-spitaeler",
-  "assembledAt": "2026-07-23T11:52:50.654Z",
+  "assembledAt": "2026-07-23T10:46:12.036Z",
   "jobs": [
     {
       "id": "solothurner-spitaeler-1421aaf860b7",
@@ -12480,7 +12480,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/mpa-in-ausbildung-w-m-d/f3cd4e1c-0448-421f-8321-281a239aeb59",
       "source": "soH Dedicated Parser (HTML scrape @ solothurnerspitaeler.ch/jobangebote)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:51:32.241Z",
+      "crawledAt": "2026-07-22T22:08:10.324Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "postalCode": "4600",
@@ -12502,21 +12502,29 @@
       "previousSlugsByLocale": {
         "de": [
           "mpa-in-ausbildung-w-m-d-soh-ch",
-          "mpa-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten"
+          "mpa-mit-berufsbildnerfunktion-w-m-d-soh-solothurner-spitaeler-olten"
         ],
         "it": [
           "mpa-in-ausbildung-w-m-d-soh-ch",
           "mpa-in-ausbildung-w-m-d-solothurner-spitaler-soh-olten",
           "mpa-in-formazione-f-m-d-solothurner-spitaler-soh-olten",
-          "mpa-in-formazione-f-m-d-solothurner-spitaler-ag-soh-olten"
+          "mpa-mit-berufsbildnerfunktion-w-m-d-solothurner-spitaler-soh-olten",
+          "mpa-with-apprenticeship-function-f-m-d-solothurner-spitaler-ag-soh-olten",
+          "mpa-mit-berufsbildnerfunktion-w-m-d-soh-solothurner-spitaeler-olten",
+          "mpa-avec-fonction-d-apprentissage-f-m-d-solothurner-spitaler-ag-soh-olten",
+          "mpa-with-apprenticeship-function-f-m-d-solothurner-spitaler-soh-olten",
+          "mpa-avec-fonction-d-apprentissage-f-m-d-solothurner-spitaler-soh-olten",
+          "mpa-mit-berufsbildnerfunktion-w-m-d-soh-ch"
         ],
         "en": [
           "mpa-in-ausbildung-w-m-d-solothurner-spitaler-soh-olten",
-          "mpa-in-training-f-m-d-solothurner-spitaler-soh-olten"
+          "mpa-in-training-f-m-d-solothurner-spitaler-soh-olten",
+          "mpa-with-apprenticeship-function-f-m-d-solothurner-spitaler-ag-soh-olten"
         ],
         "fr": [
           "mpa-in-ausbildung-w-m-d-solothurner-spitaler-soh-olten",
-          "mpa-en-formation-f-m-d-solothurner-spitaler-soh-olten"
+          "mpa-en-formation-f-m-d-solothurner-spitaler-soh-olten",
+          "mpa-avec-fonction-d-apprentissage-f-m-d-solothurner-spitaler-ag-soh-olten"
         ]
       },
       "previousSlugs": [
@@ -12525,8 +12533,13 @@
         "mpa-in-formazione-f-m-d-solothurner-spitaler-soh-olten",
         "mpa-in-training-f-m-d-solothurner-spitaler-soh-olten",
         "mpa-en-formation-f-m-d-solothurner-spitaler-soh-olten",
-        "mpa-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten",
-        "mpa-in-formazione-f-m-d-solothurner-spitaler-ag-soh-olten"
+        "mpa-mit-berufsbildnerfunktion-w-m-d-solothurner-spitaler-soh-olten",
+        "mpa-with-apprenticeship-function-f-m-d-solothurner-spitaler-ag-soh-olten",
+        "mpa-mit-berufsbildnerfunktion-w-m-d-soh-solothurner-spitaeler-olten",
+        "mpa-avec-fonction-d-apprentissage-f-m-d-solothurner-spitaler-ag-soh-olten",
+        "mpa-with-apprenticeship-function-f-m-d-solothurner-spitaler-soh-olten",
+        "mpa-avec-fonction-d-apprentissage-f-m-d-solothurner-spitaler-soh-olten",
+        "mpa-mit-berufsbildnerfunktion-w-m-d-soh-ch"
       ],
       "firstSeenAt": "2026-07-01T12:39:52.809Z",
       "salaryMin": 68500,
