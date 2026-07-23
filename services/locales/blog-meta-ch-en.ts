@@ -1453,6 +1453,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.poverta-lavorativa-ticino-sfida-dignita.title': 'Working poverty in Ticino: the silent challenge',
     'blog.article.poverta-lavorativa-ticino-sfida-dignita.excerpt': 'A quarter of Ticino\'s population is at risk of working poverty.',
     'blog.article.poverta-lavorativa-ticino-sfida-dignita.imageAlt': 'Scene of people standing by the lake in Lugano, Switzerland, with an expression of concern and uncertainty about their economic situation.',
+    'blog.article.evoluzione-frontalieri-dati-ust.title': 'Frontier workers in Switzerland: updated data for the decade',
+    'blog.article.evoluzione-frontalieri-dati-ust.excerpt': 'Analysis of the Federal Statistical Office on the frontier phenomenon: Lombardy is growing, the province of Monza and Brianza stands out.',
+    'blog.article.evoluzione-frontalieri-dati-ust.imageAlt': 'Panoramic view of Lugano and its lake with the Swiss urban context',
 };
 
 export default blogMetaChEn;
