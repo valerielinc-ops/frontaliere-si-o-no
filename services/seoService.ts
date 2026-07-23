@@ -4829,6 +4829,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi': { name: 'Dati salariali vecchi frontalieri', path: '/articoli-frontaliere/dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi', parent: 'blog' },
     'blog-frontaliere-educatore-ticino-stipendio-requisiti': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/frontaliere-educatore-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-poverta-lavorativa-ticino-sfida-dignita': { name: 'Povertà lavorativa in Ticino', path: '/articoli-svizzera/poverta-lavorativa-ticino-sfida-dignita/', parent: 'blog' },
+    'blog-anticipo-orari-lavoro-canicola-ticino': { name: 'Frontalieri Ticino News', path: '/articoli-frontaliere/anticipo-orari-lavoro-canicola-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];
