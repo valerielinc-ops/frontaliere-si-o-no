@@ -8868,6 +8868,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stipendio-muratore-frontaliere-ticino.title': 'Combien gagne un maçon frontalier au Tessin ?',
     'blog.article.stipendio-muratore-frontaliere-ticino.excerpt': 'La rémunération d\'un maçon frontalier au Tessin est influencée par les règles fiscales et les traités internationaux.',
     'blog.article.stipendio-muratore-frontaliere-ticino.imageAlt': 'Vue du lac de Lugano',
+    'blog.article.permesso-g-apprendisti-durata-tirocinio.title': 'Permis G apprentis : durée prolongée pour l\'ensemble de l\'apprentissage',
+    'blog.article.permesso-g-apprendisti-durata-tirocinio.excerpt': 'Le Conseil des Etats approuve la motion pour un permis G valable pour toute la durée de l\'apprentissage, dépassant l\'obligation du renouvellement annuel.',
+    'blog.article.permesso-g-apprendisti-durata-tirocinio.imageAlt': 'Jeunes apprentis dans un centre de formation au Tessin',
 };
 
 export default blogMetaFr;

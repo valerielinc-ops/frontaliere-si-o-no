@@ -4837,6 +4837,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-permesso-frontaliere-g-procedura-ticino': { name: 'Permesso G frontalieri', path: '/articoli-svizzera/permesso-frontaliere-g-procedura-ticino/', parent: 'blog' },
     'blog-stipendio-muratore-frontaliere-ticino': { name: 'Ticino', path: '/articoli-frontaliere/stipendio-muratore-frontaliere-ticino', parent: 'blog' },
     'blog-terzo-pilastro-3a-vantaggi-2026-basilea': { name: 'Terzo pilastro 3a: vantaggi per i', path: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026-basilea/', parent: 'blog' },
+    'blog-permesso-g-apprendisti-durata-tirocinio': { name: 'Permesso G Apprendisti', path: '/articoli-frontaliere/permesso-g-apprendisti-durata-tirocinio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

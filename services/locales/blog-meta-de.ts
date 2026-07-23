@@ -8865,6 +8865,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stipendio-muratore-frontaliere-ticino.title': 'Wie viel verdient ein Grenzmaurer im Tessin?',
     'blog.article.stipendio-muratore-frontaliere-ticino.excerpt': 'Die Entlohnung eines Grenzmauerers im Tessin wird durch Steuervorschriften und internationale Verträge beeinflusst.',
     'blog.article.stipendio-muratore-frontaliere-ticino.imageAlt': 'Blick auf den Luganer See',
+    'blog.article.permesso-g-apprendisti-durata-tirocinio.title': 'Auszubildenderausweis G: verlängerte Dauer für das gesamte Praktikum',
+    'blog.article.permesso-g-apprendisti-durata-tirocinio.excerpt': 'Der Ständerat genehmigt die Motion für eine G-Bewilligung, die für die gesamte Dauer der Lehre gültig ist, über die Verpflichtung zur jährlichen Erneuerung hinaus.',
+    'blog.article.permesso-g-apprendisti-durata-tirocinio.imageAlt': 'Junge Lernende in einem Ausbildungszentrum im Tessin',
 };
 
 export default blogMetaDe;
