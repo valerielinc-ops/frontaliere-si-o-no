@@ -1,18 +1,120 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-07-22T22:05:18.808Z",
-  "total": 39,
-  "newCount": 0,
+  "generatedAt": "2026-07-23T11:24:37.630Z",
+  "total": 40,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 38,
-  "durationMs": 19116,
-  "avgDurationMs": 19116,
+  "durationMs": 24029,
+  "avgDurationMs": 24029,
   "durationHistory": [
-    19116
+    24029
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "efg-6317",
+      "slug": "iam-support-specialist-efg-geneve",
+      "company": "EFG International AG",
+      "title": "IAM Support Specialist",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-23",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6317",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "As an IAM (Internal Asset Manager) Support Specialist, you will deliver vital administrative support and assist with day-to-day client relationship activities. You will collaborate closely with key stakeholders to improve IAM desk processes and procedures, serving as the main point of contact for Client Relationship Officers (CROs) and Account Managers across various critical workflows. Your position will be central to upholding strong standards in compliance, quality assurance, and business development within our IAM Switzerland team."
+            ],
+            "responsibilities": [
+              "Provide administrative support for daily client relationship matters, assisting CROs, and Account Managers in their day-to-day activities.",
+              "Act as the main contact for CROs/Account Managers regarding: <br>– Pre-approval or approval (within delegations) of payments, credits, and client/IAM openings and closings.<br>– Reviewing the quality of client and IAM profiles and documentation during onboarding and regular reviews.",
+              "Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.",
+              "Oversee and approve KYC lifecycle events, including reviewing and commenting on Client Information Profiles for account openings, periodic reviews, and updates.",
+              "Monitor compliance and follow up on AML (Anti-Money Laundering) matters.",
+              "Serve as a link between the First and Second Line of Defence, facilitating communication and compliance.",
+              "Support the Head of IAM Switzerland in business development, analysis, and improving process efficiency and productivity in collaboration with relevant functional areas.",
+              "Contribute to the continuous improvement of IAM Switzerland's processes and procedures"
+            ],
+            "requirements": [
+              "At least 3 of experience in a regulatory compliance or private banking environment.",
+              "Strong knowledge of AML regulations and sanctions.",
+              "Fluent in English. German is an advantage; French and/or Italian would be an asset.",
+              "Excellent organisational, communication, and interpersonal skills.",
+              "Strong analytical skills and attention to detail.",
+              "Proficient in Microsoft Excel.",
+              "Reliable, solution-oriented, and a strong team player.",
+              "Demonstrates a client and service focus at all times."
+            ],
+            "benefits": [],
+            "process": [],
+            "highlights": [
+              "Provide administrative support for daily client relationship matters, assisting CROs, and Account Managers in their day-to-day activities.",
+              "Act as the main contact for CROs/Account Managers regarding: <br>– Pre-approval or approval (within delegations) of payments, credits, and client/IAM openings and closings.<br>– Reviewing the quality of client and IAM profiles and documentation during onboarding and regular reviews.",
+              "Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.",
+              "At least 3 of experience in a regulatory compliance or private banking environment.",
+              "Strong knowledge of AML regulations and sanctions.",
+              "Fluent in English. German is an advantage; French and/or Italian would be an asset."
+            ],
+            "keywords": [
+              "At least 3 of experience in a regulatory compliance or private banking environment.",
+              "Strong knowledge of AML regulations and sanctions.",
+              "Fluent in English. German is an advantage",
+              "Excellent organisational",
+              "Strong analytical skills and attention to detail.",
+              "Provide administrative support for daily client relationship matters",
+              "Act as the main contact for CROs/Account Managers regarding",
+              "Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.",
+              "Oversee and approve KYC lifecycle events"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-07-23T11:24:34.310Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "needsRetranslation": true,
+      "datePosted": "2026-07-23",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "efg-5984",
@@ -48,7 +150,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.038Z",
+      "crawledAt": "2026-07-23T11:24:34.316Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-10",
@@ -217,7 +319,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.074Z",
+      "crawledAt": "2026-07-23T11:24:34.338Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-25",
@@ -333,7 +435,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.072Z",
+      "crawledAt": "2026-07-23T11:24:34.337Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-23",
@@ -453,7 +555,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.071Z",
+      "crawledAt": "2026-07-23T11:24:34.335Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-07-02",
@@ -539,7 +641,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.070Z",
+      "crawledAt": "2026-07-23T11:24:34.334Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-05-18",
@@ -594,7 +696,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.068Z",
+      "crawledAt": "2026-07-23T11:24:34.333Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-20",
@@ -649,7 +751,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.067Z",
+      "crawledAt": "2026-07-23T11:24:34.332Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-03",
@@ -778,7 +880,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.065Z",
+      "crawledAt": "2026-07-23T11:24:34.331Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -879,7 +981,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.063Z",
+      "crawledAt": "2026-07-23T11:24:34.330Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -898,6 +1000,124 @@
         "richness": 25,
         "translation": 25,
         "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6142",
+      "slug": "responsabile-pubblicita-media-e-marketing-strategico-efg-international-ag-zurich",
+      "company": "EFG International AG",
+      "title": "Advertising, Media and Strategic Marketing Manager",
+      "location": "Zurich",
+      "canton": "ZH",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-08",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6142",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "This position contributes to defining and expressing EFG’s brand through advertising and media, ensuring that marketing initiatives form a coherent, recognisable presence across regions and channels. By providing structure, coordination, and oversight to key marketing initiatives, the role helps translate strategic priorities into visible market activity and supports the bank’s long-term positioning and growth ambitions.",
+              "Monitor competitors, client insights, and market trends within the financial and luxury industries to generate actionable recommendations, strengthen strategic marketing decisions, and continuously optimize brand performance."
+            ],
+            "responsibilities": [
+              "Development and execution of advertising campaigns that align with business goals, brand positioning, and marketing objectives, ensuring high-quality asset delivery across all media channels (print, POS, OOH, social media, website).",
+              "Handle end-to-end campaign planning, including delivery of high-quality assets, timeline management, budget control, and coordination of all stakeholders (such as Legal, etc.) to ensure efficient execution.",
+              "Track the advertising and media strategy across markets, monitoring campaign performance and optimizing both media effectiveness and creative impact.",
+              "Work closely with the Head of Corporate Marketing, the Brand Manager, the digital team, and international stakeholders to ensure campaigns align with the brand strategy, strategic marketing priorities, and regional business needs.",
+              "Collaborate closely with content owners across the bank to leverage available expertise and stories that support the brand narrative.",
+              "Manage and coordinate external partners (creative agencies, photographers, media agencies, publishers, production teams, etc.), ensuring smooth collaboration, clear deliverables, and alignment with project milestones.",
+              "Establish campaign toolkits, governance, and implementation guidelines to enable consistent roll-out across regions, channels, and touchpoints, while coordinating effectively with international teams.",
+              "Coordinate international marketing initiatives across regions, ensuring local market needs are reflected while maintaining consistency with global brand standards, messaging, and execution frameworks.",
+              "Lead and/or support marketing projects from set-up through implementation, ensuring clear objectives and alignment across geographies and priorities.",
+              "Set up and manage event and project tracking and reporting to ensure transparency on deliverables, as well as improve decision-making and planning.",
+              "<p>Monitor competitors, client insights, and market trends within the financial and luxury industries to generate actionable recommendations, strengthen strategic marketing decisions, and continuously optimize brand performance.</p><p> </p><p> </p>"
+            ],
+            "requirements": [
+              "7+ years of experience in advertising, media, campaign development, and/or strategic marketing roles or similar – ideally in the financial industry or premium/luxury brands.",
+              "Strong expertise in advertising and media, with a proven track record in campaign development, creative implementation, media planning, and performance monitoring across multiple channels.",
+              "Solid project management experience in strategic marketing, with the ability to lead cross-functional projects end-to-end, manage timelines and budgets, and ensure high-quality delivery across multiple parallel workstreams.",
+              "Proven experience in international companies; ability to work effectively across regions and align global brand standards with local market needs.",
+              "Strong stakeholder management skills, with experience coordinating internal functions, navigating an international organization, and handling external partners such as agencies, media partners, and specialist providers.",
+              "A strategic, hands-on professional with strong ownership, attention to detail, and a collaborative, agile mindset; resilient and comfortable operating under pressure and in a fast-moving international environment.",
+              "Fluency in English is essential; German is welcome, and additional languages are a plus."
+            ],
+            "benefits": [
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results",
+              "Passionate: Being committed and striving for excellence",
+              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br>"
+            ],
+            "process": [],
+            "highlights": [
+              "Development and execution of advertising campaigns that align with business goals, brand positioning, and marketing objectives, ensuring high-quality asset delivery across all media channels (print, POS, OOH, social media, website).",
+              "Handle end-to-end campaign planning, including delivery of high-quality assets, timeline management, budget control, and coordination of all stakeholders (such as Legal, etc.) to ensure efficient execution.",
+              "Track the advertising and media strategy across markets, monitoring campaign performance and optimizing both media effectiveness and creative impact.",
+              "7+ years of experience in advertising, media, campaign development, and/or strategic marketing roles or similar – ideally in the financial industry or premium/luxury brands.",
+              "Strong expertise in advertising and media, with a proven track record in campaign development, creative implementation, media planning, and performance monitoring across multiple channels.",
+              "Solid project management experience in strategic marketing, with the ability to lead cross-functional projects end-to-end, manage timelines and budgets, and ensure high-quality delivery across multiple parallel workstreams.",
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results"
+            ],
+            "keywords": [
+              "7+ years of experience in advertising",
+              "Strong expertise in advertising and media",
+              "Solid project management experience in strategic marketing",
+              "Proven experience in international companies",
+              "Strong stakeholder management skills",
+              "Development and execution of advertising campaigns that align with business goals",
+              "Handle end-to-end campaign planning",
+              "Track the advertising and media strategy across markets",
+              "Work closely with the Head of Corporate Marketing"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 4
+          }
+        }
+      },
+      "crawledAt": "2026-07-23T11:24:34.329Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "datePosted": "2026-07-08",
+      "salaryMin": 189000,
+      "salaryMax": 331500,
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "firstSeenAt": "2026-07-10T10:26:15.028Z",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -997,7 +1217,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.062Z",
+      "crawledAt": "2026-07-23T11:24:34.328Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1052,7 +1272,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.059Z",
+      "crawledAt": "2026-07-23T11:24:34.327Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -1176,7 +1396,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.057Z",
+      "crawledAt": "2026-07-23T11:24:34.325Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1231,7 +1451,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.056Z",
+      "crawledAt": "2026-07-23T11:24:34.324Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -1286,7 +1506,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.053Z",
+      "crawledAt": "2026-07-23T11:24:34.323Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-21",
@@ -1341,7 +1561,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.052Z",
+      "crawledAt": "2026-07-23T11:24:34.321Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1452,7 +1672,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.050Z",
+      "crawledAt": "2026-07-23T11:24:34.320Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1580,7 +1800,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.047Z",
+      "crawledAt": "2026-07-23T11:24:34.319Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1636,7 +1856,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.046Z",
+      "crawledAt": "2026-07-23T11:24:34.318Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-24",
@@ -1783,7 +2003,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.044Z",
+      "crawledAt": "2026-07-23T11:24:34.317Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1802,124 +2022,6 @@
         "richness": 25,
         "translation": 25,
         "completeness": 22
-      }
-    },
-    {
-      "id": "efg-6142",
-      "slug": "responsabile-pubblicita-media-e-marketing-strategico-efg-international-ag-zurich",
-      "company": "EFG International AG",
-      "title": "Advertising, Media and Strategic Marketing Manager",
-      "location": "Zurich",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6142",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "This position contributes to defining and expressing EFG’s brand through advertising and media, ensuring that marketing initiatives form a coherent, recognisable presence across regions and channels. By providing structure, coordination, and oversight to key marketing initiatives, the role helps translate strategic priorities into visible market activity and supports the bank’s long-term positioning and growth ambitions.",
-              "Monitor competitors, client insights, and market trends within the financial and luxury industries to generate actionable recommendations, strengthen strategic marketing decisions, and continuously optimize brand performance."
-            ],
-            "responsibilities": [
-              "Development and execution of advertising campaigns that align with business goals, brand positioning, and marketing objectives, ensuring high-quality asset delivery across all media channels (print, POS, OOH, social media, website).",
-              "Handle end-to-end campaign planning, including delivery of high-quality assets, timeline management, budget control, and coordination of all stakeholders (such as Legal, etc.) to ensure efficient execution.",
-              "Track the advertising and media strategy across markets, monitoring campaign performance and optimizing both media effectiveness and creative impact.",
-              "Work closely with the Head of Corporate Marketing, the Brand Manager, the digital team, and international stakeholders to ensure campaigns align with the brand strategy, strategic marketing priorities, and regional business needs.",
-              "Collaborate closely with content owners across the bank to leverage available expertise and stories that support the brand narrative.",
-              "Manage and coordinate external partners (creative agencies, photographers, media agencies, publishers, production teams, etc.), ensuring smooth collaboration, clear deliverables, and alignment with project milestones.",
-              "Establish campaign toolkits, governance, and implementation guidelines to enable consistent roll-out across regions, channels, and touchpoints, while coordinating effectively with international teams.",
-              "Coordinate international marketing initiatives across regions, ensuring local market needs are reflected while maintaining consistency with global brand standards, messaging, and execution frameworks.",
-              "Lead and/or support marketing projects from set-up through implementation, ensuring clear objectives and alignment across geographies and priorities.",
-              "Set up and manage event and project tracking and reporting to ensure transparency on deliverables, as well as improve decision-making and planning.",
-              "<p>Monitor competitors, client insights, and market trends within the financial and luxury industries to generate actionable recommendations, strengthen strategic marketing decisions, and continuously optimize brand performance.</p><p> </p><p> </p>"
-            ],
-            "requirements": [
-              "7+ years of experience in advertising, media, campaign development, and/or strategic marketing roles or similar – ideally in the financial industry or premium/luxury brands.",
-              "Strong expertise in advertising and media, with a proven track record in campaign development, creative implementation, media planning, and performance monitoring across multiple channels.",
-              "Solid project management experience in strategic marketing, with the ability to lead cross-functional projects end-to-end, manage timelines and budgets, and ensure high-quality delivery across multiple parallel workstreams.",
-              "Proven experience in international companies; ability to work effectively across regions and align global brand standards with local market needs.",
-              "Strong stakeholder management skills, with experience coordinating internal functions, navigating an international organization, and handling external partners such as agencies, media partners, and specialist providers.",
-              "A strategic, hands-on professional with strong ownership, attention to detail, and a collaborative, agile mindset; resilient and comfortable operating under pressure and in a fast-moving international environment.",
-              "Fluency in English is essential; German is welcome, and additional languages are a plus."
-            ],
-            "benefits": [
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence",
-              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br>"
-            ],
-            "process": [],
-            "highlights": [
-              "Development and execution of advertising campaigns that align with business goals, brand positioning, and marketing objectives, ensuring high-quality asset delivery across all media channels (print, POS, OOH, social media, website).",
-              "Handle end-to-end campaign planning, including delivery of high-quality assets, timeline management, budget control, and coordination of all stakeholders (such as Legal, etc.) to ensure efficient execution.",
-              "Track the advertising and media strategy across markets, monitoring campaign performance and optimizing both media effectiveness and creative impact.",
-              "7+ years of experience in advertising, media, campaign development, and/or strategic marketing roles or similar – ideally in the financial industry or premium/luxury brands.",
-              "Strong expertise in advertising and media, with a proven track record in campaign development, creative implementation, media planning, and performance monitoring across multiple channels.",
-              "Solid project management experience in strategic marketing, with the ability to lead cross-functional projects end-to-end, manage timelines and budgets, and ensure high-quality delivery across multiple parallel workstreams.",
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "7+ years of experience in advertising",
-              "Strong expertise in advertising and media",
-              "Solid project management experience in strategic marketing",
-              "Proven experience in international companies",
-              "Strong stakeholder management skills",
-              "Development and execution of advertising campaigns that align with business goals",
-              "Handle end-to-end campaign planning",
-              "Track the advertising and media strategy across markets",
-              "Work closely with the Head of Corporate Marketing"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-07-22T22:05:16.042Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "datePosted": "2026-07-08",
-      "salaryMin": 189000,
-      "salaryMax": 331500,
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "firstSeenAt": "2026-07-10T10:26:15.028Z",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
       }
     },
     {
@@ -2022,7 +2124,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.036Z",
+      "crawledAt": "2026-07-23T11:24:34.315Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-20",
@@ -2143,7 +2245,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.033Z",
+      "crawledAt": "2026-07-23T11:24:34.313Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-21",
@@ -2196,7 +2298,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-22T22:05:16.029Z",
+      "crawledAt": "2026-07-23T11:24:34.307Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
