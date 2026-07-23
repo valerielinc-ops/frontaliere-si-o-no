@@ -8855,6 +8855,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-educatore-ticino-stipendio-requisiti.title': 'Lavorare come educatore in Ticino: stipendio e requisiti',
     'blog.article.frontaliere-educatore-ticino-stipendio-requisiti.excerpt': 'Il Nuovo Accordo Frontalieri è stato firmato il 23 dicembre 2020 e viene applicato dal 1° gennaio 2024. Questo accordo prevede l\'esenzione di €7\'500 per i vecchi frontalieri e una franchigia di €10\'000 per i nuovi frontalieri.',
     'blog.article.frontaliere-educatore-ticino-stipendio-requisiti.imageAlt': 'Una scena di Lugano, con il lago in primo piano, visto dalla città.',
+    'blog.article.anticipo-orari-lavoro-canicola-ticino.title': 'Ticino: orari di lavoro anticipati per l\'allerta canicola',
+    'blog.article.anticipo-orari-lavoro-canicola-ticino.excerpt': 'Una mozione al Consiglio di Stato propone deroghe ai regolamenti comunali per permettere l\'anticipo dei lavori all\'aperto durante le ondate di calore.',
+    'blog.article.anticipo-orari-lavoro-canicola-ticino.imageAlt': 'Cantiere edile in Ticino durante una giornata di sole con lavoratori',
 };
 
 export default blogMetaIt;

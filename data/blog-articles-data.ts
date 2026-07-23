@@ -26603,6 +26603,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'anticipo-orari-lavoro-canicola-ticino',
+ category: 'novita',
+ date: '2026-07-23T03:27:55.144Z',
+ image: '/images/blog/anticipo-orari-lavoro-canicola-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

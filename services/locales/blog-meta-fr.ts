@@ -8856,6 +8856,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-educatore-ticino-stipendio-requisiti.title': 'Travailler comme éducateur au Tessin : salaire et exigences',
     'blog.article.frontaliere-educatore-ticino-stipendio-requisiti.excerpt': 'Le nouvel accord frontalier a été signé le 23 décembre 2020 et est applicable à partir du 1er janvier 2024. Cet accord prévoit l\'exonération de 7\'500 € pour les anciens frontaliers et une franchise de 10\'000 € pour les nouveaux frontaliers.',
     'blog.article.frontaliere-educatore-ticino-stipendio-requisiti.imageAlt': 'Une vue de Lugano, avec le lac en premier plan, vue de la ville.',
+    'blog.article.anticipo-orari-lavoro-canicola-ticino.title': 'Tessin : horaires de travail anticipés pour l\'alerte canicule',
+    'blog.article.anticipo-orari-lavoro-canicola-ticino.excerpt': 'Une motion au Conseil d\'Etat propose des dérogations aux règlements communaux pour permettre l\'anticipation des travaux en plein air pendant les vagues de chaleur.',
+    'blog.article.anticipo-orari-lavoro-canicola-ticino.imageAlt': 'Chantier de construction au Tessin par une journée ensoleillée avec des ouvriers',
 };
 
 export default blogMetaFr;
