@@ -19050,6 +19050,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-alta-volont-di-scambio-per-la-borsa-svizzera': {
+    title: 'Alti volumi di scambio per la Borsa svizzera | Frontaliere Ticino',
+    description: 'Il gruppo SIX ha registrato un aumento del fatturato e un netto incremento degli utili nel primo semestre 2026. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, alti, volumi, scambio, borsa',
+    ogTitle: 'Alti volumi di scambio per la Borsa svizzera',
+    ogDescription: 'Il gruppo SIX ha registrato un aumento del fatturato e un netto incremento degli utili nel primo semestre 2026.',
+    canonicalPath: '/articoli-svizzera/alta-volont-di-scambio-per-la-borsa-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Alti volumi di scambio per la Borsa svizzera",
+      "description": "Il gruppo SIX ha registrato un aumento del fatturato e un netto incremento degli utili nel primo semestre 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/alta-volont-di-scambio-per-la-borsa-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La Borsa svizzera a Lugano"
+      },
+      "datePublished": "2026-07-23T07:55:15+00:00",
+      "dateModified": "2026-07-23T07:55:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/alta-volont-di-scambio-per-la-borsa-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3469,
+ "numberOfItems": 3470,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8237,7 +8237,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3466, "name": "Reddito di cittadinanza e capitali in Svizzera:...", "url": `${BASE_URL}/articoli-frontaliere/reddito-cittadinanza-svizzera-indagine` },
           { "@type": "ListItem", "position": 3467, "name": "Lite Lombardia e Svizzera: il nodo fiscale dei ...", "url": `${BASE_URL}/articoli-frontaliere/lite-lombardia-svizzera-frontalieri` },
           { "@type": "ListItem", "position": 3468, "name": "Frontalieri: rallentamento in Ticino, crescita ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-rallentamento-ticino-crescita-grigioni` },
-          { "@type": "ListItem", "position": 3469, "name": "Ozono in Ticino: limiti superati e implicazioni", "url": `${BASE_URL}/articoli-frontaliere/ozono-ticino-qualita-aria` }
+          { "@type": "ListItem", "position": 3469, "name": "Ozono in Ticino: limiti superati e implicazioni", "url": `${BASE_URL}/articoli-frontaliere/ozono-ticino-qualita-aria` },
+          { "@type": "ListItem", "position": 3470, "name": "Alti volumi di scambio per la Borsa svizzera", "url": `${BASE_URL}/articoli-frontaliere/alta-volont-di-scambio-per-la-borsa-svizzera` }
  ]
  },
  {

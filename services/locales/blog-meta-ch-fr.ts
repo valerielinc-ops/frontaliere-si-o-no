@@ -1474,6 +1474,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.title': 'Frontaliers : ralentissement au Tessin, croissance dans les Grisons',
     'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.excerpt': 'Le nombre de frontaliers au Tessin est resté stable au troisième trimestre 2025, tandis que dans les Grisons, il a atteint un nouveau plus haut historique.',
     'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.imageAlt': 'Frontaliers au travail au Tessin',
+    'blog.article.alta-volont-di-scambio-per-la-borsa-svizzera.title': 'Des volumes d\'échanges élevés pour la Bourse suisse',
+    'blog.article.alta-volont-di-scambio-per-la-borsa-svizzera.excerpt': 'Le groupe SIX a enregistré une augmentation de son chiffre d\'affaires et une nette augmentation de ses bénéfices au premier semestre 2026.',
+    'blog.article.alta-volont-di-scambio-per-la-borsa-svizzera.imageAlt': 'La bourse à Lugano',
 };
 
 export default blogMetaChFr;

@@ -1474,6 +1474,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.title': 'Grenzgänger: Verlangsamung im Tessin, Wachstum in Graubünden',
     'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.excerpt': 'Die Zahl der Grenzgänger im Tessin blieb im dritten Quartal 2025 stabil, während sie in Graubünden auf ein neues Allzeithoch anstieg.',
     'blog.article.frontalieri-rallentamento-ticino-crescita-grigioni.imageAlt': 'Frontalier an der Arbeit in Tessin',
+    'blog.article.alta-volont-di-scambio-per-la-borsa-svizzera.title': 'Hohes Handelsvolumen für die Schweizer Börse',
+    'blog.article.alta-volont-di-scambio-per-la-borsa-svizzera.excerpt': 'Die SIX-GRUPPE verzeichnete im ersten Halbjahr 2026 eine Umsatzsteigerung und eine deutliche Gewinnsteigerung.',
+    'blog.article.alta-volont-di-scambio-per-la-borsa-svizzera.imageAlt': 'Die Börse in Lugano',
 };
 
 export default blogMetaChDe;
