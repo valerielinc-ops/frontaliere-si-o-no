@@ -8876,6 +8876,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lite-lombardia-svizzera-frontalieri.title': 'Lite Lombardia e Svizzera: il nodo fiscale dei frontalieri',
     'blog.article.lite-lombardia-svizzera-frontalieri.excerpt': 'Analisi della disputa tra Lombardia e Svizzera sul trattamento fiscale dei vecchi frontalieri e l\'impatto del nuovo accordo in vigore dal 2024.',
     'blog.article.lite-lombardia-svizzera-frontalieri.imageAlt': 'Vista panoramica di Lugano e del lago, contesto lavoro frontaliere Ticino',
+    'blog.article.ozono-ticino-qualita-aria.title': 'Ozono in Ticino: limiti superati e implicazioni',
+    'blog.article.ozono-ticino-qualita-aria.excerpt': 'La qualità dell\'aria in Ticino migliora, ma l\'ozono resta un problema. Analisi sui superamenti dei limiti e le cause strutturali.',
+    'blog.article.ozono-ticino-qualita-aria.imageAlt': 'Stazione di monitoraggio della qualità dell\'aria in Ticino',
 };
 
 export default blogMetaIt;

@@ -8875,6 +8875,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lite-lombardia-svizzera-frontalieri.title': 'Lite Lombardy and Switzerland: the tax hub for border workers',
     'blog.article.lite-lombardia-svizzera-frontalieri.excerpt': 'Analysis of the dispute between Lombardy and Switzerland over the tax treatment of old border workers and the impact of the new agreement in force since 2024.',
     'blog.article.lite-lombardia-svizzera-frontalieri.imageAlt': 'Panoramic view of Lugano and the lake, Ticino cross-border work context',
+    'blog.article.ozono-ticino-qualita-aria.title': 'Ozone in Ticino: limits exceeded and implications',
+    'blog.article.ozono-ticino-qualita-aria.excerpt': 'The air quality in Ticino improves, but ozone remains a problem. Analysis of exceedances of limits and structural causes.',
+    'blog.article.ozono-ticino-qualita-aria.imageAlt': 'Air quality monitoring station in Ticino',
 };
 
 export default blogMetaEn;
