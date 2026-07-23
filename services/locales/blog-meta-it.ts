@@ -8900,6 +8900,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tasse-frontalieri-nessuna-stangata.title': 'Tasse frontalieri, nessuna stangata per i redditi bassi',
     'blog.article.tasse-frontalieri-nessuna-stangata.excerpt': 'Nessuna stangata per i frontalieri con redditi bassi',
     'blog.article.tasse-frontalieri-nessuna-stangata.imageAlt': 'un frontaliere che lavora in Ticino',
+    'blog.article.livigno-s-chanf-in-treno.title': 'Di più GR: fra Livigno e S-chanf in treno, il progetto viene sviluppato',
+    'blog.article.livigno-s-chanf-in-treno.excerpt': 'Un collegamento ferroviario tra Livigno e S-chanf potrebbe essere realizzato nel futuro.',
+    'blog.article.livigno-s-chanf-in-treno.imageAlt': 'Una stazione ferroviaria in Ticino con treni che collegano Livigno e S-chanf.',
 };
 
 export default blogMetaIt;

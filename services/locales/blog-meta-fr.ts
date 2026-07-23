@@ -8901,6 +8901,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tasse-frontalieri-nessuna-stangata.title': 'Taxes frontalières, pas d\'étanchéité pour les bas revenus',
     'blog.article.tasse-frontalieri-nessuna-stangata.excerpt': 'Pas d\'étanchéité pour les frontaliers à faibles revenus',
     'blog.article.tasse-frontalieri-nessuna-stangata.imageAlt': 'un frontalier qui travaille en Suisse',
+    'blog.article.livigno-s-chanf-in-treno.title': 'Plus GR : entre Livigno et S-chanf en train, le projet est développé',
+    'blog.article.livigno-s-chanf-in-treno.excerpt': 'Une liaison ferroviaire entre Livigno et S-chanf pourrait être réalisée à l\'avenir.',
+    'blog.article.livigno-s-chanf-in-treno.imageAlt': 'Une gare ferroviaire en Suisse avec des trains qui relient Livigno et S-chanf.',
 };
 
 export default blogMetaFr;
