@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gim-architekten",
-  "assembledAt": "2026-07-23T11:53:46.389Z",
+  "assembledAt": "2026-07-23T22:12:35.886Z",
   "jobs": [
     {
       "id": "gim-architekten-dfcd34dca23b",
@@ -34,7 +34,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/1d796c78-bfb5-4f59-abbc-afa0ee492061/",
       "source": "GIM Architekten AG Dedicated Parser (jobs.ch)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T11:53:43.527Z",
+      "crawledAt": "2026-07-23T22:12:32.379Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -97,7 +97,7 @@
       "title": "Leitung Administration, Personal & Finanzbuchhaltung",
       "titleByLocale": {
         "it": "Capo dell'Amministrazione, Risorse Umane e Contabilità Finanziaria",
-        "en": "Head of Administration, Personnel & Financial Accounting",
+        "en": "Leitung Administration, Personal & Finanzbuchhaltung",
         "de": "Leitung Administration, Personal & Finanzbuchhaltung",
         "fr": "Chef de l'administration, du personnel et de la comptabilité financière"
       },
@@ -162,7 +162,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
