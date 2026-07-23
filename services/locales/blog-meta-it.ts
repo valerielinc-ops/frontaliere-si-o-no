@@ -8885,6 +8885,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-cuoco-ticino-stipendio-requisiti.title': 'Cuoco frontaliere in Ticino: stipendio, requisiti e riconoscimento',
     'blog.article.frontaliere-cuoco-ticino-stipendio-requisiti.excerpt': 'Sapere quali sono i requisiti e i salari dei cuochi in Ticino per i frontalieri.',
     'blog.article.frontaliere-cuoco-ticino-stipendio-requisiti.imageAlt': 'Un frontaliere cuoco lavora in una cucina a Locarno',
+    'blog.article.assistenza-fiscale-svizzera-italia-inammissibile-il-ricorso-contro-lo-scambio-di.title': 'Assistenza fiscale Svizzera-Italia, inammissibile il ricorso contro lo scambio di informazioni',
+    'blog.article.assistenza-fiscale-svizzera-italia-inammissibile-il-ricorso-contro-lo-scambio-di.excerpt': 'Il Tribunale federale svizzero ha dichiarato inammissibile il ricorso di un contribuente italiano contro lo scambio di informazioni bancarie richieste',
+    'blog.article.assistenza-fiscale-svizzera-italia-inammissibile-il-ricorso-contro-lo-scambio-di.imageAlt': 'Immagine editoriale relativa a: Assistenza fiscale Svizzera-Italia, inammissibile il ricorso contro lo scambio di informazioni',
+    'blog.article.svizzera-il-passaggio-delle-azioni-al-manager-non-e-sempre-reddito-imponibile.title': 'Svizzera, il passaggio delle azioni al manager non è sempre reddito imponibile',
+    'blog.article.svizzera-il-passaggio-delle-azioni-al-manager-non-e-sempre-reddito-imponibile.excerpt': 'In Svizzera, il trasferimento gratuito di azioni a un manager non è sempre considerato reddito imponibile, se la causa prevalente è la successione i',
+    'blog.article.svizzera-il-passaggio-delle-azioni-al-manager-non-e-sempre-reddito-imponibile.imageAlt': 'Immagine editoriale relativa a: Svizzera, il passaggio delle azioni al manager non è sempre reddito imponibile',
 };
 
 export default blogMetaIt;

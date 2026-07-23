@@ -26693,6 +26693,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'assistenza-fiscale-svizzera-italia-inammissibile-il-ricorso-contro-lo-scambio-di',
+ category: 'novita',
+ date: '2026-07-23T14:28:17.497Z',
+ image: '/images/places/lago-lugano.webp',
+ hasCalculator: false,
+ authorSlug: 'samuele-valente',
+ authorName: 'Samuele Valente',
+ },
+ {
+ id: 'svizzera-il-passaggio-delle-azioni-al-manager-non-e-sempre-reddito-imponibile',
+ category: 'fiscale',
+ date: '2026-07-23T14:29:14.744Z',
+ image: '/images/places/lugano-view.webp',
+ hasCalculator: false,
+ authorSlug: 'samuele-valente',
+ authorName: 'Samuele Valente',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

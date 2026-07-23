@@ -8884,6 +8884,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-cuoco-ticino-stipendio-requisiti.title': 'Border chef in Ticino: salary, requirements and recognition',
     'blog.article.frontaliere-cuoco-ticino-stipendio-requisiti.excerpt': 'Know what are the requirements and salaries of chefs in Ticino for border workers.',
     'blog.article.frontaliere-cuoco-ticino-stipendio-requisiti.imageAlt': 'A cross-border chef works in a kitchen in Locarno',
+    'blog.article.assistenza-fiscale-svizzera-italia-inammissibile-il-ricorso-contro-lo-scambio-di.title': 'Swiss-Italy Tax Assistance: Appeal Rejected',
+    'blog.article.assistenza-fiscale-svizzera-italia-inammissibile-il-ricorso-contro-lo-scambio-di.excerpt': 'The Swiss Federal Court has declared inadmissible the appeal of an Italian taxpayer against the exchange of required banking information',
+    'blog.article.assistenza-fiscale-svizzera-italia-inammissibile-il-ricorso-contro-lo-scambio-di.imageAlt': 'Editorial image related to: Assistenza fiscale Svizzera-Italia, inammissibile il ricorso contro lo scambio di informazioni',
+    'blog.article.svizzera-il-passaggio-delle-azioni-al-manager-non-e-sempre-reddito-imponibile.title': 'Switzerland, the transfer of shares to the manager is not always taxable income',
+    'blog.article.svizzera-il-passaggio-delle-azioni-al-manager-non-e-sempre-reddito-imponibile.excerpt': 'In Switzerland, the free transfer of shares to a manager is not always considered taxable income, if the prevailing cause is the succession to the',
+    'blog.article.svizzera-il-passaggio-delle-azioni-al-manager-non-e-sempre-reddito-imponibile.imageAlt': 'Editorial image related to: Svizzera, il passaggio delle azioni al manager non è sempre reddito imponibile',
 };
 
 export default blogMetaEn;
