@@ -1,5 +1,74 @@
 [
   {
+    "slug": "grinder-produzione-cnc-stadler-rail-bussnang",
+    "title": "Schleifer (CNC Fertigung)",
+    "titleByLocale": {
+      "it": "Grinder (produzione CNC)",
+      "en": "Grinder (CNC manufacturing)",
+      "de": "Schleifer (CNC Fertigung)",
+      "fr": "Grinder (fabrication de CNC)"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Bussnang",
+    "addressLocality": "Bussnang",
+    "descriptionByLocale": {
+      "it": "Compiti\n\n• Rettifica e sbavatura di profili in alluminio e assemblaggi di saldatura come specificato\n\n• Garantire qualità della superficie e precisione dimensionale\n\n• Funzionamento e manutenzione di rettificatrici e utensili manuali\n\n• Ispezione visiva delle parti prodotte e documentazione delle fasi di lavoro\n\n• Rispetto delle linee guida sulla sicurezza e sulla qualità\n\nRequisiti\n\n• Esperienza nella lavorazione del metallo, preferibilmente con lavori di rettifica su alluminio\n\n• Lettura dei disegni di design\n\n• Artigianato e un buon occhio per i dettagli\n\n• Metodo di lavoro indipendente e affidabile\n\n• Resilienza e lavoro di squadra\n\n• Prontezza per il lavoro a turni nel funzionamento a 2 turni",
+      "en": "Tasks\n\n• Grinding and deburring of aluminum profiles and welding assemblies as specified\n\n• Ensuring surface quality and dimensional accuracy\n\n• Operation and maintenance of grinding machines and hand tools\n\n• Visual inspection of the manufactured parts and documentation of the work steps\n\n• Compliance with safety and quality guidelines\n\nRequirements\n\n• Experience in metal working, preferably with grinding work on aluminium\n\n• Reading of design drawings\n\n• Craftsmanship and a good eye for detail\n\n• Independent and reliable working method\n\n• Resilience and teamwork\n\n• Readiness for shift work in 2-shift operation",
+      "de": "Aufgaben\n\n• Schleifen und Entgraten von Aluminiumprofilen und Schweissbaugruppen nach Vorgabe\n\n• Sicherstellen der Oberflächenqualität und Massgenauigkeit\n\n• Bedienung und Pflege von Schleifmaschinen und Handwerkzeugen\n\n• Sichtkontrolle der gefertigten Teile und Dokumentation der Arbeitsschritte\n\n• Einhaltung von Sicherheits- und Qualitätsrichtlinien\n\nAnforderungen\n\n• Erfahrung in der Metallbearbeitung, vorzugsweise mit Schleifarbeiten an Aluminium\n\n• Lesen von Konstruktionszeichnungen\n\n• Handwerkliches Geschick und ein gutes Auge für Details\n\n• Selbstständige und zuverlässige Arbeitsweise\n\n• Belastbarkeit und Teamfähigkeit\n\n• Bereitschaft zur Schichtarbeit im 2-Schicht-Betrieb",
+      "fr": "Tâche\n\n• Broyage et décapage des profilés en aluminium et des assemblages de soudage tels que spécifiés\n\n• Assurer la qualité de la surface et la précision dimensionnelle\n\n• Fonctionnement et entretien des machines à broyer et des outils à main\n\n• Inspection visuelle des pièces fabriquées et documentation des étapes de travail\n\n• Respect des directives de sécurité et de qualité\n\nExigences\n\n• Expérience dans le travail des métaux, de préférence avec les travaux de meulage sur aluminium\n\n• Lecture des dessins et modèles\n\n• L'artisanat et un bon oeil pour le détail\n\n• Méthode de travail indépendante et fiable\n\n• Résilience et travail d'équipe\n\n• Préparation au travail posté en 2 équipes"
+    },
+    "slugByLocale": {
+      "it": "grinder-produzione-cnc-stadler-rail-bussnang",
+      "en": "grinder-cnc-manufacturing-stadler-rail-bussnang",
+      "de": "schleifer-cnc-fertigung-stadler-rail-ch",
+      "fr": "grinder-fabrication-de-cnc-stadler-rail-bussnang"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-07-23T22:18:57.385Z",
+    "previousSlugs": [
+      "schleifer-cnc-fertigung-stadler-rail-ch",
+      "schleifer-cnc-fertigung-stadler-rail-ch-2",
+      "collaboratore-trice-cnc-fertigung-stadler-rail-bussnang",
+      "associate-cnc-fertigung-stadler-rail-bussnang",
+      "mitarbeiter-in-cnc-fertigung-stadler-rail-ch",
+      "collaborateur-trice-cnc-fertigung-stadler-rail-bussnang",
+      "collaboratore-trice-cnc-fertigung-stadler-rail-steinach",
+      "associate-cnc-fertigung-stadler-rail-steinach",
+      "collaborateur-trice-cnc-fertigung-stadler-rail-steinach"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "schleifer-cnc-fertigung-stadler-rail-ch",
+        "schleifer-cnc-fertigung-stadler-rail-ch-2",
+        "collaboratore-trice-cnc-fertigung-stadler-rail-bussnang",
+        "associate-cnc-fertigung-stadler-rail-bussnang",
+        "mitarbeiter-in-cnc-fertigung-stadler-rail-ch",
+        "collaborateur-trice-cnc-fertigung-stadler-rail-bussnang",
+        "collaboratore-trice-cnc-fertigung-stadler-rail-steinach",
+        "associate-cnc-fertigung-stadler-rail-steinach",
+        "collaborateur-trice-cnc-fertigung-stadler-rail-steinach"
+      ],
+      "en": [
+        "schleifer-cnc-fertigung-stadler-rail-ch",
+        "associate-cnc-fertigung-stadler-rail-bussnang"
+      ],
+      "de": [
+        "mitarbeiter-in-cnc-fertigung-stadler-rail-ch"
+      ],
+      "fr": [
+        "schleifer-cnc-fertigung-stadler-rail-ch",
+        "collaborateur-trice-cnc-fertigung-stadler-rail-bussnang",
+        "collaborateur-trice-cnc-fertigung-stadler-rail-steinach"
+      ]
+    },
+    "postalCode": "9565",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "ingegnere-cloud-m365-collaborazione-stadler-rail-bussnang",
     "title": "Cloud Engineer M365 Collaboration",
     "titleByLocale": {
