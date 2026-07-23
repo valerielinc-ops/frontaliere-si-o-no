@@ -85,8 +85,7 @@
           "maxValue": 64000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "epi-geneve-67aa6eccbf46",
@@ -171,8 +170,7 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "epi-geneve-43f367a7bcb3",
@@ -257,8 +255,7 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "epi-geneve-613760b0e46a",
@@ -332,7 +329,6 @@
         "capo-settore-servizio-a-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive-ge-switzerland"
       ],
       "firstSeenAt": "2026-07-03T22:53:33.314Z",
-      "needsRetranslation": true,
       "salaryMin": 66800,
       "salaryMax": 101200,
       "baseSalary": {

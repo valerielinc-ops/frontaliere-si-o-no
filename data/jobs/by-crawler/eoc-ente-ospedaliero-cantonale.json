@@ -1170,13 +1170,13 @@
       "source": "Company Careers Crawler",
       "companyKey": "eoc-ente-ospedaliero-cantonale",
       "companyDomain": "eoc.ch",
-      "crawledAt": "2026-07-22T22:33:19.045Z",
+      "crawledAt": "2026-07-22T11:35:36.088Z",
       "firstSeenAt": "2026-07-22T11:35:36.088Z",
       "slugByLocale": {
-        "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
+        "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Fisioterapista diplomato/a",
@@ -1201,14 +1201,6 @@
       },
       "sourceLang": "it",
       "previousSlugsByLocale": {
-        "it": [
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333g2",
-          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
-          "physiotherapeute-80-eoc-ente-ospedaliero-cantonale-novaggio",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333g1"
-        ],
         "en": [
           "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
@@ -1217,14 +1209,25 @@
         ],
         "fr": [
           "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        ],
+        "it": [
+          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333g2",
+          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+          "physiotherapeute-80-eoc-ente-ospedaliero-cantonale-novaggio",
+          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333g1",
+          "physiotherapist-80-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
+        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333g2",
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
         "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
         "physiotherapeute-80-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333g1"
+        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333g1",
+        "physiotherapist-80-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -1242,8 +1245,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "needsRetranslation": true
+      "country": "CH"
     },
     {
       "id": "company-4333fb",
@@ -6901,7 +6903,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eoc-ente-ospedaliero-cantonale",
       "companyDomain": "eoc.ch",
-      "crawledAt": "2026-07-22T22:33:19.045Z",
+      "crawledAt": "2026-07-20T12:48:07.110Z",
       "firstSeenAt": "2026-05-21T11:53:54.295Z",
       "slugByLocale": {
         "it": "tirocinio-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio",
@@ -6946,7 +6948,8 @@
         "vor-supsi-ausbildungs-praktikum-eoc-ente-ospedaliero-cantonale-novaggio",
         "pre-supsi-ausbildungs-praktikum-eoc-ente-ospedaliero-cantonale-novaggio",
         "pre-supsi-praktikum-eoc-ente-ospedaliero-cantonale-novaggio",
-        "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio-fef0d4"
+        "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio-fef0d4",
+        "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
@@ -6954,7 +6957,8 @@
           "stadio-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-bellinzona-uil1ss"
         ],
         "en": [
-          "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio-fef0d4"
+          "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio-fef0d4",
+          "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       }
     },
