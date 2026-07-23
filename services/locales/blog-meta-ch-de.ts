@@ -1492,6 +1492,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ia-cambia-lavoro-ma-non-sostituisce-persone.title': 'Mehr Adecco, «KI verändert den Job, ersetzt aber keine Menschen»',
     'blog.article.ia-cambia-lavoro-ma-non-sostituisce-persone.excerpt': 'Adecco-Präsident Denis Machuel sagt, dass künstliche Intelligenz (KI) Menschen nicht ersetzt, sondern ihnen hilft, besser zu arbeiten.',
     'blog.article.ia-cambia-lavoro-ma-non-sostituisce-persone.imageAlt': 'Ein Manager spricht über AI und Arbeit in der Schweiz',
+    'blog.article.terzo-pilastro-3a-vantaggi-canton-ginevra.title': 'Dritte Säule 3a: Vorteile für den Kanton Genf',
+    'blog.article.terzo-pilastro-3a-vantaggi-canton-ginevra.excerpt': 'Das neue Abkommen zwischen der Schweiz und Italien für Grenzgänger sieht die Schaffung eines einheitlichen Steuersystems vor',
+    'blog.article.terzo-pilastro-3a-vantaggi-canton-ginevra.imageAlt': 'Genf, Hauptstadt des Kantons Genf',
 };
 
 export default blogMetaChDe;
