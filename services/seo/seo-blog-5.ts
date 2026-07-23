@@ -54009,6 +54009,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-permessi-g': {
+    title: 'Richiesta nuovo permesso per frontalieri (G) - Repubblica e Cantone Ticino',
+    description: 'I frontalieri devono notificare la propria presenza al Comune in cui pernotta in Svizzera e devono presentarsi presso uno dei posti di Gendarmeria per il',
+    keywords: 'frontalieri, ticino, svizzera, italia, richiesta, nuovo, permesso, repubblica',
+    ogTitle: 'Richiesta nuovo permesso per frontalieri (G) - Repubblica e Cantone Ticino',
+    ogDescription: 'I frontalieri devono notificare la propria presenza al Comune in cui pernotta in Svizzera e devono presentarsi presso uno dei posti di Gendarmeria per il',
+    canonicalPath: '/articoli-frontaliere/frontalieri-permessi-g',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Richiesta nuovo permesso per frontalieri (G) - Repubblica e Cantone Ticino",
+      "description": "I frontalieri devono notificare la propria presenza al Comune in cui pernotta in Svizzera e devono presentarsi presso uno dei posti di Gendarmeria per il",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-permessi-g.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere in attesa di passare il confine italo-svizzero."
+      },
+      "datePublished": "2026-07-23T03:50:52+00:00",
+      "dateModified": "2026-07-23T03:50:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-permessi-g/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

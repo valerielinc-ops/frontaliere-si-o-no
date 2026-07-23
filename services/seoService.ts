@@ -4831,6 +4831,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-poverta-lavorativa-ticino-sfida-dignita': { name: 'Povertà lavorativa in Ticino', path: '/articoli-svizzera/poverta-lavorativa-ticino-sfida-dignita/', parent: 'blog' },
     'blog-anticipo-orari-lavoro-canicola-ticino': { name: 'Frontalieri Ticino News', path: '/articoli-frontaliere/anticipo-orari-lavoro-canicola-ticino', parent: 'blog' },
     'blog-evoluzione-frontalieri-dati-ust': { name: 'Statistiche frontalieri', path: '/articoli-svizzera/evoluzione-frontalieri-dati-ust/', parent: 'blog' },
+    'blog-frontalieri-permessi-g': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-permessi-g', parent: 'blog' },
  };
 
  const info = sectionNames[section];
