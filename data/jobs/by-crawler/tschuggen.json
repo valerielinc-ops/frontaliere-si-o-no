@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tschuggen",
-  "assembledAt": "2026-07-23T11:27:50.351Z",
+  "assembledAt": "2026-07-23T22:17:59.366Z",
   "jobs": [
     {
       "id": "tschuggen-2cb375117405",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1331/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:27:47.037Z",
+      "crawledAt": "2026-07-23T22:17:56.171Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -78,6 +78,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:10:28.044Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -123,7 +124,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1346/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:27:46.097Z",
+      "crawledAt": "2026-07-23T22:17:55.259Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -157,6 +158,7 @@
         ]
       },
       "firstSeenAt": "2026-05-27T14:17:00.840Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -202,7 +204,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1367/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:27:45.205Z",
+      "crawledAt": "2026-07-23T22:17:54.343Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -282,7 +284,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1374/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:27:44.297Z",
+      "crawledAt": "2026-07-23T22:17:53.424Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -302,34 +304,35 @@
       "hotelName": "Tschuggen Grand Hotel",
       "previousSlugs": [
         "executive-housekeeping-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
-        "executive-housekeeping-manager-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-arosa",
         "assistente-responsabile-della-prenotazione-m-w-d-tschuggen-collection-arosa",
         "assistant-reservation-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-arosa",
         "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
-        "gestionnaire-adjoint-des-reservations-m-w-d-tschuggen-collection-arosa"
+        "gestionnaire-adjoint-des-reservations-m-w-d-tschuggen-collection-arosa",
+        "executive-housekeeping-manager-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-arosa"
       ],
       "previousSlugsByLocale": {
         "it": [
           "executive-housekeeping-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
-          "executive-housekeeping-manager-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-arosa",
           "assistente-responsabile-della-prenotazione-m-w-d-tschuggen-collection-arosa",
           "assistant-reservation-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-arosa",
           "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
-          "gestionnaire-adjoint-des-reservations-m-w-d-tschuggen-collection-arosa"
+          "gestionnaire-adjoint-des-reservations-m-w-d-tschuggen-collection-arosa",
+          "executive-housekeeping-manager-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-arosa"
         ],
         "en": [
           "executive-housekeeping-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
           "assistant-reservation-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-arosa"
         ],
+        "de": [
+          "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+        ],
         "fr": [
           "executive-housekeeping-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
           "gestionnaire-adjoint-des-reservations-m-w-d-tschuggen-collection-arosa"
-        ],
-        "de": [
-          "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:55.244Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -375,7 +378,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1373/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:27:43.390Z",
+      "crawledAt": "2026-07-23T22:17:52.508Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -404,6 +407,7 @@
         ]
       },
       "firstSeenAt": "2026-07-11T11:08:38.644Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -449,7 +453,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/840/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:27:42.519Z",
+      "crawledAt": "2026-07-23T22:17:51.814Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -488,6 +492,7 @@
         ]
       },
       "firstSeenAt": "2026-07-11T11:08:37.949Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -533,7 +538,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1375/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:27:41.626Z",
+      "crawledAt": "2026-07-23T22:17:50.927Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -572,6 +577,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:04:38.287Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -617,7 +623,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1378/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:27:40.735Z",
+      "crawledAt": "2026-07-23T22:17:50.062Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -694,7 +700,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1379/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:27:39.831Z",
+      "crawledAt": "2026-07-23T22:17:49.156Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -726,6 +732,7 @@
         ]
       },
       "firstSeenAt": "2026-07-19T22:14:08.776Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -818,7 +825,8 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
