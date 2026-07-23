@@ -1480,6 +1480,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lavori-tilo-chi-cambia.title': 'Arbeiten an der Infrastruktur, das ändert sich für die LINDEN',
     'blog.article.lavori-tilo-chi-cambia.excerpt': 'Änderungen im Bahnverkehr für Infrastrukturarbeiten betreffen zwischen Ende Juli und August 2026 mehrere Tilo-Verbindungen.',
     'blog.article.lavori-tilo-chi-cambia.imageAlt': 'Der Zug des Tilo in Lugano mit Baustellenzeichen',
+    'blog.article.dazi-usa-svizzera-luglio-2026.title': 'US-Zölle: Der Tarifpunkt für die Schweiz',
+    'blog.article.dazi-usa-svizzera-luglio-2026.excerpt': 'Die 150 Tage des US-Tarifs von 10% sind abgelaufen. Bern überwacht die Unsicherheit über Zölle und Vorwürfe der Zwangsarbeit. Das ist das wirtschaftliche Szenario.',
+    'blog.article.dazi-usa-svizzera-luglio-2026.imageAlt': 'Bundeshaus in Bern an einem Sommertag',
 };
 
 export default blogMetaChDe;

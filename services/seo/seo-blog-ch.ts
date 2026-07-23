@@ -19128,6 +19128,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dazi-usa-svizzera-luglio-2026': {
+    title: 'Dazi USA: il punto sulle tariffe per la Svizzera',
+    description: 'Scadono i 150 giorni della tariffa USA al 10% sui prodotti svizzeri. Analisi del rischio dazi e posizione del Consiglio federale sulle accuse di lavoro forzato.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dazi, punto, sulle, tariffe',
+    ogTitle: 'Dazi USA sulla Svizzera: cosa sapere dopo la scadenza',
+    ogDescription: 'Scadono i 150 giorni della tariffa USA al 10% sui prodotti svizzeri. Analisi del rischio dazi e posizione del Consiglio federale.',
+    canonicalPath: '/articoli-svizzera/dazi-usa-svizzera-luglio-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dazi USA: il punto sulle tariffe per la Svizzera",
+      "description": "Scadono i 150 giorni della tariffa USA al 10% sui prodotti svizzeri. Analisi del rischio dazi e posizione del Consiglio federale sulle accuse di lavoro forzato.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dazi-usa-svizzera-luglio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna in una giornata estiva"
+      },
+      "datePublished": "2026-07-23T08:57:21+00:00",
+      "dateModified": "2026-07-23T08:57:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dazi-usa-svizzera-luglio-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

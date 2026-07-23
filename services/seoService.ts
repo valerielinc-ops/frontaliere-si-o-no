@@ -4848,6 +4848,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieripendolarismo-2025-ticino-lombardia': { name: 'Frontalieri, pendolarismo, Lombardia', path: '/articoli-frontaliere/frontalieripendolarismo-2025-ticino-lombardia', parent: 'blog' },
     'blog-lavori-tilo-chi-cambia': { name: 'Lavori all\'infrastruttura, TILO', path: '/articoli-svizzera/lavori-tilo-chi-cambia/', parent: 'blog' },
     'blog-frontaliere-cuoco-ticino-stipendio-requisiti': { name: 'Lavorare come cuoco in Ticino da', path: '/articoli-frontaliere/frontaliere-cuoco-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-dazi-usa-svizzera-luglio-2026': { name: 'Dazi USA', path: '/articoli-svizzera/dazi-usa-svizzera-luglio-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
