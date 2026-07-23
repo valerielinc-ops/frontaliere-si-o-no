@@ -160,14 +160,28 @@ async function main() {
     process.exit(0);
   }
 
-  const last = await findLastSuccessfulDeployment();
-  if (!last) {
-    console.log('⚠️ No successful github-pages deployment found in the last 100 — skipping (fail open)');
+  let last;
+  let changed;
+  let truncated;
+  try {
+    last = await findLastSuccessfulDeployment();
+    if (!last) {
+      console.log('⚠️ No successful github-pages deployment found in the last 100 — skipping (fail open)');
+      process.exit(0);
+    }
+    ({ files: changed, truncated } = await getChangedFilesSince(last.sha, 'main'));
+  } catch (err) {
+    // The GitHub Deployments/Compare APIs can transiently error (e.g. a
+    // freshly-pushed base SHA not yet indexed server-side, rate limits) —
+    // an indeterminate read must not page, and it must not be mistaken for
+    // the monitor itself being broken (see header comment + the workflow's
+    // "Alert on monitor crash" step, which only fires when this script exits
+    // non-zero with no `summary` output).
+    console.log(`⚠️ GitHub API error while checking publish lag: ${err.message} — skipping (fail open)`);
     process.exit(0);
   }
 
   const ageMinutes = Math.round((Date.now() - Date.parse(last.publishedAt)) / 60000);
-  const { files: changed, truncated } = await getChangedFilesSince(last.sha, 'main');
   const pending = filterUnignored(changed, globs);
 
   console.log('── Pages publish-lag report ──');
