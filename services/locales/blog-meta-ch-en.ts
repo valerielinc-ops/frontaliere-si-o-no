@@ -1492,6 +1492,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ia-cambia-lavoro-ma-non-sostituisce-persone.title': 'More Adecco, "AI changes jobs but does not replace people"',
     'blog.article.ia-cambia-lavoro-ma-non-sostituisce-persone.excerpt': 'The president of Adecco, Denis Machuel, says that artificial intelligence (AI) does not replace people, but helps them work better.',
     'blog.article.ia-cambia-lavoro-ma-non-sostituisce-persone.imageAlt': 'A manager talks about AI and work in Switzerland',
+    'blog.article.terzo-pilastro-3a-vantaggi-canton-ginevra.title': 'Third pillar 3a: advantages for the Canton of Geneva',
+    'blog.article.terzo-pilastro-3a-vantaggi-canton-ginevra.excerpt': 'The new agreement between Switzerland and Italy for border workers provides for the creation of a single tax regime',
+    'blog.article.terzo-pilastro-3a-vantaggi-canton-ginevra.imageAlt': 'Ginevra, capital of the canton of Geneva',
 };
 
 export default blogMetaChEn;

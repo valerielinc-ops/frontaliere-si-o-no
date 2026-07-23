@@ -1492,6 +1492,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ia-cambia-lavoro-ma-non-sostituisce-persone.title': 'Di più Adecco, «l\'IA cambia il lavoro ma non sostituisce le persone»',
     'blog.article.ia-cambia-lavoro-ma-non-sostituisce-persone.excerpt': 'Il presidente di Adecco, Denis Machuel, afferma che l\'intelligenza artificiale (IA) non sostituisce le persone, ma le aiuta a lavorare meglio.',
     'blog.article.ia-cambia-lavoro-ma-non-sostituisce-persone.imageAlt': 'Un manager parla di IA e lavoro in Svizzera',
+    'blog.article.terzo-pilastro-3a-vantaggi-canton-ginevra.title': 'Terzo pilastro 3a: vantaggi per il Canton Ginevra',
+    'blog.article.terzo-pilastro-3a-vantaggi-canton-ginevra.excerpt': 'La nuova convenzione tra la Svizzera e l\'Italia per i frontalieri prevede la creazione di un regime di imposta unico',
+    'blog.article.terzo-pilastro-3a-vantaggi-canton-ginevra.imageAlt': 'Ginevra, capitale del Canton Ginevra',
 };
 
 export default blogMetaChIt;

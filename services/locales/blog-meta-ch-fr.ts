@@ -1492,6 +1492,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ia-cambia-lavoro-ma-non-sostituisce-persone.title': 'Plus Adecco, « l\'IA change le travail mais ne remplace pas les gens »',
     'blog.article.ia-cambia-lavoro-ma-non-sostituisce-persone.excerpt': 'Le président d\'Adecco, Denis Machuel, affirme que l\'intelligence artificielle (IA) ne remplace pas les personnes, mais les aide à mieux travailler.',
     'blog.article.ia-cambia-lavoro-ma-non-sostituisce-persone.imageAlt': 'Un manager parle de l\'IA et du travail en Suisse',
+    'blog.article.terzo-pilastro-3a-vantaggi-canton-ginevra.title': 'Troisième pilier 3a : avantages pour le canton de Genève',
+    'blog.article.terzo-pilastro-3a-vantaggi-canton-ginevra.excerpt': 'La nouvelle convention entre la Suisse et l\'Italie pour les frontaliers prévoit la création d\'un régime d\'imposition unique',
+    'blog.article.terzo-pilastro-3a-vantaggi-canton-ginevra.imageAlt': 'Genève, capitale du canton de Genève',
 };
 
 export default blogMetaChFr;

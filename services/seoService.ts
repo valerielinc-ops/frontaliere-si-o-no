@@ -4858,6 +4858,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tasse-frontalieri-nessuna-stangata': { name: 'Tasse frontalieri', path: '/articoli-frontaliere/tasse-frontalieri-nessuna-stangata', parent: 'blog' },
     'blog-ia-cambia-lavoro-ma-non-sostituisce-persone': { name: 'IA e lavoro', path: '/articoli-svizzera/ia-cambia-lavoro-ma-non-sostituisce-persone/', parent: 'blog' },
     'blog-livigno-s-chanf-in-treno': { name: 'Livigno e S-chanf in treno', path: '/articoli-frontaliere/livigno-s-chanf-in-treno', parent: 'blog' },
+    'blog-terzo-pilastro-3a-vantaggi-canton-ginevra': { name: 'Terzo pilastro 3a', path: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-canton-ginevra/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
