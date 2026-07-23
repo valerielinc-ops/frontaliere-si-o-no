@@ -1,16 +1,16 @@
 {
   "key": "scandit",
   "label": "Scandit AG",
-  "generatedAt": "2026-07-22T22:28:46.311Z",
+  "generatedAt": "2026-07-23T22:24:50.281Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5440,
-  "avgDurationMs": 5440,
+  "durationMs": 5506,
+  "avgDurationMs": 5506,
   "durationHistory": [
-    5440
+    5506
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8043068",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T22:28:41.293Z",
+      "crawledAt": "2026-07-23T22:24:45.192Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -60,7 +60,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7588975",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T22:28:41.621Z",
+      "crawledAt": "2026-07-23T22:24:45.521Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -83,45 +83,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "scandit-6d21cb4b7a37",
-      "slug": "computer-vision-ricerca-internship-image-to-sequence-modeling-e-g-transformers-scandit-ag-zurich",
-      "company": "Scandit AG",
-      "companyKey": "scandit",
-      "companyDomain": "scandit.com",
-      "title": "Computer Vision Research Internship: Image to Sequence Modeling (e.g. Transformers)",
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://www.scandit.com/careers/job-description/?gh_jid=7434825",
-      "source": "Scandit AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-20T11:59:40.301Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "IT",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://www.scandit.com/careers/job-description/?gh_jid=7434825",
-      "firstSeenAt": "2026-07-03T23:25:07.537Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "addressRegion": "ZH",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
