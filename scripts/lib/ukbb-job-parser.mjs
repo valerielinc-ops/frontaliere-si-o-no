@@ -7,12 +7,14 @@
  * UKBB's career portal is powered by Concludis / my-job-shop.com (CareerRevolution).
  * The listing UI is fully JS-rendered (Nuxt + Typesense), so we cannot scrape
  * the home page directly. Instead we read the SEO sitemap, which always lists
- * every active offer:
+ * every active offer — either directly, or (current portal version) via a
+ * sitemap INDEX pointing at a `sitemap-jobs.xml` child:
  *
  *   https://jobs.ukbb.ch/sitemap.xml
- *     → <loc>https://jobs.ukbb.ch/offer/{slug}/{uuid}</loc>
+ *     → <sitemapindex><sitemap><loc>https://jobs.ukbb.ch/sitemap-jobs.xml</loc>
+ *     → <loc>https://jobs.ukbb.ch/jobs/{slug}/{uuid}</loc>  (was /offer/{slug}/{uuid})
  *
- * Each `offer/{slug}/{uuid}` page is SSR'd with a complete JSON-LD JobPosting
+ * Each detail page is SSR'd with a complete JSON-LD JobPosting
  * payload embedded inside `<script type="application/ld+json">`:
  *
  *   {"@context":"https://schema.org","@type":"JobPosting",
@@ -81,7 +83,8 @@ export function isTrustedDomain(rawUrl = '') {
 export function parseSitemapOfferUrls(xml = '') {
   const out = [];
   const seen = new Set();
-  const rx = /<loc>(https:\/\/jobs\.ukbb\.ch\/offer\/[^<]+)<\/loc>/g;
+  // Portal has used both `/offer/{slug}/{uuid}` and (current) `/jobs/{slug}/{uuid}`.
+  const rx = /<loc>(https:\/\/jobs\.ukbb\.ch\/(?:offer|jobs)\/[^<]+)<\/loc>/g;
   let m;
   while ((m = rx.exec(xml))) {
     const url = decodeEntities(m[1].trim());
@@ -95,11 +98,29 @@ export function parseSitemapOfferUrls(xml = '') {
 }
 
 /**
+ * Extract child sitemap URLs from a sitemap INDEX document
+ * (`<sitemapindex><sitemap><loc>...</loc></sitemap></sitemapindex>`).
+ * Returns `[]` if `xml` is a regular urlset (no index wrapper).
+ */
+export function parseSitemapIndexLocs(xml = '') {
+  if (!/<sitemapindex[\s>]/i.test(xml)) return [];
+  const out = [];
+  const rx = /<sitemap>\s*<loc>([^<]+)<\/loc>/g;
+  let m;
+  while ((m = rx.exec(xml))) {
+    out.push(decodeEntities(m[1].trim()));
+  }
+  return out;
+}
+
+/**
  * Extract the first JobPosting JSON-LD object embedded in an offer page.
  * Returns the parsed JSON object or `null`.
  */
 export function extractJobPostingLd(html = '') {
-  const rx = /<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/gi;
+  // Portal now adds extra attributes (data-nuxt-schema-org, data-hid) after
+  // the type before the closing `>` — `[^>]*` tolerates those.
+  const rx = /<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
   let m;
   while ((m = rx.exec(html))) {
     const raw = m[1].trim();
@@ -167,6 +188,20 @@ export async function fetchAllUkbbJobs() {
   } catch (err) {
     console.warn(`  ⚠️ UKBB sitemap fetch failed: ${err?.message || err}. Returning [].`);
     return [];
+  }
+
+  const childSitemaps = parseSitemapIndexLocs(xml);
+  if (childSitemaps.length) {
+    console.log(`  ✓ ${SITEMAP_URL} is a sitemap index → ${childSitemaps.length} child sitemap(s)`);
+    const chunks = [];
+    for (const childUrl of childSitemaps) {
+      try {
+        chunks.push(await fetchHtml(childUrl));
+      } catch (err) {
+        console.warn(`  ⚠️ Child sitemap fetch failed (${childUrl}): ${err?.message || err}`);
+      }
+    }
+    xml = chunks.join('\n');
   }
 
   const offers = parseSitemapOfferUrls(xml);
