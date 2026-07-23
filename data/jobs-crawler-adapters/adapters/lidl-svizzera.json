@@ -80,7 +80,6 @@
     "https://team.lidl.ch/de/jobs/it-service-and-support-mitarbeiter-in-m-w-d-80-100-weinfelden-701870",
     "https://team.lidl.ch/de/jobs/kassierer-kassiererin-m-w-d-40-60-bern-704778",
     "https://team.lidl.ch/de/jobs/kommissionierer-kommissioniererin-m-w-d-40-60-sevaz-708264",
-    "https://team.lidl.ch/de/jobs/kommissionierer-kommissioniererin-m-w-d-60-sevaz-707160",
     "https://team.lidl.ch/de/jobs/kommissionierer-kommissioniererin-non-food-m-w-d-40-80-derendingen-690593",
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-20-30-bern-689912",
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-20-30-ostermundigen-694216",
@@ -180,7 +179,6 @@
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-60-rapperswil-jona-676694",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-60-romanshorn-716866",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-60-romerswil-708779",
-    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-60-volketswil-684619",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-60-weinfelden-695004",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-60-wetzikon-697094",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-60-wilen-b-wil-695000",
@@ -202,7 +200,6 @@
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-bachenbulach-714402",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-biberist-720068",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-cham-676497",
-    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-dubendorf-680615",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-dubendorf-701458",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-dubendorf-701472",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-ebikon-711245",
@@ -283,8 +280,7 @@
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-wadenswil-702399",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-wadenswil-723253",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-wallisellen-701474",
-    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-wetzikon-675996",
-    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-widnau-691226",
+    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-widnau-711233",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-willisau-686194",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-zug-713322",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-zurich-701465",
@@ -331,7 +327,7 @@
     "https://team.lidl.ch/it/jobs/venditore-venditrice-m-f-d-20-40-ascona-708953"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-07-22T22:05:52.922Z",
+  "updatedAt": "2026-07-23T11:16:50.769Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-40-60-1-schaffhausen-705269": {
       "location": "Schaffhausen",
@@ -486,7 +482,7 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-widnau-691226": {
+    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-40-widnau-714764": {
       "location": "Widnau",
       "addressLocality": "Widnau",
       "canton": "SG",
@@ -495,7 +491,7 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-40-widnau-714764": {
+    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-widnau-711233": {
       "location": "Widnau",
       "addressLocality": "Widnau",
       "canton": "SG",
@@ -1143,27 +1139,9 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-dubendorf-680615": {
-      "location": "Dübendorf",
-      "addressLocality": "Dübendorf",
-      "canton": "ZH",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-50-pfaffikon-zh-699515": {
       "location": "Pfäffikon (ZH)",
       "addressLocality": "Pfäffikon (ZH)",
-      "canton": "ZH",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-60-volketswil-684619": {
-      "location": "Volketswil",
-      "addressLocality": "Volketswil",
       "canton": "ZH",
       "country": "CH",
       "company": "Lidl Svizzera",
@@ -1378,15 +1356,6 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-60-wetzikon-697094": {
-      "location": "Wetzikon",
-      "addressLocality": "Wetzikon",
-      "canton": "ZH",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-wetzikon-675996": {
       "location": "Wetzikon",
       "addressLocality": "Wetzikon",
       "canton": "ZH",
@@ -2838,15 +2807,6 @@
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-fribourg-721195": {
       "location": "Fribourg",
       "addressLocality": "Fribourg",
-      "canton": "FR",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/kommissionierer-kommissioniererin-m-w-d-60-sevaz-707160": {
-      "location": "Sévaz",
-      "addressLocality": "Sévaz",
       "canton": "FR",
       "country": "CH",
       "company": "Lidl Svizzera",
