@@ -4856,6 +4856,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-ingegnere-ticino-stipendio': { name: 'frontaliere ingegnere', path: '/articoli-frontaliere/frontaliere-ingegnere-ticino-stipendio', parent: 'blog' },
     'blog-aziende-svizzere-in-borsa': { name: 'Dati aziendali positivi, ma la borsa', path: '/articoli-svizzera/aziende-svizzere-in-borsa/', parent: 'blog' },
     'blog-tasse-frontalieri-nessuna-stangata': { name: 'Tasse frontalieri', path: '/articoli-frontaliere/tasse-frontalieri-nessuna-stangata', parent: 'blog' },
+    'blog-ia-cambia-lavoro-ma-non-sostituisce-persone': { name: 'IA e lavoro', path: '/articoli-svizzera/ia-cambia-lavoro-ma-non-sostituisce-persone/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

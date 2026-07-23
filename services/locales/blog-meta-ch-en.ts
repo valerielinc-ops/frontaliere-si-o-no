@@ -1489,6 +1489,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aziende-svizzere-in-borsa.title': 'More positive business data, but the bag turns up its nose: what happens?',
     'blog.article.aziende-svizzere-in-borsa.excerpt': 'Experts are looking for explanations for the behavior of Swiss stock markets.',
     'blog.article.aziende-svizzere-in-borsa.imageAlt': 'An image of a Swiss stock market.',
+    'blog.article.ia-cambia-lavoro-ma-non-sostituisce-persone.title': 'More Adecco, "AI changes jobs but does not replace people"',
+    'blog.article.ia-cambia-lavoro-ma-non-sostituisce-persone.excerpt': 'The president of Adecco, Denis Machuel, says that artificial intelligence (AI) does not replace people, but helps them work better.',
+    'blog.article.ia-cambia-lavoro-ma-non-sostituisce-persone.imageAlt': 'A manager talks about AI and work in Switzerland',
 };
 
 export default blogMetaChEn;

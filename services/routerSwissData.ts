@@ -519,6 +519,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'dazi-usa-svizzera-luglio-2026': { it: 'dazi-usa-svizzera-luglio-2026', en: 'usa-tariffs-switzerland-july-2026', de: 'usa-zolle-schweiz-juli-2026', fr: 'droits-douane-usa-suisse-juillet-2026' },
  'zali-e-le-pressioni-per-un-assunzione': { it: 'zali-e-le-pressioni-per-un-assunzione', en: 'zali-and-the-pressures-for-an-hiring', de: 'zali-und-die-drucke-fur-eine-anstellung', fr: 'zali-et-les-pressions-pour-un-embauche' },
  'aziende-svizzere-in-borsa': { it: 'aziende-svizzere-in-borsa', en: 'swiss-companies-in-stock', de: 'schweizer-unternehmen-an-der-borse', fr: 'entreprises-suisse-sur-le-marche-actionnaire' },
+ 'ia-cambia-lavoro-ma-non-sostituisce-persone': { it: 'ia-cambia-lavoro-ma-non-sostituisce-persone', en: 'ai-changes-work-but-not-people', de: 'ai-verandert-arbeit-sondern-keine-menschen', fr: 'la-ia-changera-le-travail-mais-pas-les-personnes' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

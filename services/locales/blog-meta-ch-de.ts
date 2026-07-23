@@ -1489,6 +1489,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aziende-svizzere-in-borsa.title': 'Mehr positive Unternehmensdaten, aber die Tasche krummelt die Nase: Was ist los?',
     'blog.article.aziende-svizzere-in-borsa.excerpt': 'Experten suchen nach Erklärungen für das Verhalten der Schweizer Aktienmärkte.',
     'blog.article.aziende-svizzere-in-borsa.imageAlt': 'Ein Bild von einem Schweizer Aktienmarkt.',
+    'blog.article.ia-cambia-lavoro-ma-non-sostituisce-persone.title': 'Mehr Adecco, «KI verändert den Job, ersetzt aber keine Menschen»',
+    'blog.article.ia-cambia-lavoro-ma-non-sostituisce-persone.excerpt': 'Adecco-Präsident Denis Machuel sagt, dass künstliche Intelligenz (KI) Menschen nicht ersetzt, sondern ihnen hilft, besser zu arbeiten.',
+    'blog.article.ia-cambia-lavoro-ma-non-sostituisce-persone.imageAlt': 'Ein Manager spricht über AI und Arbeit in der Schweiz',
 };
 
 export default blogMetaChDe;
