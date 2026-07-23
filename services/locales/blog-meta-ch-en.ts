@@ -1486,6 +1486,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.zali-e-le-pressioni-per-un-assunzione.title': 'Zali and hiring pressures: the EoC distances itself from the past',
     'blog.article.zali-e-le-pressioni-per-un-assunzione.excerpt': 'The new Chairman of the Board of Directors Andrea Bersani distances himself from the past with regard to pressures for hiring.',
     'blog.article.zali-e-le-pressioni-per-un-assunzione.imageAlt': 'A scene with Lake Lugano and the city of Lugano, Switzerland',
+    'blog.article.aziende-svizzere-in-borsa.title': 'More positive business data, but the bag turns up its nose: what happens?',
+    'blog.article.aziende-svizzere-in-borsa.excerpt': 'Experts are looking for explanations for the behavior of Swiss stock markets.',
+    'blog.article.aziende-svizzere-in-borsa.imageAlt': 'An image of a Swiss stock market.',
 };
 
 export default blogMetaChEn;
