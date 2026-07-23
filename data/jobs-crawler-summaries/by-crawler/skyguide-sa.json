@@ -1,18 +1,49 @@
 {
   "key": "skyguide-sa",
   "label": "Skyguide",
-  "generatedAt": "2026-07-23T11:25:13.363Z",
-  "total": 9,
-  "newCount": 0,
+  "generatedAt": "2026-07-23T22:08:26.750Z",
+  "total": 10,
+  "newCount": 1,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5528,
-  "avgDurationMs": 5528,
+  "durationMs": 5056,
+  "avgDurationMs": 5056,
   "durationHistory": [
-    5528
+    5056
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "APS & ADC Rated (ATCO) Instructor (100%)",
+      "slug": "aps-adc-rated-atco-instructor-100-skyguide-wangen-b-dubendorf-ch",
+      "url": "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCbendorf-APS-&-ADC-Rated-%28ATCO%29-Instructor-%28100%29/1418247333/",
+      "applyUrl": "https://jobs.skyguide.ch/talentcommunity/apply/1418247333/?locale=en_US",
+      "company": "Skyguide",
+      "companyKey": "skyguide-sa",
+      "companyDomain": "skyguide.ch",
+      "location": "Wangen b. Dübendorf",
+      "addressLocality": "Wangen b. Dübendorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "other",
+      "sector": "Logistica",
+      "source": "skyguide-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-07-23",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 63,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Formation contrôleur·euse de la circulation aérienne - Payerne",
