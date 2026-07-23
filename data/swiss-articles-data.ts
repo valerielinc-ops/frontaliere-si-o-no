@@ -4346,6 +4346,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'poverta-lavorativa-ticino-sfida-dignita',
+    category: 'fiscale',
+    date: '2026-07-23T03:12:34.993Z',
+    image: '/images/blog/poverta-lavorativa-ticino-sfida-dignita.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

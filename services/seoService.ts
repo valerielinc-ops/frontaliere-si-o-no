@@ -4828,6 +4828,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato': { name: 'Di più Auto', path: '/articoli-svizzera/auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato/', parent: 'blog' },
     'blog-dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi': { name: 'Dati salariali vecchi frontalieri', path: '/articoli-frontaliere/dati-salariali-vecchi-frontalieri-finiscono-dichiarazione-redditi', parent: 'blog' },
     'blog-frontaliere-educatore-ticino-stipendio-requisiti': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/frontaliere-educatore-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-poverta-lavorativa-ticino-sfida-dignita': { name: 'Povertà lavorativa in Ticino', path: '/articoli-svizzera/poverta-lavorativa-ticino-sfida-dignita/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

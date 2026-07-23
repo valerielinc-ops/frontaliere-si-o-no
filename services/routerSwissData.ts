@@ -506,6 +506,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore': { it: 'di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore', en: 'swiss-new-ccl-for-ground-crew', de: 'neu-im-schweiz-ccl-fur-bodenpersonal', fr: 'nouveau-ccl-suisse-pour-l-equipage-terre' },
  'frontalieri-ticino-dati-2026': { it: 'frontalieri-ticino-dati-2026', en: 'cross-border-workers-ticino-q1-2026-data', de: 'grenzganger-ticino-daten-erstes-quartal-2026', fr: 'travailleurs-frontaliers-ticino-donnees-t1-2026' },
  'auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato': { it: 'auto-mercato-del-nuovo-non-decolla-svizzeri-preferiscono-l-usato', en: 'auto-market-of-new-not-declines-swiss-people-prefer-used', de: 'auto-markt-neu-nicht-dekliniert-schweizer-people-preferieren-benutzt', fr: 'auto-marche-de-nouveau-pas-dekliniert-suisse-les-people-preferent-les-emplois' },
+ 'poverta-lavorativa-ticino-sfida-dignita': { it: 'poverta-lavorativa-ticino-sfida-dignita', en: 'poverta-lavorativa-ticino', de: 'arbeitslosigkeit-ticino', fr: 'poverta-lavorativa-ticino' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
