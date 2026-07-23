@@ -218,6 +218,13 @@ function isAllowlisted(entry: { path: string; lineNo: number; content: string })
 
 describe('cathedral — no TI URL hardcodes outside allowlist (P1-E boundary-safe)', () => {
   for (const literal of FORBIDDEN) {
+    // Explicit timeout (vs the 15000ms project default, vitest.config.ts) —
+    // this shells out to `grep -rn` synchronously over build-plugins/,
+    // services/, scripts/lib/; under CI's parallel test-worker contention
+    // that occasionally exceeds 15s even though the command itself runs in
+    // well under 1s in isolation (run 29904198494/job 88871620100 timed out
+    // here with no real hardcode offender — a CI-load timeout, not a
+    // genuine failure).
     it(`literal ${literal} appears only in allowlisted locations`, () => {
       const cmd = `grep -rn -F ${JSON.stringify(literal)} build-plugins/ services/ scripts/lib/ || true`;
       const out = execSync(cmd, { encoding: 'utf8' });
@@ -226,6 +233,6 @@ describe('cathedral — no TI URL hardcodes outside allowlist (P1-E boundary-saf
         .filter((entry) => !isAllowlisted(entry))
         .map((e) => `${e.path}:${e.lineNo}: ${e.content}`);
       expect(offenders, `Unallowlisted hardcodes for ${literal}:\n${offenders.join('\n')}\n\nTo allowlist a NEW hardcode, append \` // cathedral-allow: <reason>\` to the offending line — do not add new line-pinned entries to ALLOWLIST.`).toEqual([]);
-    });
+    }, 30000);
   }
 });
