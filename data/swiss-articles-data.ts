@@ -4427,6 +4427,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lavori-tilo-chi-cambia',
+    category: 'pratico',
+    date: '2026-07-23T08:23:00.950Z',
+    image: '/images/blog/lavori-tilo-chi-cambia.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

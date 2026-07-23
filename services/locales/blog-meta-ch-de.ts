@@ -1477,6 +1477,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.alta-volont-di-scambio-per-la-borsa-svizzera.title': 'Hohes Handelsvolumen für die Schweizer Börse',
     'blog.article.alta-volont-di-scambio-per-la-borsa-svizzera.excerpt': 'Die SIX-GRUPPE verzeichnete im ersten Halbjahr 2026 eine Umsatzsteigerung und eine deutliche Gewinnsteigerung.',
     'blog.article.alta-volont-di-scambio-per-la-borsa-svizzera.imageAlt': 'Die Börse in Lugano',
+    'blog.article.lavori-tilo-chi-cambia.title': 'Arbeiten an der Infrastruktur, das ändert sich für die LINDEN',
+    'blog.article.lavori-tilo-chi-cambia.excerpt': 'Änderungen im Bahnverkehr für Infrastrukturarbeiten betreffen zwischen Ende Juli und August 2026 mehrere Tilo-Verbindungen.',
+    'blog.article.lavori-tilo-chi-cambia.imageAlt': 'Der Zug des Tilo in Lugano mit Baustellenzeichen',
 };
 
 export default blogMetaChDe;

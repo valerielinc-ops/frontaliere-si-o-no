@@ -1477,6 +1477,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.alta-volont-di-scambio-per-la-borsa-svizzera.title': 'High trading volumes for the Swiss Stock Exchange',
     'blog.article.alta-volont-di-scambio-per-la-borsa-svizzera.excerpt': 'Group SIX recorded an increase in turnover and a net increase in profits in the first half of 2026.',
     'blog.article.alta-volont-di-scambio-per-la-borsa-svizzera.imageAlt': 'The Swiss Stock Exchange in Lugano',
+    'blog.article.lavori-tilo-chi-cambia.title': 'Infrastructure work, here\'s what\'s changing for the lime trees',
+    'blog.article.lavori-tilo-chi-cambia.excerpt': 'Changes to rail traffic for infrastructure work will affect several TILO connections between the end of July and August 2026.',
+    'blog.article.lavori-tilo-chi-cambia.imageAlt': 'Tilo train at Lugano with construction signs',
 };
 
 export default blogMetaChEn;

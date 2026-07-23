@@ -19089,6 +19089,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavori-tilo-chi-cambia': {
+    title: 'Lavori all\'infrastruttura, ecco cosa cambia per i TILO',
+    description: 'Modifiche alla circolazione ferroviaria per lavori infrastrutturali interesseranno diversi collegamenti TILO tra fine luglio e agosto 2026. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavori, infrastruttura, ecco, cosa',
+    ogTitle: 'Lavori all\'infrastruttura, ecco cosa cambia per i TILO',
+    ogDescription: 'Modifiche alla circolazione ferroviaria per lavori infrastrutturali interesseranno diversi collegamenti TILO tra fine luglio e agosto 2026.',
+    canonicalPath: '/articoli-svizzera/lavori-tilo-chi-cambia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavori all'infrastruttura, ecco cosa cambia per i TILO",
+      "description": "Modifiche alla circolazione ferroviaria per lavori infrastrutturali interesseranno diversi collegamenti TILO tra fine luglio e agosto 2026. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavori-tilo-chi-cambia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I lavori di manutenzione ai binari del Tilo a Lugano"
+      },
+      "datePublished": "2026-07-23T08:23:00+00:00",
+      "dateModified": "2026-07-23T08:23:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lavori-tilo-chi-cambia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
