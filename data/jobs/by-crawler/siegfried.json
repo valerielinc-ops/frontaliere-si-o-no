@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-07-22T22:10:08.513Z",
+  "assembledAt": "2026-07-23T11:32:55.768Z",
   "jobs": [
     {
       "id": "siegfried-b2e1fb16eb0f",
@@ -33,7 +33,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T22:10:05.630Z",
+      "crawledAt": "2026-07-23T11:32:53.358Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -53,11 +53,13 @@
       "previousSlugs": [
         "operateur-de-production-4-8-siegfried-ch",
         "wechseltechniker-3-8-siegfried-evionnaz",
-        "operateur-de-production-4-8-siegfried-evionnaz"
+        "operateur-de-production-4-8-siegfried-evionnaz",
+        "operatore-di-produzione-4-8-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operateur-de-production-4-8-siegfried-ch"
+          "operateur-de-production-4-8-siegfried-ch",
+          "operatore-di-produzione-4-8-siegfried-evionnaz"
         ],
         "fr": [
           "operateur-de-production-4-8-siegfried-evionnaz"
@@ -109,7 +111,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T22:10:04.996Z",
+      "crawledAt": "2026-07-23T11:32:52.642Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -151,11 +153,13 @@
         "technicien-de-laboratoire-ad-siegfried-evionnaz",
         "change-over-techniker-3-8-siegfried-evionnaz",
         "changement-de-technicien-3-8-siegfried-evionnaz",
-        "tecnico-di-cambio-3-8-siegfried-evionnaz"
+        "tecnico-di-cambio-3-8-siegfried-evionnaz",
+        "tecnico-di-laboratorio-ad-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lab-technician-ad-siegfried-ch"
+          "lab-technician-ad-siegfried-ch",
+          "tecnico-di-laboratorio-ad-siegfried-evionnaz"
         ],
         "de": [
           "labotechniker-ad-siegfried-evionnaz"
@@ -165,6 +169,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:35.504Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -210,7 +215,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-R-D_R26_104",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:10:04.422Z",
+      "crawledAt": "2026-07-23T11:32:51.904Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -228,17 +233,20 @@
       "jobReqId": "R26_104",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "senior-lab-technician-analytics-siegfried-ch"
+        "senior-lab-technician-analytics-siegfried-ch",
+        "analisi-tecnica-del-laboratorio-senior-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lab-technician-analytics-siegfried-ch"
+          "senior-lab-technician-analytics-siegfried-ch",
+          "analisi-tecnica-del-laboratorio-senior-siegfried-zofingen"
         ],
         "fr": [
           "senior-lab-technician-analytics-siegfried-ch"
         ]
       },
       "firstSeenAt": "2026-05-11T12:28:48.174Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -284,7 +292,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-R-D_R26_438",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T22:10:03.771Z",
+      "crawledAt": "2026-07-23T11:32:51.145Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -302,14 +310,17 @@
       "jobReqId": "R26_438",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
-        "lab-technician-r-d-siegfried-ch"
+        "lab-technician-r-d-siegfried-ch",
+        "laboratorio-tecnico-r-d-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lab-technician-r-d-siegfried-ch"
+          "lab-technician-r-d-siegfried-ch",
+          "laboratorio-tecnico-r-d-siegfried-evionnaz"
         ]
       },
       "firstSeenAt": "2026-05-18T13:08:56.939Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -355,7 +366,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Supervisor-QC_R26_463",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T22:10:03.109Z",
+      "crawledAt": "2026-07-23T11:32:50.427Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -376,12 +387,14 @@
         "lab-supervisor-qc-siegfried-ch",
         "lab-supervisore-qc-siegfried-evionnaz",
         "lab-vorgesetzter-qc-siegfried-evionnaz",
-        "lab-supervisor-qc-siegfried-evionnaz"
+        "lab-supervisor-qc-siegfried-evionnaz",
+        "controllo-del-laboratorio-qc-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-supervisor-qc-siegfried-ch",
-          "lab-supervisore-qc-siegfried-evionnaz"
+          "lab-supervisore-qc-siegfried-evionnaz",
+          "controllo-del-laboratorio-qc-siegfried-evionnaz"
         ],
         "en": [
           "lab-supervisor-qc-siegfried-ch"
@@ -440,7 +453,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Lab-Technician_R26_410",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:10:02.437Z",
+      "crawledAt": "2026-07-23T11:32:49.470Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -460,13 +473,15 @@
       "previousSlugs": [
         "laborant-in-efz-chemie-siegfried-ch",
         "lehrstelle-laborant-in-efz-chemie-siegfried-ch",
-        "laborant-in-cfc-chemie-siegfried-zofingen"
+        "laborant-in-cfc-chemie-siegfried-zofingen",
+        "tecnico-di-laboratorio-efz-chemie-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "laborant-in-efz-chemie-siegfried-ch",
           "lehrstelle-laborant-in-efz-chemie-siegfried-ch",
-          "laborant-in-cfc-chemie-siegfried-zofingen"
+          "laborant-in-cfc-chemie-siegfried-zofingen",
+          "tecnico-di-laboratorio-efz-chemie-siegfried-zofingen"
         ],
         "en": [
           "laborant-in-efz-chemie-siegfried-ch"
@@ -521,7 +536,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T22:09:55.281Z",
+      "crawledAt": "2026-07-23T11:32:48.755Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -540,12 +555,14 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
         "manutenzione-tecnica-elettrica-siegfried-evionnaz",
-        "technicien-de-maintenance-electricite-siegfried-ch"
+        "technicien-de-maintenance-electricite-siegfried-ch",
+        "tecnico-di-manutenzione-elettricita-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manutenzione-tecnica-elettrica-siegfried-evionnaz",
-          "technicien-de-maintenance-electricite-siegfried-ch"
+          "technicien-de-maintenance-electricite-siegfried-ch",
+          "tecnico-di-manutenzione-elettricita-siegfried-evionnaz"
         ],
         "en": [
           "technicien-de-maintenance-electricite-siegfried-ch"
@@ -555,6 +572,7 @@
         ]
       },
       "firstSeenAt": "2026-06-15T15:11:19.489Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -600,7 +618,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Senior-Lab-Technician---Process-Safety_R26_532",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T22:09:54.647Z",
+      "crawledAt": "2026-07-23T11:32:48.040Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -620,12 +638,14 @@
       "previousSlugs": [
         "senior-lab-technician-process-safety-siegfried-ch",
         "senior-lab-techniker-process-safety-siegfried-evionnaz",
-        "senior-lab-technicien-process-safety-siegfried-evionnaz"
+        "senior-lab-technicien-process-safety-siegfried-evionnaz",
+        "senior-lab-technician-sicurezza-dei-processi-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-lab-technician-process-safety-siegfried-ch",
-          "senior-lab-technicien-process-safety-siegfried-evionnaz"
+          "senior-lab-technicien-process-safety-siegfried-evionnaz",
+          "senior-lab-technician-sicurezza-dei-processi-siegfried-evionnaz"
         ],
         "de": [
           "senior-lab-techniker-process-safety-siegfried-evionnaz"
@@ -635,6 +655,7 @@
         ]
       },
       "firstSeenAt": "2026-06-18T13:04:11.702Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -680,7 +701,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Intern-Commercial-Excellence_R26_511",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T22:09:54.073Z",
+      "crawledAt": "2026-07-23T11:32:47.312Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -698,11 +719,13 @@
       "jobReqId": "R26_511",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "intern-commercial-excellence-siegfried-ch"
+        "intern-commercial-excellence-siegfried-ch",
+        "tirocinante-commercial-excellence-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "intern-commercial-excellence-siegfried-ch"
+          "intern-commercial-excellence-siegfried-ch",
+          "tirocinante-commercial-excellence-siegfried-zofingen"
         ],
         "de": [
           "intern-commercial-excellence-siegfried-ch"
@@ -712,6 +735,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:18:10.178Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -757,7 +781,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Chemielaborant-in-Analytik-QC_R26_465",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:09:53.524Z",
+      "crawledAt": "2026-07-23T11:32:46.681Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -776,11 +800,13 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "chemielaborant-in-analytik-qc-siegfried-ch",
-        "chemielaborant-in-analytik-qc-siegfried-zofingen"
+        "chemielaborant-in-analytik-qc-siegfried-zofingen",
+        "laboratorio-chimico-analisi-qc-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chemielaborant-in-analytik-qc-siegfried-ch"
+          "chemielaborant-in-analytik-qc-siegfried-ch",
+          "laboratorio-chimico-analisi-qc-siegfried-zofingen"
         ],
         "en": [
           "chemielaborant-in-analytik-qc-siegfried-ch"
@@ -838,7 +864,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/QA-Supervisor_R26_565",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T22:09:52.896Z",
+      "crawledAt": "2026-07-23T11:32:45.593Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -857,11 +883,13 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
         "qa-supervisor-siegfried-ch",
-        "qa-supervisor-siegfried-evionnaz"
+        "qa-supervisor-siegfried-evionnaz",
+        "qa-supervisore-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "qa-supervisor-siegfried-ch"
+          "qa-supervisor-siegfried-ch",
+          "qa-supervisore-siegfried-evionnaz"
         ],
         "de": [
           "qa-supervisor-siegfried-ch"
@@ -871,6 +899,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T22:42:54.087Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -916,7 +945,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Global-Category-Manager-CapEx_R26_537",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T22:09:52.267Z",
+      "crawledAt": "2026-07-23T11:32:44.872Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -934,14 +963,17 @@
       "jobReqId": "R26_537",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "global-category-manager-capex-siegfried-ch"
+        "global-category-manager-capex-siegfried-ch",
+        "global-categoria-manager-capex-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-category-manager-capex-siegfried-ch"
+          "global-category-manager-capex-siegfried-ch",
+          "global-categoria-manager-capex-siegfried-zofingen"
         ]
       },
       "firstSeenAt": "2026-07-08T11:16:26.761Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -987,7 +1019,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/CAD-Designer_R26_592",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T22:09:51.610Z",
+      "crawledAt": "2026-07-23T11:32:44.225Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1005,14 +1037,17 @@
       "jobReqId": "R26_592",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
-        "cad-designer-siegfried-ch"
+        "cad-designer-siegfried-ch",
+        "designer-cad-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cad-designer-siegfried-ch"
+          "cad-designer-siegfried-ch",
+          "designer-cad-siegfried-evionnaz"
         ]
       },
       "firstSeenAt": "2026-07-13T22:10:27.704Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1032,7 +1067,7 @@
       "slug": "elettricista-aziendale-siegfried-zofingen",
       "slugByLocale": {
         "it": "elettricista-aziendale-siegfried-zofingen",
-        "en": "business-electrician-siegfried-zofingen",
+        "en": "betriebselektriker-in-siegfried-zofingen",
         "de": "betriebselektriker-in-siegfried-ch",
         "fr": "electricien-d-affaires-siegfried-zofingen"
       },
@@ -1042,7 +1077,7 @@
       "title": "Betriebselektriker*in",
       "titleByLocale": {
         "it": "Elettricista aziendale*",
-        "en": "Business electrician*",
+        "en": "Betriebselektriker*in",
         "de": "Betriebselektriker*in",
         "fr": "Électricien d'affaires*"
       },
@@ -1058,7 +1093,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebselektriker-in_R26_616",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:09:50.966Z",
+      "crawledAt": "2026-07-23T11:32:43.370Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1077,14 +1112,18 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "betriebselektriker-in-siegfried-ch",
-        "betriebselektriker-in-siegfried-zofingen"
+        "betriebselektriker-in-siegfried-zofingen",
+        "business-electrician-siegfried-zofingen",
+        "elettricista-aziendale-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebselektriker-in-siegfried-ch",
-          "betriebselektriker-in-siegfried-zofingen"
+          "betriebselektriker-in-siegfried-zofingen",
+          "elettricista-aziendale-siegfried-zofingen"
         ],
         "en": [
+          "business-electrician-siegfried-zofingen",
           "betriebselektriker-in-siegfried-zofingen"
         ],
         "fr": [
@@ -1092,6 +1131,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:19:28.317Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1108,36 +1148,36 @@
     },
     {
       "id": "siegfried-7d9f6e107b7b",
-      "slug": "manufacturing-specialist-sr-manufacturing-specialist-downstream-processing-dsp-drug",
+      "slug": "manufacturing-specialista-sr-manufacturing-specialista-downstream-processing-dsp-drug-product-siegfried-schlieren",
       "slugByLocale": {
+        "it": "manufacturing-specialista-sr-manufacturing-specialista-downstream-processing-dsp-drug-product-siegfried-schlieren",
         "en": "manufacturing-specialist-sr-manufacturing-specialist-downstream-processing-dsp-drug",
-        "it": "manufacturing-specialist-sr-manufacturing-specialist-downstream-processing-dsp-drug",
-        "de": "manufacturing-specialist-sr-manufacturing-specialist-downstream-processing-dsp-drug",
-        "fr": "manufacturing-specialist-sr-manufacturing-specialist-downstream-processing-dsp-drug"
+        "de": "manufacturing-spezialist-sr-manufacturing-spezialist-downstream-processing-dsp-drug-product-siegfried-schlieren",
+        "fr": "manufacturing-specialiste-sr-manufacturing-specialiste-downstream-processing-dsp-drug-product-siegfried-schlieren"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
       "companyDomain": "siegfried.ch",
       "title": "Manufacturing Specialist / Sr. Manufacturing Specialist– Downstream Processing (DSP)/ Drug Product",
       "titleByLocale": {
-        "en": "Manufacturing Specialist / Sr. Manufacturing Specialist– Downstream Processing (DSP)/ Drug Product",
         "it": "Manufacturing Specialista / Sr. Manufacturing Specialista– Downstream Processing (DSP)/ Drug Product",
+        "en": "Manufacturing Specialist / Sr. Manufacturing Specialist– Downstream Processing (DSP)/ Drug Product",
         "de": "Manufacturing Spezialist / Sr. Manufacturing Spezialist– Downstream Processing (DSP)/ Drug Product",
         "fr": "Manufacturing Spécialiste / Sr. Manufacturing Spécialiste– Downstream Processing (DSP)/ Drug Product"
       },
       "description": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nPosition Summary:\n\nThe (Sr.) Manufacturing Specialist DSP is responsible for executing viral vector manufacturing activities in a cGMP environment supporting gene therapy, cell therapy, and vaccine production. The role focuses on downstream processing operations, including chromatography, filtration, and purification, ensuring compliant batch execution and reliable delivery of high-quality products from clinical to commercial stages.\n\nThe position supports technology transfer, manufacturing readiness, troubleshooting, deviation management, and continuous improvement initiatives. Experience in Drug Product (DP) manufacturing, including aseptic processing and fill-finish operations, is an advantage.\n\nSiegfried DINAMIQS is a Contract Development and Manufacturing Organization (CDMO) based in Schlieren-Zurich, Switzerland, specializing in the manufacturing of viral vector gene therapies. At DINAMIQS we offer a comprehensive range of services, including vector design optimization, cutting-edge process development and analytics, as well as manufacturing. With a R&D facility running and a newly constructed GMP facility, we are dedicated to supporting gene therapy projects with scalable and efficient solutions.\n\nDINAMIQS became part of Siegfried's global network in 2023 and is now looking to grow its dedicated team of experts by hiring a Manufacturing Specialist / Sr. Manufacturing Specialist. If you are highly motivated, self-driven, and passionate about driving operational excellence in a dynamic environment, you are the person we are looking for.\n\n- Execute DSP operations including chromatography, filtration, TFF, and UF/DF in a cGMP environment.\n\n- Perform manufacturing activities according to batch records, SOPs, and GMP requirements.\n\n- Prepare, operate, and maintain manufacturing equipment.\n\n- Perform manufacturing support activities, including cleaning, monitoring, buffer preparation, material handling, and inventory management.\n\n- Support technology transfer and process implementation into manufacturing.\n\n- Troubleshoot process and equipment issues during manufacturing operations.\n\n- Support deviation investigations, root cause analyses, and CAPA implementation.\n\n- Ensure accurate and timely completion of GMP documentation and electronic systems (MES, LIMS, SAP).\n\n- Contribute to continuous improvement and operational excellence initiatives.\n\n- Collaborate with Quality, Engineering, Process Development, and Analytical teams.\n Your Profile:\n\n• Bachelor's degree in Biology, Biotechnology, Biochemistry, Chemical Engineering, or a related scientific field with 3–6 years of relevant experience, ora Master's degree with 1–3 years of relevant experience. Equivalent combinations of education and experience may be considered.\n\n• Experience in biopharmaceutical, gene therapy, cell therapy, or viral vector manufacturing with a focus on DSP.\n\n• Hands-on experience with chromatography, filtration, and TFF/UF-DF operations.\n\n• Working knowledge of cGMP regulations, cleanroom operations, aseptic processing, and GMP documentation.\n\n• Experience with manufacturing systems such as MES, LIMS, or SAP is preferred.\n\n• Experience in Drug Product manufacturing (formulation, sterile filtration, aseptic fill-finish) is a plus.\n\n• Experience writing and maintaining SOPs and work instructions.\n\n• Strong troubleshooting, communication, and documentation skills.\n\n• Willingness to support flexible working hours, including weekends.\n\n• English speaking and writing, German is a plus.\n\nTechnical Skills\n\n• Viral vector purification processes (e.g., AAV, lentivirus, adenovirus).\n\n• DSP operations including chromatography, TFF, UF/DF, and filtration.\n\n• GMP batch execution, documentation, and electronic manufacturing systems.\n\n• Manufacturing process and equipment troubleshooting.\n\n• Knowledge of contamination control and aseptic manufacturing practices.\n\nSoft Skills\n\n• Team-oriented with strong communication and collaboration skills.\n\n• Hands-on, proactive problem solver.\n\n• Able to perform effectively in a fast-paced GMP manufacturing environment.\n\n• High level of accountability, quality mindset, and attention to detail.\n\nYour Benefits:\n\n• A unique and amazing work experience, being part of one of the most dynamic, diverse and inclusive CDMOs in the industry.\n\n• Competitive and attractive compensation\n\n• 5 weeks holidays and flexible working hours make it possible to combine family, leisure time and career.\n\n• Impactful Work: Make a significant difference through innovative gene therapy projects\n\n• Learning Opportunities: Develop diverse skills in a dynamic environment\n\n• Fast-Paced Environment: See results quickly and enjoy the creative freedom from joining early in the facility lifecycle.\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
       "descriptionByLocale": {
-        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nPosition Summary:\n\nThe (Sr.) Manufacturing Specialist DSP is responsible for executing viral vector manufacturing activities in a cGMP environment supporting gene therapy, cell therapy, and vaccine production. The role focuses on downstream processing operations, including chromatography, filtration, and purification, ensuring compliant batch execution and reliable delivery of high-quality products from clinical to commercial stages.\n\nThe position supports technology transfer, manufacturing readiness, troubleshooting, deviation management, and continuous improvement initiatives. Experience in Drug Product (DP) manufacturing, including aseptic processing and fill-finish operations, is an advantage.\n\nSiegfried DINAMIQS is a Contract Development and Manufacturing Organization (CDMO) based in Schlieren-Zurich, Switzerland, specializing in the manufacturing of viral vector gene therapies. At DINAMIQS we offer a comprehensive range of services, including vector design optimization, cutting-edge process development and analytics, as well as manufacturing. With a R&D facility running and a newly constructed GMP facility, we are dedicated to supporting gene therapy projects with scalable and efficient solutions.\n\nDINAMIQS became part of Siegfried's global network in 2023 and is now looking to grow its dedicated team of experts by hiring a Manufacturing Specialist / Sr. Manufacturing Specialist. If you are highly motivated, self-driven, and passionate about driving operational excellence in a dynamic environment, you are the person we are looking for.\n\n- Execute DSP operations including chromatography, filtration, TFF, and UF/DF in a cGMP environment.\n\n- Perform manufacturing activities according to batch records, SOPs, and GMP requirements.\n\n- Prepare, operate, and maintain manufacturing equipment.\n\n- Perform manufacturing support activities, including cleaning, monitoring, buffer preparation, material handling, and inventory management.\n\n- Support technology transfer and process implementation into manufacturing.\n\n- Troubleshoot process and equipment issues during manufacturing operations.\n\n- Support deviation investigations, root cause analyses, and CAPA implementation.\n\n- Ensure accurate and timely completion of GMP documentation and electronic systems (MES, LIMS, SAP).\n\n- Contribute to continuous improvement and operational excellence initiatives.\n\n- Collaborate with Quality, Engineering, Process Development, and Analytical teams.\n Your Profile:\n\n• Bachelor's degree in Biology, Biotechnology, Biochemistry, Chemical Engineering, or a related scientific field with 3–6 years of relevant experience, ora Master's degree with 1–3 years of relevant experience. Equivalent combinations of education and experience may be considered.\n\n• Experience in biopharmaceutical, gene therapy, cell therapy, or viral vector manufacturing with a focus on DSP.\n\n• Hands-on experience with chromatography, filtration, and TFF/UF-DF operations.\n\n• Working knowledge of cGMP regulations, cleanroom operations, aseptic processing, and GMP documentation.\n\n• Experience with manufacturing systems such as MES, LIMS, or SAP is preferred.\n\n• Experience in Drug Product manufacturing (formulation, sterile filtration, aseptic fill-finish) is a plus.\n\n• Experience writing and maintaining SOPs and work instructions.\n\n• Strong troubleshooting, communication, and documentation skills.\n\n• Willingness to support flexible working hours, including weekends.\n\n• English speaking and writing, German is a plus.\n\nTechnical Skills\n\n• Viral vector purification processes (e.g., AAV, lentivirus, adenovirus).\n\n• DSP operations including chromatography, TFF, UF/DF, and filtration.\n\n• GMP batch execution, documentation, and electronic manufacturing systems.\n\n• Manufacturing process and equipment troubleshooting.\n\n• Knowledge of contamination control and aseptic manufacturing practices.\n\nSoft Skills\n\n• Team-oriented with strong communication and collaboration skills.\n\n• Hands-on, proactive problem solver.\n\n• Able to perform effectively in a fast-paced GMP manufacturing environment.\n\n• High level of accountability, quality mindset, and attention to detail.\n\nYour Benefits:\n\n• A unique and amazing work experience, being part of one of the most dynamic, diverse and inclusive CDMOs in the industry.\n\n• Competitive and attractive compensation\n\n• 5 weeks holidays and flexible working hours make it possible to combine family, leisure time and career.\n\n• Impactful Work: Make a significant difference through innovative gene therapy projects\n\n• Learning Opportunities: Develop diverse skills in a dynamic environment\n\n• Fast-Paced Environment: See results quickly and enjoy the creative freedom from joining early in the facility lifecycle.\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e ampie opportunità per mostrare i vostri talenti. In qualità di partner affidabile e rispettato per l'industria farmaceutica, sosteniamo i più elevati standard di sicurezza, qualità e sostenibilità, promuovendo al contempo una cultura che ti consente di prosperare. Unisciti a una società globale in rapida espansione, dove prospettive e esperienze diverse si uniscono in un ambiente collaborativo. Qui troverete un posto di lavoro che valorizzi il successo collettivo e i vostri contributi individuali, offrendo opportunità a lungo termine per crescere e fare un impatto.\n\nIl tuo ruolo:\nPosizione Riepilogo:\n\nIl DSP (Sr.) Manufacturing Specialist è responsabile dell'esecuzione delle attività di produzione di vettori virali in un ambiente cGMP che supporta la terapia genica, la terapia cellulare e la produzione di vaccini. Il ruolo si concentra sulle operazioni di elaborazione a valle, tra cui la cromatografia, la filtrazione e la purificazione, assicurando l'esecuzione in batch conforme e la consegna affidabile di prodotti di alta qualità da fasi cliniche a commerciali.\n\nLa posizione supporta trasferimento tecnologico, prontezza di produzione, risoluzione dei problemi, gestione delle deviazioni e iniziative di miglioramento continuo. L'esperienza nella produzione di prodotti farmaceutici (DP), inclusa la lavorazione asettica e le operazioni di riempimento-finish, è un vantaggio.\n\nSiegfried DINAMIQS è un'organizzazione di sviluppo e produzione del contratto (CDMO) con sede a Schlieren-Zurich, in Svizzera, specializzata nella produzione di terapie geniche vettoriali virali. A DINAMIQS offriamo una gamma completa di servizi, tra cui ottimizzazione di progettazione vettoriale, sviluppo di processo all'avanguardia e analisi, così come la produzione. Con una struttura R&D in esecuzione e una nuova struttura GMP, siamo dedicati a sostenere progetti di terapia genica con soluzioni scalabili ed efficienti.\n\nDINAMIQS è diventato parte della rete globale di Siegfried nel 2023 e ora sta cercando di crescere il suo team dedicato di esperti assumendo uno specialista di produzione / Sr. Manufacturing Specialist. Se siete altamente motivati, auto-driven e appassionati di guidare l'eccellenza operativa in un ambiente dinamico, siete la persona che stiamo cercando.\n\n- Eseguire operazioni DSP tra cui cromatografia, filtrazione, TFF e UF/DF in un ambiente cGMP.\n\n- Eseguire le attività di produzione in base ai record di lotti, ai requisiti SOP e GMP.\n\n- Preparare, operare e mantenere le attrezzature di produzione.\n\n- Eseguire attività di supporto alla produzione, tra cui pulizia, monitoraggio, preparazione buffer, gestione dei materiali e gestione dell'inventario.\n\n- Supporta il trasferimento tecnologico e l'implementazione di processi nella produzione.\n\n- Risoluzione dei problemi di processo e attrezzature durante le operazioni di produzione.\n\n- Sostenere le indagini sulla deviazione, le analisi delle cause della radice e l'implementazione della CAPA.\n\n- Assicurare il completamento accurato e tempestivo della documentazione GMP e dei sistemi elettronici (MES, LIMS, SAP).\n\n- Contribuisci a iniziative di miglioramento continuo e di eccellenza operativa.\n\n- Collabora con team di qualità, ingegneria, sviluppo dei processi e analitici.\n Il tuo profilo:\n\n• Laurea in biologia, biotecnologia, biochimica, ingegneria chimica, o un campo scientifico correlato con 3-6 anni di esperienza rilevante, o laurea magistrale con 1-3 anni di esperienza rilevante. Possono essere considerate combinazioni equivalenti di istruzione e di esperienza.\n\n• Esperienza nella biofarmaceutica, nella terapia genica, nella terapia cellulare o nella produzione di vettori virali con particolare attenzione al DSP.\n\n• Esperienza pratica con cromatografia, filtrazione e operazioni TFF/UF-DF.\n\n• Conoscenza di funzionamento delle normative cGMP, operazioni di cleanroom, elaborazione asettica e documentazione GMP.\n\n• L'esperienza con sistemi di produzione come MES, LIMS o SAP è preferita.\n\n• Esperienza nella produzione di prodotti di droga (formulazione, filtrazione sterile, riempimento asettico-finish) è un plus.\n\n• Sperimenta la scrittura e il mantenimento delle SOP e le istruzioni di lavoro.\n\n• Forte capacità di risoluzione dei problemi, comunicazione e documentazione.\n\n• Volontà a sostenere orari di lavoro flessibili, compresi i fine settimana.\n\n• Inglese parlando e scrittura, tedesco è un plus.\n\nCompetenze tecniche\n\n• Processi di purificazione del vettore virale (ad esempio, AAV, lentivirus, adenovirus).\n\n• Operazioni DSP tra cui cromatografia, TFF, UF/DF e filtrazione.\n\n• Esecuzione di lotti GMP, documentazione e sistemi di produzione elettronica.\n\n• Processo di produzione e risoluzione dei problemi delle attrezzature.\n\n• Conoscenza del controllo della contaminazione e delle pratiche manifatturiere asettiche.\n\nAbilità morbide\n\n• Con una forte capacità di comunicazione e collaborazione.\n\n• Mano su, risolutore di problemi proattivi.\n\n• In grado di eseguire efficacemente in un ambiente di produzione GMP veloce.\n\n• Alto livello di responsabilità, mentalità di qualità e attenzione ai dettagli.\n\nI tuoi vantaggi:\n\n• Un'esperienza di lavoro unica e straordinaria, che fa parte di uno dei CDMO più dinamici, diversificati e inclusivi del settore.\n\n• Compensazione competitiva e attraente\n\n• 5 settimane vacanze e orari di lavoro flessibili permettono di combinare famiglia, tempo libero e carriera.\n\n• Lavoro d'impatto: fare una differenza significativa attraverso progetti innovativi di terapia genica\n\n• Opportunità di apprendimento: sviluppare competenze diverse in un ambiente dinamico\n\n• Ambiente veloce: vedere i risultati rapidamente e godere della libertà creativa di unirsi presto nel ciclo di vita della struttura.\n\nFondata nel 1873 a Zofingen, Svizzera, Siegfried è cresciuta in una rete globale di 16 siti in tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici a scala industriale e produciamo farmaci sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni oggi in grado di effettuare lo sviluppo e la produzione di API e forme di dosaggio finito sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico.\n\nSiegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce stabilimenti produttivi a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
-        "de": "\"Erwarten zu wachsen\", persönlich und beruflich: Bei Siegfried bieten wir spannende Herausforderungen und reichlich Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und angesehener Partner der Pharmaindustrie halten wir die höchsten Standards in Bezug auf Sicherheit, Qualität und Nachhaltigkeit ein und fördern gleichzeitig eine Kultur, die es Ihnen ermöglicht, erfolgreich zu sein. Treten Sie einem schnell wachsenden globalen Unternehmen bei, in dem vielfältige Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl den kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt und langfristige Wachstumsmöglichkeiten bietet.\n\nIhre Rolle:\nPositionsübersicht:\n\nDer (Sr.) Manufacturing Specialist DSP ist verantwortlich für die Durchführung viraler Vektorherstellungsaktivitäten in einer cGMP-Umgebung, die Gentherapie, Zelltherapie und Impfstoffproduktion unterstützt. Die Rolle konzentriert sich auf nachgelagerte Verarbeitungsvorgänge, einschließlich Chromatographie, Filtration und Reinigung, um eine konforme Chargenausführung und eine zuverlässige Lieferung hochwertiger Produkte von der klinischen bis zur kommerziellen Phase zu gewährleisten.\n\nDie Position unterstützt Technologietransfer, Fertigungsbereitschaft, Fehlersuche, Abweichungsmanagement und kontinuierliche Verbesserungsinitiativen. Erfahrung in der Herstellung von Arzneimitteln (DP), einschließlich aseptischer Verarbeitung und Füll-Finish-Operationen, ist ein Vorteil.\n\nSiegfried DINAMIQS ist eine Contract Development and Manufacturing Organization (CDMO) mit Sitz in Schlieren-Zürich, Schweiz, spezialisiert auf die Herstellung von viralen Vektor-Gentherapien. Bei DINAMIQS bieten wir eine umfassende Palette von Dienstleistungen an, darunter Vektordesign-Optimierung, innovative Prozessentwicklung und Analytik sowie Fertigung. Mit einer laufenden F & E-Anlage und einer neu errichteten GMP-Anlage unterstützen wir Gentherapieprojekte mit skalierbaren und effizienten Lösungen.\n\nDINAMIQS wurde 2023 Teil des globalen Netzwerks von Siegfried und möchte nun sein engagiertes Expertenteam durch die Einstellung eines Fertigungsspezialisten / Senior Manufacturing Specialist erweitern. Wenn Sie hoch motiviert, selbstgesteuert und leidenschaftlich daran interessiert sind, operative Exzellenz in einem dynamischen Umfeld zu fördern, sind Sie die Person, die wir suchen.\n\n- DSP-Operationen einschließlich Chromatographie, Filtration, TFF und UF/DF in einer cGMP-Umgebung durchführen.\n\n- Führen Sie Fertigungsaktivitäten gemäß Chargenaufzeichnungen, SOPs und GMP-Anforderungen durch.\n\n- Vorbereitung, Betrieb und Wartung von Fertigungsanlagen.\n\n- Durchführung von Fertigungsunterstützungsaktivitäten, einschließlich Reinigung, Überwachung, Puffervorbereitung, Materialhandling und Bestandsverwaltung.\n\n- Unterstützung des Technologietransfers und der Prozessimplementierung in die Fertigung.\n\n- Fehlerbehebung von Prozess- und Ausrüstungsproblemen während des Herstellungsprozesses.\n\n- Unterstützung von Abweichungsuntersuchungen, Ursachenanalysen und CAPA-Implementierung.\n\n- Gewährleistung der korrekten und rechtzeitigen Fertigstellung der GMP-Dokumentation und der elektronischen Systeme (MES, LIMS, SAP).\n\n- Beitrag zu kontinuierlicher Verbesserung und operativen Exzellenzinitiativen.\n\n- Arbeiten Sie mit Qualitäts-, Engineering-, Prozessentwicklungs- und Analyseteams zusammen.\n Ihr Profil:\n\n• Bachelor-Abschluss in Biologie, Biotechnologie, Biochemie, Chemieingenieurwesen oder einem verwandten wissenschaftlichen Bereich mit 3-6 Jahren einschlägiger Erfahrung, Master-Abschluss mit 1-3 Jahren einschlägiger Erfahrung. Gleichwertige Kombinationen von Bildung und Erfahrung können in Betracht gezogen werden.\n\n• Erfahrung in der biopharmazeutischen, Gentherapie, Zelltherapie oder viralen Vektorherstellung mit Schwerpunkt auf DSP.\n\n• Praktische Erfahrung mit Chromatographie, Filtration und TFF / UF-DF-Operationen.\n\n• Kenntnisse über cGMP-Vorschriften, Reinraumbetrieb, aseptische Verarbeitung und GMP-Dokumentation.\n\n• Erfahrung mit Fertigungssystemen wie MES, LIMS oder SAP wird bevorzugt.\n\n• Erfahrung in der Herstellung von Arzneimitteln (Formulierung, Sterilfiltration, aseptisches Abfüllen) ist ein Plus.\n\n• Erleben Sie das Schreiben und Verwalten von SOPs und Arbeitsanweisungen.\n\n• Starke Fähigkeiten in den Bereichen Fehlersuche, Kommunikation und Dokumentation.\n\n• Bereitschaft, flexible Arbeitszeiten, einschließlich Wochenenden, zu unterstützen.\n\n• Englisch sprechen und schreiben, Deutsch ist ein Plus.\n\nTechnische Fähigkeiten\n\n• Virale Vektorreinigungsprozesse (z. B. AAV, Lentivirus, Adenovirus).\n\n• DSP-Operationen einschließlich Chromatographie, TFF, UF/DF und Filtration.\n\n• GMP Batch Ausführung, Dokumentation und elektronische Fertigungssysteme.\n\n• Fehlersuche bei Herstellungsprozessen und Ausrüstung.\n\n• Wissen über Kontaminationskontrolle und aseptische Herstellungspraktiken.\n\nSoft Skills\n\n• Teamorientiert mit starken Kommunikations- und Kollaborationsfähigkeiten.\n\n• Hands-on, proaktiver Problemlöser.\n\n• Kann in einer schnelllebigen GMP-Herstellungsumgebung effektiv arbeiten.\n\n• Hohes Maß an Verantwortlichkeit, Qualitätsdenken und Liebe zum Detail.\n\nIhre Vorteile:\n\n• Eine einzigartige und erstaunliche Arbeitserfahrung, die Teil eines der dynamischsten, vielfältigsten und inklusivesten CDMOs der Branche ist.\n\n• Wettbewerbsfähige und attraktive Vergütung\n\n• 5 Wochen Urlaub und flexible Arbeitszeiten ermöglichen es, Familie, Freizeit und Beruf zu verbinden.\n\n• Effektive Arbeit: Durch innovative Gentherapieprojekte einen signifikanten Unterschied machen\n\n• Lernmöglichkeiten: Entwickeln Sie vielfältige Fähigkeiten in einem dynamischen Umfeld\n\n• Schnelle Umgebung: Sehen Sie schnell Ergebnisse und genießen Sie die kreative Freiheit, früh im Lebenszyklus der Einrichtung beizutreten.\n\n1873 in Zofingen, Schweiz, gegründet, hat sich Siegfried zu einem globalen Netzwerk von 16 Standorten auf drei Kontinenten entwickelt. Mit einem Team von mehr als 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer Pharmakunden in den industriellen Maßstab und stellen sichere Medikamente für Patienten weltweit her. Als voll integriertes CDMO ist Siegfried heute eine der wenigen Organisationen, die die Entwicklung und Herstellung von APIs und fertigen Darreichungsformen unter einem Dach durchführen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner in der Pharmaindustrie.\n\nSiegfried ist eine führende CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Das Unternehmen betreibt Produktionsstätten in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zürich).",
-        "fr": "\"S'attendre à grandir\", personnellement et professionnellement: Chez Siegfried, nous offrons des défis passionnants et de nombreuses occasions de mettre en valeur vos talents. En tant que partenaire fiable et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en favorisant une culture qui vous donne les moyens de prospérer. Rejoignez une entreprise mondiale en expansion rapide, où des perspectives et des expériences diversifiées se réunissent dans un environnement collaboratif. Ici, vous trouverez un milieu de travail qui valorise à la fois la réussite collective et vos contributions individuelles, offrant des occasions à long terme de croître et d'avoir un impact.\n\nVotre rôle :\nSommaire du poste :\n\nLe spécialiste de la fabrication (Sr.) DSP est responsable de l'exécution des activités de fabrication de vecteurs viraux dans un environnement cGMP appuyant la thérapie génique, la thérapie cellulaire et la production de vaccins. Le rôle est axé sur les opérations de traitement en aval, y compris la chromatographie, la filtration et la purification, en assurant la conformité de l'exécution par lots et la livraison fiable de produits de haute qualité des stades cliniques aux stades commerciaux.\n\nLe poste appuie les initiatives de transfert de technologie, de préparation à la fabrication, de dépannage, de gestion des écarts et d'amélioration continue. L'expérience de la fabrication de produits pharmaceutiques (PD), y compris le traitement aseptique et les opérations de remplissage, est un avantage.\n\nSiegfried DINAMIQS est une organisation de développement et de fabrication de contrats (CDMO) basée à Schlieren-Zurich, en Suisse, spécialisée dans la fabrication de thérapies géniques vectorielles virales. Chez DINAMIQS, nous offrons une gamme complète de services, y compris l'optimisation de la conception vectorielle, le développement de procédés de pointe et l'analyse, ainsi que la fabrication. Avec une installation de R-D et une nouvelle installation de BPF, nous sommes dédiés à soutenir des projets de thérapie génique avec des solutions évolutives et efficaces.\n\nDINAMIQS est devenu membre du réseau mondial de Siegfried en 2023 et cherche maintenant à développer son équipe d'experts dévoués en recrutant un spécialiste de la fabrication/Sr. Si vous êtes très motivé, motivé et passionné par l'excellence opérationnelle dans un environnement dynamique, vous êtes la personne que nous recherchons.\n\n- Exécuter des opérations DSP incluant la chromatographie, la filtration, le TFF et l'UF/DF dans un environnement cGMP.\n\n- Effectuer des activités de fabrication selon les registres de lots, les PON et les exigences des BPF.\n\n- Préparer, exploiter et entretenir l'équipement de fabrication.\n\n- Effectuer des activités de soutien à la fabrication, y compris le nettoyage, la surveillance, la préparation des tampons, la manutention des matériaux et la gestion des stocks.\n\n- Soutenir le transfert de technologie et la mise en oeuvre des procédés dans la fabrication.\n\n- Dépannage du processus et des problèmes d'équipement pendant les opérations de fabrication.\n\n- Appuyer les enquêtes sur les écarts, les analyses des causes profondes et la mise en oeuvre de l'ACAP.\n\n- Veiller à ce que la documentation sur les BPF et les systèmes électroniques (MES, LIMS, SAP) soit remplie avec exactitude et en temps opportun.\n\n- Contribuer à des initiatives d'amélioration continue et d'excellence opérationnelle.\n\n- Collaborer avec les équipes de la qualité, de l'ingénierie, du développement des procédés et de l'analyse.\n Votre profil:\n\n• Baccalauréat en biologie, en biotechnologie, en biochimie, en génie chimique ou dans un domaine scientifique connexe ayant une expérience pertinente de 3 à 6 ans, diplôme de maîtrise avec une expérience pertinente de 1 à 3 ans. Des combinaisons équivalentes d'éducation et d'expérience peuvent être envisagées.\n\n• Expérience en biopharmaceutique, en thérapie génique, en thérapie cellulaire ou en fabrication de vecteurs viraux, en mettant l'accent sur le PSD.\n\n• Expérience pratique en chromatographie, filtration et opérations TFF/UF-DF.\n\n• Connaissance pratique des règlements sur les BPFc, des opérations de salles propres, du traitement aseptique et de la documentation sur les BPF.\n\n• L'expérience avec les systèmes de fabrication tels que MES, LIMS ou SAP est préférée.\n\n• L'expérience dans la fabrication de produits pharmaceutiques (formulation, filtration stérile, finissage aseptique) est un atout.\n\n• Expérience de la rédaction et du maintien des SOP et des instructions de travail.\n\n• Fortes compétences en dépannage, communication et documentation.\n\n• Volonté de soutenir des horaires de travail flexibles, y compris les week-ends.\n\n• L'allemand est un plus.\n\nCompétences techniques\n\n• Processus de purification des vecteurs viraux (p. ex. AAV, lentivirus, adénovirus).\n\n• Opérations DSP incluant chromatographie, TFF, UF/DF et filtration.\n\n• Exécution par lots de BPF, documentation et systèmes de fabrication électronique.\n\n• Processus de fabrication et dépannage de l'équipement.\n\n• Connaissance du contrôle de la contamination et des pratiques de fabrication aseptiques.\n\nCompétences douces\n\n• Une équipe axée sur la communication et la collaboration.\n\n• Résoudre les problèmes.\n\n• Capacité à fonctionner efficacement dans un environnement de fabrication rapide de BPF.\n\n• Niveau élevé de responsabilité, état d'esprit de qualité et attention aux détails.\n\nVos avantages :\n\n• Une expérience de travail unique et étonnante, faisant partie de l'un des CDMO les plus dynamiques, diversifiés et inclusifs de l'industrie.\n\n• Compensation compétitive et attrayante\n\n• 5 semaines de vacances et des horaires de travail flexibles permettent de combiner la famille, les loisirs et la carrière.\n\n• Travail efficace : faire une différence importante grâce à des projets innovateurs de thérapie génique\n\n• Possibilités d'apprentissage : Développer des compétences diversifiées dans un environnement dynamique\n\n• L'environnement accéléré: Voir les résultats rapidement et profiter de la liberté créative de se joindre au début du cycle de vie de l'installation.\n\nFondé en 1873 à Zofingen, en Suisse, Siegfried est devenu un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques à l'échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégré, Siegfried est l'une des rares organisations aujourd'hui à pouvoir réaliser le développement et la fabrication d'API et de formes posologiques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus fiable de l'industrie pharmaceutique.\n\nSiegfried est l'un des principaux CDMO (Contract Development & Manufacturing Organization) dont le siège est à Zofingen, en Suisse. L'entreprise exploite des sites de fabrication à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
+        "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e ampie opportunità per mostrare i vostri talenti. In qualità di partner affidabile e rispettato per l'industria farmaceutica, sosteniamo i più elevati standard di sicurezza, qualità e sostenibilità, promuovendo al contempo una cultura che ti consente di prosperare. Unisciti a una società globale in rapida espansione, dove prospettive e esperienze diverse si uniscono in un ambiente collaborativo. Qui troverete un posto di lavoro che valorizzi il successo collettivo e i vostri contributi individuali, offrendo opportunità a lungo termine per crescere e fare un impatto.\n\nIl tuo ruolo:\nPosizione Riepilogo:\n\nIl DSP (Sr.) Manufacturing Specialist è responsabile dell'esecuzione delle attività di produzione di vettori virali in un ambiente cGMP che supporta la terapia genica, la terapia cellulare e la produzione di vaccini. Il ruolo si concentra sulle operazioni di elaborazione a valle, tra cui la cromatografia, la filtrazione e la purificazione, assicurando l'esecuzione in batch conforme e la consegna affidabile di prodotti di alta qualità da fasi cliniche a commerciali.\n\nLa posizione supporta trasferimento tecnologico, prontezza di produzione, risoluzione dei problemi, gestione delle deviazioni e iniziative di miglioramento continuo. L'esperienza nella produzione di prodotti farmaceutici (DP), inclusa la lavorazione asettica e le operazioni di riempimento-finish, è un vantaggio.\n\nSiegfried DINAMIQS è un'organizzazione di sviluppo e produzione del contratto (CDMO) con sede a Schlieren-Zurich, in Svizzera, specializzata nella produzione di terapie geniche vettoriali virali. A DINAMIQS offriamo una gamma completa di servizi, tra cui ottimizzazione di progettazione vettoriale, sviluppo di processo all'avanguardia e analisi, così come la produzione. Con una struttura R&D in esecuzione e una nuova struttura GMP, siamo dedicati a sostenere progetti di terapia genica con soluzioni scalabili ed efficienti.\n\nDINAMIQS è diventato parte della rete globale di Siegfried nel 2023 e ora sta cercando di crescere il suo team dedicato di esperti assumendo uno specialista di produzione / Sr. Manufacturing Specialist. Se siete altamente motivati, auto-driven e appassionati di guidare l'eccellenza operativa in un ambiente dinamico, siete la persona che stiamo cercando.\n\n- Eseguire operazioni DSP tra cui cromatografia, filtrazione, TFF e UF/DF in un ambiente cGMP.\n\n- Eseguire le attività di produzione in base ai record di lotti, ai requisiti SOP e GMP.\n\n- Preparare, operare e mantenere le attrezzature di produzione.\n\n- Eseguire attività di supporto alla produzione, tra cui pulizia, monitoraggio, preparazione buffer, gestione dei materiali e gestione dell'inventario.\n\n- Supporta il trasferimento tecnologico e l'implementazione di processi nella produzione.\n\n- Risoluzione dei problemi di processo e attrezzature durante le operazioni di produzione.\n\n- Sostenere le indagini sulla deviazione, le analisi delle cause della radice e l'implementazione della CAPA.\n\n- Assicurare il completamento accurato e tempestivo della documentazione GMP e dei sistemi elettronici (MES, LIMS, SAP).\n\n- Contribuisci a iniziative di miglioramento continuo e di eccellenza operativa.\n\n- Collabora con team di qualità, ingegneria, sviluppo dei processi e analitici.\nIl tuo profilo:\n\n• Laurea in biologia, biotecnologia, biochimica, ingegneria chimica, o un campo scientifico correlato con 3-6 anni di esperienza rilevante, o laurea magistrale con 1-3 anni di esperienza rilevante. Possono essere considerate combinazioni equivalenti di istruzione e di esperienza.\n\n• Esperienza nella biofarmaceutica, nella terapia genica, nella terapia cellulare o nella produzione di vettori virali con particolare attenzione al DSP.\n\n• Esperienza pratica con cromatografia, filtrazione e operazioni TFF/UF-DF.\n\n• Conoscenza di funzionamento delle normative cGMP, operazioni di cleanroom, elaborazione asettica e documentazione GMP.\n\n• L'esperienza con sistemi di produzione come MES, LIMS o SAP è preferita.\n\n• Esperienza nella produzione di prodotti di droga (formulazione, filtrazione sterile, riempimento asettico-finish) è un plus.\n\n• Sperimenta la scrittura e il mantenimento delle SOP e le istruzioni di lavoro.\n\n• Forte capacità di risoluzione dei problemi, comunicazione e documentazione.\n\n• Volontà a sostenere orari di lavoro flessibili, compresi i fine settimana.\n\n• Inglese parlando e scrittura, tedesco è un plus.\n\nCompetenze tecniche\n\n• Processi di purificazione del vettore virale (ad esempio, AAV, lentivirus, adenovirus).\n\n• Operazioni DSP tra cui cromatografia, TFF, UF/DF e filtrazione.\n\n• Esecuzione di lotti GMP, documentazione e sistemi di produzione elettronica.\n\n• Processo di produzione e risoluzione dei problemi delle attrezzature.\n\n• Conoscenza del controllo della contaminazione e delle pratiche manifatturiere asettiche.\n\nAbilità morbide\n\n• Con una forte capacità di comunicazione e collaborazione.\n\n• Mano su, risolutore di problemi proattivi.\n\n• In grado di eseguire efficacemente in un ambiente di produzione GMP veloce.\n\n• Alto livello di responsabilità, mentalità di qualità e attenzione ai dettagli.\n\nI tuoi vantaggi:\n\n• Un'esperienza di lavoro unica e straordinaria, che fa parte di uno dei CDMO più dinamici, diversificati e inclusivi del settore.\n\n• Compensazione competitiva e attraente\n\n• 5 settimane vacanze e orari di lavoro flessibili permettono di combinare famiglia, tempo libero e carriera.\n\n• Lavoro d'impatto: fare una differenza significativa attraverso progetti innovativi di terapia genica\n\n• Opportunità di apprendimento: sviluppare competenze diverse in un ambiente dinamico\n\n• Ambiente veloce: vedere i risultati rapidamente e godere della libertà creativa di unirsi presto nel ciclo di vita della struttura.\n\nFondata nel 1873 a Zofingen, Svizzera, Siegfried è cresciuta in una rete globale di 16 siti in tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici a scala industriale e produciamo farmaci sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni oggi in grado di effettuare lo sviluppo e la produzione di API e forme di dosaggio finito sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico.\n\nSiegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce stabilimenti produttivi a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
+        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nPosition Summary:\n\nThe (Sr.) Manufacturing Specialist DSP is responsible for executing viral vector manufacturing activities in a cGMP environment supporting gene therapy, cell therapy, and vaccine production. The role focuses on downstream processing operations, including chromatography, filtration, and purification, ensuring compliant batch execution and reliable delivery of high-quality products from clinical to commercial stages.\n\nThe position supports technology transfer, manufacturing readiness, troubleshooting, deviation management, and continuous improvement initiatives. Experience in Drug Product (DP) manufacturing, including aseptic processing and fill-finish operations, is an advantage.\n\nSiegfried DINAMIQS is a Contract Development and Manufacturing Organization (CDMO) based in Schlieren-Zurich, Switzerland, specializing in the manufacturing of viral vector gene therapies. At DINAMIQS we offer a comprehensive range of services, including vector design optimization, cutting-edge process development and analytics, as well as manufacturing. With a R&D facility running and a newly constructed GMP facility, we are dedicated to supporting gene therapy projects with scalable and efficient solutions.\n\nDINAMIQS became part of Siegfried's global network in 2023 and is now looking to grow its dedicated team of experts by hiring a Manufacturing Specialist / Sr. Manufacturing Specialist. If you are highly motivated, self-driven, and passionate about driving operational excellence in a dynamic environment, you are the person we are looking for.\n\n- Execute DSP operations including chromatography, filtration, TFF, and UF/DF in a cGMP environment.\n\n- Perform manufacturing activities according to batch records, SOPs, and GMP requirements.\n\n- Prepare, operate, and maintain manufacturing equipment.\n\n- Perform manufacturing support activities, including cleaning, monitoring, buffer preparation, material handling, and inventory management.\n\n- Support technology transfer and process implementation into manufacturing.\n\n- Troubleshoot process and equipment issues during manufacturing operations.\n\n- Support deviation investigations, root cause analyses, and CAPA implementation.\n\n- Ensure accurate and timely completion of GMP documentation and electronic systems (MES, LIMS, SAP).\n\n- Contribute to continuous improvement and operational excellence initiatives.\n\n- Collaborate with Quality, Engineering, Process Development, and Analytical teams.\nYour Profile:\n\n• Bachelor's degree in Biology, Biotechnology, Biochemistry, Chemical Engineering, or a related scientific field with 3–6 years of relevant experience, ora Master's degree with 1–3 years of relevant experience. Equivalent combinations of education and experience may be considered.\n\n• Experience in biopharmaceutical, gene therapy, cell therapy, or viral vector manufacturing with a focus on DSP.\n\n• Hands-on experience with chromatography, filtration, and TFF/UF-DF operations.\n\n• Working knowledge of cGMP regulations, cleanroom operations, aseptic processing, and GMP documentation.\n\n• Experience with manufacturing systems such as MES, LIMS, or SAP is preferred.\n\n• Experience in Drug Product manufacturing (formulation, sterile filtration, aseptic fill-finish) is a plus.\n\n• Experience writing and maintaining SOPs and work instructions.\n\n• Strong troubleshooting, communication, and documentation skills.\n\n• Willingness to support flexible working hours, including weekends.\n\n• English speaking and writing, German is a plus.\n\nTechnical Skills\n\n• Viral vector purification processes (e.g., AAV, lentivirus, adenovirus).\n\n• DSP operations including chromatography, TFF, UF/DF, and filtration.\n\n• GMP batch execution, documentation, and electronic manufacturing systems.\n\n• Manufacturing process and equipment troubleshooting.\n\n• Knowledge of contamination control and aseptic manufacturing practices.\n\nSoft Skills\n\n• Team-oriented with strong communication and collaboration skills.\n\n• Hands-on, proactive problem solver.\n\n• Able to perform effectively in a fast-paced GMP manufacturing environment.\n\n• High level of accountability, quality mindset, and attention to detail.\n\nYour Benefits:\n\n• A unique and amazing work experience, being part of one of the most dynamic, diverse and inclusive CDMOs in the industry.\n\n• Competitive and attractive compensation\n\n• 5 weeks holidays and flexible working hours make it possible to combine family, leisure time and career.\n\n• Impactful Work: Make a significant difference through innovative gene therapy projects\n\n• Learning Opportunities: Develop diverse skills in a dynamic environment\n\n• Fast-Paced Environment: See results quickly and enjoy the creative freedom from joining early in the facility lifecycle.\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "de": "\"Erwarten zu wachsen\", persönlich und beruflich: Bei Siegfried bieten wir spannende Herausforderungen und reichlich Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und angesehener Partner der Pharmaindustrie halten wir die höchsten Standards in Bezug auf Sicherheit, Qualität und Nachhaltigkeit ein und fördern gleichzeitig eine Kultur, die es Ihnen ermöglicht, erfolgreich zu sein. Treten Sie einem schnell wachsenden globalen Unternehmen bei, in dem vielfältige Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl den kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt und langfristige Wachstumsmöglichkeiten bietet.\n\nIhre Rolle:\nPositionsübersicht:\n\nDer (Sr.) Manufacturing Specialist DSP ist verantwortlich für die Durchführung viraler Vektorherstellungsaktivitäten in einer cGMP-Umgebung, die Gentherapie, Zelltherapie und Impfstoffproduktion unterstützt. Die Rolle konzentriert sich auf nachgelagerte Verarbeitungsvorgänge, einschließlich Chromatographie, Filtration und Reinigung, um eine konforme Chargenausführung und eine zuverlässige Lieferung hochwertiger Produkte von der klinischen bis zur kommerziellen Phase zu gewährleisten.\n\nDie Position unterstützt Technologietransfer, Fertigungsbereitschaft, Fehlersuche, Abweichungsmanagement und kontinuierliche Verbesserungsinitiativen. Erfahrung in der Herstellung von Arzneimitteln (DP), einschließlich aseptischer Verarbeitung und Füll-Finish-Operationen, ist ein Vorteil.\n\nSiegfried DINAMIQS ist eine Contract Development and Manufacturing Organization (CDMO) mit Sitz in Schlieren-Zürich, Schweiz, spezialisiert auf die Herstellung von viralen Vektor-Gentherapien. Bei DINAMIQS bieten wir eine umfassende Palette von Dienstleistungen an, darunter Vektordesign-Optimierung, innovative Prozessentwicklung und Analytik sowie Fertigung. Mit einer laufenden F & E-Anlage und einer neu errichteten GMP-Anlage unterstützen wir Gentherapieprojekte mit skalierbaren und effizienten Lösungen.\n\nDINAMIQS wurde 2023 Teil des globalen Netzwerks von Siegfried und möchte nun sein engagiertes Expertenteam durch die Einstellung eines Fertigungsspezialisten / Senior Manufacturing Specialist erweitern. Wenn Sie hoch motiviert, selbstgesteuert und leidenschaftlich daran interessiert sind, operative Exzellenz in einem dynamischen Umfeld zu fördern, sind Sie die Person, die wir suchen.\n\n- DSP-Operationen einschließlich Chromatographie, Filtration, TFF und UF/DF in einer cGMP-Umgebung durchführen.\n\n- Führen Sie Fertigungsaktivitäten gemäß Chargenaufzeichnungen, SOPs und GMP-Anforderungen durch.\n\n- Vorbereitung, Betrieb und Wartung von Fertigungsanlagen.\n\n- Durchführung von Fertigungsunterstützungsaktivitäten, einschließlich Reinigung, Überwachung, Puffervorbereitung, Materialhandling und Bestandsverwaltung.\n\n- Unterstützung des Technologietransfers und der Prozessimplementierung in die Fertigung.\n\n- Fehlerbehebung von Prozess- und Ausrüstungsproblemen während des Herstellungsprozesses.\n\n- Unterstützung von Abweichungsuntersuchungen, Ursachenanalysen und CAPA-Implementierung.\n\n- Gewährleistung der korrekten und rechtzeitigen Fertigstellung der GMP-Dokumentation und der elektronischen Systeme (MES, LIMS, SAP).\n\n- Beitrag zu kontinuierlicher Verbesserung und operativen Exzellenzinitiativen.\n\n- Arbeiten Sie mit Qualitäts-, Engineering-, Prozessentwicklungs- und Analyseteams zusammen.\nIhr Profil:\n\n• Bachelor-Abschluss in Biologie, Biotechnologie, Biochemie, Chemieingenieurwesen oder einem verwandten wissenschaftlichen Bereich mit 3-6 Jahren einschlägiger Erfahrung, Master-Abschluss mit 1-3 Jahren einschlägiger Erfahrung. Gleichwertige Kombinationen von Bildung und Erfahrung können in Betracht gezogen werden.\n\n• Erfahrung in der biopharmazeutischen, Gentherapie, Zelltherapie oder viralen Vektorherstellung mit Schwerpunkt auf DSP.\n\n• Praktische Erfahrung mit Chromatographie, Filtration und TFF / UF-DF-Operationen.\n\n• Kenntnisse über cGMP-Vorschriften, Reinraumbetrieb, aseptische Verarbeitung und GMP-Dokumentation.\n\n• Erfahrung mit Fertigungssystemen wie MES, LIMS oder SAP wird bevorzugt.\n\n• Erfahrung in der Herstellung von Arzneimitteln (Formulierung, Sterilfiltration, aseptisches Abfüllen) ist ein Plus.\n\n• Erleben Sie das Schreiben und Verwalten von SOPs und Arbeitsanweisungen.\n\n• Starke Fähigkeiten in den Bereichen Fehlersuche, Kommunikation und Dokumentation.\n\n• Bereitschaft, flexible Arbeitszeiten, einschließlich Wochenenden, zu unterstützen.\n\n• Englisch sprechen und schreiben, Deutsch ist ein Plus.\n\nTechnische Fähigkeiten\n\n• Virale Vektorreinigungsprozesse (z. B. AAV, Lentivirus, Adenovirus).\n\n• DSP-Operationen einschließlich Chromatographie, TFF, UF/DF und Filtration.\n\n• GMP Batch Ausführung, Dokumentation und elektronische Fertigungssysteme.\n\n• Fehlersuche bei Herstellungsprozessen und Ausrüstung.\n\n• Wissen über Kontaminationskontrolle und aseptische Herstellungspraktiken.\n\nSoft Skills\n\n• Teamorientiert mit starken Kommunikations- und Kollaborationsfähigkeiten.\n\n• Hands-on, proaktiver Problemlöser.\n\n• Kann in einer schnelllebigen GMP-Herstellungsumgebung effektiv arbeiten.\n\n• Hohes Maß an Verantwortlichkeit, Qualitätsdenken und Liebe zum Detail.\n\nIhre Vorteile:\n\n• Eine einzigartige und erstaunliche Arbeitserfahrung, die Teil eines der dynamischsten, vielfältigsten und inklusivesten CDMOs der Branche ist.\n\n• Wettbewerbsfähige und attraktive Vergütung\n\n• 5 Wochen Urlaub und flexible Arbeitszeiten ermöglichen es, Familie, Freizeit und Beruf zu verbinden.\n\n• Effektive Arbeit: Durch innovative Gentherapieprojekte einen signifikanten Unterschied machen\n\n• Lernmöglichkeiten: Entwickeln Sie vielfältige Fähigkeiten in einem dynamischen Umfeld\n\n• Schnelle Umgebung: Sehen Sie schnell Ergebnisse und genießen Sie die kreative Freiheit, früh im Lebenszyklus der Einrichtung beizutreten.\n\n1873 in Zofingen, Schweiz, gegründet, hat sich Siegfried zu einem globalen Netzwerk von 16 Standorten auf drei Kontinenten entwickelt. Mit einem Team von mehr als 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer Pharmakunden in den industriellen Maßstab und stellen sichere Medikamente für Patienten weltweit her. Als voll integriertes CDMO ist Siegfried heute eine der wenigen Organisationen, die die Entwicklung und Herstellung von APIs und fertigen Darreichungsformen unter einem Dach durchführen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner in der Pharmaindustrie.\n\nSiegfried ist eine führende CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Das Unternehmen betreibt Produktionsstätten in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zürich).",
+        "fr": "\"S'attendre à grandir\", personnellement et professionnellement: Chez Siegfried, nous offrons des défis passionnants et de nombreuses occasions de mettre en valeur vos talents. En tant que partenaire fiable et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en favorisant une culture qui vous donne les moyens de prospérer. Rejoignez une entreprise mondiale en expansion rapide, où des perspectives et des expériences diversifiées se réunissent dans un environnement collaboratif. Ici, vous trouverez un milieu de travail qui valorise à la fois la réussite collective et vos contributions individuelles, offrant des occasions à long terme de croître et d'avoir un impact.\n\nVotre rôle :\nSommaire du poste :\n\nLe spécialiste de la fabrication (Sr.) DSP est responsable de l'exécution des activités de fabrication de vecteurs viraux dans un environnement cGMP appuyant la thérapie génique, la thérapie cellulaire et la production de vaccins. Le rôle est axé sur les opérations de traitement en aval, y compris la chromatographie, la filtration et la purification, en assurant la conformité de l'exécution par lots et la livraison fiable de produits de haute qualité des stades cliniques aux stades commerciaux.\n\nLe poste appuie les initiatives de transfert de technologie, de préparation à la fabrication, de dépannage, de gestion des écarts et d'amélioration continue. L'expérience de la fabrication de produits pharmaceutiques (PD), y compris le traitement aseptique et les opérations de remplissage, est un avantage.\n\nSiegfried DINAMIQS est une organisation de développement et de fabrication de contrats (CDMO) basée à Schlieren-Zurich, en Suisse, spécialisée dans la fabrication de thérapies géniques vectorielles virales. Chez DINAMIQS, nous offrons une gamme complète de services, y compris l'optimisation de la conception vectorielle, le développement de procédés de pointe et l'analyse, ainsi que la fabrication. Avec une installation de R-D et une nouvelle installation de BPF, nous sommes dédiés à soutenir des projets de thérapie génique avec des solutions évolutives et efficaces.\n\nDINAMIQS est devenu membre du réseau mondial de Siegfried en 2023 et cherche maintenant à développer son équipe d'experts dévoués en recrutant un spécialiste de la fabrication/Sr. Si vous êtes très motivé, motivé et passionné par l'excellence opérationnelle dans un environnement dynamique, vous êtes la personne que nous recherchons.\n\n- Exécuter des opérations DSP incluant la chromatographie, la filtration, le TFF et l'UF/DF dans un environnement cGMP.\n\n- Effectuer des activités de fabrication selon les registres de lots, les PON et les exigences des BPF.\n\n- Préparer, exploiter et entretenir l'équipement de fabrication.\n\n- Effectuer des activités de soutien à la fabrication, y compris le nettoyage, la surveillance, la préparation des tampons, la manutention des matériaux et la gestion des stocks.\n\n- Soutenir le transfert de technologie et la mise en oeuvre des procédés dans la fabrication.\n\n- Dépannage du processus et des problèmes d'équipement pendant les opérations de fabrication.\n\n- Appuyer les enquêtes sur les écarts, les analyses des causes profondes et la mise en oeuvre de l'ACAP.\n\n- Veiller à ce que la documentation sur les BPF et les systèmes électroniques (MES, LIMS, SAP) soit remplie avec exactitude et en temps opportun.\n\n- Contribuer à des initiatives d'amélioration continue et d'excellence opérationnelle.\n\n- Collaborer avec les équipes de la qualité, de l'ingénierie, du développement des procédés et de l'analyse.\nVotre profil:\n\n• Baccalauréat en biologie, en biotechnologie, en biochimie, en génie chimique ou dans un domaine scientifique connexe ayant une expérience pertinente de 3 à 6 ans, diplôme de maîtrise avec une expérience pertinente de 1 à 3 ans. Des combinaisons équivalentes d'éducation et d'expérience peuvent être envisagées.\n\n• Expérience en biopharmaceutique, en thérapie génique, en thérapie cellulaire ou en fabrication de vecteurs viraux, en mettant l'accent sur le PSD.\n\n• Expérience pratique en chromatographie, filtration et opérations TFF/UF-DF.\n\n• Connaissance pratique des règlements sur les BPFc, des opérations de salles propres, du traitement aseptique et de la documentation sur les BPF.\n\n• L'expérience avec les systèmes de fabrication tels que MES, LIMS ou SAP est préférée.\n\n• L'expérience dans la fabrication de produits pharmaceutiques (formulation, filtration stérile, finissage aseptique) est un atout.\n\n• Expérience de la rédaction et du maintien des SOP et des instructions de travail.\n\n• Fortes compétences en dépannage, communication et documentation.\n\n• Volonté de soutenir des horaires de travail flexibles, y compris les week-ends.\n\n• L'allemand est un plus.\n\nCompétences techniques\n\n• Processus de purification des vecteurs viraux (p. ex. AAV, lentivirus, adénovirus).\n\n• Opérations DSP incluant chromatographie, TFF, UF/DF et filtration.\n\n• Exécution par lots de BPF, documentation et systèmes de fabrication électronique.\n\n• Processus de fabrication et dépannage de l'équipement.\n\n• Connaissance du contrôle de la contamination et des pratiques de fabrication aseptiques.\n\nCompétences douces\n\n• Une équipe axée sur la communication et la collaboration.\n\n• Résoudre les problèmes.\n\n• Capacité à fonctionner efficacement dans un environnement de fabrication rapide de BPF.\n\n• Niveau élevé de responsabilité, état d'esprit de qualité et attention aux détails.\n\nVos avantages :\n\n• Une expérience de travail unique et étonnante, faisant partie de l'un des CDMO les plus dynamiques, diversifiés et inclusifs de l'industrie.\n\n• Compensation compétitive et attrayante\n\n• 5 semaines de vacances et des horaires de travail flexibles permettent de combiner la famille, les loisirs et la carrière.\n\n• Travail efficace : faire une différence importante grâce à des projets innovateurs de thérapie génique\n\n• Possibilités d'apprentissage : Développer des compétences diversifiées dans un environnement dynamique\n\n• L'environnement accéléré: Voir les résultats rapidement et profiter de la liberté créative de se joindre au début du cycle de vie de l'installation.\n\nFondé en 1873 à Zofingen, en Suisse, Siegfried est devenu un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques à l'échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégré, Siegfried est l'une des rares organisations aujourd'hui à pouvoir réaliser le développement et la fabrication d'API et de formes posologiques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus fiable de l'industrie pharmaceutique.\n\nSiegfried est l'un des principaux CDMO (Contract Development & Manufacturing Organization) dont le siège est à Zofingen, en Suisse. L'entreprise exploite des sites de fabrication à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
       },
       "location": "Schlieren",
       "canton": "ZH",
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Schlieren/Manufacturing-Specialist---Sr-Manufacturing-Specialist--Downstream-Processing--DSP---Drug-Product_R26_628",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T22:09:50.407Z",
+      "crawledAt": "2026-07-23T11:32:42.671Z",
       "addressLocality": "Schlieren",
       "addressCountry": "CH",
       "country": "CH",
@@ -1151,11 +1191,24 @@
       "postedDate": "2026-07-22",
       "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Schlieren/Manufacturing-Specialist---Sr-Manufacturing-Specialist--Downstream-Processing--DSP---Drug-Product_R26_628",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "jobReqId": "R26_628",
       "hiringOrganization": "SIEGFRIED DiNAMIQS AG",
+      "firstSeenAt": "2026-07-22T22:09:50.407Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manufacturing-specialist-sr-manufacturing-specialist-downstream-processing-dsp-drug"
+        ],
+        "de": [
+          "manufacturing-specialist-sr-manufacturing-specialist-downstream-processing-dsp-drug"
+        ],
+        "fr": [
+          "manufacturing-specialist-sr-manufacturing-specialist-downstream-processing-dsp-drug"
+        ]
+      },
+      "previousSlugs": [
+        "manufacturing-specialist-sr-manufacturing-specialist-downstream-processing-dsp-drug"
+      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1169,7 +1222,7 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-22T22:09:50.407Z"
+      "needsRetranslation": true
     },
     {
       "id": "siegfried-49ca434545fe",
@@ -1251,7 +1304,7 @@
         }
       },
       "addressRegion": "VS",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "siegfried-c0e8a43a2cb9",
@@ -1325,14 +1378,14 @@
         }
       },
       "addressRegion": "AG",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "siegfried-8bf702f14b39",
       "slug": "ingegnere-di-produzione-siegfried-zofingen",
       "slugByLocale": {
         "it": "ingegnere-di-produzione-siegfried-zofingen",
-        "en": "operational-engineer-siegfried-zofingen",
+        "en": "betriebsingenieur-in-siegfried-zofingen",
         "de": "betriebsingenieur-in-siegfried-ch",
         "fr": "ingenieur-de-production-siegfried-zofingen"
       },
@@ -1342,7 +1395,7 @@
       "title": "Betriebsingenieur/in",
       "titleByLocale": {
         "it": "Ingegnere di produzione",
-        "en": "Operational engineer",
+        "en": "Betriebsingenieur/in",
         "de": "Betriebsingenieur/in",
         "fr": "Ingénieur de production"
       },
@@ -1377,7 +1430,8 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "betriebsingenieur-in-siegfried-ch",
-        "betriebsingenieur-in-siegfried-zofingen"
+        "betriebsingenieur-in-siegfried-zofingen",
+        "operational-engineer-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1385,6 +1439,7 @@
           "betriebsingenieur-in-siegfried-zofingen"
         ],
         "en": [
+          "operational-engineer-siegfried-zofingen",
           "betriebsingenieur-in-siegfried-zofingen"
         ],
         "fr": [
@@ -1405,161 +1460,8 @@
         }
       },
       "addressRegion": "AG",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "siegfried-92f9d8bebb01",
-      "slug": "consulente-legale-80-100-siegfried-zofingen",
-      "slugByLocale": {
-        "it": "consulente-legale-80-100-siegfried-zofingen",
-        "en": "legal-counsel-80-100-siegfried-ch",
-        "de": "rechtsberatung-80-100-siegfried-zofingen",
-        "fr": "conseiller-juridique-80-100-siegfried-zofingen"
-      },
-      "company": "Siegfried",
-      "companyKey": "siegfried",
-      "companyDomain": "siegfried.ch",
-      "title": "Legal Counsel (80-100%)",
-      "titleByLocale": {
-        "it": "Consulente legale (80-100%)",
-        "en": "Legal Counsel (80-100%)",
-        "de": "Rechtsberatung (80-100 %)",
-        "fr": "Conseiller juridique (80-100 %)"
-      },
-      "description": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nAt Siegfried we are currently looking for a Legal Counsel to join our legal team in our site based in Zofingen.\n\nReporting to the Global Head Integrity, Risk & Insurance your key responsibilities will be:\n\n- Provide legal advice and support on integrity and corporate governance, as well as on commercial and contract law matters, partnering closely with business leaders, corporate functions, and management teams.\n\n- Assist in the development and maintenance of global data protection, privacy and information security frameworks and related governance processes, providing pragmatic and business-oriented legal support.\n\n- Contribute to integrity, insurance & risk management initiatives, supporting the development and continuous improvement of related frameworks, policies and processes.\n\n- Provide day-to-day legal support across a broad range of business activities, including procurement, sales, operations and corporate functions.\n\n- Draft, review and negotiate a wide variety of commercial agreements, including manufacturing and supply agreements, procurement contracts, service agreements, confidentiality agreements and other business contracts.\n\n- Support dispute management and assist in the handling and resolution of out-of-court and in-court disputes.\n\nPurpose of the Role:\n\nSupport Siegfried's business by providing practical, solution-oriented legal advice across a broad range of legal matters. This legal generalist role offers broad exposure to commercial, corporate, integrity and governance matters, providing an excellent opportunity for a motivated legal professional to develop diverse expertise and grow into a trusted business partner within an international environment.\n Your Profile:\n\nWhat are we looking for?\n\nWe are seeking a motivated and ambitious legal professional who enjoys working across a broad range of legal topics. The ideal candidate is intellectually curious, eager to learn, and motivated to grow within an international organization. You combine solid legal fundamentals with a pragmatic, business-oriented approach and are comfortable taking ownership of tasks and projects early in your career.\n\nRequirements:\n\n• Master’s degree in Law (Swiss MLaw or equivalent international qualification) preferred. A Bachelor’s degree in Law, combined with relevant professional experience will also be considered. Admission to the bar is an advantage but not required.\n\n• 2–5 years of relevant professional experience gained in a law firm, consulting environment or in-house legal department. Experience in the pharmaceutical, life sciences or CDMO industry is considered an advantage.\n\n• Exposure to commercial, corporate or contract law. Additional experience or interest in data protection, information security, compliance, risk management or related areas is considered a plus .\n\nSkills & Competencies:\n\n• Strong analytical and problem-solving skills with the ability to translate legal concepts into practical, business-oriented advice.\n\n• Excellent drafting and communication skills. Professional proficiency in English and German (written and spoken) is required. Additional language skills, particularly French or Spanish, are considered a plus.\n\n• High level of integrity, sound judgment and professional ethics.\n\n• Curiosity and willingness to learn across a broad range of legal and governance topics.\n\n• Self-driven, proactive and solution-oriented mindset with a strong sense of ownership.\n\n• Strong stakeholder management and collaboration skills in a cross-functional, international environment\n\nYour Benefits:\n\n​ What do we offer?\n\n• Pension Plan: Our company-sponsored pension plan is attractive and offers flexible contribution options\n\n• Our stock purchase plan is generous and can be tailored to individual needs\n\n• Child Allowance: Siegfried AG increases the child allowance by 10% above the cantonal statutory rate\n\n• Reka-Geld: Siegfried AG offers employees a 20% discount\n\n• Staff restaurant / cafeteria: Meals at preferential rates\n\n• You can park at a discounted rate\n\n• Centrally located: Close to the train station with excellent public transportation connections\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-      "descriptionByLocale": {
-        "it": "\"Aspettatevi di crescere\", personalmente e professionalmente: noi di Siegfried offriamo sfide entusiasmanti e ampie opportunità per mostrare i vostri talenti. In qualità di partner fidato e rispettato dell'industria farmaceutica, sosteniamo gli standard più elevati in termini di sicurezza, qualità e sostenibilità, promuovendo al tempo stesso una cultura che ti consente di prosperare. Unisciti a un'azienda globale in rapida espansione, dove prospettive ed esperienze diverse si uniscono in un ambiente collaborativo. Qui troverai un ambiente di lavoro che valorizza sia il successo collettivo che il tuo contributo individuale, offrendo opportunità a lungo termine per crescere e avere un impatto. Il tuo ruolo: In Siegfried stiamo attualmente cercando un consulente legale che si unisca al nostro team legale nel nostro sito con sede a Zofingen. Riportando al Global Head Integrity, Risk & Insurance, le tue responsabilità principali saranno: - Fornire consulenza legale e supporto su integrità e governance aziendale, nonché su questioni di diritto commerciale e contrattuale, collaborando a stretto contatto con leader aziendali, funzioni aziendali e team di gestione. - Assistere nello sviluppo e nel mantenimento di quadri globali di protezione dei dati, privacy e sicurezza delle informazioni e dei relativi processi di governance, fornendo supporto legale pragmatico e orientato al business. - Contribuire alle iniziative di integrità, assicurazione e gestione del rischio, supportando lo sviluppo e il miglioramento continuo dei relativi quadri, politiche e processi. - Fornire supporto legale quotidiano in un'ampia gamma di attività aziendali, inclusi appalti, vendite, operazioni e funzioni aziendali. - Redigere, rivedere e negoziare un'ampia varietà di accordi commerciali, inclusi accordi di produzione e fornitura, contratti di appalto, accordi di servizio, accordi di riservatezza e altri contratti commerciali. - Supportare la gestione delle controversie e assistere nella gestione e risoluzione delle controversie stragiudiziali e giudiziali. Scopo del ruolo: supportare l'attività di Siegfried fornendo consulenza legale pratica e orientata alla soluzione in un'ampia gamma di questioni legali. Questo ruolo di generalista legale offre un'ampia esposizione a questioni commerciali, societarie, di integrità e di governance, offrendo un'eccellente opportunità per un professionista legale motivato di sviluppare competenze diversificate e diventare un partner commerciale di fiducia in un ambiente internazionale. Il tuo profilo: cosa stiamo cercando? Cerchiamo un professionista legale motivato e ambizioso che ami lavorare su una vasta gamma di argomenti legali. Il candidato ideale è intellettualmente curioso, desideroso di apprendere e motivato a crescere all'interno di un'organizzazione internazionale. Combini solidi fondamenti giuridici con un approccio pragmatico e orientato al business e ti senti a tuo agio nell'assumere la responsabilità di compiti e progetti all'inizio della tua carriera. Requisiti:\n• Preferibile laurea magistrale in Giurisprudenza (Swiss MLaw o titolo internazionale equivalente). Verrà presa in considerazione anche la laurea in Giurisprudenza, abbinata ad esperienza professionale rilevante. L'ingresso al bar è un vantaggio ma non obbligatorio.\n• 2–5 anni di esperienza professionale rilevante maturata in uno studio legale, in un ambiente di consulenza o in un dipartimento legale interno. L'esperienza nel settore farmaceutico, delle scienze della vita o del CDMO è considerata un vantaggio.\n• Esposizione al diritto commerciale, societario o contrattuale. Ulteriori esperienze o interessi nella protezione dei dati, nella sicurezza delle informazioni, nella conformità, nella gestione dei rischi o in aree correlate sono considerati un vantaggio. Capacità e competenze:\n• Forti capacità analitiche e di risoluzione dei problemi con la capacità di tradurre concetti legali in consulenza pratica e orientata al business.\n• Eccellenti capacità redazionali e di comunicazione. È richiesta la conoscenza professionale della lingua inglese e tedesca (scritta e parlata). Ulteriori competenze linguistiche, in particolare francese o spagnolo, sono considerate un vantaggio.\n• Elevato livello di integrità, buon giudizio ed etica professionale.\n• Curiosità e volontà di apprendere in un'ampia gamma di argomenti legali e di governance.\n• Mentalità autonoma, proattiva e orientata alla soluzione con un forte senso di proprietà.\n• Forti capacità di gestione e collaborazione delle parti interessate in un ambiente internazionale interfunzionale I vostri vantaggi: ​Cosa offriamo?\n• Piano pensionistico: il nostro piano pensionistico aziendale è interessante e offre possibilità di contribuzione flessibili\n• Il nostro piano di acquisto di azioni è generoso e adattabile alle esigenze individuali\n• Assegno per figli: la Siegfried AG aumenta l'assegno per figli del 10% rispetto al tasso legale cantonale\n• Reka-Geld: la Siegfried AG offre ai dipendenti uno sconto del 20%\n• Ristorante/caffetteria per il personale: pasti a prezzo preferenziale\n• Possibilità di parcheggiare a prezzo scontato\n• Posizione centrale: vicino alla stazione con ottimi trasporti pubblici collegamenti Fondata nel 1873 a Zofingen, in Svizzera, Siegfried è cresciuta fino a diventare una rete globale di 16 sedi in tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici su scala industriale e produciamo farmaci sicuri per i pazienti di tutto il mondo. In quanto CDMO completamente integrato, Siegfried è oggi una delle poche organizzazioni in grado di svolgere lo sviluppo e la produzione di API e forme di dosaggio finite sotto lo stesso tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico. Siegfried è una delle principali CDMO (Contract Development & Manufacturing Organization) con sede a Zofingen, Svizzera. L'azienda gestisce siti di produzione a Evionnaz (Vallese), Zofingen (Argovia) e Schlieren (Zurigo).",
-        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nAt Siegfried we are currently looking for a Legal Counsel to join our legal team in our site based in Zofingen.\n\nReporting to the Global Head Integrity, Risk & Insurance your key responsibilities will be:\n\n- Provide legal advice and support on integrity and corporate governance, as well as on commercial and contract law matters, partnering closely with business leaders, corporate functions, and management teams.\n\n- Assist in the development and maintenance of global data protection, privacy and information security frameworks and related governance processes, providing pragmatic and business-oriented legal support.\n\n- Contribute to integrity, insurance & risk management initiatives, supporting the development and continuous improvement of related frameworks, policies and processes.\n\n- Provide day-to-day legal support across a broad range of business activities, including procurement, sales, operations and corporate functions.\n\n- Draft, review and negotiate a wide variety of commercial agreements, including manufacturing and supply agreements, procurement contracts, service agreements, confidentiality agreements and other business contracts.\n\n- Support dispute management and assist in the handling and resolution of out-of-court and in-court disputes.\n\nPurpose of the Role:\n\nSupport Siegfried's business by providing practical, solution-oriented legal advice across a broad range of legal matters. This legal generalist role offers broad exposure to commercial, corporate, integrity and governance matters, providing an excellent opportunity for a motivated legal professional to develop diverse expertise and grow into a trusted business partner within an international environment.\nYour Profile:\n\nWhat are we looking for?\n\nWe are seeking a motivated and ambitious legal professional who enjoys working across a broad range of legal topics. The ideal candidate is intellectually curious, eager to learn, and motivated to grow within an international organization. You combine solid legal fundamentals with a pragmatic, business-oriented approach and are comfortable taking ownership of tasks and projects early in your career.\n\nRequirements:\n\n• Master’s degree in Law (Swiss MLaw or equivalent international qualification) preferred. A Bachelor’s degree in Law, combined with relevant professional experience will also be considered. Admission to the bar is an advantage but not required.\n\n• 2–5 years of relevant professional experience gained in a law firm, consulting environment or in-house legal department. Experience in the pharmaceutical, life sciences or CDMO industry is considered an advantage.\n\n• Exposure to commercial, corporate or contract law. Additional experience or interest in data protection, information security, compliance, risk management or related areas is considered a plus .\n\nSkills & Competencies:\n\n• Strong analytical and problem-solving skills with the ability to translate legal concepts into practical, business-oriented advice.\n\n• Excellent drafting and communication skills. Professional proficiency in English and German (written and spoken) is required. Additional language skills, particularly French or Spanish, are considered a plus.\n\n• High level of integrity, sound judgment and professional ethics.\n\n• Curiosity and willingness to learn across a broad range of legal and governance topics.\n\n• Self-driven, proactive and solution-oriented mindset with a strong sense of ownership.\n\n• Strong stakeholder management and collaboration skills in a cross-functional, international environment\n\nYour Benefits:\n\n​ What do we offer?\n\n• Pension Plan: Our company-sponsored pension plan is attractive and offers flexible contribution options\n\n• Our stock purchase plan is generous and can be tailored to individual needs\n\n• Child Allowance: Siegfried AG increases the child allowance by 10% above the cantonal statutory rate\n\n• Reka-Geld: Siegfried AG offers employees a 20% discount\n\n• Staff restaurant / cafeteria: Meals at preferential rates\n\n• You can park at a discounted rate\n\n• Centrally located: Close to the train station with excellent public transportation connections\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "de": "„Erwarten Sie, sich persönlich und beruflich zu entwickeln: Bei Siegfried bieten wir Ihnen spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als vertrauenswürdiger und angesehener Partner der Pharmaindustrie halten wir die höchsten Standards in Bezug auf Sicherheit, Qualität und Nachhaltigkeit aufrecht und fördern gleichzeitig eine Kultur, die Sie zum Erfolg befähigt. Werden Sie Teil eines schnell wachsenden globalen Unternehmens, in dem unterschiedliche Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl den gemeinsamen Erfolg als auch Ihre individuellen Beiträge wertschätzt – und der Ihnen langfristige Möglichkeiten bietet, zu wachsen und etwas zu bewirken. Ihre Rolle: Bei Siegfried sind wir derzeit auf der Suche nach einem Rechtsberater zur Verstärkung unseres Rechtsteams an unserem Standort in Zofingen. Ihre Hauptaufgaben sind dem Global Head Integrity, Risk & Insurance unterstellt: - Bereitstellung von Rechtsberatung und Unterstützung zu Integrität und Corporate Governance sowie zu Handels- und Vertragsrechtsangelegenheiten, wobei Sie eng mit Unternehmensleitern, Unternehmensfunktionen und Managementteams zusammenarbeiten. - Unterstützung bei der Entwicklung und Pflege globaler Datenschutz-, Privatsphären- und Informationssicherheitsrahmen sowie damit verbundener Governance-Prozesse und Bereitstellung pragmatischer und geschäftsorientierter rechtlicher Unterstützung. - Tragen Sie zu Integritäts-, Versicherungs- und Risikomanagementinitiativen bei und unterstützen Sie die Entwicklung und kontinuierliche Verbesserung der entsprechenden Rahmenwerke, Richtlinien und Prozesse. - Bieten Sie alltägliche rechtliche Unterstützung für ein breites Spektrum an Geschäftsaktivitäten, einschließlich Beschaffung, Vertrieb, Betrieb und Unternehmensfunktionen. - Entwerfen, prüfen und verhandeln Sie eine Vielzahl von Handelsverträgen, einschließlich Herstellungs- und Lieferverträgen, Beschaffungsverträgen, Dienstleistungsverträgen, Vertraulichkeitsvereinbarungen und anderen Geschäftsverträgen. - Unterstützen Sie das Streitbeilegungsmanagement und helfen Sie bei der Bearbeitung und Beilegung außergerichtlicher und gerichtlicher Streitigkeiten. Zweck der Rolle: Unterstützung des Geschäfts von Siegfried durch Bereitstellung praktischer, lösungsorientierter Rechtsberatung in einem breiten Spektrum rechtlicher Angelegenheiten. Diese Position als Rechtsgeneralist bietet einen breiten Einblick in Handels-, Unternehmens-, Integritäts- und Governance-Angelegenheiten und bietet motivierten Juristen eine hervorragende Gelegenheit, vielfältige Fachkenntnisse zu entwickeln und sich zu einem vertrauenswürdigen Geschäftspartner in einem internationalen Umfeld zu entwickeln. Ihr Profil: Was suchen wir? Wir suchen einen motivierten und ehrgeizigen Juristen, der Freude daran hat, sich mit einem breiten Spektrum an Rechtsthemen auseinanderzusetzen. Der ideale Kandidat ist intellektuell neugierig, lernbegierig und motiviert, sich innerhalb einer internationalen Organisation weiterzuentwickeln. Sie verbinden fundierte juristische Grundlagen mit einer pragmatischen, geschäftsorientierten Vorgehensweise und übernehmen gerne früh in Ihrer Karriere Verantwortung für Aufgaben und Projekte. Voraussetzungen:\n• Master-Abschluss in Rechtswissenschaften (Schweizer MLaw oder gleichwertiger internationaler Abschluss) bevorzugt. Ein Bachelor-Abschluss in Rechtswissenschaften in Kombination mit einschlägiger Berufserfahrung wird ebenfalls berücksichtigt. Die Zulassung als Rechtsanwalt ist von Vorteil, aber nicht Voraussetzung.\n• 2–5 Jahre einschlägige Berufserfahrung in einer Anwaltskanzlei, einem Beratungsumfeld oder einer internen Rechtsabteilung. Erfahrungen in der Pharma-, Life-Science- oder CDMO-Branche werden als Vorteil angesehen.\n• Kontakt mit Handels-, Gesellschafts- oder Vertragsrecht. Zusätzliche Erfahrung oder Interesse an Datenschutz, Informationssicherheit, Compliance, Risikomanagement oder verwandten Bereichen gelten als vorteilhaft. Fähigkeiten und Kompetenzen:\n• Starke Analyse- und Problemlösungsfähigkeiten mit der Fähigkeit, rechtliche Konzepte in praktische, geschäftsorientierte Beratung umzusetzen.\n• Ausgezeichnete Entwurfs- und Kommunikationsfähigkeiten. Fachliche Kenntnisse in Englisch und Deutsch (schriftlich und mündlich) sind erforderlich. Weitere Sprachkenntnisse, insbesondere Französisch oder Spanisch, werden als Pluspunkt angesehen.\n• Hohes Maß an Integrität, gesundem Urteilsvermögen und Berufsethik.\n• Neugier und Lernbereitschaft in einem breiten Spektrum an Rechts- und Governance-Themen.\n• Eigenverantwortliche, proaktive und lösungsorientierte Denkweise mit einem starken Gefühl der Eigenverantwortung.\n• Starke Stakeholder-Management- und Kollaborationsfähigkeiten in einem funktionsübergreifenden, internationalen Umfeld. Ihre Vorteile: ​ Was bieten wir?\n• Vorsorgeplan: Unser betrieblicher Vorsorgeplan ist attraktiv und bietet flexible Einzahlungsmöglichkeiten.\n• Unser Aktienkaufplan ist grosszügig und individuell anpassbar.\n• Kinderzulage: Die Siegfried AG erhöht die Kinderzulage um 10 % über dem kantonalen gesetzlichen Satz.\n• Reka-Geld: Die Siegfried AG bietet Mitarbeitenden 20 % Rabatt Siegfried wurde 1873 in Zofingen in der Schweiz gegründet und hat sich zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten entwickelt. Mit einem Team von mehr als 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer Pharmakunden in den industriellen Maßstab und stellen sichere Medikamente für Patienten weltweit her. Als vollständig integriertes CDMO ist Siegfried heute eines der wenigen Unternehmen, das die Entwicklung und Herstellung von Wirkstoffen und fertigen Darreichungsformen unter einem Dach durchführen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner in der Pharmaindustrie. Siegfried ist ein führendes CDMO (Contract Development & Manufacturing Organization) mit Hauptsitz in Zofingen, Schweiz. Das Unternehmen betreibt Produktionsstandorte in Evionnaz (Wallis), Zofingen (Aargau) und Schlieren (Zürich).",
-        "fr": "\"Attendez-vous à grandir\", personnellement et professionnellement : chez Siegfried, nous vous proposons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en favorisant une culture qui vous permet de prospérer. Rejoignez une entreprise mondiale en pleine expansion, où diverses perspectives et expériences se réunissent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise à la fois la réussite collective et vos contributions individuelles, offrant des opportunités à long terme de croissance et d'impact. Votre rôle : Chez Siegfried, nous recherchons actuellement un conseiller juridique pour rejoindre notre équipe juridique sur notre site basé à Zofingen. Relevant du responsable mondial de l'intégrité, des risques et des assurances, vos principales responsabilités seront les suivantes : - Fournir des conseils et un soutien juridiques en matière d'intégrité et de gouvernance d'entreprise, ainsi que sur les questions de droit commercial et de droit des contrats, en étroite collaboration avec les chefs d'entreprise, les fonctions d'entreprise et les équipes de direction. - Aider au développement et à la maintenance de cadres mondiaux de protection des données, de confidentialité et de sécurité de l'information et des processus de gouvernance associés, en fournissant un soutien juridique pragmatique et axé sur les affaires. - Contribuer aux initiatives d'intégrité, d'assurance et de gestion des risques, en soutenant le développement et l'amélioration continue des cadres, politiques et processus connexes. - Fournir un soutien juridique quotidien dans un large éventail d'activités commerciales, notamment les achats, les ventes, les opérations et les fonctions d'entreprise. - Rédiger, réviser et négocier une grande variété d'accords commerciaux, y compris des accords de fabrication et d'approvisionnement, des contrats d'approvisionnement, des accords de service, des accords de confidentialité et d'autres contrats commerciaux. - Soutenir la gestion des litiges et aider au traitement et à la résolution des litiges extrajudiciaires et judiciaires. Objectif du rôle : Soutenir les activités de Siegfried en fournissant des conseils juridiques pratiques et axés sur les solutions sur un large éventail de questions juridiques. Ce rôle de généraliste juridique offre une large exposition aux questions commerciales, d'entreprise, d'intégrité et de gouvernance, offrant une excellente opportunité pour un professionnel du droit motivé de développer une expertise diversifiée et de devenir un partenaire commercial de confiance dans un environnement international. Votre profil : Que recherchons-nous ? Nous recherchons un professionnel du droit motivé et ambitieux qui aime travailler sur un large éventail de sujets juridiques. Le candidat idéal est intellectuellement curieux, désireux d’apprendre et motivé à évoluer au sein d’une organisation internationale. Vous combinez de solides fondamentaux juridiques avec une approche pragmatique et orientée business et êtes à l'aise de vous approprier des tâches et des projets en début de carrière. Exigences :\n• Master en droit (Swiss MLaw ou diplôme international équivalent) de préférence. Un baccalauréat en droit, combiné à une expérience professionnelle pertinente sera également considéré. L'admission au bar est un avantage mais n'est pas obligatoire.\n• 2 à 5 ans d'expérience professionnelle pertinente acquise dans un cabinet d'avocats, un environnement de conseil ou un service juridique interne. Une expérience dans l'industrie pharmaceutique, des sciences de la vie ou du CDMO est considérée comme un avantage.\n• Exposition au droit commercial, des sociétés ou des contrats. Une expérience ou un intérêt supplémentaire pour la protection des données, la sécurité de l'information, la conformité, la gestion des risques ou des domaines connexes est considéré comme un atout. Aptitudes et compétences :\n• Solides compétences analytiques et de résolution de problèmes avec la capacité de traduire des concepts juridiques en conseils pratiques et axés sur les affaires.\n• Excellentes compétences rédactionnelles et de communication. La maîtrise professionnelle de l'anglais et de l'allemand (écrit et parlé) est requise. Des compétences linguistiques supplémentaires, notamment en français ou en espagnol, sont considérées comme un plus.\n• Haut niveau d'intégrité, bon jugement et éthique professionnelle.\n• Curiosité et volonté d'apprendre sur un large éventail de sujets juridiques et de gouvernance.\n• Esprit autonome, proactif et axé sur les solutions avec un fort sentiment d'appartenance.\n• Solides compétences en matière de gestion des parties prenantes et de collaboration dans un environnement interfonctionnel et international Vos avantages : ​ Qu'offrons-nous ?\n• Plan de prévoyance : notre plan de prévoyance d'entreprise est attractif et offre des possibilités de cotisations flexibles\n• Notre plan de rachat d'actions est généreux et peut être adapté aux besoins individuels\n• Allocation familiale : Siegfried AG augmente l'allocation familiale de 10% au-dessus du taux légal cantonal\n• Reka-Geld : Siegfried AG offre aux collaborateurs une réduction de 20%\n• Restaurant / cafétéria du personnel : repas à des tarifs préférentiels\n• Vous pouvez vous garer à un tarif réduit\n• Situation centrale : à proximité de la gare avec d'excellentes liaisons de transports publics Fondée en 1873 à Zofingen, en Suisse, Siegfried est devenue un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégré, Siegfried est aujourd'hui l'une des rares organisations à pouvoir réaliser le développement et la fabrication d'API et de formes posologiques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique. Siegfried est une CDMO (Contract Development & Manufacturing Organization) de premier plan dont le siège est à Zofingen, en Suisse. L'entreprise exploite des sites de production à Evionnaz (Valais), Zofingen (Argovie) et Schlieren (Zurich)."
-      },
-      "location": "Zofingen",
-      "canton": "AG",
-      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Legal-Counsel--80-100--_R26_507",
-      "source": "Siegfried Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-21T22:09:27.900Z",
-      "addressLocality": "Zofingen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Legale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-16",
-      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Legal-Counsel--80-100--_R26_507",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "R26_507",
-      "hiringOrganization": "Siegfried AG",
-      "previousSlugs": [
-        "legal-counsel-80-100-siegfried-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "legal-counsel-80-100-siegfried-ch"
-        ],
-        "de": [
-          "legal-counsel-80-100-siegfried-ch"
-        ],
-        "fr": [
-          "legal-counsel-80-100-siegfried-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-16T14:25:00.928Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "AG",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "siegfried-ac6024cfb924",
-      "slug": "assistente-esecutivo-siegfried-zofingen",
-      "slugByLocale": {
-        "it": "assistente-esecutivo-siegfried-zofingen",
-        "en": "executive-assistant-siegfried-ch",
-        "de": "executive-assistant-siegfried-ch",
-        "fr": "assistant-executif-siegfried-zofingen"
-      },
-      "company": "Siegfried",
-      "companyKey": "siegfried",
-      "companyDomain": "siegfried.ch",
-      "title": "Executive Assistant",
-      "titleByLocale": {
-        "it": "Assistente esecutivo",
-        "en": "Executive Assistant",
-        "de": "Executive Assistent",
-        "fr": "Assistant exécutif"
-      },
-      "description": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nIn dieser äusserst verantwortungsvollen und abwechslungsreichen Funktion erwartet Sie ein spannender Mix aus administrativen, koordinativen und organisatorischen Aufgaben. Sie sorgen als wichtige und zentrale Ansprechperson für reibungslose Abläufe im Arbeitsalltag und entlasten und unterstützen umfassend Mitglieder der Geschäftsleitung und des Senior Management im Tagesgeschäft.\n\n- Administrative und organisatorische Unterstützung der zugeteilten Senior Management- und Geschäftsleitungsmitglieder\n\n- Sicherstellen einer umfassenden Terminkoordination inklusive Kalendermanagement\n\n- Organisieren und Buchen von Geschäftsreisen sowie Kundenbesuchen\n\n- Aufbereiten von Meetingunterlagen, Erstellen von Präsentationen und Führen von Protokollen\n\n- Verantworten der Spesenabrechnung und des Auslagenmanagements\n\n- Organisieren von Kundenanlässen sowie internen Events\n\n- Führen von internen Prozessdatenbanken sowie Mitarbeit in Projekten\n\n- Schnittstellenfunktion als erste Anlaufstelle für interne und externe Partner\n\n- Allgemeine Korrespondenz in Deutsch und Englisch\n\n- Troubleshooting im Daily Business\n Your Profile:\n\nFachkenntnisse\n\n- Mehrjährige Erfahrung im C-Level Support in einem internationalen Unternehmen\n\n- Erfolgreich abgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation, idealerweise mit Weiterbildung im Bereich Executive Assistance (z.B. Direktionsassistent/In)\n\n- Sehr gute, stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch oder Spanisch von Vorteil\n\n- IT-affin und sehr versiert im Umgang mit den gängigsten MS-Office Programmen\n\nPersönliche Stärken\n\n- Dienstleistungsorientierte, proaktive Persönlichkeit mit hoher Eigeninitiative\n\n- Vernetzt denkender, kommunikationsstarker Teamplayer mit einem guten Flair für den Umgang mit verschiedenen Persönlichkeiten\n\n- Flexibles Organisationstalent mit lösungsorientierter Arbeitsweise\n\nYour Benefits:\n - Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n - Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n - Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n - Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n - Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n - Parken können Sie bei uns vergünstigt\n - Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-      "descriptionByLocale": {
-        "it": "\"Aspetta di crescere\" personalmente e professionalmente: Siegfried vi aspetta con interessanti sfide e numerosi modi per dimostrare i vostri talenti. Come partner affidabile e rispettato dell'industria farmaceutica, manteniamo i più elevati standard nei settori della sicurezza, della qualità e della sostenibilità – e allo stesso tempo promuoviamo una cultura che ti consente di avere successo. Diventa parte di un'azienda globale in rapida crescita dove prospettive e esperienze diverse si fondono in un ambiente cooperativo. Qui troverete un lavoro che valuta sia il successo collettivo che i vostri contributi individuali – e vi offre opportunità a lungo termine per sviluppare e fare qualcosa. Il tuo ruolo: Questa funzione estremamente responsabile e varia vi aspetta con un mix emozionante di compiti amministrativi, di coordinamento e organizzativi. Come punto di contatto importante e centrale, forniscono fluidi flussi di lavoro nel lavoro quotidiano e alleviano e sostengono membri completi della gestione e senior management nel business quotidiano. - Sostegno amministrativo e organizzativo dei membri senior e della gestione assegnati - Assicurare un coordinamento completo degli appuntamenti, compresa la gestione del calendario - Organizzazione e prenotazione di viaggi e visite ai clienti - Preparare documenti di riunione, creare presentazioni e eseguire registri - Responsabilità della fatturazione delle merci e della gestione delle spese - Organizzazione di eventi e eventi interni - Principali basi di dati di processo interno e cooperazione nei progetti - Funzione di interfaccia come primo punto di contatto per partner interni ed esterni - Corrispondenza generale in tedesco e inglese - Risoluzione dei problemi nel business quotidiano Il tuo profilo: Competenza - Esperienza pluriennale nel sostegno a livello C in un'azienda internazionale - Formazione commerciale completata con successo o qualificazione comparabile, idealmente con ulteriore formazione nel campo dell'Assistenza Executive (ad es. - Conoscenza molto buona, stilistica del tedesco e dell'inglese in parola e scrittura, francese o spagnolo - IT-affin e molto esperto nella gestione dei programmi MS-Office più comuni Punti di forza personali - Personalità proattiva e orientata al servizio con alta auto-iniziativa - Reti pensando, comunicazione-forte giocatore di squadra con un buon tocco per trattare con personalità diverse - Design organizzativo flessibile con funzionamento orientato alla soluzione I tuoi vantaggi - Fondo pensione: Il fondo pensione della nostra azienda è attraente e contributi individuali - Il piano di acquisto azionario è generoso e individuale - Indennità d'invalidità: Siegfried AG aumenta l'indennitaÁ del 10% rispetto all'approccio cantonale - Reka-Geld: Siegfried AG concede ai dipendenti uno sconto del 20% - Ristorante personale / caffetteria: catering per condizioni preferenziali - Puoi parcheggiare con noi - Posizione centrale: Vicino alla stazione ferroviaria posizione con un ottimo accesso ai trasporti pubblici Fondata nel 1873 a Zofingen, Svizzera, Siegfried è cresciuta in una rete globale con 13 sedi in tre continenti. Con un team di oltre 3.800 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici nella produzione industriale e produciamo farmaci sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche aziende che oggi può combinare lo sviluppo e la produzione di principi attivi (API) e forme di dosaggio finito sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile dell'industria farmaceutica Siegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce stabilimenti produttivi a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
-        "en": "\"Expect to grow\" personally and professionally: Siegfried awaits you with exciting challenges and numerous ways to prove your talents. As a trusted and respected partner of the pharmaceutical industry, we maintain the highest standards in the fields of safety, quality and sustainability – and at the same time promote a culture that empowers you to succeed. Become part of a rapidly growing global company where diverse perspectives and experiences come together in a cooperative environment. Here you will find a job that evaluates both collective success and your individual contributions – and offers you long-term opportunities to develop and do something. Your Role: This extremely responsible and varied function awaits you with an exciting mix of administrative, coordination and organizational tasks. As an important and central point of contact, they provide smooth workflows in everyday work and relieve and support comprehensive members of the management and senior management in daily business. - Administrative and organisational support of the assigned senior management and management members - Ensure comprehensive appointment coordination including calendar management - Organizing and booking business trips and customer visits - Prepare meeting documents, create presentations and run logs -\n• Responsibilities of freight billing and the expenses management - Organizing customer events and internal events - Leading internal process databases and cooperation in projects - Interface function as the first point of contact for internal and external partners - General correspondence in German and English - Troubleshooting in Daily Business Your\n• Profile: Expertise - Multiannual experience in C-level support in an international company - Successfully completed commercial training or comparable qualification, ideally with further training in the field of Executive Assistance (e.g. - Very good, stylistic knowledge of German and English in word and writing, French or Spanish - IT-affin and very versed in handling the most common MS-Office programs Personal strengths - Service-oriented, proactive personality with high self-initiative - Networks thinking, communication-strong team player with a good flair for dealing with different personalities - Flexible organizational design with solution-oriented operation Your Benefits - Pension fund: Our company's pension fund is attractive and individual contributions - Stock purchase plan is generous and individual - Child allowance: Siegfried AG increases child allowance by 10% compared to the cantonal legal approach - Reka-Geld: Siegfried AG grants employees a 20% discount - Personal restaurant / cafeteria: catering for preferential conditions - You can park with us - Central location: Near railway station location with very good access to public transport Founded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network with 13 locations on three continents. With a team of over 3,800 highly qualified professionals, we bring the innovations of our pharmaceutical customers into industrial production and produce safe medicines for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few companies that today can combine the development and production of active ingredients (APIs) and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trustworthy partner of the pharmaceutical industry Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "de": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nIn dieser äusserst verantwortungsvollen und abwechslungsreichen Funktion erwartet Sie ein spannender Mix aus administrativen, koordinativen und organisatorischen Aufgaben. Sie sorgen als wichtige und zentrale Ansprechperson für reibungslose Abläufe im Arbeitsalltag und entlasten und unterstützen umfassend Mitglieder der Geschäftsleitung und des Senior Management im Tagesgeschäft.\n\n- Administrative und organisatorische Unterstützung der zugeteilten Senior Management- und Geschäftsleitungsmitglieder\n\n- Sicherstellen einer umfassenden Terminkoordination inklusive Kalendermanagement\n\n- Organisieren und Buchen von Geschäftsreisen sowie Kundenbesuchen\n\n- Aufbereiten von Meetingunterlagen, Erstellen von Präsentationen und Führen von Protokollen\n\n- Verantworten der Spesenabrechnung und des Auslagenmanagements\n\n- Organisieren von Kundenanlässen sowie internen Events\n\n- Führen von internen Prozessdatenbanken sowie Mitarbeit in Projekten\n\n- Schnittstellenfunktion als erste Anlaufstelle für interne und externe Partner\n\n- Allgemeine Korrespondenz in Deutsch und Englisch\n\n- Troubleshooting im Daily Business\nYour Profile:\n\nFachkenntnisse\n\n- Mehrjährige Erfahrung im C-Level Support in einem internationalen Unternehmen\n\n- Erfolgreich abgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation, idealerweise mit Weiterbildung im Bereich Executive Assistance (z.B. Direktionsassistent/In)\n\n- Sehr gute, stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch oder Spanisch von Vorteil\n\n- IT-affin und sehr versiert im Umgang mit den gängigsten MS-Office Programmen\n\nPersönliche Stärken\n\n- Dienstleistungsorientierte, proaktive Persönlichkeit mit hoher Eigeninitiative\n\n- Vernetzt denkender, kommunikationsstarker Teamplayer mit einem guten Flair für den Umgang mit verschiedenen Persönlichkeiten\n\n- Flexibles Organisationstalent mit lösungsorientierter Arbeitsweise\n\nYour Benefits:\n- Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n- Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n- Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n- Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n- Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n- Parken können Sie bei uns vergünstigt\n- Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "fr": "\"S'attendre à grandir\" personnellement et professionnellement: Siegfried vous attend avec des défis passionnants et de nombreuses façons de prouver vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous maintenons les normes les plus élevées dans les domaines de la sécurité, de la qualité et de la durabilité, tout en promouvant une culture qui vous donne les moyens de réussir. Devenez membre d'une entreprise mondiale en croissance rapide où des perspectives et des expériences variées se rencontrent dans un environnement coopératif. Vous trouverez ici un emploi qui évalue à la fois la réussite collective et vos contributions individuelles – et vous offre des opportunités à long terme pour développer et faire quelque chose. Votre rôle : Cette fonction extrêmement responsable et variée vous attend avec un mélange passionnant de tâches administratives, de coordination et d'organisation. En tant que point de contact important et central, ils fournissent des flux de travail fluides dans le travail quotidien et soulagent et soutiennent les membres complets de la direction et de la haute direction dans les affaires quotidiennes. - Soutien administratif et organisationnel des cadres supérieurs et des membres de la direction affectés - Assurer une coordination complète des nominations, y compris la gestion du calendrier - Organisation et réservation de voyages d'affaires et de visites de clients - Préparer des documents de réunion, créer des présentations et exécuter des journaux - Responsabilités de la facturation du fret et de la gestion des dépenses - Organisation d'événements clients et d'événements internes - Diriger les bases de données internes et la coopération dans les projets - Fonction d'interface comme premier point de contact pour les partenaires internes et externes - Correspondance générale en allemand et anglais - Dépannage quotidien\n• Votre profil: Expertise - Expérience pluriannuelle en soutien au niveau C dans une entreprise internationale - Une formation commerciale réussie ou une qualification comparable, idéalement avec une formation continue dans le domaine de l'aide aux cadres supérieurs (par exemple : - Très bonne connaissance stylistique de l'allemand et de l'anglais en français et en espagnol - IT-affin et très versé dans la gestion des programmes MS-Office les plus courants Forces personnelles - Personnalité proactive et orientée vers le service avec une grande initiative d'auto-initiative - Réflexion des réseaux, joueur d'équipe de communication forte avec un bon style pour traiter avec différentes personnalités - Conception organisationnelle flexible avec fonctionnement orienté vers la solution Vos avantages - Caisse de retraite : la caisse de retraite de notre société est attrayante et les cotisations individuelles - Plan d'achat d'actions généreux et individuel - Allocation pour enfant: Siegfried AG augmente l'allocation pour enfant de 10% par rapport à l'approche légale cantonale - Reka-Geld: Siegfried AG accorde aux salariés une réduction de 20% - Restaurant personnel / cafétéria: restauration aux conditions préférentielles - Vous pouvez vous garer avec nous - Situation centrale: Près de la gare avec un très bon accès aux transports en commun Fondée en 1873 à Zofingen, en Suisse, Siegfried est devenue un réseau mondial avec 13 emplacements sur trois continents. Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques dans la production industrielle et produisons des médicaments sûrs pour les patients dans le monde entier. En tant que CDMO entièrement intégré, Siegfried est l'une des rares entreprises qui peuvent aujourd'hui combiner le développement et la production d'ingrédients actifs (API) et de formes posologiques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus digne de confiance de l'industrie pharmaceutique Siegfried est l'un des principaux CDMO (Contract Development & Manufacturing Organization) dont le siège est à Zofingen, en Suisse. L'entreprise exploite des sites de fabrication à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
-      },
-      "location": "Zofingen",
-      "canton": "AG",
-      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Executive-Assistant_R26_413",
-      "source": "Siegfried Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-21T22:09:24.574Z",
-      "addressLocality": "Zofingen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-12",
-      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Executive-Assistant_R26_413",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "R26_413",
-      "hiringOrganization": "Siegfried AG",
-      "previousSlugs": [
-        "executive-assistant-siegfried-ch",
-        "executive-assistant-siegfried-zofingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "executive-assistant-siegfried-ch"
-        ],
-        "fr": [
-          "executive-assistant-siegfried-zofingen"
-        ]
-      },
-      "firstSeenAt": "2026-05-12T11:59:11.839Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "AG",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
