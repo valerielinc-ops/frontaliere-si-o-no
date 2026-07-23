@@ -1,18 +1,19 @@
 {
   "key": "kudelski-nagra",
   "label": "Kudelski NAGRA",
-  "generatedAt": "2026-07-22T22:19:29.357Z",
+  "generatedAt": "2026-07-23T11:17:52.170Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4909,
-  "avgDurationMs": 4909,
+  "durationMs": 4428,
+  "avgDurationMs": 4428,
   "durationHistory": [
-    4909
+    4428
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "kudelski-nagra-213b373baaf3",
       "slug": "apprenti-e-employ-eacute-e-de-commerce-voie-2-kudelski-nagra-ch",
@@ -25,7 +26,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15596",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-22T22:19:26.636Z",
+      "crawledAt": "2026-07-23T11:17:49.395Z",
       "addressLocality": "Switzerland",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -40,16 +41,16 @@
       "featured": false,
       "postedDate": "2026-07-22",
       "applyUrl": "https://careers.nagra.com/?page=advertisement_display&id=15596",
-      "_qualityScore": 49,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-22T22:19:26.636Z",
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "kudelski-nagra-027fe8cc43fc",
       "slug": "security-operations-engineer-kudelski-nagra-ch",
@@ -62,7 +63,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15633",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-22T22:19:26.960Z",
+      "crawledAt": "2026-07-23T11:17:49.720Z",
       "addressLocality": "Switzerland",
       "addressRegion": "TI",
       "addressCountry": "CH",
