@@ -8856,6 +8856,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.anticipo-orari-lavoro-canicola-ticino.title': 'Tessin: Vorgezogene Arbeitszeiten für die Hitzewarnung',
     'blog.article.anticipo-orari-lavoro-canicola-ticino.excerpt': 'Eine Motion an den Staatsrat schlägt Ausnahmeregelungen zu den Gemeindeverordnungen vor, um die Vorverlegung von Arbeiten im Freien bei Hitzewellen zu ermöglichen.',
     'blog.article.anticipo-orari-lavoro-canicola-ticino.imageAlt': 'Baustelle im Tessin an einem sonnigen Tag mit Arbeitern',
+    'blog.article.frontalieri-permessi-g.title': 'Neue Genehmigung für Grenzgänger beantragen',
+    'blog.article.frontalieri-permessi-g.excerpt': 'Grenzgänger müssen ihre Anwesenheit der Gemeinde melden, in der sie in der Schweiz übernachten.',
+    'blog.article.frontalieri-permessi-g.imageAlt': 'Ein Frontalier wartet auf die Grenzüberquerung.',
 };
 
 export default blogMetaDe;

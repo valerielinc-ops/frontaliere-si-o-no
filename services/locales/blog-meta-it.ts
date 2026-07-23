@@ -8858,6 +8858,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.anticipo-orari-lavoro-canicola-ticino.title': 'Ticino: orari di lavoro anticipati per l\'allerta canicola',
     'blog.article.anticipo-orari-lavoro-canicola-ticino.excerpt': 'Una mozione al Consiglio di Stato propone deroghe ai regolamenti comunali per permettere l\'anticipo dei lavori all\'aperto durante le ondate di calore.',
     'blog.article.anticipo-orari-lavoro-canicola-ticino.imageAlt': 'Cantiere edile in Ticino durante una giornata di sole con lavoratori',
+    'blog.article.frontalieri-permessi-g.title': 'Richiesta nuovo permesso per frontalieri (G) - Repubblica e Cantone Ticino',
+    'blog.article.frontalieri-permessi-g.excerpt': 'I frontalieri devono notificare la propria presenza al Comune in cui pernotta in Svizzera.',
+    'blog.article.frontalieri-permessi-g.imageAlt': 'Un frontaliere in attesa di passare il confine italo-svizzero.',
 };
 
 export default blogMetaIt;

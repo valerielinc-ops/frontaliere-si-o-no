@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3456,
+ "numberOfItems": 3457,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8224,7 +8224,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3453, "name": "Lavorare come educatore in Ticino: stipendio e ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-educatore-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3454, "name": "Povertà lavorativa in Ticino: la sfida silenziosa", "url": `${BASE_URL}/articoli-frontaliere/poverta-lavorativa-ticino-sfida-dignita` },
           { "@type": "ListItem", "position": 3455, "name": "Ticino: orari di lavoro anticipati per l'allert...", "url": `${BASE_URL}/articoli-frontaliere/anticipo-orari-lavoro-canicola-ticino` },
-          { "@type": "ListItem", "position": 3456, "name": "Frontalieri in Svizzera: i dati aggiornati del ...", "url": `${BASE_URL}/articoli-frontaliere/evoluzione-frontalieri-dati-ust` }
+          { "@type": "ListItem", "position": 3456, "name": "Frontalieri in Svizzera: i dati aggiornati del ...", "url": `${BASE_URL}/articoli-frontaliere/evoluzione-frontalieri-dati-ust` },
+          { "@type": "ListItem", "position": 3457, "name": "Richiesta nuovo permesso per frontalieri (G) - ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-permessi-g` }
  ]
  },
  {

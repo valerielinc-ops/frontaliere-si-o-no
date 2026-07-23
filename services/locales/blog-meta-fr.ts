@@ -8859,6 +8859,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.anticipo-orari-lavoro-canicola-ticino.title': 'Tessin : horaires de travail anticipés pour l\'alerte canicule',
     'blog.article.anticipo-orari-lavoro-canicola-ticino.excerpt': 'Une motion au Conseil d\'Etat propose des dérogations aux règlements communaux pour permettre l\'anticipation des travaux en plein air pendant les vagues de chaleur.',
     'blog.article.anticipo-orari-lavoro-canicola-ticino.imageAlt': 'Chantier de construction au Tessin par une journée ensoleillée avec des ouvriers',
+    'blog.article.frontalieri-permessi-g.title': 'Demande de nouveau permis pour frontaliers (G) - République et canton du Tessin',
+    'blog.article.frontalieri-permessi-g.excerpt': 'Les frontaliers doivent notifier leur présence à la commune où ils séjournent en Suisse.',
+    'blog.article.frontalieri-permessi-g.imageAlt': 'Un frontalière attend de passer la frontière italo-suisse.',
 };
 
 export default blogMetaFr;

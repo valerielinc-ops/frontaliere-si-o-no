@@ -8857,6 +8857,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.anticipo-orari-lavoro-canicola-ticino.title': 'Ticino: early working hours for the canicola alert',
     'blog.article.anticipo-orari-lavoro-canicola-ticino.excerpt': 'A motion to the Council of State proposes exceptions to municipal regulations to allow early outdoor work during heatwaves.',
     'blog.article.anticipo-orari-lavoro-canicola-ticino.imageAlt': 'Construction site in Ticino during a sunny day with workers',
+    'blog.article.frontalieri-permessi-g.title': 'New permit request for border guards (G) - Republic and Canton of Ticino',
+    'blog.article.frontalieri-permessi-g.excerpt': 'Border workers must notify their presence to the Municipality in which they are staying in Switzerland.',
+    'blog.article.frontalieri-permessi-g.imageAlt': 'A frontaliere waiting to cross the Italian-Swiss border.',
 };
 
 export default blogMetaEn;
