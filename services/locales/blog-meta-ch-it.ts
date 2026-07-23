@@ -1477,6 +1477,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.alta-volont-di-scambio-per-la-borsa-svizzera.title': 'Alti volumi di scambio per la Borsa svizzera',
     'blog.article.alta-volont-di-scambio-per-la-borsa-svizzera.excerpt': 'Il gruppo SIX ha registrato un aumento del fatturato e un netto incremento degli utili nel primo semestre 2026.',
     'blog.article.alta-volont-di-scambio-per-la-borsa-svizzera.imageAlt': 'La Borsa svizzera a Lugano',
+    'blog.article.lavori-tilo-chi-cambia.title': 'Lavori all\'infrastruttura, ecco cosa cambia per i TILO',
+    'blog.article.lavori-tilo-chi-cambia.excerpt': 'Modifiche alla circolazione ferroviaria per lavori infrastrutturali interesseranno diversi collegamenti TILO tra fine luglio e agosto 2026.',
+    'blog.article.lavori-tilo-chi-cambia.imageAlt': 'I lavori di manutenzione ai binari del Tilo a Lugano',
 };
 
 export default blogMetaChIt;

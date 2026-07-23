@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3471,
+ "numberOfItems": 3472,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8239,7 +8239,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3468, "name": "Frontalieri: rallentamento in Ticino, crescita ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-rallentamento-ticino-crescita-grigioni` },
           { "@type": "ListItem", "position": 3469, "name": "Ozono in Ticino: limiti superati e implicazioni", "url": `${BASE_URL}/articoli-frontaliere/ozono-ticino-qualita-aria` },
           { "@type": "ListItem", "position": 3470, "name": "Alti volumi di scambio per la Borsa svizzera", "url": `${BASE_URL}/articoli-frontaliere/alta-volont-di-scambio-per-la-borsa-svizzera` },
-          { "@type": "ListItem", "position": 3471, "name": "Frontalieri, ecco dove vivono: il balzo in diec...", "url": `${BASE_URL}/articoli-frontaliere/frontalieripendolarismo-2025-ticino-lombardia` }
+          { "@type": "ListItem", "position": 3471, "name": "Frontalieri, ecco dove vivono: il balzo in diec...", "url": `${BASE_URL}/articoli-frontaliere/frontalieripendolarismo-2025-ticino-lombardia` },
+          { "@type": "ListItem", "position": 3472, "name": "Lavori all'infrastruttura, ecco cosa cambia per...", "url": `${BASE_URL}/articoli-frontaliere/lavori-tilo-chi-cambia` }
  ]
  },
  {
