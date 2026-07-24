@@ -1,18 +1,19 @@
 {
   "key": "klinik-siloah",
   "label": "Privatklinik Siloah",
-  "generatedAt": "2026-07-23T22:08:13.555Z",
+  "generatedAt": "2026-07-24T11:11:35.096Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4223,
-  "avgDurationMs": 4223,
+  "durationMs": 6494,
+  "avgDurationMs": 6494,
   "durationHistory": [
-    4223
+    6494
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "klinik-siloah-9a277285176e",
       "slug": "case-manager-in-dipl-pflegefachperson-hf-fh-klinik-siloah",
@@ -20,14 +21,14 @@
       "companyKey": "klinik-siloah",
       "companyDomain": "swissmedical.net",
       "title": "Case Manager/in & Dipl. Pflegefachperson HF/FH",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Gümligen",
       "canton": "BE",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139054259-case-manager-in-dipl-pflegefachperson-hf-fh",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139054259-case-manager-in-dipl-pflegefachperson-hf-fh",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T22:08:10.443Z",
+      "crawledAt": "2026-07-24T11:11:29.637Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -42,16 +43,16 @@
       "featured": false,
       "postedDate": "2026-07-22",
       "datePosted": "2026-07-22",
-      "_qualityScore": 62,
+      "firstSeenAt": "2026-07-23T22:08:10.443Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -85,7 +86,7 @@
       "firstSeenAt": "2026-06-30T11:41:53.331Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
