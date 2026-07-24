@@ -116,46 +116,13 @@ jobs:
       # ── Claude CLI Haiku fallback (ON by default, kill-switch '0') ──────
       # Same mechanism as generate-article.yml: absolute last resort in
       # NEWSLETTER_AI_CHAIN (scripts/send-newsletter.mjs), reached only after
-      # every free-tier model has failed. Zero marginal cost — auth is
-      # CLAUDE_CODE_OAUTH_TOKEN (same Max-plan subscription token already used
-      # by pr-review-loop.yml/issue-fix.yml), never ANTHROPIC_API_KEY. Kill
-      # switch: set the Remote Config flag to '0' — ai-models.mjs's
-      # isClaudeCliFallbackEnabled reads ONLY env.ENABLE_HAIKU_ARTICLE_FALLBACK
-      # (sourced from RC via load-rc-env.mjs → $GITHUB_ENV), so that is the
-      # single source of truth for both this install step and the runtime
-      # gate; there is no separate repo-variable switch (see incident below —
-      # a `vars.*` clause here was never read by the runtime, so it could
-      # only desync, never actually kill).
-      - name: Setup Claude CLI Haiku fallback
-        if: env.ENABLE_HAIKU_ARTICLE_FALLBACK != '0'
-        run: |
-          npm install -g @anthropic-ai/claude-code
-          echo "ENABLE_HAIKU_ARTICLE_FALLBACK=1" >> "$GITHUB_ENV"
-
-      # Unconditional (no `if:`) so it also fires when the step above got
-      # skipped — surfaces flag/binary desync directly in this run's log
-      # instead of requiring a forensic dig through job.steps[].conclusion
-      # (run 29632759948: install step silently skipped while the runtime
-      # gate still offered claude-cli, spawning ENOENT ~200x, score → -595).
-      # Root cause of THAT desync (run 29676088799, jul19, 958x "All AI
-      # models failed"): the `if:` above used to also gate on
-      # `vars.ENABLE_HAIKU_ARTICLE_FALLBACK != '0'`. That repo variable was
-      # never configured, and GitHub Actions coerces an unset context to
-      # null→0 for comparison, so `null != '0'` evaluates to `0 != 0` = false
-      # — the install step silently skipped on EVERY run, while the runtime
-      # gate (which never reads `vars`, only `env`) kept offering claude-cli
-      # regardless → guaranteed ENOENT once free-tier quota ran out. Same
-      # coercion gotcha documented in translate-pending.yml
-      # (TRANSLATE_ARGOS_FIRST_DISABLE). Fixed by dropping the `vars.*`
-      # clause so install and runtime share one flag.
-      - name: Diagnose Claude CLI Haiku fallback state
-        run: |
-          echo "ENABLE_HAIKU_ARTICLE_FALLBACK=${ENABLE_HAIKU_ARTICLE_FALLBACK:-<unset>}"
-          if command -v claude >/dev/null 2>&1; then
-            echo "claude CLI: present ($(claude --version 2>&1 | head -1))"
-          else
-            echo "claude CLI: NOT on PATH — Haiku fallback will hit ENOENT if the runtime gate offers it this run"
-          fi
+      # every free-tier model has failed. Extracted to a shared composite
+      # action 2026-07-24 (was duplicated byte-for-byte with
+      # generate-article.yml, then about to be copy-pasted into more
+      # workflows for the fleet-wide rollout — see
+      # .github/actions/setup-claude-haiku-fallback/action.yml for the full
+      # rationale + incident history).
+      - uses: ./.github/actions/setup-claude-haiku-fallback
 
       - name: Assemble jobs dataset from per-crawler slices
         continue-on-error: true

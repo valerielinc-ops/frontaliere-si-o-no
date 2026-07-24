@@ -387,7 +387,15 @@ function shellQuote(s) {
  * expressions resolve to the identical runtime token value.
  */
 function buildCrawlerStepEnv(crawler, summaryFile) {
-  const merged = { SLUG_HISTORY_SUMMARY_FILE: summaryFile };
+  const merged = {
+    SLUG_HISTORY_SUMMARY_FILE: summaryFile,
+    // Auth for the opt-in Claude CLI Haiku last-resort fallback (see the
+    // "Setup Claude CLI Haiku fallback" step below). Harmless to always
+    // pass: ai-models.mjs only offers the model when this AND the RC flag
+    // are both set. Most crawlers route callLLM through
+    // dedicated-crawler-common.mjs / shared-jobs-crawler.mjs.
+    CLAUDE_CODE_OAUTH_TOKEN: '${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}',
+  };
   Object.assign(merged, crawler.runStep.env || {});
   for (const step of crawler.postSteps) {
     Object.assign(merged, step.env || {});
@@ -461,6 +469,15 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
       'echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"',
     ].join('\n'),
   });
+
+  // Claude CLI Haiku fallback (ON by default, kill-switch '0') — absolute
+  // last resort in ai-models.mjs's DEFAULT_CHAIN, reached only after every
+  // free-tier model has failed. Shared composite action: see
+  // .github/actions/setup-claude-haiku-fallback/action.yml for the full
+  // rationale + incident history. Must run before the per-crawler steps
+  // below so ENABLE_HAIKU_ARTICLE_FALLBACK is forced into $GITHUB_ENV in
+  // time for every background step to inherit it.
+  steps.push({ uses: './.github/actions/setup-claude-haiku-fallback' });
 
   for (const crawler of group.members) {
     const stepId = `crawler-${crawler.slug}`;

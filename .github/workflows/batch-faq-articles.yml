@@ -62,6 +62,13 @@ jobs:
       - name: Load RC secrets
         run: node scripts/load-rc-env.mjs
 
+      # ── Claude CLI Haiku fallback (ON by default, kill-switch '0') ──────
+      # Absolute last resort in ai-models.mjs's DEFAULT_CHAIN, reached only
+      # after every free-tier model has failed. See
+      # .github/actions/setup-claude-haiku-fallback/action.yml for the full
+      # rationale + incident history.
+      - uses: ./.github/actions/setup-claude-haiku-fallback
+
       # App installation token = primary push identity so the data commit on main
       # re-triggers deploy (GITHUB_TOKEN would not, anti-recursion). Falls back to
       # env.GITHUB_PAT. B2b tail migration.
@@ -88,6 +95,12 @@ jobs:
 
       - name: Run batch FAQ generation
         id: faq
+        env:
+          # Auth for the opt-in Claude CLI Haiku last-resort fallback (see
+          # "Setup Claude CLI Haiku fallback" step above). Harmless to always
+          # pass: ai-models.mjs only offers the model when this AND the RC
+          # flag are both set.
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: |
           ARGS="--limit ${{ inputs.limit || '200' }} --concurrency ${{ inputs.concurrency || '1' }}"
           if [ "${{ inputs.skip_translate }}" = "true" ]; then

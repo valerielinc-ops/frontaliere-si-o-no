@@ -125,6 +125,14 @@ jobs:
       - name: Load RC secrets
         run: node scripts/load-rc-env.mjs
 
+      # ── Claude CLI Haiku fallback (ON by default, kill-switch '0') ──────
+      # Absolute last resort in the Phase 2b cascade (relocalize-pending-jobs.mjs
+      # -> dedicated-crawler-common.mjs -> ai-models.mjs), reached only after
+      # every free-tier model has failed. See
+      # .github/actions/setup-claude-haiku-fallback/action.yml for the full
+      # rationale + incident history.
+      - uses: ./.github/actions/setup-claude-haiku-fallback
+
       # ── Phase 1: Housekeeping (prune expired, validate URLs, dedup) ──────
       # Runs BEFORE translations so we don't waste AI quota on dead jobs.
       # Determine if this is the daily housekeeping run (07:00 UTC cron).
@@ -249,6 +257,11 @@ jobs:
         if: inputs.skip_translate != true
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
+          # Auth for the opt-in Claude CLI Haiku last-resort fallback (see
+          # "Setup Claude CLI Haiku fallback" step above). Harmless to always
+          # pass: ai-models.mjs only offers the model when this AND the RC
+          # flag are both set.
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # Cap the slow cascade's run-wide deadline so it does a SHORT top-up pass
           # instead of expanding to fill 250min (measured: Phase 2b grew to 229min /
           # ~269min total on run 28074729486 even though Phase 2a had already drained

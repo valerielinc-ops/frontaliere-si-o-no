@@ -85,11 +85,24 @@ jobs:
         run: node scripts/load-rc-env.mjs
         continue-on-error: true
 
+      # ── Claude CLI Haiku fallback (ON by default, kill-switch '0') ──────
+      # Absolute last resort in ai-models.mjs's DEFAULT_CHAIN, reached only
+      # after every free-tier model has failed. See
+      # .github/actions/setup-claude-haiku-fallback/action.yml for the full
+      # rationale + incident history.
+      - uses: ./.github/actions/setup-claude-haiku-fallback
+
       - name: Enrich related-search clusters (incremental, AI)
         # Generates 80-120 word AI intros + 3 FAQ per cluster. Incremental:
         # cached entries are skipped via SHA-256 fingerprint of the input
         # candidate. Best-effort — never blocks the snapshot.
         if: env.GH_MODELS_PAT != '' || env.GITHUB_PAT != '' || env.GEMINI_API_KEY != '' || env.OPENROUTER_API_KEY != ''
+        env:
+          # Auth for the opt-in Claude CLI Haiku last-resort fallback (see
+          # "Setup Claude CLI Haiku fallback" step above). Harmless to always
+          # pass: ai-models.mjs only offers the model when this AND the RC
+          # flag are both set.
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: node scripts/enrich-related-search-clusters.mjs --verbose
         continue-on-error: true
         timeout-minutes: 30
