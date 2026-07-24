@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-07-24T22:15:45.988Z",
+  "savedAt": "2026-07-24T22:11:42.974Z",
   "entries": [
     {
       "key": "d75719e12bc559369b74abd12b1a133042ef5e67255856876010887a99333ff9",
@@ -216912,7 +216912,7 @@
     },
     {
       "key": "ae10960e0f524f2382069731769416e37d1c4d3bb6d1cd4fb9571d94f3513f99",
-      "touchedAt": 1784844939087,
+      "touchedAt": 1784931085108,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -217290,7 +217290,7 @@
     },
     {
       "key": "6fec7821928c310033000183d61aec5ec07af76a923d6ad137ef4e0df4d9ccb1",
-      "touchedAt": 1784844949593,
+      "touchedAt": 1784931090820,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -231589,6 +231589,348 @@
         "isJob": true,
         "confidence": 0.9,
         "reason": "The page contains a concrete role title, detailed job responsibilities, and application context, including required qualifications, preferred qualifications, and compensation information."
+      }
+    },
+    {
+      "key": "c9643b6315b85021d515bdcbcfd4fbb89a325bcbda93abd33b924f4252ce075c",
+      "touchedAt": 1784931072404,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "The page contains a specific job title ('Vendeur H/F - CDI 21H - Swatch - Nantes (44)'), detailed responsibilities and requirements, and clear application context ('Postuler pour ce poste'). This meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "9477d3e5baa4c0edb8d0740d46ab8ddd4d6d2ede1b56ccc0571df6850ddba718",
+      "touchedAt": 1784931073408,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Marketing Manager), responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "e924a5f7747738dc46a31205b3a5371a8b1bca367215b6c0864e98b1b70e604f",
+      "touchedAt": 1784931074370,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "d75da0389165d4746838418469ea0036ddfb455e467db81c86810eb7d975fa47",
+      "touchedAt": 1784931075111,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "954b1e9b19a2edc074ae4c8cbf68119a452e96ebd22934f2620b624d3b65d56f",
+      "touchedAt": 1784931075291,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'Vendeur H/F - CDI 14H - Swatch - Lille (59)', responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "97b3cb9818f5bff764a0f7895728785c123ee67535dbdd22757a43f5e4452077",
+      "touchedAt": 1784931076230,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, which are typical characteristics of a real single job detail page. The presence of a job description, primary duties and responsibilities, and requirements such as education and experience also support this classification."
+      }
+    },
+    {
+      "key": "bb034e83722e71ad100311b9f3cc6f8f35c5783a03104a92ddddb2c0f2103eed",
+      "touchedAt": 1784931076832,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'KUNSTSTOFFTECHNOLOGE / EINRICHTER/IN GRÜNLINGFERTIGUNG', responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "d2a4a04f9238b59e87338ef87ce483c2891b47d6ba819120666f524595d71367",
+      "touchedAt": 1784931077191,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, which meets the rules for a REAL SINGLE JOB DETAIL page."
+      }
+    },
+    {
+      "key": "9185894834fe411391f33947b6771fdb642cf6e71562aa30ac7c518f2206f78d",
+      "touchedAt": 1784931078114,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (POLYMECHANIKER/IN IM BEREICH EROSION), responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "0ddf4ced3b370f442ce52fe58911d888cc0bf8a2578cabf6f5d16fe01e0455a8",
+      "touchedAt": 1784931078211,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title ('Automaticien'), responsibilities/requirements, and application context, which meets the rules for a REAL SINGLE JOB DETAIL page."
+      }
+    },
+    {
+      "key": "6ed4bc73bc94616efd4492574ded1339fe0fbe7723a5ae1fc3708f71a7a98762",
+      "touchedAt": 1784931079335,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title ('Mécanicien de ligne'), responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "854d50bc6727c7a3691c68926a41a6af5201f46764c6a682134b1fab8351be23",
+      "touchedAt": 1784931079412,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "74298fff8deff5bc2ca648883522b08e147ea0abedf523d8c46199f6e51782c1",
+      "touchedAt": 1784931080393,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "7c81eb462a58bc8f0022629ded8a428a1ba435d0c94cae6b3f90c6637a7256b7",
+      "touchedAt": 1784931080699,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "040358e96c2b1be30d69545628791677734a22533369e577afa3fddf5a26bd74",
+      "touchedAt": 1784931081226,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "f5f76167379e1b1d2f286de2dd58653ed4282918fc3eb10240fec72c4aa2df0b",
+      "touchedAt": 1784931081536,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "47bb61aff71e520bea298df3d3dc5d78f00c6233bec90504054d23e18608533c",
+      "touchedAt": 1784931082381,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Sales Assistant - part time), responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "952ecc5edda78810c0ee29691c6c22ad56d96ba820972c69b428d5e087c7f99e",
+      "touchedAt": 1784931082436,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "0c358b768aba7dab52e6b20aaecb5090697f6671bc7c7470d317893bff31fbfb",
+      "touchedAt": 1784931083331,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, detailed job description, key responsibilities, and professional requirements, indicating a specific job detail page."
+      }
+    },
+    {
+      "key": "0471203eb6a383309ccf248672143cb18b50fda51dd3d60d963e34e1dfdec9ef",
+      "touchedAt": 1784931083562,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Brand Manager), responsibilities/requirements, and application context, which meets the criteria for a REAL SINGLE JOB DETAIL page."
+      }
+    },
+    {
+      "key": "4927e72ccc8d0c0024a13b5b07940fe26f96953b0925880848e55b04c08433f9",
+      "touchedAt": 1784931084187,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "cd74a1f897cb2e77d1324acae88c34e3eab9ff00237e2ab046ea2709b57d90b9",
+      "touchedAt": 1784931084636,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Sales Assistant - part time - Cortina), responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "475e4a815887f973b24e10146edf9845df66d504676da501914c555414126b83",
+      "touchedAt": 1784931084993,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, which meets the criteria for a REAL SINGLE JOB DETAIL page."
+      }
+    },
+    {
+      "key": "06f2a4d233fab03ad383ac312c44ad14bf2e2844a1518b5598ff7cabddd54793",
+      "touchedAt": 1784931085595,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, detailed responsibilities, and application context, indicating a specific job detail page."
+      }
+    },
+    {
+      "key": "965c13114c260ee2ab6303724d698c0153101e5d0bf13583fffbfa30346fe82a",
+      "touchedAt": 1784931085862,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "98a4faa9d1be0767fd3c311010ce57da72f99ce215e97a5e6ff0e45e062c0eea",
+      "touchedAt": 1784931086648,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'Vendeur volant H/F', responsibilities/requirements, and application context, which meets the rules for a REAL SINGLE JOB DETAIL page."
+      }
+    },
+    {
+      "key": "3b97c58b0bd63eea625122f815ae100e38514b6708528b7cf3564bf7c1b907a6",
+      "touchedAt": 1784931086700,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "a8183cfaedbf49e8d5ee24f3c74f4effe7c53a104e05b120a7d55eac3a2a92e1",
+      "touchedAt": 1784931087452,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "2cc7423264b0db68f519bfc008b974d20d350900278bae32816057fafa1f195d",
+      "touchedAt": 1784931087525,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'Vendeur H/F - CDI 21H - Swatch - Nantes (44)', responsibilities/requirements, and application context, which meets the rules for a REAL SINGLE JOB DETAIL page."
+      }
+    },
+    {
+      "key": "6cfa4c36e56b6f5daa27dbdae25452f586fa6bb5d826dab2b4c8b2e012d714cc",
+      "touchedAt": 1784931087597,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title ('Horlogère / Horloger de production'), responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "73a3940848179971e53a1c2a3dc23f6b9c8568dc4973c327d48296d67aa1c02a",
+      "touchedAt": 1784931087657,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Marketing Manager), responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "bb45491bb74bbbbf74f5076addd38137b406836f2ed596069b512167cb5d6755",
+      "touchedAt": 1784931087736,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page. The presence of a specific job description, required skills, and a clear call to action to apply for the position further supports this classification."
+      }
+    },
+    {
+      "key": "027d2b15f7c81878154a4151f21f84187e2c28fa69e88196d4481bf2cf785c04",
+      "touchedAt": 1784931088664,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'CDD - RESPONSABLE ADV ET EULOG H/F - TISSOT', detailed job responsibilities and requirements, and an application context, indicating that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "1073c4d1f839c4f3c7207f59ff7630964a01706238d3d17b8099c9ec6da04727",
+      "touchedAt": 1784931089925,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'Spécialiste Payroll & HR (H/F)', detailed job description, responsibilities, and requirements, as well as an application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "a5354efbb4f13253b306cf187bc184230bfef1064f5696d6d7edf9693d444e9a",
+      "touchedAt": 1784931092380,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'Sales Assistant (all genders)', responsibilities/requirements, and application context, which meets the rules for a REAL SINGLE JOB DETAIL page."
+      }
+    },
+    {
+      "key": "2d0e1c68dcf635100d9b52975e26ce3f04bcfaafe1995947a2f023bb77eb36d3",
+      "touchedAt": 1784931094629,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'Verkaufsberater (all genders) Hour Passion Metzingen', responsibilities/requirements, and application context, which meets the rules for a REAL SINGLE JOB DETAIL page."
+      }
+    },
+    {
+      "key": "689427ddc5d9a0b0a808a3003b65e17405bc51c304da5fb810c807aac7ad32cf",
+      "touchedAt": 1784931095567,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'Sales Assistant (all genders)', responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "6f459116d65a2bcd52d79702638fb8057dbb614370533e6e69791f655247e4f6",
+      "touchedAt": 1784931096796,
+      "value": {
+        "isJob": true,
+        "confidence": 0.8,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which suggests it is a real single job detail page."
       }
     }
   ]
