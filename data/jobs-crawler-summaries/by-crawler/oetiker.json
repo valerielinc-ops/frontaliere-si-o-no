@@ -1,16 +1,16 @@
 {
   "key": "oetiker",
   "label": "Oetiker",
-  "generatedAt": "2026-07-23T22:07:31.494Z",
-  "total": 4,
+  "generatedAt": "2026-07-24T11:11:12.934Z",
+  "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4885,
-  "avgDurationMs": 4885,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5010,
+  "avgDurationMs": 5010,
   "durationHistory": [
-    4885
+    5010
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000139219189-cnc-polymechaniker-fraser-mit-teamfuhrung-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T22:07:27.882Z",
+      "crawledAt": "2026-07-24T11:11:09.244Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -64,7 +64,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000135999378-it-service-management-specialist-emea-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T22:07:27.848Z",
+      "crawledAt": "2026-07-24T11:11:09.286Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -102,7 +102,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000135449649-team-leader-procurement-planning-logistics-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T22:07:27.879Z",
+      "crawledAt": "2026-07-24T11:11:09.291Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -129,8 +129,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "oetiker-a9477d03bf4c",
       "slug": "team-leader-cnc-milling-tutti-oetiker-horgen-switzerland",
@@ -172,5 +171,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
