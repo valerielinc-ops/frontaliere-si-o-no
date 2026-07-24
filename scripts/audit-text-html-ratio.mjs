@@ -29,7 +29,18 @@ import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
 import { insertBounded } from './lib/boundedTopN.mjs';
 import { classifyEmployerLandingFeature } from './lib/employerLandingSections.mjs';
 import { classifyProfessionLandingFeature } from './lib/professionLandingsSections.mjs';
-import { evaluateMixAdjustedTotalRegression } from './lib/mixAdjustedRateGate.mjs';
+import { evaluateMixAdjustedTotalRegression, extrapolateSampledCount } from './lib/mixAdjustedRateGate.mjs';
+
+// Same process as audit-all.mjs (which sets this from AUDIT_SAMPLE_RATE
+// before calling runAudits()) when running as a registered auditor there;
+// falls back to 1 (no sampling) for standalone `node
+// audit-text-html-ratio.mjs` invocations, which never sample. See
+// scripts/lib/mixAdjustedRateGate.mjs's module header for why this is
+// needed at all.
+const SAMPLE_RATE = (() => {
+  const v = Number(process.env.AUDIT_SAMPLE_RATE);
+  return v > 0 && v <= 1 ? v : 1;
+})();
 
 const resolvePath = (p) => (isAbsolute(p) ? p : join(ROOT, p));
 
@@ -284,7 +295,10 @@ export function createAuditor(opts = {}) {
             // floor still fires regardless of how `scanned` moved. Gating a bare
             // rate spike from contraction would deploy-block legitimate content
             // pruning — a new organic false-fail (class #1604). (#1605 item #3.)
-            if (curRate > rateCap && curOff > baseOff + tol.minAbsDelta) {
+            // curOff is extrapolated to full-corpus scale before the floor
+            // compares it to baseOff (always unsampled) — see
+            // scripts/lib/mixAdjustedRateGate.mjs's module header.
+            if (curRate > rateCap && extrapolateSampledCount(curOff, SAMPLE_RATE) > baseOff + tol.minAbsDelta) {
               regressedFeatures.push({ feature: f, count: curOff, max: baseOff, rate: Number(curRate.toFixed(3)), maxRate: Number(rateCap.toFixed(3)), scanned: scannedByFeature[f] });
             }
           }
@@ -302,6 +316,7 @@ export function createAuditor(opts = {}) {
           } = evaluateMixAdjustedTotalRegression({
             scannedByFeature, baseByFeature, tol,
             actualOffenders: offenders.length, actualScanned: scannedCount,
+            sampleRate: SAMPLE_RATE,
           });
           baselineDelta = {
             before: baseTotalOff, after: offenders.length,

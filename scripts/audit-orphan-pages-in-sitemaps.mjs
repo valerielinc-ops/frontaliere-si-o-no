@@ -80,6 +80,17 @@ import { join, relative, isAbsolute, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import https from 'node:https';
 import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
+import { extrapolateSampledCount } from './lib/mixAdjustedRateGate.mjs';
+
+// See audit-text-html-ratio.mjs's identical constant for the rationale.
+// Currently dormant here — same validate-dist-postbuild-bfs job as
+// audit-bfs-depth.mjs, never sees AUDIT_SAMPLE_RATE — fixed for
+// defense-in-depth, closing the PR #4695 review's unconfirmed "likely"
+// flag on this exact file.
+const SAMPLE_RATE = (() => {
+  const v = Number(process.env.AUDIT_SAMPLE_RATE);
+  return v > 0 && v <= 1 ? v : 1;
+})();
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -703,7 +714,7 @@ function compareAgainstBaseline(current, baseline, perSitemapInMemory, tol) {
     // organic false-fail, the same class #1604 removed. The only uncaught case
     // is an orphan-count growth of ≤ minAbsDelta, the intended noise floor,
     // identical with or without contraction. (Verified deferred-item #3, #1605.)
-    if (curRate > rateCap && row.orphans > prev.orphans + resolvedTol.minAbsDelta) {
+    if (curRate > rateCap && extrapolateSampledCount(row.orphans, SAMPLE_RATE) > prev.orphans + resolvedTol.minAbsDelta) {
       const baselineExamplesSet = new Set(prev.examples || []);
       const fullList = perSitemapInMemory?.[name]?.orphansList || row.examples || [];
       const newOrphans = fullList.filter((u) => !baselineExamplesSet.has(u));
