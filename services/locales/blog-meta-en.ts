@@ -8902,6 +8902,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.livigno-s-chanf-in-treno.title': 'More GR: between Livigno and S-chanf by train, the project is developed',
     'blog.article.livigno-s-chanf-in-treno.excerpt': 'A rail link between Livigno and S-chanf could be made in the future.',
     'blog.article.livigno-s-chanf-in-treno.imageAlt': 'A train station in Ticino with trains connecting Livigno and S-chanf.',
+    'blog.article.cuoco-frontaliere-ticino-guadagno.title': 'How much does a border cook earn in Ticino?',
+    'blog.article.cuoco-frontaliere-ticino-guadagno.excerpt': 'The New Frontier Agreement of 23/12/2020 provides for frontier workers to be treated similarly to Swiss workers. Here\'s what\'s changing for border cooks in Ticino.',
+    'blog.article.cuoco-frontaliere-ticino-guadagno.imageAlt': 'View of Lugano from the lake. Max 125 chars',
 };
 
 export default blogMetaEn;
