@@ -1498,6 +1498,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.chiude-bachmann-krawatten-zurigo.title': 'Di più. Dopo 70 anni chiude l’ultima fabbrica di cravatte della Svizzera',
     'blog.article.chiude-bachmann-krawatten-zurigo.excerpt': 'L’azienda Bachmann Krawatten di Zurigo Oerlikon ha dichiarato il fallimento lasciando senza lavoro gli undici dipendenti',
     'blog.article.chiude-bachmann-krawatten-zurigo.imageAlt': 'Azienda tessile svizzera',
+    'blog.article.lavoro-forzato-pesa-su-dazi.title': 'Lavoro forzato: "La mozione bocciata ora pesa sui dazi"',
+    'blog.article.lavoro-forzato-pesa-su-dazi.excerpt': 'La Svizzera paga un 2,5% di dazio supplementare a causa della mancanza di leggi specifiche per contrastare il lavoro forzato.',
+    'blog.article.lavoro-forzato-pesa-su-dazi.imageAlt': 'Una scena di lavoro forzato',
 };
 
 export default blogMetaChIt;

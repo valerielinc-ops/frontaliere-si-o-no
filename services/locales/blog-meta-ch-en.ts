@@ -1498,6 +1498,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.chiude-bachmann-krawatten-zurigo.title': 'More. After 70 years, the last tie factory in Switzerland closes',
     'blog.article.chiude-bachmann-krawatten-zurigo.excerpt': 'Bachmann Krawatten in Zurich Oerlikon declared bankruptcy, leaving the eleven employees out of work',
     'blog.article.chiude-bachmann-krawatten-zurigo.imageAlt': 'Swiss textile factory',
+    'blog.article.lavoro-forzato-pesa-su-dazi.title': 'Forced labour: "The motion rejected now weighs on the duties"',
+    'blog.article.lavoro-forzato-pesa-su-dazi.excerpt': 'Switzerland pays an additional 2.5% duty due to the lack of specific laws to combat forced labour.',
+    'blog.article.lavoro-forzato-pesa-su-dazi.imageAlt': 'A scene of forced labor',
 };
 
 export default blogMetaChEn;

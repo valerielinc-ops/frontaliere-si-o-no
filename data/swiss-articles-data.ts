@@ -4490,6 +4490,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lavoro-forzato-pesa-su-dazi',
+    category: 'fiscale',
+    date: '2026-07-24T15:45:25.867Z',
+    image: '/images/blog/lavoro-forzato-pesa-su-dazi.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -522,6 +522,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'ia-cambia-lavoro-ma-non-sostituisce-persone': { it: 'ia-cambia-lavoro-ma-non-sostituisce-persone', en: 'ai-changes-work-but-not-people', de: 'ai-verandert-arbeit-sondern-keine-menschen', fr: 'la-ia-changera-le-travail-mais-pas-les-personnes' },
  'terzo-pilastro-3a-vantaggi-canton-ginevra': { it: 'terzo-pilastro-3a-vantaggi-canton-ginevra', en: 'third-pillar-3a-cantonal-geneva', de: 'dritter-pfeiler-3a-kanton-genf', fr: 'troisieme-pilier-3a-cantonal-de-geneve' },
  'chiude-bachmann-krawatten-zurigo': { it: 'chiude-bachmann-krawatten-zurigo', en: 'bachmann-kravats-zurich', de: 'bachmann-krawatten-zurich-schliesst', fr: 'bachmann-cravates-zurich-ferme' },
+ 'lavoro-forzato-pesa-su-dazi': { it: 'lavoro-forzato-pesa-su-dazi', en: 'forced-labor-weighs-on-tariffs', de: 'zwangsarbeit-belastet-darlehen', fr: 'travail-force-pese-sur-les-droits' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
