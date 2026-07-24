@@ -1501,6 +1501,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lavoro-forzato-pesa-su-dazi.title': 'Travail forcé : « La motion rejetée pèse désormais sur les droits »',
     'blog.article.lavoro-forzato-pesa-su-dazi.excerpt': 'La Suisse paie 2,5% de droits supplémentaires en raison de l\'absence de lois spécifiques pour lutter contre le travail forcé.',
     'blog.article.lavoro-forzato-pesa-su-dazi.imageAlt': 'Une scène de travail forcé',
+    'blog.article.trippa-futuri-mobilita-italia-grigioni.title': 'La mobilité alpine se projette vers des scénarios futurs : le projet TRIP',
+    'blog.article.trippa-futuri-mobilita-italia-grigioni.excerpt': 'Le projet TRIP vise à développer la mobilité entre la Lombardie et les Grisons. Développement du réseau ferroviaire et intermodal à travers un dialogue transfrontalier structuré.',
+    'blog.article.trippa-futuri-mobilita-italia-grigioni.imageAlt': 'Un train se déplace dans les Alpes suisses, avec un lac en arrière-plan.',
 };
 
 export default blogMetaChFr;

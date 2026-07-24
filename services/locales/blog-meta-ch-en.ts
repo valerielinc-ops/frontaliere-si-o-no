@@ -1501,6 +1501,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lavoro-forzato-pesa-su-dazi.title': 'Forced labour: "The motion rejected now weighs on the duties"',
     'blog.article.lavoro-forzato-pesa-su-dazi.excerpt': 'Switzerland pays an additional 2.5% duty due to the lack of specific laws to combat forced labour.',
     'blog.article.lavoro-forzato-pesa-su-dazi.imageAlt': 'A scene of forced labor',
+    'blog.article.trippa-futuri-mobilita-italia-grigioni.title': 'Alpine mobility projects itself into future scenarios: the TRIP PROJECT',
+    'blog.article.trippa-futuri-mobilita-italia-grigioni.excerpt': 'The TRIP project aims to develop mobility between Lombardy and Graubünden. Development of the railway and intermodal network through a structured cross-border dialogue.',
+    'blog.article.trippa-futuri-mobilita-italia-grigioni.imageAlt': 'A train moves through the Swiss Alps, with a lake in the foreground.',
 };
 
 export default blogMetaChEn;

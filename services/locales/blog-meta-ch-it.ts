@@ -1501,6 +1501,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lavoro-forzato-pesa-su-dazi.title': 'Lavoro forzato: "La mozione bocciata ora pesa sui dazi"',
     'blog.article.lavoro-forzato-pesa-su-dazi.excerpt': 'La Svizzera paga un 2,5% di dazio supplementare a causa della mancanza di leggi specifiche per contrastare il lavoro forzato.',
     'blog.article.lavoro-forzato-pesa-su-dazi.imageAlt': 'Una scena di lavoro forzato',
+    'blog.article.trippa-futuri-mobilita-italia-grigioni.title': 'La mobilità alpina si proietta verso scenari futuri: il progetto TRIP',
+    'blog.article.trippa-futuri-mobilita-italia-grigioni.excerpt': 'Il progetto TRIP mira a sviluppare la mobilità tra Lombardia e Grigioni. Sviluppo della rete ferroviaria e intermodale attraverso un dialogo transfrontaliero strutturato.',
+    'blog.article.trippa-futuri-mobilita-italia-grigioni.imageAlt': 'Un treno si muove lungo le montagne svizzere, con un lago in primo piano.',
 };
 
 export default blogMetaChIt;
