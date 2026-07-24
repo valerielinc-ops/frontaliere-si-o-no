@@ -21,7 +21,13 @@ import { join, relative, isAbsolute } from 'node:path';
 import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { classifyFeature, inferLocale } from './audit-title-length.mjs';
-import { evaluateMixAdjustedTotalRegression } from './lib/mixAdjustedRateGate.mjs';
+import { evaluateMixAdjustedTotalRegression, extrapolateSampledCount } from './lib/mixAdjustedRateGate.mjs';
+
+// See audit-text-html-ratio.mjs's identical constant for the rationale.
+const SAMPLE_RATE = (() => {
+  const v = Number(process.env.AUDIT_SAMPLE_RATE);
+  return v > 0 && v <= 1 ? v : 1;
+})();
 
 const resolvePath = (p) => (isAbsolute(p) ? p : join(ROOT, p));
 
@@ -153,7 +159,9 @@ export function createAuditor(opts = {}) {
             const baseRate = base ? Number(base.ratePct ?? 0) : 0;
             const baseOff = base ? Number(base.offenders ?? 0) : 0;
             const rateCap = baseRate + Math.min(baseRate * tol.relPct / 100, tol.maxDeltaPp) + tol.absPp;
-            if (curRate > rateCap && curOff > baseOff + tol.minAbsDelta) {
+            // curOff extrapolated to full-corpus scale — see
+            // scripts/lib/mixAdjustedRateGate.mjs's module header.
+            if (curRate > rateCap && extrapolateSampledCount(curOff, SAMPLE_RATE) > baseOff + tol.minAbsDelta) {
               regressedFeatures.push({ feature: f, feat: f, count: curOff, max: baseOff, cap: baseOff, rate: Number(curRate.toFixed(3)), maxRate: Number(rateCap.toFixed(3)), scanned: scannedByFeature[f] });
             }
           }
@@ -164,6 +172,7 @@ export function createAuditor(opts = {}) {
           } = evaluateMixAdjustedTotalRegression({
             scannedByFeature, baseByFeature, tol,
             actualOffenders: offenders.length, actualScanned: scanned,
+            sampleRate: SAMPLE_RATE,
           });
           baselineDelta = {
             before: baseTotalOff, after: offenders.length,
