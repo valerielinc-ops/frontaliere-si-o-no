@@ -44,8 +44,10 @@ function getArticleFiles(): ArticleFile[] {
 
 function extractTextContent(filePath: string): string {
   const raw = fs.readFileSync(filePath, 'utf-8');
-  // Extract string values from the TS export (body1, body2, body3, faq content)
-  const stringMatches = raw.match(/'[^']*'/g) || [];
+  // Extract string values from the TS export (body1, body2, body3, faq content).
+  // Backslash-escaped chars (e.g. \' inside "l\'IA") must not end the match,
+  // or the fragment boundary can split a phrase and hide it from the patterns below.
+  const stringMatches = raw.match(/'(?:\\.|[^'\\])*'/g) || [];
   return stringMatches.join(' ');
 }
 
