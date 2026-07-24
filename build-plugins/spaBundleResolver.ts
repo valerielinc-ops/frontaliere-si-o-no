@@ -34,6 +34,19 @@
  * missing/empty/malformed index.html — a 30 s default would make every one
  * of those a 30 s timeout instead of an assertion).
  *
+ * Erosion, again
+ * ---------------
+ * The 2026-07-21 bump to 30 s (via `SPA_BUNDLE_POLL_TIMEOUT_MS`, set in
+ * every full-build CI workflow) re-failed the same way just 3 days later
+ * (#4738: "poll exhausted after 598 attempts (30000 ms)" on every locale) —
+ * the corpus that eats pre-poll parse time keeps growing daily, so any
+ * fixed number erodes eventually. Bumping the 6 workflow-level env vars
+ * again only buys a few more days. `CI_POLL_TIMEOUT_FLOOR_MS` below is a
+ * floor UNDER whatever `SPA_BUNDLE_POLL_TIMEOUT_MS` is configured to —
+ * headroom lives in one place in code instead of N YAML files kept in
+ * sync. It only engages when that env var is set at all (tests/local dev
+ * never set it, so they keep the fast 3 s default / instant throw).
+ *
  * Hard-fail vs silent fallback
  * ----------------------------
  * The previous inline reads failed silently — empty `entryJs` →
@@ -78,7 +91,15 @@ const cache = new Map<string, SpaBundleInfo>();
  * template-build path — making it async would propagate `await` through
  * 50+ template helpers in jobsSeoPagesPlugin alone.
  */
-const DEFAULT_POLL_TIMEOUT_MS = Number(process.env.SPA_BUNDLE_POLL_TIMEOUT_MS) || 3000;
+// Floor applied on top of `SPA_BUNDLE_POLL_TIMEOUT_MS` when that env var is
+// set at all (i.e. only in CI full-build workflows — see "Erosion, again"
+// above). Local dev/tests never set the env var, so this never touches them.
+const CI_POLL_TIMEOUT_FLOOR_MS = 120_000;
+
+const envPollTimeoutMs = Number(process.env.SPA_BUNDLE_POLL_TIMEOUT_MS);
+const DEFAULT_POLL_TIMEOUT_MS = envPollTimeoutMs > 0
+  ? Math.max(envPollTimeoutMs, CI_POLL_TIMEOUT_FLOOR_MS)
+  : 3000;
 
 function pollDistIndexHtml(distDir: string, timeoutMs = DEFAULT_POLL_TIMEOUT_MS, intervalMs = 50): SpaBundleInfo {
   const indexPath = path.join(distDir, 'index.html');
