@@ -1,233 +1,5 @@
 [
   {
-    "timestamp": "2026-07-04T15:21:52.328Z",
-    "label": "after",
-    "total": 22138,
-    "needsRetranslation": 4544,
-    "suppressed": 300,
-    "incomplete": 3074,
-    "complete": 19064,
-    "missingByLocale": {
-      "it": 2655,
-      "en": 2343,
-      "de": 693,
-      "fr": 2166
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 518
-      },
-      {
-        "company": "Kanton Aargau",
-        "pending": 427
-      },
-      {
-        "company": "OTTO'S AG",
-        "pending": 162
-      },
-      {
-        "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
-        "pending": 145
-      },
-      {
-        "company": "Kantonale Verwaltung Zürich",
-        "pending": 138
-      },
-      {
-        "company": "Medbase",
-        "pending": 130
-      },
-      {
-        "company": "Etat de Fribourg",
-        "pending": 118
-      },
-      {
-        "company": "Manor AG",
-        "pending": 104
-      },
-      {
-        "company": "ETAVIS Arnold",
-        "pending": 85
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 81
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-04T20:22:06.860Z",
-    "label": "before",
-    "total": 23291,
-    "needsRetranslation": 12368,
-    "suppressed": 300,
-    "incomplete": 4386,
-    "complete": 18905,
-    "missingByLocale": {
-      "it": 4077,
-      "en": 3696,
-      "de": 725,
-      "fr": 3707
-    },
-    "topPending": [
-      {
-        "company": "Kanton Aargau",
-        "pending": 427
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 382
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 276
-      },
-      {
-        "company": "Raiffeisen",
-        "pending": 207
-      },
-      {
-        "company": "OTTO'S AG",
-        "pending": 162
-      },
-      {
-        "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
-        "pending": 145
-      },
-      {
-        "company": "Kantonale Verwaltung Zürich",
-        "pending": 138
-      },
-      {
-        "company": "Medbase",
-        "pending": 130
-      },
-      {
-        "company": "Etat de Fribourg",
-        "pending": 118
-      },
-      {
-        "company": "Manor AG",
-        "pending": 104
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-04T20:24:54.955Z",
-    "label": "after",
-    "total": 23291,
-    "needsRetranslation": 6108,
-    "suppressed": 290,
-    "incomplete": 4386,
-    "complete": 18905,
-    "missingByLocale": {
-      "it": 4077,
-      "en": 3696,
-      "de": 725,
-      "fr": 3707
-    },
-    "topPending": [
-      {
-        "company": "Kanton Aargau",
-        "pending": 427
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 382
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 276
-      },
-      {
-        "company": "Raiffeisen",
-        "pending": 207
-      },
-      {
-        "company": "OTTO'S AG",
-        "pending": 162
-      },
-      {
-        "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
-        "pending": 145
-      },
-      {
-        "company": "Kantonale Verwaltung Zürich",
-        "pending": 138
-      },
-      {
-        "company": "Medbase",
-        "pending": 130
-      },
-      {
-        "company": "Etat de Fribourg",
-        "pending": 118
-      },
-      {
-        "company": "Manor AG",
-        "pending": 104
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-05T02:12:51.453Z",
-    "label": "before",
-    "total": 23295,
-    "needsRetranslation": 5224,
-    "suppressed": 290,
-    "incomplete": 1363,
-    "complete": 21932,
-    "missingByLocale": {
-      "it": 1226,
-      "en": 1143,
-      "de": 170,
-      "fr": 1186
-    },
-    "topPending": [
-      {
-        "company": "Stadt Zürich",
-        "pending": 382
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 271
-      },
-      {
-        "company": "ZFV-Unternehmungen",
-        "pending": 69
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 61
-      },
-      {
-        "company": "Valora Group",
-        "pending": 53
-      },
-      {
-        "company": "Zürcher Kantonalbank",
-        "pending": 53
-      },
-      {
-        "company": "VZ VermögensZentrum",
-        "pending": 49
-      },
-      {
-        "company": "Volksschule Stadt Luzern",
-        "pending": 39
-      },
-      {
-        "company": "SWICA Gesundheitsorganisation",
-        "pending": 34
-      },
-      {
-        "company": "Stadt Luzern",
-        "pending": 31
-      }
-    ]
-  },
-  {
     "timestamp": "2026-07-05T02:15:18.311Z",
     "label": "after",
     "total": 23295,
@@ -11510,6 +11282,120 @@
       {
         "company": "Solothurner Spitäler AG (soH)",
         "pending": 4
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-23T23:07:58.921Z",
+    "label": "before",
+    "total": 24828,
+    "needsRetranslation": 2470,
+    "suppressed": 39,
+    "incomplete": 103,
+    "complete": 24725,
+    "missingByLocale": {
+      "it": 59,
+      "en": 32,
+      "de": 49,
+      "fr": 49
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 35
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "Jumbo, Division der Coop Genossenschaft",
+        "pending": 5
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "IKEA",
+        "pending": 2
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 2
+      },
+      {
+        "company": "Spital Schwyz",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-24T00:00:19.906Z",
+    "label": "after",
+    "total": 24828,
+    "needsRetranslation": 1091,
+    "suppressed": 39,
+    "incomplete": 102,
+    "complete": 24726,
+    "missingByLocale": {
+      "it": 58,
+      "en": 31,
+      "de": 48,
+      "fr": 49
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 35
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "Jumbo, Division der Coop Genossenschaft",
+        "pending": 5
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "IKEA",
+        "pending": 2
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 2
+      },
+      {
+        "company": "Spital Schwyz",
+        "pending": 2
       }
     ]
   }
