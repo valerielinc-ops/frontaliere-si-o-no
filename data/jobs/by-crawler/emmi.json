@@ -7694,7 +7694,8 @@
         "hr-business-partner-emmi-ch",
         "partenaire-operationnel-rh-emmi-bischofszell-thurgau",
         "partner-commerciale-delle-risorse-umane-emmi-bischofszell",
-        "hr-business-partner-emmi-bischofszell"
+        "hr-business-partner-emmi-bischofszell",
+        "hr-business-partner-emmi-ch-cpchgd"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7705,6 +7706,9 @@
         "fr": [
           "partenaire-operationnel-rh-emmi-bischofszell-thurgau",
           "hr-business-partner-emmi-bischofszell"
+        ],
+        "de": [
+          "hr-business-partner-emmi-ch-cpchgd"
         ]
       },
       "firstSeenAt": "2026-07-21T23:21:56.586Z",
@@ -7974,7 +7978,8 @@
         "soutien-aux-ventes-foodservcie-emmi-luzern-luzern",
         "assistenza-commerciale-foodservcie-emmi-luzern-luzern-eghdy6",
         "sales-coordinator-foodservice-emmi-ch",
-        "assistenza-commerciale-foodservcie-emmi-luzern-luzern"
+        "assistenza-commerciale-foodservcie-emmi-luzern-luzern",
+        "sales-coordinator-foodservice-emmi-ch-eghdy6"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7987,7 +7992,8 @@
           "sales-support-foodservcie-emmi-ch"
         ],
         "de": [
-          "sales-support-foodservcie-emmi-ch"
+          "sales-support-foodservcie-emmi-ch",
+          "sales-coordinator-foodservice-emmi-ch-eghdy6"
         ],
         "fr": [
           "sales-support-foodservcie-emmi-ch",
@@ -9274,12 +9280,22 @@
       },
       "previousSlugs": [
         "anlagenfuhrer-in-pulverproduktion-emmi-ch",
-        "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen"
+        "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen",
+        "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern",
+        "plant-operator-in-powder-production-emmi-dagmersellen-luzern",
+        "operateur-de-la-centrale-en-poudre-emmi-dagmersellen-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "anlagenfuhrer-in-pulverproduktion-emmi-ch",
-          "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen"
+          "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen",
+          "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern"
+        ],
+        "en": [
+          "plant-operator-in-powder-production-emmi-dagmersellen-luzern"
+        ],
+        "fr": [
+          "operateur-de-la-centrale-en-poudre-emmi-dagmersellen-luzern"
         ]
       },
       "firstSeenAt": "2026-07-07T22:23:34.058Z",
@@ -9355,19 +9371,25 @@
       "previousSlugs": [
         "betriebsmechaniker-in-emmi-ch",
         "betriebsmechaniker-in-emmi-dagmersellen",
-        "betriebsmechaniker-in-emmi-ch-2"
+        "betriebsmechaniker-in-emmi-ch-2",
+        "meccanica-aziendale-in-emmi-dagmersellen-luzern",
+        "business-mechanic-in-emmi-dagmersellen-luzern",
+        "mecanicien-d-entreprise-in-emmi-dagmersellen-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebsmechaniker-in-emmi-ch",
           "betriebsmechaniker-in-emmi-dagmersellen",
-          "betriebsmechaniker-in-emmi-ch-2"
+          "betriebsmechaniker-in-emmi-ch-2",
+          "meccanica-aziendale-in-emmi-dagmersellen-luzern"
         ],
         "en": [
-          "betriebsmechaniker-in-emmi-dagmersellen"
+          "betriebsmechaniker-in-emmi-dagmersellen",
+          "business-mechanic-in-emmi-dagmersellen-luzern"
         ],
         "fr": [
-          "betriebsmechaniker-in-emmi-dagmersellen"
+          "betriebsmechaniker-in-emmi-dagmersellen",
+          "mecanicien-d-entreprise-in-emmi-dagmersellen-luzern"
         ]
       },
       "firstSeenAt": "2026-07-02T10:58:29.752Z",
@@ -9454,19 +9476,25 @@
         "milchtechnologin-oder-milchtechnologe-emmi-ch",
         "milchtechnologin-oder-milchtechnologe-emmi-landquart",
         "milchtechnologin-o-milchtechnologe-emmi-landquart",
-        "milchtechnologin-oder-milchtechnologe-emmi-ch-2"
+        "milchtechnologin-oder-milchtechnologe-emmi-ch-2",
+        "tecnico-lattiero-caseario-emmi-landquart",
+        "milk-technologist-or-dairy-technologist-emmi-landquart",
+        "technologue-du-lait-ou-technologue-du-lait-emmi-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
           "milchtechnologin-oder-milchtechnologe-emmi-ch",
           "milchtechnologin-o-milchtechnologe-emmi-landquart",
-          "milchtechnologin-oder-milchtechnologe-emmi-ch-2"
+          "milchtechnologin-oder-milchtechnologe-emmi-ch-2",
+          "tecnico-lattiero-caseario-emmi-landquart"
         ],
         "en": [
-          "milchtechnologin-oder-milchtechnologe-emmi-landquart"
+          "milchtechnologin-oder-milchtechnologe-emmi-landquart",
+          "milk-technologist-or-dairy-technologist-emmi-landquart"
         ],
         "fr": [
-          "milchtechnologin-oder-milchtechnologe-emmi-landquart"
+          "milchtechnologin-oder-milchtechnologe-emmi-landquart",
+          "technologue-du-lait-ou-technologue-du-lait-emmi-landquart"
         ]
       },
       "firstSeenAt": "2026-07-07T22:23:34.052Z",
@@ -9546,19 +9574,25 @@
       "previousSlugs": [
         "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch",
         "translation-of-job-posting-emmi-dagmersellen",
-        "milchtechnologin-technologe-o-lebensmitteltechnologe-technologin-emmi-dagmersellen"
+        "milchtechnologin-technologe-o-lebensmitteltechnologe-technologin-emmi-dagmersellen",
+        "traduzione-del-post-di-lavoro-emmi-dagmersellen",
+        "dairy-technologist-or-food-technologist-emmi-dagmersellen-luzern",
+        "traduction-du-post-de-travail-emmi-dagmersellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch",
-          "milchtechnologin-technologe-o-lebensmitteltechnologe-technologin-emmi-dagmersellen"
+          "milchtechnologin-technologe-o-lebensmitteltechnologe-technologin-emmi-dagmersellen",
+          "traduzione-del-post-di-lavoro-emmi-dagmersellen"
         ],
         "en": [
           "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch",
-          "translation-of-job-posting-emmi-dagmersellen"
+          "translation-of-job-posting-emmi-dagmersellen",
+          "dairy-technologist-or-food-technologist-emmi-dagmersellen-luzern"
         ],
         "fr": [
-          "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch"
+          "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch",
+          "traduction-du-post-de-travail-emmi-dagmersellen"
         ]
       },
       "firstSeenAt": "2026-07-07T22:23:34.053Z",
@@ -9642,12 +9676,22 @@
       },
       "previousSlugs": [
         "maschinenfuhrer-in-3-schicht-emmi-ch",
-        "maschinenfuhrer-in-3-schicht-emmi-emmen"
+        "maschinenfuhrer-in-3-schicht-emmi-emmen",
+        "operatore-macchina-in-3-shift-emmi-emmen-luzern",
+        "machine-operator-in-3-shift-emmi-emmen-luzern",
+        "operateur-de-machine-en-3-equipes-emmi-emmen-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maschinenfuhrer-in-3-schicht-emmi-ch",
-          "maschinenfuhrer-in-3-schicht-emmi-emmen"
+          "maschinenfuhrer-in-3-schicht-emmi-emmen",
+          "operatore-macchina-in-3-shift-emmi-emmen-luzern"
+        ],
+        "en": [
+          "machine-operator-in-3-shift-emmi-emmen-luzern"
+        ],
+        "fr": [
+          "operateur-de-machine-en-3-equipes-emmi-emmen-luzern"
         ]
       },
       "firstSeenAt": "2026-07-07T22:23:34.057Z",
@@ -9824,11 +9868,21 @@
         ]
       },
       "previousSlugs": [
-        "techniker-in-heizung-luftung-klima-sanitar-hlks-emmi-ch"
+        "techniker-in-heizung-luftung-klima-sanitar-hlks-emmi-ch",
+        "tecnico-riscaldamento-ventilazione-aria-condizionata-sanificazione-hvac-emmi-dagmersellen",
+        "technician-heating-ventilation-air-conditioning-sanitation-hvac-emmi-dagmersellen",
+        "technicien-chauffage-ventilation-climatisation-hygiene-cvc-emmi-dagmersellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "techniker-in-heizung-luftung-klima-sanitar-hlks-emmi-ch"
+          "techniker-in-heizung-luftung-klima-sanitar-hlks-emmi-ch",
+          "tecnico-riscaldamento-ventilazione-aria-condizionata-sanificazione-hvac-emmi-dagmersellen"
+        ],
+        "en": [
+          "technician-heating-ventilation-air-conditioning-sanitation-hvac-emmi-dagmersellen"
+        ],
+        "fr": [
+          "technicien-chauffage-ventilation-climatisation-hygiene-cvc-emmi-dagmersellen"
         ]
       },
       "firstSeenAt": "2026-07-07T22:23:34.052Z",
