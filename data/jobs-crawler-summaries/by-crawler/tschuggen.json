@@ -1,16 +1,16 @@
 {
   "key": "tschuggen",
   "label": "Tschuggen Collection",
-  "generatedAt": "2026-07-23T22:17:59.368Z",
-  "total": 10,
+  "generatedAt": "2026-07-24T11:12:52.757Z",
+  "total": 9,
   "newCount": 0,
   "updatedCount": 9,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 12251,
-  "avgDurationMs": 12251,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 13001,
+  "avgDurationMs": 13001,
   "durationHistory": [
-    12251
+    13001
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1331/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T22:17:56.171Z",
+      "crawledAt": "2026-07-24T11:12:49.988Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1379/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T22:17:49.156Z",
+      "crawledAt": "2026-07-24T11:12:42.456Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -100,7 +100,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1378/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T22:17:50.062Z",
+      "crawledAt": "2026-07-24T11:12:43.409Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -137,7 +137,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1375/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T22:17:50.927Z",
+      "crawledAt": "2026-07-24T11:12:44.331Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -174,7 +174,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/840/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T22:17:51.814Z",
+      "crawledAt": "2026-07-24T11:12:45.257Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -211,7 +211,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1373/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T22:17:52.508Z",
+      "crawledAt": "2026-07-24T11:12:46.204Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -248,7 +248,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1374/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T22:17:53.424Z",
+      "crawledAt": "2026-07-24T11:12:47.127Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -285,7 +285,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1367/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T22:17:54.343Z",
+      "crawledAt": "2026-07-24T11:12:48.069Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -323,7 +323,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1346/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T22:17:55.259Z",
+      "crawledAt": "2026-07-24T11:12:49.019Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -349,8 +349,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "tschuggen-8d1a677afc27",
       "slug": "chef-de-partie-tournant-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
@@ -392,5 +391,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
