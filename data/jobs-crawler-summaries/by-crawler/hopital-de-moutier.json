@@ -1,16 +1,16 @@
 {
   "key": "hopital-de-moutier",
   "label": "Hôpital de Moutier",
-  "generatedAt": "2026-07-24T11:11:38.810Z",
-  "total": 7,
+  "generatedAt": "2026-07-24T22:20:29.915Z",
+  "total": 6,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4005,
-  "avgDurationMs": 4005,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4183,
+  "avgDurationMs": 4183,
   "durationHistory": [
-    4005
+    4183
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139299089-medecin-adjoint-e-en-psychiatrie-hospitaliere",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-24T11:11:36.496Z",
+      "crawledAt": "2026-07-24T22:20:27.589Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139053059-medecin-dermatologue",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-24T11:11:36.493Z",
+      "crawledAt": "2026-07-24T22:20:27.590Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138804240-collaborateur-trice-en-hotellerie-restauration-50-60-",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-24T11:11:36.499Z",
+      "crawledAt": "2026-07-24T22:20:27.593Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -142,7 +142,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137680334-medecin-assistant-e-en-pedopsychiatrie-stationnaire",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-24T11:11:36.500Z",
+      "crawledAt": "2026-07-24T22:20:27.591Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136408530-un-e-chef-de-clinique-avec-titre-fmh-ou-chef-de-clinique-adjoint-e-en-pedopsychiatrie",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-24T11:11:36.498Z",
+      "crawledAt": "2026-07-24T22:20:27.595Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -218,7 +218,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134935009-medecin-specialiste-en-psychiatrie-et-psychotherapie-des-addictions-h-f-",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-24T11:11:36.501Z",
+      "crawledAt": "2026-07-24T22:20:27.596Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -243,8 +243,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "hopital-de-moutier-677d758540cb",
       "slug": "assistente-medico-in-psichiatria-ospedaliera-swiss-medical-network-moutier",
@@ -252,7 +251,6 @@
       "companyKey": "hopital-de-moutier",
       "companyDomain": "swissmedical.net",
       "title": "Médecin Adjoint(e) en psychiatrie hospitalière",
-      "needsRetranslation": false,
       "location": "Moutier",
       "canton": "BE",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138057588-medecin-adjoint-e-en-psychiatrie-hospitaliere",
@@ -286,5 +284,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
