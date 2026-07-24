@@ -113,13 +113,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "group-tax-expert-pictet-luxembourg",
-        "esperto-fiscale-di-gruppo-pictet-group-luxembourg"
+        "group-tax-expert-pictet-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "group-tax-expert-pictet-luxembourg",
-          "esperto-fiscale-di-gruppo-pictet-group-luxembourg"
+          "group-tax-expert-pictet-luxembourg"
         ],
         "de": [
           "group-tax-expert-pictet-luxembourg"
@@ -191,13 +189,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internal-communication-specialist-pictet-geneva",
-        "internal-communication-specialista-pictet-group-geneva"
+        "internal-communication-specialist-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internal-communication-specialist-pictet-geneva",
-          "internal-communication-specialista-pictet-group-geneva"
+          "internal-communication-specialist-pictet-geneva"
         ],
         "de": [
           "internal-communication-specialist-pictet-geneva"
@@ -269,13 +265,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-manager-pictet-tokyo",
-        "responsabile-del-prodotto-pictet-group-tokyo"
+        "product-manager-pictet-tokyo"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-manager-pictet-tokyo",
-          "responsabile-del-prodotto-pictet-group-tokyo"
+          "product-manager-pictet-tokyo"
         ],
         "de": [
           "product-manager-pictet-tokyo"
@@ -359,8 +353,7 @@
         "business-process-manager-investment-pictet-geneva",
         "business-process-manager-investitionen-pictet-group-geneva",
         "gestionnaire-de-processus-operationnels-investissement-pictet-group-geneva",
-        "business-process-manager-pwm-digital-solutions-investment-pictet-geneva",
-        "equity-analista-pictet-group-geneva"
+        "business-process-manager-pwm-digital-solutions-investment-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -376,8 +369,7 @@
           "business-process-manager-investment-pictet-geneva",
           "business-process-manager-investitionen-pictet-group-geneva",
           "gestionnaire-de-processus-operationnels-investissement-pictet-group-geneva",
-          "business-process-manager-pwm-digital-solutions-investment-pictet-geneva",
-          "equity-analista-pictet-group-geneva"
+          "business-process-manager-pwm-digital-solutions-investment-pictet-geneva"
         ],
         "de": [
           "equity-analyst-pictet-geneva",
@@ -513,13 +505,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-security-engineer-pictet-geneva",
-        "ai-security-ingegnere-pictet-group-geneva"
+        "ai-security-engineer-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-security-engineer-pictet-geneva",
-          "ai-security-ingegnere-pictet-group-geneva"
+          "ai-security-engineer-pictet-geneva"
         ],
         "de": [
           "ai-security-engineer-pictet-geneva"
@@ -549,7 +539,7 @@
         "en": "internship-client-relationship-officer-support-12-months-pictet-luxembourg",
         "it": "internship-client-relationship-officer-support-12-months-pictet-luxembourg",
         "de": "internship-client-relationship-officer-support-12-months-pictet-luxembourg",
-        "fr": "internship-client-relationship-officer-support-12-months-pictet-luxembourg"
+        "fr": "stage-soutien-aux-agents-de-relations-avec-la-clientele-12-mois-pictet-group-luxembourg"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -608,12 +598,12 @@
     },
     {
       "id": "pictet-5d2193fc717c",
-      "slug": "banking-operations-officer-fixed-term-24-months-pictet-luxembourg",
+      "slug": "funzionamento-bancario-fixed-term-24-mesi-pictet-group-luxembourg",
       "slugByLocale": {
         "en": "banking-operations-officer-fixed-term-24-months-pictet-luxembourg",
-        "it": "banking-operations-officer-fixed-term-24-months-pictet-luxembourg",
-        "de": "banking-operations-officer-fixed-term-24-months-pictet-luxembourg",
-        "fr": "banking-operations-officer-fixed-term-24-months-pictet-luxembourg"
+        "it": "funzionamento-bancario-fixed-term-24-mesi-pictet-group-luxembourg",
+        "de": "banking-operations-officer-befristete-24-monate-pictet-group-luxembourg",
+        "fr": "agent-des-operations-bancaires-pour-une-periode-de-24-mois-pictet-group-luxembourg"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -668,7 +658,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-23T22:08:17.552Z"
+      "firstSeenAt": "2026-07-23T22:08:17.552Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "banking-operations-officer-fixed-term-24-months-pictet-luxembourg"
+        ],
+        "de": [
+          "banking-operations-officer-fixed-term-24-months-pictet-luxembourg"
+        ],
+        "fr": [
+          "banking-operations-officer-fixed-term-24-months-pictet-luxembourg"
+        ]
+      },
+      "previousSlugs": [
+        "banking-operations-officer-fixed-term-24-months-pictet-luxembourg"
+      ]
     },
     {
       "id": "pictet-9ed3806eb56d",
@@ -677,7 +681,7 @@
         "en": "senior-private-banker-caribbean-market-pictet-nassau",
         "it": "senior-private-banker-caribbean-market-pictet-nassau",
         "de": "senior-private-banker-caribbean-market-pictet-nassau",
-        "fr": "senior-private-banker-caribbean-market-pictet-nassau"
+        "fr": "senior-private-banker-marche-des-caraibes-pictet-group-nassau"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -812,7 +816,7 @@
         "it": "client-relationship-officer-contratto-a-termine-16-mesi-pictet-group-luxembourg",
         "en": "client-relationship-officer-fixed-term-contract-16-months-pictet-luxembourg",
         "de": "client-relationship-officer-festvertrag-16-monate-pictet-group-luxembourg",
-        "fr": "client-relationship-officer-fixed-term-contract-16-months-pictet-group-luxembourg"
+        "fr": "agent-de-relations-avec-la-clientele-contrat-a-duree-determinee-16-mois-pictet-group-luxembourg"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -855,7 +859,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "client-relationship-officer-fixed-term-contract-16-months-pictet-luxembourg",
-        "agent-de-relations-avec-la-clientele-contrat-a-duree-determinee-16-mois-pictet-group-luxembourg",
         "client-relationship-officer-fixed-term-contract-16-months-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
@@ -867,7 +870,6 @@
         ],
         "fr": [
           "client-relationship-officer-fixed-term-contract-16-months-pictet-luxembourg",
-          "agent-de-relations-avec-la-clientele-contrat-a-duree-determinee-16-mois-pictet-group-luxembourg",
           "client-relationship-officer-fixed-term-contract-16-months-pictet-group-luxembourg"
         ]
       },
@@ -893,7 +895,7 @@
         "it": "controllore-fondi-contratto-a-termine-12-mesi-pictet-group-luxembourg",
         "en": "funds-controller-fixed-term-contract-12-months-pictet-luxembourg",
         "de": "funds-controller-festvertrag-12-monate-pictet-group-luxembourg",
-        "fr": "funds-controller-fixed-term-contract-12-months-pictet-group-luxembourg"
+        "fr": "controleur-des-fonds-contrat-a-duree-determinee-12-mois-pictet-group-luxembourg"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -936,7 +938,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "funds-controller-fixed-term-contract-12-months-pictet-luxembourg",
-        "controleur-des-fonds-contrat-a-duree-determinee-12-mois-pictet-group-luxembourg",
         "funds-controller-fixed-term-contract-12-months-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
@@ -948,7 +949,6 @@
         ],
         "fr": [
           "funds-controller-fixed-term-contract-12-months-pictet-luxembourg",
-          "controleur-des-fonds-contrat-a-duree-determinee-12-mois-pictet-group-luxembourg",
           "funds-controller-fixed-term-contract-12-months-pictet-group-luxembourg"
         ]
       },

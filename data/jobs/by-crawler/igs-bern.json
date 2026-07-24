@@ -87,14 +87,12 @@
         "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-80-igs-bern-ch",
         "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-80-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf",
         "aide-en-soins-fabe-aide-en-sante-fage-efz-50-80-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf",
-        "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch",
-        "assistente-professionale-per-assistenza-fabe-assistenza-sanitaria-fage-efz-50-80-interessengemeinschaft"
+        "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-80-igs-bern-ch",
-          "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch",
-          "assistente-professionale-per-assistenza-fabe-assistenza-sanitaria-fage-efz-50-80-interessengemeinschaft"
+          "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch"
         ],
         "de": [
           "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-80-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf"
@@ -120,12 +118,12 @@
     },
     {
       "id": "igs-bern-53da410315b2",
-      "slug": "praktikant-in-im-betreuten-wohnen-igs-bern-ch",
+      "slug": "stage-nella-vita-assistita-interessengemeinschaft-sozialpsychiatrie-bern-bern",
       "slugByLocale": {
         "de": "praktikant-in-im-betreuten-wohnen-igs-bern-ch",
-        "it": "praktikant-in-im-betreuten-wohnen-igs-bern-ch",
-        "en": "praktikant-in-im-betreuten-wohnen-igs-bern-ch",
-        "fr": "praktikant-in-im-betreuten-wohnen-igs-bern-ch"
+        "it": "stage-nella-vita-assistita-interessengemeinschaft-sozialpsychiatrie-bern-bern",
+        "en": "internship-in-assisted-living-interessengemeinschaft-sozialpsychiatrie-bern-bern",
+        "fr": "stage-dans-la-vie-assistee-interessengemeinschaft-sozialpsychiatrie-bern-bern"
       },
       "company": "Interessengemeinschaft Sozialpsychiatrie Bern",
       "companyKey": "igs-bern",
@@ -180,7 +178,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-07-23T22:23:20.460Z"
+      "firstSeenAt": "2026-07-23T22:23:20.460Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-im-betreuten-wohnen-igs-bern-ch"
+        ],
+        "en": [
+          "praktikant-in-im-betreuten-wohnen-igs-bern-ch"
+        ],
+        "fr": [
+          "praktikant-in-im-betreuten-wohnen-igs-bern-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-im-betreuten-wohnen-igs-bern-ch"
+      ]
     }
   ]
 }

@@ -14348,10 +14348,10 @@
       "id": "soh-solothurner-spitaeler-b2b7a23344d4",
       "slug": "medico-senior-clinica-femminile-senior-f-m-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
-        "it": "medico-senior-clinica-femminile-senior-f-m-d-solothurner-spitaler-ag-soh-solothurn",
-        "en": "senior-physician-senior-physician-women-s-clinic-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "it": "medico-senior-clinica-femminile-senior-f-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "senior-physician-senior-physician-women-s-clinic-f-m-d-solothurner-spitaler-soh-solothurn",
         "de": "oberarztin-oberarzt-frauenklinik-w-m-d-soh-ch",
-        "fr": "medecin-principal-medecin-principal-clinique-pour-femmes-f-m-j-solothurner-spitaler-ag-soh-solothurn"
+        "fr": "medecin-principal-medecin-principal-clinique-pour-femmes-f-m-j-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -14401,14 +14401,18 @@
           "oberarztin-oberarzt-frauenklinik-w-m-d-soh-solothurner-spitaeler-solothurn"
         ],
         "en": [
-          "oberarztin-oberarzt-frauenklinik-w-m-d-soh-solothurner-spitaeler-solothurn"
+          "oberarztin-oberarzt-frauenklinik-w-m-d-soh-solothurner-spitaeler-solothurn",
+          "senior-physician-senior-physician-women-s-clinic-f-m-d-solothurner-spitaler-ag-soh-solothurn"
         ],
         "fr": [
-          "oberarztin-oberarzt-frauenklinik-w-m-d-soh-solothurner-spitaeler-solothurn"
+          "oberarztin-oberarzt-frauenklinik-w-m-d-soh-solothurner-spitaeler-solothurn",
+          "medecin-principal-medecin-principal-clinique-pour-femmes-f-m-j-solothurner-spitaler-ag-soh-solothurn"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-frauenklinik-w-m-d-soh-solothurner-spitaeler-solothurn"
+        "oberarztin-oberarzt-frauenklinik-w-m-d-soh-solothurner-spitaeler-solothurn",
+        "senior-physician-senior-physician-women-s-clinic-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "medecin-principal-medecin-principal-clinique-pour-femmes-f-m-j-solothurner-spitaler-ag-soh-solothurn"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -14428,9 +14432,9 @@
       "slug": "mitarbeiterin-collaboratore-trice-hauswirtschaft-schwerpunkt-bettenzentrale-grundreinigung-m-w-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "it": "mitarbeiterin-collaboratore-trice-hauswirtschaft-schwerpunkt-bettenzentrale-grundreinigung-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "employee-employee-housekeeping-focus-on-bed-center-basic-cleaning-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "en": "employee-employee-housekeeping-focus-on-bed-center-basic-cleaning-f-m-d-solothurner-spitaler-soh-solothurn",
         "de": "mitarbeiterin-mitarbeiter-hauswirtschaft-schwerpunkt-bettenzentrale-grundreinigung-w-m-d",
-        "fr": "employe-employe-menage-focus-sur-le-centre-de-lit-et-le-nettoyage-de-base-f-m-d-solothurner-spitaler-ag-soh-solothurn"
+        "fr": "employe-employe-menage-focus-sur-le-centre-de-lit-et-le-nettoyage-de-base-f-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -14474,7 +14478,9 @@
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-hauswirtschaft-schwerpunkt-bettenzentrale-amp-grundreinigung-w-m",
         "mitarbeiterin-mitarbeiter-hauswirtschaft-schwerpunkt-bettenzentrale-grundreinigung-w-m-d-solothurner-spitaler-ag-soh",
-        "mitarbeiterin-collaboratore-trice-hauswirtschaft-schwerpunkt-bettenzentrale-grundreinigung-m-w-d-solothurner-spitaler-ag-soh-solothurn"
+        "mitarbeiterin-collaboratore-trice-hauswirtschaft-schwerpunkt-bettenzentrale-grundreinigung-m-w-d-solothurner-spitaler-ag-soh-solothurn",
+        "employee-employee-housekeeping-focus-on-bed-center-basic-cleaning-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "employe-employe-menage-focus-sur-le-centre-de-lit-et-le-nettoyage-de-base-f-m-d-solothurner-spitaler-ag-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14482,10 +14488,12 @@
           "mitarbeiterin-collaboratore-trice-hauswirtschaft-schwerpunkt-bettenzentrale-grundreinigung-m-w-d-solothurner-spitaler-ag-soh-solothurn"
         ],
         "en": [
-          "mitarbeiterin-mitarbeiter-hauswirtschaft-schwerpunkt-bettenzentrale-grundreinigung-w-m-d-solothurner-spitaler-ag-soh"
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-schwerpunkt-bettenzentrale-grundreinigung-w-m-d-solothurner-spitaler-ag-soh",
+          "employee-employee-housekeeping-focus-on-bed-center-basic-cleaning-f-m-d-solothurner-spitaler-ag-soh-solothurn"
         ],
         "fr": [
-          "mitarbeiterin-mitarbeiter-hauswirtschaft-schwerpunkt-bettenzentrale-grundreinigung-w-m-d-solothurner-spitaler-ag-soh"
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-schwerpunkt-bettenzentrale-grundreinigung-w-m-d-solothurner-spitaler-ag-soh",
+          "employe-employe-menage-focus-sur-le-centre-de-lit-et-le-nettoyage-de-base-f-m-d-solothurner-spitaler-ag-soh-solothurn"
         ],
         "de": [
           "mitarbeiterin-mitarbeiter-hauswirtschaft-schwerpunkt-bettenzentrale-amp-grundreinigung-w-m"
@@ -14509,10 +14517,10 @@
       "id": "soh-solothurner-spitaeler-53d5f3bce584",
       "slug": "cucina-dietetica-cucina-dietetica-f-m-d-solothurner-spitaler-ag-soh-basel",
       "slugByLocale": {
-        "it": "cucina-dietetica-cucina-dietetica-f-m-d-solothurner-spitaler-ag-soh-basel",
-        "en": "dietetic-cook-diet-cook-f-m-d-solothurner-spitaler-ag-soh-basel",
+        "it": "cucina-dietetica-cucina-dietetica-f-m-d-solothurner-spitaler-soh-dornach",
+        "en": "dietetic-cook-diet-cook-f-m-d-solothurner-spitaler-soh-dornach",
         "de": "diatkochin-diatkoch-w-m-d-soh-ch",
-        "fr": "cuisiniere-dietetique-cuisiniere-f-m-d-solothurner-spitaler-ag-soh-basel"
+        "fr": "cuisiniere-dietetique-cuisiniere-f-m-d-solothurner-spitaler-soh-dornach"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -14562,14 +14570,18 @@
           "diatkochin-diatkoch-w-m-d-soh-solothurner-spitaeler-basel"
         ],
         "en": [
-          "diatkochin-diatkoch-w-m-d-soh-solothurner-spitaeler-basel"
+          "diatkochin-diatkoch-w-m-d-soh-solothurner-spitaeler-basel",
+          "dietetic-cook-diet-cook-f-m-d-solothurner-spitaler-ag-soh-basel"
         ],
         "fr": [
-          "diatkochin-diatkoch-w-m-d-soh-solothurner-spitaeler-basel"
+          "diatkochin-diatkoch-w-m-d-soh-solothurner-spitaeler-basel",
+          "cuisiniere-dietetique-cuisiniere-f-m-d-solothurner-spitaler-ag-soh-basel"
         ]
       },
       "previousSlugs": [
-        "diatkochin-diatkoch-w-m-d-soh-solothurner-spitaeler-basel"
+        "diatkochin-diatkoch-w-m-d-soh-solothurner-spitaeler-basel",
+        "dietetic-cook-diet-cook-f-m-d-solothurner-spitaler-ag-soh-basel",
+        "cuisiniere-dietetique-cuisiniere-f-m-d-solothurner-spitaler-ag-soh-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -14588,10 +14600,10 @@
       "id": "soh-solothurner-spitaeler-5a5a86b8b843",
       "slug": "cucinare-cucinare-f-m-d-solothurner-spitaler-ag-soh-basel",
       "slugByLocale": {
-        "it": "cucinare-cucinare-f-m-d-solothurner-spitaler-ag-soh-basel",
-        "en": "cook-cook-f-m-d-solothurner-spitaler-ag-soh-basel",
+        "it": "cucinare-cucinare-f-m-d-solothurner-spitaler-soh-dornach",
+        "en": "cook-cook-f-m-d-solothurner-spitaler-soh-dornach",
         "de": "kochin-koch-w-m-d-soh-ch",
-        "fr": "cuire-cuire-f-m-d-solothurner-spitaler-ag-soh-basel"
+        "fr": "cuire-cuire-f-m-d-solothurner-spitaler-soh-dornach"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -14641,14 +14653,18 @@
           "kochin-koch-w-m-d-soh-solothurner-spitaeler-basel"
         ],
         "en": [
-          "kochin-koch-w-m-d-soh-solothurner-spitaeler-basel"
+          "kochin-koch-w-m-d-soh-solothurner-spitaeler-basel",
+          "cook-cook-f-m-d-solothurner-spitaler-ag-soh-basel"
         ],
         "fr": [
-          "kochin-koch-w-m-d-soh-solothurner-spitaeler-basel"
+          "kochin-koch-w-m-d-soh-solothurner-spitaeler-basel",
+          "cuire-cuire-f-m-d-solothurner-spitaler-ag-soh-basel"
         ]
       },
       "previousSlugs": [
-        "kochin-koch-w-m-d-soh-solothurner-spitaeler-basel"
+        "kochin-koch-w-m-d-soh-solothurner-spitaeler-basel",
+        "cook-cook-f-m-d-solothurner-spitaler-ag-soh-basel",
+        "cuire-cuire-f-m-d-solothurner-spitaler-ag-soh-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

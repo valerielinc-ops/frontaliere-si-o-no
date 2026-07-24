@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "nachtdienst-ags-oder-pflegehilfe-srk-30-50-gesundheitsnetz-kuesnacht-kusnacht",
         "it": "nachtdienst-ags-o-pflegehilfe-srk-30-50-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "en": "nachtdienst-ags-oder-pflegehilfe-srk-30-50-gesundheitsnetz-kuesnacht-kusnacht",
-        "fr": "nachtdienst-ags-oder-pflegehilfe-srk-30-50-gesundheitsnetz-kuesnacht-kusnacht"
+        "en": "night-service-ags-or-nursing-assistance-srk-30-50-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "fr": "service-de-nuit-ags-ou-aide-infirmiere-srk-30-50-gesundheitsnetz-kusnacht-ag-kusnacht"
       },
       "company": "Gesundheitsnetz Küsnacht AG",
       "companyKey": "gesundheitsnetz-kuesnacht",
@@ -58,6 +58,12 @@
       "pensum": "50%",
       "previousSlugsByLocale": {
         "it": [
+          "nachtdienst-ags-oder-pflegehilfe-srk-30-50-gesundheitsnetz-kuesnacht-kusnacht"
+        ],
+        "en": [
+          "nachtdienst-ags-oder-pflegehilfe-srk-30-50-gesundheitsnetz-kuesnacht-kusnacht"
+        ],
+        "fr": [
           "nachtdienst-ags-oder-pflegehilfe-srk-30-50-gesundheitsnetz-kuesnacht-kusnacht"
         ]
       },
@@ -133,14 +139,12 @@
       "pensum": "100%",
       "previousSlugs": [
         "hilfskochin-hilfskoch-100-befristet-gesundheitsnetz-kuesnacht-kusnacht",
-        "hilfskochin-hilfskoch-100-befristet-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "assistente-cuoco-assistente-cuoco-100-temporaneo-gesundheitsnetz-kusnacht-ag-kusnacht"
+        "hilfskochin-hilfskoch-100-befristet-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hilfskochin-hilfskoch-100-befristet-gesundheitsnetz-kuesnacht-kusnacht",
-          "hilfskochin-hilfskoch-100-befristet-gesundheitsnetz-kusnacht-ag-kusnacht",
-          "assistente-cuoco-assistente-cuoco-100-temporaneo-gesundheitsnetz-kusnacht-ag-kusnacht"
+          "hilfskochin-hilfskoch-100-befristet-gesundheitsnetz-kusnacht-ag-kusnacht"
         ],
         "en": [
           "hilfskochin-hilfskoch-100-befristet-gesundheitsnetz-kuesnacht-kusnacht"
@@ -297,13 +301,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "ausbildungsplatz-als-hf-pflege-fruhjahr-2027-gesundheitsnetz-kuesnacht-kusnacht",
-        "ausbildungsplatz-come-hf-pflege-fruhjahr-2027-gesundheitsnetz-kusnacht-ag-kusnacht"
+        "ausbildungsplatz-als-hf-pflege-fruhjahr-2027-gesundheitsnetz-kuesnacht-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildungsplatz-als-hf-pflege-fruhjahr-2027-gesundheitsnetz-kuesnacht-kusnacht",
-          "ausbildungsplatz-come-hf-pflege-fruhjahr-2027-gesundheitsnetz-kusnacht-ag-kusnacht"
+          "ausbildungsplatz-als-hf-pflege-fruhjahr-2027-gesundheitsnetz-kuesnacht-kusnacht"
         ],
         "en": [
           "ausbildungsplatz-als-hf-pflege-fruhjahr-2027-gesundheitsnetz-kuesnacht-kusnacht"
@@ -381,14 +383,12 @@
       "previousSlugs": [
         "aufgeweckte-dipl-pflegefachperson-hf-fh-gesundheitsnetz-kuesnacht-kusnacht",
         "aufgeweckte-dipl-pflegefachperson-hf-fh-80-100-gesundheitsnetz-kuesnacht-kusnacht",
-        "awakened-dipl-care-professional-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "svegliato-dipl-cura-professionale-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht"
+        "awakened-dipl-care-professional-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aufgeweckte-dipl-pflegefachperson-hf-fh-gesundheitsnetz-kuesnacht-kusnacht",
-          "aufgeweckte-dipl-pflegefachperson-hf-fh-80-100-gesundheitsnetz-kuesnacht-kusnacht",
-          "svegliato-dipl-cura-professionale-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht"
+          "aufgeweckte-dipl-pflegefachperson-hf-fh-80-100-gesundheitsnetz-kuesnacht-kusnacht"
         ],
         "en": [
           "aufgeweckte-dipl-pflegefachperson-hf-fh-gesundheitsnetz-kuesnacht-kusnacht",
@@ -465,13 +465,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-2027-gesundheitsnetz-kuesnacht-kusnacht",
-        "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-2027-gesundheitsnetz-kusnacht-ag-kusnacht"
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-2027-gesundheitsnetz-kuesnacht-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-2027-gesundheitsnetz-kuesnacht-kusnacht",
-          "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-2027-gesundheitsnetz-kusnacht-ag-kusnacht"
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-2027-gesundheitsnetz-kuesnacht-kusnacht"
         ],
         "en": [
           "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-2027-gesundheitsnetz-kuesnacht-kusnacht"
@@ -548,13 +546,11 @@
       "pensum": "100%",
       "previousSlugs": [
         "lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-2027-gesundheitsnetz-kuesnacht",
-        "lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "apprendistato-come-assistent-in-gesundheit-e-soziales-afp-2027-gesundheitsnetz-kusnacht-ag-kusnacht"
+        "lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-2027-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-2027-gesundheitsnetz-kuesnacht",
-          "apprendistato-come-assistent-in-gesundheit-e-soziales-afp-2027-gesundheitsnetz-kusnacht-ag-kusnacht"
+          "lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-2027-gesundheitsnetz-kuesnacht"
         ],
         "en": [
           "lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-2027-gesundheitsnetz-kusnacht-ag-kusnacht"
@@ -632,13 +628,11 @@
       "pensum": "80%",
       "previousSlugs": [
         "abteilungsleiter-in-soziokultur-und-tagesheim-mo-fr-80-90-gesundheitsnetz-kuesnacht",
-        "abteilungsleiter-in-soziokultur-und-tagesheim-mo-fr-80-90-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "abteilungsleiter-in-soziokultur-e-tagesheim-mo-fr-80-90-gesundheitsnetz-kusnacht-ag-kusnacht"
+        "abteilungsleiter-in-soziokultur-und-tagesheim-mo-fr-80-90-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiter-in-soziokultur-und-tagesheim-mo-fr-80-90-gesundheitsnetz-kuesnacht",
-          "abteilungsleiter-in-soziokultur-e-tagesheim-mo-fr-80-90-gesundheitsnetz-kusnacht-ag-kusnacht"
+          "abteilungsleiter-in-soziokultur-und-tagesheim-mo-fr-80-90-gesundheitsnetz-kuesnacht"
         ],
         "en": [
           "abteilungsleiter-in-soziokultur-und-tagesheim-mo-fr-80-90-gesundheitsnetz-kusnacht-ag-kusnacht"
@@ -738,16 +732,14 @@
         "pflegepraktikum-im-rahmen-der-fachmaturitat-gesundheit-e-naturwissenschaften-gesundheitsnetz-kusnacht-ag-kusnacht",
         "aufgestellte-r-fachfrau-fachmann-gesundheit-gesundheitsnetz-kuesnacht-kusnacht",
         "nursing-internship-within-the-framework-of-health-and-natural-sciences-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "stage-en-soins-infirmiers-dans-le-cadre-des-sciences-de-la-sante-et-des-sciences-naturelles-gesundheitsnetz-kusnacht-ag",
-        "initiative-r-abteilungsleiter-in-betreuung-e-pflege-gesundheitsnetz-kusnacht-ag-kusnacht"
+        "stage-en-soins-infirmiers-dans-le-cadre-des-sciences-de-la-sante-et-des-sciences-naturelles-gesundheitsnetz-kusnacht-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegepraktikum-im-rahmen-der-fachmaturitat-gesundheit-und-naturwissenschaften",
           "initiative-r-abteilungsleiter-in-betreuung-und-pflege-gesundheitsnetz-kuesnacht-kusnacht",
           "pflegepraktikum-im-rahmen-der-fachmaturitat-gesundheit-e-naturwissenschaften-gesundheitsnetz-kusnacht-ag-kusnacht",
-          "aufgestellte-r-fachfrau-fachmann-gesundheit-gesundheitsnetz-kuesnacht-kusnacht",
-          "initiative-r-abteilungsleiter-in-betreuung-e-pflege-gesundheitsnetz-kusnacht-ag-kusnacht"
+          "aufgestellte-r-fachfrau-fachmann-gesundheit-gesundheitsnetz-kuesnacht-kusnacht"
         ],
         "en": [
           "nursing-internship-within-the-framework-of-health-and-natural-sciences-gesundheitsnetz-kusnacht-ag-kusnacht"
@@ -829,14 +821,12 @@
       "pensum": "80%",
       "previousSlugs": [
         "spitex-berufsbildner-in-dipl-pflegefachperson-hf-fh-gesundheitsnetz-kuesnacht-kusnacht",
-        "spitex-berufsbildner-in-dipl-pflegefachperson-hf-fh-mit-fallfuhrung-gesundheitsnetz",
-        "formazione-professionale-spitex-dipl-infermiere-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht"
+        "spitex-berufsbildner-in-dipl-pflegefachperson-hf-fh-mit-fallfuhrung-gesundheitsnetz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spitex-berufsbildner-in-dipl-pflegefachperson-hf-fh-gesundheitsnetz-kuesnacht-kusnacht",
-          "spitex-berufsbildner-in-dipl-pflegefachperson-hf-fh-mit-fallfuhrung-gesundheitsnetz",
-          "formazione-professionale-spitex-dipl-infermiere-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht"
+          "spitex-berufsbildner-in-dipl-pflegefachperson-hf-fh-mit-fallfuhrung-gesundheitsnetz"
         ],
         "en": [
           "spitex-berufsbildner-in-dipl-pflegefachperson-hf-fh-gesundheitsnetz-kuesnacht-kusnacht"
@@ -918,15 +908,13 @@
       "previousSlugs": [
         "fachfrau-mann-hauswirtschaft-efz-oder-hauswirtschaftspraktiker-in-eba-gesundheitsnetz",
         "fachfrau-mann-hauswirtschaft-befristet-reinigung-lingerie-service-gesundheitsnetz",
-        "fachfrau-mann-hauswirtschaft-efz-oder-hauswirtschaftspraktiker-in-eba-80-100-befristet",
-        "fachfrau-mann-hauswirtschaft-cfc-o-hauswirtschaftspraktiker-in-afp-gesundheitsnetz-kusnacht-ag-kusnacht"
+        "fachfrau-mann-hauswirtschaft-efz-oder-hauswirtschaftspraktiker-in-eba-80-100-befristet"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-hauswirtschaft-efz-oder-hauswirtschaftspraktiker-in-eba-gesundheitsnetz",
           "fachfrau-mann-hauswirtschaft-befristet-reinigung-lingerie-service-gesundheitsnetz",
-          "fachfrau-mann-hauswirtschaft-efz-oder-hauswirtschaftspraktiker-in-eba-80-100-befristet",
-          "fachfrau-mann-hauswirtschaft-cfc-o-hauswirtschaftspraktiker-in-afp-gesundheitsnetz-kusnacht-ag-kusnacht"
+          "fachfrau-mann-hauswirtschaft-efz-oder-hauswirtschaftspraktiker-in-eba-80-100-befristet"
         ],
         "en": [
           "fachfrau-mann-hauswirtschaft-efz-oder-hauswirtschaftspraktiker-in-eba-gesundheitsnetz"
@@ -1007,13 +995,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "ausbildungsplatz-als-hf-pflege-herbst-2026-gesundheitsnetz-kuesnacht-kusnacht",
-        "ausbildungsplatz-come-hf-pflege-herbst-2026-gesundheitsnetz-kusnacht-ag-kusnacht"
+        "ausbildungsplatz-als-hf-pflege-herbst-2026-gesundheitsnetz-kuesnacht-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildungsplatz-als-hf-pflege-herbst-2026-gesundheitsnetz-kuesnacht-kusnacht",
-          "ausbildungsplatz-come-hf-pflege-herbst-2026-gesundheitsnetz-kusnacht-ag-kusnacht"
+          "ausbildungsplatz-als-hf-pflege-herbst-2026-gesundheitsnetz-kuesnacht-kusnacht"
         ],
         "en": [
           "ausbildungsplatz-als-hf-pflege-herbst-2026-gesundheitsnetz-kuesnacht-kusnacht"
@@ -1172,14 +1158,12 @@
       "pensum": "80%",
       "previousSlugs": [
         "nachteule-teamleitung-nachtdienst-gesundheitsnetz-kuesnacht-kusnacht",
-        "teamleitung-nachtdienst-gesundheitsnetz-kuesnacht-kusnacht",
-        "civetta-notturna-team-management-servizio-notturno-gesundheitsnetz-kusnacht-ag-kusnacht"
+        "teamleitung-nachtdienst-gesundheitsnetz-kuesnacht-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
           "nachteule-teamleitung-nachtdienst-gesundheitsnetz-kuesnacht-kusnacht",
-          "teamleitung-nachtdienst-gesundheitsnetz-kuesnacht-kusnacht",
-          "civetta-notturna-team-management-servizio-notturno-gesundheitsnetz-kusnacht-ag-kusnacht"
+          "teamleitung-nachtdienst-gesundheitsnetz-kuesnacht-kusnacht"
         ],
         "en": [
           "nachteule-teamleitung-nachtdienst-gesundheitsnetz-kuesnacht-kusnacht"
@@ -1256,13 +1240,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "praktikant-in-pflege-60-100-gesundheitsnetz-kuesnacht-kusnacht",
-        "cura-del-tirocinante-60-100-gesundheitsnetz-kusnacht-ag-kusnacht"
+        "praktikant-in-pflege-60-100-gesundheitsnetz-kuesnacht-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-pflege-60-100-gesundheitsnetz-kuesnacht-kusnacht",
-          "cura-del-tirocinante-60-100-gesundheitsnetz-kusnacht-ag-kusnacht"
+          "praktikant-in-pflege-60-100-gesundheitsnetz-kuesnacht-kusnacht"
         ],
         "en": [
           "praktikant-in-pflege-60-100-gesundheitsnetz-kuesnacht-kusnacht"
@@ -1340,14 +1322,12 @@
       "pensum": "50%",
       "previousSlugs": [
         "nachtdienst-dipl-pflegefachperson-hf-fh-gesundheitsnetz-kuesnacht-kusnacht",
-        "nachdienst-pflegefachperson-hf-fh-gesundheitsnetz-kuesnacht-kusnacht",
-        "servizio-notturno-dipl-cura-professionale-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht"
+        "nachdienst-pflegefachperson-hf-fh-gesundheitsnetz-kuesnacht-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
           "nachtdienst-dipl-pflegefachperson-hf-fh-gesundheitsnetz-kuesnacht-kusnacht",
-          "nachdienst-pflegefachperson-hf-fh-gesundheitsnetz-kuesnacht-kusnacht",
-          "servizio-notturno-dipl-cura-professionale-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht"
+          "nachdienst-pflegefachperson-hf-fh-gesundheitsnetz-kuesnacht-kusnacht"
         ],
         "en": [
           "nachtdienst-dipl-pflegefachperson-hf-fh-gesundheitsnetz-kuesnacht-kusnacht"
@@ -1594,13 +1574,11 @@
       "pensumMax": 20,
       "pensum": "20%",
       "previousSlugs": [
-        "wissbegierige-n-fachfrau-fachmann-gesundheit-spitex-gesundheitsnetz-kuesnacht-kusnacht",
-        "specialista-inquisitivo-esperto-salute-spitex-gesundheitsnetz-kusnacht-ag-kusnacht"
+        "wissbegierige-n-fachfrau-fachmann-gesundheit-spitex-gesundheitsnetz-kuesnacht-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wissbegierige-n-fachfrau-fachmann-gesundheit-spitex-gesundheitsnetz-kuesnacht-kusnacht",
-          "specialista-inquisitivo-esperto-salute-spitex-gesundheitsnetz-kusnacht-ag-kusnacht"
+          "wissbegierige-n-fachfrau-fachmann-gesundheit-spitex-gesundheitsnetz-kuesnacht-kusnacht"
         ],
         "en": [
           "wissbegierige-n-fachfrau-fachmann-gesundheit-spitex-gesundheitsnetz-kuesnacht-kusnacht"
@@ -1678,14 +1656,12 @@
       "pensum": "60%",
       "previousSlugs": [
         "aufgestellte-dipl-pflegefachperson-hf-fh-fur-die-fallfuhrung-spitex-gesundheitsnetz",
-        "spitex-dipl-pflegefachperson-hf-fh-fur-die-fallfuhrung-gesundheitsnetz-kuesnacht-kusnacht",
-        "aufgestellte-dipl-pflegefachperson-hf-fh-per-la-fallfuhrung-spitex-gesundheitsnetz-kusnacht-ag-kusnacht"
+        "spitex-dipl-pflegefachperson-hf-fh-fur-die-fallfuhrung-gesundheitsnetz-kuesnacht-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aufgestellte-dipl-pflegefachperson-hf-fh-fur-die-fallfuhrung-spitex-gesundheitsnetz",
-          "spitex-dipl-pflegefachperson-hf-fh-fur-die-fallfuhrung-gesundheitsnetz-kuesnacht-kusnacht",
-          "aufgestellte-dipl-pflegefachperson-hf-fh-per-la-fallfuhrung-spitex-gesundheitsnetz-kusnacht-ag-kusnacht"
+          "spitex-dipl-pflegefachperson-hf-fh-fur-die-fallfuhrung-gesundheitsnetz-kuesnacht-kusnacht"
         ],
         "de": [
           "aufgestellte-dipl-pflegefachperson-hf-fh-fur-die-fallfuhrung-spitex-gesundheitsnetz"
@@ -1760,14 +1736,12 @@
       "pensum": "40%",
       "previousSlugs": [
         "spitex-dipl-pflegefachperson-hf-fh-fur-abenddienst-gesundheitsnetz-kuesnacht-kusnacht",
-        "aufgeweckte-dipl-pflegefachperson-hf-fh-fur-abenddienst-spitex-gesundheitsnetz-kuesnacht",
-        "spitex-dipl-pflegefachperson-hf-fh-per-abenddienst-gesundheitsnetz-kusnacht-ag-kusnacht"
+        "aufgeweckte-dipl-pflegefachperson-hf-fh-fur-abenddienst-spitex-gesundheitsnetz-kuesnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spitex-dipl-pflegefachperson-hf-fh-fur-abenddienst-gesundheitsnetz-kuesnacht-kusnacht",
-          "aufgeweckte-dipl-pflegefachperson-hf-fh-fur-abenddienst-spitex-gesundheitsnetz-kuesnacht",
-          "spitex-dipl-pflegefachperson-hf-fh-per-abenddienst-gesundheitsnetz-kusnacht-ag-kusnacht"
+          "aufgeweckte-dipl-pflegefachperson-hf-fh-fur-abenddienst-spitex-gesundheitsnetz-kuesnacht"
         ],
         "en": [
           "spitex-dipl-pflegefachperson-hf-fh-fur-abenddienst-gesundheitsnetz-kuesnacht-kusnacht"
