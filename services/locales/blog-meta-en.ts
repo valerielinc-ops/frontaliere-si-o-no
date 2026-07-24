@@ -8926,6 +8926,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.strada-maria-teresa-roveredo-recupero.title': 'Historic Maria Teresa Road in Roveredo: recovery completed',
     'blog.article.strada-maria-teresa-roveredo-recupero.excerpt': 'Inauguration in Roveredo after an intervention of 900,000 francs for the historic road to Italy, linked to the figure of Maria Theresa of Absburg.',
     'blog.article.strada-maria-teresa-roveredo-recupero.imageAlt': 'Historical restoration of the Maria Teresa road in Roveredo, Grisons',
+    'blog.article.disoccupazione-frontalieri-comitato-misto.title': 'Border unemployment: the future in the Joint Committee',
+    'blog.article.disoccupazione-frontalieri-comitato-misto.excerpt': 'The European Parliament votes for the change of course on compensation: the ball goes to Switzerland amid fears of costs and legal uncertainties.',
+    'blog.article.disoccupazione-frontalieri-comitato-misto.imageAlt': 'View of the Lugano lakefront at dusk',
 };
 
 export default blogMetaEn;
