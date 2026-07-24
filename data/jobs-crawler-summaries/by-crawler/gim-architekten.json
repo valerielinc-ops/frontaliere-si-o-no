@@ -1,16 +1,16 @@
 {
   "key": "gim-architekten",
   "label": "GIM Architekten AG",
-  "generatedAt": "2026-07-23T22:12:35.887Z",
-  "total": 2,
+  "generatedAt": "2026-07-24T11:25:53.470Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5752,
-  "avgDurationMs": 5752,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5239,
+  "avgDurationMs": 5239,
   "durationHistory": [
-    5752
+    5239
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/1d796c78-bfb5-4f59-abbc-afa0ee492061/",
       "source": "GIM Architekten AG Dedicated Parser (jobs.ch)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:12:32.379Z",
+      "crawledAt": "2026-07-24T11:25:49.929Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -53,8 +53,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "gim-architekten-6e239c1cd719",
       "slug": "capo-dell-amministrazione-risorse-umane-e-contabilita-finanziaria-gim-architekten-ag-bern",
@@ -95,5 +94,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
