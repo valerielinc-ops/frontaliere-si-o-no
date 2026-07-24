@@ -67,12 +67,24 @@ jobs:
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 
+      # ── Claude CLI Haiku fallback (ON by default, kill-switch '0') ──────
+      # Absolute last resort in ai-models.mjs's DEFAULT_CHAIN, reached only
+      # after every free-tier model has failed. See
+      # .github/actions/setup-claude-haiku-fallback/action.yml for the full
+      # rationale + incident history.
+      - uses: ./.github/actions/setup-claude-haiku-fallback
+
       - name: Generate parser proposal
         env:
           PARSER_COMPANY_NAME: ${{ inputs.company_name }}
           PARSER_COMPANY_WEBSITE: ${{ inputs.company_website }}
           PARSER_COMPANY_KEY: ${{ inputs.company_key }}
           PARSER_APPLY_CONFIG: ${{ inputs.apply_config == 'true' && '1' || '0' }}
+          # Auth for the opt-in Claude CLI Haiku last-resort fallback (see
+          # "Setup Claude CLI Haiku fallback" step above). Harmless to always
+          # pass: ai-models.mjs only offers the model when this AND the RC
+          # flag are both set.
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: node scripts/generate-company-parser.mjs
 
       - name: Check for changes
@@ -94,6 +106,9 @@ jobs:
           PARSER_COMPANY_WEBSITE: ${{ inputs.company_website }}
           PARSER_COMPANY_KEY: ${{ inputs.company_key }}
           PARSER_APPLY_CONFIG: ${{ inputs.apply_config == 'true' && '1' || '0' }}
+          # --regenerate-cmd below re-invokes generate-company-parser.mjs on
+          # rebase-conflict retry — same auth needed as the step above.
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
