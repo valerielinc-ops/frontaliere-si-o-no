@@ -8928,6 +8928,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-comitato-misto.title': 'Grenzgängerarbeitslosigkeit: Die Zukunft im Gemischten Ausschuss',
     'blog.article.disoccupazione-frontalieri-comitato-misto.excerpt': 'Das Europäische Parlament stimmt für einen Kurswechsel bei den Entschädigungen: Der Ball geht zwischen Kostenangst und Rechtsunsicherheit in die Schweiz.',
     'blog.article.disoccupazione-frontalieri-comitato-misto.imageAlt': 'Blick auf das Seeufer von Lugano bei Dämmerung',
+    'blog.article.riqualificazione-parco-casciago.title': 'Casciago, Beginn der Sanierung des Parks La Pinetina',
+    'blog.article.riqualificazione-parco-casciago.excerpt': 'Die Arbeiten zur Sicherung und Sanierung des Zauns im Park von Casciago werden fortgesetzt, um die Nutzbarkeit der Räume zu verbessern.',
+    'blog.article.riqualificazione-parco-casciago.imageAlt': 'Renovierter öffentlicher Park in Casciago nahe der Schweizer Grenze',
 };
 
 export default blogMetaDe;

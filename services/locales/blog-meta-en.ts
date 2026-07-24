@@ -8929,6 +8929,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-comitato-misto.title': 'Border unemployment: the future in the Joint Committee',
     'blog.article.disoccupazione-frontalieri-comitato-misto.excerpt': 'The European Parliament votes for the change of course on compensation: the ball goes to Switzerland amid fears of costs and legal uncertainties.',
     'blog.article.disoccupazione-frontalieri-comitato-misto.imageAlt': 'View of the Lugano lakefront at dusk',
+    'blog.article.riqualificazione-parco-casciago.title': 'Casciago, the redevelopment of La Pinetina Park is underway',
+    'blog.article.riqualificazione-parco-casciago.excerpt': 'Work continues on securing and rebuilding the fence in the Casciago park to improve the usability of the spaces.',
+    'blog.article.riqualificazione-parco-casciago.imageAlt': 'Renovated public park in Casciago near the Swiss border',
 };
 
 export default blogMetaEn;

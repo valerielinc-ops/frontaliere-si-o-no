@@ -54945,6 +54945,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riqualificazione-parco-casciago': {
+    title: 'Casciago, al via la riqualificazione del Parco La Pinetina',
+    description: 'Lavori di messa in sicurezza e nuova recinzione al Parco La Pinetina di Casciago: l\'obiettivo del Comune è uno spazio più sicuro per tutti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, casciago, riqualificazione, parco, pinetina',
+    ogTitle: 'Casciago, al via la riqualificazione del Parco La Pinetina',
+    ogDescription: 'Lavori di messa in sicurezza e nuova recinzione al Parco La Pinetina di Casciago: l\'obiettivo del Comune è uno spazio più sicuro per tutti.',
+    canonicalPath: '/articoli-frontaliere/riqualificazione-parco-casciago',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casciago, al via la riqualificazione del Parco La Pinetina",
+      "description": "Lavori di messa in sicurezza e nuova recinzione al Parco La Pinetina di Casciago: l'obiettivo del Comune è uno spazio più sicuro per tutti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/riqualificazione-parco-casciago.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Parco pubblico riqualificato a Casciago vicino al confine svizzero"
+      },
+      "datePublished": "2026-07-24T19:21:01+00:00",
+      "dateModified": "2026-07-24T19:21:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riqualificazione-parco-casciago/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
