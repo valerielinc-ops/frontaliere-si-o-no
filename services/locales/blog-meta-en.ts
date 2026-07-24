@@ -8908,6 +8908,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.franco-digitale-bns-dice-no.title': 'Digital franc, the SNB says no. What changes for border workers?',
     'blog.article.franco-digitale-bns-dice-no.excerpt': 'The Swiss National Bank will not introduce the digital franc to the general public.',
     'blog.article.franco-digitale-bns-dice-no.imageAlt': 'A view of Lugano with the Swiss currency.',
+    'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.title': 'Who are the frontier workers in Ticino? The answer is here.',
+    'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.excerpt': 'There are about 25,000 border workers working in Ticino, but who are they and what do they do?',
+    'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.imageAlt': 'A restaurant in Lugano, Ticino, with waiters in service. Max 125 char',
 };
 
 export default blogMetaEn;

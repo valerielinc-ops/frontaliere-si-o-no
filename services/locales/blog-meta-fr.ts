@@ -8910,6 +8910,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.franco-digitale-bns-dice-no.title': 'Franc numérique, la BNS dit non. Qu\'est-ce qui change pour les frontaliers ?',
     'blog.article.franco-digitale-bns-dice-no.excerpt': 'La Banque nationale suisse n\'introduira pas le franc numérique pour le grand public.',
     'blog.article.franco-digitale-bns-dice-no.imageAlt': 'Une vue de Lugano avec la monnaie suisse.',
+    'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.title': 'Qui sont les frontaliers au Tessin ? La réponse est ici.',
+    'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.excerpt': 'Environ 25000 frontaliers travaillent au Tessin, mais qui sont-ils et que font-ils ?',
+    'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.imageAlt': 'Un restaurant à Lugano, Ticino, avec des serveurs en service. Max 125 Char',
 };
 
 export default blogMetaFr;

@@ -26765,6 +26765,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontaliereticino-chi-sono-i-frontalieri-ticino',
+ category: 'pratico',
+ date: '2026-07-24T15:31:34.149Z',
+ image: '/images/blog/frontaliereticino-chi-sono-i-frontalieri-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
