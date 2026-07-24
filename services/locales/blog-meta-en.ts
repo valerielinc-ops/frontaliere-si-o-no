@@ -8914,6 +8914,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trip-progetto-treni-retici-in-progress.title': 'TRIP: mobility development between Lombardy and Graubünden',
     'blog.article.trip-progetto-treni-retici-in-progress.excerpt': 'The TRIP project aims to develop mobility between Lombardy and Graubünden.',
     'blog.article.trip-progetto-treni-retici-in-progress.imageAlt': 'A transfrontier train in motion through the Alps.',
+    'blog.article.frontaliere-elettricista-ticino-stipendio-requisiti.title': 'Frontier electrician in Ticino: average salary, requirements and G permit',
+    'blog.article.frontaliere-elettricista-ticino-stipendio-requisiti.excerpt': 'Find out the requirements and the G permit needed to work as an electrician in Ticino as a border worker.',
+    'blog.article.frontaliere-elettricista-ticino-stipendio-requisiti.imageAlt': 'A view of Lake Lugano with the city of Lugano in the foreground.',
 };
 
 export default blogMetaEn;

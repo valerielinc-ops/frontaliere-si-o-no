@@ -26783,6 +26783,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-elettricista-ticino-stipendio-requisiti',
+ category: 'pratico',
+ date: '2026-07-24T17:08:03.717Z',
+ image: '/images/blog/frontaliere-elettricista-ticino-stipendio-requisiti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
