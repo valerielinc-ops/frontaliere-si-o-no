@@ -40,7 +40,18 @@ import { TYPES_ACCEPT_IN_LANGUAGE_LIST } from '../services/seo/inlanguage-whitel
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 import { classifyFeature as classifyFeatureRatioOriginal } from './audit-text-html-ratio.mjs';
 import { classifyFeature as classifyFeatureTitleOriginal } from './audit-title-length.mjs';
-import { evaluateMixAdjustedTotalRegression } from './lib/mixAdjustedRateGate.mjs';
+import { evaluateMixAdjustedTotalRegression, extrapolateSampledCount } from './lib/mixAdjustedRateGate.mjs';
+
+// See audit-text-html-ratio.mjs's identical constant for the rationale.
+// Currently dormant here (this standalone `npm run audit:dist-multi` tool
+// isn't invoked from the AUDIT_SAMPLE_RATE-scoped step in
+// post-deploy-validate-dist.yml), but fixed for defense-in-depth — same
+// duplicated curOff/baseOff comparison the PR #4695 review flagged as an
+// unconfirmed risk here (round 1 adversarial check).
+const SAMPLE_RATE = (() => {
+  const v = Number(process.env.AUDIT_SAMPLE_RATE);
+  return v > 0 && v <= 1 ? v : 1;
+})();
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -1421,13 +1432,14 @@ export async function runRatio(audit, baselinePath = RATIO_BASELINE_PATH) {
       const baseRate = base ? Number(base.ratePct ?? 0) : 0;
       const baseOff = base ? Number(base.offenders ?? 0) : 0;
       const rateCap = baseRate + Math.min((baseRate * tol.relPct) / 100, tol.maxDeltaPp) + tol.absPp;
-      if (curRate > rateCap && curOff > baseOff + tol.minAbsDelta) {
+      if (curRate > rateCap && extrapolateSampledCount(curOff, SAMPLE_RATE) > baseOff + tol.minAbsDelta) {
         featureRegressions.push({ feature: f, count: curOff, max: baseOff, rate: Number(curRate.toFixed(3)), maxRate: Number(rateCap.toFixed(3)) });
       }
     }
     const { expectedOffenders, regression } = evaluateMixAdjustedTotalRegression({
       scannedByFeature, baseByFeature, tol,
       actualOffenders: offenders.length, actualScanned: audit.report.length,
+      sampleRate: SAMPLE_RATE,
     });
     baseTotal = Math.round(expectedOffenders);
     totalRegression = regression;
@@ -1562,13 +1574,14 @@ export async function runTitle(audit, baselinePath = TITLE_BASELINE_PATH) {
       const baseRate = base ? Number(base.ratePct ?? 0) : 0;
       const baseOff = base ? Number(base.offenders ?? 0) : 0;
       const rateCap = baseRate + Math.min((baseRate * tol.relPct) / 100, tol.maxDeltaPp) + tol.absPp;
-      if (curRate > rateCap && curOff > baseOff + tol.minAbsDelta) {
+      if (curRate > rateCap && extrapolateSampledCount(curOff, SAMPLE_RATE) > baseOff + tol.minAbsDelta) {
         regressedFeatures.push({ feature: f, count: curOff, max: baseOff, rate: curRate, maxRate: rateCap });
       }
     }
     const { regression: totalRegression } = evaluateMixAdjustedTotalRegression({
       scannedByFeature: audit.scannedByFeature, baseByFeature, tol,
       actualOffenders: offenders.length, actualScanned: audit.scanned,
+      sampleRate: SAMPLE_RATE,
     });
     if (totalRegression) {
       console.error(`\nREGRESSION: total offenders ${offenders.length} exceeds mix-adjusted expected rate`);
@@ -1662,13 +1675,14 @@ export async function runH1(audit, baselinePath = H1_BASELINE_PATH) {
       const baseRate = base ? Number(base.ratePct ?? 0) : 0;
       const baseOff = base ? Number(base.offenders ?? 0) : 0;
       const rateCap = baseRate + Math.min((baseRate * tol.relPct) / 100, tol.maxDeltaPp) + tol.absPp;
-      if (curRate > rateCap && curOff > baseOff + tol.minAbsDelta) {
+      if (curRate > rateCap && extrapolateSampledCount(curOff, SAMPLE_RATE) > baseOff + tol.minAbsDelta) {
         regressedFeatures.push({ feature: f, count: curOff, max: baseOff, rate: curRate, maxRate: rateCap });
       }
     }
     const { regression: totalRegression } = evaluateMixAdjustedTotalRegression({
       scannedByFeature: audit.scannedByFeature, baseByFeature, tol,
       actualOffenders: offenders.length, actualScanned: audit.scanned,
+      sampleRate: SAMPLE_RATE,
     });
     if (totalRegression) {
       console.error(`\nREGRESSION: total offenders ${offenders.length} exceeds mix-adjusted expected rate`);

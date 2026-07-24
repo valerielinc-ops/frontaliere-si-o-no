@@ -53,6 +53,18 @@ import { join, relative, isAbsolute, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import https from 'node:https';
 import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
+import { extrapolateSampledCount } from './lib/mixAdjustedRateGate.mjs';
+
+// See audit-text-html-ratio.mjs's identical constant for the rationale.
+// Currently dormant here — this script runs in the validate-dist-postbuild-bfs
+// job (post-deploy-validate-dist.yml), which never sets AUDIT_SAMPLE_RATE (a
+// full BFS link-graph walk can't be meaningfully sampled without breaking
+// reachability computation) — fixed for defense-in-depth, closing the
+// PR #4695 review's unconfirmed "likely" flag on this exact file.
+const SAMPLE_RATE = (() => {
+  const v = Number(process.env.AUDIT_SAMPLE_RATE);
+  return v > 0 && v <= 1 ? v : 1;
+})();
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -445,7 +457,7 @@ export function evaluateBfsGate({ perSitemap, baseline, tol }) {
       // MORE likely to fire). Gating a bare rate spike from contraction would
       // deploy-block legitimate corpus shrink — a new organic false-fail, the
       // class #1604 removed. (Verified deferred-item #3, #1605.)
-      if (curRate > rateCap && row.atDepthGtMax > prevOff + resolvedTol.minAbsDelta) {
+      if (curRate > rateCap && extrapolateSampledCount(row.atDepthGtMax, SAMPLE_RATE) > prevOff + resolvedTol.minAbsDelta) {
         regressions.push({ name, prev: prevOff, current: row.atDepthGtMax, deepest: row.deepest, prevRate: Number(prevRate.toFixed(3)), curRate: Number(curRate.toFixed(3)), rateCap: Number(rateCap.toFixed(3)) });
       }
     } else if (row.atDepthGtMax > prevOff) {

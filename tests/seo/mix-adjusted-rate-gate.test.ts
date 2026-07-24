@@ -9,7 +9,12 @@
  * upward with zero per-feature quality change (incident #3232).
  */
 import { describe, expect, it } from 'vitest';
-import { computeMixAdjustedTotalCap, evaluateMixAdjustedTotalRegression } from '../../scripts/lib/mixAdjustedRateGate.mjs';
+import {
+  computeMixAdjustedTotalCap,
+  evaluateMixAdjustedTotalRegression,
+  extrapolateSampledCount,
+  isPlausibleSamplingMiss,
+} from '../../scripts/lib/mixAdjustedRateGate.mjs';
 
 const TOL = { relPct: 20, absPp: 1.0, minAbsDelta: 5, maxDeltaPp: 3 };
 
@@ -128,5 +133,147 @@ describe('evaluateMixAdjustedTotalRegression', () => {
     });
     expect(r.regression).toBe(false);
     expect(r.missingFeatures).toEqual([]);
+  });
+});
+
+// Regression guard for the sampling-vs-baseline mismatch found in PR #4695's
+// review (2 🔴 Important, both still unfixed when the PR merged — this is the
+// real fix). AUDIT_SAMPLE_RATE reads only a fraction of dist/ per run; these
+// functions previously compared sampled current counts against unsampled
+// baseline counts, and treated ANY baseline feature missing from a sampled
+// scan as a hard "incomplete scan" regression even when a small bucket
+// legitimately draws zero pages by chance.
+describe('extrapolateSampledCount', () => {
+  it('scales a sampled count up to full-corpus-equivalent scale', () => {
+    expect(extrapolateSampledCount(10, 0.25)).toBe(40);
+  });
+
+  it('is the identity at rate=1 (no sampling)', () => {
+    expect(extrapolateSampledCount(10, 1)).toBe(10);
+  });
+
+  it('is the identity when rate is omitted/invalid', () => {
+    expect(extrapolateSampledCount(10, 0)).toBe(10);
+    expect(extrapolateSampledCount(10, 1.5)).toBe(10);
+  });
+});
+
+describe('isPlausibleSamplingMiss', () => {
+  it('is plausible for a small baseline bucket at 25% sampling (the weekly-employers-hub case: 8 pages)', () => {
+    // (1-0.25)^8 ≈ 10% — well above the 1% tolerance, a legitimate miss.
+    expect(isPlausibleSamplingMiss(8, 0.25)).toBe(true);
+  });
+
+  it('is NOT plausible for a large baseline bucket at 25% sampling (e.g. career-landings-scale, 1000s of pages)', () => {
+    // (1-0.25)^100 is astronomically small — an all-zero draw this large is real signal.
+    expect(isPlausibleSamplingMiss(100, 0.25)).toBe(false);
+  });
+
+  it('is never plausible when sampling is inactive (rate=1)', () => {
+    expect(isPlausibleSamplingMiss(1, 1)).toBe(false);
+    expect(isPlausibleSamplingMiss(1, 0)).toBe(false);
+  });
+});
+
+describe('computeMixAdjustedTotalCap — sampling-aware missingFeatures', () => {
+  it('does NOT flag a small baseline bucket missing from a sampled scan (weekly-employers-hub: 8 baseline pages, 25% sample)', () => {
+    const r = computeMixAdjustedTotalCap({
+      scannedByFeature: { 'job-board': 1000 }, // weekly-employers-hub absent from this sampled run
+      baseByFeature: {
+        'job-board': { ratePct: 5, scanned: 4000 },
+        'weekly-employers-hub': { ratePct: 0, scanned: 8 },
+      },
+      tol: TOL,
+      sampleRate: 0.25,
+    });
+    expect(r.missingFeatures).toEqual([]);
+  });
+
+  it('still flags a large baseline bucket missing from a sampled scan (real incomplete-scan signal)', () => {
+    const r = computeMixAdjustedTotalCap({
+      scannedByFeature: { 'job-board': 1000 },
+      baseByFeature: {
+        'job-board': { ratePct: 5, scanned: 4000 },
+        'career-landings': { ratePct: 2, scanned: 20364 },
+      },
+      tol: TOL,
+      sampleRate: 0.25,
+    });
+    expect(r.missingFeatures).toEqual(['career-landings']);
+  });
+
+  it('flags any missing feature at rate=1 (no sampling) same as before this fix — regression guard', () => {
+    const r = computeMixAdjustedTotalCap({
+      scannedByFeature: { a: 100 },
+      baseByFeature: { a: { ratePct: 5, scanned: 90 }, b: { ratePct: 10, scanned: 8 } },
+      tol: TOL,
+      sampleRate: 1,
+    });
+    expect(r.missingFeatures).toEqual(['b']);
+  });
+});
+
+describe('evaluateMixAdjustedTotalRegression — sampled actualOffenders extrapolation', () => {
+  // Baseline (unsampled, seed-workflow scale): a: scanned=400 rate=5%,
+  // b: scanned=1600 rate=50%. At 25% sampling, an UNCHANGED site produces
+  // roughly a quarter of those counts in the current run.
+  const baseByFeature = { a: { ratePct: 5, scanned: 400 }, b: { ratePct: 50, scanned: 1600 } };
+  const scannedByFeature = { a: 100, b: 400 };
+
+  it('does not false-fail when a sampled run matches the baseline rate (no real regression)', () => {
+    const r = evaluateMixAdjustedTotalRegression({
+      scannedByFeature, baseByFeature, tol: TOL,
+      actualOffenders: 205, // ~25% of the baseline's 820 total offenders
+      actualScanned: 500,
+      sampleRate: 0.25,
+    });
+    expect(r.regression).toBe(false);
+  });
+
+  it('still fails on a genuine regression visible in the sampled rate', () => {
+    const r = evaluateMixAdjustedTotalRegression({
+      scannedByFeature, baseByFeature, tol: TOL,
+      actualOffenders: 250, // 50% rate vs baseline's 41% — real, both pre- and post-extrapolation
+      actualScanned: 500,
+      sampleRate: 0.25,
+    });
+    expect(r.regression).toBe(true);
+  });
+
+  // Regression guard for PR #4717's OWN review round 2: the two tests above
+  // don't discriminate extrapolating-vs-not, because in both their rate
+  // check alone already decides the outcome (actualOffenders=205 keeps
+  // actualTotalRate under totalCap regardless of the count check; 250 clears
+  // BOTH the raw and the ×4-extrapolated count floor). This scenario isolates
+  // the count-floor comparison as the actually-deciding factor: a small
+  // corpus (scanned=20) where a few offenders (4) are within noise
+  // (minAbsDelta=5) on the RAW scale — actualOffenders and expectedOffenders
+  // are both derived from THIS run's own scannedByFeature, so they're
+  // already scale-matched and must be compared directly, unlike the
+  // per-feature loop's baseOff (a genuinely full-corpus, stored count).
+  // Extrapolating actualOffenders here (4 -> 16 at rate=0.25) would wrongly
+  // clear the floor (16 > 0+5) and flag a false regression.
+  it('does not false-fail on noise within minAbsDelta even when the rate check alone would fire (isolates the count-floor comparison)', () => {
+    const r = evaluateMixAdjustedTotalRegression({
+      scannedByFeature: { a: 20 },
+      baseByFeature: { a: { ratePct: 0, scanned: 20 } },
+      tol: TOL,
+      actualOffenders: 4,
+      actualScanned: 20,
+      sampleRate: 0.25,
+    });
+    expect(r.regression).toBe(false);
+  });
+
+  it('does fail once the same small-corpus offender count clears minAbsDelta for real', () => {
+    const r = evaluateMixAdjustedTotalRegression({
+      scannedByFeature: { a: 20 },
+      baseByFeature: { a: { ratePct: 0, scanned: 20 } },
+      tol: TOL,
+      actualOffenders: 6, // > expectedOffenders(0) + minAbsDelta(5), on the raw (unextrapolated) scale
+      actualScanned: 20,
+      sampleRate: 0.25,
+    });
+    expect(r.regression).toBe(true);
   });
 });
