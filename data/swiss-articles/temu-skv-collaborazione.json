@@ -1,0 +1,40 @@
+{
+  "id": "temu-skv-collaborazione",
+  "slug": "temu-skv-collaborazione",
+  "publishedAt": "2026-07-24T18:14:57.982Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.277433747064804,
+    "confidence": 0.8,
+    "finalScore": 3.4219469976518435,
+    "topK": [
+      {
+        "slug": "frontalieri-telelavoro-pubblicato-limite-25",
+        "cosine": 0.8554867494129608
+      },
+      {
+        "slug": "indice-pmi-svizzera-ottimismo-2026",
+        "cosine": 0.8550270226870244
+      },
+      {
+        "slug": "frontalieri-e-indennita",
+        "cosine": 0.8537361790213382
+      },
+      {
+        "slug": "svizzera-istruzioni-uso-2026",
+        "cosine": 0.8520609328771295
+      },
+      {
+        "slug": "banche-golfo-frontalieri-ticino-2026",
+        "cosine": 0.8501995620467909
+      }
+    ],
+    "score": 1.7109734988259218,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

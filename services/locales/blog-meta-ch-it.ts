@@ -1510,6 +1510,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.regione-lombardia-fiduciosa.title': 'Regione Lombardia fiduciosa sull\'accordo sui ristorni con il Canton Ticino',
     'blog.article.regione-lombardia-fiduciosa.excerpt': 'La Regione Lombardia esprime fiducia nell\'accordo sui ristorni tra la Svizzera e il Canton Ticino.',
     'blog.article.regione-lombardia-fiduciosa.imageAlt': 'Scene di lavoro e vita frontaliera tra Svizzera e Italia',
+    'blog.article.temu-skv-collaborazione.title': 'Temu e SKV: favorire accesso PMI svizzere a mercato in rete',
+    'blog.article.temu-skv-collaborazione.excerpt': 'La piattaforma di commercio online cinese Temu e l\'Associazione Svizzera delle PMI (SKV) hanno deciso di intraprendere una collaborazione per favorire l\'accesso delle aziende elvetiche al commercio in rete.',
+    'blog.article.temu-skv-collaborazione.imageAlt': 'Vista di Lugano con il lago e la città',
 };
 
 export default blogMetaChIt;

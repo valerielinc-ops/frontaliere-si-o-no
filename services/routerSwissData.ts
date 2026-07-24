@@ -526,6 +526,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'trippa-futuri-mobilita-italia-grigioni': { it: 'trippa-futuri-mobilita-italia-grigioni', en: 'trip-future-mobility-italy-switzerland', de: 'trippa-zukunft-mobilitat-italien-schweiz', fr: 'trip-futur-mobilite-italie-suisse' },
  'frontaliereriformaue': { it: 'frontaliereriformaue', en: 'frontaliereriformaue', de: 'frontaliereriformaue', fr: 'frontaliereriformaue' },
  'regione-lombardia-fiduciosa': { it: 'regione-lombardia-fiduciosa', en: 'region-of-lombardy-faithful', de: 'region-lombardie-vertrauenswurdig', fr: 'region-de-lombardie-fiduciaire' },
+ 'temu-skv-collaborazione': { it: 'temu-skv-collaborazione', en: 'temu-skv-collaboration', de: 'temu-skv-zusammenarbeit', fr: 'temu-skv-collaboration' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -1510,6 +1510,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.regione-lombardia-fiduciosa.title': 'Lombardie fiducieuse sur l\'accord de restauration avec le Tessin',
     'blog.article.regione-lombardia-fiduciosa.excerpt': 'La Région Lombardie exprime sa confiance dans l\'accord de restauration entre la Suisse et le canton du Tessin.',
     'blog.article.regione-lombardia-fiduciosa.imageAlt': 'Scènes du travail et de la vie des frontaliers entre la Suisse et l\'Italie',
+    'blog.article.temu-skv-collaborazione.title': 'Temu et SKV : favoriser l\'accès des PME suisses au marché en réseau',
+    'blog.article.temu-skv-collaborazione.excerpt': 'La plateforme de commerce en ligne chinoise Temu et l\'Association suisse des PME (SKV) ont décidé d\'entreprendre une collaboration pour favoriser l\'accès des entreprises suisses au commerce en ligne.',
+    'blog.article.temu-skv-collaborazione.imageAlt': 'Vue de Lugano avec le lac et la ville',
 };
 
 export default blogMetaChFr;

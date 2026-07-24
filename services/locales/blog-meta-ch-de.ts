@@ -1510,6 +1510,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.regione-lombardia-fiduciosa.title': 'Lombardei hofft auf Rückzahlungsvereinbarung mit dem Kanton Tessin',
     'blog.article.regione-lombardia-fiduciosa.excerpt': 'Die Region Lombardei vertraut auf das Rückzahlungsabkommen zwischen der Schweiz und dem Kanton Tessin.',
     'blog.article.regione-lombardia-fiduciosa.imageAlt': 'Szenen des Arbeits- und Lebensalltags von Grenzgängern zwischen der Schweiz und Italien',
+    'blog.article.temu-skv-collaborazione.title': 'Temu und SKV: Förderung des Zugangs von Schweizer KMU zum vernetzten Markt',
+    'blog.article.temu-skv-collaborazione.excerpt': 'Die chinesische Online-Handelsplattform Temu und der Schweizerische KMU-Verband (SKV) haben beschlossen, eine Zusammenarbeit einzugehen, um Schweizer Unternehmen den Zugang zum Online-Handel zu erleichtern.',
+    'blog.article.temu-skv-collaborazione.imageAlt': 'Lugano-Blick mit See und Stadt',
 };
 
 export default blogMetaChDe;
