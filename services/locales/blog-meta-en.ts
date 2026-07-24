@@ -8905,6 +8905,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cuoco-frontaliere-ticino-guadagno.title': 'How much does a border cook earn in Ticino?',
     'blog.article.cuoco-frontaliere-ticino-guadagno.excerpt': 'The New Frontier Agreement of 23/12/2020 provides for frontier workers to be treated similarly to Swiss workers. Here\'s what\'s changing for border cooks in Ticino.',
     'blog.article.cuoco-frontaliere-ticino-guadagno.imageAlt': 'View of Lugano from the lake. Max 125 chars',
+    'blog.article.franco-digitale-bns-dice-no.title': 'Digital franc, the SNB says no. What changes for border workers?',
+    'blog.article.franco-digitale-bns-dice-no.excerpt': 'The Swiss National Bank will not introduce the digital franc to the general public.',
+    'blog.article.franco-digitale-bns-dice-no.imageAlt': 'A view of Lugano with the Swiss currency.',
 };
 
 export default blogMetaEn;

@@ -8904,6 +8904,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cuoco-frontaliere-ticino-guadagno.title': 'Wie viel verdient ein Grenzkoch im Tessin?',
     'blog.article.cuoco-frontaliere-ticino-guadagno.excerpt': 'Das Neue Grenzgängerabkommen vom 23.12.2020 sieht vor, dass Grenzgänger ähnlich behandelt werden wie Schweizer Arbeitnehmer. Das ändert sich für Grenzköche im Tessin.',
     'blog.article.cuoco-frontaliere-ticino-guadagno.imageAlt': 'Lugano vom See aus. Max 125 chars',
+    'blog.article.franco-digitale-bns-dice-no.title': 'Digitaler Franken, die SNB sagt Nein. Was ändert sich für Grenzgänger?',
+    'blog.article.franco-digitale-bns-dice-no.excerpt': 'Die Schweizerische Nationalbank wird den digitalen Franken für die breite Öffentlichkeit nicht einführen.',
+    'blog.article.franco-digitale-bns-dice-no.imageAlt': 'Eine Ansicht von Lugano mit der Schweizer Währung.',
 };
 
 export default blogMetaDe;
