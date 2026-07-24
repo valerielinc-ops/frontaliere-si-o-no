@@ -8906,6 +8906,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cuoco-frontaliere-ticino-guadagno.title': 'Quanto guadagna un cuoco frontaliere in Ticino?',
     'blog.article.cuoco-frontaliere-ticino-guadagno.excerpt': 'Il Nuovo Accordo Frontalieri del 23/12/2020 prevede che i frontalieri siano trattati in modo simile ai lavoratori svizzeri. Ecco cosa cambia per i cuochi frontaliere in Ticino.',
     'blog.article.cuoco-frontaliere-ticino-guadagno.imageAlt': 'Vista di Lugano dal lago. Max 125 chars',
+    'blog.article.franco-digitale-bns-dice-no.title': 'Franco digitale, la BNS dice no. Cosa cambia per i frontalieri?',
+    'blog.article.franco-digitale-bns-dice-no.excerpt': 'La Banca Nazionale Svizzera non introdurrà il franco digitale per il grande pubblico.',
+    'blog.article.franco-digitale-bns-dice-no.imageAlt': 'Una vista di Lugano con la valuta svizzera.',
 };
 
 export default blogMetaIt;
