@@ -1,16 +1,16 @@
 {
   "key": "klinik-aadorf",
   "label": "Klinik Aadorf",
-  "generatedAt": "2026-07-24T11:10:14.662Z",
-  "total": 5,
+  "generatedAt": "2026-07-24T22:05:36.832Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5679,
-  "avgDurationMs": 5679,
+  "unchangedCount": 0,
+  "durationMs": 5616,
+  "avgDurationMs": 5616,
   "durationHistory": [
-    5679
+    5616
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/9ab806a4-664e-46b0-972e-98e650495bfe/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T11:10:11.573Z",
+      "crawledAt": "2026-07-24T22:05:33.109Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/8216cfc3-8d7e-4f66-9b5b-979dd7655622/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T11:10:11.061Z",
+      "crawledAt": "2026-07-24T22:05:32.678Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/af339bff-6451-4460-bfcc-935ee92ee2e8/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T11:10:10.050Z",
+      "crawledAt": "2026-07-24T22:05:31.801Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/3ad10aff-6faf-49e6-850a-ef073d05bd7b/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T11:10:10.557Z",
+      "crawledAt": "2026-07-24T22:05:32.236Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -164,45 +164,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "klinik-aadorf-0f6af3615eac",
-      "slug": "cuoca-cuoco-m-f-d-100-klinik-aadorf-aadorf",
-      "company": "Klinik Aadorf",
-      "companyKey": "klinik-aadorf",
-      "companyDomain": "klinik-aadorf.ch",
-      "title": "KÖCHIN / KOCH (W/M/D) 100%",
-      "location": "Aadorf",
-      "canton": "TG",
-      "url": "https://jobs.dualoo.com/portal/3ibnwlo9/1727a35a-ab32-4a43-a153-c4de9cf74c12/detail?lang=DE",
-      "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-23T22:05:03.187Z",
-      "addressLocality": "Aadorf",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8355",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-20",
-      "applyUrl": "https://jobs.dualoo.com/portal/3ibnwlo9/1727a35a-ab32-4a43-a153-c4de9cf74c12/detail?lang=DE",
-      "firstSeenAt": "2026-05-20T06:05:21.925Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "crawlerMissStreak": 1,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
