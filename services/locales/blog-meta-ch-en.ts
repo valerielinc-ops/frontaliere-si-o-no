@@ -1510,6 +1510,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.regione-lombardia-fiduciosa.title': 'Lombardy confident on refill deal with Ticino',
     'blog.article.regione-lombardia-fiduciosa.excerpt': 'The Lombardy Region expresses confidence in the refreshments agreement between Switzerland and the Canton of Ticino.',
     'blog.article.regione-lombardia-fiduciosa.imageAlt': 'Scenes of work and life of frontier workers between Switzerland and Italy',
+    'blog.article.temu-skv-collaborazione.title': 'Temu and SKV: promoting Swiss SMEs\' access to the online market',
+    'blog.article.temu-skv-collaborazione.excerpt': 'The Chinese online commerce platform Temu and the Swiss Association of SMEs (SKV) have decided to undertake a collaboration to promote Swiss companies\' access to online commerce.',
+    'blog.article.temu-skv-collaborazione.imageAlt': 'Lugano view with lake and city',
+    'blog.article.bce-mantiene-tassi-2-25.title': 'ECB keeps rates at 2.25%',
+    'blog.article.bce-mantiene-tassi-2-25.excerpt': 'The European Central Bank has confirmed the values set in June',
+    'blog.article.bce-mantiene-tassi-2-25.imageAlt': 'Photograph of a bank building in Lugano',
 };
 
 export default blogMetaChEn;

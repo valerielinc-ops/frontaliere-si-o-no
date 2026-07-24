@@ -8921,6 +8921,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.locarno-giovani-assistenza-sociale.title': 'Locarno: giovani e assistenza, interrogazione al Municipio',
     'blog.article.locarno-giovani-assistenza-sociale.excerpt': 'Aumento delle richieste di assistenza tra i giovani a Locarno: un gruppo trasversale di consiglieri chiede nuove strategie per il reinserimento lavorativo.',
     'blog.article.locarno-giovani-assistenza-sociale.imageAlt': 'Municipio di Locarno, sede delle discussioni sull\'assistenza sociale.',
+    'blog.article.boom-ia-svizzera-opportunita-frontalieri.title': 'Boom IA in Svizzera: opportunità per i frontalieri',
+    'blog.article.boom-ia-svizzera-opportunita-frontalieri.excerpt': 'Le offerte di lavoro con competenze in IA raggiungono un record storico. Ecco cosa significa per i 78.500 lavoratori frontalieri attivi in Ticino.',
+    'blog.article.boom-ia-svizzera-opportunita-frontalieri.imageAlt': 'Ufficio moderno a Lugano con vista lago',
+    'blog.article.strada-maria-teresa-roveredo-recupero.title': 'Storica Strada Maria Teresa a Roveredo: completato il recupero',
+    'blog.article.strada-maria-teresa-roveredo-recupero.excerpt': 'Inaugurazione a Roveredo dopo un intervento da 900.000 franchi per la storica via verso l\'Italia, legata alla figura di Maria Teresa d\'Absburgo.',
+    'blog.article.strada-maria-teresa-roveredo-recupero.imageAlt': 'Restauro storico della Strada Maria Teresa a Roveredo nel Canton Grigioni',
+    'blog.article.disoccupazione-frontalieri-comitato-misto.title': 'Disoccupazione frontalieri: il futuro nel Comitato misto',
+    'blog.article.disoccupazione-frontalieri-comitato-misto.excerpt': 'Il Parlamento europeo vota per il cambio di rotta sulle indennità: la palla passa alla Svizzera tra timori di costi e incertezze legali.',
+    'blog.article.disoccupazione-frontalieri-comitato-misto.imageAlt': 'Veduta del lungolago di Lugano al crepuscolo',
 };
 
 export default blogMetaIt;

@@ -4870,6 +4870,11 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliereriformaue': { name: 'Riforma Ue sui frontalieri disoccupati', path: '/articoli-svizzera/frontaliereriformaue/', parent: 'blog' },
     'blog-locarno-giovani-assistenza-sociale': { name: 'Locarno Assistenza Giovani', path: '/articoli-frontaliere/locarno-giovani-assistenza-sociale', parent: 'blog' },
     'blog-regione-lombardia-fiduciosa': { name: 'Regione Lombardia fiduciosa sull\'accordo', path: '/articoli-svizzera/regione-lombardia-fiduciosa/', parent: 'blog' },
+    'blog-boom-ia-svizzera-opportunita-frontalieri': { name: 'IA e frontalieri', path: '/articoli-frontaliere/boom-ia-svizzera-opportunita-frontalieri', parent: 'blog' },
+    'blog-temu-skv-collaborazione': { name: 'Collaborazione Temu SKV', path: '/articoli-svizzera/temu-skv-collaborazione/', parent: 'blog' },
+    'blog-strada-maria-teresa-roveredo-recupero': { name: 'Strada Maria Teresa', path: '/articoli-frontaliere/strada-maria-teresa-roveredo-recupero', parent: 'blog' },
+    'blog-bce-mantiene-tassi-2-25': { name: 'Politica monetaria', path: '/articoli-svizzera/bce-mantiene-tassi-2-25/', parent: 'blog' },
+    'blog-disoccupazione-frontalieri-comitato-misto': { name: 'Disoccupazione frontalieri', path: '/articoli-frontaliere/disoccupazione-frontalieri-comitato-misto', parent: 'blog' },
  };
 
  const info = sectionNames[section];

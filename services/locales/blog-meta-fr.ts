@@ -8922,6 +8922,15 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.locarno-giovani-assistenza-sociale.title': 'Locarno : jeunes et assistance, question à la Mairie',
     'blog.article.locarno-giovani-assistenza-sociale.excerpt': 'Augmentation des demandes d\'assistance chez les jeunes à Locarno : un groupe transversal de conseillers demande de nouvelles stratégies pour la réinsertion professionnelle.',
     'blog.article.locarno-giovani-assistenza-sociale.imageAlt': 'Hôtel de ville de Locarno, au cœur du débat sur l\'aide sociale.',
+    'blog.article.boom-ia-svizzera-opportunita-frontalieri.title': 'Boom IA en Suisse : opportunités pour les frontaliers',
+    'blog.article.boom-ia-svizzera-opportunita-frontalieri.excerpt': 'Les offres d\'emploi avec des compétences en IA atteignent un record historique. Voici ce que cela signifie pour les 78 500 travailleurs frontaliers actifs au Tessin.',
+    'blog.article.boom-ia-svizzera-opportunita-frontalieri.imageAlt': 'Bureau moderne à Lugano avec vue sur le lac',
+    'blog.article.strada-maria-teresa-roveredo-recupero.title': 'Route historique Maria Teresa à Roveredo : la récupération est terminée',
+    'blog.article.strada-maria-teresa-roveredo-recupero.excerpt': 'Inauguration à Roveredo après une intervention de 900 000 francs sur la route historique vers l\'Italie, liée à la figure de Marie-Thérèse d\'Habsbourg.',
+    'blog.article.strada-maria-teresa-roveredo-recupero.imageAlt': 'Restauration historique de la route Marie-Thérèse à Roveredo, Grisons',
+    'blog.article.disoccupazione-frontalieri-comitato-misto.title': 'Chômage frontalier : l\'avenir au sein du Comité mixte',
+    'blog.article.disoccupazione-frontalieri-comitato-misto.excerpt': 'Le Parlement européen vote le changement de cap sur les indemnités : la balle est dans le camp de la Suisse entre craintes de coûts et incertitudes juridiques.',
+    'blog.article.disoccupazione-frontalieri-comitato-misto.imageAlt': 'Vue sur le bord du lac de Lugano au crépuscule',
 };
 
 export default blogMetaFr;
