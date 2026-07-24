@@ -63,6 +63,8 @@ import {
   generateExcerpt,
   checkTranslatedSlugCollisions,
   deriveAndSanitizeArticleSlugs,
+  assertNoFabricatedReferences,
+  assertNoFabricatedLaborOfficeCrossLocale,
 } from './create-article.mjs';
 import { generateFaqIT } from './batch-add-faq-to-articles.mjs';
 import { appendCatalogEntry } from './generate-journalist-image-catalog.mjs';
@@ -273,6 +275,16 @@ async function processDoc(db, FieldValue, docSnap) {
     console.log('  ✂️  sanitizing bold formatting (sanitizeBoldFormatting, pre-translation)...');
     sanitizeBoldFormatting(data);
 
+    // Fabricated references check — BLOCKING (same guard the AI generation
+    // path runs at create-article.mjs's "Step 3a.0b"). Journalist drafts were
+    // never wired to this check (this import list didn't include it), so a
+    // fabricated institution/acronym in a journalist submission would sail
+    // straight through to publish with no regeneration loop to fall back on —
+    // unlike the AI path, there's no automatic retry here; a hit just fails
+    // the doc so the journalist can fix and resubmit (see the outer catch).
+    console.log('  🔍 checking for fabricated references (assertNoFabricatedReferences)...');
+    assertNoFabricatedReferences(data.content.it);
+
     // Journalist submissions carry a real, authenticated identity captured at
     // draft time (JournalistDashboardPage.tsx -> journalistArticleService.ts:
     // doc.authorUid/authorName) — trust it instead of guessing a teammate by
@@ -292,6 +304,13 @@ async function processDoc(db, FieldValue, docSnap) {
 
     console.log('  🌍 translating (translateArticle)...');
     await translateArticle(data);
+
+    // Same cross-locale fabrication check the AI generation path runs after
+    // its own translateArticle() (create-article.mjs's "Step 3b.1") —
+    // assertNoFabricatedReferences() above only ever saw the IT draft,
+    // before these EN/DE/FR translations existed.
+    console.log('  🔍 checking for fabricated references in translations (assertNoFabricatedLaborOfficeCrossLocale)...');
+    assertNoFabricatedLaborOfficeCrossLocale(data);
 
     // #3209: deriveAndSanitizeArticleSlugs() is the single-source slug
     // derivation (also called internally by registerArticleFiles() below,
