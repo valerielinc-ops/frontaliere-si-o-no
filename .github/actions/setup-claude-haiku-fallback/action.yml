@@ -13,9 +13,9 @@ description: >-
   reads ONLY env.*, never vars.* — an unset `vars` context coerces to
   null->0 in GitHub Actions' comparison, which silently desyncs the install
   step from the runtime gate; see generate-article.yml git history, run
-  29676088799). Caller MUST also pass
-  `CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}` via env:
-  on any step that actually invokes callLLM — ai-models.mjs only offers the
+  29676088799). Caller MUST also pass CLAUDE_CODE_OAUTH_TOKEN (sourced from
+  secrets.CLAUDE_CODE_OAUTH_TOKEN) via env: on any step that actually invokes
+  callLLM — ai-models.mjs only offers the
   model when both the flag AND the token are present
   (isClaudeCliFallbackEnabled/hasClaudeCodeOauthToken). Passing the token
   here is harmless even on steps that never reach the fallback tier.
