@@ -19362,6 +19362,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-forzato-pesa-su-dazi': {
+    title: 'Lavoro forzato: "La mozione bocciata ora pesa sui dazi"',
+    description: 'La Svizzera paga un 2,5% di dazio supplementare a causa della mancanza di leggi specifiche per contrastare il lavoro forzato. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, forzato, mozione, bocciata',
+    ogTitle: 'Lavoro forzato: "La mozione bocciata ora pesa sui dazi"',
+    ogDescription: 'La Svizzera paga un 2,5% di dazio supplementare a causa della mancanza di leggi specifiche per contrastare il lavoro forzato.',
+    canonicalPath: '/articoli-svizzera/lavoro-forzato-pesa-su-dazi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro forzato: \"La mozione bocciata ora pesa sui dazi\"",
+      "description": "La Svizzera paga un 2,5% di dazio supplementare a causa della mancanza di leggi specifiche per contrastare il lavoro forzato. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoro-forzato-pesa-su-dazi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di lavoro forzato"
+      },
+      "datePublished": "2026-07-24T15:45:25+00:00",
+      "dateModified": "2026-07-24T15:45:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lavoro-forzato-pesa-su-dazi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

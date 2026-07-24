@@ -4863,6 +4863,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-franco-digitale-bns-dice-no': { name: 'Franco digitale e frontalieri', path: '/articoli-frontaliere/franco-digitale-bns-dice-no', parent: 'blog' },
     'blog-chiude-bachmann-krawatten-zurigo': { name: 'Ultima fabbrica di cravatte in Svizzera', path: '/articoli-svizzera/chiude-bachmann-krawatten-zurigo/', parent: 'blog' },
     'blog-frontaliereticino-chi-sono-i-frontalieri-ticino': { name: 'Chi sono i frontalieri in Ticino?', path: '/articoli-frontaliere/frontaliereticino-chi-sono-i-frontalieri-ticino', parent: 'blog' },
+    'blog-lavoro-forzato-pesa-su-dazi': { name: 'Lavoro forzato e dazi', path: '/articoli-svizzera/lavoro-forzato-pesa-su-dazi/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

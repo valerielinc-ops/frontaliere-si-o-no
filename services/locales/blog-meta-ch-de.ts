@@ -1498,6 +1498,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.chiude-bachmann-krawatten-zurigo.title': 'Mehr. Nach 70 Jahren wird die letzte Krawattenfabrik der Schweiz geschlossen',
     'blog.article.chiude-bachmann-krawatten-zurigo.excerpt': 'Bachmann Krawatten aus Zürich Oerlikon hat Konkurs angemeldet und die elf Mitarbeiter arbeitslos gemacht',
     'blog.article.chiude-bachmann-krawatten-zurigo.imageAlt': 'Schweizer Textilfabrik',
+    'blog.article.lavoro-forzato-pesa-su-dazi.title': 'Zwangsarbeit: „Der abgelehnte Antrag belastet nun die Zölle“',
+    'blog.article.lavoro-forzato-pesa-su-dazi.excerpt': 'Die Schweiz zahlt aufgrund fehlender spezifischer Gesetze zur Bekämpfung der Zwangsarbeit 2,5% Zusatzzoll.',
+    'blog.article.lavoro-forzato-pesa-su-dazi.imageAlt': 'Eine Szene von Zwangsarbeit',
 };
 
 export default blogMetaChDe;

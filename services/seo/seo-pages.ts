@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3488,
+ "numberOfItems": 3489,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8256,7 +8256,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3485, "name": "Quanto guadagna un cuoco frontaliere in Ticino?", "url": `${BASE_URL}/articoli-frontaliere/cuoco-frontaliere-ticino-guadagno` },
           { "@type": "ListItem", "position": 3486, "name": "Franco digitale, la BNS dice no. Cosa cambia pe...", "url": `${BASE_URL}/articoli-frontaliere/franco-digitale-bns-dice-no` },
           { "@type": "ListItem", "position": 3487, "name": "Di più. Dopo 70 anni chiude l’ultima fabbrica d...", "url": `${BASE_URL}/articoli-frontaliere/chiude-bachmann-krawatten-zurigo` },
-          { "@type": "ListItem", "position": 3488, "name": "Chi sono i frontalieri in Ticino? La risposta è...", "url": `${BASE_URL}/articoli-frontaliere/frontaliereticino-chi-sono-i-frontalieri-ticino` }
+          { "@type": "ListItem", "position": 3488, "name": "Chi sono i frontalieri in Ticino? La risposta è...", "url": `${BASE_URL}/articoli-frontaliere/frontaliereticino-chi-sono-i-frontalieri-ticino` },
+          { "@type": "ListItem", "position": 3489, "name": "Lavoro forzato: \"La mozione bocciata ora pesa s...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-forzato-pesa-su-dazi` }
  ]
  },
  {

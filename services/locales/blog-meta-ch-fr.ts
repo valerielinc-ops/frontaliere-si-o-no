@@ -1498,6 +1498,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.chiude-bachmann-krawatten-zurigo.title': '70 ans après, l\'ultime usine de cravates suisse ferme',
     'blog.article.chiude-bachmann-krawatten-zurigo.excerpt': 'L’entreprise Bachmann Krawatten de Zurich Oerlikon a déclaré faillite laissant les onze employés sans emploi',
     'blog.article.chiude-bachmann-krawatten-zurigo.imageAlt': 'Usine textile suisse',
+    'blog.article.lavoro-forzato-pesa-su-dazi.title': 'Travail forcé : « La motion rejetée pèse désormais sur les droits »',
+    'blog.article.lavoro-forzato-pesa-su-dazi.excerpt': 'La Suisse paie 2,5% de droits supplémentaires en raison de l\'absence de lois spécifiques pour lutter contre le travail forcé.',
+    'blog.article.lavoro-forzato-pesa-su-dazi.imageAlt': 'Une scène de travail forcé',
 };
 
 export default blogMetaChFr;
