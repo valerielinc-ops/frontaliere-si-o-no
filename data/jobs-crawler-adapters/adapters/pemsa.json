@@ -11,7 +11,7 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-07-23T22:13:51.282Z",
+  "updatedAt": "2026-07-24T11:19:04.145Z",
   "seedMetaByUrl": {
     "https://www.pemsa.ch/it/job/aiuto-muratore-2684484/": {
       "location": "Lugano",
@@ -391,12 +391,6 @@
       "company": "PEMSA",
       "postedDate": "2026-07-17"
     },
-    "https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-vd-2683701/": {
-      "location": "Renens VD",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-07-17"
-    },
     "https://www.pemsa.ch/it/job/installatore-elettricista-afc-2683697/": {
       "location": "Genève",
       "canton": "GE",
@@ -446,24 +440,6 @@
       "postedDate": "2026-07-16"
     },
     "https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-2683601/": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-07-16"
-    },
-    "https://www.pemsa.ch/it/job/tecnico-frigorista-m-f-2683598/": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-07-16"
-    },
-    "https://www.pemsa.ch/it/job/installatore-di-impianti-di-ventilazione-2683595/": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-07-16"
-    },
-    "https://www.pemsa.ch/it/job/installatore-di-tubazioni-saldatore-nel-settore-del-riscaldamento-2683592/": {
       "location": "Genève",
       "canton": "GE",
       "company": "PEMSA",
@@ -985,12 +961,6 @@
       "company": "PEMSA",
       "postedDate": "2026-07-07"
     },
-    "https://www.pemsa.ch/it/job/progettista-per-impianti-di-allarme-e-antifuoco-2682165/": {
-      "location": "Manno",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-07-07"
-    },
     "https://www.pemsa.ch/it/job/cofra-hussor-2682141/": {
       "location": "Fribourg",
       "canton": "FR",
@@ -1320,12 +1290,6 @@
       "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-01-13"
-    },
-    "https://www.pemsa.ch/it/job/elettrotecnico-per-sistemi-di-allarme-2634675/": {
-      "location": "Lugano",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2025-10-16"
     }
   }
 }
