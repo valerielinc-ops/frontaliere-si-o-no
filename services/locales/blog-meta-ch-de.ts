@@ -1501,6 +1501,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lavoro-forzato-pesa-su-dazi.title': 'Zwangsarbeit: „Der abgelehnte Antrag belastet nun die Zölle“',
     'blog.article.lavoro-forzato-pesa-su-dazi.excerpt': 'Die Schweiz zahlt aufgrund fehlender spezifischer Gesetze zur Bekämpfung der Zwangsarbeit 2,5% Zusatzzoll.',
     'blog.article.lavoro-forzato-pesa-su-dazi.imageAlt': 'Eine Szene von Zwangsarbeit',
+    'blog.article.trippa-futuri-mobilita-italia-grigioni.title': 'Die alpine Mobilität blickt auf Zukunftsszenarien: das TRIP-PROJEKT',
+    'blog.article.trippa-futuri-mobilita-italia-grigioni.excerpt': 'Das TRIP-Projekt zielt darauf ab, die Mobilität zwischen der Lombardei und Graubünden zu entwickeln. Entwicklung des Eisenbahn- und intermodalen Netzes durch einen strukturierten grenzüberschreitenden Dialog.',
+    'blog.article.trippa-futuri-mobilita-italia-grigioni.imageAlt': 'Ein Zug fährt durch die Schweizer Alpen, mit einem See im Vordergrund.',
 };
 
 export default blogMetaChDe;

@@ -4865,6 +4865,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliereticino-chi-sono-i-frontalieri-ticino': { name: 'Chi sono i frontalieri in Ticino?', path: '/articoli-frontaliere/frontaliereticino-chi-sono-i-frontalieri-ticino', parent: 'blog' },
     'blog-lavoro-forzato-pesa-su-dazi': { name: 'Lavoro forzato e dazi', path: '/articoli-svizzera/lavoro-forzato-pesa-su-dazi/', parent: 'blog' },
     'blog-trip-progetto-treni-retici-in-progress': { name: 'Il progetto TRIP', path: '/articoli-frontaliere/trip-progetto-treni-retici-in-progress', parent: 'blog' },
+    'blog-trippa-futuri-mobilita-italia-grigioni': { name: 'La mobilità alpina', path: '/articoli-svizzera/trippa-futuri-mobilita-italia-grigioni/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
