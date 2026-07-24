@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ikea",
-  "assembledAt": "2026-07-24T11:10:23.403Z",
+  "assembledAt": "2026-07-24T10:16:06.815Z",
   "jobs": [
     {
       "id": "ikea-541fb3518d39",
@@ -1235,9 +1235,9 @@
       "id": "ikea-7a66eddf61cd",
       "slug": "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
       "slugByLocale": {
-        "it": "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
+        "it": "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
         "en": "cuisine-ikea-40-team-member-ikea-aubonne",
-        "de": "ikea-kuchenmitarbeiter-40-ikea-aubonne",
+        "de": "koch-kellnerin-ikea-40-ikea-aubonne",
         "fr": "collaborateur-trice-cuisine-ikea-40-ikea-ch"
       },
       "company": "IKEA",
@@ -1245,7 +1245,7 @@
       "companyDomain": "ikea.ch",
       "title": "Collaborateur*trice Cuisine IKEA 40%",
       "titleByLocale": {
-        "it": "Collaborateur*trice Cuisine IKEA 40%",
+        "it": "IKEA Cucina Collaboratore 40%",
         "en": "IKEA Kitchen Collaborator 40%",
         "de": "IKEA Küchenmitarbeiter 40%",
         "fr": "Collaborateur*trice Cuisine IKEA 40%"
@@ -1262,10 +1262,10 @@
       "url": "https://jobs.ikea.com/en/job/aubonne/collaborateur-trice-cuisine-ikea-40/24107/95927883952",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-24T11:10:19.999Z",
+      "crawledAt": "2026-07-23T22:12:20.873Z",
       "addressLocality": "Aubonne",
       "postalCode": "1170",
-      "addressRegion": "VD",
+      "addressRegion": "Vaud",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Altro",
@@ -1287,9 +1287,8 @@
         "mitarbeiter-in-restaurant-kuche-ikea-20-ikea-vernier-geneve-switzerland",
         "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
         "ikea-cuisine-collaborateur-40-ikea-aubonne",
-        "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
-        "koch-kellnerin-ikea-40-ikea-aubonne",
-        "ikea-kuchenmitarbeiter-40-ikea-aubonne"
+        "ikea-kuchenmitarbeiter-40-ikea-aubonne",
+        "collaborateur-trice-cuisine-ikea-40-ikea-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1300,10 +1299,9 @@
           "mitarbeiter-in-restaurant-kuche-ikea-20-ikea-vernier-geneve-switzerland",
           "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
           "ikea-cuisine-collaborateur-40-ikea-aubonne",
-          "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland"
+          "collaborateur-trice-cuisine-ikea-40-ikea-aubonne"
         ],
         "de": [
-          "koch-kellnerin-ikea-40-ikea-aubonne",
           "ikea-kuchenmitarbeiter-40-ikea-aubonne"
         ],
         "fr": [
@@ -1311,7 +1309,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:31.696Z",
-      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600,
       "baseSalary": {

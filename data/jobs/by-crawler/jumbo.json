@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jumbo",
-  "assembledAt": "2026-07-24T11:11:48.423Z",
+  "assembledAt": "2026-07-24T10:17:35.499Z",
   "jobs": [
     {
       "id": "jumbo-f3218595-55b",
@@ -7394,7 +7394,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/conseillere-conseiller-de-vente-garden-f-h-d/70026c20-d9e9-4979-9513-dae16eda059e",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-24T11:11:42.522Z",
+      "crawledAt": "2026-07-23T22:07:47.888Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -7422,26 +7422,34 @@
       "previousSlugs": [
         "conseillere-conseiller-de-vente-machines-de-jardin-construction-f-h-d-jumbo-bulle",
         "consultant-sales-advisor-garden-machines-construction-e-h-d-jumbo-bulle",
-        "berater-verkaufsberater-gartenmaschinen-bau-e-h-d-jumbo-bulle"
+        "berater-verkaufsberater-gartenmaschinen-bau-e-h-d-jumbo-bulle",
+        "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-monthey",
+        "garden-sales-advisor-e-h-d-jumbo-monthey",
+        "gartenverkaufsberater-e-h-d-jumbo-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseillere-conseiller-de-vente-machines-de-jardin-construction-f-h-d-jumbo-bulle",
           "consultant-sales-advisor-garden-machines-construction-e-h-d-jumbo-bulle",
-          "berater-verkaufsberater-gartenmaschinen-bau-e-h-d-jumbo-bulle"
+          "berater-verkaufsberater-gartenmaschinen-bau-e-h-d-jumbo-bulle",
+          "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-monthey",
+          "garden-sales-advisor-e-h-d-jumbo-monthey",
+          "gartenverkaufsberater-e-h-d-jumbo-monthey"
         ],
         "en": [
-          "consultant-sales-advisor-garden-machines-construction-e-h-d-jumbo-bulle"
+          "consultant-sales-advisor-garden-machines-construction-e-h-d-jumbo-bulle",
+          "garden-sales-advisor-e-h-d-jumbo-monthey"
         ],
         "de": [
-          "berater-verkaufsberater-gartenmaschinen-bau-e-h-d-jumbo-bulle"
+          "berater-verkaufsberater-gartenmaschinen-bau-e-h-d-jumbo-bulle",
+          "gartenverkaufsberater-e-h-d-jumbo-monthey"
         ],
         "fr": [
-          "conseillere-conseiller-de-vente-machines-de-jardin-construction-f-h-d-jumbo-bulle"
+          "conseillere-conseiller-de-vente-machines-de-jardin-construction-f-h-d-jumbo-bulle",
+          "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-monthey"
         ]
       },
       "firstSeenAt": "2026-07-14T11:00:15.397Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -10070,7 +10078,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/cheffe-chef-de-rayon-do-it-f-h-d/ad3eb2a7-d8ad-4dd9-a873-5492dad17a72",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-24T11:11:42.459Z",
+      "crawledAt": "2026-07-23T22:07:47.788Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10101,18 +10109,27 @@
         ]
       },
       "previousSlugs": [
-        "cheffe-chef-de-rayon-do-it-f-h-d-jumbo-bienne"
+        "cheffe-chef-de-rayon-do-it-f-h-d-jumbo-bienne",
+        "head-of-department-do-it-e-h-d-jumbo-bienne",
+        "abteilungsleiter-do-it-e-h-d-jumbo-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cheffe-chef-de-rayon-do-it-f-h-d-jumbo-bienne"
+          "cheffe-chef-de-rayon-do-it-f-h-d-jumbo-bienne",
+          "head-of-department-do-it-e-h-d-jumbo-bienne",
+          "abteilungsleiter-do-it-e-h-d-jumbo-bienne"
         ],
         "fr": [
           "cheffe-chef-de-rayon-do-it-f-h-d-jumbo-bienne"
+        ],
+        "en": [
+          "head-of-department-do-it-e-h-d-jumbo-bienne"
+        ],
+        "de": [
+          "abteilungsleiter-do-it-e-h-d-jumbo-bienne"
         ]
       },
       "firstSeenAt": "2026-07-23T11:26:53.284Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -10128,7 +10145,7 @@
     },
     {
       "id": "jumbo-6d6c4d9f-e38",
-      "slug": "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-schattdorf",
+      "slug": "consulente-vendite-in-garden-jumbo-schattdorf-475715",
       "slugByLocale": {
         "it": "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-schattdorf",
         "en": "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-schattdorf-e2e5f1",
@@ -10157,7 +10174,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-garden/6d6c4d9f-e38a-4365-abe7-00e143d8fa47",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T11:11:42.458Z",
+      "crawledAt": "2026-07-23T22:07:47.784Z",
       "addressLocality": "Schattdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -10189,31 +10206,47 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
+      "firstSeenAt": "2026-07-23T11:26:53.283Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-schattdorf",
+          "consulente-di-vendita-garden-jumbo-schattdorf",
+          "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-schattdorf",
+          "verkaufsberater-in-garden-jumbo-schattdorf-uri-j3o5hy",
+          "conseiller-en-ventes-a-garden-jumbo-division-der-coop-genossenschaft-schattdorf",
+          "verkaufsberater-in-garden-jumbo-schattdorf-uri",
+          "sales-advisor-in-garden-jumbo-schattdorf-575e45",
+          "conseiller-en-ventes-a-garden-jumbo-schattdorf",
+          "consulente-di-vendita-garden-jumbo-division-der-coop-genossenschaft-schattdorf"
+        ],
+        "de": [
+          "verkaufsberater-in-garden-jumbo-schattdorf",
+          "verkaufsberater-in-garden-jumbo-schattdorf-uri-j3o5hy"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-jumbo-schattdorf",
+          "sales-advisor-in-garden-jumbo-schattdorf-475715",
+          "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-schattdorf"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-jumbo-schattdorf",
+          "conseiller-commercial-a-garden-jumbo-schattdorf-475715",
+          "conseiller-en-ventes-a-garden-jumbo-division-der-coop-genossenschaft-schattdorf"
+        ]
+      },
       "previousSlugs": [
         "verkaufsberater-in-garden-jumbo-schattdorf",
         "sales-advisor-in-garden-jumbo-schattdorf-475715",
         "conseiller-commercial-a-garden-jumbo-schattdorf-475715",
-        "consulente-vendite-in-garden-jumbo-schattdorf-475715"
+        "consulente-di-vendita-garden-jumbo-schattdorf",
+        "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-schattdorf",
+        "verkaufsberater-in-garden-jumbo-schattdorf-uri-j3o5hy",
+        "conseiller-en-ventes-a-garden-jumbo-division-der-coop-genossenschaft-schattdorf",
+        "verkaufsberater-in-garden-jumbo-schattdorf-uri",
+        "sales-advisor-in-garden-jumbo-schattdorf-575e45",
+        "conseiller-en-ventes-a-garden-jumbo-schattdorf",
+        "consulente-di-vendita-garden-jumbo-division-der-coop-genossenschaft-schattdorf"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-garden-jumbo-schattdorf",
-          "consulente-vendite-in-garden-jumbo-schattdorf-475715"
-        ],
-        "en": [
-          "verkaufsberater-in-garden-jumbo-schattdorf",
-          "sales-advisor-in-garden-jumbo-schattdorf-475715"
-        ],
-        "de": [
-          "verkaufsberater-in-garden-jumbo-schattdorf"
-        ],
-        "fr": [
-          "verkaufsberater-in-garden-jumbo-schattdorf",
-          "conseiller-commercial-a-garden-jumbo-schattdorf-475715"
-        ]
-      },
-      "firstSeenAt": "2026-07-23T11:26:53.283Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
