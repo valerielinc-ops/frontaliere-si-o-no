@@ -98,6 +98,21 @@ export function resolveTrafficProvider({ hereApiKey, tomtomApiKey, googleApiKey 
 }
 
 /**
+ * Detects a TomTom account-level billing failure (HTTP 403, error code
+ * "InsufficientFunds" — the account has run out of prepaid credits) as
+ * opposed to a transient/per-request routing error. Unlike a timeout or a
+ * single bad route, this failure is account-wide: every subsequent call for
+ * the rest of the billing period fails identically (#4743: 135/141 crossings
+ * failed with this exact error in one run).
+ *
+ * @param {string} [message]
+ * @returns {boolean}
+ */
+export function isTomTomAccountExhausted(message = '') {
+ return /InsufficientFunds/i.test(message);
+}
+
+/**
  * Calls the Google Maps Distance Matrix REST API for one origin→destination pair.
  * Returns normal duration (seconds) and with-traffic duration (seconds).
  *
@@ -652,6 +667,9 @@ export async function runWebcamOnlyCollection(options = {}) {
  * (options.enableWebcam), the run falls back to runWebcamOnlyCollection so the
  * road-facing cameras still refresh the snapshot instead of freezing it. When
  * webcam analysis is disabled the original skip-and-return-0 behavior is kept.
+ * If TomTom is the resolved provider but its account has run out of prepaid
+ * credits (HTTP 403 InsufficientFunds), a preflight check falls back to HERE
+ * or Google Maps for the rest of the run instead of failing every crossing.
  *
  * @param {{ hereApiKey?: string, tomtomApiKey?: string, googleApiKey?: string, enableWebcam?: boolean }} options
  * @returns {Promise<{collected: number, errors: number}>}
@@ -720,6 +738,37 @@ export async function runTrafficCollection(options = {}) {
  }
  if (budget && budget.allowed) {
  console.log(`💳 HERE budget: ${budget.count}/${HERE_MONTHLY_BUDGET} transactions reserved for ${budget.month}`);
+ }
+ }
+
+ // TomTom's HTTP 403 "InsufficientFunds" error is account-wide (the prepaid
+ // credit balance is empty), not per-crossing — running the full batch loop
+ // against a doomed key just burns the run's 10-minute timeout collecting
+ // nothing (#4743). A single cheap preflight call catches this up front and
+ // falls back to the next configured provider (HERE, then Google Maps) so
+ // this run still gets real live routing data instead of degrading straight
+ // to webcam-only/mock. Mirrors the HERE-budget-exhausted → TomTom fallback
+ // above, in the opposite direction.
+ if (provider === 'tomtom') {
+ const probe = BORDER_CROSSINGS[0];
+ try {
+ await getTomTomRouteTravelTimes(probe.lat, probe.lng, probe.lat + 0.01, probe.lng, tomtomApiKey);
+ } catch (err) {
+ if (isTomTomAccountExhausted(err.message)) {
+ const fallbackProvider = hereApiKey ? 'here' : googleApiKey ? 'google-maps' : null;
+ if (fallbackProvider) {
+ console.warn(
+ `🛑 TomTom account exhausted (${err.message}) — falling back to ${fallbackProvider} for this run`,
+ );
+ provider = fallbackProvider;
+ const { tomtomApiKey: _droppedTomTomKey, ...rest } = effectiveOptions;
+ effectiveOptions = rest;
+ } else {
+ console.warn(`🛑 TomTom account exhausted (${err.message}) — no fallback routing key configured`);
+ }
+ }
+ // Any other preflight error (transient network blip) is ignored — the
+ // per-crossing loop below already tolerates per-request failures.
  }
  }
 
