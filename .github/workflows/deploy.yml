@@ -457,9 +457,21 @@ jobs:
           GITHUB_RUN_ID: ${{ github.run_id }}
         run: |
           set -uo pipefail
+          # Each section pushes to its OWN shard repo — one section's push
+          # failure (e.g. a corrupted remote clone) must never skip the
+          # others. `|| fail=1` absorbs a non-zero exit so every section is
+          # always attempted; the step still ends non-zero (red in the
+          # Actions UI) when any section genuinely failed. Incident
+          # 2026-07-24 (run 30057726623): svizzera-it's push failure silently
+          # aborted this loop before zurigo-it was even attempted.
+          fail=0
           for section in ticino svizzera zurigo; do
-            bash scripts/lib/push-section-shard.sh "$section" it dist
+            bash scripts/lib/push-section-shard.sh "$section" it dist || {
+              echo "::warning::$section-it shard push step failed — continuing to the next section"
+              fail=1
+            }
           done
+          exit "$fail"
 
       # Same-run tar artifact for post-deploy-validate-dist's section rehydrate
       # fast path — mirrors "Pack locale shard dist (tar)" below. Previously
@@ -781,9 +793,21 @@ jobs:
           GITHUB_RUN_ID: ${{ github.run_id }}
         run: |
           set -uo pipefail
+          # Each section pushes to its OWN shard repo — one section's push
+          # failure (e.g. a corrupted remote clone) must never skip the
+          # others. `|| fail=1` absorbs a non-zero exit so every section is
+          # always attempted; the step still ends non-zero (red in the
+          # Actions UI) when any section genuinely failed. Incident
+          # 2026-07-24 (run 30057726623): svizzera-it's push failure silently
+          # aborted this loop before zurigo-it was even attempted.
+          fail=0
           for section in ticino svizzera zurigo; do
-            bash scripts/lib/push-section-shard.sh "$section" "${{ matrix.locale }}" dist
+            bash scripts/lib/push-section-shard.sh "$section" "${{ matrix.locale }}" dist || {
+              echo "::warning::$section-${{ matrix.locale }} shard push step failed — continuing to the next section"
+              fail=1
+            }
           done
+          exit "$fail"
 
       # Same-run tar artifact for post-deploy-validate-dist's section rehydrate
       # fast path — see the IT leg's "Pack section shard dist" step above for
