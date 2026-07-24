@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3492,
+ "numberOfItems": 3493,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8260,7 +8260,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3489, "name": "Lavoro forzato: \"La mozione bocciata ora pesa s...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-forzato-pesa-su-dazi` },
           { "@type": "ListItem", "position": 3490, "name": "TRIP: sviluppo mobilità tra Lombardia e Grigioni", "url": `${BASE_URL}/articoli-frontaliere/trip-progetto-treni-retici-in-progress` },
           { "@type": "ListItem", "position": 3491, "name": "La mobilità alpina si proietta verso scenari fu...", "url": `${BASE_URL}/articoli-frontaliere/trippa-futuri-mobilita-italia-grigioni` },
-          { "@type": "ListItem", "position": 3492, "name": "Frontaliere elettricista in Ticino: stipendio m...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-elettricista-ticino-stipendio-requisiti` }
+          { "@type": "ListItem", "position": 3492, "name": "Frontaliere elettricista in Ticino: stipendio m...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-elettricista-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3493, "name": "Riforma Ue sui frontalieri disoccupati, per la ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliereriformaue` }
  ]
  },
  {

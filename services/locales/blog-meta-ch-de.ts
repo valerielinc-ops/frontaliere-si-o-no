@@ -1504,6 +1504,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.trippa-futuri-mobilita-italia-grigioni.title': 'Die alpine Mobilität blickt auf Zukunftsszenarien: das TRIP-PROJEKT',
     'blog.article.trippa-futuri-mobilita-italia-grigioni.excerpt': 'Das TRIP-Projekt zielt darauf ab, die Mobilität zwischen der Lombardei und Graubünden zu entwickeln. Entwicklung des Eisenbahn- und intermodalen Netzes durch einen strukturierten grenzüberschreitenden Dialog.',
     'blog.article.trippa-futuri-mobilita-italia-grigioni.imageAlt': 'Ein Zug fährt durch die Schweizer Alpen, mit einem See im Vordergrund.',
+    'blog.article.frontaliereriformaue.title': 'Ue-Reform für arbeitslose Grenzgänger: Kosten bis zu 1 Milliarde',
+    'blog.article.frontaliereriformaue.excerpt': 'Die Europäische Union hat eine Reform für arbeitslose Grenzgänger verabschiedet, die die Schweiz bis zu einer Milliarde Franken pro Jahr kosten könnte.',
+    'blog.article.frontaliereriformaue.imageAlt': 'Eine Szene aus dem Leben eines Frontalierers in der Schweiz, mit einem Blick auf den Luganersee.',
 };
 
 export default blogMetaChDe;

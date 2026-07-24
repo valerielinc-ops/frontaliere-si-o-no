@@ -1504,6 +1504,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.trippa-futuri-mobilita-italia-grigioni.title': 'Alpine mobility projects itself into future scenarios: the TRIP PROJECT',
     'blog.article.trippa-futuri-mobilita-italia-grigioni.excerpt': 'The TRIP project aims to develop mobility between Lombardy and Graubünden. Development of the railway and intermodal network through a structured cross-border dialogue.',
     'blog.article.trippa-futuri-mobilita-italia-grigioni.imageAlt': 'A train moves through the Swiss Alps, with a lake in the foreground.',
+    'blog.article.frontaliereriformaue.title': 'EU reform on unemployed border workers, for Switzerland costs up to a billion',
+    'blog.article.frontaliereriformaue.excerpt': 'The European Union has approved a reform for unemployed frontier workers, which could cost Switzerland up to a billion francs a year.',
+    'blog.article.frontaliereriformaue.imageAlt': 'A scene of a frontaliere\'s life in Switzerland, with a view of Lake Lugano.',
 };
 
 export default blogMetaChEn;

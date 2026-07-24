@@ -4867,6 +4867,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-trip-progetto-treni-retici-in-progress': { name: 'Il progetto TRIP', path: '/articoli-frontaliere/trip-progetto-treni-retici-in-progress', parent: 'blog' },
     'blog-trippa-futuri-mobilita-italia-grigioni': { name: 'La mobilità alpina', path: '/articoli-svizzera/trippa-futuri-mobilita-italia-grigioni/', parent: 'blog' },
     'blog-frontaliere-elettricista-ticino-stipendio-requisiti': { name: 'Frontaliere elettricista in Ticino', path: '/articoli-frontaliere/frontaliere-elettricista-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-frontaliereriformaue': { name: 'Riforma Ue sui frontalieri disoccupati', path: '/articoli-svizzera/frontaliereriformaue/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
