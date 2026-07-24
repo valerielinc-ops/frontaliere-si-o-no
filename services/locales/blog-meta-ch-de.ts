@@ -1516,6 +1516,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bce-mantiene-tassi-2-25.title': 'EZB hält Zinsen bei 2,25%',
     'blog.article.bce-mantiene-tassi-2-25.excerpt': 'Die Europäische Zentralbank hat die im Juni festgelegten Werte bestätigt',
     'blog.article.bce-mantiene-tassi-2-25.imageAlt': 'Fotografie eines Bankgebäudes in Lugano',
+    'blog.article.frontalieri-disoccupazione-svizzera.title': 'Svizzera: nessuna disoccupazione per frontalieri, 1 miliardo in discussione',
+    'blog.article.frontalieri-disoccupazione-svizzera.excerpt': 'Die Schweiz zahlt laut Tessiner-Liga keine Arbeitslosen an Grenzgänger',
+    'blog.article.frontalieri-disoccupazione-svizzera.imageAlt': 'Ein Gruppe von Grenzgängern, die in der Schweiz arbeiten, Lugano',
 };
 
 export default blogMetaChDe;

@@ -1516,6 +1516,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bce-mantiene-tassi-2-25.title': 'La BCE maintient ses taux à 2,25 %',
     'blog.article.bce-mantiene-tassi-2-25.excerpt': 'La Banque centrale européenne a confirmé les valeurs fixées en juin',
     'blog.article.bce-mantiene-tassi-2-25.imageAlt': 'Photographie d\'un immeuble bancaire à Lugano',
+    'blog.article.frontalieri-disoccupazione-svizzera.title': 'Svizzera non paga disoccupazione ai frontalieri. Un miliardo in discussione',
+    'blog.article.frontalieri-disoccupazione-svizzera.excerpt': 'La Suisse ne paiera pas le chômage aux frontaliers, selon la Ligue des Tessinois',
+    'blog.article.frontalieri-disoccupazione-svizzera.imageAlt': 'Un groupe de frontaliers qui travaillent en Suisse, Lugano',
 };
 
 export default blogMetaChFr;
