@@ -1,16 +1,16 @@
 {
   "key": "klinik-siloah",
   "label": "Privatklinik Siloah",
-  "generatedAt": "2026-07-24T11:11:35.096Z",
-  "total": 2,
+  "generatedAt": "2026-07-24T22:09:41.418Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6494,
-  "avgDurationMs": 6494,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6183,
+  "avgDurationMs": 6183,
   "durationHistory": [
-    6494
+    6183
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139054259-case-manager-in-dipl-pflegefachperson-hf-fh",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T11:11:29.637Z",
+      "crawledAt": "2026-07-24T22:09:36.303Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -53,8 +53,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "klinik-siloah-54f1cfb5a8ae",
       "slug": "apprendistato-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-privatklinik-siloah-gumligen",
@@ -95,5 +94,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
