@@ -4861,6 +4861,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-terzo-pilastro-3a-vantaggi-canton-ginevra': { name: 'Terzo pilastro 3a', path: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-canton-ginevra/', parent: 'blog' },
     'blog-cuoco-frontaliere-ticino-guadagno': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/cuoco-frontaliere-ticino-guadagno', parent: 'blog' },
     'blog-franco-digitale-bns-dice-no': { name: 'Franco digitale e frontalieri', path: '/articoli-frontaliere/franco-digitale-bns-dice-no', parent: 'blog' },
+    'blog-chiude-bachmann-krawatten-zurigo': { name: 'Ultima fabbrica di cravatte in Svizzera', path: '/articoli-svizzera/chiude-bachmann-krawatten-zurigo/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
