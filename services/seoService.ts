@@ -4876,6 +4876,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bce-mantiene-tassi-2-25': { name: 'Politica monetaria', path: '/articoli-svizzera/bce-mantiene-tassi-2-25/', parent: 'blog' },
     'blog-disoccupazione-frontalieri-comitato-misto': { name: 'Disoccupazione frontalieri', path: '/articoli-frontaliere/disoccupazione-frontalieri-comitato-misto', parent: 'blog' },
     'blog-frontalieri-disoccupazione-svizzera': { name: 'Frontalieri: la Svizzera non pagherà la', path: '/articoli-svizzera/frontalieri-disoccupazione-svizzera/', parent: 'blog' },
+    'blog-riqualificazione-parco-casciago': { name: 'Casciago Parco', path: '/articoli-frontaliere/riqualificazione-parco-casciago', parent: 'blog' },
  };
 
  const info = sectionNames[section];

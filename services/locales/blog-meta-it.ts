@@ -8930,6 +8930,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-comitato-misto.title': 'Disoccupazione frontalieri: il futuro nel Comitato misto',
     'blog.article.disoccupazione-frontalieri-comitato-misto.excerpt': 'Il Parlamento europeo vota per il cambio di rotta sulle indennità: la palla passa alla Svizzera tra timori di costi e incertezze legali.',
     'blog.article.disoccupazione-frontalieri-comitato-misto.imageAlt': 'Veduta del lungolago di Lugano al crepuscolo',
+    'blog.article.riqualificazione-parco-casciago.title': 'Casciago, al via la riqualificazione del Parco La Pinetina',
+    'blog.article.riqualificazione-parco-casciago.excerpt': 'Proseguono i lavori di messa in sicurezza e rifacimento della recinzione nel parco di Casciago per migliorare la fruibilità degli spazi.',
+    'blog.article.riqualificazione-parco-casciago.imageAlt': 'Parco pubblico riqualificato a Casciago vicino al confine svizzero',
 };
 
 export default blogMetaIt;

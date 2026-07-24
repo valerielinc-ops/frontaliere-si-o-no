@@ -8931,6 +8931,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-comitato-misto.title': 'Chômage frontalier : l\'avenir au sein du Comité mixte',
     'blog.article.disoccupazione-frontalieri-comitato-misto.excerpt': 'Le Parlement européen vote le changement de cap sur les indemnités : la balle est dans le camp de la Suisse entre craintes de coûts et incertitudes juridiques.',
     'blog.article.disoccupazione-frontalieri-comitato-misto.imageAlt': 'Vue sur le bord du lac de Lugano au crépuscule',
+    'blog.article.riqualificazione-parco-casciago.title': 'Casciago, en route pour la requalification du Parc La Pinetina',
+    'blog.article.riqualificazione-parco-casciago.excerpt': 'Les travaux de sécurisation et de rénovation de la clôture dans le parc de Casciago se poursuivent pour améliorer l\'utilisation des espaces.',
+    'blog.article.riqualificazione-parco-casciago.imageAlt': 'Parc public rénové à Casciago près de la frontière suisse',
 };
 
 export default blogMetaFr;
