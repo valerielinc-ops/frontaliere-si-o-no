@@ -72,7 +72,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
 import { fetchHtml, decodeEntities, normalizeSpace as normalizeSpaceRaw } from './hospital-custom-html-helpers.mjs';
 
 export const BREITLING_KEY = 'breitling';
@@ -217,11 +217,14 @@ function parseLocation(raw = '') {
   const parts = cleaned.split(',').map((p) => p.trim());
   // Expect: [city, canton, "CHE", postalCode?]
   const cityRaw = parts[0] || '';
-  const canton = (parts[1] || '').toUpperCase();
+  // Validate against the real 26-canton registry — a well-formed-but-wrong
+  // 2-letter token from the feed must not be trusted verbatim (AGENTS.md #6
+  // sibling class shared with ghol/holcim/stadler-rail/spitex-ch).
+  const canton = normalizeCantonCode(parts[1] || '');
   const postalRaw = (parts[3] || '').trim();
   const postalCode = /^\d{4}$/.test(postalRaw) ? postalRaw : '';
 
-  const isBareCantonCode = /^[A-Z]{2}$/.test(cityRaw) && cityRaw.toUpperCase() === canton;
+  const isBareCantonCode = !!normalizeCantonCode(cityRaw) && cityRaw.toUpperCase() === canton;
   const city = (!cityRaw || isBareCantonCode)
     ? (CANTON_CITY_FALLBACK[canton] || cityRaw || HQ.city)
     : cityRaw;

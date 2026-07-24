@@ -31,7 +31,7 @@ import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
-import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -171,8 +171,12 @@ function parseLocationCode(rawLocation = '') {
   const parts = String(rawLocation).split('-').map((p) => p.trim()).filter(Boolean);
   if (parts.length === 0) return { city: '', canton: '' };
   if (parts.length >= 3 && /^[a-z]{2}$/i.test(parts[1])) {
-    // "CH-VS-Sierre" (region code present)
-    return { city: parts.slice(2).join('-'), canton: parts[1].toUpperCase() };
+    // "CH-VS-Sierre" (region code present) — validate against the real
+    // canton registry before trusting it; a shape-only check would let a
+    // malformed/non-Swiss 2-letter token through as a fabricated canton.
+    const city = parts.slice(2).join('-');
+    const canton = normalizeCantonCode(parts[1]) || inferAnyCanton(city) || '';
+    return { city, canton };
   }
   // "CH-City" (no region code) — infer canton from the city name.
   const city = parts.slice(1).join('-') || parts[0];

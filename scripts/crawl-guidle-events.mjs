@@ -540,7 +540,13 @@ async function main() {
         cantonHint,
       );
       event.comune = comune || undefined;
-      event.canton = canton || cantonHint || '';
+      // Do NOT fall back to the raw `cantonHint` here: `resolveComuneNationwide`
+      // already retains it when valid (method 'canton-hint', issue #3739) and
+      // returns `canton: null` precisely when the hint failed its own
+      // `isValidCantonCode` registry check — falling back to the raw hint here
+      // would re-introduce an unvalidated 2-letter code as the final canton.
+      // Matches the sibling `crawl-myswitzerland-events.mjs` crawler.
+      event.canton = canton || '';
       if (event.comune) resolvedComune += 1;
       event.imageUrl = (await mirrorEventImage(imageSourceUrl, event.id)) || undefined;
       events.push(event);

@@ -285,6 +285,21 @@ function mapEmploymentType(raw = '', title = '') {
 }
 
 /**
+ * Validate a source-feed `addressRegion` against the independently-inferred
+ * canton. IKEA's own JSON-LD feed provides `addressRegion` as unvalidated
+ * source data — trust it only when it's a real 2-letter Swiss canton code
+ * that AGREES with `canton` (derived from the listing-page location text); a
+ * disagreeing/malformed value must never silently override the safer,
+ * location-derived canton (same bug class fixed centrally in
+ * jobPostingSchema.ts's resolveAddress()).
+ */
+export function resolveIkeaAddressRegion(feedAddressRegion, canton) {
+  const feedRegion = String(feedAddressRegion || '').toUpperCase().trim();
+  const cantonCode = String(canton || '').toUpperCase().trim();
+  return /^[A-Z]{2}$/.test(feedRegion) && feedRegion === cantonCode ? feedRegion : '';
+}
+
+/**
  * Fetch all IKEA jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
@@ -311,7 +326,7 @@ export async function fetchAllIkeaJobs() {
     const location = normalizeSpace(listing.location || '');
     const canton = inferSwissTargetCanton(location) || HQ_CANTON;
     const addressLocality = listing.addressLocality || location.split(',')[0].trim() || HQ_CITY;
-    const addressRegion = listing.addressRegion || '';
+    const addressRegion = resolveIkeaAddressRegion(listing.addressRegion, canton);
     const postalCode = listing.postalCode || (canton === HQ_CANTON ? HQ_POSTAL : '');
     const descriptionText = stripHtml(listing.description || '');
     const publicUrl = listing.url || CAREER_URL;

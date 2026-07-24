@@ -4,6 +4,7 @@ import {
   IKEA_COMPANY_NAME,
   isIkeaJob,
   isTrustedDomain,
+  resolveIkeaAddressRegion,
 } from '../scripts/lib/ikea-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -124,6 +125,22 @@ describe('IKEA crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  describe('resolveIkeaAddressRegion', () => {
+    it('trusts the feed region when it agrees with the inferred canton', () => {
+      expect(resolveIkeaAddressRegion('TI', 'TI')).toBe('TI');
+      expect(resolveIkeaAddressRegion('ti', 'TI')).toBe('TI');
+    });
+
+    it('rejects a feed region that disagrees with the inferred canton', () => {
+      expect(resolveIkeaAddressRegion('BE', 'TI')).toBe('');
+    });
+
+    it('rejects a malformed (non 2-letter) feed region', () => {
+      expect(resolveIkeaAddressRegion('Aargau', 'AG')).toBe('');
+      expect(resolveIkeaAddressRegion('', 'AG')).toBe('');
     });
   });
 });

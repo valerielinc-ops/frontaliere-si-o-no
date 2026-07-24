@@ -163,8 +163,9 @@ import {
  buildEmployerHubMeta,
  buildRoleHubMeta,
 } from '../services/seo/meta-descriptions';
-import { COMPANY_HQ_ADDRESSES, localityMatchesHq } from './shared/companyHqAddresses';
-import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema';
+import { COMPANY_HQ_ADDRESSES, CANTON_CAPITAL_ADDRESSES, localityMatchesHq } from './shared/companyHqAddresses';
+import { buildJobPostingSchema, sanitizeLocalityForRegion, type JobInput } from './shared/jobPostingSchema';
+import { normalizeCantonCode, inferAnyCanton } from '../scripts/lib/target-swiss-locations.mjs';
 import { buildListItemJobPosting } from './shared/jobPostingListItem';
 import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
 import { resolveJobsSeoPagesFlushed } from './shared/buildSignals';
@@ -527,6 +528,45 @@ export function pickJobDisambiguator(
  return '';
 }
 
+// Change DEFAULT_CANTON to expand the primary target region — see
+// scripts/lib/crawler-location-config.mjs for the central switch. Module
+// scope (not closure-local) so deriveJobCanton/deriveJobAddressLocality can
+// use it as their ultimate fallback and stay independently unit-testable.
+const DEFAULT_CANTON = 'TI';
+const DEFAULT_CANTON_DISPLAY = 'Ticino';
+
+/**
+ * Resolve a job's canton code. Explicit `job.canton`/`job.addressRegion` is
+ * trusted only when it's a REAL Swiss canton code (`normalizeCantonCode`
+ * validates against the 26-canton registry, not just a bare 2-letter regex);
+ * otherwise the canton is inferred from the location text via the same
+ * BFS-backed registry used by the central JobPosting schema fix
+ * (`sanitizeLocalityForRegion` in `./shared/jobPostingSchema`), so a job
+ * page can never derive a canton the crawler fleet doesn't actually cover.
+ */
+export function deriveJobCanton(job: Record<string, unknown>): string {
+ const explicit = normalizeCantonCode(String(job.canton || job.addressRegion || ''));
+ if (explicit) return explicit;
+ const inferred = inferAnyCanton(String(job.addressLocality || job.location || ''));
+ return inferred || DEFAULT_CANTON;
+}
+
+/**
+ * Resolve the locality text safe to render/emit for a job, given its
+ * already-derived canton `region`. A garbage/leaked free-text locality or a
+ * real city from the WRONG canton is rejected (via the shared
+ * `sanitizeLocalityForRegion`) before falling through to `job.location`
+ * (same check) and finally the canton capital's own locality name — never a
+ * bare, unvalidated crawler string.
+ */
+export function deriveJobAddressLocality(job: Record<string, unknown>, region: string): string {
+ const fromLocality = sanitizeLocalityForRegion(String(job.addressLocality || ''), region);
+ if (fromLocality) return fromLocality;
+ const fromLocation = sanitizeLocalityForRegion(String(job.location || ''), region);
+ if (fromLocation) return fromLocation;
+ return CANTON_CAPITAL_ADDRESSES[region]?.addressLocality || DEFAULT_CANTON_DISPLAY;
+}
+
 // Local feature flag: strip generic SEO prose ("Informazioni per frontalieri",
 // "Domande frequenti", "Mercato del lavoro in Ticino") from expired-job
 // static pages. Default ON (set STRIP_EXPIRED_JOB_PROSE=0 to keep prose).
@@ -603,11 +643,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const cacheDateStamp = new Date().toISOString().slice(0, 10);
 
  // ─── Parameterized defaults ──────────────────────────────────────────
- // Change DEFAULT_CANTON to expand the primary target region.
- // See scripts/lib/crawler-location-config.mjs for the central switch.
- const DEFAULT_CANTON = 'TI';
+ // DEFAULT_CANTON / DEFAULT_CANTON_DISPLAY are module-level (see above
+ // deriveJobCanton/deriveJobAddressLocality). Change them there to expand
+ // the primary target region — see scripts/lib/crawler-location-config.mjs
+ // for the central switch.
  const DEFAULT_POSTAL_CODE = '6900';
- const DEFAULT_CANTON_DISPLAY = 'Ticino';
 
  /**
   * Canton URL slugs sourced from data/canton-url-slugs.json (P1.1 cathedral).
@@ -1889,49 +1929,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  'SH': 'Bahnhofstrasse 1', 'SO': 'Hauptgasse 1', 'BL': 'Marktplatz 1',
  };
 
- /** City name → canton code for deriving addressRegion from location */
- const CITY_TO_CANTON: Record<string, string> = {
- // Ticino
- 'lugano': 'TI', 'bellinzona': 'TI', 'locarno': 'TI', 'mendrisio': 'TI', 'chiasso': 'TI',
- 'biasca': 'TI', 'agno': 'TI', 'manno': 'TI', 'stabio': 'TI', 'giubiasco': 'TI',
- 'ascona': 'TI', 'paradiso': 'TI', 'massagno': 'TI', 'cadenazzo': 'TI', 'mezzovico': 'TI',
- 'balerna': 'TI', 'bedano': 'TI', 'airolo': 'TI', 'faido': 'TI', 'rivera': 'TI',
- // Graubünden
- 'chur': 'GR', 'coira': 'GR', 'davos': 'GR', 'st. moritz': 'GR', 'landquart': 'GR',
- 'ilanz': 'GR', 'thusis': 'GR', 'poschiavo': 'GR', 'samedan': 'GR',
- // Major Swiss cities
- 'zürich': 'ZH', 'zurich': 'ZH', 'zurigo': 'ZH', 'winterthur': 'ZH', 'kloten': 'ZH',
- 'dübendorf': 'ZH', 'dietlikon': 'ZH',
- 'bern': 'BE', 'berna': 'BE', 'thun': 'BE', 'interlaken': 'BE',
- 'basel': 'BS', 'basilea': 'BS',
- 'genève': 'GE', 'ginevra': 'GE', 'genf': 'GE', 'geneva': 'GE', 'plan-les-ouates': 'GE',
- 'lausanne': 'VD', 'losanna': 'VD',
- 'luzern': 'LU', 'lucerna': 'LU', 'lucerne': 'LU',
- 'st. gallen': 'SG', 'san gallo': 'SG', 'gossau': 'SG',
- 'aarau': 'AG', 'baden': 'AG', 'lenzburg': 'AG',
- 'fribourg': 'FR', 'friburgo': 'FR',
- 'neuchâtel': 'NE',
- 'zug': 'ZG',
- 'schaffhausen': 'SH',
- 'solothurn': 'SO', 'olten': 'SO',
- 'frauenfeld': 'TG',
- 'sion': 'VS', 'brig': 'VS', 'visp': 'VS', 'sierre': 'VS', 'martigny': 'VS',
- };
-
- /** Derive canton code from job location/addressLocality, falling back to job.canton or DEFAULT_CANTON */
- const deriveCanton = (job: any): string => {
- const explicitCanton = String(job.canton || job.addressRegion || '').toUpperCase().trim();
- if (explicitCanton && explicitCanton.length === 2 && /^[A-Z]{2}$/.test(explicitCanton)) return explicitCanton;
- // Try to infer from city names
- const candidates = [
- ...normaliseCityName(String(job.addressLocality || '')),
- ...normaliseCityName(String(job.location || '')),
- ];
- for (const c of candidates) {
- if (CITY_TO_CANTON[c]) return CITY_TO_CANTON[c];
- }
- return DEFAULT_CANTON;
- };
+ // City→canton dict + regex-only explicit-canton acceptance replaced by the
+ // module-level deriveJobCanton (validated against the real 26-canton
+ // registry + BFS city inference — see above; eliminates this hand-rolled
+ // ~50-city duplicate, AGENTS.md #6).
+ const deriveCanton = deriveJobCanton;
 
  /** Derive streetAddress from job data, company HQ, or city generic.
  * Always returns a street address (canton capital as last resort). */
@@ -1970,8 +1972,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  for (const c of candidates) {
  if (CITY_GENERIC_ADDRESS[c]) return CITY_GENERIC_ADDRESS[c];
  }
- // 7. Canton capital fallback — always produces a result
- const canton = String(job.canton || job.addressRegion || DEFAULT_CANTON).toUpperCase().trim();
+ // 7. Canton capital fallback — always produces a result. Uses the
+ // validated deriveCanton (not a raw job.canton||job.addressRegion
+ // regex-only read) so an untrusted well-formed-but-wrong canton code
+ // never picks the wrong capital street (same bug class as #6 above).
+ const canton = deriveCanton(job);
  return CANTON_CAPITAL_ADDRESS[canton] || CANTON_CAPITAL_ADDRESS[DEFAULT_CANTON] || 'Piazza Governo';
  };
  // Map internal category strings to O*NET-SOC major group codes for Google Jobs.
@@ -2619,9 +2624,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  ? Number(job.salaryMax)
  : Number(job?.baseSalary?.value?.maxValue);
  const perJob_salaryCurrency = String(job.currency || job?.baseSalary?.currency || job?.baseSalary?.value?.currency || 'CHF');
- const perJob_rawLocality = String(job.addressLocality || '').trim();
- const perJob_addressLocality = isValidAddress(perJob_rawLocality) ? perJob_rawLocality : String(job.location || DEFAULT_CANTON_DISPLAY);
+ // Region resolved FIRST: addressLocality must agree with it, not the
+ // other way round (a garbage/wrong-canton locality is what leaked into
+ // visible HTML — reported bug — since this render path bypassed the
+ // central JobPosting schema sanitizer entirely until now).
  const perJob_addressRegion = deriveCanton(job);
+ const perJob_addressLocality = deriveJobAddressLocality(job, perJob_addressRegion);
  const perJob_addressCountry = String(job.addressCountry || 'CH');
  const perJob_postalCode = deriveJobPostalCode(job);
  const perJob_streetAddress = deriveStreetAddress(job);
