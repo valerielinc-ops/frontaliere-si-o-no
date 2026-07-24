@@ -375,6 +375,15 @@ step_push_cdn() {
   # CDN_DEPLOY_KEY.
   local cdn_target="${CDN_TARGET:-pages}"
   stage=/tmp/cdn-stage
+  # Same leaked-staging-dir class fixed for push-locale-shard.sh /
+  # push-section-shard.sh (issue #4734): $stage holds up to ~950 MB
+  # (og+data+assets+images) and is never read again after this function
+  # returns, on any of its several exit paths (no-offloadable-assets,
+  # r2-only, missing CDN_DEPLOY_KEY, or the normal push-then-fallthrough
+  # path). trap RETURN frees it on every path instead of duplicating
+  # rm -rf at each return.
+  # shellcheck disable=SC2064
+  trap "rm -rf '$stage'" RETURN
   rm -rf "$stage" && mkdir -p "$stage"
   : > "$stage/.nojekyll"                              # serve every path verbatim, skip Jekyll
   printf 'cdn.frontaliereticino.ch' > "$stage/CNAME"  # keep custom domain (force-push would else wipe it)

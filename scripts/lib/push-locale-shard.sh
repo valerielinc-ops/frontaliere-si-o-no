@@ -275,6 +275,15 @@ push_shard() {
   )
   rc=$?
   rm -f "$keyfile"
+  # $stage (the git-clone-based push staging dir, up to several GB) is never
+  # read again after this point — deploy.yml's tar-pack step reads dist_dir
+  # directly, not $stage. Leaving it on disk let it accumulate alongside the
+  # per-section shard stages within the SAME job, exhausting runner disk on
+  # the (heaviest) IT leg and crashing the whole job mid-run with "No space
+  # left on device" before it could push its CDN build id — which is what
+  # made the downstream de/en/fr locales' cross-shard ordering wait (#2569)
+  # time out and skip their own push (issue #4734).
+  rm -rf "$stage"
   if [ "$rc" -eq 0 ]; then
     touch "$RUNNER_TEMP/shard-ok-$loc"   # consumed by the strip step
     echo "✅ pushed $loc shard"
