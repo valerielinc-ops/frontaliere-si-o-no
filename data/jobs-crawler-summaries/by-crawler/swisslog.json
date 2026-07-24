@@ -1,16 +1,16 @@
 {
   "key": "swisslog",
   "label": "Swisslog",
-  "generatedAt": "2026-07-24T11:10:21.513Z",
-  "total": 5,
+  "generatedAt": "2026-07-24T22:07:25.947Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4843,
-  "avgDurationMs": 4843,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6373,
+  "avgDurationMs": 6373,
   "durationHistory": [
-    4843
+    6373
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/working-student-quality-mwd-4396",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T11:10:19.006Z",
+      "crawledAt": "2026-07-24T22:07:23.137Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -64,7 +64,7 @@
       "url": "https://www.swisslog.com/en-us/careers/openings/controls-software-service-engineer-3751",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-24T11:10:19.008Z",
+      "crawledAt": "2026-07-24T22:07:23.138Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -102,7 +102,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T11:10:19.008Z",
+      "crawledAt": "2026-07-24T22:07:23.139Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -140,7 +140,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/servicetechnikerin-mechanik-mwd-4094",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T11:10:19.009Z",
+      "crawledAt": "2026-07-24T22:07:23.140Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -167,8 +167,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "swisslog-e7aa3af0b05e",
       "slug": "responsabile-del-progetto-tecnico-m-f-d-swisslog-buchs-switzerland",
@@ -210,5 +209,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
