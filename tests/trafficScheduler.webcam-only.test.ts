@@ -436,3 +436,86 @@ describe('runTrafficCollection — routes to webcam-only fallback', () => {
     expect(saved.every((s) => s.source === 'tomtom')).toBe(true);
   });
 });
+
+// ─── runTrafficCollection — TomTom account-exhaustion fallback (#4743) ────
+
+describe('runTrafficCollection — TomTom account exhaustion fallback', () => {
+  it('falls back to HERE when a preflight call reveals TomTom InsufficientFunds', async () => {
+    const insufficientFundsBody = {
+      detailedError: { code: 'InsufficientFunds', message: 'You do not have enough credits to perform this action' },
+    };
+    const fetchMock = vi.fn(async (url: unknown) => {
+      const u = String(url);
+      if (u.includes('calculateRoute')) {
+        return {
+          ok: false,
+          status: 403,
+          text: async () => JSON.stringify(insufficientFundsBody),
+        } as unknown as Response;
+      }
+      if (u.includes('router.hereapi.com')) {
+        return {
+          ok: true,
+          json: async () => ({ routes: [{ sections: [{ summary: { baseDuration: 300, duration: 600 } }] }] }),
+        } as unknown as Response;
+      }
+      return { ok: true, json: async () => ({}) } as unknown as Response;
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const { runTrafficCollection } = (await import(
+      '../functions/src/trafficSchedulerCore.js'
+    )) as CoreModule;
+
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout', 'setInterval', 'clearInterval'] });
+    const resultPromise = runTrafficCollection({
+      tomtomApiKey: 'tt-key',
+      hereApiKey: 'here-key',
+      enableWebcam: false,
+    });
+    await vi.runAllTimersAsync();
+    const result = await resultPromise;
+    vi.useRealTimers();
+
+    expect(result.collected).toBeGreaterThan(0);
+    const saved = adminState.savedCurrent as Array<{ source?: string }>;
+    expect(saved.length).toBeGreaterThan(0);
+    expect(saved.every((s) => s.source === 'here')).toBe(true);
+    // Only the preflight call hit TomTom; every crossing routed through HERE.
+    expect(fetchMock.mock.calls.filter((c) => String(c[0]).includes('calculateRoute'))).toHaveLength(1);
+    expect(fetchMock.mock.calls.some((c) => String(c[0]).includes('router.hereapi.com'))).toBe(true);
+  });
+
+  it('keeps using TomTom when the preflight call succeeds', async () => {
+    const fetchMock = vi.fn(async (url: unknown) => {
+      const u = String(url);
+      if (u.includes('calculateRoute')) {
+        return {
+          ok: true,
+          json: async () => ({ routes: [{ summary: { travelTimeInSeconds: 600, noTrafficTravelTimeInSeconds: 300 } }] }),
+        } as unknown as Response;
+      }
+      return { ok: true, json: async () => ({}) } as unknown as Response;
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const { runTrafficCollection } = (await import(
+      '../functions/src/trafficSchedulerCore.js'
+    )) as CoreModule;
+
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout', 'setInterval', 'clearInterval'] });
+    const resultPromise = runTrafficCollection({
+      tomtomApiKey: 'tt-key',
+      hereApiKey: 'here-key',
+      enableWebcam: false,
+    });
+    await vi.runAllTimersAsync();
+    const result = await resultPromise;
+    vi.useRealTimers();
+
+    expect(result.collected).toBeGreaterThan(0);
+    const saved = adminState.savedCurrent as Array<{ source?: string }>;
+    expect(saved.every((s) => s.source === 'tomtom')).toBe(true);
+    expect(fetchMock.mock.calls.every((c) => String(c[0]).includes('calculateRoute'))).toBe(true);
+  });
+});

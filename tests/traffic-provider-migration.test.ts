@@ -2,6 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   fetchCrossingTraffic,
   getTomTomRouteTravelTimes,
+  isTomTomAccountExhausted,
 } from '../functions/src/trafficSchedulerCore.js';
 
 const fetchMock = vi.fn();
@@ -97,5 +98,21 @@ describe('traffic provider migration', () => {
 
     expect(result.source).toBe('google-maps');
     expect(String(fetchMock.mock.calls[0][0])).toContain('maps.googleapis.com/maps/api/distancematrix/json');
+  });
+});
+
+describe('isTomTomAccountExhausted', () => {
+  it('detects the InsufficientFunds billing error code', () => {
+    expect(
+      isTomTomAccountExhausted(
+        'TomTom Routing HTTP 403: {"detailedError":{"code":"InsufficientFunds","message":"You do not have enough credits to perform this action"}}',
+      ),
+    ).toBe(true);
+  });
+
+  it('does not flag unrelated errors', () => {
+    expect(isTomTomAccountExhausted('TomTom Routing HTTP 500: internal error')).toBe(false);
+    expect(isTomTomAccountExhausted('TomTom Routing API: NO_ROUTE_SUMMARY')).toBe(false);
+    expect(isTomTomAccountExhausted()).toBe(false);
   });
 });
