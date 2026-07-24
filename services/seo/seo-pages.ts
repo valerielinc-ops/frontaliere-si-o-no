@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3484,
+ "numberOfItems": 3485,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8252,7 +8252,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3481, "name": "Tasse frontalieri, nessuna stangata per i reddi...", "url": `${BASE_URL}/articoli-frontaliere/tasse-frontalieri-nessuna-stangata` },
           { "@type": "ListItem", "position": 3482, "name": "Di più Adecco, «l'IA cambia il lavoro ma non so...", "url": `${BASE_URL}/articoli-frontaliere/ia-cambia-lavoro-ma-non-sostituisce-persone` },
           { "@type": "ListItem", "position": 3483, "name": "Di più GR: fra Livigno e S-chanf in treno, il p...", "url": `${BASE_URL}/articoli-frontaliere/livigno-s-chanf-in-treno` },
-          { "@type": "ListItem", "position": 3484, "name": "Terzo pilastro 3a: vantaggi per il Canton Ginevra", "url": `${BASE_URL}/articoli-frontaliere/terzo-pilastro-3a-vantaggi-canton-ginevra` }
+          { "@type": "ListItem", "position": 3484, "name": "Terzo pilastro 3a: vantaggi per il Canton Ginevra", "url": `${BASE_URL}/articoli-frontaliere/terzo-pilastro-3a-vantaggi-canton-ginevra` },
+          { "@type": "ListItem", "position": 3485, "name": "Quanto guadagna un cuoco frontaliere in Ticino?", "url": `${BASE_URL}/articoli-frontaliere/cuoco-frontaliere-ticino-guadagno` }
  ]
  },
  {

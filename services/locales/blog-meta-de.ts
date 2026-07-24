@@ -8901,6 +8901,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.livigno-s-chanf-in-treno.title': 'Mehr GR: Zwischen Livigno und S-chanf mit dem Zug wird das Projekt entwickelt',
     'blog.article.livigno-s-chanf-in-treno.excerpt': 'Eine Bahnverbindung zwischen Livigno und S-chanf könnte in Zukunft realisiert werden.',
     'blog.article.livigno-s-chanf-in-treno.imageAlt': 'Ein Bahnhof in der Schweiz mit Zügen, die Livigno und S-chanf verbinden.',
+    'blog.article.cuoco-frontaliere-ticino-guadagno.title': 'Wie viel verdient ein Grenzkoch im Tessin?',
+    'blog.article.cuoco-frontaliere-ticino-guadagno.excerpt': 'Das Neue Grenzgängerabkommen vom 23.12.2020 sieht vor, dass Grenzgänger ähnlich behandelt werden wie Schweizer Arbeitnehmer. Das ändert sich für Grenzköche im Tessin.',
+    'blog.article.cuoco-frontaliere-ticino-guadagno.imageAlt': 'Lugano vom See aus. Max 125 chars',
 };
 
 export default blogMetaDe;

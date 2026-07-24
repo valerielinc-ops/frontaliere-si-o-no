@@ -8903,6 +8903,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.livigno-s-chanf-in-treno.title': 'Di più GR: fra Livigno e S-chanf in treno, il progetto viene sviluppato',
     'blog.article.livigno-s-chanf-in-treno.excerpt': 'Un collegamento ferroviario tra Livigno e S-chanf potrebbe essere realizzato nel futuro.',
     'blog.article.livigno-s-chanf-in-treno.imageAlt': 'Una stazione ferroviaria in Ticino con treni che collegano Livigno e S-chanf.',
+    'blog.article.cuoco-frontaliere-ticino-guadagno.title': 'Quanto guadagna un cuoco frontaliere in Ticino?',
+    'blog.article.cuoco-frontaliere-ticino-guadagno.excerpt': 'Il Nuovo Accordo Frontalieri del 23/12/2020 prevede che i frontalieri siano trattati in modo simile ai lavoratori svizzeri. Ecco cosa cambia per i cuochi frontaliere in Ticino.',
+    'blog.article.cuoco-frontaliere-ticino-guadagno.imageAlt': 'Vista di Lugano dal lago. Max 125 chars',
 };
 
 export default blogMetaIt;
