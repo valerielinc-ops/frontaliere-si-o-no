@@ -44,8 +44,18 @@ function getArticleFiles(): ArticleFile[] {
 
 function extractTextContent(filePath: string): string {
   const raw = fs.readFileSync(filePath, 'utf-8');
-  // Extract string values from the TS export (body1, body2, body3, faq content)
-  const stringMatches = raw.match(/'[^']*'/g) || [];
+  // Extract string values from the TS export (body1, body2, body3, faq content).
+  // Must treat a backslash-escaped quote (`\'`) as part of the string content,
+  // not a terminator — `/'[^']*'/g` (the prior version) stopped at the FIRST
+  // `\'` it saw (e.g. "dell\'Ufficio..."), silently truncating the extracted
+  // text and losing everything after it. That's exactly where Italian/French/
+  // German elisions put an apostrophe right before a fabricated institution
+  // name ("dell\'Ufficio federale...", "l\'Office fédéral...") — this safety
+  // net had a blind spot for the single most common surrounding grammar
+  // pattern of the exact fabrication it exists to catch (confirmed live: 2
+  // articles with the fabricated institution sitting immediately after an
+  // escaped apostrophe passed this test undetected until this fix).
+  const stringMatches = raw.match(/'(?:[^'\\]|\\.)*'/g) || [];
   return stringMatches.join(' ');
 }
 
