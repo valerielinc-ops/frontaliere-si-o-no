@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sune-egge",
-  "assembledAt": "2026-07-24T11:33:39.293Z",
+  "assembledAt": "2026-07-24T22:25:03.490Z",
   "jobs": [
     {
       "id": "sune-egge-6cdad7d7ac86",
@@ -33,7 +33,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2675698",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T11:33:37.450Z",
+      "crawledAt": "2026-07-24T22:25:00.635Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2645745",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T11:33:37.449Z",
+      "crawledAt": "2026-07-24T22:25:00.634Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -129,6 +129,7 @@
       "applyUrl": "https://swsieber.jobs.personio.com/job/2645745",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "psychotherapeutin-psychotherapeuten-60-80-sune-egge-zurich",
         "psychotherapist-60-80-fachspital-sune-egge-zurich",
@@ -194,7 +195,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2610155",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T11:33:37.447Z",
+      "crawledAt": "2026-07-24T22:25:00.632Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -268,7 +269,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2595649",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T11:33:37.446Z",
+      "crawledAt": "2026-07-24T22:25:00.631Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -310,6 +311,7 @@
           "Excellentes compétences en allemand à l’oral et à l’écrit"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-tagdienst-sune-egge-zurich",
