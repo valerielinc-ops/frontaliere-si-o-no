@@ -1,16 +1,16 @@
 {
   "key": "gavi",
   "label": "Gavi, the Vaccine Alliance",
-  "generatedAt": "2026-07-23T22:07:46.559Z",
-  "total": 3,
+  "generatedAt": "2026-07-24T11:22:01.501Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 5195,
-  "avgDurationMs": 5195,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 5512,
+  "avgDurationMs": 5512,
   "durationHistory": [
-    5195
+    5512
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2512&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:07:43.377Z",
+      "crawledAt": "2026-07-24T11:21:57.953Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -53,8 +53,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "gavi-616f3fe1ac51",
       "slug": "consigliere-generale-gavi-the-vaccine-alliance-le-grand-saconnex",
@@ -137,5 +136,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
