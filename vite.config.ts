@@ -14,6 +14,7 @@ import { newsTickerDataPlugin } from './build-plugins/newsTickerDataPlugin';
 import { staticScriptsPlugin } from './build-plugins/staticScriptsPlugin';
 import { asyncCssPlugin } from './build-plugins/asyncCssPlugin';
 import { prepareOutDirPlugin } from './build-plugins/prepareOutDirPlugin';
+import { spaBundleResolverPrewarmPlugin } from './build-plugins/spaBundleResolver';
 import { preloadLocalePlugin } from './build-plugins/preloadLocalePlugin';
 import { ogPagesPlugin } from './build-plugins/ogPagesPlugin';
 import { jobsSeoPagesPlugin } from './build-plugins/jobsSeoPagesPlugin';
@@ -171,6 +172,17 @@ export default defineConfig(({ mode }) => {
  affiliateRedirectPlugin(__dirname),
  // ── SEO plugins (skipped when FAST_BUILD=1) ──────────────────
  ...(isFastBuild ? [] : [
+ // Resolves + caches the SPA entry-bundle hashes (see
+ // spaBundleResolver.ts) as the very FIRST closeBundle handler
+ // (`order: 'pre'`, sequential), before any heavy content plugin below
+ // gets a chance to run its own long synchronous corpus-parsing work.
+ // Root-cause fix for the recurring "poll exhausted... index.html does
+ // not exist yet" deploy failures (#4638, #4738): those were never a
+ // slow Vite write, but the growing pre-poll parse time of whichever SEO
+ // plugin happened to call resolveSpaBundle() first — any fixed poll
+ // timeout erodes as that corpus grows. Prewarming here makes the first
+ // poll fire immediately after Vite's write phase instead.
+ spaBundleResolverPrewarmPlugin(__dirname),
  // Asserts every hand-authored Record<Locale, Record<Key, string>>
  // slug table used to build a canonical URL is fully populated (issue
  // #3608 item 2 sibling fix). Cheap in-memory check with no I/O; placed
