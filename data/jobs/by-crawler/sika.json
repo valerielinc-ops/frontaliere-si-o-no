@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sika",
-  "assembledAt": "2026-07-23T22:33:57.943Z",
+  "assembledAt": "2026-07-24T10:44:29.502Z",
   "jobs": [
     {
       "id": "sika-830dc4ea55aa",
@@ -991,83 +991,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sika-0fffcc3ad47a",
-      "slug": "specialista-in-gestione-dei-dati-dei-materiali-locali-mdm-sika-birr-aargau-switzerland",
-      "slugByLocale": {
-        "it": "specialista-in-gestione-dei-dati-dei-materiali-locali-mdm-sika-birr-aargau-switzerland",
-        "en": "specialist-in-local-material-data-management-mdm-sika-birr-aargau-switzerland",
-        "de": "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch",
-        "fr": "specialiste-en-gestion-des-donnees-sur-le-materiel-local-sika-birr-aargau-switzerland"
-      },
-      "company": "Sika",
-      "companyKey": "sika",
-      "companyDomain": "sika.com",
-      "title": "Fachspezialist/in Lokal Materialdatenmanagement (MDM)",
-      "titleByLocale": {
-        "it": "Specialista/in Gestione dei dati dei materiali locali (MDM)",
-        "en": "Specialist/in Local Material Data Management (MDM)",
-        "de": "Fachspezialist/in Lokal Materialdatenmanagement (MDM)",
-        "fr": "Spécialiste/en gestion des données sur le matériel local"
-      },
-      "description": "Datenqualität ist für Sie kein Zufall, sondern das Ergebnis strukturierter und sorgfältiger Arbeit? Sie fühlen sich im Umgang mit SAP sicher und möchten mit Ihrer Genauigkeit und Ihrem Prozessverständnis einen wichtigen Beitrag leisten? Dann werden Sie Teil unseres Teams als Sachbearbeiter/in Lokal Material Daten Management (MDM) . Pflege und Sicherstellung der Materialstammdaten in SAP (z. B. Material-, Kunden-, Lieferanten- und Produktstammdaten) Anlage und Pflege von Produktionsstücklisten, Planrezepten und Vertriebsstücklisten Betreuung von Einkaufsinfosätzen und Orderbüchern im Rahmen der Deployment-Prozesse Durchführung von Materialpreiskalkulationen sowie monatliche Preisüberprüfung in Zusammenarbeit mit FI/CO Sicherstellung der Datenqualität durch regelmässige Integrity Checks Erstellung von Analysen, Kennzahlen und Reports (inkl. Inventur) Dokumentation von Prozessen, Arbeitsanweisungen und Datenstrukturen Mitarbeit in Projekten (z. B. SAP EWM / Prozessoptimierungen) sowie Rolle als SAP Key User",
-      "descriptionByLocale": {
-        "it": "La qualità dei dati non è una coincidenza per voi, ma il risultato di un lavoro strutturato e attento? Ti senti sicuro nel trattare con SAP e vorresti dare un contributo importante con la tua accuratezza e la tua comprensione del processo? Quindi diventerai parte del nostro team come gestione dei dati materiali locali (MDM). Manutenzione e salvaguardia dei dati master dei materiali in SAP (ad es. dati materiali, clienti, fornitori e master prodotti) Pianificazione e manutenzione di bollette di produzione di materiali, ricette di piano e bollette di vendita Manutenzione di registri di informazioni di acquisto e libri d'ordine nell'ambito dei processi di distribuzione Attuazione dei calcoli dei prezzi materiali e revisione mensile dei prezzi in collaborazione con FI/CO Assurance della qualità dei dati attraverso controlli regolari di integrità Creazione di analisi, figure chiave e report (inclusa l'inventario) Documentazione di processi, istruzioni di lavoro e strutture di dati Collaborazione in progetti (ad esempio SAP EWM)",
-        "en": "Data quality is not a coincidence for you, but the result of structured and careful work? Do you feel secure in dealing with SAP and would like to make an important contribution with your accuracy and your process understanding? Then you will become part of our team as a local material data management (MDM). Maintenance and safeguarding of the material master data in SAP (e.g. material, customer, supplier and product master data) Planning and maintenance of production bills of materials, plan recipes and sales bills Maintenance of purchase information records and order books as part of the deployment processes Implementation of material price calculations as well as monthly price review in cooperation with FI/CO Assurance of data quality through regular integrity checks Creation of analyses, key figures and reports (incl. inventory) Documentation of processes, work instructions and data structures Collaboration in projects (e.g. SAP EWM / process optimizations) as well as role as SAP Key User",
-        "de": "Datenqualität ist für Sie kein Zufall, sondern das Ergebnis strukturierter und sorgfältiger Arbeit? Sie fühlen sich im Umgang mit SAP sicher und möchten mit Ihrer Genauigkeit und Ihrem Prozessverständnis einen wichtigen Beitrag leisten? Dann werden Sie Teil unseres Teams als Sachbearbeiter/in Lokal Material Daten Management (MDM) . Pflege und Sicherstellung der Materialstammdaten in SAP (z. B. Material-, Kunden-, Lieferanten- und Produktstammdaten) Anlage und Pflege von Produktionsstücklisten, Planrezepten und Vertriebsstücklisten Betreuung von Einkaufsinfosätzen und Orderbüchern im Rahmen der Deployment-Prozesse Durchführung von Materialpreiskalkulationen sowie monatliche Preisüberprüfung in Zusammenarbeit mit FI/CO Sicherstellung der Datenqualität durch regelmässige Integrity Checks Erstellung von Analysen, Kennzahlen und Reports (inkl. Inventur) Dokumentation von Prozessen, Arbeitsanweisungen und Datenstrukturen Mitarbeit in Projekten (z. B. SAP EWM / Prozessoptimierungen) sowie Rolle als SAP Key User",
-        "fr": "La qualité des données n'est pas une coïncidence pour vous, mais le résultat d'un travail structuré et soigné? Vous sentez-vous en sécurité face au SAP et souhaitez apporter une contribution importante avec votre précision et votre compréhension du processus? Ensuite, vous ferez partie de notre équipe en tant que gestion locale des données matérielles (MDM). Maintenance et protection des données de base du matériel dans SAP (p. ex. données de base du matériel, du client, du fournisseur et du produit) Planification et tenue à jour des factures de production des matériaux, des recettes de plan et des factures de vente Tenue des dossiers d'information sur les achats et des carnets de commande dans le cadre des processus de déploiement Mise en oeuvre du calcul des prix des matériaux ainsi que de l'examen mensuel des prix en collaboration avec FI/CO Assurance de la qualité des données grâce à des vérifications régulières de l'intégrité Création d'analyses, de chiffres clés et de rapports (y compris l'inventaire) Documentation des processus, des instructions de travail et des structures de données Collaboration dans les projets (p. ex. SAP EWM / optimisations de processus) ainsi que rôle de SAP Key User"
-      },
-      "location": "Birr, Aargau, Switzerland",
-      "canton": "AG",
-      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9708cf86-6355-4cad-a7fb-19a1174aebf9.html",
-      "source": "Sika Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-23T22:33:40.031Z",
-      "addressLocality": "Birr",
-      "postalCode": "6341",
-      "streetAddress": "",
-      "addressRegion": "Aargau",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Specialty chemicals (construction & industrial)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-20",
-      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9708cf86-6355-4cad-a7fb-19a1174aebf9.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch"
-        ],
-        "en": [
-          "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch"
-        ],
-        "fr": [
-          "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-17T13:57:14.492Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
@@ -2072,80 +1995,6 @@
           "@type": "QuantitativeValue",
           "minValue": 85500,
           "maxValue": 129500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sika-20ba21278dd9",
-      "slug": "payroll-specialista-100-m-w-d-sika-birr",
-      "slugByLocale": {
-        "it": "payroll-specialista-100-m-w-d-sika-birr",
-        "en": "payroll-specialist-100-m-w-d-sika-ch",
-        "de": "payroll-specialist-100-m-w-d-sika-ch",
-        "fr": "payroll-specialiste-100-m-w-d-sika-birr"
-      },
-      "company": "Sika",
-      "companyKey": "sika",
-      "companyDomain": "sika.com",
-      "title": "Payroll Specialist 100% (m/w/d)",
-      "titleByLocale": {
-        "it": "Specialista delle Paghe al 100% (lun/f/d)",
-        "en": "Payroll Specialist 100% (m/w/d)",
-        "de": "Payroll Spezialist 100% (m/w/d)",
-        "fr": "Spécialiste en paie à 100 % (l/f/d)"
-      },
-      "description": "Sika ist ein weltweit tätiges, innovatives Unternehmen für chemische und technische Spezialitäten in den Bereichen Bau und Industrie. Wir handeln nach ethischen Grundsätzen und fördern ein Betriebsklima, in welchem sich Leistungsbereitschaft und gegenseitige Wertschätzung entfalten können. Zur Verstärkung unseres Teams Payroll suchen wir am Standort Birr im Kanton Aargau eine/n engagierte/n, kundenorientierte/n Teamplayer/in. In dieser Funktion sind Sie für folgende \n• Aufgaben verantwortlich: Lohnverarbeitung für mindestens zwei Sika-Gesellschaften in der Schweiz Kontrolle und teils Mutation von Stamm- und Lohndaten bis zur monatlichen Abrechnung, einschliesslich Erstellung und Verbuchung der DTA’s Verantwortlich für korrekte An- und Abmeldungen bei Sozialeinrichtungen sowie Bearbeitung und Überwachung von Unfall- und Krankheitsfällen Erstellen und Kontrollieren der Sozialversicherungsabrechnungen inkl. deren Jahresabschlüsse Kontoabstimmungen",
-      "descriptionByLocale": {
-        "it": "Sika è un'azienda innovativa e attiva a livello globale per specialità chimiche e tecniche nei settori delle costruzioni e industriale. Agiamo secondo principi etici e promuoviamo un ambiente di lavoro in cui possono svilupparsi motivazione e apprezzamento reciproco. Per rafforzare il nostro team Payroll, cerchiamo un team player impegnato e orientato al cliente presso la sede di Birr, nel cantone di Aargau. In questa funzione sarai responsabile delle seguenti attività: gestione delle buste paga per almeno due società Sika in Svizzera controllo e, in alcuni casi, modifica dei dati master e salari fino al saldo mensile, inclusa la preparazione e la pubblicazione degli DTA Responsabilità delle corrette registrazioni e radiazioni presso istituzioni sociali nonché gestione e monitoraggio di incidenti e malattie Preparazione e controllo delle dichiarazioni di previdenza sociale, inclusi i loro Riconciliazioni dei conti dei bilanci annuali",
-        "en": "Sika is a globally active, innovative company for chemical and technical specialties in the construction and industrial sectors. We act according to ethical principles and promote a working atmosphere in which motivation and mutual appreciation can develop. To strengthen our Payroll team, we are looking for a committed, customer-oriented team player at the Birr location in the canton of Aargau. In this function, you will be responsible for the following tasks: Payroll processing for at least two Sika companies in Switzerland Control and in some cases modification of master and payroll data up to monthly settlement, including preparation and posting of DTAs Responsible for correct registrations and deregistrations at social institutions as well as processing and monitoring of accidents and illnesses Preparation and control of social security statements including their Annual Financial Statements Account Reconciliations",
-        "de": "Sika ist ein weltweit tätiges, innovatives Unternehmen für chemische und technische Spezialitäten in den Bereichen Bau und Industrie. Wir handeln nach ethischen Grundsätzen und fördern ein Betriebsklima, in welchem sich Leistungsbereitschaft und gegenseitige Wertschätzung entfalten können. Zur Verstärkung unseres Teams Payroll suchen wir am Standort Birr im Kanton Aargau eine/n engagierte/n, kundenorientierte/n Teamplayer/in. In dieser Funktion sind Sie für folgende \n• Aufgaben verantwortlich: Lohnverarbeitung für mindestens zwei Sika-Gesellschaften in der Schweiz Kontrolle und teils Mutation von Stamm- und Lohndaten bis zur monatlichen Abrechnung, einschliesslich Erstellung und Verbuchung der DTA’s Verantwortlich für korrekte An- und Abmeldungen bei Sozialeinrichtungen sowie Bearbeitung und Überwachung von Unfall- und Krankheitsfällen Erstellen und Kontrollieren der Sozialversicherungsabrechnungen inkl. deren Jahresabschlüsse Kontoabstimmungen",
-        "fr": "Sika est une entreprise innovante et active à l'échelle mondiale, spécialisée dans les spécialités chimiques et techniques dans les secteurs de la construction et de l'industrie. Nous agissons selon des principes éthiques et promouvons un environnement de travail où la motivation et l'appréciation mutuelle peuvent se développer. Pour renforcer notre équipe paie, nous recherchons un joueur engagé et orienté client dans le site de Birr, dans le canton d'Aargovie. Dans cette fonction, vous serez responsable des tâches suivantes : traitement de la paie pour au moins deux sociétés Sika en Suisse, contrôle et, dans certains cas, modification des données maîtresses et de paie jusqu'à un règlement mensuel, y compris la préparation et l'enregistrement des accords de paiement (DTA), responsable des enregistrements et désinscriptions corrects dans les institutions sociales ainsi que du traitement et du suivi des accidents et maladies, préparation et contrôle des relevés de sécurité sociale, y compris leur Conciliations annuelles des comptes des états financiers"
-      },
-      "location": "Birr, Aargau, Switzerland",
-      "canton": "AG",
-      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-cc02fe66-5134-4982-8603-c40180c5ab03.html",
-      "source": "Sika Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-23T22:33:24.111Z",
-      "addressLocality": "Birr",
-      "postalCode": "6341",
-      "streetAddress": "",
-      "addressRegion": "Aargau",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Specialty chemicals (construction & industrial)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-26",
-      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-cc02fe66-5134-4982-8603-c40180c5ab03.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "payroll-specialist-100-m-w-d-sika-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "payroll-specialist-100-m-w-d-sika-ch"
-        ],
-        "fr": [
-          "payroll-specialist-100-m-w-d-sika-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-17T13:56:52.994Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
