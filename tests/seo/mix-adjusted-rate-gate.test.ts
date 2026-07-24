@@ -239,4 +239,41 @@ describe('evaluateMixAdjustedTotalRegression — sampled actualOffenders extrapo
     });
     expect(r.regression).toBe(true);
   });
+
+  // Regression guard for PR #4717's OWN review round 2: the two tests above
+  // don't discriminate extrapolating-vs-not, because in both their rate
+  // check alone already decides the outcome (actualOffenders=205 keeps
+  // actualTotalRate under totalCap regardless of the count check; 250 clears
+  // BOTH the raw and the ×4-extrapolated count floor). This scenario isolates
+  // the count-floor comparison as the actually-deciding factor: a small
+  // corpus (scanned=20) where a few offenders (4) are within noise
+  // (minAbsDelta=5) on the RAW scale — actualOffenders and expectedOffenders
+  // are both derived from THIS run's own scannedByFeature, so they're
+  // already scale-matched and must be compared directly, unlike the
+  // per-feature loop's baseOff (a genuinely full-corpus, stored count).
+  // Extrapolating actualOffenders here (4 -> 16 at rate=0.25) would wrongly
+  // clear the floor (16 > 0+5) and flag a false regression.
+  it('does not false-fail on noise within minAbsDelta even when the rate check alone would fire (isolates the count-floor comparison)', () => {
+    const r = evaluateMixAdjustedTotalRegression({
+      scannedByFeature: { a: 20 },
+      baseByFeature: { a: { ratePct: 0, scanned: 20 } },
+      tol: TOL,
+      actualOffenders: 4,
+      actualScanned: 20,
+      sampleRate: 0.25,
+    });
+    expect(r.regression).toBe(false);
+  });
+
+  it('does fail once the same small-corpus offender count clears minAbsDelta for real', () => {
+    const r = evaluateMixAdjustedTotalRegression({
+      scannedByFeature: { a: 20 },
+      baseByFeature: { a: { ratePct: 0, scanned: 20 } },
+      tol: TOL,
+      actualOffenders: 6, // > expectedOffenders(0) + minAbsDelta(5), on the raw (unextrapolated) scale
+      actualScanned: 20,
+      sampleRate: 0.25,
+    });
+    expect(r.regression).toBe(true);
+  });
 });

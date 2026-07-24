@@ -49,6 +49,19 @@
 //    enough that an all-zero draw is IMPLAUSIBLE by chance at the current
 //    sample rate — large buckets going missing (still overwhelmingly likely
 //    to mean "broken walk") are unaffected.
+// 3. (Caught in THIS fix's own PR review, round 2 — not a pre-existing bug,
+//    introduced by items 1/2 above): evaluateMixAdjustedTotalRegression()'s
+//    total-level check initially applied the SAME extrapolateSampledCount()
+//    fix to `actualOffenders` before comparing it to `expectedOffenders` —
+//    but `expectedOffenders` (computeMixAdjustedTotalCap(), below) is
+//    computed as `scanned(current, possibly sampled) * baseRate`, i.e. it's
+//    ALREADY on the same sampled scale as `actualOffenders` (both derived
+//    from this run's own scannedByFeature), unlike the per-feature loop's
+//    `baseOff` (a stored, always-full-corpus count). Extrapolating only one
+//    side of an already-matched-scale comparison inflated actualOffenders
+//    ~4× at rate=0.25 while expectedOffenders stayed put, defeating
+//    tol.minAbsDelta at any sampleRate < 1 — see evaluateMixAdjustedTotalRegression's
+//    own inline comment for the fix.
 const SAMPLING_FALSE_POSITIVE_TOLERANCE = 0.01; // 1% — matches typical CI flake budget
 
 /**
@@ -147,11 +160,20 @@ export function evaluateMixAdjustedTotalRegression({
   // (e.g. from a shrinking denominator) with no meaningful absolute growth
   // must not fail the gate on its own (class #1604 — see
   // audit-text-html-ratio.mjs's per-feature comment for the incident).
-  // actualOffenders is extrapolated to full-corpus scale before comparing
-  // to expectedOffenders (baseline-derived, always unsampled) — see module
-  // header on why a sampled count can't be compared directly.
+  //
+  // NO extrapolation here (unlike the per-feature loop's `curOff` compare
+  // against a baseline `baseOff`) — caught in PR #4717's own review: unlike
+  // `baseOff` (a stored, always-full-corpus count from the baseline JSON),
+  // `expectedOffenders` is computed by computeMixAdjustedTotalCap() as
+  // `scanned(current, possibly sampled) * baseRate` — i.e. it's already on
+  // the SAME (sampled) scale as `actualOffenders`, both derived from this
+  // run's own scannedByFeature. Extrapolating only `actualOffenders` here
+  // (an earlier version of this fix did) compares a sampled count against
+  // an inflated one, defeating the tol.minAbsDelta noise floor at any
+  // sampleRate < 1 — the exact false-fail class this function exists to
+  // prevent, reintroduced by the sampling fix itself.
   const rateRegression = actualTotalRate > totalCap
-    && extrapolateSampledCount(actualOffenders, sampleRate) > expectedOffenders + tol.minAbsDelta;
+    && actualOffenders > expectedOffenders + tol.minAbsDelta;
   // A baseline feature bucket entirely missing from the current scan means
   // the scan is INCOMPLETE, not that the site legitimately improved (#3607).
   // Fail the gate unconditionally on this — it must not be masked by the
