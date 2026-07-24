@@ -4862,6 +4862,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cuoco-frontaliere-ticino-guadagno': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/cuoco-frontaliere-ticino-guadagno', parent: 'blog' },
     'blog-franco-digitale-bns-dice-no': { name: 'Franco digitale e frontalieri', path: '/articoli-frontaliere/franco-digitale-bns-dice-no', parent: 'blog' },
     'blog-chiude-bachmann-krawatten-zurigo': { name: 'Ultima fabbrica di cravatte in Svizzera', path: '/articoli-svizzera/chiude-bachmann-krawatten-zurigo/', parent: 'blog' },
+    'blog-frontaliereticino-chi-sono-i-frontalieri-ticino': { name: 'Chi sono i frontalieri in Ticino?', path: '/articoli-frontaliere/frontaliereticino-chi-sono-i-frontalieri-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

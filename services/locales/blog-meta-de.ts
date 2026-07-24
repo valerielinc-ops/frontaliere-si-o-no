@@ -8907,6 +8907,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.franco-digitale-bns-dice-no.title': 'Digitaler Franken, die SNB sagt Nein. Was ändert sich für Grenzgänger?',
     'blog.article.franco-digitale-bns-dice-no.excerpt': 'Die Schweizerische Nationalbank wird den digitalen Franken für die breite Öffentlichkeit nicht einführen.',
     'blog.article.franco-digitale-bns-dice-no.imageAlt': 'Eine Ansicht von Lugano mit der Schweizer Währung.',
+    'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.title': 'Wer sind die Grenzgänger im Tessin? Die Antwort ist hier.',
+    'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.excerpt': 'Im Tessin arbeiten rund 25\'000 Grenzgänger, aber wer sind sie und was tun sie?',
+    'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.imageAlt': 'Ein Restaurant in Lugano, Ticino, mit Bedienungen im Dienst. Max 125 Char',
 };
 
 export default blogMetaDe;
