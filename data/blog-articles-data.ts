@@ -26792,6 +26792,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'locarno-giovani-assistenza-sociale',
+ category: 'novita',
+ date: '2026-07-24T17:32:57.932Z',
+ image: '/images/blog/locarno-giovani-assistenza-sociale.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -54789,6 +54789,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-locarno-giovani-assistenza-sociale': {
+    title: 'Locarno: giovani e assistenza, interrogazione al Municipio',
+    description: 'Aumento richieste assistenza sociale a Locarno: consiglieri chiedono strategie per il reinserimento lavorativo dei giovani. Analisi e prospettive.',
+    keywords: 'frontalieri, ticino, svizzera, italia, locarno, giovani, assistenza, interrogazione',
+    ogTitle: 'Locarno: giovani e assistenza, interrogazione al Municipio',
+    ogDescription: 'Aumento richieste assistenza sociale a Locarno: consiglieri chiedono strategie per il reinserimento lavorativo dei giovani.',
+    canonicalPath: '/articoli-frontaliere/locarno-giovani-assistenza-sociale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Locarno: giovani e assistenza, interrogazione al Municipio",
+      "description": "Aumento richieste assistenza sociale a Locarno: consiglieri chiedono strategie per il reinserimento lavorativo dei giovani. Analisi e prospettive.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/locarno-giovani-assistenza-sociale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Municipio di Locarno, sede delle discussioni sull'assistenza sociale."
+      },
+      "datePublished": "2026-07-24T17:32:57+00:00",
+      "dateModified": "2026-07-24T17:32:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/locarno-giovani-assistenza-sociale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

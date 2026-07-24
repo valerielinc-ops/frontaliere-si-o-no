@@ -4868,6 +4868,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-trippa-futuri-mobilita-italia-grigioni': { name: 'La mobilità alpina', path: '/articoli-svizzera/trippa-futuri-mobilita-italia-grigioni/', parent: 'blog' },
     'blog-frontaliere-elettricista-ticino-stipendio-requisiti': { name: 'Frontaliere elettricista in Ticino', path: '/articoli-frontaliere/frontaliere-elettricista-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-frontaliereriformaue': { name: 'Riforma Ue sui frontalieri disoccupati', path: '/articoli-svizzera/frontaliereriformaue/', parent: 'blog' },
+    'blog-locarno-giovani-assistenza-sociale': { name: 'Locarno Assistenza Giovani', path: '/articoli-frontaliere/locarno-giovani-assistenza-sociale', parent: 'blog' },
  };
 
  const info = sectionNames[section];
