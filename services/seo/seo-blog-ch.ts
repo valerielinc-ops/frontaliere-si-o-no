@@ -19323,6 +19323,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiude-bachmann-krawatten-zurigo': {
+    title: 'Di più. Dopo 70 anni chiude l’ultima fabbrica di cravatte della Svizzera',
+    description: 'L\'azienda Bachmann Krawatten di Zurigo Oerlikon ha dichiarato il fallimento lasciando senza lavoro gli undici dipendenti. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, dopo, anni, chiude, 8217',
+    ogTitle: 'Dopo 70 anni chiude l’ultima fabbrica di cravatte della Svizzera',
+    ogDescription: 'L\'azienda Bachmann Krawatten di Zurigo Oerlikon ha dichiarato il fallimento lasciando senza lavoro gli undici dipendenti.',
+    canonicalPath: '/articoli-svizzera/chiude-bachmann-krawatten-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più. Dopo 70 anni chiude l’ultima fabbrica di cravatte della Svizzera",
+      "description": "L'azienda Bachmann Krawatten di Zurigo Oerlikon ha dichiarato il fallimento lasciando senza lavoro gli undici dipendenti. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/chiude-bachmann-krawatten-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Azienda tessile svizzera"
+      },
+      "datePublished": "2026-07-24T09:05:29+00:00",
+      "dateModified": "2026-07-24T09:05:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/chiude-bachmann-krawatten-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

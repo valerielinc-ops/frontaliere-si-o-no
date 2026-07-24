@@ -1495,6 +1495,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-canton-ginevra.title': 'Terzo pilastro 3a: vantaggi per il Canton Ginevra',
     'blog.article.terzo-pilastro-3a-vantaggi-canton-ginevra.excerpt': 'La nuova convenzione tra la Svizzera e l\'Italia per i frontalieri prevede la creazione di un regime di imposta unico',
     'blog.article.terzo-pilastro-3a-vantaggi-canton-ginevra.imageAlt': 'Ginevra, capitale del Canton Ginevra',
+    'blog.article.chiude-bachmann-krawatten-zurigo.title': 'Di più. Dopo 70 anni chiude l’ultima fabbrica di cravatte della Svizzera',
+    'blog.article.chiude-bachmann-krawatten-zurigo.excerpt': 'L’azienda Bachmann Krawatten di Zurigo Oerlikon ha dichiarato il fallimento lasciando senza lavoro gli undici dipendenti',
+    'blog.article.chiude-bachmann-krawatten-zurigo.imageAlt': 'Azienda tessile svizzera',
 };
 
 export default blogMetaChIt;

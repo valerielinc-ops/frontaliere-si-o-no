@@ -8907,6 +8907,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cuoco-frontaliere-ticino-guadagno.title': 'Combien gagne un cuisinier frontalier au Tessin ?',
     'blog.article.cuoco-frontaliere-ticino-guadagno.excerpt': 'Le nouvel accord frontalier du 23/12/2020 prévoit que les frontaliers sont traités de la même manière que les travailleurs suisses. C\'est ce qui change pour les cuisiniers frontaliers au Tessin.',
     'blog.article.cuoco-frontaliere-ticino-guadagno.imageAlt': 'Vue de Lugano depuis le lac. Max 125 chars',
+    'blog.article.franco-digitale-bns-dice-no.title': 'Franc numérique, la BNS dit non. Qu\'est-ce qui change pour les frontaliers ?',
+    'blog.article.franco-digitale-bns-dice-no.excerpt': 'La Banque nationale suisse n\'introduira pas le franc numérique pour le grand public.',
+    'blog.article.franco-digitale-bns-dice-no.imageAlt': 'Une vue de Lugano avec la monnaie suisse.',
 };
 
 export default blogMetaFr;

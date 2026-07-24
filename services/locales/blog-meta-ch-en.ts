@@ -1495,6 +1495,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-canton-ginevra.title': 'Third pillar 3a: advantages for the Canton of Geneva',
     'blog.article.terzo-pilastro-3a-vantaggi-canton-ginevra.excerpt': 'The new agreement between Switzerland and Italy for border workers provides for the creation of a single tax regime',
     'blog.article.terzo-pilastro-3a-vantaggi-canton-ginevra.imageAlt': 'Ginevra, capital of the canton of Geneva',
+    'blog.article.chiude-bachmann-krawatten-zurigo.title': 'More. After 70 years, the last tie factory in Switzerland closes',
+    'blog.article.chiude-bachmann-krawatten-zurigo.excerpt': 'Bachmann Krawatten in Zurich Oerlikon declared bankruptcy, leaving the eleven employees out of work',
+    'blog.article.chiude-bachmann-krawatten-zurigo.imageAlt': 'Swiss textile factory',
 };
 
 export default blogMetaChEn;

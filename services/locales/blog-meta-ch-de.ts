@@ -1495,6 +1495,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-canton-ginevra.title': 'Dritte Säule 3a: Vorteile für den Kanton Genf',
     'blog.article.terzo-pilastro-3a-vantaggi-canton-ginevra.excerpt': 'Das neue Abkommen zwischen der Schweiz und Italien für Grenzgänger sieht die Schaffung eines einheitlichen Steuersystems vor',
     'blog.article.terzo-pilastro-3a-vantaggi-canton-ginevra.imageAlt': 'Genf, Hauptstadt des Kantons Genf',
+    'blog.article.chiude-bachmann-krawatten-zurigo.title': 'Mehr. Nach 70 Jahren wird die letzte Krawattenfabrik der Schweiz geschlossen',
+    'blog.article.chiude-bachmann-krawatten-zurigo.excerpt': 'Bachmann Krawatten aus Zürich Oerlikon hat Konkurs angemeldet und die elf Mitarbeiter arbeitslos gemacht',
+    'blog.article.chiude-bachmann-krawatten-zurigo.imageAlt': 'Schweizer Textilfabrik',
 };
 
 export default blogMetaChDe;
