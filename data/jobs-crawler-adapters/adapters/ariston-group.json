@@ -13,7 +13,7 @@
     "https://careers.aristongroup.com/sitemap_index.xml"
   ],
   "notes": "Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only Ticino/Grigioni jobs via shared Swiss target-location matching.",
-  "updatedAt": "2026-07-24T11:16:25.114Z",
+  "updatedAt": "2026-07-24T22:09:21.014Z",
   "seedMetaByUrl": {
     "https://careers.aristongroup.com/job/Hechingen-SERVICETECHNIKER-%28MWD%29-FREIBURG-UND-UMGEBUNG-Hech-72379/1281305901/": {
       "location": "Hechingen, DE, 72379",
@@ -117,12 +117,6 @@
       "company": "Ariston Group",
       "postedDate": "2026-07-16"
     },
-    "https://careers.aristongroup.com/job/Geneve-TECHNICIENNE-DE-SERVICE-GAZ-REGION-GEN%C3%88VE-Gen%C3%A8-1202/1413874733/": {
-      "location": "Genève, CH, 1202",
-      "canton": "GE",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-10"
-    },
     "https://careers.aristongroup.com/job/Mainburg-TECHNISCHER-VERKAUFSBERATER-IM-INNENDIENST-%28MWD%29-RAUM-KOBLENZ-PROJEKTGESCH%C3%84FT-HEIZTECHNIK-Main-84048/1284635001/": {
       "location": "Mainburg, DE, 84048",
       "canton": "",
@@ -134,6 +128,12 @@
       "canton": "AG",
       "company": "Ariston Group",
       "postedDate": "2026-07-08"
+    },
+    "https://careers.aristongroup.com/job/Geneve-TECHNICIENNE-DE-SERVICE-GAZ-REGION-GEN%C3%88VE-Gen%C3%A8-1202/1413874733/": {
+      "location": "Genève, CH, 1202",
+      "canton": "GE",
+      "company": "Ariston Group",
+      "postedDate": "2026-07-10"
     }
   }
 }
