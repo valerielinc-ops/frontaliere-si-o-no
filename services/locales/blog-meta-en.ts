@@ -8923,6 +8923,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.boom-ia-svizzera-opportunita-frontalieri.title': 'Boom AI in Switzerland: opportunities for frontier workers',
     'blog.article.boom-ia-svizzera-opportunita-frontalieri.excerpt': 'Job postings with AI skills hit an all-time high. This is what it means for the 78,500 border workers active in Ticino.',
     'blog.article.boom-ia-svizzera-opportunita-frontalieri.imageAlt': 'Modern office in Lugano with lake view',
+    'blog.article.strada-maria-teresa-roveredo-recupero.title': 'Historic Maria Teresa Road in Roveredo: recovery completed',
+    'blog.article.strada-maria-teresa-roveredo-recupero.excerpt': 'Inauguration in Roveredo after an intervention of 900,000 francs for the historic road to Italy, linked to the figure of Maria Theresa of Absburg.',
+    'blog.article.strada-maria-teresa-roveredo-recupero.imageAlt': 'Historical restoration of the Maria Teresa road in Roveredo, Grisons',
 };
 
 export default blogMetaEn;

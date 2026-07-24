@@ -8924,6 +8924,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.boom-ia-svizzera-opportunita-frontalieri.title': 'Boom IA in Svizzera: opportunità per i frontalieri',
     'blog.article.boom-ia-svizzera-opportunita-frontalieri.excerpt': 'Le offerte di lavoro con competenze in IA raggiungono un record storico. Ecco cosa significa per i 78.500 lavoratori frontalieri attivi in Ticino.',
     'blog.article.boom-ia-svizzera-opportunita-frontalieri.imageAlt': 'Ufficio moderno a Lugano con vista lago',
+    'blog.article.strada-maria-teresa-roveredo-recupero.title': 'Storica Strada Maria Teresa a Roveredo: completato il recupero',
+    'blog.article.strada-maria-teresa-roveredo-recupero.excerpt': 'Inaugurazione a Roveredo dopo un intervento da 900.000 franchi per la storica via verso l\'Italia, legata alla figura di Maria Teresa d\'Absburgo.',
+    'blog.article.strada-maria-teresa-roveredo-recupero.imageAlt': 'Restauro storico della Strada Maria Teresa a Roveredo nel Canton Grigioni',
 };
 
 export default blogMetaIt;

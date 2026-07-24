@@ -8922,6 +8922,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.boom-ia-svizzera-opportunita-frontalieri.title': 'Boom KI in der Schweiz: Chancen für Grenzgänger',
     'blog.article.boom-ia-svizzera-opportunita-frontalieri.excerpt': 'Stellenangebote mit KI-Kompetenz erreichen einen historischen Höchststand. Das bedeutet es für die 78.500 im Tessin tätigen Grenzgänger.',
     'blog.article.boom-ia-svizzera-opportunita-frontalieri.imageAlt': 'Modernes Büro in Lugano mit Blick auf den See',
+    'blog.article.strada-maria-teresa-roveredo-recupero.title': 'Maria Teresa in Roveredo restaurata',
+    'blog.article.strada-maria-teresa-roveredo-recupero.excerpt': 'Einweihung in Roveredo nach einem Eingriff von 900.000 Franken auf dem historischen Weg nach Italien, verbunden mit der Figur der Maria Theresia von Habsburg.',
+    'blog.article.strada-maria-teresa-roveredo-recupero.imageAlt': 'Historische Restaurierung der Maria-Theresia-Strasse in Roveredo, Graubünden',
 };
 
 export default blogMetaDe;
