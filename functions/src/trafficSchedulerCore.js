@@ -696,18 +696,22 @@ export async function runTrafficCollection(options = {}) {
  // this run's calls against the monthly free-tier budget before issuing any —
  // if the month is exhausted, skip the run entirely so we never get billed.
  // Other providers (TomTom/Google) have their own free tiers and are unmetered here.
- if (provider === 'here') {
+ // Extracted so the TomTom-exhaustion fallback below (which can also land on
+ // 'here') reserves against the same budget instead of billing untracked (#4747).
+ const tryReserveHereBudget = async () => {
  const callsThisRun = BORDER_CROSSINGS.length * 2; // crossing + approach segment per crossing
- let budget;
  try {
- budget = await reserveHereTransactionBudget(callsThisRun);
+ return await reserveHereTransactionBudget(callsThisRun);
  } catch (err) {
  // Budget bookkeeping is a backstop, not the primary control (the cron is
  // also throttled). On a transient Firestore error, proceed rather than
  // freeze live data — the next run re-checks.
  console.warn(`⚠️ HERE budget check failed (${err.message}) — proceeding without reservation`);
- budget = null;
+ return null;
  }
+ };
+ if (provider === 'here') {
+ const budget = await tryReserveHereBudget();
  if (budget && !budget.allowed) {
  console.warn(
  `🛑 HERE monthly budget reached (${budget.count}/${HERE_MONTHLY_BUDGET} transactions for ${budget.month}) ` +
@@ -763,6 +767,32 @@ export async function runTrafficCollection(options = {}) {
  provider = fallbackProvider;
  const { tomtomApiKey: _droppedTomTomKey, ...rest } = effectiveOptions;
  effectiveOptions = rest;
+ // Falling back to HERE still bills "Time Aware Routing" transactions —
+ // reserve against the same monthly budget as the initially-resolved-here
+ // path above, or this run bills untracked (#4747).
+ if (provider === 'here') {
+ const budget = await tryReserveHereBudget();
+ if (budget && !budget.allowed) {
+ console.warn(
+ `🛑 HERE monthly budget also reached (${budget.count}/${HERE_MONTHLY_BUDGET} transactions for ${budget.month}) ` +
+ `— TomTom is exhausted too, so HERE is not a safe fallback this run.`,
+ );
+ if (googleApiKey) {
+ console.log('🔁 Falling back to Google Maps for this run');
+ provider = 'google-maps';
+ const { hereApiKey: _droppedHereKey, ...rest2 } = effectiveOptions;
+ effectiveOptions = rest2;
+ } else if (enableWebcam) {
+ console.warn('📷 No further routing fallback — falling back to webcam-only collection');
+ return runWebcamOnlyCollection(options);
+ } else {
+ console.warn('Live data keeps the last snapshot (webcam disabled).');
+ return { collected: 0, errors: 0, skipped: 'here-budget' };
+ }
+ } else if (budget && budget.allowed) {
+ console.log(`💳 HERE budget: ${budget.count}/${HERE_MONTHLY_BUDGET} transactions reserved for ${budget.month}`);
+ }
+ }
  } else {
  console.warn(`🛑 TomTom account exhausted (${err.message}) — no fallback routing key configured`);
  }
