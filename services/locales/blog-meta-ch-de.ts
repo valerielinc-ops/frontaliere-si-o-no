@@ -1513,6 +1513,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.temu-skv-collaborazione.title': 'Temu und SKV: Förderung des Zugangs von Schweizer KMU zum vernetzten Markt',
     'blog.article.temu-skv-collaborazione.excerpt': 'Die chinesische Online-Handelsplattform Temu und der Schweizerische KMU-Verband (SKV) haben beschlossen, eine Zusammenarbeit einzugehen, um Schweizer Unternehmen den Zugang zum Online-Handel zu erleichtern.',
     'blog.article.temu-skv-collaborazione.imageAlt': 'Lugano-Blick mit See und Stadt',
+    'blog.article.bce-mantiene-tassi-2-25.title': 'EZB hält Zinsen bei 2,25%',
+    'blog.article.bce-mantiene-tassi-2-25.excerpt': 'Die Europäische Zentralbank hat die im Juni festgelegten Werte bestätigt',
+    'blog.article.bce-mantiene-tassi-2-25.imageAlt': 'Fotografie eines Bankgebäudes in Lugano',
 };
 
 export default blogMetaChDe;

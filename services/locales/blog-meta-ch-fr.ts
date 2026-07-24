@@ -1513,6 +1513,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.temu-skv-collaborazione.title': 'Temu et SKV : favoriser l\'accès des PME suisses au marché en réseau',
     'blog.article.temu-skv-collaborazione.excerpt': 'La plateforme de commerce en ligne chinoise Temu et l\'Association suisse des PME (SKV) ont décidé d\'entreprendre une collaboration pour favoriser l\'accès des entreprises suisses au commerce en ligne.',
     'blog.article.temu-skv-collaborazione.imageAlt': 'Vue de Lugano avec le lac et la ville',
+    'blog.article.bce-mantiene-tassi-2-25.title': 'La BCE maintient ses taux à 2,25 %',
+    'blog.article.bce-mantiene-tassi-2-25.excerpt': 'La Banque centrale européenne a confirmé les valeurs fixées en juin',
+    'blog.article.bce-mantiene-tassi-2-25.imageAlt': 'Photographie d\'un immeuble bancaire à Lugano',
 };
 
 export default blogMetaChFr;
