@@ -1,10 +1,14 @@
 #!/usr/bin/env node
 /**
- * One-shot: flip ENABLE_HAIKU_ARTICLE_FALLBACK on in Firebase Remote Config
- * so `scripts/load-rc-env.mjs` hydrates it for every workflow, enabling the
- * `claude-cli/haiku` (always-current Haiku, via the CLI's own alias)
- * absolute-last-resort fallback in `scripts/lib/ai-models.mjs` (see
- * isClaudeCliFallbackEnabled()).
+ * One-shot: flip ENABLE_HAIKU_ARTICLE_FALLBACK on in Firebase Remote Config.
+ *
+ * SUPERSEDED as the primary on-switch (2026-07-24): every wired workflow now
+ * forces ENABLE_HAIKU_ARTICLE_FALLBACK=1 in its own
+ * `setup-claude-haiku-fallback` composite-action step regardless of this RC
+ * value, UNLESS the RC value is exactly '0'. So this script's remaining
+ * purpose is just making sure the RC value isn't left at literal '0' (the
+ * fleet-wide kill-switch) — it no longer needs to run for the fallback to be
+ * enabled anywhere. See .github/actions/setup-claude-haiku-fallback/action.yml.
  *
  * Safe: the fallback is double-gated (RC flag AND CLAUDE_CODE_OAUTH_TOKEN
  * present in the job env — scripts/lib/ai-models.mjs:822), so workflows
