@@ -1,16 +1,16 @@
 {
   "key": "skyguide-sa",
   "label": "Skyguide",
-  "generatedAt": "2026-07-24T11:10:31.358Z",
-  "total": 10,
+  "generatedAt": "2026-07-24T22:07:33.156Z",
+  "total": 9,
   "newCount": 0,
   "updatedCount": 9,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6095,
-  "avgDurationMs": 6095,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5744,
+  "avgDurationMs": 5744,
   "durationHistory": [
-    6095
+    5744
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,8 +40,9 @@
       "salaryMax": 111500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-23T22:08:26.541Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2,
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2712,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -342,8 +343,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Internship Finance - 12 months (80-100%)",
       "slug": "internship-finance-12-months-80-100-skyguide-geneva-ch",
@@ -381,5 +381,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
