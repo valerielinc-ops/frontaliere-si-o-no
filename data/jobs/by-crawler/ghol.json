@@ -48,7 +48,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-07-23T22:14:35.719Z",
-      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza significativa in sala operatoria",
@@ -226,7 +225,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-07-23T22:14:35.718Z",
-      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -335,7 +333,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-07-23T22:14:35.717Z",
-      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Descrizione GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle."
@@ -928,8 +925,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

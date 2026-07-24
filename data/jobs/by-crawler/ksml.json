@@ -242,8 +242,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-380728042d3d",
@@ -260,7 +259,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Teilpensum 5./6. Klasse, 7 - 9.5 Lektionen D, NMG, BG, (M+I)",
       "titleByLocale": {
-        "it": "Teilpensum 5./6. Klasse, 7 - 9.5 Lektionen D, NMG, BG, (M+I)",
+        "it": "5 ° / 6 ° grado, 7 - 9,5 lezioni D, NMG, BG, (M+I)",
         "en": "Sub-board 5./6. Class, 7 - 9.5 Lessons",
         "de": "Teilpensum 5./6. Klasse, 7 - 9.5 Lektionen D, NMG, BG, (M+I)",
         "fr": "Sous-tableau 5./6. Classe 7 - 9.5 Enseignements"
@@ -326,7 +325,6 @@
         ]
       },
       "firstSeenAt": "2026-07-11T10:51:51.752Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -498,8 +496,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-7c5971359b10",
@@ -804,7 +801,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:15:22.057Z",
-      "needsRetranslation": true,
       "salaryMin": 31500,
       "salaryMax": 47800,
       "baseSalary": {
@@ -977,7 +973,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:51:43.182Z",
-      "needsRetranslation": true,
       "salaryMin": 58200,
       "salaryMax": 88400,
       "baseSalary": {
@@ -1009,7 +1004,7 @@
         "it": "Insegnante di Materie Tessili e Design, Cicli 1 e 2, 6 ore",
         "en": "Secondary Subject Teacher Textiles and Design Cycles 1 and 2, 6 Lessons",
         "de": "Stv. Fachlehrperson Textiles Gestalten Zyklen 1 und 2, 6 Lektionen",
-        "fr": "Stv. Fachlehrperson Textiles Gestalten Zyklen 1 und 2, 6 Lektionen"
+        "fr": "Stv. professeur spécialisé Textiles Designing Cycles 1 et 2, 6 leçons"
       },
       "description": "Porträt\nWillkommen in Wimmis!\nAn der Schule Wimmis unterrichten 48 Lehrpersonen rund 400 Schülerinnen und Schüler an drei Standorten. Im Schulhaus Oberdorf befinden sich 6 Klassen.\nUnser Team - unsere Stärke!\n\nAufgaben\nAls Fachlehrerperson unterrichten, fördern und unterstützen Sie Kinder der 1., 2. und 3./4. Klasse im Fach Textiles Gestalten. Sie unterrichten insgesamt 6 Lektionen. Der Unterricht findet am Donnerstag von 8.20-11.50 und 13.30-15.05 Uhr statt.\n\nSie unterrichten während der Mutterschaftsvertretung und einem anschliessenden Urlaub als Stellvertreterin. Eine Weiterführung ab Sommer 2027 in eine unbefristete Anstellung ist evtl. möglich.\n\nSie engagieren sich im Unterrichtsteam und sind bereit, an der Schul- und Organisationsentwicklung mitzuarbeiten.\n\nAnforderungen\nHaben Sie ein Herz für Kinder und können diese begeistern und motivieren? Verfügen Sie über ein Lehrdiplom für den Bereich Gestalten? Sind Sie eine engagierte, kommunikative und humorvolle Persönlichkeit mit Freude und Interesse an der Zusammenarbeit mit dem Stufen- und Schulhausteam? Pflegen Sie einen offenen und direkten Austausch mit den Eltern sowie allen anderen Anspruchsgruppen?\n\nFalls ja sind Sie genau die Lehrperson, die wir für unser Team suchen!\n\nWir bieten\n- tolle TTG-Räume\n- gut ausgestattete Schulinfrastruktur mit moderner ICT-Umgebung\n- angenehmes Arbeitsklima in einem engagierten, offenen Team\n- Unterstützung durch Lehrpersonen, IF-Lehrpersonen, Schulsozialarbeit und Schulleitung\n- guter ÖV-Anschluss, sehr gute Erreichbarkeit mit dem Auto dank direktem Autobahnanschluss und Gratisparkplatz",
       "descriptionByLocale": {
@@ -1061,7 +1056,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.472Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1147,8 +1141,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-46467eae4938",
@@ -1984,7 +1977,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:46:19.626Z",
-      "needsRetranslation": true,
       "salaryMin": 37700,
       "salaryMax": 57200,
       "baseSalary": {
@@ -2065,7 +2057,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T22:07:43.337Z",
-      "needsRetranslation": true,
       "salaryMin": 4100,
       "salaryMax": 6200,
       "baseSalary": {
@@ -2942,19 +2933,38 @@
       "previousSlugs": [
         "schulische-heilpadagogin-schulischer-heilpadagoge-zyklus-2-5-lektionen-bvsa-int-mr-39778",
         "scuola-curativa-pedagogue-ciclo-2-5-lezioni-bvsa-int-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-39778",
-        "scuola-curativa-pedagogue-ciclo-2-5-lezioni-bvsa-int-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-ersigen"
+        "scuola-curativa-pedagogue-ciclo-2-5-lezioni-bvsa-int-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-ersigen",
+        "12-lezioni-bvsa-int-ciclo-di-accompagnamento-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun",
+        "12-lessons-bvsa-int-accompanying-cycle-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun-39665",
+        "6-lektionen-bvsa-int-begleitung-zyklus-1-primarschule-schonau-hohmad-thun-39665",
+        "12-lecons-bvsa-int-cycle-d-accompagnement-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39665",
+        "12-lektionen-bvsa-int-begleitung-zyklus-1-primarschule-schonau-hohmad-thun-39665",
+        "12-lezioni-bvsa-int-ciclo-di-accompagnamento-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39665",
+        "12-lektionen-bvsa-int-begleitung-zyklus-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun-39665"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schulische-heilpadagogin-schulischer-heilpadagoge-zyklus-2-5-lektionen-bvsa-int-mr-39778",
           "scuola-curativa-pedagogue-ciclo-2-5-lezioni-bvsa-int-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-39778",
-          "scuola-curativa-pedagogue-ciclo-2-5-lezioni-bvsa-int-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-ersigen"
+          "scuola-curativa-pedagogue-ciclo-2-5-lezioni-bvsa-int-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-ersigen",
+          "12-lezioni-bvsa-int-ciclo-di-accompagnamento-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun",
+          "12-lessons-bvsa-int-accompanying-cycle-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun-39665",
+          "6-lektionen-bvsa-int-begleitung-zyklus-1-primarschule-schonau-hohmad-thun-39665",
+          "12-lecons-bvsa-int-cycle-d-accompagnement-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39665",
+          "12-lektionen-bvsa-int-begleitung-zyklus-1-primarschule-schonau-hohmad-thun-39665",
+          "12-lezioni-bvsa-int-ciclo-di-accompagnamento-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39665",
+          "12-lektionen-bvsa-int-begleitung-zyklus-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun-39665"
         ],
         "en": [
-          "schulische-heilpadagogin-schulischer-heilpadagoge-zyklus-2-5-lektionen-bvsa-int-mr-39778"
+          "schulische-heilpadagogin-schulischer-heilpadagoge-zyklus-2-5-lektionen-bvsa-int-mr-39778",
+          "12-lessons-bvsa-int-accompanying-cycle-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun-39665"
         ],
         "fr": [
-          "schulische-heilpadagogin-schulischer-heilpadagoge-zyklus-2-5-lektionen-bvsa-int-mr-39778"
+          "schulische-heilpadagogin-schulischer-heilpadagoge-zyklus-2-5-lektionen-bvsa-int-mr-39778",
+          "12-lecons-bvsa-int-cycle-d-accompagnement-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39665"
+        ],
+        "de": [
+          "6-lektionen-bvsa-int-begleitung-zyklus-1-primarschule-schonau-hohmad-thun-39665"
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.470Z",
@@ -2987,7 +2997,7 @@
       "title": "Psychomotoriktherapeut/in 10-14 Lektionen",
       "titleByLocale": {
         "it": "terapeuta psicomotore in 10-14 lezioni",
-        "en": "Psychomotoriktherapeut/in 10-14 Lektionen",
+        "en": "Psychomotor therapist in 10-14 lessons",
         "de": "Psychomotoriktherapeut/in 10-14 Lektionen",
         "fr": "Psychomothérapeute en 10-14 leçons"
       },
@@ -3067,7 +3077,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.470Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3918,7 +3927,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T22:44:55.081Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5305,7 +5313,7 @@
         "it": "Livello di aiuto di base",
         "en": "Basic class aid level",
         "de": "Klassenhilfe Basisstufe",
-        "fr": "Klassenhilfe Basisstufe"
+        "fr": "Niveau d'aide de base"
       },
       "description": "Porträt\nDie Schule Gurzelen ist eine kleine, familiäre Schule. Die knapp 80 Kinder werden in 4 Klassen unterrichtet. Wir führen zwei Basisstufen und auf der Primarstufe zwei Mischklassen (3./4.Klasse und 5./6. Klasse). Die Schülerinnen und Schüler der Oberstufe besuchen das Oberstufenzentrum in Wattenwil oder in Seftigen.\n\nAufgaben\nSie arbeiten zum Schuljahresstart am Mittwoch von 8.20 Uhr bis 9.50 Uhr und am Freitag von 10.20 Uhr bis 11.50 Uhr in der Basisstufe mit.\nSie beaufsichtigen und unterstützen Kinder bei Gruppen oder Einzelarbeiten. Sie stellen die Aufsicht in verschiedenen Räumen sicher. Sie helfen bei alltäglichen und nicht direkt unterrichtsrelevanten Handlungen mit.\n\nAnforderungen\nSie sind offen für eine konstruktive Zusammenarbeit und arbeiten gerne mit Kindern.\n\nWir bieten\n- 30 Arbeitsstunden als Klassenhilfe\n- Angenehmes Arbeitsklima in einem kleinen Team\n- Überschaubare, ländliche Schule",
       "descriptionByLocale": {
@@ -5355,7 +5363,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:46:19.623Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5468,7 +5475,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Klassenhilfe 3.–6. Klasse (16–18 Std. pro Woche)",
       "titleByLocale": {
-        "it": "Klassenhilfe 3.–6. Klasse (16–18 Std. pro Woche)",
+        "it": "Aiuto di classe 3°–6° classe (16–18 ore settimanali)",
         "en": "Class aid 3rd–6th class (16–18 hours per week)",
         "de": "Klassenhilfe 3.–6. Klasse (16–18 Std. pro Woche)",
         "fr": "Aides de catégorie 3e à 6e classe (16 à 18 heures par semaine)"
@@ -5522,7 +5529,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:15:21.257Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5988,7 +5994,7 @@
       "title": "IF-Lehrperson ( 6L bVSA) Zyklus 3 in Spiez",
       "titleByLocale": {
         "it": "Istruttore IF ( 6L bVSA) Ciclo 3 a Spiez",
-        "en": "IF-Lehrperson ( 6L bVSA) Zyklus 3 in Spiez",
+        "en": "IF instructor ( 6L bVSA) Cycle 3 in Spiez",
         "de": "IF-Lehrperson ( 6L bVSA) Zyklus 3 in Spiez",
         "fr": "instructeur IF ( 6L bVSA) Cycle 3 à Spiez"
       },
@@ -6042,7 +6048,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:51:43.172Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -6615,7 +6620,7 @@
       "title": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
       "titleByLocale": {
         "it": "Flexible, kreative e vielseitige Lehrperson (Z2/3) 50%",
-        "en": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
+        "en": "Flexible, creative and versatile teacher (Z2/3) 50 %",
         "de": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
         "fr": "Enseignant(e) flexible, créatif(ve) et polyvalent(e) (Z2/3) 50%"
       },
@@ -6667,7 +6672,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.463Z",
-      "needsRetranslation": true,
       "salaryMin": 34300,
       "salaryMax": 52000,
       "baseSalary": {
@@ -7153,7 +7157,7 @@
       "title": "Fachlehrperson Sek1, 16.5 Lektionen, 2. Quartal im SJ 26/27",
       "titleByLocale": {
         "it": "Insegnante specializzato Sek1, 16.5 lezioni, 2° trimestre in SJ 26/27",
-        "en": "Fachlehrperson Sek1, 16.5 Lektionen, 2. Quartal im SJ 26/27",
+        "en": "Specialist teacher Sek1, 16.5 lessons, 2nd quarter in SJ 26/27",
         "de": "Fachlehrperson Sek1, 16.5 Lektionen, 2. Quartal im SJ 26/27",
         "fr": "Professeur spécialiste Sek1, 16,5 leçons, 2ème trimestre en SJ 26/27"
       },
@@ -7694,7 +7698,7 @@
       "title": "DaZ-Lehrperson",
       "titleByLocale": {
         "it": "Istruttore DAZ",
-        "en": "DaZ-Lehrperson",
+        "en": "DAZ instructor",
         "de": "DaZ-Lehrperson",
         "fr": "instructeur DAZ"
       },
@@ -7746,7 +7750,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:24:04.329Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8034,7 +8037,7 @@
       "title": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
       "titleByLocale": {
         "it": "Das Weissenheim cerca: Insegnante di classe, Ciclo 2, 14 lezioni",
-        "en": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
+        "en": "The Weissenheim is looking for: class teacher, cycle 2, 14 lessons",
         "de": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
         "fr": "Das Weissenheim recherche : Enseignant·e de classe, Cycle 2, 14 leçons"
       },
@@ -8092,7 +8095,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.458Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8339,7 +8341,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:55:33.367Z",
-      "needsRetranslation": true,
       "salaryMin": 41100,
       "salaryMax": 62400,
       "baseSalary": {
@@ -8404,7 +8405,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-16T22:55:33.368Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8936,7 +8936,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.452Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -9017,7 +9016,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:46:19.616Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -9673,7 +9671,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.449Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
