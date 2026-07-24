@@ -4481,6 +4481,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'chiude-bachmann-krawatten-zurigo',
+    category: 'novita',
+    date: '2026-07-24T09:05:29.809Z',
+    image: '/images/blog/chiude-bachmann-krawatten-zurigo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

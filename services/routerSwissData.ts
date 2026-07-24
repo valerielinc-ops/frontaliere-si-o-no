@@ -521,6 +521,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'aziende-svizzere-in-borsa': { it: 'aziende-svizzere-in-borsa', en: 'swiss-companies-in-stock', de: 'schweizer-unternehmen-an-der-borse', fr: 'entreprises-suisse-sur-le-marche-actionnaire' },
  'ia-cambia-lavoro-ma-non-sostituisce-persone': { it: 'ia-cambia-lavoro-ma-non-sostituisce-persone', en: 'ai-changes-work-but-not-people', de: 'ai-verandert-arbeit-sondern-keine-menschen', fr: 'la-ia-changera-le-travail-mais-pas-les-personnes' },
  'terzo-pilastro-3a-vantaggi-canton-ginevra': { it: 'terzo-pilastro-3a-vantaggi-canton-ginevra', en: 'third-pillar-3a-cantonal-geneva', de: 'dritter-pfeiler-3a-kanton-genf', fr: 'troisieme-pilier-3a-cantonal-de-geneve' },
+ 'chiude-bachmann-krawatten-zurigo': { it: 'chiude-bachmann-krawatten-zurigo', en: 'bachmann-kravats-zurich', de: 'bachmann-krawatten-zurich-schliesst', fr: 'bachmann-cravates-zurich-ferme' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
