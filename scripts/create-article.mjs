@@ -2974,7 +2974,7 @@ const FABRICATED_INSTITUTION_PATTERNS = [
   // publish-journalist-article.mjs). Matches tests/article-fabrication-guard
   // .test.ts's FABRICATED_LABOR_OFFICE.it pattern for consistency — real
   // institution: SECO.
-  /\b[Uu]fficio federale(?: svizzero)? del lavoro\b/,
+  /\b[Uu]fficio federale(?: svizzero)? del lavoro\b/i,
   /legge\s+cantonale\s+(?:sui|del)\s+frontalier/i,
   /regolamento\s+ticinese\s+(?:del|sul)\s+lavoro/i,
   /commissione\s+(?:federale|cantonale)\s+(?:per\s+i\s+)?frontalier/i,
@@ -3088,7 +3088,7 @@ function assertNoFabricatedReferences(contentIt) {
 // audit-classifier section matchers, since this runtime script and the test
 // file don't share an import boundary worth introducing for one pattern set).
 const FABRICATED_LABOR_OFFICE_BY_LOCALE = {
-  it: /\b[Uu]fficio federale(?: svizzero)? del lavoro\b/,
+  it: /\b[Uu]fficio federale(?: svizzero)? del lavoro\b/i,
   de: /\b([Bb]undesamt(?:es)? für Arbeit|[Bb]undesarbeitsamt)\b/,
   fr: /\b(?:[Oo]ffice|[Bb]ureau) fédéral du travail\b/,
   en: /\b[Ff]ederal (?:Labou?r Office|Office of Labou?r)\b/,
