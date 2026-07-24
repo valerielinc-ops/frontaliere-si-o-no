@@ -8919,6 +8919,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.locarno-giovani-assistenza-sociale.title': 'Locarno: Jugendliche und Pflege, Anfrage an das Rathaus',
     'blog.article.locarno-giovani-assistenza-sociale.excerpt': 'Steigende Betreuungsanfragen bei Jugendlichen in Locarno: Eine Querschnittsgruppe von Ratsmitgliedern fordert neue Strategien zur Wiedereingliederung in den Arbeitsmarkt.',
     'blog.article.locarno-giovani-assistenza-sociale.imageAlt': 'Rathaus von Locarno, Ort der Debatte über Sozialhilfe.',
+    'blog.article.boom-ia-svizzera-opportunita-frontalieri.title': 'Boom KI in der Schweiz: Chancen für Grenzgänger',
+    'blog.article.boom-ia-svizzera-opportunita-frontalieri.excerpt': 'Stellenangebote mit KI-Kompetenz erreichen einen historischen Höchststand. Das bedeutet es für die 78.500 im Tessin tätigen Grenzgänger.',
+    'blog.article.boom-ia-svizzera-opportunita-frontalieri.imageAlt': 'Modernes Büro in Lugano mit Blick auf den See',
 };
 
 export default blogMetaDe;

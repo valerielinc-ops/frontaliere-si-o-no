@@ -8920,6 +8920,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.locarno-giovani-assistenza-sociale.title': 'Locarno: young people and assistance, questioning at the Town Hall',
     'blog.article.locarno-giovani-assistenza-sociale.excerpt': 'Increase in requests for assistance among young people in Locarno: a cross-cutting group of councillors calls for new strategies for job reintegration.',
     'blog.article.locarno-giovani-assistenza-sociale.imageAlt': 'Locarno town hall, center of the social assistance debate.',
+    'blog.article.boom-ia-svizzera-opportunita-frontalieri.title': 'Boom AI in Switzerland: opportunities for frontier workers',
+    'blog.article.boom-ia-svizzera-opportunita-frontalieri.excerpt': 'Job postings with AI skills hit an all-time high. This is what it means for the 78,500 border workers active in Ticino.',
+    'blog.article.boom-ia-svizzera-opportunita-frontalieri.imageAlt': 'Modern office in Lugano with lake view',
 };
 
 export default blogMetaEn;

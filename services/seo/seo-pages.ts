@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3495,
+ "numberOfItems": 3496,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8263,7 +8263,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3492, "name": "Frontaliere elettricista in Ticino: stipendio m...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-elettricista-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3493, "name": "Riforma Ue sui frontalieri disoccupati, per la ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliereriformaue` },
           { "@type": "ListItem", "position": 3494, "name": "Locarno: giovani e assistenza, interrogazione a...", "url": `${BASE_URL}/articoli-frontaliere/locarno-giovani-assistenza-sociale` },
-          { "@type": "ListItem", "position": 3495, "name": "Regione Lombardia fiduciosa sull'accordo sui ri...", "url": `${BASE_URL}/articoli-frontaliere/regione-lombardia-fiduciosa` }
+          { "@type": "ListItem", "position": 3495, "name": "Regione Lombardia fiduciosa sull'accordo sui ri...", "url": `${BASE_URL}/articoli-frontaliere/regione-lombardia-fiduciosa` },
+          { "@type": "ListItem", "position": 3496, "name": "Boom IA in Svizzera: opportunità per i frontalieri", "url": `${BASE_URL}/articoli-frontaliere/boom-ia-svizzera-opportunita-frontalieri` }
  ]
  },
  {

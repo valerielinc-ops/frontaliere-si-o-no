@@ -4870,6 +4870,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliereriformaue': { name: 'Riforma Ue sui frontalieri disoccupati', path: '/articoli-svizzera/frontaliereriformaue/', parent: 'blog' },
     'blog-locarno-giovani-assistenza-sociale': { name: 'Locarno Assistenza Giovani', path: '/articoli-frontaliere/locarno-giovani-assistenza-sociale', parent: 'blog' },
     'blog-regione-lombardia-fiduciosa': { name: 'Regione Lombardia fiduciosa sull\'accordo', path: '/articoli-svizzera/regione-lombardia-fiduciosa/', parent: 'blog' },
+    'blog-boom-ia-svizzera-opportunita-frontalieri': { name: 'IA e frontalieri', path: '/articoli-frontaliere/boom-ia-svizzera-opportunita-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];
