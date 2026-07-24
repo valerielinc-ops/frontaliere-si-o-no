@@ -18,6 +18,7 @@ import {
   detectJobTitleLocaleDetails,
   detectTextLocale,
   pinnedTitleSourceLang,
+  titleLooksUntranslatedFromSource,
 } from './job-locale-utils.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { extractStableJobId } from './job-match-key.mjs';
@@ -938,12 +939,15 @@ function shouldDropLocalizedValue({
   minCharsForDetection = 0,
   minConfidence = 0.35,
   checkScoreRatio = false,
+  // Allows callers to swap in a value-tuned detector (e.g. detectJobTitleLocaleDetails
+  // for short titles, which detectTextLocale — a prose/trigram detector — under-scores).
+  detect = detectTextLocale,
 }) {
   const clean = String(value || '').trim();
   if (!clean || locale === sourceLocale) return false;
   if (sourceValue && normalize(clean) === normalize(sourceValue)) return true;
   if (clean.length < minCharsForDetection) return false;
-  const detected = detectTextLocale(clean, sourceLocale);
+  const detected = detect(clean, sourceLocale);
   if (detected.confidence >= minConfidence && detected.lang !== locale) return true;
   // For substantial content with mixed-language text (e.g. partial translations where only
   // the heading was translated but the body stayed in source language), standard confidence
@@ -1407,8 +1411,12 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
           locale,
           sourceLocale: titleSourceLang,
           sourceValue: baseTitle,
-          minCharsForDetection: 32,
-          minConfidence: 0.65,
+          minCharsForDetection: 8,
+          minConfidence: 0.55,
+          // Titles are short and vocabulary-driven — detectTextLocale (prose/trigram)
+          // under-scores them. detectJobTitleLocaleDetails is title-tuned and catches
+          // e.g. DE-source titles left untranslated in the IT slot.
+          detect: detectJobTitleLocaleDetails,
         })
       ) {
         // Don't delete — keeping wrong-language placeholder is better than empty.
@@ -1590,12 +1598,18 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       }
     }
 
-    // Quality gate: detect German words in non-DE titles (partial translation)
-    // Flag for retranslation so the AI pipeline can produce a proper translation.
+    // Quality gate: detect leftover source-language words/phrasing in translated
+    // titles (partial translation). Flag for retranslation so the AI pipeline can
+    // produce a proper translation. titleHasGermanWords is a DE-vocabulary denylist
+    // (retail/food/logistics coverage); titleLooksUntranslatedFromSource is
+    // detector-based and generalizes to ANY sourceLang/locale pair (e.g. DE-source
+    // health-sector crawlers translating into IT, which the word-list can't cover).
     for (const locale of DEFAULT_LOCALES) {
-      if (locale === 'de') continue;
+      if (locale === 'de' || locale === titleSourceLang) continue;
       const currentTitle = String(job.titleByLocale[locale] || '').trim();
-      if (currentTitle && titleHasGermanWords(currentTitle, locale) && !job.needsRetranslation) {
+      if (!currentTitle || job.needsRetranslation) continue;
+      if (titleHasGermanWords(currentTitle, locale) ||
+          titleLooksUntranslatedFromSource(currentTitle, titleSourceLang, locale)) {
         job.needsRetranslation = true;
         jobChanged = true;
       }
@@ -2249,11 +2263,12 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
     const deepl = await freeTranslateWithRetry({ text: cleanTitle, sourceLang, targetLang: locale });
     if (deepl && deepl.length >= 2 &&
         !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(deepl)) &&
-        !titleHasItalianWords(deepl, locale)) {
+        !titleHasItalianWords(deepl, locale) &&
+        !titleLooksUntranslatedFromSource(deepl, sourceLang, locale)) {
       setCachedAiResponse(cacheKey, _rb(deepl));
       return _rb(deepl);
     }
-    // If DeepL result has Italian remnants, fall through to LLM
+    // If DeepL result has Italian remnants (or still reads as sourceLang), fall through to LLM
     // LLM fallback
     if (isAnyModelAvailable && isAnyModelAvailable()) {
       if (ctx.incrDeeplFallbackToLlm) ctx.incrDeeplFallbackToLlm();
@@ -2269,18 +2284,30 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
       try {
         const text = await callLLM([{ role: 'user', content: prompt }], { temperature: 0.1, maxTokens: 80, jsonMode: false });
         let translated = (ns || normalize)(sanitizeAiOutput(String(text || '')).replace(/^["']|["']$/g, ''));
-        // Post-check: if result still has Italian words in a non-IT locale, retry with explicit instruction
-        if (translated && titleHasItalianWords(translated, locale) && callLLM) {
-          const retryPrompt = [
-            `The translation still contains Italian words. Translate this job title COMPLETELY to ${locale}.`,
-            `Italian words like "${translated.split(/[^a-zA-ZàèéìòùüäöüÄÖÜß]+/).filter(w => IT_TITLE_WORDS.has(w.toLowerCase())).join('", "')}" must be translated.`,
-            `Title: ${translated}`,
-            'Return ONLY the fully translated title.',
-          ].join('\n');
+        // Post-check: if result still has Italian words in a non-IT locale, or
+        // still reads as sourceLang for any other locale pair, retry with explicit instruction
+        const stillHasItalianWords = titleHasItalianWords(translated, locale);
+        const stillReadsAsSource = titleLooksUntranslatedFromSource(translated, sourceLang, locale);
+        if (translated && (stillHasItalianWords || stillReadsAsSource) && callLLM) {
+          const retryPrompt = stillHasItalianWords
+            ? [
+                `The translation still contains Italian words. Translate this job title COMPLETELY to ${locale}.`,
+                `Italian words like "${translated.split(/[^a-zA-ZàèéìòùüäöüÄÖÜß]+/).filter(w => IT_TITLE_WORDS.has(w.toLowerCase())).join('", "')}" must be translated.`,
+                `Title: ${translated}`,
+                'Return ONLY the fully translated title.',
+              ].join('\n')
+            : [
+                `The translation still reads as ${sourceLang}, not ${locale}. Translate this job title COMPLETELY to ${locale}.`,
+                `Title: ${translated}`,
+                'Return ONLY the fully translated title.',
+              ].join('\n');
           try {
             const retry = await callLLM([{ role: 'user', content: retryPrompt }], { temperature: 0.2, maxTokens: 80, jsonMode: false });
             const retryClean = (ns || normalize)(sanitizeAiOutput(String(retry || '')).replace(/^["']|["']$/g, ''));
-            if (retryClean && !titleHasItalianWords(retryClean, locale) && retryClean.toLowerCase() !== cleanTitle.toLowerCase()) {
+            if (retryClean &&
+                !titleHasItalianWords(retryClean, locale) &&
+                !titleLooksUntranslatedFromSource(retryClean, sourceLang, locale) &&
+                retryClean.toLowerCase() !== cleanTitle.toLowerCase()) {
               translated = retryClean;
             }
           } catch { /* keep first translation */ }
@@ -2839,11 +2866,14 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   out.descriptionByLocale = currentByLocale;
   out.requirementsByLocale = reqByLocale;
 
-  // Post-translation quality gate: if any non-IT title still contains Italian words,
-  // keep needsRetranslation=true so the next pipeline run will retry with fresh quotas.
+  // Post-translation quality gate: if any translated title still contains leftover
+  // source-language words/phrasing, keep needsRetranslation=true so the next
+  // pipeline run retries with fresh quotas. Checks against titleSourceLang (not
+  // hardcoded 'it') so DE-source (and other non-IT-source) crawlers are covered too.
   for (const locale of locales) {
-    if (locale === 'it') continue;
-    if (titleHasItalianWords(titleByLocale[locale], locale)) {
+    if (locale === titleSourceLang) continue;
+    if (titleHasItalianWords(titleByLocale[locale], locale) ||
+        titleLooksUntranslatedFromSource(titleByLocale[locale], titleSourceLang, locale)) {
       out.needsRetranslation = true;
       break;
     }

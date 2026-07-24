@@ -26,7 +26,10 @@ const TITLE_HINTS = {
 
 const TITLE_CHAR_HINTS = {
   de: /[äöüß]/i,
-  fr: /[àâçéèêëîïôùûüœ]/i,
+  // 'ü' excluded: not a French letter — including it caused DE/FR score
+  // ties on German titles (e.g. "Früh-/Spätdienst"), downgrading detection
+  // confidence below the threshold needed to catch untranslated titles.
+  fr: /[àâçéèêëîïôùûœ]/i,
 };
 
 function countMatches(text, regex) {
@@ -47,6 +50,9 @@ export function detectJobTitleLocaleDetails(title = '', fallback = 'it') {
     return { lang: fallback, confidence: 0, method: 'empty', scores: {} };
   }
 
+  const wordScores = Object.fromEntries(
+    DEFAULT_JOB_LOCALES.map((locale) => [locale, 0])
+  );
   const scores = Object.fromEntries(
     DEFAULT_JOB_LOCALES.map((locale) => [locale, 0])
   );
@@ -54,8 +60,9 @@ export function detectJobTitleLocaleDetails(title = '', fallback = 'it') {
   for (const locale of DEFAULT_JOB_LOCALES) {
     const rules = TITLE_HINTS[locale] || [];
     for (const rule of rules) {
-      scores[locale] += countMatches(clean, rule) * 2;
+      wordScores[locale] += countMatches(clean, rule) * 2;
     }
+    scores[locale] = wordScores[locale];
     if (TITLE_CHAR_HINTS[locale]?.test(clean)) {
       scores[locale] += 2;
     }
@@ -65,11 +72,16 @@ export function detectJobTitleLocaleDetails(title = '', fallback = 'it') {
   const [bestLocale = fallback, bestScore = 0] = ranked[0] || [];
   const secondScore = ranked[1]?.[1] || 0;
   const detected = detectTextLocale(clean, fallback);
+  // A bare diacritic (e.g. the 'ü' in a "Zürich" place name embedded in an
+  // otherwise-correctly-translated title) must not alone be enough to declare
+  // the whole title untranslated — require at least one dictionary word-hint
+  // match before trusting the confident tiers below.
+  const bestHasWordSupport = (wordScores[bestLocale] || 0) > 0;
 
-  if (bestScore >= 3 && bestScore >= secondScore + 2) {
+  if (bestHasWordSupport && bestScore >= 3 && bestScore >= secondScore + 2) {
     return { lang: bestLocale, confidence: 0.85, method: 'title-hints-strong', scores };
   }
-  if (bestScore >= 2 && bestScore > secondScore) {
+  if (bestHasWordSupport && bestScore >= 2 && bestScore > secondScore) {
     return { lang: bestLocale, confidence: 0.7, method: 'title-hints', scores };
   }
   if (detected.confidence >= 0.4) {
@@ -79,7 +91,7 @@ export function detectJobTitleLocaleDetails(title = '', fallback = 'it') {
     return {
       lang: bestLocale,
       confidence: Math.min(0.55, 0.35 + bestScore * 0.05),
-      method: 'title-hints-soft',
+      method: bestHasWordSupport ? 'title-hints-soft' : 'char-hint-only',
       scores,
     };
   }
@@ -88,6 +100,27 @@ export function detectJobTitleLocaleDetails(title = '', fallback = 'it') {
 
 export function detectJobTitleLang(title = '', fallback = 'it') {
   return detectJobTitleLocaleDetails(title, fallback).lang;
+}
+
+/**
+ * Generic "still in source language" check for a locale-slotted title.
+ *
+ * Historically each quality gate hardcoded its own leftover-word denylist
+ * (e.g. titleHasItalianWords), which only ever caught IT-source leftovers in
+ * non-IT slots. Crawlers with a non-IT sourceLang (e.g. DE-source health-sector
+ * employers translating into IT) produced titles the old gates couldn't see —
+ * detectJobTitleLocaleDetails is title-tuned and works for any locale pair.
+ *
+ * @param {string} title        text currently stored in `targetLocale`'s slot
+ * @param {string} sourceLang   the job's actual source language
+ * @param {string} targetLocale the locale slot being checked
+ * @returns {boolean} true if `title` still reads as `sourceLang`, not `targetLocale`
+ */
+export function titleLooksUntranslatedFromSource(title, sourceLang, targetLocale, { minConfidence = 0.55 } = {}) {
+  const clean = String(title || '').trim();
+  if (!clean || !sourceLang || !targetLocale || sourceLang === targetLocale) return false;
+  const detected = detectJobTitleLocaleDetails(clean, targetLocale);
+  return detected.lang === sourceLang && detected.confidence >= minConfidence;
 }
 
 /**
