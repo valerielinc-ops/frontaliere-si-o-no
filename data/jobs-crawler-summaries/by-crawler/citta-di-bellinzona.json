@@ -1,57 +1,19 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-07-24T11:22:14.171Z",
+  "generatedAt": "2026-07-24T22:19:41.856Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3563,
-  "avgDurationMs": 3563,
+  "durationMs": 3307,
+  "avgDurationMs": 3307,
   "durationHistory": [
-    3563
+    3307
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "id": "citta-di-bellinzona-responsabile-ufficio-presso-l-ente-autonomo-bellinzona-sport-bellinzona",
-      "slug": "responsabile-ufficio-presso-l-ente-autonomo-bellinzona-sport-bellinzona",
-      "company": "Città di Bellinzona",
-      "companyKey": "citta-di-bellinzona",
-      "companyDomain": "bellinzona.ch",
-      "title": "Responsabile ufficio, presso l'Ente autonomo Bellinzona Sport",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6500",
-      "streetAddress": "Piazza Nosetto",
-      "category": "public-admin",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=711f4932-6cc2-41e0-b765-06f45677da4b,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "pdfUrl": null,
-      "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=711f4932-6cc2-41e0-b765-06f45677da4b,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Bellinzona Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-07-24T11:22:12.012Z",
-      "firstSeenAt": "2026-06-29T21:52:24.302Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
     {
       "id": "citta-di-bellinzona-bagnino-a-presso-l-ente-autonomo-bellinzona-sport-bellinzona",
       "slug": "bagnino-a-presso-l-ente-autonomo-bellinzona-sport-bellinzona",
@@ -80,14 +42,20 @@
       "crawledAt": "2026-07-24T11:22:12.011Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "country": "CH",
-      "_qualityScore": 90,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "citta-di-bellinzona-comandante-pompieri-presso-il-corpo-civici-pompieri-bellinzona-bellinzona",
       "slug": "comandante-pompieri-presso-il-corpo-civici-pompieri-bellinzona-bellinzona",
@@ -113,7 +81,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=790a1f7c-1e54-4992-8eb3-e4816ef8b549,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-24T11:22:12.012Z",
+      "crawledAt": "2026-07-24T22:19:39.618Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "country": "CH",
       "_qualityScore": 90,
@@ -149,7 +117,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=9cfc0248-7d50-4a49-ba22-31c50f4140df,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-24T11:22:12.012Z",
+      "crawledAt": "2026-07-24T22:19:39.619Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "country": "CH",
       "_qualityScore": 90,
@@ -185,7 +153,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=711f4932-6cc2-41e0-b765-06f45677da4b,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-24T11:22:12.012Z",
+      "crawledAt": "2026-07-24T22:19:39.619Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "country": "CH",
       "_qualityScore": 90,
@@ -194,6 +162,45 @@
         "richness": 20,
         "translation": 25,
         "completeness": 20
+      }
+    },
+    {
+      "id": "citta-di-bellinzona-bagnino-a-presso-l-ente-autonomo-bellinzona-sport-bellinzona",
+      "slug": "bagnino-a-presso-l-ente-autonomo-bellinzona-sport-bellinzona",
+      "company": "Città di Bellinzona",
+      "companyKey": "citta-di-bellinzona",
+      "companyDomain": "bellinzona.ch",
+      "title": "Bagnino/a, presso l’Ente autonomo Bellinzona Sport",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6500",
+      "streetAddress": "Piazza Nosetto",
+      "category": "public-admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=44be70f2-4157-45dd-9ff1-11bd9c0db6e6,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "pdfUrl": null,
+      "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=44be70f2-4157-45dd-9ff1-11bd9c0db6e6,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Bellinzona Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-07-24T11:22:12.011Z",
+      "firstSeenAt": "2026-06-29T21:52:24.302Z",
+      "country": "CH",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
       }
     }
   ]
