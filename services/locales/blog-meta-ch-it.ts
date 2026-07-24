@@ -1507,6 +1507,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliereriformaue.title': 'Riforma Ue sui frontalieri disoccupati, per la Svizzera costi fino a un miliardo',
     'blog.article.frontaliereriformaue.excerpt': 'L\'Unione europea ha approvato una riforma per i frontalieri disoccupati, che potrebbe costare alla Svizzera fino a un miliardo di franchi l\'anno.',
     'blog.article.frontaliereriformaue.imageAlt': 'Una scena della vita di un frontaliere in Svizzera, con una vista sul lago di Lugano.',
+    'blog.article.regione-lombardia-fiduciosa.title': 'Regione Lombardia fiduciosa sull\'accordo sui ristorni con il Canton Ticino',
+    'blog.article.regione-lombardia-fiduciosa.excerpt': 'La Regione Lombardia esprime fiducia nell\'accordo sui ristorni tra la Svizzera e il Canton Ticino.',
+    'blog.article.regione-lombardia-fiduciosa.imageAlt': 'Scene di lavoro e vita frontaliera tra Svizzera e Italia',
 };
 
 export default blogMetaChIt;

@@ -1507,6 +1507,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliereriformaue.title': 'Réforme UE: coûte 1 milliard à la Suisse pour les frontaliers au chômage',
     'blog.article.frontaliereriformaue.excerpt': 'L\'Union européenne a approuvé une réforme pour les frontaliers chômeurs, qui pourrait coûter à la Suisse jusqu\'à un milliard de francs par an.',
     'blog.article.frontaliereriformaue.imageAlt': 'Une scène de la vie d\'un frontalier en Suisse, avec une vue sur le lac de Lugano.',
+    'blog.article.regione-lombardia-fiduciosa.title': 'Lombardie fiducieuse sur l\'accord de restauration avec le Tessin',
+    'blog.article.regione-lombardia-fiduciosa.excerpt': 'La Région Lombardie exprime sa confiance dans l\'accord de restauration entre la Suisse et le canton du Tessin.',
+    'blog.article.regione-lombardia-fiduciosa.imageAlt': 'Scènes du travail et de la vie des frontaliers entre la Suisse et l\'Italie',
 };
 
 export default blogMetaChFr;

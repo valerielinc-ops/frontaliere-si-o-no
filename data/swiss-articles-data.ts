@@ -4517,6 +4517,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'regione-lombardia-fiduciosa',
+    category: 'novita',
+    date: '2026-07-24T17:44:46.715Z',
+    image: '/images/blog/regione-lombardia-fiduciosa.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
