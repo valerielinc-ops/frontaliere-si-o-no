@@ -56,10 +56,10 @@
     "https://jobs.ruag.ch/offene-stellen/administration-officer-liquidation-diposal/5c1c6685-96c5-4506-901e-2cd0d4ad02a3",
     "https://jobs.ruag.ch/offene-stellen/ict-business-analyst-senior/9df05669-a412-44ec-ae20-048dbc5030b0",
     "https://jobs.ruag.ch/offene-stellen/ict-business-analyst-professional/cfdb58d3-f24f-4942-b4aa-e0570fbdd251",
-    "https://jobs.ruag.ch/offene-stellen/software-engineer-c5i/d4cff80d-97d5-4ef7-8460-fc72c54eb3be"
+    "https://jobs.ruag.ch/offene-stellen/senior-network-engineer/7300565d-900a-402d-b0d0-9b76ede89d48"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-07-23T22:27:21.281Z",
+  "updatedAt": "2026-07-24T11:22:20.237Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/facility-manager-technics-betriebselektrikerin/190b7508-d7e8-403d-b49f-7c2f57a59965": {
       "location": "Altdorf",
@@ -337,11 +337,11 @@
       "company": "RUAG AG",
       "postedDate": "2026-07-23"
     },
-    "https://jobs.ruag.ch/offene-stellen/software-engineer-c5i/d4cff80d-97d5-4ef7-8460-fc72c54eb3be": {
-      "location": "Thun",
+    "https://jobs.ruag.ch/offene-stellen/senior-network-engineer/7300565d-900a-402d-b0d0-9b76ede89d48": {
+      "location": "Bern,Wangen",
       "canton": "BE",
       "company": "RUAG AG",
-      "postedDate": "2026-07-23"
+      "postedDate": "2026-07-24"
     }
   }
 }
