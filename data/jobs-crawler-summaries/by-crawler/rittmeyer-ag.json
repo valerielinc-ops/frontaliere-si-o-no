@@ -1,16 +1,16 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-07-24T11:16:24.357Z",
-  "total": 12,
+  "generatedAt": "2026-07-24T22:16:20.880Z",
+  "total": 11,
   "newCount": 0,
-  "updatedCount": 12,
-  "removedCount": 0,
+  "updatedCount": 11,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 14353,
-  "avgDurationMs": 14353,
+  "durationMs": 16346,
+  "avgDurationMs": 16346,
   "durationHistory": [
-    14353
+    16346
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -348,43 +348,6 @@
       }
     },
     {
-      "title": "Projektingenieur für Automatisierung & Steuerungssysteme (a)",
-      "slug": "projektingenieur-fur-automatisierung-steuerungssysteme-a-rittmeyer-ag-baar",
-      "url": "https://karriere.rittmeyer.com/offene-stellen/projektingenieur-fuer-automatisierung-steuerungssysteme-a/",
-      "applyUrl": "",
-      "company": "Rittmeyer AG",
-      "companyKey": "rittmeyer-ag",
-      "companyDomain": "rittmeyer.com",
-      "location": "Baar",
-      "addressLocality": "Baar",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "postalCode": "6340",
-      "streetAddress": "Inwilerriedstrasse 57",
-      "canton": "ZG",
-      "country": "CH",
-      "category": "other",
-      "sector": "Energia",
-      "source": "rittmeyer-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-24",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "rittmeyer-ag-73aecb723171",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-06-03T00:50:36.287Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
       "title": "Techniker Verkaufsinnendienst (a)",
       "slug": "techniker-verkaufsinnendienst-a-rittmeyer-ag-baar",
       "url": "https://karriere.rittmeyer.com/offene-stellen/techniker-verkaufsinnendienst-a/",
@@ -459,6 +422,44 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Projektingenieur für Automatisierung & Steuerungssysteme (a)",
+      "slug": "projektingenieur-per-automatisierung-steuerungssysteme-a-rittmeyer-ag-baar",
+      "url": "https://karriere.rittmeyer.com/offene-stellen/projektingenieur-fuer-automatisierung-steuerungssysteme-a/",
+      "applyUrl": "",
+      "company": "Rittmeyer AG",
+      "companyKey": "rittmeyer-ag",
+      "companyDomain": "rittmeyer.com",
+      "location": "Baar",
+      "addressLocality": "Baar",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "postalCode": "6340",
+      "streetAddress": "Inwilerriedstrasse 57",
+      "canton": "ZG",
+      "country": "CH",
+      "category": "other",
+      "sector": "Energia",
+      "source": "rittmeyer-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-16",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "rittmeyer-ag-73aecb723171",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-03T00:50:36.287Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": []
 }
