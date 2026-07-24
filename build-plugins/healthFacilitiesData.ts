@@ -111,3 +111,21 @@ function normalizePath(urlPath: string): string {
 export function isHealthFacilityPath(urlPath: string): boolean {
   return PATH_INDEX.has(normalizePath(urlPath));
 }
+
+export interface HealthFacilityRoutePath {
+  locale: HealthFacilityLocale;
+  slug: string;
+}
+
+// Parsed twin of PATH_INDEX — services/router.ts needs the locale (isHealthFacilityPath
+// is boolean-only), mirroring exchangeSsgPaths.ts's isX/parseX shape.
+const PARSED_PATH_INDEX: ReadonlyMap<string, HealthFacilityRoutePath> = new Map(
+  HEALTH_FACILITIES.flatMap((f) =>
+    HEALTH_FACILITY_LOCALES.map((locale) => [buildHealthFacilityPath(locale, f.slug), { locale, slug: f.slug }] as const),
+  ),
+);
+
+/** Parses a facility canonical path into its locale + slug, or null if unmatched. */
+export function parseHealthFacilityPath(urlPath: string): HealthFacilityRoutePath | null {
+  return PARSED_PATH_INDEX.get(normalizePath(urlPath)) ?? null;
+}

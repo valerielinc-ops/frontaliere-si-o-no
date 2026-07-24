@@ -431,6 +431,248 @@ describe('Router — author profile slug segment', () => {
   });
 });
 
+/* ─────────── CHF/EUR exchange SSG vertical (/cambio-franco-euro/) ─────────── */
+
+describe('Router — CHF/EUR exchange SSG vertical (epic #4452)', () => {
+  // Regression: parsePath never had a branch for the hub/amount pages, so
+  // hydration fell through to the notFoundPath fallback and replaced the
+  // correct static HTML with "Pagina non trovata" — plus replaceRoute()
+  // rewrote the address bar back to '/' since the resolved fallback route
+  // wasn't staticOverlay (reported live for
+  // /cambio-franco-euro/4500-franchi-in-euro/, linked from the calculator
+  // results cross-link).
+  const hubCases: ReadonlyArray<{ path: string; locale: string }> = [
+    { path: '/cambio-franco-euro/', locale: 'it' },
+    { path: '/en/chf-eur-exchange/', locale: 'en' },
+    { path: '/de/franken-euro-kurs/', locale: 'de' },
+    { path: '/fr/change-franc-euro/', locale: 'fr' },
+  ];
+
+  const amountCases: ReadonlyArray<{ path: string; locale: string }> = [
+    { path: '/cambio-franco-euro/4500-franchi-in-euro/', locale: 'it' },
+    { path: '/en/chf-eur-exchange/4500-chf-to-eur/', locale: 'en' },
+    { path: '/de/franken-euro-kurs/4500-franken-in-euro/', locale: 'de' },
+    { path: '/fr/change-franc-euro/4500-francs-en-euros/', locale: 'fr' },
+  ];
+
+  for (const { path, locale } of [...hubCases, ...amountCases]) {
+    it(`parsePath resolves ${path} to a staticOverlay confronti/exchange route (no notFoundPath)`, () => {
+      const { route, locale: parsedLocale, notFoundPath } = parsePath(path);
+      expect(route.activeTab).toBe('confronti');
+      expect(route.confrontiSubTab).toBe('exchange');
+      expect(route.staticOverlay).toBe(true);
+      expect(parsedLocale).toBe(locale);
+      expect(notFoundPath).toBeUndefined();
+    });
+  }
+
+  it('does not match the unrelated SPA comparator sub-route /compara-servizi/cambio-franco-euro/', () => {
+    // Same wording, different (SPA, non-root) path — must NOT staticOverlay.
+    const { route, notFoundPath } = parsePath('/compara-servizi/cambio-franco-euro/');
+    expect(route.staticOverlay).toBeUndefined();
+    expect(notFoundPath).toBeUndefined();
+  });
+});
+
+/* ─────────── Health-facilities hub (/strutture-sanitarie/{slug}/) ─────────── */
+
+describe('Router — health-facilities hub (epic #4455)', () => {
+  // Regression: parsePath never had a branch for facility detail pages —
+  // same failure mode as the exchange-vertical bug above.
+  const cases: ReadonlyArray<{ path: string; locale: string }> = [
+    { path: '/strutture-sanitarie/hirslanden/', locale: 'it' },
+    { path: '/en/healthcare-facilities/hirslanden/', locale: 'en' },
+    { path: '/de/gesundheitseinrichtungen/hirslanden/', locale: 'de' },
+    { path: '/fr/etablissements-sante/hirslanden/', locale: 'fr' },
+  ];
+
+  for (const { path, locale } of cases) {
+    it(`parsePath resolves ${path} to a staticOverlay job-board route (no notFoundPath)`, () => {
+      const { route, locale: parsedLocale, notFoundPath } = parsePath(path);
+      expect(route.activeTab).toBe('job-board');
+      expect(route.staticOverlay).toBe(true);
+      expect(parsedLocale).toBe(locale);
+      expect(notFoundPath).toBeUndefined();
+    });
+  }
+
+  it('unknown facility slug does not staticOverlay (genuinely unmatched)', () => {
+    const { route, notFoundPath } = parsePath('/strutture-sanitarie/not-a-real-facility/');
+    expect(route.staticOverlay).toBeUndefined();
+    expect(notFoundPath).toBe('/strutture-sanitarie/not-a-real-facility/');
+  });
+});
+
+/* ─────────── Per-canton job-market snapshot (/cerca-lavoro-{canton}/snapshot/) ─────────── */
+
+describe('Router — per-canton job-market snapshot (T2.5)', () => {
+  // Regression: parsePath never had a branch for this family — same failure
+  // mode as the exchange-vertical bug above. Uses canton AG (Aargau), a real
+  // non-TI canton emitted by jobMarketSnapshotChCantonPathsData.ts.
+  const cases: ReadonlyArray<{ path: string; locale: string }> = [
+    { path: '/cerca-lavoro-argovia/snapshot/', locale: 'it' },
+    { path: '/en/find-jobs-aargau/snapshot/', locale: 'en' },
+    { path: '/de/jobs-im-aargau/snapshot/', locale: 'de' },
+    { path: '/fr/trouver-emploi-argovie/snapshot/', locale: 'fr' },
+  ];
+
+  for (const { path, locale } of cases) {
+    it(`parsePath resolves ${path} to a staticOverlay stats/jobs-observatory route (no notFoundPath)`, () => {
+      const { route, locale: parsedLocale, notFoundPath } = parsePath(path);
+      expect(route.activeTab).toBe('stats');
+      expect(route.statsSubTab).toBe('jobs-observatory');
+      expect(route.staticOverlay).toBe(true);
+      expect(parsedLocale).toBe(locale);
+      expect(notFoundPath).toBeUndefined();
+    });
+  }
+
+  it('unknown canton slug does not staticOverlay (genuinely unmatched)', () => {
+    const { route, notFoundPath } = parsePath('/cerca-lavoro-narnia/snapshot/');
+    expect(route.staticOverlay).toBeUndefined();
+    expect(notFoundPath).toBe('/cerca-lavoro-narnia/snapshot/');
+  });
+});
+
+/* ─────────── Per-canton "aziende che assumono" (/cerca-lavoro-{canton}/aziende-che-assumono/) ─────────── */
+
+describe('Router — per-canton weekly employers hub (finding #4)', () => {
+  // Regression: parsePath never had a branch for this family — same failure
+  // mode as the exchange-vertical bug above. Uses canton AG (Aargau), a real
+  // non-TI canton emitted by weeklyEmployersChCantonPathsData.ts.
+  const cases: ReadonlyArray<{ path: string; locale: string }> = [
+    { path: '/cerca-lavoro-argovia/aziende-che-assumono/', locale: 'it' },
+    { path: '/en/find-jobs-aargau/companies-hiring/', locale: 'en' },
+    { path: '/de/jobs-im-aargau/unternehmen-einstellen/', locale: 'de' },
+    { path: '/fr/trouver-emploi-argovie/entreprises-recrutent/', locale: 'fr' },
+  ];
+
+  for (const { path, locale } of cases) {
+    it(`parsePath resolves ${path} to a staticOverlay job-board route (no notFoundPath)`, () => {
+      const { route, locale: parsedLocale, notFoundPath } = parsePath(path);
+      expect(route.activeTab).toBe('job-board');
+      expect(route.staticOverlay).toBe(true);
+      expect(parsedLocale).toBe(locale);
+      expect(notFoundPath).toBeUndefined();
+    });
+  }
+
+  it('unknown canton slug does not staticOverlay (genuinely unmatched)', () => {
+    const { route, notFoundPath } = parsePath('/cerca-lavoro-narnia/aziende-che-assumono/');
+    expect(route.staticOverlay).toBeUndefined();
+    expect(notFoundPath).toBe('/cerca-lavoro-narnia/aziende-che-assumono/');
+  });
+});
+
+/* ─────────── Google-News topic section pages (/fisco/, /salari/, ...) ─────────── */
+
+describe('Router — topic section pages (finding #5)', () => {
+  // Regression: parsePath never had a branch for this family. 24 of the 28
+  // URLs fell through to notFoundPath; the other 4 (/fisco/, /de/steuern/,
+  // /fr/fiscalite/ plus the bare-word alias) silently resolved to the LIVE
+  // interactive fisco tab instead of the static article-list HTML — same
+  // SSG-hydration-gap bug class either way.
+  const cases: ReadonlyArray<{ path: string; locale: string }> = [
+    { path: '/fisco/', locale: 'it' },
+    { path: '/en/tax/', locale: 'en' },
+    { path: '/de/steuern/', locale: 'de' },
+    { path: '/fr/fiscalite/', locale: 'fr' },
+    { path: '/lavoro-frontaliere/', locale: 'it' },
+    { path: '/en/cross-border-work/', locale: 'en' },
+    { path: '/de/grenzgaenger-arbeit/', locale: 'de' },
+    { path: '/fr/travail-frontalier/', locale: 'fr' },
+    { path: '/salari/', locale: 'it' },
+    { path: '/en/salaries/', locale: 'en' },
+    { path: '/de/loehne/', locale: 'de' },
+    { path: '/fr/salaires/', locale: 'fr' },
+    { path: '/cambio-valuta/', locale: 'it' },
+    { path: '/en/currency-exchange/', locale: 'en' },
+    { path: '/de/waehrung/', locale: 'de' },
+    { path: '/fr/change/', locale: 'fr' },
+    { path: '/trasporti/', locale: 'it' },
+    { path: '/en/transport/', locale: 'en' },
+    { path: '/de/verkehr/', locale: 'de' },
+    { path: '/fr/transports/', locale: 'fr' },
+    { path: '/pensioni/', locale: 'it' },
+    { path: '/en/pensions/', locale: 'en' },
+    { path: '/de/renten/', locale: 'de' },
+    { path: '/fr/retraites/', locale: 'fr' },
+    { path: '/dogana/', locale: 'it' },
+    { path: '/en/customs/', locale: 'en' },
+    { path: '/de/zoll/', locale: 'de' },
+    { path: '/fr/douane/', locale: 'fr' },
+  ];
+
+  for (const { path, locale } of cases) {
+    it(`parsePath resolves ${path} to a staticOverlay blog route (no notFoundPath, no live-tab swap)`, () => {
+      const { route, locale: parsedLocale, notFoundPath } = parsePath(path);
+      expect(route.activeTab).toBe('blog');
+      expect(route.staticOverlay).toBe(true);
+      expect(parsedLocale).toBe(locale);
+      expect(notFoundPath).toBeUndefined();
+    });
+  }
+
+  it('unrelated bare-word path does not staticOverlay (genuinely unmatched)', () => {
+    const { route, notFoundPath } = parsePath('/narnia-topic/');
+    expect(route.staticOverlay).toBeUndefined();
+    expect(notFoundPath).toBe('/narnia-topic/');
+  });
+});
+
+/* ─────────── Per-municipality FISCAL guide pages (epic #4482/#4484, finding #1) ─────────── */
+
+describe('Router — per-municipality fiscal guide pages (finding #1)', () => {
+  // Regression: parsePath never had a branch for this family. Every hub +
+  // per-comune detail/bridge URL fell through to notFoundPath — same
+  // SSG-hydration-gap bug class as the other findings in this suite. `como`
+  // is a real above-floor comune (indexable page), `gallarate` a real
+  // below-floor comune (noindex,follow bridge, same URL shape either way).
+  const hubCases: ReadonlyArray<{ path: string; locale: string }> = [
+    { path: '/tasse-frontalieri-comune/', locale: 'it' },
+    { path: '/en/cross-border-tax-municipality/', locale: 'en' },
+    { path: '/de/grenzgaenger-steuern-gemeinde/', locale: 'de' },
+    { path: '/fr/impots-frontaliers-commune/', locale: 'fr' },
+  ];
+
+  for (const { path, locale } of hubCases) {
+    it(`parsePath resolves hub ${path} to a staticOverlay fisco route (no notFoundPath)`, () => {
+      const { route, locale: parsedLocale, notFoundPath } = parsePath(path);
+      expect(route.activeTab).toBe('fisco');
+      expect(route.staticOverlay).toBe(true);
+      expect(parsedLocale).toBe(locale);
+      expect(notFoundPath).toBeUndefined();
+    });
+  }
+
+  const detailCases: ReadonlyArray<{ path: string; locale: string }> = [
+    { path: '/tasse-frontalieri-comune/como/', locale: 'it' },
+    { path: '/en/cross-border-tax-municipality/como/', locale: 'en' },
+    { path: '/de/grenzgaenger-steuern-gemeinde/como/', locale: 'de' },
+    { path: '/fr/impots-frontaliers-commune/como/', locale: 'fr' },
+    { path: '/tasse-frontalieri-comune/gallarate/', locale: 'it' },
+    { path: '/en/cross-border-tax-municipality/gallarate/', locale: 'en' },
+    { path: '/de/grenzgaenger-steuern-gemeinde/gallarate/', locale: 'de' },
+    { path: '/fr/impots-frontaliers-commune/gallarate/', locale: 'fr' },
+  ];
+
+  for (const { path, locale } of detailCases) {
+    it(`parsePath resolves comune page ${path} to a staticOverlay fisco route (no notFoundPath)`, () => {
+      const { route, locale: parsedLocale, notFoundPath } = parsePath(path);
+      expect(route.activeTab).toBe('fisco');
+      expect(route.staticOverlay).toBe(true);
+      expect(parsedLocale).toBe(locale);
+      expect(notFoundPath).toBeUndefined();
+    });
+  }
+
+  it('unknown comune slug does not staticOverlay (genuinely unmatched)', () => {
+    const { route, notFoundPath } = parsePath('/tasse-frontalieri-comune/narnia/');
+    expect(route.staticOverlay).toBeUndefined();
+    expect(notFoundPath).toBe('/tasse-frontalieri-comune/narnia/');
+  });
+});
+
 /* ─────────── parsePath/buildPath round-trip symmetry (issue #2698) ─────────── */
 
 /**

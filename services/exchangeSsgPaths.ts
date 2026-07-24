@@ -84,3 +84,44 @@ export function buildNearestExchangeAmountPath(locale: ExchangeLocale, chf: numb
   }
   return buildExchangeAmountPath(locale, best);
 }
+
+// ── Route matching (services/router.ts) ─────────────────────────────────────
+// Client-side twin of build-plugins/exchangeRateSsgData.ts's isExchangeSsgPath
+// (which is node-context and boolean-only). Router needs the parsed locale
+// too, mirroring build-plugins/salaryStatsData.ts's isXPath/parseXPath shape.
+
+export interface ExchangeSsgPath {
+  locale: ExchangeLocale;
+  kind: 'hub' | 'amount';
+  amount?: number;
+  path: string;
+}
+
+/** Enumerate every canonical path (locale × hub + curated amounts). */
+export function listAllExchangeSsgPaths(): ExchangeSsgPath[] {
+  const out: ExchangeSsgPath[] = [];
+  for (const locale of EXCHANGE_LOCALES) {
+    out.push({ locale, kind: 'hub', path: buildExchangeHubPath(locale) });
+    for (const amount of EXCHANGE_AMOUNTS) {
+      out.push({ locale, kind: 'amount', amount, path: buildExchangeAmountPath(locale, amount) });
+    }
+  }
+  return out;
+}
+
+const EXCHANGE_SSG_PATH_INDEX: ReadonlyMap<string, ExchangeSsgPath> = new Map(
+  listAllExchangeSsgPaths().map((p) => [p.path, p]),
+);
+
+function normalizeExchangePath(urlPath: string): string {
+  const p = String(urlPath || '').split('?')[0].split('#')[0];
+  return p.endsWith('/') ? p : `${p}/`;
+}
+
+export function isExchangeSsgPath(urlPath: string): boolean {
+  return EXCHANGE_SSG_PATH_INDEX.has(normalizeExchangePath(urlPath));
+}
+
+export function parseExchangeSsgPath(urlPath: string): ExchangeSsgPath | null {
+  return EXCHANGE_SSG_PATH_INDEX.get(normalizeExchangePath(urlPath)) ?? null;
+}

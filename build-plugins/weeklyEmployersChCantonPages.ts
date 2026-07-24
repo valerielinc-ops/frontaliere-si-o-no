@@ -52,30 +52,22 @@ import {
 import { PROFESSION_CANTON_KEYS } from './professionCantonData';
 import { renderSalaryStatsBridge } from './shared/salaryStatsBridge';
 
-type Locale = WeeklyEmployersLocale;
-
-const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'] as const;
-
-const LOCALE_PREFIX: Record<Locale, string> = {
-  it: '',
-  en: '/en',
-  de: '/de',
-  fr: '/fr',
-};
+import {
+  type ChCantonEmployersLocale as Locale,
+  CH_CANTON_EMPLOYERS_LOCALES as LOCALES,
+  CH_CANTON_EMPLOYERS_LOCALE_PREFIX as LOCALE_PREFIX,
+  CH_CANTON_EMPLOYERS_JOB_BOARD_PREFIX as JOB_BOARD_PREFIX,
+  buildCantonEmployersPath,
+} from './weeklyEmployersChCantonPathsData';
+// Re-exported for existing consumers (tests) that import path builders from
+// this plugin file rather than the new browser-safe paths module directly.
+export { buildCantonEmployersPath };
 
 const OG_LOCALE: Record<Locale, string> = {
   it: 'it_CH',
   en: 'en_US',
   de: 'de_CH',
   fr: 'fr_CH',
-};
-
-/** Locale-aware "find-jobs" segment prefix (mirror of jobMarketSnapshotChCantonPages). */
-const JOB_BOARD_PREFIX: Record<Locale, string> = {
-  it: 'cerca-lavoro',
-  en: 'find-jobs',
-  de: 'jobs-im',
-  fr: 'trouver-emploi',
 };
 
 const COPY: Record<
@@ -257,14 +249,6 @@ function esc(s: unknown): string {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
-}
-
-/** Build canonical path for the per-canton weekly-employers page. */
-export function buildCantonEmployersPath(
-  locale: Locale,
-  cantonSlug: string,
-): string {
-  return `${LOCALE_PREFIX[locale]}/${JOB_BOARD_PREFIX[locale]}-${cantonSlug}/${WEEKLY_EMPLOYERS_SECTION[locale]}/`.replace(/\/{2,}/g, '/');
 }
 
 interface RankedEmployer {
