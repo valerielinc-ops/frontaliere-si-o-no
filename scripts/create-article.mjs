@@ -2968,6 +2968,13 @@ const FABRICATED_INSTITUTION_PATTERNS = [
   /codice\s+federale\s+(?:della\s+)?(?:salute|sanità)/i,
   /ministero\s+(?:federale|cantonale)\s+del(?:la)?\s+(?:lavoro|salute|finanz)/i,
   /ufficio\s+federale\s+del(?:la)?\s+(?:lavoro\s+transfrontaliero|migrazione\s+lavorativa)/i,
+  // Bare "ufficio federale del lavoro" (no qualifier) — the variant that
+  // actually slipped through in 3 journalist-submitted articles (this list
+  // wasn't wired into the journalist publish path at all; see
+  // publish-journalist-article.mjs). Matches tests/article-fabrication-guard
+  // .test.ts's FABRICATED_LABOR_OFFICE.it pattern for consistency — real
+  // institution: SECO.
+  /\b[Uu]fficio federale(?: svizzero)? del lavoro\b/,
   /legge\s+cantonale\s+(?:sui|del)\s+frontalier/i,
   /regolamento\s+ticinese\s+(?:del|sul)\s+lavoro/i,
   /commissione\s+(?:federale|cantonale)\s+(?:per\s+i\s+)?frontalier/i,
@@ -3064,6 +3071,70 @@ function assertNoFabricatedReferences(contentIt) {
   if (issues.length > 0) {
     const msg = issues.map((i, idx) => `  ${idx + 1}. ${i}`).join('\n');
     throw new Error(`Articolo rigettato — ${issues.length} problemi di veridicità:\n${msg}`);
+  }
+}
+
+// Cross-locale fabricated-institution check — same non-existent "federal
+// labour office" (real: SECO) that FABRICATED_INSTITUTION_PATTERNS/
+// assertNoFabricatedReferences catch in Italian, but per-locale so it can
+// run AFTER translateArticle() on the en/de/fr output. assertNoFabricatedReferences
+// itself only ever sees contentIt (called before translation exists), so a
+// translation that independently hallucinates this institution in a
+// different language was never checked at all — exactly what happened to 2
+// of the 3 articles fixed alongside this change (EN/FR each invented their
+// own fake acronym independently of the IT text). Patterns mirror
+// tests/article-fabrication-guard.test.ts's FABRICATED_LABOR_OFFICE (kept in
+// sync manually — same cross-file duplication already accepted for the
+// audit-classifier section matchers, since this runtime script and the test
+// file don't share an import boundary worth introducing for one pattern set).
+const FABRICATED_LABOR_OFFICE_BY_LOCALE = {
+  it: /\b[Uu]fficio federale(?: svizzero)? del lavoro\b/,
+  de: /\b([Bb]undesamt(?:es)? für Arbeit|[Bb]undesarbeitsamt)\b/,
+  fr: /\b(?:[Oo]ffice|[Bb]ureau) fédéral du travail\b/,
+  en: /\b[Ff]ederal (?:Labou?r Office|Office of Labou?r)\b/,
+};
+
+/**
+ * BLOCKING — Detect the fabricated "federal labour office" institution (real:
+ * SECO) in the en/de/fr translations. Call AFTER translateArticle() populates
+ * data.content.{en,de,fr}.
+ */
+// Bare acronyms mapped to SECO in FABRICATED_ACRONYMS above. These are
+// language-INDEPENDENT (an invented acronym reads the same regardless of
+// which locale's prose surrounds it — confirmed live: the IT edition of
+// "sempre-meno-frontalieri-ticino-calof-lievelie" leaked a standalone "L'UWL
+// ha anche rilevato..." sentence with no accompanying full institution name),
+// so the same word-boundary patterns apply directly to en/de/fr text without
+// a per-locale variant.
+const FABRICATED_LABOR_OFFICE_ACRONYMS = [/\bUFOL\b/, /\bUWL\b/];
+
+/**
+ * BLOCKING — Detect the fabricated "federal labour office" institution (real:
+ * SECO) in the en/de/fr translations. Call AFTER translateArticle() populates
+ * data.content.{en,de,fr}. Covers BOTH the full institution-name variants
+ * (FABRICATED_LABOR_OFFICE_BY_LOCALE, per-locale wording) and the bare
+ * acronym echoes (FABRICATED_LABOR_OFFICE_ACRONYMS, locale-independent) —
+ * a translation can leak either independently of what the IT source said.
+ */
+function assertNoFabricatedLaborOfficeCrossLocale(data) {
+  const issues = [];
+  for (const locale of ['en', 'de', 'fr']) {
+    const content = data?.content?.[locale];
+    if (!content) continue;
+    const text = [content.title || '', content.body1 || '', content.body2 || '', content.body3 || ''].join(' ');
+    const namePattern = FABRICATED_LABOR_OFFICE_BY_LOCALE[locale];
+    if (namePattern && namePattern.test(text)) {
+      issues.push(`[${locale}] istituzione inventata "${namePattern.source}" (reale: SECO)`);
+    }
+    for (const acronymPattern of FABRICATED_LABOR_OFFICE_ACRONYMS) {
+      if (acronymPattern.test(text)) {
+        issues.push(`[${locale}] acronimo inventato "${acronymPattern.source}" (reale: SECO)`);
+      }
+    }
+  }
+  if (issues.length > 0) {
+    const msg = issues.map((i, idx) => `  ${idx + 1}. ${i}`).join('\n');
+    throw new Error(`Articolo rigettato — istituzione fabbricata nelle traduzioni:\n${msg}`);
   }
 }
 
@@ -9871,6 +9942,13 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   // Step 3b: Translate to EN/DE/FR (only runs if not a duplicate)
   await translateArticle(data);
 
+  // Step 3b.1: Fabricated-institution check on the EN/DE/FR translations —
+  // BLOCKING. assertNoFabricatedReferences() (Step 3a.0b, above) only ever
+  // sees contentIt (called before translateArticle() exists), so a
+  // translation that independently hallucinates this institution in a
+  // different language was never checked at all.
+  assertNoFabricatedLaborOfficeCrossLocale(data);
+
   // Step 3c: Sanitize bold + URLs + nav links on translated content
   console.error('✂️  Sanitizzazione grassetto (traduzioni):');
   sanitizeBoldFormatting(data);
@@ -10209,7 +10287,7 @@ export { buildBodyFile };
 // own en/de/fr slugs (deriveLocaleSlugs()) but, before this fix, never
 // validated them against the registry — the same gap that historically only
 // existed for the IT slug in the AI path.
-export { translateArticle, enforceStrongInternalLinks, findBestFallbackImage, pickAuthorForTopic, getAuthorByUid, sanitizeBoldFormatting, validateAndEnforceCTA, optimizeSeoMetadata, checkTranslatedSlugCollisions };
+export { translateArticle, enforceStrongInternalLinks, findBestFallbackImage, pickAuthorForTopic, getAuthorByUid, sanitizeBoldFormatting, validateAndEnforceCTA, optimizeSeoMetadata, checkTranslatedSlugCollisions, assertNoFabricatedReferences, assertNoFabricatedLaborOfficeCrossLocale };
 
 // Redazione redesign (issue #3174 follow-up): the journalist now authors only
 // {title, body}; these derive the title-casing/excerpt/body1-3/cover-image
