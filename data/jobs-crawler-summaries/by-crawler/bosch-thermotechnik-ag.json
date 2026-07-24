@@ -1,18 +1,19 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-07-23T22:11:34.120Z",
+  "generatedAt": "2026-07-24T11:11:52.122Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 7,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 8,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 18129,
-  "avgDurationMs": 18129,
+  "durationMs": 17887,
+  "avgDurationMs": 17887,
   "durationHistory": [
-    18129
+    17887
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Logistiker (w/m/div.) REF292485N",
       "slug": "logistiker-w-m-div-ref292485n-bosch-spreitenbach",
@@ -35,16 +36,19 @@
       "sourceLang": "de",
       "postedDate": "2026-07-23",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "bosch-thermotechnik-ag-a8800a2c4e54",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-23T22:11:34.118Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Servicetechniker im Aussendienst - Bereich Industriehydraulik 100% (w/m/div.) REF271176Q",
       "slug": "servicetechniker-im-aussendienst-bereich-industriehydraulik-100-w-m-div-ref271176q-bosch-buttikon",
@@ -291,42 +295,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Lehrstelle Automatiker (w/m/div.) 2027 - REF289864E",
-      "slug": "apprendistato-automatiker-w-m-div-2027-ref289864e-bosch-thermotechnik-ag-st-niklaus",
-      "url": "https://jobs.bosch.com/en/job/REF289864E-lehrstelle-automatiker-w-m-div-2027-ref289864e",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000136445151-lehrstelle-automatiker-w-m-div-2027-ref289864e?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "St. Niklaus",
-      "addressLocality": "St. Niklaus",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "engineering",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-08",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-b2cd7cd05c9c",
-      "salaryMin": 49000,
-      "salaryMax": 74500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-08T22:16:12.017Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
