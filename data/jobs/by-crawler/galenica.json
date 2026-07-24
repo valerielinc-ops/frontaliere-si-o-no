@@ -435,8 +435,6 @@
         "fr": "Drogistine / Drogist (p/m/d)"
       },
       "id": "galenica-5357e651dc5d",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -455,7 +453,16 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-drogistin-drogist-w-m-d-bern-ny71ad"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-drogistin-drogist-w-m-d-bern-ny71ad"
+      ]
     },
     {
       "title": "Sachbearbeiter Kundenservice / Retouren (w/m/d)",
@@ -1059,30 +1066,16 @@
       "slugByLocale": {
         "it": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
         "en": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
-        "de": "apotheker-apothekerin-w-m-d-galenica-galenica-bern",
+        "de": "apotheker-apotherin-w-m-d-galenica-galenica-bern",
         "fr": "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
       },
       "titleByLocale": {
         "it": "Apotheker / Apothekerin (w/m/d)",
         "en": "Apotheker / Apothekerin (w/m/d)",
-        "de": "Apotheker / Apothekerin (w/m/d)",
+        "de": "Apotheker/Apotherin (w/m/d)",
         "fr": "Apotheker / Apothekerin (w/m/d)"
       },
       "id": "galenica-25b3b3a2ecd7",
-      "previousSlugs": [
-        "apotheker-apothekerin-w-m-d-galenica-galenica-bern",
-        "apotheker-apotherin-w-m-d-galenica-galenica-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apotheker-apothekerin-w-m-d-galenica-galenica-bern"
-        ],
-        "de": [
-          "apotheker-apotherin-w-m-d-galenica-galenica-bern"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -1101,7 +1094,24 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apotheker-apothekerin-w-m-d-galenica-galenica-bern",
+          "galenica-galenica-apotheker-apothekerin-w-m-d-bern-ny6dd2",
+          "galenica-galenica-apotheker-apothekerin-w-m-d-bern-ny4gi1",
+          "galenica-galenica-apotheker-apothekerin-w-m-d-bern-ny8gb0",
+          "farmacista-apotecherina-w-m-d-galenica-galenica-bern"
+        ]
+      },
+      "previousSlugs": [
+        "apotheker-apothekerin-w-m-d-galenica-galenica-bern",
+        "galenica-galenica-apotheker-apothekerin-w-m-d-bern-ny6dd2",
+        "galenica-galenica-apotheker-apothekerin-w-m-d-bern-ny4gi1",
+        "galenica-galenica-apotheker-apothekerin-w-m-d-bern-ny8gb0",
+        "farmacista-apotecherina-w-m-d-galenica-galenica-bern"
+      ]
     },
     {
       "title": "Apotheker als Geschäftsführer / Apothekerin als Geschäftsführerin (w/m/d)",
