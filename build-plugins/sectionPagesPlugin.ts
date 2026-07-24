@@ -30,9 +30,17 @@
  * Locale-specific blog slugs are resolved via `services/routerBlogData.ts`
  * (BLOG_SLUGS) so each link points to the locale's canonical article URL.
  *
- * No SPA navigation: these pages are static-only. They are NOT registered
- * as SPA routes in `services/router.ts`. The 6-tab top-level cap is
- * preserved (these are footer/sitemap-only entry points).
+ * Static-only content, no dedicated SPA tab: the 6-tab top-level cap is
+ * preserved (these are footer/sitemap-only entry points, not nav items).
+ * `buildSeoPageHtml` still injects the SPA hydration bundle (site shell),
+ * so `services/router.ts` DOES need a `parsePath()` branch recognising
+ * these 28 canonical paths — via `sectionPagesPathsData.ts` — with
+ * `staticOverlay: true` mapped onto the existing `blog` tab (closest
+ * conceptual match: a topic-filtered article list). Without it, hydration
+ * falls through to the notFoundPath catch-all (or, for `/fisco/` and its
+ * DE/FR equivalents, silently swaps in the live interactive fisco tab) —
+ * same SSG-hydration-gap bug class as the exchange-rate/canton-snapshot
+ * fixes in this file's history.
  *
  * Gate: SKIP_SECTION_PAGES=1 fast-exits the plugin for local builds. CI
  * (`npm run build:ci`) always exercises it — exit 0 required.
@@ -56,31 +64,15 @@ import { BLOG_SLUGS } from '../services/routerBlogData';
 import type { BlogArticleId } from '../services/router';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import {
+  type SectionId,
+  SECTION_IDS,
+  type SectionPageLocale as SectionLocale,
+  SECTION_PAGE_LOCALES as LOCALES,
+  SECTION_PATHS,
+} from './sectionPagesPathsData';
 
 // ── Types ─────────────────────────────────────────────────────────
-
-type SectionLocale = 'it' | 'en' | 'de' | 'fr';
-
-type SectionId =
-  | 'fisco'
-  | 'lavoro'
-  | 'salari'
-  | 'cambio'
-  | 'trasporti'
-  | 'pensioni'
-  | 'dogana';
-
-const SECTION_IDS: readonly SectionId[] = [
-  'fisco',
-  'lavoro',
-  'salari',
-  'cambio',
-  'trasporti',
-  'pensioni',
-  'dogana',
-] as const;
-
-const LOCALES: readonly SectionLocale[] = ['it', 'en', 'de', 'fr'] as const;
 
 const OG_LOCALE: Record<SectionLocale, string> = {
   it: 'it_CH',
@@ -171,12 +163,7 @@ interface SectionConfig {
 const SECTIONS: Record<SectionId, SectionConfig> = {
   fisco: {
     id: 'fisco',
-    paths: {
-      it: '/fisco/',
-      en: '/en/tax/',
-      de: '/de/steuern/',
-      fr: '/fr/fiscalite/',
-    },
+    paths: SECTION_PATHS.fisco,
     keywords: [
       'fisco',
       'fiscal',
@@ -259,12 +246,7 @@ const SECTIONS: Record<SectionId, SectionConfig> = {
   },
   lavoro: {
     id: 'lavoro',
-    paths: {
-      it: '/lavoro-frontaliere/',
-      en: '/en/cross-border-work/',
-      de: '/de/grenzgaenger-arbeit/',
-      fr: '/fr/travail-frontalier/',
-    },
+    paths: SECTION_PATHS.lavoro,
     keywords: [
       'lavoro',
       'lavor',
@@ -349,12 +331,7 @@ const SECTIONS: Record<SectionId, SectionConfig> = {
   },
   salari: {
     id: 'salari',
-    paths: {
-      it: '/salari/',
-      en: '/en/salaries/',
-      de: '/de/loehne/',
-      fr: '/fr/salaires/',
-    },
+    paths: SECTION_PATHS.salari,
     keywords: [
       'salar',
       'stipend',
@@ -430,12 +407,7 @@ const SECTIONS: Record<SectionId, SectionConfig> = {
   },
   cambio: {
     id: 'cambio',
-    paths: {
-      it: '/cambio-valuta/',
-      en: '/en/currency-exchange/',
-      de: '/de/waehrung/',
-      fr: '/fr/change/',
-    },
+    paths: SECTION_PATHS.cambio,
     keywords: [
       'cambio',
       'cambi-',
@@ -514,12 +486,7 @@ const SECTIONS: Record<SectionId, SectionConfig> = {
   },
   trasporti: {
     id: 'trasporti',
-    paths: {
-      it: '/trasporti/',
-      en: '/en/transport/',
-      de: '/de/verkehr/',
-      fr: '/fr/transports/',
-    },
+    paths: SECTION_PATHS.trasporti,
     keywords: [
       'trasport',
       'transport',
@@ -612,12 +579,7 @@ const SECTIONS: Record<SectionId, SectionConfig> = {
   },
   pensioni: {
     id: 'pensioni',
-    paths: {
-      it: '/pensioni/',
-      en: '/en/pensions/',
-      de: '/de/renten/',
-      fr: '/fr/retraites/',
-    },
+    paths: SECTION_PATHS.pensioni,
     keywords: [
       'pension',
       'pensione',
@@ -699,12 +661,7 @@ const SECTIONS: Record<SectionId, SectionConfig> = {
   },
   dogana: {
     id: 'dogana',
-    paths: {
-      it: '/dogana/',
-      en: '/en/customs/',
-      de: '/de/zoll/',
-      fr: '/fr/douane/',
-    },
+    paths: SECTION_PATHS.dogana,
     keywords: [
       'dogana',
       'dogane',

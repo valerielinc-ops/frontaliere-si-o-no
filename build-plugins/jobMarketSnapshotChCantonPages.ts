@@ -66,16 +66,17 @@ interface JobLike {
   needsRetranslation?: boolean | Record<string, boolean>;
 }
 
-type Locale = 'it' | 'en' | 'de' | 'fr';
-
-const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'] as const;
-
-const LOCALE_PREFIX: Record<Locale, string> = {
-  it: '',
-  en: '/en',
-  de: '/de',
-  fr: '/fr',
-};
+import {
+  type ChCantonSnapshotLocale as Locale,
+  CH_CANTON_SNAPSHOT_LOCALES as LOCALES,
+  CH_CANTON_SNAPSHOT_LOCALE_PREFIX as LOCALE_PREFIX,
+  CH_CANTON_SNAPSHOT_JOB_BOARD_PREFIX as JOB_BOARD_PREFIX,
+  CH_CANTON_SNAPSHOT_SEGMENT as SNAPSHOT_SEGMENT,
+  buildCantonSnapshotPath,
+} from './jobMarketSnapshotChCantonPathsData';
+// Re-exported for existing consumers (tests) that import path builders from
+// this plugin file rather than the new browser-safe paths module directly.
+export { SNAPSHOT_SEGMENT, buildCantonSnapshotPath };
 
 const OG_LOCALE: Record<Locale, string> = {
   it: 'it_CH',
@@ -83,23 +84,6 @@ const OG_LOCALE: Record<Locale, string> = {
   de: 'de_CH',
   fr: 'fr_CH',
 };
-
-/** Locale-aware "find-jobs-{canton}" URL segment prefix. */
-const JOB_BOARD_PREFIX: Record<Locale, string> = {
-  it: 'cerca-lavoro',
-  en: 'find-jobs',
-  de: 'jobs-im',
-  fr: 'trouver-emploi',
-};
-
-/**
- * "snapshot" segment — same word in all 4 locales for predictable URL shape.
- * Exported so searchConsoleCompat.ts can self-map this family's URLs (every
- * canton either gets the full page or a below-floor noindex bridge at this
- * exact path — see resolveSearchConsoleCompatTarget) without duplicating the
- * literal.
- */
-export const SNAPSHOT_SEGMENT = 'snapshot';
 
 const COPY: Record<
   Locale,
@@ -322,16 +306,6 @@ const SECTOR_DISPLAY: Record<string, Record<Locale, string>> = {
   ingegneria: { it: 'Ingegneria', en: 'Engineering', de: 'Ingenieurwesen', fr: 'Ingénierie' },
   altro: { it: 'Altro', en: 'Other', de: 'Sonstige', fr: 'Autre' },
 };
-
-/** Build canonical path for a per-canton snapshot page. */
-export function buildCantonSnapshotPath(
-  locale: Locale,
-  cantonSlug: string,
-): string {
-  const prefix = LOCALE_PREFIX[locale];
-  const board = JOB_BOARD_PREFIX[locale];
-  return `${prefix}/${board}-${cantonSlug}/${SNAPSHOT_SEGMENT}/`.replace(/\/{2,}/g, '/');
-}
 
 interface RankedCity {
   name: string;

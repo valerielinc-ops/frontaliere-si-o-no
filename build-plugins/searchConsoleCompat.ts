@@ -16,7 +16,7 @@ import { isSalaryProfessionCantonPath } from './salaryProfessionCantonData';
 import { isProfessionCityPath } from './professionCityData';
 import { isHealthFacilityPath } from './healthFacilitiesData';
 import { WEEKLY_EMPLOYERS_SECTION } from './weeklyEmployersData';
-import { SNAPSHOT_SEGMENT } from './jobMarketSnapshotChCantonPages';
+import { CH_CANTON_SNAPSHOT_SEGMENT as SNAPSHOT_SEGMENT } from './jobMarketSnapshotChCantonPathsData';
 import { HUB_SLUG_BY_LOCALE } from './seoHubsData';
 import {
  EDITORIAL_CANTONS,
