@@ -236,6 +236,16 @@ push_section_shard() {
   # post-deploy-validate-dist's rehydrate fast path (mirrors the locale-shard
   # tar artifact), then removes it. Runners are ephemeral — leaving it behind
   # when the caller doesn't consume it is a no-op cleanup-wise.
+  #
+  # $stage (the git-clone-based push staging dir, up to ~5-6 GB for ticino)
+  # is DIFFERENT from stage_src: nothing downstream ever reads it again, so
+  # unlike stage_src it is pure leaked disk. Three sections × up to ~8 GB
+  # combined accumulating unfreed within the SAME job — on top of stage_src
+  # and the IT-only OG-image generation — exhausted runner disk on the IT
+  # leg and crashed the job with "No space left on device" before it could
+  # push its CDN build id, which is what made the downstream de/en/fr
+  # locales' cross-shard ordering wait (#2569) time out (issue #4734).
+  rm -rf "$stage"
   if [ "$rc" -eq 0 ]; then
     touch "$RUNNER_TEMP/shard-ok-$section-$loc"   # consumed by the strip step
     echo "✅ pushed $section-$loc shard"
