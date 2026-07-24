@@ -1,35 +1,33 @@
 {
   "key": "klinik-gut",
   "label": "Klinik Gut AG",
-  "generatedAt": "2026-07-24T11:38:28.231Z",
-  "total": 12,
+  "generatedAt": "2026-07-24T22:12:28.263Z",
+  "total": 11,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4101,
-  "avgDurationMs": 4101,
+  "unchangedCount": 0,
+  "durationMs": 3716,
+  "avgDurationMs": 3716,
   "durationHistory": [
-    4101
+    3716
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "klinik-gut-2607-8955505460ec",
-      "slug": "tecnico-di-operazione-hf-o-infermiere-dipl-fa-op-60-100-klinik-gut-ag-flasch",
+      "id": "klinik-gut-1581-00c45976f0f5",
+      "slug": "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch",
       "company": "Klinik Gut AG",
       "companyKey": "klinik-gut",
       "companyDomain": "klinik-gut.ch",
-      "title": "OP-Lagerungspfleger/in 60–100%",
+      "title": "Wahlstudienjahr / PJ – Unterassistenten",
       "needsRetranslation": false,
       "location": "Fläsch",
       "canton": "GR",
-      "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-2607",
+      "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-23T11:57:30.685Z",
+      "crawledAt": "2026-07-24T22:12:25.782Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -37,24 +35,23 @@
       "postalCode": "7306",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
+      "employmentType": "OTHER",
+      "experienceLevel": "junior",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-29",
-      "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-2607",
-      "firstSeenAt": "2026-06-29T22:54:47.988Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
+      "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
+      "firstSeenAt": "2026-06-29T22:54:47.989Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
