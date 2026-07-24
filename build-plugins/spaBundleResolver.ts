@@ -201,7 +201,7 @@ export function spaBundleResolverPrewarmPlugin(rootDir: string): Plugin {
       order: 'pre',
       sequential: true,
       handler() {
-        resolveSpaBundle(path.join(rootDir, 'dist'));
+        resolveSpaBundle(path.resolve(rootDir, 'dist'));
       },
     },
   };
