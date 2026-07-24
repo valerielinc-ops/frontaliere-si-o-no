@@ -4871,6 +4871,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-locarno-giovani-assistenza-sociale': { name: 'Locarno Assistenza Giovani', path: '/articoli-frontaliere/locarno-giovani-assistenza-sociale', parent: 'blog' },
     'blog-regione-lombardia-fiduciosa': { name: 'Regione Lombardia fiduciosa sull\'accordo', path: '/articoli-svizzera/regione-lombardia-fiduciosa/', parent: 'blog' },
     'blog-boom-ia-svizzera-opportunita-frontalieri': { name: 'IA e frontalieri', path: '/articoli-frontaliere/boom-ia-svizzera-opportunita-frontalieri', parent: 'blog' },
+    'blog-temu-skv-collaborazione': { name: 'Collaborazione Temu SKV', path: '/articoli-svizzera/temu-skv-collaborazione/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
