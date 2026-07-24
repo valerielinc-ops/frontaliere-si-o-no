@@ -357,7 +357,7 @@
         "it": "collezione-dei-dipendenti-corner-banca-wallisellen",
         "en": "employee-front-office-collection-corner-banca-wallisellen",
         "de": "employee-front-office-collection-corner-banca-wallisellen",
-        "fr": "employee-front-office-collection-corner-banca-wallisellen"
+        "fr": "collecte-aupres-des-employes-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -413,17 +413,13 @@
       "sourceLang": "en",
       "crawledAt": "2026-07-24T11:15:53.885Z",
       "previousSlugs": [
-        "employee-front-office-collection-corner-banca-wallisellen",
-        "collecte-aupres-des-employes-corner-banca-wallisellen",
-        "collezione-dei-dipendenti-corner-banca-wallisellen"
+        "employee-front-office-collection-corner-banca-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "employee-front-office-collection-corner-banca-wallisellen",
-          "collezione-dei-dipendenti-corner-banca-wallisellen"
+          "employee-front-office-collection-corner-banca-wallisellen"
         ],
         "fr": [
-          "collecte-aupres-des-employes-corner-banca-wallisellen",
           "employee-front-office-collection-corner-banca-wallisellen"
         ]
       },
@@ -594,13 +590,11 @@
       "sourceLang": "en",
       "crawledAt": "2026-07-24T11:15:53.883Z",
       "previousSlugs": [
-        "legal-collection-case-manager-corner-banca-wallisellen",
-        "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen"
+        "legal-collection-case-manager-corner-banca-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "legal-collection-case-manager-corner-banca-wallisellen",
-          "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen"
+          "legal-collection-case-manager-corner-banca-wallisellen"
         ],
         "de": [
           "legal-collection-case-manager-corner-banca-wallisellen"
@@ -700,14 +694,12 @@
       "crawledAt": "2026-07-24T11:15:53.882Z",
       "previousSlugs": [
         "customer-analytics-officer-corner-banca-lugano",
-        "customer-analytics-officer-corner-banca-wallisellen",
-        "responsabile-customer-analytics-corner-banca-lugano"
+        "customer-analytics-officer-corner-banca-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "customer-analytics-officer-corner-banca-lugano",
-          "customer-analytics-officer-corner-banca-wallisellen",
-          "responsabile-customer-analytics-corner-banca-lugano"
+          "customer-analytics-officer-corner-banca-wallisellen"
         ],
         "en": [
           "customer-analytics-officer-corner-banca-wallisellen"
@@ -810,13 +802,11 @@
       "sourceLang": "en",
       "crawledAt": "2026-07-24T11:15:53.881Z",
       "previousSlugs": [
-        "marketing-project-manager-corner-banca-lugano",
-        "responsabile-del-progetto-di-marketing-corner-banca-lugano"
+        "marketing-project-manager-corner-banca-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "marketing-project-manager-corner-banca-lugano",
-          "responsabile-del-progetto-di-marketing-corner-banca-lugano"
+          "marketing-project-manager-corner-banca-lugano"
         ],
         "de": [
           "marketing-project-manager-corner-banca-lugano"
@@ -1014,12 +1004,12 @@
     },
     {
       "id": "corner-banca-5409dd1c8ba8",
-      "slug": "employee-backoffice-corner-banca-lugano",
+      "slug": "posto-di-lavoro-corner-banca-lugano",
       "slugByLocale": {
-        "it": "employee-backoffice-corner-banca-lugano",
+        "it": "posto-di-lavoro-corner-banca-lugano",
         "en": "employee-backoffice-corner-banca-lugano",
-        "de": "employee-backoffice-corner-banca-lugano",
-        "fr": "employee-backoffice-corner-banca-lugano"
+        "de": "mitarbeiter-backoffice-corner-banca-lugano",
+        "fr": "service-administratif-des-employes-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -1099,7 +1089,21 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-07-24T11:15:53.869Z"
+      "firstSeenAt": "2026-07-24T11:15:53.869Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employee-backoffice-corner-banca-lugano"
+        ],
+        "de": [
+          "employee-backoffice-corner-banca-lugano"
+        ],
+        "fr": [
+          "employee-backoffice-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "employee-backoffice-corner-banca-lugano"
+      ]
     },
     {
       "id": "corner-banca-97e747498000",
@@ -1153,13 +1157,11 @@
       "sourceLang": "en",
       "crawledAt": "2026-07-24T11:15:53.867Z",
       "previousSlugs": [
-        "sales-e-solutions-ecash-employee-corner-banca-lugano",
-        "vendite-solutions-ecash-dipendente-corner-banca-lugano"
+        "sales-e-solutions-ecash-employee-corner-banca-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-e-solutions-ecash-employee-corner-banca-lugano",
-          "vendite-solutions-ecash-dipendente-corner-banca-lugano"
+          "sales-e-solutions-ecash-employee-corner-banca-lugano"
         ],
         "fr": [
           "sales-e-solutions-ecash-employee-corner-banca-lugano"
@@ -1191,7 +1193,7 @@
         "it": "gestione-delle-controversie-dei-lavoratori-corner-banca-wallisellen",
         "en": "employee-consumer-dispute-management-corner-banca-wallisellen",
         "de": "employee-consumer-dispute-management-corner-banca-wallisellen",
-        "fr": "employee-consumer-dispute-management-corner-banca-wallisellen"
+        "fr": "gestion-des-litiges-avec-les-consommateurs-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -1247,17 +1249,13 @@
       "sourceLang": "en",
       "crawledAt": "2026-07-24T11:15:53.863Z",
       "previousSlugs": [
-        "employee-consumer-dispute-management-corner-banca-wallisellen",
-        "gestion-des-litiges-avec-les-consommateurs-corner-banca-wallisellen",
-        "gestione-delle-controversie-dei-lavoratori-corner-banca-wallisellen"
+        "employee-consumer-dispute-management-corner-banca-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "employee-consumer-dispute-management-corner-banca-wallisellen",
-          "gestione-delle-controversie-dei-lavoratori-corner-banca-wallisellen"
+          "employee-consumer-dispute-management-corner-banca-wallisellen"
         ],
         "fr": [
-          "gestion-des-litiges-avec-les-consommateurs-corner-banca-wallisellen",
           "employee-consumer-dispute-management-corner-banca-wallisellen"
         ]
       },
@@ -1348,13 +1346,11 @@
       "sourceLang": "en",
       "crawledAt": "2026-07-24T11:15:53.861Z",
       "previousSlugs": [
-        "fi-administration-e-business-support-corner-banca-lugano",
-        "amministrazione-fi-e-supporto-commerciale-corner-banca-lugano"
+        "fi-administration-e-business-support-corner-banca-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fi-administration-e-business-support-corner-banca-lugano",
-          "amministrazione-fi-e-supporto-commerciale-corner-banca-lugano"
+          "fi-administration-e-business-support-corner-banca-lugano"
         ],
         "fr": [
           "fi-administration-e-business-support-corner-banca-lugano"
@@ -1386,7 +1382,7 @@
         "it": "employee-underwriting-e-cash-corner-banca-lugano",
         "en": "employee-underwriting-e-cash-corner-banca-lugano",
         "de": "employee-underwriting-e-cash-corner-banca-lugano",
-        "fr": "employee-underwriting-e-cash-corner-banca-lugano"
+        "fr": "la-souscription-des-salaries-e-cash-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
