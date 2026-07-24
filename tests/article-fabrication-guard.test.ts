@@ -105,7 +105,7 @@ const VAGUE_SOURCING = [
 // the institution NAME itself (not a fixed acronym list) catches every
 // variant regardless of what acronym a future auto-generated article invents.
 const FABRICATED_LABOR_OFFICE: Partial<Record<string, RegExp>> = {
-  it: /\b[Uu]fficio federale(?: svizzero)? del lavoro\b/,
+  it: /\b[Uu]fficio federale(?: svizzero)? del lavoro\b/i,
   de: /\b([Bb]undesamt(?:es)? für Arbeit|[Bb]undesarbeitsamt)\b/,
   fr: /\b(?:[Oo]ffice|[Bb]ureau) fédéral du travail\b/,
   en: /\b[Ff]ederal (?:Labou?r Office|Office of Labou?r)\b/,
