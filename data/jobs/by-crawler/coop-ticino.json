@@ -18211,7 +18211,12 @@
         "it": [
           "verkaufsberater-in-interdiscount-wadenswil-zurich-e64mup",
           "verkaufsberater-in-interdiscount-wadenswil-zurich",
-          "consulente-commerciale-in-interdiscount-wadenswil-zurich"
+          "consulente-commerciale-in-interdiscount-wadenswil-zurich",
+          "consulente-commerciale-in-interdiscount-wadenswil",
+          "sales-consultant-in-interdiscount-wadenswil",
+          "verkaufsberater-in-interdiscount-wadenswil-zurich-77m117",
+          "consultant-en-ventes-interdiscount-wadenswil",
+          "verkaufsberater-in-interdiscount-wadenswil"
         ],
         "en": [
           "verkaufsberater-in-interdiscount-wadenswil-zurich-e64mup",
@@ -18227,7 +18232,12 @@
         "verkaufsberater-in-interdiscount-wadenswil-zurich",
         "consulente-commerciale-in-interdiscount-wadenswil-zurich",
         "sales-consultant-in-interdiscount-wadenswil-zurich",
-        "consultant-en-ventes-interdiscount-wadenswil-zurich"
+        "consultant-en-ventes-interdiscount-wadenswil-zurich",
+        "consulente-commerciale-in-interdiscount-wadenswil",
+        "sales-consultant-in-interdiscount-wadenswil",
+        "verkaufsberater-in-interdiscount-wadenswil-zurich-77m117",
+        "consultant-en-ventes-interdiscount-wadenswil",
+        "verkaufsberater-in-interdiscount-wadenswil"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -29915,7 +29925,13 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-frischprodukte-coop-kloten-zurich-wwpu4v",
-          "verkaufer-in-frischprodukte-coop-kloten-zurich"
+          "verkaufer-in-frischprodukte-coop-kloten-zurich",
+          "venditore-in-prodotti-freschi-prodotti-di-latte-coop-genossenschaft-kloten",
+          "seller-in-fresh-products-milk-products-coop-genossenschaft-kloten",
+          "verkaufer-in-frischprodukte-milchprodukte-coop-kloten-zurich-kn7pu0",
+          "vendeur-en-produits-frais-produits-laitiers-coop-genossenschaft-kloten",
+          "verkaufer-in-frischprodukte-milchprodukte-coop-kloten-zurich",
+          "verkaufer-in-frischprodukte-milchprodukte-coop-genossenschaft-kloten-kn7pu0"
         ],
         "en": [
           "verkaufer-in-frischprodukte-coop-kloten-zurich-wwpu4v",
@@ -29928,7 +29944,13 @@
       "previousSlugs": [
         "verkaufer-in-frischprodukte-coop-kloten-zurich-wwpu4v",
         "verkaufer-in-frischprodukte-coop-kloten-zurich",
-        "verkaufer-in-frischprodukte-coop-genossenschaft-kloten-wwpu4v"
+        "verkaufer-in-frischprodukte-coop-genossenschaft-kloten-wwpu4v",
+        "venditore-in-prodotti-freschi-prodotti-di-latte-coop-genossenschaft-kloten",
+        "seller-in-fresh-products-milk-products-coop-genossenschaft-kloten",
+        "verkaufer-in-frischprodukte-milchprodukte-coop-kloten-zurich-kn7pu0",
+        "vendeur-en-produits-frais-produits-laitiers-coop-genossenschaft-kloten",
+        "verkaufer-in-frischprodukte-milchprodukte-coop-kloten-zurich",
+        "verkaufer-in-frischprodukte-milchprodukte-coop-genossenschaft-kloten-kn7pu0"
       ],
       "needsRetranslation": true,
       "salaryMin": 73500,
@@ -132689,18 +132711,30 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-swissmill-zurich"
+          "logistiker-in-swissmill-zurich",
+          "impiegata-impiegato-in-logistica-coop-genossenschaft-zurich-x5sn1h",
+          "logistiker-in-coop-genossenschaft-zurich"
         ],
         "en": [
-          "logistiker-in-swissmill-zurich-br32hr"
+          "logistiker-in-swissmill-zurich-br32hr",
+          "logistician-in-coop-genossenschaft-zurich"
         ],
         "fr": [
-          "logistiker-in-swissmill-zurich-br32hr"
+          "logistiker-in-swissmill-zurich-br32hr",
+          "logisticien-in-coop-genossenschaft-zurich"
+        ],
+        "de": [
+          "logistiker-in-coop-genossenschaft-zurich-x5sn1h"
         ]
       },
       "previousSlugs": [
         "logistiker-in-swissmill-zurich-br32hr",
-        "logistiker-in-swissmill-zurich"
+        "logistiker-in-swissmill-zurich",
+        "impiegata-impiegato-in-logistica-coop-genossenschaft-zurich-x5sn1h",
+        "logistiker-in-coop-genossenschaft-zurich",
+        "logistician-in-coop-genossenschaft-zurich",
+        "logistiker-in-coop-genossenschaft-zurich-x5sn1h",
+        "logisticien-in-coop-genossenschaft-zurich"
       ],
       "needsRetranslation": true,
       "salaryMin": 73500,
@@ -133920,18 +133954,31 @@
           "addetto-alle-casse-servizi-coop-genossenschaft-zurich",
           "addetto-a-alle-casse-servizi-studente-coop-genossenschaft-zurich",
           "verkaufer-in-kassen-services-coop-zurich-dnth7v",
-          "verkaufer-in-kassen-services-coop-zurich"
+          "verkaufer-in-kassen-services-coop-zurich",
+          "verkaufer-in-kassen-services-coop-genossenschaft-erstfeld",
+          "verkaufer-in-kassen-services-coop-genossenschaft-cham",
+          "verkaufer-in-kassen-services-coop-genossenschaft-einsiedeln",
+          "verkaufer-in-kassen-services-coop-genossenschaft-arlesheim",
+          "verkaufer-in-kassen-services-coop-genossenschaft-pfaffikon",
+          "verkaufer-in-kassen-services-coop-genossenschaft-grellingen",
+          "sales-assistant-cashier-service-coop-genossenschaft-zurich"
         ],
         "en": [
           "cashier-service-assistant-coop-genossenschaft-zurich-44sdb4",
-          "verkaufer-in-kassen-services-coop-zurich-dnth7v"
+          "verkaufer-in-kassen-services-coop-zurich-dnth7v",
+          "sales-assistant-cashier-service-coop-genossenschaft-zurich-9u726c",
+          "seller-in-cash-registers-services-coop-genossenschaft-zurich-cd36fa"
         ],
         "de": [
-          "verkaufer-in-kassen-services-coop-zurich-44sdb4"
+          "verkaufer-in-kassen-services-coop-zurich-44sdb4",
+          "verkaufer-in-kassen-services-coop-genossenschaft-zurich-9u726c",
+          "verkaufer-in-kassen-services-coop-zurich-7cgsxx"
         ],
         "fr": [
           "caissier-assistant-service-coop-genossenschaft-zurich-44sdb4",
-          "verkaufer-in-kassen-services-coop-zurich-dnth7v"
+          "verkaufer-in-kassen-services-coop-zurich-dnth7v",
+          "vendeur-euse-caisse-services-coop-genossenschaft-zurich-9u726c",
+          "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-zurich-cd36fa"
         ]
       },
       "previousSlugs": [
@@ -133947,7 +133994,14 @@
         "addetto-alle-casse-servizi-coop-genossenschaft-zurich",
         "addetto-a-alle-casse-servizi-studente-coop-genossenschaft-zurich",
         "verkaufer-in-kassen-services-coop-zurich-dnth7v",
-        "verkaufer-in-kassen-services-coop-zurich"
+        "verkaufer-in-kassen-services-coop-zurich",
+        "verkaufer-in-kassen-services-coop-genossenschaft-erstfeld",
+        "verkaufer-in-kassen-services-coop-genossenschaft-cham",
+        "verkaufer-in-kassen-services-coop-genossenschaft-einsiedeln",
+        "verkaufer-in-kassen-services-coop-genossenschaft-arlesheim",
+        "verkaufer-in-kassen-services-coop-genossenschaft-pfaffikon",
+        "verkaufer-in-kassen-services-coop-genossenschaft-grellingen",
+        "sales-assistant-cashier-service-coop-genossenschaft-zurich"
       ],
       "needsRetranslation": true,
       "salaryMin": 73500,
@@ -136791,12 +136845,16 @@
       "previousSlugsByLocale": {
         "it": [
           "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern",
-          "application-manager-in-sap-operations-senior-interdiscount-jegenstorf"
+          "application-manager-in-sap-operations-senior-interdiscount-jegenstorf",
+          "gestore-delle-applicazioni-sap-operations-senior-interdiscount-jegenstorf-bern",
+          "responsabile-applicativo-sap-operations-senior-interdiscount-jegenstorf-bern"
         ]
       },
       "previousSlugs": [
         "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern",
-        "application-manager-in-sap-operations-senior-interdiscount-jegenstorf"
+        "application-manager-in-sap-operations-senior-interdiscount-jegenstorf",
+        "gestore-delle-applicazioni-sap-operations-senior-interdiscount-jegenstorf-bern",
+        "responsabile-applicativo-sap-operations-senior-interdiscount-jegenstorf-bern"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000
@@ -145893,7 +145951,9 @@
         ],
         "en": [
           "chauffeur-in-kat-ce-coop-genossenschaft-chur-graubunden-29mhjo",
-          "chauffeur-in-cat-ce-coop-genossenschaft-chur"
+          "chauffeur-in-cat-ce-coop-genossenschaft-chur",
+          "driver-cat-ce-coop-genossenschaft-chur",
+          "driver-cat-ce-coop-genossenschaft-chur-graubunden"
         ],
         "fr": [
           "chauffeur-in-kat-ce-coop-genossenschaft-chur-graubunden-29mhjo",
@@ -145911,7 +145971,9 @@
         "chauffeur-en-cat-ce-coop-genossenschaft-gossau",
         "chauffeur-in-kat-ce-coop-gossau-sankt-gallen",
         "chauffeur-in-kat-ce-coop-genossenschaft-gossau-rv3367",
-        "chauffeur-in-cat-ce-coop-genossenschaft-chur"
+        "chauffeur-in-cat-ce-coop-genossenschaft-chur",
+        "driver-cat-ce-coop-genossenschaft-chur",
+        "driver-cat-ce-coop-genossenschaft-chur-graubunden"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -147958,7 +148020,21 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-zurich-jllmcg",
-          "verkaufer-in-food-coop-zurich-2"
+          "verkaufer-in-food-coop-zurich-2",
+          "venditore-in-food-coop-genossenschaft-zurich-48c2f6",
+          "seller-in-food-coop-genossenschaft-zurich",
+          "verkaufer-in-food-coop-zurich-4x5zki",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-zurich",
+          "verkaufer-in-food-coop-zurich",
+          "verkaufer-in-food-coop-genossenschaft-zurich-4x5zki",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-195e28",
+          "verkaufer-in-food-coop-zurich-telail",
+          "seller-in-food-coop-genossenschaft-zurich-195e28",
+          "venditore-in-food-coop-genossenschaft-zurich-195e28",
+          "verkaufer-in-food-coop-zurich-57xrkh",
+          "seller-in-food-coop-genossenschaft-zurich-57xrkh",
+          "verkaufer-in-food-coop-genossenschaft-zurich-57xrkh",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-57xrkh"
         ],
         "en": [
           "verkaufer-in-food-coop-zurich-jllmcg"
@@ -147969,7 +148045,21 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-zurich-jllmcg",
-        "verkaufer-in-food-coop-zurich-2"
+        "verkaufer-in-food-coop-zurich-2",
+        "venditore-in-food-coop-genossenschaft-zurich-48c2f6",
+        "seller-in-food-coop-genossenschaft-zurich",
+        "verkaufer-in-food-coop-zurich-4x5zki",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-zurich",
+        "verkaufer-in-food-coop-zurich",
+        "verkaufer-in-food-coop-genossenschaft-zurich-4x5zki",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-195e28",
+        "verkaufer-in-food-coop-zurich-telail",
+        "seller-in-food-coop-genossenschaft-zurich-195e28",
+        "venditore-in-food-coop-genossenschaft-zurich-195e28",
+        "verkaufer-in-food-coop-zurich-57xrkh",
+        "seller-in-food-coop-genossenschaft-zurich-57xrkh",
+        "verkaufer-in-food-coop-genossenschaft-zurich-57xrkh",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-57xrkh"
       ],
       "needsRetranslation": true,
       "salaryMin": 73500,
@@ -149650,7 +149740,9 @@
           "ensemble-m-j-coop-genossenschaft-frauenfeld-y8pwnx",
           "allrounder-m-m-d-coop-genossenschaft-frauenfeld",
           "allrounder-m-w-d-coop-genossenschaft-frauenfeld-thurgau",
-          "allrounder-m-w-d-livique-frauenfeld-thurgau-j19qyz"
+          "allrounder-m-w-d-livique-frauenfeld-thurgau-j19qyz",
+          "tuttofare-w-m-d-coop-genossenschaft-frauenfeld",
+          "tuttofare-m-f-d-coop-genossenschaft-frauenfeld-thurgau"
         ],
         "fr": [
           "ensemble-m-j-coop-genossenschaft-frauenfeld-y8pwnx"
@@ -149666,7 +149758,9 @@
         "ensemble-m-j-coop-genossenschaft-frauenfeld-y8pwnx",
         "allrounder-m-m-d-coop-genossenschaft-frauenfeld",
         "allrounder-m-w-d-coop-genossenschaft-frauenfeld-thurgau",
-        "allrounder-m-w-d-livique-frauenfeld-thurgau-j19qyz"
+        "allrounder-m-w-d-livique-frauenfeld-thurgau-j19qyz",
+        "tuttofare-w-m-d-coop-genossenschaft-frauenfeld",
+        "tuttofare-m-f-d-coop-genossenschaft-frauenfeld-thurgau"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -153291,7 +153385,8 @@
         "it": [
           "verkaufsberater-in-interdiscount-wadenswil",
           "verkaufsberater-in-interdiscount-wadenswil-zurich-wo4317",
-          "verkaufsberater-in-interdiscount-wadenswil-zurich"
+          "verkaufsberater-in-interdiscount-wadenswil-zurich",
+          "verkaufsberater-in-interdiscount-wadenswil-zurich-77m117"
         ],
         "en": [
           "verkaufsberater-in-interdiscount-wadenswil-zurich-wo4317"
@@ -153303,7 +153398,8 @@
       "previousSlugs": [
         "verkaufsberater-in-interdiscount-wadenswil",
         "verkaufsberater-in-interdiscount-wadenswil-zurich-wo4317",
-        "verkaufsberater-in-interdiscount-wadenswil-zurich"
+        "verkaufsberater-in-interdiscount-wadenswil-zurich",
+        "verkaufsberater-in-interdiscount-wadenswil-zurich-77m117"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500
