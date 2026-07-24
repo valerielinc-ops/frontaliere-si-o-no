@@ -24,10 +24,21 @@
  *    b) it-apex-html-cache — caches the IT/apex HTML (the ~95% Worker-
  *       passthrough bulk, previously cf-cache-status=DYNAMIC i.e. uncached).
  *       Query-string requests bypass (no cache pollution); 3xx-5xx → TTL 0.
- *    Both override Edge TTL to 24h; the deploy-time purge (scripts/
+ *    a) and b) override Edge TTL to 24h; the deploy-time purge (scripts/
  *    cf-purge-cache.mjs, wired in post-deploy-validate-live.yml) clears the
  *    edge once a new build is confirmed live, so the long TTL never serves
  *    stale content across deploys.
+ *    c) cdn-r2-passthrough-cache — makes cdn.frontaliereticino.ch (R2 custom
+ *       domain, CDN_TARGET=r2) ELIGIBLE for cache, RESPECTING the origin's own
+ *       Cache-Control (no override, no purge mechanism needed — R2 objects
+ *       already carry correct explicit per-prefix Cache-Control from
+ *       deploy-it-pages-prep.sh's _r2_sync). Root cause of the recurring
+ *       "CF 5xx: cdn.*" issue class (#4332, #4668): this host had NO cache
+ *       rule at all, so cf-cache-status was DYNAMIC on every path — every
+ *       request round-tripped to R2 origin with zero edge buffering, so any
+ *       transient R2 hiccup surfaced immediately as a live 5xx. Excludes
+ *       /cdn-build-id.txt (kept no-store — the #2569 cross-shard publish
+ *       gate polls it and must always see the live origin value).
  *
  * 3. FIREWALL RULES — the managed entries in MANAGED_FIREWALL_RULES (keyed by
  *    `description`; foreign rules on the entrypoint preserved). Three today:
@@ -243,6 +254,20 @@ const CACHE_ACTION_PARAMETERS = {
   browser_ttl: { mode: 'respect_origin' },
 };
 
+// cdn.frontaliereticino.ch (R2) cache settings: RESPECT origin instead of
+// overriding it — unlike the apex HTML above, R2 objects already carry
+// correct explicit per-prefix Cache-Control (assets/og/images/data/job-canon,
+// see deploy-it-pages-prep.sh _r2_sync) and there is no purge-on-deploy
+// mechanism for R2 keys, so a fixed override would risk serving a stale
+// asset past a deploy. respect_origin also means a response with no positive
+// Cache-Control (e.g. /cdn-build-id.txt's `no-store`, or an R2 404) is never
+// cached, without needing per-status overrides here.
+const CDN_CACHE_ACTION_PARAMETERS = {
+  cache: true,
+  edge_ttl: { mode: 'respect_origin' },
+  browser_ttl: { mode: 'respect_origin' },
+};
+
 // Every cache rule this script owns, keyed by description (the idempotency
 // marker — foreign rules sharing the entrypoint are preserved untouched).
 const MANAGED_CACHE_RULES = [
@@ -264,9 +289,10 @@ const MANAGED_CACHE_RULES = [
     // and was served cf-cache-status=DYNAMIC (every hit reached GitHub Pages).
     // Cache GET page requests with NO query string (so ?q= search / ?debug=
     // variations bypass and never pollute the cache), excluding the locale
-    // shards (handled above), /api/, and the shard root paths. Bundled JS/CSS
-    // live on the gray-cloud cdn.* host (Fastly) and never reach this zone, so
-    // no asset-extension exclusion is needed here.
+    // shards (handled above), /api/, and the shard root paths. This rule is
+    // host-scoped to the apex, so it never matches cdn.* — no asset-extension
+    // exclusion is needed here (see cdn-r2-passthrough-cache below, which
+    // owns cdn.frontaliereticino.ch).
     description: 'it-apex-html-cache (managed by scripts/cf-locale-failover-setup.mjs)',
     expression:
       '(http.host eq "frontaliereticino.ch" and http.request.method eq "GET" ' +
@@ -277,6 +303,17 @@ const MANAGED_CACHE_RULES = [
       'and not starts_with(http.request.uri.path, "/api/") ' +
       'and not http.request.uri.path in {"/en" "/de" "/fr" "/en.html" "/de.html" "/fr.html"})',
     action_parameters: CACHE_ACTION_PARAMETERS,
+  },
+  {
+    // R2-origin CDN passthrough cache — see header doc (c) for full rationale.
+    // Excludes /cdn-build-id.txt: the #2569 cross-shard publish-ordering gate
+    // (scripts/lib/wait-cdn-build-id.sh) polls this exact URL and must always
+    // observe the live origin value, never a cached one.
+    description: 'cdn-r2-passthrough-cache (managed by scripts/cf-locale-failover-setup.mjs)',
+    expression:
+      '(http.host eq "cdn.frontaliereticino.ch" and ' +
+      'http.request.uri.path ne "/cdn-build-id.txt")',
+    action_parameters: CDN_CACHE_ACTION_PARAMETERS,
   },
 ];
 
@@ -405,15 +442,21 @@ function ruleInShape(current, desired) {
   const want = desired.action_parameters;
   if (p.cache !== want.cache) return false;
   const e = p.edge_ttl || {};
-  if (e.mode !== want.edge_ttl.mode || e.default !== want.edge_ttl.default) return false;
-  const wantStatus = want.edge_ttl.status_code_ttl[0];
-  const gotStatus = (e.status_code_ttl || []).find(
-    (s) =>
-      s.status_code_range &&
-      s.status_code_range.from === wantStatus.status_code_range.from &&
-      s.status_code_range.to === wantStatus.status_code_range.to,
-  );
-  if (!gotStatus || gotStatus.value !== wantStatus.value) return false;
+  if (e.mode !== want.edge_ttl.mode) return false;
+  // override_origin rules (apex HTML) carry a fixed default + per-status-code
+  // overrides; respect_origin rules (cdn-r2-passthrough-cache) carry neither
+  // — there is nothing to override, the edge just mirrors origin headers.
+  if (want.edge_ttl.mode === 'override_origin') {
+    if (e.default !== want.edge_ttl.default) return false;
+    const wantStatus = want.edge_ttl.status_code_ttl[0];
+    const gotStatus = (e.status_code_ttl || []).find(
+      (s) =>
+        s.status_code_range &&
+        s.status_code_range.from === wantStatus.status_code_range.from &&
+        s.status_code_range.to === wantStatus.status_code_range.to,
+    );
+    if (!gotStatus || gotStatus.value !== wantStatus.value) return false;
+  }
   if ((p.browser_ttl || {}).mode !== want.browser_ttl.mode) return false;
   return true;
 }
