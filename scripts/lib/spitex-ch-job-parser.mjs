@@ -37,7 +37,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -155,7 +155,10 @@ export async function fetchAllSpitexChJobs() {
     const city = decodeEntities(addr.addressLocality || '').trim() || 'Bern';
     const postalCode = String(addr.postalCode || '').trim() || '3000';
     const cantonGuess = String(addr.addressRegion || '').toUpperCase().trim();
-    const canton = /^[A-Z]{2}$/.test(cantonGuess) ? cantonGuess : (inferSwissTargetCanton(city) || 'BE');
+    // Validate against the real canton registry — a well-formed-but-wrong
+    // 2-letter code must not be trusted verbatim (AGENTS.md #6 sibling class
+    // shared with ghol/holcim/stadler-rail/breitling).
+    const canton = normalizeCantonCode(cantonGuess) || inferSwissTargetCanton(city) || 'BE';
     const country = COUNTRY_TO_CC[addr.addressCountry] || 'CH';
 
     const descHtml = posting.description || '';

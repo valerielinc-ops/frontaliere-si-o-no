@@ -1,4 +1,5 @@
 import { JSDOM } from 'jsdom';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -185,19 +186,13 @@ export function isAplusSwissLocation(raw = '') {
 
 /**
  * Infer the Swiss canton abbreviation from a raw location string.
- * Defaults to 'TI' because A++ Group headquarters is in Massagno (TI).
+ * A++ Group is headquartered in Massagno (TI) but, per `isAplusSwissLocation`
+ * above, may post other Swiss positions too — resolve via the comprehensive
+ * nationwide `inferAnyCanton` rather than a TI/GR-only hand-rolled list, so
+ * jobs located in other cantons don't fall through as unresolved.
  */
 export function inferAplusCanton(raw = '') {
-  const lower = normalizeSpace(raw)
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '');
-
-  if (/grigioni|graubunden|grisons|chur|davos/.test(lower)) return 'GR';
-  if (/ticino|tessin|massagno|lugano|chiasso|bellinzona|locarno|mendrisio|ascona|muralto/.test(lower)) return 'TI';
-  // Generic CH markers — not enough to confidently assign TI
-  if (/svizzera|suisse|schweiz|switzerland|swiss/.test(lower)) return '';
-  return '';
+  return inferAnyCanton(raw) || '';
 }
 
 /**

@@ -7,6 +7,7 @@ import {
   parseSearchResults,
   parseDetailPage,
   descriptionBodyToMarkdown,
+  resolveHirslandenLocation,
 } from '../scripts/lib/hirslanden-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -304,6 +305,24 @@ describe('Hirslanden Klinik crawler parser', () => {
     it('returns empty string for empty input', () => {
       expect(descriptionBodyToMarkdown('')).toBe('');
       expect(descriptionBodyToMarkdown('   ')).toBe('');
+    });
+  });
+
+  describe('resolveHirslandenLocation', () => {
+    it('prefers the clean listing-cell city when the detail text leaks trailing form-field noise', () => {
+      expect(resolveHirslandenLocation('Bern - Futsal Minerva Besetzung per: 1. Oktober 2026', 'Bern')).toBe('Bern');
+    });
+
+    it('keeps the detail text when it is itself a real known Swiss city', () => {
+      expect(resolveHirslandenLocation('Aarau', 'Aarau')).toBe('Aarau');
+    });
+
+    it('falls back to the listing city when the detail text is empty', () => {
+      expect(resolveHirslandenLocation('', 'Zürich')).toBe('Zürich');
+    });
+
+    it('passes garbage through unchanged when the listing city is not known either (fully unresolvable — caller skips it)', () => {
+      expect(resolveHirslandenLocation('Besetzung per: 1. Oktober 2026', '')).toBe('Besetzung per: 1. Oktober 2026');
     });
   });
 });

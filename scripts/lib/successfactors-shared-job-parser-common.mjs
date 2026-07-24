@@ -38,7 +38,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -615,7 +615,7 @@ export function createSuccessFactorsParser(config) {
       })();
       const city = detailCity || listingCity || defaultCity;
       const region = detail?.region || defaultCanton;
-      const canton = inferSwissTargetCanton(city) || region || defaultCanton;
+      const canton = inferSwissTargetCanton(city) || normalizeCantonCode(region) || defaultCanton;
       const postalCode = detail?.postalCode || defaultPostalCode;
 
       const sourceLang = (trustPageLangAttr && detail?.language && /^(de|fr|it|en)$/.test(detail.language))

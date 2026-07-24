@@ -44,10 +44,11 @@ const results = {
   correct: [],           // BFS confirms city is in stated canton
   cantonMismatch: [],    // BFS says different canton than stored
   foreignInSwiss: [],    // City is foreign but tagged as Swiss canton
-  unknownCity: [],       // City not in BFS, not obviously foreign — needs geocoding
+  unknownCity: [],       // City not in BFS, not obviously foreign — needs geocoding (= "custom" location)
   emptyLocation: [],     // No city/location data
   lowercaseCanton: [],   // Canton code is lowercase (data quality)
   geocodeResults: [],    // Results from Nominatim verification
+  companyDefaultFallback: [], // cantonMismatch subset where stored canton == company's modal canton
 };
 
 /* ── Geocode cache to avoid duplicate lookups ──────────────── */
@@ -67,8 +68,37 @@ function norm(v = '') {
   return String(v || '').trim();
 }
 
-/* ── Audit each job ────────────────────────────────────────── */
+/* ── Pass 0: per-company modal canton ─────────────────────────
+ * Empirical proxy for "this company's HQ/default canton" — the most
+ * frequent stored canton across all of a company's jobs. Derived from the
+ * dataset itself rather than a hand-maintained per-company dict, so it
+ * can't drift into the hardcoded-dict sibling-bug class fixed elsewhere in
+ * this audit (AGENTS.md #6). Used below to flag canton mismatches that
+ * look like a parser silently falling back to the company default instead
+ * of the job's real location. */
 const jobsToAudit = jobs.slice(0, limit);
+const companyCantonTally = new Map();
+for (const job of jobsToAudit) {
+  const company = norm(job.company || job.companyKey || '');
+  const canton = norm(job.canton || '').toUpperCase();
+  if (!company || !canton) continue;
+  if (!companyCantonTally.has(company)) companyCantonTally.set(company, new Map());
+  const tally = companyCantonTally.get(company);
+  tally.set(canton, (tally.get(canton) || 0) + 1);
+}
+const companyModalCanton = new Map();
+for (const [company, tally] of companyCantonTally) {
+  let best = '';
+  let bestCount = 0;
+  for (const [canton, count] of tally) {
+    if (count > bestCount) {
+      best = canton;
+      bestCount = count;
+    }
+  }
+  companyModalCanton.set(company, best);
+}
+
 let processed = 0;
 
 for (const job of jobsToAudit) {
@@ -170,6 +200,17 @@ for (const job of jobsToAudit) {
   }
 }
 
+// Subset of cantonMismatch where the stored (wrong) canton equals this
+// company's modal canton — i.e. the job's real location (per the city text)
+// is elsewhere, but the record carries the company's typical/HQ value. That
+// pattern is the signature of a parser silently defaulting instead of
+// resolving the actual crawled location (the "custom value" bug the location
+// mapping fix in this PR targets).
+results.companyDefaultFallback = results.cantonMismatch.filter((m) => {
+  const modalCanton = companyModalCanton.get(m.company) || '';
+  return modalCanton && m.storedCanton === modalCanton && m.inferredCanton !== modalCanton;
+});
+
 /* ── Report ────────────────────────────────────────────────── */
 console.log('\n' + '═'.repeat(70));
 console.log('  LOCATION AUDIT REPORT');
@@ -178,9 +219,10 @@ console.log('═'.repeat(70));
 console.log(`\n✅ Correct:              ${results.correct.length}`);
 console.log(`⚠️  Canton mismatch:      ${results.cantonMismatch.length}`);
 console.log(`🚨 Foreign in Swiss:      ${results.foreignInSwiss.length}`);
-console.log(`❓ Unknown city:          ${results.unknownCity.length}`);
+console.log(`❓ Unknown city (custom): ${results.unknownCity.length}`);
 console.log(`📭 Empty location:        ${results.emptyLocation.length}`);
 console.log(`🔤 Lowercase canton:      ${results.lowercaseCanton.length}`);
+console.log(`🏢 Company-default fallback (suspected): ${results.companyDefaultFallback.length}`);
 if (enableGeocode) {
   console.log(`🌍 Geocode results:       ${results.geocodeResults.length}`);
 }
@@ -192,6 +234,16 @@ if (results.cantonMismatch.length > 0) {
   console.log('─'.repeat(70));
   for (const m of results.cantonMismatch) {
     console.log(`  ${m.company.padEnd(30)} ${m.city.padEnd(25)} stored=${m.storedCanton.padEnd(4)} inferred=${m.inferredCanton} [${m.severity}]`);
+  }
+}
+
+// Detail: Suspected company-default fallbacks
+if (results.companyDefaultFallback.length > 0) {
+  console.log('\n' + '─'.repeat(70));
+  console.log('🏢 SUSPECTED COMPANY-DEFAULT FALLBACKS');
+  console.log('─'.repeat(70));
+  for (const m of results.companyDefaultFallback) {
+    console.log(`  ${m.company.padEnd(30)} ${m.city.padEnd(25)} stored=${m.storedCanton.padEnd(4)} (company modal) inferred=${m.inferredCanton}`);
   }
 }
 
@@ -317,8 +369,10 @@ writeFileSync(reportPath, JSON.stringify({
     cantonMismatch: results.cantonMismatch.length,
     foreignInSwiss: results.foreignInSwiss.length,
     unknownCity: results.unknownCity.length,
+    customLocation: results.unknownCity.length, // alias: city matches no canonical Swiss location
     emptyLocation: results.emptyLocation.length,
     lowercaseCanton: results.lowercaseCanton.length,
+    companyDefaultFallback: results.companyDefaultFallback.length,
     geocodeResults: results.geocodeResults.length,
   },
   cantonMismatches: results.cantonMismatch,
@@ -326,6 +380,7 @@ writeFileSync(reportPath, JSON.stringify({
   unknownCities: results.unknownCity,
   emptyLocations: results.emptyLocation,
   lowercaseCantons: results.lowercaseCanton,
+  companyDefaultFallback: results.companyDefaultFallback,
   geocodeResults: results.geocodeResults,
 }, null, 2));
 console.log(`\n📄 Detailed report saved to: data/location-audit-report.json\n`);

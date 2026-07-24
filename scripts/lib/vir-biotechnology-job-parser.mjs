@@ -10,7 +10,7 @@
  * The API returns all jobs globally. We filter for Switzerland/Bellinzona positions.
  */
 
-import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 const HQ = getCompanyDefaults('vir-biotechnology');
@@ -81,16 +81,7 @@ export function isSwissLocation(locationName = '') {
  * Infer canton from a Greenhouse location string.
  */
 export function inferCanton(location = '') {
-  const loc = String(location || '').toLowerCase();
-  if (loc.includes('bellinzona')) return 'TI';
-  if (loc.includes('lugano')) return 'TI';
-  if (loc.includes('manno')) return 'TI';
-  if (loc.includes('ticino')) return 'TI';
-  if (loc.includes('zurich') || loc.includes('zürich')) return 'ZH';
-  if (loc.includes('basel') || loc.includes('bâle')) return 'BS';
-  if (loc.includes('bern') || loc.includes('berne')) return 'BE';
-  if (loc.includes('geneva') || loc.includes('genève')) return 'GE';
-  return '';
+  return inferAnyCanton(location) || '';
 }
 
 /**

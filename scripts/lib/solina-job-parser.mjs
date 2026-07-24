@@ -45,6 +45,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 export const SOLINA_KEY = 'solina';
 export const SOLINA_COMPANY_NAME = 'Stiftung Solina';
@@ -174,14 +175,7 @@ function extractMainContent(html) {
 /* ── Canton inference ─────────────────────────────────────── */
 
 function inferCantonFromLocation(loc) {
-  const l = String(loc).toLowerCase();
-  if (/heiligenschwendi|spiez|thun|bern\b|berne|burgdorf|interlaken|steffisburg|sigriswil|gunten/.test(l)) return 'BE';
-  if (/zürich|zurich/.test(l)) return 'ZH';
-  if (/luzern|lucerne/.test(l)) return 'LU';
-  if (/basel|basilea/.test(l)) return 'BS';
-  if (/wallis|valais|brig|visp/.test(l)) return 'VS';
-  if (/sankt|st\.\s*gallen/.test(l)) return 'SG';
-  return 'BE'; // Solina HQ is in the Berner Oberland (BE)
+  return inferAnyCanton(loc) || 'BE'; // Solina HQ is in the Berner Oberland (BE)
 }
 
 /* ── Main fetch ───────────────────────────────────────────── */

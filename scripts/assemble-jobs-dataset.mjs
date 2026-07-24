@@ -1599,7 +1599,19 @@ async function assembleJobs() {
     // likely garbage (e.g. a company name leaking through a free-text
     // intake field instead of a real location). Give the structured
     // `canton` field the same second chance as a canton-only label.
-    if (acceptBadLocalityViaCanton(job.canton, job.postalCode, haystack)) return true;
+    if (acceptBadLocalityViaCanton(job.canton, job.postalCode, haystack)) {
+      // Sanitize: never ship the garbage primaryLoc verbatim — it would
+      // leak into the JobPosting schema, sitemap slug, and search/filter
+      // UI (e.g. Hirslanden Arbeitsort leak: "Bern - Futsal Minerva…
+      // Besetzung per: 1"). Replace with the real city found in the
+      // description body when one is findable there.
+      const rescuedCity = rescueSwissCityFromText(haystack);
+      if (rescuedCity) {
+        job.addressLocality = rescuedCity;
+        job.location = rescuedCity;
+      }
+      return true;
+    }
 
     // Neither a known Swiss city, canton-only label, nor an anchored
     // canton — likely a non-Swiss locality that escaped the explicit-

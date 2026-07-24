@@ -35,6 +35,7 @@ import {
   fetchJson,
 } from './crawler-template.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { normalizeCantonCode, inferAnyCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -190,9 +191,13 @@ function buildJob(campaign) {
   const location = campaign.location || {};
   const cityRaw = normalizeSpace(location.city || '');
   const city = cityRaw || 'Nyon';
-  // Canton: Beehire stores state="VD"/"VS"/... directly for Swiss locations.
+  // Canton: Beehire stores state="VD"/"VS"/... directly for Swiss locations,
+  // but an unvalidated well-formed-looking code isn't necessarily a real one
+  // (AGENTS.md #6 sibling class shared with mcdonalds/pallas-kliniken/sodexo/
+  // vitrea-gesundheit/triaplus) — validate against the real 26-canton registry,
+  // then fall back to city-based inference before the HQ default.
   const state = String(location.state || '').toUpperCase().slice(0, 2);
-  const canton = /^[A-Z]{2}$/.test(state) ? state : 'VD';
+  const canton = normalizeCantonCode(state) || inferAnyCanton(city) || 'VD';
   const country = String(location.country || '').toLowerCase();
   const isCH =
     country.includes('suisse') ||

@@ -47,7 +47,7 @@ import {
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { isSwissLocationText } from './lib/target-swiss-locations.mjs';
+import { isSwissLocationText, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -265,18 +265,12 @@ function parseWorkdayLocation(locText = '') {
 }
 
 function inferCanton(location = '') {
-  const loc = normalize(location);
-  if (loc.includes('chiasso')) return 'TI';
-  if (loc.includes('lugano')) return 'TI';
-  if (loc.includes('mendrisio')) return 'TI';
-  if (loc.includes('manno')) return 'TI';
-  if (loc.includes('bellinzona')) return 'TI';
-  if (loc.includes('locarno')) return 'TI';
-  if (loc.includes('genev') || loc.includes('genf')) return 'GE';
-  if (loc.includes('zurich') || loc.includes('zürich')) return 'ZH';
-  if (loc.includes('bern') || loc.includes('berne')) return 'BE';
-  if (loc.includes('basel') || loc.includes('bâle')) return 'BS';
-  return '';
+  // Crawler keeps any Swiss location text (not just Chiasso/Geneva — see
+  // isSwissLocationText usage above, "other CH" self-heal), so canton
+  // resolution must cover all 26 cantons via the BFS municipality registry
+  // instead of a hand-rolled dict of just a handful of cities (would
+  // silently return '' for any other real Swiss site).
+  return inferAnyCanton(location);
 }
 
 /* ── Job building ──────────────────────────────────────────── */

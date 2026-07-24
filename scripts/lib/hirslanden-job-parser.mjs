@@ -31,7 +31,7 @@ import { JSDOM } from 'jsdom';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import { rescueHtmlIfChallenged, fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
 import { isConnectionLevelFetchError, WAF_IP_BLOCK_STATUS } from './transient-fetch.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, isKnownSwissCity } from './target-swiss-locations.mjs';
 import { stripContactPII } from './strip-contact-pii.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -476,6 +476,25 @@ async function fetchPage(url, timeoutMs, userAgent) {
   }
 }
 
+/**
+ * Prefer a locality that resolves to a known Swiss city (BFS registry). The
+ * detail page's free-text "Arbeitsort:" line can leak trailing SF form-field
+ * noise past the real city (e.g. "Bern - Futsal Minerva Besetzung per: 1.
+ * Oktober 2026") when the source HTML's <br>-separated fields collapse onto
+ * one markdown paragraph line — inferSwissTargetCanton still resolves a
+ * canton off a substring match, but the noise itself must never ship as
+ * addressLocality. The listing-cell city is a clean structured field and is
+ * the safer choice whenever the detail text isn't itself a real known city.
+ */
+export function resolveHirslandenLocation(detailLocationText, listingCity) {
+  const detail = String(detailLocationText || '').trim();
+  const listing = String(listingCity || '').trim();
+  if (detail && !isKnownSwissCity(detail) && isKnownSwissCity(listing)) {
+    return listing;
+  }
+  return detail || listing;
+}
+
 /* ── Main fetch function ──────────────────────────────────── */
 
 /**
@@ -541,7 +560,7 @@ export async function fetchAllHirslandenJobs() {
       const title = detail?.title || listing.title;
       const { city, postalCode: parsedPostal } = parseLocation(listing.location);
       const realLocationText = normalizeSpace(detail?.location || '') || normalizeSpace(listing.location || '');
-      const location = realLocationText || city;
+      const location = resolveHirslandenLocation(realLocationText, city);
       const inferredCanton = inferSwissTargetCanton(location) || null;
       if (realLocationText && !inferredCanton) {
         console.warn(`  ⚠️ Hirslanden: skipping unresolvable location "${realLocationText}" (${title})`);

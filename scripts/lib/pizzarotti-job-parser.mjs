@@ -1,4 +1,5 @@
 import { JSDOM } from 'jsdom';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -95,47 +96,10 @@ export function isPizzarottiSwissLocation(raw = '') {
 
 /**
  * Infer canton from Pizzarotti location text.
- * Falls back to 'OTHER' if no known canton is matched.
+ * Falls back to '' if no known canton is matched (never a non-canonical value).
  */
 export function inferPizzarottiCanton(raw = '') {
-  const lower = normalizeSpace(raw).toLowerCase()
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-
-  const cantonMap = {
-    ticino: 'TI', tessin: 'TI',
-    grigioni: 'GR', graubunden: 'GR', grisons: 'GR',
-    neuchatel: 'NE',
-    bern: 'BE', berna: 'BE', berne: 'BE',
-    zurich: 'ZH', zurigo: 'ZH',
-    geneva: 'GE', geneve: 'GE', ginevra: 'GE', genf: 'GE',
-    basel: 'BS', basilea: 'BS',
-    vaud: 'VD', waadt: 'VD',
-    valais: 'VS', vallese: 'VS', wallis: 'VS',
-    lucerna: 'LU', luzern: 'LU', lucerne: 'LU',
-    solothurn: 'SO', soletta: 'SO', soleure: 'SO',
-    fribourg: 'FR', friborgo: 'FR', freiburg: 'FR',
-    aargau: 'AG', argovia: 'AG', argovie: 'AG',
-    thurgau: 'TG', turgovia: 'TG', thurgovie: 'TG',
-    'san gallo': 'SG', 'st. gallen': 'SG', 'saint-gall': 'SG',
-    schwyz: 'SZ', svitto: 'SZ',
-    jura: 'JU',
-  };
-
-  for (const [token, canton] of Object.entries(cantonMap)) {
-    if (lower.includes(token)) return canton;
-  }
-
-  // Known Swiss cities
-  const cityMap = {
-    'le locle': 'NE', 'la chaux-de-fonds': 'NE',
-    lugano: 'TI', mendrisio: 'TI', chiasso: 'TI', bellinzona: 'TI', locarno: 'TI',
-    chur: 'GR', davos: 'GR',
-  };
-  for (const [city, canton] of Object.entries(cityMap)) {
-    if (lower.includes(city)) return canton;
-  }
-
-  return 'CH';
+  return inferAnyCanton(raw) || '';
 }
 
 /**

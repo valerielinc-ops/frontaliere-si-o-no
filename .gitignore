@@ -71,6 +71,7 @@ data/all-known-job-slugs.json
 data/job-canton-pins.json
 data/jobs-crawler-audit.json
 data/jobs-stats.json
+data/location-audit-report.json
 # data/jobs-ai-cache.json — tracked: shared crawler AI response cache, persists across CI runs
 public/data/jobs.json
 public/data/jobs-stats.json

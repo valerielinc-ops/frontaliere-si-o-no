@@ -61,7 +61,7 @@ import {
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, normalizeCantonCode } from './lib/target-swiss-locations.mjs';
 import { normalizeFederalJobLocation } from './lib/federal-job-normalization.mjs';
 import { getCompanyDefaults, getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
@@ -222,7 +222,7 @@ function parseApiJob(j = {}) {
   // so we infer from the actual arbeitsort/city rather than trust the label.
   // A single-canton region label like "Ticino (TI)" is used only as last resort.
   const cantonMatch = regionRaw.match(/\(([A-Z]{2})\)$/);
-  const cantonFromRegion = cantonMatch ? cantonMatch[1] : '';
+  const cantonFromRegion = normalizeCantonCode(cantonMatch ? cantonMatch[1] : '');
   const canton = normalizedLocation.canton
     || inferAnyCanton(locationRaw)
     || inferAnyCanton(normalizedLocation.location || '')
