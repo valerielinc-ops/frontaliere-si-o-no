@@ -57,6 +57,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import type { Plugin } from 'vite';
 import { SPA_ENTRY_JS_RX, SPA_ENTRY_CSS_RX } from './shared/spaBundleRx';
 
 export interface SpaBundleInfo {
@@ -168,4 +169,40 @@ export function resolveSpaBundle(distDir: string): SpaBundleInfo {
 /** Test/diagnostic helper. Clears the cache so the next call repolls. */
 export function _resetSpaBundleResolverCacheForTests(): void {
   cache.clear();
+}
+
+/**
+ * Prewarms the module-level cache by resolving the SPA bundle as the very
+ * FIRST `closeBundle` handler to run (`order: 'pre'`, `sequential: true`),
+ * before any of the ~30 heavy content-generation plugins get a chance to run
+ * their own (synchronous, CPU-bound) work.
+ *
+ * Why this matters: the five consumer plugins (jobsSeoPagesPlugin,
+ * ogPagesPlugin, staticPagesPlugin, jobSectorPagesPlugin,
+ * jobRecencyPagesPlugin) each parse a growing corpus (blog articles, job
+ * data, ...) BEFORE reaching their own `resolveSpaBundle()` call. As that
+ * corpus grows daily, the wall-clock gap between "Vite finished writing
+ * dist/index.html" and "some consumer plugin actually polls for it" grows
+ * too — eroding any fixed poll timeout (see the module doc above,
+ * "Erosion, again": 3s → 30s → 120s, each ceiling re-hit within days, then
+ * hours). Registering a near-zero-cost plugin ahead of every content
+ * plugin, ordered to run first among `closeBundle` handlers, means the
+ * FIRST poll happens immediately after Vite's write phase — when
+ * dist/index.html is virtually guaranteed to already be on disk — instead
+ * of after however long the growing corpus takes to parse. Once cached,
+ * every consumer's own `resolveSpaBundle()` call returns instantly.
+ */
+export function spaBundleResolverPrewarmPlugin(rootDir: string): Plugin {
+  return {
+    name: 'spa-bundle-resolver-prewarm',
+    apply: 'build',
+    enforce: 'post',
+    closeBundle: {
+      order: 'pre',
+      sequential: true,
+      handler() {
+        resolveSpaBundle(path.join(rootDir, 'dist'));
+      },
+    },
+  };
 }
