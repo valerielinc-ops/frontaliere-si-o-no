@@ -55,7 +55,15 @@
       },
       "firstSeenAt": "2026-07-23T22:08:26.541Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "aps-adc-rated-atco-instructor-100-skyguide-wangen-b-dubendorf-ch"
+        ]
+      },
+      "previousSlugs": [
+        "aps-adc-rated-atco-instructor-100-skyguide-wangen-b-dubendorf-ch"
+      ]
     },
     {
       "title": "Formation contrôleur·euse de la circulation aérienne - Payerne",
@@ -372,7 +380,8 @@
         "formation-controleur-du-trafic-aerien-locarno-skyguide-locarno",
         "air-traffic-controller-training-locarno-skyguide-locarno",
         "flugverkehrskontrollerausbildung-locarno-skyguide-locarno",
-        "formation-aux-controleurs-du-trafic-aerien-locarno-skyguide-locarno"
+        "formation-aux-controleurs-du-trafic-aerien-locarno-skyguide-locarno",
+        "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-ch"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -392,7 +401,8 @@
       "id": "skyguide-sa-338538f51d4a",
       "previousSlugsByLocale": {
         "it": [
-          "flugverkehrskontrollerausbildung-locarno-skyguide-locarno-rgrrdp"
+          "flugverkehrskontrollerausbildung-locarno-skyguide-locarno-rgrrdp",
+          "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-ch"
         ],
         "en": [
           "flugverkehrskontrollerausbildung-locarno-skyguide-locarno-rgrrdp",
@@ -455,7 +465,8 @@
         "fluglotsenausbildung-lugano-skyguide-lugano-agno",
         "air-traffic-controller-training-lugano-skyguide-lugano-agno",
         "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno",
-        "formation-controleur-du-trafic-aerien-lugano-skyguide-lugano-agno"
+        "formation-controleur-du-trafic-aerien-lugano-skyguide-lugano-agno",
+        "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-ch"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -475,7 +486,8 @@
       "id": "skyguide-sa-b96de90ca094",
       "previousSlugsByLocale": {
         "it": [
-          "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno-rgrv36"
+          "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno-rgrv36",
+          "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-ch"
         ],
         "en": [
           "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno-rgrv36",
@@ -549,7 +561,8 @@
       "firstSeenAt": "2026-07-14T22:11:19.384Z",
       "previousSlugsByLocale": {
         "it": [
-          "internship-finance-12-months-80-100-skyguide-geneva"
+          "internship-finance-12-months-80-100-skyguide-geneva",
+          "internship-finance-12-months-80-100-skyguide-geneva-ch"
         ],
         "de": [
           "praktikum-finanzen-12-monate-80-100-skyguide-geneva"
@@ -557,7 +570,8 @@
       },
       "previousSlugs": [
         "internship-finance-12-months-80-100-skyguide-geneva",
-        "praktikum-finanzen-12-monate-80-100-skyguide-geneva"
+        "praktikum-finanzen-12-monate-80-100-skyguide-geneva",
+        "internship-finance-12-months-80-100-skyguide-geneva-ch"
       ],
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
@@ -622,11 +636,13 @@
       "id": "skyguide-sa-b812681d7528",
       "previousSlugsByLocale": {
         "it": [
-          "network-architect-80-100-skyguide-wangen-b"
+          "network-architect-80-100-skyguide-wangen-b",
+          "network-architect-80-100-skyguide-wangen-b-dubendorf-ch"
         ]
       },
       "previousSlugs": [
-        "network-architect-80-100-skyguide-wangen-b"
+        "network-architect-80-100-skyguide-wangen-b",
+        "network-architect-80-100-skyguide-wangen-b-dubendorf-ch"
       ]
     },
     {
@@ -686,7 +702,15 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-06-29T14:06:51.228Z",
-      "streetAddress": ""
+      "streetAddress": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-application-solutions-lead-80-100-skyguide-wangen-b-dubendorf-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-application-solutions-lead-80-100-skyguide-wangen-b-dubendorf-ch"
+      ]
     }
   ]
 }

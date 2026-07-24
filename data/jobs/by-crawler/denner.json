@@ -506,7 +506,7 @@
         "it": "assistente-nella-gestione-delle-branche-denner-ag-biel-bienne",
         "en": "assistant-branch-manager-denner-ag-biel-bienne-a20fa2",
         "de": "assistent-in-filialleitung-denner-ag-biel-bienne-6838o1",
-        "fr": "directeur-adjoint-de-succursale-denner-ag-biel-bienne-a20fa2"
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-biel-bienne"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -569,14 +569,17 @@
         "assistent-in-filialleitung-denner-ag-biel-bienne-6838o1",
         "assistant-dans-la-gestion-des-succursales-denner-ag-biel-bienne",
         "assistent-in-filialleitung-denner-biel-bienne",
-        "assistant-dans-la-gestion-des-succursales-denner-biel-bienne"
+        "assistant-dans-la-gestion-des-succursales-denner-biel-bienne",
+        "directeur-adjoint-de-succursale-denner-ag-biel-bienne-a20fa2",
+        "assistente-nella-gestione-delle-branche-denner-ag-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner",
           "assistent-in-filialleitung-denner-ag-biel-bienne-2",
           "assistent-in-filialleitung-denner-ag-biel-bienne-6838o1",
-          "assistent-in-filialleitung-denner-biel-bienne"
+          "assistent-in-filialleitung-denner-biel-bienne",
+          "assistente-nella-gestione-delle-branche-denner-ag-biel-bienne"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-biel-bienne-6838o1"
@@ -584,7 +587,8 @@
         "fr": [
           "assistent-in-filialleitung-denner-ag-biel-bienne-6838o1",
           "assistant-dans-la-gestion-des-succursales-denner-ag-biel-bienne",
-          "assistant-dans-la-gestion-des-succursales-denner-biel-bienne"
+          "assistant-dans-la-gestion-des-succursales-denner-biel-bienne",
+          "directeur-adjoint-de-succursale-denner-ag-biel-bienne-a20fa2"
         ]
       },
       "firstSeenAt": "2026-07-19T22:21:32.658Z",
@@ -2872,14 +2876,30 @@
           "verkaufer-in-denner",
           "verkaufer-in-denner-chur-pu2w4a",
           "seller-denner-ag-chur-7e22e4",
-          "vendeur-denner-ag-chur"
+          "vendeur-denner-ag-chur",
+          "verkaufer-in-denner-3",
+          "verkaufer-in-denner-ag-chur-s710og",
+          "verkaufer-in-denner-ag-chur",
+          "verkaufer-in-denner-chur"
+        ],
+        "en": [
+          "verkaufer-in-denner-ag-chur",
+          "verkaufer-in-denner-chur"
+        ],
+        "fr": [
+          "verkaufer-in-denner-ag-chur",
+          "verkaufer-in-denner-chur"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-chur-pu2w4a",
         "seller-denner-ag-chur-7e22e4",
-        "vendeur-denner-ag-chur"
+        "vendeur-denner-ag-chur",
+        "verkaufer-in-denner-3",
+        "verkaufer-in-denner-ag-chur-s710og",
+        "verkaufer-in-denner-ag-chur",
+        "verkaufer-in-denner-chur"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,

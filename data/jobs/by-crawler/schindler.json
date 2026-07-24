@@ -153,8 +153,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "schindler-817ea04b0da4",
@@ -217,7 +216,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T12:05:21.302Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -247,15 +245,15 @@
       "titleByLocale": {
         "de": "Manager für Cookie-Einwilligungen",
         "it": "Manager per Cookie-Einwilligungen",
-        "en": "Manager für Cookie-Einwilligungen",
-        "fr": "Manager für Cookie-Einwilligungen"
+        "en": "Manager for cookie consents",
+        "fr": "Gestionnaire pour les consentements de cookies"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage für 2027 in St. Gallen",
       "descriptionByLocale": {
         "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage für 2027 in St. Gallen",
-        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage für 2027 in St. Gallen",
-        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage für 2027 in St. Gallen",
-        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage für 2027 in St. Gallen"
+        "it": "Mobility | dal 1874 | in tutto il mondo in uso\n\nLa formazione professionale di Schindler allena più di 300 studenti in tutta la Svizzera, quindi non sei mai sola. Tutto il nostro team si impegna ogni giorno per voi in modo da essere un professionista altamente qualificato alla fine del vostro apprendistato.\n\nApprendistato come EFZ polimeccanico con un focus sull'assemblaggio degli ascensori per il 2027 a St. Gallen",
+        "en": "Mobility | since 1874 | worldwide in use\n\nSchindler Vocational Training trains more than 300 learners throughout Switzerland – so you are never alone. Our entire team is committed to you every day so that you are a highly qualified professional at the end of your apprenticeship.\n\nApprenticeship as a polymechanic EFZ with a focus on lift assembly for 2027 in St. Gallen",
+        "fr": "Mobilité à travers le monde depuis 1874\n\nSchindler Formation professionnelle forme plus de 300 apprenants en Suisse – vous n'êtes donc jamais seul. Toute notre équipe s'engage pour vous tous les jours afin que vous soyez un professionnel hautement qualifié à la fin de votre apprentissage.\n\nApprentissage en tant qu'EFZ polymécanique avec un accent sur l'assemblage de levage pour 2027 à St. Gallen"
       },
       "location": "St. Gallen",
       "canton": "SG",
@@ -283,7 +281,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "manager-fur-cookie-einwilligungen-schindler-st-gallen"
+          "manager-fur-cookie-einwilligungen-schindler-st-gallen",
+          "manager-per-cookie-einwilligungen-schindler-st-gallen-nrkv7s",
+          "manager-per-cookie-einwilligungen-schindler-st-gallen-kf0ro7",
+          "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7",
+          "manager-per-cookie-einwilligungen-schindler-st-gallen-kezgyg"
         ],
         "fr": [
           "gestionnaire-pour-les-consentements-de-cookies-schindler-st-gallen"
@@ -291,9 +293,12 @@
       },
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-st-gallen",
-        "gestionnaire-pour-les-consentements-de-cookies-schindler-st-gallen"
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-st-gallen",
+        "manager-per-cookie-einwilligungen-schindler-st-gallen-nrkv7s",
+        "manager-per-cookie-einwilligungen-schindler-st-gallen-kf0ro7",
+        "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7",
+        "manager-per-cookie-einwilligungen-schindler-st-gallen-kezgyg"
       ],
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -378,8 +383,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "schindler-e4d6518fad20",
@@ -453,8 +457,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "schindler-14bf366a6524",
@@ -587,7 +590,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:43:26.122Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -743,7 +745,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:17:35.545Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -959,7 +960,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T22:19:25.684Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1038,7 +1038,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:22:44.794Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1285,15 +1284,15 @@
       "titleByLocale": {
         "de": "Manager für Cookie-Einwilligungen",
         "it": "Manager per Cookie-Einwilligungen",
-        "en": "Manager für Cookie-Einwilligungen",
-        "fr": "Manager für Cookie-Einwilligungen"
+        "en": "Manager for cookie consents",
+        "fr": "Gestionnaire pour les consentements de cookies"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Oberentfelden",
       "descriptionByLocale": {
         "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Oberentfelden",
-        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Oberentfelden",
-        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Oberentfelden",
-        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Oberentfelden"
+        "it": "Mobility | dal 1874 | in tutto il mondo in uso\n\nLa formazione professionale di Schindler allena più di 300 studenti in tutta la Svizzera, quindi non sei mai sola. Tutto il nostro team si impegna ogni giorno per voi in modo da essere un professionista altamente qualificato alla fine del vostro apprendistato.\n\nApprendistato di prova come EFZ polimeccanico con un focus sull'assemblaggio degli ascensori (inizio di formazione 2027) a Oberentfelden",
+        "en": "Mobility | since 1874 | worldwide in use\n\nSchindler Vocational Training trains more than 300 learners throughout Switzerland – so you are never alone. Our entire team is committed to you every day so that you are a highly qualified professional at the end of your apprenticeship.\n\nTrial apprenticeship as a polymechanic EFZ with a focus on lift assembly (training start 2027) in Oberentfelden",
+        "fr": "Mobilité à travers le monde depuis 1874\n\nSchindler Formation professionnelle forme plus de 300 apprenants en Suisse – vous n'êtes donc jamais seul. Toute notre équipe s'engage pour vous tous les jours afin que vous soyez un professionnel hautement qualifié à la fin de votre apprentissage.\n\nApprentissage d'essai en tant qu'EFZ polymécanique avec un accent sur l'assemblage d'ascenseurs (commencement de formation 2027) à Oberentfelden"
       },
       "location": "Oberentfelden",
       "canton": "AG",
@@ -1321,13 +1320,95 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "manager-fur-cookie-einwilligungen-schindler-oberentfelden"
+          "manager-per-cookie-einwilligungen-schindler-ebikon-r4uyhs",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-634kz6",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-5otxjs",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-5mq2k5",
+          "manager-per-cookie-einwilligungen-schindler-oberentfelden-8crea4",
+          "manager-per-cookie-einwilligungen-schindler-zurich-keuwca",
+          "manager-for-cookie-consents-schindler-ebikon",
+          "manager-per-cookie-einwilligungen-schindler-basel-8f2yxg",
+          "manager-per-cookie-einwilligungen-schindler-bern-qckslc",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-2",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-3",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-4",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-5",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-6",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-7",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-8",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-9",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-10",
+          "manager-fur-cookie-einwilligungen-schindler-st-gallen",
+          "manager-fur-cookie-einwilligungen-schindler-winterthur"
+        ],
+        "en": [
+          "manager-per-cookie-einwilligungen-schindler-oberentfelden-m85jp1"
         ]
       },
       "previousSlugs": [
-        "manager-fur-cookie-einwilligungen-schindler-oberentfelden"
+        "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4uyhs",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-634kz6",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-5otxjs",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-5mq2k5",
+        "manager-per-cookie-einwilligungen-schindler-oberentfelden-8crea4",
+        "manager-per-cookie-einwilligungen-schindler-zurich-keuwca",
+        "manager-for-cookie-consents-schindler-ebikon",
+        "manager-per-cookie-einwilligungen-schindler-basel-8f2yxg",
+        "manager-per-cookie-einwilligungen-schindler-bern-qckslc",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-2",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-3",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-4",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-5",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-6",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-7",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-8",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-9",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-10",
+        "manager-fur-cookie-einwilligungen-schindler-st-gallen",
+        "manager-fur-cookie-einwilligungen-schindler-winterthur",
+        "manager-per-cookie-einwilligungen-schindler-oberentfelden-m85jp1",
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-oberentfelden",
+        "manager-per-cookie-einwilligungen-schindler-oberentfelden-m7nive",
+        "manager-fur-cookie-einwilligungen-schindler-zurich",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon",
+        "manager-fur-cookie-einwilligungen-schindler-basel",
+        "manager-fur-cookie-einwilligungen-schindler-bern",
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-winterthur",
+        "manager-per-cookie-einwilligungen-schindler-st-gallen-kf0ro7",
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-st-gallen",
+        "manager-per-cookie-einwilligungen-schindler-st-gallen",
+        "manager-per-cookie-einwilligungen-schindler-winterthur-kexmyn",
+        "manager-per-cookie-einwilligungen-schindler-winterthur",
+        "manager-per-cookie-einwilligungen-schindler-zurich-krmqlr",
+        "manager-per-cookie-einwilligungen-schindler-zurich",
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-zurich",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-5q2l5c",
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon-8fd086",
+        "manager-per-cookie-einwilligungen-schindler-ebikon",
+        "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7",
+        "manager-per-cookie-einwilligungen-schindler-st-gallen-kezgyg",
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-basel",
+        "manager-per-cookie-einwilligungen-schindler-winterthur-kewari",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-bwkxk2",
+        "manager-per-cookie-einwilligungen-schindler-oberentfelden-8cq51r",
+        "manager-per-cookie-einwilligungen-schindler-basel",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-bw0jgk",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-bvd24w",
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon",
+        "manager-per-cookie-einwilligungen-schindler-bern-qbggpm",
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-bern",
+        "manager-per-cookie-einwilligungen-schindler-bern",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-qbido7",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-qckpmk",
+        "manager-per-cookie-einwilligungen-schindler-basel-qcm1tp",
+        "manager-per-cookie-einwilligungen-schindler-basel-qcm41s",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4si95",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4tp9f",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4uc8y",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4uf7q",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4vs5k"
       ],
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1401,7 +1482,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T14:00:37.760Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1514,16 +1594,16 @@
       "title": "Contract Specialist (m/w/d) 40%",
       "titleByLocale": {
         "de": "Contract Spezialist (m/w/d) 40%",
-        "en": "Contract Specialist (m/w/d) 40%",
+        "en": "Contract Specialist (m/f/d) 40 %",
         "it": "Contract Specialista (m/w/d) 40%",
         "fr": "Contract Spécialiste (m/w/d) 40%"
       },
       "description": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nContract Specialist (m/w/d) 40%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\nIn dieser verantwortungsvollen Funktion übernimmst du am Hauptstandort Ebikon die Verantwortung für die Erfassung und Verwaltung unserer Serviceverträge sowie die korrekte Abwicklung von Vertragsmutationen. Du sorgst für eine termingerechte und präzise kaufmännische Abwicklung und trägst so massgeblich zur internen und externen Kundenzufriedenheit bei.\n\nAufgaben:\n\n• Anlegen und Verwalten von Serviceverträgen sowie Ausführen von Vertragsmutationen\n\n• Erstellen von Rechnungen, Gutschriften und Nachbelastungen\n\n• Eröffnen und Ändern von Kundenkonten sowie Unterstützung der Spezialistinnen im Kundendatenmanagement\n\n• Betreuung der digitalen Kommunikationskanäle (Outlook, Teams, Salesforce) sowie Sicherstellung einer effizienten Bearbeitung von Anfragen\n\n• Telefonische sowie schriftliche Beratung und Unterstützung interner und externer Kunden bei administrativen Anliegen\n\n• Engagierte Zusammenarbeit im Team, aktives Mitwirken im Tagesgeschäft sowie Mitgestaltung und Weiterentwicklung effizienter Prozesse\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene kaufmännische Berufslehre oder gleichwertige Ausbildung\n\n• Zahlenflair sowie eine exakte, selbständige und dienstleistungsorientierte Arbeitsweise\n\n• Erfahrung im Umgang mit MS Office (Excel, Word, Outlook); SAP-Kenntnisse von Vorteil\n\n• Ausgeprägte IT-Affinität sowie Freude am proaktiven, telefonischen Kundenkontakt\n\n• Sehr gute Deutschkenntnisse; Französischkenntnisse (vor allem mündlich) von Vorteil\n\n• Starke Kundenorientierung sowie ausgeprägte Kommunikations- und Teamfähigkeit\n\nUnsere Benefits:\n\n• Exzellente Entwicklungsmöglichkeiten: Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen\n\n• Work-Life-Balance: 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub\n\n• Gesunde Arbeitsumgebung: Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung\n\n• Mitarbeitervergünstigungen: Beteiligung am ÖV-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
       "descriptionByLocale": {
         "de": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nContract Specialist (m/w/d) 40%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\nIn dieser verantwortungsvollen Funktion übernimmst du am Hauptstandort Ebikon die Verantwortung für die Erfassung und Verwaltung unserer Serviceverträge sowie die korrekte Abwicklung von Vertragsmutationen. Du sorgst für eine termingerechte und präzise kaufmännische Abwicklung und trägst so massgeblich zur internen und externen Kundenzufriedenheit bei.\n\nAufgaben:\n\n• Anlegen und Verwalten von Serviceverträgen sowie Ausführen von Vertragsmutationen\n\n• Erstellen von Rechnungen, Gutschriften und Nachbelastungen\n\n• Eröffnen und Ändern von Kundenkonten sowie Unterstützung der Spezialistinnen im Kundendatenmanagement\n\n• Betreuung der digitalen Kommunikationskanäle (Outlook, Teams, Salesforce) sowie Sicherstellung einer effizienten Bearbeitung von Anfragen\n\n• Telefonische sowie schriftliche Beratung und Unterstützung interner und externer Kunden bei administrativen Anliegen\n\n• Engagierte Zusammenarbeit im Team, aktives Mitwirken im Tagesgeschäft sowie Mitgestaltung und Weiterentwicklung effizienter Prozesse\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene kaufmännische Berufslehre oder gleichwertige Ausbildung\n\n• Zahlenflair sowie eine exakte, selbständige und dienstleistungsorientierte Arbeitsweise\n\n• Erfahrung im Umgang mit MS Office (Excel, Word, Outlook); SAP-Kenntnisse von Vorteil\n\n• Ausgeprägte IT-Affinität sowie Freude am proaktiven, telefonischen Kundenkontakt\n\n• Sehr gute Deutschkenntnisse; Französischkenntnisse (vor allem mündlich) von Vorteil\n\n• Starke Kundenorientierung sowie ausgeprägte Kommunikations- und Teamfähigkeit\n\nUnsere Benefits:\n\n• Exzellente Entwicklungsmöglichkeiten: Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen\n\n• Work-Life-Balance: 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub\n\n• Gesunde Arbeitsumgebung: Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung\n\n• Mitarbeitervergünstigungen: Beteiligung am ÖV-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
-        "it": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nContract Specialist (m/w/d) 40%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\nIn dieser verantwortungsvollen Funktion übernimmst du am Hauptstandort Ebikon die Verantwortung für die Erfassung und Verwaltung unserer Serviceverträge sowie die korrekte Abwicklung von Vertragsmutationen. Du sorgst für eine termingerechte und präzise kaufmännische Abwicklung und trägst so massgeblich zur internen und externen Kundenzufriedenheit bei.\n\nAufgaben:\n\n• Anlegen und Verwalten von Serviceverträgen sowie Ausführen von Vertragsmutationen\n\n• Erstellen von Rechnungen, Gutschriften und Nachbelastungen\n\n• Eröffnen und Ändern von Kundenkonten sowie Unterstützung der Spezialistinnen im Kundendatenmanagement\n\n• Betreuung der digitalen Kommunikationskanäle (Outlook, Teams, Salesforce) sowie Sicherstellung einer effizienten Bearbeitung von Anfragen\n\n• Telefonische sowie schriftliche Beratung und Unterstützung interner und externer Kunden bei administrativen Anliegen\n\n• Engagierte Zusammenarbeit im Team, aktives Mitwirken im Tagesgeschäft sowie Mitgestaltung und Weiterentwicklung effizienter Prozesse\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene kaufmännische Berufslehre oder gleichwertige Ausbildung\n\n• Zahlenflair sowie eine exakte, selbständige und dienstleistungsorientierte Arbeitsweise\n\n• Erfahrung im Umgang mit MS Office (Excel, Word, Outlook); SAP-Kenntnisse von Vorteil\n\n• Ausgeprägte IT-Affinität sowie Freude am proaktiven, telefonischen Kundenkontakt\n\n• Sehr gute Deutschkenntnisse; Französischkenntnisse (vor allem mündlich) von Vorteil\n\n• Starke Kundenorientierung sowie ausgeprägte Kommunikations- und Teamfähigkeit\n\nUnsere Benefits:\n\n• Exzellente Entwicklungsmöglichkeiten: Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen\n\n• Work-Life-Balance: 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub\n\n• Gesunde Arbeitsumgebung: Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung\n\n• Mitarbeitervergünstigungen: Beteiligung am ÖV-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
-        "en": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nContract Specialist (m/w/d) 40%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\nIn dieser verantwortungsvollen Funktion übernimmst du am Hauptstandort Ebikon die Verantwortung für die Erfassung und Verwaltung unserer Serviceverträge sowie die korrekte Abwicklung von Vertragsmutationen. Du sorgst für eine termingerechte und präzise kaufmännische Abwicklung und trägst so massgeblich zur internen und externen Kundenzufriedenheit bei.\n\nAufgaben:\n\n• Anlegen und Verwalten von Serviceverträgen sowie Ausführen von Vertragsmutationen\n\n• Erstellen von Rechnungen, Gutschriften und Nachbelastungen\n\n• Eröffnen und Ändern von Kundenkonten sowie Unterstützung der Spezialistinnen im Kundendatenmanagement\n\n• Betreuung der digitalen Kommunikationskanäle (Outlook, Teams, Salesforce) sowie Sicherstellung einer effizienten Bearbeitung von Anfragen\n\n• Telefonische sowie schriftliche Beratung und Unterstützung interner und externer Kunden bei administrativen Anliegen\n\n• Engagierte Zusammenarbeit im Team, aktives Mitwirken im Tagesgeschäft sowie Mitgestaltung und Weiterentwicklung effizienter Prozesse\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene kaufmännische Berufslehre oder gleichwertige Ausbildung\n\n• Zahlenflair sowie eine exakte, selbständige und dienstleistungsorientierte Arbeitsweise\n\n• Erfahrung im Umgang mit MS Office (Excel, Word, Outlook); SAP-Kenntnisse von Vorteil\n\n• Ausgeprägte IT-Affinität sowie Freude am proaktiven, telefonischen Kundenkontakt\n\n• Sehr gute Deutschkenntnisse; Französischkenntnisse (vor allem mündlich) von Vorteil\n\n• Starke Kundenorientierung sowie ausgeprägte Kommunikations- und Teamfähigkeit\n\nUnsere Benefits:\n\n• Exzellente Entwicklungsmöglichkeiten: Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen\n\n• Work-Life-Balance: 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub\n\n• Gesunde Arbeitsumgebung: Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung\n\n• Mitarbeitervergünstigungen: Beteiligung am ÖV-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
-        "fr": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nContract Specialist (m/w/d) 40%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\nIn dieser verantwortungsvollen Funktion übernimmst du am Hauptstandort Ebikon die Verantwortung für die Erfassung und Verwaltung unserer Serviceverträge sowie die korrekte Abwicklung von Vertragsmutationen. Du sorgst für eine termingerechte und präzise kaufmännische Abwicklung und trägst so massgeblich zur internen und externen Kundenzufriedenheit bei.\n\nAufgaben:\n\n• Anlegen und Verwalten von Serviceverträgen sowie Ausführen von Vertragsmutationen\n\n• Erstellen von Rechnungen, Gutschriften und Nachbelastungen\n\n• Eröffnen und Ändern von Kundenkonten sowie Unterstützung der Spezialistinnen im Kundendatenmanagement\n\n• Betreuung der digitalen Kommunikationskanäle (Outlook, Teams, Salesforce) sowie Sicherstellung einer effizienten Bearbeitung von Anfragen\n\n• Telefonische sowie schriftliche Beratung und Unterstützung interner und externer Kunden bei administrativen Anliegen\n\n• Engagierte Zusammenarbeit im Team, aktives Mitwirken im Tagesgeschäft sowie Mitgestaltung und Weiterentwicklung effizienter Prozesse\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene kaufmännische Berufslehre oder gleichwertige Ausbildung\n\n• Zahlenflair sowie eine exakte, selbständige und dienstleistungsorientierte Arbeitsweise\n\n• Erfahrung im Umgang mit MS Office (Excel, Word, Outlook); SAP-Kenntnisse von Vorteil\n\n• Ausgeprägte IT-Affinität sowie Freude am proaktiven, telefonischen Kundenkontakt\n\n• Sehr gute Deutschkenntnisse; Französischkenntnisse (vor allem mündlich) von Vorteil\n\n• Starke Kundenorientierung sowie ausgeprägte Kommunikations- und Teamfähigkeit\n\nUnsere Benefits:\n\n• Exzellente Entwicklungsmöglichkeiten: Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen\n\n• Work-Life-Balance: 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub\n\n• Gesunde Arbeitsumgebung: Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung\n\n• Mitarbeitervergünstigungen: Beteiligung am ÖV-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere"
+        "it": "Più di due miliardi di persone si affidano a Schindler ogni giorno. I nostri molti anni di esperienza e di forza innovativa ci rendono il numero uno nel settore dell'ascensore e delle scale mobili svizzere. Nell'ambito della famiglia Schindler, progetta posti per tutti più accessibili, inclusivi e sostenibili. Uniamo innovazione, sicurezza e inclusione e diversità all'interno dell'azienda. Diventa parte della nostra storia di successo di 150 anni e modella il futuro della mobilità.\n\nInsieme un piano come\n\nSpecialista del contratto (m/f/d) 40 %\n\nLa tua giornata – il tuo piano! Progetta la tua settimana di 40 ore secondo le tue esigenze. Alleghiamo grande importanza per il vostro ulteriore sviluppo e vi offriamo esattamente ciò di cui avete bisogno. Scopri di più su di noi in questo video\n\nLe nuove sfide:\n\nIn questo ruolo responsabile, si assume la responsabilità di registrare e gestire i nostri contratti di servizio e la corretta gestione delle mutazioni contrattuali presso la sede di Ebikon. Assicura un'elaborazione commerciale tempestiva e precisa e contribuisce in modo significativo alla soddisfazione del cliente interno ed esterno.\n\nCompiti:\n\n• Creazione e gestione di contratti di servizio e esecuzione di mutazioni contrattuali\n\n• Preparazione di fatture, crediti e addebiti\n\n• Aprire e cambiare account clienti e sostenere specialisti nella gestione dei dati dei clienti\n\n• Supporto dei canali di comunicazione digitale (outlook, team, Salesforce) e garantire un'efficace elaborazione delle richieste\n\n• Telefono e consulenza scritta e supporto ai clienti interni ed esterni in materia amministrativa\n\n• Collaborazione attiva nel team, partecipazione attiva al business quotidiano e partecipazione alla progettazione e sviluppo di processi efficienti\n\nLe vostre condizioni ideali:\n\n• Apprendistato commerciale o istruzione equivalente completata\n\n• Esatta, indipendente e orientata al servizio\n\n• Esperienza nel trattare con MS Office (Excel, Word, Outlook); la conoscenza SAP è un vantaggio\n\n• Forte affinità IT e godimento di contatto proattivo, telefonico\n\n• Conoscenza molto buona del tedesco; La conoscenza del francese (specialmente orale) è un vantaggio\n\n• Forte orientamento al cliente così come forte comunicazione e competenze di squadra\n\nI nostri vantaggi:\n\n• Ottime opportunità di sviluppo: lo sviluppo del personale è vissuto con noi. Forniamo ai nostri dipendenti vari programmi di talento nazionali e internazionali e li sosteniamo temporaneamente e finanziariamente in formazione e formazione ulteriore.\n\n• Bilancia della vita lavorativa: 40h settimana, 25-30 giorni di vacanza, orari di lavoro flessibili, lavoro part-time e congedo non pagato\n\n• Ambiente di lavoro sano: elevati standard di salute e sicurezza e gestione della salute aziendale, compresa la consulenza sociale e la promozione della salute\n\n• Prestazioni per i dipendenti: partecipazione all'abbonamento ai trasporti pubblici, sconti per la flotta, riduzione dell'acquisto di denaro Reka, riduzione dei premi assicurativi e vari vantaggi\n\nSei pronto a fare nuove strade? Diventa parte di #TeamSchindler!\n\nUlteriori informazioni sono disponibili su: www.schindler.ch/karriere",
+        "en": "Over two billion people rely on Schindler every day. Our many years of experience and innovative strength make us number one in the Swiss elevator and escalator business. As part of the Schindler family, you design places for everyone more accessible, inclusive and sustainable. We combine innovation, security and inclusion and diversity within the company. Become part of our 150-year success story and shape the future of mobility.\n\nTogether one floor up as\n\nContract Specialist (m/f/d) 40 %\n\nYour day – your plan! Design your 40-hour week according to your needs. We attach great importance to your further development and offer you exactly what you need. Learn more about us in this video\n\nYour new challenges:\n\nIn this responsible role, you take on the responsibility for recording and managing our service contracts and the correct handling of contract mutations at the Ebikon headquarters. You ensure timely and precise commercial processing and contribute significantly to internal and external customer satisfaction.\n\nTasks:\n\n• Creating and managing service contracts and executing contract mutations\n\n• Preparation of invoices, credits and debits\n\n• Opening and changing customer accounts as well as supporting specialists in customer data management\n\n• Support of digital communication channels (outlook, teams, salesforce) and ensure efficient processing of requests\n\n• Telephone and written advice and support for internal and external customers in administrative matters\n\n• Engaged cooperation in the team, active participation in day-to-day business and participation in the design and further development of efficient processes\n\nYour ideal conditions:\n\n• Commercial apprenticeship or equivalent education completed\n\n• Pay flair as well as an exact, independent and service-oriented working method\n\n• Experience in dealing with MS Office (Excel, Word, Outlook); SAP knowledge is an advantage\n\n• Strong IT affinity and enjoyment of proactive, telephone customer contact\n\n• Very good knowledge of German; Knowledge of French (especially oral) is an advantage\n\n• Strong customer orientation as well as strong communication and team skills\n\nOur benefits:\n\n• Excellent development opportunities: Staff development is lived with us. We provide our employees with various national and international talent programs and support them temporarily and financially in training and further education.\n\n• Work-life balance: 40h week, 25 to 30 days of holiday, flexible working hours, part-time work and unpaid leave\n\n• Healthy working environment: High health & safety standards and company health management including social counselling and health promotion\n\n• Employee benefits: participation in the public transport subscription, fleet discounts, reduced purchase of Reka money, reduced insurance premiums and various benefits\n\nAre you ready to go new ways? Become part of #TeamSchindler!\n\nFurther information can be found at: www.schindler.ch/karriere",
+        "fr": "Plus de deux milliards de personnes dépendent de Schindler chaque jour. Nos nombreuses années d'expérience et de force innovante font de nous la première entreprise suisse d'ascenseur et d'escalator. Dans le cadre de la famille Schindler, vous concevez des lieux pour tous plus accessibles, inclusifs et durables. Nous combinons innovation, sécurité, inclusion et diversité au sein de l'entreprise. Faites partie de notre réussite de 150 ans et façonnez l'avenir de la mobilité.\n\nEnsemble un étage vers le haut comme\n\nSpécialiste des contrats (m/f/d) 40 %\n\nVotre journée – votre plan! Concevez votre semaine de 40 heures selon vos besoins. Nous attachons une grande importance à votre développement et vous offrons exactement ce dont vous avez besoin. En savoir plus sur nous dans cette vidéo\n\nVos nouveaux défis :\n\nDans ce rôle responsable, vous assumez la responsabilité de l'enregistrement et de la gestion de nos contrats de service et du traitement correct des mutations contractuelles au siège d'Ebikon. Vous assurez un traitement commercial rapide et précis et contribuez de manière significative à la satisfaction des clients internes et externes.\n\nTâches :\n\n• Création et gestion de contrats de services et exécution de mutations contractuelles\n\n• Préparation des factures, des crédits et des débits\n\n• Ouverture et modification des comptes clients ainsi que des spécialistes de la gestion des données clients\n\n• Soutien aux canaux de communication numérique (spectacle, équipes, force de vente) et garantie d'un traitement efficace des demandes\n\n• Conseils téléphoniques et écrits et soutien aux clients internes et externes en matière administrative\n\n• Coopération engagée au sein de l'équipe, participation active aux activités quotidiennes et participation à la conception et au développement de processus efficaces\n\nVos conditions idéales:\n\n• Apprentissage commercial ou enseignement équivalent terminé\n\n• Une méthode de travail précise, indépendante et axée sur le service\n\n• Expérience dans le traitement avec MS Office (Excel, Word, Outlook); les connaissances SAP sont un avantage\n\n• Une forte affinité informatique et la jouissance d'un contact client téléphonique proactif\n\n• Très bonne connaissance de l'allemand; La connaissance du français (surtout orale) est un avantage\n\n• Une forte orientation client ainsi que de solides compétences en communication et en équipe\n\nNos avantages :\n\n• Excellentes possibilités de perfectionnement : Le perfectionnement du personnel est vécu avec nous. Nous fournissons à nos employés divers programmes nationaux et internationaux de talents et les soutenons temporairement et financièrement dans la formation et la formation continue.\n\n• Équilibre travail-vie privée : 40h semaine, 25 à 30 jours de congé, horaires flexibles, travail à temps partiel et congés non rémunérés\n\n• Environnement de travail sain: normes élevées en matière de santé et de sécurité et gestion de la santé de l'entreprise, y compris conseils sociaux et promotion de la santé\n\n• Avantages sociaux: participation à l'abonnement aux transports en commun, rabais sur flotte, réduction de l'achat de l'argent Reka, réduction des primes d'assurance et divers avantages\n\nÊtes-vous prêt à aller de nouvelles façons ? Faites partie de #TeamSchindler !\n\nDe plus amples informations sont disponibles à l'adresse suivante: www.schindler.ch/karriere"
       },
       "location": "Ebikon",
       "canton": "LU",
@@ -1549,7 +1629,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 27800,
       "salaryMax": 42400,
       "baseSalary": {
@@ -1613,7 +1692,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-29T23:06:29.868Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "account-manager-bussigny-octobre-2026-ou-a-convenir-h-f-d-80-100-schindler-bussigny",
@@ -1657,15 +1735,15 @@
       "titleByLocale": {
         "de": "Manager für Cookie-Einwilligungen",
         "it": "Manager per Cookie-Einwilligungen",
-        "en": "Manager für Cookie-Einwilligungen",
-        "fr": "Manager für Cookie-Einwilligungen"
+        "en": "Manager for cookie consents",
+        "fr": "Gestionnaire pour les consentements de cookies"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Fachmann*frau Kundendialog EFZ für 2027 in Ebikon",
       "descriptionByLocale": {
         "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Fachmann*frau Kundendialog EFZ für 2027 in Ebikon",
-        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Fachmann*frau Kundendialog EFZ für 2027 in Ebikon",
-        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Fachmann*frau Kundendialog EFZ für 2027 in Ebikon",
-        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Fachmann*frau Kundendialog EFZ für 2027 in Ebikon"
+        "it": "Mobility | dal 1874 | in tutto il mondo in uso\n\nLa formazione professionale di Schindler allena più di 300 studenti in tutta la Svizzera, quindi non sei mai sola. Tutto il nostro team si impegna ogni giorno per voi in modo da essere un professionista altamente qualificato alla fine del vostro apprendistato.\n\nApprendistato come esperto*donna cliente dialogo EFZ per 2027 in Ebikon",
+        "en": "Mobility | since 1874 | worldwide in use\n\nSchindler Vocational Training trains more than 300 learners throughout Switzerland – so you are never alone. Our entire team is committed to you every day so that you are a highly qualified professional at the end of your apprenticeship.\n\nApprenticeship as an expert*woman customer dialogue EFZ for 2027 in Ebikon",
+        "fr": "Mobilité à travers le monde depuis 1874\n\nSchindler Formation professionnelle forme plus de 300 apprenants en Suisse – vous n'êtes donc jamais seul. Toute notre équipe s'engage pour vous tous les jours afin que vous soyez un professionnel hautement qualifié à la fin de votre apprentissage.\n\nApprentissage en tant qu'expert* femme dialogue client EFZ pour 2027 à Ebikon"
       },
       "location": "Ebikon",
       "canton": "LU",
@@ -1693,17 +1771,74 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "manager-fur-cookie-einwilligungen-schindler-ebikon"
+          "manager-fur-cookie-einwilligungen-schindler-ebikon",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-5otxjs",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-9",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-5mq2k5",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-10",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-5q2l5c",
+          "manager-for-cookie-consents-schindler-ebikon",
+          "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon-8fd086",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-bwkxk2",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-bw0jgk",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-bvd24w",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-qbido7",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-qckpmk",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-r4si95",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-r4tp9f",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-r4uc8y",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-r4uf7q",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-r4vs5k",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-r4uyhs",
+          "manager-per-cookie-einwilligungen-schindler-ebikon-634kz6"
         ],
         "fr": [
-          "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon"
+          "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon",
+          "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon-8fd086"
+        ],
+        "en": [
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-2",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-3",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-4",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-5",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-6",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-7",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-8",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-9",
+          "manager-fur-cookie-einwilligungen-schindler-ebikon-10",
+          "manager-for-cookie-consents-schindler-ebikon"
         ]
       },
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon"
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-5otxjs",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-9",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-5mq2k5",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-10",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-5q2l5c",
+        "manager-for-cookie-consents-schindler-ebikon",
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon-8fd086",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-bwkxk2",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-bw0jgk",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-bvd24w",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-qbido7",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-qckpmk",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4si95",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4tp9f",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4uc8y",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4uf7q",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4vs5k",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-r4uyhs",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-634kz6",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-2",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-3",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-4",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-5",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-6",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-7",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-8"
       ],
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1943,7 +2078,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:25.810Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2006,7 +2140,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-21T11:22:11.412Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -2375,7 +2508,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:16:02.327Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2600,7 +2732,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:25.077Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -2741,7 +2872,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-16T11:24:30.837Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2814,7 +2944,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:43.279Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3067,7 +3196,6 @@
         ]
       },
       "firstSeenAt": "2026-05-27T13:46:29.633Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -3169,15 +3297,15 @@
       "titleByLocale": {
         "de": "Manager für Cookie-Einwilligungen",
         "it": "Manager per Cookie-Einwilligungen",
-        "en": "Manager für Cookie-Einwilligungen",
-        "fr": "Manager für Cookie-Einwilligungen"
+        "en": "Manager for cookie consents",
+        "fr": "Gestionnaire pour les consentements de cookies"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Kaufmann*frau EFZ für 2027 in Zürich",
       "descriptionByLocale": {
         "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Kaufmann*frau EFZ für 2027 in Zürich",
-        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Kaufmann*frau EFZ für 2027 in Zürich",
-        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Kaufmann*frau EFZ für 2027 in Zürich",
-        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Kaufmann*frau EFZ für 2027 in Zürich"
+        "it": "Mobility | dal 1874 | in tutto il mondo in uso\n\nLa formazione professionale di Schindler allena più di 300 studenti in tutta la Svizzera, quindi non sei mai sola. Tutto il nostro team si impegna ogni giorno per voi in modo da essere un professionista altamente qualificato alla fine del vostro apprendistato.\n\nApprendistato come mercante*donna EFZ per il 2027 a Zurigo",
+        "en": "Mobility | since 1874 | worldwide in use\n\nSchindler Vocational Training trains more than 300 learners throughout Switzerland – so you are never alone. Our entire team is committed to you every day so that you are a highly qualified professional at the end of your apprenticeship.\n\nApprenticeship as merchant*woman EFZ for 2027 in Zurich",
+        "fr": "Mobilité à travers le monde depuis 1874\n\nSchindler Formation professionnelle forme plus de 300 apprenants en Suisse – vous n'êtes donc jamais seul. Toute notre équipe s'engage pour vous tous les jours afin que vous soyez un professionnel hautement qualifié à la fin de votre apprentissage.\n\nApprentissage en tant que commerçante* femme EFZ pour 2027 à Zurich"
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -3205,13 +3333,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "manager-fur-cookie-einwilligungen-schindler-zurich"
+          "manager-fur-cookie-einwilligungen-schindler-zurich",
+          "manager-per-cookie-einwilligungen-schindler-zurich-keecwn",
+          "gestionnaire-pour-les-consentements-de-cookies-schindler-zurich",
+          "manager-per-cookie-einwilligungen-schindler-zurich-keuwca",
+          "manager-per-cookie-einwilligungen-schindler-zurich-krmqlr"
+        ],
+        "en": [
+          "manager-per-cookie-einwilligungen-schindler-zurich-keecwn"
         ]
       },
       "previousSlugs": [
-        "manager-fur-cookie-einwilligungen-schindler-zurich"
+        "manager-fur-cookie-einwilligungen-schindler-zurich",
+        "manager-per-cookie-einwilligungen-schindler-zurich-keecwn",
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-zurich",
+        "manager-per-cookie-einwilligungen-schindler-zurich-keuwca",
+        "manager-per-cookie-einwilligungen-schindler-zurich-krmqlr"
       ],
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3367,7 +3505,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:16:54.539Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3396,16 +3533,16 @@
       "title": "Gestore consenso ai cookie",
       "titleByLocale": {
         "it": "Gestore consenso ai cookie",
-        "fr": "Gestore consenso ai cookie",
-        "en": "Gestore consenso ai cookie",
-        "de": "Gestore consenso ai cookie"
+        "fr": "Consentement du gestionnaire aux cookies",
+        "en": "Manager consent to cookies",
+        "de": "Zustimmung des Managers zu Cookies"
       },
       "description": "Mobilità | dal 1874 | in tutto il mondo\n\nSchindler Formazione Professionale forma oltre 300 apprendisti in tutta la Svizzera - quindi non siete mai soli. Il nostro team si impegna ogni giorno per farti diventare un dipendente qualificato alla fine del tuo apprendistato.\n\nLa Schindler Elettronica SA, con sede a Locarno, è leader nel campo dello sviluppo e della produzione di com-ponenti elettronici per ascensori.\n\nPosto di Apprendistato Operatore*trice in automazione AFC per il 2027 a Locarno",
       "descriptionByLocale": {
         "it": "Mobilità | dal 1874 | in tutto il mondo\n\nSchindler Formazione Professionale forma oltre 300 apprendisti in tutta la Svizzera - quindi non siete mai soli. Il nostro team si impegna ogni giorno per farti diventare un dipendente qualificato alla fine del tuo apprendistato.\n\nLa Schindler Elettronica SA, con sede a Locarno, è leader nel campo dello sviluppo e della produzione di com-ponenti elettronici per ascensori.\n\nPosto di Apprendistato Operatore*trice in automazione AFC per il 2027 a Locarno",
-        "en": "Mobilità | dal 1874 | in tutto il mondo\n\nSchindler Formazione Professionale forma oltre 300 apprendisti in tutta la Svizzera - quindi non siete mai soli. Il nostro team si impegna ogni giorno per farti diventare un dipendente qualificato alla fine del tuo apprendistato.\n\nLa Schindler Elettronica SA, con sede a Locarno, è leader nel campo dello sviluppo e della produzione di com-ponenti elettronici per ascensori.\n\nPosto di Apprendistato Operatore*trice in automazione AFC per il 2027 a Locarno",
-        "de": "Mobilità | dal 1874 | in tutto il mondo\n\nSchindler Formazione Professionale forma oltre 300 apprendisti in tutta la Svizzera - quindi non siete mai soli. Il nostro team si impegna ogni giorno per farti diventare un dipendente qualificato alla fine del tuo apprendistato.\n\nLa Schindler Elettronica SA, con sede a Locarno, è leader nel campo dello sviluppo e della produzione di com-ponenti elettronici per ascensori.\n\nPosto di Apprendistato Operatore*trice in automazione AFC per il 2027 a Locarno",
-        "fr": "Mobilità | dal 1874 | in tutto il mondo\n\nSchindler Formazione Professionale forma oltre 300 apprendisti in tutta la Svizzera - quindi non siete mai soli. Il nostro team si impegna ogni giorno per farti diventare un dipendente qualificato alla fine del tuo apprendistato.\n\nLa Schindler Elettronica SA, con sede a Locarno, è leader nel campo dello sviluppo e della produzione di com-ponenti elettronici per ascensori.\n\nPosto di Apprendistato Operatore*trice in automazione AFC per il 2027 a Locarno"
+        "en": "Mobility | since 1874 | worldwide\n\nSchindler Vocational Training forms over 300 apprentices across Switzerland - so you are never alone. Our team strives every day to make you a qualified employee at the end of your apprenticeship.\n\nSchindler Electronic SA, based in Locarno, is a leader in the development and production of electronic lift equipment.\n\nAFC automation operator for 2027 in Locarno",
+        "de": "Mobilität | seit 1874 | weltweit\n\nDie Schindler Berufsausbildung bildet über 300 Auszubildende in der ganzen Schweiz aus - so sind Sie nie allein. Unser Team ist täglich bestrebt, Sie am Ende Ihrer Ausbildung zum qualifizierten Mitarbeiter zu machen.\n\nSchindler Electronic SA mit Sitz in Locarno ist führend in der Entwicklung und Produktion von elektronischen Aufzugsgeräten.\n\nAFC Automation Operator für 2027 in Locarno",
+        "fr": "Mobilité à travers le monde depuis 1874\n\nLa formation professionnelle de Schindler forme plus de 300 apprentis en Suisse - vous n'êtes donc jamais seul. Notre équipe s'efforce chaque jour de faire de vous un employé qualifié à la fin de votre apprentissage.\n\nSchindler Electronic SA, basée à Locarno, est un leader dans le développement et la production d'équipement de levage électronique.\n\nOpérateur d'automatisation AFC pour 2027 à Locarno"
       },
       "location": "Locarno",
       "canton": "TI",
@@ -3431,22 +3568,30 @@
       "requirementsByLocale": {
         "it": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "en": [
-          "manager-consent-to-cookies-schindler-locarno"
+          "manager-consent-to-cookies-schindler-locarno",
+          "cookie-consent-manager-schindler-locarno"
         ],
         "de": [
           "zustimmung-des-managers-zu-cookies-schindler-locarno"
         ],
         "fr": [
           "consentement-du-gestionnaire-aux-cookies-schindler-locarno"
+        ],
+        "it": [
+          "gestore-consenso-ai-cookie-schindler-locarno-ks5982",
+          "cookie-consent-manager-schindler-locarno",
+          "gestore-consenso-ai-cookie-schindler-locarno-ks40qe"
         ]
       },
       "previousSlugs": [
         "manager-consent-to-cookies-schindler-locarno",
         "zustimmung-des-managers-zu-cookies-schindler-locarno",
-        "consentement-du-gestionnaire-aux-cookies-schindler-locarno"
+        "consentement-du-gestionnaire-aux-cookies-schindler-locarno",
+        "gestore-consenso-ai-cookie-schindler-locarno-ks5982",
+        "cookie-consent-manager-schindler-locarno",
+        "gestore-consenso-ai-cookie-schindler-locarno-ks40qe"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3679,7 +3824,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:57:49.799Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3709,15 +3853,15 @@
       "titleByLocale": {
         "de": "Manager für Cookie-Einwilligungen",
         "it": "Manager per Cookie-Einwilligungen",
-        "en": "Manager für Cookie-Einwilligungen",
-        "fr": "Manager für Cookie-Einwilligungen"
+        "en": "Manager for cookie consents",
+        "fr": "Gestionnaire pour les consentements de cookies"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage für 2027 in Winterthur",
       "descriptionByLocale": {
         "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage für 2027 in Winterthur",
-        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage für 2027 in Winterthur",
-        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage für 2027 in Winterthur",
-        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage für 2027 in Winterthur"
+        "it": "Mobility | dal 1874 | in tutto il mondo in uso\n\nLa formazione professionale di Schindler allena più di 300 studenti in tutta la Svizzera, quindi non sei mai sola. Tutto il nostro team si impegna ogni giorno per voi in modo da essere un professionista altamente qualificato alla fine del vostro apprendistato.\n\nApprendistato come produttore di impianti e apparati* in EFZ con un focus sul montaggio di ascensori per 2027 in Winterthur",
+        "en": "Mobility | since 1874 | worldwide in use\n\nSchindler Vocational Training trains more than 300 learners throughout Switzerland – so you are never alone. Our entire team is committed to you every day so that you are a highly qualified professional at the end of your apprenticeship.\n\nApprenticeship as plant and apparatus manufacturer* in EFZ with a focus on lift assembly for 2027 in Winterthur",
+        "fr": "Mobilité à travers le monde depuis 1874\n\nSchindler Formation professionnelle forme plus de 300 apprenants en Suisse – vous n'êtes donc jamais seul. Toute notre équipe s'engage pour vous tous les jours afin que vous soyez un professionnel hautement qualifié à la fin de votre apprentissage.\n\nApprentissage en tant que fabricant d'installations et d'appareils* dans EFZ avec un accent sur l'assemblage de levage pour 2027 à Winterthur"
       },
       "location": "Winterthur",
       "canton": "ZH",
@@ -3745,7 +3889,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "manager-fur-cookie-einwilligungen-schindler-winterthur"
+          "manager-fur-cookie-einwilligungen-schindler-winterthur",
+          "manager-per-cookie-einwilligungen-schindler-winterthur-kexmyn",
+          "manager-per-cookie-einwilligungen-schindler-winterthur-kewari"
         ],
         "fr": [
           "gestionnaire-pour-les-consentements-de-cookies-schindler-winterthur"
@@ -3753,9 +3899,10 @@
       },
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-winterthur",
-        "gestionnaire-pour-les-consentements-de-cookies-schindler-winterthur"
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-winterthur",
+        "manager-per-cookie-einwilligungen-schindler-winterthur-kexmyn",
+        "manager-per-cookie-einwilligungen-schindler-winterthur-kewari"
       ],
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3835,7 +3982,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:17.660Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -3908,7 +4054,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:07:08.421Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3981,7 +4126,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T23:07:47.869Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -4162,7 +4306,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:29.285Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4494,7 +4637,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:14.691Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -4711,7 +4853,6 @@
         ]
       },
       "firstSeenAt": "2026-05-30T12:18:21.218Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -4784,7 +4925,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:28.777Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5854,7 +5994,6 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:09:38.189Z",
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 102800,
       "baseSalary": {
@@ -6083,7 +6222,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:58.173Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -6159,7 +6297,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T22:18:25.358Z",
-      "needsRetranslation": true,
       "salaryMin": 44700,
       "salaryMax": 76200,
       "baseSalary": {
@@ -6238,7 +6375,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T22:18:28.542Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {

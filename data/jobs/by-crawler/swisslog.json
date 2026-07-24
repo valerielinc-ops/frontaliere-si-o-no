@@ -69,7 +69,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:41:26.497Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -306,7 +305,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:48:54.802Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -394,8 +392,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }
