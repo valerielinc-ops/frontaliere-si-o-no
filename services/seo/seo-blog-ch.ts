@@ -19557,6 +19557,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bce-mantiene-tassi-2-25': {
+    title: 'La BCE mantiene i tassi al 2,25% | Frontaliere Ticino',
+    description: 'La Banca centrale europea ha confermato i valori fissati a giugno. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mantiene, tassi, banca, centrale',
+    ogTitle: 'La BCE mantiene i tassi al 2,25%',
+    ogDescription: 'La Banca centrale europea ha confermato i valori fissati a giugno',
+    canonicalPath: '/articoli-svizzera/bce-mantiene-tassi-2-25/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La BCE mantiene i tassi al 2,25%",
+      "description": "La Banca centrale europea ha confermato i valori fissati a giugno. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bce-mantiene-tassi-2-25.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fotografia di un edificio bancario a Lugano"
+      },
+      "datePublished": "2026-07-24T18:40:35+00:00",
+      "dateModified": "2026-07-24T18:40:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bce-mantiene-tassi-2-25/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-disoccupazione-svizzera': {
+    title: 'La Svizzera non paga disoccupazione ai frontalieri. Un miliardo di franchi in discussione',
+    description: 'La Svizzera non pagherà la disoccupazione ai frontalieri, secondo la Lega dei Ticinesi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, paga, disoccupazione, miliardo, franchi',
+    ogTitle: 'Frontalieri: la Svizzera non pagherà la disoccupazione',
+    ogDescription: 'La Svizzera non pagherà la disoccupazione ai frontalieri, secondo la Lega dei Ticinesi.',
+    canonicalPath: '/articoli-svizzera/frontalieri-disoccupazione-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Svizzera non paga disoccupazione ai frontalieri. Un miliardo di franchi in discussione",
+      "description": "La Svizzera non pagherà la disoccupazione ai frontalieri, secondo la Lega dei Ticinesi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-disoccupazione-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un gruppo di frontaliere che lavorano in Svizzera, a Lugano"
+      },
+      "datePublished": "2026-07-24T19:03:05+00:00",
+      "dateModified": "2026-07-24T19:03:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-disoccupazione-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

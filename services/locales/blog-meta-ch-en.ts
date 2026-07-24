@@ -1513,6 +1513,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.temu-skv-collaborazione.title': 'Temu and SKV: promoting Swiss SMEs\' access to the online market',
     'blog.article.temu-skv-collaborazione.excerpt': 'The Chinese online commerce platform Temu and the Swiss Association of SMEs (SKV) have decided to undertake a collaboration to promote Swiss companies\' access to online commerce.',
     'blog.article.temu-skv-collaborazione.imageAlt': 'Lugano view with lake and city',
+    'blog.article.bce-mantiene-tassi-2-25.title': 'ECB keeps rates at 2.25%',
+    'blog.article.bce-mantiene-tassi-2-25.excerpt': 'The European Central Bank has confirmed the values set in June',
+    'blog.article.bce-mantiene-tassi-2-25.imageAlt': 'Photograph of a bank building in Lugano',
+    'blog.article.frontalieri-disoccupazione-svizzera.title': 'Switzerland doesn\'t pay unemployment benefits',
+    'blog.article.frontalieri-disoccupazione-svizzera.excerpt': 'Switzerland will not pay unemployment to frontier workers, according to the Ticino League',
+    'blog.article.frontalieri-disoccupazione-svizzera.imageAlt': 'A group of cross-border workers in Switzerland, Lugano',
 };
 
 export default blogMetaChEn;

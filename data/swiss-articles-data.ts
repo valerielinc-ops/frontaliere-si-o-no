@@ -4535,6 +4535,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'bce-mantiene-tassi-2-25',
+    category: 'fiscale',
+    date: '2026-07-24T18:40:35.094Z',
+    image: '/images/blog/bce-mantiene-tassi-2-25.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'frontalieri-disoccupazione-svizzera',
+    category: 'fiscale',
+    date: '2026-07-24T19:03:05.762Z',
+    image: '/images/blog/frontalieri-disoccupazione-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
