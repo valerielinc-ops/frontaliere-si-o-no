@@ -8915,6 +8915,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trip-progetto-treni-retici-in-progress.title': 'TRIP: sviluppo mobilità tra Lombardia e Grigioni',
     'blog.article.trip-progetto-treni-retici-in-progress.excerpt': 'Il progetto TRIP mira a sviluppare la mobilità tra Lombardia e Grigioni.',
     'blog.article.trip-progetto-treni-retici-in-progress.imageAlt': 'Un treno ferroviario transfrontaliero in movimento attraverso le Alpi.',
+    'blog.article.frontaliere-elettricista-ticino-stipendio-requisiti.title': 'Frontaliere elettricista in Ticino: stipendio medio, requisiti e permesso G',
+    'blog.article.frontaliere-elettricista-ticino-stipendio-requisiti.excerpt': 'Scopri i requisiti e il permesso G necessari per lavorare come elettricista in Ticino da frontaliere.',
+    'blog.article.frontaliere-elettricista-ticino-stipendio-requisiti.imageAlt': 'Una panoramica del lago di Lugano con la città di Lugano in primo piano.',
 };
 
 export default blogMetaIt;
