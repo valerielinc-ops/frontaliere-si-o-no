@@ -8917,6 +8917,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-elettricista-ticino-stipendio-requisiti.title': 'Frontier electrician in Ticino: average salary, requirements and G permit',
     'blog.article.frontaliere-elettricista-ticino-stipendio-requisiti.excerpt': 'Find out the requirements and the G permit needed to work as an electrician in Ticino as a border worker.',
     'blog.article.frontaliere-elettricista-ticino-stipendio-requisiti.imageAlt': 'A view of Lake Lugano with the city of Lugano in the foreground.',
+    'blog.article.locarno-giovani-assistenza-sociale.title': 'Locarno: young people and assistance, questioning at the Town Hall',
+    'blog.article.locarno-giovani-assistenza-sociale.excerpt': 'Increase in requests for assistance among young people in Locarno: a cross-cutting group of councillors calls for new strategies for job reintegration.',
+    'blog.article.locarno-giovani-assistenza-sociale.imageAlt': 'Locarno town hall, center of the social assistance debate.',
 };
 
 export default blogMetaEn;

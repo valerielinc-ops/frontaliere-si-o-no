@@ -8918,6 +8918,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-elettricista-ticino-stipendio-requisiti.title': 'Frontaliere elettricista in Ticino: stipendio medio, requisiti e permesso G',
     'blog.article.frontaliere-elettricista-ticino-stipendio-requisiti.excerpt': 'Scopri i requisiti e il permesso G necessari per lavorare come elettricista in Ticino da frontaliere.',
     'blog.article.frontaliere-elettricista-ticino-stipendio-requisiti.imageAlt': 'Una panoramica del lago di Lugano con la città di Lugano in primo piano.',
+    'blog.article.locarno-giovani-assistenza-sociale.title': 'Locarno: giovani e assistenza, interrogazione al Municipio',
+    'blog.article.locarno-giovani-assistenza-sociale.excerpt': 'Aumento delle richieste di assistenza tra i giovani a Locarno: un gruppo trasversale di consiglieri chiede nuove strategie per il reinserimento lavorativo.',
+    'blog.article.locarno-giovani-assistenza-sociale.imageAlt': 'Municipio di Locarno, sede delle discussioni sull\'assistenza sociale.',
 };
 
 export default blogMetaIt;

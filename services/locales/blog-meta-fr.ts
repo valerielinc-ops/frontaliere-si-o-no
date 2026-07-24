@@ -8919,6 +8919,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-elettricista-ticino-stipendio-requisiti.title': 'Frontière électricien au Tessin : salaire moyen, exigences et permis G',
     'blog.article.frontaliere-elettricista-ticino-stipendio-requisiti.excerpt': 'Découvrez les exigences et le permis G nécessaires pour travailler comme électricien au Tessin en tant que frontalier.',
     'blog.article.frontaliere-elettricista-ticino-stipendio-requisiti.imageAlt': 'Une vue du lac de Lugano avec la ville de Lugano en arrière-plan.',
+    'blog.article.locarno-giovani-assistenza-sociale.title': 'Locarno : jeunes et assistance, question à la Mairie',
+    'blog.article.locarno-giovani-assistenza-sociale.excerpt': 'Augmentation des demandes d\'assistance chez les jeunes à Locarno : un groupe transversal de conseillers demande de nouvelles stratégies pour la réinsertion professionnelle.',
+    'blog.article.locarno-giovani-assistenza-sociale.imageAlt': 'Hôtel de ville de Locarno, au cœur du débat sur l\'aide sociale.',
 };
 
 export default blogMetaFr;
