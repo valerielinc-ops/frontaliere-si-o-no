@@ -50,6 +50,9 @@ export function detectJobTitleLocaleDetails(title = '', fallback = 'it') {
     return { lang: fallback, confidence: 0, method: 'empty', scores: {} };
   }
 
+  const wordScores = Object.fromEntries(
+    DEFAULT_JOB_LOCALES.map((locale) => [locale, 0])
+  );
   const scores = Object.fromEntries(
     DEFAULT_JOB_LOCALES.map((locale) => [locale, 0])
   );
@@ -57,8 +60,9 @@ export function detectJobTitleLocaleDetails(title = '', fallback = 'it') {
   for (const locale of DEFAULT_JOB_LOCALES) {
     const rules = TITLE_HINTS[locale] || [];
     for (const rule of rules) {
-      scores[locale] += countMatches(clean, rule) * 2;
+      wordScores[locale] += countMatches(clean, rule) * 2;
     }
+    scores[locale] = wordScores[locale];
     if (TITLE_CHAR_HINTS[locale]?.test(clean)) {
       scores[locale] += 2;
     }
@@ -68,11 +72,16 @@ export function detectJobTitleLocaleDetails(title = '', fallback = 'it') {
   const [bestLocale = fallback, bestScore = 0] = ranked[0] || [];
   const secondScore = ranked[1]?.[1] || 0;
   const detected = detectTextLocale(clean, fallback);
+  // A bare diacritic (e.g. the 'ü' in a "Zürich" place name embedded in an
+  // otherwise-correctly-translated title) must not alone be enough to declare
+  // the whole title untranslated — require at least one dictionary word-hint
+  // match before trusting the confident tiers below.
+  const bestHasWordSupport = (wordScores[bestLocale] || 0) > 0;
 
-  if (bestScore >= 3 && bestScore >= secondScore + 2) {
+  if (bestHasWordSupport && bestScore >= 3 && bestScore >= secondScore + 2) {
     return { lang: bestLocale, confidence: 0.85, method: 'title-hints-strong', scores };
   }
-  if (bestScore >= 2 && bestScore > secondScore) {
+  if (bestHasWordSupport && bestScore >= 2 && bestScore > secondScore) {
     return { lang: bestLocale, confidence: 0.7, method: 'title-hints', scores };
   }
   if (detected.confidence >= 0.4) {
@@ -82,7 +91,7 @@ export function detectJobTitleLocaleDetails(title = '', fallback = 'it') {
     return {
       lang: bestLocale,
       confidence: Math.min(0.55, 0.35 + bestScore * 0.05),
-      method: 'title-hints-soft',
+      method: bestHasWordSupport ? 'title-hints-soft' : 'char-hint-only',
       scores,
     };
   }

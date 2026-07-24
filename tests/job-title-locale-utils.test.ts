@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { detectJobTitleLang, detectJobTitleLocaleDetails, pinnedTitleSourceLang } from '../scripts/lib/job-locale-utils.mjs';
+import { detectJobTitleLang, detectJobTitleLocaleDetails, pinnedTitleSourceLang, titleLooksUntranslatedFromSource } from '../scripts/lib/job-locale-utils.mjs';
 
 describe('job title locale utils', () => {
   it('detects english titles even when the description source is different', () => {
@@ -16,6 +16,40 @@ describe('job title locale utils', () => {
     const detected = detectJobTitleLocaleDetails('Technicien Qualité (80-100%)', 'en');
     expect(detected.lang).toBe('fr');
     expect(detected.confidence).toBeGreaterThanOrEqual(0.55);
+  });
+});
+
+describe('titleLooksUntranslatedFromSource (generic leftover-source-language check)', () => {
+  it('flags DE-source titles left untranslated in the IT slot (klinik-lengg.json)', () => {
+    expect(titleLooksUntranslatedFromSource(
+      'Fachfrau / Fachmann Gesundheit Neurorehabilitation (a) im Früh- e Spätdienst', 'de', 'it'
+    )).toBe(true);
+  });
+
+  it('does not flag same-locale or empty input', () => {
+    expect(titleLooksUntranslatedFromSource('Infermiere', 'it', 'it')).toBe(false);
+    expect(titleLooksUntranslatedFromSource('', 'de', 'it')).toBe(false);
+  });
+
+  // Regression (PR #4728 review): a correctly-translated title carrying a German
+  // place name (e.g. "Zürich") must not be flagged as untranslated. The bare 'ü'
+  // diacritic alone triggered TITLE_CHAR_HINTS.de with no actual German word-hint
+  // match — detectJobTitleLocaleDetails now requires word-hint support before
+  // granting the confident tiers, so a toponym alone can no longer cross the bar.
+  it('does not flag an already-translated title that only contains a german toponym', () => {
+    // real production record: data/jobs/by-crawler/banca-cler.json, job company-fje5to
+    const detected = detectJobTitleLocaleDetails('Consulente clienti Individual Zürich (f/m) 80 - 100 %', 'it');
+    expect(detected.method).toBe('char-hint-only');
+    expect(detected.confidence).toBeLessThan(0.55);
+    expect(titleLooksUntranslatedFromSource(
+      'Consulente clienti Individual Zürich (f/m) 80 - 100 %', 'de', 'it'
+    )).toBe(false);
+    expect(titleLooksUntranslatedFromSource(
+      'Customer consultant Individual Zürich (f/m) 80 - 100 %', 'de', 'en'
+    )).toBe(false);
+    expect(titleLooksUntranslatedFromSource(
+      'Consultant client Zürich individuel (f/m) 80 - 100 %', 'de', 'fr'
+    )).toBe(false);
   });
 });
 
