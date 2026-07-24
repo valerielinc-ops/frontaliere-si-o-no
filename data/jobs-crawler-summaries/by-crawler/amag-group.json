@@ -1,19 +1,51 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-07-24T11:32:23.786Z",
+  "generatedAt": "2026-07-24T22:14:58.275Z",
   "total": 1,
-  "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 5050,
-  "avgDurationMs": 5050,
+  "durationMs": 5001,
+  "avgDurationMs": 5001,
   "durationHistory": [
-    5050
+    5001
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
+    {
+      "title": "Meccatronico di automobili VL (m/f) - 100%",
+      "slug": "meccatronico-di-automobili-vl-m-f-100",
+      "url": "https://jobs.amag-group.ch/Meccatronico-di-automobili-VL-mf-100-it-j23373.html",
+      "applyUrl": "https://jobs.amag-group.ch/Meccatronico-di-automobili-VL-mf-100-it-f23373.html",
+      "company": "AMAG Group",
+      "companyKey": "amag-group",
+      "companyDomain": "amag-group.ch",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "automotive",
+      "sector": "Automotive & Mobilità",
+      "source": "amag-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-07-24",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-09-30",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "title": "Carrozziere verniciatore (m/f) - Contratto determinato - 100%",
       "slug": "carrozziere-verniciatore-m-f-contratto-determinato-100",
@@ -50,6 +82,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
