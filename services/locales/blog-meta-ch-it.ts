@@ -1504,6 +1504,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.trippa-futuri-mobilita-italia-grigioni.title': 'La mobilità alpina si proietta verso scenari futuri: il progetto TRIP',
     'blog.article.trippa-futuri-mobilita-italia-grigioni.excerpt': 'Il progetto TRIP mira a sviluppare la mobilità tra Lombardia e Grigioni. Sviluppo della rete ferroviaria e intermodale attraverso un dialogo transfrontaliero strutturato.',
     'blog.article.trippa-futuri-mobilita-italia-grigioni.imageAlt': 'Un treno si muove lungo le montagne svizzere, con un lago in primo piano.',
+    'blog.article.frontaliereriformaue.title': 'Riforma Ue sui frontalieri disoccupati, per la Svizzera costi fino a un miliardo',
+    'blog.article.frontaliereriformaue.excerpt': 'L\'Unione europea ha approvato una riforma per i frontalieri disoccupati, che potrebbe costare alla Svizzera fino a un miliardo di franchi l\'anno.',
+    'blog.article.frontaliereriformaue.imageAlt': 'Una scena della vita di un frontaliere in Svizzera, con una vista sul lago di Lugano.',
 };
 
 export default blogMetaChIt;
