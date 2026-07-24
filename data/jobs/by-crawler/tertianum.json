@@ -4584,9 +4584,9 @@
     },
     {
       "id": "tertianum-cbf0c16e13d0",
-      "slug": "kochin-koch-efz-80-100-tertianum-zollikerberg",
+      "slug": "cuoco-cuoca-efz-80-100-tertianum-zollikerberg",
       "slugByLocale": {
-        "it": "kochin-koch-efz-80-100-tertianum-zollikerberg",
+        "it": "cuoco-cuoca-efz-80-100-tertianum-zollikerberg",
         "en": "chef-chef-efz-80-100-tertianum-zollikerberg",
         "de": "kochin-koch-efz-80-100-tertianum-zollikerberg",
         "fr": "chef-chef-efz-80-100-tertianum-zollikerberg"
@@ -4642,7 +4642,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-efz-80-100-tertianum-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-efz-80-100-tertianum-zollikerberg"
+      ]
     },
     {
       "id": "tertianum-8a63db455abc",
