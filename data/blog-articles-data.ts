@@ -26810,6 +26810,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'strada-maria-teresa-roveredo-recupero',
+ category: 'novita',
+ date: '2026-07-24T18:26:00.098Z',
+ image: '/images/blog/strada-maria-teresa-roveredo-recupero.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
