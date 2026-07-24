@@ -30,7 +30,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -408,7 +408,7 @@ export async function fetchAllStadlerRailJobs() {
       detail?.addressLocality || listing.slugCity || HQ_CITY;
     const canton =
       inferSwissTargetCanton(location) ||
-      (listing.canton && /^[A-Z]{2}$/.test(listing.canton) ? listing.canton : null) ||
+      normalizeCantonCode(listing.canton || '') ||
       inferSwissTargetCanton(detail?.addressRegion || '') ||
       HQ_CANTON;
     const postalCode = detail?.postalCode || listing.postalCode || HQ_POSTAL;

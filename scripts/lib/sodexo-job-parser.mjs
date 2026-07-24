@@ -37,6 +37,7 @@ import {
   normalizeSpace,
   htmlToText,
 } from './hospital-custom-html-helpers.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 export const SODEXO_KEY = 'sodexo';
 export const SODEXO_COMPANY_NAME = 'Sodexo (Suisse) SA';
@@ -58,45 +59,14 @@ const HQ = {
   streetAddress: 'Wallisellenstrasse 55',
 };
 
-// Map Sodexo client-site city → Swiss canton. Concludis JSON-LD only gives
-// `addressLocality` + `postalCode`, not the canton, so we infer it from the
-// city name (same pattern as pallas-kliniken-job-parser.mjs / other
-// multi-site dedicated crawlers).
-const CITY_TO_CANTON = {
-  'Baar': 'ZG',
-  'Oberdorf': 'BL',
-  'Lengnau BE': 'BE',
-  'Lengnau': 'BE',
-  'Buchs': 'SG',
-  'Luzern': 'LU',
-  'Zürich': 'ZH',
-  'Zurich': 'ZH',
-  'Zürich Flughafen': 'ZH',
-  'Glattbrugg': 'ZH',
-  'Schaffhausen': 'SH',
-  'Winkeln SG': 'SG',
-  'Winkeln': 'SG',
-  'Dagmersellen': 'LU',
-  'Basel': 'BS',
-  'Bern': 'BE',
-  'Genève': 'GE',
-  'Geneva': 'GE',
-  'Lausanne': 'VD',
-  'Sion': 'VS',
-  'Lugano': 'TI',
-  'Bellinzona': 'TI',
-  'Chur': 'GR',
-  'St. Gallen': 'SG',
-  'Winterthur': 'ZH',
-  'Biel': 'BE',
-  'Bienne': 'BE',
-  'Fribourg': 'FR',
-  'Freiburg': 'FR',
-  'Neuchâtel': 'NE',
-  'Aarau': 'AG',
-  'Solothurn': 'SO',
-  'Zug': 'ZG',
-};
+// Sodexo client-site city → Swiss canton is inferred via the shared
+// BFS-backed `inferAnyCanton` (all 26 cantons, fuzzy-tolerant) in
+// `pickCanton` below — Concludis JSON-LD only gives `addressLocality` +
+// `postalCode`, not the canton. A hand-rolled ~30-city dict previously lived
+// here; it silently fell back to HQ.canton for every city not in the list
+// (AGENTS.md #6 sibling class shared with pallas-kliniken/hirslanden/ikea).
+// Postal-code overrides for genuinely cross-canton-ambiguous towns (below)
+// still take priority, since bare text inference can't disambiguate those.
 
 export function isSodexoJob(job) {
   const url = String(job?.url || '').toLowerCase();
@@ -233,12 +203,7 @@ function pickCanton(addressLocality, postalCode = '') {
     return POSTAL_CODE_CANTON_OVERRIDES[postalCode];
   }
   if (!addressLocality) return HQ.canton;
-  const direct = CITY_TO_CANTON[addressLocality];
-  if (direct) return direct;
-  for (const [k, v] of Object.entries(CITY_TO_CANTON)) {
-    if (addressLocality.toLowerCase().includes(k.toLowerCase())) return v;
-  }
-  return HQ.canton;
+  return inferAnyCanton(addressLocality) || HQ.canton;
 }
 
 export async function fetchAllSodexoJobs() {

@@ -28,6 +28,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 export const PALLAS_KLINIKEN_KEY = 'pallas-kliniken';
 export const PALLAS_KLINIKEN_COMPANY_NAME = 'Pallas Kliniken';
@@ -46,43 +47,11 @@ const HQ = {
   streetAddress: 'Louis Giroud-Strasse 20',
 };
 
-// Map Pallas site names → Swiss canton (where the JSON-LD jobLocation address
-// uses `addressCountry: 'Schweiz'` and we infer the canton from the city).
-const CITY_TO_CANTON = {
-  Olten: 'SO',
-  Bern: 'BE',
-  Basel: 'BS',
-  'Zürich': 'ZH',
-  Zurich: 'ZH',
-  Solothurn: 'SO',
-  Aarau: 'AG',
-  Baden: 'AG',
-  Brugg: 'AG',
-  Grenchen: 'SO',
-  Langenthal: 'BE',
-  Biel: 'BE',
-  Bienne: 'BE',
-  'Bern Wankdorf': 'BE',
-  Winterthur: 'ZH',
-  Luzern: 'LU',
-  'St. Gallen': 'SG',
-  'Schaffhausen': 'SH',
-  Wohlen: 'AG',
-  Lenzburg: 'AG',
-  Rheinfelden: 'AG',
-  Wettingen: 'AG',
-  Frauenfeld: 'TG',
-  Bellinzona: 'TI',
-  Lugano: 'TI',
-  Locarno: 'TI',
-  Sion: 'VS',
-  Lausanne: 'VD',
-  Vevey: 'VD',
-  Yverdon: 'VD',
-  Geneva: 'GE',
-  'Genève': 'GE',
-  Chur: 'GR',
-};
+// Pallas site names → Swiss canton is inferred via the shared BFS-backed
+// `inferAnyCanton` (all 26 cantons, fuzzy-tolerant) — see `pickCanton` below.
+// A hand-rolled ~30-city dict previously lived here; it silently fell back to
+// HQ.canton (SO) for every Pallas site not in the list (AGENTS.md #6 sibling
+// class shared with hirslanden/ikea/jobsSeoPagesPlugin fixes).
 
 export function isPallasKlinikenJob(job) {
   const url = String(job?.url || '').toLowerCase();
@@ -160,12 +129,7 @@ function mapEmploymentTypeLd(value, fallbackText) {
 
 function pickCanton(addressLocality) {
   if (!addressLocality) return HQ.canton;
-  const direct = CITY_TO_CANTON[addressLocality];
-  if (direct) return direct;
-  for (const [k, v] of Object.entries(CITY_TO_CANTON)) {
-    if (addressLocality.toLowerCase().includes(k.toLowerCase())) return v;
-  }
-  return HQ.canton;
+  return inferAnyCanton(addressLocality) || HQ.canton;
 }
 
 export async function fetchAllPallasKlinikenJobs() {

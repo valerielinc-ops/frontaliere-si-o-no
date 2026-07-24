@@ -99,12 +99,16 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
     //   not a dist-walking post-deploy gate.
     // - `audit:active-jobs-regression` is a pre-build data gate in deploy.yml.
     // - `audit:all` IS the wrapper itself; reachability check would be circular.
+    // - `audit:job-locations` runs on its own separate weekly workflow
+    //   (location-quality-audit.yml) — report-only monitoring, not a
+    //   deploy-blocking dist gate (same pattern as audit:title-uniqueness).
     const GATES_NOT_IN_DIST_PARALLEL = new Set([
       'audit:title-uniqueness',
       'audit:dist-multi',
       'audit:parser-quality',
       'audit:no-merge-markers',
       'audit:active-jobs-regression',
+      'audit:job-locations',
       'audit:all',
     ]);
     const allAuditScripts = Object.keys(PACKAGE_JSON.scripts || {}).filter((k) => {

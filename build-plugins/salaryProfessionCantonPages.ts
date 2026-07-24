@@ -36,6 +36,7 @@ import { buildDayStampIso } from './shared/buildDayStamp';
 import { cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { CALC_HREF } from './shared/calcHref';
 import { getCantonDisplayName, type CantonDisplayLocale } from './shared/cantonDisplay';
+import { normalizeCantonCode } from '../scripts/lib/target-swiss-locations.mjs';
 import {
   renderCantonSeoProse,
   buildCantonSeoProseFaqItems,
@@ -411,7 +412,7 @@ function featuredToJobInput(job: FeaturedJob) {
 
 /** Canonical detail-page URL for a featured job in the target locale. */
 function jobDetailUrl(job: FeaturedJob, locale: ProfessionLocale, cantonKey: string): string {
-  const code = job.canton && /^[A-Z]{2}$/.test(job.canton) ? job.canton : factorCode(cantonKey);
+  const code = normalizeCantonCode(job.canton) || factorCode(cantonKey);
   const section = resolveCantonSection(locale as CantonSeoLocale, code);
   const slug = job.slugByLocale[locale] ?? job.slug;
   const rel = `${PROFESSION_LOCALE_PREFIX[locale]}/${section}/${slug}/`.replace(/\/+/g, '/');

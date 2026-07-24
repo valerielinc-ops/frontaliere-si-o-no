@@ -29,6 +29,8 @@
  * description — everything needed to build a job record.
  */
 
+import { normalizeCantonCode, inferAnyCanton } from './target-swiss-locations.mjs';
+
 export const MCDO_KEY = 'mcdonald-s-switzerland';
 export const COMPANY_NAME = "McDonald's Switzerland";
 export const COMPANY_DOMAIN = 'mcdonalds.ch';
@@ -39,20 +41,6 @@ const LOCALE_PREFERENCE = ['de-ch', 'en', 'fr-ch', 'it-ch'];
 
 const DEFAULT_UA = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
-
-// Swiss canton name → 2-letter abbreviation fallback, in case a jobLocation
-// ever ships a full canton name instead of `addressRegion` abbreviation.
-const CANTON_NAME_TO_ABBR = {
-  zurich: 'ZH', bern: 'BE', berne: 'BE', luzern: 'LU', lucerne: 'LU', uri: 'UR',
-  schwyz: 'SZ', obwalden: 'OW', nidwalden: 'NW', glarus: 'GL', zug: 'ZG',
-  fribourg: 'FR', freiburg: 'FR', solothurn: 'SO', 'basel-stadt': 'BS',
-  'basel-landschaft': 'BL', schaffhausen: 'SH', 'appenzell ausserrhoden': 'AR',
-  'appenzell innerrhoden': 'AI', 'st. gallen': 'SG', 'st gallen': 'SG',
-  graubunden: 'GR', graubünden: 'GR', grigioni: 'GR', aargau: 'AG',
-  thurgau: 'TG', ticino: 'TI', vaud: 'VD', valais: 'VS', wallis: 'VS',
-  neuchatel: 'NE', neuchâtel: 'NE', geneve: 'GE', genève: 'GE', geneva: 'GE',
-  jura: 'JU',
-};
 
 /* ── Text helpers ─────────────────────────────────────────────── */
 
@@ -89,10 +77,9 @@ export function slugify(value = '') {
 }
 
 export function inferCanton(addressRegion = '', city = '') {
-  const region = String(addressRegion || '').trim();
-  if (/^[A-Z]{2}$/.test(region)) return region;
-  const byName = CANTON_NAME_TO_ABBR[String(region || city || '').trim().toLowerCase()];
-  return byName || '';
+  const explicit = normalizeCantonCode(String(addressRegion || ''));
+  if (explicit) return explicit;
+  return inferAnyCanton(String(city || addressRegion || ''));
 }
 
 /**

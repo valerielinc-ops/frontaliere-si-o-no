@@ -29,6 +29,7 @@ import {
 } from './hospital-custom-html-helpers.mjs';
 import { isDetailContentValid } from './umantis-listing-common.mjs';
 import { parseOnlyfyListing } from './onlyfy-listing-common.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 export const VITREA_GESUNDHEIT_KEY = 'vitrea-gesundheit';
 export const VITREA_GESUNDHEIT_COMPANY_NAME = 'Vitrea Gesundheit';
@@ -87,17 +88,13 @@ async function fetchDetailContent(url) {
 }
 
 function inferCantonFromLocation(loc) {
+  // "Seewis" (Vitrea HQ Rehaklinik) isn't a BFS-registered municipality alias
+  // inferAnyCanton recognizes, so it's kept as an explicit signal ahead of
+  // the shared BFS-backed resolver (all 26 cantons, fuzzy-tolerant) — see
+  // AGENTS.md #6 sibling class shared with pallas-kliniken/sodexo/mcdonalds.
   const l = String(loc).toLowerCase();
-  if (/seewis|davos|chur|graubünden|grigioni/.test(l)) return 'GR';
-  if (/zürich|zurich/.test(l)) return 'ZH';
-  if (/bern\b|berne/.test(l)) return 'BE';
-  if (/luzern|lucerne/.test(l)) return 'LU';
-  if (/basel|basilea/.test(l)) return 'BS';
-  if (/aargau|argovia/.test(l)) return 'AG';
-  if (/wallis|valais/.test(l)) return 'VS';
-  if (/tessin|ticino/.test(l)) return 'TI';
-  if (/sankt|st\.\s*gallen|san gallo/.test(l)) return 'SG';
-  return 'GR'; // Vitrea HQ Rehaklinik Seewis is GR
+  if (/seewis/.test(l)) return 'GR';
+  return inferAnyCanton(l) || 'GR'; // Vitrea HQ Rehaklinik Seewis is GR
 }
 
 export async function fetchAllVitreaGesundheitJobs() {

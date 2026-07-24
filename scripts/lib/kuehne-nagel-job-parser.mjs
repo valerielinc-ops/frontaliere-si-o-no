@@ -31,7 +31,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, fetchJson } from './crawler-template.mjs';
 import { fetchWithRetry } from './transient-fetch.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -345,7 +345,7 @@ export async function fetchAllKuehneNagelJobs() {
     // Non-Negotiable #3). Absent location text entirely still defaults to HQ.
     const realCityText = normalizeSpace(stub.city || detail.addressLocality || '');
     const rawLocationText = normalizeSpace(stub.location || '');
-    const directCantonCode = detail.cantonCode && detail.cantonCode.length === 2 ? detail.cantonCode : '';
+    const directCantonCode = normalizeCantonCode(detail.cantonCode);
     const inferredCanton =
       directCantonCode || inferSwissTargetCanton(realCityText) || inferSwissTargetCanton(rawLocationText);
     if (!directCantonCode && (realCityText || rawLocationText) && !inferredCanton) {

@@ -13,6 +13,8 @@
  * CLAUDE.md rule #3).
  */
 
+import { inferAnyCanton } from '../../scripts/lib/target-swiss-locations.mjs';
+
 export interface CompanyHqAddress {
   streetAddress: string;
   postalCode: string;
@@ -147,67 +149,24 @@ export const CANTON_CAPITAL_ADDRESSES: Record<string, CompanyHqAddress> = {
 };
 
 /**
- * City name (lowercased, diacritics-tolerant) → Swiss canton code.
- * Used to derive `jobLocation.address.addressRegion` when the job's source
- * data lacks an explicit canton. Required by Google Search Console for
- * JobPosting rich-result quality (missing addressRegion is a non-critical
- * issue but counted in the GSC report — we treat it as deploy-blocking).
- */
-export const CITY_TO_CANTON: Record<string, string> = {
-  // Ticino
-  'lugano': 'TI', 'bellinzona': 'TI', 'locarno': 'TI', 'mendrisio': 'TI', 'chiasso': 'TI',
-  'biasca': 'TI', 'agno': 'TI', 'manno': 'TI', 'stabio': 'TI', 'giubiasco': 'TI',
-  'ascona': 'TI', 'paradiso': 'TI', 'massagno': 'TI', 'cadenazzo': 'TI', 'mezzovico': 'TI',
-  'balerna': 'TI', 'bedano': 'TI', 'airolo': 'TI', 'faido': 'TI', 'rivera': 'TI',
-  'castione': 'TI', 'arbedo': 'TI', 'pregassona': 'TI', 'montagnola': 'TI', 'castel san pietro': 'TI',
-  'quartino': 'TI', 's. antonino': 'TI', 'sant antonino': 'TI', 'ticino': 'TI',
-  // Graubünden
-  'chur': 'GR', 'coira': 'GR', 'davos': 'GR', 'st. moritz': 'GR', 'landquart': 'GR',
-  'ilanz': 'GR', 'thusis': 'GR', 'poschiavo': 'GR', 'samedan': 'GR',
-  // Major Swiss cities
-  'zürich': 'ZH', 'zurich': 'ZH', 'zurigo': 'ZH', 'winterthur': 'ZH', 'kloten': 'ZH',
-  'dübendorf': 'ZH', 'dietlikon': 'ZH',
-  'bern': 'BE', 'berna': 'BE', 'thun': 'BE', 'interlaken': 'BE',
-  'basel': 'BS', 'basilea': 'BS',
-  'genève': 'GE', 'ginevra': 'GE', 'genf': 'GE', 'geneva': 'GE', 'plan-les-ouates': 'GE',
-  'lausanne': 'VD', 'losanna': 'VD',
-  'luzern': 'LU', 'lucerna': 'LU', 'lucerne': 'LU',
-  'st. gallen': 'SG', 'san gallo': 'SG', 'gossau': 'SG', 'niederbüren': 'SG',
-  'aarau': 'AG', 'baden': 'AG', 'lenzburg': 'AG',
-  'fribourg': 'FR', 'friburgo': 'FR',
-  'neuchâtel': 'NE',
-  'zug': 'ZG',
-  'schaffhausen': 'SH',
-  'solothurn': 'SO', 'olten': 'SO',
-  'frauenfeld': 'TG',
-  'sion': 'VS', 'brig': 'VS', 'visp': 'VS', 'sierre': 'VS', 'martigny': 'VS',
-};
-
-/**
  * Default Swiss canton when no other signal is available. Site is
  * Ticino-focused, so falling back to TI keeps the structured-data legal.
  */
 export const DEFAULT_CANTON_REGION = 'TI';
 
 /**
- * Derive canton (addressRegion) from a city name. Returns `DEFAULT_CANTON_REGION`
- * when the city is unknown — never returns empty.
+ * Derive canton (addressRegion) from a city name via the shared BFS-backed
+ * `inferAnyCanton` (all 26 cantons, fuzzy-tolerant — same source of truth as
+ * `resolveCanton()` in jobPostingSchema.ts and `deriveJobCanton()` in
+ * jobsSeoPagesPlugin.ts). Returns `DEFAULT_CANTON_REGION` when the city is
+ * unknown — never returns empty. A hand-rolled ~50-city dict + manual
+ * parenthetical/segment splitter previously lived here (AGENTS.md #6 sibling
+ * class); `inferAnyCanton` already handles decorated localities like
+ * "Geneva (Genève)" or "Chur, Graubünden" natively.
  */
 export function deriveCantonFromCity(city: string | undefined | null): string {
   if (!city) return DEFAULT_CANTON_REGION;
-  const raw = String(city).trim().toLowerCase();
-  if (CITY_TO_CANTON[raw]) return CITY_TO_CANTON[raw];
-  // Tolerate decorated localities like "Geneva (Genève)" or "Chur, Graubünden"
-  // by probing the bare name and any parenthetical/segment variant.
-  const candidates = new Set<string>();
-  const paren = raw.match(/\(([^)]+)\)/);
-  if (paren) candidates.add(paren[1].trim());
-  candidates.add(raw.replace(/\([^)]*\)/g, '').trim());
-  for (const segment of raw.split(/[,·/]/)) candidates.add(segment.trim());
-  for (const candidate of candidates) {
-    if (candidate && CITY_TO_CANTON[candidate]) return CITY_TO_CANTON[candidate];
-  }
-  return DEFAULT_CANTON_REGION;
+  return inferAnyCanton(String(city)) || DEFAULT_CANTON_REGION;
 }
 
 /**
@@ -264,12 +223,19 @@ export function regionLocalityCapital(city: string | undefined | null): CompanyH
  * Lookup a fallback HQ address by company slug, then by city name, with a
  * final canton-capital guarantee. Always returns a fully populated address —
  * never returns empty strings (CLAUDE.md rule #3).
+ *
+ * `authoritativeRegion`, when passed, overrides the city-derived canton —
+ * callers that already resolved a trustworthy canton (e.g. from an explicit
+ * addressRegion field) should pass it so this fallback stays consistent with
+ * that canton instead of re-deriving one from `city` (which may be empty or
+ * have just been rejected as inconsistent by the caller).
  */
 export function resolveFallbackAddress(
   companySlug: string | undefined,
   city: string | undefined,
+  authoritativeRegion?: string,
 ): CompanyHqAddress {
-  const cityCanton = deriveCantonFromCity(city);
+  const cityCanton = authoritativeRegion || deriveCantonFromCity(city);
   if (companySlug) {
     const hq = COMPANY_HQ_ADDRESSES[companySlug.toLowerCase()];
     // Only trust the curated HQ when the job has no own city or sits in the

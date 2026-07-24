@@ -34,6 +34,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
+import { normalizeCantonCode } from './target-swiss-locations.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -114,7 +115,10 @@ export function parseJobLocation(html) {
   if (!rawCity) return null;
   const known = KNOWN_LOCATIONS[stripDiacritics(rawCity).toLowerCase()];
   if (known) return known;
-  const cantonFromSpan = m[2] ? m[2].toUpperCase() : '';
+  // Validate against the real 26-canton registry — a well-formed-but-wrong
+  // 2-letter code in the span must not be trusted verbatim (AGENTS.md #6
+  // sibling class shared with pallas-kliniken/sodexo/mcdonalds/vitrea).
+  const cantonFromSpan = normalizeCantonCode(m[2] || '');
   if (cantonFromSpan) return { city: rawCity, canton: cantonFromSpan, postalCode: DEFAULT_POSTAL_CODE };
   return null;
 }

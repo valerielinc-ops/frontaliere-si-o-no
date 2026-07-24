@@ -32,6 +32,11 @@ import {
   resolveFallbackAddress,
 } from './companyHqAddresses';
 import {
+  isKnownSwissCity,
+  inferAnyCanton,
+  normalizeCantonCode,
+} from '../../scripts/lib/target-swiss-locations.mjs';
+import {
   DEFAULT_POSTAL_CODE,
   isValidPostalCode,
   resolvePostalCode,
@@ -373,9 +378,32 @@ function resolveCompanyName(job: JobInput, locale: string): string {
 
 /** Derive the schema.org canton code for the job. */
 function resolveCanton(job: JobInput): string {
-  const explicit = String(job.addressRegion || job.canton || '').toUpperCase().trim();
-  if (/^[A-Z]{2}$/.test(explicit)) return explicit;
-  return deriveCantonFromCity(job.addressLocality || job.city || job.location || '');
+  const explicit = normalizeCantonCode(String(job.addressRegion || job.canton || ''));
+  if (explicit) return explicit;
+  const locationText = String(job.addressLocality || job.city || job.location || '');
+  return inferAnyCanton(locationText) || deriveCantonFromCity(locationText);
+}
+
+/**
+ * Reject a locality candidate that is not a real, known Swiss city (BFS
+ * registry, all 26 cantons) or that names a city belonging to a DIFFERENT
+ * canton than `region` — otherwise a JobPosting/visible page pairs an
+ * incoherent locality with its region (e.g. "Bellinzona" text next to
+ * addressRegion "BE"). A region name shipped as locality ("Ticino") is
+ * substituted with the canton capital's coherent locality first. Garbage or
+ * leaked free-text fails `isKnownSwissCity`; a real-but-wrong-canton city
+ * fails the canton-agreement check. Returns '' when the raw value must NOT
+ * be trusted — callers supply their own fallback (company HQ, city lookup,
+ * canton-capital).
+ */
+export function sanitizeLocalityForRegion(rawLocality: string, region: string): string {
+  let cityRaw = String(rawLocality || '').trim();
+  const regionCapital = regionLocalityCapital(cityRaw);
+  if (regionCapital) cityRaw = regionCapital.addressLocality;
+  if (!cityRaw || !isKnownSwissCity(cityRaw)) return '';
+  const cityCanton = inferAnyCanton(cityRaw);
+  if (cityCanton && cityCanton.toUpperCase() !== String(region || '').toUpperCase()) return '';
+  return cityRaw;
 }
 
 /** Resolve the PostalAddress with every field guaranteed non-empty. */
@@ -385,14 +413,15 @@ function resolveAddress(
   locale: string,
 ): PostalAddressSchema {
   const companySlug = job.companySlug || job.companyKey || '';
-  let cityRaw = String(
+  const rawCity = String(
     job.addressLocality || job.city || job.location || '',
   ).trim();
-  // #3513: a REGION name shipped as locality ("Ticino") is not a schema.org
-  // locality — substitute the canton capital's coherent locality so
-  // street/CAP/locality all anchor on one real place.
-  const regionCapital = regionLocalityCapital(cityRaw);
-  if (regionCapital) cityRaw = regionCapital.addressLocality;
+
+  // resolveCanton() always resolves (deriveCantonFromCity defaults to
+  // DEFAULT_CANTON_REGION when nothing else matches), so it is the sole
+  // source of `region` here.
+  const region = resolveCanton(job);
+  const cityRaw = sanitizeLocalityForRegion(rawCity, region);
 
   const hqEntry = companySlug
     ? COMPANY_HQ_ADDRESSES[companySlug.toLowerCase()]
@@ -401,9 +430,8 @@ function resolveAddress(
   const fallback = resolveFallbackAddress(
     companySlug ? companySlug.toLowerCase() : undefined,
     cityRaw ? cityRaw.toLowerCase() : undefined,
+    region,
   );
-
-  const region = resolveCanton(job) || fallback.addressRegion;
 
   const addressLocality =
     cityRaw.length > 0 ? cityRaw : fallback.addressLocality;

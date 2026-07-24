@@ -3768,9 +3768,7 @@ export function hardenJobsRichResultsData({ dataJobsPath }) {
     if (!hq) continue;
     const city = String(job.addressLocality || job.location || '').trim();
     if (!city) continue;
-    const cityCanton = (job.canton && /^[A-Z]{2}$/i.test(job.canton))
-      ? job.canton.toUpperCase()
-      : inferAnyCanton(city);
+    const cityCanton = normalizeCantonCode(job.canton) || inferAnyCanton(city);
     const crossCanton = !!cityCanton && cityCanton !== hq.addressRegion;
     // #3513: heal also SAME-canton contamination — records stamped with the
     // HQ street/CAP while the job sits in a different city of the same

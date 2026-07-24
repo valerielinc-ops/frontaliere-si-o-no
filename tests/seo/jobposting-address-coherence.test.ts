@@ -84,6 +84,42 @@ describe('buildJobPostingSchema — address coherence (#3513)', () => {
     expect(s.jobLocation.address.streetAddress).toBe('Via Nassa 5');
     expect(s.jobLocation.address.postalCode).toBe('6900');
   });
+
+  it('garbage/leaked free-text locality (Hirslanden Arbeitsort leak) never survives into the schema', () => {
+    const s = buildJobPostingSchema(
+      {
+        ...baseJob,
+        company: 'Hirslanden Klinik',
+        companyKey: 'hirslanden-klinik',
+        addressLocality: 'Bern - Futsal Minerva Besetzung per: 1',
+        addressRegion: 'BE',
+      },
+      OPTS,
+    );
+    const addr = s.jobLocation.address;
+    expect(addr.addressLocality).not.toBe('Bern - Futsal Minerva Besetzung per: 1');
+    expect(addr.addressLocality).toBe('Bern'); // BE canton-capital fallback, no HQ/city match
+    expect(addr.addressRegion).toBe('BE');
+    expect(addr.streetAddress.length).toBeGreaterThan(0);
+  });
+
+  it('real city from the WRONG canton (Bellinzona/TI text with addressRegion BE) never pairs mismatched', () => {
+    const s = buildJobPostingSchema(
+      {
+        ...baseJob,
+        company: 'Hirslanden Klinik',
+        companyKey: 'hirslanden-klinik',
+        addressLocality: 'Bellinzona',
+        addressRegion: 'BE',
+      },
+      OPTS,
+    );
+    const addr = s.jobLocation.address;
+    expect(addr.addressLocality).not.toBe('Bellinzona');
+    expect(addr.addressLocality).toBe('Bern'); // coherent with the authoritative BE region
+    expect(addr.addressRegion).toBe('BE');
+    expect(addr.postalCode).toBe('3001'); // resolvePostalCode('Bern', 'BE') — a real Bern CAP
+  });
 });
 
 describe('shared locality helpers (#3513)', () => {

@@ -32,7 +32,7 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/
 import { parseEfgOracleDescription } from './lib/efg-job-parser.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { isTargetCanton } from './lib/crawler-location-config.mjs';
-import { locTokenHit } from '../services/locToken.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -91,26 +91,6 @@ function mapOracleRequisitionType(requisitionType) {
   if (type.includes('internship') || /\bstages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(type)) return 'internship';
   return 'permanent';
 }
-
-/**
- * Map Swiss cities to their Ticino-relevance and canton codes.
- * EFG has offices in Lugano (TI), Zurich (ZH), Geneva (GE).
- */
-const SWISS_CITY_CANTON = {
-  lugano: 'TI',
-  bellinzona: 'TI',
-  locarno: 'TI',
-  mendrisio: 'TI',
-  chiasso: 'TI',
-  zurich: 'ZH',
-  zürich: 'ZH',
-  bern: 'BE',
-  geneve: 'GE',
-  geneva: 'GE',
-  genf: 'GE',
-  basel: 'BS',
-  lausanne: 'VD',
-};
 
 // ──────────────────────────────────────────────────────────────
 // Helpers
@@ -199,13 +179,7 @@ function extractCity(primaryLocation = '') {
  * Determine canton code from a city name or location string.
  */
 function detectCanton(location = '') {
-  const loc = normalize(location);
-  for (const [city, canton] of Object.entries(SWISS_CITY_CANTON)) {
-    // Whole-token match (#2630): bare loc.includes(city) assigned BE to a
-    // Geneva job ("bern" ⊂ "bernex"); the canton drives geo/SEO routing.
-    if (locTokenHit(loc, city)) return canton;
-  }
-  return '';
+  return inferAnyCanton(location) || '';
 }
 
 function isGenericLocation(value = '') {

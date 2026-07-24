@@ -87,7 +87,7 @@
 import { createHash } from 'node:crypto';
 import { fetchJson, slugify, normalizeSpace, stripHtml } from './crawler-template.mjs';
 import { detectLang, guessCategory, normalizeContract, decodeHtmlEntities } from './dedicated-crawler-common.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -485,7 +485,7 @@ export async function fetchAllHornbachJobs() {
       streetAddress: parsed.streetAddress,
     });
     const location = parsed.city || city;
-    const canton = parsed.cantonCode || inferSwissTargetCanton(location) || inferSwissTargetCanton(city) || HQ.canton;
+    const canton = normalizeCantonCode(parsed.cantonCode) || inferSwissTargetCanton(location) || inferSwissTargetCanton(city) || HQ.canton;
 
     const description = parsed.description || `${parsed.title} — ${HORNBACH_COMPANY_NAME} (${location}).`;
     const sourceLang = detectLang(description || parsed.title, 'de');

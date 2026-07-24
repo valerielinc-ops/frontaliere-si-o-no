@@ -1,0 +1,130 @@
+name: location-quality-audit
+
+# Weekly deterministic check of crawled job location quality
+# (scripts/audit-job-locations.mjs): how many jobs have a canton that
+# mismatches the BFS-inferred canton, how many have a city that matches no
+# canonical Swiss location ("custom" value — the bug class behind the
+# reported Hirslanden Bern instances), and how many silently fall back to
+# their company's own most-common ("default") canton. Opens/updates ONE
+# stable-title tracking issue every run with the numeric snapshot so the
+# trend is visible over time. This is NOT a deploy gate — report-only, same
+# shape as audit-404-risk.yml. Zero-Claude (deterministic script + node/gh
+# issue creation).
+
+on:
+  schedule:
+    - cron: '10 9 * * 3' # Wednesdays 09:10 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: location-quality-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      # data/jobs.json is gitignored (build artifact). Assemble it from the
+      # committed per-crawler slices so the audit sees every real crawler,
+      # not just whatever happens to be checked in.
+      - name: Assemble jobs dataset
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      - name: Run location quality audit
+        id: audit
+        continue-on-error: true
+        run: npm run audit:job-locations
+
+      - name: Upload full report (per-job detail)
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: location-audit-report
+          path: data/location-audit-report.json
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Open / update issue with numeric snapshot
+        if: steps.audit.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/r
+
+          node --input-type=module - <<'NODE'
+          import { readFileSync, writeFileSync } from 'node:fs';
+          const r = JSON.parse(readFileSync('data/location-audit-report.json', 'utf8'));
+          const s = r.summary;
+          const pct = (n) => (r.audited > 0 ? ((n / r.audited) * 100).toFixed(2) : '0.00');
+          const hasRealBugs = s.cantonMismatch > 0 || s.foreignInSwiss > 0;
+
+          let md = `## Location data quality snapshot\n\n`;
+          md += `Audited ${r.audited} / ${r.totalJobs} jobs (geocoding ${r.geocodingEnabled ? 'ON' : 'OFF'}).\n\n`;
+          md += `| Metric | Count | % of audited |\n|---|---:|---:|\n`;
+          md += `| ✅ Correct (BFS-confirmed) | ${s.correct} | ${pct(s.correct)}% |\n`;
+          md += `| ⚠️ Canton mismatch (BFS disagrees with stored canton) | ${s.cantonMismatch} | ${pct(s.cantonMismatch)}% |\n`;
+          md += `| 🚨 Foreign city tagged as Swiss canton | ${s.foreignInSwiss} | ${pct(s.foreignInSwiss)}% |\n`;
+          md += `| ❓ Custom/unknown location (matches no canonical Swiss location) | ${s.customLocation} | ${pct(s.customLocation)}% |\n`;
+          md += `| 🏢 Suspected company-default fallback | ${s.companyDefaultFallback} | ${pct(s.companyDefaultFallback)}% |\n`;
+          md += `| 📭 Empty location | ${s.emptyLocation} | ${pct(s.emptyLocation)}% |\n`;
+          md += `| 🔤 Lowercase canton (stored) | ${s.lowercaseCanton} | ${pct(s.lowercaseCanton)}% |\n\n`;
+          md += hasRealBugs
+            ? `🚨 **Canton mismatch and/or foreign-tagged-as-Swiss are non-zero** — these are the two categories a crawler must never produce (location must always resolve to a real Swiss canton, not a stored-but-wrong one). Check the full report artifact for offending companies/cities.\n\n`
+            : `No canton-mismatch / foreign-tagged-as-Swiss bugs this run.\n\n`;
+          md += `**Run:** ${process.env.RUN_URL}\n`;
+          md += `Full per-job detail: \`location-audit-report\` workflow artifact (30-day retention).\n`;
+          md += `Script: \`scripts/audit-job-locations.mjs\`\n`;
+          writeFileSync('/tmp/r/desc.md', md);
+          writeFileSync('/tmp/r/has-bugs', hasRealBugs ? '1' : '0');
+          NODE
+
+          if [ "$(cat /tmp/r/has-bugs)" = "1" ]; then
+            node scripts/lib/github-issue-creator.mjs \
+              --title "Location data quality: weekly snapshot" \
+              --description "$(cat /tmp/r/desc.md)" \
+              --priority 3 \
+              --label crawler-data-quality \
+              --label bug \
+              --workflow "${{ github.workflow }}"
+          else
+            node scripts/lib/github-issue-creator.mjs \
+              --title "Location data quality: weekly snapshot" \
+              --description "$(cat /tmp/r/desc.md)" \
+              --priority 4 \
+              --label crawler-data-quality \
+              --workflow "${{ github.workflow }}"
+          fi
+
+      - name: Report audit crash to GitHub Issues
+        if: steps.audit.outcome != 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Location quality audit crashed
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          Il job \`scripts/audit-job-locations.mjs\` è uscito con errore — nessuno snapshot numerico prodotto questo run. Verifica \`data/jobs.json\` assemblato correttamente e il log del job." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
+
+      - name: Fail job if audit crashed
+        if: steps.audit.outcome != 'success'
+        run: |
+          echo "::error::location quality audit crashed — see issue opened above."
+          exit 1

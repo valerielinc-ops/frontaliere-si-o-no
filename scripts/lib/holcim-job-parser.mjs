@@ -51,7 +51,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
-import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -144,9 +144,12 @@ function parseHolcimLocation(raw = '') {
   // both seen on this tenant — and never the "CH" token itself). Anything
   // else is left for inferAnyCanton(city) to resolve by city name.
   const middle = tail.slice(0, -1);
-  const explicitCanton = middle.find((p) => /^[A-Z]{2}$/.test(p) && p.toUpperCase() !== 'CH') || '';
+  // Validate against the real 26-canton registry — a well-formed-but-wrong
+  // 2-letter token in the address must not be trusted verbatim (AGENTS.md #6
+  // sibling class shared with ghol/stadler-rail/spitex-ch/breitling).
+  const explicitCanton = middle.map((p) => normalizeCantonCode(p)).find(Boolean) || '';
 
-  return { city, canton: explicitCanton.toUpperCase(), country };
+  return { city, canton: explicitCanton, country };
 }
 
 /* ── Category Detection ────────────────────────────────────── */

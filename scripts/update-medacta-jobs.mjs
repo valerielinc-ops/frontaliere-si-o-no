@@ -40,6 +40,7 @@ import {
   buildMedactaLocalizedDescriptions,
 } from './lib/medacta-job-enrichment.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { inferAnyCanton, normalizeCantonCode } from './lib/target-swiss-locations.mjs';
 import { assertJsonListShapeMultiKey } from './lib/assert-json-list-shape.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -113,25 +114,6 @@ const RD_MARKER_RE = /(?:\br\s*&\s*d\b|research\s*(?:&|and)\s*development)/i;
 
 const DEFAULT_CITY = 'Castel San Pietro';
 const DEFAULT_CANTON = HQ.canton;
-
-/**
- * Swiss cities and their canton codes for location detection.
- */
-const SWISS_CITY_CANTON = {
-  'castel san pietro': 'TI',
-  lugano: 'TI',
-  mendrisio: 'TI',
-  chiasso: 'TI',
-  bellinzona: 'TI',
-  locarno: 'TI',
-  zurich: 'ZH',
-  zürich: 'ZH',
-  bern: 'BE',
-  basel: 'BS',
-  geneve: 'GE',
-  geneva: 'GE',
-  lausanne: 'VD',
-};
 
 // ──────────────────────────────────────────────────────────────
 // Helpers
@@ -320,11 +302,7 @@ function dedupeMedactaJobsForPersistence(jobs = []) {
  * Determine canton code from a city name or location string.
  */
 function detectCanton(location = '') {
-  const loc = normalize(location);
-  for (const [city, canton] of Object.entries(SWISS_CITY_CANTON)) {
-    if (loc.includes(city)) return canton;
-  }
-  return '';
+  return inferAnyCanton(location) || '';
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -742,7 +720,7 @@ function parseAlliboLocation(raw = '', listPlaces = []) {
   if (Array.isArray(listPlaces) && listPlaces.length > 0) {
     const first = listPlaces[0] || {};
     const city = String(first.PlaceName || '').trim();
-    const canton = String(first.ProvinceCode || '').trim().toUpperCase();
+    const canton = normalizeCantonCode(first.ProvinceCode) || inferAnyCanton(city) || '';
     const country = String(first.CountryCode || 'CH').trim().toUpperCase();
     if (city) return { city, canton, country };
   }
@@ -755,7 +733,7 @@ function parseAlliboLocation(raw = '', listPlaces = []) {
   const match = stripped.match(/\/\s*([^()]+?)\s*\(([A-Z]{2})\)/);
   if (match) {
     const cityRaw = match[1].split(';')[0].trim();
-    const canton = match[2].toUpperCase();
+    const canton = normalizeCantonCode(match[2]) || inferAnyCanton(cityRaw) || '';
     return { city: cityRaw, canton, country: 'CH' };
   }
   return { city: '', canton: '', country: 'CH' };
