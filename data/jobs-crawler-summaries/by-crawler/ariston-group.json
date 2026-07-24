@@ -1,16 +1,16 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-07-24T11:16:25.411Z",
+  "generatedAt": "2026-07-24T22:09:21.256Z",
   "total": 20,
   "newCount": 0,
   "updatedCount": 20,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 16306,
-  "avgDurationMs": 16306,
+  "durationMs": 14739,
+  "avgDurationMs": 14739,
   "durationHistory": [
-    16306
+    14739
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -150,6 +150,7 @@
       "currency": "CHF",
       "postalCode": "6023",
       "firstSeenAt": "2026-05-17T09:38:09.822Z",
+      "needsRetranslation": true,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -403,6 +404,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-06-10T11:36:36.719Z",
+      "needsRetranslation": true,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -626,41 +628,6 @@
       }
     },
     {
-      "title": "TECHNICIEN/NE DE SERVICE GAZ - REGION GENÈVE",
-      "slug": "technicien-ne-de-service-gaz-region-geneve-ariston-group-geneve-ch-1202",
-      "url": "https://careers.aristongroup.com/job/Geneve-TECHNICIENNE-DE-SERVICE-GAZ-REGION-GEN%C3%88VE-Gen%C3%A8-1202/1413874733/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1413874733/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "Genève, CH, 1202",
-      "addressLocality": "Genève, CH, 1202",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "canton": "GE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-07-10",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-08-08",
-      "id": "ariston-group-1f4b01853f35",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-10T22:34:57.690Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
       "title": "TECHNISCHER VERKAUFSBERATER IM INNENDIENST (M/W/D) RAUM KOBLENZ - PROJEKTGESCHÄFT HEIZTECHNIK",
       "slug": "technischer-verkaufsberater-im-innendienst-m-w-d-raum-koblenz-projektgeschaft-heiztechnik-ariston-group-mainburg-de-84048",
       "url": "https://careers.aristongroup.com/job/Mainburg-TECHNISCHER-VERKAUFSBERATER-IM-INNENDIENST-%28MWD%29-RAUM-KOBLENZ-PROJEKTGESCH%C3%84FT-HEIZTECHNIK-Main-84048/1284635001/",
@@ -726,6 +693,41 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "title": "TECHNICIEN/NE DE SERVICE GAZ - REGION GENÈVE",
+      "slug": "technicien-ne-de-service-gaz-region-geneve-ariston-group-geneve-ch-1202",
+      "url": "https://careers.aristongroup.com/job/Geneve-TECHNICIENNE-DE-SERVICE-GAZ-REGION-GEN%C3%88VE-Gen%C3%A8-1202/1413874733/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1413874733/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Genève, CH, 1202",
+      "addressLocality": "Genève, CH, 1202",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "canton": "GE",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-07-10",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-08-08",
+      "id": "ariston-group-1f4b01853f35",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-10T22:34:57.690Z",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 19
       }
