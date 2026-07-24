@@ -1,40 +1,38 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-07-24T11:11:37.922Z",
+  "generatedAt": "2026-07-24T22:08:40.537Z",
   "total": 376,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 88958,
-  "avgDurationMs": 88958,
+  "unchangedCount": 0,
+  "durationMs": 87410,
+  "avgDurationMs": 87410,
   "durationHistory": [
-    88958
+    87410
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Verkaufsberaterin / Verkaufsberater Naturkosmetik (w/m/d)",
+      "title": "Sachbearbeiter / Sachbearbeiterin Frontoffice inkl. Teamleitung (w/m/d)",
       "company": "Galenica AG (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3118739.4031703",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=3121550.4036708",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "category": "sales",
-      "descriptionIt": "Verkaufsberaterin / Verkaufsberater Naturkosmetik (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "category": "management",
+      "descriptionIt": "Sachbearbeiter / Sachbearbeiterin Frontoffice inkl. Teamleitung (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "applyUrl": "",
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-verkaufsberaterin-verkaufsberater-naturkosmetik-w-m-d-bern",
-      "id": "galenica-e6d34af6f521",
+      "slug": "sachbearbeiter-sachbearbeiterin-inchiostro-frontale-teamleitung-w-m-d-galenica-ag-galenica-bern-fb7109",
+      "id": "galenica-74747a04f5bf",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "currency": "CHF",
       "streetAddress": "Untermattweg 8",
       "postalCode": "3027",
@@ -43,13 +41,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2,
-      "_qualityScore": 84,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
