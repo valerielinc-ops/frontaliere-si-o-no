@@ -528,6 +528,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'regione-lombardia-fiduciosa': { it: 'regione-lombardia-fiduciosa', en: 'region-of-lombardy-faithful', de: 'region-lombardie-vertrauenswurdig', fr: 'region-de-lombardie-fiduciaire' },
  'temu-skv-collaborazione': { it: 'temu-skv-collaborazione', en: 'temu-skv-collaboration', de: 'temu-skv-zusammenarbeit', fr: 'temu-skv-collaboration' },
  'bce-mantiene-tassi-2-25': { it: 'bce-mantiene-tassi-2-25', en: 'bce-keeps-rates-at-2-25', de: 'bce-halt-zinssatze-bei-2-25', fr: 'bce-conserve-taux-aux-2-25' },
+ 'frontalieri-disoccupazione-svizzera': { it: 'frontalieri-disoccupazione-svizzera', en: 'frontalieri-disoccupazione-svizzera', de: 'frontalieri-disoccupazione-schweiz', fr: 'frontalieri-disoccupazione-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
