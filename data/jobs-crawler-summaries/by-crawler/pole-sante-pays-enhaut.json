@@ -1,16 +1,16 @@
 {
   "key": "pole-sante-pays-enhaut",
   "label": "Pôle Santé Pays-d'Enhaut",
-  "generatedAt": "2026-07-24T11:10:08.402Z",
-  "total": 3,
+  "generatedAt": "2026-07-24T22:06:20.708Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6343,
-  "avgDurationMs": 6343,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4641,
+  "avgDurationMs": 4641,
   "durationHistory": [
-    6343
+    4641
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/e0889e22-11c2-43af-b05b-cadca08bf0af/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-24T11:10:04.630Z",
+      "crawledAt": "2026-07-24T22:06:17.388Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/91a9a32a-a73c-40b5-bb4a-650b7054db03/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-24T11:10:05.148Z",
+      "crawledAt": "2026-07-24T22:06:17.831Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -89,8 +89,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "pole-sante-pays-enhaut-eb27e339d91e",
       "slug": "assistente-sanitario-pole-sante-pays-d-enhaut-chateau-d-oex",
@@ -98,7 +97,6 @@
       "companyKey": "pole-sante-pays-enhaut",
       "companyDomain": "pspe.ch",
       "title": "Auxiliaire de santé",
-      "needsRetranslation": false,
       "location": "Château d'Oex",
       "canton": "VD",
       "url": "https://www.jobup.ch/fr/emplois/detail/134aaf50-54ee-4bf9-911e-78038c202212/",
@@ -131,5 +129,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
