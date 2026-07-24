@@ -8922,6 +8922,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.locarno-giovani-assistenza-sociale.title': 'Locarno : jeunes et assistance, question à la Mairie',
     'blog.article.locarno-giovani-assistenza-sociale.excerpt': 'Augmentation des demandes d\'assistance chez les jeunes à Locarno : un groupe transversal de conseillers demande de nouvelles stratégies pour la réinsertion professionnelle.',
     'blog.article.locarno-giovani-assistenza-sociale.imageAlt': 'Hôtel de ville de Locarno, au cœur du débat sur l\'aide sociale.',
+    'blog.article.boom-ia-svizzera-opportunita-frontalieri.title': 'Boom IA en Suisse : opportunités pour les frontaliers',
+    'blog.article.boom-ia-svizzera-opportunita-frontalieri.excerpt': 'Les offres d\'emploi avec des compétences en IA atteignent un record historique. Voici ce que cela signifie pour les 78 500 travailleurs frontaliers actifs au Tessin.',
+    'blog.article.boom-ia-svizzera-opportunita-frontalieri.imageAlt': 'Bureau moderne à Lugano avec vue sur le lac',
 };
 
 export default blogMetaFr;

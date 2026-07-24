@@ -26801,6 +26801,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'boom-ia-svizzera-opportunita-frontalieri',
+ category: 'novita',
+ date: '2026-07-24T18:04:40.329Z',
+ image: '/images/blog/boom-ia-svizzera-opportunita-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
