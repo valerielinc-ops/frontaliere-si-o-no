@@ -1507,6 +1507,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliereriformaue.title': 'EU reform on unemployed border workers, for Switzerland costs up to a billion',
     'blog.article.frontaliereriformaue.excerpt': 'The European Union has approved a reform for unemployed frontier workers, which could cost Switzerland up to a billion francs a year.',
     'blog.article.frontaliereriformaue.imageAlt': 'A scene of a frontaliere\'s life in Switzerland, with a view of Lake Lugano.',
+    'blog.article.regione-lombardia-fiduciosa.title': 'Lombardy confident on refill deal with Ticino',
+    'blog.article.regione-lombardia-fiduciosa.excerpt': 'The Lombardy Region expresses confidence in the refreshments agreement between Switzerland and the Canton of Ticino.',
+    'blog.article.regione-lombardia-fiduciosa.imageAlt': 'Scenes of work and life of frontier workers between Switzerland and Italy',
 };
 
 export default blogMetaChEn;

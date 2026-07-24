@@ -525,6 +525,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'lavoro-forzato-pesa-su-dazi': { it: 'lavoro-forzato-pesa-su-dazi', en: 'forced-labor-weighs-on-tariffs', de: 'zwangsarbeit-belastet-darlehen', fr: 'travail-force-pese-sur-les-droits' },
  'trippa-futuri-mobilita-italia-grigioni': { it: 'trippa-futuri-mobilita-italia-grigioni', en: 'trip-future-mobility-italy-switzerland', de: 'trippa-zukunft-mobilitat-italien-schweiz', fr: 'trip-futur-mobilite-italie-suisse' },
  'frontaliereriformaue': { it: 'frontaliereriformaue', en: 'frontaliereriformaue', de: 'frontaliereriformaue', fr: 'frontaliereriformaue' },
+ 'regione-lombardia-fiduciosa': { it: 'regione-lombardia-fiduciosa', en: 'region-of-lombardy-faithful', de: 'region-lombardie-vertrauenswurdig', fr: 'region-de-lombardie-fiduciaire' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

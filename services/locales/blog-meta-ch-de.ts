@@ -1507,6 +1507,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliereriformaue.title': 'Ue-Reform für arbeitslose Grenzgänger: Kosten bis zu 1 Milliarde',
     'blog.article.frontaliereriformaue.excerpt': 'Die Europäische Union hat eine Reform für arbeitslose Grenzgänger verabschiedet, die die Schweiz bis zu einer Milliarde Franken pro Jahr kosten könnte.',
     'blog.article.frontaliereriformaue.imageAlt': 'Eine Szene aus dem Leben eines Frontalierers in der Schweiz, mit einem Blick auf den Luganersee.',
+    'blog.article.regione-lombardia-fiduciosa.title': 'Lombardei hofft auf Rückzahlungsvereinbarung mit dem Kanton Tessin',
+    'blog.article.regione-lombardia-fiduciosa.excerpt': 'Die Region Lombardei vertraut auf das Rückzahlungsabkommen zwischen der Schweiz und dem Kanton Tessin.',
+    'blog.article.regione-lombardia-fiduciosa.imageAlt': 'Szenen des Arbeits- und Lebensalltags von Grenzgängern zwischen der Schweiz und Italien',
 };
 
 export default blogMetaChDe;
