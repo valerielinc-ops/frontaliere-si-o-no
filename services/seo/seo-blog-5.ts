@@ -54087,6 +54087,552 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stipendio-muratore-frontaliere-ticino': {
+    title: 'Quanto guadagna un muratore frontaliere in Ticino?',
+    description: 'La retribuzione di un muratore frontaliere in Ticino è influenzata dalle norme fiscali e dai trattati internazionali. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, muratore, retribuzione',
+    ogTitle: 'Quanto guadagna un muratore frontaliere in Ticino?',
+    ogDescription: 'La retribuzione di un muratore frontaliere in Ticino è influenzata dalle norme fiscali e dai trattati internazionali.',
+    canonicalPath: '/articoli-frontaliere/stipendio-muratore-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un muratore frontaliere in Ticino?",
+      "description": "La retribuzione di un muratore frontaliere in Ticino è influenzata dalle norme fiscali e dai trattati internazionali. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stipendio-muratore-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano"
+      },
+      "datePublished": "2026-07-23T04:59:59+00:00",
+      "dateModified": "2026-07-23T04:59:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stipendio-muratore-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-g-apprendisti-durata-tirocinio': {
+    title: 'Permesso G apprendisti: durata estesa per l\'intero tirocinio',
+    description: 'Il Consiglio degli Stati approva la mozione per estendere il permesso G agli apprendisti frontalieri per tutta la durata del tirocinio. Scopri le novità.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, apprendisti, durata, estesa',
+    ogTitle: 'Permesso G apprendisti: durata estesa per l\'intero tirocinio',
+    ogDescription: 'Il Consiglio degli Stati approva la mozione per estendere il permesso G agli apprendisti frontalieri per tutta la durata del tirocinio.',
+    canonicalPath: '/articoli-frontaliere/permesso-g-apprendisti-durata-tirocinio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso G apprendisti: durata estesa per l'intero tirocinio",
+      "description": "Il Consiglio degli Stati approva la mozione per estendere il permesso G agli apprendisti frontalieri per tutta la durata del tirocinio. Scopri le novità.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-g-apprendisti-durata-tirocinio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovani apprendisti in un centro di formazione in Ticino"
+      },
+      "datePublished": "2026-07-23T05:44:18+00:00",
+      "dateModified": "2026-07-23T05:44:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permesso-g-apprendisti-durata-tirocinio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ingegnere-frontaliero-ticino-stipendio-requisiti': {
+    title: 'Lavorare come ingegnere in Ticino: requisiti e riconoscimento titolo',
+    description: 'I requisiti per lavorare come ingegnere in Ticino da frontaliere, lo stipendio medio, il riconoscimento del titolo di studio e il permesso G. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, ingegnere, requisiti, riconoscimento',
+    ogTitle: 'Lavorare come ingegnere in Ticino da frontaliere: stipendio medio, requisiti, riconoscimento titolo di studio, permesso G.',
+    ogDescription: 'I requisiti per lavorare come ingegnere in Ticino da frontaliere, lo stipendio medio, il riconoscimento del titolo di studio e il permesso G.',
+    canonicalPath: '/articoli-frontaliere/ingegnere-frontaliero-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come ingegnere in Ticino: requisiti e riconoscimento titolo",
+      "description": "I requisiti per lavorare come ingegnere in Ticino da frontaliere, lo stipendio medio, il riconoscimento del titolo di studio e il permesso G. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ingegnere-frontaliero-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un ingegnere lavora in un ufficio a Lugano."
+      },
+      "datePublished": "2026-07-23T06:20:25+00:00",
+      "dateModified": "2026-07-23T06:20:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ingegnere-frontaliero-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lite-lombardia-svizzera-frontalieri': {
+    title: 'Lite Lombardia e Svizzera: il nodo fiscale dei frontalieri',
+    description: 'Nuovo Accordo Frontalieri: esenzione 7.500 euro per vecchi frontalieri e franchigia 10.000 per i nuovi. Guida alla fiscalità Ticino-Italia dal 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lite, lombardia, nodo, fiscale',
+    ogTitle: 'Lite Lombardia e Svizzera: Tasse Vecchi Frontalieri',
+    ogDescription: 'Scopri cosa cambia con il Nuovo Accordo Frontalieri 2024: esenzioni, franchigie e gestione dell\'imposta alla fonte tra Ticino e Italia.',
+    canonicalPath: '/articoli-frontaliere/lite-lombardia-svizzera-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lite Lombardia e Svizzera: il nodo fiscale dei frontalieri",
+      "description": "Nuovo Accordo Frontalieri: esenzione 7.500 euro per vecchi frontalieri e franchigia 10.000 per i nuovi. Guida alla fiscalità Ticino-Italia dal 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lite-lombardia-svizzera-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano e del lago, contesto lavoro frontaliere Ticino"
+      },
+      "datePublished": "2026-07-23T06:46:09+00:00",
+      "dateModified": "2026-07-23T06:46:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lite-lombardia-svizzera-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ozono-ticino-qualita-aria': {
+    title: 'Ozono in Ticino: limiti superati e implicazioni',
+    description: 'Analisi sulla qualità dell\'aria in Ticino: perché l\'ozono supera i limiti nonostante il calo degli ossidi di azoto e le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ozono, limiti, superati, implicazioni',
+    ogTitle: 'Qualità dell\'aria in Ticino: l\'ozono e i limiti superati',
+    ogDescription: 'Analisi sulla qualità dell\'aria in Ticino: perché l\'ozono supera i limiti nonostante il calo degli ossidi di azoto e le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/ozono-ticino-qualita-aria',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ozono in Ticino: limiti superati e implicazioni",
+      "description": "Analisi sulla qualità dell'aria in Ticino: perché l'ozono supera i limiti nonostante il calo degli ossidi di azoto e le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ozono-ticino-qualita-aria.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di monitoraggio della qualità dell'aria in Ticino"
+      },
+      "datePublished": "2026-07-23T07:42:31+00:00",
+      "dateModified": "2026-07-23T07:42:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ozono-ticino-qualita-aria/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieripendolarismo-2025-ticino-lombardia': {
+    title: 'Frontalieri, ecco dove vivono: il balzo in dieci anni della Brianza',
+    description: 'Il numero di lavoratori frontalieri provenienti dalla Lombardia è aumentato del 16% in dieci anni. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ecco, dove, vivono, balzo',
+    ogTitle: 'Frontalieri, ecco dove vivono: il balzo in dieci anni della Brianza',
+    ogDescription: 'Il numero di lavoratori frontalieri provenienti dalla Lombardia è aumentato del 16% in dieci anni.',
+    canonicalPath: '/articoli-frontaliere/frontalieripendolarismo-2025-ticino-lombardia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri, ecco dove vivono: il balzo in dieci anni della Brianza",
+      "description": "Il numero di lavoratori frontalieri provenienti dalla Lombardia è aumentato del 16% in dieci anni. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieripendolarismo-2025-ticino-lombardia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un pendolare che attraversa il confine tra Italia e Svizzera"
+      },
+      "datePublished": "2026-07-23T08:13:20+00:00",
+      "dateModified": "2026-07-23T08:13:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieripendolarismo-2025-ticino-lombardia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-cuoco-ticino-stipendio-requisiti': {
+    title: 'Cuoco frontaliere in Ticino: stipendio, requisiti e riconoscimento',
+    description: 'Sapere quali sono i requisiti e i salari dei cuochi in Ticino per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cuoco, stipendio, requisiti, riconoscimento',
+    ogTitle: 'Lavorare come cuoco in Ticino da frontaliere: requisiti e salari.',
+    ogDescription: 'Sapere quali sono i requisiti e i salari dei cuochi in Ticino per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-cuoco-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cuoco frontaliere in Ticino: stipendio, requisiti e riconoscimento",
+      "description": "Sapere quali sono i requisiti e i salari dei cuochi in Ticino per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-cuoco-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere cuoco lavora in una cucina a Locarno"
+      },
+      "datePublished": "2026-07-23T08:49:20+00:00",
+      "dateModified": "2026-07-23T08:49:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-cuoco-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-assistenza-fiscale-svizzera-italia-inammissibile-il-ricorso-contro-lo-scambio-di': {
+    title: 'Assistenza fiscale Svizzera-Italia, inammissibile il ricorso contro lo scambio di informazioni',
+    description: 'Il Tribunale federale svizzero ha dichiarato inammissibile il ricorso di un contribuente italiano contro lo scambio di informazioni bancarie richieste',
+    keywords: 'frontalieri, ticino, svizzera, italia, assistenza, fiscale, svizzera-italia, inammissibile',
+    ogTitle: 'Assistenza fiscale Svizzera-Italia, inammissibile il ricorso contro lo scambio di informazioni',
+    ogDescription: 'Il Tribunale federale svizzero ha dichiarato inammissibile il ricorso di un contribuente italiano contro lo scambio di informazioni bancarie richieste',
+    canonicalPath: '/articoli-frontaliere/assistenza-fiscale-svizzera-italia-inammissibile-il-ricorso-contro-lo-scambio-di',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assistenza fiscale Svizzera-Italia, inammissibile il ricorso contro lo scambio di informazioni",
+      "description": "Il Tribunale federale svizzero ha dichiarato inammissibile il ricorso di un contribuente italiano contro lo scambio di informazioni bancarie richieste",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/places/lago-lugano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Assistenza fiscale Svizzera-Italia, inammissibile il ricorso contro lo scambio di informazioni"
+      },
+      "datePublished": "2026-07-23T14:28:17+00:00",
+      "dateModified": "2026-07-23T14:28:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/samuele-valente/#person",
+        "name": "Samuele Valente",
+        "url": "https://frontaliereticino.ch/autori/samuele-valente/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/assistenza-fiscale-svizzera-italia-inammissibile-il-ricorso-contro-lo-scambio-di/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzera-il-passaggio-delle-azioni-al-manager-non-e-sempre-reddito-imponibile': {
+    title: 'Svizzera, il passaggio delle azioni al manager non è sempre reddito imponibile',
+    description: 'In Svizzera, il trasferimento gratuito di azioni a un manager non è sempre considerato reddito imponibile, se la causa prevalente è la successione i',
+    keywords: 'frontalieri, ticino, svizzera, italia, passaggio, azioni, manager, sempre',
+    ogTitle: 'Svizzera, il passaggio delle azioni al manager non è sempre reddito imponibile',
+    ogDescription: 'In Svizzera, il trasferimento gratuito di azioni a un manager non è sempre considerato reddito imponibile, se la causa prevalente è la successione i',
+    canonicalPath: '/articoli-frontaliere/svizzera-il-passaggio-delle-azioni-al-manager-non-e-sempre-reddito-imponibile',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera, il passaggio delle azioni al manager non è sempre reddito imponibile",
+      "description": "In Svizzera, il trasferimento gratuito di azioni a un manager non è sempre considerato reddito imponibile, se la causa prevalente è la successione i",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Svizzera, il passaggio delle azioni al manager non è sempre reddito imponibile"
+      },
+      "datePublished": "2026-07-23T14:29:14+00:00",
+      "dateModified": "2026-07-23T14:29:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/samuele-valente/#person",
+        "name": "Samuele Valente",
+        "url": "https://frontaliereticino.ch/autori/samuele-valente/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-il-passaggio-delle-azioni-al-manager-non-e-sempre-reddito-imponibile/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate': {
+    title: 'Cantiere Nsif, lavori avanzati e tempistiche rispettate',
+    description: 'Il cantiere Nsif a Lugano è in fase di avanzamento, con il 60% del calcestruzzo e la metà dell\'acciaio previsto utilizzato. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, cantiere, nsif, lavori, avanzati',
+    ogTitle: 'Cantiere Nsif, lavori avanzati e tempistiche rispettate',
+    ogDescription: 'Il cantiere Nsif a Lugano è in fase di avanzamento, con il 60% del calcestruzzo e la metà dell\'acciaio previsto utilizzato.',
+    canonicalPath: '/articoli-frontaliere/cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cantiere Nsif, lavori avanzati e tempistiche rispettate",
+      "description": "Il cantiere Nsif a Lugano è in fase di avanzamento, con il 60% del calcestruzzo e la metà dell'acciaio previsto utilizzato. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il cantiere Nsif a Lugano, in fase di avanzamento"
+      },
+      "datePublished": "2026-07-23T17:23:31+00:00",
+      "dateModified": "2026-07-23T17:23:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cantiere-nsif-lavori-avanzati-e-tempistiche-rispettate/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-ingegnere-ticino-stipendio': {
+    title: 'frontaliere ingegnere ticino stipendio requisiti',
+    description: 'Guida pratica per ingegneri frontalieri in Ticino: stipendio, requisiti, riconoscimento titolo, permesso G, imposta alla fonte e nuovo accordo fiscale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ingegnere, stipendio, requisiti, nuovo',
+    ogTitle: 'frontaliere ingegnere ticino stipendio requisiti',
+    ogDescription: 'Stipendio medio, requisiti e procedure per lavorare come ingegnere in Ticino da frontaliere con il nuovo accordo fiscale.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-ingegnere-ticino-stipendio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "frontaliere ingegnere ticino stipendio requisiti",
+      "description": "Guida pratica per ingegneri frontalieri in Ticino: stipendio, requisiti, riconoscimento titolo, permesso G, imposta alla fonte e nuovo accordo fiscale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-ingegnere-ticino-stipendio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ingegnere frontaliere vicino al lago di Lugano con vista sulle Alpi"
+      },
+      "datePublished": "2026-07-23T18:18:09+00:00",
+      "dateModified": "2026-07-23T18:18:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-ingegnere-ticino-stipendio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tasse-frontalieri-nessuna-stangata': {
+    title: 'Tasse frontalieri, nessuna stangata per i redditi bassi',
+    description: 'Nessuna stangata per i frontalieri con redditi bassi grazie al Nuovo Accordo Frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tasse, nessuna, stangata, redditi',
+    ogTitle: 'Tasse frontalieri, nessuna stangata per i redditi bassi',
+    ogDescription: 'Nessuna stangata per i frontalieri con redditi bassi grazie al Nuovo Accordo Frontalieri',
+    canonicalPath: '/articoli-frontaliere/tasse-frontalieri-nessuna-stangata',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tasse frontalieri, nessuna stangata per i redditi bassi",
+      "description": "Nessuna stangata per i frontalieri con redditi bassi grazie al Nuovo Accordo Frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tasse-frontalieri-nessuna-stangata.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "un frontaliere che lavora in Ticino"
+      },
+      "datePublished": "2026-07-23T18:51:31+00:00",
+      "dateModified": "2026-07-23T18:51:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tasse-frontalieri-nessuna-stangata/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-livigno-s-chanf-in-treno': {
+    title: 'Di più GR: fra Livigno e S-chanf in treno, il progetto viene sviluppato',
+    description: 'Un collegamento ferroviario tra Livigno e S-chanf potrebbe essere realizzato nel futuro. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, livigno, s-chanf, treno, progetto',
+    ogTitle: 'Di più GR: fra Livigno e S-chanf in treno, il progetto viene sviluppato',
+    ogDescription: 'Un collegamento ferroviario tra Livigno e S-chanf potrebbe essere realizzato nel futuro.',
+    canonicalPath: '/articoli-frontaliere/livigno-s-chanf-in-treno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più GR: fra Livigno e S-chanf in treno, il progetto viene sviluppato",
+      "description": "Un collegamento ferroviario tra Livigno e S-chanf potrebbe essere realizzato nel futuro. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/livigno-s-chanf-in-treno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una stazione ferroviaria in Ticino con treni che collegano Livigno e S-chanf."
+      },
+      "datePublished": "2026-07-23T19:36:43+00:00",
+      "dateModified": "2026-07-23T19:36:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/livigno-s-chanf-in-treno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cuoco-frontaliere-ticino-guadagno': {
+    title: 'Quanto guadagna un cuoco frontaliere in Ticino?',
+    description: 'Il Nuovo Accordo Frontalieri del 23/12/2020 prevede che i frontalieri siano trattati in modo simile ai lavoratori svizzeri. Ecco cosa cambia per i cuochi',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, cuoco, nuovo',
+    ogTitle: 'Quanto guadagna un cuoco frontaliere in Ticino?',
+    ogDescription: 'Il Nuovo Accordo Frontalieri del 23/12/2020 prevede che i frontalieri siano trattati in modo simile ai lavoratori svizzeri. Ecco cosa cambia per i cuochi',
+    canonicalPath: '/articoli-frontaliere/cuoco-frontaliere-ticino-guadagno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un cuoco frontaliere in Ticino?",
+      "description": "Il Nuovo Accordo Frontalieri del 23/12/2020 prevede che i frontalieri siano trattati in modo simile ai lavoratori svizzeri. Ecco cosa cambia per i cuochi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cuoco-frontaliere-ticino-guadagno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano dal lago. Max 125 chars"
+      },
+      "datePublished": "2026-07-24T02:14:37+00:00",
+      "dateModified": "2026-07-24T02:14:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cuoco-frontaliere-ticino-guadagno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

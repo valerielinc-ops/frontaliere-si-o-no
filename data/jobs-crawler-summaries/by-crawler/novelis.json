@@ -1,19 +1,55 @@
 {
   "key": "novelis",
   "label": "Novelis",
-  "generatedAt": "2026-07-22T22:31:59.125Z",
-  "total": 5,
+  "generatedAt": "2026-07-23T22:16:31.003Z",
+  "total": 6,
   "newCount": 0,
-  "updatedCount": 5,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5649,
-  "avgDurationMs": 5649,
+  "durationMs": 6662,
+  "avgDurationMs": 6662,
   "durationHistory": [
-    5649
+    6662
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "id": "novelis-13ee0aed98ff",
+      "slug": "it-solutions-lead-m-w-d-novelis-ch",
+      "company": "Novelis",
+      "companyKey": "novelis",
+      "companyDomain": "novelis.com",
+      "title": "IT Solutions Lead (m/w/d)",
+      "location": "Göttingen | DE-RP-Koblenz | CH-ZH-Küsnacht | DE-NW-Plettenberg | DE-ST-Nachterstedt | DE-Göttingen",
+      "canton": "ZH",
+      "addressLocality": "Göttingen | DE-RP-Koblenz | CH-ZH-Küsnacht | DE-NW-Plettenberg | DE-ST-Nachterstedt | DE-Göttingen",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Metallurgia / Alluminio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-23",
+      "url": "https://de-careers-novelis.icims.com/jobs/52802/it-solutions-lead-%28m-w-d%29/job?hub=13&in_iframe=1",
+      "applyUrl": "https://de-careers-novelis.icims.com/jobs/52802/it-solutions-lead-%28m-w-d%29/job?hub=13&in_iframe=1",
+      "source": "Novelis Dedicated Parser (iCIMS)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-23T22:16:25.643Z",
+      "firstSeenAt": "2026-07-23T11:46:56.934Z",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
     {
       "id": "novelis-4f0b91457927",
       "slug": "mecanicien-de-maintenance-novelis-ch",
@@ -40,7 +76,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52764/m%c3%a9canicien-de-maintenance/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T22:31:54.455Z",
+      "crawledAt": "2026-07-23T22:16:26.430Z",
       "firstSeenAt": "2026-07-15T22:17:22.223Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -76,7 +112,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52696/finance-lead-%28m-f-d%29-%e2%80%93-digital-transformation-%26-business-projects/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T22:31:55.071Z",
+      "crawledAt": "2026-07-23T22:16:27.016Z",
       "firstSeenAt": "2026-07-09T22:26:43.200Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -112,7 +148,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52695/internship-%28m-f-d%29-human-resources-%2860%25-80%26%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T22:31:55.572Z",
+      "crawledAt": "2026-07-23T22:16:27.654Z",
       "firstSeenAt": "2026-07-08T11:23:10.202Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -148,7 +184,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52694/stagiaire/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T22:31:56.239Z",
+      "crawledAt": "2026-07-23T22:16:28.286Z",
       "firstSeenAt": "2026-07-08T11:23:10.893Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -184,7 +220,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52599/plant-hr-manager-%28f-m-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-22T22:31:56.762Z",
+      "crawledAt": "2026-07-23T22:16:28.899Z",
       "firstSeenAt": "2026-07-08T11:23:11.600Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {

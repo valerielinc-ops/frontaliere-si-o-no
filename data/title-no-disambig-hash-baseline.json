@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-05T21:40:22.349Z",
+  "generated": "2026-07-22T12:48:31.353Z",
   "mode": "rate",
   "tolerance": {
     "relPct": 20,
@@ -7,22 +7,52 @@
     "minAbsDelta": 5,
     "maxDeltaPp": 3
   },
-  "scanned": 2068992,
+  "scanned": 2220043,
   "totalOffenders": 539,
-  "totalRatePct": 0.0261,
+  "totalRatePct": 0.0243,
   "byFeature": {
     "spa-other": {
-      "scanned": 1612,
+      "scanned": 1567,
       "offenders": 0,
       "ratePct": 0
     },
-    "fuel-daily": {
-      "scanned": 6326,
+    "blog": {
+      "scanned": 13769,
+      "offenders": 539,
+      "ratePct": 3.9146
+    },
+    "weekly-employers-hub": {
+      "scanned": 8,
       "offenders": 0,
       "ratePct": 0
     },
-    "health-premiums": {
-      "scanned": 366,
+    "job-board": {
+      "scanned": 2163211,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "career-landings": {
+      "scanned": 20521,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "spa-locale": {
+      "scanned": 4276,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "eventi": {
+      "scanned": 5892,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "profession-canton": {
+      "scanned": 1132,
+      "offenders": 0,
+      "ratePct": 0
+    },
+    "profession-city": {
+      "scanned": 210,
       "offenders": 0,
       "ratePct": 0
     },
@@ -31,43 +61,33 @@
       "offenders": 0,
       "ratePct": 0
     },
-    "spa-locale": {
-      "scanned": 4347,
+    "health-premiums": {
+      "scanned": 366,
       "offenders": 0,
       "ratePct": 0
     },
-    "job-board": {
-      "scanned": 2033096,
+    "employer-profiles": {
+      "scanned": 1860,
       "offenders": 0,
       "ratePct": 0
     },
-    "weekly-employers-hub": {
-      "scanned": 100,
+    "border-wait": {
+      "scanned": 45,
       "offenders": 0,
       "ratePct": 0
     },
-    "career-landings": {
-      "scanned": 6074,
+    "fuel-daily": {
+      "scanned": 6238,
       "offenders": 0,
       "ratePct": 0
     },
-    "eventi": {
-      "scanned": 4396,
+    "health-facilities": {
+      "scanned": 448,
       "offenders": 0,
       "ratePct": 0
     },
     "weekly-employers": {
-      "scanned": 339,
-      "offenders": 0,
-      "ratePct": 0
-    },
-    "blog": {
-      "scanned": 12198,
-      "offenders": 539,
-      "ratePct": 4.4188
-    },
-    "border-wait": {
-      "scanned": 45,
+      "scanned": 407,
       "offenders": 0,
       "ratePct": 0
     }

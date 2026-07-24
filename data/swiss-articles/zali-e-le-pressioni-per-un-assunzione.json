@@ -1,0 +1,40 @@
+{
+  "id": "zali-e-le-pressioni-per-un-assunzione",
+  "slug": "zali-e-le-pressioni-per-un-assunzione",
+  "publishedAt": "2026-07-23T17:38:58.887Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.338554904063225,
+    "confidence": 0.8,
+    "finalScore": 9.87084392325058,
+    "topK": [
+      {
+        "slug": "divieti-social-media-minori",
+        "cosine": 0.8225703269375484
+      },
+      {
+        "slug": "calo-frontalieri-non-tassa-salute",
+        "cosine": 0.8209977256155524
+      },
+      {
+        "slug": "agriscambio",
+        "cosine": 0.8190918529108702
+      },
+      {
+        "slug": "canicola-lavoro-ticino-confronto",
+        "cosine": 0.818701168023
+      },
+      {
+        "slug": "salari-ticino-abusi-precarieta",
+        "cosine": 0.8184526446396648
+      }
+    ],
+    "score": 1.2338554904063226,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

@@ -1,18 +1,19 @@
 {
   "key": "medics-labor",
   "label": "Medics Labor AG",
-  "generatedAt": "2026-07-22T23:13:24.962Z",
+  "generatedAt": "2026-07-23T22:12:44.230Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6777,
-  "avgDurationMs": 6777,
+  "durationMs": 5627,
+  "avgDurationMs": 5627,
   "durationHistory": [
-    6777
+    5627
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "medics-labor-c8edd2cc4884",
       "slug": "biomedizinische-r-analytiker-in-hf-pathologie-medics-labor-bern",
@@ -20,13 +21,13 @@
       "companyKey": "medics-labor",
       "companyDomain": "medics.ch",
       "title": "Biomedizinische:r Analytiker:in HF Pathologie",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Bern",
       "canton": "BE",
       "url": "https://app.reflinejobs.io/1474/0123/pub/100/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T23:13:19.942Z",
+      "crawledAt": "2026-07-23T22:12:39.661Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -42,16 +43,15 @@
       "postedDate": "2026-07-22",
       "applyUrl": "https://app.reflinejobs.io/1474/0123/pub/100/index.html",
       "externalId": "0123",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-22T23:13:19.942Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "medics-labor-4ee2ac674e21",
       "slug": "fachmitarbeiter-in-probenannahme-medics-labor-bern",
@@ -65,7 +65,7 @@
       "url": "https://app.reflinejobs.io/1474/0132/pub/98/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T23:13:20.668Z",
+      "crawledAt": "2026-07-23T22:12:40.229Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",

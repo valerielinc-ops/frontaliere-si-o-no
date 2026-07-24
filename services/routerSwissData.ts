@@ -510,6 +510,17 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'evoluzione-frontalieri-dati-ust': { it: 'evoluzione-frontalieri-dati-ust', en: 'evolution-cross-border-workers-swiss-data', de: 'entwicklung-grenzgaenger-schweizer-daten', fr: 'evolution-frontaliers-donnees-suisses' },
  'terzo-pilastro-3a-vantaggi-2026-canton-san-gallo': { it: 'terzo-pilastro-3a-vantaggi-2026-canton-san-gallo', en: 'third-pillar-3a-swiss-benefits-2026-canton-sankt-gallen', de: 'dritter-stutzpfeiler-3a-schweizer-vorteile-2026-kanton-sankt-gallen', fr: 'troisieme-pilier-3a-suisse-avantages-2026-canton-saint-gall' },
  'permesso-frontaliere-g-procedura-ticino': { it: 'permesso-frontaliere-g-procedura-ticino', en: 'g-permit-procedure-ticino', de: 'g-bewilligung-verfahren-tessin', fr: 'permis-g-procedure-tessin' },
+ 'terzo-pilastro-3a-vantaggi-2026-basilea': { it: 'terzo-pilastro-3a-vantaggi-2026-basilea', en: 'slug-terzo-pilastro-3a-vantaggi-2026-basilea', de: 'slug-terzo-pilastro-3a-vantaggi-2026-basilea', fr: 'slug-terzo-pilastro-3a-vantaggi-2026-basilea' },
+ 'mappa-frontalieri-lombardi-ticino': { it: 'mappa-frontalieri-lombardi-ticino', en: 'map-lombard-cross-border-workers-ticino', de: 'karte-lombardische-grenzgaenger-tessin', fr: 'carte-frontaliers-lombards-ticino' },
+ 'reddito-cittadinanza-svizzera-indagine': { it: 'reddito-cittadinanza-svizzera-indagine', en: 'citizenship-income-swiss-investigation', de: 'buergergeld-schweiz-untersuchung', fr: 'revenu-citoyennete-enquete-suisse' },
+ 'frontalieri-rallentamento-ticino-crescita-grigioni': { it: 'frontalieri-rallentamento-ticino-crescita-grigioni', en: 'frontalieri-rallentamento-ticino-crescita-grigioni', de: 'frontalier-rueckgang-ticino-zuwachs-grigioni', fr: 'frontaliers-recul-ticino-croissance-grigioni' },
+ 'alta-volont-di-scambio-per-la-borsa-svizzera': { it: 'alta-volont-di-scambio-per-la-borsa-svizzera', en: 'high-volumes-of-trading-for-the-swiss-stock-exchange', de: 'hohe-handelsvolumina-fur-die-borse-zurich', fr: 'hautes-quantites-dechangees-pour-l-echange-suisse' },
+ 'lavori-tilo-chi-cambia': { it: 'lavori-tilo-chi-cambia', en: 'tilo-works-what-changes', de: 'tilo-arbeiten-was-andert', fr: 'travaux-tilo-quels-changements' },
+ 'dazi-usa-svizzera-luglio-2026': { it: 'dazi-usa-svizzera-luglio-2026', en: 'usa-tariffs-switzerland-july-2026', de: 'usa-zolle-schweiz-juli-2026', fr: 'droits-douane-usa-suisse-juillet-2026' },
+ 'zali-e-le-pressioni-per-un-assunzione': { it: 'zali-e-le-pressioni-per-un-assunzione', en: 'zali-and-the-pressures-for-an-hiring', de: 'zali-und-die-drucke-fur-eine-anstellung', fr: 'zali-et-les-pressions-pour-un-embauche' },
+ 'aziende-svizzere-in-borsa': { it: 'aziende-svizzere-in-borsa', en: 'swiss-companies-in-stock', de: 'schweizer-unternehmen-an-der-borse', fr: 'entreprises-suisse-sur-le-marche-actionnaire' },
+ 'ia-cambia-lavoro-ma-non-sostituisce-persone': { it: 'ia-cambia-lavoro-ma-non-sostituisce-persone', en: 'ai-changes-work-but-not-people', de: 'ai-verandert-arbeit-sondern-keine-menschen', fr: 'la-ia-changera-le-travail-mais-pas-les-personnes' },
+ 'terzo-pilastro-3a-vantaggi-canton-ginevra': { it: 'terzo-pilastro-3a-vantaggi-canton-ginevra', en: 'third-pillar-3a-cantonal-geneva', de: 'dritter-pfeiler-3a-kanton-genf', fr: 'troisieme-pilier-3a-cantonal-de-geneve' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

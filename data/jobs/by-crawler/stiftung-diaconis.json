@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stiftung-diaconis",
-  "assembledAt": "2026-07-22T22:06:07.628Z",
+  "assembledAt": "2026-07-23T22:06:01.664Z",
   "jobs": [
     {
       "id": "stiftung-diaconis-169",
@@ -34,7 +34,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_169/Fachfrau-Fachmann-Gesundheit-80-%25-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:06:03.305Z",
+      "crawledAt": "2026-07-23T22:05:58.203Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_214/Dipl.-Pflegefachfrau-Pflegefachmann-HF-60-%25-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:06:02.839Z",
+      "crawledAt": "2026-07-23T22:05:57.732Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -190,7 +190,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_107/Praktikantin-Praktikant-Pflege-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:06:02.376Z",
+      "crawledAt": "2026-07-23T22:05:57.270Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -269,7 +269,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_203/Mitarbeiterin-Mitarbeiter-Pflege-80-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:06:01.913Z",
+      "crawledAt": "2026-07-23T22:05:56.778Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -350,7 +350,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_66/Stv.-Teamleitung-Pflege-80-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:06:01.453Z",
+      "crawledAt": "2026-07-23T22:05:56.320Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -435,7 +435,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_135/Mitarbeiter-in-Pflege-DPC-40-90-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:06:00.993Z",
+      "crawledAt": "2026-07-23T22:05:55.861Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -457,6 +457,10 @@
         "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern",
         "cura-dei-dipendenti-dpc-60-stiftung-diaconis-bern",
         "collaboratore-trice-pflege-dpc-40-90-stiftung-diaconis-bern",
+        "collaboratore-trice-pflege-nachtdienst-80-100-stiftung-diaconis-bern",
+        "night-care-assistant-80-100-stiftung-diaconis-bern",
+        "mitarbeiter-in-pflege-nachtdienst-80-100-stiftung-diaconis-bern",
+        "infirmier-e-de-nuit-80-100-stiftung-diaconis-bern",
         "collaboratore-trice-pflege-dpc-60-stiftung-diaconis-bern"
       ],
       "previousSlugsByLocale": {
@@ -465,18 +469,25 @@
           "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern",
           "cura-dei-dipendenti-dpc-60-stiftung-diaconis-bern",
           "collaboratore-trice-pflege-dpc-40-90-stiftung-diaconis-bern",
+          "collaboratore-trice-pflege-nachtdienst-80-100-stiftung-diaconis-bern",
+          "night-care-assistant-80-100-stiftung-diaconis-bern",
+          "mitarbeiter-in-pflege-nachtdienst-80-100-stiftung-diaconis-bern",
+          "infirmier-e-de-nuit-80-100-stiftung-diaconis-bern",
           "collaboratore-trice-pflege-dpc-60-stiftung-diaconis-bern"
         ],
         "en": [
           "mitarbeiter-in-pflege-dpc-40-90-stiftung-diaconis-bern",
-          "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern"
+          "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern",
+          "night-care-assistant-80-100-stiftung-diaconis-bern"
         ],
         "de": [
-          "mitarbeiter-in-pflege-dpc-40-90-stiftung-diaconis-bern"
+          "mitarbeiter-in-pflege-dpc-40-90-stiftung-diaconis-bern",
+          "mitarbeiter-in-pflege-nachtdienst-80-100-stiftung-diaconis-bern"
         ],
         "fr": [
           "mitarbeiter-in-pflege-dpc-40-90-stiftung-diaconis-bern",
-          "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern"
+          "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern",
+          "infirmier-e-de-nuit-80-100-stiftung-diaconis-bern"
         ]
       },
       "firstSeenAt": "2026-07-16T11:07:24.244Z",
@@ -525,7 +536,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_86/K%C3%B6chin-Koch-100%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:06:00.406Z",
+      "crawledAt": "2026-07-23T22:05:55.403Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -610,7 +621,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_103/Poolmitarbeiter-in-Pflege-%28alle-Ausbildungsstufen%29-10-60-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:05:59.948Z",
+      "crawledAt": "2026-07-23T22:05:54.943Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -689,7 +700,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_282/Leiter-in-Arbeitsmarktliche-Massnahme-%28AMM%29-EAR-80-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:05:59.463Z",
+      "crawledAt": "2026-07-23T22:05:54.483Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -739,85 +750,6 @@
       }
     },
     {
-      "id": "stiftung-diaconis-11",
-      "slug": "collaboratore-trice-pflege-nachtdienst-80-100-stiftung-diaconis-bern",
-      "slugByLocale": {
-        "it": "collaboratore-trice-pflege-nachtdienst-80-100-stiftung-diaconis-bern",
-        "en": "night-care-assistant-80-100-stiftung-diaconis-bern",
-        "de": "mitarbeiter-in-pflege-nachtdienst-80-100-stiftung-diaconis-bern",
-        "fr": "infirmier-e-de-nuit-80-100-stiftung-diaconis-bern"
-      },
-      "company": "Stiftung Diaconis",
-      "companyKey": "stiftung-diaconis",
-      "companyDomain": "diaconis.ch",
-      "title": "Mitarbeiter/in Pflege Nachtdienst 80 - 100 %",
-      "titleByLocale": {
-        "it": "Membro del personale di cura serale 80-100%",
-        "en": "Night Care Assistant 80-100%",
-        "de": "Mitarbeiter/in Pflege Nachtdienst 80 - 100 %",
-        "fr": "Infirmier(e) de nuit 80-100%"
-      },
-      "description": "Zur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n\n\nMitarbeiter/in Pflege Nachtdienst 80 - 100 %\n\nDeine Aufgaben bei uns\n\n• Liebevoll pflegst und unterstützt du unsere Bewohnerinnen und Bewohner im Alltag\n\n• Du übernimmst hauswirtschaftliche Aufgaben und sorgst für Wohnlichkeit und Ordnung in den Wohnbereichen\n\n• In Zusammenarbeit oder Absprache mit dem Fachpersonal übernimmst du mögliche Bezugspersonen-Aufgaben\n\n• Du beobachtest und dokumentierst den Gesundheitszustand der Bewohnerinnen und Bewohner\n\nFolgendes bringst du mit\n\n• Ausbildung auf Assistenzstufe (Assistent/-in Gesundheit/Soziales EBA, Pflegeassistent/-in FA) oder den Lehrgang SRK\n\n• Gute Deutschkenntnisse in Wort und Schrift (mind. B2)\n\n• Flexibilität und Belastbarkeit, gewissenhafte Arbeitsweise\n\n• Aktive Gestaltung einer bedürfnisorientierten Pflege und Betreuung\n\n• Teamfähigkeit, kooperative Arbeitsweise und Einfühlungsvermögen\n\nDeine Vorteile bei uns\n\n• Mind. 6 Wochen Ferien plus 9 garantierte Feiertage\n\n• Flexible Jahresarbeitszeit\n\n• Zentral gelegener und moderner Arbeitsplatz an schöner Lage in der Stadt Bern\n\n• Diverse Rabatte und Angebote von Partnerunternehmen\n\n• 16 Wochen Mutterschaftsurlaub zu 100 % Lohn, 4 Wochen Vaterschaftsurlaub\n\n• Dienstaltersgeschenk alle 5 Jahre (Gutschrift von 5 Arbeitstagen)\n\nAuskünfte erteilen dir gerne Carmen Senn, Leiterin Team Nachtwache, Tel. 031 337 71 03 und Simone Fäh, HR Business Partner, Tel. 031 337 77 07.\n\nLerne uns kennen:  @Instagram /  @Facebook /  @Linkedin /  www.diaconis.ch",
-      "descriptionByLocale": {
-        "it": "Per completare il nostro team, cerchiamo un addetto all'assistenza notturna, 80 - 100% dei vostri compiti con noi, subito o su appuntamento\n• Ti prendi cura e sostieni amorevolmente i nostri residenti nella loro vita quotidiana\n• Ti occupi delle faccende domestiche e garantisci l'intimità e l'ordine nelle zone giorno\n• In collaborazione o in consultazione con il personale specializzato, assumerai eventuali compiti di assistente\n• Osserva e documenta lo stato di salute dei residenti e porta con te quanto segue\n• Formazione a livello di assistente (assistente sanitario/sociale EBA, assistente infermieristico FA) o corso SRK\n• Buona conoscenza della lingua tedesca parlata e scritta (almeno B2)\n• Flessibilità e resilienza, modo di lavorare coscienzioso\n• Progettazione attiva di assistenza e supporto orientati ai bisogni\n• Lavoro di squadra, stile di lavoro cooperativo ed empatia I vostri vantaggi con noi\n• Almeno 6 settimane di ferie più 9 ferie garantite\n• Orario di lavoro annuale flessibile\n• Posto di lavoro moderno e centrale in una splendida posizione nella città di Berna\n• Vari sconti e offerte di aziende partner\n• 16 settimane di congedo di maternità retribuito al 100%, 4 settimane di congedo di paternità\n• Regalo di anzianità ogni 5 anni (accredito per 5 giorni lavorativi) Carmen Senn, capo della squadra dei guardiani della notte, tel. 031 337 71 03 e Simone Fäh, partner commerciale HR, tel. 031 337 77 07 sarà lieto di fornirvi informazioni. Venite a conoscerci: @Instagram / @Facebook / @Linkedin / www.diaconis.ch",
-        "en": "Descrizione To complement our team, we are looking for an 80 - 100% nursing staff member for the night service immediately or by appointment.\n• Your tasks with us - You lovingly care and support our residents in everyday life - Take on household tasks and ensure housing and order in the living areas - In cooperation or consultation with the specialist you take over possible reference person tasks - Observe and document the health status of the residents\n• Requisiti - Training at the assistance level (Assistent/-in health/social EBA, nursing assistant/-in FA) or the course SRK - Good German knowledge in word and writing (min. B2) - Flexibility and resilience, conscientious working methods - Active design of a need-oriented care and care - Teamwork, cooperative working methods and empathy\n• Cosa offriamo - Mind. 6 weeks holidays plus 9 guaranteed holidays - Flexible annual work time - Centrally located and modern workplace in a beautiful location in the city of Bern - Various discounts and offers from partner companies - 16 weeks maternity leave at 100% pay, 4 weeks paternity leave - Age of service gift every 5 years (credit of 5 working days) Contatto Information please contact Carmen Senn, head of the Night Watch team, tel. 031 337 71 03 and Simon Fäh, HR Business Partner, tel. 031 337 77 07. Get to know us: @Instagram / @Facebook / @Linkedin / www.diaconis.ch",
-        "de": "Zur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n\n\nMitarbeiter/in Pflege Nachtdienst 80 - 100 %\n\nDeine Aufgaben bei uns\n\n• Liebevoll pflegst und unterstützt du unsere Bewohnerinnen und Bewohner im Alltag\n\n• Du übernimmst hauswirtschaftliche Aufgaben und sorgst für Wohnlichkeit und Ordnung in den Wohnbereichen\n\n• In Zusammenarbeit oder Absprache mit dem Fachpersonal übernimmst du mögliche Bezugspersonen-Aufgaben\n\n• Du beobachtest und dokumentierst den Gesundheitszustand der Bewohnerinnen und Bewohner\n\nFolgendes bringst du mit\n\n• Ausbildung auf Assistenzstufe (Assistent/-in Gesundheit/Soziales EBA, Pflegeassistent/-in FA) oder den Lehrgang SRK\n\n• Gute Deutschkenntnisse in Wort und Schrift (mind. B2)\n\n• Flexibilität und Belastbarkeit, gewissenhafte Arbeitsweise\n\n• Aktive Gestaltung einer bedürfnisorientierten Pflege und Betreuung\n\n• Teamfähigkeit, kooperative Arbeitsweise und Einfühlungsvermögen\n\nDeine Vorteile bei uns\n\n• Mind. 6 Wochen Ferien plus 9 garantierte Feiertage\n\n• Flexible Jahresarbeitszeit\n\n• Zentral gelegener und moderner Arbeitsplatz an schöner Lage in der Stadt Bern\n\n• Diverse Rabatte und Angebote von Partnerunternehmen\n\n• 16 Wochen Mutterschaftsurlaub zu 100 % Lohn, 4 Wochen Vaterschaftsurlaub\n\n• Dienstaltersgeschenk alle 5 Jahre (Gutschrift von 5 Arbeitstagen)\n\nAuskünfte erteilen dir gerne Carmen Senn, Leiterin Team Nachtwache, Tel. 031 337 71 03 und Simone Fäh, HR Business Partner, Tel. 031 337 77 07.\n\nLerne uns kennen: @Instagram / @Facebook / @Linkedin / www.diaconis.ch",
-        "fr": "Descrizione Pour compléter notre équipe, nous recherchons un personnel infirmier de 80 à 100% pour le service de nuit immédiatement ou sur rendez-vous.\n• Vos tâches avec nous - Vous prenez soin et soutenez avec amour nos résidents dans la vie quotidienne - Prenez des tâches ménagères et assurez-vous de logement et d'ordre dans les zones de vie - En coopération ou en consultation avec le spécialiste vous prenez en charge les tâches de référence possibles - Observez et documentez l'état de santé des résidents\n• Requisiti - Formation au niveau de l'assistance (Assistance/-dans la santé/social EBA, assistante infirmière/-dans la FA) ou le cours SRK - Bonne connaissance allemande en paroles et en écriture (min. B2) - Flexibilité et résilience, méthodes de travail consciencieuses - Conception active d'un soin et d'un soin axés sur les besoins - Travail d'équipe, méthodes de travail coopératives et empathie\n• Cosa offriamo - Mind. 6 semaines de vacances plus 9 jours fériés garantis - Temps de travail annuel flexible - Emplacement central et lieu de travail moderne dans un bel emplacement de la ville de Berne - Diverses réductions et offres des entreprises partenaires - 16 semaines de congé de maternité à 100% salaire, 4 semaines de congé de paternité - Age du service tous les 5 ans (crédit de 5 jours ouvrables) Contatto Informations s'il vous plaît contacter Carmen Senn, chef de l'équipe de veille nocturne, tél. 031 337 71 03 et Simon Fäh, HR Business Partner, tél. 031 337 77 07."
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://diaconis.abacuscity.ch/de/job_1_11/Mitarbeiter-in-Pflege-Nachtdienst-80-100-%25",
-      "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:05:59.002Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3000",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-22",
-      "applyUrl": "https://diaconis.abacuscity.ch/de/job_1_11/Mitarbeiter-in-Pflege-Nachtdienst-80-100-%25",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-pflege-nachtdienst-80-100-stiftung-diaconis-bern",
-        "collaboratore-trice-pflege-nachtdienst-80-100-stiftung-diaconis-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-pflege-nachtdienst-80-100-stiftung-diaconis-bern",
-          "collaboratore-trice-pflege-nachtdienst-80-100-stiftung-diaconis-bern"
-        ],
-        "en": [
-          "mitarbeiter-in-pflege-nachtdienst-80-100-stiftung-diaconis-bern"
-        ],
-        "fr": [
-          "mitarbeiter-in-pflege-nachtdienst-80-100-stiftung-diaconis-bern"
-        ]
-      },
-      "firstSeenAt": "2026-06-22T15:25:30.821Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stiftung-diaconis-287",
       "slug": "valutazione-delle-risorse-dei-dipendenti-dipendenti-nell-integrazione-del-lavoro-60-100-stiftung-diaconis-bern",
       "slugByLocale": {
@@ -849,7 +781,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_287/Arbeitsagogin-Arbeitsagoge-Ressourcenabkl%C3%A4rung-in-der-Arbeitsintegration-60-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:05:58.501Z",
+      "crawledAt": "2026-07-23T22:05:54.023Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -928,7 +860,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_286/Fachperson-Berufs-und-Laufbahnberatung-60-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:05:58.039Z",
+      "crawledAt": "2026-07-23T22:05:53.561Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1005,7 +937,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_285/Fachperson-Bewerbungscoaching-in-der-Arbeitsintegration-60-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:05:57.525Z",
+      "crawledAt": "2026-07-23T22:05:53.098Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1084,7 +1016,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_283/Psycholog%3Ain-MSc-MA-als-Fachperson-berufliche-Integration-60-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:05:57.015Z",
+      "crawledAt": "2026-07-23T22:05:52.639Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1161,7 +1093,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_34/Fachperson-Administration-und-Koordination-70-90-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:05:56.553Z",
+      "crawledAt": "2026-07-23T22:05:52.154Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1238,7 +1170,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_130/Dipl.-Pflegefachfrau-Pflegefachmann-HF-FH-Palliative-Care-Nachtdienst-70-%25-90-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:05:56.051Z",
+      "crawledAt": "2026-07-23T22:05:51.684Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1319,7 +1251,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_129/Dipl.-Pflegefachfrau-Pflegefachmann-HF-FH-Palliative-Care-70-90-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-22T22:05:55.563Z",
+      "crawledAt": "2026-07-23T22:05:51.222Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1360,6 +1292,85 @@
           "@type": "QuantitativeValue",
           "minValue": 61700,
           "maxValue": 93600,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stiftung-diaconis-10",
+      "slug": "salute-professionale-servizio-notturno-80-100-stiftung-diaconis-bern",
+      "slugByLocale": {
+        "it": "salute-professionale-servizio-notturno-80-100-stiftung-diaconis-bern",
+        "en": "professional-health-night-service-80-100-stiftung-diaconis-bern",
+        "de": "fachfrau-fachmann-gesundheit-nachtdienst-80-100-stiftung-diaconis-bern",
+        "fr": "sante-professionnelle-service-de-nuit-80-100-stiftung-diaconis-bern"
+      },
+      "company": "Stiftung Diaconis",
+      "companyKey": "stiftung-diaconis",
+      "companyDomain": "diaconis.ch",
+      "title": "Fachfrau / Fachmann Gesundheit - Nachtdienst 80 - 100 %",
+      "titleByLocale": {
+        "it": "Salute Professionale - Servizio notturno 80 - 100%",
+        "en": "Professional Health - Night service 80 - 100%",
+        "de": "Fachfrau / Fachmann Gesundheit - Nachtdienst 80 - 100 %",
+        "fr": "Santé professionnelle - Service de nuit 80 - 100%"
+      },
+      "description": "Fürsorgliche und professionelle Pflege und Betreuung rund um die Uhr bieten wir in unseren drei Pflegeheimen Oranienburg, Belvoir und Altenberg sowie der Seniorenresidenz Villa Sarepta. Die Nähe zur Stadt und zum Salem-Spital wie auch das eigene Ärzteteam machen unsere Häuser zur ersten Wahl für ein angenehmes und sicheres Wohnen im Alter. Diaconis bietet Menschen mit unterschiedlichen Bedürfnissen ein Zuhause und heisst jederzeit Gäste für Ferien- und Übergangsaufenthalte willkommen.\nWir suchen per sofort oder nach Vereinbarung eine / einen\n\nFachfrau / Fachmann Gesundheit - Nachtdienst 80 - 100 %\n\nDeine Aufgaben bei uns\n\n• Liebevoll pflegst und betreust du unsere Bewohnerinnen und Bewohner\n\n• Du pflegst eine vertrauensvolle Beziehung zu den Bewohnerinnen und Bewohnern und wendest deine Fachkenntnisse an, wie z.B. Kinästhetik, Basale Stimulation, Validation und Palliative Care\n\n• Du verwaltest und überwachst die Medikamentenbewirtschaftung gemäss den geltenden Vorschriften und Protokollen\n\n• Du trägst die Mitverantwortung der Dokumentation und Evaluation des Pflegeprozesses\n\nFolgendes bringst du mit\n\n• Abgeschlossene Pflegeausbildung (Fachfrau/-mann Gesundheit EFZ)\n\n• Freude an der aktiven Gestaltung einer bedürfnisorientierten Pflege und Betreuung\n\n• Gute IT-Kenntnisse und Offenheit im Umgang mit technischen Hilfsmitteln\n\n• Gute Deutschkenntnisse in Wort und Schrift (mind. B2)\n\nDeine Vorteile bei uns\n\n• Mind. 6 Wochen Ferien plus 9 garantierte Feiertage\n\n• Flexible Jahresarbeitszeit\n\n• Zentral gelegener und moderner Arbeitsplatz an schöner Lage in der Stadt Bern\n\n• Diverse Rabatte und Angebote von Partnerunternehmen\n\n• 16 Wochen Mutterschaftsurlaub zu 100 % Lohn, 4 Wochen Vaterschaftsurlaub\n\n• Dienstaltersgeschenk alle 5 Jahre\n\nAuskünfte erteilen dir gerne Carmen Senn, Leiterin Team Nachtdienst, Tel. 031 337 71 03 und Simon Schroeder, HR Business Partner, Tel. 031 337 77 07.\n\nLerne uns kennen:  @Instagram /  @Facebook /  @Linkedin /  www.diaconis.ch",
+      "descriptionByLocale": {
+        "it": "Offriamo cura e cura professionale per tutto il tempo nelle nostre tre case di cura Oranienburg, Belvoir e Altenberg così come la residenza senior Villa Sarepta. La vicinanza alla città e al Salem Hospital, così come il proprio team medico, rendono le nostre case la prima scelta per una vita piacevole e sicura nella vecchiaia. Diaconis offre a persone con diverse esigenze una casa e accoglie gli ospiti per vacanze e soggiorni di transizione in qualsiasi momento.\nStiamo cercando un / un\n\nSalute Professionale - Servizio notturno 80 - 100%\n\nI tuoi compiti con noi\n\n• Adorabile nutrimento e cura per i nostri residenti\n\n• Si mantiene un rapporto di fiducia con i residenti e applicare la vostra competenza, come la kinestetica, la stimolazione basale, la convalida e la cura palliativa\n\n• Gestisci e monitori la gestione della droga in conformità alle normative e ai protocolli applicabili\n\n• Voi portate la corresponsabilità della documentazione e della valutazione del processo di cura\n\nEcco cosa porti con te\n\n• Formazione completa infermieristica (EFZ)\n\n• Delight nel design attivo della cura e della cura orientate al bisogno\n\n• Buona conoscenza e apertura dell'IT nell'affrontare gli aiuti tecnici\n\n• Buona conoscenza del tedesco in parola e scrittura (min. B2)\n\nI tuoi vantaggi con noi\n\n• Mente. 6 settimane di vacanza plus 9 vacanze garantite\n\n• Ore lavorative annuali flessibili\n\n• Posto di lavoro centrale e moderno in una splendida posizione nella città di Berna\n\n• Vari sconti e offerte da aziende partner\n\n• 16 settimane di congedo di maternità al 100%, 4 settimane di congedo di paternità\n\n• Regalo di anzianità ogni 5 anni\n\nCarmen Senn, responsabile del servizio notturno del Team, Tel. 031 337 71 03 e Simon Schroeder, HR Business Partner, Tel. 031 337 77 07 sono lieti di fornirvi informazioni.\n\nIncontriamoci: @Instagram / @Facebook / @Linkedin / www.diaconis.ch",
+        "en": "We offer caring and professional care and care around the clock in our three nursing homes Oranienburg, Belvoir and Altenberg as well as the senior residence Villa Sarepta. The proximity to the city and the Salem Hospital as well as the own medical team make our houses the first choice for pleasant and safe living in old age. Diaconis offers people with different needs a home and welcomes guests for holidays and transitional stays at any time.\nWe are looking for an / an\n\nProfessional Health - Night service 80 - 100%\n\nYour tasks with us\n\n• Lovingly nurture and care for our residents\n\n• You maintain a trusting relationship with the residents and apply your expertise, such as kinesthetics, basal stimulation, validation and palliative care\n\n• You manage and monitor drug management in accordance with applicable regulations and protocols\n\n• You bear the co-responsibility of the documentation and evaluation of the care process\n\nHere's what you bring with you\n\n• Completed nursing training (expert health EFZ)\n\n• Delight in the active design of need-oriented care and care\n\n• Good IT knowledge and openness in dealing with technical aids\n\n• Good knowledge of German in word and writing (min. B2)\n\nYour advantages with us\n\n• Mind. 6 weeks of holidays plus 9 guaranteed holidays\n\n• Flexible annual working hours\n\n• Centrally located and modern workplace in a beautiful location in the city of Bern\n\n• Various discounts and offers from partner companies\n\n• 16 weeks of 100% pay maternity leave, 4 weeks of paternity leave\n\n• Gift of seniority every 5 years\n\nCarmen Senn, Head of Team Night Service, Tel. 031 337 71 03 and Simon Schroeder, HR Business Partner, Tel. 031 337 77 07 are happy to provide you with information.\n\nMeet us: @Instagram / @Facebook / @Linkedin / www.diaconis.ch",
+        "de": "Fürsorgliche und professionelle Pflege und Betreuung rund um die Uhr bieten wir in unseren drei Pflegeheimen Oranienburg, Belvoir und Altenberg sowie der Seniorenresidenz Villa Sarepta. Die Nähe zur Stadt und zum Salem-Spital wie auch das eigene Ärzteteam machen unsere Häuser zur ersten Wahl für ein angenehmes und sicheres Wohnen im Alter. Diaconis bietet Menschen mit unterschiedlichen Bedürfnissen ein Zuhause und heisst jederzeit Gäste für Ferien- und Übergangsaufenthalte willkommen.\nWir suchen per sofort oder nach Vereinbarung eine / einen\n\nFachfrau / Fachmann Gesundheit - Nachtdienst 80 - 100 %\n\nDeine Aufgaben bei uns\n\n• Liebevoll pflegst und betreust du unsere Bewohnerinnen und Bewohner\n\n• Du pflegst eine vertrauensvolle Beziehung zu den Bewohnerinnen und Bewohnern und wendest deine Fachkenntnisse an, wie z.B. Kinästhetik, Basale Stimulation, Validation und Palliative Care\n\n• Du verwaltest und überwachst die Medikamentenbewirtschaftung gemäss den geltenden Vorschriften und Protokollen\n\n• Du trägst die Mitverantwortung der Dokumentation und Evaluation des Pflegeprozesses\n\nFolgendes bringst du mit\n\n• Abgeschlossene Pflegeausbildung (Fachfrau/-mann Gesundheit EFZ)\n\n• Freude an der aktiven Gestaltung einer bedürfnisorientierten Pflege und Betreuung\n\n• Gute IT-Kenntnisse und Offenheit im Umgang mit technischen Hilfsmitteln\n\n• Gute Deutschkenntnisse in Wort und Schrift (mind. B2)\n\nDeine Vorteile bei uns\n\n• Mind. 6 Wochen Ferien plus 9 garantierte Feiertage\n\n• Flexible Jahresarbeitszeit\n\n• Zentral gelegener und moderner Arbeitsplatz an schöner Lage in der Stadt Bern\n\n• Diverse Rabatte und Angebote von Partnerunternehmen\n\n• 16 Wochen Mutterschaftsurlaub zu 100 % Lohn, 4 Wochen Vaterschaftsurlaub\n\n• Dienstaltersgeschenk alle 5 Jahre\n\nAuskünfte erteilen dir gerne Carmen Senn, Leiterin Team Nachtdienst, Tel. 031 337 71 03 und Simon Schroeder, HR Business Partner, Tel. 031 337 77 07.\n\nLerne uns kennen: @Instagram / @Facebook / @Linkedin / www.diaconis.ch",
+        "fr": "Nous offrons soins et soins professionnels et attention 24 heures sur 24 dans nos trois maisons de soins Oranienburg, Belvoir et Altenberg ainsi que la résidence principale Villa Sarepta. La proximité de la ville et de l'hôpital Salem ainsi que la propre équipe médicale font de nos maisons le premier choix pour vivre agréablement et en toute sécurité dans la vieillesse. Diaconis offre aux personnes ayant des besoins différents une maison et accueille les clients pour des vacances et des séjours de transition à tout moment.\nNous cherchons un / un\n\nSanté professionnelle - Service de nuit 80 - 100%\n\nVos tâches avec nous\n\n• Aimement nourrir et prendre soin de nos résidents\n\n• Vous maintenez une relation de confiance avec les résidents et appliquez votre expertise, comme la kinesthétique, la stimulation basale, la validation et les soins palliatifs\n\n• Vous gérez et surveillez la gestion des médicaments conformément aux règlements et protocoles applicables\n\n• Vous portez la coresponsabilité de la documentation et de l'évaluation du processus de soins\n\nVoilà ce que vous apportez.\n\n• Formation infirmière terminée (expert en santé EFZ)\n\n• Délice dans la conception active des soins axés sur les besoins\n\n• Bonne connaissance de la TI et ouverture dans le traitement des aides techniques\n\n• Bonne connaissance de l'allemand dans la parole et l'écriture (min. B2)\n\nVos avantages avec nous\n\n• De rien. 6 semaines de vacances plus 9 jours fériés garantis\n\n• Temps de travail annuel flexible\n\n• Emplacement central et lieu de travail moderne dans un bel emplacement dans la ville de Berne\n\n• Diverses réductions et offres des entreprises partenaires\n\n• 16 semaines de congé de maternité à 100%, 4 semaines de congé de paternité\n\n• Don d'ancienneté tous les 5 ans\n\nCarmen Senn, Chef du service de nuit d'équipe, Tél. 031 337 71 03 et Simon Schroeder, associé d'affaires RH, Tél. 031 337 77 07 sont heureux de vous fournir des informations.\n\nRencontrez-nous: @Instagram / @Facebook / @Linkedin / www.diaconis.ch"
+      },
+      "needsRetranslation": false,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://diaconis.abacuscity.ch/de/job_1_10/Fachfrau-Fachmann-Gesundheit-Nachtdienst-80-100-%25",
+      "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-23T22:05:50.714Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3000",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-23",
+      "applyUrl": "https://diaconis.abacuscity.ch/de/job_1_10/Fachfrau-Fachmann-Gesundheit-Nachtdienst-80-100-%25",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-nachtdienst-80-100-stiftung-diaconis-bern",
+        "salute-professionale-servizio-notturno-80-100-stiftung-diaconis-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-nachtdienst-80-100-stiftung-diaconis-bern",
+          "salute-professionale-servizio-notturno-80-100-stiftung-diaconis-bern"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-nachtdienst-80-100-stiftung-diaconis-bern"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-nachtdienst-80-100-stiftung-diaconis-bern"
+        ]
+      },
+      "firstSeenAt": "2026-07-23T11:48:53.300Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }

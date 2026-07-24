@@ -11,8 +11,14 @@
     "https://jobs.bosch.com/en/?country=ch"
   ],
   "notes": "Dedicated Bosch career crawler for Swiss vacancies, filtered with shared Ticino/Grigioni location matching and parsed from the Bosch job portal HTML.",
-  "updatedAt": "2026-07-22T22:36:26.394Z",
+  "updatedAt": "2026-07-23T22:11:33.821Z",
   "seedMetaByUrl": {
+    "https://jobs.bosch.com/en/job/REF292485N-logistiker-w-m-div-ref292485n": {
+      "location": "Spreitenbach",
+      "canton": "AG",
+      "company": "Bosch Thermotechnik AG",
+      "postedDate": "2026-07-23"
+    },
     "https://jobs.bosch.com/en/job/REF271176Q-servicetechniker-im-aussendienst-bereich-industriehydraulik-100-w-m-div-ref271176q": {
       "location": "Buttikon",
       "canton": "AG",
@@ -50,12 +56,6 @@
       "postedDate": "2026-07-08"
     },
     "https://jobs.bosch.com/en/job/REF285547A-instandhaltung-w-m-div-ref285547a": {
-      "location": "St. Niklaus",
-      "canton": "VS",
-      "company": "Bosch Thermotechnik AG",
-      "postedDate": "2026-07-08"
-    },
-    "https://jobs.bosch.com/en/job/REF289864E-lehrstelle-automatiker-w-m-div-2027-ref289864e": {
       "location": "St. Niklaus",
       "canton": "VS",
       "company": "Bosch Thermotechnik AG",

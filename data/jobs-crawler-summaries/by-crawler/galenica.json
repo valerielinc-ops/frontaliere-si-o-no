@@ -1,40 +1,38 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-07-22T22:08:27.143Z",
-  "total": 372,
+  "generatedAt": "2026-07-23T22:13:51.839Z",
+  "total": 373,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 101605,
-  "avgDurationMs": 101605,
+  "unchangedCount": 0,
+  "durationMs": 104176,
+  "avgDurationMs": 104176,
   "durationHistory": [
-    101605
+    104176
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+      "title": "Verkaufsberaterin / Verkaufsberater Naturkosmetik (w/m/d)",
       "company": "Galenica AG (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3118763.4031942",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=3118739.4031703",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "category": "healthcare",
-      "descriptionIt": "Pharma-Assistent / Pharma-Assistentin (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "category": "sales",
+      "descriptionIt": "Verkaufsberaterin / Verkaufsberater Naturkosmetik (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "applyUrl": "",
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-d7dda1",
-      "id": "galenica-74d20cf71733",
+      "slug": "galenica-galenica-ag-verkaufsberaterin-verkaufsberater-naturkosmetik-w-m-d-bern",
+      "id": "galenica-e6d34af6f521",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
+      "salaryMin": 77500,
+      "salaryMax": 118500,
       "currency": "CHF",
       "streetAddress": "Untermattweg 8",
       "postalCode": "3027",
@@ -42,14 +40,16 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 86,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 25,
+        "translation": 23,
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

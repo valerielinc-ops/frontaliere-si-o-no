@@ -11,8 +11,14 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-07-22T22:50:31.466Z",
+  "updatedAt": "2026-07-23T22:10:37.762Z",
   "seedMetaByUrl": {
+    "https://jobs.pwc.ch/job-vacancies/microsoft-alliance-cloud-ai-platforms-sales-director-senior-manager/0826dd92-4291-4c4f-86c1-3b8cbfed685a": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-07-23"
+    },
     "https://jobs.pwc.ch/job-vacancies/assistant-comptable/ed7aeb13-a4cc-4722-9a8f-2d6c5d1c7e0f": {
       "location": "Lausanne",
       "canton": "VD",

@@ -36,6 +36,7 @@ import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 import { evaluateMixAdjustedTotalRegression } from './lib/mixAdjustedRateGate.mjs';
 import { EVENTS_SECTION_RX } from './lib/eventsSections.mjs';
+import { HEALTH_FACILITIES_SECTION_RX } from './lib/healthFacilitiesSections.mjs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
 import { classifyEmployerLandingFeature } from './lib/employerLandingSections.mjs';
@@ -91,6 +92,7 @@ export function classifyFeature(relPath) {
   // classifyFeature (kept in sync manually since the two classifiers
   // intentionally diverge on other buckets).
   if (EVENTS_SECTION_RX.test(p)) return 'eventi';
+  if (HEALTH_FACILITIES_SECTION_RX.test(p)) return 'health-facilities';
   if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';
   return 'spa-other';
 }

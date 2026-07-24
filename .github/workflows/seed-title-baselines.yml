@@ -59,14 +59,14 @@ permissions:
 jobs:
   seed:
     runs-on: ubuntu-latest
-    # Was 60 — measured too low once this workflow grew to scan 3 baselines
-    # sequentially (run 28751237762 cancelled by this exact timeout at
-    # 60m13s, mid title-no-disambig-hash scan). Real measured cost at
-    # current corpus size (~2.8M pages): ~14min setup+rehydrate (or up to
-    # ~26min on the sequential git-clone fallback path) + ~28min per audit
-    # scan × 3 audits ≈ 98min. 150 gives headroom for the slow-path
-    # rehydrate plus scan-time growth before the next bump is needed.
-    timeout-minutes: 150
+    # Was 60, bumped to 150 (this exact timeout hit run 28751237762 at
+    # 60m13s, mid title-no-disambig-hash scan). Bumped again to 280 after
+    # run 29903886249 hit the 150min ceiling at the SAME step (corpus grew
+    # to ~3.36M pages, ~20% over the ~2.8M this file's 150min estimate was
+    # based on): measured ~47min setup+rehydrate + ~65min for the
+    # title-length scan alone before the step-2 scan got cut off mid-run.
+    # 280 assumes ~47min setup + ~75min/scan × 3 ≈ 272min, with headroom.
+    timeout-minutes: 280
     steps:
       - name: Checkout
         uses: actions/checkout@v5

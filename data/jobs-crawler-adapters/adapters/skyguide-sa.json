@@ -11,8 +11,14 @@
     "https://jobs.skyguide.ch/search/?createNewAlert=false&q=&locationsearch=&optionsFacetsDD_department=&optionsFacetsDD_location=&startrow=0"
   ],
   "notes": "Dedicated Skyguide crawler parses the national SuccessFactors listing (all cantons, paginated) and extracts full detail pages; canton derived per-job.",
-  "updatedAt": "2026-07-22T22:15:13.114Z",
+  "updatedAt": "2026-07-23T22:08:26.524Z",
   "seedMetaByUrl": {
+    "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCbendorf-APS-&-ADC-Rated-%28ATCO%29-Instructor-%28100%29/1418247333/": {
+      "location": "Wangen b. Dübendorf",
+      "canton": "ZH",
+      "company": "Skyguide",
+      "postedDate": "2026-07-23"
+    },
     "https://jobs.skyguide.ch/job/Payerne-Formation-contr%C3%B4leur%C2%B7euse-de-la-circulation-a%C3%A9rienne-Payerne/1140873301/": {
       "location": "Payerne",
       "canton": "VD",

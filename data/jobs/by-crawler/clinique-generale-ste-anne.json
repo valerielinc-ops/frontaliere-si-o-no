@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinique-generale-ste-anne",
-  "assembledAt": "2026-07-22T22:38:05.098Z",
+  "assembledAt": "2026-07-23T22:40:53.470Z",
   "jobs": [
     {
       "id": "clinique-generale-ste-anne-42d3ec8c44f5",
@@ -35,7 +35,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136139809-aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-",
       "source": "Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=CDF)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-22T22:38:02.170Z",
+      "crawledAt": "2026-07-23T22:40:50.610Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -66,6 +66,86 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:16:45.145Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "clinique-generale-ste-anne-2e8776d2d57e",
+      "slug": "assistente-medico-h-f-apertura-di-un-nuovo-centro-medico-clinique-generale-ste-anne-fribourg",
+      "slugByLocale": {
+        "it": "assistente-medico-h-f-apertura-di-un-nuovo-centro-medico-clinique-generale-ste-anne-fribourg",
+        "en": "medical-assistant-h-f-opening-of-a-new-medical-centre-clinique-generale-ste-anne-fribourg",
+        "de": "assistent-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical-clinique-generale-ste-anne-fribourg",
+        "fr": "assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical-clinique-generale-ste-anne"
+      },
+      "company": "Clinique Générale Ste-Anne",
+      "companyKey": "clinique-generale-ste-anne",
+      "companyDomain": "swissmedical.net",
+      "title": "Assistant.e médical.e (H/F) – Ouverture d’un nouveau centre médical",
+      "titleByLocale": {
+        "it": "Assistente medico (H/F) – Apertura di un nuovo centro medico",
+        "en": "Medical Assistant (H/F) – Opening of a new medical centre",
+        "de": "Assistent.e médical.e (H/F) – Ouverture d’un nouveau centre médical",
+        "fr": "Assistant.e médical.e (H/F) – Ouverture d’un nouveau centre médical"
+      },
+      "description": "Vous participez activement à la mise en place et au bon fonctionnement du centre, aux côtés de médecins généralistes et en médecine du sport.\nVos principales responsabilités\n\n• Accueil et prise en charge des patients\n\n• Assistance aux médecins lors des consultations\n\n• Réalisation d’actes médico-techniques délégués\n\n• Gestion administrative des dossiers patients\n\n• Facturation selon le système TARDOC\n\n• Participation à la mise en place et à l’amélioration des processus interne\n\n• Diplôme d’assistant.e médical.e ou formation jugée équivalente\n\n• Expérience en cabinet médical ou structure ambulatoire souhaitée\n\n• Connaissance de la facturation TARDOC\n\n• Formations en radiologie de base et laboratoire : des atouts\n\n• Excellente maîtrise du français avec de bonnes connaissances en allemand\n\n• Sens de l’organisation, autonomie et esprit d’initiative\n\n• Dynamisme et motivation à participer à la création d’un nouveau centre\n\n• Excellentes compétences relationnelles et esprit d’équipe\n\nNous offrons\n\n• L’opportunité de participer à la création d’un nouveau centre médical\n\n• Un environnement de travail moderne et stimulant\n\n• Une équipe engagée et collaborative\n\n• Des conditions attractives au sein d’un établissement reconnu\n\nDate d'entrée: mi-août 2026\nTaux d'activité: 40% lundi et vendredi avec flexibilité pour des remplacements durant d'éventuelles absences\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nLa Clinique Générale et son personnel accueillent les patients dans un environnement moderne et agréable au cœur de la ville de Fribourg. La Clinique Générale offre des soins médicaux de haute qualité et un suivi personnalisé dans les domaines suivants : orthopédie, traumatologie de l'appareil locomoteur, chirurgie de la main, neurochirurgie, chirurgie, gynécologie ainsi qu'oto-rhino-laryngologie (ORL).\nEnvie de faire partie de l’ouverture d’un nouveau centre médical moderne et dynamique?\nDans le cadre de l’ouverture de son nouveau centre médical le 1er septembre 2026, la Clinique Générale de Fribourg recherche un.e assistant·e·s médical·e·s (à 40%) motivé·e·s à rejoindre une équipe engagée et à participer à cette nouvelle aventure professionnelle.",
+      "descriptionByLocale": {
+        "it": "Siete attivamente coinvolti nella creazione e nel funzionamento del centro, insieme a professionisti generali e medicina sportiva.\nLe tue principali responsabilità\n\n• Accoglienza e cura dei pazienti\n\n• Assistenza ai medici durante le consultazioni\n\n• Esecuzione di atti medico-tecnici delegati\n\n• Gestione amministrativa dei registri dei pazienti\n\n• Fatturazione secondo il sistema TARDOC\n\n• Partecipazione alla creazione e al miglioramento dei processi interni\n\n• Diploma di assistente medico o formazione equivalente\n\n• Esperienza nella pratica medica o nella struttura ambulatoria desiderata\n\n• TARDOC Billing Knowledge\n\n• Radiologia di base e formazione di laboratorio: punti di forza\n\n• Eccellente padronanza del francese con buona conoscenza in tedesco\n\n• Senso organizzativo, autonomia e iniziativa\n\n• Dynamism e motivazione per partecipare alla creazione di un nuovo centro\n\n• Eccellente capacità relazionali e lavoro di squadra\n\nOffriamo\n\n• L'opportunità di partecipare alla creazione di un nuovo centro medico\n\n• Un ambiente di lavoro moderno e stimolante\n\n• Un team impegnato e collaborativo\n\n• Condizioni attraenti in uno stabilimento riconosciuto\n\nData di inizio: metà agosto 2026\nTasso di attività: 40% lunedì e venerdì con flessibilità per sostituzioni durante eventuali assenze\nPrestiamo grande attenzione alla diversità dei percorsi di vita dei nostri collaboratori. Le nostre posizioni sono aperte sia alle donne che agli uomini.\n\nIl Clinique Générale e il suo staff accolgono i pazienti in un ambiente moderno e piacevole nel cuore della città di Friburgo. Il Clinique Générale offre cure mediche di alta qualità e follow-up personalizzato nelle seguenti aree: ortopedia, trauma muscolo-scheletrico, chirurgia, neurochirurgia, chirurgia, ginecologia e oto-rhino-laringologia (ORL).\nVuoi far parte dell'apertura di un nuovo centro medico moderno e dinamico?\nNell'ambito dell'apertura del nuovo centro medico il 1o settembre 2026, il Clinique Générale de Fribourg cerca un 40% di assistente medico per unirsi a un team impegnato e partecipare a questa nuova avventura professionale.",
+        "en": "You are actively involved in the establishment and functioning of the centre, alongside general practitioners and sports medicine.\nYour main responsibilities\n\n• Patient reception and care\n\n• Assistance to physicians during consultations\n\n• Performing delegated medico-technical acts\n\n• Administrative management of patient records\n\n• Invoicing according to the TARDOC system\n\n• Participation in the establishment and improvement of internal processes\n\n• Diploma of medical assistant or equivalent training\n\n• Experience in medical practice or desired ambulatory structure\n\n• TARDOC Billing Knowledge\n\n• Basic radiology and laboratory training: strengths\n\n• Excellent mastery of French with good knowledge in German\n\n• Organizational sense, autonomy and initiative\n\n• Dynamism and motivation to participate in the creation of a new centre\n\n• Excellent relational skills and teamwork\n\nWe offer\n\n• The opportunity to participate in the creation of a new medical centre\n\n• A modern and stimulating working environment\n\n• A committed and collaborative team\n\n• Attractive conditions within a recognised establishment\n\nStart date: mid-August 2026\nActivity rate: 40% Monday and Friday with flexibility for replacements during possible absences\nWe pay great attention to the diversity of life paths of our collaborators. Our positions are open to both women and men.\n\nThe Clinique Générale and its staff welcome patients in a modern and pleasant environment in the heart of the city of Fribourg. The Clinique Générale offers high-quality medical care and personalized follow-up in the following areas: orthopaedics, musculoskeletal trauma, hand surgery, neurosurgery, surgery, gynaecology and oto-rhino-laryngology (ORL).\nWant to be part of the opening of a new modern and dynamic medical centre?\nAs part of the opening of its new medical centre on 1 September 2026, the Clinique Générale de Fribourg is looking for a 40% medical assistant to join a committed team and participate in this new professional adventure.",
+        "de": "Sie sind aktiv an der Einrichtung und Funktionsweise des Zentrums beteiligt, neben Allgemeinmedizinern und Sportmedizin.\nIhre Hauptaufgaben\n\n• Aufnahme und Betreuung der Patienten\n\n• Unterstützung von Ärzten bei Konsultationen\n\n• Durchführung delegierter medizintechnischer Rechtsakte\n\n• Verwaltung der Patientenakten\n\n• Rechnungsstellung nach dem TARDOC-System\n\n• Beteiligung an der Etablierung und Verbesserung interner Prozesse\n\n• Diplom eines medizinischen Assistenten oder gleichwertige Ausbildung\n\n• Erfahrung in der medizinischen Praxis oder gewünschte ambulante Struktur\n\n• TARDOC Billing Wissen\n\n• Grundlegende Radiologie und Laborausbildung: Stärken\n\n• Hervorragende Beherrschung von Französisch mit guten Deutschkenntnissen\n\n• Organisationssinn, Autonomie und Initiative\n\n• Dynamik und Motivation zur Teilnahme an der Schaffung eines neuen Zentrums\n\n• Hervorragende relationale Fähigkeiten und Teamwork\n\nWir bieten\n\n• Die Möglichkeit, an der Schaffung eines neuen medizinischen Zentrums teilzunehmen\n\n• Ein modernes und anregendes Arbeitsumfeld\n\n• Ein engagiertes und kooperatives Team\n\n• Attraktive Bedingungen innerhalb eines anerkannten Betriebs\n\nStartdatum: Mitte August 2026\nAktivitätsrate: 40% Montag und Freitag mit Flexibilität für Ersatz während möglicher Abwesenheiten\nWir achten sehr auf die Vielfalt der Lebenswege unserer Mitarbeiter. Unsere Positionen stehen sowohl Frauen als auch Männern offen.\n\nDie Clinique Générale und ihre Mitarbeiter begrüßen Patienten in einer modernen und angenehmen Umgebung im Herzen der Stadt Freiburg. Die Clinique Générale bietet qualitativ hochwertige medizinische Versorgung und personalisierte Nachsorge in den folgenden Bereichen: Orthopädie, Muskel-Skelett-Trauma, Handchirurgie, Neurochirurgie, Chirurgie, Gynäkologie und Oto-Rhino-Laryngologie (ORL).\nMöchten Sie Teil der Eröffnung eines neuen modernen und dynamischen medizinischen Zentrums sein?\nIm Rahmen der Eröffnung ihres neuen medizinischen Zentrums am 1. September 2026 sucht die Clinique Générale de Fribourg einen 40%igen medizinischen Assistenten, der sich einem engagierten Team anschließt und an diesem neuen beruflichen Abenteuer teilnimmt.",
+        "fr": "Vous participez activement à la mise en place et au bon fonctionnement du centre, aux côtés de médecins généralistes et en médecine du sport.\nVos principales responsabilités\n\n• Accueil et prise en charge des patients\n\n• Assistance aux médecins lors des consultations\n\n• Réalisation d’actes médico-techniques délégués\n\n• Gestion administrative des dossiers patients\n\n• Facturation selon le système TARDOC\n\n• Participation à la mise en place et à l’amélioration des processus interne\n\n• Diplôme d’assistant.e médical.e ou formation jugée équivalente\n\n• Expérience en cabinet médical ou structure ambulatoire souhaitée\n\n• Connaissance de la facturation TARDOC\n\n• Formations en radiologie de base et laboratoire : des atouts\n\n• Excellente maîtrise du français avec de bonnes connaissances en allemand\n\n• Sens de l’organisation, autonomie et esprit d’initiative\n\n• Dynamisme et motivation à participer à la création d’un nouveau centre\n\n• Excellentes compétences relationnelles et esprit d’équipe\n\nNous offrons\n\n• L’opportunité de participer à la création d’un nouveau centre médical\n\n• Un environnement de travail moderne et stimulant\n\n• Une équipe engagée et collaborative\n\n• Des conditions attractives au sein d’un établissement reconnu\n\nDate d'entrée: mi-août 2026\nTaux d'activité: 40% lundi et vendredi avec flexibilité pour des remplacements durant d'éventuelles absences\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nLa Clinique Générale et son personnel accueillent les patients dans un environnement moderne et agréable au cœur de la ville de Fribourg. La Clinique Générale offre des soins médicaux de haute qualité et un suivi personnalisé dans les domaines suivants : orthopédie, traumatologie de l'appareil locomoteur, chirurgie de la main, neurochirurgie, chirurgie, gynécologie ainsi qu'oto-rhino-laryngologie (ORL).\nEnvie de faire partie de l’ouverture d’un nouveau centre médical moderne et dynamique?\nDans le cadre de l’ouverture de son nouveau centre médical le 1er septembre 2026, la Clinique Générale de Fribourg recherche un.e assistant·e·s médical·e·s (à 40%) motivé·e·s à rejoindre une équipe engagée et à participer à cette nouvelle aventure professionnelle."
+      },
+      "needsRetranslation": true,
+      "location": "Fribourg",
+      "canton": "FR",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139249959-assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139249959-assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical",
+      "source": "Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=CDF)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-23T22:40:50.609Z",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1700",
+      "streetAddress": "Rue Hans-Geiler 6, 1700 Fribourg",
+      "category": "Sanità / Ospedali",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-23",
+      "datePosted": "2026-07-23",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical-clinique-generale-ste-anne",
+        "assistente-medico-h-f-apertura-di-un-nuovo-centro-medico-clinique-generale-ste-anne-fribourg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical-clinique-generale-ste-anne",
+          "assistente-medico-h-f-apertura-di-un-nuovo-centro-medico-clinique-generale-ste-anne-fribourg"
+        ],
+        "en": [
+          "assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical-clinique-generale-ste-anne"
+        ],
+        "de": [
+          "assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical-clinique-generale-ste-anne"
+        ]
+      },
+      "firstSeenAt": "2026-07-23T12:36:51.026Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
