@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3499,
+ "numberOfItems": 3500,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8267,7 +8267,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3496, "name": "Boom IA in Svizzera: opportunità per i frontalieri", "url": `${BASE_URL}/articoli-frontaliere/boom-ia-svizzera-opportunita-frontalieri` },
           { "@type": "ListItem", "position": 3497, "name": "Temu e SKV: favorire accesso PMI svizzere a mer...", "url": `${BASE_URL}/articoli-frontaliere/temu-skv-collaborazione` },
           { "@type": "ListItem", "position": 3498, "name": "Storica Strada Maria Teresa a Roveredo: complet...", "url": `${BASE_URL}/articoli-frontaliere/strada-maria-teresa-roveredo-recupero` },
-          { "@type": "ListItem", "position": 3499, "name": "La BCE mantiene i tassi al 2,25%", "url": `${BASE_URL}/articoli-frontaliere/bce-mantiene-tassi-2-25` }
+          { "@type": "ListItem", "position": 3499, "name": "La BCE mantiene i tassi al 2,25%", "url": `${BASE_URL}/articoli-frontaliere/bce-mantiene-tassi-2-25` },
+          { "@type": "ListItem", "position": 3500, "name": "Disoccupazione frontalieri: il futuro nel Comit...", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-frontalieri-comitato-misto` }
  ]
  },
  {

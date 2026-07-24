@@ -8927,6 +8927,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.strada-maria-teresa-roveredo-recupero.title': 'Storica Strada Maria Teresa a Roveredo: completato il recupero',
     'blog.article.strada-maria-teresa-roveredo-recupero.excerpt': 'Inaugurazione a Roveredo dopo un intervento da 900.000 franchi per la storica via verso l\'Italia, legata alla figura di Maria Teresa d\'Absburgo.',
     'blog.article.strada-maria-teresa-roveredo-recupero.imageAlt': 'Restauro storico della Strada Maria Teresa a Roveredo nel Canton Grigioni',
+    'blog.article.disoccupazione-frontalieri-comitato-misto.title': 'Disoccupazione frontalieri: il futuro nel Comitato misto',
+    'blog.article.disoccupazione-frontalieri-comitato-misto.excerpt': 'Il Parlamento europeo vota per il cambio di rotta sulle indennità: la palla passa alla Svizzera tra timori di costi e incertezze legali.',
+    'blog.article.disoccupazione-frontalieri-comitato-misto.imageAlt': 'Veduta del lungolago di Lugano al crepuscolo',
 };
 
 export default blogMetaIt;

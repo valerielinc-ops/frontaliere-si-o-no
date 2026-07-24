@@ -8928,6 +8928,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.strada-maria-teresa-roveredo-recupero.title': 'Route historique Maria Teresa à Roveredo : la récupération est terminée',
     'blog.article.strada-maria-teresa-roveredo-recupero.excerpt': 'Inauguration à Roveredo après une intervention de 900 000 francs sur la route historique vers l\'Italie, liée à la figure de Marie-Thérèse d\'Habsbourg.',
     'blog.article.strada-maria-teresa-roveredo-recupero.imageAlt': 'Restauration historique de la route Marie-Thérèse à Roveredo, Grisons',
+    'blog.article.disoccupazione-frontalieri-comitato-misto.title': 'Chômage frontalier : l\'avenir au sein du Comité mixte',
+    'blog.article.disoccupazione-frontalieri-comitato-misto.excerpt': 'Le Parlement européen vote le changement de cap sur les indemnités : la balle est dans le camp de la Suisse entre craintes de coûts et incertitudes juridiques.',
+    'blog.article.disoccupazione-frontalieri-comitato-misto.imageAlt': 'Vue sur le bord du lac de Lugano au crépuscule',
 };
 
 export default blogMetaFr;

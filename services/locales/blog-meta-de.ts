@@ -8925,6 +8925,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.strada-maria-teresa-roveredo-recupero.title': 'Maria Teresa in Roveredo restaurata',
     'blog.article.strada-maria-teresa-roveredo-recupero.excerpt': 'Einweihung in Roveredo nach einem Eingriff von 900.000 Franken auf dem historischen Weg nach Italien, verbunden mit der Figur der Maria Theresia von Habsburg.',
     'blog.article.strada-maria-teresa-roveredo-recupero.imageAlt': 'Historische Restaurierung der Maria-Theresia-Strasse in Roveredo, Graubünden',
+    'blog.article.disoccupazione-frontalieri-comitato-misto.title': 'Grenzgängerarbeitslosigkeit: Die Zukunft im Gemischten Ausschuss',
+    'blog.article.disoccupazione-frontalieri-comitato-misto.excerpt': 'Das Europäische Parlament stimmt für einen Kurswechsel bei den Entschädigungen: Der Ball geht zwischen Kostenangst und Rechtsunsicherheit in die Schweiz.',
+    'blog.article.disoccupazione-frontalieri-comitato-misto.imageAlt': 'Blick auf das Seeufer von Lugano bei Dämmerung',
 };
 
 export default blogMetaDe;
