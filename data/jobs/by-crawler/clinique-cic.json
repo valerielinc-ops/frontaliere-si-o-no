@@ -52,13 +52,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicien-ne-en-radiologie-medicale-trm-clinique-cic-clarens",
-        "radiologia-medica-tecnico-trm-clinique-cic-clarens-clarens"
+        "technicien-ne-en-radiologie-medicale-trm-clinique-cic-clarens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-ne-en-radiologie-medicale-trm-clinique-cic-clarens",
-          "radiologia-medica-tecnico-trm-clinique-cic-clarens-clarens"
+          "technicien-ne-en-radiologie-medicale-trm-clinique-cic-clarens"
         ],
         "en": [
           "technicien-ne-en-radiologie-medicale-trm-clinique-cic-clarens"
@@ -130,13 +128,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-medical-e-80-cdd-clinique-cic-clarens",
-        "assistente-medico-80-cdd-clinique-cic-clarens-clarens"
+        "assistant-e-medical-e-80-cdd-clinique-cic-clarens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-medical-e-80-cdd-clinique-cic-clarens",
-          "assistente-medico-80-cdd-clinique-cic-clarens-clarens"
+          "assistant-e-medical-e-80-cdd-clinique-cic-clarens"
         ]
       },
       "firstSeenAt": "2026-07-16T11:08:39.336Z",
@@ -155,11 +151,11 @@
     },
     {
       "id": "clinique-cic-d9a123e27f17",
-      "slug": "assistant-e-technique-en-sterilisation-niveau-2-clinique-cic-saxon",
+      "slug": "assistente-tecnico-in-sterilizzazione-livello-2-clinique-cic-saxon-saxon",
       "slugByLocale": {
         "fr": "assistant-e-technique-en-sterilisation-niveau-2-clinique-cic-saxon",
-        "it": "assistant-e-technique-en-sterilisation-niveau-2-clinique-cic-saxon",
-        "en": "assistant-e-technique-en-sterilisation-niveau-2-clinique-cic-saxon",
+        "it": "assistente-tecnico-in-sterilizzazione-livello-2-clinique-cic-saxon-saxon",
+        "en": "technical-assistant-in-sterilization-level-2-clinique-cic-saxon-saxon",
         "de": "assistant-e-technique-en-sterilisation-niveau-2-clinique-cic-saxon"
       },
       "company": "Clinique CIC Saxon",
@@ -215,7 +211,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-24T11:11:27.236Z"
+      "firstSeenAt": "2026-07-24T11:11:27.236Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-technique-en-sterilisation-niveau-2-clinique-cic-saxon"
+        ],
+        "en": [
+          "assistant-e-technique-en-sterilisation-niveau-2-clinique-cic-saxon"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-technique-en-sterilisation-niveau-2-clinique-cic-saxon"
+      ]
     }
   ]
 }
