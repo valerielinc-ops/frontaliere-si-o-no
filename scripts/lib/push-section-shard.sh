@@ -194,7 +194,37 @@ push_section_shard() {
           sleep "$_push_delay"; _push_delay=$(( _push_delay * 2 ))
         fi
       done
-      [ "$_push_ok" = 1 ] || { echo "::error::$section-$loc shard push failed after 3 attempts"; exit 1; }
+      # Self-heal: 3 retries on the SAME incremental base never recover from a
+      # corrupted/diverged remote-tracking clone (the "not our ref" / "bad tree
+      # object" / "early EOF" failure mode — incident 2026-07-24, run
+      # 30057726623: svizzera-it push failed 3x against a broken shallow clone,
+      # leaving the whole section stuck in the apex until the NEXT deploy
+      # happened to retry from a fresh clone). If this push built on a cloned
+      # base (incremental=1, not already a fresh orphan), drop the corrupted
+      # local history and retry as a brand-new orphan commit — a full pack that
+      # doesn't negotiate against the broken remote graph — before giving up.
+      if [ "$_push_ok" != 1 ] && [ "$incremental" = 1 ]; then
+        echo "::warning::$section-$loc shard: 3 incremental push attempts failed — flattening to a fresh orphan commit and retrying"
+        rm -rf .git
+        git init -q
+        git checkout -q -b main
+        git config user.email "valerielinc@gmail.com"
+        git config user.name "Valerie Linc"
+        printf '%s' "1" > .shard-deploys
+        git add -A
+        git commit -qm "$section-$loc shard ${_sha} (run ${GITHUB_RUN_ID:-local}) [self-heal flatten]"
+        _push_delay=5
+        for _try in 1 2 3; do
+          if git push -f "$SHARD_REPO" main; then
+            _push_ok=1; break
+          fi
+          if [ "$_try" -lt 3 ]; then
+            echo "::warning::flatten push attempt $_try/3 failed — retrying in ${_push_delay}s"
+            sleep "$_push_delay"; _push_delay=$(( _push_delay * 2 ))
+          fi
+        done
+      fi
+      [ "$_push_ok" = 1 ] || { echo "::error::$section-$loc shard push failed after 3 attempts (+ flatten self-heal retry)"; exit 1; }
     fi
   )
   rc=$?
