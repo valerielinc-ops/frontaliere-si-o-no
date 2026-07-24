@@ -1,6 +1,6 @@
 {
   "crawlerKey": "usz",
-  "assembledAt": "2026-07-24T11:20:48.146Z",
+  "assembledAt": "2026-07-24T10:59:40.585Z",
   "jobs": [
     {
       "id": "usz-1855ccae124c",
@@ -819,7 +819,7 @@
       "url": "https://jobs.usz.ch/offene-stellen/fage-fuer-die-akute-innere-medizin/93e9afac-c91f-4a23-8945-35a9035824f5",
       "source": "USZ Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T11:20:44.396Z",
+      "crawledAt": "2026-07-23T22:26:32.632Z",
       "addressLocality": "Campus",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -838,22 +838,34 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fage-fur-die-akute-innere-medizin-80-100-usz-ch",
-        "fage-per-la-akute-innere-medizin-80-100-universitatsspital-zurich-usz-campus"
+        "infermiere-in-medicina-interna-acuta-40-100-universitatsspital-zurich-usz-campus",
+        "care-professional-acute-internal-medicine-40-100-universitatsspital-zurich-usz-campus",
+        "pflegefachperson-akute-innere-medizin-40-100-usz-ch",
+        "soins-professionnels-de-medecine-interne-aigue-40-100-universitatsspital-zurich-usz-campus",
+        "medicina-interna-acuta-specialistica-40-100-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fage-fur-die-akute-innere-medizin-80-100-usz-ch",
-          "fage-per-la-akute-innere-medizin-80-100-universitatsspital-zurich-usz-campus"
+          "infermiere-in-medicina-interna-acuta-40-100-universitatsspital-zurich-usz-campus",
+          "care-professional-acute-internal-medicine-40-100-universitatsspital-zurich-usz-campus",
+          "pflegefachperson-akute-innere-medizin-40-100-usz-ch",
+          "soins-professionnels-de-medecine-interne-aigue-40-100-universitatsspital-zurich-usz-campus",
+          "medicina-interna-acuta-specialistica-40-100-universitatsspital-zurich-usz-campus"
         ],
         "en": [
-          "fage-fur-die-akute-innere-medizin-80-100-usz-ch"
+          "fage-fur-die-akute-innere-medizin-80-100-usz-ch",
+          "care-professional-acute-internal-medicine-40-100-universitatsspital-zurich-usz-campus"
         ],
         "fr": [
-          "fage-fur-die-akute-innere-medizin-80-100-usz-ch"
+          "fage-fur-die-akute-innere-medizin-80-100-usz-ch",
+          "soins-professionnels-de-medecine-interne-aigue-40-100-universitatsspital-zurich-usz-campus"
+        ],
+        "de": [
+          "pflegefachperson-akute-innere-medizin-40-100-usz-ch"
         ]
       },
       "firstSeenAt": "2026-05-17T11:18:26.520Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4319,7 +4331,7 @@
       "url": "https://jobs.usz.ch/offene-stellen/pflegefachperson-fuer-die-kardiologie-und-herzchirurgie/20e4d770-50ae-4bab-8664-bc222a59f56b",
       "source": "USZ Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T11:20:44.330Z",
+      "crawledAt": "2026-07-23T22:26:32.575Z",
       "addressLocality": "Campus",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4338,18 +4350,29 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch",
-        "pflegefachperson-per-la-kardiologie-e-herzchirurgie-40-100-universitatsspital-zurich-usz-campus"
+        "infermiera-hf-fh-chirurgia-cardiaca-80-100-universitatsspital-zurich-usz-campus",
+        "nurse-hf-fh-heart-surgery-80-100-universitatsspital-zurich-usz-campus",
+        "pflegefachperson-hf-fh-herzchirurgie-80-100-usz-ch",
+        "infirmiere-hf-fh-chirurgie-cardiaque-80-100-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch",
-          "pflegefachperson-per-la-kardiologie-e-herzchirurgie-40-100-universitatsspital-zurich-usz-campus"
+          "infermiera-hf-fh-chirurgia-cardiaca-80-100-universitatsspital-zurich-usz-campus",
+          "nurse-hf-fh-heart-surgery-80-100-universitatsspital-zurich-usz-campus",
+          "pflegefachperson-hf-fh-herzchirurgie-80-100-usz-ch",
+          "infirmiere-hf-fh-chirurgie-cardiaque-80-100-universitatsspital-zurich-usz-campus"
         ],
         "en": [
-          "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch"
+          "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch",
+          "nurse-hf-fh-heart-surgery-80-100-universitatsspital-zurich-usz-campus"
         ],
         "fr": [
-          "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch"
+          "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch",
+          "infirmiere-hf-fh-chirurgie-cardiaque-80-100-universitatsspital-zurich-usz-campus"
+        ],
+        "de": [
+          "pflegefachperson-hf-fh-herzchirurgie-80-100-usz-ch"
         ]
       },
       "needsRetranslation": true,
@@ -9629,7 +9652,7 @@
       "url": "https://jobs.usz.ch/offene-stellen/assistenzaerztin-assistenzarzt-w-m-d-innere-medizin-im-stationaeren-bereich-in-der-klinik-gastroenterologie-und-hepatologie/53956f0c-970e-4b33-aafe-54d8469cca74",
       "source": "USZ Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T11:20:44.224Z",
+      "crawledAt": "2026-07-23T22:26:32.479Z",
       "addressLocality": "Campus",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9649,26 +9672,34 @@
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-w-m-d-innere-medizin-80-100-usz-ch",
         "assistenzarztin-assistenzarzt-w-m-d-innere-medizin-im-stationaren-bereich-in-der-klinik",
-        "assistente-medico-f-m-d-medicina-interna-80-100-universitatsspital-zurich-usz-campus"
+        "medico-assistente-f-m-d-nefrologia-ricoverata-80-100-universitatsspital-zurich-usz-campus",
+        "assistant-physician-f-m-d-inpatient-nephrology-80-100-universitatsspital-zurich-usz-campus",
+        "assistenzarztin-assistenzarzt-w-m-d-stationare-nephrologie-80-100-usz-ch",
+        "medecin-adjoint-f-m-d-nephrologie-hospitalisee-80-100-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-w-m-d-innere-medizin-80-100-usz-ch",
           "assistenzarztin-assistenzarzt-w-m-d-innere-medizin-im-stationaren-bereich-in-der-klinik",
-          "assistente-medico-f-m-d-medicina-interna-80-100-universitatsspital-zurich-usz-campus"
+          "medico-assistente-f-m-d-nefrologia-ricoverata-80-100-universitatsspital-zurich-usz-campus",
+          "assistant-physician-f-m-d-inpatient-nephrology-80-100-universitatsspital-zurich-usz-campus",
+          "assistenzarztin-assistenzarzt-w-m-d-stationare-nephrologie-80-100-usz-ch",
+          "medecin-adjoint-f-m-d-nephrologie-hospitalisee-80-100-universitatsspital-zurich-usz-campus"
         ],
         "en": [
-          "assistenzarztin-assistenzarzt-w-m-d-innere-medizin-80-100-usz-ch"
+          "assistenzarztin-assistenzarzt-w-m-d-innere-medizin-80-100-usz-ch",
+          "assistant-physician-f-m-d-inpatient-nephrology-80-100-universitatsspital-zurich-usz-campus"
         ],
         "de": [
-          "assistenzarztin-assistenzarzt-w-m-d-innere-medizin-80-100-usz-ch"
+          "assistenzarztin-assistenzarzt-w-m-d-innere-medizin-80-100-usz-ch",
+          "assistenzarztin-assistenzarzt-w-m-d-stationare-nephrologie-80-100-usz-ch"
         ],
         "fr": [
-          "assistenzarztin-assistenzarzt-w-m-d-innere-medizin-80-100-usz-ch"
+          "assistenzarztin-assistenzarzt-w-m-d-innere-medizin-80-100-usz-ch",
+          "medecin-adjoint-f-m-d-nephrologie-hospitalisee-80-100-universitatsspital-zurich-usz-campus"
         ]
       },
       "firstSeenAt": "2026-06-29T14:35:24.404Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {

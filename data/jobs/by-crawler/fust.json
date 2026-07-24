@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-07-24T11:26:05.501Z",
+  "assembledAt": "2026-07-24T10:10:26.600Z",
   "jobs": [
     {
       "id": "company-4er81n",
@@ -852,7 +852,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-24T11:23:45.209Z",
+      "crawledAt": "2026-07-23T22:11:44.385Z",
       "firstSeenAt": "2026-07-21T22:17:41.811Z",
       "titleByLocale": {
         "it": "Venditore:in / Planner:in cucine e bagni",
@@ -894,7 +894,8 @@
           "verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel",
           "salesperson-planner-kitchens-bathrooms-fust-swiss-household-services-ag-rapperswil-jona",
           "verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-rapperswil-jona",
-          "venditore-in-planner-in-cucine-e-bagni-fust-swiss-household-services-ag-biel-bern"
+          "venditore-in-planner-in-cucine-e-bagni-fust-swiss-household-services-ag-biel-bern",
+          "installateur-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-oberburen"
         ],
         "en": [
           "verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel-bern-04zafu",
@@ -934,7 +935,8 @@
         "verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-rapperswil-jona",
         "venditore-in-planner-in-cucine-e-bagni-fust-swiss-household-services-ag-biel-bern",
         "seller-in-planner-in-kitchens-bathrooms-fust-swiss-household-services-ag-biel-bern",
-        "vendeur-dans-planificateur-dans-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-biel-bern"
+        "vendeur-dans-planificateur-dans-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-biel-bern",
+        "installateur-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-oberburen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -1055,7 +1057,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-24T11:23:45.209Z",
+      "crawledAt": "2026-07-23T22:11:44.385Z",
       "firstSeenAt": "2026-07-20T12:16:15.722Z",
       "titleByLocale": {
         "it": "Fiteria sanitaria: in cucine e bagni",
@@ -1089,23 +1091,32 @@
           "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-lzkg1f",
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-lzkg1f",
           "sanitarmonteur-dans-kuchen-bader-fust-swiss-household-services-ag-burgdorf-lzkg1f",
-          "fiteria-sanitaria-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf-bern"
+          "fiteria-sanitaria-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf-bern",
+          "coordinatore-a-cucine-bagni-fust-swiss-household-services-ag-burgdorf",
+          "disponent-in-kuchen-bader-fust-burgdorf-bern-mts3op",
+          "dispatcher-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-mts3op",
+          "dispatcheur-se-cuisines-salles-de-bain-fust-swiss-household-services-ag-burgdorf-mts3op",
+          "carpenter-fitter-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf",
+          "menuisier-installateur-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf"
         ],
         "en": [
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-ihyw9w",
           "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-ihyw9w",
           "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-bern",
-          "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-lzkg1f"
+          "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-lzkg1f",
+          "dispatcher-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-mts3op"
         ],
         "de": [
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-ihyw9w",
-          "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-lzkg1f"
+          "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-lzkg1f",
+          "disponent-in-kuchen-bader-fust-burgdorf-bern-mts3op"
         ],
         "fr": [
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-ihyw9w",
           "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-ihyw9w",
           "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-bern",
-          "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-lzkg1f"
+          "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-lzkg1f",
+          "dispatcheur-se-cuisines-salles-de-bain-fust-swiss-household-services-ag-burgdorf-mts3op"
         ]
       },
       "previousSlugs": [
@@ -1121,7 +1132,13 @@
         "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-lzkg1f",
         "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-lzkg1f",
         "sanitarmonteur-dans-kuchen-bader-fust-swiss-household-services-ag-burgdorf-lzkg1f",
-        "fiteria-sanitaria-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf-bern"
+        "fiteria-sanitaria-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf-bern",
+        "coordinatore-a-cucine-bagni-fust-swiss-household-services-ag-burgdorf",
+        "disponent-in-kuchen-bader-fust-burgdorf-bern-mts3op",
+        "dispatcher-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-mts3op",
+        "dispatcheur-se-cuisines-salles-de-bain-fust-swiss-household-services-ag-burgdorf-mts3op",
+        "carpenter-fitter-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf",
+        "menuisier-installateur-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -12906,15 +12923,25 @@
         "it": [
           "verkaufsberater-in-interdiscount-wadenswil-zurich",
           "verkaufsberater-in-interdiscount-wadenswil-zurich-e64mup",
-          "consulente-commerciale-in-interdiscount-wadenswil-zurich"
+          "consulente-commerciale-in-interdiscount-wadenswil-zurich",
+          "consulente-commerciale-in-interdiscount-wadenswil",
+          "sales-consultant-in-interdiscount-wadenswil",
+          "verkaufsberater-in-interdiscount-wadenswil-zurich-77m117",
+          "consultant-en-ventes-interdiscount-wadenswil",
+          "verkaufsberater-in-interdiscount-wadenswil"
         ],
         "en": [
           "verkaufsberater-in-interdiscount-wadenswil-zurich-e64mup",
-          "sales-consultant-in-interdiscount-wadenswil-zurich"
+          "sales-consultant-in-interdiscount-wadenswil-zurich",
+          "sales-consultant-in-interdiscount-wadenswil"
         ],
         "fr": [
           "verkaufsberater-in-interdiscount-wadenswil-zurich-e64mup",
-          "consultant-en-ventes-interdiscount-wadenswil-zurich"
+          "consultant-en-ventes-interdiscount-wadenswil-zurich",
+          "consultant-en-ventes-interdiscount-wadenswil"
+        ],
+        "de": [
+          "verkaufsberater-in-interdiscount-wadenswil-zurich-77m117"
         ]
       },
       "previousSlugs": [
@@ -12922,7 +12949,12 @@
         "verkaufsberater-in-interdiscount-wadenswil-zurich-e64mup",
         "sales-consultant-in-interdiscount-wadenswil-zurich",
         "consultant-en-ventes-interdiscount-wadenswil-zurich",
-        "consulente-commerciale-in-interdiscount-wadenswil-zurich"
+        "consulente-commerciale-in-interdiscount-wadenswil-zurich",
+        "consulente-commerciale-in-interdiscount-wadenswil",
+        "sales-consultant-in-interdiscount-wadenswil",
+        "verkaufsberater-in-interdiscount-wadenswil-zurich-77m117",
+        "consultant-en-ventes-interdiscount-wadenswil",
+        "verkaufsberater-in-interdiscount-wadenswil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

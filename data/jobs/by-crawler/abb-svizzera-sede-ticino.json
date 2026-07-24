@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abb-svizzera-sede-ticino",
-  "assembledAt": "2026-07-24T11:28:07.361Z",
+  "assembledAt": "2026-07-24T09:24:59.038Z",
   "jobs": [
     {
       "id": "company-c2e589",
@@ -1036,7 +1036,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-24T11:28:01.819Z",
+      "crawledAt": "2026-07-23T22:14:38.167Z",
       "firstSeenAt": "2026-07-17T22:24:17.785Z",
       "titleByLocale": {
         "it": "Sales Manager – Progetti Strategici Globali, Settore Minerario",
@@ -1062,18 +1062,30 @@
       "previousSlugsByLocale": {
         "it": [
           "sales-manager-global-strategic-projects-mining-abb-svizzera-sede-ticino-baden-aargau",
-          "sales-manager-global-strategic-projects-mining-abb-svizzera-sede-ticino-baden-aargau-qi6mjr"
+          "sales-manager-global-strategic-projects-mining-abb-svizzera-sede-ticino-baden-aargau-qi6mjr",
+          "global-sales-manager-business-line-mining-materiali-abb-svizzera-sede-ticino-baden-aargau",
+          "global-sales-manager-business-line-mining-materials-abb-svizzera-sede-ticino-baden-aargau-gqar0i",
+          "global-sales-manager-secteur-d-activite-mines-et-materiaux-abb-svizzera-sede-ticino-baden-aargau",
+          "global-sales-manager-business-line-mining-materials-abb-svizzera-sede-ticino-baden-aargau",
+          "global-sales-manager-business-line-mining-materials-abb-svizzera-sede-ticino"
         ],
         "de": [
-          "sales-manager-global-strategic-projects-mining-abb-svizzera-sede-ticino-baden-aargau-qi6mjr"
+          "sales-manager-global-strategic-projects-mining-abb-svizzera-sede-ticino-baden-aargau-qi6mjr",
+          "global-sales-manager-business-line-mining-materials-abb-svizzera-sede-ticino-baden-aargau-gqar0i"
         ],
         "fr": [
-          "sales-manager-global-strategic-projects-mining-abb-svizzera-sede-ticino-baden-aargau-qi6mjr"
+          "sales-manager-global-strategic-projects-mining-abb-svizzera-sede-ticino-baden-aargau-qi6mjr",
+          "global-sales-manager-secteur-d-activite-mines-et-materiaux-abb-svizzera-sede-ticino-baden-aargau"
         ]
       },
       "previousSlugs": [
         "sales-manager-global-strategic-projects-mining-abb-svizzera-sede-ticino-baden-aargau",
-        "sales-manager-global-strategic-projects-mining-abb-svizzera-sede-ticino-baden-aargau-qi6mjr"
+        "sales-manager-global-strategic-projects-mining-abb-svizzera-sede-ticino-baden-aargau-qi6mjr",
+        "global-sales-manager-business-line-mining-materiali-abb-svizzera-sede-ticino-baden-aargau",
+        "global-sales-manager-business-line-mining-materials-abb-svizzera-sede-ticino-baden-aargau-gqar0i",
+        "global-sales-manager-secteur-d-activite-mines-et-materiaux-abb-svizzera-sede-ticino-baden-aargau",
+        "global-sales-manager-business-line-mining-materials-abb-svizzera-sede-ticino-baden-aargau",
+        "global-sales-manager-business-line-mining-materials-abb-svizzera-sede-ticino"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -1089,7 +1101,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },

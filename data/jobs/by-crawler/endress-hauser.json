@@ -1,6 +1,6 @@
 {
   "crawlerKey": "endress-hauser",
-  "assembledAt": "2026-07-24T11:37:13.305Z",
+  "assembledAt": "2026-07-24T10:03:57.930Z",
   "jobs": [
     {
       "id": "endress-hauser-f4572df55d83",
@@ -3637,7 +3637,7 @@
       "companyDomain": "endress.com",
       "title": "Strategic Buyer Electronics Components (f/m/d) 80-100%",
       "titleByLocale": {
-        "it": "Strategic Buyer Electronics Components (f/m/d) 80-100%",
+        "it": "Componenti elettronici dell'acquirente strategico (f/m/d) 80-100 %",
         "en": "Strategic Buyer Electronics Components (f/m/d) 80-100 %",
         "de": "Strategic Buyer Electronics Components (f/m/d) 80-100%",
         "fr": "Composants électroniques d'acheteur stratégique (f/m/d) 80-100 %"
@@ -3673,12 +3673,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "strategic-buyer-electronics-components-f-m-d-80-100-endress-hauser-reinach",
-        "componenti-elettronici-strategici-f-m-d-80-100-endress-hauser-reinach"
+        "componenti-elettronici-strategici-f-m-d-80-100-endress-hauser-reinach",
+        "strategic-buyer-electronics-components-f-m-d-80-100-endress-hauser-reinach-2",
+        "acheteur-strategique-composants-electroniques-f-m-j-80-100-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "strategic-buyer-electronics-components-f-m-d-80-100-endress-hauser-reinach",
-          "componenti-elettronici-strategici-f-m-d-80-100-endress-hauser-reinach"
+          "componenti-elettronici-strategici-f-m-d-80-100-endress-hauser-reinach",
+          "strategic-buyer-electronics-components-f-m-d-80-100-endress-hauser-reinach-2",
+          "acheteur-strategique-composants-electroniques-f-m-j-80-100-endress-hauser-reinach"
         ],
         "fr": [
           "strategic-buyer-electronics-components-f-m-d-80-100-endress-hauser-reinach"
@@ -3696,9 +3700,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      }
     }
   ]
 }

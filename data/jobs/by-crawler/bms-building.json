@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bms-building",
-  "assembledAt": "2026-07-24T11:22:46.276Z",
+  "assembledAt": "2026-07-24T09:31:19.413Z",
   "jobs": [
     {
       "id": "bms-building-527c453cfb8c",
@@ -1504,7 +1504,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/175-kundenberatung-im-baubedarf-shop-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T11:22:26.531Z",
+      "crawledAt": "2026-07-23T22:19:08.706Z",
       "addressLocality": "Schluein",
       "addressCountry": "CH",
       "country": "CH",
@@ -1552,22 +1552,34 @@
       },
       "previousSlugs": [
         "kundenberatung-im-baubedarf-shop-w-m-d-100-bms-building-ch",
-        "servizio-clienti-nel-negozio-di-costruzioni-f-m-d-100-bms-building-materials-schluein"
+        "servizio-clienti-nel-negozio-di-costruzioni-f-m-d-100-bms-building-materials-schluein",
+        "servizio-clienti-nel-cantiere-f-m-d-80-bms-building-materials-fideris",
+        "customer-service-in-the-construction-shop-f-m-d-80-bms-building-materials-fideris",
+        "kundenberatung-im-baubedarf-shop-w-m-d-80-bms-building-ch",
+        "service-client-dans-l-atelier-de-construction-f-m-d-80-bms-building-materials-fideris"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberatung-im-baubedarf-shop-w-m-d-100-bms-building-ch",
-          "servizio-clienti-nel-negozio-di-costruzioni-f-m-d-100-bms-building-materials-schluein"
+          "servizio-clienti-nel-negozio-di-costruzioni-f-m-d-100-bms-building-materials-schluein",
+          "servizio-clienti-nel-cantiere-f-m-d-80-bms-building-materials-fideris",
+          "customer-service-in-the-construction-shop-f-m-d-80-bms-building-materials-fideris",
+          "kundenberatung-im-baubedarf-shop-w-m-d-80-bms-building-ch",
+          "service-client-dans-l-atelier-de-construction-f-m-d-80-bms-building-materials-fideris"
         ],
         "en": [
-          "kundenberatung-im-baubedarf-shop-w-m-d-100-bms-building-ch"
+          "kundenberatung-im-baubedarf-shop-w-m-d-100-bms-building-ch",
+          "customer-service-in-the-construction-shop-f-m-d-80-bms-building-materials-fideris"
         ],
         "fr": [
-          "kundenberatung-im-baubedarf-shop-w-m-d-100-bms-building-ch"
+          "kundenberatung-im-baubedarf-shop-w-m-d-100-bms-building-ch",
+          "service-client-dans-l-atelier-de-construction-f-m-d-80-bms-building-materials-fideris"
+        ],
+        "de": [
+          "kundenberatung-im-baubedarf-shop-w-m-d-80-bms-building-ch"
         ]
       },
       "firstSeenAt": "2026-07-10T12:58:20.666Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {

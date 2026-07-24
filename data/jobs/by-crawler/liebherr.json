@@ -1,6 +1,6 @@
 {
   "crawlerKey": "liebherr",
-  "assembledAt": "2026-07-24T11:18:56.144Z",
+  "assembledAt": "2026-07-24T10:26:36.696Z",
   "jobs": [
     {
       "id": "liebherr-fe7aa8b60a44",
@@ -1194,7 +1194,7 @@
       "title": "Project purchasing leader(m/f/x) Temporaire",
       "titleByLocale": {
         "it": "Leader di acquisto del progetto(m/f/x) Temporary",
-        "en": "Project purchasing leader(m/f/x) Temporaire",
+        "en": "Project purchasing leader(m/f/x) Temporary",
         "de": "Projektbeschaffungsleiter(m/w/x) Vorübergehend",
         "fr": "Project purchasing leader(m/f/x) Temporaire"
       },
@@ -1246,15 +1246,32 @@
       },
       "previousSlugs": [
         "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle",
-        "projektbeschaffungsleiter-m-w-x-temporaire-liebherr-bulle-e7dd10"
+        "projektbeschaffungsleiter-m-w-x-temporaire-liebherr-bulle-e7dd10",
+        "project-purchasing-manager-m-w-d-temporaire-liebherr-bulle",
+        "project-purchasing-manager-m-f-x-temporaire-liebherr-bulle",
+        "projekt-einkaufsleiter-m-f-x-temporaire-liebherr-bulle",
+        "gestionnaire-des-achats-de-projets-m-f-x-temporaire-liebherr-bulle",
+        "projektbeschaffungsleiter-m-w-x-temporaire-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle"
+          "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle",
+          "project-purchasing-manager-m-w-d-temporaire-liebherr-bulle",
+          "project-purchasing-manager-m-f-x-temporaire-liebherr-bulle",
+          "projekt-einkaufsleiter-m-f-x-temporaire-liebherr-bulle",
+          "gestionnaire-des-achats-de-projets-m-f-x-temporaire-liebherr-bulle",
+          "projektbeschaffungsleiter-m-w-x-temporaire-liebherr-bulle"
         ],
         "de": [
           "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle",
-          "projektbeschaffungsleiter-m-w-x-temporaire-liebherr-bulle-e7dd10"
+          "projektbeschaffungsleiter-m-w-x-temporaire-liebherr-bulle-e7dd10",
+          "projekt-einkaufsleiter-m-f-x-temporaire-liebherr-bulle"
+        ],
+        "en": [
+          "project-purchasing-manager-m-f-x-temporaire-liebherr-bulle"
+        ],
+        "fr": [
+          "gestionnaire-des-achats-de-projets-m-f-x-temporaire-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.401Z",
@@ -1269,9 +1286,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      }
     },
     {
       "id": "liebherr-80754efea8a1",
