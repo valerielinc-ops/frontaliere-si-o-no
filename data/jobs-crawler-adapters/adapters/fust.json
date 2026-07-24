@@ -10,6 +10,9 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/8deba28a-a765-4d4c-8174-ddaf358c8017",
+    "https://jobs.fust.ch/offene-stellen/disponent-in-kuechen-baeder/62b04e2d-44d7-4b1a-a634-d2c350fb0c66",
+    "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/d848d7c2-9321-4e05-9fb6-29445fae5ad9",
     "https://jobs.fust.ch/offene-stellen/bauleiter-in/e759dd00-96e4-498f-9bb5-4a45caa644d3",
     "https://jobs.fust.ch/offene-stellen/sachbearbeiter-in-logistik-administration/007a2735-dba3-401d-914a-6d2581994100",
     "https://jobs.fust.ch/offene-stellen/verkaeufer-in-planer-in-kuechen-baeder/0b0c41f1-89f1-4cad-b43e-5a61cb1f0e12",
@@ -48,12 +51,27 @@
     "https://jobs.fust.ch/offene-stellen/servicetechniker-in-heimservice/b87d995e-c372-4b8d-86e9-001f8b542c27",
     "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/18d95e0a-1ab4-4ae0-96e2-63ca77a45d4e",
     "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/fa8f6a33-620b-46fd-ab20-98e7c1c18b23",
-    "https://jobs.fust.ch/offene-stellen/servicetechniker-in-professional-solutions/2a7944c1-3bd5-433f-a5b9-b73566ffa6e9",
-    "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/b1aeb088-ce48-44ab-8d38-ff722f1b01e7",
-    "https://jobs.fust.ch/offene-stellen/disponent-in-kuechen-baeder/d176a1f2-0b55-4394-a5f4-bc595ece4938",
-    "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/21021947-89fa-4b58-a4cc-d77c490fe420"
+    "https://jobs.fust.ch/offene-stellen/servicetechniker-in-professional-solutions/2a7944c1-3bd5-433f-a5b9-b73566ffa6e9"
   ],
   "seedMetaByUrl": {
+    "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/8deba28a-a765-4d4c-8174-ddaf358c8017": {
+      "location": "Berna",
+      "canton": "BE",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.fust.ch/offene-stellen/disponent-in-kuechen-baeder/62b04e2d-44d7-4b1a-a634-d2c350fb0c66": {
+      "location": "Berna",
+      "canton": "BE",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/d848d7c2-9321-4e05-9fb6-29445fae5ad9": {
+      "location": "San Gallo",
+      "canton": "SG",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
     "https://jobs.fust.ch/offene-stellen/bauleiter-in/e759dd00-96e4-498f-9bb5-4a45caa644d3": {
       "location": "Berna",
       "canton": "BE",
@@ -287,26 +305,8 @@
       "canton": "ZH",
       "company": "Fust",
       "contract": "A tempo indeterminato"
-    },
-    "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/b1aeb088-ce48-44ab-8d38-ff722f1b01e7": {
-      "location": "Berna",
-      "canton": "BE",
-      "company": "Fust",
-      "contract": "A tempo indeterminato"
-    },
-    "https://jobs.fust.ch/offene-stellen/disponent-in-kuechen-baeder/d176a1f2-0b55-4394-a5f4-bc595ece4938": {
-      "location": "Berna",
-      "canton": "BE",
-      "company": "Fust",
-      "contract": "A tempo indeterminato"
-    },
-    "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/21021947-89fa-4b58-a4cc-d77c490fe420": {
-      "location": "San Gallo",
-      "canton": "SG",
-      "company": "Fust",
-      "contract": "A tempo indeterminato"
     }
   },
   "notes": "Fust (Coop Group) — Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch with JSON-LD JobPosting.",
-  "updatedAt": "2026-07-23T22:09:02.827Z"
+  "updatedAt": "2026-07-24T11:16:06.212Z"
 }
