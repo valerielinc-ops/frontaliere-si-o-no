@@ -1,0 +1,18 @@
+{
+  "id": "bce-mantiene-tassi-2-25",
+  "slug": "bce-mantiene-tassi-2-25",
+  "publishedAt": "2026-07-24T18:40:51.858Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 0,
+    "confidence": 0.3,
+    "finalScore": 0,
+    "cluster": "fiscale",
+    "score": 0,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1
+  }
+}
