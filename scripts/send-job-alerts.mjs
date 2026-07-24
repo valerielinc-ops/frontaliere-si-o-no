@@ -592,6 +592,9 @@ function loadJobs() {
         if (c && !cityToCanton.has(c)) cityToCanton.set(c, canton);
       }
     }
+    // Exclude jobs flagged for retranslation (leftover source-language title) from
+    // the alert candidate pool — mirrors the jobsSeoPagesPlugin.ts static-page gate.
+    if (j.needsRetranslation === true) continue;
     if (firstParsableMs(j.crawledAt, j.postedDate) >= cutoff) recent.push(j);
   }
   return { recent, locationIndex, cityToCanton };
