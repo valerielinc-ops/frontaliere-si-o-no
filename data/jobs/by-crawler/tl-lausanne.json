@@ -130,13 +130,11 @@
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
-        "conductrices-et-conducteurs-de-bus-et-trolleybus-tl-lausanne-lausanne",
-        "driver-per-il-bus-e-driver-filobus-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "conductrices-et-conducteurs-de-bus-et-trolleybus-tl-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conductrices-et-conducteurs-de-bus-et-trolleybus-tl-lausanne-lausanne",
-          "driver-per-il-bus-e-driver-filobus-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "conductrices-et-conducteurs-de-bus-et-trolleybus-tl-lausanne-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-04T12:29:32.003Z",
@@ -204,13 +202,11 @@
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
-        "chef-fe-circulation-des-trains-ligne-du-metro-m1-tl-lausanne-lausanne",
-        "train-traffic-manager-linea-metro-m1-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "chef-fe-circulation-des-trains-ligne-du-metro-m1-tl-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-circulation-des-trains-ligne-du-metro-m1-tl-lausanne-lausanne",
-          "train-traffic-manager-linea-metro-m1-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "chef-fe-circulation-des-trains-ligne-du-metro-m1-tl-lausanne-lausanne"
         ],
         "en": [
           "chef-fe-circulation-des-trains-ligne-du-metro-m1-tl-lausanne-lausanne"
@@ -284,13 +280,11 @@
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
-        "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne",
-        "automatico-per-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne",
-          "automatico-per-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne"
         ],
         "en": [
           "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne"
@@ -368,8 +362,7 @@
         "meccanica-del-treno-per-la-linea-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "train-mechanics-for-the-leb-line-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "zugmechaniker-fur-die-leb-strecke-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne",
-        "costruzioni-ferroviarie-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -377,8 +370,7 @@
           "meccanica-del-treno-per-la-linea-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "train-mechanics-for-the-leb-line-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "zugmechaniker-fur-die-leb-strecke-tl-transports-publics-de-la-region-lausannoise-lausanne",
-          "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne",
-          "costruzioni-ferroviarie-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne"
         ],
         "en": [
           "constructeurs-rices-de-voies-ferrees-tl-lausanne-lausanne",
@@ -408,12 +400,12 @@
     },
     {
       "id": "tl-lausanne-0050186a1d33",
-      "slug": "analyste-systemes-financiers-tl-lausanne-lausanne",
+      "slug": "analizzare-i-sistemi-finanziari-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "fr": "analyste-systemes-financiers-tl-lausanne-lausanne",
-        "it": "analyste-systemes-financiers-tl-lausanne-lausanne",
-        "en": "analyste-systemes-financiers-tl-lausanne-lausanne",
-        "de": "analyste-systemes-financiers-tl-lausanne-lausanne"
+        "it": "analizzare-i-sistemi-finanziari-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "analyst-financial-systems-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "analystenfinanzsysteme-tl-transports-publics-de-la-region-lausannoise-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -469,7 +461,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-23T22:06:27.045Z"
+      "firstSeenAt": "2026-07-23T22:06:27.045Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "analyste-systemes-financiers-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "analyste-systemes-financiers-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "analyste-systemes-financiers-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "analyste-systemes-financiers-tl-lausanne-lausanne"
+      ]
     }
   ]
 }
