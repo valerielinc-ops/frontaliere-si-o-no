@@ -51,6 +51,7 @@ import { FUEL_DAILY_ROUTES, isFuelDailyPath } from '../build-plugins/fuelDailyDa
 import { HEALTH_PREMIUMS_ROUTES, isHealthPremiumsPath } from '../build-plugins/healthPremiumsData';
 import { JOB_MARKET_SNAPSHOT_ROUTES, isJobMarketSnapshotPath } from '../build-plugins/jobMarketSnapshotData';
 import { isSalaryStatsPath, parseSalaryStatsPath } from '../build-plugins/salaryStatsData';
+import { isExchangeSsgPath, parseExchangeSsgPath } from './exchangeSsgPaths';
 import { parseOrphanLandingPath as ORPHAN_LANDING_ROUTES } from '../build-plugins/orphanQueryData';
 import { WEEKLY_EMPLOYERS_ROUTES, parseCompanyCityPath, parseWeeklyEmployersPath, parseWeeklyEmployersTopHubPath } from '../build-plugins/weeklyEmployersData';
 import { BORDER_WAIT_ROUTES, isBorderWaitPath, parseBorderWaitPath } from '../build-plugins/borderWaitData';
@@ -61,6 +62,11 @@ import { FRONTALIERE_PILLAR_ROUTES, isFrontalierePillarPath, parseFrontalierePil
 import { isProfessionCantonPath, parseProfessionCantonPath } from '../build-plugins/professionCantonData';
 import { isSalaryProfessionCantonPath, parseSalaryProfessionCantonPath } from '../build-plugins/salaryProfessionCantonData';
 import { isProfessionCityPath, parseProfessionCityPath } from '../build-plugins/professionCityData';
+import { isHealthFacilityPath, parseHealthFacilityPath } from '../build-plugins/healthFacilitiesData';
+import { isChCantonSnapshotPath, parseChCantonSnapshotPath } from '../build-plugins/jobMarketSnapshotChCantonPathsData';
+import { parseChCantonEmployersPath } from '../build-plugins/weeklyEmployersChCantonPathsData';
+import { isSectionPagePath, parseSectionPagePath } from '../build-plugins/sectionPagesPathsData';
+import { isFiscalHubPath, parseFiscalHubPath, parseFiscalMunicipalityPath } from '../build-plugins/fiscalMunicipalityData';
 import {
   COST_OF_LIVING_LANDING_ROUTES,
   isCostOfLivingLandingPath,
@@ -1984,6 +1990,21 @@ export function parsePath(pathname: string): ParseResult {
    return { route: { activeTab: 'stats', statsSubTab: 'health-premiums', staticOverlay: true }, locale };
  }
 
+ // CHF/EUR exchange SSG vertical (epic #4452) — hub /cambio-franco-euro/ +
+ // curated amount pages /cambio-franco-euro/{amount}-franchi-in-euro/ (+
+ // EN/DE/FR variants, e.g. /en/chf-eur-exchange/4500-chf-to-eur/). This
+ // branch was missing entirely, so hydration fell through to the final
+ // notFoundPath fallback, replacing the correct static HTML with the
+ // generic "Pagina non trovata" screen and rewriting the URL back to '/'
+ // (reported live for /cambio-franco-euro/4500-franchi-in-euro/, linked
+ // from the calculator results cross-link — affects every hub/amount page
+ // in all 4 locales). staticOverlay keeps the static content visible and
+ // hydrates to the exchange comparator sub-tab.
+ if (isExchangeSsgPath(pathname)) {
+   const parsed = parseExchangeSsgPath(pathname);
+   return { route: { activeTab: 'confronti', confrontiSubTab: 'exchange', staticOverlay: true }, locale: (parsed?.locale ?? locale) as Locale };
+ }
+
  // Per-canton salary statistics landings (F-salary) — /stipendi-{canton}/ +
  // localised variants. Build-time static HTML; staticOverlay keeps the
  // per-canton salary content visible (hydrates to the salary-compare sub-tab).
@@ -2030,6 +2051,16 @@ export function parsePath(pathname: string): ParseResult {
    const companyCityMatch = parseCompanyCityPath(pathname);
    if (companyCityMatch) {
      return { route: { activeTab: 'job-board', staticOverlay: true }, locale: companyCityMatch.locale as Locale };
+   }
+   // Per-canton "aziende che assumono" (weeklyEmployersChCantonPages.ts) —
+   // /cerca-lavoro-{canton}/aziende-che-assumono/ (+ locale variants). Same
+   // failure mode as the other gaps in this file: this branch was missing
+   // entirely, so hydration fell through to notFoundPath. Every enumerated
+   // (locale, canton) pair has a live target — full page or below-floor
+   // bridge at the identical URL — so recognising the whole set is safe.
+   const chCantonEmployersMatch = parseChCantonEmployersPath(pathname);
+   if (chCantonEmployersMatch) {
+     return { route: { activeTab: 'job-board', staticOverlay: true }, locale: chCantonEmployersMatch.locale as Locale };
    }
  }
 
@@ -2079,6 +2110,62 @@ export function parsePath(pathname: string): ParseResult {
  // staticOverlay keeps the per-snapshot/per-sector page content visible.
  if (JOB_MARKET_SNAPSHOT_ROUTES.includes(pathname.endsWith('/') ? pathname : `${pathname}/`) || isJobMarketSnapshotPath(pathname)) {
    return { route: { activeTab: 'stats', statsSubTab: 'jobs-observatory', staticOverlay: true }, locale };
+ }
+
+ // Per-canton job-market snapshot static SEO pages (T2.5) —
+ // /cerca-lavoro-{canton}/snapshot/ (+ locale variants). Same page family as
+ // the Ticino snapshot above, one per non-TI canton. This branch was missing
+ // entirely (same failure mode as the exchange/health-facilities gaps below):
+ // hydration fell through to notFoundPath, replacing the live static HTML
+ // with the generic "Pagina non trovata" screen. Every enumerated (locale,
+ // canton) pair has a live target — full snapshot or below-floor bridge at
+ // the identical URL (renderBelowFloorBridge in the plugin) — so recognising
+ // the whole enumerable set here is safe.
+ if (isChCantonSnapshotPath(pathname)) {
+   const parsed = parseChCantonSnapshotPath(pathname);
+   return { route: { activeTab: 'stats', statsSubTab: 'jobs-observatory', staticOverlay: true }, locale: (parsed?.locale ?? locale) as Locale };
+ }
+
+ // Google-News topic section pages (sectionPagesPlugin.ts) — /fisco/,
+ // /lavoro-frontaliere/, /salari/, /cambio-valuta/, /trasporti/,
+ // /pensioni/, /dogana/ (+ locale variants, 28 URLs total). This branch
+ // was missing entirely: 24 of the 28 fell through to the notFoundPath
+ // catch-all, and the other 4 (/fisco/, /de/steuern/, /fr/fiscalite/, plus
+ // the top-level intuitive-alias fallback) silently resolved to the LIVE
+ // interactive fisco tab instead, wiping the static article-list content
+ // on hydrate either way — same SSG-hydration-gap bug class as the
+ // exchange-rate/canton-snapshot fixes above. Placed before the
+ // REVERSE_TOP alias lookup further below so it takes priority over the
+ // accidental `/fisco/` collision too. No dedicated nav tab exists for a
+ // topic-filtered article list, so this maps onto the existing `blog` tab
+ // (closest conceptual match) with staticOverlay to keep the emitted HTML
+ // visible post-hydration.
+ if (isSectionPagePath(pathname)) {
+   const parsed = parseSectionPagePath(pathname);
+   return { route: { activeTab: 'blog', staticOverlay: true }, locale: (parsed?.locale ?? locale) as Locale };
+ }
+
+ // Per-municipality FISCAL guide pages (epic #4482/#4484,
+ // fiscalMunicipalityPagesPlugin.ts) — hub index at
+ // /tasse-frontalieri-comune/ (+ locale variants) plus per-comune detail
+ // pages at /tasse-frontalieri-comune/{slug}/ (above-floor page OR
+ // below-floor noindex bridge, same URL either way — self-mapping, per
+ // fiscalMunicipalityData.ts). This branch was missing entirely: same
+ // SSG-hydration-gap bug class as the section-pages/canton-snapshot fixes
+ // above, hydration fell through to notFoundPath for every one of these
+ // URLs. Routed to the existing `fisco` tab — same precedent as the
+ // taxation-hub pillar page below (activeTab: 'fisco', staticOverlay:
+ // true) — since this is a tax-guide content family, not the vita/
+ // border-municipality family it cross-links.
+ if (isFiscalHubPath(pathname)) {
+   const parsed = parseFiscalHubPath(pathname);
+   return { route: { activeTab: 'fisco', staticOverlay: true }, locale: (parsed?.locale ?? locale) as Locale };
+ }
+ {
+   const parsed = parseFiscalMunicipalityPath(pathname);
+   if (parsed) {
+     return { route: { activeTab: 'fisco', staticOverlay: true }, locale: parsed.locale as Locale };
+   }
  }
 
  // Border-wait static SEO pages (F8) — /traffico-dogane/{crossing}/oggi/, hubs, archives.
@@ -2361,6 +2448,18 @@ export function parsePath(pathname: string): ParseResult {
  // issue #4301). Same static-overlay pattern as the per-canton family above.
  if (isProfessionCityPath(pathname)) {
    const parsed = parseProfessionCityPath(pathname);
+   if (parsed) {
+     return { route: { activeTab: 'job-board', staticOverlay: true }, locale: parsed.locale as Locale };
+   }
+ }
+
+ // Health-facilities hub (/strutture-sanitarie/{slug}/ + locale variants,
+ // epic #4455). This branch was missing entirely — same failure mode as the
+ // exchange-vertical bug (notFoundPath fallback + URL rewritten to '/').
+ // Static HTML emitted by healthFacilitiesPlugin; staticOverlay hydrates to
+ // the job board so the SPA doesn't replace the facility content.
+ if (isHealthFacilityPath(pathname)) {
+   const parsed = parseHealthFacilityPath(pathname);
    if (parsed) {
      return { route: { activeTab: 'job-board', staticOverlay: true }, locale: parsed.locale as Locale };
    }

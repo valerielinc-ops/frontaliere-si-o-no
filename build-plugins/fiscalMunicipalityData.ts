@@ -101,3 +101,37 @@ const FISCAL_PATH_SET: ReadonlySet<string> = (() => {
 export function isFiscalMunicipalityPath(inputPath: string): boolean {
   return FISCAL_PATH_SET.has(normalizePath(inputPath));
 }
+
+/**
+ * Reverse index (path → locale + slug) for the per-comune detail/bridge pages,
+ * used by services/router.ts to recognise the URL at hydration time and
+ * recover the locale without re-parsing the path shape. Same membership as
+ * FISCAL_PATH_SET/isFiscalMunicipalityPath above (above + below floor).
+ */
+const FISCAL_DETAIL_INDEX: ReadonlyMap<string, { locale: FiscalLocale; slug: string }> = (() => {
+  const map = new Map<string, { locale: FiscalLocale; slug: string }>();
+  for (const m of [...FISCAL_ABOVE_FLOOR, ...FISCAL_BELOW_FLOOR]) {
+    for (const locale of FISCAL_LOCALES) {
+      map.set(normalizePath(fiscalPathFor(locale, m.slug)), { locale, slug: m.slug });
+    }
+  }
+  return map;
+})();
+
+export function parseFiscalMunicipalityPath(inputPath: string): { locale: FiscalLocale; slug: string } | null {
+  return FISCAL_DETAIL_INDEX.get(normalizePath(inputPath)) ?? null;
+}
+
+/** Reverse index (path → locale) for the hub/index page, one per locale. */
+const FISCAL_HUB_INDEX: ReadonlyMap<string, FiscalLocale> = new Map(
+  FISCAL_LOCALES.map((l) => [normalizePath(FISCAL_HUB_PATH[l]), l]),
+);
+
+export function isFiscalHubPath(inputPath: string): boolean {
+  return FISCAL_HUB_INDEX.has(normalizePath(inputPath));
+}
+
+export function parseFiscalHubPath(inputPath: string): { locale: FiscalLocale } | null {
+  const found = FISCAL_HUB_INDEX.get(normalizePath(inputPath));
+  return found ? { locale: found } : null;
+}
