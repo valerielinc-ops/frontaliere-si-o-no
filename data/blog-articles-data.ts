@@ -26864,6 +26864,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'italia-svizzera-nuovo-protocollo-frontalieri',
+ category: 'fiscale',
+ date: '2026-07-25T03:27:46.524Z',
+ image: '/images/blog/italia-svizzera-nuovo-protocollo-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

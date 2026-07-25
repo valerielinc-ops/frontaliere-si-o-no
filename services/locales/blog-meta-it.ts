@@ -8942,6 +8942,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.title': 'Frontalieri, la battaglia fiscale tra Italia e Ticino',
     'blog.article.la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.excerpt': 'Il fisco italiano e quello ticinese sono in una battaglia sottotraccia per i frontalieri. La nuova convenzione tra i due paesi ha aperto nuove opportunità per i lavoratori che si spostano tra l\'Italia e la Svizzera.',
     'blog.article.la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.imageAlt': 'Una giornalista finanziaria in prima linea per scoprire le novità sui frontalieri ticinesi.',
+    'blog.article.italia-svizzera-nuovo-protocollo-frontalieri.title': 'Italia-Svizzera: cosa dice il nuovo protocollo sul lavoro dei frontalieri',
+    'blog.article.italia-svizzera-nuovo-protocollo-frontalieri.excerpt': 'Il 23 dicembre 2020, l\'Italia e la Svizzera hanno firmato un nuovo protocollo sul lavoro dei frontalieri. Questo accordo entra in vigore dal 1 gennaio 2024 e prevede modifiche significative per i lavoratori che si spostano tra i due paesi.',
+    'blog.article.italia-svizzera-nuovo-protocollo-frontalieri.imageAlt': 'Una frontiera in un\'autostrada tra Lugano e Milano.',
 };
 
 export default blogMetaIt;
