@@ -1,16 +1,16 @@
 {
   "key": "fondation-domus",
   "label": "Fondation Domus",
-  "generatedAt": "2026-07-25T10:57:51.531Z",
-  "total": 2,
+  "generatedAt": "2026-07-25T22:07:11.767Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5181,
-  "avgDurationMs": 5181,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6495,
+  "avgDurationMs": 6495,
   "durationHistory": [
-    5181
+    6495
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/53cd9483-dd08-4087-8305-56a97a8ddc88/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T10:57:49.327Z",
+      "crawledAt": "2026-07-25T22:07:08.541Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -50,8 +50,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "fondation-domus-31792ee5fbd1",
       "slug": "responsabile-risorse-umane-membro-della-direzione-80-fondation-domus-ardon-e2fc13",
@@ -91,5 +90,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
