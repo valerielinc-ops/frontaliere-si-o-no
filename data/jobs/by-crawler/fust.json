@@ -465,7 +465,7 @@
     },
     {
       "id": "company-3apvkj",
-      "slug": "consulente-commerciale-in-coop-genossenschaft-chur",
+      "slug": "consulente-commerciale-in-coop-genossenschaft-chur-graubunden",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in",
       "location": "Chur, Graubünden",
@@ -483,7 +483,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-24T11:23:45.209Z",
       "firstSeenAt": "2026-07-24T11:23:45.209Z",
       "titleByLocale": {
         "de": "Verkaufsberater:in",
@@ -514,8 +514,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sales-consultant-coop-genossenschaft-chur-nsjp2p",
-          "conseiller-de-vente-coop-genossenschaft-chur-nsjp2p",
           "sales-consultant-cosmetics-coop-genossenschaft-chur",
           "consultant-en-vente-coop-genossenschaft-st-gallen-f578d4",
           "sales-consultant-coop-genossenschaft-st-gallen-f50a94",
@@ -533,21 +531,23 @@
           "conseiller-de-vente-coop-genossenschaft-chur",
           "verkaufsberater-in-coop-genossenschaft-chur-nsjp2p",
           "verkaufsberater-in-import-parfumerie-chur-graubunden",
-          "sales-consultant-coop-genossenschaft-st-gallen-f578d4"
+          "sales-consultant-coop-genossenschaft-st-gallen-f578d4",
+          "consulente-di-vendita-coop-genossenschaft-chur",
+          "verkaufsberater-in-import-parfumerie-chur-graubunden-nsjp2p"
         ],
         "en": [
           "verkaufsberater-in-coop-genossenschaft-chur-graubunden-3apvkj",
           "sales-consultant-in-coop-genossenschaft-chur-graubunden",
           "sales-consultant-coop-genossenschaft-chur-nsjp2p"
         ],
-        "de": [
-          "verkaufsberater-in-import-parfumerie-chur-graubunden-nsjp2p",
-          "verkaufsberater-in-import-parfumerie-chur-graubunden-9gew6s"
-        ],
         "fr": [
           "verkaufsberater-in-coop-genossenschaft-chur-graubunden-3apvkj",
           "consultant-en-ventes-coop-genossenschaft-chur-graubunden",
           "conseiller-de-vente-coop-genossenschaft-chur-nsjp2p"
+        ],
+        "de": [
+          "verkaufsberater-in-import-parfumerie-chur-graubunden-nsjp2p",
+          "verkaufsberater-in-import-parfumerie-chur-graubunden-9gew6s"
         ]
       },
       "previousSlugs": [
@@ -577,9 +577,10 @@
         "verkaufsberater-in-coop-genossenschaft-chur-nsjp2p",
         "verkaufsberater-in-import-parfumerie-chur-graubunden-9gew6s",
         "verkaufsberater-in-import-parfumerie-chur-graubunden",
-        "sales-consultant-coop-genossenschaft-st-gallen-f578d4",
-        "consulente-commerciale-in-coop-genossenschaft-chur-graubunden"
+        "sales-consultant-coop-genossenschaft-st-gallen-f578d4"
       ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -594,9 +595,7 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      "country": "CH"
     },
     {
       "id": "company-od4tvh",
@@ -618,7 +617,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-24T22:13:31.399Z",
       "firstSeenAt": "2026-07-24T11:23:45.209Z",
       "titleByLocale": {
         "de": "Verkaufsberater:in",
@@ -649,37 +648,37 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur",
-          "consultant-en-vente-coop-genossenschaft-basel-9d0mi4",
-          "conseiller-de-vente-coop-genossenschaft-schaffhausen-nhdw1p",
-          "consulente-vendite-coop-genossenschaft-schaffhausen",
-          "verkaufsberater-in-import-parfumerie-schaffhausen-nhdw1p",
-          "sales-consultant-coop-genossenschaft-schaffhausen-nhdw1p",
-          "consultant-en-ventes-coop-genossenschaft-schaffhausen-nhdw1p",
-          "conseiller-ere-commercial-e-coop-genossenschaft-schaffhausen-nhdw1p",
-          "sales-advisor-coop-genossenschaft-schaffhausen",
-          "consulente-commerciale-in-coop-genossenschaft-schaffhausen",
-          "consultant-en-ventes-coop-genossenschaft-schaffhausen-dbb715",
-          "sales-consultant-cosmetics-coop-genossenschaft-basel-730f3e",
-          "consultant-en-vente-en-cosmetiques-coop-genossenschaft-basel-730f3e",
-          "sales-consultant-coop-genossenschaft-st-gallen-5b06ca",
-          "verkaufsberater-in-import-parfumerie-basel-stadt-9d0mi4",
           "conseiller-de-vente-coop-genossenschaft-chur-6c1d36",
           "conseiller-ere-de-vente-coop-genossenschaft-schaffhausen",
           "sales-consultant-coop-genossenschaft-st-gallen",
           "sales-consultant-coop-genossenschaft-luzern",
-          "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur"
+          "sales-consultant-cosmetics-coop-genossenschaft-basel-0pdmcw",
+          "sales-consultant-cosmetics-coop-genossenschaft-basel",
+          "consultant-en-vente-en-cosmetiques-coop-genossenschaft-basel-0pdmcw",
+          "sales-consultant-in-coop-genossenschaft-schaffhausen-a526b8",
+          "conseiller-de-vente-coop-genossenschaft-schaffhausen",
+          "sales-consultant-coop-genossenschaft-schaffhausen",
+          "sales-consultant-coop-genossenschaft-basel",
+          "verkaufsberater-in-coop-genossenschaft-st-gallen",
+          "conseiller-de-vente-coop-genossenschaft-st-gallen-5b06ca",
+          "conseiller-de-vente-coop-genossenschaft-st-gallen",
+          "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen",
+          "conseiller-de-vente-coop-genossenschaft-luzern",
+          "consultant-en-vente-coop-genossenschaft-basel",
+          "sales-consultant-coop-genossenschaft-basel-9d0mi4",
+          "consultant-en-vente-en-cosmetiques-coop-genossenschaft-basel",
+          "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur-96389b"
         ],
         "en": [
           "verkaufsberater-in-coop-genossenschaft-schaffhausen-od4tvh",
           "sales-consultant-in-coop-genossenschaft-schaffhausen"
         ],
-        "de": [
-          "verkaufsberater-in-coop-genossenschaft-schaffhausen-nhdw1p"
-        ],
         "fr": [
           "verkaufsberater-in-coop-genossenschaft-schaffhausen-od4tvh",
           "conseiller-ere-commercial-e-coop-genossenschaft-schaffhausen"
+        ],
+        "de": [
+          "verkaufsberater-in-coop-genossenschaft-schaffhausen-nhdw1p"
         ]
       },
       "previousSlugs": [
@@ -2163,7 +2162,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-24T11:23:45.209Z",
       "firstSeenAt": "2026-07-17T22:30:05.510Z",
       "titleByLocale": {
         "it": "Tecnico di servizio: in Soluzioni Professionali",
@@ -2187,7 +2186,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "technicien-de-service-solutions-professionnelles-fust-oberburen",
           "technicien-de-service-solutions-professionnelles-fust-swiss-household-services-ag-oberburen",
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern",
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern-3qkfr2",
@@ -2206,7 +2204,8 @@
           "service-technician-in-professional-solutions-fust-swiss-household-services-ag-luzern",
           "service-technician-in-professional-solutions-fust-bern",
           "technicien-de-service-en-solutions-professionnelles-fust-bern",
-          "servicetechniker-in-professional-solutions-fust-oberburen-0jbfoy"
+          "tecnico-di-servizio-in-soluzioni-professionali-fust-oberburen",
+          "service-technician-in-professional-solutions-fust-oberburen"
         ],
         "en": [
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-8fm84c",
@@ -4826,7 +4825,7 @@
     },
     {
       "id": "company-ow4ac2",
-      "slug": "capo-aggiunto-dell-alimentazione-coop-genossenschaft-aarau",
+      "slug": "stellvertretung-der-leitung-food-coop-genossenschaft-aarau-aargau",
       "company": "Coop Genossenschaft",
       "title": "Stellvertretung der Leitung Food",
       "location": "Aarau, Aargau",
@@ -11844,14 +11843,6 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "sales-consultant-cosmetics-coop-genossenschaft-luzern",
-          "consultant-en-vente-en-cosmetiques-coop-genossenschaft-luzern",
-          "sales-consultant-cosmetics-coop-genossenschaft-zug",
-          "verkaufsberater-in-kosmetik-coop-genossenschaft-luzern",
-          "sales-consultant-in-cosmetics-coop-genossenschaft-basel-basel-stadt",
-          "consultant-commercial-en-cosmetique-coop-genossenschaft-basel-basel-stadt",
-          "consulente-di-vendita-in-cosmetici-coop-genossenschaft-basel-basel-stadt",
-          "verkaufsberater-in-kosmetik-schmuck-e-accessoires-coop-city-basel-stadt-1bd8ze",
           "conseiller-de-vente-cosmetiques-bijoux-et-accessoires-coop-genossenschaft-basel",
           "consulente-commerciale-in-cosmetica-coop-genossenschaft-basel",
           "verkaufsberater-a-kosmetik-coop-genossenschaft-basel-pq9qrw",
@@ -11863,7 +11854,15 @@
           "sales-consultant-coop-genossenschaft-basel-7a4cc0",
           "consultant-en-vente-en-cosmetique-coop-genossenschaft-basel",
           "verkaufsberater-in-kosmetik-coop-genossenschaft-basel-pq9qrw",
-          "verkaufsberater-in-kosmetik-coop-city-basel-stadt"
+          "verkaufsberater-in-kosmetik-coop-city-basel-stadt",
+          "sales-consultant-cosmetics-coop-genossenschaft-zug-pu1q86",
+          "consultant-en-vente-en-cosmetiques-coop-genossenschaft-zug-pu1q86",
+          "sales-consultant-cosmetics-coop-genossenschaft-basel-730f3e",
+          "consultant-en-vente-en-cosmetiques-coop-genossenschaft-basel-730f3e",
+          "sales-consultant-cosmetics-coop-genossenschaft-basel-0pdmcw",
+          "consultant-en-vente-en-cosmetiques-coop-genossenschaft-basel-0pdmcw",
+          "verkaufsberater-in-kosmetik-coop-city-zug-pu1q86",
+          "verkaufsberater-in-kosmetik-coop-genossenschaft-zug-pu1q86"
         ],
         "en": [
           "sales-consultant-cosmetics-coop-genossenschaft-basel-gk0js5",
@@ -13317,7 +13316,7 @@
       "titleByLocale": {
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Cook / cook (f/m/d)",
         "fr": "Cuire / cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -13328,7 +13327,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-aarau",
-        "en": "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau",
+        "en": "cook-cook-f-m-d-coop-genossenschaft-aarau",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau-ddg6am",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-aarau"
       },
@@ -13343,7 +13342,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "cook-w-m-d-coop-genossenschaft-aarau",
           "chef-m-f-d-coop-genossenschaft-aarau",
           "cook-f-m-d-coop-genossenschaft-aarau",
           "cooker-m-w-d-coop-genossenschaft-aarau-x72egi",
@@ -13362,13 +13360,13 @@
           "kochin-koch-w-m-d-coop-genossenschaft-aarau-b7efd1",
           "cucinare-cucinare-f-m-d-coop-genossenschaft-aarau-aargau",
           "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-aarau-x72egi",
-          "chef-chef-w-m-d-coop-genossenschaft-aarau"
+          "chef-chef-w-m-d-coop-genossenschaft-aarau",
+          "chef-m-w-d-coop-genossenschaft-aarau-x72egi"
         ],
         "en": [
           "cook-m-w-d-coop-genossenschaft-aarau-x72egi",
           "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau-ddg6am",
           "cook-cook-f-m-d-coop-genossenschaft-aarau-aargau",
-          "cook-cook-f-m-d-coop-genossenschaft-aarau",
           "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau"
         ],
         "de": [
@@ -13404,8 +13402,7 @@
         "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau-ddg6am",
         "cook-cook-f-m-d-coop-genossenschaft-aarau-aargau",
         "cuire-cuire-f-m-d-coop-genossenschaft-aarau-aargau",
-        "cucinare-cucinare-f-m-d-coop-genossenschaft-aarau-aargau",
-        "cook-cook-f-m-d-coop-genossenschaft-aarau"
+        "cucinare-cucinare-f-m-d-coop-genossenschaft-aarau-aargau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -13423,8 +13420,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "needsRetranslation": true
+      "country": "CH"
     },
     {
       "id": "company-eszcs8",
@@ -13909,7 +13905,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-christ-uhren-schmuck-ag-wallisellen-zurich",
           "sales-consultant-christ-uhren-schmuck-ag-wallisellen-jglgp5",
           "consultant-en-vente-christ-uhren-schmuck-ag-wallisellen-jglgp5",
           "sales-consultant-christ-orologi-gioielli-wallisellen-zurich-jglgp5",
@@ -13928,7 +13923,8 @@
           "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
           "consulente-commerciale-in-christ-uhren-schmuck-ag-arbon-thurgau",
           "verkaufsberater-in-christ-uhren-schmuck-ag-wallisellen-zurich-jglgp5",
-          "sales-consultant-christ-uhren-schmuck-ag-wallisellen"
+          "sales-consultant-christ-uhren-schmuck-ag-wallisellen",
+          "consultant-en-vente-christ-uhren-schmuck-ag-wallisellen"
         ],
         "en": [
           "verkaufsberater-in-christ-uhren-schmuck-ag-arbon-thurgau-fjzmpj",
@@ -20793,7 +20789,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-kassen-services-coop-genossenschaft-liestal",
           "verkaufer-in-kassen-services-coop-genossenschaft-meisterschwanden-aargau-avf281",
           "venditore-in-cassa-servizi-coop-genossenschaft-meisterschwanden-aargau",
           "nom-de-l-agent-kassen-services-coop-genossenschaft-zurich-1ae69a",
@@ -20812,7 +20807,8 @@
           "agent-name-kassen-services-coop-genossenschaft-zurich-1ae69a",
           "casse-servizi-per-assistenti-vendite-coop-genossenschaft-meisterschwanden-aargau",
           "verkaufer-in-kassen-services-coop-genossenschaft-steinhausen",
-          "verkaufer-in-kassen-services-coop-genossenschaft-mohlin"
+          "verkaufer-in-kassen-services-coop-genossenschaft-mohlin",
+          "verkaufer-in-kassen-services-coop-genossenschaft-laupen"
         ],
         "en": [
           "verkaufer-in-kassen-services-coop-genossenschaft-meisterschwanden-aargau-avf281",
