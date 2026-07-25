@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksow",
-  "assembledAt": "2026-07-24T22:21:53.039Z",
+  "assembledAt": "2026-07-25T10:55:41.842Z",
   "jobs": [
     {
       "id": "ksow-553b13e21c9c",
@@ -33,7 +33,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-fmh-allgemeine-innere-medizin-ca/1rn6v8yexqoha8aa0h3j3v8fwsaljtvz2lq36nnjyhbnst2trkc5tt3golid0m7f",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:21:50.739Z",
+      "crawledAt": "2026-07-25T10:55:39.443Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -69,16 +69,21 @@
           "Charge de travail : jours fériés individuels et week-ends par an"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
-          "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen"
+          "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen",
+          "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-kantonsspital-obwalden-sarnen"
         ],
         "it": [
-          "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen"
+          "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen",
+          "specialista-fmh-medicina-interna-generale-a-10-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
-        "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen"
+        "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen",
+        "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-kantonsspital-obwalden-sarnen",
+        "specialista-fmh-medicina-interna-generale-a-10-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:31.266Z",
       "salaryMin": 7000,
@@ -125,7 +130,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-ueberwachungsstation-hf/iaxflchp4guvo4palt0jhvlbi6670eipgwye4ryrkb605wpv8w6bes3xq8e4feje",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:21:48.979Z",
+      "crawledAt": "2026-07-25T10:55:37.770Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -145,14 +150,18 @@
       "needsRetranslation": false,
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-uberwachungsstation-hf-a-50-100-ksow-sarnen"
+          "dipl-pflegefachperson-uberwachungsstation-hf-a-50-100-ksow-sarnen",
+          "dipl-pflegefachperson-uberwachungsstation-hf-a-50-100-kantonsspital-obwalden-sarnen"
         ],
         "it": [
-          "dipl-pflegefachperson-uberwachungsstation-hf-a-50-100-ksow-sarnen"
+          "dipl-pflegefachperson-uberwachungsstation-hf-a-50-100-ksow-sarnen",
+          "infermiere-specializzata-in-sorveglianza-hf-a-50-100-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-uberwachungsstation-hf-a-50-100-ksow-sarnen"
+        "dipl-pflegefachperson-uberwachungsstation-hf-a-50-100-ksow-sarnen",
+        "dipl-pflegefachperson-uberwachungsstation-hf-a-50-100-kantonsspital-obwalden-sarnen",
+        "infermiere-specializzata-in-sorveglianza-hf-a-50-100-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-07-08T11:37:38.680Z",
       "salaryMin": 69500,
@@ -173,7 +182,7 @@
       "slug": "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
         "it": "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
-        "en": "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen",
+        "en": "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen",
         "de": "hebamme-hf-als-beleghebamme-kantonsspital-obwalden-sarnen",
         "fr": "sage-femme-es-hes-agreee-independante-kantonsspital-obwalden-sarnen"
       },
@@ -199,7 +208,7 @@
       "url": "https://link.ostendis.com/publication/hebamme-hf-als-beleghebamme/sps0tnlmko6qyyzaidf5ejsnjh7al617qbyx6zmrt55d5etvj0mii5e50rdf3bib",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:21:47.183Z",
+      "crawledAt": "2026-07-25T10:55:36.094Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -238,19 +247,26 @@
           "Activité en tant que sage-femme indépendante"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
-          "hebamme-hf-als-beleghebamme-ksow-sarnen"
+          "hebamme-hf-als-beleghebamme-ksow-sarnen",
+          "hebamme-hf-als-beleghebamme-kantonsspital-obwalden-sarnen"
         ],
         "it": [
-          "hebamme-hf-als-beleghebamme-ksow-sarnen"
+          "hebamme-hf-als-beleghebamme-ksow-sarnen",
+          "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen"
         ],
         "en": [
+          "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen",
           "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
         "hebamme-hf-als-beleghebamme-ksow-sarnen",
+        "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen",
+        "hebamme-hf-als-beleghebamme-kantonsspital-obwalden-sarnen",
+        "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
         "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:22.515Z",
@@ -298,7 +314,7 @@
       "url": "https://link.ostendis.com/publication/medizinischen-praxisassistent-in-arztsekretaer-in-kardiologie/kw35cynp40el68mt1mz2we0kmenedovs1oke05mtly4bp51ycqhei2d2ipcn33t2",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:21:45.459Z",
+      "crawledAt": "2026-07-25T10:55:34.490Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -346,16 +362,21 @@
           "Réalisation autonome d'examens médicaux"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
-          "medizinischen-praxisassistent-in-arztsekretar-in-40-100-kardiologie-ksow-sarnen"
+          "medizinischen-praxisassistent-in-arztsekretar-in-40-100-kardiologie-ksow-sarnen",
+          "medizinischen-praxisassistent-in-arztsekretar-in-40-100-kardiologie-kantonsspital-obwalden-sarnen"
         ],
         "it": [
-          "medizinischen-praxisassistent-in-arztsekretar-in-40-100-kardiologie-ksow-sarnen"
+          "medizinischen-praxisassistent-in-arztsekretar-in-40-100-kardiologie-ksow-sarnen",
+          "assistente-medico-a-segretario-a-medico-a-40-100-cardiologia-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
-        "medizinischen-praxisassistent-in-arztsekretar-in-40-100-kardiologie-ksow-sarnen"
+        "medizinischen-praxisassistent-in-arztsekretar-in-40-100-kardiologie-ksow-sarnen",
+        "medizinischen-praxisassistent-in-arztsekretar-in-40-100-kardiologie-kantonsspital-obwalden-sarnen",
+        "assistente-medico-a-segretario-a-medico-a-40-100-cardiologia-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:20.839Z",
       "salaryMin": 58500,
@@ -386,7 +407,7 @@
       "title": "Dipl. Fachperson Operationstechnik HF (a) 50–100%",
       "titleByLocale": {
         "it": "Tecnico di Sala Operatoria SSS (a) 50–100%",
-        "en": "Dipl. Specialist Operations Technique HF (a) 50–100 %",
+        "en": "Dipl. Fachperson Operationstechnik HF (a) 50–100%",
         "de": "Dipl. Fachperson Operationstechnik HF (a) 50–100%",
         "fr": "Technicien en salle d'opération ES (a) 50–100%"
       },
@@ -402,7 +423,7 @@
       "url": "https://link.ostendis.com/publication/dipl-fachperson-operationstechnik-hf/zvlnudeefxpj3lstnn3rdi0v7fzfv2o6zek40f7yq80ioqeoz2vdodv14sbiie2l",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:21:43.654Z",
+      "crawledAt": "2026-07-25T10:55:32.890Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -445,12 +466,15 @@
           "Esprit d'équipe, flexibilité et plaisir à travailler dans un environnement dynamique"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
-          "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen"
+          "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen",
+          "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen"
         ],
         "it": [
-          "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen"
+          "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen",
+          "tecnico-di-sala-operatoria-sss-a-50-100-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen"
@@ -458,7 +482,8 @@
       },
       "previousSlugs": [
         "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen",
-        "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen"
+        "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen",
+        "tecnico-di-sala-operatoria-sss-a-50-100-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:17.375Z",
       "salaryMin": 69500,
@@ -505,7 +530,7 @@
       "url": "https://link.ostendis.com/publication/lagerungspfleger-in/yaqj7d7po5spp85wtqx7hjpqaayw4gehzssx738m7stclh6jo3eyv4afnghcohrd",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:21:41.964Z",
+      "crawledAt": "2026-07-25T10:55:31.271Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -525,14 +550,18 @@
       "needsRetranslation": false,
       "previousSlugsByLocale": {
         "de": [
-          "lagerungspfleger-in-a-60-100-ksow-sarnen"
+          "lagerungspfleger-in-a-60-100-ksow-sarnen",
+          "lagerungspfleger-in-a-60-100-kantonsspital-obwalden-sarnen"
         ],
         "it": [
-          "lagerungspfleger-in-a-60-100-ksow-sarnen"
+          "lagerungspfleger-in-a-60-100-ksow-sarnen",
+          "assistente-di-posizionamento-a-60-100-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
-        "lagerungspfleger-in-a-60-100-ksow-sarnen"
+        "lagerungspfleger-in-a-60-100-ksow-sarnen",
+        "lagerungspfleger-in-a-60-100-kantonsspital-obwalden-sarnen",
+        "assistente-di-posizionamento-a-60-100-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-07-15T11:17:50.859Z",
       "salaryMin": 96000,
@@ -579,7 +608,7 @@
       "url": "https://link.ostendis.com/publication/oberarzt-leitender-arzt-gastroenterologie/2yph4crwy1zhmnm3ych5gvhtd5rs22y4wom17lshe3x7mbquftb50ie3c4vrlie7",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:21:21.587Z",
+      "crawledAt": "2026-07-25T10:55:10.939Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -622,16 +651,21 @@
           "Haute compétence sociale ainsi qu'une communication précieuse"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
-          "oberarzt-leitender-arzt-gastroenterologie-20-ksow-sarnen"
+          "oberarzt-leitender-arzt-gastroenterologie-20-ksow-sarnen",
+          "oberarzt-leitender-arzt-gastroenterologie-20-kantonsspital-obwalden-sarnen"
         ],
         "it": [
-          "oberarzt-leitender-arzt-gastroenterologie-20-ksow-sarnen"
+          "oberarzt-leitender-arzt-gastroenterologie-20-ksow-sarnen",
+          "medico-senior-gastroenterology-20-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
-        "oberarzt-leitender-arzt-gastroenterologie-20-ksow-sarnen"
+        "oberarzt-leitender-arzt-gastroenterologie-20-ksow-sarnen",
+        "oberarzt-leitender-arzt-gastroenterologie-20-kantonsspital-obwalden-sarnen",
+        "medico-senior-gastroenterology-20-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:04:50.682Z",
       "salaryMin": 19200,
@@ -678,7 +712,7 @@
       "url": "https://link.ostendis.com/publication/arztsekretaer-in-chirurgie-und-belegaerzte/6ma2h98zyhwoalv2qvtuurisbrp7vrnc8gm3hx8lv7uxlfst7sqj6ji7trnveuzi",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:21:19.837Z",
+      "crawledAt": "2026-07-25T10:55:09.042Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -695,16 +729,19 @@
       "applyUrl": "https://link.ostendis.com/publication/arztsekretaer-in-chirurgie-und-belegaerzte/6ma2h98zyhwoalv2qvtuurisbrp7vrnc8gm3hx8lv7uxlfst7sqj6ji7trnveuzi",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "arztsekretar-in-chirurgie-und-belegarzte-a-80-ksow-sarnen",
         "arztsekretar-in-chirurgie-und-belegarzte-a-80-kantonsspital-obwalden-sarnen",
-        "arztsekretar-in-chirurgie-und-belegarzte-a-60-80-ksow-sarnen"
+        "arztsekretar-in-chirurgie-und-belegarzte-a-60-80-ksow-sarnen",
+        "arztsekretar-in-chirurgie-e-belegarzte-a-80-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretar-in-chirurgie-und-belegarzte-a-80-ksow-sarnen",
           "arztsekretar-in-chirurgie-und-belegarzte-a-80-kantonsspital-obwalden-sarnen",
-          "arztsekretar-in-chirurgie-und-belegarzte-a-60-80-ksow-sarnen"
+          "arztsekretar-in-chirurgie-und-belegarzte-a-60-80-ksow-sarnen",
+          "arztsekretar-in-chirurgie-e-belegarzte-a-80-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "arztsekretar-in-chirurgie-und-belegarzte-a-80-ksow-sarnen"
@@ -758,7 +795,7 @@
       "url": "https://link.ostendis.com/publication/leitende-arzt-aerztin-innere-medizin-schwerpunkt-geriatrie/vs7xfcnesedeepbf3eazkakjmfzj286ocmhfx8sm67absaxp6r2b4m2q4yyoprvc",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:21:17.632Z",
+      "crawledAt": "2026-07-25T10:55:07.149Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -778,12 +815,14 @@
       "needsRetranslation": false,
       "previousSlugs": [
         "leitende-r-arzt-arztin-innere-medizin-schwerpunkt-geriatrie-ksow-sarnen",
-        "dottore-principale-medico-di-medicina-interna-concentrarsi-sulla-geriatria-kantonsspital-obwalden-sarnen"
+        "dottore-principale-medico-di-medicina-interna-concentrarsi-sulla-geriatria-kantonsspital-obwalden-sarnen",
+        "medico-senior-in-medicina-interna-con-focus-in-geriatria-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitende-r-arzt-arztin-innere-medizin-schwerpunkt-geriatrie-ksow-sarnen",
-          "dottore-principale-medico-di-medicina-interna-concentrarsi-sulla-geriatria-kantonsspital-obwalden-sarnen"
+          "dottore-principale-medico-di-medicina-interna-concentrarsi-sulla-geriatria-kantonsspital-obwalden-sarnen",
+          "medico-senior-in-medicina-interna-con-focus-in-geriatria-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "leitende-r-arzt-arztin-innere-medizin-schwerpunkt-geriatrie-ksow-sarnen"
@@ -821,7 +860,7 @@
       "title": "Dipl. Experte / Expertin Notfallpflege NDS HF oder Pflegefachperson HF (a) 40-80%",
       "titleByLocale": {
         "it": "Dipl. Experte / Expertin Notfallpflege NDS HF o Pflegefachperson HF (a) 40-80%",
-        "en": "Dipl. Expert Emergency Care NDS HF or nurse HF (a) 40-80 %",
+        "en": "Dipl. Experte / Expertin Notfallpflege NDS HF oder Pflegefachperson HF (a) 40-80%",
         "de": "Dipl. Experte / Expertin Notfallpflege NDS HF oder Pflegefachperson HF (a) 40-80%",
         "fr": "Dipl. Expert Soins d'urgence NDS HF ou professionnel des soins HF (a) 40-80 %"
       },
@@ -837,7 +876,7 @@
       "url": "https://link.ostendis.com/publication/dipl-experte-expertin-notfallpflege-nds-hf-oder-pflegefachperson-hf/cltooq170hv1mlpf74ma4qorps5m7365vh2wprt4vphrz7gfqlkehwozvtr2jhv7",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:21:15.578Z",
+      "crawledAt": "2026-07-25T10:55:05.265Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -854,6 +893,7 @@
       "applyUrl": "https://link.ostendis.com/publication/dipl-experte-expertin-notfallpflege-nds-hf-oder-pflegefachperson-hf/cltooq170hv1mlpf74ma4qorps5m7365vh2wprt4vphrz7gfqlkehwozvtr2jhv7",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "dipl-experte-expertin-notfallpflege-nds-hf-oder-pflegefachperson-hf-a-40-80-ksow-sarnen",
         "dipl-esperto-a-in-infermeria-d-emergenza-nds-hf-a-100-kantonsspital-obwalden-sarnen",
@@ -865,7 +905,8 @@
         "dipl-expert-in-anesthesia-care-nds-hf-70-100-kantonsspital-obwalden-sarnen",
         "dipl-experte-in-anasthesiepflege-nds-hf-70-100-kantonsspital-obwalden-sarnen",
         "dipl-expert-e-en-soins-anesthesiques-nds-hf-70-100-kantonsspital-obwalden-sarnen",
-        "dipl-experte-in-anasthesiepflege-nds-hf-70-100-ksow-sarnen"
+        "dipl-experte-in-anasthesiepflege-nds-hf-70-100-ksow-sarnen",
+        "dipl-experte-expertin-notfallpflege-nds-hf-o-pflegefachperson-hf-a-40-80-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -879,7 +920,8 @@
           "dipl-expert-in-anesthesia-care-nds-hf-70-100-kantonsspital-obwalden-sarnen",
           "dipl-experte-in-anasthesiepflege-nds-hf-70-100-kantonsspital-obwalden-sarnen",
           "dipl-expert-e-en-soins-anesthesiques-nds-hf-70-100-kantonsspital-obwalden-sarnen",
-          "dipl-experte-in-anasthesiepflege-nds-hf-70-100-ksow-sarnen"
+          "dipl-experte-in-anasthesiepflege-nds-hf-70-100-ksow-sarnen",
+          "dipl-experte-expertin-notfallpflege-nds-hf-o-pflegefachperson-hf-a-40-80-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "dipl-experte-expertin-notfallpflege-nds-hf-oder-pflegefachperson-hf-a-40-80-ksow-sarnen",
@@ -941,7 +983,7 @@
       "url": "https://link.ostendis.com/publication/lehrstelle-fachfrau-fachmann-hauswirtschaft-efz/mhpe6got6kp8aehvbhvrutqet94iqlvveti51x2mzy0czw1etpot27jvsddb54w2",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:21:13.769Z",
+      "crawledAt": "2026-07-25T10:55:03.564Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -958,12 +1000,15 @@
       "applyUrl": "https://link.ostendis.com/publication/lehrstelle-fachfrau-fachmann-hauswirtschaft-efz/mhpe6got6kp8aehvbhvrutqet94iqlvveti51x2mzy0czw1etpot27jvsddb54w2",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
-        "lehrstelle-fachfrau-fachmann-hauswirtschaft-a-efz-2027-ksow-sarnen"
+        "lehrstelle-fachfrau-fachmann-hauswirtschaft-a-efz-2027-ksow-sarnen",
+        "apprendistato-fachfrau-fachmann-hauswirtschaft-a-cfc-2027-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-fachmann-hauswirtschaft-a-efz-2027-ksow-sarnen"
+          "lehrstelle-fachfrau-fachmann-hauswirtschaft-a-efz-2027-ksow-sarnen",
+          "apprendistato-fachfrau-fachmann-hauswirtschaft-a-cfc-2027-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "lehrstelle-fachfrau-fachmann-hauswirtschaft-a-efz-2027-ksow-sarnen"
@@ -1017,7 +1062,7 @@
       "url": "https://link.ostendis.com/publication/lehrstelle-koechin-koch-efz/pkihhblzupj8tzcuezrj0x6dvyd4l66pc5to2p54fimn1cifw3r4e8anlzpsh653",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:21:11.529Z",
+      "crawledAt": "2026-07-25T10:55:01.562Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1034,12 +1079,15 @@
       "applyUrl": "https://link.ostendis.com/publication/lehrstelle-koechin-koch-efz/pkihhblzupj8tzcuezrj0x6dvyd4l66pc5to2p54fimn1cifw3r4e8anlzpsh653",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
-        "lehrstelle-kochin-koch-efz-2027-ksow-sarnen"
+        "lehrstelle-kochin-koch-efz-2027-ksow-sarnen",
+        "apprendistato-kochin-koch-cfc-2027-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kochin-koch-efz-2027-ksow-sarnen"
+          "lehrstelle-kochin-koch-efz-2027-ksow-sarnen",
+          "apprendistato-kochin-koch-cfc-2027-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "lehrstelle-kochin-koch-efz-2027-ksow-sarnen"
@@ -1093,7 +1141,7 @@
       "url": "https://link.ostendis.com/publication/lehrstelle-kauffrau-mann-efz/m0sf074vvtq20lapotsgddjkxpj4ib3znxpsrr14a5yoy5frp0paeo7e6yoawr2z",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:21:09.581Z",
+      "crawledAt": "2026-07-25T10:54:59.694Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1110,13 +1158,16 @@
       "applyUrl": "https://link.ostendis.com/publication/lehrstelle-kauffrau-mann-efz/m0sf074vvtq20lapotsgddjkxpj4ib3znxpsrr14a5yoy5frp0paeo7e6yoawr2z",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "lehrstelle-kauffrau-mann-efz-2027-ksow-sarnen",
-        "lehrstelle-kauffrau-mann-efz-2027-kantonsspital-obwalden-sarnen"
+        "lehrstelle-kauffrau-mann-efz-2027-kantonsspital-obwalden-sarnen",
+        "apprendistato-kauffrau-mann-cfc-2027-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kauffrau-mann-efz-2027-ksow-sarnen"
+          "lehrstelle-kauffrau-mann-efz-2027-ksow-sarnen",
+          "apprendistato-kauffrau-mann-cfc-2027-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "lehrstelle-kauffrau-mann-efz-2027-kantonsspital-obwalden-sarnen"
@@ -1170,7 +1221,7 @@
       "url": "https://link.ostendis.com/publication/ausbildungsplatz-dipl-fachfrau-mann-operationstechnik-hf/4z2hse6qu86zoykljebrbqr23v4znwobb8a8hfwobih0kv1sw3duhxidt1tbwbk3",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:21:07.204Z",
+      "crawledAt": "2026-07-25T10:54:57.455Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1190,12 +1241,14 @@
       "needsRetranslation": false,
       "previousSlugs": [
         "ausbildungsplatz-dipl-fachfrau-mann-operationstechnik-hf-ksow-sarnen",
-        "ausbildungsplatz-dipl-fachfrau-mann-operationstechnik-hf-kantonsspital-obwalden-sarnen"
+        "ausbildungsplatz-dipl-fachfrau-mann-operationstechnik-hf-kantonsspital-obwalden-sarnen",
+        "stazione-di-allenamento-dipl-tecnologia-chirurgica-specialistica-hf-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ausbildungsplatz-dipl-fachfrau-mann-operationstechnik-hf-ksow-sarnen",
-          "ausbildungsplatz-dipl-fachfrau-mann-operationstechnik-hf-kantonsspital-obwalden-sarnen"
+          "ausbildungsplatz-dipl-fachfrau-mann-operationstechnik-hf-kantonsspital-obwalden-sarnen",
+          "stazione-di-allenamento-dipl-tecnologia-chirurgica-specialistica-hf-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "ausbildungsplatz-dipl-fachfrau-mann-operationstechnik-hf-kantonsspital-obwalden-sarnen"
@@ -1249,7 +1302,7 @@
       "url": "https://link.ostendis.com/publication/diaetkoch-koechin-koch-koechin-efz/b25hpdst0m650cnwzvsprrbs7c6e70klrwvz5vnyvxp4bl27bh3sd5imd8if0f1v",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:21:05.223Z",
+      "crawledAt": "2026-07-25T10:54:55.393Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1266,15 +1319,18 @@
       "applyUrl": "https://link.ostendis.com/publication/diaetkoch-koechin-koch-koechin-efz/b25hpdst0m650cnwzvsprrbs7c6e70klrwvz5vnyvxp4bl27bh3sd5imd8if0f1v",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-24T11:19:42.304Z",
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "diatkoch-kochin-koch-kochin-efz-a-60-100-ksow-sarnen",
+        "diatkoch-kochin-koch-kochin-cfc-a-60-100-kantonsspital-obwalden-sarnen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "diatkoch-kochin-koch-kochin-efz-a-60-100-ksow-sarnen"
+          "diatkoch-kochin-koch-kochin-efz-a-60-100-ksow-sarnen",
+          "diatkoch-kochin-koch-kochin-cfc-a-60-100-kantonsspital-obwalden-sarnen"
         ]
       },
-      "previousSlugs": [
-        "diatkoch-kochin-koch-kochin-efz-a-60-100-ksow-sarnen"
-      ],
+      "firstSeenAt": "2026-07-24T11:19:42.304Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1287,85 +1343,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "ksow-aa3d4a817280",
-      "slug": "responsabile-comunicazione-integrazione-80-100-kantonsspital-obwalden-sarnen",
-      "slugByLocale": {
-        "it": "responsabile-comunicazione-integrazione-80-100-kantonsspital-obwalden-sarnen",
-        "en": "responsible-for-communication-integration-80-100-kantonsspital-obwalden-sarnen",
-        "de": "fachverantwortliche-r-kommunikation-integration-80-100-ksow-sarnen",
-        "fr": "responsable-communication-integration-80-100-kantonsspital-obwalden-sarnen"
-      },
-      "company": "Kantonsspital Obwalden",
-      "companyKey": "ksow",
-      "companyDomain": "ksow.ch",
-      "title": "Fachverantwortliche/r Kommunikation & Integration 80–100%",
-      "titleByLocale": {
-        "it": "Responsabile Comunicazione & Integrazione 80–100 %",
-        "en": "Responsible for Communication & Integration 80–100 %",
-        "de": "Fachverantwortliche/r Kommunikation & Integration 80–100%",
-        "fr": "Responsable Communication & Intégration 80–100 %"
-      },
-      "description": "Fachverantwortliche/r Kommunikation & Integration 80–100 %\n\nPer 1. Oktober 2026 oder nach Vereinbarung\n\nÜber uns und die Funktion\n\nDas Kantonsspital Obwalden (KSOW) befindet sich in einer spannenden Phase der Weiterentwicklung. Mit der Integration in die LUKS Gruppe gestalten wir aktiv die Zukunft der Gesundheitsversorgung in der Zentral-schweiz.\n\nFür diese Entwicklung suchen wir eine engagierte Persönlichkeit, die die operative Kommunikationsarbeit des KSOW verantwortet und gleichzeitig die Integration in die LUKS Gruppe kommunikativ begleitet. In dieser vielseitigen Funktion verbinden Sie klassische Unternehmenskommunikation mit Projektarbeit, Markenführung und Change-Kommunikation.\n\nSie stellen sicher, dass Informationen klar, verständlich und zielgruppengerecht über alle Kommunikationskanäle fliessen. Gleichzeitig leisten Sie einen wichtigen Beitrag zur Positionierung des KSOW innerhalb der LUKS Gruppe und unterstützen die Weiterentwicklung unseres Auftritts.\n\nIhre Aufgaben\n\n• Kommunikation und Beratung: Sie verantworten die kommunikativen Inhalte des KSOW über alle Kanäle hinweg (Planung, Redaktion und Publikation) - und Sie beraten und unterstützen die Geschäftsleitung sowie Führungskräfte in kommunikativen Fragestellungen.\n\n• Veranstaltungen und Zusammenarbeit: Sie planen und begleiten interne wie externe Veranstaltungen und koordinieren die Zusammenarbeit mit internen Fachbereichen sowie externen Agenturen und Partnern.\n\n• Integration und Transformation: Sie begleiten den Transformationsprozess in die LUKS Gruppe kommunikativ, leiten das Teilprojekt Branding / CI-CD und koordinieren die Zusammenführung der KSOW-Website in das zentrale CMS.\n\n• Verantwortung und Weiterentwicklung: Sie führen das Budget Ihres Bereichs und unterstützen die Leitung Unternehmensentwicklung & Kommunikation aktiv in strategischen und operativen Fragestellungen.\n\nIhr Profil\n\n• Abgeschlossene Aus- oder Weiterbildung im Bereich Kommunikation, Marketing, PR oder Medien.\n\n• Mehrjährige Berufserfahrung in der Unternehmenskommunikation, im Marketing oder in der Leitung von Kommunikationsprojekten.\n\n• Versierter Umgang mit digitalen Kommunikationskanälen, CMS-Systemen und Social Media\n\n• Stilsicheres Deutsch mit Gespür für Text, Tonalität und Zielgruppen.\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise. Sie sind eine teamorientierte Persönlichkeit mit hoher Sozialkompetenz und echter Begeisterung für Veränderungs- und Transformationsprozesse.\n\nUnser Angebot\n Wir bieten Ihnen eine verantwortungsvolle Funktion mit Gestaltungsspielraum und viel Raum für Eigeninitiative in einem der spannendsten Spitalprojekte der Zentralschweiz. Sie arbeiten eng mit verschiedenen internen Anspruchsgruppen sowie der LUKS Gruppe zusammen und prägen die Identität eines Unternehmens im Wandel aktiv mit. Freuen Sie sich ausserdem auf attraktive Anstellungsbedingungen wie:\n\n• Gratis Fitness-Abo in unserer Physio-Fitness\n\n• Vergünstigte Verpflegung und Parkmöglichkeiten\n\n• Weltweite private Unfallversicherung\n\n• Eine interessante, abwechslungsreiche Aufgabe in einem familiären, kleinen Spital mit kurzen Entscheidungswegen und gelebter Du-Kultur\n\nHaben wir Ihr Interesse an dieser Stelle geweckt? Die Personalabteilung freut sich auf Ihre Online-Bewerbung.\n Jetzt bewerben Haben Sie Fragen zu dieser Stelle? Ihre Ansprechsperson für Auskünfte: Herr Patric Bürge, Projektleiter Unternehmensentwicklung, 041 666 40 43\n Kantonsspital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22",
-      "descriptionByLocale": {
-        "it": "0 0.900% A partire dal 1° ottobre 2026 o per accordo Chi siamo e la funzione L'Ospedale Cantonale Obwalden (KSOW) è in una fase di ulteriore sviluppo emozionante.Con la sua integrazione nel Gruppo LUKS, stiamo attivamente plasmando il futuro dell'assistenza sanitaria nella Svizzera centrale.\n• Stiamo cercando una persona impegnata per questo sviluppo, responsabile del lavoro di comunicazione operativa del KSOW e al tempo stesso accompagnando l'integrazione nel Gruppo LUKS in modo comunicativo. In questa funzione di versatile, si combinano la comunicazione classica aziendale con il lavoro di progetto, la gestione del marchio e la comunicazione di cambiamento. Si assicura che le informazioni siano chiare, comprensibili e mirate a tutti i canali di comunicazione dell'anno. Allo stesso tempo, si apporta un importante contributo al posizionamento del KSOW all'interno del Gruppo LUKS e si sostiene l'ulteriore sviluppo della nostra presenza. Mansioni - Comunicazione e Consulenza: Lei è responsabile del contenuto comunicativo di KSOW su tutti i canali (pianificazione, redazione e pubblicazione) - e Lei consiglia e sostiene la direzione e i dirigenti nelle questioni comunicative. - Eventi e cooperazione: Lei pianifica e supporta eventi interni ed esterni e coordina la cooperazione con i dipartimenti interni, nonché con le agenzie e i partner esterni. - Integrazione e trasformazione: accompagna il processo di trasformazione nel Gruppo LUKS comunicativamente, dirige il sottoprogetto Branding/CI-CD e coordina l'integrazione del sito web KSOW nel Cm2 centrale - Responsabilità e ulteriore sviluppo: Lei guida il budget della sua area e sostiene attivamente la gestione dello sviluppo aziendale e della comunicazione in questioni strategiche e operative. - Esperienza professionale pluriennale nella comunicazione aziendale, nel marketing o nella gestione di progetti di comunicazione. - Gestione controllata dei canali di comunicazione digitale, dei sistemi cmm e dei social media - Elegante tedesco con un senso di testo, tonalità e target group. - Metodi di lavoro autonomi, strutturati e affidabili. Sono una personalità orientata al team con alta competenza sociale e autentico entusiasmo per i processi di cambiamento e trasformazione. Co-Bibamo Vi offriamo una funzione responsabile con spazio per il design e ampio spazio per l'iniziativa in uno dei progetti ospedalieri più emozionanti della Svizzera centrale. Lavorate a stretto contatto con diversi stakeholder interni e con il Gruppo LUKS e formate attivamente l'identità di un'azienda nel cambiamento. Potete anche guardare avanti alle condizioni di lavoro attraenti come: - abbonamento gratuito di fitness nella nostra fisionomia - pasti scontati e parcheggio - assicurazione infortuni privata in tutto il mondo - Un compito interessante e variegato in una famiglia, piccolo ospedale con brevi percorsi decisionali e vissuto du-culture Contatto Abbiamo suscitato il vostro interesse a questo punto? Il reparto HR è in attesa della vostra applicazione online. Applica ora Avete domande su questa posizione? Il suo referente per informazioni: Mr. Patrick Bürge, Project Manager Corporate Development, 041 666 40 43 Kantonspinal Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22",
-        "en": "Descrizione Head of Communications & Integration 80–100% As of 1 October 2026 or by agreement About us and the function The Cantonal Hospital Obwalden (KSOW) is in an exciting phase of further development. With its integration into the LUKS Group, we are actively shaping the future of healthcare in Central Switzerland. We are looking for a committed person for this development, who is responsible for the operational communication work of the KSOW and at the same time is accompanying the integration into the LUKS Group in a communicative manner. In this versatile function, you combine classic corporate communication with project work, brand management and change communication. You ensure that information is clear, understandable and target group-oriented across all communication channels of the year. At the same time, you make an important contribution to the positioning of the KSOW within the LUKS Group and support the further development of our presence. Mansioni - Communication and Consulting: You are responsible for the communicative content of KSOW across all channels (planning, editorial and publication) - and you advise and support the management and executives in communicative issues. - Events and cooperation: You plan and support internal and external events and coordinate the cooperation with internal departments as well as external agencies and partners. - Integration and transformation: you accompany the transformation process into the LUKS Group communicatively, direct the subproject Branding / CI-CD and coordinate the integration of the KSOW website into the central Cm2. - Responsibility and further development: You lead the budget of your area and actively support the management of corporate development & communication in strategic and operational issues.\n• Requisiti - Completed training or training in the areas of communication, marketing, PR or media. - Multi-year professional experience in corporate communication, marketing or in the management of communication projects. - Versified handling of digital communication channels, cmm systems and social media - Stylish German with a sense of text, tonality and target groups. - Self-employed, structured and reliable working methods. They are a team-oriented personality with high social competence and genuine enthusiasm for change and transformation processes.\n• Cosa offriamo\n• We offer you a responsible function with room for design and plenty of space for initiative in one of the most exciting hospital projects in Central Switzerland. You work closely with various internal stakeholders as well as the LUKS Group and actively shape the identity of a company in the change. You can also look forward to attractive employment conditions such as: - Free fitness subscription in our physio-fitness - Discounted meals and parking - Worldwide private accident insurance - An interesting, varied task in a family, small hospital with short decision-making paths and lived du-culture Contatto Have we aroused your interest at this point? The HR department is looking forward to your online application. Apply now Do you have any questions about this position? Your contact person for information: Mr. Patric Bürge, Project Manager Corporate Development, 041 666 40 43 Kantonsspital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22",
-        "de": "Fachverantwortliche/r Kommunikation & Integration 80–100 %\n\nPer 1. Oktober 2026 oder nach Vereinbarung\n\nÜber uns und die Funktion\n\nDas Kantonsspital Obwalden (KSOW) befindet sich in einer spannenden Phase der Weiterentwicklung. Mit der Integration in die LUKS Gruppe gestalten wir aktiv die Zukunft der Gesundheitsversorgung in der Zentral-schweiz.\n\nFür diese Entwicklung suchen wir eine engagierte Persönlichkeit, die die operative Kommunikationsarbeit des KSOW verantwortet und gleichzeitig die Integration in die LUKS Gruppe kommunikativ begleitet. In dieser vielseitigen Funktion verbinden Sie klassische Unternehmenskommunikation mit Projektarbeit, Markenführung und Change-Kommunikation.\n\nSie stellen sicher, dass Informationen klar, verständlich und zielgruppengerecht über alle Kommunikationskanäle fliessen. Gleichzeitig leisten Sie einen wichtigen Beitrag zur Positionierung des KSOW innerhalb der LUKS Gruppe und unterstützen die Weiterentwicklung unseres Auftritts.\n\nIhre Aufgaben\n\n• Kommunikation und Beratung: Sie verantworten die kommunikativen Inhalte des KSOW über alle Kanäle hinweg (Planung, Redaktion und Publikation) - und Sie beraten und unterstützen die Geschäftsleitung sowie Führungskräfte in kommunikativen Fragestellungen.\n\n• Veranstaltungen und Zusammenarbeit: Sie planen und begleiten interne wie externe Veranstaltungen und koordinieren die Zusammenarbeit mit internen Fachbereichen sowie externen Agenturen und Partnern.\n\n• Integration und Transformation: Sie begleiten den Transformationsprozess in die LUKS Gruppe kommunikativ, leiten das Teilprojekt Branding / CI-CD und koordinieren die Zusammenführung der KSOW-Website in das zentrale CMS.\n\n• Verantwortung und Weiterentwicklung: Sie führen das Budget Ihres Bereichs und unterstützen die Leitung Unternehmensentwicklung & Kommunikation aktiv in strategischen und operativen Fragestellungen.\n\nIhr Profil\n\n• Abgeschlossene Aus- oder Weiterbildung im Bereich Kommunikation, Marketing, PR oder Medien.\n\n• Mehrjährige Berufserfahrung in der Unternehmenskommunikation, im Marketing oder in der Leitung von Kommunikationsprojekten.\n\n• Versierter Umgang mit digitalen Kommunikationskanälen, CMS-Systemen und Social Media\n\n• Stilsicheres Deutsch mit Gespür für Text, Tonalität und Zielgruppen.\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise. Sie sind eine teamorientierte Persönlichkeit mit hoher Sozialkompetenz und echter Begeisterung für Veränderungs- und Transformationsprozesse.\n\nUnser Angebot\nWir bieten Ihnen eine verantwortungsvolle Funktion mit Gestaltungsspielraum und viel Raum für Eigeninitiative in einem der spannendsten Spitalprojekte der Zentralschweiz. Sie arbeiten eng mit verschiedenen internen Anspruchsgruppen sowie der LUKS Gruppe zusammen und prägen die Identität eines Unternehmens im Wandel aktiv mit. Freuen Sie sich ausserdem auf attraktive Anstellungsbedingungen wie:\n\n• Gratis Fitness-Abo in unserer Physio-Fitness\n\n• Vergünstigte Verpflegung und Parkmöglichkeiten\n\n• Weltweite private Unfallversicherung\n\n• Eine interessante, abwechslungsreiche Aufgabe in einem familiären, kleinen Spital mit kurzen Entscheidungswegen und gelebter Du-Kultur\n\nHaben wir Ihr Interesse an dieser Stelle geweckt? Die Personalabteilung freut sich auf Ihre Online-Bewerbung.\nJetzt bewerben Haben Sie Fragen zu dieser Stelle? Ihre Ansprechsperson für Auskünfte: Herr Patric Bürge, Projektleiter Unternehmensentwicklung, 041 666 40 43\nKantonsspital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22",
-        "fr": "Descrizione Responsable Communications & Intégration 80–100% A partir du 1er octobre 2026 ou par accord A propos et fonction L'Hôpital Cantonal Obwalden (KSOW) est dans une phase de développement passionnante. Avec son intégration au groupe LUKS, nous façonnons activement l'avenir des soins de santé en Suisse Centrale. Nous recherchons une personne engagée pour ce développement, responsable des travaux de communication opérationnelle du KSOW et en même temps accompagne l'intégration au groupe LUKS de manière communicative. Dans cette fonction polyvalente, vous combinez communication d'entreprise classique avec travail de projet, gestion de marque et communication de changement. Vous veillez à ce que l'information soit claire, compréhensible et ciblée sur tous les canaux de communication de l'année. En même temps, vous contribuez de façon importante au positionnement de la KSOW au sein du groupe LUKS et soutenez le développement de notre présence. Mansioni - Communication et conseil : Vous êtes responsable du contenu communicatif de KSOW sur tous les canaux (planification, rédaction et publication) et vous conseillez et soutenez la direction et les cadres dans les questions de communication. - Événements et coopération : Vous planifiez et soutenez les événements internes et externes et coordonnez la coopération avec les départements internes ainsi qu'avec les agences et partenaires externes. - Intégration et transformation : vous accompagnez le processus de transformation dans le groupe LUKS de manière concertée, dirigez le sous-projet Branding / CI-CD et coordonnez l'intégration du site web KSOW dans le Cm2 central. - Responsabilité et développement ultérieur : vous dirigez le budget de votre région et soutenez activement la gestion du développement et de la communication d'entreprise dans les domaines stratégiques et opérationnels. - Expérience professionnelle pluriannuelle en communication d'entreprise, marketing ou gestion de projets de communication. - Gestion ciblée des canaux de communication numérique, systèmes cmm et médias sociaux. - Allemand élégant avec un sens du texte, de la tonalité et des groupes cibles. - Indépendants, méthodes de travail structurées et fiables.\n• Cosa offriamo Nous vous proposons une fonction responsable avec une place de design et beaucoup d'espace pour l'initiative dans l'un des projets hospitaliers les plus passionnants de Suisse centrale. Vous travaillez en étroite collaboration avec divers intervenants internes ainsi que le groupe LUKS et façonnez activement l'identité d'une entreprise dans le changement. Vous pouvez également vous attendre à des conditions d'emploi attrayantes telles que: - Inscription gratuite à la condition physique dans notre physiothérapie - Repas réduits et parking - Assurance accidents privés dans le monde entier - Une tâche intéressante et variée dans une famille, petit hôpital avec des chemins de décision courts et vécus du-culture Contatto Avez-vous suscité votre intérêt à ce stade? Le département RH est impatient de votre candidature en ligne. Postuler maintenant Vous avez des questions sur ce poste? Votre personne de contact pour information: M. Patric Bürge, Project Manager Corporate Development, 041 666 40 43 Kantonsspital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22"
-      },
-      "location": "Sarnen",
-      "canton": "OW",
-      "url": "https://link.ostendis.com/publication/fachverantwortliche-kommunikation-integration/45lzm6nxauy2fp2yegtlj6xpvujwo2yimxaq76inj6k2xh7y228yn0n6lqi5om3z",
-      "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-23T22:36:53.290Z",
-      "addressLocality": "Sarnen",
-      "addressRegion": "OW",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6060",
-      "category": "Marketing",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-22",
-      "applyUrl": "https://link.ostendis.com/publication/fachverantwortliche-kommunikation-integration/45lzm6nxauy2fp2yegtlj6xpvujwo2yimxaq76inj6k2xh7y228yn0n6lqi5om3z",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachverantwortliche-r-kommunikation-integration-80-100-ksow-sarnen",
-        "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachverantwortliche-r-kommunikation-integration-80-100-ksow-sarnen",
-          "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen"
-        ],
-        "en": [
-          "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen"
-        ],
-        "fr": [
-          "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen"
-        ]
-      },
-      "firstSeenAt": "2026-06-22T23:04:15.708Z",
-      "salaryMin": 108500,
-      "salaryMax": 192000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 108500,
-          "maxValue": 192000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
