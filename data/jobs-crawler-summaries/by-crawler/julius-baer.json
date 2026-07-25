@@ -1,16 +1,16 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-07-25T10:41:04.133Z",
+  "generatedAt": "2026-07-25T21:58:01.148Z",
   "total": 89,
   "newCount": 3,
   "updatedCount": 84,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 45060,
-  "avgDurationMs": 45060,
+  "durationMs": 63194,
+  "avgDurationMs": 63194,
   "durationHistory": [
-    45060
+    63194
   ],
   "newJobs": [
     {
@@ -250,12 +250,13 @@
         "canton": "ZH",
         "location": "Zurich"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-24T11:10:09.827Z",
-      "_qualityScore": 73,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 9
       }
     },
@@ -1171,47 +1172,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Java-Full-Stack-Developer-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-31122026-with-possible-extension-_r-17634-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Java-Full-Stack-Developer-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-31122026-with-possible-extension-_r-17634-1",
-      "title": "Senior Full-Stack Java Engineer 100% (f/m/d) - (Contract through our external payroll partner with immediate start till 30.06.2027, possible extension)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "senior-full-stack-java-engineer-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-for-12-months-with-possible-extension-julius-baer",
-      "category": "technology",
-      "datePosted": "2026-06-29",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Account-Manager--Geneva--100---f-m-d-_r-19181-1",
