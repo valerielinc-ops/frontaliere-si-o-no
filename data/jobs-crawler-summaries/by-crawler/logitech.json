@@ -1,16 +1,16 @@
 {
   "key": "logitech",
   "label": "Logitech",
-  "generatedAt": "2026-07-24T22:18:23.151Z",
-  "total": 7,
+  "generatedAt": "2026-07-25T11:07:27.308Z",
+  "total": 6,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 33300,
-  "avgDurationMs": 33300,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 30836,
+  "avgDurationMs": 30836,
   "durationHistory": [
-    33300
+    30836
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Lead-Motor-and-Drive-Engineer_147220",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-24T22:18:14.707Z",
+      "crawledAt": "2026-07-25T11:07:19.968Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -60,7 +60,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Software-Architect--Software-Firmware-Device-Interface-Design_147083",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-24T22:18:16.987Z",
+      "crawledAt": "2026-07-25T11:07:21.921Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -94,7 +94,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-AI-ML-Engineer_146488",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-24T22:18:15.831Z",
+      "crawledAt": "2026-07-25T11:07:20.937Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -128,7 +128,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-24T22:18:18.104Z",
+      "crawledAt": "2026-07-25T11:07:22.901Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -163,7 +163,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Head-of-Product-Security_146199",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-24T22:18:19.075Z",
+      "crawledAt": "2026-07-25T11:07:23.875Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -198,7 +198,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Sr-User-Experience-Designer_145142",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-24T22:18:20.724Z",
+      "crawledAt": "2026-07-25T11:07:24.824Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -222,8 +222,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "logitech-8e794f28e2bf",
       "slug": "senior-artificial-intelligence-ai-machine-learning-ml-ingegnere-video-r-d-logitech-lausanne-switzerland",
@@ -263,5 +262,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
