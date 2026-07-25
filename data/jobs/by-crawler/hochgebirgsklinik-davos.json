@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hochgebirgsklinik-davos",
-  "assembledAt": "2026-07-25T10:40:24.624Z",
+  "assembledAt": "2026-07-25T21:57:03.749Z",
   "jobs": [
     {
       "id": "hochgebirgsklinik-davos-d619d3087f25",
@@ -33,7 +33,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/oberaerztin-oberarzt-oder-leitende-aerztin-leitender-arzt-angiologie-60-100/2b77f4b9-21fc-4d7e-a122-021827e42ea3",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:40:21.105Z",
+      "crawledAt": "2026-07-25T21:57:00.268Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -61,7 +61,8 @@
         "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100-hochgebirgsklini",
         "assistente-medico-m-f-d-80-100-hochgebirgsklinik-davos-davos",
         "oberarztin-oberarzt-o-leitende-arztin-leitender-arzt-angiologie-60-100-hochgebirgsklinik-davos",
-        "medico-cardiovascolare-e-angiologia-60-100-hochgebirgsklinik-davos-davos-a74wut"
+        "medico-cardiovascolare-e-angiologia-60-100-hochgebirgsklinik-davos-davos-a74wut",
+        "medico-cardiovascolare-e-angiologia-60-100-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -69,7 +70,8 @@
           "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100-hochgebirgsklini",
           "assistente-medico-m-f-d-80-100-hochgebirgsklinik-davos-davos",
           "oberarztin-oberarzt-o-leitende-arztin-leitender-arzt-angiologie-60-100-hochgebirgsklinik-davos",
-          "medico-cardiovascolare-e-angiologia-60-100-hochgebirgsklinik-davos-davos-a74wut"
+          "medico-cardiovascolare-e-angiologia-60-100-hochgebirgsklinik-davos-davos-a74wut",
+          "medico-cardiovascolare-e-angiologia-60-100-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100"
@@ -128,7 +130,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/oberarzt-oberaerztin-kardiologie-m-w-80-100/5de1a134-374a-45f8-bc5e-29aa1d6bf4a7",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:40:21.104Z",
+      "crawledAt": "2026-07-25T21:57:00.267Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -153,12 +155,14 @@
       "contactPhone": "0814173078",
       "previousSlugs": [
         "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch",
-        "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos-mk1d68"
+        "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos-mk1d68",
+        "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch",
-          "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos-mk1d68"
+          "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos-mk1d68",
+          "consulente-senior-m-w-80-100-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
@@ -168,6 +172,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T21:58:40.639Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -213,7 +218,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/fachaerztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-paediatrie/5a2bec78-5935-4cc2-9ed5-43778371169c",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:40:21.103Z",
+      "crawledAt": "2026-07-25T21:57:00.266Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -259,6 +264,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T21:58:40.637Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -278,7 +284,7 @@
       "slug": "assistente-sanitario-m-f-d-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
         "it": "assistente-sanitario-m-f-d-hochgebirgsklinik-davos-davos",
-        "en": "nurse-f-m-d-hochgebirgsklinik-davos-davos",
+        "en": "pflegefachperson-m-w-d-hochgebirgsklinik-davos",
         "de": "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
         "fr": "aide-soignant-m-f-d-hochgebirgsklinik-davos-davos"
       },
@@ -288,7 +294,7 @@
       "title": "Pflegefachperson (w/m/d)",
       "titleByLocale": {
         "it": "Assistente sanitario (m/f/d)",
-        "en": "Nurse (f/m/d)",
+        "en": "Pflegefachperson (w/m/d)",
         "de": "Pflegefachperson (w/m/d)",
         "fr": "Aide-soignant (m/f/d)"
       },
@@ -304,7 +310,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/pflegefachperson-w-m-d/52da1727-a83d-4832-96b0-36f5a4f523dd",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:40:21.101Z",
+      "crawledAt": "2026-07-25T21:57:00.266Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -330,16 +336,20 @@
         "pflegefachpersonal-w-m-d-hochgebirgsklinik-davos-davos",
         "infermiera-f-m-d-hochgebirgsklinik-davos-davos",
         "pflegefachperson-w-m-d-hochgebirgsklinik-davos-davos",
+        "nurse-f-m-d-hochgebirgsklinik-davos-davos",
+        "assistente-sanitario-m-f-d-hochgebirgsklinik-davos-davos",
         "pflegefachperson-m-w-d-hochgebirgsklinik-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
-          "infermiera-f-m-d-hochgebirgsklinik-davos-davos"
+          "infermiera-f-m-d-hochgebirgsklinik-davos-davos",
+          "assistente-sanitario-m-f-d-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
           "pflegefachperson-w-m-d-hochgebirgsklinik-davos-davos",
+          "nurse-f-m-d-hochgebirgsklinik-davos-davos",
           "pflegefachperson-m-w-d-hochgebirgsklinik-davos"
         ],
         "de": [
@@ -351,6 +361,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:58:53.521Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -396,7 +407,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/pflegehelfer-w-m-d/ce60703d-7f74-4a5b-8e90-9bcd926d7f05",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:40:21.100Z",
+      "crawledAt": "2026-07-25T21:57:00.265Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -420,12 +431,14 @@
         "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch",
         "nursing-assistant-f-m-d-hochgebirgsklinik-davos-davos",
         "assistant-infirmier-f-m-d-hochgebirgsklinik-davos-davos",
-        "assistente-infermieristico-f-m-d-hochgebirgsklinik-davos-davos"
+        "assistente-infermieristico-f-m-d-hochgebirgsklinik-davos-davos",
+        "assistente-infermieristico-m-f-d-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch",
-          "assistente-infermieristico-f-m-d-hochgebirgsklinik-davos-davos"
+          "assistente-infermieristico-f-m-d-hochgebirgsklinik-davos-davos",
+          "assistente-infermieristico-m-f-d-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch",
@@ -437,6 +450,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:58:53.520Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -482,7 +496,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/fachperson-gesundheit-w-m-d/14775039-62be-49b3-bf6f-6bfc07902e8d",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:40:21.099Z",
+      "crawledAt": "2026-07-25T21:57:00.264Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -509,14 +523,16 @@
         "professionista-della-salute-f-m-d-hochgebirgsklinik-davos-davos",
         "healthcare-specialist-m-f-d-in-the-psychosomatic-department-hochgebirgsklinik-davos-davos",
         "specialista-in-salute-m-f-d-nel-reparto-di-psicosomatica-hochgebirgsklinik-davos-davos",
-        "specialiste-en-sante-m-f-d-dans-le-service-de-psychosomatique-hochgebirgsklinik-davos-davos"
+        "specialiste-en-sante-m-f-d-dans-le-service-de-psychosomatique-hochgebirgsklinik-davos-davos",
+        "specialista-in-salute-m-f-d-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch",
           "professionista-della-salute-f-m-d-hochgebirgsklinik-davos-davos",
           "specialista-in-salute-m-f-d-nel-reparto-di-psicosomatica-hochgebirgsklinik-davos-davos",
-          "specialiste-en-sante-m-f-d-dans-le-service-de-psychosomatique-hochgebirgsklinik-davos-davos"
+          "specialiste-en-sante-m-f-d-dans-le-service-de-psychosomatique-hochgebirgsklinik-davos-davos",
+          "specialista-in-salute-m-f-d-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch",
@@ -574,7 +590,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/service-aushilfe-auf-stundenbasis/2eae9f26-33fb-4d8b-8173-43c74cb3ff04",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:40:21.096Z",
+      "crawledAt": "2026-07-25T21:57:00.263Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -595,11 +611,13 @@
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
       "previousSlugs": [
-        "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch"
+        "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch",
+        "assistenza-di-servizio-su-base-oraria-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch"
+          "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch",
+          "assistenza-di-servizio-su-base-oraria-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch"
@@ -654,7 +672,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/leitender-arzt-leitende-aerztin-kardiologie-m-w-d-80-100/1542b5b8-94c8-4b7b-9967-005e20fd5755",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:40:21.095Z",
+      "crawledAt": "2026-07-25T21:57:00.263Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -678,11 +696,13 @@
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
       "previousSlugs": [
-        "leitender-arzt-leitende-arztin-kardiologie-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+        "leitender-arzt-leitende-arztin-kardiologie-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+        "medico-cardiologo-senior-m-w-d-80-100-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitender-arzt-leitende-arztin-kardiologie-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+          "leitender-arzt-leitende-arztin-kardiologie-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+          "medico-cardiologo-senior-m-w-d-80-100-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "leitender-arzt-leitende-arztin-kardiologie-m-w-d-80-100-hochgebirgsklinik-davos-ch"
@@ -738,7 +758,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/oberarzt-kinder-und-jugendpsychiatrie-m-w-d-50-100/2a0add2d-0614-42ba-ad05-60d19f534e16",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:40:21.094Z",
+      "crawledAt": "2026-07-25T21:57:00.262Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -765,13 +785,15 @@
         "oberarzt-kinder-und-jugendpsychiatrie-m-w-d-50-100-hochgebirgsklinik-davos-ch",
         "senior-physician-in-child-and-adolescent-psychiatry-m-f-d-50-100-hochgebirgsklinik-davos-davos",
         "oberarzt-kinder-e-jugendpsychiatrie-m-w-d-50-100-hochgebirgsklinik-davos",
-        "leitender-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+        "leitender-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+        "medico-capo-di-psichiatria-infantile-e-dell-adolescenza-m-f-d-50-100-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-kinder-und-jugendpsychiatrie-m-w-d-50-100-hochgebirgsklinik-davos-ch",
           "oberarzt-kinder-e-jugendpsychiatrie-m-w-d-50-100-hochgebirgsklinik-davos",
-          "leitender-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+          "leitender-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+          "medico-capo-di-psichiatria-infantile-e-dell-adolescenza-m-f-d-50-100-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "oberarzt-kinder-und-jugendpsychiatrie-m-w-d-50-100-hochgebirgsklinik-davos-ch",
@@ -827,7 +849,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/forschungspraktikum-kardiologie-100-w-m-d/18ac40eb-ec84-4dc0-b508-ed30a3cbab9c",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:40:21.092Z",
+      "crawledAt": "2026-07-25T21:57:00.261Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -851,11 +873,13 @@
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
       "previousSlugs": [
-        "forschungspraktikum-kardiologie-100-w-m-d-hochgebirgsklinik-davos-ch"
+        "forschungspraktikum-kardiologie-100-w-m-d-hochgebirgsklinik-davos-ch",
+        "stage-di-ricerca-in-cardiologia-100-m-f-d-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "forschungspraktikum-kardiologie-100-w-m-d-hochgebirgsklinik-davos-ch"
+          "forschungspraktikum-kardiologie-100-w-m-d-hochgebirgsklinik-davos-ch",
+          "stage-di-ricerca-in-cardiologia-100-m-f-d-hochgebirgsklinik-davos-davos"
         ]
       },
       "firstSeenAt": "2026-07-13T21:57:11.375Z",
@@ -878,7 +902,7 @@
       "slug": "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
         "it": "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos",
-        "en": "physiotherapist-m-f-d-60-hochgebirgsklinik-davos-davos",
+        "en": "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos",
         "de": "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch",
         "fr": "physiotherapie-m-p-p-70-80-hochgebirgsklinik-davos-davos"
       },
@@ -888,7 +912,7 @@
       "title": "Physiotherapeut (m/w/d) 60%",
       "titleByLocale": {
         "it": "Fisioterapia (m/w/d) 70-80 %",
-        "en": "Physiotherapist (m/f/d) 60%",
+        "en": "Physiotherapeut (m/w/d) 60%",
         "de": "Physiotherapeut (m/w/d) 60%",
         "fr": "Physiothérapie (m/p/p) 70-80 %"
       },
@@ -904,7 +928,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/physiotherapeut-m-w-d-60/f3843250-71d4-4a40-9e02-65430b6de711",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:40:21.089Z",
+      "crawledAt": "2026-07-25T21:57:00.259Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -933,6 +957,8 @@
         "lehrperson-m-w-d-20-40-hochgebirgsklinik-davos-ch",
         "enseignant-e-m-f-d-20-40-hochgebirgsklinik-davos-davos",
         "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos-davos",
+        "physiotherapist-m-f-d-60-hochgebirgsklinik-davos-davos",
+        "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos",
         "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos"
       ],
       "previousSlugsByLocale": {
@@ -940,14 +966,17 @@
           "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos-ch",
           "insegnante-m-f-d-20-40-hochgebirgsklinik-davos-davos",
           "lehrperson-m-w-d-20-40-hochgebirgsklinik-davos-ch",
-          "enseignant-e-m-f-d-20-40-hochgebirgsklinik-davos-davos"
+          "enseignant-e-m-f-d-20-40-hochgebirgsklinik-davos-davos",
+          "fisioterapia-m-w-d-70-80-hochgebirgsklinik-davos-davos"
         ],
         "en": [
           "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos-davos",
+          "physiotherapist-m-f-d-60-hochgebirgsklinik-davos-davos",
           "physiotherapeut-m-w-d-60-hochgebirgsklinik-davos"
         ]
       },
       "firstSeenAt": "2026-07-13T21:57:11.373Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 69600,
       "baseSalary": {
@@ -957,6 +986,102 @@
           "@type": "QuantitativeValue",
           "minValue": 46000,
           "maxValue": 69600,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-d446aeb8d2aa",
+      "slug": "kosmetikerin-kosmetiker-m-w-d-50-60-hochgebirgsklinik-davos",
+      "slugByLocale": {
+        "it": "kosmetikerin-kosmetiker-m-w-d-50-60-hochgebirgsklinik-davos",
+        "en": "spa-therapist-m-f-50-60-hochgebirgsklinik-davos-davos",
+        "de": "kosmetikerin-kosmetiker-w-m-d-50-60-hochgebirgsklinik-davos-ch",
+        "fr": "therapeute-de-spa-m-f-50-60-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Kosmetikerin / Kosmetiker (w/m/d) 50 - 60%",
+      "titleByLocale": {
+        "it": "Kosmetikerin / Kosmetiker (w/m/d) 50 - 60%",
+        "en": "Spa Therapist (m/f) 50 - 60 %",
+        "de": "Kosmetikerin / Kosmetiker (w/m/d) 50 - 60%",
+        "fr": "Thérapeute de spa (m/f) 50 - 60 %"
+      },
+      "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für Auskünfte steht Ihnen Frau Anne Göttlicher, Rehaplanung und Koordination unter der Telefonnummer +41 81 417 38 80 gerne zur Verfügung. | Aufgaben:\n• Durchführung diverser Wellness Behandlungen (Massage, Kosmetik, Gesichtsbehandlungen)\n• Maniküre und kosmetische Fusspflege (Pediküre)\n• Professionelle Beratung unserer Gäste\n• Terminorganisation\n• Gewährleistung eines sicheren und kundenorientierten Betriebes im Sauna- und Badebereich | Anforderungen:\n• Ausbildungs- und Leistungsausweis im Bereich Kosmetik\n• Erfahrungen im Bereich Wellnessmassagen\n• Fliessend in Deutsch; weitere Sprachen sind von Vorteil\n• Gepflegtes Auftreten und gute Umgangsformen sind selbsverständlich\n• Engagierte Persönlichkeit mit einer selbstständigen und zuverlässigen Arbeitsweise\n• Hohe Sozialkompetenz sowie kunden- und dienstleistungsorientiertes Denken\n• Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit",
+      "descriptionByLocale": {
+        "it": "Descrizione Dietro la nostra storia di successo c'è il team Hochgebirgsklinik con i suoi oltre 400 dipendenti dedicati. Le diverse aree di competenza e la stretta collaborazione tra i team consentono di assumere compiti responsabili e di avere opportunità creative. La Hochgebirgsklinik vi offre inoltre condizioni di lavoro moderne e una posizione ideale per una vasta gamma di attività per il tempo libero nella regione turistica dei Grigioni. La signora Anne Göttlicher, pianificazione e coordinamento della riabilitazione, sarà lieta di fornirvi tutte le informazioni al numero +41 81 417 38 80. Mansioni - Esecuzione di diversi trattamenti benessere (massaggi, cosmetici, trattamenti per il viso) - Manicure e cura cosmetica dei piedi (pedicure) - Consulenza professionale per i nostri ospiti - Organizzazione di appuntamenti - Garantire un funzionamento sicuro e orientato al cliente nella zona sauna e bagno\n• Requisiti - Certificato di formazione e risultati nel campo dei cosmetici - Esperienza nel campo dei massaggi benessere - Ottima conoscenza della lingua tedesca; Altre lingue sono un vantaggio - Aspetto curato e buone maniere sono un dato di fatto - Personalità impegnata con un modo di lavorare indipendente e affidabile - Elevate abilità sociali e pensiero orientato al cliente e al servizio - Resilienza, senso di responsabilità, flessibilità e capacità di lavorare in squadra",
+        "en": "Description Behind our success story is the Hochgebirgsklinik team with its over 400 dedicated employees. The diverse areas of expertise and the close cooperation between the teams enable you to take on responsible tasks and have creative opportunities. The Hochgebirgsklinik also offers you contemporary employment conditions and an ideal location for a wide range of leisure activities in the Graubünden holiday region. Ms. Anne Göttlicher, rehabilitation planning and coordination, will be happy to provide you with any information on +41 81 417 38 80. Mansioni - Carrying out various wellness treatments (massage, cosmetics, facial treatments) - Manicures and cosmetic foot care (pedicures) - Professional advice for our guests - Organizing appointments - Ensuring safe and customer-oriented operations in the sauna and bathing area\n• Requisiti - Certificate of training and achievements in the field of cosmetics - Experience in the field of wellness massages - Fluent in German; Other languages ​​are an advantage - Well-groomed appearance and good manners are a given - Committed personality with an independent and reliable way of working - High social skills as well as customer and service-oriented thinking - Resilience, sense of responsibility, flexibility and ability to work in a team",
+        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für Auskünfte steht Ihnen Frau Anne Göttlicher, Rehaplanung und Koordination unter der Telefonnummer +41 81 417 38 80 gerne zur Verfügung. | Aufgaben:\n• Durchführung diverser Wellness Behandlungen (Massage, Kosmetik, Gesichtsbehandlungen)\n• Maniküre und kosmetische Fusspflege (Pediküre)\n• Professionelle Beratung unserer Gäste\n• Terminorganisation\n• Gewährleistung eines sicheren und kundenorientierten Betriebes im Sauna- und Badebereich | Anforderungen:\n• Ausbildungs- und Leistungsausweis im Bereich Kosmetik\n• Erfahrungen im Bereich Wellnessmassagen\n• Fliessend in Deutsch; weitere Sprachen sind von Vorteil\n• Gepflegtes Auftreten und gute Umgangsformen sind selbsverständlich\n• Engagierte Persönlichkeit mit einer selbstständigen und zuverlässigen Arbeitsweise\n• Hohe Sozialkompetenz sowie kunden- und dienstleistungsorientiertes Denken\n• Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit",
+        "fr": "Description Derrière notre réussite se cache l'équipe de la Hochgebirgsklinik et ses plus de 400 collaborateurs dévoués. La diversité des domaines d'expertise et la coopération étroite entre les équipes vous permettent d'assumer des tâches responsables et d'avoir des opportunités créatives. La Hochgebirgsklinik vous offre également des conditions de travail contemporaines et un emplacement idéal pour une large gamme d'activités de loisirs dans la région de vacances des Grisons. Mme Anne Göttlicher, responsable de la planification et de la coordination de la réadaptation, se fera un plaisir de vous fournir toutes informations au +41 81 417 38 80. Mansioni - Réalisation de divers soins de bien-être (massages, cosmétiques, soins du visage) - Manucures et soins esthétiques des pieds (pédicures) - Conseils professionnels pour nos clients - Organisation de rendez-vous - Assurer un fonctionnement sûr et orienté client dans le sauna et la zone de baignade\n• Requisiti - Certificat de formation et de réussite dans le domaine de cosmétiques - Expérience dans le domaine des massages bien-être - Allemand courant ; D'autres langues sont un avantage - Une apparence soignée et de bonnes manières sont une évidence - Personnalité engagée avec une manière de travailler indépendante et fiable - Compétences sociales élevées ainsi qu'une pensée orientée client et service - Résilience, sens des responsabilités, flexibilité et capacité à travailler en équipe"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/jobs/kosmetikerin-kosmetiker-w-m-d-50-60/53b75447-57a9-4109-95a1-cdd03c439546",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-25T21:57:00.257Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Terapia",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-16",
+      "applyUrl": "https://karriere.hochgebirgsklinik.ch/jobs/kosmetikerin-kosmetiker-w-m-d-50-60/53b75447-57a9-4109-95a1-cdd03c439546",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Therapie",
+      "pensumMin": 50,
+      "pensumMax": 60,
+      "pensum": "50 - 60%",
+      "contactPerson": "Thomas Fischer",
+      "contactPhone": "+41 81 417 30 78",
+      "contactEmail": "thomas.fischer@hgk.ch",
+      "previousSlugs": [
+        "kosmetikerin-kosmetiker-w-m-d-50-60-hochgebirgsklinik-davos-ch",
+        "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch",
+        "terapista-spa-m-f-50-60-hochgebirgsklinik-davos-davos",
+        "kosmetikerin-kosmetiker-w-m-d-50-60-hochgebirgsklinik-davos-davos",
+        "cosmetologo-cosmetologo-f-m-d-50-60-hochgebirgsklinik-davos-davos",
+        "kosmetikerin-kosmetiker-m-w-d-50-60-hochgebirgsklinik-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "kosmetikerin-kosmetiker-w-m-d-50-60-hochgebirgsklinik-davos-ch",
+          "terapista-spa-m-f-50-60-hochgebirgsklinik-davos-davos",
+          "kosmetikerin-kosmetiker-w-m-d-50-60-hochgebirgsklinik-davos-davos",
+          "cosmetologo-cosmetologo-f-m-d-50-60-hochgebirgsklinik-davos-davos",
+          "kosmetikerin-kosmetiker-m-w-d-50-60-hochgebirgsklinik-davos"
+        ],
+        "en": [
+          "kosmetikerin-kosmetiker-w-m-d-50-60-hochgebirgsklinik-davos-ch"
+        ],
+        "de": [
+          "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "kosmetikerin-kosmetiker-w-m-d-50-60-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-10T22:03:11.797Z",
+      "needsRetranslation": true,
+      "salaryMin": 34500,
+      "salaryMax": 52200,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 34500,
+          "maxValue": 52200,
           "unitText": "YEAR"
         }
       },
@@ -977,7 +1102,7 @@
       "title": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
       "titleByLocale": {
         "it": "Psychologe Eltern- Kind e Jugendstation (m/w/d) 80 - 100%",
-        "en": "Psychologist parent-child and youth unit (m/f/d) 80 - 100%",
+        "en": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
         "de": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
         "fr": "Groupe des parents et des jeunes (m/f/j)"
       },
@@ -993,7 +1118,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/psychologe-eltern-kind-und-jugendstation-m-w-d-80-100/83c6ab17-db8e-4be4-bc62-c8fca77da559",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:40:21.087Z",
+      "crawledAt": "2026-07-25T21:57:00.257Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1033,6 +1158,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T21:57:11.372Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1042,99 +1168,6 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "hochgebirgsklinik-davos-d446aeb8d2aa",
-      "slug": "cosmetologo-cosmetologo-f-m-d-50-60-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "cosmetologo-cosmetologo-f-m-d-50-60-hochgebirgsklinik-davos-davos",
-        "en": "spa-therapist-m-f-50-60-hochgebirgsklinik-davos-davos",
-        "de": "kosmetikerin-kosmetiker-w-m-d-50-60-hochgebirgsklinik-davos-ch",
-        "fr": "therapeute-de-spa-m-f-50-60-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Kosmetikerin / Kosmetiker (w/m/d) 50 - 60%",
-      "titleByLocale": {
-        "it": "Cosmetologo / Cosmetologo (f/m/d) 50 - 60 %",
-        "en": "Spa Therapist (m/f) 50 - 60 %",
-        "de": "Kosmetikerin / Kosmetiker (w/m/d) 50 - 60%",
-        "fr": "Thérapeute de spa (m/f) 50 - 60 %"
-      },
-      "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für Auskünfte steht Ihnen Frau Anne Göttlicher, Rehaplanung und Koordination unter der Telefonnummer +41 81 417 38 80 gerne zur Verfügung. | Aufgaben:\n• Durchführung diverser Wellness Behandlungen (Massage, Kosmetik, Gesichtsbehandlungen)\n• Maniküre und kosmetische Fusspflege (Pediküre)\n• Professionelle Beratung unserer Gäste\n• Terminorganisation\n• Gewährleistung eines sicheren und kundenorientierten Betriebes im Sauna- und Badebereich | Anforderungen:\n• Ausbildungs- und Leistungsausweis im Bereich Kosmetik\n• Erfahrungen im Bereich Wellnessmassagen\n• Fliessend in Deutsch; weitere Sprachen sind von Vorteil\n• Gepflegtes Auftreten und gute Umgangsformen sind selbsverständlich\n• Engagierte Persönlichkeit mit einer selbstständigen und zuverlässigen Arbeitsweise\n• Hohe Sozialkompetenz sowie kunden- und dienstleistungsorientiertes Denken\n• Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit",
-      "descriptionByLocale": {
-        "it": "Descrizione Dietro la nostra storia di successo c'è il team Hochgebirgsklinik con i suoi oltre 400 dipendenti dedicati. Le diverse aree di competenza e la stretta collaborazione tra i team consentono di assumere compiti responsabili e di avere opportunità creative. La Hochgebirgsklinik vi offre inoltre condizioni di lavoro moderne e una posizione ideale per una vasta gamma di attività per il tempo libero nella regione turistica dei Grigioni. La signora Anne Göttlicher, pianificazione e coordinamento della riabilitazione, sarà lieta di fornirvi tutte le informazioni al numero +41 81 417 38 80. Mansioni - Esecuzione di diversi trattamenti benessere (massaggi, cosmetici, trattamenti per il viso) - Manicure e cura cosmetica dei piedi (pedicure) - Consulenza professionale per i nostri ospiti - Organizzazione di appuntamenti - Garantire un funzionamento sicuro e orientato al cliente nella zona sauna e bagno\n• Requisiti - Certificato di formazione e risultati nel campo dei cosmetici - Esperienza nel campo dei massaggi benessere - Ottima conoscenza della lingua tedesca; Altre lingue sono un vantaggio - Aspetto curato e buone maniere sono un dato di fatto - Personalità impegnata con un modo di lavorare indipendente e affidabile - Elevate abilità sociali e pensiero orientato al cliente e al servizio - Resilienza, senso di responsabilità, flessibilità e capacità di lavorare in squadra",
-        "en": "Description Behind our success story is the Hochgebirgsklinik team with its over 400 dedicated employees. The diverse areas of expertise and the close cooperation between the teams enable you to take on responsible tasks and have creative opportunities. The Hochgebirgsklinik also offers you contemporary employment conditions and an ideal location for a wide range of leisure activities in the Graubünden holiday region. Ms. Anne Göttlicher, rehabilitation planning and coordination, will be happy to provide you with any information on +41 81 417 38 80. Mansioni - Carrying out various wellness treatments (massage, cosmetics, facial treatments) - Manicures and cosmetic foot care (pedicures) - Professional advice for our guests - Organizing appointments - Ensuring safe and customer-oriented operations in the sauna and bathing area\n• Requisiti - Certificate of training and achievements in the field of cosmetics - Experience in the field of wellness massages - Fluent in German; Other languages ​​are an advantage - Well-groomed appearance and good manners are a given - Committed personality with an independent and reliable way of working - High social skills as well as customer and service-oriented thinking - Resilience, sense of responsibility, flexibility and ability to work in a team",
-        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für Auskünfte steht Ihnen Frau Anne Göttlicher, Rehaplanung und Koordination unter der Telefonnummer +41 81 417 38 80 gerne zur Verfügung. | Aufgaben:\n• Durchführung diverser Wellness Behandlungen (Massage, Kosmetik, Gesichtsbehandlungen)\n• Maniküre und kosmetische Fusspflege (Pediküre)\n• Professionelle Beratung unserer Gäste\n• Terminorganisation\n• Gewährleistung eines sicheren und kundenorientierten Betriebes im Sauna- und Badebereich | Anforderungen:\n• Ausbildungs- und Leistungsausweis im Bereich Kosmetik\n• Erfahrungen im Bereich Wellnessmassagen\n• Fliessend in Deutsch; weitere Sprachen sind von Vorteil\n• Gepflegtes Auftreten und gute Umgangsformen sind selbsverständlich\n• Engagierte Persönlichkeit mit einer selbstständigen und zuverlässigen Arbeitsweise\n• Hohe Sozialkompetenz sowie kunden- und dienstleistungsorientiertes Denken\n• Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit",
-        "fr": "Description Derrière notre réussite se cache l'équipe de la Hochgebirgsklinik et ses plus de 400 collaborateurs dévoués. La diversité des domaines d'expertise et la coopération étroite entre les équipes vous permettent d'assumer des tâches responsables et d'avoir des opportunités créatives. La Hochgebirgsklinik vous offre également des conditions de travail contemporaines et un emplacement idéal pour une large gamme d'activités de loisirs dans la région de vacances des Grisons. Mme Anne Göttlicher, responsable de la planification et de la coordination de la réadaptation, se fera un plaisir de vous fournir toutes informations au +41 81 417 38 80. Mansioni - Réalisation de divers soins de bien-être (massages, cosmétiques, soins du visage) - Manucures et soins esthétiques des pieds (pédicures) - Conseils professionnels pour nos clients - Organisation de rendez-vous - Assurer un fonctionnement sûr et orienté client dans le sauna et la zone de baignade\n• Requisiti - Certificat de formation et de réussite dans le domaine de cosmétiques - Expérience dans le domaine des massages bien-être - Allemand courant ; D'autres langues sont un avantage - Une apparence soignée et de bonnes manières sont une évidence - Personnalité engagée avec une manière de travailler indépendante et fiable - Compétences sociales élevées ainsi qu'une pensée orientée client et service - Résilience, sens des responsabilités, flexibilité et capacité à travailler en équipe"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/jobs/kosmetikerin-kosmetiker-w-m-d-50-60/53b75447-57a9-4109-95a1-cdd03c439546",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:40:21.086Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Terapia",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-16",
-      "applyUrl": "https://karriere.hochgebirgsklinik.ch/jobs/kosmetikerin-kosmetiker-w-m-d-50-60/53b75447-57a9-4109-95a1-cdd03c439546",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Therapie",
-      "pensumMin": 50,
-      "pensumMax": 60,
-      "pensum": "50 - 60%",
-      "contactPerson": "Thomas Fischer",
-      "contactPhone": "+41 81 417 30 78",
-      "contactEmail": "thomas.fischer@hgk.ch",
-      "previousSlugs": [
-        "kosmetikerin-kosmetiker-w-m-d-50-60-hochgebirgsklinik-davos-ch",
-        "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch",
-        "terapista-spa-m-f-50-60-hochgebirgsklinik-davos-davos",
-        "kosmetikerin-kosmetiker-w-m-d-50-60-hochgebirgsklinik-davos-davos",
-        "kosmetikerin-kosmetiker-m-w-d-50-60-hochgebirgsklinik-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kosmetikerin-kosmetiker-w-m-d-50-60-hochgebirgsklinik-davos-ch",
-          "terapista-spa-m-f-50-60-hochgebirgsklinik-davos-davos",
-          "kosmetikerin-kosmetiker-w-m-d-50-60-hochgebirgsklinik-davos-davos",
-          "kosmetikerin-kosmetiker-m-w-d-50-60-hochgebirgsklinik-davos"
-        ],
-        "en": [
-          "kosmetikerin-kosmetiker-w-m-d-50-60-hochgebirgsklinik-davos-ch"
-        ],
-        "de": [
-          "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch"
-        ],
-        "fr": [
-          "kosmetikerin-kosmetiker-w-m-d-50-60-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-10T22:03:11.797Z",
-      "salaryMin": 34500,
-      "salaryMax": 52200,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 34500,
-          "maxValue": 52200,
           "unitText": "YEAR"
         }
       },
@@ -1157,7 +1190,7 @@
         "it": "Risorse Umane-Business Partner (m/w/d) 50–100 %",
         "en": "HR Business Partner (m/f/d) 50-100%",
         "de": "Personalwesen-Business Partner (m/w/d) 50–100 %",
-        "fr": "Partenaire d'affaires RH (m/f/j) 50-100%"
+        "fr": "HR-Business Partner (m/w/d) 50–100 %"
       },
       "description": "Mensch und Kultur. Die Hochgebirgsklinik Davos wächst – und unser HR wächst mit. Deshalb bauen wir unsere Personalarbeit Schritt für Schritt weiter aus: moderner, digitaler und zukunftsorientierter. Unser HR-Team befindet sich mitten in einer spannenden Entwicklungsphase: Wir bauen Prozesse und digitale Tools auf, schärfen Strukturen und schaffen Standards, die langfristig funktionieren. Das bedeutet: Nicht alles ist bereits perfekt – aber genau darin liegt die Chance. Du kannst mitgestalten, Ideen einbringen und Veränderungen aktiv vorantreiben. Wenn du Freude daran hast, Verantwortung zu übernehmen, pragmatische Lösungen zu finden und gemeinsam mit einem motivierten Team etwas aufzubauen, dann bist du bei uns genau richtig. Bei uns gestaltest du nicht nur HR-Prozesse – sondern die Zukunft unserer Personalarbeit. | Aufgaben:\n• Beraten und begleiten : Du bist kompetente Ansprechperson für Mitarbeitende und Sparringpartner/-in für Führungspersonen. Personalentwicklung von den Lehrlingen bis zu den Führungskräften ist für dich eine Herzenssache.\n• Gestalten statt abarbeiten : Du packst an beim Aufbau eines «Best-Class Human Resources Management» – mit Ideen, Pragmatismus und Herzblut. Employee Self Service und Management Self Service sind dir geläufige Begriffe. Du bringst deine Erfahrung lösungsorientiert ein.\n• Zahlen und Prozesse : Du optimierst gerne Prozesse und bringst dich mit Zahlenflair bei der Lohnbuchhaltung mit ein (ABACUS).\n• Systemaffinitä t: Du betreust und berätst rund um das Zeiterfassungssystem Polypoint und trägst zu reibungslosen Abläufen bei.\n• Teamplayer : Ferienvertretung, Transparenz, Offenheit und gegenseitige Unterstützung sind für dich selbstverständlich. | Anforderungen:\n• Fundiertes Know-how : Du hast eine universitäre Aus- und Weiterbildung im Bereich Human Resources Management oder bist eine ausgewiesene HR-Fachfrau oder ein HR-Fachmann.\n• Praxis im Gesundheitswesen : Wünschenswert ist Erfahrung im Gesundheitswesen (Klinik oder ähnliches Umfeld).\n• Expertise : Mehrjährige Berufserfahrung im HR-Management, eine ausgeprägte dienstleistungsorientierte Haltung.\n• Ruhe und Überblick : Auch in hektischen Momenten bleibst du fokussiert, lösungsorientiert und verlierst nie den Sinn für Humor.",
       "descriptionByLocale": {
@@ -1171,7 +1204,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjU0&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:40:21.084Z",
+      "crawledAt": "2026-07-25T21:57:00.255Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1205,95 +1238,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T11:26:56.381Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "hochgebirgsklinik-davos-4ad37e4931fb",
-      "slug": "teamleiter-w-m-d-80-100-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "teamleiter-w-m-d-80-100-hochgebirgsklinik-davos-davos",
-        "en": "teamleiter-w-m-d-80-100-hochgebirgsklinik-davos-davos",
-        "de": "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
-        "fr": "teamleiter-m-j-80-100-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Teamleitung Pflege Kardiologie (w/m/d) 80-100%",
-      "titleByLocale": {
-        "it": "Teamleiter (w/m/d) 80-100 %",
-        "en": "Teamleiter (w/m/d) 80-100 %",
-        "de": "Teamleitung Pflege Kardiologie (w/m/d) 80-100%",
-        "fr": "Teamleiter (m/j) 80-100 %"
-      },
-      "description": "Als Teamleitung unseres Pflegeteams der kardialen Rehabilitation führst und unterstützt du dein Team im anspruchsvollen Pflegealltag und sorgst gemeinsam für eine professionelle, empathische Betreuung unserer Patient:innen. Das Team begleitet Menschen ganzheitlich durch den Rehabilitationsprozess, bereitet sie auf einen selbständigen Alltag vor und arbeitet dabei eng mit Ärzt:innen, Therapeut:innen und weiteren Fachpersonen zusammen. Start: ab August 2026 oder nach Vereinbarung. | Aufgaben:\n• Führen und fördern: Fachliche und personelle Führung von ca. 25 Mitarbeitenden (ca. 40% direkte Führungsaufgaben)\n• Zusammenarbeit prägen: Du unterstützt dein Team und arbeitest eng mit der Leitung Pflege und den Ärzt:innen zusammen\n• Pflege leben: Aktive Mitarbeit in der Pflege sowie Ansprechperson für Angehörige und weiterführende Institutionen\n• Selbständigkeit stärken: Du begleitest Patient:innen zurück in den Alltag in Selbständigkeit\n• Mitgestalten: Du integrierst die strategischen und wirtschaftlichen Ziele des Unternehmens in den Arbeitsalltag des Teams | Anforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH\n• Führungsausbildung oder die Bereitschaft, diese zu absolvieren\n• Hohe Sozialkompetenz sowie selbständige und zuverlässige Arbeitsweise\n• Freude an der Übernahme von Verantwortung\n• Führungserfahrung von Vorteil\n• Erfahrung in der Rehabilitation von Vorteil\n• Gute EDV-Anwenderkenntnisse\n• Sehr gute Deutschkenntnisse in Wort und Schrift | Wir bieten:\n• Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste\n• Teamkultur: Zusammenarbeit auf Augenhöhe, offene Kommunikation, Pflege in der Geschäftsleitung\n• Gesund geniessen: Mediterrane Mahlzeiten zu subventionierten Mitarbeiter-Preisen\n• Freizeit: Gratis Bergbahn-Jahreskarte und günstige Sport-/Wellnessangebote",
-      "descriptionByLocale": {
-        "it": "Come team leader del nostro team di assistenza per la riabilitazione cardale, supporti e supporti il tuo team nell'assistenza quotidiana impegnativa e supporti una cura professionale ed empatica dei nostri pazienti. Il team accompagna le persone in modo olistico attraverso il processo di riabilitazione, li prepara per una vita quotidiana indipendente e lavora a stretto contatto con i medici: interni, terapeuti: interni e altri specialisti. Inizio: da agosto 2026 o d'accordo. Compiti:\n• Leadership e supporto: orientamento professionale e personale di circa 25 dipendenti (circa il 40% delle attività di gestione diretta)\n• Collaborazione: Supporti il tuo team e lavori a stretto contatto con il Capo della Cura e il medico:\n• Cura: cooperazione attiva nella cura e nella persona di contatto per parenti e altre istituzioni\n• Rafforzare l'autooccupazione: accompagni i pazienti: di nuovo nella vita quotidiana nell'autooccupazione\n• Configure: Integra gli obiettivi strategici ed economici dell'azienda nel lavoro quotidiano del team | Requisiti:\n• Allenamento completato come Dipl. Specialista di cura HF/FH\n• formazione di orientamento o la volontà di completarlo\n• Alta competenza sociale e funzionamento indipendente e affidabile\n• Piacere di assumersi la responsabilità\n• Esperienza di leadership di vantaggio\n• Esperienza nella riabilitazione del vantaggio\n• Buone competenze informatiche\n• Molto buona conoscenza del tedesco in parola e scrittura | Offriamo:\n• Equilibrio della vita di lavoro: servizi pianificabili, a malapena straordinario, poco o nessun servizio notturno\n• Cultura del team: cooperazione a livello degli occhi, comunicazione aperta, cura nella gestione\n• Salute: pasti mediterranei a prezzi agevolati dei dipendenti\n• Tempo libero: mappa gratuita dell'anno di montagna e offerte di sport/wellness a buon mercato",
-        "en": "As a team leader of our cardial rehabilitation care team, you support and support your team in demanding day care and support a professional, empathic care of our patients. The team accompanies people holistically through the rehabilitation process, prepares them for an independent everyday life and works closely with physicians:insides, therapists:insides and other specialists. Start: from August 2026 or by agreement. Tasks:\n• Leadership and support: Professional and personal guidance of about 25 employees (about 40% direct management tasks)\n• Collaboration: You support your team and work closely with the Head of Care and the doctor:\n• Care: Active cooperation in care and contact person for relatives and other institutions\n• Strengthen self-employment: You accompany patients: back into everyday life in self-employment\n• Configure: You integrate the company's strategic and economic goals into the everyday working of the team | Requirements:\n• Completed training as a Dipl. Care specialist HF/FH\n• guidance training or the willingness to complete it\n• High social competence and independent and reliable functioning\n• Pleasure to take responsibility\n• Leadership experience of advantage\n• Experience in rehabilitation of advantage\n• Good computer skills\n• Very good knowledge of German in word and writing | We offer:\n• Work-Life Balance: Planable services, barely overtime, little to no night services\n• Team culture: cooperation at eye level, open communication, care in management\n• Healthy: Mediterranean meals at subsidized employee prices\n• Leisure time: Free mountain railway year map and cheap sports/wellness offers",
-        "de": "Als Teamleitung unseres Pflegeteams der kardialen Rehabilitation führst und unterstützt du dein Team im anspruchsvollen Pflegealltag und sorgst gemeinsam für eine professionelle, empathische Betreuung unserer Patient:innen. Das Team begleitet Menschen ganzheitlich durch den Rehabilitationsprozess, bereitet sie auf einen selbständigen Alltag vor und arbeitet dabei eng mit Ärzt:innen, Therapeut:innen und weiteren Fachpersonen zusammen. Start: ab August 2026 oder nach Vereinbarung. | Aufgaben:\n• Führen und fördern: Fachliche und personelle Führung von ca. 25 Mitarbeitenden (ca. 40% direkte Führungsaufgaben)\n• Zusammenarbeit prägen: Du unterstützt dein Team und arbeitest eng mit der Leitung Pflege und den Ärzt:innen zusammen\n• Pflege leben: Aktive Mitarbeit in der Pflege sowie Ansprechperson für Angehörige und weiterführende Institutionen\n• Selbständigkeit stärken: Du begleitest Patient:innen zurück in den Alltag in Selbständigkeit\n• Mitgestalten: Du integrierst die strategischen und wirtschaftlichen Ziele des Unternehmens in den Arbeitsalltag des Teams | Anforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH\n• Führungsausbildung oder die Bereitschaft, diese zu absolvieren\n• Hohe Sozialkompetenz sowie selbständige und zuverlässige Arbeitsweise\n• Freude an der Übernahme von Verantwortung\n• Führungserfahrung von Vorteil\n• Erfahrung in der Rehabilitation von Vorteil\n• Gute EDV-Anwenderkenntnisse\n• Sehr gute Deutschkenntnisse in Wort und Schrift | Wir bieten:\n• Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste\n• Teamkultur: Zusammenarbeit auf Augenhöhe, offene Kommunikation, Pflege in der Geschäftsleitung\n• Gesund geniessen: Mediterrane Mahlzeiten zu subventionierten Mitarbeiter-Preisen\n• Freizeit: Gratis Bergbahn-Jahreskarte und günstige Sport-/Wellnessangebote",
-        "fr": "En tant que chef d'équipe de notre équipe de soins de réadaptation cardiaque, vous accompagnez et soutenez votre équipe dans les soins de jour exigeants et soutenez un soin professionnel et empathique de nos patients. L'équipe accompagne les personnes de manière holistique à travers le processus de réadaptation, les prépare à une vie quotidienne indépendante et travaille en étroite collaboration avec les médecins:insides, les thérapeutes:insides et d'autres spécialistes. Début: à partir d'août 2026 ou par accord. Tâches :\n• Leadership et soutien : orientation professionnelle et personnelle d'environ 25 employés (environ 40 % de tâches de gestion directe)\n• Collaboration: Vous soutenez votre équipe et travaillez en étroite collaboration avec le Chef des soins et le médecin:\n• Soins: coopération active en matière de soins et de contact pour les parents et autres institutions\n• Renforcer le travail indépendant: Vous accompagnez les patients: retour dans la vie quotidienne dans le travail indépendant\n• Configurer: Vous intégrez les objectifs stratégiques et économiques de l'entreprise dans le travail quotidien de l'équipe.\n• Formation complète en tant que Dipl. Spécialiste des soins HF/FH\n• formation à l'orientation ou volonté de la compléter\n• Haute compétence sociale et fonctionnement indépendant et fiable\n• Le plaisir de prendre la responsabilité\n• Expérience de leadership d'avantage\n• Expérience de la réadaptation des avantages\n• Bonnes compétences en informatique\n• Très bonne connaissance de l'allemand en paroles et en écritures\n• Équilibre entre le travail et la vie personnelle : services planifiables, heures supplémentaires à peine, services de nuit peu ou pas\n• Culture d'équipe : coopération au niveau des yeux, communication ouverte, soins en gestion\n• Santé : repas méditerranéens à prix subventionnés\n• Loisirs: Carte de l'année ferroviaire de montagne gratuite et offres de sports/wellness bon marché"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/jobs/teamleitung-pflege-kardiologie-w-m-d-80-100/7a96b7e9-b155-4c7b-aecf-9cf71bac3290",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:40:21.082Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Infermieristica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-21",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/645/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Pflege",
-      "streetAddress": "Promenade 117",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "contactPerson": "Thomas Fischer",
-      "contactPhone": "0814173078",
-      "previousSlugs": [
-        "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
-        "team-management-care-cardiology-f-m-d-80-100-hochgebirgsklinik-davos-davos",
-        "gestion-d-equipe-cardiologie-des-soins-f-m-j-80-100-hochgebirgsklinik-davos-davos",
-        "gestione-del-team-cura-cardiologia-f-m-d-80-100-hochgebirgsklinik-davos-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
-          "gestione-del-team-cura-cardiologia-f-m-d-80-100-hochgebirgsklinik-davos-davos"
-        ],
-        "en": [
-          "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
-          "team-management-care-cardiology-f-m-d-80-100-hochgebirgsklinik-davos-davos"
-        ],
-        "fr": [
-          "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
-          "gestion-d-equipe-cardiologie-des-soins-f-m-j-80-100-hochgebirgsklinik-davos-davos"
-        ]
-      },
-      "firstSeenAt": "2026-07-06T14:58:53.516Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1339,7 +1284,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/assistenzarzt-kardiologie-m-w-100/22edadbd-7656-4096-b02f-9d630c9e61ec",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:40:21.080Z",
+      "crawledAt": "2026-07-25T21:57:00.254Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1363,14 +1308,109 @@
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
       "previousSlugs": [
-        "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch"
+        "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch",
+        "assistente-medico-cardiologo-m-f-100-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch"
+          "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch",
+          "assistente-medico-cardiologo-m-f-100-hochgebirgsklinik-davos-davos"
         ]
       },
       "firstSeenAt": "2026-07-13T21:57:11.368Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-4ad37e4931fb",
+      "slug": "teamleiter-w-m-d-80-100-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "teamleiter-w-m-d-80-100-hochgebirgsklinik-davos-davos",
+        "en": "teamleiter-w-m-d-80-100-hochgebirgsklinik-davos-davos",
+        "de": "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
+        "fr": "teamleiter-m-j-80-100-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Teamleitung Pflege Kardiologie (w/m/d) 80-100%",
+      "titleByLocale": {
+        "it": "Teamleiter (w/m/d) 80-100 %",
+        "en": "Teamleiter (w/m/d) 80-100 %",
+        "de": "Teamleitung Pflege Kardiologie (w/m/d) 80-100%",
+        "fr": "Teamleiter (m/j) 80-100 %"
+      },
+      "description": "Als Teamleitung unseres Pflegeteams der kardialen Rehabilitation führst und unterstützt du dein Team im anspruchsvollen Pflegealltag und sorgst gemeinsam für eine professionelle, empathische Betreuung unserer Patient:innen. Das Team begleitet Menschen ganzheitlich durch den Rehabilitationsprozess, bereitet sie auf einen selbständigen Alltag vor und arbeitet dabei eng mit Ärzt:innen, Therapeut:innen und weiteren Fachpersonen zusammen. Start: ab August 2026 oder nach Vereinbarung. | Aufgaben:\n• Führen und fördern: Fachliche und personelle Führung von ca. 25 Mitarbeitenden (ca. 40% direkte Führungsaufgaben)\n• Zusammenarbeit prägen: Du unterstützt dein Team und arbeitest eng mit der Leitung Pflege und den Ärzt:innen zusammen\n• Pflege leben: Aktive Mitarbeit in der Pflege sowie Ansprechperson für Angehörige und weiterführende Institutionen\n• Selbständigkeit stärken: Du begleitest Patient:innen zurück in den Alltag in Selbständigkeit\n• Mitgestalten: Du integrierst die strategischen und wirtschaftlichen Ziele des Unternehmens in den Arbeitsalltag des Teams | Anforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH\n• Führungsausbildung oder die Bereitschaft, diese zu absolvieren\n• Hohe Sozialkompetenz sowie selbständige und zuverlässige Arbeitsweise\n• Freude an der Übernahme von Verantwortung\n• Führungserfahrung von Vorteil\n• Erfahrung in der Rehabilitation von Vorteil\n• Gute EDV-Anwenderkenntnisse\n• Sehr gute Deutschkenntnisse in Wort und Schrift | Wir bieten:\n• Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste\n• Teamkultur: Zusammenarbeit auf Augenhöhe, offene Kommunikation, Pflege in der Geschäftsleitung\n• Gesund geniessen: Mediterrane Mahlzeiten zu subventionierten Mitarbeiter-Preisen\n• Freizeit: Gratis Bergbahn-Jahreskarte und günstige Sport-/Wellnessangebote",
+      "descriptionByLocale": {
+        "it": "Come team leader del nostro team di assistenza per la riabilitazione cardale, supporti e supporti il tuo team nell'assistenza quotidiana impegnativa e supporti una cura professionale ed empatica dei nostri pazienti. Il team accompagna le persone in modo olistico attraverso il processo di riabilitazione, li prepara per una vita quotidiana indipendente e lavora a stretto contatto con i medici: interni, terapeuti: interni e altri specialisti. Inizio: da agosto 2026 o d'accordo. Compiti:\n• Leadership e supporto: orientamento professionale e personale di circa 25 dipendenti (circa il 40% delle attività di gestione diretta)\n• Collaborazione: Supporti il tuo team e lavori a stretto contatto con il Capo della Cura e il medico:\n• Cura: cooperazione attiva nella cura e nella persona di contatto per parenti e altre istituzioni\n• Rafforzare l'autooccupazione: accompagni i pazienti: di nuovo nella vita quotidiana nell'autooccupazione\n• Configure: Integra gli obiettivi strategici ed economici dell'azienda nel lavoro quotidiano del team | Requisiti:\n• Allenamento completato come Dipl. Specialista di cura HF/FH\n• formazione di orientamento o la volontà di completarlo\n• Alta competenza sociale e funzionamento indipendente e affidabile\n• Piacere di assumersi la responsabilità\n• Esperienza di leadership di vantaggio\n• Esperienza nella riabilitazione del vantaggio\n• Buone competenze informatiche\n• Molto buona conoscenza del tedesco in parola e scrittura | Offriamo:\n• Equilibrio della vita di lavoro: servizi pianificabili, a malapena straordinario, poco o nessun servizio notturno\n• Cultura del team: cooperazione a livello degli occhi, comunicazione aperta, cura nella gestione\n• Salute: pasti mediterranei a prezzi agevolati dei dipendenti\n• Tempo libero: mappa gratuita dell'anno di montagna e offerte di sport/wellness a buon mercato",
+        "en": "As a team leader of our cardial rehabilitation care team, you support and support your team in demanding day care and support a professional, empathic care of our patients. The team accompanies people holistically through the rehabilitation process, prepares them for an independent everyday life and works closely with physicians:insides, therapists:insides and other specialists. Start: from August 2026 or by agreement. Tasks:\n• Leadership and support: Professional and personal guidance of about 25 employees (about 40% direct management tasks)\n• Collaboration: You support your team and work closely with the Head of Care and the doctor:\n• Care: Active cooperation in care and contact person for relatives and other institutions\n• Strengthen self-employment: You accompany patients: back into everyday life in self-employment\n• Configure: You integrate the company's strategic and economic goals into the everyday working of the team | Requirements:\n• Completed training as a Dipl. Care specialist HF/FH\n• guidance training or the willingness to complete it\n• High social competence and independent and reliable functioning\n• Pleasure to take responsibility\n• Leadership experience of advantage\n• Experience in rehabilitation of advantage\n• Good computer skills\n• Very good knowledge of German in word and writing | We offer:\n• Work-Life Balance: Planable services, barely overtime, little to no night services\n• Team culture: cooperation at eye level, open communication, care in management\n• Healthy: Mediterranean meals at subsidized employee prices\n• Leisure time: Free mountain railway year map and cheap sports/wellness offers",
+        "de": "Als Teamleitung unseres Pflegeteams der kardialen Rehabilitation führst und unterstützt du dein Team im anspruchsvollen Pflegealltag und sorgst gemeinsam für eine professionelle, empathische Betreuung unserer Patient:innen. Das Team begleitet Menschen ganzheitlich durch den Rehabilitationsprozess, bereitet sie auf einen selbständigen Alltag vor und arbeitet dabei eng mit Ärzt:innen, Therapeut:innen und weiteren Fachpersonen zusammen. Start: ab August 2026 oder nach Vereinbarung. | Aufgaben:\n• Führen und fördern: Fachliche und personelle Führung von ca. 25 Mitarbeitenden (ca. 40% direkte Führungsaufgaben)\n• Zusammenarbeit prägen: Du unterstützt dein Team und arbeitest eng mit der Leitung Pflege und den Ärzt:innen zusammen\n• Pflege leben: Aktive Mitarbeit in der Pflege sowie Ansprechperson für Angehörige und weiterführende Institutionen\n• Selbständigkeit stärken: Du begleitest Patient:innen zurück in den Alltag in Selbständigkeit\n• Mitgestalten: Du integrierst die strategischen und wirtschaftlichen Ziele des Unternehmens in den Arbeitsalltag des Teams | Anforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH\n• Führungsausbildung oder die Bereitschaft, diese zu absolvieren\n• Hohe Sozialkompetenz sowie selbständige und zuverlässige Arbeitsweise\n• Freude an der Übernahme von Verantwortung\n• Führungserfahrung von Vorteil\n• Erfahrung in der Rehabilitation von Vorteil\n• Gute EDV-Anwenderkenntnisse\n• Sehr gute Deutschkenntnisse in Wort und Schrift | Wir bieten:\n• Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste\n• Teamkultur: Zusammenarbeit auf Augenhöhe, offene Kommunikation, Pflege in der Geschäftsleitung\n• Gesund geniessen: Mediterrane Mahlzeiten zu subventionierten Mitarbeiter-Preisen\n• Freizeit: Gratis Bergbahn-Jahreskarte und günstige Sport-/Wellnessangebote",
+        "fr": "En tant que chef d'équipe de notre équipe de soins de réadaptation cardiaque, vous accompagnez et soutenez votre équipe dans les soins de jour exigeants et soutenez un soin professionnel et empathique de nos patients. L'équipe accompagne les personnes de manière holistique à travers le processus de réadaptation, les prépare à une vie quotidienne indépendante et travaille en étroite collaboration avec les médecins:insides, les thérapeutes:insides et d'autres spécialistes. Début: à partir d'août 2026 ou par accord. Tâches :\n• Leadership et soutien : orientation professionnelle et personnelle d'environ 25 employés (environ 40 % de tâches de gestion directe)\n• Collaboration: Vous soutenez votre équipe et travaillez en étroite collaboration avec le Chef des soins et le médecin:\n• Soins: coopération active en matière de soins et de contact pour les parents et autres institutions\n• Renforcer le travail indépendant: Vous accompagnez les patients: retour dans la vie quotidienne dans le travail indépendant\n• Configurer: Vous intégrez les objectifs stratégiques et économiques de l'entreprise dans le travail quotidien de l'équipe.\n• Formation complète en tant que Dipl. Spécialiste des soins HF/FH\n• formation à l'orientation ou volonté de la compléter\n• Haute compétence sociale et fonctionnement indépendant et fiable\n• Le plaisir de prendre la responsabilité\n• Expérience de leadership d'avantage\n• Expérience de la réadaptation des avantages\n• Bonnes compétences en informatique\n• Très bonne connaissance de l'allemand en paroles et en écritures\n• Équilibre entre le travail et la vie personnelle : services planifiables, heures supplémentaires à peine, services de nuit peu ou pas\n• Culture d'équipe : coopération au niveau des yeux, communication ouverte, soins en gestion\n• Santé : repas méditerranéens à prix subventionnés\n• Loisirs: Carte de l'année ferroviaire de montagne gratuite et offres de sports/wellness bon marché"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/jobs/teamleitung-pflege-kardiologie-w-m-d-80-100/7a96b7e9-b155-4c7b-aecf-9cf71bac3290",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-25T21:57:00.254Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-21",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/645/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Pflege",
+      "streetAddress": "Promenade 117",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "contactPerson": "Thomas Fischer",
+      "contactPhone": "0814173078",
+      "previousSlugs": [
+        "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
+        "team-management-care-cardiology-f-m-d-80-100-hochgebirgsklinik-davos-davos",
+        "gestion-d-equipe-cardiologie-des-soins-f-m-j-80-100-hochgebirgsklinik-davos-davos",
+        "gestione-del-team-cura-cardiologia-f-m-d-80-100-hochgebirgsklinik-davos-davos",
+        "teamleiter-w-m-d-80-100-hochgebirgsklinik-davos-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
+          "gestione-del-team-cura-cardiologia-f-m-d-80-100-hochgebirgsklinik-davos-davos",
+          "teamleiter-w-m-d-80-100-hochgebirgsklinik-davos-davos"
+        ],
+        "en": [
+          "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
+          "team-management-care-cardiology-f-m-d-80-100-hochgebirgsklinik-davos-davos"
+        ],
+        "fr": [
+          "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
+          "gestion-d-equipe-cardiologie-des-soins-f-m-j-80-100-hochgebirgsklinik-davos-davos"
+        ]
+      },
+      "firstSeenAt": "2026-07-06T14:58:53.516Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1416,7 +1456,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027/3b68d999-67c3-4c6d-b901-5d41248ea40d",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:40:21.079Z",
+      "crawledAt": "2026-07-25T21:57:00.250Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1440,11 +1480,13 @@
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
       "previousSlugs": [
-        "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch"
+        "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch",
+        "assistente-medico-pneumologia-m-f-d-100-dal-1-gennaio-2027-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch"
+          "assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027-hochgebirgsklinik-davos-ch",
+          "assistente-medico-pneumologia-m-f-d-100-dal-1-gennaio-2027-hochgebirgsklinik-davos-davos"
         ]
       },
       "firstSeenAt": "2026-07-13T21:57:11.367Z",
@@ -1493,7 +1535,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/assistenzarzt-pneumologie-m-w-d-100-01-januar-2027/4d4e7800-74a2-47bf-9804-5fd982caf4bf",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:40:21.076Z",
+      "crawledAt": "2026-07-25T21:57:00.248Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1517,14 +1559,17 @@
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
       "previousSlugs": [
-        "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch"
+        "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch",
+        "assistente-medico-pneumologia-m-f-d-100-01-gennaio-2027-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch"
+          "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch",
+          "assistente-medico-pneumologia-m-f-d-100-01-gennaio-2027-hochgebirgsklinik-davos-davos"
         ]
       },
       "firstSeenAt": "2026-07-13T21:57:11.365Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1570,7 +1615,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjUx&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:40:21.055Z",
+      "crawledAt": "2026-07-25T21:57:00.240Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1589,11 +1634,13 @@
       "department": "Ausbildung",
       "streetAddress": "Promenade 117",
       "previousSlugs": [
-        "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos"
+        "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos",
+        "apprendistato-come-fachperson-gesundheit-fage-cfc-m-w-d-ab-august-2027-hochgebirgsklinik-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos"
+          "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos",
+          "apprendistato-come-fachperson-gesundheit-fage-cfc-m-w-d-ab-august-2027-hochgebirgsklinik-davos"
         ],
         "en": [
           "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos"
@@ -1615,7 +1662,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     }
   ]
 }
