@@ -1,16 +1,16 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-07-25T11:13:11.176Z",
+  "generatedAt": "2026-07-25T22:03:38.708Z",
   "total": 57,
   "newCount": 0,
   "updatedCount": 42,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 92400,
-  "avgDurationMs": 92400,
+  "durationMs": 92863,
+  "avgDurationMs": 92863,
   "durationHistory": [
-    92400
+    92863
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1106,43 +1106,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Mechaniker (w/m/d)",
-      "slug": "meccanica-f-m-d-agie-charmilles-sa-biel-bienne",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-mechaniker-wmd/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/bed3c09be7e7f8582cb4c8f4af7959a59cb1597187cc9dc87cbb0027e48a9f7ee9f65bda0cc6e46a8343a29efdcd2aeb17a7f9e8b89be98f429a73b8393597",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Biel/Bienne",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-21",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "id": "agie-charmilles-a98765a605a6",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-21T12:42:20.384Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
