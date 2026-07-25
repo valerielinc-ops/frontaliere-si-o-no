@@ -1,52 +1,18 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-07-24T22:07:37.221Z",
-  "total": 91,
-  "newCount": 5,
-  "updatedCount": 82,
-  "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 44674,
-  "avgDurationMs": 44674,
+  "generatedAt": "2026-07-25T10:41:04.133Z",
+  "total": 89,
+  "newCount": 3,
+  "updatedCount": 84,
+  "removedCount": 1,
+  "unchangedCount": 2,
+  "durationMs": 45060,
+  "avgDurationMs": 45060,
   "durationHistory": [
-    44674
+    45060
   ],
   "newJobs": [
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Intern-Regional-CFO-Emerging-Markets-60---100---f-m-d-_r-19001-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Intern-Regional-CFO-Emerging-Markets-60---100---f-m-d-_r-19001-1",
-      "title": "Intern Regional CFO Emerging Markets 100% (f/m/d) - 6-12months",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "intern-regional-cfo-emerging-markets-100-f-m-d-6-12months-julius-baer",
-      "category": "general",
-      "datePosted": "2026-07-24",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "ENTRY",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "_qualityScore": 58,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 6,
-        "completeness": 9
-      }
-    },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Backend-Developer---C--100---f-m-d---Contract-through-our-external-payroll-partner--immediate-start-until-31082027--possible-extension-_r-19335-1",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Backend-Developer---C--100---f-m-d---Contract-through-our-external-payroll-partner--immediate-start-until-31082027--possible-extension-_r-19335-1",
@@ -77,40 +43,6 @@
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 6,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Management-Assistant-100---f-m-d-_r-19231-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Management-Assistant-100---f-m-d-_r-19231-1",
-      "title": "Senior Management Assistant 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "senior-management-assistant-100-f-m-d-julius-baer",
-      "category": "management",
-      "datePosted": "2026-07-22",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "_qualityScore": 58,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
         "translation": 6,
         "completeness": 9
       }
@@ -185,6 +117,42 @@
     }
   ],
   "updatedJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Intern-Regional-CFO-Emerging-Markets-60---100---f-m-d-_r-19001-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Intern-Regional-CFO-Emerging-Markets-60---100---f-m-d-_r-19001-1",
+      "title": "Intern Regional CFO Emerging Markets 100% (f/m/d) - 6-12months",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "intern-regional-cfo-emerging-markets-100-f-m-d-6-12months-julius-baer",
+      "category": "general",
+      "datePosted": "2026-07-24",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "ENTRY",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-07-24T22:07:37.211Z",
+      "needsRetranslation": true,
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 9
+      }
+    },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Backend-Developer---C--100---f-m-d-----Contract-through-our-external-payroll-partner--immediate-start-until-31082027--possible-extension-_r-19336-1",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Backend-Developer---C--100---f-m-d-----Contract-through-our-external-payroll-partner--immediate-start-until-31082027--possible-extension-_r-19336-1",
@@ -397,6 +365,41 @@
       }
     },
     {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Management-Assistant-100---f-m-d-_r-19231-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Management-Assistant-100---f-m-d-_r-19231-1",
+      "title": "Senior Management Assistant 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "senior-management-assistant-100-f-m-d-julius-baer",
+      "category": "management",
+      "datePosted": "2026-07-22",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-07-24T22:07:37.211Z",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 9
+      }
+    },
+    {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Data-Platform-Responsible-100---f-m-d-_r-17774-2",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Data-Platform-Responsible-100---f-m-d-_r-17774-2",
       "title": "Data Platform Responsible 100% (f/m/d)",
@@ -564,7 +567,6 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-07-08T22:08:05.429Z",
-      "needsRetranslation": true,
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1167,197 +1169,9 @@
         "translation": 25,
         "completeness": 9
       }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Valuation-Controller-100---f-m-d-_r-19074-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Valuation-Controller-100---f-m-d-_r-19074-1",
-      "title": "Valuation Controller 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "valuation-controller-100-f-m-d-julius-baer",
-      "category": "finance",
-      "datePosted": "2026-07-13",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "MID",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-07-13T21:58:04.445Z",
-      "_qualityScore": 74,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Compliance-Officer---Control-Framework-100---f-m-d-_r-19112-2",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Compliance-Officer---Control-Framework-100---f-m-d-_r-19112-2",
-      "title": "Compliance Officer - Control Framework 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "compliance-officer-control-framework-100-f-m-d-julius-baer",
-      "category": "risk",
-      "datePosted": "2026-07-13",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "MID",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-07-13T21:58:04.445Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 9
-      }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Account-Manager--Geneva--100---f-m-d-_r-19181-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Account-Manager--Geneva--100---f-m-d-_r-19181-1",
-      "title": "Account Manager, Geneva, 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Geneva",
-      "canton": "GE",
-      "country": "CH",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "account-manager-geneva-100-f-m-d-julius-baer",
-      "category": "finance",
-      "datePosted": "2026-07-24",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "GE",
-        "location": "Geneva"
-      },
-      "salaryMin": 174500,
-      "salaryMax": 306000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-24T11:10:09.827Z",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Management-Assistant-100---f-m-d-_r-19233-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Management-Assistant-100---f-m-d-_r-19233-1",
-      "title": "Senior Management Assistant 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "senior-management-assistant-100-f-m-d-julius-baer",
-      "category": "management",
-      "datePosted": "2026-07-22",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-07-22T22:06:21.975Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "currency": "CHF",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Application-Operation-Manager-Identity-and-Access-Management-100---f-m-d-_r-17868-3",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Application-Operation-Manager-Identity-and-Access-Management-100---f-m-d-_r-17868-3",
-      "title": "Application Operation Manager Identity and Access Management 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "application-operation-manager-identity-and-access-management-100-f-m-d-julius-baer",
-      "category": "management",
-      "datePosted": "2026-06-02",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "currency": "CHF",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
+  "removedJobs": [
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Java-Full-Stack-Developer-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-31122026-with-possible-extension-_r-17634-1",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Java-Full-Stack-Developer-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-31122026-with-possible-extension-_r-17634-1",
@@ -1392,6 +1206,86 @@
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 14
+      }
+    }
+  ],
+  "unchangedJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Account-Manager--Geneva--100---f-m-d-_r-19181-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Account-Manager--Geneva--100---f-m-d-_r-19181-1",
+      "title": "Account Manager, Geneva, 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Geneva",
+      "canton": "GE",
+      "country": "CH",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "account-manager-geneva-100-f-m-d-julius-baer",
+      "category": "finance",
+      "datePosted": "2026-07-24",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "GE",
+        "location": "Geneva"
+      },
+      "salaryMin": 174500,
+      "salaryMax": 306000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-24T11:10:09.827Z",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Application-Operation-Manager-Identity-and-Access-Management-100---f-m-d-_r-17868-3",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Application-Operation-Manager-Identity-and-Access-Management-100---f-m-d-_r-17868-3",
+      "title": "Application Operation Manager Identity and Access Management 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "application-operation-manager-identity-and-access-management-100-f-m-d-julius-baer",
+      "category": "management",
+      "datePosted": "2026-06-02",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-06-29T22:17:29.935Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "currency": "CHF",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
         "richness": 20,
         "translation": 25,
         "completeness": 14
