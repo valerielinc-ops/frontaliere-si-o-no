@@ -1525,6 +1525,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.franco-svizzero-tassi-cambio.title': 'Le franc suisse et la phase de faiblesse monétaire',
     'blog.article.franco-svizzero-tassi-cambio.excerpt': 'Analyse du taux de change de l\'euro franc et de la dynamique économique actuelle signalée par le portail Borsa e Finanza.',
     'blog.article.franco-svizzero-tassi-cambio.imageAlt': 'Vue panoramique sur le lac et la Suisse',
+    'blog.article.cercare-lavoro-svizzera-guida-2026.title': 'Chercher un emploi en Suisse : guide pratique 2026',
+    'blog.article.cercare-lavoro-svizzera-guida-2026.excerpt': 'Guide complet 2026 pour la recherche d\'un emploi en Suisse : portails officiels SECO, rédaction du CV, entretiens et permis.',
+    'blog.article.cercare-lavoro-svizzera-guida-2026.imageAlt': 'Guide pratique pour trouver un emploi en Suisse en 2026',
 };
 
 export default blogMetaChFr;

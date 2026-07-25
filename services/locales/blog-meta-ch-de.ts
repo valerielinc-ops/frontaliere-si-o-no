@@ -1525,6 +1525,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.franco-svizzero-tassi-cambio.title': 'Der Schweizer Franken und die Phase der Währungsschwäche',
     'blog.article.franco-svizzero-tassi-cambio.excerpt': 'Analyse des Euro-Franken-Wechselkurses und der aktuellen Wirtschaftsdynamik, die vom Börsen- und Finanzportal gemeldet wird.',
     'blog.article.franco-svizzero-tassi-cambio.imageAlt': 'Panoramablick auf den See und die Schweiz',
+    'blog.article.cercare-lavoro-svizzera-guida-2026.title': 'Jobsuche in der Schweiz: Praxisleitfaden 2026',
+    'blog.article.cercare-lavoro-svizzera-guida-2026.excerpt': 'Vollständiger Leitfaden 2026 für die Stellensuche in der Schweiz: Offizielle SECO Portale, Lebenslauf, Vorstellungsgespräche und Bewilligungen.',
+    'blog.article.cercare-lavoro-svizzera-guida-2026.imageAlt': 'Praktischer Leitfaden für die Jobsuche in der Schweiz 2026',
 };
 
 export default blogMetaChDe;
