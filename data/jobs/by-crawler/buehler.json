@@ -4593,7 +4593,7 @@
       "slugByLocale": {
         "it": "gestione-account-chiave-buhler-group-plymouth",
         "en": "key-account-manager-buehler-plymouth",
-        "de": "key-account-manager-buehler-plymouth",
+        "de": "schlusselkontoverwaltung-buhler-group-plymouth",
         "fr": "gestionnaire-de-comptes-cles-buhler-group-plymouth"
       },
       "company": "Bühler Group",
@@ -4645,6 +4645,9 @@
         ],
         "fr": [
           "key-account-manager-buehler-plymouth"
+        ],
+        "de": [
+          "key-account-manager-buehler-plymouth"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.162Z",
@@ -4663,9 +4666,9 @@
     },
     {
       "id": "buehler-50df1018b2ec",
-      "slug": "project-manager-engineering-buehler-makati-city",
+      "slug": "project-manager-ingegneria-buhler-group-makati-city",
       "slugByLocale": {
-        "it": "project-manager-engineering-buehler-makati-city",
+        "it": "project-manager-ingegneria-buhler-group-makati-city",
         "en": "project-manager-engineering-buehler-makati-city",
         "de": "projektleiter-engineering-buhler-group-makati-city",
         "fr": "gestionnaire-de-projet-ingenierie-buhler-group-makati-city"
@@ -4722,7 +4725,15 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-engineering-buehler-makati-city"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-engineering-buehler-makati-city"
+      ]
     },
     {
       "id": "buehler-3e1a3035c463",
