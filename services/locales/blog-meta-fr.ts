@@ -8934,6 +8934,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.riqualificazione-parco-casciago.title': 'Casciago, en route pour la requalification du Parc La Pinetina',
     'blog.article.riqualificazione-parco-casciago.excerpt': 'Les travaux de sécurisation et de rénovation de la clôture dans le parc de Casciago se poursuivent pour améliorer l\'utilisation des espaces.',
     'blog.article.riqualificazione-parco-casciago.imageAlt': 'Parc public rénové à Casciago près de la frontière suisse',
+    'blog.article.vivere-lavena-ponte-tresa-frontaliere.title': 'Vivre à Lavena Ponte Tresa et travailler au Tessin',
+    'blog.article.vivere-lavena-ponte-tresa-frontaliere.excerpt': 'Guide complet des déplacements entre Lavena Ponte Tresa et le canton du Tessin : liaisons, temps de trajet, coûts et règles fiscales pour les frontaliers.',
+    'blog.article.vivere-lavena-ponte-tresa-frontaliere.imageAlt': 'Vue de Lavena Ponte Tresa pres de la frontiere suisse',
 };
 
 export default blogMetaFr;

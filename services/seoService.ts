@@ -4877,6 +4877,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-disoccupazione-frontalieri-comitato-misto': { name: 'Disoccupazione frontalieri', path: '/articoli-frontaliere/disoccupazione-frontalieri-comitato-misto', parent: 'blog' },
     'blog-frontalieri-disoccupazione-svizzera': { name: 'Frontalieri: la Svizzera non pagherà la', path: '/articoli-svizzera/frontalieri-disoccupazione-svizzera/', parent: 'blog' },
     'blog-riqualificazione-parco-casciago': { name: 'Casciago Parco', path: '/articoli-frontaliere/riqualificazione-parco-casciago', parent: 'blog' },
+    'blog-vivere-lavena-ponte-tresa-frontaliere': { name: 'Lavena Ponte Tresa Frontalieri', path: '/articoli-frontaliere/vivere-lavena-ponte-tresa-frontaliere', parent: 'blog' },
  };
 
  const info = sectionNames[section];
