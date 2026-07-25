@@ -1,41 +1,39 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-07-25T10:54:29.479Z",
-  "total": 40,
+  "generatedAt": "2026-07-25T22:12:08.017Z",
+  "total": 38,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 21135,
-  "avgDurationMs": 21135,
+  "unchangedCount": 0,
+  "durationMs": 25796,
+  "avgDurationMs": 25796,
   "durationHistory": [
-    21135
+    25796
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "etat-de-vaud-5553",
-      "slug": "gestore-di-pratiche-specializzate-h-f-etat-de-vaud-administration-cantonale-vaudoise-palezieux",
+      "id": "etat-de-vaud-5458",
+      "slug": "agent-e-de-detention-etat-de-vaud-orbe",
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
       "companyDomain": "vd.ch",
-      "title": "Gestionnaire de dossiers spécialisés (H/F)",
-      "location": "Palezieux",
+      "title": "Agent·e de détention",
+      "location": "Orbe",
       "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5553",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5458",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-24T11:18:10.513Z",
-      "addressLocality": "Palezieux",
+      "crawledAt": "2026-07-25T22:12:03.935Z",
+      "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1607",
+      "postalCode": "1350",
       "streetAddress": "Place du Château 1",
-      "category": "Amministrazione",
+      "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
@@ -43,18 +41,17 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5553",
-      "firstSeenAt": "2026-07-05T11:43:16.234Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 95,
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5458",
+      "firstSeenAt": "2026-07-05T11:43:22.967Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 20
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
