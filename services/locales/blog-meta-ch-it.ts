@@ -1531,6 +1531,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cerca-lavoro-svizzera-guida-2026.title': 'Lavora in Svizzera: portali, CV e permesso di lavoro',
     'blog.article.cerca-lavoro-svizzera-guida-2026.excerpt': 'Trovare un lavoro in Svizzera può essere un processo complesso, ma con la guida giusta, puoi aumentare le tue possibilità di successo.',
     'blog.article.cerca-lavoro-svizzera-guida-2026.imageAlt': 'Una scena del lavoro in Svizzera con la vista sul Lago di Lugano.',
+    'blog.article.benzina-prezzi-aumentano-ticino.title': 'Benzina: prezzi al massimo degli ultimi due anni',
+    'blog.article.benzina-prezzi-aumentano-ticino.excerpt': 'I prezzi della benzina sono aumentati di 4 centesimi al litro e raggiungono il livello più alto degli ultimi due anni',
+    'blog.article.benzina-prezzi-aumentano-ticino.imageAlt': 'Il lago di Lugano in una giornata di sole con le montagne circostanti',
 };
 
 export default blogMetaChIt;

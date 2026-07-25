@@ -1531,6 +1531,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cerca-lavoro-svizzera-guida-2026.title': 'Work in Switzerland: portals, CVs and work permits',
     'blog.article.cerca-lavoro-svizzera-guida-2026.excerpt': 'Finding a job in Switzerland can be a complex process, but with the right guidance, you can increase your chances of success.',
     'blog.article.cerca-lavoro-svizzera-guida-2026.imageAlt': 'A scene of work in Switzerland with the view of Lake Lugano.',
+    'blog.article.benzina-prezzi-aumentano-ticino.title': 'Petrol: prices at the most in the last two years',
+    'blog.article.benzina-prezzi-aumentano-ticino.excerpt': 'Gasoline prices have increased by 4 cents per liter and reach the highest level in the last two years',
+    'blog.article.benzina-prezzi-aumentano-ticino.imageAlt': 'The lake of Lugano on a sunny day with the surrounding mountains',
 };
 
 export default blogMetaChEn;
