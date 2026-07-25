@@ -188,9 +188,9 @@
       },
       "slugByLocale": {
         "it": "tecnico-dell-assistenza-olio-regione-di-winterthur-m-f-d-hoval-ostschweiz-wil",
-        "en": "servicetechniker-ol-region-winterthur-m-w-d-hoval-ostschweiz-wil",
+        "en": "service-technician-oil-region-winterthur-m-w-d-hoval-ostschweiz-wil",
         "de": "servicetechniker-ol-region-winterthur-m-w-d-hoval-ostschweiz-wil",
-        "fr": "servicetechniker-ol-region-winterthur-m-w-d-hoval-ostschweiz-wil"
+        "fr": "technicien-de-service-huile-region-winterthur-m-f-d-hoval-ostschweiz-wil"
       },
       "id": "hoval-0dcbc94c2c7a",
       "salaryMin": 49500,
@@ -215,6 +215,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-ol-region-winterthur-m-w-d-hoval-ostschweiz-wil"
+        ],
+        "en": [
+          "servicetechniker-ol-region-winterthur-m-w-d-hoval-ostschweiz-wil"
+        ],
+        "fr": [
           "servicetechniker-ol-region-winterthur-m-w-d-hoval-ostschweiz-wil"
         ]
       }
@@ -926,9 +932,9 @@
       },
       "slugByLocale": {
         "it": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
-        "en": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
-        "de": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
-        "fr": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino"
+        "en": "renewable-heating-plant-service-technician-m-f-d-hoval-rc-ticino",
+        "de": "servicetechniker-fur-erneuerbare-energieheizungssysteme-m-w-d-hoval-rc-ticino",
+        "fr": "technicien-de-service-pour-les-installations-de-chauffage-d-energies-renouvelables-m-f-d-hoval-rc-ticino"
       },
       "id": "hoval-fd8e3ab9018c",
       "salaryMin": 49500,
