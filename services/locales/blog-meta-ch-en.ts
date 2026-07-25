@@ -1522,6 +1522,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-argovia.title': 'Tax advantages and payment strategies',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-argovia.excerpt': 'The third pillar 3a: what it is, how it works and what are the tax advantages for border workers in the Canton of Aargau',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-argovia.imageAlt': 'A view of Lugano with Lake Lugano in the background, where people are discussing the third pillar 3a',
+    'blog.article.franco-svizzero-tassi-cambio.title': 'The Swiss franc and the phase of currency weakness',
+    'blog.article.franco-svizzero-tassi-cambio.excerpt': 'Analysis of the euro franc exchange rate and current economic dynamics reported by the Borsa e Finanza portal.',
+    'blog.article.franco-svizzero-tassi-cambio.imageAlt': 'Panoramic view of the lake and Switzerland',
 };
 
 export default blogMetaChEn;

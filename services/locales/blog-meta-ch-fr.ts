@@ -1522,6 +1522,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-argovia.title': 'Avantages fiscaux et stratégies de versement',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-argovia.excerpt': 'Le troisième pilier 3a : qu\'est-ce que c\'est, comment ça marche et quels sont les avantages fiscaux pour les frontaliers dans le canton d\'Argovie',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-argovia.imageAlt': 'Une scène de Lugano avec le lac de Lugano en arrière-plan, où des gens discutent du troisième pilier 3a',
+    'blog.article.franco-svizzero-tassi-cambio.title': 'Le franc suisse et la phase de faiblesse monétaire',
+    'blog.article.franco-svizzero-tassi-cambio.excerpt': 'Analyse du taux de change de l\'euro franc et de la dynamique économique actuelle signalée par le portail Borsa e Finanza.',
+    'blog.article.franco-svizzero-tassi-cambio.imageAlt': 'Vue panoramique sur le lac et la Suisse',
 };
 
 export default blogMetaChFr;

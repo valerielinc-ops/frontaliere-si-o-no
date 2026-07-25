@@ -530,6 +530,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'bce-mantiene-tassi-2-25': { it: 'bce-mantiene-tassi-2-25', en: 'bce-keeps-rates-at-2-25', de: 'bce-halt-zinssatze-bei-2-25', fr: 'bce-conserve-taux-aux-2-25' },
  'frontalieri-disoccupazione-svizzera': { it: 'frontalieri-disoccupazione-svizzera', en: 'frontalieri-disoccupazione-svizzera', de: 'frontalieri-disoccupazione-schweiz', fr: 'frontalieri-disoccupazione-suisse' },
  'terzo-pilastro-3a-vantaggi-2026-canton-argovia': { it: 'terzo-pilastro-3a-vantaggi-2026-canton-argovia', en: 'third-pillar-3a-benefits-2026-argovia-cantonal', de: 'drittes-saeckel-3a-vorteile-2026-argovien-land', fr: 'troisieme-pilier-3a-avantages-2026-argovie-cantonal' },
+ 'franco-svizzero-tassi-cambio': { it: 'franco-svizzero-tassi-cambio', en: 'swiss-franc-exchange-rates', de: 'schweizer-franken-wechselkurs', fr: 'franc-suisse-taux-de-change' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
