@@ -8943,6 +8943,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.italia-svizzera-nuovo-protocollo-frontalieri.title': 'Italien-Schweiz: Was das neue Protokoll über die Arbeit von Grenzgängern sagt',
     'blog.article.italia-svizzera-nuovo-protocollo-frontalieri.excerpt': 'Am 23. Dezember 2020 haben Italien und die Schweiz ein neues Protokoll über die Arbeit von Grenzgängern unterzeichnet. Diese Vereinbarung tritt am 1. Januar 2024 in Kraft und sieht wesentliche Änderungen für Arbeitnehmer vor, die zwischen den beiden Ländern pendeln.',
     'blog.article.italia-svizzera-nuovo-protocollo-frontalieri.imageAlt': 'Eine Grenze in einer Autobahn zwischen Lugano und Mailand.',
+    'blog.article.telelavoro-frontalieri-it-svizzera.title': 'Frontalieri, die Telearbeit geht in Betrieb',
+    'blog.article.telelavoro-frontalieri-it-svizzera.excerpt': 'Das Gesetz Nr. 217 von 2025 tritt am 20. Januar 2026 in Kraft und führt die strukturelle Anerkennung der grenzüberschreitenden Telearbeit ein.',
+    'blog.article.telelavoro-frontalieri-it-svizzera.imageAlt': 'Ein Frontalier arbeitet von zu Hause aus remote',
 };
 
 export default blogMetaDe;

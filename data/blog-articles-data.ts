@@ -26873,6 +26873,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'telelavoro-frontalieri-it-svizzera',
+ category: 'pratico',
+ date: '2026-07-25T09:47:57.850Z',
+ image: '/images/blog/telelavoro-frontalieri-it-svizzera.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

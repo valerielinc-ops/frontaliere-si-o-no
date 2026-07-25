@@ -8944,6 +8944,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.italia-svizzera-nuovo-protocollo-frontalieri.title': 'Italy-Switzerland: what the new protocol says about the work of border workers',
     'blog.article.italia-svizzera-nuovo-protocollo-frontalieri.excerpt': 'On 23 December 2020, Italy and Switzerland signed a new protocol on the work of border workers. This agreement comes into force from 1 January 2024 and provides for significant changes for workers moving between the two countries.',
     'blog.article.italia-svizzera-nuovo-protocollo-frontalieri.imageAlt': 'A border in a highway between Lugano and Milan.',
+    'blog.article.telelavoro-frontalieri-it-svizzera.title': 'Frontier workers, teleworking enters into operation',
+    'blog.article.telelavoro-frontalieri-it-svizzera.excerpt': 'Law no. 217 of 2025 enters into force on 20 January 2026, introducing the structural recognition of cross-border teleworking.',
+    'blog.article.telelavoro-frontalieri-it-svizzera.imageAlt': 'A frontline worker works remotely from home',
 };
 
 export default blogMetaEn;

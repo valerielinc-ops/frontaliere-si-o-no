@@ -8945,6 +8945,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.italia-svizzera-nuovo-protocollo-frontalieri.title': 'Italia-Svizzera: cosa dice il nuovo protocollo sul lavoro dei frontalieri',
     'blog.article.italia-svizzera-nuovo-protocollo-frontalieri.excerpt': 'Il 23 dicembre 2020, l\'Italia e la Svizzera hanno firmato un nuovo protocollo sul lavoro dei frontalieri. Questo accordo entra in vigore dal 1 gennaio 2024 e prevede modifiche significative per i lavoratori che si spostano tra i due paesi.',
     'blog.article.italia-svizzera-nuovo-protocollo-frontalieri.imageAlt': 'Una frontiera in un\'autostrada tra Lugano e Milano.',
+    'blog.article.telelavoro-frontalieri-it-svizzera.title': 'Frontalieri, il telelavoro entra a regime',
+    'blog.article.telelavoro-frontalieri-it-svizzera.excerpt': 'La legge n. 217 del 2025 entra in vigore il 20 gennaio 2026, introducendo il riconoscimento strutturale del telelavoro transfrontaliero.',
+    'blog.article.telelavoro-frontalieri-it-svizzera.imageAlt': 'Un frontaliere lavora in modo remoto da casa',
 };
 
 export default blogMetaIt;
