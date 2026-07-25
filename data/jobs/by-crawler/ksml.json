@@ -80,8 +80,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-7c5971359b10",
@@ -161,7 +160,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "ksml-708f0430766a",
@@ -403,8 +404,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-6629e8863839",
@@ -720,8 +720,7 @@
           "maxValue": 47800,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-380728042d3d",
@@ -738,7 +737,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Teilpensum 5./6. Klasse, 7 - 9.5 Lektionen D, NMG, BG, (M+I)",
       "titleByLocale": {
-        "it": "Teilpensum 5./6. Klasse, 7 - 9.5 Lektionen D, NMG, BG, (M+I)",
+        "it": "5 ° / 6 ° grado, 7 - 9,5 lezioni D, NMG, BG, (M+I)",
         "en": "Sub-board 5./6. Class, 7 - 9.5 Lessons",
         "de": "Teilpensum 5./6. Klasse, 7 - 9.5 Lektionen D, NMG, BG, (M+I)",
         "fr": "Sous-tableau 5./6. Classe 7 - 9.5 Enseignements"
@@ -804,7 +803,6 @@
         ]
       },
       "firstSeenAt": "2026-07-11T10:51:51.752Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -836,7 +834,7 @@
         "it": "Insegnante di Materie Tessili e Design, Cicli 1 e 2, 6 ore",
         "en": "Secondary Subject Teacher Textiles and Design Cycles 1 and 2, 6 Lessons",
         "de": "Stv. Fachlehrperson Textiles Gestalten Zyklen 1 und 2, 6 Lektionen",
-        "fr": "Stv. Fachlehrperson Textiles Gestalten Zyklen 1 und 2, 6 Lektionen"
+        "fr": "Stv. professeur spécialisé Textiles Designing Cycles 1 et 2, 6 leçons"
       },
       "description": "Porträt\nWillkommen in Wimmis!\nAn der Schule Wimmis unterrichten 48 Lehrpersonen rund 400 Schülerinnen und Schüler an drei Standorten. Im Schulhaus Oberdorf befinden sich 6 Klassen.\nUnser Team - unsere Stärke!\n\nAufgaben\nAls Fachlehrerperson unterrichten, fördern und unterstützen Sie Kinder der 1., 2. und 3./4. Klasse im Fach Textiles Gestalten. Sie unterrichten insgesamt 6 Lektionen. Der Unterricht findet am Donnerstag von 8.20-11.50 und 13.30-15.05 Uhr statt.\n\nSie unterrichten während der Mutterschaftsvertretung und einem anschliessenden Urlaub als Stellvertreterin. Eine Weiterführung ab Sommer 2027 in eine unbefristete Anstellung ist evtl. möglich.\n\nSie engagieren sich im Unterrichtsteam und sind bereit, an der Schul- und Organisationsentwicklung mitzuarbeiten.\n\nAnforderungen\nHaben Sie ein Herz für Kinder und können diese begeistern und motivieren? Verfügen Sie über ein Lehrdiplom für den Bereich Gestalten? Sind Sie eine engagierte, kommunikative und humorvolle Persönlichkeit mit Freude und Interesse an der Zusammenarbeit mit dem Stufen- und Schulhausteam? Pflegen Sie einen offenen und direkten Austausch mit den Eltern sowie allen anderen Anspruchsgruppen?\n\nFalls ja sind Sie genau die Lehrperson, die wir für unser Team suchen!\n\nWir bieten\n- tolle TTG-Räume\n- gut ausgestattete Schulinfrastruktur mit moderner ICT-Umgebung\n- angenehmes Arbeitsklima in einem engagierten, offenen Team\n- Unterstützung durch Lehrpersonen, IF-Lehrpersonen, Schulsozialarbeit und Schulleitung\n- guter ÖV-Anschluss, sehr gute Erreichbarkeit mit dem Auto dank direktem Autobahnanschluss und Gratisparkplatz",
       "descriptionByLocale": {
@@ -888,7 +886,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.472Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1051,7 +1048,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:51:43.182Z",
-      "needsRetranslation": true,
       "salaryMin": 58200,
       "salaryMax": 88400,
       "baseSalary": {
@@ -1224,7 +1220,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.471Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1309,7 +1304,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.471Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1901,7 +1895,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:46:19.626Z",
-      "needsRetranslation": true,
       "salaryMin": 37700,
       "salaryMax": 57200,
       "baseSalary": {
@@ -1982,7 +1975,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T22:07:43.337Z",
-      "needsRetranslation": true,
       "salaryMin": 4100,
       "salaryMax": 6200,
       "baseSalary": {
@@ -2743,7 +2735,7 @@
       "slug": "terapeuta-psicomotore-in-10-14-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-ruegsauschachen",
       "slugByLocale": {
         "it": "terapeuta-psicomotore-in-10-14-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-ruegsauschachen",
-        "en": "psychomotoriktherapeut-in-10-14-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-ruegsauschachen",
+        "en": "psychomotor-therapist-in-10-14-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-38649",
         "de": "psychomotoriktherapeut-in-10-14-lektionen-schulen-ruegsau-ruegsauschachen-38649",
         "fr": "psychomotherapeute-en-10-14-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-38649"
       },
@@ -2754,7 +2746,7 @@
       "title": "Psychomotoriktherapeut/in 10-14 Lektionen",
       "titleByLocale": {
         "it": "terapeuta psicomotore in 10-14 lezioni",
-        "en": "Psychomotoriktherapeut/in 10-14 Lektionen",
+        "en": "Psychomotor therapist in 10-14 lessons",
         "de": "Psychomotoriktherapeut/in 10-14 Lektionen",
         "fr": "Psychomothérapeute en 10-14 leçons"
       },
@@ -2834,7 +2826,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.470Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3391,22 +3382,45 @@
         "teilpensenlehrperson-team-teaching-mrdv-zyklus-2-8-12-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-meinisberg",
         "teilpensenlehrperson-team-teaching-mrdv-zyklus-2-8-12-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-l-39577",
         "team-teaching-mrdv-cycle-2-8-12-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39577",
-        "mr-teacher-cycle-3-12-13-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sigriswil"
+        "mr-teacher-cycle-3-12-13-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sigriswil",
+        "maestro-ciclo-ii-3-lezioni-sport-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-finsterhennen",
+        "teacher-cycle-ii-3-lessons-sports-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39122",
+        "lehrperson-zyklus-ii-3-lektionen-sport-schule-finsterhennen-siselen-finsterhennen-39122",
+        "cycle-d-enseignement-ii-3-lecons-sports-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39122",
+        "maestro-ciclo-ii-3-lezioni-sport-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-finsterhennen-39122",
+        "lehrperson-zyklus-ii-3-lektionen-sport-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-finster-39122",
+        "maestro-ciclo-ii-4-lezioni-ttg-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-finsterhennen",
+        "teacher-cycle-ii-4-lessons-ttg-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-finsterhennen-39607",
+        "lehrperson-zyklus-ii-4-lektionen-ttg-schule-finsterhennen-siselen-finsterhennen-39607",
+        "cycle-d-enseignement-ii-4-lecons-ttg-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39607"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mr-lehrperson-zyklus-3-12-13-lektionen-schulen-sigriswil-sigriswil-39140",
           "mr-teacher-cycle-3-12-13-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sigriswil-39140",
-          "mr-teacher-cycle-3-12-13-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sigriswil"
+          "mr-teacher-cycle-3-12-13-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sigriswil",
+          "maestro-ciclo-ii-3-lezioni-sport-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-finsterhennen",
+          "teacher-cycle-ii-3-lessons-sports-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39122",
+          "lehrperson-zyklus-ii-3-lektionen-sport-schule-finsterhennen-siselen-finsterhennen-39122",
+          "cycle-d-enseignement-ii-3-lecons-sports-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39122",
+          "maestro-ciclo-ii-3-lezioni-sport-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-finsterhennen-39122",
+          "lehrperson-zyklus-ii-3-lektionen-sport-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-finster-39122",
+          "maestro-ciclo-ii-4-lezioni-ttg-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-finsterhennen",
+          "teacher-cycle-ii-4-lessons-ttg-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-finsterhennen-39607",
+          "lehrperson-zyklus-ii-4-lektionen-ttg-schule-finsterhennen-siselen-finsterhennen-39607",
+          "cycle-d-enseignement-ii-4-lecons-ttg-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39607"
         ],
         "en": [
-          "mr-lehrperson-zyklus-3-12-13-lektionen-schulen-sigriswil-sigriswil-39140"
+          "mr-lehrperson-zyklus-3-12-13-lektionen-schulen-sigriswil-sigriswil-39140",
+          "teacher-cycle-ii-3-lessons-sports-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39122"
         ],
         "de": [
-          "mr-lehrperson-zyklus-3-12-13-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sigrisw-39140"
+          "mr-lehrperson-zyklus-3-12-13-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sigrisw-39140",
+          "lehrperson-zyklus-ii-3-lektionen-sport-schule-finsterhennen-siselen-finsterhennen-39122"
         ],
         "fr": [
-          "mr-lehrperson-zyklus-3-12-13-lektionen-schulen-sigriswil-sigriswil-39140"
+          "mr-lehrperson-zyklus-3-12-13-lektionen-schulen-sigriswil-sigriswil-39140",
+          "cycle-d-enseignement-ii-3-lecons-sports-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39122"
         ]
       },
       "firstSeenAt": "2026-07-08T22:15:21.263Z",
@@ -3917,7 +3931,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.467Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4275,7 +4288,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T22:44:55.081Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4887,7 +4899,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.466Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5000,15 +5011,15 @@
       "titleByLocale": {
         "de": "Lehrperson 4. Klasse (10-14L), Stellvertretung zwischen Sommer- und Herbstferien",
         "it": "Lehrperson 4. Klasse (10-14L), Stellvertretung zwischen Sommer- e Herbstferien",
-        "en": "Lehrperson 4. Klasse (10-14L), Stellvertretung zwischen Sommer- und Herbstferien",
-        "fr": "Lehrperson 4. Klasse (10-14L), Stellvertretung zwischen Sommer- und Herbstferien"
+        "en": "Teacher 4th grade (10-14L), deputy between summer and autumn holidays",
+        "fr": "Enseignant en 4e année (10-14L), adjoint entre les vacances d'été et d'automne"
       },
       "description": "Porträt\nDie Schule Mösli ist eine von vier teilautonomen Quartierschulen in Ostermundigen. An unserer Schule unterrichten gegen 80 Lehrpersonen ca. 550 Kinder vom Kindergarten bis zum 9. Schuljahr. (7 Kindergärten, 12 Klassen 1. – 6. Schuljahr, 9 Sek I-Klassen). Die Schule Mösli wird von einer eigenen Schulleitung pädagogisch und administrativ geleitet und verfügt über eine Schulsozialarbeiterin und eine Tagesschule vor Ort.\n\nAufgaben\nSie unterrichten als Lehrperson an einer unserer 4. Klassen. Das Pensum enthält 10 Lektionen Unterricht in folgenden Fächern: Deutsch, NMG, Sport, auf Wunsch auch Musik und kann ergänzt werden durch 4Lektionen Teamteaching in der gleichen Klasse.\n\nAnforderungen\nSie haben die Ausbildung zur Lehrperson Primarstufe abgeschlossen oder sind in der Ausbildung dazu. Sie sind eine pflichtbewusste, kommunikative und belastbare Persönlichkeit und sind am Umgang und der Arbeit mit Kindern und Eltern mit multikulturellem Hintergrund interessiert. Ausserdem haben Sie Freude an einer engen Zusammenarbeit im Klassenteam, mit der IF-Lehrperson und im Kollegium.\n\nWir bieten\nWir bieten ein initiatives und gut funktionierendes Kollegium, ein spannendes Arbeitsfeld und eine enge, unterstützende Zusammenarbeit im Klassenteam. Es handelt sich um eine befristete Stelle als Stellvertretung vom 1.8.2026 - 30.09.2026.\nVoraussichtliche Unterrichtstage: Montag, Donnerstag und Freitag\n\nBewerbungsgespräche: Woche vom 27.07.-31.07.2026 online, Woche vom 03.08 vor Ort",
       "descriptionByLocale": {
         "de": "Porträt\nDie Schule Mösli ist eine von vier teilautonomen Quartierschulen in Ostermundigen. An unserer Schule unterrichten gegen 80 Lehrpersonen ca. 550 Kinder vom Kindergarten bis zum 9. Schuljahr. (7 Kindergärten, 12 Klassen 1. – 6. Schuljahr, 9 Sek I-Klassen). Die Schule Mösli wird von einer eigenen Schulleitung pädagogisch und administrativ geleitet und verfügt über eine Schulsozialarbeiterin und eine Tagesschule vor Ort.\n\nAufgaben\nSie unterrichten als Lehrperson an einer unserer 4. Klassen. Das Pensum enthält 10 Lektionen Unterricht in folgenden Fächern: Deutsch, NMG, Sport, auf Wunsch auch Musik und kann ergänzt werden durch 4Lektionen Teamteaching in der gleichen Klasse.\n\nAnforderungen\nSie haben die Ausbildung zur Lehrperson Primarstufe abgeschlossen oder sind in der Ausbildung dazu. Sie sind eine pflichtbewusste, kommunikative und belastbare Persönlichkeit und sind am Umgang und der Arbeit mit Kindern und Eltern mit multikulturellem Hintergrund interessiert. Ausserdem haben Sie Freude an einer engen Zusammenarbeit im Klassenteam, mit der IF-Lehrperson und im Kollegium.\n\nWir bieten\nWir bieten ein initiatives und gut funktionierendes Kollegium, ein spannendes Arbeitsfeld und eine enge, unterstützende Zusammenarbeit im Klassenteam. Es handelt sich um eine befristete Stelle als Stellvertretung vom 1.8.2026 - 30.09.2026.\nVoraussichtliche Unterrichtstage: Montag, Donnerstag und Freitag\n\nBewerbungsgespräche: Woche vom 27.07.-31.07.2026 online, Woche vom 03.08 vor Ort",
-        "it": "Porträt\nDie Schule Mösli ist eine von vier teilautonomen Quartierschulen in Ostermundigen. An unserer Schule unterrichten gegen 80 Lehrpersonen ca. 550 Kinder vom Kindergarten bis zum 9. Schuljahr. (7 Kindergärten, 12 Klassen 1. – 6. Schuljahr, 9 Sek I-Klassen). Die Schule Mösli wird von einer eigenen Schulleitung pädagogisch und administrativ geleitet und verfügt über eine Schulsozialarbeiterin und eine Tagesschule vor Ort.\n\nAufgaben\nSie unterrichten als Lehrperson an einer unserer 4. Klassen. Das Pensum enthält 10 Lektionen Unterricht in folgenden Fächern: Deutsch, NMG, Sport, auf Wunsch auch Musik und kann ergänzt werden durch 4Lektionen Teamteaching in der gleichen Klasse.\n\nAnforderungen\nSie haben die Ausbildung zur Lehrperson Primarstufe abgeschlossen oder sind in der Ausbildung dazu. Sie sind eine pflichtbewusste, kommunikative und belastbare Persönlichkeit und sind am Umgang und der Arbeit mit Kindern und Eltern mit multikulturellem Hintergrund interessiert. Ausserdem haben Sie Freude an einer engen Zusammenarbeit im Klassenteam, mit der IF-Lehrperson und im Kollegium.\n\nWir bieten\nWir bieten ein initiatives und gut funktionierendes Kollegium, ein spannendes Arbeitsfeld und eine enge, unterstützende Zusammenarbeit im Klassenteam. Es handelt sich um eine befristete Stelle als Stellvertretung vom 1.8.2026 - 30.09.2026.\nVoraussichtliche Unterrichtstage: Montag, Donnerstag und Freitag\n\nBewerbungsgespräche: Woche vom 27.07.-31.07.2026 online, Woche vom 03.08 vor Ort",
-        "en": "Porträt\nDie Schule Mösli ist eine von vier teilautonomen Quartierschulen in Ostermundigen. An unserer Schule unterrichten gegen 80 Lehrpersonen ca. 550 Kinder vom Kindergarten bis zum 9. Schuljahr. (7 Kindergärten, 12 Klassen 1. – 6. Schuljahr, 9 Sek I-Klassen). Die Schule Mösli wird von einer eigenen Schulleitung pädagogisch und administrativ geleitet und verfügt über eine Schulsozialarbeiterin und eine Tagesschule vor Ort.\n\nAufgaben\nSie unterrichten als Lehrperson an einer unserer 4. Klassen. Das Pensum enthält 10 Lektionen Unterricht in folgenden Fächern: Deutsch, NMG, Sport, auf Wunsch auch Musik und kann ergänzt werden durch 4Lektionen Teamteaching in der gleichen Klasse.\n\nAnforderungen\nSie haben die Ausbildung zur Lehrperson Primarstufe abgeschlossen oder sind in der Ausbildung dazu. Sie sind eine pflichtbewusste, kommunikative und belastbare Persönlichkeit und sind am Umgang und der Arbeit mit Kindern und Eltern mit multikulturellem Hintergrund interessiert. Ausserdem haben Sie Freude an einer engen Zusammenarbeit im Klassenteam, mit der IF-Lehrperson und im Kollegium.\n\nWir bieten\nWir bieten ein initiatives und gut funktionierendes Kollegium, ein spannendes Arbeitsfeld und eine enge, unterstützende Zusammenarbeit im Klassenteam. Es handelt sich um eine befristete Stelle als Stellvertretung vom 1.8.2026 - 30.09.2026.\nVoraussichtliche Unterrichtstage: Montag, Donnerstag und Freitag\n\nBewerbungsgespräche: Woche vom 27.07.-31.07.2026 online, Woche vom 03.08 vor Ort",
-        "fr": "Porträt\nDie Schule Mösli ist eine von vier teilautonomen Quartierschulen in Ostermundigen. An unserer Schule unterrichten gegen 80 Lehrpersonen ca. 550 Kinder vom Kindergarten bis zum 9. Schuljahr. (7 Kindergärten, 12 Klassen 1. – 6. Schuljahr, 9 Sek I-Klassen). Die Schule Mösli wird von einer eigenen Schulleitung pädagogisch und administrativ geleitet und verfügt über eine Schulsozialarbeiterin und eine Tagesschule vor Ort.\n\nAufgaben\nSie unterrichten als Lehrperson an einer unserer 4. Klassen. Das Pensum enthält 10 Lektionen Unterricht in folgenden Fächern: Deutsch, NMG, Sport, auf Wunsch auch Musik und kann ergänzt werden durch 4Lektionen Teamteaching in der gleichen Klasse.\n\nAnforderungen\nSie haben die Ausbildung zur Lehrperson Primarstufe abgeschlossen oder sind in der Ausbildung dazu. Sie sind eine pflichtbewusste, kommunikative und belastbare Persönlichkeit und sind am Umgang und der Arbeit mit Kindern und Eltern mit multikulturellem Hintergrund interessiert. Ausserdem haben Sie Freude an einer engen Zusammenarbeit im Klassenteam, mit der IF-Lehrperson und im Kollegium.\n\nWir bieten\nWir bieten ein initiatives und gut funktionierendes Kollegium, ein spannendes Arbeitsfeld und eine enge, unterstützende Zusammenarbeit im Klassenteam. Es handelt sich um eine befristete Stelle als Stellvertretung vom 1.8.2026 - 30.09.2026.\nVoraussichtliche Unterrichtstage: Montag, Donnerstag und Freitag\n\nBewerbungsgespräche: Woche vom 27.07.-31.07.2026 online, Woche vom 03.08 vor Ort"
+        "it": "Ritratto\nLa scuola Mösli è una delle quattro scuole di quartiere semi-autonoma a Ostermundigen. Nella nostra scuola circa 80 insegnanti insegnano circa 550 bambini dall'asilo al 9 ° anno scolastico. (7 asili, 12 gradi 1 ° – 6 ° anno scolastico, 9 secondi I classi). La scuola Mösli è gestita dalla propria gestione scolastica pedagogica e amministrativa e ha un assistente sociale scolastico e una scuola diurna in loco.\n\nCompiti\nInsegni come insegnante in una delle nostre 4. classi. Il corso contiene 10 lezioni nei seguenti argomenti: tedesco, NMG, sport, su richiesta anche musica e può essere completato da 4 lezioni Teamteaching nella stessa classe.\n\nRequisiti\nAvete completato o siete in formazione come insegnante primario. Essi sono una personalità dutiosa, comunicativa e resiliente e sono interessati a trattare e lavorare con bambini e genitori da un background multiculturale. Ti piace anche lavorare a stretto contatto con la squadra di classe, l'insegnante IF e il college.\n\nOffriamo\nOffriamo un'iniziativa e un college ben funzionante, un campo di lavoro emozionante e una stretta e solida collaborazione nella squadra di classe. È una posizione temporanea come deputato da 1.8.2026 - 30.09.2026.\nGiorni di lezione previsti: lunedì, giovedì e venerdì\n\nInterviste di applicazione: settimana dal 27.07.-31.07.2026 online, settimana dal 03.08 sul sito",
+        "en": "Portrait\nThe school Mösli is one of four semi-autonomous quarter schools in Ostermundigen. At our school about 80 teachers teach about 550 children from kindergarten to the 9th school year. (7 kindergartens, 12 grades 1st – 6th school year, 9 seconds I classes). The school Mösli is run by its own school management pedagogically and administratively and has a school social worker and a day school on site.\n\nTasks\nYou teach as a teacher in one of our 4th classes. The course contains 10 lessons lessons in the following subjects: German, NMG, sports, on request also music and can be supplemented by 4 lessons Teamteaching in the same class.\n\nRequirements\nYou have completed or are in training as a primary teacher. They are a dutiful, communicative and resilient personality and are interested in dealing with and working with children and parents from a multicultural background. You also enjoy working closely with the class team, the IF teacher and the college.\n\nWe offer\nWe offer an initiative and well-functioning college, an exciting field of work and a close, supportive cooperation in the class team. It is a temporary position as a deputy from 1.8.2026 - 30.09.2026.\nExpected lesson days: Monday, Thursday and Friday\n\nApplication interviews: week from 27.07.-31.07.2026 online, week from 03.08 on site",
+        "fr": "Portrait\nL'école Mösli est l'une des quatre écoles semi-autonomes du quartier d'Ostermundige. À notre école, environ 80 enseignants enseignent environ 550 enfants de la maternelle à la neuvième année scolaire. (7 maternelles, 12 classes de 1re à 6e année scolaire, 9 secondes de cours I). L'école Mösli est gérée par sa propre direction pédagogique et administrative et dispose d'un assistant social scolaire et d'une école de jour sur place.\n\nTâche\nTu enseignes dans une de nos 4e classes. Le cours comprend 10 leçons dans les matières suivantes: Allemand, NMG, sport, sur demande aussi musique et peut être complété par 4 leçons Teamteaching dans la même classe.\n\nExigences\nVous avez terminé ou êtes en formation en tant qu'enseignant primaire. Ils sont une personnalité consciencieuse, communicative et résiliente et sont intéressés à traiter et à travailler avec des enfants et des parents issus de milieux multiculturels. Vous aimez aussi travailler en étroite collaboration avec l'équipe de classe, le professeur de la FI et le collège.\n\nNous offrons\nNous offrons une initiative et un collège fonctionnel, un domaine de travail passionnant et une coopération étroite et solidaire au sein de l'équipe de classe. Il s'agit d'un poste temporaire en tant qu'adjoint du 1.8.2026 au 30.09.2026.\nJours de leçon prévus: lundi, jeudi et vendredi\n\nEntrevues sur demande: semaine du 27.07.-31.07.2026 en ligne, semaine du 03.08 sur place"
       },
       "location": "Ostermundigen",
       "canton": "BE",
@@ -5046,7 +5057,6 @@
       "previousSlugs": [
         "lehrperson-4-klasse-10-14l-stellvertretung-zwischen-sommer-und-herbstferien-schule-mosli-39804"
       ],
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5577,7 +5587,7 @@
         "it": "Livello di aiuto di base",
         "en": "Basic class aid level",
         "de": "Klassenhilfe Basisstufe",
-        "fr": "Klassenhilfe Basisstufe"
+        "fr": "Niveau d'aide de base"
       },
       "description": "Porträt\nDie Schule Gurzelen ist eine kleine, familiäre Schule. Die knapp 80 Kinder werden in 4 Klassen unterrichtet. Wir führen zwei Basisstufen und auf der Primarstufe zwei Mischklassen (3./4.Klasse und 5./6. Klasse). Die Schülerinnen und Schüler der Oberstufe besuchen das Oberstufenzentrum in Wattenwil oder in Seftigen.\n\nAufgaben\nSie arbeiten zum Schuljahresstart am Mittwoch von 8.20 Uhr bis 9.50 Uhr und am Freitag von 10.20 Uhr bis 11.50 Uhr in der Basisstufe mit.\nSie beaufsichtigen und unterstützen Kinder bei Gruppen oder Einzelarbeiten. Sie stellen die Aufsicht in verschiedenen Räumen sicher. Sie helfen bei alltäglichen und nicht direkt unterrichtsrelevanten Handlungen mit.\n\nAnforderungen\nSie sind offen für eine konstruktive Zusammenarbeit und arbeiten gerne mit Kindern.\n\nWir bieten\n- 30 Arbeitsstunden als Klassenhilfe\n- Angenehmes Arbeitsklima in einem kleinen Team\n- Überschaubare, ländliche Schule",
       "descriptionByLocale": {
@@ -5627,7 +5637,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:46:19.623Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5748,7 +5757,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Klassenhilfe 3.–6. Klasse (16–18 Std. pro Woche)",
       "titleByLocale": {
-        "it": "Klassenhilfe 3.–6. Klasse (16–18 Std. pro Woche)",
+        "it": "Aiuto di classe 3°–6° classe (16–18 ore settimanali)",
         "en": "Class aid 3rd–6th class (16–18 hours per week)",
         "de": "Klassenhilfe 3.–6. Klasse (16–18 Std. pro Woche)",
         "fr": "Aides de catégorie 3e à 6e classe (16 à 18 heures par semaine)"
@@ -5802,7 +5811,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:15:21.257Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5891,7 +5899,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.465Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -6005,7 +6012,7 @@
       "title": "IF-Lehrperson ( 6L bVSA) Zyklus 3 in Spiez",
       "titleByLocale": {
         "it": "Istruttore IF ( 6L bVSA) Ciclo 3 a Spiez",
-        "en": "IF-Lehrperson ( 6L bVSA) Zyklus 3 in Spiez",
+        "en": "IF instructor ( 6L bVSA) Cycle 3 in Spiez",
         "de": "IF-Lehrperson ( 6L bVSA) Zyklus 3 in Spiez",
         "fr": "instructeur IF ( 6L bVSA) Cycle 3 à Spiez"
       },
@@ -6059,7 +6066,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:51:43.172Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -6521,7 +6527,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:46:19.621Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -6719,7 +6724,7 @@
       "title": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
       "titleByLocale": {
         "it": "Flexible, kreative e vielseitige Lehrperson (Z2/3) 50%",
-        "en": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
+        "en": "Flexible, creative and versatile teacher (Z2/3) 50 %",
         "de": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
         "fr": "Enseignant(e) flexible, créatif(ve) et polyvalent(e) (Z2/3) 50%"
       },
@@ -6771,7 +6776,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.463Z",
-      "needsRetranslation": true,
       "salaryMin": 34300,
       "salaryMax": 52000,
       "baseSalary": {
@@ -7797,7 +7801,7 @@
       "title": "DaZ-Lehrperson",
       "titleByLocale": {
         "it": "Istruttore DAZ",
-        "en": "DaZ-Lehrperson",
+        "en": "DAZ instructor",
         "de": "DaZ-Lehrperson",
         "fr": "instructeur DAZ"
       },
@@ -7849,7 +7853,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:24:04.329Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -7938,7 +7941,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.458Z",
-      "needsRetranslation": true,
       "salaryMin": 75600,
       "salaryMax": 114400,
       "baseSalary": {
@@ -7968,7 +7970,7 @@
       "title": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
       "titleByLocale": {
         "it": "Das Weissenheim cerca: Insegnante di classe, Ciclo 2, 14 lezioni",
-        "en": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
+        "en": "The Weissenheim is looking for: class teacher, cycle 2, 14 lessons",
         "de": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
         "fr": "Das Weissenheim recherche : Enseignant·e de classe, Cycle 2, 14 leçons"
       },
@@ -8026,7 +8028,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.458Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8302,7 +8303,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:55:33.367Z",
-      "needsRetranslation": true,
       "salaryMin": 41100,
       "salaryMax": 62400,
       "baseSalary": {
@@ -8367,7 +8367,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-16T22:55:33.368Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8674,15 +8673,15 @@
       "titleByLocale": {
         "de": "23 Lektionen IF an drei 5./6. Klassen, Stellvertretung ab dem 10.08. für 6 Wochen, Pensum aufteilbar, Stundenplan verhandelbar",
         "it": "23 Lektionen IF an drei 5./6. Klassen, Stellvertretung ab dem 10.08. per 6 Wochen, Pensum aufteilbar, Stundenplan verhandelbar",
-        "en": "23 Lektionen IF an drei 5./6. Klassen, Stellvertretung ab dem 10.08. für 6 Wochen, Pensum aufteilbar, Stundenplan verhandelbar",
-        "fr": "23 Lektionen IF an drei 5./6. Klassen, Stellvertretung ab dem 10.08. für 6 Wochen, Pensum aufteilbar, Stundenplan verhandelbar"
+        "en": "23 lessons IF at three 5./6. Classes, deputy from 10.08. for 6 weeks, timetable negotiable",
+        "fr": "23 leçons FI à trois 5./6. Classes, adjoint à partir de 10.08. pendant 6 semaines, calendrier négociable"
       },
       "description": "Porträt\nDie Schule Ipsach umfasst Kindergarten, Primarstufe und Tagesschule an einem Standort. Wir betreuen und unterrichten rund 300 Kinder und arbeiten in einem Team von 40 Lehrpersonen zusammen. Unsere Gemeinde Ipsach zählt 4'000 Einwohnerinnen und Einwohner, weist eine hohe Wohnqualität auf und verfügt am See über ein schönes Naherholungsgebiet.\n\nAufgaben\nDu begleitest Schülerinnen und Schüler mit besonderem Förderbedarf in unseren drei Parallelklassen. Du unterstützest und berätst die Lehrpersonen und Eltern. Mit den drei Klassenlehrpersonen stehst du in engem Austausch und bietest Einzel- und Gruppenförderungen an.\nGemeinsam mit der Heilpädagogin im Zyklus 1 führst du den Pausenkiosk durch.\nBist du auf der Suche nach einem professionellen heilpädagogischen Team an einer integrativen Schule? Dann bist du bei uns genau richtig und wir freuen uns auf deine Bewerbung.\n\nAnforderungen\nHeilpädagogische Ausbildung oder Ausbildung als Lehrperson\n\nWir bieten\n• Kompetentes und unterstützendes Team bestehend aus einer ausgebildeten Heilpädagogin, zwei Heilpädagoginnen in Ausbildung und einer DaZ Lehrerin\n• Top ausgestattetes IF Zimmer und IF Büro\n• Engagiertes und hilfsbereites Kollegium\n• Schulleiterin mit heilpädagogischem Hintergrund",
       "descriptionByLocale": {
         "de": "Porträt\nDie Schule Ipsach umfasst Kindergarten, Primarstufe und Tagesschule an einem Standort. Wir betreuen und unterrichten rund 300 Kinder und arbeiten in einem Team von 40 Lehrpersonen zusammen. Unsere Gemeinde Ipsach zählt 4'000 Einwohnerinnen und Einwohner, weist eine hohe Wohnqualität auf und verfügt am See über ein schönes Naherholungsgebiet.\n\nAufgaben\nDu begleitest Schülerinnen und Schüler mit besonderem Förderbedarf in unseren drei Parallelklassen. Du unterstützest und berätst die Lehrpersonen und Eltern. Mit den drei Klassenlehrpersonen stehst du in engem Austausch und bietest Einzel- und Gruppenförderungen an.\nGemeinsam mit der Heilpädagogin im Zyklus 1 führst du den Pausenkiosk durch.\nBist du auf der Suche nach einem professionellen heilpädagogischen Team an einer integrativen Schule? Dann bist du bei uns genau richtig und wir freuen uns auf deine Bewerbung.\n\nAnforderungen\nHeilpädagogische Ausbildung oder Ausbildung als Lehrperson\n\nWir bieten\n• Kompetentes und unterstützendes Team bestehend aus einer ausgebildeten Heilpädagogin, zwei Heilpädagoginnen in Ausbildung und einer DaZ Lehrerin\n• Top ausgestattetes IF Zimmer und IF Büro\n• Engagiertes und hilfsbereites Kollegium\n• Schulleiterin mit heilpädagogischem Hintergrund",
-        "it": "Porträt\nDie Schule Ipsach umfasst Kindergarten, Primarstufe und Tagesschule an einem Standort. Wir betreuen und unterrichten rund 300 Kinder und arbeiten in einem Team von 40 Lehrpersonen zusammen. Unsere Gemeinde Ipsach zählt 4'000 Einwohnerinnen und Einwohner, weist eine hohe Wohnqualität auf und verfügt am See über ein schönes Naherholungsgebiet.\n\nAufgaben\nDu begleitest Schülerinnen und Schüler mit besonderem Förderbedarf in unseren drei Parallelklassen. Du unterstützest und berätst die Lehrpersonen und Eltern. Mit den drei Klassenlehrpersonen stehst du in engem Austausch und bietest Einzel- und Gruppenförderungen an.\nGemeinsam mit der Heilpädagogin im Zyklus 1 führst du den Pausenkiosk durch.\nBist du auf der Suche nach einem professionellen heilpädagogischen Team an einer integrativen Schule? Dann bist du bei uns genau richtig und wir freuen uns auf deine Bewerbung.\n\nAnforderungen\nHeilpädagogische Ausbildung oder Ausbildung als Lehrperson\n\nWir bieten\n• Kompetentes und unterstützendes Team bestehend aus einer ausgebildeten Heilpädagogin, zwei Heilpädagoginnen in Ausbildung und einer DaZ Lehrerin\n• Top ausgestattetes IF Zimmer und IF Büro\n• Engagiertes und hilfsbereites Kollegium\n• Schulleiterin mit heilpädagogischem Hintergrund",
-        "en": "Porträt\nDie Schule Ipsach umfasst Kindergarten, Primarstufe und Tagesschule an einem Standort. Wir betreuen und unterrichten rund 300 Kinder und arbeiten in einem Team von 40 Lehrpersonen zusammen. Unsere Gemeinde Ipsach zählt 4'000 Einwohnerinnen und Einwohner, weist eine hohe Wohnqualität auf und verfügt am See über ein schönes Naherholungsgebiet.\n\nAufgaben\nDu begleitest Schülerinnen und Schüler mit besonderem Förderbedarf in unseren drei Parallelklassen. Du unterstützest und berätst die Lehrpersonen und Eltern. Mit den drei Klassenlehrpersonen stehst du in engem Austausch und bietest Einzel- und Gruppenförderungen an.\nGemeinsam mit der Heilpädagogin im Zyklus 1 führst du den Pausenkiosk durch.\nBist du auf der Suche nach einem professionellen heilpädagogischen Team an einer integrativen Schule? Dann bist du bei uns genau richtig und wir freuen uns auf deine Bewerbung.\n\nAnforderungen\nHeilpädagogische Ausbildung oder Ausbildung als Lehrperson\n\nWir bieten\n• Kompetentes und unterstützendes Team bestehend aus einer ausgebildeten Heilpädagogin, zwei Heilpädagoginnen in Ausbildung und einer DaZ Lehrerin\n• Top ausgestattetes IF Zimmer und IF Büro\n• Engagiertes und hilfsbereites Kollegium\n• Schulleiterin mit heilpädagogischem Hintergrund",
-        "fr": "Porträt\nDie Schule Ipsach umfasst Kindergarten, Primarstufe und Tagesschule an einem Standort. Wir betreuen und unterrichten rund 300 Kinder und arbeiten in einem Team von 40 Lehrpersonen zusammen. Unsere Gemeinde Ipsach zählt 4'000 Einwohnerinnen und Einwohner, weist eine hohe Wohnqualität auf und verfügt am See über ein schönes Naherholungsgebiet.\n\nAufgaben\nDu begleitest Schülerinnen und Schüler mit besonderem Förderbedarf in unseren drei Parallelklassen. Du unterstützest und berätst die Lehrpersonen und Eltern. Mit den drei Klassenlehrpersonen stehst du in engem Austausch und bietest Einzel- und Gruppenförderungen an.\nGemeinsam mit der Heilpädagogin im Zyklus 1 führst du den Pausenkiosk durch.\nBist du auf der Suche nach einem professionellen heilpädagogischen Team an einer integrativen Schule? Dann bist du bei uns genau richtig und wir freuen uns auf deine Bewerbung.\n\nAnforderungen\nHeilpädagogische Ausbildung oder Ausbildung als Lehrperson\n\nWir bieten\n• Kompetentes und unterstützendes Team bestehend aus einer ausgebildeten Heilpädagogin, zwei Heilpädagoginnen in Ausbildung und einer DaZ Lehrerin\n• Top ausgestattetes IF Zimmer und IF Büro\n• Engagiertes und hilfsbereites Kollegium\n• Schulleiterin mit heilpädagogischem Hintergrund"
+        "it": "Ritratto\nLa scuola Ipsach comprende l'asilo, il livello primario e la scuola diurna in una posizione. Ci prendiamo cura e insegniamo circa 300 bambini e lavoriamo insieme in una squadra di 40 insegnanti. Il nostro comune Ipsach ha 4.000 abitanti, ha un'alta qualità di vita e ha una bella zona ricreativa locale sul lago.\n\nCompiti\nAccompagnate gli studenti con esigenze particolari nelle nostre tre classi parallele. Lei sostiene e consiglia gli insegnanti e i genitori. Con i tre insegnanti di classe siete in stretto scambio e offrono supporto individuale e di gruppo.\nInsieme al pedagogogogo curativo nel ciclo 1, eseguirai il chiosco pausa.\nSei alla ricerca di un team di formazione professionale curativa in una scuola integrativa? Allora avete esattamente ragione con noi e non vediamo l'ora della vostra applicazione.\n\nRequisiti\nFormazione professionale\n\nOffriamo\n• Squadra competente e solidale composta da un pedagogoga curativo addestrato, due pedagoghi curativi in formazione e un insegnante DaZ\n• Camera IF attrezzata e ufficio IF\n• Iscritto e disponibile college\n• Preside con sfondo curativo",
+        "en": "Portrait\nThe school Ipsach includes kindergarten, primary level and day school in one location. We look after and teach around 300 children and work together in a team of 40 teachers. Our municipality Ipsach has 4,000 inhabitants, has a high quality of living and has a beautiful local recreation area on the lake.\n\nTasks\nYou accompany students with special needs in our three parallel classes. You support and advise the teachers and parents. With the three class teachers you are in close exchange and offer individual and group support.\nTogether with the curative pedagogue in cycle 1, you will perform the break kiosk.\nAre you looking for a professional curative education team at an integrative school? Then you are exactly right with us and we look forward to your application.\n\nRequirements\nHealing education or teacher training\n\nWe offer\n• Competent and supportive team consisting of a trained curative pedagogue, two curative pedagogues in training and a DaZ teacher\n• Top equipped IF room and IF office\n• Committed and helpful college\n• Principal with a curative background",
+        "fr": "Portrait\nL'école Ipsach comprend la maternelle, le primaire et l'école de jour dans un seul endroit. Nous prenons soin et enseignons environ 300 enfants et travaillons ensemble dans une équipe de 40 enseignants. Notre municipalité Ipsach compte 4 000 habitants, a une grande qualité de vie et a une belle zone de loisirs local sur le lac.\n\nTâche\nVous accompagnez des étudiants ayant des besoins spéciaux dans nos trois cours parallèles. Vous aidez et conseillez les enseignants et les parents. Avec les trois professeurs de classe, vous êtes en échange étroit et offrez un soutien individuel et de groupe.\nAvec la pédagogie curative du cycle 1, vous effectuerez le kiosque de pause.\nVous cherchez une équipe professionnelle d'éducation curative dans une école intégrative ? Alors vous avez raison avec nous et nous attendons avec impatience votre candidature.\n\nExigences\nÉducation à la guérison ou formation des enseignants\n\nNous offrons\n• Équipe compétente et d'appui composée d'une pédagogie curative formée, de deux pédagogies curatives en formation et d'un enseignant DaZ\n• Top équipé salle IF et bureau IF\n• Université engagée et serviable\n• Directeur avec une formation curative"
       },
       "location": "Ipsach",
       "canton": "BE",
@@ -8709,7 +8708,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "23-lektionen-if-an-drei-5-6-klassen-stellvertretung-ab-dem-10-08-fur-6-wochen-pensum-39099"
@@ -9055,7 +9053,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.452Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -9136,7 +9133,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:46:19.616Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -9507,7 +9503,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.450Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -9622,7 +9617,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.449Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -9735,7 +9729,7 @@
       "title": "Fachlehrperson Sek1, 16.5 Lektionen, 2. Quartal im SJ 26/27",
       "titleByLocale": {
         "it": "Insegnante di scuola secondaria I, 16,5 lezioni, 2° trimestre dell'anno scolastico 26/27",
-        "en": "Fachlehrperson Sek1, 16.5 Lektionen, 2. Quartal im SJ 26/27",
+        "en": "Specialist teacher Sek1, 16.5 lessons, 2nd quarter in SJ 26/27",
         "de": "Fachlehrperson Sek1, 16.5 Lektionen, 2. Quartal im SJ 26/27",
         "fr": "Enseignant(e) secondaire I, 16,5 leçons, 2e trimestre de l'année scolaire 26/27"
       },
@@ -9799,8 +9793,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "ksml-26d7ea637220",
