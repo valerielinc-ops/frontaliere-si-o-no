@@ -1,16 +1,16 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-07-25T10:43:03.969Z",
+  "generatedAt": "2026-07-25T21:59:10.331Z",
   "total": 14,
   "newCount": 0,
   "updatedCount": 14,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 18266,
-  "avgDurationMs": 18266,
+  "durationMs": 17302,
+  "avgDurationMs": 17302,
   "durationHistory": [
-    18266
+    17302
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -116,7 +116,8 @@
       "streetAddress": "",
       "postalCode": "9000",
       "firstSeenAt": "2026-05-17T10:26:05.869Z",
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
