@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "meccatronico-di-automobili-vl-m-f-100",
-        "en": "meccatronico-di-automobili-vl-m-f-100-amag-group-lugano",
-        "de": "meccatronico-di-automobili-vl-m-f-100",
-        "fr": "meccatronico-di-automobili-vl-m-f-100"
+        "en": "vl-car-mechatronics-m-f-100-amag-group-lugano",
+        "de": "vl-car-mechatronik-m-w-100-amag-group-lugano",
+        "fr": "vl-mecatronique-de-voiture-m-f-100-amag-group-lugano"
       },
       "id": "amag-group-6e796829291d",
       "salaryMin": 49500,
@@ -57,7 +57,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-24T22:14:58.274Z"
+      "firstSeenAt": "2026-07-24T22:14:58.274Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "meccatronico-di-automobili-vl-m-f-100-amag-group-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "meccatronico-di-automobili-vl-m-f-100-amag-group-lugano"
+      ]
     }
   ]
 }

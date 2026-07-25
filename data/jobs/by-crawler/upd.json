@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "lehrstelle-kochin-koch-efz-upd-bern",
         "it": "apprendistato-kochin-koch-cfc-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "lehrstelle-kochin-koch-efz-upd-bern",
-        "fr": "lehrstelle-kochin-koch-efz-upd-bern"
+        "en": "apprenticeship-chef-koch-efz-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "chef-d-apprentissage-koch-efz-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -54,6 +54,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-kochin-koch-efz-upd-bern"
+        ],
+        "en": [
+          "lehrstelle-kochin-koch-efz-upd-bern"
+        ],
+        "fr": [
           "lehrstelle-kochin-koch-efz-upd-bern"
         ]
       },
