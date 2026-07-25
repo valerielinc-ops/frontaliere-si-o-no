@@ -8934,6 +8934,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-lavena-ponte-tresa-frontaliere.title': 'Leben in Lavena Ponte Tresa und Arbeiten im Tessin',
     'blog.article.vivere-lavena-ponte-tresa-frontaliere.excerpt': 'Vollständiger Leitfaden zum Pendeln zwischen Lavena Ponte Tresa und dem Kanton Tessin: Verbindungen, Fahrzeiten, Kosten und Steuerregeln für Grenzgänger.',
     'blog.article.vivere-lavena-ponte-tresa-frontaliere.imageAlt': 'Ansicht von Lavena Ponte Tresa nahe der Schweizer Grenze',
+    'blog.article.sequestrati-7200-euro.title': 'Mehr Italien: Tirano; Grenzkontrollen, beschlagnahmt 7200 Euro',
+    'blog.article.sequestrati-7200-euro.excerpt': 'Die Finanzpolizei von Tirano hat 7500 Euro von einem 62-jährigen Italiener auf dem Weg in die Schweiz beschlagnahmt.',
+    'blog.article.sequestrati-7200-euro.imageAlt': 'Ein Grenzübergang zwischen Italien und der Schweiz, mit einem Kontrolleur, der einen Fahrzeug überprüft.',
 };
 
 export default blogMetaDe;

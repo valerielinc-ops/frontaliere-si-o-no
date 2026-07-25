@@ -8935,6 +8935,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-lavena-ponte-tresa-frontaliere.title': 'Living in Lavena Ponte Tresa and working in Ticino',
     'blog.article.vivere-lavena-ponte-tresa-frontaliere.excerpt': 'Complete guide to commuting between Lavena Ponte Tresa and the Canton of Ticino: connections, travel times, costs and tax rules for border workers.',
     'blog.article.vivere-lavena-ponte-tresa-frontaliere.imageAlt': 'View of Lavena Ponte Tresa near the Swiss border',
+    'blog.article.sequestrati-7200-euro.title': 'More Italy: Tyrant; checkpoints, seized 7200 euros',
+    'blog.article.sequestrati-7200-euro.excerpt': 'The Tirano Finance Guard seized 7,500 euros from a 62-year-old Italian on his way to Switzerland.',
+    'blog.article.sequestrati-7200-euro.imageAlt': 'A border crossing between Italy and Switzerland, with a controller inspecting a vehicle.',
 };
 
 export default blogMetaEn;
