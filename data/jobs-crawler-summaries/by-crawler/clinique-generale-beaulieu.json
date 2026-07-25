@@ -1,16 +1,16 @@
 {
   "key": "clinique-generale-beaulieu",
   "label": "Clinique Générale-Beaulieu",
-  "generatedAt": "2026-07-24T22:29:13.873Z",
-  "total": 2,
+  "generatedAt": "2026-07-25T11:09:21.384Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2969,
-  "avgDurationMs": 2969,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3059,
+  "avgDurationMs": 3059,
   "durationHistory": [
-    2969
+    3059
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135518323-infirmier-ere-instrumentiste",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-24T22:29:11.846Z",
+      "crawledAt": "2026-07-25T11:09:19.295Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -53,8 +53,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "clinique-generale-beaulieu-dd4750afef34",
       "slug": "unita-operativa-caregiver-clinique-generale-beaulieu-geneve",
@@ -96,5 +95,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
