@@ -1,16 +1,16 @@
 {
   "key": "croix-rouge-fribourgeoise",
   "label": "Croix-Rouge fribourgeoise",
-  "generatedAt": "2026-07-24T22:19:38.623Z",
+  "generatedAt": "2026-07-25T10:42:51.406Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4060,
-  "avgDurationMs": 4060,
+  "unchangedCount": 2,
+  "durationMs": 3400,
+  "avgDurationMs": 3400,
   "durationHistory": [
-    4060
+    3400
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://company.jobcloud.ch/fr/jobs/502b52ba-d781-416d-a177-27ac2a10c989",
       "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:19:35.095Z",
+      "crawledAt": "2026-07-25T10:42:48.290Z",
       "hiringOrganization": {
         "name": "Croix-Rouge fribourgeoise"
       },
@@ -60,96 +60,6 @@
       }
     },
     {
-      "id": "croix-rouge-fribourgeoise-1fb347edb232",
-      "slug": "koordinator-in-des-rotkreuz-notrufs-croix-rouge-fribourgeoise-fribourg",
-      "company": "Croix-Rouge fribourgeoise",
-      "companyKey": "croix-rouge-fribourgeoise",
-      "companyDomain": "croix-rouge-fr.ch",
-      "title": "Koordinator-in des Rotkreuz-Notrufs",
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://company.jobcloud.ch/fr/jobs/fe286ed3-2d71-4453-a2b1-e4e469c69461",
-      "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:19:35.219Z",
-      "hiringOrganization": {
-        "name": "Croix-Rouge fribourgeoise"
-      },
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "streetAddress": "Rue G.-Techtermann 2",
-      "postalCode": "1700",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sociale / Socio-sanitario",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://www.jobup.ch/fr/application/create/fe286ed3-2d71-4453-a2b1-e4e469c69461?utm_source=relationship&utm_medium=referral&utm_campaign=wb%3Ajobup%7Ctg%3Ab2c%7Ccn%3Ach%7Clg%3A%7Cmg%3Ajob-application%2Cnonbrand%2Cjob%7Ccd%3Akombi",
-      "department": "",
-      "_targetScope": {
-        "canton": "FR",
-        "location": "Fribourg"
-      },
-      "firstSeenAt": "2026-07-04T10:49:18.754Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "croix-rouge-fribourgeoise-b8671305575d",
-      "slug": "coordinateur-trice-de-l-alarme-croix-rouge-croix-rouge-fribourgeoise-fribourg",
-      "company": "Croix-Rouge fribourgeoise",
-      "companyKey": "croix-rouge-fribourgeoise",
-      "companyDomain": "croix-rouge-fr.ch",
-      "title": "Coordinateur-trice de l'Alarme Croix-Rouge",
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://company.jobcloud.ch/fr/jobs/a55e0f5b-afe7-4406-a15c-d0a73ef159fd",
-      "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-24T22:19:35.342Z",
-      "hiringOrganization": {
-        "name": "Croix-Rouge fribourgeoise"
-      },
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "streetAddress": "Rue G.-Techtermann 2",
-      "postalCode": "1700",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sociale / Socio-sanitario",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-30",
-      "applyUrl": "https://www.jobup.ch/fr/application/create/a55e0f5b-afe7-4406-a15c-d0a73ef159fd?utm_source=relationship&utm_medium=referral&utm_campaign=wb%3Ajobup%7Ctg%3Ab2c%7Ccn%3Ach%7Clg%3A%7Cmg%3Ajob-application%2Cnonbrand%2Cjob%7Ccd%3Akombi",
-      "department": "",
-      "_targetScope": {
-        "canton": "FR",
-        "location": "Fribourg"
-      },
-      "firstSeenAt": "2026-07-04T10:49:18.789Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
       "id": "croix-rouge-fribourgeoise-5aa01fedb997",
       "slug": "responsable-du-service-soutien-a-domicile-membre-de-la-direction-croix-rouge-fribourgeoise",
       "company": "Croix-Rouge fribourgeoise",
@@ -161,7 +71,7 @@
       "url": "https://company.jobcloud.ch/fr/jobs/962b0a39-e87f-4de4-a068-58083fcebac5",
       "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-24T22:19:35.473Z",
+      "crawledAt": "2026-07-25T10:42:48.328Z",
       "hiringOrganization": {
         "name": "Croix-Rouge fribourgeoise"
       },
@@ -196,5 +106,102 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "id": "croix-rouge-fribourgeoise-1fb347edb232",
+      "slug": "coordinatore-della-chiamata-d-emergenza-della-croce-rossa-croix-rouge-fribourgeoise-fribourg",
+      "company": "Croix-Rouge fribourgeoise",
+      "companyKey": "croix-rouge-fribourgeoise",
+      "companyDomain": "croix-rouge-fr.ch",
+      "title": "Koordinator-in des Rotkreuz-Notrufs",
+      "location": "Fribourg",
+      "canton": "FR",
+      "url": "https://company.jobcloud.ch/fr/jobs/fe286ed3-2d71-4453-a2b1-e4e469c69461",
+      "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-24T22:19:35.219Z",
+      "hiringOrganization": {
+        "name": "Croix-Rouge fribourgeoise"
+      },
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "streetAddress": "Rue G.-Techtermann 2",
+      "postalCode": "1700",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sociale / Socio-sanitario",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "applyUrl": "https://www.jobup.ch/fr/application/create/fe286ed3-2d71-4453-a2b1-e4e469c69461?utm_source=relationship&utm_medium=referral&utm_campaign=wb%3Ajobup%7Ctg%3Ab2c%7Ccn%3Ach%7Clg%3A%7Cmg%3Ajob-application%2Cnonbrand%2Cjob%7Ccd%3Akombi",
+      "department": "",
+      "_targetScope": {
+        "canton": "FR",
+        "location": "Fribourg"
+      },
+      "firstSeenAt": "2026-07-04T10:49:18.754Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "croix-rouge-fribourgeoise-b8671305575d",
+      "slug": "coordinatore-dell-allarme-della-croce-rossa-croix-rouge-fribourgeoise-fribourg",
+      "company": "Croix-Rouge fribourgeoise",
+      "companyKey": "croix-rouge-fribourgeoise",
+      "companyDomain": "croix-rouge-fr.ch",
+      "title": "Coordinateur-trice de l'Alarme Croix-Rouge",
+      "location": "Fribourg",
+      "canton": "FR",
+      "url": "https://company.jobcloud.ch/fr/jobs/a55e0f5b-afe7-4406-a15c-d0a73ef159fd",
+      "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-24T22:19:35.342Z",
+      "hiringOrganization": {
+        "name": "Croix-Rouge fribourgeoise"
+      },
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "streetAddress": "Rue G.-Techtermann 2",
+      "postalCode": "1700",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sociale / Socio-sanitario",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-30",
+      "applyUrl": "https://www.jobup.ch/fr/application/create/a55e0f5b-afe7-4406-a15c-d0a73ef159fd?utm_source=relationship&utm_medium=referral&utm_campaign=wb%3Ajobup%7Ctg%3Ab2c%7Ccn%3Ach%7Clg%3A%7Cmg%3Ajob-application%2Cnonbrand%2Cjob%7Ccd%3Akombi",
+      "department": "",
+      "_targetScope": {
+        "canton": "FR",
+        "location": "Fribourg"
+      },
+      "firstSeenAt": "2026-07-04T10:49:18.789Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ]
 }
