@@ -1,19 +1,21 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-07-24T22:12:28.282Z",
+  "generatedAt": "2026-07-25T10:54:29.479Z",
   "total": 40,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 25481,
-  "avgDurationMs": 25481,
+  "unchangedCount": 1,
+  "durationMs": 21135,
+  "avgDurationMs": 21135,
   "durationHistory": [
-    25481
+    21135
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "etat-de-vaud-5553",
       "slug": "gestore-di-pratiche-specializzate-h-f-etat-de-vaud-administration-cantonale-vaudoise-palezieux",
@@ -45,7 +47,7 @@
       "firstSeenAt": "2026-07-05T11:43:16.234Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -54,7 +56,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
