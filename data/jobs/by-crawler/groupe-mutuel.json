@@ -1,6 +1,6 @@
 {
   "crawlerKey": "groupe-mutuel",
-  "assembledAt": "2026-07-24T22:25:21.308Z",
+  "assembledAt": "2026-07-25T10:52:02.292Z",
   "jobs": [
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4011?c=groupemutuel&lang=fr-FR",
@@ -73,6 +73,7 @@
       "firstSeenAt": "2026-07-13T13:39:05.689Z",
       "postedDate": "2026-05-04",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 121500,
       "currency": "CHF",
@@ -110,7 +111,7 @@
         "it": "Consulente in Assicurazione&Previdenza/Consulente in Assicurazione&Previdenza",
         "en": "Insurance & Pension Advisor/Insurance & Pension Advisor",
         "de": "Conseiller en Assurance&Prév./Conseiller en Assurance&Prév.",
-        "fr": "Conseiller et Assurance&Prév./Conseiller et Assurance&Prév."
+        "fr": "Conseiller en Assurance&Prév./Conseiller en Assurance&Prév."
       },
       "slug": "consulente-in-assicurazione-previdenza-consulente-in-assicurazione-previdenza-groupe-mutuel-winterthur",
       "slugByLocale": {
@@ -145,9 +146,9 @@
           "conseiller-en-assurance-prev-conseiller-en-assurance-prev-groupe-mutuel"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-23T12:03:45.120Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 131000,
       "currency": "CHF",
@@ -225,6 +226,7 @@
       },
       "firstSeenAt": "2026-07-22T22:46:53.567Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 65500,
       "salaryMax": 109000,
       "currency": "CHF",
@@ -302,6 +304,7 @@
       },
       "firstSeenAt": "2026-07-22T11:30:25.019Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "currency": "CHF",
@@ -363,6 +366,7 @@
       "id": "groupe-mutuel-85a989cf360f",
       "firstSeenAt": "2026-07-07T12:14:29.029Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -440,6 +444,7 @@
       },
       "firstSeenAt": "2026-07-16T11:19:51.494Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "currency": "CHF",
@@ -515,6 +520,7 @@
       },
       "firstSeenAt": "2026-07-15T22:40:18.481Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -589,6 +595,7 @@
       },
       "firstSeenAt": "2026-07-15T12:16:17.141Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "currency": "CHF",
@@ -618,7 +625,7 @@
       "description": "Pour définir la vision cible du parcours, tu élabores sa stratégie et traduis les besoins client/e/s et métiers en une roadmap CX priorisée En pilotant la performance du parcours, tu analyses les KPI business, expérience et opérationnels afin de mesurer l’impact des actions et d’ajuster les priorités Grâce à une gestion structurée des initiatives, tu pilotes un portefeuille transversal, priorises les actions à forte valeur et coordonnes les parties prenantes clés En t’appuyant sur les données et les retours client/e/s, tu cartographies les parcours, identifies les irritants et transformes les insights en actions concrètes Parce que la cohérence du parcours est essentielle, tu animes les instances de gouvernance, évalues l’impact des initiatives et contribues aux arbitrages stratégiques Par ton engagement en faveur de l’amélioration continue, tu optimises les parcours, simplifies les processus et contribues à la transformation digitale ainsi qu’à la diffusion de la culture CX\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
       "descriptionByLocale": {
         "it": "Per definire la visione target del corso, sviluppi la sua strategia e traduci le esigenze del cliente/e/s e del business in una roadmap CX prioritaria Controllando le prestazioni del corso, si analizza il business, l'esperienza e il funzionamento del KPI al fine di misurare l'impatto delle azioni e regolare le priorità Attraverso la gestione strutturata delle iniziative, si pilota un portafoglio trasversale, priorità azioni di alto valore e coordinate principali stakeholders Contando sui dati dei clienti e feedback, si mappa le rotte, identificare gli irritanti e trasformare le intuizioni in azioni concrete Perché la coerenza del viaggio è essenziale, si guida enti di governance, valutare l'impatto delle iniziative e contribuire a arbitrato strategico Attraverso il vostro impegno al miglioramento continuo, ottimizzate i viaggi, semplificate i processi e contribuite alla trasformazione digitale e alla diffusione della cultura CX\n\nGroupe Mutuel è uno dei principali gruppi assicurativi della Svizzera, con sede a Martigny (Valais). L'azienda offre una vasta gamma di prodotti assicurativi e pensionistici per i privati e le imprese in tutta la Svizzera.",
-        "en": "To define the course's target vision, you develop its strategy and translate customer/e/s and business needs into a prioritized CX roadmap By controlling the performance of the course, you analyze the KPI business, experience and operational in order to measure the impact of the actions and adjust the priorities Through structured management of the initiatives, you pilot a cross-cutting portfolio, prioritize high-value actions and coordinate key stakeholders By relying on customer data and feedback, you map the routes, identify the irritants and turn the insights into concrete actions Because the coherence of the journey is essential, you drive governance bodies, evaluate the impact of initiatives and contribute to strategic arbitrations Through your commitment to continuous improvement, you optimize the journeys, simplify the processes and contribute to digital transformation and to the diffusion of CX culture\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "en": "Pour définir la vision cible du parcours, tu élabores sa stratégie et traduis les besoins client/e/s et métiers en une roadmap CX priorisée En pilotant la performance du parcours, tu analyses les KPI business, expérience et opérationnels afin de mesurer l’impact des actions et d’ajuster les priorités Grâce à une gestion structurée des initiatives, tu pilotes un portefeuille transversal, priorises les actions à forte valeur et coordonnes les parties prenantes clés En t’appuyant sur les données et les retours client/e/s, tu cartographies les parcours, identifies les irritants et transformes les insights en actions concrètes Parce que la cohérence du parcours est essentielle, tu animes les instances de gouvernance, évalues l’impact des initiatives et contribues aux arbitrages stratégiques Par ton engagement en faveur de l’amélioration continue, tu optimises les parcours, simplifies les processus et contribues à la transformation digitale ainsi qu’à la diffusion de la culture CX\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
         "de": "Um die Zielvision des Kurses zu definieren, entwickeln Sie seine Strategie und übersetzen Kunden- / E- und Geschäftsanforderungen in eine priorisierte CX-Roadmap Durch die Kontrolle der Leistung des Kurses analysieren Sie das KPI-Geschäft, die Erfahrung und den Betrieb, um die Auswirkungen der Maßnahmen zu messen und die Prioritäten anzupassen Durch strukturiertes Management der Initiativen steuern Sie ein übergreifendes Portfolio, priorisieren hochwertige Maßnahmen und koordinieren wichtige Stakeholder Indem Sie sich auf Kundendaten und Feedback verlassen, kartieren Sie die Routen, identifizieren die Irritationen und verwandeln die Erkenntnisse in konkrete Maßnahmen Da die Kohärenz der Reise unerlässlich ist, treiben Sie Governance-Gremien voran, bewerten die Auswirkungen von Initiativen und tragen zu strategischen Schiedsverfahren bei. Durch Ihr Engagement für kontinuierliche Verbesserung optimieren Sie die Reisen, vereinfachen die Prozesse und tragen zur digitalen Transformation und zur Verbreitung der CX-Kultur bei.\n\nDie Groupe Mutuel ist eine der führenden Versicherungsgruppen der Schweiz mit Sitz in Martigny (Valais). Das Unternehmen bietet eine breite Palette von Versicherungs- und Pensionsprodukten für Privatpersonen und Unternehmen in der ganzen Schweiz an.",
         "fr": "Pour définir la vision cible du parcours, tu élabores sa stratégie et traduis les besoins client/e/s et métiers en une roadmap CX priorisée En pilotant la performance du parcours, tu analyses les KPI business, expérience et opérationnels afin de mesurer l’impact des actions et d’ajuster les priorités Grâce à une gestion structurée des initiatives, tu pilotes un portefeuille transversal, priorises les actions à forte valeur et coordonnes les parties prenantes clés En t’appuyant sur les données et les retours client/e/s, tu cartographies les parcours, identifies les irritants et transformes les insights en actions concrètes Parce que la cohérence du parcours est essentielle, tu animes les instances de gouvernance, évalues l’impact des initiatives et contribues aux arbitrages stratégiques Par ton engagement en faveur de l’amélioration continue, tu optimises les parcours, simplifies les processus et contribues à la transformation digitale ainsi qu’à la diffusion de la culture CX\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
       },
@@ -650,6 +657,7 @@
       "id": "groupe-mutuel-e9f2b2cf028d",
       "firstSeenAt": "2026-07-13T13:39:05.689Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -727,6 +735,7 @@
       },
       "firstSeenAt": "2026-07-14T11:31:17.691Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 121500,
       "currency": "CHF",
@@ -804,6 +813,7 @@
       },
       "firstSeenAt": "2026-07-13T13:39:05.689Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -918,7 +928,7 @@
         "it": "Consulente alla clientela (m/f) 80-100%",
         "en": "Customer Advisor (m/f) 80-100%",
         "de": "Conseiller clientèle agence (h/f) 80-100%",
-        "fr": "Conseiller clientèle (h/f) 80-100 %"
+        "fr": "Conseiller clientèle agence (h/f) 80-100%"
       },
       "slug": "consulente-clienti-agenzia-h-f-80-100-groupe-mutuel-biel-bienne",
       "slugByLocale": {
@@ -953,9 +963,9 @@
           "conseiller-clientele-agence-h-f-80-100-groupe-mutuel"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T10:52:25.056Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -1033,6 +1043,7 @@
       },
       "firstSeenAt": "2026-07-08T22:16:00.607Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "currency": "CHF",
@@ -1110,6 +1121,7 @@
       },
       "firstSeenAt": "2026-06-18T12:22:22.697Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 108500,
       "currency": "CHF",
@@ -1187,6 +1199,7 @@
       },
       "firstSeenAt": "2026-06-08T12:57:07.729Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 101000,
       "salaryMax": 155500,
       "currency": "CHF",
@@ -1258,6 +1271,7 @@
       },
       "firstSeenAt": "2026-07-07T12:14:29.029Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -1337,6 +1351,7 @@
       },
       "firstSeenAt": "2026-06-25T22:26:20.206Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "currency": "CHF",
@@ -1412,6 +1427,7 @@
       },
       "firstSeenAt": "2026-07-10T10:52:25.056Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 121500,
       "currency": "CHF",
@@ -1449,7 +1465,7 @@
         "it": "Consulente Assicurazioni & Previdenza",
         "en": "Insurance & Prevision Advisor",
         "de": "Conseiller en Assurance&Prév./Conseiller en Assurance&Prév.",
-        "fr": "Conseiller et Assurance&Prév./Conseiller et Assurance&Prév."
+        "fr": "Conseiller en Assurance&Prév./Conseiller en Assurance&Prév."
       },
       "slug": "conseiller-en-8-95-prev-conseiller-en-8-95-prev-groupe-mutuel-biel-bienne",
       "slugByLocale": {
@@ -1484,9 +1500,9 @@
           "conseiller-en-assurance-prev-conseiller-en-assurance-prev-groupe-mutuel"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-25T22:26:20.206Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 121500,
       "currency": "CHF",
@@ -1562,6 +1578,7 @@
       },
       "firstSeenAt": "2026-06-25T11:12:21.471Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 111000,
       "currency": "CHF",
@@ -1874,6 +1891,7 @@
       },
       "firstSeenAt": "2026-06-17T12:58:41.171Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 108500,
       "currency": "CHF",
@@ -2030,6 +2048,7 @@
       },
       "firstSeenAt": "2026-06-09T11:29:03.639Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "currency": "CHF",
@@ -2115,6 +2134,7 @@
       ],
       "firstSeenAt": "2026-06-03T23:43:06.836Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 57000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -2192,6 +2212,7 @@
       },
       "firstSeenAt": "2026-05-22T22:18:14.485Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 65500,
       "salaryMax": 109000,
       "currency": "CHF",
@@ -2271,6 +2292,7 @@
       },
       "firstSeenAt": "2026-05-22T22:18:14.485Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 156000,
       "currency": "CHF",
@@ -2442,6 +2464,7 @@
       },
       "firstSeenAt": "2026-04-20T10:42:58.640Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 121500,
       "currency": "CHF",
@@ -2519,6 +2542,7 @@
       },
       "firstSeenAt": "2026-04-16T21:40:55.557Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 131000,
       "currency": "CHF",
@@ -2684,85 +2708,8 @@
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4081?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4081?c=groupemutuel&lang=fr-FR",
-      "title": "Kundenberater Agenturen (m/w) 80-100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "description": "Beratung und Betreuung unserer Kundinnen und Kunden in allen Versicherungsfragen - telefonisch und direkt am Schalter Vertragsänderungen bearbeitest du selbstständig und effizient Du vereinbarst telefonisch Beratungstermine für unsere Versicherungs- und Vorsorgeberater:innen – mit Gespür für Koordination und Akquise Du übernimmst administrative\n• Aufgaben für interne Abteilungen, insbesondere im Bereich der Vertragsverwaltung Unsere Versicherungs- und Vorsorgeberater/innen unterstützt du jederzeit zuverlässig und kompetent bei vielfältigen administrativen Anliegen.\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-      "descriptionByLocale": {
-        "it": "Mansioni - Consulenza e assistenza ai nostri clienti in tutte le questioni assicurative - telefonicamente e direttamente allo sportello - Gestione autonoma ed efficiente delle modifiche contrattuali - Prenotazione di appuntamenti di consulenza per i nostri consulenti assicurativi e previdenziali - con sensibilità per la coordinatezione e l'acquisizione - Assunzione di compiti amministrativi per i dipartimenti interni, in particolare nel settore della gestione dei contratti - Supporto costante e competente ai nostri consulenti assicurativi e previdenziali in una vasta gamma di questioni amministrative\n• Requisiti - Nessuno Cosa? - Nessuno Contatto - Groupe Mutuel, uno dei principali gruppi assicurativi della Svizzera, con sede a Martigny (Vallese). L'azienda offre una vasta gamma di prodotti assicurativi e previdenziali per individualui e imprese in tutta la Svizzera.",
-        "en": "Mansioni - Consulenza e assistenza ai nostri clienti in tutte le questioni assicurative - telefonicamente e direttamente allo sportello - Gestione autonoma ed efficiente delle modifiche contrattuali - Prenotazione di appuntamenti di consulenza per i nostri consulenti assicurativi e previdenziali - con sensibilità per la coordinazione e l'acquisizione - Assunzione di compiti amministrativi per i dipartimenti interni, in particolare nel settore della gestione dei contratti - Supporto costante e competente ai nostri consulenti assicurativi e previdenziali in una vasta gamma di questioni amministrative\n• Requisiti - Nessuno specificato\n• Cosa offriamo - Nessuno specificato Contatto - Groupe Mutuel, uno dei principali gruppi assicurativi della Svizzera, con sede a Martigny (Vallese). L'azienda offre una vasta gamma di prodotti assicurativi e previdenziali per individualui e imprese in tutta la Svizzera.",
-        "de": "## Mansioni - Consulenza e assistenza ai nostri clienti in tutte le questioni assicurative - telefonicamente e direttamente allo sportello - Gestione autonoma ed efficiente delle modifiche contrattuali - Prenotazione di appuntamenti di consulenza per i nostri consulenti assicurativi e previdenziali - con sensibilità per la coordinazione e l'acquisizione - Assunzione di compiti amministrativi per i dipartimenti interni, in particolare nel settore della gestione dei contratti - Supporto costante e competente ai nostri consulenti assicurativi e previdenziali in una vasta gamma di questioni amministrative ##\n• Requisiti - Nessuno specificato ##\n• Cosa offriamo - Nessuno specificato ## Contatto - Groupe Mutuel, uno dei principali gruppi assicurativi della Svizzera, con sede a Martigny (Vallese). L'azienda offre una vasta gamma di prodotti assicurativi e previdenziali per individui e imprese in tutta la Svizzera.",
-        "fr": "Mansioni - Consulenza e assistenza ai nostri clienti in tutte le questioni assicurative - telefonicamente e direttamente allo sportello - Gestione autonoma ed efficace delle modifiche contrattuali - Prenotazione di appuntamenti di consulenza per i nostri consulenti assicurativi e previdenziali - con sensibilità per la coordinazione e l'acquisione - Assunzione di compiti amministrativi per i dipartimenti interni, en particulier nel setore della gestione dei contratti - Supporto costante e competente ai nostri consulenti assicurativi e previdenziali in a vasta gamma di questioni amministrative\n• Requisiti - Nessuno specificato\n• Cosa offriamo - Nessuno specificato Contatto - Groupe Mutuel, uno dei principali gruppi assicurativi della Svizzera, con sede a Martigny (Vallese). L'azienda offre una vasta gamma di prodotti assicurativi e previdenziali per individuali e imprese in tutta la Svizzera."
-      },
-      "titleByLocale": {
-        "it": "Consulente clienti agenzie (m/f) 80-100%",
-        "en": "Account Manager (m/w) 80-100 %",
-        "de": "Kundenberater Agenturen (m/w) 80-100%",
-        "fr": "Gestionnaire de comptes (m/w) 80-100 %"
-      },
-      "slug": "consulente-clienti-agenzie-m-f-80-100-groupe-mutuel-chur",
-      "slugByLocale": {
-        "it": "consulente-clienti-agenzie-m-f-80-100-groupe-mutuel-chur",
-        "en": "account-manager-m-w-80-100-groupe-mutuel-chur",
-        "de": "kundenberater-agenturen-m-w-80-100-groupe-mutuel",
-        "fr": "gestionnaire-de-comptes-m-w-80-100-groupe-mutuel-chur"
-      },
-      "category": "customer-service",
-      "datePosted": "2026-05-21",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Chur"
-      },
-      "jobReqId": "4081",
-      "id": "groupe-mutuel-30d2b1aee280",
-      "previousSlugs": [
-        "kundenberater-agenturen-m-w-80-100-groupe-mutuel",
-        "kundenberater-agenturen-m-w-80-100-groupe-mutuel-3"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kundenberater-agenturen-m-w-80-100-groupe-mutuel",
-          "kundenberater-agenturen-m-w-80-100-groupe-mutuel-3"
-        ],
-        "en": [
-          "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
-        ],
-        "fr": [
-          "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
-        ]
-      },
-      "firstSeenAt": "2026-05-21T22:33:20.705Z",
-      "crawledAt": "",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Chur",
-      "addressCountry": "CH",
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
