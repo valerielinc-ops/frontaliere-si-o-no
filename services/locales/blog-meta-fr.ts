@@ -8952,6 +8952,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-architetto-stipendio.title': 'Combien gagne un architecte frontalier au Tessin',
     'blog.article.frontalieri-ticino-architetto-stipendio.excerpt': 'Les salaires des architectes frontaliers au Tessin sont influencés par les impôts à la source et le régime transitoire',
     'blog.article.frontalieri-ticino-architetto-stipendio.imageAlt': 'Un bâtiment moderne à Lugano avec Monte Bre en arrière-plan',
+    'blog.article.livigno-engadina-treni.title': 'De Livigno à l\'Engadine en dix minutes.',
+    'blog.article.livigno-engadina-treni.excerpt': 'Un projet pour une liaison ferroviaire entre Livigno et S-chanf a été présenté.',
+    'blog.article.livigno-engadina-treni.imageAlt': 'Un tunnel ferroviaire relie Livigno à l\'Engadine en Ticino.',
 };
 
 export default blogMetaFr;

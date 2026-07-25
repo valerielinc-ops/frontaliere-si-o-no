@@ -8951,6 +8951,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-architetto-stipendio.title': 'Quanto guadagna un architetto frontaliere in Ticino',
     'blog.article.frontalieri-ticino-architetto-stipendio.excerpt': 'Gli stipendi degli architetti frontaliere in Ticino sono influenzati dalle imposte sulla fonte e dal regime transitorio',
     'blog.article.frontalieri-ticino-architetto-stipendio.imageAlt': 'Un edificio moderno in Lugano con il Monte Bre in sfondo',
+    'blog.article.livigno-engadina-treni.title': 'Di più. Da Livigno all\'Engadina in dieci minuti.',
+    'blog.article.livigno-engadina-treni.excerpt': 'Un progetto per un collegamento ferroviario tra Livigno e S-chanf è stato presentato.',
+    'blog.article.livigno-engadina-treni.imageAlt': 'Un treno in galleria collega Livigno all\'Engadina in Ticino.',
 };
 
 export default blogMetaIt;
