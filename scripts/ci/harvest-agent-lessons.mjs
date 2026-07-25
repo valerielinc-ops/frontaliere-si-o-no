@@ -430,6 +430,32 @@ export function isAvoidableNoRootCause(commentBody) {
   return true; // genuine "couldn't diagnose" → the real signal → countable
 }
 
+// #4750: isAvoidableNoRootCause STILL misses both classes above whenever the
+// fixer paraphrases them — e.g. "verificato live: nessuna root cause di
+// codice" (colon, not the regex's comma) or "blip edge/deploy-churn
+// transitorio" (an inserted "/deploy-churn" the regex doesn't allow) — because
+// it is, unlike every sibling avoidable-* filter, matching open-ended
+// LLM-authored diagnosis prose rather than a fixed-format field (title/labels).
+// That input space is unbounded: #4580 escalated once, the regex was widened,
+// and #4750 escalated again 6/14d later on a FRESH set of paraphrases
+// (#4748/#4738/#4735/#4702/#4696 — all verified transient-live or
+// blocked-on-a-separately-tracked-issue, none a genuine stuck diagnosis; see
+// their `no-root-cause` comments). Widening the regex again would only repeat
+// the same failure a third time. The structural fix is to stop trying to
+// parse prose for the escalation decision: `no-root-cause` never drives a
+// "ricorre nonostante regola" escalation (same treatment as `issue-class`,
+// which is operational volume/context, not instruction signal) — a docs-only
+// prompt rule can't bound how many ways an LLM restates "this was transient"
+// or "blocked on #N", so recurrence here is expected noise, not a preventable
+// mistake. isAvoidableNoRootCause / the regexes above stay in place for the
+// volume/context count shown in the harvest summary; they just no longer gate
+// whether the bucket can escalate.
+export function isEscalationDriver(source, key) {
+  if (source === 'issue-class') return false;
+  if (source === 'fix-outcome' && key === 'no-root-cause') return false;
+  return true;
+}
+
 // ---- 2. Recurring issue classes (created in window) ----
 export function issueClass(title, labels) {
   const t = title || '';
@@ -672,10 +698,13 @@ async function main() {
   // `driver`: clusters that can drive a doc-rule proposal (an agent repeating a
   // mistake or hitting a wall). issue-class counts are operational VOLUME handled
   // by triage/monitors, not instruction signal → included as context, never a
-  // proposal driver (novel stays false for them).
-  function consider(source, counts, examples, { driver }) {
+  // proposal driver (novel stays false for them). Per-key, not blanket per-source
+  // (see isEscalationDriver, #4750): `fix-outcome:no-root-cause` is carved out the
+  // same way even though its source is otherwise driver-eligible.
+  function consider(source, counts, examples) {
     for (const [key, count] of Object.entries(counts)) {
       if (count < THRESHOLD) continue;
+      const driver = isEscalationDriver(source, key);
       const documented = alreadyDocumented(key, corpus);
       const allExamples = examples[key] || [];
       // A bucket whose last escalation was already closed via a shipped fix
@@ -693,9 +722,9 @@ async function main() {
         examples: (liveExamples.length ? liveExamples : allExamples).slice(0, 5) });
     }
   }
-  consider('reviewer-finding', findingCounts, findingExamples, { driver: true });
-  consider('fix-outcome', outcomeCounts, outcomeExamples, { driver: true });
-  consider('issue-class', issueCounts, issueExamples, { driver: false });
+  consider('reviewer-finding', findingCounts, findingExamples);
+  consider('fix-outcome', outcomeCounts, outcomeExamples);
+  consider('issue-class', issueCounts, issueExamples);
 
   clusters.sort((a, b) => b.count - a.count);
   const novel = clusters.filter((c) => c.novel);
