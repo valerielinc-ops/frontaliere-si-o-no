@@ -1,18 +1,42 @@
 {
   "key": "manor",
   "label": "Manor",
-  "generatedAt": "2026-07-24T22:17:59.136Z",
-  "total": 182,
+  "generatedAt": "2026-07-25T11:15:59.168Z",
+  "total": 180,
   "newCount": 8,
   "updatedCount": 171,
-  "removedCount": 1,
-  "unchangedCount": 3,
-  "durationMs": 341176,
-  "avgDurationMs": 341176,
+  "removedCount": 2,
+  "unchangedCount": 1,
+  "durationMs": 328141,
+  "avgDurationMs": 328141,
   "durationHistory": [
-    341176
+    328141
   ],
   "newJobs": [
+    {
+      "title": "Assistant Product Manager 100%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Basel-Assistant-Product-Manager-100/1356656555/",
+      "location": "Basel Assistant Product Manager",
+      "canton": "BS",
+      "country": "CH",
+      "category": "management",
+      "descriptionIt": "• Très bonnes connaissances linguistiques en allemand et en français \n• Connaissance des produits et air pour les tendances \n• Orienté vers le client et le marché\n• Connaissance des systèmes\n• Méthode de travail organisée\n• Bonnes capacités de communication et esprit d'initiative",
+      "postedDate": "2026-07-25",
+      "source": "company-website",
+      "slug": "manor-assistant-product-manager-100-basel-assistant-product-manager",
+      "sourceLang": "fr",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 62,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 16,
+        "completeness": 11
+      }
+    },
     {
       "title": "Mitarbeiter*in Verkauf Herrenkonfektion 20%",
       "company": "Manor AG",
@@ -180,30 +204,6 @@
         "translation": 16,
         "completeness": 11
       }
-    },
-    {
-      "title": "Assistant Product Manager 100%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Basel-Assistant-Product-Manager-100/1356656555/",
-      "location": "Basel Assistant Product Manager",
-      "canton": "BS",
-      "country": "CH",
-      "category": "management",
-      "descriptionIt": "• Très bonnes connaissances linguistiques en allemand et en français \n• Connaissance des produits et air pour les tendances \n• Orienté vers le client et le marché\n• Connaissance des systèmes\n• Méthode de travail organisée\n• Bonnes capacités de communication et esprit d'initiative",
-      "postedDate": "2026-06-26",
-      "source": "company-website",
-      "slug": "manor-assistant-product-manager-100-basel-assistant-product-manager",
-      "sourceLang": "fr",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 62,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 16,
-        "completeness": 11
-      }
     }
   ],
   "updatedJobs": [
@@ -335,32 +335,6 @@
       }
     },
     {
-      "title": "Collaborateur/trice vente (Confection Dames, Inès de La Fressange) 20%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Confection-Dames%2C-In%C3%A8s-de-La-Fressange%29-20/1361896955/",
-      "location": "Genève 1 Collaborateurtrice vente",
-      "canton": "GE",
-      "country": "CH",
-      "category": "sales",
-      "descriptionIt": "Collaborateur/trice vente (Confection Dames, Inès de La Fressange) 20% presso Manor, con sede a Genève 1 Collaborateurtrice vente, Canton Ginevra, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-07-23",
-      "source": "company-website",
-      "slug": "manor-collaborateur-trice-vente-confection-dames-ines-de-la-fressange-20-geneve-1-collaborateurtrice-vente",
-      "sourceLang": "it",
-      "id": "manor-711dab049f15",
-      "firstSeenAt": "2026-07-23T12:02:12.806Z",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 23,
-        "completeness": 11
-      }
-    },
-    {
       "title": "Collaborateur/trice logistique 60%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -409,6 +383,32 @@
         "cleanliness": 25,
         "richness": 3,
         "translation": 25,
+        "completeness": 11
+      }
+    },
+    {
+      "title": "Collaborateur/trice vente (Confection Dames, Inès de La Fressange) 20%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Confection-Dames%2C-In%C3%A8s-de-La-Fressange%29-20/1361896955/",
+      "location": "Genève 1 Collaborateurtrice vente",
+      "canton": "GE",
+      "country": "CH",
+      "category": "sales",
+      "descriptionIt": "Collaborateur/trice vente (Confection Dames, Inès de La Fressange) 20% presso Manor, con sede a Genève 1 Collaborateurtrice vente, Canton Ginevra, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-07-23",
+      "source": "company-website",
+      "slug": "manor-collaborateur-trice-vente-confection-dames-ines-de-la-fressange-20-geneve-1-collaborateurtrice-vente",
+      "sourceLang": "it",
+      "id": "manor-711dab049f15",
+      "firstSeenAt": "2026-07-23T12:02:12.806Z",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 23,
         "completeness": 11
       }
     },
@@ -517,31 +517,6 @@
       }
     },
     {
-      "title": "Responsable secteur (Pain & Pâtisserie) 100%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Monthey-Responsable-secteur-%28Pain-&-P%C3%A2tisserie%29-100/1361807655/",
-      "location": "Monthey Responsable secteur (Pain",
-      "canton": "VS",
-      "country": "CH",
-      "category": "management",
-      "descriptionIt": "• Connaissances approfondies dans le domaine \n• Capable de diriger son équipe et d'obtenier les résultats souhaiter \n• Gestion de budget (frais de salaire, semi-net)\n• Développement de l'assortiment existante",
-      "postedDate": "2026-07-22",
-      "source": "company-website",
-      "slug": "gestione-settoriale-pagina-e-pasticceria-100-manor-ag-monthey-responsable-secteur-pain",
-      "sourceLang": "fr",
-      "id": "manor-0111735dfaa3",
-      "firstSeenAt": "2026-07-22T22:35:47.906Z",
-      "crawledAt": "",
-      "_qualityScore": 71,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 11
-      }
-    },
-    {
       "title": "Collaborateur/trice supermarché (Poissonnerie) 50%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -562,6 +537,31 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
+        "translation": 25,
+        "completeness": 11
+      }
+    },
+    {
+      "title": "Responsable secteur (Pain & Pâtisserie) 100%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Monthey-Responsable-secteur-%28Pain-&-P%C3%A2tisserie%29-100/1361807655/",
+      "location": "Monthey Responsable secteur (Pain",
+      "canton": "VS",
+      "country": "CH",
+      "category": "management",
+      "descriptionIt": "• Connaissances approfondies dans le domaine \n• Capable de diriger son équipe et d'obtenier les résultats souhaiter \n• Gestion de budget (frais de salaire, semi-net)\n• Développement de l'assortiment existante",
+      "postedDate": "2026-07-22",
+      "source": "company-website",
+      "slug": "gestione-settoriale-pagina-e-pasticceria-100-manor-ag-monthey-responsable-secteur-pain",
+      "sourceLang": "fr",
+      "id": "manor-0111735dfaa3",
+      "firstSeenAt": "2026-07-22T22:35:47.906Z",
+      "crawledAt": "",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
         "translation": 25,
         "completeness": 11
       }
@@ -775,6 +775,58 @@
       }
     },
     {
+      "title": "Collaborateur/trice vente (Confection dames) 50%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Confection-dames%29-50/1361737355/",
+      "location": "Genève 1 Collaborateurtrice vente",
+      "canton": "GE",
+      "country": "CH",
+      "category": "sales",
+      "descriptionIt": "Collaborateur/trice vente (Confection dames) 50% presso Manor, con sede a Genève 1 Collaborateurtrice vente, Canton Ginevra, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-07-21",
+      "source": "company-website",
+      "slug": "manor-collaborateur-trice-vente-confection-dames-50-geneve-1-collaborateurtrice-vente",
+      "sourceLang": "it",
+      "id": "manor-da9fcce551d0",
+      "firstSeenAt": "2026-07-21T12:42:21.972Z",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 25,
+        "completeness": 11
+      }
+    },
+    {
+      "title": "Mitarbeiter*in Logistik 100%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-100/1356188255/",
+      "location": "Hochdorf Mitarbeiterin Logistik 100",
+      "canton": "LU",
+      "country": "CH",
+      "category": "logistics",
+      "descriptionIt": "Mitarbeiter*in Logistik 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik 100, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-07-21",
+      "source": "company-website",
+      "slug": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100",
+      "sourceLang": "it",
+      "id": "manor-4bc046df64c6",
+      "firstSeenAt": "2026-07-21T12:42:21.972Z",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 25,
+        "completeness": 11
+      }
+    },
+    {
       "title": "Collaborateur/trice supermarché (Epicerie) 45%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -796,6 +848,31 @@
         "cleanliness": 25,
         "richness": 14,
         "translation": 23,
+        "completeness": 11
+      }
+    },
+    {
+      "title": "Collaborateur/trice supermarché (Epicerie) 35%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Vevey-Collaborateurtrice-supermarch%C3%A9-%28Epicerie%29-35/1361734155/",
+      "location": "Vevey Collaborateurtrice supermarché (Epicerie)",
+      "canton": "VD",
+      "country": "CH",
+      "category": "retail",
+      "descriptionIt": "Collaborateur/trice supermarché (Epicerie) 35% presso Manor, con sede a Vevey Collaborateurtrice supermarché (Epicerie), Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-07-21",
+      "source": "company-website",
+      "slug": "manor-collaborateur-trice-supermarche-epicerie-35-vevey-collaborateurtrice-supermarche-epicerie",
+      "sourceLang": "it",
+      "id": "manor-152470cce48c",
+      "firstSeenAt": "2026-07-21T12:42:21.972Z",
+      "crawledAt": "",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 25,
         "completeness": 11
       }
     },
@@ -840,32 +917,6 @@
       "slug": "manor-collaborateur-trice-vente-parfumerie-80-monthey-collaborateurtrice-vente-parfumerie",
       "sourceLang": "it",
       "id": "manor-0c957a3fd9f0",
-      "firstSeenAt": "2026-07-21T12:42:21.972Z",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
-        "completeness": 11
-      }
-    },
-    {
-      "title": "Collaborateur/trice vente (Confection dames) 50%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Confection-dames%29-50/1361737355/",
-      "location": "Genève 1 Collaborateurtrice vente",
-      "canton": "GE",
-      "country": "CH",
-      "category": "sales",
-      "descriptionIt": "Collaborateur/trice vente (Confection dames) 50% presso Manor, con sede a Genève 1 Collaborateurtrice vente, Canton Ginevra, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-07-21",
-      "source": "company-website",
-      "slug": "manor-collaborateur-trice-vente-confection-dames-50-geneve-1-collaborateurtrice-vente",
-      "sourceLang": "it",
-      "id": "manor-da9fcce551d0",
       "firstSeenAt": "2026-07-21T12:42:21.972Z",
       "crawledAt": "",
       "needsRetranslation": true,
@@ -927,129 +978,9 @@
         "translation": 25,
         "completeness": 11
       }
-    },
-    {
-      "title": "Mitarbeiter*in Logistik 100%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-100/1356188255/",
-      "location": "Hochdorf Mitarbeiterin Logistik 100",
-      "canton": "LU",
-      "country": "CH",
-      "category": "logistics",
-      "descriptionIt": "Mitarbeiter*in Logistik 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik 100, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-07-21",
-      "source": "company-website",
-      "slug": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100",
-      "sourceLang": "it",
-      "id": "manor-4bc046df64c6",
-      "firstSeenAt": "2026-07-21T12:42:21.972Z",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
-        "completeness": 11
-      }
-    },
-    {
-      "title": "Collaborateur/trice caisse (Non Food) Etudiant/e 5%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Vevey-Collaborateurtrice-caisse-%28Non-Food%29-Etudiante-5/1361737155/",
-      "location": "Vevey Collaborateurtrice caisse (Non",
-      "canton": "VD",
-      "country": "CH",
-      "category": "sales",
-      "descriptionIt": "Collaborateur/trice caisse (Non Food) Etudiant/e 5% presso Manor, con sede a Vevey Collaborateurtrice caisse (Non, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-07-21",
-      "source": "company-website",
-      "slug": "manor-collaborateur-trice-caisse-non-food-etudiant-e-5-vevey-collaborateurtrice-caisse-non",
-      "sourceLang": "it",
-      "id": "manor-0a124544ce46",
-      "firstSeenAt": "2026-07-21T12:42:21.972Z",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 23,
-        "completeness": 11
-      }
     }
   ],
   "removedJobs": [
-    {
-      "title": "Mitarbeiter*in Kasse 20%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Rickenbach-b_-Wil-Mitarbeiterin-Kasse-20/1360519055/",
-      "location": "Rickenbach b",
-      "canton": "SG",
-      "country": "CH",
-      "category": "sales",
-      "descriptionIt": "Mitarbeiter*in Kasse 20% presso Manor, con sede a Rickenbach b. Wil Mitarbeiterin, Canton San Gallo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-07-15",
-      "source": "company-website",
-      "slug": "manor-mitarbeiter-in-kasse-20-rickenbach-b-wil-mitarbeiterin",
-      "sourceLang": "it",
-      "id": "manor-36917aa5a051",
-      "firstSeenAt": "2026-07-16T11:40:44.759Z",
-      "crawledAt": "",
-      "salaryMin": 13700,
-      "salaryMax": 21000,
-      "currency": "CHF",
-      "addressLocality": "Rickenbach b",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 80,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
-        "completeness": 16
-      }
-    }
-  ],
-  "unchangedJobs": [
-    {
-      "title": "Mitarbeiter*in Verkauf Damenkonfektion 60%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Basel-Mitarbeiterin-Verkauf-Damenkonfektion-60/1359380855/",
-      "location": "Basel Mitarbeiterin Verkauf Damenkonfektion",
-      "canton": "BS",
-      "country": "CH",
-      "category": "sales",
-      "descriptionIt": "KOMMERZIELLE Kernaufgaben:\n- Professionelle, umfassende und kompetente Beratung\nvon Kundinnen und Kunden (Bedarfsermittlung,\nArgumentation, Alternativen, Zusatzverkäufe, Instore\nOrdering, Verkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Aktives Anbieten der Manor Mastercard und Erteilen\nvon Informationen über das Treueprogramm\n- Sorgt für Ordnung auf der Verkaufsfläche\n- Zusammenarbeit mit dem Merchandising/Visual-Team\nbezüglich der Warenpräsentation und\nWarenbewirtschaftung\n- Unterstützung bei der Bearbeitung von Retouren und\nGarantiefällen\n- Einkassieren gemäss Vorgaben\nADMINISTRATIVE Kernaufgaben:\n- sich selbstständig anhand von Statistiken informieren:\nUmsatz, Warenreassort, Omnichannel-Statistiken\n(Instore Ordering / Click&Collect (Express) usw.).\nAnforderungen:\nAus- und Weiterbildung:\n- EFZ oder EBA im Detailhandel oder vergleichbare\nAusbildung\nFachkenntnisse:\n- Produktkenntnisse in den Rayons\n- Kenntnis über aktuelle Angebote (online und offline)\n- Kenntnis der Prozesse Instore Ordering und Click and\nCollect\n- Prozess Kundenreklamationen\n- Einkassierungsprozess\nIT-Kenntnisse / digitale Fähigkeiten:\n- Interessiert an neuen Technologien /\nSoftwarelösungen\n- Rasche Auffassung der digitalen Umwelt",
-      "postedDate": "2026-07-03",
-      "source": "company-website",
-      "slug": "dipendenti-in-vendita-abbigliamento-donna-60-manor-ag-basel-mitarbeiterin-verkauf-damenkonfektion",
-      "sourceLang": "de",
-      "id": "manor-bbae74494bad",
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
-      "salaryMin": 44400,
-      "salaryMax": 68100,
-      "currency": "CHF",
-      "addressLocality": "Basel Mitarbeiterin Verkauf Damenkonfektion",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 16
-      }
-    },
     {
       "title": "Kassierer*in Non Food 40%",
       "company": "Manor AG",
@@ -1112,6 +1043,41 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
+        "translation": 25,
+        "completeness": 16
+      }
+    }
+  ],
+  "unchangedJobs": [
+    {
+      "title": "Mitarbeiter*in Verkauf Damenkonfektion 60%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Basel-Mitarbeiterin-Verkauf-Damenkonfektion-60/1359380855/",
+      "location": "Basel Mitarbeiterin Verkauf Damenkonfektion",
+      "canton": "BS",
+      "country": "CH",
+      "category": "sales",
+      "descriptionIt": "KOMMERZIELLE Kernaufgaben:\n- Professionelle, umfassende und kompetente Beratung\nvon Kundinnen und Kunden (Bedarfsermittlung,\nArgumentation, Alternativen, Zusatzverkäufe, Instore\nOrdering, Verkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Aktives Anbieten der Manor Mastercard und Erteilen\nvon Informationen über das Treueprogramm\n- Sorgt für Ordnung auf der Verkaufsfläche\n- Zusammenarbeit mit dem Merchandising/Visual-Team\nbezüglich der Warenpräsentation und\nWarenbewirtschaftung\n- Unterstützung bei der Bearbeitung von Retouren und\nGarantiefällen\n- Einkassieren gemäss Vorgaben\nADMINISTRATIVE Kernaufgaben:\n- sich selbstständig anhand von Statistiken informieren:\nUmsatz, Warenreassort, Omnichannel-Statistiken\n(Instore Ordering / Click&Collect (Express) usw.).\nAnforderungen:\nAus- und Weiterbildung:\n- EFZ oder EBA im Detailhandel oder vergleichbare\nAusbildung\nFachkenntnisse:\n- Produktkenntnisse in den Rayons\n- Kenntnis über aktuelle Angebote (online und offline)\n- Kenntnis der Prozesse Instore Ordering und Click and\nCollect\n- Prozess Kundenreklamationen\n- Einkassierungsprozess\nIT-Kenntnisse / digitale Fähigkeiten:\n- Interessiert an neuen Technologien /\nSoftwarelösungen\n- Rasche Auffassung der digitalen Umwelt",
+      "postedDate": "2026-07-03",
+      "source": "company-website",
+      "slug": "dipendenti-in-vendita-abbigliamento-donna-60-manor-ag-basel-mitarbeiterin-verkauf-damenkonfektion",
+      "sourceLang": "de",
+      "id": "manor-bbae74494bad",
+      "firstSeenAt": "2026-07-07T12:11:24.549Z",
+      "crawledAt": "",
+      "salaryMin": 44400,
+      "salaryMax": 68100,
+      "currency": "CHF",
+      "addressLocality": "Basel Mitarbeiterin Verkauf Damenkonfektion",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 16
       }
