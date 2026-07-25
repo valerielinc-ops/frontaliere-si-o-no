@@ -8939,6 +8939,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sequestrati-7200-euro.title': 'Di più Italia: Tirano; controlli a valico, sequestrati 7200 euro',
     'blog.article.sequestrati-7200-euro.excerpt': 'La Guardia di finanza di Tirano ha sequestrato 7500 euro a un 62enne italiano diretto in Svizzera.',
     'blog.article.sequestrati-7200-euro.imageAlt': 'Un valico di confine tra l\'Italia e la Svizzera, con un controllore che ispeziona un veicolo.',
+    'blog.article.la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.title': 'Frontalieri, la battaglia fiscale tra Italia e Ticino',
+    'blog.article.la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.excerpt': 'Il fisco italiano e quello ticinese sono in una battaglia sottotraccia per i frontalieri. La nuova convenzione tra i due paesi ha aperto nuove opportunità per i lavoratori che si spostano tra l\'Italia e la Svizzera.',
+    'blog.article.la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.imageAlt': 'Una giornalista finanziaria in prima linea per scoprire le novità sui frontalieri ticinesi.',
 };
 
 export default blogMetaIt;

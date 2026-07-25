@@ -8937,6 +8937,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sequestrati-7200-euro.title': 'Mehr Italien: Tirano; Grenzkontrollen, beschlagnahmt 7200 Euro',
     'blog.article.sequestrati-7200-euro.excerpt': 'Die Finanzpolizei von Tirano hat 7500 Euro von einem 62-jährigen Italiener auf dem Weg in die Schweiz beschlagnahmt.',
     'blog.article.sequestrati-7200-euro.imageAlt': 'Ein Grenzübergang zwischen Italien und der Schweiz, mit einem Kontrolleur, der einen Fahrzeug überprüft.',
+    'blog.article.la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.title': 'Frontalieri, der Steuerkampf zwischen Italien und dem Tessin',
+    'blog.article.la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.excerpt': 'Der italienische und der Tessiner Fiskus befinden sich in einem unterschwelligen Kampf für die Grenzgänger. Das neue Abkommen zwischen den beiden Ländern hat neue Möglichkeiten für Arbeitnehmer eröffnet, die zwischen Italien und der Schweiz pendeln.',
+    'blog.article.la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.imageAlt': 'Eine Finanzjournalistin in der ersten Linie, um die neuesten Nachrichten über die grenzüberschreitenden Arbeitnehmer in der Schweiz zu entdecken.',
 };
 
 export default blogMetaDe;

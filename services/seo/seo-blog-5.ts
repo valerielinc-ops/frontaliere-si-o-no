@@ -55062,6 +55062,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese': {
+    title: 'Frontalieri, la battaglia fiscale tra Italia e Ticino',
+    description: 'Il fisco italiano e quello ticinese sono in una battaglia sottotraccia per i frontalieri. La nuova convenzione tra i due paesi ha aperto nuove opportunità per i',
+    keywords: 'frontalieri, ticino, svizzera, italia, battaglia, fiscale, fisco, italiano',
+    ogTitle: 'La battaglia sottotraccia sui frontalieri tra il fisco italiano e quello ticinese',
+    ogDescription: 'Il fisco italiano e quello ticinese sono in una battaglia sottotraccia per i frontalieri. La nuova convenzione tra i due paesi ha aperto nuove opportunità per i',
+    canonicalPath: '/articoli-frontaliere/la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri, la battaglia fiscale tra Italia e Ticino",
+      "description": "Il fisco italiano e quello ticinese sono in una battaglia sottotraccia per i frontalieri. La nuova convenzione tra i due paesi ha aperto nuove opportunità per i",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una giornalista finanziaria in prima linea per scoprire le novità sui frontalieri ticinesi."
+      },
+      "datePublished": "2026-07-25T02:58:41+00:00",
+      "dateModified": "2026-07-25T02:58:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

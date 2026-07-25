@@ -8940,6 +8940,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sequestrati-7200-euro.title': 'Plus Italie : Tirano ; contrôles au passage, saisies 7200 euros',
     'blog.article.sequestrati-7200-euro.excerpt': 'La Garde des Finances de Tirano a saisi 7500 euros à un Italien de 62 ans qui se rendait en Suisse.',
     'blog.article.sequestrati-7200-euro.imageAlt': 'Un poste frontière entre l\'Italie et la Suisse, avec un contrôleur qui inspecte un véhicule.',
+    'blog.article.la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.title': 'Frontaliers, la bataille fiscale entre l\'Italie et le Tessin',
+    'blog.article.la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.excerpt': 'Les impôts italien et tessinois sont dans une bataille à la traîne pour les frontaliers. La nouvelle convention entre les deux pays a ouvert de nouvelles opportunités pour les travailleurs qui se déplacent entre l\'Italie et la Suisse.',
+    'blog.article.la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.imageAlt': 'Une journaliste financière en première ligne pour découvrir les dernières nouvelles sur les travailleurs frontaliers ticinois.',
 };
 
 export default blogMetaFr;
