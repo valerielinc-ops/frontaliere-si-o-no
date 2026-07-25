@@ -4888,6 +4888,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cerca-lavoro-svizzera-guida-2026': { name: 'Guida pratica per cercare lavoro in', path: '/articoli-svizzera/cerca-lavoro-svizzera-guida-2026/', parent: 'blog' },
     'blog-frontalieri-ticino-architetto-stipendio': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/frontalieri-ticino-architetto-stipendio', parent: 'blog' },
     'blog-livigno-engadina-treni': { name: 'Livigno Engadina Treni', path: '/articoli-frontaliere/livigno-engadina-treni', parent: 'blog' },
+    'blog-benzina-prezzi-aumentano-ticino': { name: 'I prezzi della benzina', path: '/articoli-svizzera/benzina-prezzi-aumentano-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

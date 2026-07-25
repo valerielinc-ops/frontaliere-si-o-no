@@ -1531,6 +1531,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cerca-lavoro-svizzera-guida-2026.title': 'Travailler en Suisse : portails, CV et permis de travail',
     'blog.article.cerca-lavoro-svizzera-guida-2026.excerpt': 'Trouver un emploi en Suisse peut être un processus complexe, mais avec les bons conseils, vous pouvez augmenter vos chances de succès.',
     'blog.article.cerca-lavoro-svizzera-guida-2026.imageAlt': 'Une scène de travail en Suisse avec la vue sur le lac de Lugano.',
+    'blog.article.benzina-prezzi-aumentano-ticino.title': 'Essence : prix au plus haut depuis deux ans',
+    'blog.article.benzina-prezzi-aumentano-ticino.excerpt': 'Les prix de l\'essence ont augmenté de 4 centimes le litre et atteignent leur plus haut niveau depuis deux ans',
+    'blog.article.benzina-prezzi-aumentano-ticino.imageAlt': 'Le lac de Lugano en une journée ensoleillée avec les montagnes environnantes',
 };
 
 export default blogMetaChFr;

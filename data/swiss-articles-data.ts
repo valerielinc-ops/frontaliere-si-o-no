@@ -4589,6 +4589,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'benzina-prezzi-aumentano-ticino',
+    category: 'pratico',
+    date: '2026-07-25T17:30:33.690Z',
+    image: '/images/blog/benzina-prezzi-aumentano-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

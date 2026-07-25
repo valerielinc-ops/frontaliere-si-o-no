@@ -533,6 +533,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'franco-svizzero-tassi-cambio': { it: 'franco-svizzero-tassi-cambio', en: 'swiss-franc-exchange-rates', de: 'schweizer-franken-wechselkurs', fr: 'franc-suisse-taux-de-change' },
  'cercare-lavoro-svizzera-guida-2026': { it: 'cercare-lavoro-svizzera-guida-2026', en: 'job-search-switzerland-guide-2026', de: 'jobsuche-schweiz-leitfaden-2026', fr: 'recherche-emploi-suisse-guide-2026' },
  'cerca-lavoro-svizzera-guida-2026': { it: 'cerca-lavoro-svizzera-guida-2026', en: 'guide-job-search-switzerland-2026', de: 'arbeitsplatz-schweiz-anleitung-2026', fr: 'recherche-demploi-suisse-guides-2026' },
+ 'benzina-prezzi-aumentano-ticino': { it: 'benzina-prezzi-aumentano-ticino', en: 'benzina-prices-increase-ticino', de: 'benzina-preise-steigen-lugano', fr: 'benzina-prix-ont-increases-lugano' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
