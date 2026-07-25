@@ -1,6 +1,6 @@
 {
   "crawlerKey": "weisse-arena",
-  "assembledAt": "2026-07-25T10:41:37.404Z",
+  "assembledAt": "2026-07-25T21:58:02.739Z",
   "jobs": [
     {
       "id": "weisse-arena-2765974aca91",
@@ -33,7 +33,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4510&jobTitle=Mitarbeiter%3Ain+Verkauf+und+Administration+Wintersaison+%2870-100%25%29",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:41:34.265Z",
+      "crawledAt": "2026-07-25T21:57:59.661Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -54,11 +54,13 @@
       "pensum": "70 - 100%",
       "contractLabel": "Saisonanstellung",
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-und-administration-wintersaison-70-100-weisse-arena-ch"
+        "mitarbeiter-in-verkauf-und-administration-wintersaison-70-100-weisse-arena-ch",
+        "addetto-a-alle-vendite-e-administration-wintersaison-70-100-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-und-administration-wintersaison-70-100-weisse-arena-ch"
+          "mitarbeiter-in-verkauf-und-administration-wintersaison-70-100-weisse-arena-ch",
+          "addetto-a-alle-vendite-e-administration-wintersaison-70-100-weisse-arena-gruppe-laax"
         ],
         "en": [
           "mitarbeiter-in-verkauf-und-administration-wintersaison-70-100-weisse-arena-ch"
@@ -68,6 +70,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:03:28.978Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -113,7 +116,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4518&jobTitle=Koch%2FK%C3%B6chin+mit+Feuer+und+Leidenschaft",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:41:34.264Z",
+      "crawledAt": "2026-07-25T21:57:59.660Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -148,6 +151,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:41:43.955Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -193,7 +197,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4521&jobTitle=Servicemitarbeiter%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:41:34.264Z",
+      "crawledAt": "2026-07-25T21:57:59.660Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -222,12 +226,14 @@
         "servicemitarbeiter-in-im-fruhstuckservice-weisse-arena-ch",
         "addetto-al-servizio-di-colazione-weisse-arena-gruppe-laax",
         "breakfast-service-attendant-weisse-arena-gruppe-laax",
-        "employe-de-service-de-petit-dejeuner-weisse-arena-gruppe-laax"
+        "employe-de-service-de-petit-dejeuner-weisse-arena-gruppe-laax",
+        "dipendente-del-servizio-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicemitarbeiter-in-weisse-arena-ch",
-          "servicemitarbeiter-in-weisse-arena-gruppe-laax"
+          "servicemitarbeiter-in-weisse-arena-gruppe-laax",
+          "dipendente-del-servizio-weisse-arena-gruppe-laax"
         ],
         "en": [
           "servicemitarbeiter-in-weisse-arena-gruppe-laax"
@@ -237,83 +243,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:41:43.956Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "weisse-arena-2fa633beab76",
-      "slug": "risorse-umane-generalist-in-weisse-arena-gruppe-laax",
-      "slugByLocale": {
-        "it": "risorse-umane-generalist-in-weisse-arena-gruppe-laax",
-        "en": "hr-generalist-in-weisse-arena-ch",
-        "de": "hr-generalist-in-weisse-arena-ch",
-        "fr": "ressources-humaines-generalist-in-weisse-arena-gruppe-laax"
-      },
-      "company": "Weisse Arena Gruppe",
-      "companyKey": "weisse-arena",
-      "companyDomain": "weissearena.com",
-      "title": "HR Generalist:in",
-      "titleByLocale": {
-        "it": "Risorse Umane Generalist:in",
-        "en": "HR Generalist",
-        "de": "HR Generalist:in",
-        "fr": "Ressources Humaines Generalist:in"
-      },
-      "description": "Die Weisse Arena Gruppe betreibt mit LAAX eines der führenden Freizeit- und Tourismusunternehmen der Schweiz. Mit Bergbahnen, Hotels, Gastronomie, Sport- und Rental-Shops sowie der LAAX School schaffen wir unvergessliche Erlebnisse für unsere Gäste - und attraktive Arbeitsplätze für unsere Mitarbeitenden. Unsere People Performance Team betreut über 1400 Kolleginnen und Kollegen im Winter sowie rund 550 im Sommer. | Make it people. Make it LAAX. | Wir suchen eine Persönlichkeit, die mitdenkt, Verantwortung übernimmt, pragmatisch handelt und unser HR im Alltag besser macht. | Was du bewegst: Du begleitest Mitarbeitende und Führungskräfte in personalrelevanten Themen entlang des gesamten Employee Lifecycles und sorgst dafür, dass unsere HR Prozesse professionell, zuverlässig und serviceorientiert funktionieren. Dabei verbindest du operative Umsetzungsstärke mit einem klaren Blick für Qualität, Struktur und Weiterentwicklung. Du übernimmst Verantwortung für administrative und operative HR-Themen, stellst die Qualität unserer HR-Daten und Prozesse sicher, bist im Austausch mit internen und externen Partnern und behältst auch bei mehreren Themen gleichzeitig den Überblick. Du klärst arbeitsrechtliche, sozialversicherungsrechtliche sowie organisatorische Fragestellungen und hast ein Auge auf die konsequente Umsetzung vereinbarter Lösungen. Du erkennst Verbesserungspotenzial, bringst neue Impulse ein und entwickelst unsere HR-Prozesse, Standards und Arbeitsweisen kontinuierlich weiter. | Was dich ausmacht: Du bist ein HR-Profi mit hoher Dienstleistungsorientierung, gesundem Menschenverstand und Freude an einem dynamischen Umfeld. Du arbeitest strukturiert, denkst vernetzt und bringst Themen sauber zu Ende.\n• Abgeschlossene Weiterbildung im Personalwesen, HR-Fachfrau/-mann mit eidg. Fachausweis oder vergleichbare Qualifikation\n• Mehrjährige Erfahrung im operativen HR, idealerweise in einem Unternehmen mit saisonalen Strukturen\n• Gute Kenntnisse im Schweizer Arbeitsrecht und in den Sozialversicherungen\n• Erfahrung in der Personaladministration, Payroll-Nähe und Führungskräfteberatung\n• Sicherer Umgang mit HR-Systemen und digitalen Prozessen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Hohe Genauigkeit, Diskretion und Verantwortungsbewusstsein\n• Stilsicheres Deutsch in Wort und Schrift sowie gute Englischkenntnisse\n• Freude an Menschen, Klarheit in der Kommunikation und eine pragmatische Haltung\n• Branchenkenntnisse in Tourismus, Seilbahn, Hotellerie oder Gastronomie sind von Vorteil | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung unseres HR aktiv mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Zudem profitierst du von attraktiven Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie von weiteren Vorteilen für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Mountain Vision AG Human & Organizational Performance Management Christina Darms Tel. +41 81 927 70 14 www.weissearena.com I www.laax.com",
-      "descriptionByLocale": {
-        "it": "Ragionamento di seguito 1. Ho individuato le possibili sezioni del testo originale: - Descrizione dell’azienda e contesto del - Mansioni (cosa il candidato volontà) -\n• Requisiti (qualifiche e competenze richieste) - Cosa aspetti (benefici e ambiente di lavoro) - Contatto (informazioni per candidarsi) 2. Ho tenuto tutti i contenuti originali senza alcuna modifica o riformulazione, rispettando il vincolo di non aggiungere, rimuove o riformulare il testo. Ho introdotto le intestazioni richieste con `#` e ho trasformato le liste presenti nel testo in concessioneti (`-`), assicurandomi che ogni punto fosse una singola voce completa. 4. ho inserito pausa di riga dove necessario per migliorare la leggibilità, senza alterare il contenuto. Il Weisse Arena Group gestisce LAAX, una delle principali aziende del turismo e del tempo libero in Svizzera. Con ferrovie di montagna, hotel, gastronomia, negozi di sport e noleggio e la Scuola LAAX, creiamo esperienze indimenticabili per i nostri ospiti - e luoghi di lavoro attraenti per i nostri dipendenti. Il nostro People Performance Team serve oltre 1.400 colleghi in inverno e circa 550 in estate.\n• Cerchiamo una personalità che pensa, si assume la responsabilità, agisce pragmaticamente e migliora le risorse umane nella vita quotidiana. Mansioni - Accompagnate dipendenti e manager in argomenti rilevanti per il personale lungo tutto il ciclo di vita dei dipendenti e assicurate che i nostri processi HR funzionino in modo professionale, affidabile e orientato al servizio. Unisci la forza di implementazione operativa con una chiara visione di qualità, struttura e ulteriore sviluppo. L'utente si assume la responsabilità per gli argomenti amministrativi e operativi delle risorse umane, assicura la qualità dei dati e dei processi HR, è in contatto con partner interni ed esterni e tiene una panoramica di diversi argomenti allo stesso tempo. - No. Si chiarisce il diritto del lavoro, il diritto della sicurezza sociale e le questioni organizzative e tenere d'occhio la coerente attuazione di soluzioni concordate. - No. Riconoscete il potenziale di miglioramento, portate nuovi impulsi e sviluppate continuamente i nostri processi HR, gli standard e i metodi di lavoro.\n• Requisiti - Completato ulteriore formazione in risorse umane, specialista HR con diritto federale. Identificazione professionale o qualificazione comparabile - Diversi anni di esperienza nelle risorse umane operative, idealmente in un'azienda con strutture stagionali - Buona conoscenza nel diritto dell'occupazione svizzero e nell'assicurazione sociale - Esperienza nell'amministrazione del personale, prossimità del salario e consulenza gestionale - Gestione sicura dei sistemi HR e processi digitali - Autocontenuto, strutturato e metodi di lavoro orientati alla soluzione - Alta precisione, discrezione e senso di responsabilità - Confidente tedesco in parola e scrittura così come buona conoscenza dell'inglese - Un posto di lavoro attraente in mezzo a un mondo di montagna eccezionale - Parte di un team dinamico e risvegliato - Forma attivamente l'ulteriore sviluppo della nostra HR - Un ambiente in cui la professionalità, la velocità, il pragmatismo e l'umanità appartengono insieme - Vantaggi interessanti dei dipendenti, come le gite di montagna gratuite, benefici nei nostri negozi, hotel e ristoranti, nonché altri vantaggi per la vostra famiglia Contatto Mountain Vision AG Human & Organizational Performance Management Christina Darms Tel. +41 81 9weare",
-        "en": "Ragionamento seguito 1. Ho individuato le possibili sezioni del testo originale: - Descrizione dell’azienda e del contesto - Mansioni (cosa il candidato farà) -\n• Requisiti (qualifiche e competenze richieste) -\n• Cosa offriamo (benefici e ambiente di lavoro) - Contatto (informazioni per candidarsi) 2. Ho mantenuto tutti i contenuti originali senza alcuna modifica o riformulazione, rispettando il vincolo di non aggiungere, rimuovere o riformulare il testo. Ho introdotto le intestazioni richieste con `##` e ho trasformato le liste presenti nel testo in elenchi puntati (`-`), assicurandomi che ogni punto fosse una singola voce completa. 4. ho inserito interruzioni di riga dove necessario per migliorare la leggibilità, senza alterare il contenuto. The Weisse Arena Group operates LAAX, one of the leading leisure and tourism companies in Switzerland. With mountain railways, hotels, gastronomy, sports and rental shops and the LAAX School, we create unforgettable experiences for our guests - and attractive workplaces for our employees. Our People Performance Team serves over 1,400 colleagues in winter and around 550 in summer. We are looking for a personality who thinks, takes responsibility, acts pragmatically and makes our HR better in everyday life. Mansioni - You accompany employees and managers in personnel-relevant topics along the entire employee lifecycle and ensure that our HR processes function professionally, reliably and service-oriented. You combine operational implementation strength with a clear view of quality, structure and further development. You take responsibility for administrative and operational HR topics, ensure the quality of our HR data and processes, are in contact with internal and external partners and keep an overview of several topics at the same time. - You clarify employment law, social security law and organizational issues and keep an eye on the consistent implementation of agreed solutions. - You recognize potential for improvement, bring in new impulses and continuously develop our HR processes, standards and working methods.\n• Requisiti - Completed further training in human resources, HR specialist with federal law. Professional ID or comparable qualification - Several years of experience in operational HR, ideally in a company with seasonal structures - Good knowledge in Swiss employment law and in social insurance - Experience in personnel administration, payroll proximity and management consulting - Secure handling of HR systems and digital processes - Self-contained, structured and solution-oriented working methods - High accuracy, discretion and sense of responsibility - Confident German in word and writing as well as good knowledge of English - Pleasure in people, clarity in communication and a pragmatic attitude - Industry knowledge in tourism, cable car, hotel industry or gastronomy are of advantage\n• Cosa offriamo - An attractive workplace in the midst of an exceptional mountain world - Part of a dynamic, awakened team - Actively shape the further development of our HR - An environment in which professionalism, speed, pragmatism and humanity belong together - Attractive employee benefits, such as free mountain rides, benefits in our shops, hotels and restaurants as well as other advantages for your family Contatto Mountain Vision AG Human & Organizational Performance Management Christina Darms Tel. +41 81 927 70 14 www.weissearena.com www.laax.com",
-        "de": "Die Weisse Arena Gruppe betreibt mit LAAX eines der führenden Freizeit- und Tourismusunternehmen der Schweiz. Mit Bergbahnen, Hotels, Gastronomie, Sport- und Rental-Shops sowie der LAAX School schaffen wir unvergessliche Erlebnisse für unsere Gäste - und attraktive Arbeitsplätze für unsere Mitarbeitenden. Unsere People Performance Team betreut über 1400 Kolleginnen und Kollegen im Winter sowie rund 550 im Sommer. | Make it people. Make it LAAX. | Wir suchen eine Persönlichkeit, die mitdenkt, Verantwortung übernimmt, pragmatisch handelt und unser HR im Alltag besser macht. | Was du bewegst: Du begleitest Mitarbeitende und Führungskräfte in personalrelevanten Themen entlang des gesamten Employee Lifecycles und sorgst dafür, dass unsere HR Prozesse professionell, zuverlässig und serviceorientiert funktionieren. Dabei verbindest du operative Umsetzungsstärke mit einem klaren Blick für Qualität, Struktur und Weiterentwicklung. Du übernimmst Verantwortung für administrative und operative HR-Themen, stellst die Qualität unserer HR-Daten und Prozesse sicher, bist im Austausch mit internen und externen Partnern und behältst auch bei mehreren Themen gleichzeitig den Überblick. Du klärst arbeitsrechtliche, sozialversicherungsrechtliche sowie organisatorische Fragestellungen und hast ein Auge auf die konsequente Umsetzung vereinbarter Lösungen. Du erkennst Verbesserungspotenzial, bringst neue Impulse ein und entwickelst unsere HR-Prozesse, Standards und Arbeitsweisen kontinuierlich weiter. | Was dich ausmacht: Du bist ein HR-Profi mit hoher Dienstleistungsorientierung, gesundem Menschenverstand und Freude an einem dynamischen Umfeld. Du arbeitest strukturiert, denkst vernetzt und bringst Themen sauber zu Ende.\n• Abgeschlossene Weiterbildung im Personalwesen, HR-Fachfrau/-mann mit eidg. Fachausweis oder vergleichbare Qualifikation\n• Mehrjährige Erfahrung im operativen HR, idealerweise in einem Unternehmen mit saisonalen Strukturen\n• Gute Kenntnisse im Schweizer Arbeitsrecht und in den Sozialversicherungen\n• Erfahrung in der Personaladministration, Payroll-Nähe und Führungskräfteberatung\n• Sicherer Umgang mit HR-Systemen und digitalen Prozessen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Hohe Genauigkeit, Diskretion und Verantwortungsbewusstsein\n• Stilsicheres Deutsch in Wort und Schrift sowie gute Englischkenntnisse\n• Freude an Menschen, Klarheit in der Kommunikation und eine pragmatische Haltung\n• Branchenkenntnisse in Tourismus, Seilbahn, Hotellerie oder Gastronomie sind von Vorteil | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung unseres HR aktiv mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Zudem profitierst du von attraktiven Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie von weiteren Vorteilen für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Mountain Vision AG Human & Organizational Performance Management Christina Darms Tel. +41 81 927 70 14 www.weissearena.com I www.laax.com",
-        "fr": "Ragionamento seguito 1. Ho individuato le possibili sezioni del testo originale: - Descrizione dell=azienda e del contesto - Mansioni (cosa il candidato farà) -\n• Requisiti (qualifiche e competenze riphieste) -\n• Cosa offriamo (benefici e ambiente di lavoro) - Contatto (informazioni per candidarsi) 2. Il s'agit d'un système de traitement de l'information et de traitement des données. Ho introdotto le intestazioni richieste con `##` e ho trasformato le liste presenti nel testo in elenchi puntati (`-`), assicurandomi che ogni punto fosse una singola voce completa. 4. ho inserito interruzioni di riga dove necessario per migliorare la leggibilità, senza alterare il contenuto. Le Groupe Weisse Arena exploite LAAX, l'une des principales entreprises de loisirs et de tourisme en Suisse. Avec les chemins de fer de montagne, les hôtels, la gastronomie, les magasins de sport et de location et l'école LAAX, nous créons des expériences inoubliables pour nos clients - et des lieux de travail attrayants pour nos employés. Notre équipe de performance des gens sert plus de 1 400 collègues en hiver et environ 550 en été. Nous cherchons une personnalité qui pense, prend des responsabilités, agit de façon pragmatique et améliore nos RH dans la vie quotidienne. Autres Vous accompagnez les employés et les gestionnaires dans des sujets pertinents pour le personnel tout au long du cycle de vie des employés et vous assurez que nos processus RH fonctionnent de façon professionnelle, fiable et axée sur le service. Vous combinez la force de mise en oeuvre opérationnelle avec une vision claire de la qualité, de la structure et du développement ultérieur. Vous assumez la responsabilité des questions administratives et opérationnelles liées aux RH, vous assurez la qualité de nos données et de nos processus RH, vous êtes en contact avec des partenaires internes et externes et vous avez un aperçu de plusieurs sujets en même temps. - Oui. Vous clarifiez le droit du travail, le droit de la sécurité sociale et les questions d'organisation et gardez un œil sur la mise en œuvre cohérente des solutions convenues. - Oui. Vous reconnaissez le potentiel d'amélioration, apportez de nouvelles impulsions et développez continuellement nos processus, normes et méthodes de travail en RH.\n• Requisiti - Formation continue en ressources humaines, spécialiste des RH en droit fédéral. Identification professionnelle ou qualification comparable - Plusieurs années d'expérience en RH opérationnelles, idéalement dans une entreprise avec des structures saisonnières - Bonne connaissance en droit suisse du travail et en assurance sociale - Expérience en administration du personnel, proximité de la paie et conseil en gestion - Gestion sécurisée des systèmes RH et des processus numériques - Méthodes de travail autonomes, structurées et orientées vers la solution - Haute précision, discrétion et sens des responsabilités - Confiance de l'allemand en paroles et en écriture ainsi qu'une bonne connaissance de l'anglais - Plaisir en personne, clarté dans la communication et une attitude pragmatique - Connaissance de l'industrie dans le tourisme, la télécabine, l'hôtellerie ou la gastronomie sont d'avantage\n• Cosa offriamo - Un lieu de travail attrayant au milieu d'un monde montagneux exceptionnel - Partie d'une équipe dynamique et éveillée - Façonner activement le développement de nos RH - Un environnement dans lequel le professionnalisme, la vitesse, le pragmatisme et l'humanité font partie intégrante - Des avantages pour les employés attrayants, comme des promenades en montagne gratuites, des avantages dans nos magasins, hôtels et restaurants ainsi que d'autres avantages pour votre famille Contatto Mountain Vision AG Human & Organizational Performance Management Christina Darms Tel. +41 81 927 70 14 www.weissearena.com www.laax.com"
-      },
-      "location": "Laax",
-      "canton": "GR",
-      "url": "https://www.weissearena.com/jobs/details.html?jobId=4522&jobTitle=HR+Generalist%3Ain",
-      "source": "Weisse Arena Gruppe Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:41:34.263Z",
-      "addressLocality": "Laax",
-      "postalCode": "7031",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Turismo / Sport",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-18",
-      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4522&langCode=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Human & Organizational Performance Management",
-      "jobNumber": "WAG02398",
-      "pensum": "80 - 100%",
-      "contractLabel": "Festanstellung",
-      "previousSlugs": [
-        "hr-generalist-in-weisse-arena-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "hr-generalist-in-weisse-arena-ch"
-        ],
-        "fr": [
-          "hr-generalist-in-weisse-arena-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-19T13:38:45.726Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -333,7 +263,7 @@
       "slug": "assistente-cuoco-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "it": "assistente-cuoco-weisse-arena-gruppe-laax",
-        "en": "auxiliary-cook-weisse-arena-gruppe-laax",
+        "en": "hilfskoch-hilfskochin-weisse-arena-gruppe-laax",
         "de": "hilfskoch-hilfskochin-weisse-arena-ch",
         "fr": "cuisiniere-auxiliaire-weisse-arena-gruppe-laax"
       },
@@ -343,7 +273,7 @@
       "title": "Hilfskoch/Hilfsköchin",
       "titleByLocale": {
         "it": "Assistente cuoco",
-        "en": "Auxiliary cook",
+        "en": "Hilfskoch/Hilfsköchin",
         "de": "Hilfskoch/Hilfsköchin",
         "fr": "Cuisinière auxiliaire"
       },
@@ -359,7 +289,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4519&jobTitle=Hilfskoch%2FHilfsk%C3%B6chin",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:41:34.263Z",
+      "crawledAt": "2026-07-25T21:57:59.659Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -381,14 +311,18 @@
       "contractLabel": "Festanstellung",
       "previousSlugs": [
         "hilfskoch-hilfskochin-weisse-arena-ch",
+        "auxiliary-cook-weisse-arena-gruppe-laax",
+        "assistente-cuoco-weisse-arena-gruppe-laax",
         "hilfskoch-hilfskochin-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hilfskoch-hilfskochin-weisse-arena-ch"
+          "hilfskoch-hilfskochin-weisse-arena-ch",
+          "assistente-cuoco-weisse-arena-gruppe-laax"
         ],
         "en": [
           "hilfskoch-hilfskochin-weisse-arena-ch",
+          "auxiliary-cook-weisse-arena-gruppe-laax",
           "hilfskoch-hilfskochin-weisse-arena-gruppe-laax"
         ],
         "fr": [
@@ -396,86 +330,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:41:43.954Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "weisse-arena-87010a09194e",
-      "slug": "chef-in-scogliere-weisse-arena-gruppe-laax",
-      "slugByLocale": {
-        "it": "chef-in-scogliere-weisse-arena-gruppe-laax",
-        "en": "chef-in-rocksresorts-weisse-arena-gruppe-laax",
-        "de": "kuchenchef-in-rocksresorts-weisse-arena-ch",
-        "fr": "chef-en-pierres-weisse-arena-gruppe-laax"
-      },
-      "company": "Weisse Arena Gruppe",
-      "companyKey": "weisse-arena",
-      "companyDomain": "weissearena.com",
-      "title": "Küchenchef:in rocksresorts",
-      "titleByLocale": {
-        "it": "Chef: in scogliere",
-        "en": "Chef: in rocksresorts",
-        "de": "Küchenchef:in rocksresorts",
-        "fr": "Chef: en pierres"
-      },
-      "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Möchtest du die kulinarische Vielfalt eines der lebendigsten und modernsten Resorts in den Schweizer Alpen aktiv mitgestalten? Sind die Wünsche von anspruchsvollen à-la-carte-Gästen für dich keine Herausforderung, sondern erfüllen dich mit einem Lächeln? Oder magst du lieber das emsige Treiben in einem vielseitigen Ganzjahresbetrieb? Dann bist du bei uns genau richtig! Das Rocksresort in Laax vereint urbanen Lebensstil mit alpiner Natur. Deine kulinarische Reise bei uns erstreckt sich über ein beeindruckendes und abwechslungsreiches Portfolio: Vom mediterranen Flair im beliebten Restaurant Camino und der dazugehörigen Camino Bar , über die faszinierenden asiatischen Geschmackswelten im Restaurant Ikigai , bis hin zu ehrlichen, saftigen Burger-Spezialitäten im Il Pub . Im Winter erweiterst du deinen Wirkungskreis um das traditionsreiche Restaurant Casa Veglia , das unsere Gäste mit authentischen Schweizer Spezialitäten begeistert. Darüber hinaus zeichnest du dich für die hochstehende gastronomische Betreuung von abwechslungsreichen Veranstaltungen, Gruppen und Banketten über das ganze Jahr verantwortlich. | Stell dir vor, du bist unser:e neue:r Küchenchef:in und lässt unsere Gäste mit viel Geschick, Kreativität und strategischem Weitblick in eine Welt voller Genuss eintauchen. Als gastronomischer Kopf koordinierst und optimierst du die Küchenabläufe über mehrere Outlets hinweg, setzt innovative kulinarische Impulse und führst dein Team mit Leidenschaft und Vorbildfunktion zum gemeinsamen Erfolg. | Was du bewegst:\n• Fachliche und personelle Leitung, Motivation sowie kontinuierliche Weiterentwicklung des gesamten Küchenteams.\n• Strategische und operative Organisation aller Küchenabläufe im Ganzjahresbetrieb (Camino, Camino Bar, Ikigai, Il Pub, saisonal Casa Veglia).\n• Konzeption und Durchführung kulinarischer Konzepte für MICE-Veranstaltungen, Reisegruppen und exklusive Bankette.\n• Sicherstellung einer frischen, zeitgemässen Zubereitung sowie eines konstant hohen Qualitäts- und Präsentationsniveaus.\n• Verantwortung für Einkauf, Warenannahme, Lagerbewirtschaftung, Inventur und Menükalkulation.\n• Konsequente Durchsetzung und Dokumentation der HACCP-Vorschriften und Richtlinien zur Arbeitssicherheit.\n• Durchführung interner Schulungen zur Förderung des Qualitätsbewusstseins im Team.\n• Enger Austausch und Raportierung zu Leiter Gastronomie rocksresort sowie proaktive Zusammenarbeit mit den Abteilungen Gastro Berg, Events, HR, Sales & Marketing, Bergbahnen und Mountain Adventures. | Was dich ausmacht:\n• Abgeschlossene Kochausbildung, idealerweise mit betriebswirtschaftlicher Weiterbildung (z. B. Küchenmeister, Chefkoch mit eidg. FA oder Gastro-Unternehmer).\n• Fliessendes Deutsch sowie sehr gute Englisch- und/oder Italienischkenntnisse\n• Mindestens 4–5 Jahre Führungserfahrung in vergleichbarer Position der (gehobenen) Gastronomie oder Hotellerie.\n• Strukturiert, selbstständig, flexibel sowie ausgeprägt qualitäts- und dienstleistungsorientiert.\n• Ruhe und Überblick auch in hektischen Situationen, bei hohem Gästeaufkommen oder Events.\n• Freude an einem dynamischen Resort-Umfeld und Offenheit für neue kulinarische Trends (z. B. Asiatisch, Streetfood). | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen, wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Weisse Arena Hospitality AG signinahotel José Carvalho Tel. +41 81 927 90 52 www.weissearena.com I www.laax.com",
-      "descriptionByLocale": {
-        "it": "Il White Arena Group di LAAX è un pioniere nel turismo alpino e una comunità entusiasta per avventure di montagna uniche. Il gruppo comprende varie attività di hotel e catering, negozi di sport e noleggio, una scuola di sci, snowboard e bici, nonché una società di gestione e costruzione. Il nostro successo? Un team motivato e dedicato che vive quotidianamente la sua passione. # Vuoi plasmare attivamente la diversità culinaria di una delle località più vivaci e moderne delle Alpi svizzere? Sono i desideri di esigere ospiti à-la-carte non una sfida per voi, ma riempire con un sorriso? O preferisci l'attività occupata in un'operazione versatile tutto l'anno? Allora hai proprio ragione con noi! Il resort rock di Laax combina lo stile di vita urbano con la natura alpina. Il vostro viaggio culinario con noi abbraccia un portafoglio impressionante e variegato: dal fascino mediterraneo nel famoso ristorante Camino e il Camino Bar associato, agli affascinanti mondi asiatici del gusto nel ristorante Ikigai, ad onesto, succoso hamburger specialità del Pub. In inverno espandete la vostra sfera di attività con il tradizionale ristorante Casa Veglia, che delizia i nostri ospiti con autentici specialità svizzere. Inoltre, siete responsabili della cura gastronomica di alto livello di vari eventi, gruppi e banchetti durante tutto l'anno. # Immaginate di essere il nostro:e neue:r Chef:in e lascia i nostri ospiti immergersi in un mondo pieno di piacere con molta abilità, creatività e visione strategica. Come mente gastronomica, coordinate e ottimizzate i processi cucina in diversi punti vendita, impostate gli impulsi culinari innovativi e guidate il vostro team con passione e modello di ruolo al successo congiunto. Cosa si muove:\n• Gestione professionale e personale, motivazione e sviluppo continuo dell'intero team di cucina.\n• Organizzazione strategica e operativa di tutti i processi di cucina durante tutto l'anno (Camino, Camino Bar, Ikigai, Il Pub, Casa Veglia stagionale).\n• Concezione e realizzazione di concetti culinari per eventi MICE, gruppi di viaggio e banchetti esclusivi.\n• Garantire una preparazione fresca e contemporanea e un livello costantemente elevato di qualità e presentazione.\n• Responsabilità per l'acquisto, la ricezione di merci, lo stoccaggio, l'inventario e il calcolo del menu.\n• Esecuzione costante e documentazione delle normative HACCP e degli orientamenti in materia di sicurezza sul lavoro.\n• Condurre la formazione interna per promuovere la consapevolezza della qualità nel team.\n• Scambio ravvicinato e reportistica al Responsabile della Gastronomia Rockresort e collaborazione proattiva con i dipartimenti Gastro Berg, Events, HR, Sales & Marketing, Bergbahnen e Mountain Adventures. Cosa ti fa:\n• Completata la formazione di cucina, idealmente con la formazione di business management (ad esempio master chef, chef capo con FA federale o imprenditore gastro).\n• Fluente tedesco e ottima conoscenza dell'inglese e/o dell'italiano\n• Almeno 4-5 anni di esperienza manageriale in una posizione paragonabile nel settore alberghiero o della gastronomia (upper).\n• Strutturato, indipendente, flessibile e altamente orientato al servizio.\n• Calma e panoramica anche in situazioni frenetiche, con un elevato numero di ospiti o eventi.\n• Godendo di un ambiente di resort dinamico e di apertura a nuove tendenze culinarie (ad esempio asiatiche, street food). Un posto di lavoro attraente nel mezzo di un mondo di montagna mozzafiato è certo per voi. Hai anche l'opportunità di sviluppare nel nostro team dinamico, brillante e vivace cultura aziendale. Attendere con ansia numerosi vantaggi per i dipendenti, come gite in montagna gratuite, vantaggi nei nostri negozi, hotel e ristoranti, nonché benefici per la vostra famiglia. Inizia la tua avventura professionale al Weissen Arena Group ora con la tua applicazione online completa con la foto. Non vediamo l'ora. | Weisse Arena Hospitality AG signinahotel José Carvalho Tel. +41 81 927 90 52 www.weissearena.com I www.laax.com",
-        "en": "The White Arena Group in LAAX is a pioneer in alpine tourism and an enthusiastic community for unique mountain adventures. The group includes various hotel and catering businesses, sports and rental shops, a ski, snowboard and bike school as well as a management and construction company. Our success? A motivated and dedicated team that lives its passion daily. | Do you want to actively shape the culinary diversity of one of the most vibrant and modern resorts in the Swiss Alps? Are the wishes of demanding à-la-carte guests not a challenge for you, but fill you with a smile? Or do you prefer the busy activity in a versatile year-round operation? Then you are exactly right with us! The rock resort in Laax combines urban lifestyle with alpine nature. Your culinary journey with us spans an impressive and varied portfolio: from the Mediterranean flair in the popular restaurant Camino and the associated Camino Bar, to the fascinating Asian taste worlds in the restaurant Ikigai, to honest, juicy burger specialties in the Il Pub. In winter you expand your sphere of activity with the traditional restaurant Casa Veglia, which delights our guests with authentic Swiss specialties. In addition, you are responsible for the high-level gastronomic care of varied events, groups and banquets throughout the year. | Imagine you are our:e neue:r Chef:in and lets our guests immerse themselves in a world full of pleasure with a lot of skill, creativity and strategic vision. As a gastronomic mind, you coordinate and optimize the kitchen processes across several outlets, set innovative culinary impulses and lead your team with passion and role model to joint success. What You Move:\n• Professional and personnel management, motivation and continuous development of the entire kitchen team.\n• Strategic and operational organisation of all kitchen processes throughout the year (Camino, Camino Bar, Ikigai, Il Pub, seasonal Casa Veglia).\n• Conception and implementation of culinary concepts for MICE events, travel groups and exclusive banquets.\n• Ensuring a fresh, contemporary preparation and a consistently high level of quality and presentation.\n• Responsibility for purchasing, receiving goods, warehousing, inventory and menu calculation.\n• Consistent enforcement and documentation of HACCP regulations and guidelines on occupational safety.\n• Conduct internal training to promote quality awareness in the team.\n• Close exchange and reporting to Head of Gastronomy rocksresort as well as proactive cooperation with the Gastro Berg, Events, HR, Sales & Marketing, Bergbahnen and Mountain Adventures departments. What makes you:\n• Completed cooking training, ideally with business management training (e.g. master chef, head chef with Federal FA or gastro entrepreneur).\n• Flowing German and very good knowledge of English and/or Italian\n• At least 4–5 years of management experience in a comparable position in the (upper) gastronomy or hotel industry.\n• Structured, independent, flexible and highly quality and service-oriented.\n• Calm and overview even in hectic situations, with high numbers of guests or events.\n• Enjoying a dynamic resort environment and openness to new culinary trends (e.g. Asian, street food). | An attractive workplace in the middle of a breathtaking mountain world is certain for you. You also have the opportunity to develop in our dynamic, bright team and vibrant company culture. Look forward to numerous employee benefits, such as free mountain rides, perks in our shops, hotels and restaurants, as well as benefits for your family. Start your professional adventure at the Weissen Arena Group now with your complete online application with photo. We look forward to that. | Weisse Arena Hospitality AG signinahotel José Carvalho Tel. +41 81 927 90 52 www.weissearena.com I www.laax.com",
-        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Möchtest du die kulinarische Vielfalt eines der lebendigsten und modernsten Resorts in den Schweizer Alpen aktiv mitgestalten? Sind die Wünsche von anspruchsvollen à-la-carte-Gästen für dich keine Herausforderung, sondern erfüllen dich mit einem Lächeln? Oder magst du lieber das emsige Treiben in einem vielseitigen Ganzjahresbetrieb? Dann bist du bei uns genau richtig! Das Rocksresort in Laax vereint urbanen Lebensstil mit alpiner Natur. Deine kulinarische Reise bei uns erstreckt sich über ein beeindruckendes und abwechslungsreiches Portfolio: Vom mediterranen Flair im beliebten Restaurant Camino und der dazugehörigen Camino Bar , über die faszinierenden asiatischen Geschmackswelten im Restaurant Ikigai , bis hin zu ehrlichen, saftigen Burger-Spezialitäten im Il Pub . Im Winter erweiterst du deinen Wirkungskreis um das traditionsreiche Restaurant Casa Veglia , das unsere Gäste mit authentischen Schweizer Spezialitäten begeistert. Darüber hinaus zeichnest du dich für die hochstehende gastronomische Betreuung von abwechslungsreichen Veranstaltungen, Gruppen und Banketten über das ganze Jahr verantwortlich. | Stell dir vor, du bist unser:e neue:r Küchenchef:in und lässt unsere Gäste mit viel Geschick, Kreativität und strategischem Weitblick in eine Welt voller Genuss eintauchen. Als gastronomischer Kopf koordinierst und optimierst du die Küchenabläufe über mehrere Outlets hinweg, setzt innovative kulinarische Impulse und führst dein Team mit Leidenschaft und Vorbildfunktion zum gemeinsamen Erfolg. | Was du bewegst:\n• Fachliche und personelle Leitung, Motivation sowie kontinuierliche Weiterentwicklung des gesamten Küchenteams.\n• Strategische und operative Organisation aller Küchenabläufe im Ganzjahresbetrieb (Camino, Camino Bar, Ikigai, Il Pub, saisonal Casa Veglia).\n• Konzeption und Durchführung kulinarischer Konzepte für MICE-Veranstaltungen, Reisegruppen und exklusive Bankette.\n• Sicherstellung einer frischen, zeitgemässen Zubereitung sowie eines konstant hohen Qualitäts- und Präsentationsniveaus.\n• Verantwortung für Einkauf, Warenannahme, Lagerbewirtschaftung, Inventur und Menükalkulation.\n• Konsequente Durchsetzung und Dokumentation der HACCP-Vorschriften und Richtlinien zur Arbeitssicherheit.\n• Durchführung interner Schulungen zur Förderung des Qualitätsbewusstseins im Team.\n• Enger Austausch und Raportierung zu Leiter Gastronomie rocksresort sowie proaktive Zusammenarbeit mit den Abteilungen Gastro Berg, Events, HR, Sales & Marketing, Bergbahnen und Mountain Adventures. | Was dich ausmacht:\n• Abgeschlossene Kochausbildung, idealerweise mit betriebswirtschaftlicher Weiterbildung (z. B. Küchenmeister, Chefkoch mit eidg. FA oder Gastro-Unternehmer).\n• Fliessendes Deutsch sowie sehr gute Englisch- und/oder Italienischkenntnisse\n• Mindestens 4–5 Jahre Führungserfahrung in vergleichbarer Position der (gehobenen) Gastronomie oder Hotellerie.\n• Strukturiert, selbstständig, flexibel sowie ausgeprägt qualitäts- und dienstleistungsorientiert.\n• Ruhe und Überblick auch in hektischen Situationen, bei hohem Gästeaufkommen oder Events.\n• Freude an einem dynamischen Resort-Umfeld und Offenheit für neue kulinarische Trends (z. B. Asiatisch, Streetfood). | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen, wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Weisse Arena Hospitality AG signinahotel José Carvalho Tel. +41 81 927 90 52 www.weissearena.com I www.laax.com",
-        "fr": "Le White Arena Group de LAAX est un pionnier du tourisme alpin et une communauté enthousiaste pour des aventures de montagne uniques. Le groupe comprend diverses entreprises hôtelières et de restauration, des magasins de sport et de location, une école de ski, de snowboard et de vélo ainsi qu'une société de gestion et de construction. Notre succès ? Une équipe motivée et dévouée qui vit sa passion au quotidien. Autres Voulez-vous façonner activement la diversité culinaire de l'une des stations les plus dynamiques et modernes des Alpes suisses ? Les souhaits des invités exigeants à la carte ne sont-ils pas un défi pour vous, mais vous remplir d'un sourire? Ou préférez-vous l'activité chargée dans une opération polyvalente toute l'année? Alors tu as raison avec nous ! La station rocheuse de Laax allie style de vie urbain et nature alpine. Votre voyage culinaire avec nous s'étend sur un portefeuille impressionnant et varié : du flair méditerranéen dans le restaurant populaire Camino et le Camino Bar associé, aux mondes de goût asiatiques fascinants dans le restaurant Ikigai, aux spécialités de burgers honnêtes et juteux dans le Pub Il. En hiver, vous développez votre sphère d'activité avec le restaurant traditionnel Casa Veglia, qui ravit nos clients avec des spécialités suisses authentiques. En outre, vous êtes responsable des soins gastronomiques de haut niveau de divers événements, groupes et banquets tout au long de l'année. Autres Imaginez que vous êtes notre:e neue:r Chef:in et laissez nos invités s'immerger dans un monde plein de plaisir avec beaucoup de compétence, de créativité et de vision stratégique. En tant qu'esprit gastronomique, vous coordonnez et optimisez les processus de cuisine à travers plusieurs points de vente, définissez des impulsions culinaires innovantes et dirigez votre équipe avec passion et modèle à la réussite commune. Ce que vous déplacez :\n• Gestion professionnelle et du personnel, motivation et développement continu de toute l'équipe de cuisine.\n• Organisation stratégique et opérationnelle de tous les processus de cuisine tout au long de l'année (Camino, Camino Bar, Ikigai, Il Pub, Casa Veglia saisonnière).\n• Conception et mise en œuvre de concepts culinaires pour les événements MICE, les groupes de voyage et les banquets exclusifs.\n• Assurer une préparation fraîche et contemporaine et un niveau de qualité et de présentation constamment élevé.\n• Responsabilité pour l'achat, la réception, l'entreposage, l'inventaire et le calcul des menus.\n• Application cohérente et documentation des règlements et lignes directrices HACCP sur la sécurité au travail.\n• Mener une formation interne pour sensibiliser l'équipe à la qualité.\n• Des échanges et des rapports étroits avec le responsable de Gastronomie rocksresort ainsi qu'une coopération proactive avec les départements de Gastro Berg, Events, HR, Sales & Marketing, Bergbahnen et Mountain Adventures. Qu'est-ce qui vous fait :\n• Formation à la cuisine terminée, idéalement avec formation en gestion d'entreprise (p. ex. chef chef, chef chef avec FA fédérale ou entrepreneur en gastro).\n• Entraînement allemand et très bonne connaissance de l'anglais et/ou de l'italien\n• Au moins 4-5 ans d'expérience en management dans une position comparable dans la gastronomie (upper) ou l'hôtellerie.\n• Structurel, indépendant, flexible et hautement de qualité et orienté vers le service.\n• Calme et aperçu même dans des situations agitées, avec un grand nombre d'invités ou d'événements.\n• Profitez d'un environnement de villégiature dynamique et d'une ouverture aux nouvelles tendances culinaires (p. ex. asiatique, street food). Un lieu de travail attrayant au milieu d'un monde montagneux à couper le souffle est certain pour vous. Vous avez également l'occasion de vous développer dans notre équipe dynamique, lumineuse et dynamique culture d'entreprise. Profitez de nombreux avantages pour les employés, comme des randonnées en montagne gratuites, des avantages dans nos magasins, hôtels et restaurants, ainsi que des avantages pour votre famille. Commencez votre aventure professionnelle au Weissen Arena Group avec votre candidature complète en ligne avec photo. Nous attendons cela avec impatience. Weisse Arena Hospitality AG signenahotel José Carvalho Tél. +41 81 927 90 52 www.weissearena.com I www.laax.com"
-      },
-      "location": "Laax",
-      "canton": "GR",
-      "url": "https://www.weissearena.com/jobs/details.html?jobId=4527&jobTitle=K%C3%BCchenchef%3Ain+rocksresorts",
-      "source": "Weisse Arena Gruppe Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:41:34.262Z",
-      "addressLocality": "Laax",
-      "postalCode": "7031",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ristorazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Turismo / Sport",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-13",
-      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4527&langCode=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "signinahotel",
-      "jobNumber": "WAG02436",
-      "pensum": "100%",
-      "contractLabel": "Festanstellung",
-      "previousSlugs": [
-        "kuchenchef-in-rocksresorts-weisse-arena-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kuchenchef-in-rocksresorts-weisse-arena-ch"
-        ],
-        "en": [
-          "kuchenchef-in-rocksresorts-weisse-arena-ch"
-        ],
-        "fr": [
-          "kuchenchef-in-rocksresorts-weisse-arena-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-14T10:55:48.730Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -521,7 +376,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4524&jobTitle=Nachtportier%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:41:34.262Z",
+      "crawledAt": "2026-07-25T21:57:59.658Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -543,10 +398,12 @@
       "contractLabel": "Saisonanstellung",
       "previousSlugsByLocale": {
         "de": [
-          "nachtportier-in-weisse-arena-ch"
+          "nachtportier-in-weisse-arena-ch",
+          "nachtportier-in-weisse-arena-gruppe-laax"
         ],
         "it": [
-          "nachtportier-in-weisse-arena-ch"
+          "nachtportier-in-weisse-arena-ch",
+          "portatore-notturno-weisse-arena-gruppe-laax"
         ],
         "en": [
           "nachtportier-in-weisse-arena-ch"
@@ -556,9 +413,92 @@
         ]
       },
       "previousSlugs": [
-        "nachtportier-in-weisse-arena-ch"
+        "nachtportier-in-weisse-arena-ch",
+        "nachtportier-in-weisse-arena-gruppe-laax",
+        "portatore-notturno-weisse-arena-gruppe-laax"
       ],
       "firstSeenAt": "2026-06-22T15:11:23.123Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "weisse-arena-2fa633beab76",
+      "slug": "risorse-umane-generalist-in-weisse-arena-gruppe-laax",
+      "slugByLocale": {
+        "it": "risorse-umane-generalist-in-weisse-arena-gruppe-laax",
+        "en": "hr-generalist-in-weisse-arena-ch",
+        "de": "hr-generalist-in-weisse-arena-ch",
+        "fr": "ressources-humaines-generalist-in-weisse-arena-gruppe-laax"
+      },
+      "company": "Weisse Arena Gruppe",
+      "companyKey": "weisse-arena",
+      "companyDomain": "weissearena.com",
+      "title": "HR Generalist:in",
+      "titleByLocale": {
+        "it": "Risorse Umane Generalist:in",
+        "en": "HR Generalist",
+        "de": "HR Generalist:in",
+        "fr": "Ressources Humaines Generalist:in"
+      },
+      "description": "Die Weisse Arena Gruppe betreibt mit LAAX eines der führenden Freizeit- und Tourismusunternehmen der Schweiz. Mit Bergbahnen, Hotels, Gastronomie, Sport- und Rental-Shops sowie der LAAX School schaffen wir unvergessliche Erlebnisse für unsere Gäste - und attraktive Arbeitsplätze für unsere Mitarbeitenden. Unsere People Performance Team betreut über 1400 Kolleginnen und Kollegen im Winter sowie rund 550 im Sommer. | Make it people. Make it LAAX. | Wir suchen eine Persönlichkeit, die mitdenkt, Verantwortung übernimmt, pragmatisch handelt und unser HR im Alltag besser macht. | Was du bewegst: Du begleitest Mitarbeitende und Führungskräfte in personalrelevanten Themen entlang des gesamten Employee Lifecycles und sorgst dafür, dass unsere HR Prozesse professionell, zuverlässig und serviceorientiert funktionieren. Dabei verbindest du operative Umsetzungsstärke mit einem klaren Blick für Qualität, Struktur und Weiterentwicklung. Du übernimmst Verantwortung für administrative und operative HR-Themen, stellst die Qualität unserer HR-Daten und Prozesse sicher, bist im Austausch mit internen und externen Partnern und behältst auch bei mehreren Themen gleichzeitig den Überblick. Du klärst arbeitsrechtliche, sozialversicherungsrechtliche sowie organisatorische Fragestellungen und hast ein Auge auf die konsequente Umsetzung vereinbarter Lösungen. Du erkennst Verbesserungspotenzial, bringst neue Impulse ein und entwickelst unsere HR-Prozesse, Standards und Arbeitsweisen kontinuierlich weiter. | Was dich ausmacht: Du bist ein HR-Profi mit hoher Dienstleistungsorientierung, gesundem Menschenverstand und Freude an einem dynamischen Umfeld. Du arbeitest strukturiert, denkst vernetzt und bringst Themen sauber zu Ende.\n• Abgeschlossene Weiterbildung im Personalwesen, HR-Fachfrau/-mann mit eidg. Fachausweis oder vergleichbare Qualifikation\n• Mehrjährige Erfahrung im operativen HR, idealerweise in einem Unternehmen mit saisonalen Strukturen\n• Gute Kenntnisse im Schweizer Arbeitsrecht und in den Sozialversicherungen\n• Erfahrung in der Personaladministration, Payroll-Nähe und Führungskräfteberatung\n• Sicherer Umgang mit HR-Systemen und digitalen Prozessen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Hohe Genauigkeit, Diskretion und Verantwortungsbewusstsein\n• Stilsicheres Deutsch in Wort und Schrift sowie gute Englischkenntnisse\n• Freude an Menschen, Klarheit in der Kommunikation und eine pragmatische Haltung\n• Branchenkenntnisse in Tourismus, Seilbahn, Hotellerie oder Gastronomie sind von Vorteil | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung unseres HR aktiv mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Zudem profitierst du von attraktiven Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie von weiteren Vorteilen für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Mountain Vision AG Human & Organizational Performance Management Christina Darms Tel. +41 81 927 70 14 www.weissearena.com I www.laax.com",
+      "descriptionByLocale": {
+        "it": "Ragionamento di seguito 1. Ho individuato le possibili sezioni del testo originale: - Descrizione dell’azienda e contesto del - Mansioni (cosa il candidato volontà) -\n• Requisiti (qualifiche e competenze richieste) - Cosa aspetti (benefici e ambiente di lavoro) - Contatto (informazioni per candidarsi) 2. Ho tenuto tutti i contenuti originali senza alcuna modifica o riformulazione, rispettando il vincolo di non aggiungere, rimuove o riformulare il testo. Ho introdotto le intestazioni richieste con `#` e ho trasformato le liste presenti nel testo in concessioneti (`-`), assicurandomi che ogni punto fosse una singola voce completa. 4. ho inserito pausa di riga dove necessario per migliorare la leggibilità, senza alterare il contenuto. Il Weisse Arena Group gestisce LAAX, una delle principali aziende del turismo e del tempo libero in Svizzera. Con ferrovie di montagna, hotel, gastronomia, negozi di sport e noleggio e la Scuola LAAX, creiamo esperienze indimenticabili per i nostri ospiti - e luoghi di lavoro attraenti per i nostri dipendenti. Il nostro People Performance Team serve oltre 1.400 colleghi in inverno e circa 550 in estate.\n• Cerchiamo una personalità che pensa, si assume la responsabilità, agisce pragmaticamente e migliora le risorse umane nella vita quotidiana. Mansioni - Accompagnate dipendenti e manager in argomenti rilevanti per il personale lungo tutto il ciclo di vita dei dipendenti e assicurate che i nostri processi HR funzionino in modo professionale, affidabile e orientato al servizio. Unisci la forza di implementazione operativa con una chiara visione di qualità, struttura e ulteriore sviluppo. L'utente si assume la responsabilità per gli argomenti amministrativi e operativi delle risorse umane, assicura la qualità dei dati e dei processi HR, è in contatto con partner interni ed esterni e tiene una panoramica di diversi argomenti allo stesso tempo. - No. Si chiarisce il diritto del lavoro, il diritto della sicurezza sociale e le questioni organizzative e tenere d'occhio la coerente attuazione di soluzioni concordate. - No. Riconoscete il potenziale di miglioramento, portate nuovi impulsi e sviluppate continuamente i nostri processi HR, gli standard e i metodi di lavoro.\n• Requisiti - Completato ulteriore formazione in risorse umane, specialista HR con diritto federale. Identificazione professionale o qualificazione comparabile - Diversi anni di esperienza nelle risorse umane operative, idealmente in un'azienda con strutture stagionali - Buona conoscenza nel diritto dell'occupazione svizzero e nell'assicurazione sociale - Esperienza nell'amministrazione del personale, prossimità del salario e consulenza gestionale - Gestione sicura dei sistemi HR e processi digitali - Autocontenuto, strutturato e metodi di lavoro orientati alla soluzione - Alta precisione, discrezione e senso di responsabilità - Confidente tedesco in parola e scrittura così come buona conoscenza dell'inglese - Un posto di lavoro attraente in mezzo a un mondo di montagna eccezionale - Parte di un team dinamico e risvegliato - Forma attivamente l'ulteriore sviluppo della nostra HR - Un ambiente in cui la professionalità, la velocità, il pragmatismo e l'umanità appartengono insieme - Vantaggi interessanti dei dipendenti, come le gite di montagna gratuite, benefici nei nostri negozi, hotel e ristoranti, nonché altri vantaggi per la vostra famiglia Contatto Mountain Vision AG Human & Organizational Performance Management Christina Darms Tel. +41 81 9weare",
+        "en": "Ragionamento seguito 1. Ho individuato le possibili sezioni del testo originale: - Descrizione dell’azienda e del contesto - Mansioni (cosa il candidato farà) -\n• Requisiti (qualifiche e competenze richieste) -\n• Cosa offriamo (benefici e ambiente di lavoro) - Contatto (informazioni per candidarsi) 2. Ho mantenuto tutti i contenuti originali senza alcuna modifica o riformulazione, rispettando il vincolo di non aggiungere, rimuovere o riformulare il testo. Ho introdotto le intestazioni richieste con `##` e ho trasformato le liste presenti nel testo in elenchi puntati (`-`), assicurandomi che ogni punto fosse una singola voce completa. 4. ho inserito interruzioni di riga dove necessario per migliorare la leggibilità, senza alterare il contenuto. The Weisse Arena Group operates LAAX, one of the leading leisure and tourism companies in Switzerland. With mountain railways, hotels, gastronomy, sports and rental shops and the LAAX School, we create unforgettable experiences for our guests - and attractive workplaces for our employees. Our People Performance Team serves over 1,400 colleagues in winter and around 550 in summer. We are looking for a personality who thinks, takes responsibility, acts pragmatically and makes our HR better in everyday life. Mansioni - You accompany employees and managers in personnel-relevant topics along the entire employee lifecycle and ensure that our HR processes function professionally, reliably and service-oriented. You combine operational implementation strength with a clear view of quality, structure and further development. You take responsibility for administrative and operational HR topics, ensure the quality of our HR data and processes, are in contact with internal and external partners and keep an overview of several topics at the same time. - You clarify employment law, social security law and organizational issues and keep an eye on the consistent implementation of agreed solutions. - You recognize potential for improvement, bring in new impulses and continuously develop our HR processes, standards and working methods.\n• Requisiti - Completed further training in human resources, HR specialist with federal law. Professional ID or comparable qualification - Several years of experience in operational HR, ideally in a company with seasonal structures - Good knowledge in Swiss employment law and in social insurance - Experience in personnel administration, payroll proximity and management consulting - Secure handling of HR systems and digital processes - Self-contained, structured and solution-oriented working methods - High accuracy, discretion and sense of responsibility - Confident German in word and writing as well as good knowledge of English - Pleasure in people, clarity in communication and a pragmatic attitude - Industry knowledge in tourism, cable car, hotel industry or gastronomy are of advantage\n• Cosa offriamo - An attractive workplace in the midst of an exceptional mountain world - Part of a dynamic, awakened team - Actively shape the further development of our HR - An environment in which professionalism, speed, pragmatism and humanity belong together - Attractive employee benefits, such as free mountain rides, benefits in our shops, hotels and restaurants as well as other advantages for your family Contatto Mountain Vision AG Human & Organizational Performance Management Christina Darms Tel. +41 81 927 70 14 www.weissearena.com www.laax.com",
+        "de": "Die Weisse Arena Gruppe betreibt mit LAAX eines der führenden Freizeit- und Tourismusunternehmen der Schweiz. Mit Bergbahnen, Hotels, Gastronomie, Sport- und Rental-Shops sowie der LAAX School schaffen wir unvergessliche Erlebnisse für unsere Gäste - und attraktive Arbeitsplätze für unsere Mitarbeitenden. Unsere People Performance Team betreut über 1400 Kolleginnen und Kollegen im Winter sowie rund 550 im Sommer. | Make it people. Make it LAAX. | Wir suchen eine Persönlichkeit, die mitdenkt, Verantwortung übernimmt, pragmatisch handelt und unser HR im Alltag besser macht. | Was du bewegst: Du begleitest Mitarbeitende und Führungskräfte in personalrelevanten Themen entlang des gesamten Employee Lifecycles und sorgst dafür, dass unsere HR Prozesse professionell, zuverlässig und serviceorientiert funktionieren. Dabei verbindest du operative Umsetzungsstärke mit einem klaren Blick für Qualität, Struktur und Weiterentwicklung. Du übernimmst Verantwortung für administrative und operative HR-Themen, stellst die Qualität unserer HR-Daten und Prozesse sicher, bist im Austausch mit internen und externen Partnern und behältst auch bei mehreren Themen gleichzeitig den Überblick. Du klärst arbeitsrechtliche, sozialversicherungsrechtliche sowie organisatorische Fragestellungen und hast ein Auge auf die konsequente Umsetzung vereinbarter Lösungen. Du erkennst Verbesserungspotenzial, bringst neue Impulse ein und entwickelst unsere HR-Prozesse, Standards und Arbeitsweisen kontinuierlich weiter. | Was dich ausmacht: Du bist ein HR-Profi mit hoher Dienstleistungsorientierung, gesundem Menschenverstand und Freude an einem dynamischen Umfeld. Du arbeitest strukturiert, denkst vernetzt und bringst Themen sauber zu Ende.\n• Abgeschlossene Weiterbildung im Personalwesen, HR-Fachfrau/-mann mit eidg. Fachausweis oder vergleichbare Qualifikation\n• Mehrjährige Erfahrung im operativen HR, idealerweise in einem Unternehmen mit saisonalen Strukturen\n• Gute Kenntnisse im Schweizer Arbeitsrecht und in den Sozialversicherungen\n• Erfahrung in der Personaladministration, Payroll-Nähe und Führungskräfteberatung\n• Sicherer Umgang mit HR-Systemen und digitalen Prozessen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Hohe Genauigkeit, Diskretion und Verantwortungsbewusstsein\n• Stilsicheres Deutsch in Wort und Schrift sowie gute Englischkenntnisse\n• Freude an Menschen, Klarheit in der Kommunikation und eine pragmatische Haltung\n• Branchenkenntnisse in Tourismus, Seilbahn, Hotellerie oder Gastronomie sind von Vorteil | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung unseres HR aktiv mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Zudem profitierst du von attraktiven Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie von weiteren Vorteilen für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Mountain Vision AG Human & Organizational Performance Management Christina Darms Tel. +41 81 927 70 14 www.weissearena.com I www.laax.com",
+        "fr": "Ragionamento seguito 1. Ho individuato le possibili sezioni del testo originale: - Descrizione dell=azienda e del contesto - Mansioni (cosa il candidato farà) -\n• Requisiti (qualifiche e competenze riphieste) -\n• Cosa offriamo (benefici e ambiente di lavoro) - Contatto (informazioni per candidarsi) 2. Il s'agit d'un système de traitement de l'information et de traitement des données. Ho introdotto le intestazioni richieste con `##` e ho trasformato le liste presenti nel testo in elenchi puntati (`-`), assicurandomi che ogni punto fosse una singola voce completa. 4. ho inserito interruzioni di riga dove necessario per migliorare la leggibilità, senza alterare il contenuto. Le Groupe Weisse Arena exploite LAAX, l'une des principales entreprises de loisirs et de tourisme en Suisse. Avec les chemins de fer de montagne, les hôtels, la gastronomie, les magasins de sport et de location et l'école LAAX, nous créons des expériences inoubliables pour nos clients - et des lieux de travail attrayants pour nos employés. Notre équipe de performance des gens sert plus de 1 400 collègues en hiver et environ 550 en été. Nous cherchons une personnalité qui pense, prend des responsabilités, agit de façon pragmatique et améliore nos RH dans la vie quotidienne. Autres Vous accompagnez les employés et les gestionnaires dans des sujets pertinents pour le personnel tout au long du cycle de vie des employés et vous assurez que nos processus RH fonctionnent de façon professionnelle, fiable et axée sur le service. Vous combinez la force de mise en oeuvre opérationnelle avec une vision claire de la qualité, de la structure et du développement ultérieur. Vous assumez la responsabilité des questions administratives et opérationnelles liées aux RH, vous assurez la qualité de nos données et de nos processus RH, vous êtes en contact avec des partenaires internes et externes et vous avez un aperçu de plusieurs sujets en même temps. - Oui. Vous clarifiez le droit du travail, le droit de la sécurité sociale et les questions d'organisation et gardez un œil sur la mise en œuvre cohérente des solutions convenues. - Oui. Vous reconnaissez le potentiel d'amélioration, apportez de nouvelles impulsions et développez continuellement nos processus, normes et méthodes de travail en RH.\n• Requisiti - Formation continue en ressources humaines, spécialiste des RH en droit fédéral. Identification professionnelle ou qualification comparable - Plusieurs années d'expérience en RH opérationnelles, idéalement dans une entreprise avec des structures saisonnières - Bonne connaissance en droit suisse du travail et en assurance sociale - Expérience en administration du personnel, proximité de la paie et conseil en gestion - Gestion sécurisée des systèmes RH et des processus numériques - Méthodes de travail autonomes, structurées et orientées vers la solution - Haute précision, discrétion et sens des responsabilités - Confiance de l'allemand en paroles et en écriture ainsi qu'une bonne connaissance de l'anglais - Plaisir en personne, clarté dans la communication et une attitude pragmatique - Connaissance de l'industrie dans le tourisme, la télécabine, l'hôtellerie ou la gastronomie sont d'avantage\n• Cosa offriamo - Un lieu de travail attrayant au milieu d'un monde montagneux exceptionnel - Partie d'une équipe dynamique et éveillée - Façonner activement le développement de nos RH - Un environnement dans lequel le professionnalisme, la vitesse, le pragmatisme et l'humanité font partie intégrante - Des avantages pour les employés attrayants, comme des promenades en montagne gratuites, des avantages dans nos magasins, hôtels et restaurants ainsi que d'autres avantages pour votre famille Contatto Mountain Vision AG Human & Organizational Performance Management Christina Darms Tel. +41 81 927 70 14 www.weissearena.com www.laax.com"
+      },
+      "location": "Laax",
+      "canton": "GR",
+      "url": "https://www.weissearena.com/jobs/details.html?jobId=4522&jobTitle=HR+Generalist%3Ain",
+      "source": "Weisse Arena Gruppe Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-25T21:57:59.658Z",
+      "addressLocality": "Laax",
+      "postalCode": "7031",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Turismo / Sport",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-18",
+      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4522&langCode=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Human & Organizational Performance Management",
+      "jobNumber": "WAG02398",
+      "pensum": "80 - 100%",
+      "contractLabel": "Festanstellung",
+      "previousSlugs": [
+        "hr-generalist-in-weisse-arena-ch",
+        "risorse-umane-generalist-in-weisse-arena-gruppe-laax"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-generalist-in-weisse-arena-ch",
+          "risorse-umane-generalist-in-weisse-arena-gruppe-laax"
+        ],
+        "fr": [
+          "hr-generalist-in-weisse-arena-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-19T13:38:45.726Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -604,7 +544,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4530&jobTitle=Mitarbeiter%3Ain+Bahn%C3%BCberwachung",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:41:34.261Z",
+      "crawledAt": "2026-07-25T21:57:59.657Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -628,14 +568,16 @@
         "mitarbeiter-in-bahnuberwachung-weisse-arena-ch",
         "collaboratore-trice-bahnuberwachung-weisse-arena-gruppe-laax-z3tj49",
         "associate-bahnuberwachung-weisse-arena-gruppe-laax",
-        "collaborateur-trice-bahnuberwachung-weisse-arena-gruppe-laax"
+        "collaborateur-trice-bahnuberwachung-weisse-arena-gruppe-laax",
+        "collaboratore-trice-bahnuberwachung-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-bahnuberwachung-weisse-arena-ch",
           "collaboratore-trice-bahnuberwachung-weisse-arena-gruppe-laax-z3tj49",
           "associate-bahnuberwachung-weisse-arena-gruppe-laax",
-          "collaborateur-trice-bahnuberwachung-weisse-arena-gruppe-laax"
+          "collaborateur-trice-bahnuberwachung-weisse-arena-gruppe-laax",
+          "collaboratore-trice-bahnuberwachung-weisse-arena-gruppe-laax"
         ],
         "en": [
           "mitarbeiter-in-bahnuberwachung-weisse-arena-ch"
@@ -645,6 +587,89 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:06:42.752Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "weisse-arena-87010a09194e",
+      "slug": "chef-in-scogliere-weisse-arena-gruppe-laax",
+      "slugByLocale": {
+        "it": "chef-in-scogliere-weisse-arena-gruppe-laax",
+        "en": "chef-in-rocksresorts-weisse-arena-gruppe-laax",
+        "de": "kuchenchef-in-rocksresorts-weisse-arena-ch",
+        "fr": "chef-en-pierres-weisse-arena-gruppe-laax"
+      },
+      "company": "Weisse Arena Gruppe",
+      "companyKey": "weisse-arena",
+      "companyDomain": "weissearena.com",
+      "title": "Küchenchef:in rocksresorts",
+      "titleByLocale": {
+        "it": "Chef: in scogliere",
+        "en": "Chef: in rocksresorts",
+        "de": "Küchenchef:in rocksresorts",
+        "fr": "Chef: en pierres"
+      },
+      "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Möchtest du die kulinarische Vielfalt eines der lebendigsten und modernsten Resorts in den Schweizer Alpen aktiv mitgestalten? Sind die Wünsche von anspruchsvollen à-la-carte-Gästen für dich keine Herausforderung, sondern erfüllen dich mit einem Lächeln? Oder magst du lieber das emsige Treiben in einem vielseitigen Ganzjahresbetrieb? Dann bist du bei uns genau richtig! Das Rocksresort in Laax vereint urbanen Lebensstil mit alpiner Natur. Deine kulinarische Reise bei uns erstreckt sich über ein beeindruckendes und abwechslungsreiches Portfolio: Vom mediterranen Flair im beliebten Restaurant Camino und der dazugehörigen Camino Bar , über die faszinierenden asiatischen Geschmackswelten im Restaurant Ikigai , bis hin zu ehrlichen, saftigen Burger-Spezialitäten im Il Pub . Im Winter erweiterst du deinen Wirkungskreis um das traditionsreiche Restaurant Casa Veglia , das unsere Gäste mit authentischen Schweizer Spezialitäten begeistert. Darüber hinaus zeichnest du dich für die hochstehende gastronomische Betreuung von abwechslungsreichen Veranstaltungen, Gruppen und Banketten über das ganze Jahr verantwortlich. | Stell dir vor, du bist unser:e neue:r Küchenchef:in und lässt unsere Gäste mit viel Geschick, Kreativität und strategischem Weitblick in eine Welt voller Genuss eintauchen. Als gastronomischer Kopf koordinierst und optimierst du die Küchenabläufe über mehrere Outlets hinweg, setzt innovative kulinarische Impulse und führst dein Team mit Leidenschaft und Vorbildfunktion zum gemeinsamen Erfolg. | Was du bewegst:\n• Fachliche und personelle Leitung, Motivation sowie kontinuierliche Weiterentwicklung des gesamten Küchenteams.\n• Strategische und operative Organisation aller Küchenabläufe im Ganzjahresbetrieb (Camino, Camino Bar, Ikigai, Il Pub, saisonal Casa Veglia).\n• Konzeption und Durchführung kulinarischer Konzepte für MICE-Veranstaltungen, Reisegruppen und exklusive Bankette.\n• Sicherstellung einer frischen, zeitgemässen Zubereitung sowie eines konstant hohen Qualitäts- und Präsentationsniveaus.\n• Verantwortung für Einkauf, Warenannahme, Lagerbewirtschaftung, Inventur und Menükalkulation.\n• Konsequente Durchsetzung und Dokumentation der HACCP-Vorschriften und Richtlinien zur Arbeitssicherheit.\n• Durchführung interner Schulungen zur Förderung des Qualitätsbewusstseins im Team.\n• Enger Austausch und Raportierung zu Leiter Gastronomie rocksresort sowie proaktive Zusammenarbeit mit den Abteilungen Gastro Berg, Events, HR, Sales & Marketing, Bergbahnen und Mountain Adventures. | Was dich ausmacht:\n• Abgeschlossene Kochausbildung, idealerweise mit betriebswirtschaftlicher Weiterbildung (z. B. Küchenmeister, Chefkoch mit eidg. FA oder Gastro-Unternehmer).\n• Fliessendes Deutsch sowie sehr gute Englisch- und/oder Italienischkenntnisse\n• Mindestens 4–5 Jahre Führungserfahrung in vergleichbarer Position der (gehobenen) Gastronomie oder Hotellerie.\n• Strukturiert, selbstständig, flexibel sowie ausgeprägt qualitäts- und dienstleistungsorientiert.\n• Ruhe und Überblick auch in hektischen Situationen, bei hohem Gästeaufkommen oder Events.\n• Freude an einem dynamischen Resort-Umfeld und Offenheit für neue kulinarische Trends (z. B. Asiatisch, Streetfood). | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen, wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Weisse Arena Hospitality AG signinahotel José Carvalho Tel. +41 81 927 90 52 www.weissearena.com I www.laax.com",
+      "descriptionByLocale": {
+        "it": "Il White Arena Group di LAAX è un pioniere nel turismo alpino e una comunità entusiasta per avventure di montagna uniche. Il gruppo comprende varie attività di hotel e catering, negozi di sport e noleggio, una scuola di sci, snowboard e bici, nonché una società di gestione e costruzione. Il nostro successo? Un team motivato e dedicato che vive quotidianamente la sua passione. # Vuoi plasmare attivamente la diversità culinaria di una delle località più vivaci e moderne delle Alpi svizzere? Sono i desideri di esigere ospiti à-la-carte non una sfida per voi, ma riempire con un sorriso? O preferisci l'attività occupata in un'operazione versatile tutto l'anno? Allora hai proprio ragione con noi! Il resort rock di Laax combina lo stile di vita urbano con la natura alpina. Il vostro viaggio culinario con noi abbraccia un portafoglio impressionante e variegato: dal fascino mediterraneo nel famoso ristorante Camino e il Camino Bar associato, agli affascinanti mondi asiatici del gusto nel ristorante Ikigai, ad onesto, succoso hamburger specialità del Pub. In inverno espandete la vostra sfera di attività con il tradizionale ristorante Casa Veglia, che delizia i nostri ospiti con autentici specialità svizzere. Inoltre, siete responsabili della cura gastronomica di alto livello di vari eventi, gruppi e banchetti durante tutto l'anno. # Immaginate di essere il nostro:e neue:r Chef:in e lascia i nostri ospiti immergersi in un mondo pieno di piacere con molta abilità, creatività e visione strategica. Come mente gastronomica, coordinate e ottimizzate i processi cucina in diversi punti vendita, impostate gli impulsi culinari innovativi e guidate il vostro team con passione e modello di ruolo al successo congiunto. Cosa si muove:\n• Gestione professionale e personale, motivazione e sviluppo continuo dell'intero team di cucina.\n• Organizzazione strategica e operativa di tutti i processi di cucina durante tutto l'anno (Camino, Camino Bar, Ikigai, Il Pub, Casa Veglia stagionale).\n• Concezione e realizzazione di concetti culinari per eventi MICE, gruppi di viaggio e banchetti esclusivi.\n• Garantire una preparazione fresca e contemporanea e un livello costantemente elevato di qualità e presentazione.\n• Responsabilità per l'acquisto, la ricezione di merci, lo stoccaggio, l'inventario e il calcolo del menu.\n• Esecuzione costante e documentazione delle normative HACCP e degli orientamenti in materia di sicurezza sul lavoro.\n• Condurre la formazione interna per promuovere la consapevolezza della qualità nel team.\n• Scambio ravvicinato e reportistica al Responsabile della Gastronomia Rockresort e collaborazione proattiva con i dipartimenti Gastro Berg, Events, HR, Sales & Marketing, Bergbahnen e Mountain Adventures. Cosa ti fa:\n• Completata la formazione di cucina, idealmente con la formazione di business management (ad esempio master chef, chef capo con FA federale o imprenditore gastro).\n• Fluente tedesco e ottima conoscenza dell'inglese e/o dell'italiano\n• Almeno 4-5 anni di esperienza manageriale in una posizione paragonabile nel settore alberghiero o della gastronomia (upper).\n• Strutturato, indipendente, flessibile e altamente orientato al servizio.\n• Calma e panoramica anche in situazioni frenetiche, con un elevato numero di ospiti o eventi.\n• Godendo di un ambiente di resort dinamico e di apertura a nuove tendenze culinarie (ad esempio asiatiche, street food). Un posto di lavoro attraente nel mezzo di un mondo di montagna mozzafiato è certo per voi. Hai anche l'opportunità di sviluppare nel nostro team dinamico, brillante e vivace cultura aziendale. Attendere con ansia numerosi vantaggi per i dipendenti, come gite in montagna gratuite, vantaggi nei nostri negozi, hotel e ristoranti, nonché benefici per la vostra famiglia. Inizia la tua avventura professionale al Weissen Arena Group ora con la tua applicazione online completa con la foto. Non vediamo l'ora. | Weisse Arena Hospitality AG signinahotel José Carvalho Tel. +41 81 927 90 52 www.weissearena.com I www.laax.com",
+        "en": "The White Arena Group in LAAX is a pioneer in alpine tourism and an enthusiastic community for unique mountain adventures. The group includes various hotel and catering businesses, sports and rental shops, a ski, snowboard and bike school as well as a management and construction company. Our success? A motivated and dedicated team that lives its passion daily. | Do you want to actively shape the culinary diversity of one of the most vibrant and modern resorts in the Swiss Alps? Are the wishes of demanding à-la-carte guests not a challenge for you, but fill you with a smile? Or do you prefer the busy activity in a versatile year-round operation? Then you are exactly right with us! The rock resort in Laax combines urban lifestyle with alpine nature. Your culinary journey with us spans an impressive and varied portfolio: from the Mediterranean flair in the popular restaurant Camino and the associated Camino Bar, to the fascinating Asian taste worlds in the restaurant Ikigai, to honest, juicy burger specialties in the Il Pub. In winter you expand your sphere of activity with the traditional restaurant Casa Veglia, which delights our guests with authentic Swiss specialties. In addition, you are responsible for the high-level gastronomic care of varied events, groups and banquets throughout the year. | Imagine you are our:e neue:r Chef:in and lets our guests immerse themselves in a world full of pleasure with a lot of skill, creativity and strategic vision. As a gastronomic mind, you coordinate and optimize the kitchen processes across several outlets, set innovative culinary impulses and lead your team with passion and role model to joint success. What You Move:\n• Professional and personnel management, motivation and continuous development of the entire kitchen team.\n• Strategic and operational organisation of all kitchen processes throughout the year (Camino, Camino Bar, Ikigai, Il Pub, seasonal Casa Veglia).\n• Conception and implementation of culinary concepts for MICE events, travel groups and exclusive banquets.\n• Ensuring a fresh, contemporary preparation and a consistently high level of quality and presentation.\n• Responsibility for purchasing, receiving goods, warehousing, inventory and menu calculation.\n• Consistent enforcement and documentation of HACCP regulations and guidelines on occupational safety.\n• Conduct internal training to promote quality awareness in the team.\n• Close exchange and reporting to Head of Gastronomy rocksresort as well as proactive cooperation with the Gastro Berg, Events, HR, Sales & Marketing, Bergbahnen and Mountain Adventures departments. What makes you:\n• Completed cooking training, ideally with business management training (e.g. master chef, head chef with Federal FA or gastro entrepreneur).\n• Flowing German and very good knowledge of English and/or Italian\n• At least 4–5 years of management experience in a comparable position in the (upper) gastronomy or hotel industry.\n• Structured, independent, flexible and highly quality and service-oriented.\n• Calm and overview even in hectic situations, with high numbers of guests or events.\n• Enjoying a dynamic resort environment and openness to new culinary trends (e.g. Asian, street food). | An attractive workplace in the middle of a breathtaking mountain world is certain for you. You also have the opportunity to develop in our dynamic, bright team and vibrant company culture. Look forward to numerous employee benefits, such as free mountain rides, perks in our shops, hotels and restaurants, as well as benefits for your family. Start your professional adventure at the Weissen Arena Group now with your complete online application with photo. We look forward to that. | Weisse Arena Hospitality AG signinahotel José Carvalho Tel. +41 81 927 90 52 www.weissearena.com I www.laax.com",
+        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Möchtest du die kulinarische Vielfalt eines der lebendigsten und modernsten Resorts in den Schweizer Alpen aktiv mitgestalten? Sind die Wünsche von anspruchsvollen à-la-carte-Gästen für dich keine Herausforderung, sondern erfüllen dich mit einem Lächeln? Oder magst du lieber das emsige Treiben in einem vielseitigen Ganzjahresbetrieb? Dann bist du bei uns genau richtig! Das Rocksresort in Laax vereint urbanen Lebensstil mit alpiner Natur. Deine kulinarische Reise bei uns erstreckt sich über ein beeindruckendes und abwechslungsreiches Portfolio: Vom mediterranen Flair im beliebten Restaurant Camino und der dazugehörigen Camino Bar , über die faszinierenden asiatischen Geschmackswelten im Restaurant Ikigai , bis hin zu ehrlichen, saftigen Burger-Spezialitäten im Il Pub . Im Winter erweiterst du deinen Wirkungskreis um das traditionsreiche Restaurant Casa Veglia , das unsere Gäste mit authentischen Schweizer Spezialitäten begeistert. Darüber hinaus zeichnest du dich für die hochstehende gastronomische Betreuung von abwechslungsreichen Veranstaltungen, Gruppen und Banketten über das ganze Jahr verantwortlich. | Stell dir vor, du bist unser:e neue:r Küchenchef:in und lässt unsere Gäste mit viel Geschick, Kreativität und strategischem Weitblick in eine Welt voller Genuss eintauchen. Als gastronomischer Kopf koordinierst und optimierst du die Küchenabläufe über mehrere Outlets hinweg, setzt innovative kulinarische Impulse und führst dein Team mit Leidenschaft und Vorbildfunktion zum gemeinsamen Erfolg. | Was du bewegst:\n• Fachliche und personelle Leitung, Motivation sowie kontinuierliche Weiterentwicklung des gesamten Küchenteams.\n• Strategische und operative Organisation aller Küchenabläufe im Ganzjahresbetrieb (Camino, Camino Bar, Ikigai, Il Pub, saisonal Casa Veglia).\n• Konzeption und Durchführung kulinarischer Konzepte für MICE-Veranstaltungen, Reisegruppen und exklusive Bankette.\n• Sicherstellung einer frischen, zeitgemässen Zubereitung sowie eines konstant hohen Qualitäts- und Präsentationsniveaus.\n• Verantwortung für Einkauf, Warenannahme, Lagerbewirtschaftung, Inventur und Menükalkulation.\n• Konsequente Durchsetzung und Dokumentation der HACCP-Vorschriften und Richtlinien zur Arbeitssicherheit.\n• Durchführung interner Schulungen zur Förderung des Qualitätsbewusstseins im Team.\n• Enger Austausch und Raportierung zu Leiter Gastronomie rocksresort sowie proaktive Zusammenarbeit mit den Abteilungen Gastro Berg, Events, HR, Sales & Marketing, Bergbahnen und Mountain Adventures. | Was dich ausmacht:\n• Abgeschlossene Kochausbildung, idealerweise mit betriebswirtschaftlicher Weiterbildung (z. B. Küchenmeister, Chefkoch mit eidg. FA oder Gastro-Unternehmer).\n• Fliessendes Deutsch sowie sehr gute Englisch- und/oder Italienischkenntnisse\n• Mindestens 4–5 Jahre Führungserfahrung in vergleichbarer Position der (gehobenen) Gastronomie oder Hotellerie.\n• Strukturiert, selbstständig, flexibel sowie ausgeprägt qualitäts- und dienstleistungsorientiert.\n• Ruhe und Überblick auch in hektischen Situationen, bei hohem Gästeaufkommen oder Events.\n• Freude an einem dynamischen Resort-Umfeld und Offenheit für neue kulinarische Trends (z. B. Asiatisch, Streetfood). | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen, wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Weisse Arena Hospitality AG signinahotel José Carvalho Tel. +41 81 927 90 52 www.weissearena.com I www.laax.com",
+        "fr": "Le White Arena Group de LAAX est un pionnier du tourisme alpin et une communauté enthousiaste pour des aventures de montagne uniques. Le groupe comprend diverses entreprises hôtelières et de restauration, des magasins de sport et de location, une école de ski, de snowboard et de vélo ainsi qu'une société de gestion et de construction. Notre succès ? Une équipe motivée et dévouée qui vit sa passion au quotidien. Autres Voulez-vous façonner activement la diversité culinaire de l'une des stations les plus dynamiques et modernes des Alpes suisses ? Les souhaits des invités exigeants à la carte ne sont-ils pas un défi pour vous, mais vous remplir d'un sourire? Ou préférez-vous l'activité chargée dans une opération polyvalente toute l'année? Alors tu as raison avec nous ! La station rocheuse de Laax allie style de vie urbain et nature alpine. Votre voyage culinaire avec nous s'étend sur un portefeuille impressionnant et varié : du flair méditerranéen dans le restaurant populaire Camino et le Camino Bar associé, aux mondes de goût asiatiques fascinants dans le restaurant Ikigai, aux spécialités de burgers honnêtes et juteux dans le Pub Il. En hiver, vous développez votre sphère d'activité avec le restaurant traditionnel Casa Veglia, qui ravit nos clients avec des spécialités suisses authentiques. En outre, vous êtes responsable des soins gastronomiques de haut niveau de divers événements, groupes et banquets tout au long de l'année. Autres Imaginez que vous êtes notre:e neue:r Chef:in et laissez nos invités s'immerger dans un monde plein de plaisir avec beaucoup de compétence, de créativité et de vision stratégique. En tant qu'esprit gastronomique, vous coordonnez et optimisez les processus de cuisine à travers plusieurs points de vente, définissez des impulsions culinaires innovantes et dirigez votre équipe avec passion et modèle à la réussite commune. Ce que vous déplacez :\n• Gestion professionnelle et du personnel, motivation et développement continu de toute l'équipe de cuisine.\n• Organisation stratégique et opérationnelle de tous les processus de cuisine tout au long de l'année (Camino, Camino Bar, Ikigai, Il Pub, Casa Veglia saisonnière).\n• Conception et mise en œuvre de concepts culinaires pour les événements MICE, les groupes de voyage et les banquets exclusifs.\n• Assurer une préparation fraîche et contemporaine et un niveau de qualité et de présentation constamment élevé.\n• Responsabilité pour l'achat, la réception, l'entreposage, l'inventaire et le calcul des menus.\n• Application cohérente et documentation des règlements et lignes directrices HACCP sur la sécurité au travail.\n• Mener une formation interne pour sensibiliser l'équipe à la qualité.\n• Des échanges et des rapports étroits avec le responsable de Gastronomie rocksresort ainsi qu'une coopération proactive avec les départements de Gastro Berg, Events, HR, Sales & Marketing, Bergbahnen et Mountain Adventures. Qu'est-ce qui vous fait :\n• Formation à la cuisine terminée, idéalement avec formation en gestion d'entreprise (p. ex. chef chef, chef chef avec FA fédérale ou entrepreneur en gastro).\n• Entraînement allemand et très bonne connaissance de l'anglais et/ou de l'italien\n• Au moins 4-5 ans d'expérience en management dans une position comparable dans la gastronomie (upper) ou l'hôtellerie.\n• Structurel, indépendant, flexible et hautement de qualité et orienté vers le service.\n• Calme et aperçu même dans des situations agitées, avec un grand nombre d'invités ou d'événements.\n• Profitez d'un environnement de villégiature dynamique et d'une ouverture aux nouvelles tendances culinaires (p. ex. asiatique, street food). Un lieu de travail attrayant au milieu d'un monde montagneux à couper le souffle est certain pour vous. Vous avez également l'occasion de vous développer dans notre équipe dynamique, lumineuse et dynamique culture d'entreprise. Profitez de nombreux avantages pour les employés, comme des randonnées en montagne gratuites, des avantages dans nos magasins, hôtels et restaurants, ainsi que des avantages pour votre famille. Commencez votre aventure professionnelle au Weissen Arena Group avec votre candidature complète en ligne avec photo. Nous attendons cela avec impatience. Weisse Arena Hospitality AG signenahotel José Carvalho Tél. +41 81 927 90 52 www.weissearena.com I www.laax.com"
+      },
+      "location": "Laax",
+      "canton": "GR",
+      "url": "https://www.weissearena.com/jobs/details.html?jobId=4527&jobTitle=K%C3%BCchenchef%3Ain+rocksresorts",
+      "source": "Weisse Arena Gruppe Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-25T21:57:59.657Z",
+      "addressLocality": "Laax",
+      "postalCode": "7031",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ristorazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Turismo / Sport",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-13",
+      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4527&langCode=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "signinahotel",
+      "jobNumber": "WAG02436",
+      "pensum": "100%",
+      "contractLabel": "Festanstellung",
+      "previousSlugs": [
+        "kuchenchef-in-rocksresorts-weisse-arena-ch",
+        "chef-in-scogliere-weisse-arena-gruppe-laax"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "kuchenchef-in-rocksresorts-weisse-arena-ch",
+          "chef-in-scogliere-weisse-arena-gruppe-laax"
+        ],
+        "en": [
+          "kuchenchef-in-rocksresorts-weisse-arena-ch"
+        ],
+        "fr": [
+          "kuchenchef-in-rocksresorts-weisse-arena-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-14T10:55:48.730Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -674,7 +699,7 @@
       "title": "Squad Lead Marketing & Product-Communication",
       "titleByLocale": {
         "it": "Squad Lead Marketing & Comunicazione di prodotto",
-        "en": "Squad Lead Marketing & Product Communication",
+        "en": "Squad Lead Marketing & Product-Communication",
         "de": "Squad Lead Marketing & Product-Communication",
         "fr": "Commercialisation du plomb de l'équipe et communication des produits"
       },
@@ -690,7 +715,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4533&jobTitle=Squad+Lead+Marketing+%26+Product-Communication",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:41:34.259Z",
+      "crawledAt": "2026-07-25T21:57:59.655Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -711,17 +736,20 @@
       "pensum": "80 - 100%",
       "contractLabel": "Festanstellung",
       "previousSlugs": [
-        "squad-lead-marketing-product-communication-weisse-arena-ch"
+        "squad-lead-marketing-product-communication-weisse-arena-ch",
+        "squad-lead-marketing-amp-comunicazione-di-prodotto-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "squad-lead-marketing-product-communication-weisse-arena-ch"
+          "squad-lead-marketing-product-communication-weisse-arena-ch",
+          "squad-lead-marketing-amp-comunicazione-di-prodotto-weisse-arena-gruppe-laax"
         ],
         "fr": [
           "squad-lead-marketing-product-communication-weisse-arena-ch"
         ]
       },
       "firstSeenAt": "2026-07-24T11:11:09.086Z",
+      "needsRetranslation": true,
       "salaryMin": 87500,
       "salaryMax": 154500,
       "baseSalary": {
