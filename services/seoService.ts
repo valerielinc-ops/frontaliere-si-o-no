@@ -4886,6 +4886,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-italia-svizzera-nuovo-protocollo-frontalieri': { name: 'Italia-Svizzera', path: '/articoli-frontaliere/italia-svizzera-nuovo-protocollo-frontalieri', parent: 'blog' },
     'blog-telelavoro-frontalieri-it-svizzera': { name: 'Frontalieri e telelavoro', path: '/articoli-frontaliere/telelavoro-frontalieri-it-svizzera', parent: 'blog' },
     'blog-cerca-lavoro-svizzera-guida-2026': { name: 'Guida pratica per cercare lavoro in', path: '/articoli-svizzera/cerca-lavoro-svizzera-guida-2026/', parent: 'blog' },
+    'blog-frontalieri-ticino-architetto-stipendio': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/frontalieri-ticino-architetto-stipendio', parent: 'blog' },
  };
 
  const info = sectionNames[section];
