@@ -1,16 +1,16 @@
 {
   "key": "caritas-schweiz",
   "label": "Caritas Schweiz",
-  "generatedAt": "2026-07-25T10:48:50.107Z",
-  "total": 5,
+  "generatedAt": "2026-07-25T21:59:35.770Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4918,
-  "avgDurationMs": 4918,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4837,
+  "avgDurationMs": 4837,
   "durationHistory": [
-    4918
+    4837
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://apply.refline.ch/126757/2335/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:48:47.484Z",
+      "crawledAt": "2026-07-25T21:59:32.948Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
       "url": "https://apply.refline.ch/126757/2333/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:48:47.027Z",
+      "crawledAt": "2026-07-25T21:59:32.529Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "url": "https://apply.refline.ch/126757/2320/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T10:48:46.109Z",
+      "crawledAt": "2026-07-25T21:59:31.687Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -147,7 +147,7 @@
       "url": "https://apply.refline.ch/126757/2330/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:48:46.571Z",
+      "crawledAt": "2026-07-25T21:59:32.110Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,8 +175,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "caritas-schweiz-b2adac0a4697",
       "slug": "collaboratore-trice-sortierwerk-60-80-m-w-d-caritas-schweiz-waldibrucke-emmen",
@@ -220,5 +219,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
