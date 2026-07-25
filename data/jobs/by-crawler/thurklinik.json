@@ -1,6 +1,6 @@
 {
   "crawlerKey": "thurklinik",
-  "assembledAt": "2026-07-24T22:07:25.170Z",
+  "assembledAt": "2026-07-25T10:40:49.079Z",
   "jobs": [
     {
       "id": "thurklinik-01dd561b4a47",
@@ -34,7 +34,7 @@
       "url": "https://test.thurklinik.ch/wp-content/uploads/2025/01/Stellenbeschreibung-SChmerz.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:07:21.906Z",
+      "crawledAt": "2026-07-25T10:40:46.184Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2026/05/Lehrstelle-als-Fachfrau-oder-Fachmann-Gesundheit-EFZ_FAGE_2027.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:07:20.548Z",
+      "crawledAt": "2026-07-25T10:40:44.774Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -163,7 +163,7 @@
       "slug": "stoccaggio-springer-20-80-thurklinik-niederuzwil",
       "slugByLocale": {
         "it": "stoccaggio-springer-20-80-thurklinik-niederuzwil",
-        "en": "storage-care-springer-20-80-thurklinik-niederuzwil",
+        "en": "lagerungspflege-springer-20-80-thurklinik-niederuzwil",
         "de": "lagerungspflege-springer-20-80-thurklinik-niederuzwil",
         "fr": "soins-de-stockage-springer-20-80-thurklinik-niederuzwil"
       },
@@ -173,7 +173,7 @@
       "title": "Lagerungspflege & Springer 20-80%",
       "titleByLocale": {
         "it": "Stoccaggio & Springer 20-80 %",
-        "en": "Storage Care & Springer 20-80 %",
+        "en": "Lagerungspflege & Springer 20-80%",
         "de": "Lagerungspflege & Springer 20-80%",
         "fr": "Soins de stockage & Springer 20-80 %"
       },
@@ -190,7 +190,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2026/03/Lagerungspflege-Springer-m_w_d-20-80_Thurklinik.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:07:19.917Z",
+      "crawledAt": "2026-07-25T10:40:44.140Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -209,6 +209,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lagerungspflege-springer-20-80-thurklinik-niederuzwil",
+        "storage-care-springer-20-80-thurklinik-niederuzwil",
         "stoccaggio-springer-20-80-thurklinik-niederuzwil"
       ],
       "previousSlugsByLocale": {
@@ -217,6 +218,7 @@
           "stoccaggio-springer-20-80-thurklinik-niederuzwil"
         ],
         "en": [
+          "storage-care-springer-20-80-thurklinik-niederuzwil",
           "lagerungspflege-springer-20-80-thurklinik-niederuzwil"
         ],
         "fr": [
@@ -269,7 +271,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/02/Stellenbeschreibung-Hausarzt_Praxis.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:07:19.262Z",
+      "crawledAt": "2026-07-25T10:40:43.484Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -348,7 +350,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/01/Stellenbeschreibung-GYN.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:07:18.594Z",
+      "crawledAt": "2026-07-25T10:40:42.868Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -427,7 +429,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/10/Dipl.-Fachfrau-oder-Fachmann-Operatioinstechnik-HF-oder-TOA_Thurklinik_UZWIL.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:07:17.927Z",
+      "crawledAt": "2026-07-25T10:40:42.246Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -477,7 +479,7 @@
       "slug": "dipl-professionista-hf-20-60-thurklinik-niederuzwil",
       "slugByLocale": {
         "it": "dipl-professionista-hf-20-60-thurklinik-niederuzwil",
-        "en": "dipl-care-professional-hf-20-60-thurklinik-niederuzwil",
+        "en": "dipl-pflegefachperson-hf-20-60-thurklinik-niederuzwil",
         "de": "dipl-pflegefachperson-hf-20-60-thurklinik-niederuzwil",
         "fr": "dipl-professionnels-de-la-sante-20-60-thurklinik-niederuzwil"
       },
@@ -487,7 +489,7 @@
       "title": "Dipl. Pflegefachperson HF 20–60 %",
       "titleByLocale": {
         "it": "Dipl. Professionista HF 20–60 %",
-        "en": "Dipl. Care professional HF 20–60 %",
+        "en": "Dipl. Pflegefachperson HF 20–60 %",
         "de": "Dipl. Pflegefachperson HF 20–60 %",
         "fr": "Dipl. Professionnels de la santé 20-60 %"
       },
@@ -498,12 +500,13 @@
         "de": "Die Thurklinik in Niederuzwil (SG) ist eine Belegspital-Tagesklinik mit Schwerpunkten Gynäkologie, Urologie, HNO, Orthopädie, Viszeral- und Handchirurgie sowie Anästhesie und Schmerztherapie.\n\nStelle: Dipl. Pflegefachperson HF 20–60 %.\n\nThurklinik AG - Ihre Gesundheit in besten Händen, heute und in Zukunft. In der KOPFZEILE muss ein Bild eingfügt werden, der zur Stelle passt! Die Thurklinik AG ist eine moderne Privatklinik mit öffentlichem Leistungsauftrag im Kanton St. Gallen. Verkehrstechnisch ideal gelegen im Dreieck St. Gallen – Winterthur – Frauenfeld, ist unsere Klinik mit ÖV und Auto bestens erreichbar. Als Arbeitgeberin mit fortschrittlichen, familienfreundlichen Arbeitsbedingungen setzen wir auf eine transparente, mitarbeiterorientierte Führungskultur. Der offene Austausch im Team, gezielte Förderung durch Fort- und Weiterbildung sowie ein kollegiales, wertschätzendes Arbeitsumfeld bilden das Fundament unserer täglichen Arbeit. Gestalten. Verantwortung übernehmen. Mit Herz führen. Ab sofort oder nach Vereinbarung Dipl. Pflegefachperson HF (20–60 %) Zur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine engagierte und verantwortungsbewusste Persönlichkeit mit Freude an der Pflege und an der Begleitung von Lernenden. Es erwartet Sie ein innovatives, dynamisches Umfeld mit flachen Hierarchien und Raum für persönliche Entwicklung. Ihre Aufgaben\n• Ganzheitliche Betreuung und Pflege unserer Patientinnen und Patienten\n• Sicherstellung einer fachgerechten, patientenorientierten Pflegequalität\n• Interdisziplinäre Zusammenarbeit mit Ärzten, Therapie und weiteren Berufsgruppen\n• Mitverantwortung für eine professionelle Dokumentation und Umsetzung der Qualitätsstandards\n• Begleitung und Unterstützung von Lernenden im Pflegealltag\n• Übernahme der Berufsbildnerfunktion oder Bereitschaft, die entsprechende Weiterbildung zu absolvieren Ihr Profil\n• Diplom als Pflegefachfrau/-mann HF oder FH\n• Idealerweise Ausbildung als Berufsbildner/in oder Bereitschaft, diese zu absolvieren\n• Freude an der Begleitung und Förderung von Lernenden\n• Hohe Sozialkompetenz sowie eine verantwortungsbewusste und selbständige Arbeitsweise\n• Teamfähigkeit, Flexibilität und Engagement\n• Interesse an einem lebendigen Klinikalltag mit interdisziplinärer Zusammenarbeit Thurklinik AG - Ihre Gesundheit in besten Händen, heute und in Zukunft. In der KOPFZEILE muss ein Bild eingfügt werden, der zur Stelle passt! Unser medizinisches Konzept vereint hohe Fachkompetenz, interdisziplinäre Zusammenarbeit und gelebte Patientenorientierung. Sie profitieren von einer modernen Infrastruktur und einem wertschätzenden Arbeitsumfeld in einem familiären, überschaubaren Klinikbetrieb mit kurzen Entscheidungswegen. Das erwartet Sie:\n• Familiäres, kollegiales Umfeld mit flacher Hierarchie\n• Moderne Infrastruktur und professionelle Unterstützung\n• Zentrale Lage mit direkter ÖV-Anbindung (Haltestelle Marienfried)\n• Gestaltungsfreiraum und kurze Entscheidungswege\n• Persönliche und fachliche Entwicklungsmöglichkeiten\n• Freie Wochenenden & geregelte Betriebsferien (Sommer/Weihnachten)\n• Parkmöglichkeiten\n• Benefits durch unserem Partner “Brands for Employees” Möchten Sie Ihre fachlichen Stärken in einer Privatklinik mit hoher medizinischer Qualität einbringen und mit uns neue medizinische Schwerpunkte entwickeln? Dann freuen wir uns auf Ihre Kontaktaufnahme! Für Auskünfte stehen Ihnen gerne zur Verfügung: Frau Eva Meier, Leitung Pflege Herr Arnoldo Bhend, Klinikmanager eva.meier@thurklinik.ch arnoldo.bhend@thurklinik.ch Thurklinik AG Bahnhofstrasse 123a, 9244 Niederuzwil www.thurklinik.ch Wir freuen uns auf Ihre Bewerbung und darauf, Sie persönlich kennenzulernen\n\nQuelle (PDF): https://thurklinik.ch/wp-content/uploads/2026/07/Dipl.-Pflegefachperson-HF-20–60-_Thurklinik.pdf\n\nKarriereseite: https://thurklinik.ch/stellen/\n\nSpital: Thurklinik, Niederuzwil (SG)",
         "fr": "Le Thurklinik de Niederuzwil (SG) est une clinique de jour hospitalière de substitution qui met l'accent sur la gynécologie, l'urologie, l'ENT, l'orthopédie, la chirurgie viscérale et la chirurgie des mains ainsi que l'anesthésie et la douleur.\n\nFonction: Dipl. Care professionnel HF 20–60 %.\n\nThurklinik AG - votre santé dans les meilleures mains, aujourd'hui et dans le futur. Dans le casque doit être inséré une image qui convient à l'endroit! Thurklinik AG est une clinique privée moderne ayant un mandat de service public dans le canton de St. Gallen. Idéalement situé dans le triangle St. Gallen – Winterthur – Frauenfeld, notre clinique est facilement accessible avec les transports en commun et la voiture. En tant qu'employeur aux conditions de travail progressives et favorables à la famille, nous nous concentrons sur une culture de leadership transparente et axée sur les employés. L'échange ouvert au sein de l'équipe, le soutien ciblé par l'éducation et la formation continues ainsi qu'un environnement de travail collégial et reconnaissant forment le fondement de notre travail quotidien. conceptions. Prenez vos responsabilités. Mener avec cœur. Désormais ou par accord Dipl. Infirmière HF (20-60 %) Afin de renforcer notre équipe, nous recherchons une personnalité engagée et responsable avec plaisir à prendre soin des apprenants et à les accompagner. Un environnement innovant et dynamique avec des hiérarchies plates et un espace pour le développement personnel vous attend. Leurs tâches\n• Soins holistiques et soins à nos patients\n• Assurer une qualité professionnelle et axée sur le patient\n• Coopération interdisciplinaire avec les médecins, la thérapie et d'autres groupes professionnels\n• Coresponsabilité pour la documentation professionnelle et la mise en œuvre des normes de qualité\n• Accompagnement et soutien des apprenants dans les soins quotidiens\n• Hypothèse de la fonction de formation professionnelle ou volonté de compléter la formation complémentaire correspondante\n• Diplôme de spécialiste en soins infirmiers HF ou FH\n• Dans l'idéal, la formation en tant que formateur professionnel ou la volonté de la compléter\n• Profitez de l'accompagnement et de la promotion des apprenants\n• Haute compétence sociale et méthode de travail responsable et indépendante\n• Travail d'équipe, flexibilité et engagement\n• Intéressé dans une clinique animée avec une coopération interdisciplinaire Thurklinik AG - votre santé dans les meilleures mains, aujourd'hui et dans le futur. Dans le casque doit être inséré une image qui convient à l'endroit! Notre concept médical combine un haut niveau d'expertise, une coopération interdisciplinaire et l'orientation des patients. Vous bénéficiez d'une infrastructure moderne et d'un environnement de travail appréciable dans une clinique familiale et gérable avec de courts chemins de décision. Ce qui vous attend:\n• Famille, environnement collégial avec une hiérarchie plate\n• Infrastructure moderne et soutien professionnel\n• Emplacement central avec liaison directe de transport public (Stop Marienfried)\n• Liberté de conception et chemins de décision courts\n• Possibilités de perfectionnement personnel et professionnel\n• week-ends et jours fériés (été/Noël)\n• Stationnement\n• Avantages par l'intermédiaire de notre partenaire Aimeriez-vous apporter vos points forts professionnels dans une clinique privée de haute qualité médicale et développer de nouveaux centres médicaux avec nous? Ensuite, nous attendons avec impatience votre contact! Pour toute information vous êtes à votre disposition: Mme Eva Meier, Chef de service M. Arnoldo Bhend, Klinikmanager eva.meier@thurklinik.ch arnoldo.bhend@thurklinik.ch Thurklinik AG Bahnhofstrasse 123a, 9244 Niederuzwil www.thurklinik.ch Nous attendons avec impatience votre candidature et de vous rencontrer personnellement\n\nSource (PDF): https://thurklinik.ch/wp-content/uploads/2026/07/Dipl.-Care professional-HF-20–60- Thurklinik.pdf\n\nPage de carrière: https://thurklinik.ch/stellen/\n\nHôpital : Thurklinik, Niederuzwil (SG)"
       },
+      "needsRetranslation": true,
       "location": "Niederuzwil",
       "canton": "SG",
       "url": "https://thurklinik.ch/wp-content/uploads/2026/07/Dipl.-Pflegefachperson-HF-20–60-_Thurklinik.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:07:17.269Z",
+      "crawledAt": "2026-07-25T10:40:41.575Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -522,6 +525,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-20-60-thurklinik-niederuzwil",
+        "dipl-care-professional-hf-20-60-thurklinik-niederuzwil",
         "dipl-professionista-hf-20-60-thurklinik-niederuzwil"
       ],
       "previousSlugsByLocale": {
@@ -530,6 +534,7 @@
           "dipl-professionista-hf-20-60-thurklinik-niederuzwil"
         ],
         "en": [
+          "dipl-care-professional-hf-20-60-thurklinik-niederuzwil",
           "dipl-pflegefachperson-hf-20-60-thurklinik-niederuzwil"
         ],
         "fr": [
@@ -555,7 +560,7 @@
       "slug": "dipl-anasthesiepflegerin-o-anasthesiepfleger-60-80-thurklinik-niederuzwil",
       "slugByLocale": {
         "it": "dipl-anasthesiepflegerin-o-anasthesiepfleger-60-80-thurklinik-niederuzwil",
-        "en": "dipl-anesthesia-nurse-60-80-thurklinik-niederuzwil",
+        "en": "dipl-anasthesiepflegerin-oder-anasthesiepfleger-60-80-thurklinik-niederuzwil",
         "de": "dipl-anasthesiepflegerin-oder-anasthesiepfleger-60-80-thurklinik-niederuzwil",
         "fr": "dipl-infirmiere-en-anesthesie-60-80-thurklinik-niederuzwil"
       },
@@ -565,7 +570,7 @@
       "title": "Dipl. Anästhesiepflegerin oder Anästhesiepfleger 60 – 80%",
       "titleByLocale": {
         "it": "Dipl. Anästhesiepflegerin o Anästhesiepfleger 60 – 80%",
-        "en": "Dipl. Anesthesia nurse 60 – 80 %",
+        "en": "Dipl. Anästhesiepflegerin oder Anästhesiepfleger 60 – 80%",
         "de": "Dipl. Anästhesiepflegerin oder Anästhesiepfleger 60 – 80%",
         "fr": "Dipl. Infirmière en anesthésie 60 – 80 %"
       },
@@ -582,7 +587,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/11/Dipl.-Anaesthesiepflegerin-oder-Anaesthesiepfleger-60-–-80.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:07:16.497Z",
+      "crawledAt": "2026-07-25T10:40:40.820Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -604,7 +609,8 @@
         "dipl-carriera-hf-20-80-thurklinik-niederuzwil",
         "dipl-nurse-hf-20-80-thurklinik-niederuzwil",
         "dipl-pflegefachperson-hf-20-80-thurklinik-niederuzwil",
-        "infirmiere-diplomee-hf-20-80-thurklinik-niederuzwil"
+        "infirmiere-diplomee-hf-20-80-thurklinik-niederuzwil",
+        "dipl-anesthesia-nurse-60-80-thurklinik-niederuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -616,6 +622,7 @@
         ],
         "en": [
           "dipl-nurse-hf-20-80-thurklinik-niederuzwil",
+          "dipl-anesthesia-nurse-60-80-thurklinik-niederuzwil",
           "dipl-anasthesiepflegerin-oder-anasthesiepfleger-60-80-thurklinik-niederuzwil"
         ],
         "de": [
@@ -672,7 +679,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/07/Gynaekologie-Urologie-HNO-Orthopaedie-Viszeralchirurgie-und-Handchirurgie.-Anaesthesie-und-Schmerztherapie-.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:07:15.681Z",
+      "crawledAt": "2026-07-25T10:40:39.778Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
