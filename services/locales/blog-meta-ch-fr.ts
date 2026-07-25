@@ -1528,6 +1528,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cercare-lavoro-svizzera-guida-2026.title': 'Chercher un emploi en Suisse : guide pratique 2026',
     'blog.article.cercare-lavoro-svizzera-guida-2026.excerpt': 'Guide complet 2026 pour la recherche d\'un emploi en Suisse : portails officiels SECO, rédaction du CV, entretiens et permis.',
     'blog.article.cercare-lavoro-svizzera-guida-2026.imageAlt': 'Guide pratique pour trouver un emploi en Suisse en 2026',
+    'blog.article.cerca-lavoro-svizzera-guida-2026.title': 'Travailler en Suisse : portails, CV et permis de travail',
+    'blog.article.cerca-lavoro-svizzera-guida-2026.excerpt': 'Trouver un emploi en Suisse peut être un processus complexe, mais avec les bons conseils, vous pouvez augmenter vos chances de succès.',
+    'blog.article.cerca-lavoro-svizzera-guida-2026.imageAlt': 'Une scène de travail en Suisse avec la vue sur le lac de Lugano.',
 };
 
 export default blogMetaChFr;

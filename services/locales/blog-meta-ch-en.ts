@@ -1528,6 +1528,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cercare-lavoro-svizzera-guida-2026.title': 'Looking for a job in Switzerland: a practical guide 2026',
     'blog.article.cercare-lavoro-svizzera-guida-2026.excerpt': 'Complete 2026 guide to finding a job in Switzerland: official SECO portals, CV drafting, interviews and permits.',
     'blog.article.cercare-lavoro-svizzera-guida-2026.imageAlt': 'Practical guide to finding a job in Switzerland in 2026',
+    'blog.article.cerca-lavoro-svizzera-guida-2026.title': 'Work in Switzerland: portals, CVs and work permits',
+    'blog.article.cerca-lavoro-svizzera-guida-2026.excerpt': 'Finding a job in Switzerland can be a complex process, but with the right guidance, you can increase your chances of success.',
+    'blog.article.cerca-lavoro-svizzera-guida-2026.imageAlt': 'A scene of work in Switzerland with the view of Lake Lugano.',
 };
 
 export default blogMetaChEn;

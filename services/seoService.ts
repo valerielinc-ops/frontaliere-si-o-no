@@ -4885,6 +4885,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cercare-lavoro-svizzera-guida-2026': { name: 'Guida Lavoro Svizzera', path: '/articoli-svizzera/cercare-lavoro-svizzera-guida-2026/', parent: 'blog' },
     'blog-italia-svizzera-nuovo-protocollo-frontalieri': { name: 'Italia-Svizzera', path: '/articoli-frontaliere/italia-svizzera-nuovo-protocollo-frontalieri', parent: 'blog' },
     'blog-telelavoro-frontalieri-it-svizzera': { name: 'Frontalieri e telelavoro', path: '/articoli-frontaliere/telelavoro-frontalieri-it-svizzera', parent: 'blog' },
+    'blog-cerca-lavoro-svizzera-guida-2026': { name: 'Guida pratica per cercare lavoro in', path: '/articoli-svizzera/cerca-lavoro-svizzera-guida-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
