@@ -4553,6 +4553,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'terzo-pilastro-3a-vantaggi-2026-canton-argovia',
+    category: 'fiscale',
+    date: '2026-07-25T02:16:06.828Z',
+    image: '/images/blog/terzo-pilastro-3a-vantaggi-2026-canton-argovia.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

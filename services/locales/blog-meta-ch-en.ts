@@ -1519,6 +1519,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-disoccupazione-svizzera.title': 'Switzerland doesn\'t pay unemployment benefits',
     'blog.article.frontalieri-disoccupazione-svizzera.excerpt': 'Switzerland will not pay unemployment to frontier workers, according to the Ticino League',
     'blog.article.frontalieri-disoccupazione-svizzera.imageAlt': 'A group of cross-border workers in Switzerland, Lugano',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-argovia.title': 'Tax advantages and payment strategies',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-argovia.excerpt': 'The third pillar 3a: what it is, how it works and what are the tax advantages for border workers in the Canton of Aargau',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-argovia.imageAlt': 'A view of Lugano with Lake Lugano in the background, where people are discussing the third pillar 3a',
 };
 
 export default blogMetaChEn;
