@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-07-24T22:05:35.882Z",
+  "generatedAt": "2026-07-25T10:39:17.306Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 11948,
-  "avgDurationMs": 11948,
+  "durationMs": 10055,
+  "avgDurationMs": 10055,
   "durationHistory": [
-    11948
+    10055
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -258,10 +258,10 @@
       "sourceLang": "it",
       "id": "sintetica-2161482f648c",
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
-      "_qualityScore": 83,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 10,
         "translation": 25,
         "completeness": 15
       }
@@ -582,10 +582,10 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "_qualityScore": 88,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 10,
         "translation": 25,
         "completeness": 20
       }
