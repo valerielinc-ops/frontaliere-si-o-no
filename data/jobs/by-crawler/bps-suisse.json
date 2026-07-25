@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bps-suisse",
-  "assembledAt": "2026-07-24T22:08:22.259Z",
+  "assembledAt": "2026-07-25T10:53:11.662Z",
   "jobs": [
     {
       "id": "bps-suisse-ec1de76eae01",
@@ -45,9 +45,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-07-24",
+      "postedDate": "2026-07-25",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-07-24T22:08:19.404Z",
+      "crawledAt": "2026-07-25T10:53:08.373Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -65,7 +65,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-07T11:59:13.173Z"
+      "firstSeenAt": "2026-07-07T11:59:13.173Z",
+      "needsRetranslation": true
     },
     {
       "id": "bps-suisse-cf081dc653a5",
@@ -110,9 +111,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-07-24",
+      "postedDate": "2026-07-25",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-07-24T22:08:18.499Z",
+      "crawledAt": "2026-07-25T10:53:06.525Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
