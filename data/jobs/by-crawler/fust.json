@@ -465,7 +465,7 @@
     },
     {
       "id": "company-3apvkj",
-      "slug": "consulente-commerciale-in-coop-genossenschaft-chur",
+      "slug": "consulente-commerciale-in-coop-genossenschaft-chur-graubunden",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in",
       "location": "Chur, Graubünden",
@@ -483,7 +483,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-24T11:23:45.209Z",
       "firstSeenAt": "2026-07-24T11:23:45.209Z",
       "titleByLocale": {
         "de": "Verkaufsberater:in",
@@ -514,8 +514,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sales-consultant-coop-genossenschaft-st-gallen-f50a94",
-          "consultant-en-vente-coop-genossenschaft-st-gallen-f50a94",
           "sales-consultant-coop-genossenschaft-st-gallen-asj6na",
           "verkaufsberater-in-coop-genossenschaft-st-gallen-f578d4",
           "sales-consultant-import-parfumerie-chur-graubunden",
@@ -533,21 +531,23 @@
           "consulente-di-vendita-coop-genossenschaft-chur",
           "verkaufsberater-in-import-parfumerie-chur-graubunden-nsjp2p",
           "sales-consultant-coop-genossenschaft-chur-nsjp2p",
-          "conseiller-de-vente-coop-genossenschaft-chur-nsjp2p"
+          "conseiller-de-vente-coop-genossenschaft-chur-nsjp2p",
+          "sales-consultant-cosmetics-coop-genossenschaft-chur",
+          "consultant-en-vente-coop-genossenschaft-st-gallen-f578d4"
         ],
         "en": [
           "verkaufsberater-in-coop-genossenschaft-chur-graubunden-3apvkj",
           "sales-consultant-in-coop-genossenschaft-chur-graubunden",
           "sales-consultant-coop-genossenschaft-chur-nsjp2p"
         ],
-        "de": [
-          "verkaufsberater-in-import-parfumerie-chur-graubunden-nsjp2p",
-          "verkaufsberater-in-import-parfumerie-chur-graubunden-9gew6s"
-        ],
         "fr": [
           "verkaufsberater-in-coop-genossenschaft-chur-graubunden-3apvkj",
           "consultant-en-ventes-coop-genossenschaft-chur-graubunden",
           "conseiller-de-vente-coop-genossenschaft-chur-nsjp2p"
+        ],
+        "de": [
+          "verkaufsberater-in-import-parfumerie-chur-graubunden-nsjp2p",
+          "verkaufsberater-in-import-parfumerie-chur-graubunden-9gew6s"
         ]
       },
       "previousSlugs": [
@@ -577,9 +577,10 @@
         "verkaufsberater-in-coop-genossenschaft-chur-nsjp2p",
         "verkaufsberater-in-import-parfumerie-chur-graubunden-9gew6s",
         "verkaufsberater-in-import-parfumerie-chur-graubunden",
-        "sales-consultant-coop-genossenschaft-st-gallen-f578d4",
-        "consulente-commerciale-in-coop-genossenschaft-chur-graubunden"
+        "sales-consultant-coop-genossenschaft-st-gallen-f578d4"
       ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -594,9 +595,7 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      "country": "CH"
     },
     {
       "id": "company-od4tvh",
@@ -2163,7 +2162,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-24T11:23:45.209Z",
       "firstSeenAt": "2026-07-17T22:30:05.510Z",
       "titleByLocale": {
         "it": "Tecnico di servizio: in Soluzioni Professionali",
@@ -2187,7 +2186,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "tecnico-di-servizio-in-soluzioni-professionali-fust-bern",
           "servicetechniker-in-professional-solutions-fust-oberburen-2",
           "servicetechniker-in-professional-solutions-fust-oberburen-8fm84c",
           "servicetechniker-in-professional-solutions-fust-oberburen",
@@ -2206,7 +2204,8 @@
           "service-technician-in-professional-solutions-fust-oberburen",
           "servicetechniker-in-professional-solutions-fust-oberburen-0jbfoy",
           "technicien-de-service-solutions-professionnelles-fust-oberburen",
-          "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern-3qkfr2"
+          "technicien-de-service-solutions-professionnelles-fust-swiss-household-services-ag-oberburen",
+          "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern"
         ],
         "en": [
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-8fm84c",
@@ -4353,7 +4352,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-25T10:43:31.923Z",
       "firstSeenAt": "2026-06-29T22:14:00.097Z",
       "titleByLocale": {
         "it": "Addetto/a alle consegne a domicilio di elettrodomestici",
@@ -4421,9 +4420,9 @@
         "technicien-de-livraison-a-domicile-d-appareils-electromenagers-fust-swiss-household-services-ag-pratteln",
         "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-pratteln",
         "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-pratteln-576dn5",
-        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-dubendorf",
         "home-delivery-technician-for-household-appliances-fust-pratteln-basel-landschaft-576dn5",
         "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-pratteln-basel-landschaft-576dn5",
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-dubendorf",
         "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-576dn5"
       ],
       "baseSalary": {
@@ -4829,7 +4828,7 @@
     },
     {
       "id": "company-ow4ac2",
-      "slug": "capo-aggiunto-dell-alimentazione-coop-genossenschaft-aarau",
+      "slug": "stellvertretung-der-leitung-food-coop-genossenschaft-aarau-aargau",
       "company": "Coop Genossenschaft",
       "title": "Stellvertretung der Leitung Food",
       "location": "Aarau, Aargau",
@@ -5392,10 +5391,10 @@
         "fr": "## Vendeur:dans la nourriture\n\n**Coopérative Coop** — Egerkingen, Soleure, Svizzera\n\n## Tâche\n- Vous aimez la variété, donc vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, que ce soit la fraîcheur et la qualité, l'hygiène, les règlements de température ou la date d'expiration.\n- Votre engagement aux caisses enregistreuses est également varié si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans la vente? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nAllemand Steiner\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Egerkingen"
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-egerkingen-solothurn",
-        "en": "seller-in-food-coop-genossenschaft-egerkingen-solothurn",
+        "it": "venditore-in-food-coop-genossenschaft-egerkingen",
+        "en": "seller-in-food-coop-genossenschaft-egerkingen",
         "de": "verkaufer-in-food-coop-egerkingen-solothurn-zdul1m",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-egerkingen-solothurn"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-egerkingen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -5410,15 +5409,19 @@
         "it": [
           "verkaufer-in-food-coop-genossenschaft-egerkingen-solothurn",
           "verkaufer-in-food-coop-genossenschaft-egerkingen-solothurn-zdul1m",
-          "verkaufer-in-food-coop-egerkingen-solothurn-zdul1m"
+          "verkaufer-in-food-coop-egerkingen-solothurn-zdul1m",
+          "venditore-in-food-coop-genossenschaft-egerkingen-solothurn",
+          "verkaufer-in-food-coop-egerkingen-solothurn"
         ],
         "en": [
           "verkaufer-in-food-coop-genossenschaft-egerkingen-solothurn-zdul1m",
-          "verkaufer-in-food-coop-egerkingen-solothurn-zdul1m"
+          "verkaufer-in-food-coop-egerkingen-solothurn-zdul1m",
+          "seller-in-food-coop-genossenschaft-egerkingen-solothurn"
         ],
         "fr": [
           "verkaufer-in-food-coop-genossenschaft-egerkingen-solothurn-zdul1m",
-          "verkaufer-in-food-coop-egerkingen-solothurn-zdul1m"
+          "verkaufer-in-food-coop-egerkingen-solothurn-zdul1m",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-egerkingen-solothurn"
         ],
         "de": [
           "verkaufer-in-food-coop-genossenschaft-egerkingen-solothurn-zdul1m"
@@ -5427,7 +5430,11 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-genossenschaft-egerkingen-solothurn",
         "verkaufer-in-food-coop-genossenschaft-egerkingen-solothurn-zdul1m",
-        "verkaufer-in-food-coop-egerkingen-solothurn-zdul1m"
+        "verkaufer-in-food-coop-egerkingen-solothurn-zdul1m",
+        "venditore-in-food-coop-genossenschaft-egerkingen-solothurn",
+        "seller-in-food-coop-genossenschaft-egerkingen-solothurn",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-egerkingen-solothurn",
+        "verkaufer-in-food-coop-egerkingen-solothurn"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -13327,7 +13334,7 @@
       "titleByLocale": {
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Cook / cook (f/m/d)",
         "fr": "Cuire / cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -13338,7 +13345,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-aarau",
-        "en": "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau",
+        "en": "cook-cook-f-m-d-coop-genossenschaft-aarau",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau-ddg6am",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-aarau"
       },
@@ -13353,7 +13360,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "cook-f-m-d-coop-genossenschaft-aarau",
           "cooker-m-w-d-coop-genossenschaft-aarau-x72egi",
           "cooker-w-m-d-coop-genossenschaft-aarau",
           "cuisinier-ere-w-m-d-coop-genossenschaft-aarau",
@@ -13372,13 +13378,13 @@
           "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-aarau-x72egi",
           "chef-chef-w-m-d-coop-genossenschaft-aarau",
           "chef-m-w-d-coop-genossenschaft-aarau-x72egi",
-          "cook-w-m-d-coop-genossenschaft-aarau"
+          "cook-w-m-d-coop-genossenschaft-aarau",
+          "chef-m-f-d-coop-genossenschaft-aarau"
         ],
         "en": [
           "cook-m-w-d-coop-genossenschaft-aarau-x72egi",
           "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau-ddg6am",
           "cook-cook-f-m-d-coop-genossenschaft-aarau-aargau",
-          "cook-cook-f-m-d-coop-genossenschaft-aarau",
           "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau"
         ],
         "de": [
@@ -13414,8 +13420,7 @@
         "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau-ddg6am",
         "cook-cook-f-m-d-coop-genossenschaft-aarau-aargau",
         "cuire-cuire-f-m-d-coop-genossenschaft-aarau-aargau",
-        "cucinare-cucinare-f-m-d-coop-genossenschaft-aarau-aargau",
-        "cook-cook-f-m-d-coop-genossenschaft-aarau"
+        "cucinare-cucinare-f-m-d-coop-genossenschaft-aarau-aargau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -13433,8 +13438,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "needsRetranslation": true
+      "country": "CH"
     },
     {
       "id": "company-eszcs8",
@@ -20805,7 +20809,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "venditore-in-cassa-servizi-coop-genossenschaft-meisterschwanden-aargau",
           "nom-de-l-agent-kassen-services-coop-genossenschaft-zurich-1ae69a",
           "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-stafa",
           "verkaufer-in-kassen-services-coop-genossenschaft-kriens",
@@ -20824,7 +20827,8 @@
           "verkaufer-in-kassen-services-coop-genossenschaft-steinhausen",
           "verkaufer-in-kassen-services-coop-genossenschaft-mohlin",
           "verkaufer-in-kassen-services-coop-genossenschaft-laupen",
-          "verkaufer-in-kassen-services-coop-genossenschaft-liestal"
+          "verkaufer-in-kassen-services-coop-genossenschaft-liestal",
+          "verkaufer-in-kassen-services-coop-genossenschaft-meisterschwanden-aargau-avf281"
         ],
         "en": [
           "verkaufer-in-kassen-services-coop-genossenschaft-meisterschwanden-aargau-avf281",
