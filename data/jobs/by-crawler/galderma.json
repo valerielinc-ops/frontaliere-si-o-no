@@ -51,13 +51,11 @@
       "requirementsByLocale": {},
       "jobReqId": "JR019828",
       "previousSlugs": [
-        "head-of-medical-experts-therapeutic-dermatology-galderma-ch",
-        "responsabile-medical-experts-therapeutic-dermatology-galderma-zug"
+        "head-of-medical-experts-therapeutic-dermatology-galderma-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-medical-experts-therapeutic-dermatology-galderma-ch",
-          "responsabile-medical-experts-therapeutic-dermatology-galderma-zug"
+          "head-of-medical-experts-therapeutic-dermatology-galderma-ch"
         ],
         "de": [
           "head-of-medical-experts-therapeutic-dermatology-galderma-ch"
@@ -130,13 +128,11 @@
       "requirementsByLocale": {},
       "jobReqId": "JR018459",
       "previousSlugs": [
-        "global-head-of-consumer-dermatological-skincare-global-consumer-skincare-marketing-head",
-        "responsabile-globale-della-skincare-dermatologica-per-i-consumatori-responsabile-globale-del-marketing-per-la-skincare"
+        "global-head-of-consumer-dermatological-skincare-global-consumer-skincare-marketing-head"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-head-of-consumer-dermatological-skincare-global-consumer-skincare-marketing-head",
-          "responsabile-globale-della-skincare-dermatologica-per-i-consumatori-responsabile-globale-del-marketing-per-la-skincare"
+          "global-head-of-consumer-dermatological-skincare-global-consumer-skincare-marketing-head"
         ],
         "de": [
           "global-head-of-consumer-dermatological-skincare-global-consumer-skincare-marketing-head"
@@ -161,12 +157,12 @@
     },
     {
       "id": "galderma-aa19f305918a",
-      "slug": "head-of-human-resources-emeac-region-galderma-ch",
+      "slug": "responsabile-risorse-umane-emeac-region-galderma-zug",
       "slugByLocale": {
         "en": "head-of-human-resources-emeac-region-galderma-ch",
-        "it": "head-of-human-resources-emeac-region-galderma-ch",
-        "de": "head-of-human-resources-emeac-region-galderma-ch",
-        "fr": "head-of-human-resources-emeac-region-galderma-ch"
+        "it": "responsabile-risorse-umane-emeac-region-galderma-zug",
+        "de": "leiter-personalwesen-emeac-region-galderma-zug",
+        "fr": "responsable-ressources-humaines-emeac-region-galderma-zug"
       },
       "company": "Galderma",
       "companyKey": "galderma",
@@ -221,7 +217,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-24T22:06:35.814Z"
+      "firstSeenAt": "2026-07-24T22:06:35.814Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-human-resources-emeac-region-galderma-ch"
+        ],
+        "de": [
+          "head-of-human-resources-emeac-region-galderma-ch"
+        ],
+        "fr": [
+          "head-of-human-resources-emeac-region-galderma-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-human-resources-emeac-region-galderma-ch"
+      ]
     }
   ]
 }
