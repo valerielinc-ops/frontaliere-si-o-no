@@ -52,14 +52,35 @@
  * checkout-timeout root cause the fixer had already found — and already correctly
  * reported as blocked — days earlier.
  *
- * Mode 2 closes that gap: for an issue that looks like a `scan-job-timeouts.mjs`
- * auto-file (label `ci-timeout` or the scan script's signature string in the body), search
- * for a PRIOR issue with the EXACT SAME title (GitHub search + client-side exact-match
- * filter, not fuzzy) that already carries a `<!-- FIX_OUTCOME: blocked-workflows-scope -->`
- * marker in one of its comments. A match is unambiguous evidence that THIS exact recurring
- * failure was already root-caused and is durably blocked on a human/PAT applying the
- * workflow-file fix — so short-circuit immediately instead of re-running the same
- * diagnosis for the Nth time.
+ * Mode 2 closes that gap: for ANY issue with a title, search for a PRIOR issue with the
+ * EXACT SAME title (GitHub search + client-side exact-match filter, not fuzzy) that
+ * already carries a `<!-- FIX_OUTCOME: blocked-workflows-scope -->` marker in one of its
+ * comments. A match is unambiguous evidence that THIS exact recurring failure was already
+ * root-caused and is durably blocked on a human/PAT applying the workflow-file fix — so
+ * short-circuit immediately instead of re-running the same diagnosis for the Nth time.
+ *
+ * ─── Mode 2 generalized beyond ci-timeout (escalation #4749) ───────────────────────────
+ *
+ * Mode 2 originally only ran when `isCiTimeoutIssue()` matched (the `ci-timeout` label or
+ * the scan-job-timeouts.mjs signature string) — it was designed against the 13 CI-timeout
+ * examples cited by #4227. Escalation #4749 (bucket recurred 11×/14d AFTER #4227 shipped)
+ * found the identical exact-stable-title recurrence pattern in OTHER monitor-filed
+ * categories that the ci-timeout-only gate was silently excluding from Mode 2 entirely —
+ * each one re-paid the FULL diagnosis cost despite a prior identically-titled issue
+ * already carrying the marker:
+ *   - "Deploy: en locale shard push failed (stale live locale)": #4658 already marked,
+ *     #4706 re-diagnosed from scratch.
+ *   - "Traffic data is stale — cron may have failed": #3839/#3869/#4166/#4390 already
+ *     marked (FOUR priors), #4705 still re-diagnosed from scratch.
+ *   - "Pages publish lag: built content not yet live": #4538 already marked, #4670
+ *     re-diagnosed from scratch.
+ * None of these carry the `ci-timeout` label or the scan-job-timeouts.mjs signature, so
+ * `isCiTimeoutIssue()` returned false and Mode 2 never even attempted the recurrence
+ * lookup for them — the PROCEED-SAFE exact-title+marker check below never got a chance to
+ * fire. That gate was an accident of Mode 2's original scope, not a safety requirement:
+ * the exact-title-match + verbatim-marker check is what makes a match trustworthy,
+ * regardless of which monitor auto-filed the issue. Mode 2 now runs for every issue with
+ * a title (isCiTimeoutIssue is kept as a named/tested predicate but no longer gates it).
  *
  * PROCEED-SAFE for Mode 2 specifically: requires an EXACT title match (not substring/
  * fuzzy) to a PRIOR issue (excludes itself) that carries the marker VERBATIM. No title
@@ -175,11 +196,15 @@ export function extractWorkflowPaths(body) {
 }
 
 /**
- * Mode 2 predicate: does this issue look like a `scan-job-timeouts.mjs` auto-file
- * ("Job cancellato per timeout")? Two independent signals (either is sufficient) so a
- * missing/renamed label doesn't blind the detector to the script's own literal output:
+ * Does this issue look like a `scan-job-timeouts.mjs` auto-file ("Job cancellato per
+ * timeout")? Two independent signals (either is sufficient) so a missing/renamed label
+ * doesn't blind the detector to the script's own literal output:
  *   - the `ci-timeout` label, or
  *   - the scan script's signature string verbatim in title+body.
+ *
+ * NOT used to gate Mode 2 (broadened by #4749 — see module docstring "Mode 2
+ * generalized"); kept as a named/tested predicate for callers that specifically need to
+ * distinguish CI-timeout auto-files from other monitor-filed categories.
  */
 export function isCiTimeoutIssue({ title, body, labels } = {}) {
   const text = `${title || ''}\n${body || ''}`;
@@ -328,11 +353,25 @@ function main() {
   const workflowPaths = extractWorkflowPaths(body);
 
   if (workflowPaths.length === 0) {
-    // Mode 1 (explicit body paths) found nothing. Mode 2: is this a
-    // scan-job-timeouts.mjs auto-file, and does a PRIOR issue with the exact same
-    // stable title already carry a blocked-workflows-scope marker? (issue #4227 —
-    // see module docstring "Mode 2" for the full rationale/evidence.)
-    if (title && isCiTimeoutIssue({ title, body, labels: iss.labels })) {
+    // Mode 1 (explicit body paths) found nothing. Mode 2: does a PRIOR issue with the
+    // exact same stable title already carry a blocked-workflows-scope marker? (issue
+    // #4227, broadened by #4749 — see module docstring "Mode 2" for the full
+    // rationale/evidence.) Applied to EVERY issue with a title, not just
+    // scan-job-timeouts.mjs ci-timeout auto-files: escalation #4749 found the same
+    // exact-stable-title recurrence pattern in several other monitor-filed categories
+    // (post-deploy validate-dist, locale-shard-stale, traffic-freshness,
+    // publish-lag-watchdog) that the ci-timeout-only gate was silently excluding —
+    // e.g. #4658 already carried the marker for "Deploy: en locale shard push failed
+    // (stale live locale)" yet #4706 re-ran the full diagnosis from scratch; likewise
+    // #3839/#3869/#4166/#4390 for "Traffic data is stale — cron may have failed" before
+    // #4705 repeated it, and #4538 for "Pages publish lag: built content not yet live"
+    // before #4670 repeated it. The exact-title-match + verbatim-marker requirement
+    // (filterExactTitleRecurrences / hasBlockedWorkflowsScopeMarker) is already the
+    // PROCEED-SAFE guardrail — it does not depend on the issue being a CI-timeout
+    // auto-file, so restricting it to that one category was an unnecessary gap, not a
+    // safety requirement. isCiTimeoutIssue is kept as a named predicate (still used/
+    // tested) but no longer gates whether Mode 2 runs.
+    if (title) {
       const recurrence = findRecentBlockedRecurrence(title);
       if (recurrence) {
         console.log(
@@ -349,7 +388,7 @@ function main() {
             `intervento manuale, non ancora applicato. Ri-diagnosticare da zero brucerebbe di ` +
             `nuovo l'intero budget del run senza convergere — vedi la diagnosi completa su ` +
             `#${recurrence.issueNumber}.\n\n` +
-            `Rimossa la label \`agent:fix\` (no re-dispatch). Gate strutturale #4227.\n\n` +
+            `Rimossa la label \`agent:fix\` (no re-dispatch). Gate strutturale #4227/#4749.\n\n` +
             OUTCOME_MARKER;
           applyBlockedOutcome(comment);
         }
@@ -357,8 +396,8 @@ function main() {
         return;
       }
       console.log(
-        `Issue #${ISSUE}: ci-timeout auto-file, but no prior issue with the exact same ` +
-          `title carries a blocked-workflows-scope marker — proceeding (fresh diagnosis).`,
+        `Issue #${ISSUE}: no prior issue with the exact same title carries a ` +
+          `blocked-workflows-scope marker — proceeding (fresh diagnosis).`,
       );
     }
 
