@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-07-24T22:13:23.265Z",
+  "assembledAt": "2026-07-25T11:12:08.793Z",
   "jobs": [
     {
       "id": "coopers-4c65b0608cd3",
@@ -17,7 +17,7 @@
       "title": "IT Business Applications Consultant (proALPHA) (m/w/d)",
       "titleByLocale": {
         "it": "IT Business Applications Consulente (proALPHA) (m/w/d)",
-        "en": "IT Business Applications Consultant (proALPHA)",
+        "en": "IT Business Applications Consultant (proALPHA) (m/w/d)",
         "de": "IT Business Applications Berater (proALPHA) (m/w/d)",
         "fr": "Conseiller en applications opérationnelles de TI (proALPHA)"
       },
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=P121CU",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:13:20.393Z",
+      "crawledAt": "2026-07-25T11:12:03.569Z",
       "addressLocality": "Bern Grossraum",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -64,11 +64,13 @@
         ]
       },
       "previousSlugs": [
-        "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum"
+        "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum",
+        "it-business-applications-consulente-proalpha-m-w-d-coopers-group-ag-bern-grossraum"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum"
+          "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum",
+          "it-business-applications-consulente-proalpha-m-w-d-coopers-group-ag-bern-grossraum"
         ]
       },
       "needsRetranslation": true,
@@ -101,7 +103,7 @@
       "title": "DevOps Engineer Storage Backup (m/w/d)",
       "titleByLocale": {
         "it": "DevOps Ingegnere Storage Backup (m/w/d)",
-        "en": "DevOps Engineer Storage Backup (m/f/d)",
+        "en": "DevOps Engineer Storage Backup (m/w/d)",
         "de": "DevOps Ingenieur Storage Backup (m/w/d)",
         "fr": "DevOps Ingénieur Storage Backup (m/w/d)"
       },
@@ -117,7 +119,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5NSJ30",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:13:19.471Z",
+      "crawledAt": "2026-07-25T11:12:02.677Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -150,17 +152,20 @@
         ]
       },
       "previousSlugs": [
-        "devops-engineer-storage-backup-m-w-d-coopers-bern"
+        "devops-engineer-storage-backup-m-w-d-coopers-bern",
+        "devops-ingegnere-storage-backup-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "devops-engineer-storage-backup-m-w-d-coopers-bern"
+          "devops-engineer-storage-backup-m-w-d-coopers-bern",
+          "devops-ingegnere-storage-backup-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "devops-engineer-storage-backup-m-w-d-coopers-bern"
         ]
       },
       "firstSeenAt": "2026-07-15T12:09:14.657Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -205,7 +210,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W6TR28",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:13:18.499Z",
+      "crawledAt": "2026-07-25T11:12:01.795Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -236,14 +241,17 @@
         ]
       },
       "previousSlugs": [
-        "standortleiter-in-basel-mitglied-der-erweiterten-geschaftsleitung-m-w-d-coopers-basel"
+        "standortleiter-in-basel-mitglied-der-erweiterten-geschaftsleitung-m-w-d-coopers-basel",
+        "location-manager-in-basel-membro-della-direzione-avanzata-m-w-d-coopers-group-ag-basel-stadt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "standortleiter-in-basel-mitglied-der-erweiterten-geschaftsleitung-m-w-d-coopers-basel"
+          "standortleiter-in-basel-mitglied-der-erweiterten-geschaftsleitung-m-w-d-coopers-basel",
+          "location-manager-in-basel-membro-della-direzione-avanzata-m-w-d-coopers-group-ag-basel-stadt"
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:40.650Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -262,7 +270,7 @@
       "slug": "gestione-del-prodotto-m-w-d-coopers-group-ag-aargau",
       "slugByLocale": {
         "it": "gestione-del-prodotto-m-w-d-coopers-group-ag-aargau",
-        "en": "maintenance-sap-processes-m-f-d-coopers-group-ag-aargau",
+        "en": "instandhaltung-sap-prozesse-m-w-d-coopers-group-ag-aargau",
         "de": "instandhaltung-sap-prozesse-m-w-d-coopers-aargau",
         "fr": "gestion-du-projet-m-w-d-coopers-group-ag-aargau"
       },
@@ -272,7 +280,7 @@
       "title": "Instandhaltung & SAP-Prozesse (m/w/d)",
       "titleByLocale": {
         "it": "Gestione del prodotto (m/w/d)",
-        "en": "Maintenance & SAP processes (m/f/d)",
+        "en": "Instandhaltung & SAP-Prozesse (m/w/d)",
         "de": "Instandhaltung & SAP-Prozesse (m/w/d)",
         "fr": "Gestion du projet (m/w/d)"
       },
@@ -288,7 +296,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E624SG",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:13:17.507Z",
+      "crawledAt": "2026-07-25T11:12:00.900Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -325,14 +333,21 @@
         "gestione-del-prodotto-m-w-d-coopers-group-ag-luzern",
         "quality-control-inspector-m-w-d-coopers-luzern",
         "gestion-du-projet-m-w-d-coopers-group-ag-luzern",
-        "instandhaltung-sap-prozesse-m-w-d-coopers-aargau"
+        "instandhaltung-sap-prozesse-m-w-d-coopers-aargau",
+        "maintenance-sap-processes-m-f-d-coopers-group-ag-aargau",
+        "gestione-del-prodotto-m-w-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "instandhaltung-sap-prozesse-m-w-d-coopers-aargau"
+          "instandhaltung-sap-prozesse-m-w-d-coopers-aargau",
+          "gestione-del-prodotto-m-w-d-coopers-group-ag-aargau"
+        ],
+        "en": [
+          "maintenance-sap-processes-m-f-d-coopers-group-ag-aargau"
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:50.603Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -377,7 +392,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=V96K2V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:13:16.478Z",
+      "crawledAt": "2026-07-25T11:12:00.001Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -411,12 +426,14 @@
       },
       "previousSlugs": [
         "verfahrensingenieur-dp-m-w-d-coopers-basel-stadt",
-        "verfahrensingenieur-in-dp-m-w-d-coopers-basel-stadt"
+        "verfahrensingenieur-in-dp-m-w-d-coopers-basel-stadt",
+        "projektleiter-m-w-d-coopers-group-ag-basel-stadt"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verfahrensingenieur-dp-m-w-d-coopers-basel-stadt",
-          "verfahrensingenieur-in-dp-m-w-d-coopers-basel-stadt"
+          "verfahrensingenieur-in-dp-m-w-d-coopers-basel-stadt",
+          "projektleiter-m-w-d-coopers-group-ag-basel-stadt"
         ],
         "en": [
           "verfahrensingenieur-dp-m-w-d-coopers-basel-stadt"
@@ -426,6 +443,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:26.872Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -470,7 +488,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-24T22:13:15.581Z",
+      "crawledAt": "2026-07-25T11:11:59.106Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -517,12 +535,14 @@
         "lead-expeditor-m-f-d-coopers-wallis",
         "leiter-m-f-d-coopers-group-ag-wallis",
         "expediteur-de-plomb-m-f-d-coopers-group-ag-wallis",
-        "engineering-planner-m-f-d-coopers-wallis"
+        "engineering-planner-m-f-d-coopers-wallis",
+        "piano-di-ingegneria-m-f-d-coopers-group-ag-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "engineering-planer-m-f-d-coopers-wallis",
-          "engineering-planner-m-f-d-coopers-wallis"
+          "engineering-planner-m-f-d-coopers-wallis",
+          "piano-di-ingegneria-m-f-d-coopers-group-ag-wallis"
         ],
         "en": [
           "engineering-planner-m-f-d-coopers-group-ag-wallis",
@@ -536,6 +556,7 @@
         ]
       },
       "firstSeenAt": "2026-05-27T22:41:36.318Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -564,7 +585,7 @@
       "title": "M365 Solution Manager (m/w/d)",
       "titleByLocale": {
         "it": "M365 Solution Manager/in (lunedì/mercoledì/d)",
-        "en": "M365 Solution Manager (m/f/d)",
+        "en": "M365 Solution Manager (m/w/d)",
         "de": "M365 Solution Manager (m/w/d)",
         "fr": "M365 Gestionnaire de solutions : en (m/w/d)"
       },
@@ -580,7 +601,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W2A8N9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:13:14.565Z",
+      "crawledAt": "2026-07-25T11:11:58.203Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -617,6 +638,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:16.784Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -645,7 +667,7 @@
       "title": "Entra ID / Active Directory Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Entra ID / Active Directory Ingegnere (m/w/d)",
-        "en": "Entra ID / Active Directory Engineer (m/f/d)",
+        "en": "Entra ID / Active Directory Engineer (m/w/d)",
         "de": "Entra ID / Active Directory Ingenieur (m/w/d)",
         "fr": "Entra ID / Active Directory Ingénieur (m/w/d)"
       },
@@ -661,7 +683,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=HF368N",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:13:13.637Z",
+      "crawledAt": "2026-07-25T11:11:57.308Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -695,14 +717,17 @@
         ]
       },
       "previousSlugs": [
-        "entra-id-active-directory-engineer-m-w-d-coopers-basel-landschaft"
+        "entra-id-active-directory-engineer-m-w-d-coopers-basel-landschaft",
+        "entra-id-active-directory-ingegnere-m-w-d-coopers-group-ag-basel-landschaft"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "entra-id-active-directory-engineer-m-w-d-coopers-basel-landschaft"
+          "entra-id-active-directory-engineer-m-w-d-coopers-basel-landschaft",
+          "entra-id-active-directory-ingegnere-m-w-d-coopers-group-ag-basel-landschaft"
         ]
       },
       "firstSeenAt": "2026-06-03T13:17:53.311Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -747,7 +772,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=49GUV9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:13:12.697Z",
+      "crawledAt": "2026-07-25T11:11:56.423Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -790,14 +815,16 @@
         "projektassistenz-assistenz-der-geschaftsleitung-m-w-d-coopers-bern",
         "senior-project-management-officer-pmo-m-w-d-coopers-bern",
         "specialiste-principal-de-la-gestion-des-projets-m-m-j-coopers-group-ag-bern",
-        "projektassistenz-assistenz-der-leitung-it-m-w-d-coopers-bern"
+        "projektassistenz-assistenz-der-leitung-it-m-w-d-coopers-bern",
+        "gestione-del-progetto-ufficio-pmo-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projectmanagement-officer-pmo-m-w-d-coopers-bern",
           "projectmanagement-officer-pmo-assistenz-der-geschaftsleitung-m-w-d-coopers-bern",
           "projektassistenz-assistenz-der-geschaftsleitung-m-w-d-coopers-bern",
-          "projektassistenz-assistenz-der-leitung-it-m-w-d-coopers-bern"
+          "projektassistenz-assistenz-der-leitung-it-m-w-d-coopers-bern",
+          "gestione-del-progetto-ufficio-pmo-m-w-d-coopers-group-ag-bern"
         ],
         "en": [
           "projectmanagement-officer-pmo-m-w-d-coopers-bern"
@@ -810,6 +837,7 @@
         ]
       },
       "firstSeenAt": "2026-06-03T23:17:39.897Z",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "baseSalary": {
@@ -830,7 +858,7 @@
         "it": "assistente-in-ambito-scientifico-m-f-d-coopers-group-ag-bern",
         "en": "senior-consultant-m-w-d-coopers-group-ag-bern",
         "de": "assistenz-im-wissenschaftlichen-umfeld-m-w-d-coopers-bern",
-        "fr": "consultant-principal-m-m-j-coopers-group-ag-bern-4ff507"
+        "fr": "consultant-principal-m-j-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -854,7 +882,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=J044QS",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:13:11.722Z",
+      "crawledAt": "2026-07-25T11:11:55.472Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -905,7 +933,9 @@
         "assistenz-im-wissenschaftlichen-umfeld-m-w-d-coopers-bern",
         "titolare-del-prodotto-senior-m-f-d-coopers-group-ag-bern",
         "senior-product-owner-m-w-d-coopers-bern",
-        "proprietaire-principal-du-produit-m-f-d-coopers-group-ag-bern"
+        "proprietaire-principal-du-produit-m-f-d-coopers-group-ag-bern",
+        "consultant-principal-m-m-j-coopers-group-ag-bern-4ff507",
+        "assistente-in-ambito-scientifico-m-f-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -914,7 +944,8 @@
           "assistenz-im-wissenschaftlichen-umfeld-m-w-d-coopers-bern",
           "titolare-del-prodotto-senior-m-f-d-coopers-group-ag-bern",
           "senior-product-owner-m-w-d-coopers-bern",
-          "proprietaire-principal-du-produit-m-f-d-coopers-group-ag-bern"
+          "proprietaire-principal-du-produit-m-f-d-coopers-group-ag-bern",
+          "assistente-in-ambito-scientifico-m-f-d-coopers-group-ag-bern"
         ],
         "en": [
           "senior-business-analyst-in-m-w-d-coopers-bern"
@@ -923,10 +954,12 @@
           "senior-product-owner-m-w-d-coopers-bern"
         ],
         "fr": [
-          "proprietaire-principal-du-produit-m-f-d-coopers-group-ag-bern"
+          "proprietaire-principal-du-produit-m-f-d-coopers-group-ag-bern",
+          "consultant-principal-m-m-j-coopers-group-ag-bern-4ff507"
         ]
       },
       "firstSeenAt": "2026-06-04T11:43:07.255Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -971,7 +1004,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E4R7W1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:13:10.799Z",
+      "crawledAt": "2026-07-25T11:11:54.588Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1001,14 +1034,17 @@
         ]
       },
       "previousSlugs": [
-        "teamlead-business-applications-proalpha-m-w-d-coopers-bern"
+        "teamlead-business-applications-proalpha-m-w-d-coopers-bern",
+        "applicazioni-aziendali-proalpha-m-f-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamlead-business-applications-proalpha-m-w-d-coopers-bern"
+          "teamlead-business-applications-proalpha-m-w-d-coopers-bern",
+          "applicazioni-aziendali-proalpha-m-f-d-coopers-group-ag-bern"
         ]
       },
       "firstSeenAt": "2026-07-09T12:28:54.533Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1053,7 +1089,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=AQP363",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:13:04.776Z",
+      "crawledAt": "2026-07-25T11:11:53.624Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1086,14 +1122,17 @@
         ]
       },
       "previousSlugs": [
-        "technische-r-redakteur-in-m-w-d-coopers-bern"
+        "technische-r-redakteur-in-m-w-d-coopers-bern",
+        "redattore-tecnico-m-f-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technische-r-redakteur-in-m-w-d-coopers-bern"
+          "technische-r-redakteur-in-m-w-d-coopers-bern",
+          "redattore-tecnico-m-f-d-coopers-group-ag-bern"
         ]
       },
       "firstSeenAt": "2026-06-11T22:29:03.923Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1122,7 +1161,7 @@
       "title": "AI Governance Manager (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile della Governance AI (m/f/d)",
-        "en": "AI Governance Manager (m/f/d)",
+        "en": "AI Governance Manager (m/w/d)",
         "de": "AI Governance Manager (m/w/d)",
         "fr": "Responsable de la gouvernance de l'IA (m/f/d)"
       },
@@ -1138,7 +1177,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OL0A91",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:13:03.854Z",
+      "crawledAt": "2026-07-25T11:11:52.732Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1173,18 +1212,21 @@
       },
       "previousSlugs": [
         "ai-governance-manager-in-m-w-d-coopers-bern",
-        "ai-governance-manager-m-w-d-coopers-bern"
+        "ai-governance-manager-m-w-d-coopers-bern",
+        "responsabile-della-governance-ai-m-f-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ai-governance-manager-in-m-w-d-coopers-bern",
-          "ai-governance-manager-m-w-d-coopers-bern"
+          "ai-governance-manager-m-w-d-coopers-bern",
+          "responsabile-della-governance-ai-m-f-d-coopers-group-ag-bern"
         ],
         "fr": [
           "ai-governance-manager-in-m-w-d-coopers-bern"
         ]
       },
       "firstSeenAt": "2026-06-11T12:27:51.132Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1229,7 +1271,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9JE8O3",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:13:02.923Z",
+      "crawledAt": "2026-07-25T11:11:51.826Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1263,7 +1305,8 @@
         "assistente-agli-acquisti-m-f-d-coopers-group-ag-basel-landschaft",
         "procurement-assistance-m-f-d-coopers-group-ag-basel-landschaft",
         "procurement-assistenz-m-w-d-coopers-basel-landschaft",
-        "aide-aux-achats-m-f-d-coopers-group-ag-basel-landschaft"
+        "aide-aux-achats-m-f-d-coopers-group-ag-basel-landschaft",
+        "gestione-vendite-assistente-100-m-f-d-coopers-group-ag-basel-landschaft"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1271,7 +1314,8 @@
           "assistente-agli-acquisti-m-f-d-coopers-group-ag-basel-landschaft",
           "procurement-assistance-m-f-d-coopers-group-ag-basel-landschaft",
           "procurement-assistenz-m-w-d-coopers-basel-landschaft",
-          "aide-aux-achats-m-f-d-coopers-group-ag-basel-landschaft"
+          "aide-aux-achats-m-f-d-coopers-group-ag-basel-landschaft",
+          "gestione-vendite-assistente-100-m-f-d-coopers-group-ag-basel-landschaft"
         ],
         "en": [
           "procurement-assistance-m-f-d-coopers-group-ag-basel-landschaft"
@@ -1284,6 +1328,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T22:08:55.535Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1312,7 +1357,7 @@
       "title": "Customer Care Consultant (Service Desk Agent) (m/w/d)",
       "titleByLocale": {
         "it": "Customer Care Consulente (Service Desk Agent) (m/w/d)",
-        "en": "Customer Care Consultant (Service Desk Agent) (m/f/d)",
+        "en": "Customer Care Consultant (Service Desk Agent) (m/w/d)",
         "de": "Customer Care Berater (Service Desk Agent) (m/w/d)",
         "fr": "Consultant en soins à la clientèle (agent de service) (m/f/d)"
       },
@@ -1328,7 +1373,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=L3Y71M",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:13:01.984Z",
+      "crawledAt": "2026-07-25T11:11:50.847Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1374,6 +1419,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T13:27:39.678Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1418,7 +1464,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5JTZ59",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-24T22:12:55.140Z",
+      "crawledAt": "2026-07-25T11:11:49.085Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1449,14 +1495,17 @@
         ]
       },
       "previousSlugs": [
-        "senior-instrument-integration-engineer-m-f-d-coopers-zug"
+        "senior-instrument-integration-engineer-m-f-d-coopers-zug",
+        "senior-instrument-integration-ingegnere-m-f-d-coopers-group-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-instrument-integration-engineer-m-f-d-coopers-zug"
+          "senior-instrument-integration-engineer-m-f-d-coopers-zug",
+          "senior-instrument-integration-ingegnere-m-f-d-coopers-group-ag-zug"
         ]
       },
       "firstSeenAt": "2026-07-01T11:37:57.596Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1485,7 +1534,7 @@
       "title": "Senior Netzwerk & Cloud Security Engineer (SASE / M365) (m/w/d)",
       "titleByLocale": {
         "it": "Ingegnere Senior di Rete e Sicurezza Cloud (SASE / M365)",
-        "en": "Senior Network & Cloud Security Engineer (SASE / M365) (m/f/d)",
+        "en": "Senior Netzwerk & Cloud Security Engineer (SASE / M365) (m/w/d)",
         "de": "Senior Netzwerk & Cloud Security Ingenieur (SASE / M365) (m/w/d)",
         "fr": "Ingénieur Senior Réseau et Sécurité Cloud (SASE / M365)"
       },
@@ -1501,7 +1550,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E972HZ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:12:54.205Z",
+      "crawledAt": "2026-07-25T11:11:48.212Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -1534,14 +1583,17 @@
         ]
       },
       "previousSlugs": [
-        "senior-netzwerk-cloud-security-engineer-sase-m365-m-w-d-coopers-thurgau"
+        "senior-netzwerk-cloud-security-engineer-sase-m365-m-w-d-coopers-thurgau",
+        "ingegnere-senior-di-rete-e-sicurezza-cloud-sase-m365-coopers-group-ag-thurgau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-netzwerk-cloud-security-engineer-sase-m365-m-w-d-coopers-thurgau"
+          "senior-netzwerk-cloud-security-engineer-sase-m365-m-w-d-coopers-thurgau",
+          "ingegnere-senior-di-rete-e-sicurezza-cloud-sase-m365-coopers-group-ag-thurgau"
         ]
       },
       "firstSeenAt": "2026-06-11T12:27:49.848Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1570,7 +1622,7 @@
       "title": "Senior Fullstack Software Engineer - Java/Angular (m/w/d)",
       "titleByLocale": {
         "it": "Senior Fullstack Software Ingegnere - Java/Angular (m/w/d)",
-        "en": "Senior Fullstack Software Engineer - Java/Angular (m/f/d)",
+        "en": "Senior Fullstack Software Engineer - Java/Angular (m/w/d)",
         "de": "Senior Fullstack Software Ingenieur - Java/Angular (m/w/d)",
         "fr": "Senior Fullstack Software Ingénieur - Java/Angular (m/w/d)"
       },
@@ -1586,7 +1638,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=VWR329",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:12:53.245Z",
+      "crawledAt": "2026-07-25T11:11:47.318Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1621,6 +1673,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:13:05.931Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1665,7 +1718,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=A93K9B",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:12:52.258Z",
+      "crawledAt": "2026-07-25T11:11:46.417Z",
       "addressLocality": "Basel Region",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1699,7 +1752,8 @@
         "de": [
           "operative-r-transportleiter-in-m-w-d-coopers-basel-region",
           "immobilienbewirtschafter-in-m-w-d-coopers-basel-region",
-          "senior-projektleiter-in-m-w-d-coopers-basel-landschaft"
+          "senior-projektleiter-in-m-w-d-coopers-basel-landschaft",
+          "leiter-in-bu-transport-m-w-d-coopers-basel-landschaft"
         ],
         "it": [
           "operative-r-transportleiter-in-m-w-d-coopers-basel-region",
@@ -1710,7 +1764,8 @@
           "senior-responsabile-di-progetto-m-w-d-coopers-group-ag-basel-landschaft",
           "senior-project-manager-m-w-d-coopers-group-ag-basel-landschaft",
           "senior-projektleiter-in-m-w-d-coopers-basel-landschaft",
-          "senior-chef-de-projet-m-w-d-coopers-group-ag-basel-landschaft"
+          "senior-chef-de-projet-m-w-d-coopers-group-ag-basel-landschaft",
+          "responsabile-bu-transport-m-w-d-coopers-group-ag-basel-landschaft"
         ],
         "en": [
           "real-estate-manager-in-m-f-d-coopers-group-ag-basel-region",
@@ -1730,7 +1785,9 @@
         "senior-responsabile-di-progetto-m-w-d-coopers-group-ag-basel-landschaft",
         "senior-project-manager-m-w-d-coopers-group-ag-basel-landschaft",
         "senior-projektleiter-in-m-w-d-coopers-basel-landschaft",
-        "senior-chef-de-projet-m-w-d-coopers-group-ag-basel-landschaft"
+        "senior-chef-de-projet-m-w-d-coopers-group-ag-basel-landschaft",
+        "leiter-in-bu-transport-m-w-d-coopers-basel-landschaft",
+        "responsabile-bu-transport-m-w-d-coopers-group-ag-basel-landschaft"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-16T13:10:06.286Z",
@@ -1762,7 +1819,7 @@
       "title": "Senior Active Directory Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Senior Active Directory Ingegnere (m/w/d)",
-        "en": "Senior Active Directory Engineer (m/f/d)",
+        "en": "Senior Active Directory Engineer (m/w/d)",
         "de": "Senior Active Directory Ingenieur (m/w/d)",
         "fr": "Senior Active Directory Ingénieur (m/w/d)"
       },
@@ -1778,7 +1835,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E6S38Z",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:12:51.340Z",
+      "crawledAt": "2026-07-25T11:11:45.487Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1811,14 +1868,17 @@
         ]
       },
       "previousSlugs": [
-        "senior-active-directory-engineer-m-w-d-coopers-aargau"
+        "senior-active-directory-engineer-m-w-d-coopers-aargau",
+        "senior-active-directory-ingegnere-m-w-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-active-directory-engineer-m-w-d-coopers-aargau"
+          "senior-active-directory-engineer-m-w-d-coopers-aargau",
+          "senior-active-directory-ingegnere-m-w-d-coopers-group-ag-aargau"
         ]
       },
       "firstSeenAt": "2026-07-01T11:37:48.236Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1837,7 +1897,7 @@
       "slug": "sheq-manager-safety-officer-sibe-100-m-f-d-coopers-group-ag-aargau",
       "slugByLocale": {
         "it": "sheq-manager-safety-officer-sibe-100-m-f-d-coopers-group-ag-aargau",
-        "en": "sheq-manager-sicherheitsbeauftragter-sibe-100-m-w-d-coopers-aargau",
+        "en": "sheq-manager-sicherheitsbeauftragte-r-sibe-100-m-w-d-coopers-group-ag-aargau",
         "de": "sheq-manager-sicherheitsbeauftragte-r-sibe-100-m-w-d-coopers-aargau",
         "fr": "sheq-gestionnaire-agent-de-securite-sibe-100-m-f-d-coopers-group-ag-aargau"
       },
@@ -1847,7 +1907,7 @@
       "title": "SHEQ Manager / Sicherheitsbeauftragte:r (SiBe) 100% (m/w/d)",
       "titleByLocale": {
         "it": "SHEQ Manager / Safety Officer (SiBe) 100% (m/f/d)",
-        "en": "SHEQ Manager / Security Officer:r (SiBe) 100% (m/f/d)",
+        "en": "SHEQ Manager / Sicherheitsbeauftragte:r (SiBe) 100% (m/w/d)",
         "de": "SHEQ Manager / Sicherheitsbeauftragte:r (SiBe) 100% (m/w/d)",
         "fr": "SHEQ Gestionnaire / Agent de sécurité (SiBe) 100% (m/f/d)"
       },
@@ -1863,7 +1923,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3MQ82W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:12:50.439Z",
+      "crawledAt": "2026-07-25T11:11:44.593Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1894,18 +1954,24 @@
       },
       "previousSlugs": [
         "sheq-manager-sicherheitsbeauftragter-sibe-100-m-w-d-coopers-aargau",
-        "sheq-manager-sicherheitsbeauftragte-r-sibe-100-m-w-d-coopers-aargau"
+        "sheq-manager-sicherheitsbeauftragte-r-sibe-100-m-w-d-coopers-aargau",
+        "sheq-manager-safety-officer-sibe-100-m-f-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sheq-manager-sicherheitsbeauftragter-sibe-100-m-w-d-coopers-aargau",
-          "sheq-manager-sicherheitsbeauftragte-r-sibe-100-m-w-d-coopers-aargau"
+          "sheq-manager-sicherheitsbeauftragte-r-sibe-100-m-w-d-coopers-aargau",
+          "sheq-manager-safety-officer-sibe-100-m-f-d-coopers-group-ag-aargau"
         ],
         "de": [
+          "sheq-manager-sicherheitsbeauftragter-sibe-100-m-w-d-coopers-aargau"
+        ],
+        "en": [
           "sheq-manager-sicherheitsbeauftragter-sibe-100-m-w-d-coopers-aargau"
         ]
       },
       "firstSeenAt": "2026-07-02T21:38:19.523Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1934,7 +2000,7 @@
       "title": "Release Train Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Release Train Ingegnere (m/w/d)",
-        "en": "Release Train Engineer (m/f/d)",
+        "en": "Release Train Engineer (m/w/d)",
         "de": "Release Train Ingenieur (m/w/d)",
         "fr": "Release Train Ingénieur (m/w/d)"
       },
@@ -1950,7 +2016,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B4I17W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:12:49.472Z",
+      "crawledAt": "2026-07-25T11:11:43.725Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1982,17 +2048,20 @@
         ]
       },
       "previousSlugs": [
-        "release-train-engineer-m-w-d-coopers-luzern"
+        "release-train-engineer-m-w-d-coopers-luzern",
+        "release-train-ingegnere-m-w-d-coopers-group-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "release-train-engineer-m-w-d-coopers-luzern"
+          "release-train-engineer-m-w-d-coopers-luzern",
+          "release-train-ingegnere-m-w-d-coopers-group-ag-luzern"
         ],
         "fr": [
           "release-train-engineer-m-w-d-coopers-luzern"
         ]
       },
       "firstSeenAt": "2026-07-23T12:10:37.886Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2021,7 +2090,7 @@
       "title": "Senior DevOps Engineer AWS (m/w/d)",
       "titleByLocale": {
         "it": "Senior DevOps Ingegnere AWS (m/w/d)",
-        "en": "Senior DevOps Engineer AWS (m/f/d)",
+        "en": "Senior DevOps Engineer AWS (m/w/d)",
         "de": "Senior DevOps Ingenieur AWS (m/w/d)",
         "fr": "Senior DevOps Ingénieur AWS (m/w/d)"
       },
@@ -2037,7 +2106,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=H6Y46A",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:12:48.514Z",
+      "crawledAt": "2026-07-25T11:11:41.839Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2078,7 +2147,8 @@
         "senior-windows-server-ingenieur-m-w-d-coopers-group-ag-bern",
         "java-software-ingegnere-senior-m-w-d-coopers-group-ag-bern",
         "java-software-engineer-senior-m-w-d-coopers-bern",
-        "java-software-ingenieur-senior-m-w-d-coopers-group-ag-bern"
+        "java-software-ingenieur-senior-m-w-d-coopers-group-ag-bern",
+        "senior-devops-ingegnere-aws-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2091,7 +2161,8 @@
           "senior-windows-server-ingenieur-m-w-d-coopers-group-ag-bern",
           "java-software-ingegnere-senior-m-w-d-coopers-group-ag-bern",
           "java-software-engineer-senior-m-w-d-coopers-bern",
-          "java-software-ingenieur-senior-m-w-d-coopers-group-ag-bern"
+          "java-software-ingenieur-senior-m-w-d-coopers-group-ag-bern",
+          "senior-devops-ingegnere-aws-m-w-d-coopers-group-ag-bern"
         ],
         "de": [
           "senior-windows-client-engineer-m-w-d-coopers-bern"
@@ -2102,6 +2173,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:49:42.487Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -2146,7 +2218,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=WT1T07",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:12:47.599Z",
+      "crawledAt": "2026-07-25T11:11:40.916Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2179,12 +2251,14 @@
       },
       "previousSlugs": [
         "verfahrensingenieur-pharma-engineering-m-w-d-coopers-aargau",
-        "verfahrensingenieur-in-pharma-engineering-m-w-d-coopers-aargau"
+        "verfahrensingenieur-in-pharma-engineering-m-w-d-coopers-aargau",
+        "ingegneria-farmaceutica-m-f-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verfahrensingenieur-pharma-engineering-m-w-d-coopers-aargau",
-          "verfahrensingenieur-in-pharma-engineering-m-w-d-coopers-aargau"
+          "verfahrensingenieur-in-pharma-engineering-m-w-d-coopers-aargau",
+          "ingegneria-farmaceutica-m-f-d-coopers-group-ag-aargau"
         ],
         "en": [
           "verfahrensingenieur-pharma-engineering-m-w-d-coopers-aargau"
@@ -2194,6 +2268,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:33:23.637Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2238,7 +2313,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=WN66X7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:12:46.653Z",
+      "crawledAt": "2026-07-25T11:11:39.992Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2269,14 +2344,17 @@
         ]
       },
       "previousSlugs": [
-        "unternehmerische-fuhrungsposition-immobilien-100-m-w-d-coopers-basel-stadt"
+        "unternehmerische-fuhrungsposition-immobilien-100-m-w-d-coopers-basel-stadt",
+        "posizione-aziendale-immobiliare-100-m-f-d-coopers-group-ag-basel-stadt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unternehmerische-fuhrungsposition-immobilien-100-m-w-d-coopers-basel-stadt"
+          "unternehmerische-fuhrungsposition-immobilien-100-m-w-d-coopers-basel-stadt",
+          "posizione-aziendale-immobiliare-100-m-f-d-coopers-group-ag-basel-stadt"
         ]
       },
       "firstSeenAt": "2026-07-08T22:27:29.965Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2321,7 +2399,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3N22VU",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-24T22:12:45.732Z",
+      "crawledAt": "2026-07-25T11:11:39.075Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2354,11 +2432,13 @@
         ]
       },
       "previousSlugs": [
-        "application-developer-java-php-m-f-d-coopers-basel-landschaft"
+        "application-developer-java-php-m-f-d-coopers-basel-landschaft",
+        "sviluppatore-di-applicazioni-java-php-m-f-d-coopers-group-ag-basel-landschaft"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "application-developer-java-php-m-f-d-coopers-basel-landschaft"
+          "application-developer-java-php-m-f-d-coopers-basel-landschaft",
+          "sviluppatore-di-applicazioni-java-php-m-f-d-coopers-group-ag-basel-landschaft"
         ],
         "de": [
           "application-developer-java-php-m-f-d-coopers-basel-landschaft"
@@ -2368,6 +2448,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:28:45.542Z",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "baseSalary": {
@@ -2388,7 +2469,7 @@
         "it": "zabbix-ingegnere-m-w-d-coopers-group-ag-bern",
         "en": "zabbix-engineer-m-w-d-coopers-bern",
         "de": "zabbix-engineer-m-w-d-coopers-bern",
-        "fr": "zabbix-engineer-m-w-d-coopers-bern"
+        "fr": "zabbix-ingenieur-m-w-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -2396,7 +2477,7 @@
       "title": "Zabbix Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Zabbix Ingegnere (m/w/d)",
-        "en": "Zabbix Engineer (m/f/d)",
+        "en": "Zabbix Engineer (m/w/d)",
         "de": "Zabbix Ingenieur (m/w/d)",
         "fr": "Zabbix Ingénieur (m/w/d)"
       },
@@ -2412,7 +2493,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C05OD2",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:12:44.829Z",
+      "crawledAt": "2026-07-25T11:11:38.181Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2450,17 +2531,21 @@
       },
       "previousSlugs": [
         "zabbix-engineer-m-w-d-coopers-bern",
+        "zabbix-ingegnere-m-w-d-coopers-group-ag-bern",
         "zabbix-ingenieur-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zabbix-engineer-m-w-d-coopers-bern"
+          "zabbix-engineer-m-w-d-coopers-bern",
+          "zabbix-ingegnere-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
+          "zabbix-engineer-m-w-d-coopers-bern",
           "zabbix-ingenieur-m-w-d-coopers-group-ag-bern"
         ]
       },
       "firstSeenAt": "2026-07-10T10:28:37.373Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2505,7 +2590,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=69QGC5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:12:43.879Z",
+      "crawledAt": "2026-07-25T11:11:36.225Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2542,11 +2627,13 @@
         ]
       },
       "previousSlugs": [
-        "einkaufsassistenz-m-w-d-coopers-basel-landschaft"
+        "einkaufsassistenz-m-w-d-coopers-basel-landschaft",
+        "assistenza-acquisto-m-f-d-coopers-group-ag-basel-landschaft"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "einkaufsassistenz-m-w-d-coopers-basel-landschaft"
+          "einkaufsassistenz-m-w-d-coopers-basel-landschaft",
+          "assistenza-acquisto-m-f-d-coopers-group-ag-basel-landschaft"
         ],
         "en": [
           "einkaufsassistenz-m-w-d-coopers-basel-landschaft"
@@ -2556,6 +2643,7 @@
         ]
       },
       "firstSeenAt": "2026-07-17T22:14:59.021Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2600,7 +2688,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=PJ1W39",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:12:42.953Z",
+      "crawledAt": "2026-07-25T11:11:35.262Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2633,15 +2721,18 @@
       },
       "previousSlugs": [
         "ict-supporter-in-rollout-m-w-d-coopers-bern",
-        "ict-supporter-rollout-m-w-d-coopers-bern"
+        "ict-supporter-rollout-m-w-d-coopers-bern",
+        "supporto-ict-in-rollout-m-f-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ict-supporter-in-rollout-m-w-d-coopers-bern",
-          "ict-supporter-rollout-m-w-d-coopers-bern"
+          "ict-supporter-rollout-m-w-d-coopers-bern",
+          "supporto-ict-in-rollout-m-f-d-coopers-group-ag-bern"
         ]
       },
       "firstSeenAt": "2026-07-20T13:31:01.932Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2670,7 +2761,7 @@
       "title": "Senior Network & Automation Architect (Private Cloud) (m/w/d)",
       "titleByLocale": {
         "it": "Senior Network & Automation Architetto (Private Cloud) (m/w/d)",
-        "en": "Senior Network & Automation Architect (Private Cloud)",
+        "en": "Senior Network & Automation Architect (Private Cloud) (m/w/d)",
         "de": "Senior Network & Automation Architect (Private Cloud) (m/w/d)",
         "fr": "Senior Network & Automation Architecte (Private Cloud) (m/w/d)"
       },
@@ -2686,7 +2777,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=RP64C4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:12:42.027Z",
+      "crawledAt": "2026-07-25T11:11:34.297Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2718,6 +2809,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:40:33.876Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -2746,7 +2838,7 @@
       "title": "System Engineer Open Source & Collaboration Platforms (Linux/OpenShift) (m/w/d)",
       "titleByLocale": {
         "it": "System Ingegnere Open Source & Collaboration Platforms (Linux/OpenShift) (m/w/d)",
-        "en": "System Engineer Open Source & Collaboration Platforms (Linux/OpenShift) (m/f/d)",
+        "en": "System Engineer Open Source & Collaboration Platforms (Linux/OpenShift) (m/w/d)",
         "de": "System Ingenieur Open Source & Collaboration Platforms (Linux/OpenShift) (m/w/d)",
         "fr": "System Ingénieur Open Source & Collaboration Platforms (Linux/OpenShift) (m/w/d)"
       },
@@ -2762,7 +2854,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3ZAH69",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:12:41.047Z",
+      "crawledAt": "2026-07-25T11:11:33.304Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2796,6 +2888,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:40:32.971Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2824,7 +2917,7 @@
       "title": "Sales Support (m/w/d)",
       "titleByLocale": {
         "it": "Business Consulente (m/w/d)",
-        "en": "Sales Support (m/f/d)",
+        "en": "Sales Support (m/w/d)",
         "de": "Sales Support (m/w/d)",
         "fr": "Consultant en affaires (m/f/d)"
       },
@@ -2840,7 +2933,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OAT063",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:12:40.124Z",
+      "crawledAt": "2026-07-25T11:11:32.372Z",
       "addressLocality": "Tessin",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -2873,12 +2966,14 @@
       },
       "previousSlugs": [
         "business-consultant-m-w-d-coopers-tessin",
-        "sales-support-m-w-d-coopers-tessin"
+        "sales-support-m-w-d-coopers-tessin",
+        "business-consulente-m-w-d-coopers-group-ag-tessin"
       ],
       "previousSlugsByLocale": {
         "it": [
           "business-consultant-m-w-d-coopers-tessin",
-          "sales-support-m-w-d-coopers-tessin"
+          "sales-support-m-w-d-coopers-tessin",
+          "business-consulente-m-w-d-coopers-group-ag-tessin"
         ],
         "en": [
           "business-consultant-m-w-d-coopers-tessin"
@@ -2891,6 +2986,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T11:35:30.570Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2935,7 +3031,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8N87XQ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-24T22:12:39.200Z",
+      "crawledAt": "2026-07-25T11:11:31.457Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2968,6 +3064,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T12:37:59.341Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2996,7 +3093,7 @@
       "title": "IT Service Manager/ Prozess Manager (m/w/d)",
       "titleByLocale": {
         "it": "IT Process Manager: in (m/f/d)",
-        "en": "IT Service Manager / Process Manager (m/f/d)",
+        "en": "IT Service Manager/ Prozess Manager (m/w/d)",
         "de": "IT Service Manager/ Prozess Manager (m/w/d)",
         "fr": "Gestionnaire de processus de TI : en (m/f/d)"
       },
@@ -3012,7 +3109,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=11I1UQ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:12:38.285Z",
+      "crawledAt": "2026-07-25T11:11:30.551Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3047,13 +3144,15 @@
       "previousSlugs": [
         "it-prozessmanager-in-m-w-d-coopers-basel-stadt",
         "it-prozessmanager-m-w-d-coopers-basel-stadt",
-        "it-service-manager-prozess-manager-m-w-d-coopers-basel-stadt"
+        "it-service-manager-prozess-manager-m-w-d-coopers-basel-stadt",
+        "it-process-manager-in-m-f-d-coopers-group-ag-basel-stadt"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-prozessmanager-in-m-w-d-coopers-basel-stadt",
           "it-prozessmanager-m-w-d-coopers-basel-stadt",
-          "it-service-manager-prozess-manager-m-w-d-coopers-basel-stadt"
+          "it-service-manager-prozess-manager-m-w-d-coopers-basel-stadt",
+          "it-process-manager-in-m-f-d-coopers-group-ag-basel-stadt"
         ],
         "en": [
           "it-prozessmanager-in-m-w-d-coopers-basel-stadt"
@@ -3066,6 +3165,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T12:13:21.213Z",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -3110,7 +3210,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GJ589K",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-24T22:12:37.311Z",
+      "crawledAt": "2026-07-25T11:11:29.572Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3142,6 +3242,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:40:28.277Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -3186,7 +3287,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9K73US",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-24T22:12:36.391Z",
+      "crawledAt": "2026-07-25T11:11:28.665Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3218,6 +3319,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:40:27.364Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -3262,7 +3364,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=T81XK3",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-24T22:12:35.482Z",
+      "crawledAt": "2026-07-25T11:11:27.768Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3294,6 +3396,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:40:26.447Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -3314,7 +3417,7 @@
         "it": "assistente-amministrativo-m-f-d-coopers-group-ag-wallis",
         "en": "administration-assistant-m-f-d-coopers-wallis",
         "de": "administration-assistent-m-f-d-coopers-group-ag-wallis",
-        "fr": "assistant-administratif-m-f-d-coopers-group-ag-wallis"
+        "fr": "administration-assistant-m-f-d-coopers-group-ag-wallis"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3324,7 +3427,7 @@
         "it": "Assistente amministrativo (m/f/d)",
         "en": "Administration Assistant (m/f/d)",
         "de": "Administration Assistent (m/f/d)",
-        "fr": "Assistant administratif (m/f/d)"
+        "fr": "Administration Assistant (m/f/d)"
       },
       "description": "For our clients team in Visp, we are looking for a reliable and motivated person for the position of Administrative Assistant (m/f/d).\n\nStart Date: Aug 2026\nEnd Date: 12-month contract (with a high chance of extension)\nWorkload: 100% with regular working hours (approx. 08:00 – 17:00) in a 41h/week\nLocation: Visp\nWorkmodel: Contracting\n\nYour responsibilies\n\n• General administrative tasks, supporting one business area\n\n• Handling access registrations for employees/visitors\n\n• Orders / POs for projects and various items\n\n• Office planning\n\n• Organizing meetings & conference rooms\n\n• Preparing meeting minutes and following up on action items\n\n• Expenses & Trainingsreports\n\n• Timekeeping\n\n• Organizing visits including badges, catering, and agendas\n\n• Supporting onboarding of new employees if needed\n\n• Calendar management for the CEO\n\n• Co-leading project teams & supporting events\n\n• Providing vacation coverage and acting as deputy for other team members\n\nYour Profil:\n\n• Commercial apprenticeship (EFZ), degree, or comparable qualification\n\n• Very good German and English skills, both written and spoken\n\n• Strong MS Office skills (Outlook, Word, Excel, PowerPoint, SharePoint)\n\n• Independent, proactive, and reliable working style\n\n• High level of responsibility and strong organizational skills\n\n• IT affinity and excellent communication skills\n\n• Assertive personality with quick comprehension\n\n• SAP/Ariba knowledge is an advantage",
       "descriptionByLocale": {
@@ -3338,7 +3441,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=M6OK94",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-24T22:12:34.563Z",
+      "crawledAt": "2026-07-25T11:11:26.834Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -3370,20 +3473,25 @@
         ]
       },
       "previousSlugs": [
-        "administration-assistant-m-f-d-coopers-wallis"
+        "administration-assistant-m-f-d-coopers-wallis",
+        "assistant-administratif-m-f-d-coopers-group-ag-wallis",
+        "assistente-amministrativo-m-f-d-coopers-group-ag-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "administration-assistant-m-f-d-coopers-wallis"
+          "administration-assistant-m-f-d-coopers-wallis",
+          "assistente-amministrativo-m-f-d-coopers-group-ag-wallis"
         ],
         "de": [
           "administration-assistant-m-f-d-coopers-wallis"
         ],
         "fr": [
-          "administration-assistant-m-f-d-coopers-wallis"
+          "administration-assistant-m-f-d-coopers-wallis",
+          "assistant-administratif-m-f-d-coopers-group-ag-wallis"
         ]
       },
       "firstSeenAt": "2026-07-23T22:40:24.481Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3404,7 +3512,7 @@
         "it": "m365-ingegnere-m-w-d-coopers-group-ag-basel-stadt",
         "en": "m365-engineer-m-w-d-coopers-basel-stadt",
         "de": "m365-engineer-m-w-d-coopers-basel-stadt",
-        "fr": "m365-engineer-m-w-d-coopers-basel-stadt"
+        "fr": "m365-ingenieur-m-w-d-coopers-group-ag-basel-stadt"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3412,7 +3520,7 @@
       "title": "M365 Engineer (m/w/d)",
       "titleByLocale": {
         "it": "M365 Ingegnere (m/w/d)",
-        "en": "M365 Engineer (m/f/d)",
+        "en": "M365 Engineer (m/w/d)",
         "de": "M365 Ingenieur (m/w/d)",
         "fr": "M365 Ingénieur (m/w/d)"
       },
@@ -3428,7 +3536,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=010VGG",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:12:33.642Z",
+      "crawledAt": "2026-07-25T11:11:25.884Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3473,7 +3581,8 @@
         "ingegnere-di-qualificazione-in-pura-media-m-f-d-coopers-group-ag-basel-stadt",
         "qualification-engineer-in-pure-media-m-f-d-coopers-group-ag-basel-stadt",
         "qualifizierungsingenieur-in-reinstmedien-m-w-d-coopers-basel-stadt",
-        "ingenieur-de-qualification-en-milieu-pur-m-f-d-coopers-group-ag-basel-stadt"
+        "ingenieur-de-qualification-en-milieu-pur-m-f-d-coopers-group-ag-basel-stadt",
+        "m365-ingegnere-m-w-d-coopers-group-ag-basel-stadt"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3485,7 +3594,8 @@
           "ingegnere-di-qualificazione-in-pura-media-m-f-d-coopers-group-ag-basel-stadt",
           "qualification-engineer-in-pure-media-m-f-d-coopers-group-ag-basel-stadt",
           "qualifizierungsingenieur-in-reinstmedien-m-w-d-coopers-basel-stadt",
-          "ingenieur-de-qualification-en-milieu-pur-m-f-d-coopers-group-ag-basel-stadt"
+          "ingenieur-de-qualification-en-milieu-pur-m-f-d-coopers-group-ag-basel-stadt",
+          "m365-ingegnere-m-w-d-coopers-group-ag-basel-stadt"
         ],
         "en": [
           "project-engineer-in-qualification-m-f-d-coopers-group-ag-basel-stadt"
@@ -3494,10 +3604,12 @@
           "projektingenieur-in-qualifizierung-m-w-d-coopers-basel-stadt"
         ],
         "fr": [
-          "ingenieur-de-projet-en-qualification-m-f-d-coopers-group-ag-basel-stadt"
+          "ingenieur-de-projet-en-qualification-m-f-d-coopers-group-ag-basel-stadt",
+          "m365-engineer-m-w-d-coopers-basel-stadt"
         ]
       },
       "firstSeenAt": "2026-07-23T22:40:23.525Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3513,36 +3625,36 @@
     },
     {
       "id": "coopers-f2405ea7786f",
-      "slug": "backend-python-engineer-m-f-d-coopers-genf",
+      "slug": "backend-python-ingegnere-m-f-d-coopers-group-ag-genf",
       "slugByLocale": {
+        "it": "backend-python-ingegnere-m-f-d-coopers-group-ag-genf",
         "en": "backend-python-engineer-m-f-d-coopers-genf",
-        "it": "backend-python-engineer-m-f-d-coopers-genf",
-        "de": "backend-python-engineer-m-f-d-coopers-genf",
-        "fr": "backend-python-engineer-m-f-d-coopers-genf"
+        "de": "backend-python-ingenieur-m-f-d-coopers-group-ag-genf",
+        "fr": "backend-python-ingenieur-m-f-d-coopers-group-ag-genf"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
       "companyDomain": "coopers.ch",
       "title": "Backend Python Engineer (m/f/d)",
       "titleByLocale": {
-        "en": "Backend Python Engineer (m/f/d)",
         "it": "Backend Python Ingegnere (m/f/d)",
+        "en": "Backend Python Engineer (m/f/d)",
         "de": "Backend Python Ingenieur (m/f/d)",
         "fr": "Backend Python Ingénieur (m/f/d)"
       },
       "description": "For our client in Geneva, we are looking for a Backend Python Engineer to join an international scientific environment and contribute to the development and modernisation of large-scale information platforms. In this role, you will work on backend services, data pipelines and search technologies that support scientific discovery and open access for researchers worldwide.\n\nAs part of the Tools and Services team, you will help evolve platforms that manage scientific publications, research data and digital archives. Your focus will be on building scalable backend solutions, improving data processing workflows, enabling AI-driven access to scientific content and ensuring reliable production systems.\n\nYour Task:\n\n• Design, develop and operate backend services using Python\n\n• Build and maintain scalable data ingestion and processing pipelines for scientific metadata and full-text content\n\n• Modernise existing ingestion workflows and migrate processes to Apache Airflow\n\n• Design and implement robust REST APIs for internal applications, partners and external tools\n\n• Develop and optimise search capabilities using OpenSearch , including indexing strategies and relevance tuning\n\n• Support the integration of AI-driven retrieval solutions and Model Context Protocol services\n\n• Improve data quality through enrichment, deduplication and automated processing workflows\n\n• Contribute to the modernisation of digitisation and archival services\n\n• Support large-scale data migrations while ensuring metadata consistency and quality\n\n• Develop containerised applications and support modern deployment processes\n\n• Implement automated testing, code reviews, monitoring and CI/CD practices\n\n• Contribute to open-source software and support the Open Science community\n\nYour Profile:\n\n•\n University degree in Computer Science or a related field with relevant professional experience\n\n• Strong professional experience in backend development with Python\n\n• Hands-on experience with Python frameworks such as Django, Flask and FastAPI\n\n• Solid experience designing and developing REST APIs\n\n• Strong understanding of relational databases such as PostgreSQL and document databases\n\n• Practical experience with search technologies such as OpenSearch / Elasticsearch , including indexing and relevance tuning\n\n• Experience with Docker, Kubernetes, Git and CI/CD pipelines\n\n• Knowledge of asynchronous programming, automated testing and software engineering best practices\n\n• Experience with large-scale data processing, metadata-driven systems and data pipelines\n\n• Experience with Apache Airflow or similar workflow orchestration tools is an advantage\n\n• Knowledge of AI-driven retrieval systems and AI/LLM integrations is a plus\n\n• Familiarity with digital archiving, content management systems or scientific information platforms is an advantage\n\n• Strong analytical and problem-solving skills with a focus on developing reliable, scalable and maintainable software solutions\n\n• Proactive, quality-oriented team player with strong ownership and ability to work effectively in multicultural environments\n\n• Excellent spoken and written English skills",
       "descriptionByLocale": {
-        "en": "For our client in Geneva, we are looking for a Backend Python Engineer to join an international scientific environment and contribute to the development and modernisation of large-scale information platforms. In this role, you will work on backend services, data pipelines and search technologies that support scientific discovery and open access for researchers worldwide.\n\nAs part of the Tools and Services team, you will help evolve platforms that manage scientific publications, research data and digital archives. Your focus will be on building scalable backend solutions, improving data processing workflows, enabling AI-driven access to scientific content and ensuring reliable production systems.\n\nYour Task:\n\n• Design, develop and operate backend services using Python\n\n• Build and maintain scalable data ingestion and processing pipelines for scientific metadata and full-text content\n\n• Modernise existing ingestion workflows and migrate processes to Apache Airflow\n\n• Design and implement robust REST APIs for internal applications, partners and external tools\n\n• Develop and optimise search capabilities using OpenSearch , including indexing strategies and relevance tuning\n\n• Support the integration of AI-driven retrieval solutions and Model Context Protocol services\n\n• Improve data quality through enrichment, deduplication and automated processing workflows\n\n• Contribute to the modernisation of digitisation and archival services\n\n• Support large-scale data migrations while ensuring metadata consistency and quality\n\n• Develop containerised applications and support modern deployment processes\n\n• Implement automated testing, code reviews, monitoring and CI/CD practices\n\n• Contribute to open-source software and support the Open Science community\n\nYour Profile:\n\n•\n University degree in Computer Science or a related field with relevant professional experience\n\n• Strong professional experience in backend development with Python\n\n• Hands-on experience with Python frameworks such as Django, Flask and FastAPI\n\n• Solid experience designing and developing REST APIs\n\n• Strong understanding of relational databases such as PostgreSQL and document databases\n\n• Practical experience with search technologies such as OpenSearch / Elasticsearch , including indexing and relevance tuning\n\n• Experience with Docker, Kubernetes, Git and CI/CD pipelines\n\n• Knowledge of asynchronous programming, automated testing and software engineering best practices\n\n• Experience with large-scale data processing, metadata-driven systems and data pipelines\n\n• Experience with Apache Airflow or similar workflow orchestration tools is an advantage\n\n• Knowledge of AI-driven retrieval systems and AI/LLM integrations is a plus\n\n• Familiarity with digital archiving, content management systems or scientific information platforms is an advantage\n\n• Strong analytical and problem-solving skills with a focus on developing reliable, scalable and maintainable software solutions\n\n• Proactive, quality-oriented team player with strong ownership and ability to work effectively in multicultural environments\n\n• Excellent spoken and written English skills",
-        "it": "Per il nostro cliente a Ginevra, stiamo cercando un Backend Python Engineer per unire un ambiente scientifico internazionale e contribuire allo sviluppo e alla modernizzazione di piattaforme di informazione su larga scala. In questo ruolo, si lavorerà su servizi di backend, datadotti e tecnologie di ricerca che supportano la scoperta scientifica e l'accesso aperto per i ricercatori in tutto il mondo.\n\nNell'ambito del team Strumenti e Servizi, ti aiuterà a evolvere piattaforme che gestiscono pubblicazioni scientifiche, dati di ricerca e archivi digitali. Il vostro focus sarà sulla costruzione di soluzioni di backend scalabili, il miglioramento dei flussi di lavoro di elaborazione dei dati, consentendo l'accesso AI-driven ai contenuti scientifici e garantendo sistemi di produzione affidabili.\n\nIl vostro compito:\n\n• Progettazione, sviluppo e gestione di servizi backend utilizzando Python\n\n• Costruisci e mantieni ingestione e elaborazione dati scalabili per metadati scientifici e contenuti full-text\n\n• Modernizzare i flussi di lavoro di ingestione esistenti e migrare i processi a Apache Airflow\n\n• Progettazione e realizzazione di robuste API REST per applicazioni interne, partner e strumenti esterni\n\n• Sviluppare e ottimizzare le capacità di ricerca utilizzando OpenSearch , comprese le strategie di indicizzazione e la pertinenza\n\n• Sostenere l'integrazione di soluzioni di recupero AI-driven e servizi di Protocollo di Modello Contesto\n\n• Migliorare la qualità dei dati attraverso l'arricchimento, la deduplica e i flussi di lavoro automatizzati di elaborazione\n\n• Contribuire alla modernizzazione dei servizi di digitalizzazione e archiviazione\n\n• Supporta le migrazioni di dati su larga scala, garantendo la coerenza e la qualità dei metadati\n\n• Sviluppare applicazioni containerizzate e supportare processi di distribuzione moderni\n\n• Implementazione di test automatizzati, recensioni di codici, monitoraggio e pratiche CI/CD\n\n• Contribuisci al software open source e supporta la comunità Open Science\n\nIl tuo profilo:\n\n•\n Laurea in Informatica o un campo correlato con esperienza professionale rilevante\n\n• Forte esperienza professionale nello sviluppo backend con Python\n\n• Esperienza pratica con framework Python come Django, Flask e FastAPI\n\n• Progettazione e sviluppo di API REST di solida esperienza\n\n• Forte comprensione di database relazionali come PostgreSQL e database di documenti\n\n• Esperienza pratica con tecnologie di ricerca come OpenSearch / Elasticsearch , tra cui indicizzazione e pertinenza tuning\n\n• Esperienza con Docker, Kubernetes, Git e CI/CD pipelines\n\n• Conoscenza delle migliori pratiche di programmazione asincrona, test automatizzati e ingegneria software\n\n• Esperienza con elaborazione dati su larga scala, sistemi di metadati e datadotti\n\n• Esperienza con Apache Airflow o simili strumenti di orchestrazione del flusso di lavoro è un vantaggio\n\n• La conoscenza dei sistemi di recupero AI-driven e le integrazioni AI/LLM è un plus\n\n• La familiarità con l'archiviazione digitale, i sistemi di gestione dei contenuti o le piattaforme di informazione scientifica è un vantaggio\n\n• Forte capacità analitiche e di problem solving con l'obiettivo di sviluppare soluzioni software affidabili, scalabili e manutenbili\n\n• Giocatore di squadra attivo e orientato alla qualità con una forte proprietà e capacità di lavorare efficacemente in ambienti multiculturali\n\n• Eccellente parlato e scritto competenze in inglese",
-        "de": "Für unseren Kunden in Genf suchen wir einen Backend-Python-Ingenieur, der sich einem internationalen wissenschaftlichen Umfeld anschließt und zur Entwicklung und Modernisierung großer Informationsplattformen beiträgt. In dieser Funktion arbeiten Sie an Backend-Services, Datenpipelines und Suchtechnologien, die wissenschaftliche Entdeckungen und offenen Zugang für Forscher weltweit unterstützen.\n\nAls Teil des Tools and Services Teams unterstützen Sie die Entwicklung von Plattformen, die wissenschaftliche Publikationen, Forschungsdaten und digitale Archive verwalten. Ihr Fokus liegt auf dem Aufbau skalierbarer Backend-Lösungen, der Verbesserung von Datenverarbeitungs-Workflows, dem KI-gesteuerten Zugriff auf wissenschaftliche Inhalte und der Gewährleistung zuverlässiger Produktionssysteme.\n\nIhre Aufgabe:\n\n• Design, Entwicklung und Betrieb von Backend-Services mit Python\n\n• Erstellen und Pflegen skalierbarer Datenaufnahme- und -verarbeitungspipelines für wissenschaftliche Metadaten und Volltextinhalte\n\n• Modernisierung bestehender Ingestion Workflows und Migrationsprozesse zu Apache Airflow\n\n• Design und Implementierung robuster REST-APIs für interne Anwendungen, Partner und externe Tools\n\n• Entwicklung und Optimierung von Suchfunktionen mit OpenSearch, einschließlich Indexierungsstrategien und Relevanz-Tuning\n\n• Unterstützung der Integration von AI-gesteuerten Retrieval-Lösungen und Model Context Protocol Services\n\n• Verbesserung der Datenqualität durch Anreicherung, Deduplizierung und automatisierte Verarbeitungsabläufe\n\n• Beitrag zur Modernisierung der Digitalisierungs- und Archivierungsdienste\n\n• Unterstützung groß angelegter Datenmigrationen bei gleichzeitiger Gewährleistung von Metadatenkonsistenz und -qualität\n\n• Entwickeln Sie containerisierte Anwendungen und unterstützen Sie moderne Bereitstellungsprozesse\n\n• Implementieren Sie automatisierte Tests, Code Reviews, Monitoring und CI/CD-Praktiken\n\n• Beitrag zur Open-Source-Software und Unterstützung der Open Science-Community\n\nIhr Profil:\n\n•\n Universitätsabschluss in Informatik oder einem verwandten Bereich mit einschlägiger Berufserfahrung\n\n• Starke Berufserfahrung in der Backend-Entwicklung mit Python\n\n• Praktische Erfahrung mit Python-Frameworks wie Django, Flask und FastAPI\n\n• Solide Erfahrung beim Entwerfen und Entwickeln von REST APIs\n\n• Starkes Verständnis von relationalen Datenbanken wie PostgreSQL und Dokumentendatenbanken\n\n• Praktische Erfahrungen mit Suchtechnologien wie OpenSearch / Elasticsearch, einschließlich Indexierung und Relevanz-Tuning\n\n• Erfahrung mit Docker, Kubernetes, Git und CI/CD Pipelines\n\n• Kenntnisse über asynchrone Programmierung, automatisiertes Testen und Best Practices für Software Engineering\n\n• Erfahrung mit groß angelegter Datenverarbeitung, metadatengesteuerten Systemen und Datenpipelines\n\n• Erfahrung mit Apache Airflow oder ähnlichen Workflow-Orchestrierungstools ist von Vorteil\n\n• Kenntnisse über KI-gesteuerte Abrufsysteme und AI/LLM-Integrationen sind ein Plus\n\n• Vertrautheit mit digitaler Archivierung, Content Management Systemen oder wissenschaftlichen Informationsplattformen ist von Vorteil\n\n• Starke analytische und problemlösende Fähigkeiten mit Fokus auf der Entwicklung zuverlässiger, skalierbarer und wartbarer Softwarelösungen\n\n• Proaktiver, qualitätsorientierter Teamplayer mit starker Eigenverantwortung und Fähigkeit, effektiv in multikulturellen Umgebungen zu arbeiten\n\n• Hervorragende gesprochene und geschriebene Englischkenntnisse",
-        "fr": "Pour notre client à Genève, nous recherchons un ingénieur de Backend Python pour rejoindre un environnement scientifique international et contribuer au développement et à la modernisation de plates-formes d'information à grande échelle. Dans ce rôle, vous travaillerez sur les services de backend, les pipelines de données et les technologies de recherche qui soutiennent la découverte scientifique et l'accès libre pour les chercheurs du monde entier.\n\nDans le cadre de l'équipe Outils et Services, vous aiderez à développer des plateformes qui gèrent les publications scientifiques, les données de recherche et les archives numériques. Votre objectif sera de construire des solutions de backend évolutives, d'améliorer les flux de travail de traitement des données, de permettre un accès au contenu scientifique par l'IA et de garantir des systèmes de production fiables.\n\nVotre tâche :\n\n• Concevoir, développer et exploiter des services de backend en utilisant Python\n\n• Créer et maintenir des pipelines d'ingestion et de traitement de données évolutives pour les métadonnées scientifiques et le contenu en texte intégral\n\n• Moderniser les processus d'ingestion existants et migrer vers Apache Airflow\n\n• Concevoir et mettre en œuvre des API REST robustes pour les applications internes, les partenaires et les outils externes\n\n• Développer et optimiser les capacités de recherche en utilisant OpenSearch , y compris les stratégies d'indexation et la pertinence\n\n• Soutenir l'intégration des solutions de récupération pilotées par l'IA et des services de protocole de contexte modèle\n\n• Améliorer la qualité des données par l'enrichissement, la duplication et le traitement automatisé des flux de travail\n\n• Contribuer à la modernisation des services de numérisation et d'archivage\n\n• Soutenir les migrations de données à grande échelle tout en assurant la cohérence et la qualité des métadonnées\n\n• Développer des applications conteneurisées et soutenir des processus de déploiement modernes\n\n• Mettre en oeuvre des tests automatisés, des examens de codes, une surveillance et des pratiques d'IC/DC\n\n• Contribuer au logiciel libre et soutenir la communauté des sciences ouvertes\n\nVotre profil:\n\n•\n Diplôme universitaire en informatique ou dans un domaine connexe ayant une expérience professionnelle pertinente\n\n• Forte expérience professionnelle en développement backend avec Python\n\n• Expérience pratique avec les cadres Python tels que Django, Flask et FastAPI\n\n• Une solide expérience de conception et de développement d'API REST\n\n• Connaissance approfondie des bases de données relationnelles telles que PostgreSQLTM et les bases de données documentaires\n\n• Expérience pratique avec des technologies de recherche telles que OpenSearch / Elasticsearch , y compris l'indexation et la pertinence\n\n• Expérience des pipelines Docker, Kubernetes, Git et CI/CD\n\n• Connaissance de la programmation asynchrone, des essais automatisés et des pratiques exemplaires en génie logiciel\n\n• Expérience du traitement à grande échelle des données, des systèmes axés sur les métadonnées et des pipelines de données\n\n• Expérience avec Apache Airflow ou des outils similaires d'orchestration de workflow est un avantage\n\n• La connaissance des systèmes de récupération et des intégrations AI/LLM est un atout\n\n• La connaissance de l'archivage numérique, des systèmes de gestion de contenu ou des plateformes d'information scientifique est un avantage\n\n• Fortes capacités d'analyse et de résolution de problèmes en mettant l'accent sur le développement de solutions logicielles fiables, évolutives et durables\n\n• Joueur d'équipe proactif et axé sur la qualité avec une forte appropriation et la capacité de travailler efficacement dans des environnements multiculturels\n\n• Excellentes compétences en anglais parlé et écrit"
+        "it": "Per il nostro cliente a Ginevra, stiamo cercando un Backend Python Engineer per unire un ambiente scientifico internazionale e contribuire allo sviluppo e alla modernizzazione di piattaforme di informazione su larga scala. In questo ruolo, si lavorerà su servizi di backend, datadotti e tecnologie di ricerca che supportano la scoperta scientifica e l'accesso aperto per i ricercatori in tutto il mondo.\n\nNell'ambito del team Strumenti e Servizi, ti aiuterà a evolvere piattaforme che gestiscono pubblicazioni scientifiche, dati di ricerca e archivi digitali. Il vostro focus sarà sulla costruzione di soluzioni di backend scalabili, il miglioramento dei flussi di lavoro di elaborazione dei dati, consentendo l'accesso AI-driven ai contenuti scientifici e garantendo sistemi di produzione affidabili.\n\nIl vostro compito:\n\n• Progettazione, sviluppo e gestione di servizi backend utilizzando Python\n\n• Costruisci e mantieni ingestione e elaborazione dati scalabili per metadati scientifici e contenuti full-text\n\n• Modernizzare i flussi di lavoro di ingestione esistenti e migrare i processi a Apache Airflow\n\n• Progettazione e realizzazione di robuste API REST per applicazioni interne, partner e strumenti esterni\n\n• Sviluppare e ottimizzare le capacità di ricerca utilizzando OpenSearch , comprese le strategie di indicizzazione e la pertinenza\n\n• Sostenere l'integrazione di soluzioni di recupero AI-driven e servizi di Protocollo di Modello Contesto\n\n• Migliorare la qualità dei dati attraverso l'arricchimento, la deduplica e i flussi di lavoro automatizzati di elaborazione\n\n• Contribuire alla modernizzazione dei servizi di digitalizzazione e archiviazione\n\n• Supporta le migrazioni di dati su larga scala, garantendo la coerenza e la qualità dei metadati\n\n• Sviluppare applicazioni containerizzate e supportare processi di distribuzione moderni\n\n• Implementazione di test automatizzati, recensioni di codici, monitoraggio e pratiche CI/CD\n\n• Contribuisci al software open source e supporta la comunità Open Science\n\nIl tuo profilo:\n\n•\nLaurea in Informatica o un campo correlato con esperienza professionale rilevante\n\n• Forte esperienza professionale nello sviluppo backend con Python\n\n• Esperienza pratica con framework Python come Django, Flask e FastAPI\n\n• Progettazione e sviluppo di API REST di solida esperienza\n\n• Forte comprensione di database relazionali come PostgreSQL e database di documenti\n\n• Esperienza pratica con tecnologie di ricerca come OpenSearch / Elasticsearch , tra cui indicizzazione e pertinenza tuning\n\n• Esperienza con Docker, Kubernetes, Git e CI/CD pipelines\n\n• Conoscenza delle migliori pratiche di programmazione asincrona, test automatizzati e ingegneria software\n\n• Esperienza con elaborazione dati su larga scala, sistemi di metadati e datadotti\n\n• Esperienza con Apache Airflow o simili strumenti di orchestrazione del flusso di lavoro è un vantaggio\n\n• La conoscenza dei sistemi di recupero AI-driven e le integrazioni AI/LLM è un plus\n\n• La familiarità con l'archiviazione digitale, i sistemi di gestione dei contenuti o le piattaforme di informazione scientifica è un vantaggio\n\n• Forte capacità analitiche e di problem solving con l'obiettivo di sviluppare soluzioni software affidabili, scalabili e manutenbili\n\n• Giocatore di squadra attivo e orientato alla qualità con una forte proprietà e capacità di lavorare efficacemente in ambienti multiculturali\n\n• Eccellente parlato e scritto competenze in inglese",
+        "en": "For our client in Geneva, we are looking for a Backend Python Engineer to join an international scientific environment and contribute to the development and modernisation of large-scale information platforms. In this role, you will work on backend services, data pipelines and search technologies that support scientific discovery and open access for researchers worldwide.\n\nAs part of the Tools and Services team, you will help evolve platforms that manage scientific publications, research data and digital archives. Your focus will be on building scalable backend solutions, improving data processing workflows, enabling AI-driven access to scientific content and ensuring reliable production systems.\n\nYour Task:\n\n• Design, develop and operate backend services using Python\n\n• Build and maintain scalable data ingestion and processing pipelines for scientific metadata and full-text content\n\n• Modernise existing ingestion workflows and migrate processes to Apache Airflow\n\n• Design and implement robust REST APIs for internal applications, partners and external tools\n\n• Develop and optimise search capabilities using OpenSearch , including indexing strategies and relevance tuning\n\n• Support the integration of AI-driven retrieval solutions and Model Context Protocol services\n\n• Improve data quality through enrichment, deduplication and automated processing workflows\n\n• Contribute to the modernisation of digitisation and archival services\n\n• Support large-scale data migrations while ensuring metadata consistency and quality\n\n• Develop containerised applications and support modern deployment processes\n\n• Implement automated testing, code reviews, monitoring and CI/CD practices\n\n• Contribute to open-source software and support the Open Science community\n\nYour Profile:\n\n•\nUniversity degree in Computer Science or a related field with relevant professional experience\n\n• Strong professional experience in backend development with Python\n\n• Hands-on experience with Python frameworks such as Django, Flask and FastAPI\n\n• Solid experience designing and developing REST APIs\n\n• Strong understanding of relational databases such as PostgreSQL and document databases\n\n• Practical experience with search technologies such as OpenSearch / Elasticsearch , including indexing and relevance tuning\n\n• Experience with Docker, Kubernetes, Git and CI/CD pipelines\n\n• Knowledge of asynchronous programming, automated testing and software engineering best practices\n\n• Experience with large-scale data processing, metadata-driven systems and data pipelines\n\n• Experience with Apache Airflow or similar workflow orchestration tools is an advantage\n\n• Knowledge of AI-driven retrieval systems and AI/LLM integrations is a plus\n\n• Familiarity with digital archiving, content management systems or scientific information platforms is an advantage\n\n• Strong analytical and problem-solving skills with a focus on developing reliable, scalable and maintainable software solutions\n\n• Proactive, quality-oriented team player with strong ownership and ability to work effectively in multicultural environments\n\n• Excellent spoken and written English skills",
+        "de": "Für unseren Kunden in Genf suchen wir einen Backend-Python-Ingenieur, der sich einem internationalen wissenschaftlichen Umfeld anschließt und zur Entwicklung und Modernisierung großer Informationsplattformen beiträgt. In dieser Funktion arbeiten Sie an Backend-Services, Datenpipelines und Suchtechnologien, die wissenschaftliche Entdeckungen und offenen Zugang für Forscher weltweit unterstützen.\n\nAls Teil des Tools and Services Teams unterstützen Sie die Entwicklung von Plattformen, die wissenschaftliche Publikationen, Forschungsdaten und digitale Archive verwalten. Ihr Fokus liegt auf dem Aufbau skalierbarer Backend-Lösungen, der Verbesserung von Datenverarbeitungs-Workflows, dem KI-gesteuerten Zugriff auf wissenschaftliche Inhalte und der Gewährleistung zuverlässiger Produktionssysteme.\n\nIhre Aufgabe:\n\n• Design, Entwicklung und Betrieb von Backend-Services mit Python\n\n• Erstellen und Pflegen skalierbarer Datenaufnahme- und -verarbeitungspipelines für wissenschaftliche Metadaten und Volltextinhalte\n\n• Modernisierung bestehender Ingestion Workflows und Migrationsprozesse zu Apache Airflow\n\n• Design und Implementierung robuster REST-APIs für interne Anwendungen, Partner und externe Tools\n\n• Entwicklung und Optimierung von Suchfunktionen mit OpenSearch, einschließlich Indexierungsstrategien und Relevanz-Tuning\n\n• Unterstützung der Integration von AI-gesteuerten Retrieval-Lösungen und Model Context Protocol Services\n\n• Verbesserung der Datenqualität durch Anreicherung, Deduplizierung und automatisierte Verarbeitungsabläufe\n\n• Beitrag zur Modernisierung der Digitalisierungs- und Archivierungsdienste\n\n• Unterstützung groß angelegter Datenmigrationen bei gleichzeitiger Gewährleistung von Metadatenkonsistenz und -qualität\n\n• Entwickeln Sie containerisierte Anwendungen und unterstützen Sie moderne Bereitstellungsprozesse\n\n• Implementieren Sie automatisierte Tests, Code Reviews, Monitoring und CI/CD-Praktiken\n\n• Beitrag zur Open-Source-Software und Unterstützung der Open Science-Community\n\nIhr Profil:\n\n•\nUniversitätsabschluss in Informatik oder einem verwandten Bereich mit einschlägiger Berufserfahrung\n\n• Starke Berufserfahrung in der Backend-Entwicklung mit Python\n\n• Praktische Erfahrung mit Python-Frameworks wie Django, Flask und FastAPI\n\n• Solide Erfahrung beim Entwerfen und Entwickeln von REST APIs\n\n• Starkes Verständnis von relationalen Datenbanken wie PostgreSQL und Dokumentendatenbanken\n\n• Praktische Erfahrungen mit Suchtechnologien wie OpenSearch / Elasticsearch, einschließlich Indexierung und Relevanz-Tuning\n\n• Erfahrung mit Docker, Kubernetes, Git und CI/CD Pipelines\n\n• Kenntnisse über asynchrone Programmierung, automatisiertes Testen und Best Practices für Software Engineering\n\n• Erfahrung mit groß angelegter Datenverarbeitung, metadatengesteuerten Systemen und Datenpipelines\n\n• Erfahrung mit Apache Airflow oder ähnlichen Workflow-Orchestrierungstools ist von Vorteil\n\n• Kenntnisse über KI-gesteuerte Abrufsysteme und AI/LLM-Integrationen sind ein Plus\n\n• Vertrautheit mit digitaler Archivierung, Content Management Systemen oder wissenschaftlichen Informationsplattformen ist von Vorteil\n\n• Starke analytische und problemlösende Fähigkeiten mit Fokus auf der Entwicklung zuverlässiger, skalierbarer und wartbarer Softwarelösungen\n\n• Proaktiver, qualitätsorientierter Teamplayer mit starker Eigenverantwortung und Fähigkeit, effektiv in multikulturellen Umgebungen zu arbeiten\n\n• Hervorragende gesprochene und geschriebene Englischkenntnisse",
+        "fr": "Pour notre client à Genève, nous recherchons un ingénieur de Backend Python pour rejoindre un environnement scientifique international et contribuer au développement et à la modernisation de plates-formes d'information à grande échelle. Dans ce rôle, vous travaillerez sur les services de backend, les pipelines de données et les technologies de recherche qui soutiennent la découverte scientifique et l'accès libre pour les chercheurs du monde entier.\n\nDans le cadre de l'équipe Outils et Services, vous aiderez à développer des plateformes qui gèrent les publications scientifiques, les données de recherche et les archives numériques. Votre objectif sera de construire des solutions de backend évolutives, d'améliorer les flux de travail de traitement des données, de permettre un accès au contenu scientifique par l'IA et de garantir des systèmes de production fiables.\n\nVotre tâche :\n\n• Concevoir, développer et exploiter des services de backend en utilisant Python\n\n• Créer et maintenir des pipelines d'ingestion et de traitement de données évolutives pour les métadonnées scientifiques et le contenu en texte intégral\n\n• Moderniser les processus d'ingestion existants et migrer vers Apache Airflow\n\n• Concevoir et mettre en œuvre des API REST robustes pour les applications internes, les partenaires et les outils externes\n\n• Développer et optimiser les capacités de recherche en utilisant OpenSearch , y compris les stratégies d'indexation et la pertinence\n\n• Soutenir l'intégration des solutions de récupération pilotées par l'IA et des services de protocole de contexte modèle\n\n• Améliorer la qualité des données par l'enrichissement, la duplication et le traitement automatisé des flux de travail\n\n• Contribuer à la modernisation des services de numérisation et d'archivage\n\n• Soutenir les migrations de données à grande échelle tout en assurant la cohérence et la qualité des métadonnées\n\n• Développer des applications conteneurisées et soutenir des processus de déploiement modernes\n\n• Mettre en oeuvre des tests automatisés, des examens de codes, une surveillance et des pratiques d'IC/DC\n\n• Contribuer au logiciel libre et soutenir la communauté des sciences ouvertes\n\nVotre profil:\n\n•\nDiplôme universitaire en informatique ou dans un domaine connexe ayant une expérience professionnelle pertinente\n\n• Forte expérience professionnelle en développement backend avec Python\n\n• Expérience pratique avec les cadres Python tels que Django, Flask et FastAPI\n\n• Une solide expérience de conception et de développement d'API REST\n\n• Connaissance approfondie des bases de données relationnelles telles que PostgreSQLTM et les bases de données documentaires\n\n• Expérience pratique avec des technologies de recherche telles que OpenSearch / Elasticsearch , y compris l'indexation et la pertinence\n\n• Expérience des pipelines Docker, Kubernetes, Git et CI/CD\n\n• Connaissance de la programmation asynchrone, des essais automatisés et des pratiques exemplaires en génie logiciel\n\n• Expérience du traitement à grande échelle des données, des systèmes axés sur les métadonnées et des pipelines de données\n\n• Expérience avec Apache Airflow ou des outils similaires d'orchestration de workflow est un avantage\n\n• La connaissance des systèmes de récupération et des intégrations AI/LLM est un atout\n\n• La connaissance de l'archivage numérique, des systèmes de gestion de contenu ou des plateformes d'information scientifique est un avantage\n\n• Fortes capacités d'analyse et de résolution de problèmes en mettant l'accent sur le développement de solutions logicielles fiables, évolutives et durables\n\n• Joueur d'équipe proactif et axé sur la qualité avec une forte appropriation et la capacité de travailler efficacement dans des environnements multiculturels\n\n• Excellentes compétences en anglais parlé et écrit"
       },
       "location": "Genf",
       "canton": "GE",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=TM58E9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-24T22:12:32.718Z",
+      "crawledAt": "2026-07-25T11:11:24.929Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3567,13 +3679,27 @@
       "requirementsByLocale": {
         "en": [
           "IT - Software Engineering",
-          "Genf",
           "Contracting",
           "Full Time",
-          "01 November 2026 - 24 months, with a possible extension up to a maximum of 36 months",
-          "Python"
+          "01 November 2026 - 24 months, with a possible extension up to a maximum of 36 months"
         ]
       },
+      "firstSeenAt": "2026-07-24T22:12:32.718Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "backend-python-engineer-m-f-d-coopers-genf"
+        ],
+        "de": [
+          "backend-python-engineer-m-f-d-coopers-genf"
+        ],
+        "fr": [
+          "backend-python-engineer-m-f-d-coopers-genf"
+        ]
+      },
+      "previousSlugs": [
+        "backend-python-engineer-m-f-d-coopers-genf"
+      ],
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3585,8 +3711,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-24T22:12:32.718Z"
+      }
     },
     {
       "id": "coopers-f13449ad9f1f",
@@ -3619,7 +3744,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8SVF77",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-24T22:12:31.810Z",
+      "crawledAt": "2026-07-25T11:11:24.048Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -3650,10 +3775,14 @@
           "Project Management"
         ]
       },
-      "firstSeenAt": "2026-07-24T11:38:38.260Z",
+      "previousSlugs": [
+        "technical-project-engineer-m-w-d-coopers-wallis",
+        "technical-project-ingegnere-m-w-d-coopers-group-ag-wallis"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-project-engineer-m-w-d-coopers-wallis"
+          "technical-project-engineer-m-w-d-coopers-wallis",
+          "technical-project-ingegnere-m-w-d-coopers-group-ag-wallis"
         ],
         "de": [
           "technical-project-engineer-m-w-d-coopers-wallis"
@@ -3662,9 +3791,8 @@
           "technical-project-engineer-m-w-d-coopers-wallis"
         ]
       },
-      "previousSlugs": [
-        "technical-project-engineer-m-w-d-coopers-wallis"
-      ],
+      "firstSeenAt": "2026-07-24T11:38:38.260Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3682,9 +3810,9 @@
       "id": "coopers-1eb1df6bcf91",
       "slug": "kaufmannische-r-collaboratore-trice-aftersales-m-w-d-coopers-group-ag-bern",
       "slugByLocale": {
-        "de": "kaufmannische-r-mitarbeiter-in-aftersales-m-w-d-coopers-bern",
         "it": "kaufmannische-r-collaboratore-trice-aftersales-m-w-d-coopers-group-ag-bern",
-        "en": "kaufmannische-r-mitarbeiter-in-aftersales-m-w-d-coopers-bern",
+        "en": "kaufmannische-r-associate-aftersales-m-w-d-coopers-group-ag-bern",
+        "de": "kaufmannische-r-mitarbeiter-in-aftersales-m-w-d-coopers-bern",
         "fr": "kaufmannische-r-collaborateur-trice-aftersales-m-w-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
@@ -3692,24 +3820,24 @@
       "companyDomain": "coopers.ch",
       "title": "Kaufmännische:r Mitarbeiter:in Aftersales (m/w/d)",
       "titleByLocale": {
-        "de": "Kaufmännische:r Mitarbeiter:in Aftersales (m/w/d)",
         "it": "Kaufmännische:r Collaboratore/trice Aftersales (m/w/d)",
         "en": "Kaufmännische:r Associate Aftersales (m/w/d)",
+        "de": "Kaufmännische:r Mitarbeiter:in Aftersales (m/w/d)",
         "fr": "Kaufmännische:r Collaborateur/trice Aftersales (m/w/d)"
       },
       "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (1JF51S)\n\n•\n\t\t\t\t\t\t\tAdministration - Finance\n\n•\n\nBern\n\nContracting\n\nFull Time\n\n01.08.2026 - 30.11.2026 (Option auf Verlängerung)\n\nERP , SAP, SAP Hana, S/4HANA, Excel, Lieferantenmanagement\n\nSounds interesting?\n\nSimply click \"",
       "descriptionByLocale": {
-        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (1JF51S)\n\n•\n\t\t\t\t\t\t\tAdministration - Finance\n\n•\n\nBern\n\nContracting\n\nFull Time\n\n01.08.2026 - 30.11.2026 (Option auf Verlängerung)\n\nERP , SAP, SAP Hana, S/4HANA, Excel, Lieferantenmanagement\n\nSounds interesting?\n\nSimply click \"",
-        "it": "Posizione?\nQuindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online.\n\nPer le applicazioni via e-mail, il mittente o il mittente accetta che i dati trasmessi verranno utilizzati in conformità alla nostra politica di protezione dei dati.\n\nUlteriori offerte sono disponibili qui: coopers.ch\n\nProfili di lavoro (1JF51S)\n\n•\n Amministrazione - Finanza\n\n•\n\nBerna\n\nContratti\n\nTempo pieno\n\n01.08.2026 - 30.11.2026 (opzione da estendere)\n\nERP, SAP, SAP Hana, S/4HANA, Excel, Gestione dei fornitori\n\nSembra interessante?\n\nBasta cliccare.",
-        "en": "Position?\nThen we look forward to full application documents via online form.\n\nFor applications by e-mail, the sender or the sender agrees that the transmitted data will be used in accordance with our data protection policy.\n\nFurther vacancies can be found here: coopers.ch\n\nJob profiles (1JF51S)\n\n•\n Administration - Finance\n\n•\n\nBern\n\nContracting\n\nFull time\n\n01.08.2026 - 30.11.2026 (option to extend)\n\nERP, SAP, SAP Hana, S/4HANA, Excel, Supplier Management\n\nSounds interesting?\n\nSimply click.",
-        "fr": "Position ?\nEnsuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne.\n\nPour les demandes par e-mail, l'expéditeur ou l'expéditeur accepte que les données transmises soient utilisées conformément à notre politique de protection des données.\n\nD'autres offres d'emploi sont disponibles ici : coopers.ch\n\nProfils d'emploi (1JF51S)\n\n•\n Administration - Finances\n\n•\n\nBelgique\n\nContrats\n\nTemps plein\n\n01.08.2026 - 30.11.2026 (option de prolongation)\n\nERP, SAP, SAP Hana, S/4HANA, Excel, Gestion des fournisseurs\n\nÇa semble intéressant ?\n\nCliquez simplement."
+        "it": "Posizione?\nQuindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online.\n\nPer le applicazioni via e-mail, il mittente o il mittente accetta che i dati trasmessi verranno utilizzati in conformità alla nostra politica di protezione dei dati.\n\nUlteriori offerte sono disponibili qui: coopers.ch\n\nProfili di lavoro (1JF51S)\n\n•\nAmministrazione - Finanza\n\n•\n\nBerna\n\nContratti\n\nTempo pieno\n\n01.08.2026 - 30.11.2026 (opzione da estendere)\n\nERP, SAP, SAP Hana, S/4HANA, Excel, Gestione dei fornitori\n\nSembra interessante?\n\nBasta cliccare.",
+        "en": "Position?\nThen we look forward to full application documents via online form.\n\nFor applications by e-mail, the sender or the sender agrees that the transmitted data will be used in accordance with our data protection policy.\n\nFurther vacancies can be found here: coopers.ch\n\nJob profiles (1JF51S)\n\n•\nAdministration - Finance\n\n•\n\nBern\n\nContracting\n\nFull time\n\n01.08.2026 - 30.11.2026 (option to extend)\n\nERP, SAP, SAP Hana, S/4HANA, Excel, Supplier Management\n\nSounds interesting?\n\nSimply click.",
+        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (1JF51S)\n\n•\n\nAdministration - Finance\n\nBern\n\nContracting\n\nFull Time\n\n01.08.2026 - 30.11.2026 (Option auf Verlängerung)\n\nERP , SAP, SAP Hana, S/4HANA, Excel, Lieferantenmanagement\n\nSounds interesting?\n\nSimply click \"",
+        "fr": "Position ?\nEnsuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne.\n\nPour les demandes par e-mail, l'expéditeur ou l'expéditeur accepte que les données transmises soient utilisées conformément à notre politique de protection des données.\n\nD'autres offres d'emploi sont disponibles ici : coopers.ch\n\nProfils d'emploi (1JF51S)\n\n•\nAdministration - Finances\n\n•\n\nBelgique\n\nContrats\n\nTemps plein\n\n01.08.2026 - 30.11.2026 (option de prolongation)\n\nERP, SAP, SAP Hana, S/4HANA, Excel, Gestion des fournisseurs\n\nÇa semble intéressant ?\n\nCliquez simplement."
       },
       "location": "Bern",
       "canton": "BE",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=1JF51S",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-24T22:12:30.875Z",
+      "crawledAt": "2026-07-25T11:11:23.159Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3734,24 +3862,30 @@
       "requirementsByLocale": {
         "de": [
           "Administration - Finance",
-          "Bern",
           "Contracting",
           "Full Time",
           "01.08.2026 - 30.11.2026 (Option auf Verlängerung)",
           "ERP , SAP, SAP Hana, S/4HANA, Excel, Lieferantenmanagement"
         ]
       },
+      "previousSlugs": [
+        "kaufmannische-r-mitarbeiter-in-aftersales-m-w-d-coopers-bern",
+        "kaufmannische-r-collaboratore-trice-aftersales-m-w-d-coopers-group-ag-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "kaufmannische-r-mitarbeiter-in-aftersales-m-w-d-coopers-bern"
+          "kaufmannische-r-mitarbeiter-in-aftersales-m-w-d-coopers-bern",
+          "kaufmannische-r-collaboratore-trice-aftersales-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "kaufmannische-r-mitarbeiter-in-aftersales-m-w-d-coopers-bern"
+        ],
+        "en": [
+          "kaufmannische-r-mitarbeiter-in-aftersales-m-w-d-coopers-bern"
         ]
       },
-      "previousSlugs": [
-        "kaufmannische-r-mitarbeiter-in-aftersales-m-w-d-coopers-bern"
-      ],
+      "firstSeenAt": "2026-07-24T22:12:30.875Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3763,429 +3897,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-24T22:12:30.875Z"
-    },
-    {
-      "id": "coopers-b241db4178fd",
-      "slug": "devops-engineer-microsoft-exchange-private-cloud-m-w-d-coopers-bern",
-      "slugByLocale": {
-        "it": "devops-engineer-microsoft-exchange-private-cloud-m-w-d-coopers-bern",
-        "en": "devops-engineer-microsoft-exchange-private-cloud-m-w-d-coopers-bern",
-        "de": "devops-engineer-microsoft-exchange-private-cloud-m-w-d-coopers-bern",
-        "fr": "devops-engineer-microsoft-exchange-private-cloud-m-w-d-coopers-bern"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "DevOps Engineer Microsoft (Exchange / Private Cloud) (m/w/d)",
-      "titleByLocale": {
-        "it": "DevOps Ingegnere Microsoft (Exchange / Private Cloud) (m/w/d)",
-        "en": "DevOps Engineer Microsoft (Exchange / Private Cloud) (m/f/d)",
-        "de": "DevOps Ingenieur Microsoft (Exchange / Private Cloud) (m/w/d)",
-        "fr": "DevOps Ingénieur Microsoft (Exchange / Private Cloud) (m/w/d)"
-      },
-      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (0NG73J)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nFull Time\n\n01.05.2026 - 31.12.2026 (mit Option auf Verlängerung)\n\nMicrosoft Server, Microsoft Exchange, PowerShell\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCompany laptop\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
-      "descriptionByLocale": {
-        "it": "Posizione? Allora siamo lieti di ricevere documenti di applicazione completi tramite modulo online. Per le applicazioni via e-mail, il trasmettitore o il trasmettitore concorda che i dati trasmessi verranno utilizzati tenendo conto della nostra politica sulla privacy. Ulteriori posizioni aperte sono disponibili qui: coopers.ch Profilo del lavoro (0NG73J)\n• IT - Software Engineering\n• Bern Contracting Part Time, 80-100% 01.05.2026 - 31.12.2026 (con opzione su estensione) Microsoft Server, Microsoft Exchange, PowerShell Vantaggi del lavoro\n• laptop aziendale\n• Termini di primo nome\n• Modern workspace\n• Work-life balance Suoni? Basta cliccare su \"",
-        "en": "Position? Then we are happy to receive complete application documents via online form. For applications by e-mail, the transmitter or the transmitter agrees that the transmitted data will be used taking into account our privacy policy. Further open positions are available here: coopers.ch Job profile (0NG73J)\n• IT - Software Engineering\n• Bern Contracting Part Time, 80-100% 01.05.2026 - 31.12.2026 (with option on extension) Microsoft Server, Microsoft Exchange, PowerShell Job benefits\n• Company laptop\n• First-name terms\n• Modern workspace\n• Work-life balance Sounds? Simply click \"",
-        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (0NG73J)\n\n•\n\nIT - Software Engineering\n\nBern\n\nContracting\n\nFull Time\n\n01.05.2026 - 31.12.2026 (mit Option auf Verlängerung)\n\nMicrosoft Server, Microsoft Exchange, PowerShell\n\nJob benefits\n\nCompany laptop\n\nFirst-name terms\n\nModern workspace\n\nWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
-        "fr": "Position ? Ensuite, nous sommes heureux de recevoir des documents de candidature complets via un formulaire en ligne. Pour les applications par e-mail, l'émetteur ou l'émetteur accepte que les données transmises soient utilisées en tenant compte de notre politique de confidentialité. D'autres positions ouvertes sont disponibles ici: coopers.ch Profil d'emploi (0NG73J)\n• IT - Génie logiciel\n• Belgique Parties contractantes Temps partiel, 80-100 % 01.05.2026 - 31.12.2026 (avec possibilité d'extension) Microsoft Server, Microsoft Exchange, PowerShell Prestations d'emploi\n• Ordinateur portable de la société\n• Termes de prénom\n• Espace de travail moderne\n• Équilibre travail-vie privée Ça semble intéressant ? Cliquez simplement sur \""
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=0NG73J",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-23T22:41:03.243Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "contracting",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-18",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=0NG73J",
-      "requirements": [
-        "IT - Software Engineering",
-        "Bern",
-        "Contracting",
-        "Full Time",
-        "01.05.2026 - 31.12.2026 (mit Option auf Verlängerung)",
-        "Microsoft Server, Microsoft Exchange, PowerShell"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "IT - Software Engineering",
-          "Contracting",
-          "Part Time, 80-100%",
-          "01.05.2026 - 31.12.2026 (mit Option auf Verlängerung)",
-          "Microsoft Server, Microsoft Exchange, PowerShell",
-          "Full Time"
-        ]
-      },
-      "firstSeenAt": "2026-06-02T23:12:46.890Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "coopers-b6dcbc0e2af3",
-      "slug": "senior-pega-lead-business-system-architect-m-w-d-coopers-bern",
-      "slugByLocale": {
-        "it": "senior-pega-lead-business-system-architect-m-w-d-coopers-bern",
-        "en": "senior-pega-lead-business-system-architect-m-w-d-coopers-bern",
-        "de": "senior-pega-lead-business-system-architect-m-w-d-coopers-bern",
-        "fr": "senior-pega-lead-business-system-architect-m-w-d-coopers-bern"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Senior Pega Lead Business & System Architect (m/w/d)",
-      "titleByLocale": {
-        "it": "Senior Pega Lead Business & System Architetto (m/w/d)",
-        "en": "Senior Pega Lead Business & System Architect (m/f/d)",
-        "de": "Senior Pega Lead Business & System Architect (m/w/d)",
-        "fr": "Senior Pega Lead Business & System Architecte (m/w/d)"
-      },
-      "description": "Position verantwortest du die Konzeption, Beratung sowie Umsetzung innovativer Pega-basierter Lösungen und bildest die Schnittstelle zwischen Business-Anforderungen und technischen Lösungsarchitekturen.\n\nDeine Aufgaben:\n\n• Anwendung von Pega Blueprint zur strukturierten Aufnahme und Übersetzung von Business-Anforderungen in skalierbare Architektur- und Umsetzungskonzepte\n\n• Eigenständige End-to-End-Umsetzung von Proof of Concepts (PoCs) inklusive Lösungsdesign, Validierung und Präsentation beim Kunden\n\n• Fachliche Führung und Steuerung interdisziplinärer Projektteams zur erfolgreichen Umsetzung hochwertiger Pega-Lösungen\n\n• Beratung von Kunden zu Pega-Funktionalitäten , Architekturprinzipien, Best Practices sowie Transformations- und Optimierungsansätzen\n\n• Durchführung und Moderation von Workshops wie Blueprint Sessions , Journey Mapping , DCO-Workshops und Lösungsdesign-Workshops\n\n• Konzeption und Design robuster IT-Lösungen und Geschäftsprozesse mittels BPMN-Modellierung , Prozessdesign und technischer Lösungsarchitektur\n\n• Nutzung von Pega App Studio , um Workflows, Standardfunktionalitäten und Zielarchitekturen live zu demonstrieren\n\n• Vorantreiben der Workflow-Transformation durch den strategischen Einsatz vorkonfigurierter Pega-Komponenten\n\n• Sicherstellung eines professionellen Stakeholder-Managements sowie aktiver Austausch mit Business- und IT-Stakeholdern\n\n• Anwendung agiler Methoden wie Scrum zur iterativen Umsetzung von Projekten und zur strukturierten Steuerung des Projektfortschritts\n\n• Überführung komplexer Business-Anforderungen in nachhaltige und skalierbare Lösungsarchitekturen\n\nDein Profil:\n\n• Mehrjährige Erfahrung als Pega Business Architect , System Architect , Solution Architect oder in einer vergleichbaren Rolle\n\n• Fundierte Erfahrung mit Pega oder vergleichbaren Low-Code-, BPM- oder CRM-Plattformen wie Appian oder Camunda\n\n• Sehr gute Kenntnisse in Business Process Management (BPM) sowie in der BPMN-Modellierung\n\n• Erfahrung im IT-Lösungsdesign , insbesondere in den Bereichen Case Lifecycle Design , Data Modeling , Integration Design und UI-Konzepte\n\n• Praktische Erfahrung mit agilen Methoden, insbesondere Scrum\n\n• Ausgeprägte Fähigkeiten im Requirements Engineering und Anforderungsmanagement\n\n• Erfahrung in der Durchführung und Moderation von Workshops sowie im Stakeholder-Management\n\n• Starker Consulting Background mit nachweisbaren Erfolgen in CRM- oder BPM-Transformationsprojekten\n\n• Hohe Kundenorientierung sowie überzeugende Kommunikations- und Beratungskompetenz\n\n• Idealerweise relevante Pega-Zertifizierungen wie LBA, BA, SSA oder LSA\n\n• Ausgeprägtes Interesse und hohe Motivation, sich tief in Pega einzuarbeiten und sich fachlich kontinuierlich weiterzuentwickeln",
-      "descriptionByLocale": {
-        "it": "Posizione sei responsabile della progettazione, della consulenza e dell'implementazione di soluzioni innovative basate su Pega e costituisci l'interfaccia tra i requisiti aziendali e le architetture tecniche delle soluzioni. I tuoi compiti:\n• Applicazione di Pega Blueprint per l'inclusione strutturata e la traduzione dei requisiti aziendali in concetti di architettura e implementazione scalabili\n• Implementazione end-to-end indipendente di Proof of Concepts (PoC), compresa la progettazione di soluzioni, la convalida e la presentazione al cliente\n• Gestione professionale e controllo di team di progetto interdisciplinari per l'implementazione di successo di soluzioni Pega di alta qualità\n• Consulenza dei clienti sulle funzionalità Pega, sui principi architettonici, sulle best practice e sugli approcci di trasformazione e ottimizzazione\n• Esecuzione e moderazione di workshop come Blueprint Sessions , Journey Mapping , workshop DCO e workshop di progettazione di soluzioni\n• Concettuazione e progettazione di soluzioni IT robuste e processi aziendali tramite modellazione BPMN , progettazione di processi e architettura di soluzioni tecniche\n• Utilizzo di Pega App Studio per dimostrare dal vivo flussi di lavoro, funzionalità standard e architetture di destinazione\n• Guidare la trasformazione del flusso di lavoro attraverso l'uso di componenti preconfigurati strategici\n• Garantire una gestione degli stakolder professionale, nonché lo scambio attivo e l'applicazione di stakolder IT con metodi come l'implementazione agile di progetti e scterativi",
-        "en": "In this position, you will be responsible for the conception, consulting and implementation of innovative Pega-based solutions and form the interface between business requirements and technical solution architectures. Your tasks:\n• Application of Pega Blueprint for the structured inclusion and translation of business requirements into scalable architecture and implementation concepts\n• Independent end-to-end implementation of proof of concepts (PoCs) including solution design, validation and presentation at the customer\n• Professional leadership and control of interdisciplinary project teams for the successful implementation of high-quality Pega solutions\n• Consulting of customers on Pega functionalities, architectural principles, best practices and transformation and optimization approaches\n• Conducting and moderating workshops such as blueprint sessions , journey mapping , DCO workshops and solution design workshops\n• Designing and designing robust IT solutions and business processes using BPMN modeling, process design and technical solution architecture\n• Use of Pega App Studio to demonstrate workflows, standard functionalities and target architectures live\n• Driving workflow transformation through the strategic use of pre-configured Pega components\n• Ensuring professional stakeholder management and active exchange with business and IT stakeholders\n• Application of agile methods such as Scrum for the iterative implementation of projects and IT stakeholders",
-        "de": "Position verantwortest du die Konzeption, Beratung sowie Umsetzung innovativer Pega-basierter Lösungen und bildest die Schnittstelle zwischen Business-Anforderungen und technischen Lösungsarchitekturen.\n\nDeine Aufgaben:\n\n• Anwendung von Pega Blueprint zur strukturierten Aufnahme und Übersetzung von Business-Anforderungen in skalierbare Architektur- und Umsetzungskonzepte\n\n• Eigenständige End-to-End-Umsetzung von Proof of Concepts (PoCs) inklusive Lösungsdesign, Validierung und Präsentation beim Kunden\n\n• Fachliche Führung und Steuerung interdisziplinärer Projektteams zur erfolgreichen Umsetzung hochwertiger Pega-Lösungen\n\n• Beratung von Kunden zu Pega-Funktionalitäten , Architekturprinzipien, Best Practices sowie Transformations- und Optimierungsansätzen\n\n• Durchführung und Moderation von Workshops wie Blueprint Sessions , Journey Mapping , DCO-Workshops und Lösungsdesign-Workshops\n\n• Konzeption und Design robuster IT-Lösungen und Geschäftsprozesse mittels BPMN-Modellierung , Prozessdesign und technischer Lösungsarchitektur\n\n• Nutzung von Pega App Studio , um Workflows, Standardfunktionalitäten und Zielarchitekturen live zu demonstrieren\n\n• Vorantreiben der Workflow-Transformation durch den strategischen Einsatz vorkonfigurierter Pega-Komponenten\n\n• Sicherstellung eines professionellen Stakeholder-Managements sowie aktiver Austausch mit Business- und IT-Stakeholdern\n\n• Anwendung agiler Methoden wie Scrum zur iterativen Umsetzung von Projekten und zur strukturierten Steuerung des Projektfortschritts\n\n• Überführung komplexer Business-Anforderungen in nachhaltige und skalierbare Lösungsarchitekturen\n\nDein Profil:\n\n• Mehrjährige Erfahrung als Pega Business Architect , System Architect , Solution Architect oder in einer vergleichbaren Rolle\n\n• Fundierte Erfahrung mit Pega oder vergleichbaren Low-Code-, BPM- oder CRM-Plattformen wie Appian oder Camunda\n\n• Sehr gute Kenntnisse in Business Process Management (BPM) sowie in der BPMN-Modellierung\n\n• Erfahrung im IT-Lösungsdesign , insbesondere in den Bereichen Case Lifecycle Design , Data Modeling , Integration Design und UI-Konzepte\n\n• Praktische Erfahrung mit agilen Methoden, insbesondere Scrum\n\n• Ausgeprägte Fähigkeiten im Requirements Engineering und Anforderungsmanagement\n\n• Erfahrung in der Durchführung und Moderation von Workshops sowie im Stakeholder-Management\n\n• Starker Consulting Background mit nachweisbaren Erfolgen in CRM- oder BPM-Transformationsprojekten\n\n• Hohe Kundenorientierung sowie überzeugende Kommunikations- und Beratungskompetenz\n\n• Idealerweise relevante Pega-Zertifizierungen wie LBA, BA, SSA oder LSA\n\n• Ausgeprägtes Interesse und hohe Motivation, sich tief in Pega einzuarbeiten und sich fachlich kontinuierlich weiterzuentwickeln",
-        "fr": "Vous serez responsable de la conception, du conseil et de la mise en œuvre de solutions innovantes basées sur Pega et constituerez l'interface entre les exigences commerciales et les architectures de solutions techniques. Vos tâches :\n• Application de Pega Blueprint pour l'enregistrement structuré et la traduction des exigences commerciales en concepts architecturaux et de mise en œuvre évolutifs\n• Mise en œuvre indépendante de bout en bout de Proof of Concepts (PoCs), y compris la conception de solutions, la validation et la présentation chez le client\n• Leadership professionnel et gestion d'équipes de projet interdisciplinaires pour la mise en œuvre réussie de solutions Pega de haute qualité\n• Conseils aux clients sur les fonctionnalités Pega, les principes architecturaux, les meilleures pratiques et les approches de transformation et d'optimisation\n• Mise en œuvre et modération d'ateliers tels que les sessions Blueprint, le Journey Mapping, les ateliers DCO et les ateliers de conception de solutions\n• Conception et conception de solutions informatiques robustes et de processus commerciaux à l'aide de la modélisation BPMN , de la conception de processus et de l'architecture de solutions techniques\n• Utilisation de Pega App Studio pour démontrer en direct les flux de travail, les fonctionnalités standard et les architectures cibles\n• Promouvoir la transformation du flux de travail grâce à l'utilisation stratégique de composants Pega préconfigurés\n• Assurer une gestion professionnelle des intervenants ainsi qu'un échange actif avec les intervenants commerciaux et les intervenants informatiques\n• Application de méthodes telles que Scrumiter pour la mise en œuvre de projets et de projets"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B01C6O",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-23T22:41:01.419Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "contracting",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-07",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=B01C6O",
-      "requirements": [
-        "Candidates \n\t\t\t \n\t\t\t\t\t\t\t \n\t\t\t\t\t\n\n\t\t\t\t\t \n\t\t\t\t \n\t\t\t\t\t\t\t\n• \n\t\t \n\t\t\t \n\t\t\t\t Coopers Portal",
-        "Coopers Care",
-        "Specialization",
-        "Placements",
-        "Contracting",
-        "Payrolling",
-        "Refer a Friend"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Candidates • Coopers Portal",
-          "Coopers Care",
-          "Specialization",
-          "Placements",
-          "Contracting",
-          "Payrolling",
-          "Refer a Friend"
-        ]
-      },
-      "firstSeenAt": "2026-06-02T23:12:38.134Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "coopers-eb5441ad79f8",
-      "slug": "plc-sviluppatore-m-w-d-coopers-group-ag-zug",
-      "slugByLocale": {
-        "it": "plc-sviluppatore-m-w-d-coopers-group-ag-zug",
-        "en": "plc-developer-m-w-d-coopers-zug",
-        "de": "plc-entwickler-m-w-d-coopers-group-ag-zug",
-        "fr": "plc-developpeur-m-w-d-coopers-group-ag-zug"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "PLC Developer (m/w/d)",
-      "titleByLocale": {
-        "it": "PLC Sviluppatore (m/w/d)",
-        "en": "PLC Developer (m/w/d)",
-        "de": "PLC Entwickler (m/w/d)",
-        "fr": "PLC Développeur (m/w/d)"
-      },
-      "description": "For our client in the Zug Canton, we are looking for a PLC Developer\n\nTasks & Responsibilities:\n\n• PLC design (structured text, B&R controllers)\n\n• Interfacing existing automation designs\n\n• Providing support for bringing up new instrument modules and ensuring seamless integration between software, electrical hardware, and mechanical subsystems.\n\n• Technical documentation\n\n• Cable design & wiring, PCB design, EMC testing\n\n• Support integration testing and issue analyses in interdisciplinary teams\n\nMust Haves:\n\n• A degree in a related field, Fachhochschule is a minimum requirement\n\n• Min. 3 years in hands-on PLC development, min. 3 years in electrical design\n\n• Good social skills to work in an interdisciplinary team\n\n• PLC development tools, PCB schematics design tools skills\n\n• Good English and fluent German skills\n\nNice to Haves:\n\n• Strong experience in electrical design\n\n• B&R Automation Studio, EPLAN, Siemens Xpedition\n\n• Experience in motor control applications and instrument workflows",
-      "descriptionByLocale": {
-        "it": "Per il nostro cliente nel Canton Zug, stiamo cercando uno sviluppatore PLC\n\nCompiti e responsabilità:\n\n• Progettazione PLC (testo strutturato, controller B&R)\n\n• Interfacciare i progetti di automazione esistenti\n\n• Fornire supporto per la creazione di nuovi moduli di strumenti e garantire l'integrazione senza soluzione di continuità tra software, hardware elettrico e sottosistemi meccanici.\n\n• Documentazione tecnica\n\n• Progettazione cavi e cablaggio, progettazione PCB, test EMC\n\n• Test di integrazione di supporto e analisi dei problemi in team interdisciplinari\n\nDeve avere:\n\n• Una laurea in un campo correlato, Fachhochschule è un requisito minimo\n\n• Min. 3 anni di sviluppo PLC pratico, min. 3 anni di progettazione elettrica\n\n• Buone competenze sociali per lavorare in un team interdisciplinare\n\n• Strumenti di sviluppo PLC, capacità di progettazione di schemi PCB\n\n• Buone competenze in inglese e fluente tedesco\n\nChe bello avere:\n\n• Forte esperienza nel design elettrico\n\n• B&R Automation Studio, EPLAN, Siemens Xpedition\n\n• Esperienza nelle applicazioni di controllo motore e nei flussi di lavoro degli strumenti",
-        "en": "For our client in the Zug Canton, we are looking for a PLC Developer\n\nTasks & Responsibilities:\n\n• PLC design (structured text, B&R controllers)\n\n• Interfacing existing automation designs\n\n• Providing support for bringing up new instrument modules and ensuring seamless integration between software, electrical hardware, and mechanical subsystems.\n\n• Technical documentation\n\n• Cable design & wiring, PCB design, EMC testing\n\n• Support integration testing and issue analyses in interdisciplinary teams\n\nMust Haves:\n\n• A degree in a related field, Fachhochschule is a minimum requirement\n\n• Min. 3 years in hands-on PLC development, min. 3 years in electrical design\n\n• Good social skills to work in an interdisciplinary team\n\n• PLC development tools, PCB schematics design tools skills\n\n• Good English and fluent German skills\n\nNice to Haves:\n\n• Strong experience in electrical design\n\n• B&R Automation Studio, EPLAN, Siemens Xpedition\n\n• Experience in motor control applications and instrument workflows",
-        "de": "Für unseren Kunden im Kanton Zug suchen wir einen SPS Entwickler\n\nAufgaben & Verantwortlichkeiten:\n\n• SPS-Design (strukturierter Text, B&R-Controller)\n\n• Schnittstellen bestehender Automatisierungsdesigns\n\n• Unterstützung bei der Entwicklung neuer Instrumentenmodule und Gewährleistung einer nahtlosen Integration zwischen Software, elektrischer Hardware und mechanischen Subsystemen.\n\n• Technische Unterlagen\n\n• Kabeldesign & Verdrahtung, Leiterplattendesign, EMV-Prüfung\n\n• Unterstützung von Integrationstests und Problemanalysen in interdisziplinären Teams\n\nMust Haves:\n\n• Ein Abschluss in einem verwandten Bereich, Fachhochschule ist eine Mindestanforderung\n\n• Min. 3 Jahre in der praktischen SPS-Entwicklung, min. 3 Jahre in Elektrodesign\n\n• Gute soziale Fähigkeiten, um in einem interdisziplinären Team zu arbeiten\n\n• PLC-Entwicklungstools, PCB-Schaltungen Design-Tools Fähigkeiten\n\n• Gutes Englisch und fließende Deutschkenntnisse\n\nNice to Haves:\n\n• Starke Erfahrung im elektrischen Design\n\n• B&R Automation Studio, EPLAN, Siemens Xpedition\n\n• Erfahrung in Motorsteuerungsanwendungen und Instrumenten-Workflows",
-        "fr": "Pour notre client au Canton de Zug, nous recherchons un développeur PLC\n\nTâches et responsabilités :\n\n• Conception du PLC (texte structuré, contrôleurs B&R)\n\n• Interfaçage des conceptions d'automatisation existantes\n\n• Fournir un soutien pour l'élaboration de nouveaux modules d'instruments et assurer une intégration transparente entre les logiciels, le matériel électrique et les sous-systèmes mécaniques.\n\n• Documentation technique\n\n• Conception et câblage de câbles, conception de PCB, essais EMC\n\n• Soutenir les tests d'intégration et les analyses de problèmes dans les équipes interdisciplinaires\n\nDoit :\n\n• Un diplôme dans un domaine connexe, Fachhochschule est une exigence minimale\n\n• Min. 3 ans en développement pratique de PLC, min. 3 ans en conception électrique\n\n• Bonnes compétences sociales pour travailler dans une équipe interdisciplinaire\n\n• PLC outils de développement, schémas PCB outils de conception compétences\n\n• Bonnes compétences en anglais et en allemand couramment\n\nSympa d'avoir :\n\n• Forte expérience en conception électrique\n\n• B&R Automation Studio, EPLAN, Siemens Xpedition\n\n• Expérience des applications de contrôle moteur et des flux de travail des instruments"
-      },
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=G91CH8",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:40:36.750Z",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "contracting",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=G91CH8",
-      "requirements": [
-        "Engineering - Electrical Engineering",
-        "Contracting",
-        "Full Time",
-        "asap (latest 01.12.2026) - 4 years contract (till 31.12.2030)",
-        "Elektro"
-      ],
-      "requirementsByLocale": {
-        "en": [
-          "Engineering - Electrical Engineering",
-          "Contracting",
-          "Full Time",
-          "asap (latest 01.12.2026) - 4 years contract (till 31.12.2030)"
-        ]
-      },
-      "previousSlugs": [
-        "plc-developer-m-w-d-coopers-zug"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "plc-developer-m-w-d-coopers-zug"
-        ],
-        "de": [
-          "plc-developer-m-w-d-coopers-zug"
-        ],
-        "fr": [
-          "plc-developer-m-w-d-coopers-zug"
-        ]
-      },
-      "firstSeenAt": "2026-07-17T22:15:04.059Z",
-      "salaryMin": 74500,
-      "salaryMax": 127000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 74500,
-          "maxValue": 127000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "coopers-ed5d627b4aa4",
-      "slug": "senior-platform-devops-engineer-aws-hybrid-cloud-m-w-d-coopers-bern",
-      "slugByLocale": {
-        "it": "senior-platform-devops-engineer-aws-hybrid-cloud-m-w-d-coopers-bern",
-        "en": "senior-platform-devops-engineer-aws-hybrid-cloud-m-w-d-coopers-bern",
-        "de": "senior-platform-devops-engineer-aws-hybrid-cloud-m-w-d-coopers-bern",
-        "fr": "senior-platform-devops-engineer-aws-hybrid-cloud-m-w-d-coopers-bern"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Senior Platform & DevOps Engineer (AWS/Hybrid Cloud) (m/w/d)",
-      "titleByLocale": {
-        "it": "Senior Platform & DevOps Ingegnere (AWS/Hybrid Cloud) (m/w/d)",
-        "en": "Senior Platform & DevOps Engineer (AWS/Hybrid Cloud) (m/f/d)",
-        "de": "Senior Platform & DevOps Ingenieur (AWS/Hybrid Cloud) (m/w/d)",
-        "fr": "Senior Platform & DevOps Ingénieur (AWS/Hybrid Cloud) (m/w/d)"
-      },
-      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (II39P9)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nFull Time\n\nAb sofort - 31.12.2027 (mit Option auf Verlängerung)\n\nDevOps, AWS, CI/CD\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCentral location\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tGood public transport connection\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\nSounds interesting?\n\nSimply click \"",
-      "descriptionByLocale": {
-        "it": "Posizione?\nQuindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online.\n\nPer le applicazioni via e-mail, il mittente o il mittente accetta che i dati trasmessi verranno utilizzati in conformità alla nostra politica di protezione dei dati.\n\nUlteriori offerte sono disponibili qui: coopers.ch\n\nProfilo del lavoro (II39P9)\n\n•\nIT - Ingegneria del software\n\n•\n\nBerna\n\nContratti\n\nTempo pieno\n\nA partire da ora - 31.12.2027 (con opzione di estensione)\n\nDevOps, AWS, CI/CD\n\nPrestazioni di lavoro\n\n•\nPosizione centrale\n\n•\nBuona connessione con i trasporti pubblici\n\n•\nSpazio di lavoro moderno\n\nSembra interessante?\n\nBasta cliccare.",
-        "en": "Position?\nThen we look forward to full application documents via online form.\n\nFor applications by e-mail, the sender or the sender agrees that the transmitted data will be used in accordance with our data protection policy.\n\nFurther vacancies can be found here: coopers.ch\n\nJob profile (II39P9)\n\n•\nIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nFull time\n\nAs of now - 31.12.2027 (with extension option)\n\nDevOps, AWS, CI/CD\n\nJob benefits\n\n•\nCentral location\n\n•\nGood public transport connection\n\n•\nModern workspace\n\nSounds interesting?\n\nSimply click.",
-        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (II39P9)\n\n•\n\nIT - Software Engineering\n\nBern\n\nContracting\n\nFull Time\n\nAb sofort - 31.12.2027 (mit Option auf Verlängerung)\n\nDevOps, AWS, CI/CD\n\nJob benefits\n\nCentral location\n\nGood public transport connection\n\nModern workspace\n\nSounds interesting?\n\nSimply click \"",
-        "fr": "Position ?\nEnsuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne.\n\nPour les demandes par e-mail, l'expéditeur ou l'expéditeur accepte que les données transmises soient utilisées conformément à notre politique de protection des données.\n\nD'autres offres d'emploi sont disponibles ici : coopers.ch\n\nProfil d'emploi (II39P9)\n\n•\nIT - Génie logiciel\n\n•\n\nBelgique\n\nContrats\n\nTemps plein\n\nDès maintenant - 31.12.2027 (avec possibilité d'extension)\n\nDevOps, AWS, CI/CD\n\nPrestations d'emploi\n\n•\nEmplacement central\n\n•\nBonne connexion aux transports publics\n\n•\nEspace de travail moderne\n\nÇa semble intéressant ?\n\nCliquez simplement."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=II39P9",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-23T22:40:31.091Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "contracting",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-20",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=II39P9",
-      "requirements": [
-        "IT - Software Engineering",
-        "Bern",
-        "Contracting",
-        "Full Time",
-        "Ab sofort - 31.12.2027 (mit Option auf Verlängerung)",
-        "DevOps, AWS, CI/CD"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "IT - Software Engineering",
-          "Contracting",
-          "Full Time",
-          "Ab sofort - 31.12.2027 (mit Option auf Verlängerung)",
-          "DevOps, AWS, CI/CD"
-        ]
-      },
-      "firstSeenAt": "2026-07-21T22:49:29.215Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "coopers-02fda361893d",
-      "slug": "data-ingegnere-m-w-d-coopers-group-ag-zug",
-      "slugByLocale": {
-        "it": "data-ingegnere-m-w-d-coopers-group-ag-zug",
-        "en": "senior-dwh-engineer-m-w-d-coopers-group-ag-luzern",
-        "de": "senior-dwh-engineer-m-w-d-coopers-luzern",
-        "fr": "data-ingenieur-m-w-d-coopers-group-ag-zug"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Senior DWH Engineer (m/w/d)",
-      "titleByLocale": {
-        "it": "Data Ingegnere (m/w/d)",
-        "en": "Senior DWH Engineer (m/f/d)",
-        "de": "Senior DWH Ingenieur (m/w/d)",
-        "fr": "Data Ingénieur (m/w/d)"
-      },
-      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (P62FF9)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nLuzern\n\nContracting\n\nFull Time\n\nab sofort - 31.12.2027 mit Option zur Verlängerung\n\nData Engineer, Databricks, ETL, Data Warehouse\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFlat hierarchy\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
-      "descriptionByLocale": {
-        "it": "Posizione? Quindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online. Per le applicazioni via e-mail, il mittente o il mittente accetta che i dati trasmessi verranno utilizzati in conformità alla nostra politica di protezione dei dati. Ulteriori offerte sono disponibili qui: coopers.ch Profili di lavoro (P62FF9)\n• IT - Ingegneria del software\n• Treno Contratti Tempo parziale, 80-100 % da ora - 31.12.2026 con opzione di estensione Data Engineer, Databricks, ETL, Data Warehouse Prestazioni di lavoro\n• Termini di primo nome\n• Gerarchia piatta\n• Home Ufficio\n• Spazio di lavoro moderno\n• Bilancia della vita lavorativa Sembra interessante? Basta cliccare.",
-        "en": "Position? Then we look forward to full application documents via online form. For applications by e-mail, the sender or the sender agrees that the transmitted data will be used in accordance with our data protection policy. Further vacancies can be found here: coopers.ch Job profiles (P62FF9)\n• IT - Software Engineering\n• Train Contracting Part Time, 80-100 % from now - 31.12.2026 with option of extension Data Engineer, Databricks, ETL, Data Warehouse Job benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life balance Sounds interesting? Simply click.",
-        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (P62FF9)\n\n•\n\nIT - Software Engineering\n\nLuzern\n\nContracting\n\nFull Time\n\nab sofort - 31.12.2027 mit Option zur Verlängerung\n\nData Engineer, Databricks, ETL, Data Warehouse\n\nJob benefits\n\nFirst-name terms\n\nFlat hierarchy\n\nHome Office\n\nModern workspace\n\nWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
-        "fr": "Position ? Ensuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne. Pour les demandes par e-mail, l'expéditeur ou l'expéditeur accepte que les données transmises soient utilisées conformément à notre politique de protection des données. D'autres offres d'emploi sont disponibles ici : coopers.ch Profils d'emploi (P62FF9)\n• IT - Génie logiciel\n• Train Contrats Temps partiel, 80-100 % à partir de maintenant - 31.12.2026 avec possibilité d'extension Ingénieur de données, Databricks, ETL, Data Warehouse Prestations d'emploi\n• Termes de prénom\n• Hiérarchie plate\n• Ministère de l ' intérieur\n• Espace de travail moderne\n• Équilibre travail-vie privée Ça semble intéressant ? Cliquez simplement."
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=P62FF9",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-23T22:40:25.428Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "contracting",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-07",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=P62FF9",
-      "requirements": [
-        "IT - Software Engineering",
-        "Luzern",
-        "Contracting",
-        "Full Time",
-        "ab sofort - 31.12.2027 mit Option zur Verlängerung",
-        "Data Engineer, Databricks, ETL, Data Warehouse"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "IT - Software Engineering",
-          "Contracting",
-          "Part Time, 80-100%",
-          "ab sofort - 31.12.2026 mit Option zur Verlängerung",
-          "Data Engineer, Databricks, ETL, Data Warehouse",
-          "ab sofort - 31.12.2027 mit Option zur Verlängerung",
-          "Full Time"
-        ]
-      },
-      "previousSlugs": [
-        "data-engineer-m-w-d-coopers-zug",
-        "senior-dwh-engineer-m-w-d-coopers-luzern",
-        "data-ingegnere-m-w-d-coopers-group-ag-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "data-engineer-m-w-d-coopers-zug",
-          "senior-dwh-engineer-m-w-d-coopers-luzern",
-          "data-ingegnere-m-w-d-coopers-group-ag-luzern"
-        ],
-        "en": [
-          "data-engineer-m-w-d-coopers-zug"
-        ],
-        "de": [
-          "data-engineer-m-w-d-coopers-zug"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T11:20:41.709Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      }
     }
   ]
 }
