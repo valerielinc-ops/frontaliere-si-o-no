@@ -8936,6 +8936,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-lavena-ponte-tresa-frontaliere.title': 'Vivere a Lavena Ponte Tresa e lavorare in Ticino',
     'blog.article.vivere-lavena-ponte-tresa-frontaliere.excerpt': 'Guida completa al pendolarismo tra Lavena Ponte Tresa e il Canton Ticino: collegamenti, tempi di percorrenza, costi e regole fiscali per frontalieri.',
     'blog.article.vivere-lavena-ponte-tresa-frontaliere.imageAlt': 'Panorama di Lavena Ponte Tresa con vista sul confine e sul lago',
+    'blog.article.sequestrati-7200-euro.title': 'Di più Italia: Tirano; controlli a valico, sequestrati 7200 euro',
+    'blog.article.sequestrati-7200-euro.excerpt': 'La Guardia di finanza di Tirano ha sequestrato 7500 euro a un 62enne italiano diretto in Svizzera.',
+    'blog.article.sequestrati-7200-euro.imageAlt': 'Un valico di confine tra l\'Italia e la Svizzera, con un controllore che ispeziona un veicolo.',
 };
 
 export default blogMetaIt;

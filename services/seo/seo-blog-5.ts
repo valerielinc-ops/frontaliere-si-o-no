@@ -55023,6 +55023,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sequestrati-7200-euro': {
+    title: 'Di più Italia: Tirano; controlli a valico, sequestrati 7200 euro',
+    description: 'La Guardia di finanza di Tirano ha sequestrato 7500 euro a un 62enne italiano diretto in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tirano, controlli, valico, sequestrati',
+    ogTitle: 'Sequestrati 7200 euro a un frontaliere italiano',
+    ogDescription: 'La Guardia di finanza di Tirano ha sequestrato 7500 euro a un 62enne italiano diretto in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/sequestrati-7200-euro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più Italia: Tirano; controlli a valico, sequestrati 7200 euro",
+      "description": "La Guardia di finanza di Tirano ha sequestrato 7500 euro a un 62enne italiano diretto in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sequestrati-7200-euro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un valico di confine tra l'Italia e la Svizzera, con un controllore che ispeziona un veicolo."
+      },
+      "datePublished": "2026-07-25T02:34:33+00:00",
+      "dateModified": "2026-07-25T02:34:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sequestrati-7200-euro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
