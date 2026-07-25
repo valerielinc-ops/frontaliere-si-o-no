@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-07-25T10:43:36.409Z",
+  "assembledAt": "2026-07-25T22:01:24.608Z",
   "jobs": [
     {
       "id": "company-op1oyd",
@@ -22,7 +22,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-24T22:13:31.399Z",
       "titleByLocale": {
         "de": "Chefmetzger:in",
@@ -142,7 +142,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-24T22:13:31.399Z",
       "titleByLocale": {
         "de": "Magaziner:in Verkauf",
@@ -217,7 +217,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-24T11:23:45.209Z",
       "titleByLocale": {
         "de": "Bereichsleiter:in Produktion Bäckerei Panofina",
@@ -298,7 +298,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-24T11:23:45.209Z",
       "titleByLocale": {
         "it": "Installatore: in cucine e bagni",
@@ -394,7 +394,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-24T11:23:45.209Z",
       "titleByLocale": {
         "de": "Wohnberater:in",
@@ -465,7 +465,7 @@
     },
     {
       "id": "company-3apvkj",
-      "slug": "consulente-commerciale-in-coop-genossenschaft-chur-graubunden",
+      "slug": "consulente-commerciale-in-coop-genossenschaft-chur",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in",
       "location": "Chur, Graubünden",
@@ -483,7 +483,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-24T11:23:45.209Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-24T11:23:45.209Z",
       "titleByLocale": {
         "de": "Verkaufsberater:in",
@@ -540,14 +540,14 @@
           "sales-consultant-in-coop-genossenschaft-chur-graubunden",
           "sales-consultant-coop-genossenschaft-chur-nsjp2p"
         ],
+        "de": [
+          "verkaufsberater-in-import-parfumerie-chur-graubunden-nsjp2p",
+          "verkaufsberater-in-import-parfumerie-chur-graubunden-9gew6s"
+        ],
         "fr": [
           "verkaufsberater-in-coop-genossenschaft-chur-graubunden-3apvkj",
           "consultant-en-ventes-coop-genossenschaft-chur-graubunden",
           "conseiller-de-vente-coop-genossenschaft-chur-nsjp2p"
-        ],
-        "de": [
-          "verkaufsberater-in-import-parfumerie-chur-graubunden-nsjp2p",
-          "verkaufsberater-in-import-parfumerie-chur-graubunden-9gew6s"
         ]
       },
       "previousSlugs": [
@@ -577,10 +577,9 @@
         "verkaufsberater-in-coop-genossenschaft-chur-nsjp2p",
         "verkaufsberater-in-import-parfumerie-chur-graubunden-9gew6s",
         "verkaufsberater-in-import-parfumerie-chur-graubunden",
-        "sales-consultant-coop-genossenschaft-st-gallen-f578d4"
+        "sales-consultant-coop-genossenschaft-st-gallen-f578d4",
+        "consulente-commerciale-in-coop-genossenschaft-chur-graubunden"
       ],
-      "salaryMin": 57500,
-      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -595,7 +594,9 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "salaryMin": 57500,
+      "salaryMax": 87000
     },
     {
       "id": "company-od4tvh",
@@ -617,7 +618,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-24T22:13:31.399Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-24T11:23:45.209Z",
       "titleByLocale": {
         "de": "Verkaufsberater:in",
@@ -648,7 +649,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-de-vente-coop-genossenschaft-chur-6c1d36",
           "conseiller-ere-de-vente-coop-genossenschaft-schaffhausen",
           "sales-consultant-coop-genossenschaft-st-gallen",
           "sales-consultant-coop-genossenschaft-luzern",
@@ -667,18 +667,19 @@
           "consultant-en-vente-coop-genossenschaft-basel",
           "sales-consultant-coop-genossenschaft-basel-9d0mi4",
           "consultant-en-vente-en-cosmetiques-coop-genossenschaft-basel",
-          "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur-96389b"
+          "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur-96389b",
+          "conseiller-de-vente-coop-genossenschaft-chur-6c1d36"
         ],
         "en": [
           "verkaufsberater-in-coop-genossenschaft-schaffhausen-od4tvh",
           "sales-consultant-in-coop-genossenschaft-schaffhausen"
         ],
+        "de": [
+          "verkaufsberater-in-coop-genossenschaft-schaffhausen-nhdw1p"
+        ],
         "fr": [
           "verkaufsberater-in-coop-genossenschaft-schaffhausen-od4tvh",
           "conseiller-ere-commercial-e-coop-genossenschaft-schaffhausen"
-        ],
-        "de": [
-          "verkaufsberater-in-coop-genossenschaft-schaffhausen-nhdw1p"
         ]
       },
       "previousSlugs": [
@@ -765,7 +766,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-24T11:23:45.209Z",
       "titleByLocale": {
         "it": "Installatore: in cucine e bagni",
@@ -850,7 +851,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-24T11:23:45.209Z",
       "titleByLocale": {
         "it": "Dispone di: in cucine e bagni",
@@ -965,7 +966,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-23T22:11:44.385Z",
       "titleByLocale": {
         "it": "Elettricista aziendale: in \"Intralogistics\"",
@@ -1085,7 +1086,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-23T22:11:44.385Z",
       "titleByLocale": {
         "it": "Direttore/trice lavori",
@@ -1167,7 +1168,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-21T22:17:41.811Z",
       "titleByLocale": {
         "it": "Personale: in Amministrazione Logistica",
@@ -1275,7 +1276,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-21T22:17:41.811Z",
       "titleByLocale": {
         "it": "Venditore:in / Planner:in cucine e bagni",
@@ -1299,7 +1300,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-planer-in-kuchen-bader-fust-biel-bern-04zafu",
           "verkaufer-in-planer-in-kuchen-bader-fust-rapperswil-jona-sankt-gallen-ekctcb",
           "salesperson-planner-kitchens-bathrooms-fust-swiss-household-services-ag-biel",
           "verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-rapperswil-jona-ekctcb",
@@ -1318,7 +1318,8 @@
           "venditore-in-planner-in-cucine-e-bagni-fust-swiss-household-services-ag-biel-bern",
           "installateur-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-oberburen",
           "verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel-bern",
-          "verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel-bern-04zafu"
+          "verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel-bern-04zafu",
+          "verkaufer-in-planer-in-kuchen-bader-fust-biel-bern-04zafu"
         ],
         "en": [
           "verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel-bern-04zafu",
@@ -1407,7 +1408,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-21T22:17:41.811Z",
       "slugByLocale": {
         "it": "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-visp-wallis-nmm5ty",
@@ -1480,7 +1481,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-20T12:16:15.722Z",
       "titleByLocale": {
         "it": "Fiteria sanitaria: in cucine e bagni",
@@ -1609,7 +1610,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-20T12:16:15.722Z",
       "titleByLocale": {
         "it": "Collaboratore/trice Intralogistik - Bereich Warenausgang",
@@ -1680,7 +1681,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-20T12:16:15.722Z",
       "titleByLocale": {
         "it": "Chauffeur: in Cat. C/CE",
@@ -1787,7 +1788,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-20T12:16:15.722Z",
       "titleByLocale": {
         "it": "Montage-Assistent:in per la Heimlieferung von Elektrohaushaltgeräten",
@@ -1882,7 +1883,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-20T12:16:15.722Z",
       "titleByLocale": {
         "it": "Collaboratore/trice Intralogistik - Bereich Retouren",
@@ -1970,7 +1971,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-20T12:16:15.722Z",
       "titleByLocale": {
         "it": "Tecnico di servizio: in Soluzioni Professionali",
@@ -2083,7 +2084,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-17T22:30:05.510Z",
       "titleByLocale": {
         "it": "Responsabile Marketing Trading",
@@ -2162,7 +2163,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-24T11:23:45.209Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-17T22:30:05.510Z",
       "titleByLocale": {
         "it": "Tecnico di servizio: in Soluzioni Professionali",
@@ -2186,7 +2187,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern-3qkfr2",
           "tecnico-di-servizio-in-soluzioni-professionali-fust-bern",
           "servicetechniker-in-professional-solutions-fust-oberburen-2",
           "servicetechniker-in-professional-solutions-fust-oberburen-8fm84c",
@@ -2205,7 +2205,8 @@
           "tecnico-di-servizio-in-soluzioni-professionali-fust-oberburen",
           "service-technician-in-professional-solutions-fust-oberburen",
           "servicetechniker-in-professional-solutions-fust-oberburen-0jbfoy",
-          "technicien-de-service-solutions-professionnelles-fust-oberburen"
+          "technicien-de-service-solutions-professionnelles-fust-oberburen",
+          "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern-3qkfr2"
         ],
         "en": [
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-8fm84c",
@@ -2288,11 +2289,11 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-16T11:35:31.670Z",
       "titleByLocale": {
         "it": "Analista di Categoria (h/m/d), 80%",
-        "en": "Category analyst (w/m/d), 80 %",
+        "en": "Category Analyst (w/m/d), 80%",
         "de": "Category Analyst (w/m/d), 80%",
         "fr": "Analyste de catégorie (h/f/d), 80%"
       },
@@ -2304,7 +2305,7 @@
       },
       "slugByLocale": {
         "it": "category-analista-m-w-d-80-coop-basel-stadt-8bgwjp",
-        "en": "category-analyst-m-w-d-80-coop-basel-stadt-8bgwjp",
+        "en": "category-analyst-w-m-d-80-coop-genossenschaft-basel-basel-stadt",
         "de": "category-analyst-m-w-d-80-coop-basel-stadt-8bgwjp",
         "fr": "category-analyste-m-w-d-80-coop-basel-stadt-8bgwjp"
       },
@@ -2318,6 +2319,7 @@
         ],
         "en": [
           "category-analyst-m-w-d-80-coop-genossenschaft-basel-stadt-8bgwjp",
+          "category-analyst-m-w-d-80-coop-basel-stadt-8bgwjp",
           "category-analyst-w-m-d-80-coop-genossenschaft-basel-basel-stadt"
         ],
         "de": [
@@ -2333,6 +2335,7 @@
         "category-analyste-m-w-d-80-coop-genossenschaft-basel-stadt-8bgwjp",
         "category-analyst-m-w-d-80-coop-basel-stadt",
         "category-analista-m-w-d-80-coop-genossenschaft-basel-stadt-8bgwjp",
+        "category-analyst-m-w-d-80-coop-basel-stadt-8bgwjp",
         "category-analyst-w-m-d-80-coop-genossenschaft-basel-basel-stadt"
       ],
       "baseSalary": {
@@ -2351,7 +2354,8 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salaryMin": 51600,
-      "salaryMax": 88000
+      "salaryMax": 88000,
+      "needsRetranslation": true
     },
     {
       "id": "company-7tmm0d",
@@ -2376,7 +2380,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-17T11:04:53.043Z",
       "slugByLocale": {
         "it": "verkaufsberater-in-per-elektrohaushalt-80-100-fust-olten-solothurn-7tmm0d",
@@ -2454,7 +2458,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-14T22:27:27.990Z",
       "titleByLocale": {
         "it": "Capo della ricevuta aggiunto",
@@ -2534,11 +2538,11 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-13T22:24:55.383Z",
       "titleByLocale": {
         "it": "Responsabile E-Commerce: 80% - 100%",
-        "en": "E-Commerce Manager: 80% - 100%",
+        "en": "E-Commerce Manager:in 80% - 100%",
         "de": "E-Commerce Manager:in 80% - 100%",
         "fr": "Responsable e-commerce 80 % - 100 %"
       },
@@ -2612,7 +2616,8 @@
         "canton": "SG"
       },
       "salaryMin": 79000,
-      "salaryMax": 120000
+      "salaryMax": 120000,
+      "needsRetranslation": true
     },
     {
       "id": "company-c6dwd4",
@@ -2632,11 +2637,11 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-10T22:39:27.410Z",
       "titleByLocale": {
         "it": "Project Manager: in Sponsorship",
-        "en": "Project Manager: in Sponsorship",
+        "en": "Project-Manager:in Sponsoring",
         "de": "Project-Manager:in Sponsoring",
         "fr": "Chef de Projet Sponsoring"
       },
@@ -2648,7 +2653,7 @@
       },
       "slugByLocale": {
         "it": "project-manager-in-sponsorship-coop-genossenschaft-bern",
-        "en": "project-manager-in-sponsoring-coop-bern-c6dwd4",
+        "en": "project-manager-in-sponsoring-coop-genossenschaft-bern",
         "de": "project-manager-in-sponsoring-coop-bern-c6dwd4",
         "fr": "gestionnaire-de-projet-en-commandite-coop-genossenschaft-bern"
       },
@@ -2656,7 +2661,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-de-projet-junior-parrainage-coop-genossenschaft-arbedo-castione-ticino-1qcvc7",
           "gestionnaire-de-projet-junior-coop-genossenschaft-arbedo-castione-ticino",
           "project-manager-in-sponsoring-coop-genossenschaft-bern-c6dwd4",
           "project-manager-in-sponsoring-coop-bern-c6dwd4",
@@ -2675,10 +2679,12 @@
           "sponsoring-de-projet-junior-coop-genossenschaft-arbedo-castione",
           "gestionnaire-de-projet-junior-parrainage-coop-genossenschaft-arbedo-castione-1qcvc7",
           "gestionnaire-de-projet-junior-parrainage-coop-genossenschaft-arbedo-castione",
-          "gestionnaire-de-projet-junior-parrainage-coop-arbedo-castione-ticino-1qcvc7"
+          "gestionnaire-de-projet-junior-parrainage-coop-arbedo-castione-ticino-1qcvc7",
+          "gestionnaire-de-projet-junior-parrainage-coop-genossenschaft-arbedo-castione-ticino-1qcvc7"
         ],
         "en": [
           "project-manager-in-sponsoring-coop-genossenschaft-bern-c6dwd4",
+          "project-manager-in-sponsoring-coop-bern-c6dwd4",
           "project-manager-in-sponsoring-coop-genossenschaft-bern"
         ],
         "fr": [
@@ -2724,7 +2730,8 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salaryMin": 94500,
-      "salaryMax": 143000
+      "salaryMax": 143000,
+      "needsRetranslation": true
     },
     {
       "id": "company-8r1g8p",
@@ -2744,7 +2751,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-10T22:39:27.410Z",
       "titleByLocale": {
         "it": "Collaboratore/trice Facility Management & Betriebsunterhalt",
@@ -2831,7 +2838,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-10T22:39:27.410Z",
       "titleByLocale": {
         "it": "Monteur per den Austausch von Kücheneinbaugeräten",
@@ -2924,7 +2931,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-10T22:39:27.410Z",
       "titleByLocale": {
         "it": "Verkaufsberater:in per Elektrohaushalt & Multimedia 80% - 100%",
@@ -2948,7 +2955,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
           "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-4opay7",
           "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-frauenfeld",
           "sales-consultant-in-electrical-household-and-multimedia-fust-swiss-household-services-ag-wallisellen",
@@ -2967,7 +2973,8 @@
           "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-wallisellen-zurich-p0wx27",
           "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
           "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-oberburen",
-          "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-bern"
+          "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-bern",
+          "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-grenchen"
         ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-luzern-jb4wob",
@@ -3066,7 +3073,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-10T22:39:27.410Z",
       "titleByLocale": {
         "it": "Montatore/trice di impianti sanitari per cucine & bagni",
@@ -3153,7 +3160,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-10T22:39:27.410Z",
       "titleByLocale": {
         "it": "Rappresentante del servizio clienti:in",
@@ -3237,7 +3244,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-10T22:39:27.410Z",
       "titleByLocale": {
         "it": "Monteur per den Austausch von Kücheneinbaugeräten",
@@ -3320,7 +3327,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-06T13:40:26.001Z",
       "titleByLocale": {
         "it": "Techniker:in per Multimedia-Geräte",
@@ -3422,7 +3429,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-06T13:40:26.001Z",
       "titleByLocale": {
         "it": "Verkaufsberater:in per Elektrohaushalt & Multimedia 80% - 100%",
@@ -3507,7 +3514,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-06T13:40:26.001Z",
       "titleByLocale": {
         "it": "Verkaufsberater:in per Elektrohaushalt e Multimedia",
@@ -3590,7 +3597,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-06T13:40:26.001Z",
       "titleByLocale": {
         "it": "Rappresentante del servizio clienti:in servizio",
@@ -3682,7 +3689,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-06T13:40:26.001Z",
       "titleByLocale": {
         "it": "Collaboratore/trice Intralogistik - Bereich Wareneingang",
@@ -3749,7 +3756,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-03T11:11:13.855Z",
       "titleByLocale": {
         "it": "Fiteria sanitaria: in cucine e bagni",
@@ -3773,7 +3780,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-lzkg1f",
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern",
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-lzkg1f",
           "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-bern",
@@ -3792,7 +3798,8 @@
           "fiteria-sanitaria-in-cucine-e-bagni-fust-swiss-household-services-ag-steg-hohtenn-wallis",
           "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-steg-hohtenn-wallis",
           "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-steg-hohtenn-wallis",
-          "sanitarmonteur-in-kuchen-bader-fust-steg-hohtenn-wallis-h26um4"
+          "sanitarmonteur-in-kuchen-bader-fust-steg-hohtenn-wallis-h26um4",
+          "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-lzkg1f"
         ],
         "en": [
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-wallis-h26um4",
@@ -3885,7 +3892,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-07-01T22:19:20.999Z",
       "titleByLocale": {
         "it": "Ingegnere di supporto del secondo livello",
@@ -3961,7 +3968,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-06-30T22:20:32.271Z",
       "titleByLocale": {
         "it": "Verkaufsberater:in per Elektrohaushalt & Multimedia 80% - 100%",
@@ -4042,7 +4049,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-06-30T11:26:22.953Z",
       "titleByLocale": {
         "en": "Application Developer Java 80 - 100%",
@@ -4116,10 +4123,10 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-06-30T11:26:22.953Z",
       "titleByLocale": {
-        "it": "Consulente di vendita:in per elettrodomestici 80% - 100%",
+        "it": "Verkaufsberater:in per Elektrohaushalt 80% - 100%",
         "en": "Sales consultant:in for electrical household 80% - 100%",
         "de": "Verkaufsberater:in für Elektrohaushalt 80% - 100%",
         "fr": "Consultant en ventes:pour les ménages électriques 80% - 100%"
@@ -4214,7 +4221,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-06-29T22:14:00.097Z",
       "titleByLocale": {
         "it": "Montatore a domicilio di elettrodomestici",
@@ -4346,7 +4353,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-06-29T22:14:00.097Z",
       "titleByLocale": {
         "it": "Addetto/a alle consegne a domicilio di elettrodomestici",
@@ -4362,9 +4369,9 @@
       },
       "slugByLocale": {
         "it": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-576dn5",
-        "en": "home-delivery-technician-for-household-appliances-fust-pratteln-basel-landschaft-576dn5",
+        "en": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-576dn5",
         "de": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-d6fb1e",
-        "fr": "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-pratteln-basel-landschaft-576dn5"
+        "fr": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-576dn5"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -4414,9 +4421,9 @@
         "technicien-de-livraison-a-domicile-d-appareils-electromenagers-fust-swiss-household-services-ag-pratteln",
         "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-pratteln",
         "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-pratteln-576dn5",
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-dubendorf",
         "home-delivery-technician-for-household-appliances-fust-pratteln-basel-landschaft-576dn5",
         "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-pratteln-basel-landschaft-576dn5",
-        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-dubendorf",
         "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-576dn5"
       ],
       "baseSalary": {
@@ -4461,7 +4468,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-06-29T22:14:00.097Z",
       "titleByLocale": {
         "it": "Tecnico di servizio: in Soluzioni Professionali",
@@ -4555,7 +4562,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-06-29T22:14:00.097Z",
       "titleByLocale": {
         "it": "Tecnico di servizio: in servizio domestico",
@@ -4651,7 +4658,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-06-29T22:14:00.097Z",
       "titleByLocale": {
         "it": "Tecnico di servizio: in Soluzioni Professionali",
@@ -4745,7 +4752,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-25T21:59:15.279Z",
       "firstSeenAt": "2026-06-29T22:14:00.097Z",
       "titleByLocale": {
         "it": "Home delivery installer: negli elettrodomestici",
@@ -4822,7 +4829,7 @@
     },
     {
       "id": "company-ow4ac2",
-      "slug": "stellvertretung-der-leitung-food-coop-genossenschaft-aarau-aargau",
+      "slug": "capo-aggiunto-dell-alimentazione-coop-genossenschaft-aarau",
       "company": "Coop Genossenschaft",
       "title": "Stellvertretung der Leitung Food",
       "location": "Aarau, Aargau",
@@ -4879,7 +4886,8 @@
           "stellvertretung-der-leitung-food-coop-genossenschaft-aarau-aargau-ow4ac2",
           "deputy-head-of-food-coop-genossenschaft-aarau-aargau",
           "chef-adjoint-de-l-alimentation-coop-genossenschaft-aarau-aargau",
-          "capo-aggiunto-dell-alimentazione-coop-genossenschaft-aarau-aargau"
+          "capo-aggiunto-dell-alimentazione-coop-genossenschaft-aarau-aargau",
+          "stellvertretung-der-leitung-food-coop-genossenschaft-aarau-aargau"
         ],
         "fr": [
           "chef-adjoint-de-l-alimentation-coop-genossenschaft-aarau-jws0oe",
@@ -4902,7 +4910,8 @@
         "stellvertretung-der-leitung-food-coop-genossenschaft-aarau-aargau-ow4ac2",
         "deputy-head-of-food-coop-genossenschaft-aarau-aargau",
         "chef-adjoint-de-l-alimentation-coop-genossenschaft-aarau-aargau",
-        "capo-aggiunto-dell-alimentazione-coop-genossenschaft-aarau-aargau"
+        "capo-aggiunto-dell-alimentazione-coop-genossenschaft-aarau-aargau",
+        "stellvertretung-der-leitung-food-coop-genossenschaft-aarau-aargau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -7003,7 +7012,7 @@
       "titleByLocale": {
         "de": "Sushi-Hilfskoch/Hilfsköchin",
         "it": "Sushi chef/chef",
-        "en": "Sushi chef/chef",
+        "en": "Sushi-Hilfskoch/Hilfsköchin",
         "fr": "Chef/chef Sushi"
       },
       "descriptionByLocale": {
@@ -7073,7 +7082,8 @@
         "chef-de-cuisine-100-two-spice-ag-dietlikon",
         "kuchenchef-in-100-two-spice-dietlikon",
         "sushi-help-chef-help-chef-two-spice-ag-dietlikon"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-ctz6y3",
@@ -7104,7 +7114,7 @@
       "titleByLocale": {
         "de": "Zenbu-Sushi Koch/Köchin",
         "it": "Chef Zenbu-Sushi",
-        "en": "Zenbu-Sushi chef",
+        "en": "Zenbu-Sushi Koch/Köchin",
         "fr": "Chef Zenbu-Sushi"
       },
       "descriptionByLocale": {
@@ -7150,7 +7160,8 @@
         "zenbu-sushi-chef-two-spice-ag-dietlikon-acfae1",
         "zenbu-sushi-koch-kochin-two-spice-dietlikon-bpjsag",
         "zenbu-sushi-koch-kochin-two-spice-dietlikon"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-zc21x8",
@@ -8645,7 +8656,7 @@
       "titleByLocale": {
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Cook / cook (f/m/d)",
+        "en": "Köchin / Koch (w/m/d)",
         "fr": "Cuire/cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -8656,7 +8667,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-bern-a8c9d4",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-bern-a8c9d4",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-bern",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-bern-7z9gmc",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-bern-a8c9d4"
       },
@@ -8681,6 +8692,7 @@
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-bern-7z9gmc",
           "cook-cook-f-m-d-coop-genossenschaft-bern",
+          "cook-cook-f-m-d-coop-genossenschaft-bern-a8c9d4",
           "kochin-koch-m-w-d-coop-genossenschaft-bern"
         ],
         "fr": [
@@ -8697,7 +8709,8 @@
         "cucinare-cucinare-f-m-d-coop-genossenschaft-bern",
         "cook-cook-f-m-d-coop-genossenschaft-bern",
         "kochin-koch-m-w-d-coop-genossenschaft-bern-irdhh4",
-        "cuire-cuire-f-m-d-coop-genossenschaft-bern"
+        "cuire-cuire-f-m-d-coop-genossenschaft-bern",
+        "cook-cook-f-m-d-coop-genossenschaft-bern-a8c9d4"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -8715,7 +8728,8 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-jsw1f0",
@@ -8807,7 +8821,8 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-nz0q9t",
@@ -9391,7 +9406,7 @@
       "titleByLocale": {
         "fr": "Coordonnateur de la production et administration (100 %)",
         "de": "Produktionskoordinator/in & Administration (100%)",
-        "it": "Coordinatore di produzione e amministrazione (100%)",
+        "it": "Produktionskoordinator/in & Administration (100%)",
         "en": "Production Coordinator & Administration (100%)"
       },
       "descriptionByLocale": {
@@ -9451,7 +9466,8 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-8izv5u",
@@ -11144,7 +11160,7 @@
       "titleByLocale": {
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Cook / cook (f/m/d)",
+        "en": "Köchin / Koch (w/m/d)",
         "fr": "Cuire/cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -11155,7 +11171,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-winterthur",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-winterthur",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-winterthur"
       },
@@ -11176,6 +11192,7 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku",
+          "cook-cook-f-m-d-coop-genossenschaft-winterthur",
           "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich"
         ],
         "fr": [
@@ -11185,7 +11202,8 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich",
         "kochin-koch-m-w-d-coop-ristorante-winterthur-zurich",
-        "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku"
+        "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku",
+        "cook-cook-f-m-d-coop-genossenschaft-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -11203,7 +11221,8 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-4u0urp",
@@ -13308,7 +13327,7 @@
       "titleByLocale": {
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Cook / cook (f/m/d)",
+        "en": "Köchin / Koch (w/m/d)",
         "fr": "Cuire / cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -13319,7 +13338,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-aarau",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-aarau",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau-ddg6am",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-aarau"
       },
@@ -13359,6 +13378,7 @@
           "cook-m-w-d-coop-genossenschaft-aarau-x72egi",
           "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau-ddg6am",
           "cook-cook-f-m-d-coop-genossenschaft-aarau-aargau",
+          "cook-cook-f-m-d-coop-genossenschaft-aarau",
           "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau"
         ],
         "de": [
@@ -13394,7 +13414,8 @@
         "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau-ddg6am",
         "cook-cook-f-m-d-coop-genossenschaft-aarau-aargau",
         "cuire-cuire-f-m-d-coop-genossenschaft-aarau-aargau",
-        "cucinare-cucinare-f-m-d-coop-genossenschaft-aarau-aargau"
+        "cucinare-cucinare-f-m-d-coop-genossenschaft-aarau-aargau",
+        "cook-cook-f-m-d-coop-genossenschaft-aarau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -13412,7 +13433,8 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-eszcs8",
@@ -14045,7 +14067,7 @@
       "titleByLocale": {
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Cook / cook (f/m/d)",
+        "en": "Köchin / Koch (w/m/d)",
         "fr": "Cuire/cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -14056,7 +14078,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-st-gallen",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-st-gallen",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen-uo8mso",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-st-gallen"
       },
@@ -14092,6 +14114,7 @@
           "cook-m-w-d-coop-genossenschaft-zurich-02wspo",
           "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen-uo8mso",
           "cook-cook-f-m-d-coop-genossenschaft-st-gallen-sankt-gallen",
+          "cook-cook-f-m-d-coop-genossenschaft-st-gallen",
           "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen"
         ],
         "de": [
@@ -14121,7 +14144,8 @@
         "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen-uo8mso",
         "cook-cook-f-m-d-coop-genossenschaft-st-gallen-sankt-gallen",
         "cuire-cuire-f-m-d-coop-genossenschaft-st-gallen-sankt-gallen",
-        "cucinare-cucinare-f-m-d-coop-genossenschaft-st-gallen-sankt-gallen"
+        "cucinare-cucinare-f-m-d-coop-genossenschaft-st-gallen-sankt-gallen",
+        "cook-cook-f-m-d-coop-genossenschaft-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -14139,7 +14163,8 @@
       "addressRegion": "SG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-n5mu7v",
@@ -15870,7 +15895,7 @@
       "titleByLocale": {
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Cook / cook (f/m/d)",
+        "en": "Köchin / Koch (w/m/d)",
         "fr": "Cuire/cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -15881,7 +15906,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-volketswil",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-volketswil",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich-womu86",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-volketswil"
       },
@@ -15902,6 +15927,7 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich-womu86",
+          "cook-cook-f-m-d-coop-genossenschaft-volketswil",
           "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich"
         ],
         "fr": [
@@ -15911,7 +15937,8 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich",
         "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich-womu86",
-        "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich"
+        "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich",
+        "cook-cook-f-m-d-coop-genossenschaft-volketswil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -15929,7 +15956,8 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-3k950o",
@@ -17949,7 +17977,7 @@
         "de": "rayonleiter-in-garden-jumbo-affoltern-am-albis",
         "fr": "chef-de-rayon-a-garden-jumbo-affoltern-am-albis",
         "it": "rayonleiter-in-garden-jumbo-affoltern-am-albis-zurich-z2t880",
-        "en": "rayon-leader-in-garden-jumbo-affoltern-am-albis-zurich-z2t880"
+        "en": "rayonleiter-in-garden-jumbo-affoltern-am-albis-zurich-z2t880"
       },
       "titleByLocale": {
         "de": "Rayonleiter:in Garden",
@@ -18036,7 +18064,7 @@
       "titleByLocale": {
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Cook / cook (f/m/d)",
+        "en": "Köchin / Koch (w/m/d)",
         "fr": "Cuire / cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -18047,7 +18075,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-oberwil",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-oberwil",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-oberwil-basel-landschaft",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-oberwil-basel-landschaft-7ms24u",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-oberwil"
       },
@@ -18070,6 +18098,7 @@
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-oberwil-basel-landschaft-7ms24u",
           "cook-cook-f-m-d-coop-genossenschaft-oberwil-basel-landschaft",
+          "cook-cook-f-m-d-coop-genossenschaft-oberwil",
           "kochin-koch-m-w-d-coop-genossenschaft-oberwil-basel-landschaft"
         ],
         "fr": [
@@ -18083,7 +18112,8 @@
         "cook-cook-f-m-d-coop-genossenschaft-oberwil-basel-landschaft",
         "cuire-cuire-f-m-d-coop-genossenschaft-oberwil-basel-landschaft",
         "kochin-koch-m-w-d-coop-ristorante-oberwil-basel-landschaft",
-        "cucinare-cucinare-f-m-d-coop-genossenschaft-oberwil-basel-landschaft"
+        "cucinare-cucinare-f-m-d-coop-genossenschaft-oberwil-basel-landschaft",
+        "cook-cook-f-m-d-coop-genossenschaft-oberwil"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -18101,7 +18131,8 @@
       "addressRegion": "BS",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-15707t",
@@ -19472,15 +19503,15 @@
       "crawledAt": "2026-07-03T22:08:48.156Z",
       "firstSeenAt": "2026-07-03T22:08:48.156Z",
       "slugByLocale": {
-        "it": "cuoco-a-m-f-d-coop-genossenschaft-zurich",
-        "en": "chef-m-w-d-coop-genossenschaft-zurich-hkqjuc",
+        "it": "cucinare-m-w-d-coop-genossenschaft-zurich",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-zurich",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-zurich-hkqjuc",
-        "fr": "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-zurich-hkqjuc"
+        "fr": "cuire-m-w-d-coop-genossenschaft-zurich"
       },
       "titleByLocale": {
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Cook / cook (f/m/d)",
+        "en": "Köchin / Koch (w/m/d)",
         "fr": "Cuire/cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -19517,7 +19548,8 @@
           "logistician-in-coop-genossenschaft-zurich",
           "logistiker-in-coop-genossenschaft-zurich-x5sn1h",
           "logisticien-in-coop-genossenschaft-zurich",
-          "logistiker-in-coop-genossenschaft-zurich"
+          "logistiker-in-coop-genossenschaft-zurich",
+          "cuoco-a-m-f-d-coop-genossenschaft-zurich"
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-zurich-hkqjuc",
@@ -19526,6 +19558,7 @@
           "cook-m-f-d-coop-genossenschaft-zurich",
           "logistician-in-coop-genossenschaft-zurich",
           "cook-m-w-d-coop-genossenschaft-zurich",
+          "chef-m-w-d-coop-genossenschaft-zurich-hkqjuc",
           "kochin-koch-m-w-d-coop-genossenschaft-zurich"
         ],
         "fr": [
@@ -19538,6 +19571,7 @@
           "chef-cook-m-w-d-coop-genossenschaft-bern-wq803m",
           "chef-cuisinier-m-w-d-coop-genossenschaft-bern-wq803m",
           "logisticien-in-coop-genossenschaft-zurich",
+          "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-zurich-hkqjuc",
           "cuire-m-w-d-coop-genossenschaft-zurich"
         ],
         "de": [
@@ -19574,6 +19608,9 @@
         "logisticien-in-coop-genossenschaft-zurich",
         "logistiker-in-coop-genossenschaft-zurich",
         "cook-m-w-d-coop-genossenschaft-zurich",
+        "cuoco-a-m-f-d-coop-genossenschaft-zurich",
+        "chef-m-w-d-coop-genossenschaft-zurich-hkqjuc",
+        "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-zurich-hkqjuc",
         "cuire-m-w-d-coop-genossenschaft-zurich"
       ],
       "salaryMin": 73500,
@@ -19593,7 +19630,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-5kdtlt",
@@ -19915,7 +19953,7 @@
         "fr": "gestionnaire-de-magasins-100-f-m-d-marche-restaurants-schweiz-ag-dietlikon"
       },
       "titleByLocale": {
-        "en": "Store Manager 100% (f/m/d)",
+        "en": "Store Manager 100% (w/m/d)",
         "de": "Store Manager 100% (w/m/d)",
         "it": "Store Manager 100% (f/m/d)",
         "fr": "Gestionnaire de magasins 100% (f/m/d)"
@@ -19959,7 +19997,8 @@
         "store-manager-100-m-w-d-marche-restaurants-schweiz-ag-dietlikon",
         "filialleiter-100-w-m-d-marche-restaurants-schweiz-ag-dietlikon",
         "filialleiter-100-m-w-d-marche-restaurants-schweiz-ag-dietlikon-pvziad"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-8892st",
@@ -21352,7 +21391,7 @@
       },
       "slugByLocale": {
         "it": "addetto-a-alla-logistica-jumbo-hochdorf",
-        "en": "logistics-officer-jumbo-hochdorf",
+        "en": "associate-logistik-jumbo-division-der-coop-genossenschaft-hochdorf-luzern",
         "de": "mitarbeiter-in-logistik-jumbo-hochdorf",
         "fr": "collaborateur-trice-logistik-jumbo-hochdorf"
       },
@@ -21376,6 +21415,7 @@
         "en": [
           "associate-logistik-jumbo-division-der-coop-genossenschaft-hochdorf-luzern-rfjtm4",
           "mitarbeiter-in-logistik-jumbo-hochdorf",
+          "logistics-officer-jumbo-hochdorf",
           "associate-logistik-jumbo-division-der-coop-genossenschaft-hochdorf-luzern"
         ],
         "fr": [
@@ -21390,6 +21430,7 @@
         "associate-logistik-jumbo-division-der-coop-genossenschaft-hochdorf-luzern-rfjtm4",
         "mitarbeiter-in-logistik-jumbo-hochdorf",
         "collaborateur-trice-logistik-jumbo-division-der-coop-genossenschaft-hochdorf-luzern-rfjtm4",
+        "logistics-officer-jumbo-hochdorf",
         "associate-logistik-jumbo-division-der-coop-genossenschaft-hochdorf-luzern"
       ],
       "salaryMin": 69500,
@@ -21585,7 +21626,7 @@
       "crawledAt": "2026-07-01T22:19:20.999Z",
       "firstSeenAt": "2026-07-01T22:19:20.999Z",
       "titleByLocale": {
-        "de": "Verkäufer:in Blumen",
+        "de": "Verkäufer:in Kiosk",
         "it": "Venditore: in Kiosk",
         "en": "Seller:in Kiosk",
         "fr": "Vendeur: à Kiosk"
@@ -21678,7 +21719,7 @@
       "firstSeenAt": "2026-07-01T22:19:20.999Z",
       "titleByLocale": {
         "en": "Facility Technician (m/w/d)",
-        "de": "Anlagentechniker (m/w/d)",
+        "de": "Facility Techniker (m/w/d)",
         "fr": "Technicien de Maintenance (m/f/d)",
         "it": "Tecnico di Manutenzione (m/f/d)"
       },
@@ -21689,7 +21730,7 @@
         "fr": "## Technicien des installations (m/f/d)\n\n**Coopérative de coop** — Frutigen, Berne, Svizzera\n\n## Tâche\n- Assurer le bon fonctionnement de toutes les installations et installations techniques\n- Entretien, entretien et amélioration continue des infrastructures\n- Responsabilité en matière de sécurité opérationnelle et respect des exigences environnementales et de sécurité\n- Organisation du nettoyage, logistique et gestion des déchets\n- Soutien et entretien du matériel CVC, des véhicules et de la technologie de pisciculture\n- Achat de matériel, de machines et de matériel\n\n## Exigences\n- Formation technique de base (mécanicien de machines agricoles ou équivalent)\n- Expérience en matière d ' entretien technique et d ' achat d ' équipements et de machines\n- Méthode de travail indépendante, structurée et axée sur les solutions\n- Résilient physique, fiable et axé sur l'équipe\n- Comprendre les contrôles et l'automatisation\n- La connaissance de l'allemand en mots et en écriture\n- Forte compréhension technique et force de mise en œuvre pratique\n- Un haut sens des responsabilités dans les domaines de la sécurité, de la qualité et de l'environnement\n- Engagement, initiative et méthode de travail de réflexion\n- Apparence ouverte, serviable et professionnelle\n- Capacité de hiérarchiser les tâches et de suivre\n\n## Ce que nous offrons\n- Avantages: paquet alimentaire (boissons incluses)\n- Conditions d'emploi: conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : appui à la formation\n- Durabilité: Engagement envers les personnes et les animaux et la nature avec plus de 400 actions\n- Communication : Environnement dynamique et axé sur l'équipe\n- Santé : milieux de travail ergonomiques\n\n## Votre personne à contacter\nJenny Wüthrich\nChef des finances et des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité:** Fruité"
       },
       "slugByLocale": {
-        "it": "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
+        "it": "tecnico-di-manutenzione-m-f-d-coop-genossenschaft-frutigen-bern",
         "en": "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
         "de": "facility-techniker-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
         "fr": "facility-technicien-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g"
@@ -21699,7 +21740,8 @@
       "previousSlugsByLocale": {
         "it": [
           "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
+          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern",
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-1lrh2g"
@@ -21708,7 +21750,8 @@
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
         "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern",
-        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-1lrh2g"
+        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-1lrh2g",
+        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g"
       ],
       "salaryMin": 105500,
       "salaryMax": 185000,
@@ -23262,9 +23305,9 @@
       },
       "slugByLocale": {
         "it": "lagerist-in-coop-genossenschaft-oberentfelden-aargau-h6aalq",
-        "en": "warehouse-operator-livique-oberentfelden-aargau-h6aalq",
+        "en": "lagerist-in-coop-genossenschaft-oberentfelden-aargau-h6aalq",
         "de": "lagerist-in-coop-genossenschaft-oberentfelden",
-        "fr": "magasinier-livique-oberentfelden-aargau-h6aalq"
+        "fr": "lagerist-in-coop-genossenschaft-oberentfelden-aargau-h6aalq"
       },
       "requirementsByLocale": {
         "it": [],
@@ -23431,9 +23474,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-coop-genossenschaft-basel-stadt-th9lio",
-        "en": "sales-consultant-import-parfumerie-basel-stadt-th9lio",
+        "en": "verkaufsberater-in-coop-genossenschaft-basel-stadt-th9lio",
         "de": "verkaufsberater-in-coop-genossenschaft-basel",
-        "fr": "conseiller-de-vente-import-parfumerie-basel-stadt-th9lio"
+        "fr": "verkaufsberater-in-coop-genossenschaft-basel-stadt-th9lio"
       },
       "requirementsByLocale": {
         "it": [],
@@ -23504,466 +23547,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "4001",
-      "country": "CH"
-    },
-    {
-      "id": "company-th1z14",
-      "slug": "collaboratore-trice-wareneingang-coop-genossenschaft-schafisheim-aargau-th1z14",
-      "company": "Coop Genossenschaft",
-      "title": "Mitarbeiter:in Wareneingang",
-      "location": "Schafisheim, Aargau",
-      "canton": "AG",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Aufgaben\n\n- Alles da? Du nimmst die entladenen Waren an und prüfst die Lieferungen sorgfältig.\n\n- Nach einem bestimmten Prozess erfasst du die Daten im System.\n\n- Alles an Ort und Stelle? Du lagerst die Waren ein.\n\n- Im Lager erledigst du allgemeine Aufgaben.\n\n- Bei Abwesenheit des Teamleiters übernimmst du die Verantwortung für das Team.\n\nAnforderungen\n\n- Du hast die Grundbildung als Logistiker:in abgeschlossen? Grossartig! Mit einem EFZ/EBA kannst du zusätzlich bei uns punkten.\n\n- Du beherrschst Deutsch mündlich und schriftlich.\n\n- Deine körperliche Fitness ist gut.\n\n- Arbeiten in Schichten und in der Kälte bei 5°C? Kein Problem für dich.\n\n- Mobil und flexibel wie du bist, spielt es für dich keine Rolle, dass deine Arbeit früh beginnt oder endet.\n\n- Vergünstigungen : Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n\n- Anstellungsbedingungen : Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n\n- Arbeitszeit : 5 Wochen Ferien, flexible Arbeitszeitmodelle\n\n- Weiterbildung : Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n\n- Nachhaltigkeit : Engagement für Mensch, Tier und Natur mit über 400 Taten\n\n- Kommunikation : interne App für Mitarbeitende\n\n- Gesundheit : Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\nDeine Ansprechperson\nChristelle Heitz\nHR Marketing",
-      "requirements": [
-        "Du beherrschst Deutsch mündlich und schriftlich."
-      ],
-      "featured": false,
-      "postedDate": "2026-06-26",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-wareneingang/3753fe97-7220-4352-8ed9-83b69a77d7e6",
-      "source": "Company Careers Crawler",
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-06-29T22:14:00.097Z",
-      "firstSeenAt": "2026-06-29T22:14:00.097Z",
-      "slugByLocale": {
-        "it": "collaboratore-trice-wareneingang-coop-genossenschaft-schafisheim-aargau-th1z14",
-        "en": "associate-wareneingang-coop-genossenschaft-schafisheim-aargau-th1z14",
-        "de": "mitarbeiter-in-wareneingang-coop-genossenschaft-schafisheim-aargau-th1z14",
-        "fr": "collaborateur-trice-wareneingang-coop-genossenschaft-schafisheim-aargau-th1z14"
-      },
-      "titleByLocale": {
-        "de": "Mitarbeiter:in Wareneingang",
-        "it": "Addetto/a al ricevimento merci",
-        "en": "Warehouse Receipt Employee",
-        "fr": "Employé/e réception marchandises"
-      },
-      "descriptionByLocale": {
-        "de": "## Mitarbeiter:in Wareneingang\n\n**Coop Genossenschaft** — Schafisheim, Aargau, Svizzera\n\n## Aufgaben\n- Alles da? Du nimmst die entladenen Waren an und prüfst die Lieferungen sorgfältig.\n- Nach einem bestimmten Prozess erfasst du die Daten im System.\n- Alles an Ort und Stelle? Du lagerst die Waren ein.\n- Im Lager erledigst du allgemeine Aufgaben.\n- Bei Abwesenheit des Teamleiters übernimmst du die Verantwortung für das Team.\n\n## Anforderungen\n- Du hast die Grundbildung als Logistiker:in abgeschlossen? Grossartig! Mit einem EFZ/EBA kannst du zusätzlich bei uns punkten.\n- Du beherrschst Deutsch mündlich und schriftlich.\n- Deine körperliche Fitness ist gut.\n- Arbeiten in Schichten und in der Kälte bei 5°C? Kein Problem für dich.\n- Mobil und flexibel wie du bist, spielt es für dich keine Rolle, dass deine Arbeit früh beginnt oder endet.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n- Arbeitszeit: 5 Wochen Ferien, flexible Arbeitszeitmodelle\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\n## Deine Ansprechperson\nChristelle Heitz\nHR Marketing\n\n**Tipo:** Full-time\n**Sede:** Schafisheim",
-        "it": "## Dipendenti: beni in entrata\n\nCoop cooperative — Schafisheim, Aargau, Svizzera\n\n## Compiti\n- Tutto li'? Accetti le merci scaricate e controlli attentamente le consegne.\n- Dopo un certo processo, si raccolgono i dati nel sistema.\n- Tutto a posto? Memorizzi la merce.\n- Nel campo fate compiti generali.\n- In assenza del capo squadra, si assume la responsabilità della squadra.\n\n## Requisiti\n- Hai completato la formazione di base come logistico:in? Fantastico! Con un EFZ/EBA puoi anche segnare con noi.\n- Conosci il tedesco verbalmente e per iscritto.\n- Il tuo fitness è buono.\n- Lavorare nei turni e nel freddo a 5°C? Nessun problema per te.\n- Mobile e flessibile come sei, non importa che il tuo lavoro inizi o finisca presto.\n- Sconti: Sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti più economici mobile e prepagati su Coop Mobile, Reka Card: sconto sull'acquisto, sconto su Mobility CarSharing, sconto personale anche per i partner:in (vivere nella stessa famiglia), sconto sull'abbonamento GA, sconti sugli eventi culturali, sconti sugli eventi, sconti sugli eventi, sconti sugli eventi culturali, sconti sugli eventi, sconti sugli eventi culturali, sconti\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, Condizioni interessanti di occupazione e parità di retribuzione certificata, premi fedeltà, piano di risparmio del Fondo pensione, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità retribuito e tre settimane di congedo di paternità retribuito\n- Orario di lavoro: 5 settimane vacanze, modelli di tempo di lavoro flessibili\n- Ulteriore istruzione: Più di 600 corsi di formazione interna, gestione del talento con diverse opportunità di sviluppo, formazione e ulteriori offerte di istruzione della L-GAV e Coop\n- Sostenibilità: Impegno a persone, animali e natura con oltre 400 azioni\n- Comunicazione: applicazione interna per i dipendenti\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto su abbonamento annuale, partecipazione gratuita a varie piste aziendali, offerte sportive interne\n\n## La persona di contatto\nChristelle Heitz\nHR Marketing\n\nTipo: A tempo pieno\nSchafisheim",
-        "en": "## Employee: incoming goods\n\n**Coop cooperative** — Schafisheim, Aargau, Svizzera\n\n## Tasks\n- Everything there? You accept the unloaded goods and check the deliveries carefully.\n- After a certain process, you collect the data in the system.\n- Everything in place? You store the goods.\n- In the camp you do general tasks.\n- In the absence of the team leader, you take responsibility for the team.\n\n## Requirements\n- You have completed the basic training as a logistician:in? Great! With an EFZ/EBA you can additionally score with us.\n- You know German verbally and in writing.\n- Your physical fitness is good.\n- Working in shifts and in the cold at 5°C? No problem for you.\n- Mobile and flexible as you are, it does not matter to you that your work starts or ends early.\n- Discounts: Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions on Coop Mobile, Reka Card: discount on purchase, discount on Mobility CarSharing, personal discount also for partners:in (living in the same household), discount on GA subscription, discounts on cultural events, discounts for leisure activities\n- Conditions of Employment: Pension Fund: 2/3 is paid by Coop, Attractive Conditions of Employment and Certified Equal Pay, Loyalty Premiums, Pension Fund Savings Plan, Total Employment Contract (GAV), 18 weeks of paid maternity leave and three weeks of paid paternity leave\n- Working time: 5 weeks holidays, flexible working time models\n- Further education: More than 600 internal training courses, talent management with diverse development opportunities, training and further education offers of the L-GAV and Coop\n- Sustainability: Commitment to people, animals and nature with more than 400 actions\n- Communication: internal app for employees\n- Health: Update Fitness: Fr. 200.– Discount on annual subscription, free participation in various company runs, in-house sports offers\n\n## Your contact person\nChristelle Heitz\nHR Marketing\n\n**Tipo:** Full-time\n**Sede:** Schafisheim",
-        "fr": "## Employés: biens entrants\n\n**Coopérative de coopératives** — Schafisheim, Aargau, Svizzera\n\n## Tâche\n- Tout est là ? Vous acceptez les marchandises déchargées et vérifiez soigneusement les livraisons.\n- Après un certain processus, vous recueillez les données dans le système.\n- Tout est en place ? Vous stockez les marchandises.\n- Dans le camp, vous faites des tâches générales.\n- En l'absence du chef d'équipe, vous assumez la responsabilité de l'équipe.\n\n## Exigences\n- Vous avez terminé la formation de base en tant que logisticien:in? Génial ! Avec un EFZ/EBA, vous pouvez également marquer avec nous.\n- Vous connaissez l'allemand verbalement et par écrit.\n- Votre forme physique est bonne.\n- Travailler en équipe et au froid à 5°C ? Pas de problème pour toi.\n- Mobile et flexible comme vous êtes, peu importe que votre travail commence ou se termine tôt.\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nChristelle Heitz\nMarketing des ressources humaines\n\n**Tipo:** Temps plein\n**Sede:** Schafisheim"
-      },
-      "requirementsByLocale": {
-        "it": [],
-        "en": [],
-        "de": [
-          "Du beherrschst Deutsch mündlich und schriftlich."
-        ],
-        "fr": []
-      },
-      "sourceLang": "de",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Schafisheim, Aargau",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "5000",
-      "country": "CH",
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-wareneingang-coop-genossenschaft-schafisheim-aargau",
-          "collaboratore-trice-wareneingang-coop-genossenschaft-gossau-sankt-gallen-o12jyr",
-          "associate-wareneingang-coop-genossenschaft-gossau-sankt-gallen-o12jyr",
-          "mitarbeiter-in-wareneingang-coop-genossenschaft-gossau-sankt-gallen-o12jyr",
-          "mitarbeiter-in-wareneingang-coop-genossenschaft-gossau-sankt-gallen"
-        ],
-        "en": [
-          "associate-wareneingang-coop-genossenschaft-gossau"
-        ],
-        "de": [
-          "mitarbeiter-in-wareneingang-coop-genossenschaft-gossau"
-        ],
-        "fr": [
-          "collaborateur-trice-wareneingang-coop-genossenschaft-gossau-sankt-gallen-o12jyr"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiter-in-wareneingang-coop-genossenschaft-schafisheim-aargau",
-        "collaboratore-trice-wareneingang-coop-genossenschaft-gossau-sankt-gallen-o12jyr",
-        "associate-wareneingang-coop-genossenschaft-gossau-sankt-gallen-o12jyr",
-        "mitarbeiter-in-wareneingang-coop-genossenschaft-gossau-sankt-gallen-o12jyr",
-        "mitarbeiter-in-wareneingang-coop-genossenschaft-gossau-sankt-gallen",
-        "associate-wareneingang-coop-genossenschaft-gossau",
-        "mitarbeiter-in-wareneingang-coop-genossenschaft-gossau",
-        "collaborateur-trice-wareneingang-coop-genossenschaft-gossau-sankt-gallen-o12jyr"
-      ]
-    },
-    {
-      "id": "company-b2plid",
-      "slug": "consulente-di-vendita-deco-jumbo-chur",
-      "company": "Jumbo, Division der Coop Genossenschaft",
-      "title": "Verkaufsberater:in Deco",
-      "location": "Chur, Graubünden",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Aufgaben\n\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\nAnforderungen\n\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.\n\n- Im Bereich Deco kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n\n- Arbeitszeit: 5 Wochen Ferien\n\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\nDeine Ansprechperson\nSuzana Jovanovic\nHR Marketing",
-      "requirements": [
-        "Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung:"
-      ],
-      "featured": false,
-      "postedDate": "2026-06-26",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-deco/a7f9bc0a-26a2-4f52-bc6f-460eeda0601f",
-      "source": "Company Careers Crawler",
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-06-26T22:02:14.772Z",
-      "firstSeenAt": "2026-06-26T22:02:14.772Z",
-      "titleByLocale": {
-        "de": "Verkaufsberater:in Deco",
-        "it": "Consulente di vendita Deco",
-        "en": "Sales consultant: in Deco",
-        "fr": "Consultant commercial: en Deco"
-      },
-      "descriptionByLocale": {
-        "de": "## Verkaufsberater:in Deco\n\n**Jumbo, Division der Coop Genossenschaft** — Chur, Graubünden, Svizzera\n\n## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Deco kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nSuzana Jovanovic\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Chur",
-        "it": "## Consulente commerciale: a Deco\n\nJumbo, Divisione Cooperativa Coop — Chur, Graubünden, Svizzera\n\n## Compiti\n- Con il vostro consiglio amichevole e competente ispirate i nostri clienti.\n- Aderisci alle linee guida interne e quindi assicurati che le merci siano presentate in modo attraente.\n- Con le merci sulla nostra zona di vendita e nel magazzino siete coscientious.\n- Se necessario, è anche possibile aiutare in altri rayons.\n- I processi di inventario, vendita e inventario-rilevanti sono parte della gestione del processo che si prende il sopravvento.\n\n## Requisiti\n- Vendere e consultare sono la vostra passione, soddisfazione del cliente la vostra motivazione? Perfetto.\n- Parli fluente tedesco, hai esperienza di vendita e idealmente una formazione completa di vendita: Allora sei proprio qui.\n- Naturalmente, sei flessibile durante i tempi di distribuzione (Mo. to Sa.). Ti appartiene alle vendite.\n- Conosci Deco? Così si può segnare particolarmente bene a questo punto.\n- Sempre un sorriso amichevole – questo è il tuo segreto per il successo.\n- Sconti: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a Coop Mobile, sconto personale anche per i partner:in (vivere nella stessa famiglia)\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, contratto collettivo di lavoro (GAV), 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità retribuito, bonus di lealtà, piano di risparmio presso il fondo pensionistico, regime flessibile e attraente per la pensione anticipata dal 58 completato. Età anno\n- Ore lavorative: 5 week-end\n- Formazione: oltre 600 corsi di formazione interna, supporto per l'istruzione e la formazione esterna, gestione del talento con una vasta gamma di opportunità di sviluppo\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto abbonamento annuale\n\n## La persona di contatto\nSuzana Jovanovic\nHR Marketing\n\nTipo: Tempo parziale\nRevisione:",
-        "en": "## Sales consultant: in Deco\n\n**Jumbo, Division of Coop Cooperative** — Chur, Graubünden, Svizzera\n\n## Tasks\n- With your friendly and competent advice you inspire our customers.\n- You adhere to the internal guidelines and so you make sure that the goods are presented attractively.\n- With the goods on our sales area and in the warehouse you are conscientious.\n- If necessary, you can also help in other rayons.\n- Inventory, sales and inventory-relevant processes are parts of the process management that you take over.\n\n## Requirements\n- Selling and consulting are your passion, customer satisfaction your motivation? Perfect.\n- You speak fluent German, you have sales experience and ideally a completed sales training: Then you are right here.\n- Of course, you are flexible during the deployment times (Mo. to Sa.). Belongs to you in sales.\n- Are you familiar with Deco? So you can score particularly well at this point.\n- Always a friendly smile – this is your secret to success.\n- Discounts: discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions at Coop Mobile, personal discount also for partners:in (living in the same household)\n- Conditions of employment: Pension fund: 2/3 is paid by Coop, collective employment contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty bonuses, savings plan at the pension fund, flexible and attractive scheme for early retirement pension from the completed 58. Age year\n- Working hours: 5 weeks holidays\n- Training: More than 600 internal training courses, support for external education and training, talent management with a wide range of development opportunities\n- Health: Update Fitness: Fr. 200.– Annual subscription discount\n\n## Your contact person\nSuzana Jovanovic\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:**Chur",
-        "fr": "## Consultant en ventes: en Deco\n\n**Jumbo, Division de la coopérative Coop** — Chur, Graubünden, Svizzera\n\n## Tâche\n- Avec votre conseil amical et compétent, vous inspirez nos clients.\n- Vous respectez les directives internes et vous assurez donc que les marchandises sont présentées de manière attrayante.\n- Avec les marchandises sur notre zone de vente et dans l'entrepôt, vous êtes consciencieux.\n- Si nécessaire, vous pouvez également aider dans d'autres rayons.\n- Les processus d'inventaire, de vente et d'inventaire font partie de la gestion des processus que vous prenez en charge.\n\n## Exigences\n- La vente et le conseil sont votre passion, la satisfaction des clients votre motivation? Parfait.\n- Vous parlez couramment allemand, vous avez une expérience de vente et idéalement une formation de vente terminée: Alors vous êtes là.\n- Bien sûr, vous êtes flexible pendant les temps de déploiement (Mo. à Sa.). Vous appartenez à la vente.\n- Vous connaissez Deco ? Donc vous pouvez marquer particulièrement bien à ce stade.\n- Toujours un sourire amical – c'est votre secret pour le succès.\n- Réductions: réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, réduction personnelle également pour les partenaires:in (habitant dans le même ménage)\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nSuzana Jovanovic\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:**Chur"
-      },
-      "slugByLocale": {
-        "it": "consulente-di-vendita-deco-jumbo-chur",
-        "en": "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-chur",
-        "de": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-chur-graubunden-b2plid",
-        "fr": "consultant-commercial-en-deco-jumbo-division-der-coop-genossenschaft-chur"
-      },
-      "requirementsByLocale": {
-        "it": [],
-        "en": [],
-        "de": [
-          "Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung:"
-        ],
-        "fr": []
-      },
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-chur-graubunden-b2plid",
-          "consulente-commerciale-a-deco-jumbo-division-der-coop-genossenschaft-chur-graubunden",
-          "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-chur-graubunden",
-          "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-chur",
-          "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach"
-        ],
-        "en": [
-          "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-chur-graubunden-b2plid",
-          "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-chur-graubunden",
-          "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-chur-graubunden",
-          "sales-consultant-deco-jumbo-division-der-coop-genossenschaft-chur-b2plid",
-          "sales-consultant-deco-jumbo-division-der-coop-genossenschaft-chur"
-        ],
-        "fr": [
-          "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-chur-graubunden-b2plid",
-          "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-chur-graubunden",
-          "consultant-commercial-en-deco-jumbo-division-der-coop-genossenschaft-chur-graubunden",
-          "conseiller-de-vente-deco-jumbo-division-der-coop-genossenschaft-chur-b2plid",
-          "conseiller-de-vente-deco-jumbo-division-der-coop-genossenschaft-chur"
-        ],
-        "de": [
-          "verkaufsberater-jumbo-division-der-coop-genossenschaft-chur"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-chur-graubunden-b2plid",
-        "consulente-commerciale-a-deco-jumbo-division-der-coop-genossenschaft-chur-graubunden",
-        "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-chur-graubunden",
-        "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-chur-graubunden",
-        "consultant-commercial-en-deco-jumbo-division-der-coop-genossenschaft-chur-graubunden",
-        "sales-consultant-deco-jumbo-division-der-coop-genossenschaft-chur-b2plid",
-        "sales-consultant-deco-jumbo-division-der-coop-genossenschaft-chur",
-        "verkaufsberater-jumbo-division-der-coop-genossenschaft-chur",
-        "conseiller-de-vente-deco-jumbo-division-der-coop-genossenschaft-chur-b2plid",
-        "conseiller-de-vente-deco-jumbo-division-der-coop-genossenschaft-chur",
-        "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-chur",
-        "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach"
-      ],
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Chur, Graubünden",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "7000",
-      "country": "CH"
-    },
-    {
-      "id": "company-74cm9x",
-      "slug": "consulente-commerciale-in-coop-genossenschaft-schaffhausen",
-      "company": "Coop Genossenschaft",
-      "title": "Verkaufsberater:in",
-      "location": "Schaffhausen",
-      "canton": "SH",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Aufgaben\n\n- Die Kundschaft für Trends und Neuheiten zu begeistern und sie individuell und typgerecht zu beraten, ist genau dein Ding – und deine tägliche Aufgabe.\n\n- Motiviert hilfst du mit, dass der Laden immer gepflegt aussieht.\n\n- Die Bewirtschaftung der Waren auf unserer Verkaufsfläche unternimmst du sehr gewissenhaft.\n\n- Die Verantwortung für das Kassawesen liegt ebenfalls bei dir.\n\nAnforderungen\n\n- Am liebsten arbeitest du mit Menschen. Team und Kundschaft spüren deine Leidenschaft Tag für Tag.\n\n- Gewinnend, engagiert und aufmerksam: Diese drei Eigenschaften beschreiben dich am besten.\n\n- Abgeschlossene Berufsausbildung und/oder Erfahrung vorzugsweise als Parfümverkäufer:in, Kosmetiker:in oder Drogist:in? Leute wie dich suchen wir.\n\n- Deutsch hast du im Griff – mündlich und schriftlich. Und wenn du Fremdsprachen kannst, umso besser.\n\n- Dass man im Verkauf bei den Einsatzzeiten (Mo. bis Sa.) flexibel sein sollte, ist für dich selbstverständlich.\n\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n\n- Arbeitszeit: 5 Wochen Ferien\n\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\nDeine Ansprechperson\nSuzana Jovanovic\nHR Marketing",
-      "requirements": [
-        "Deutsch hast du im Griff – mündlich und schriftlich."
-      ],
-      "featured": false,
-      "postedDate": "2026-06-26",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/04a25a8f-58be-4ee3-98ca-6c185c44864a",
-      "source": "Company Careers Crawler",
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-06-26T22:02:14.772Z",
-      "firstSeenAt": "2026-06-26T22:02:14.772Z",
-      "titleByLocale": {
-        "de": "Verkaufsberater:in",
-        "it": "Consulente commerciale:in",
-        "en": "Sales consultant:in",
-        "fr": "Consultant en ventes:"
-      },
-      "descriptionByLocale": {
-        "de": "Aufgaben - Die Kundschaft für Trends und Neuheiten zu begeistern und sie individuell und typgerecht zu beraten, ist genau dein Ding – und deine tägliche Aufgabe. - Motiviert hilfst du mit, dass der Laden immer gepflegt aussieht. - Die Bewirtschaftung der Waren auf unserer Verkaufsfläche unternimmst du sehr gewissenhaft. - Die Verantwortung für das Kassawesen liegt ebenfalls bei dir.\n• Anforderungen - Am liebsten arbeitest du mit Menschen. Team und Kundschaft spüren deine Leidenschaft Tag für Tag. - Gewinnend, engagiert und aufmerksam: Diese drei Eigenschaften beschreiben dich am besten. - Abgeschlossene Berufsausbildung und/oder Erfahrung vorzugsweise als Parfümverkäufer:in, Kosmetiker:in oder Drogist:in? Leute wie dich suchen wir. - Deutsch hast du im Griff – mündlich und schriftlich. Und wenn du Fremdsprachen kannst, umso besser. - Dass man im Verkauf bei den Einsatzzeiten (Mo. bis Sa.) flexibel sein sollte, ist für dich selbstverständlich. - Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend) - Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr - Arbeitszeit: 5 Wochen Ferien - Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten - Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement Deine Ansprechperson Suzana Jovanovic HR Marketing",
-        "it": "Compiti\n\n- Ispirare i clienti con tendenze e novità e consigliarli individualmente e secondo il tipo è esattamente la vostra cosa – e il vostro compito quotidiano.\n\n- Motivato aiuta che il negozio sembra sempre ben tenuto.\n\n- La gestione delle merci sulla nostra zona di vendita si fa molto consapevolmente.\n\n- La responsabilità per la gestione dei contanti è anche con voi.\n\nRequisiti\n\n- Preferisci lavorare con le persone. Team e clienti sentono la vostra passione giorno dopo giorno.\n\n- Vincitore, impegnato e attento: Queste tre qualità ti descrivono meglio.\n\n- Formazione professionale completa e/o esperienza preferibilmente come profumeria:in, estetista:in o farmacista:in? Stiamo cercando persone come te.\n\n- Avete il tedesco sotto controllo – verbalmente e per iscritto. Se conosci le lingue straniere, tanto meglio è.\n\n- Il fatto che si dovrebbe essere flessibili nelle vendite durante i tempi di utilizzo (Mo. to Sa.) è una questione naturalmente per voi.\n\n- Sconto sulla offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino al 20% di sconto su vari servizi assicurativi, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a Coop Mobile, sconto personale anche per i partner:in (vivere nella stessa famiglia)\n\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, contratto collettivo di lavoro (GAV), 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità retribuito, bonus di lealtà, piano di risparmio presso il fondo pensionistico, regime flessibile e attraente per la pensione anticipata dal 58 completato. Età anno\n\n- Ore lavorative: 5 week-end\n\n- Formazione: oltre 600 corsi di formazione interna, supporto per l'istruzione e la formazione esterna, gestione del talento con una vasta gamma di opportunità di sviluppo\n\n- Salute: Aggiornamento Fitness: Fr. 200.– Sconto su abbonamento annuale\n\nLa persona di contatto\nSuzana Jovanovic\nHR Marketing",
-        "en": "Tasks\n\n- Inspiring customers with trends and novelties and advising them individually and according to type is exactly your thing – and your daily task.\n\n- Motivated you help that the store always looks well-kept.\n\n- The management of the goods on our sales area you do very conscientiously.\n\n- The responsibility for cash management also lies with you.\n\nRequirements\n\n- You prefer to work with people. Team and customers feel your passion day after day.\n\n- Winning, engaged and attentive: These three qualities describe you best.\n\n- Completed vocational training and/or experience preferably as a perfume seller:in, beautician:in or drugist:in? We are looking for people like you.\n\n- You have German under control – verbally and in writing. If you know foreign languages, so much the better.\n\n- The fact that you should be flexible in sales during the use times (Mo. to Sa.) is a matter of course for you.\n\n- Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions at Coop Mobile, personal discount also for partners:in (living in the same household)\n\n- Conditions of employment: Pension fund: 2/3 is paid by Coop, collective employment contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty bonuses, savings plan at the pension fund, flexible and attractive scheme for early retirement pension from the completed 58. Age year\n\n- Working hours: 5 weeks holidays\n\n- Training: More than 600 internal training courses, support for external education and training, talent management with a wide range of development opportunities\n\n- Health: Update Fitness: Fr. 200.– Discount on annual subscription\n\nYour contact person\nSuzana Jovanovic\nHR Marketing",
-        "fr": "Tâches\n\n- Inspirer les clients avec des tendances et des nouveautés et les conseiller individuellement et selon le type est exactement votre chose – et votre tâche quotidienne.\n\n- Motivé, vous aidez que le magasin semble toujours bien gardé.\n\n- La gestion des marchandises sur notre zone de vente vous faites très consciencieusement.\n\n- La responsabilité de la gestion de la trésorerie vous incombe également.\n\nExigences\n\n- Tu préfères travailler avec les gens. L'équipe et les clients ressentent votre passion jour après jour.\n\n- Gagner, être engagé et attentif : Ces trois qualités vous décrivent le mieux.\n\n- Achevé une formation professionnelle et/ou une expérience de préférence en tant que vendeur de parfums:in, esthéticien:in ou drogué:in? Nous cherchons des gens comme vous.\n\n- Vous avez l'allemand sous contrôle – verbalement et par écrit. Si vous connaissez des langues étrangères, tant mieux.\n\n- Le fait que vous devriez être flexible dans les ventes pendant les temps d'utilisation (Mo. à Sa.) est une question bien sûr pour vous.\n\n- Réduction sur le voyage offre ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, des abonnements mobiles et prépayés moins chers chez Coop Mobile, réduction personnelle également pour les partenaires:in (habitant dans le même ménage)\n\n- Conditions d'emploi: fonds de pension: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de pension, régime flexible et attrayant de retraite anticipée à partir de 58. Année\n\n- Heures de travail: 5 semaines de congés\n\n- Formation: plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur abonnement annuel\n\nVotre personne à contacter\nSuzana Jovanovic\nMarketing des ressources humaines"
-      },
-      "slugByLocale": {
-        "it": "consulente-commerciale-in-coop-genossenschaft-schaffhausen",
-        "en": "sales-consultant-in-coop-genossenschaft-schaffhausen",
-        "de": "verkaufsberater-in-coop-genossenschaft-schaffhausen-74cm9x",
-        "fr": "consultant-en-ventes-coop-genossenschaft-schaffhausen-dbb715"
-      },
-      "requirementsByLocale": {
-        "it": [],
-        "en": [],
-        "de": [
-          "Deutsch hast du im Griff – mündlich und schriftlich."
-        ],
-        "fr": []
-      },
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "conseiller-ere-de-vente-coop-genossenschaft-schaffhausen",
-          "consulente-vendite-coop-genossenschaft-schaffhausen",
-          "sales-advisor-coop-genossenschaft-schaffhausen",
-          "verkaufsberater-in-import-parfumerie-schaffhausen-nhdw1p",
-          "conseiller-ere-commercial-e-coop-genossenschaft-schaffhausen-nhdw1p",
-          "textile-sales-consultant-coop-city-chur-graubunden",
-          "sales-consultant-coop-genossenschaft-schaffhausen-74cm9x",
-          "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0",
-          "sales-consultant-coop-genossenschaft-schaffhausen-a526b8",
-          "conseiller-de-vente-coop-genossenschaft-schaffhausen-a526b8",
-          "sales-consultant-import-parfumerie-chur-graubunden",
-          "sales-consultant-in-coop-genossenschaft-chur-ro4syg",
-          "sales-consultant-in-coop-genossenschaft-chur",
-          "consultant-en-ventes-en-textile-jumbo-division-der-coop-genossenschaft-chur",
-          "sales-consultant-coop-genossenschaft-schaffhausen-nhdw1p",
-          "consultant-en-ventes-coop-genossenschaft-schaffhausen-nhdw1p",
-          "conseiller-de-vente-coop-genossenschaft-schaffhausen-nhdw1p",
-          "verkaufsberater-in-import-parfumerie-chur-graubunden-nsjp2p",
-          "verkaufsberater-in-coop-genossenschaft-schaffhausen",
-          "verkaufsberater-in-coop-genossenschaft-schaffhausen-nhdw1p"
-        ],
-        "en": [
-          "verkaufsberater-in-coop-genossenschaft-schaffhausen-nhdw1p",
-          "consultant-en-vente-coop-genossenschaft-basel",
-          "sales-consultant-coop-genossenschaft-basel-9d0mi4",
-          "sales-consultant-cosmetics-coop-genossenschaft-basel-730f3e",
-          "consultant-en-vente-en-cosmetiques-coop-genossenschaft-basel-730f3e",
-          "sales-consultant-coop-genossenschaft-st-gallen-5b06ca",
-          "sales-consultant-coop-genossenschaft-st-gallen",
-          "sales-consultant-coop-genossenschaft-luzern",
-          "sales-consultant-cosmetics-coop-genossenschaft-basel-0pdmcw",
-          "sales-consultant-cosmetics-coop-genossenschaft-basel",
-          "consultant-en-vente-en-cosmetiques-coop-genossenschaft-basel-0pdmcw",
-          "sales-consultant-in-coop-genossenschaft-schaffhausen-a526b8",
-          "consultant-en-ventes-coop-genossenschaft-schaffhausen",
-          "consultant-en-vente-en-cosmetiques-coop-genossenschaft-basel",
-          "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur-96389b",
-          "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur",
-          "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur",
-          "consultant-en-vente-coop-genossenschaft-basel-9d0mi4",
-          "sales-consultant-coop-genossenschaft-schaffhausen",
-          "sales-consultant-coop-genossenschaft-basel"
-        ],
-        "fr": [
-          "verkaufsberater-in-coop-genossenschaft-schaffhausen-74cm9x",
-          "verkaufsberater-in-coop-genossenschaft-schaffhausen-nhdw1p",
-          "conseiller-de-vente-coop-genossenschaft-schaffhausen",
-          "conseiller-ere-commercial-e-coop-genossenschaft-schaffhausen"
-        ],
-        "de": [
-          "verkaufsberater-in-coop-genossenschaft-schaffhausen-nhdw1p"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsberater-in-coop-genossenschaft-schaffhausen-74cm9x",
-        "sales-consultant-coop-genossenschaft-schaffhausen-a526b8",
-        "conseiller-de-vente-coop-genossenschaft-schaffhausen-a526b8",
-        "sales-consultant-coop-genossenschaft-schaffhausen",
-        "verkaufsberater-in-coop-genossenschaft-schaffhausen-nhdw1p",
-        "sales-consultant-import-parfumerie-chur-graubunden",
-        "sales-consultant-in-coop-genossenschaft-chur-ro4syg",
-        "sales-consultant-in-coop-genossenschaft-chur",
-        "consultant-en-ventes-en-textile-jumbo-division-der-coop-genossenschaft-chur",
-        "textile-sales-consultant-coop-city-chur-graubunden",
-        "sales-consultant-coop-genossenschaft-schaffhausen-74cm9x",
-        "sales-consultant-coop-genossenschaft-schaffhausen-nhdw1p",
-        "consultant-en-ventes-coop-genossenschaft-schaffhausen-nhdw1p",
-        "consultant-en-ventes-coop-genossenschaft-schaffhausen",
-        "conseiller-de-vente-coop-genossenschaft-schaffhausen-nhdw1p",
-        "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0",
-        "conseiller-de-vente-coop-genossenschaft-schaffhausen-74cm9x",
-        "verkaufsberater-in-import-parfumerie-chur-graubunden-nsjp2p",
-        "verkaufsberater-in-coop-genossenschaft-schaffhausen",
-        "verkaufsberater-in-import-parfumerie-basel-stadt-9d0mi4",
-        "conseiller-de-vente-coop-genossenschaft-chur-6c1d36",
-        "verkaufsberater-in-coop-genossenschaft-st-gallen",
-        "conseiller-de-vente-coop-genossenschaft-st-gallen-5b06ca",
-        "conseiller-de-vente-coop-genossenschaft-st-gallen",
-        "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen",
-        "conseiller-ere-commercial-e-coop-genossenschaft-schaffhausen",
-        "conseiller-de-vente-coop-genossenschaft-luzern",
-        "conseiller-ere-de-vente-coop-genossenschaft-schaffhausen",
-        "consulente-vendite-coop-genossenschaft-schaffhausen",
-        "sales-advisor-coop-genossenschaft-schaffhausen",
-        "consultant-en-vente-coop-genossenschaft-basel",
-        "sales-consultant-coop-genossenschaft-basel-9d0mi4",
-        "sales-consultant-cosmetics-coop-genossenschaft-basel-730f3e",
-        "consultant-en-vente-en-cosmetiques-coop-genossenschaft-basel-730f3e",
-        "sales-consultant-coop-genossenschaft-st-gallen-5b06ca",
-        "sales-consultant-coop-genossenschaft-st-gallen",
-        "sales-consultant-coop-genossenschaft-luzern",
-        "sales-consultant-cosmetics-coop-genossenschaft-basel-0pdmcw",
-        "sales-consultant-cosmetics-coop-genossenschaft-basel",
-        "consultant-en-vente-en-cosmetiques-coop-genossenschaft-basel-0pdmcw",
-        "sales-consultant-in-coop-genossenschaft-schaffhausen-a526b8",
-        "consultant-en-vente-en-cosmetiques-coop-genossenschaft-basel",
-        "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur-96389b",
-        "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur",
-        "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur",
-        "consultant-en-vente-coop-genossenschaft-basel-9d0mi4",
-        "sales-consultant-coop-genossenschaft-basel",
-        "conseiller-de-vente-coop-genossenschaft-schaffhausen",
-        "verkaufsberater-in-import-parfumerie-schaffhausen-nhdw1p",
-        "conseiller-ere-commercial-e-coop-genossenschaft-schaffhausen-nhdw1p"
-      ],
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Schaffhausen",
-      "addressRegion": "SH",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "8200",
-      "country": "CH"
-    },
-    {
-      "id": "company-1wyfa0",
-      "slug": "consulente-commerciale-in-interdiscount-affoltern-am-albis",
-      "company": "Interdiscount",
-      "title": "Verkaufsberater:in",
-      "location": "Affoltern am Albis, Zürich",
-      "canton": "ZH",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Wir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter.\n\nAufgaben\n\n- Du berätst unsere Kundinnen und Kunden professionell und engagiert.\n\n- Du verkaufst unser Produktangebot überzeugend und mit Leidenschaft.\n\n- Du bist mitverantwortlich für eine attraktive Warenpräsentation und setzt diese gewinnbringend ein.\n\n- Du bearbeitest unseren Wareneingang und -ausgang mit Sorgfalt.\n\nAnforderungen\n\n- Freude an der Beratung von Kundinnen und Kunden\n\n- Zuverlässigkeit, Ehrlichkeit und Loyalität\n\n- Motivation für persönliche und fachliche Weiterbildung\n\n- Flair für neue Technikprodukte\n\n- Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil\n\nWas wir bieten\n\nDeine Ansprechperson\nFederica Blumetti\nHR Marketing\n+41 31 764 42 68",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-06-26",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/512f1471-e5a9-4811-a4d9-e49c32226c0e",
-      "source": "Company Careers Crawler",
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-06-26T22:02:14.772Z",
-      "firstSeenAt": "2026-06-26T22:02:14.772Z",
-      "titleByLocale": {
-        "de": "Verkaufsberater:in",
-        "it": "Consulente commerciale:in",
-        "en": "Sales consultant:in",
-        "fr": "Consultant en ventes:"
-      },
-      "descriptionByLocale": {
-        "de": "## Verkaufsberater:in\n\n**Interdiscount** — Affoltern am Albis, Zürich, Svizzera\n\n## Wir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter.\n\n## Aufgaben\n- Du berätst unsere Kundinnen und Kunden professionell und engagiert.\n- Du verkaufst unser Produktangebot überzeugend und mit Leidenschaft.\n- Du bist mitverantwortlich für eine attraktive Warenpräsentation und setzt diese gewinnbringend ein.\n- Du bearbeitest unseren Wareneingang und -ausgang mit Sorgfalt.\n\n## Anforderungen\n- Freude an der Beratung von Kundinnen und Kunden\n- Zuverlässigkeit, Ehrlichkeit und Loyalität\n- Motivation für persönliche und fachliche Weiterbildung\n- Flair für neue Technikprodukte\n- Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil\n\n## Was wir bieten\n\n## Deine Ansprechperson\nFederica Blumetti\nHR Marketing\n+41 31 764 42 68\n\n**Tipo:** Part-time\n**Sede:** Affoltern am Albis",
-        "it": "## Consulente commerciale:in\n\nInterdiscount — Affoltern am Albis, Zurigo, Svizzera\n\n## A Interdiscount offriamo ai nostri clienti la migliore esperienza di shopping in Svizzera. Impegnarsi in un ambiente di lavoro dinamico e imprenditoriale. Prendere la responsabilità, essere proattivi con noi e sviluppare ulteriormente.\n\n## Compiti\n- Si consiglia ai nostri clienti professionalmente e con impegno.\n- Vendete la nostra gamma di prodotti in modo convincente e con passione.\n- Siete congiuntamente responsabili di una presentazione attraente di merci e utilizzarlo con profitto.\n- Elabori la nostra merce ricevuta ed esci con cura.\n\n## Requisiti\n- Divertimento di consulenza clienti\n- Affidabilità, onestà e fedeltà\n- Motivazione per la formazione personale e professionale\n- Flair per nuovi prodotti tecnici\n- formazione di vendita completa; Esperienza professionale in casa / elettronica di inserimento è vantaggioso\n\n## Cosa offriamo\n\n## La persona di contatto\nFederica Blumetti,\nHR Marketing\n+41 31 764 42 68\n\nTipo: Tempo parziale\n♪ Sede. ♪ Affolterning sugli Albi",
-        "en": "## Sales consultant:in\n\n**Interdiscount** — Affoltern am Albis, Zurich, Svizzera\n\n## At Interdiscount, we offer our customers the best shopping experience in Switzerland. Engage in a dynamic and entrepreneurial working environment. Take responsibility, be proactive with us and develop further.\n\n## Tasks\n- You advise our customers professionally and with commitment.\n- You sell our product range convincingly and with passion.\n- You are jointly responsible for an attractive presentation of goods and use it profitably.\n- You process our goods receipt and exit with care.\n\n## Requirements\n- Enjoyment of advising customers\n- Reliability, honesty and loyalty\n- Motivation for personal and professional training\n- Flair for new technical products\n- completed sales training; Professional experience in home/entertainment electronics is beneficial\n\n## What we offer\n\n## Your contact person\nFederica Blumetti,\nHR Marketing\n+41 31 764 42 68\n\n**Tipo:** Part-time\n**Sede:** Affolterning on the Albis",
-        "fr": "## Consultant en ventes:\n\n**Interdiscount** — Affoltern am Albis, Zurich, Svizzera\n\n## Chez Interdiscount, nous offrons à nos clients la meilleure expérience d'achat en Suisse. S'engager dans un environnement de travail dynamique et entrepreneurial. Prenez des responsabilités, soyez proactif avec nous et développez-vous.\n\n## Tâche\n- Vous conseillez nos clients professionnellement et avec engagement.\n- Vous vendez notre gamme de produits avec conviction et passion.\n- Vous êtes conjointement responsable d'une présentation attrayante des marchandises et l'utilisez avec profit.\n- Vous traitez notre reçu de marchandises et sortez avec soin.\n\n## Exigences\n- Profitez des conseils aux clients\n- Fiabilité, honnêteté et loyauté\n- Motivation pour la formation personnelle et professionnelle\n- Flair pour nouveaux produits techniques\n- une formation sur les ventes terminée; une expérience professionnelle en électronique à domicile ou en salle d'entraînement est bénéfique\n\n## Ce que nous offrons\n\n## Votre personne à contacter\nFederica Blumetti,\nMarketing des ressources humaines\n+41 31 764 42 68\n\n**Tipo:** Temps partiel\n**Sécurité :** Affolternation sur les Albis"
-      },
-      "slugByLocale": {
-        "it": "consulente-commerciale-in-interdiscount-affoltern-am-albis",
-        "en": "sales-consultant-in-interdiscount-affoltern-am-albis",
-        "de": "verkaufsberater-in-interdiscount-affoltern-am-albis-zurich-1wyfa0",
-        "fr": "consultant-en-ventes-interdiscount-affoltern-am-albis"
-      },
-      "requirementsByLocale": {},
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-interdiscount-affoltern-am-albis-zurich-1wyfa0",
-          "consulente-commerciale-in-interdiscount-affoltern-am-albis-zurich",
-          "verkaufsberater-in-interdiscount-affoltern-am-albis-zurich"
-        ],
-        "en": [
-          "verkaufsberater-in-interdiscount-affoltern-am-albis-zurich-1wyfa0",
-          "sales-consultant-in-interdiscount-affoltern-am-albis-zurich"
-        ],
-        "fr": [
-          "verkaufsberater-in-interdiscount-affoltern-am-albis-zurich-1wyfa0",
-          "consultant-en-ventes-interdiscount-affoltern-am-albis-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsberater-in-interdiscount-affoltern-am-albis-zurich-1wyfa0",
-        "consulente-commerciale-in-interdiscount-affoltern-am-albis-zurich",
-        "sales-consultant-in-interdiscount-affoltern-am-albis-zurich",
-        "consultant-en-ventes-interdiscount-affoltern-am-albis-zurich",
-        "verkaufsberater-in-interdiscount-affoltern-am-albis-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Affoltern am Albis, Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "8001",
       "country": "CH"
     },
     {
@@ -24045,377 +23628,6 @@
       "addressRegion": "JU",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
-    },
-    {
-      "id": "company-9ajl66",
-      "slug": "vice-responsabile-di-gruppo-produzione-panofina-coop-genossenschaft-schafisheim",
-      "company": "Coop Genossenschaft",
-      "title": "Stv. Gruppenleiter:in Produktion Panofina",
-      "location": "Schafisheim, Aargau",
-      "canton": "AG",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Aufgaben\n\n- Stellvertretung der Gruppenleitung bei Abwesenheit\n\n- Planung, Kontrolle und Umsetzung des Personaleinsatzplans\n\n- Bestellabwicklung in SAP\n\n- Etablierung und aktive Umsetzung von Lean-Management-Prinzipien\n\n- Sicherstellung der Einhaltung von Spezifikationen (Gewicht, Linienpläne, Arbeitszeiten)\n\nAnforderungen\n\n- Berufsprüfung als Lebensmitteltechnolog:in von Vorteil\n\n- Erfahrung in der Lebensmittelindustrie und idealerweise in der Führung\n\n- Gute Deutschkenntnisse in Wort und Schrift\n\n- Schnelle Auffassungsgabe und vernetztes Denken\n\n- Bereitschaft zur Schicht- und Wochenendarbeit\n\nDeine Ansprechperson\nCorinne Elmiger\nHR Marketing",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-06-26",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/stv-gruppenleiter-in-produktion-panofina/f7198cf8-d9b2-4ba0-9902-8f98aae14a3b",
-      "source": "Company Careers Crawler",
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-06-26T11:30:38.888Z",
-      "firstSeenAt": "2026-06-26T11:30:38.888Z",
-      "titleByLocale": {
-        "de": "Stv. Gruppenleiter:in Produktion Panofina",
-        "it": "Vice responsabile di gruppo Produzione Panofina",
-        "en": "Deputy Group Leader Production Panofina",
-        "fr": "Chef de groupe adjoint Production Panofina"
-      },
-      "descriptionByLocale": {
-        "de": "## Stv. Gruppenleiter:in Produktion Panofina\n\n**Coop Genossenschaft** — Schafisheim, Aargau, Svizzera\n\n## Aufgaben\n- Stellvertretung der Gruppenleitung bei Abwesenheit\n- Planung, Kontrolle und Umsetzung des Personaleinsatzplans\n- Bestellabwicklung in SAP\n- Etablierung und aktive Umsetzung von Lean-Management-Prinzipien\n- Sicherstellung der Einhaltung von Spezifikationen (Gewicht, Linienpläne, Arbeitszeiten)\n\n## Anforderungen\n- Berufsprüfung als Lebensmitteltechnolog:in von Vorteil\n- Erfahrung in der Lebensmittelindustrie und idealerweise in der Führung\n- Gute Deutschkenntnisse in Wort und Schrift\n- Schnelle Auffassungsgabe und vernetztes Denken\n- Bereitschaft zur Schicht- und Wochenendarbeit\n\n## Deine Ansprechperson\nCorinne Elmiger\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Schafisheim",
-        "it": "## Stv. gruppo leader: in produzione Panofina\n\nCoop cooperative — Schafisheim, Aargau, Svizzera\n\n## Compiti\n- Gestione del gruppo aggiunto in assenza\n- Pianificazione, controllo e attuazione del Piano Operativo delle Risorse Umane\n- Elaborazione ordini in SAP\n- Istituzione e attuazione attiva dei principi di gestione magra\n- Garantire il rispetto delle specifiche (peso, orari, ore di lavoro)\n\n## Requisiti\n- Esame professionale come tecnologia alimentare: a vantaggio\n- Esperienza nell'industria alimentare e idealmente nella leadership\n- Buona conoscenza del tedesco nelle parole e nella scrittura\n- Rapida comprensione e pensiero in rete\n- Prontezza per lavoro a turni e fine settimana\n\n## La persona di contatto\nCorinne Elmiger\nHR Marketing\n\nTipo: Tempo parziale\nSchafisheim",
-        "en": "## Stv. group leader: in production Panofina\n\n**Coop cooperative** — Schafisheim, Aargau, Svizzera\n\n## Tasks\n- Deputy group management in absence\n- Planning, control and implementation of the Human Resources Operation Plan\n- Order processing in SAP\n- Establishment and active implementation of lean management principles\n- Ensuring compliance with specifications (weight, schedules, working hours)\n\n## Requirements\n- Professional examination as a food technology: in advantage\n- Experience in the food industry and ideally in leadership\n- Good knowledge of German in words and writing\n- Rapid comprehension and networked thinking\n- Readiness for shift and weekend work\n\n## Your contact person\nCorinne Elmiger\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Schafisheim",
-        "fr": "## Chef de groupe Stv: en production Panofina\n\n**Coopérative de coopératives** — Schafisheim, Aargau, Svizzera\n\n## Tâche\n- Gestion du groupe adjoint en absence\n- Planification, contrôle et mise en oeuvre du Plan d'exploitation des ressources humaines\n- Traitement des commandes dans SAP\n- Établissement et mise en œuvre active des principes de gestion maigre\n- Assurer le respect des spécifications (poids, horaires, heures de travail)\n\n## Exigences\n- Examen professionnel en tant que technologie alimentaire : avantage\n- Expérience dans l'industrie alimentaire et idéalement en leadership\n- Bonne connaissance de l'allemand en mots et en écriture\n- Compréhension rapide et pensée en réseau\n- Préparation pour le travail posté et le week-end\n\n## Votre personne à contacter\nCorinne Elmiger\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Schafisheim"
-      },
-      "slugByLocale": {
-        "it": "vice-responsabile-di-gruppo-produzione-panofina-coop-genossenschaft-schafisheim",
-        "en": "deputy-group-leader-production-panofina-coop-genossenschaft-schafisheim-9ajl66",
-        "de": "stv-gruppenleiter-in-produktion-panofina-coop-genossenschaft-schafisheim-aargau-9ajl66",
-        "fr": "chef-de-groupe-adjoint-production-panofina-coop-genossenschaft-schafisheim-9ajl66"
-      },
-      "requirementsByLocale": {},
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "stv-gruppenleiter-in-produktion-panofina-coop-genossenschaft-schafisheim-aargau-9ajl66",
-          "stv-gruppo-leader-in-produzione-panofina-coop-genossenschaft-schafisheim-aargau",
-          "capogruppo-sostituto-in-produzione-panofina-coop-genossenschaft-schafisheim-aargau",
-          "stv-gruppenleiter-in-produktion-panofina-coop-genossenschaft-schafisheim-aargau",
-          "stv-gruppenleiter-in-produktion-sud-nachtschicht-panofina-coop-genossenschaft-schafisheim"
-        ],
-        "en": [
-          "stv-gruppenleiter-in-produktion-panofina-coop-genossenschaft-schafisheim-aargau-9ajl66",
-          "stv-group-leader-in-production-panofina-coop-genossenschaft-schafisheim-aargau",
-          "deputy-production-group-leader-panofina-coop-genossenschaft-schafisheim",
-          "deputy-group-leader-production-panofina-coop-genossenschaft-schafisheim"
-        ],
-        "fr": [
-          "stv-gruppenleiter-in-produktion-panofina-coop-genossenschaft-schafisheim-aargau-9ajl66",
-          "chef-de-groupe-stv-en-production-panofina-coop-genossenschaft-schafisheim-aargau",
-          "chef-de-groupe-adjoint-production-panofina-coop-genossenschaft-schafisheim"
-        ]
-      },
-      "previousSlugs": [
-        "stv-gruppenleiter-in-produktion-panofina-coop-genossenschaft-schafisheim-aargau-9ajl66",
-        "stv-gruppo-leader-in-produzione-panofina-coop-genossenschaft-schafisheim-aargau",
-        "stv-group-leader-in-production-panofina-coop-genossenschaft-schafisheim-aargau",
-        "chef-de-groupe-stv-en-production-panofina-coop-genossenschaft-schafisheim-aargau",
-        "capogruppo-sostituto-in-produzione-panofina-coop-genossenschaft-schafisheim-aargau",
-        "stv-gruppenleiter-in-produktion-panofina-coop-genossenschaft-schafisheim-aargau",
-        "deputy-production-group-leader-panofina-coop-genossenschaft-schafisheim",
-        "deputy-group-leader-production-panofina-coop-genossenschaft-schafisheim",
-        "chef-de-groupe-adjoint-production-panofina-coop-genossenschaft-schafisheim",
-        "stv-gruppenleiter-in-produktion-sud-nachtschicht-panofina-coop-genossenschaft-schafisheim"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Schafisheim, Aargau",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "5000",
-      "country": "CH"
-    },
-    {
-      "id": "company-afappf",
-      "slug": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-regensdorf-zurich-afappf",
-      "company": "CHRIST Uhren & Schmuck AG",
-      "title": "Geschäftsführer:in",
-      "location": "Regensdorf, Zürich",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Aufgaben\n\n- Storemanager:in oder Filialleiter:in – zwei Titel, eine Mission: dieselben Aufgaben, dieselbe Verantwortung. Bist du bereit, gemeinsam mit deinem Team eure Verkaufsstelle weiter voranzubringen? Dann bist du bei uns genau richtig.\n\n- Du weisst: Wenn du deine Mitarbeitenden unterstützt und motivierst, setzen du und dein Team die Verkaufsförderungsmassnahmen erfolgreich um.\n\n- Unsere anspruchsvolle Kundschaft ist davon begeistert, wie du sie kompetent und zuvorkommend berätst.\n\n- Du sorgst für eine optimale Warenbewirtschaftung und dafür, dass deine Verkaufsstelle Lust macht zum Einkaufen.\n\n- Deine täglichen Aufgaben? Du erstellst den Personaleinsatzplan inkl. Kostenkontrolle und übernimmst die Filialadministration.\n\nAnforderungen\n\n- Du überzeugst im Verkauf und hast Erfahrung in der Führung? Dann bist du bei uns richtig.\n\n- Deine Berufsausbildung im Bereich Schmuck hat dich zum fachlichen Profi gemacht. Betriebswirtschaftlich kompetent bist du aufgrund einer Weiterbildung.\n\n- Deutsch kannst du sehr gut – mündlich und schriftlich.\n\n- Office-Programme? Kein Problem für dich.\n\n- Mehrjährige Erfahrung in der Branche? Damit überzeugst du uns.\n\nWas wir bieten\n\n- Vergünstigungen: Coop-Gutschein im Wert von 500 CHF für ein Notebook, Tablet etc., Reka-Card: Vergünstigung bei Bezug, Halbtagsabo inkl. Partner oder Partnerin, SBB-Halbtax oder Vergünstigung bei GA-Abonnement, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n\n- Arbeitszeit: 6 Wochen Ferien\n\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\nDeine Ansprechperson\nSinduja Kugasothy\nHR Marketing",
-      "requirements": [
-        "Deutsch kannst du sehr gut – mündlich und schriftlich."
-      ],
-      "featured": false,
-      "postedDate": "2026-06-26",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/geschaeftsfuehrer-in/910ac3fe-bd0e-4763-a37a-36a26338dcea",
-      "source": "Company Careers Crawler",
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-06-25T22:26:18.183Z",
-      "firstSeenAt": "2026-06-25T22:26:18.183Z",
-      "titleByLocale": {
-        "de": "Geschäftsführer:in",
-        "it": "Direttore/direttrice",
-        "en": "Managing Director",
-        "fr": "Directeur/trice"
-      },
-      "descriptionByLocale": {
-        "de": "## Geschäftsführer:in\n\n**CHRIST Uhren & Schmuck AG** — Regensdorf, Zürich, Svizzera\n\n## Aufgaben\n- Storemanager:in oder Filialleiter:in – zwei Titel, eine Mission: dieselben Aufgaben, dieselbe Verantwortung. Bist du bereit, gemeinsam mit deinem Team eure Verkaufsstelle weiter voranzubringen? Dann bist du bei uns genau richtig.\n- Du weisst: Wenn du deine Mitarbeitenden unterstützt und motivierst, setzen du und dein Team die Verkaufsförderungsmassnahmen erfolgreich um.\n- Unsere anspruchsvolle Kundschaft ist davon begeistert, wie du sie kompetent und zuvorkommend berätst.\n- Du sorgst für eine optimale Warenbewirtschaftung und dafür, dass deine Verkaufsstelle Lust macht zum Einkaufen.\n- Deine täglichen Aufgaben? Du erstellst den Personaleinsatzplan inkl. Kostenkontrolle und übernimmst die Filialadministration.\n\n## Anforderungen\n- Du überzeugst im Verkauf und hast Erfahrung in der Führung? Dann bist du bei uns richtig.\n- Deine Berufsausbildung im Bereich Schmuck hat dich zum fachlichen Profi gemacht. Betriebswirtschaftlich kompetent bist du aufgrund einer Weiterbildung.\n- Deutsch kannst du sehr gut – mündlich und schriftlich.\n- Office-Programme? Kein Problem für dich.\n- Mehrjährige Erfahrung in der Branche? Damit überzeugst du uns.\n\n## Was wir bieten\n- Vergünstigungen: Coop-Gutschein im Wert von 500 CHF für ein Notebook, Tablet etc., Reka-Card: Vergünstigung bei Bezug, Halbtagsabo inkl. Partner oder Partnerin, SBB-Halbtax oder Vergünstigung bei GA-Abonnement, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 6 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nSinduja Kugasothy\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Regensdorf",
-        "it": "## Amministratore delegato:\n\nCHRIST Uhren & Schmuck AG — Regensdorf, Zurich, Svizzera\n\n## Compiti\n- Store manager:in o branch manager:in – due titoli, una missione: gli stessi compiti, la stessa responsabilità. Siete pronti a lavorare con il vostro team per anticipare il vostro punto vendita? Allora hai ragione con noi.\n- Sai... Se supporti e motiva i tuoi dipendenti, tu e il tuo team implementate con successo le misure di promozione delle vendite.\n- La nostra clientela esigente è entusiasta di come si consiglia loro con competenza e cortesemente.\n- Garantisci una gestione ottimale delle merci e che il tuo punto vendita ti fa desiderare di fare acquisti.\n- I tuoi compiti quotidiani? Si crea il piano del personale, compreso il controllo dei costi e prendere il controllo della filiale amministrazione.\n\n## Requisiti\n- Convinci le vendite e hai esperienza nella leadership? Allora hai ragione con noi.\n- La tua formazione professionale in gioielli ti ha reso un professionista. Lei è economicamente competente a causa di ulteriore formazione.\n- Si può parlare tedesco molto bene – verbalmente e per iscritto.\n- Programmi di ufficio? Nessun problema per te.\n- Diversi anni di esperienza nel settore? Ci stai convincendo.\n\n## Cosa offriamo\n- Sconti: voucher Coop del valore di 500 CHF per un taccuino, tablet, ecc., carta Reka: Sconto su abbonamento, sabo di mezza giornata incl. Partner, semiasse FFS o sconto per l'abbonamento GA, sconto del personale anche per i partner:in (vivendo nella stessa famiglia), sconto per l'abbonamento GA\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, contratto collettivo di lavoro (GAV), 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità retribuito, bonus di lealtà, piano di risparmio presso il fondo pensionistico, regime flessibile e attraente per la pensione anticipata dal 58 completato. Anno di età, condizioni di lavoro attraenti\n- Ore lavorative: 6 settimane\n- Formazione: oltre 600 corsi di formazione interna, supporto per l'istruzione e la formazione esterna, gestione del talento con una vasta gamma di opportunità di sviluppo\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto abbonamento annuale\n\n## La persona di contatto\nSinduja Kugaso\nHR Marketing\n\nTipo: Tempo parziale\nRevisione:",
-        "en": "## Managing Director:\n\n**CHRIST Uhren & Schmuck AG** — Regensdorf, Zurich, Svizzera\n\n## Tasks\n- Store manager:in or branch manager:in – two titles, one mission: the same tasks, the same responsibility. Are you ready to work with your team to advance your sales outlet? Then you are exactly right with us.\n- You know: If you support and motivate your employees, you and your team successfully implement the sales promotion measures.\n- Our discerning clientele is enthusiastic about how you advise them competently and courteously.\n- You ensure optimal goods management and that your sales outlet makes you want to shop.\n- Your daily tasks? You create the personnel plan including cost control and take over the branch administration.\n\n## Requirements\n- You convince in sales and have experience in leadership? Then you are right with us.\n- Your professional training in jewelry has made you a professional. You are economically competent due to further training.\n- You can speak German very well – verbally and in writing.\n- Office programs? No problem for you.\n- Several years of experience in the industry? You are convincing us.\n\n## What we offer\n- Discounts: Coop voucher worth 500 CHF for a notebook, tablet, etc., Reka card: Discount on subscription, half-day sabo incl. Partner, SBB half-ax or discount for GA subscription, personnel discount also for partners:in (living in the same household), discount for GA subscription\n- Conditions of employment: Pension fund: 2/3 is paid by Coop, collective employment contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty bonuses, savings plan at the pension fund, flexible and attractive scheme for early retirement pension from the completed 58. Year of age, attractive employment conditions\n- Working hours: 6 weeks holidays\n- Training: More than 600 internal training courses, support for external education and training, talent management with a wide range of development opportunities\n- Health: Update Fitness: Fr. 200.– Annual subscription discount\n\n## Your contact person\nSinduja Kugasothy\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Regensdorf",
-        "fr": "## Directeur général :\n\n**CHRIST Uhren & Schmuck AG** — Regensdorf, Zurich, Svizzera\n\n## Tâche\n- Gestionnaire de magasin:dans ou gestionnaire de succursale:dans – deux titres, une mission: les mêmes tâches, la même responsabilité. Êtes-vous prêt à travailler avec votre équipe pour faire avancer votre point de vente? Alors vous avez raison avec nous.\n- Tu sais : Si vous soutenez et motivez vos employés, vous et votre équipe mettez en œuvre avec succès les mesures de promotion des ventes.\n- Notre clientèle exigeante est enthousiaste quant à la façon dont vous les conseillez avec compétence et courtoisie.\n- Vous assurez une gestion optimale des marchandises et que votre point de vente vous donne envie d'acheter.\n- Vos tâches quotidiennes ? Vous créez le plan du personnel, y compris le contrôle des coûts et prenez en charge l'administration de la succursale.\n\n## Exigences\n- Vous convainquez dans les ventes et avez de l'expérience en leadership? Alors tu as raison avec nous.\n- Votre formation professionnelle en bijoux a fait de vous un professionnel. Vous êtes économiquement compétent en raison de la formation continue.\n- Vous pouvez très bien parler allemand – verbalement et par écrit.\n- Programmes de bureau ? Pas de problème pour toi.\n- Plusieurs années d'expérience dans l'industrie? Vous nous convainquez.\n\n## Ce que nous offrons\n- Réductions: Chèque Coop d'une valeur de 500 CHF pour un carnet, tablette, etc., Carte Reka: Remise sur l'abonnement, demi-journée sabo incl. Partenaire, demi-axe CFF ou rabais pour l'abonnement GA, rabais personnel également pour les partenaires:dans (vivant dans le même ménage), rabais pour l'abonnement GA\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année d'âge, conditions d'emploi attrayantes\n- Heures de travail: 6 semaines de congés\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nSinduja Kugasothy\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Regensdorf"
-      },
-      "slugByLocale": {
-        "it": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-regensdorf-zurich-afappf",
-        "en": "managing-director-christ-orologi-gioielli-regensdorf-zurich-afappf",
-        "de": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-regensdorf-62b536",
-        "fr": "directeur-trice-christ-orologi-gioielli-regensdorf-zurich-afappf"
-      },
-      "requirementsByLocale": {
-        "it": [],
-        "en": [],
-        "de": [
-          "Deutsch kannst du sehr gut – mündlich und schriftlich."
-        ],
-        "fr": []
-      },
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "amministratore-delegato-christ-uhren-schmuck-ag-regensdorf-zurich",
-          "geschaftsfuhrer-in-christ-uhren-schmuck-ag-regensdorf-zurich"
-        ],
-        "en": [
-          "managing-director-christ-uhren-schmuck-ag-regensdorf-zurich",
-          "managing-director-christ-uhren-schmuck-ag-regensdorf-zurich-afappf",
-          "managing-director-christ-orologi-gioielli-regensdorf-zurich-afappf",
-          "managing-director-christ-uhren-schmuck-ag-regensdorf",
-          "managing-director-christ-uhren-schmuck-ag-regensdorf-afappf",
-          "geschaftsfuhrer-in-christ-uhren-schmuck-ag-regensdorf-zurich-afappf"
-        ],
-        "fr": [
-          "directeur-general-christ-uhren-schmuck-ag-regensdorf-zurich",
-          "directeur-general-christ-uhren-schmuck-ag-regensdorf-zurich-afappf",
-          "directeur-trice-christ-uhren-schmuck-ag-regensdorf-zurich-afappf",
-          "directeur-trice-christ-orologi-gioielli-regensdorf-zurich-afappf",
-          "directeur-trice-christ-uhren-schmuck-ag-regensdorf",
-          "directeur-trice-christ-uhren-schmuck-ag-regensdorf-afappf",
-          "geschaftsfuhrer-in-christ-uhren-schmuck-ag-regensdorf-zurich-afappf"
-        ]
-      },
-      "previousSlugs": [
-        "amministratore-delegato-christ-uhren-schmuck-ag-regensdorf-zurich",
-        "managing-director-christ-uhren-schmuck-ag-regensdorf-zurich",
-        "managing-director-christ-uhren-schmuck-ag-regensdorf-zurich-afappf",
-        "directeur-general-christ-uhren-schmuck-ag-regensdorf-zurich",
-        "directeur-general-christ-uhren-schmuck-ag-regensdorf-zurich-afappf",
-        "geschaftsfuhrer-in-christ-uhren-schmuck-ag-regensdorf-zurich",
-        "directeur-trice-christ-uhren-schmuck-ag-regensdorf-zurich-afappf",
-        "managing-director-christ-orologi-gioielli-regensdorf-zurich-afappf",
-        "directeur-trice-christ-orologi-gioielli-regensdorf-zurich-afappf",
-        "managing-director-christ-uhren-schmuck-ag-regensdorf",
-        "managing-director-christ-uhren-schmuck-ag-regensdorf-afappf",
-        "directeur-trice-christ-uhren-schmuck-ag-regensdorf",
-        "directeur-trice-christ-uhren-schmuck-ag-regensdorf-afappf",
-        "geschaftsfuhrer-in-christ-uhren-schmuck-ag-regensdorf-zurich-afappf"
-      ],
-      "salaryMin": 113000,
-      "salaryMax": 198500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113000,
-          "maxValue": 198500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Regensdorf, Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "8001",
-      "country": "CH"
-    },
-    {
-      "id": "company-3ay94u",
-      "slug": "addetto-a-alla-logistica-jumbo-division-der-coop-genossenschaft-schwyz-3ay94u",
-      "company": "Jumbo, Division der Coop Genossenschaft",
-      "title": "Mitarbeiter:in Logistik",
-      "location": "Schwyz",
-      "canton": "SZ",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Aufgaben\n\n- Die Regalpflege sowie das Einräumen der Lieferungen liegen in deiner Verantwortung.\n\n- Dank dir sind Ordnung und Sauberkeit auf der Verkaufsfläche garantiert.\n\n- Du packst die Ware aus und führst Zählungen sowie Qualitätskontrollen durch.\n\nAnforderungen\n\n- Du bringst eine abgeschlossene Grundausbildung mit.\n\n- Deine Deutschkenntnisse sind gut – in Wort und Schrift.\n\n- Flexibilität hinsichtlich der Einsatzzeiten ist für dich selbstverständlich (Mo–Sa).\n\n- Teamarbeit bereitet dir Freude.\n\nWas wir bieten\n\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n\n- Arbeitszeit: 5 Wochen Ferien\n\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n\n- Nachhaltigkeit:\n\n- Kommunikation:\n\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\nDeine Ansprechperson\nYves Sanarica\nHR Marketing",
-      "requirements": [
-        "Deine Deutschkenntnisse sind gut – in Wort und Schrift."
-      ],
-      "featured": false,
-      "postedDate": "2026-06-26",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-logistik/4b970365-a486-45fe-8625-645a2a30d5d2",
-      "source": "Company Careers Crawler",
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-06-25T22:26:18.183Z",
-      "firstSeenAt": "2026-06-25T22:26:18.183Z",
-      "titleByLocale": {
-        "de": "Mitarbeiter:in Logistik",
-        "it": "Addetto/a alla logistica",
-        "en": "Associate Logistik",
-        "fr": "Collaborateur/trice Logistik"
-      },
-      "descriptionByLocale": {
-        "de": "## Aufgaben\n• Die Regalpflege sowie das Einräumen der Lieferungen liegen in deiner Verantwortung.• Dank dir sind Ordnung und Sauberkeit auf der Verkaufsfläche garantiert.• Du packst die Ware aus und führst Zählungen sowie Qualitätskontrollen durch. ## Anforderungen\n• Du bringst eine abgeschlossene Grundausbildung mit.• Deine Deutschkenntnisse sind gut – in Wort und Schrift.• Flexibilität hinsichtlich der Einsatzzeiten ist für dich selbstverständlich (Mo–Sa).• Teamarbeit bereitet dir Freude. ## Wir bieten\n• Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)• Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr• Arbeitszeit: 5 Wochen Ferien• Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten• Nachhaltigkeit:• Kommunikation:• Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement",
-        "it": "## Compiti\n• Il servizio di scaffale e la fornitura di consegne sono vostra responsabilità.• Grazie a voi, ordine e pulizia sono garantiti sul piano di vendita.• Si disfare le merci e effettuare conteggi e controlli di qualità. ## Requisiti\n• Portate una formazione di base completa.• La vostra conoscenza del tedesco è buona – nella parola e nella scrittura.• La flessibilità in termini di tempi di implementazione è una questione ovviamente per voi (Mo–Sa).• Il lavoro di squadra ti porta gioia. ## Offriamo\n• Sconti: Sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino al 20% di sconto su vari servizi assicurativi, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a Coop Mobile, Reka Card: sconto su abbonamento, sconto personale anche per i partner:in (vivere nella stessa famiglia)• Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, contratto collettivo di lavoro (GAV), 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità retribuito, bonus di lealtà, piano di risparmio presso il fondo pensionistico, regime flessibile e attraente per la pensione anticipata dal 58 completato. Anni di età• Ore lavorative: 5 settimane di vacanze• Ulteriore istruzione: oltre 600 corsi di formazione interna, supporto per l'istruzione e la formazione esterna, gestione del talento con una vasta gamma di opportunità di sviluppo• Sostenibilità:• Comunicazione:• Salute: Aggiornamento Fitness: Fr. Sconto su abbonamento annuale",
-        "en": "## Tasks\n• The shelf care and the provision of deliveries are your responsibility.• Thanks to you, order and cleanliness are guaranteed on the sales floor.• You unpack the goods and carry out counts and quality controls. ## Requirements\n• You bring a completed basic education.• Your knowledge of German is good – in word and writing.• Flexibility in terms of deployment times is a matter of course for you (Mo–Sa).• Teamwork brings you joy. ## We offer\n• Discounts: Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions at Coop Mobile, Reka Card: discount on subscription, personnel discount also for partners:in (living in the same household)• Conditions of employment: Pension fund: 2/3 is paid by Coop, collective employment contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty bonuses, savings plan at the pension fund, flexible and attractive scheme for early retirement pension from the completed 58. Age years• Working hours: 5 weeks of holidays• Further education: More than 600 internal training courses, support for external education and training, talent management with a wide range of development opportunities• Sustainability:• Communication:• Health: Update Fitness: Fr. Discount on annual subscription",
-        "fr": "## Tâches\n• Le soin des étagères et la fourniture des livraisons sont de votre responsabilité.• Grâce à vous, la commande et la propreté sont garanties sur le plancher de vente.• Vous déballez les marchandises et effectuez des comptages et des contrôles de qualité. ## Exigences\n• Vous apportez une éducation de base terminée.• Votre connaissance de l'allemand est bonne – en paroles et en écriture.• La flexibilité en termes de temps de déploiement est bien sûr une question pour vous (Mo–Sa).• Le travail d'équipe vous apporte de la joie. ## Nous offrons\n• Réductions: Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, rabais personnel également pour les partenaires:dans (habitant dans le même ménage)• Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Âge Heures de travail: 5 semaines de vacances• Enseignement complémentaire: plus de 600 formations internes, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement• Durabilité:• Communication:• Santé: Mise à jour Fitness: Fr. Remise sur abonnement annuel"
-      },
-      "slugByLocale": {
-        "it": "addetto-a-alla-logistica-jumbo-division-der-coop-genossenschaft-schwyz-3ay94u",
-        "en": "associate-logistik-jumbo-division-der-coop-genossenschaft-schwyz-3ay94u",
-        "de": "mitarbeiter-in-logistik-jumbo-division-der-coop-genossenschaft-schwyz-3ay94u",
-        "fr": "collaborateur-trice-logistik-jumbo-division-der-coop-genossenschaft-schwyz-3ay94u"
-      },
-      "requirementsByLocale": {
-        "it": [],
-        "en": [],
-        "de": [
-          "Deine Deutschkenntnisse sind gut – in Wort und Schrift."
-        ],
-        "fr": []
-      },
-      "sourceLang": "de",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Schwyz",
-      "addressRegion": "SZ",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-logistik-jumbo-division-der-coop-genossenschaft-schwyz"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiter-in-logistik-jumbo-division-der-coop-genossenschaft-schwyz"
-      ]
-    },
-    {
-      "id": "company-6l4q1z",
-      "slug": "venditore-in-nonfood-coop-genossenschaft-luzern",
-      "company": "Coop Genossenschaft",
-      "title": "Verkäufer:in Nonfood",
-      "location": "Luzern",
-      "canton": "LU",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Aufgaben\n\n- Dein Einsatz im Non-Food-Bereich: Du sorgst dafür, dass Waren aktiv verkauft und sorgfältig bewirtschaftet werden.\n\n- Keine Frage, du hältst die Qualitätsrichtlinien und die Vorgaben am Verkaufspunkt ausnahmslos ein.\n\n- Dein geschätzter Einsatz ist auch an der Kasse gefragt.\n\nAnforderungen\n\n- Bist du ausgebildete:r Detailhändler:in? Perfekt! Oder hast du bereits Berufserfahrung im Verkauf gesammelt? Auch gut.\n\n- Du leistest deinen Einsatz gerne auch flexibel.\n\n- Du kannst Deutsch gut sprechen und schreiben.\n\n- Vergünstigungen : Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n\n- Anstellungsbedingungen : Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n\n- Arbeitszeit : 5 Wochen Ferien, flexible Arbeitszeitmodelle\n\n- Weiterbildung : Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n\n- Nachhaltigkeit : Engagement für Mensch, Tier und Natur mit über 400 Taten\n\n- Kommunikation : interne App für Mitarbeitende\n\n- Gesundheit : Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\nDeine Ansprechperson\nNadia Ruetsch\nHR Marketing",
-      "requirements": [
-        "Du kannst Deutsch gut sprechen und schreiben."
-      ],
-      "featured": false,
-      "postedDate": "2026-06-25",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-nonfood/c297ebe1-b361-4d53-ab85-1383eb891f13",
-      "source": "Company Careers Crawler",
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-06-25T11:12:18.568Z",
-      "firstSeenAt": "2026-06-25T11:12:18.568Z",
-      "titleByLocale": {
-        "de": "Verkäufer:in Nonfood",
-        "it": "Venditore: in Nonfood",
-        "en": "Seller: in Nonfood",
-        "fr": "Vendeur: en Non-alimentaire"
-      },
-      "descriptionByLocale": {
-        "de": "Aufgaben - Dein Einsatz im Non-Food-Bereich: Du sorgst dafür, dass Waren aktiv verkauft und sorgfältig bewirtschaftet werden. - Keine Frage, du hältst die Qualitätsrichtlinien und die Vorgaben am Verkaufspunkt ausnahmslos ein. - Dein geschätzter Einsatz ist auch an der Kasse gefragt.\n• Anforderungen - Bist du ausgebildete:r Detailhändler:in? Perfekt! Oder hast du bereits Berufserfahrung im Verkauf gesammelt? Auch gut. - Du leistest deinen Einsatz gerne auch flexibel. - Du kannst Deutsch gut sprechen und schreiben. - Vergünstigungen : Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten - Anstellungsbedingungen : Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub - Arbeitszeit : 5 Wochen Ferien, flexible Arbeitszeitmodelle - Weiterbildung : Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop - Nachhaltigkeit : Engagement für Mensch, Tier und Natur mit über 400 Taten - Kommunikation : interne App für Mitarbeitende - Gesundheit : Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote Deine Ansprechperson Nadia Ruetsch HR Marketing",
-        "it": "Compiti\n\n- Il vostro utilizzo nel settore non alimentare: assicuratevi che le merci siano attivamente vendute e gestite con cura.\n\n- Nessuna domanda, si rispettano le linee guida di qualità e le specifiche al punto di vendita senza eccezione.\n\n- Il vostro incarico stimato è anche richiesto al registro di cassa.\n\nRequisiti\n\n- Sei addestrato:re retailer:in? O hai già acquisito esperienza professionale nelle vendite? Anche bene.\n\n- Ti piace anche essere flessibile.\n\n- Puoi parlare e scrivere bene il tedesco.\n\n- Sconti: Sconti sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati su Coop Mobile, Reka Card: Sconto sull'acquisto, Sconto sulla Mobility CarSharing, Sconto del personale anche per i partner:in (vivere nella stessa famiglia), Sconti su abbonamento GA, Sconti sugli eventi culturali\n\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, Condizioni di lavoro e parità di retribuzione certificata, premi di fedeltà, piano di risparmio del Fondo pensione, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità retribuito e tre settimane di congedo di paternità retribuito\n\n- Tempo di lavoro: 5 settimane ferie, modelli di tempo di lavoro flessibili\n\n- Formazione: Più di 600 corsi di formazione interna, gestione del talento con diverse opportunità di sviluppo, formazione e ulteriori offerte di istruzione della L-GAV e della Coop\n\n- Sostenibilità: Impegno a persone, animali e natura con oltre 400 azioni\n\n- Comunicazione: applicazione interna dei dipendenti\n\n- Salute: Aggiornamento Fitness: Fr. 200.– Sconto su abbonamento annuale, partecipazione gratuita a varie piste aziendali, offerte sportive interne\n\nLa persona di contatto\nNadia Ruetsch\nHR Marketing",
-        "en": "Tasks\n\n- Your use in the non-food sector: You ensure that goods are actively sold and carefully managed.\n\n- No question, you comply with the quality guidelines and the specifications at the point of sale without exception.\n\n- Your valued assignment is also in demand at the cash register.\n\nRequirements\n\n- Are you trained:re retailer:in? Or have you already gained professional experience in sales? Also good.\n\n- You also like to be flexible.\n\n- You can speak and write German well.\n\n- Discounts : Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions on Coop Mobile, Reka Card: Discount on purchase, Discount on Mobility CarSharing, Personnel discount also for partners:in (living in the same household), Discount on GA subscription, Discounts on cultural events, Discounts for leisure activities\n\n- Conditions of Employment: Pension Fund: 2/3 is paid by Coop, Attractive Conditions of Employment and Certified Equal Pay, Loyalty Premiums, Pension Fund Savings Plan, Total Employment Contract (GAV), 18 weeks of paid maternity leave and three weeks of paid paternity leave\n\n- Working time : 5 weeks holidays, flexible working time models\n\n- Training : More than 600 internal training courses, talent management with diverse development opportunities, training and further education offers of the L-GAV and Coop\n\n- Sustainability: Commitment to people, animals and nature with over 400 actions\n\n- Communication : internal app for employees\n\n- Health : Update Fitness: Fr. 200.– Discount on annual subscription, free participation in various company runs, in-house sports offers\n\nYour contact person\nNadia Ruetsch\nHR Marketing",
-        "fr": "Tâches\n\n- Votre utilisation dans le secteur non alimentaire: Vous assurez que les marchandises sont activement vendues et gérées avec soin.\n\n- Sans aucun doute, vous respectez les directives de qualité et les spécifications au point de vente sans exception.\n\n- Votre affectation est également demandée à la caisse enregistreuse.\n\nExigences\n\n- Êtes-vous formé:re détaillant:in? Ou avez-vous déjà acquis une expérience professionnelle dans les ventes? Aussi bien.\n\n- Vous aimez aussi être flexible.\n\n- Vous pouvez bien parler et écrire l'allemand.\n\n- Réductions : Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Carte Reka: Remise sur l'achat, Réduction sur le partage de voiture de mobilité, Réduction personnel également pour les partenaires:dans (habitant dans le même ménage), Réduction sur l'abonnement GA, Réductions sur les événements culturels, Réductions pour les activités de loisirs\n\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, Conditions d'emploi attrayantes et salaire égal certifié, Primes de fidélité, Régime d'épargne-retraite, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n\n- Temps de travail : 5 semaines de vacances, modèles flexibles de temps de travail\n\n- Formation : Plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et perfectionnement offerts par le L-GAV et le Coop\n\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n\n- Communication : application interne pour les salariés\n\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités d'entreprise, offres de sports maison\n\nVotre personne à contacter\nNadia Ruetsch\nMarketing des ressources humaines"
-      },
-      "slugByLocale": {
-        "it": "venditore-in-nonfood-coop-genossenschaft-luzern",
-        "en": "seller-in-nonfood-coop-genossenschaft-luzern",
-        "de": "verkaufer-in-nonfood-coop-genossenschaft-luzern-6l4q1z",
-        "fr": "vendeur-en-non-alimentaire-coop-genossenschaft-luzern"
-      },
-      "requirementsByLocale": {
-        "it": [],
-        "en": [],
-        "de": [
-          "Du kannst Deutsch gut sprechen und schreiben."
-        ],
-        "fr": []
-      },
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-nonfood-coop-genossenschaft-luzern-6l4q1z",
-          "verkaufer-in-nonfood-coop-genossenschaft-luzern"
-        ],
-        "en": [
-          "verkaufer-in-nonfood-coop-genossenschaft-luzern-6l4q1z",
-          "salesman-in-nonfood-coop-genossenschaft-luzern-6l4q1z",
-          "salesman-in-nonfood-coop-genossenschaft-luzern"
-        ],
-        "fr": [
-          "verkaufer-in-nonfood-coop-genossenschaft-luzern-6l4q1z",
-          "vendeur-dans-non-alimentaire-coop-genossenschaft-luzern",
-          "verkaufer-dans-non-alimentaire-coop-genossenschaft-luzern",
-          "verkaufer-dans-non-alimentaire-coop-genossenschaft-luzern-6l4q1z",
-          "vendeur-dans-les-produits-non-alimentaires-coop-genossenschaft-luzern-6l4q1z",
-          "vendeur-dans-les-produits-non-alimentaires-coop-genossenschaft-luzern"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufer-in-nonfood-coop-genossenschaft-luzern-6l4q1z",
-        "vendeur-dans-non-alimentaire-coop-genossenschaft-luzern",
-        "verkaufer-in-nonfood-coop-genossenschaft-luzern",
-        "salesman-in-nonfood-coop-genossenschaft-luzern-6l4q1z",
-        "salesman-in-nonfood-coop-genossenschaft-luzern",
-        "verkaufer-dans-non-alimentaire-coop-genossenschaft-luzern",
-        "verkaufer-dans-non-alimentaire-coop-genossenschaft-luzern-6l4q1z",
-        "vendeur-dans-les-produits-non-alimentaires-coop-genossenschaft-luzern-6l4q1z",
-        "vendeur-dans-les-produits-non-alimentaires-coop-genossenschaft-luzern"
-      ],
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "6003",
       "country": "CH"
     },
     {
