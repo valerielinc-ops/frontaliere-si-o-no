@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mobiliar",
-  "assembledAt": "2026-07-25T11:03:31.887Z",
+  "assembledAt": "2026-07-25T21:58:56.367Z",
   "jobs": [
     {
       "id": "mobiliar-8e909c18d0a5",
@@ -33,7 +33,7 @@
       "url": "https://jobs.mobiliar.ch/job/Moutier-Conseiller-en-assurances-et-en-pr%C3%A9voyance-%28fhd%29-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-de-Moutier-Saint-Imier/940912074/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:03:27.488Z",
+      "crawledAt": "2026-07-25T21:58:52.707Z",
       "addressLocality": "Moutier",
       "addressCountry": "CH",
       "country": "CH",
@@ -82,6 +82,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:21.325Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -127,7 +128,7 @@
       "url": "https://jobs.mobiliar.ch/job/Neuch%C3%A2tel-Gestionnaire-de-sinistres-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-de-Neuch%C3%A2tel-%28fhd%29/1164073555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:03:26.595Z",
+      "crawledAt": "2026-07-25T21:58:51.931Z",
       "addressLocality": "Neuchâtel",
       "addressCountry": "CH",
       "country": "CH",
@@ -159,6 +160,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:06.499Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "baseSalary": {
@@ -204,7 +206,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Fachspezialist-Produktion-Finanzberichte-%28wmd%29/1165159355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:25.700Z",
+      "crawledAt": "2026-07-25T21:58:51.053Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -241,11 +243,13 @@
       },
       "sfJobId": "1165159355",
       "previousSlugs": [
-        "fachspezialist-produktion-finanzberichte-w-m-d-mobiliar-ch"
+        "fachspezialist-produktion-finanzberichte-w-m-d-mobiliar-ch",
+        "relazioni-finanziarie-di-produzione-specializzate-f-m-d-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-produktion-finanzberichte-w-m-d-mobiliar-ch"
+          "fachspezialist-produktion-finanzberichte-w-m-d-mobiliar-ch",
+          "relazioni-finanziarie-di-produzione-specializzate-f-m-d-die-mobiliar-bern"
         ],
         "en": [
           "fachspezialist-produktion-finanzberichte-w-m-d-mobiliar-ch"
@@ -255,6 +259,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T12:12:31.461Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -300,7 +305,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Sachbearbeiter-und-Chauffeur-FM-Logistik-%28wmd%29/1165168855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:24.808Z",
+      "crawledAt": "2026-07-25T21:58:50.293Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -353,6 +358,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:12:45.687Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -374,7 +380,7 @@
         "it": "pmi-f-m-d-die-mobiliar-bern",
         "en": "pricing-specialist-actuary-product-management-smes-f-m-d-die-mobiliar-bern",
         "de": "pricing-spezialist-aktuar-produktmanagement-kmu-w-m-d-mobiliar-ch",
-        "fr": "specialiste-de-la-tarification-gestion-des-produits-actuaires-pme-f-m-d-die-mobiliar-bern"
+        "fr": "pricing-spezialist-aktuar-produktmanagement-kmu-m-w-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -384,7 +390,7 @@
         "it": "Pmi (f/m/d)",
         "en": "Pricing specialist / actuary product management SMEs (f/m/d)",
         "de": "Pricing Spezialist / Aktuar Produktmanagement KMU (w/m/d)",
-        "fr": "Spécialiste de la tarification/gestion des produits actuaires PME (f/m/d)"
+        "fr": "Pricing Spezialist / Aktuar Produktmanagement KMU (w/m/d)"
       },
       "description": "Das erwartet dich:\nIn dieser Funktion bist du Teil des Teams Produktmanagement KMU und übernimmst eine entscheidende Rolle bei der Entwicklung und Preisgestaltung unseres gesamten KMU-Produkts – der Betriebs- und Gebäudeversicherung.\n\nDie Rolle bildet die Schnittstelle zwischen Produktmanagement, Aktuariat und Controlling. Sie richtet sich an erfahrene Fachpersonen aus der Versicherungsbranche, die ihre versicherungstechnische Expertise und ihr analytisches Know-how in die fachliche Steuerung, Profitabilitätsentwicklung und Weiterentwicklung von Produkten und Tarifen einbringen möchten.\n\nDas bewirkst du bei uns:\nIm Rahmen deiner Rolle verantwortest du die fachliche Weiterentwicklung und Steuerung der Tarife unserer KMU-Produkte. Du analysierst Portfolio-, Markt- und Profitabilitätsentwicklungen, identifizierst Handlungsbedarf und leitest daraus konkrete Massnahmen für die Weiterentwicklung unserer Preisstrategie ab. Dabei arbeitest du eng mit dem Aktuariat sowie dem Controlling zusammen und übernimmst eine zentrale Schnittstellenfunktion.\n\nDu nutzt Daten, Analysen und bestehende Modelle, um die Profitabilität unserer Produkte zu steuern, Handlungsbedarf frühzeitig zu erkennen und fundierte Entscheidungen für die Weiterentwicklung von Produkten und Tarifen zu treffen. Dabei entwickelst du Auswertungen und Automatisierungen mit Python und SQL, visualisierst relevante Erkenntnisse für unterschiedliche Anspruchsgruppen und trägst zur kontinuierlichen Weiterentwicklung unserer Pricing- und Steuerungsinstrumente bei. Ergänzend übernimmst du eine zentrale Rolle bei der finanziellen Planung und Steuerung des KMU-Portfolios und stellst die notwendigen Reporting- und Entscheidungsgrundlagen für Fach- und Managemententscheide bereit.\n\nDarüber hinaus engagierst du dich in bereichsübergreifenden Vorhaben zur Weiterentwicklung unserer KMU-Produkte und Pricing-Prozesse und bringst deine versicherungstechnische Expertise aktiv ein.\n\nDas bringst du mit:\n• Abgeschlossenes Studium (FH/Uni) in Mathematik, Statistik, Physik, VWL oder einer vergleichbaren Fachrichtung\n\n• Mindestens 3 Jahre Berufserfahrung in einer quantitativ geprägten Rolle, zum Beispiel im Bereich Pricing, Aktuariat oder Produktmanagement\n\n• Fundiertes Verständnis von Versicherungsprodukten, Tarifierungsmechanismen sowie Profitabilitäts- und Portfoliosteuerung\n\n• Nachweisbare Erfahrung in der Analyse, Modellierung und Kalkulation von Versicherungsprodukten sowie im Umgang mit grossen Datenmengen\n\n• Sehr gute Programmierkenntnisse in Python und SQL; die selbstständige Entwicklung von Analysen, Automatisierungen und Auswertungen gehört für dich zum Arbeitsalltag\n\n• Erfahrung mit modernen Daten- und Analyseplattformen wie Databricks, Power BI oder vergleichbaren Tools\n\n• Ausgeprägte analytische und konzeptionelle Fähigkeiten sowie die Fähigkeit, komplexe Zusammenhänge verständlich aufzubereiten und adressatengerecht zu kommunizieren\n\n• Selbstständige, strukturierte und umsetzungsstarke Persönlichkeit mit ausgeprägter Kommunikationsfähigkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift; Französisch und Englisch sind von Vorteil\n\nBei uns arbeiten:\nAuf dich wartet ein professionelles und dynamisches Team in einer motivierenden und innovativen Arbeitsatmosphäre mit modernster Infrastruktur.\n\nDas bieten wir:\nVereinbarkeit\n\nWir ermöglichen flexible Arbeitsmodelle und bieten 20 Wochen Mutterschafts- sowie 6 Wochen Vaterschaftsurlaub, überdurchschnittliche Familienzulagen und eine nachhaltig finanzierte Pensionskasse.\n\nWeiterbildung und Entwicklung\n\nWir bieten ein vielfältiges internes Kursangebot sowie die Teilnahme an möglichen Auslandsprogrammen an. Bei jobrelevanten, externen Weiterbildungen beteiligen wir uns grosszügig.\n\nVergünstigungen\n\nWir bieten dir unter anderem bis zu 25% Prämienrabatt, ein Halbtax-Abonnement, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen.\n\npresent\n\nWeitere Anstellungsbedingungen\n\ngo_to_link\n\nManager für Cookie-Einwilligungen:\nWenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken.\n\nNotwendige Cookies\n\nDiese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden.\n\nMehr Details anzeigen\n\nAnbieter\n Beschreibung\n Aktiviert\n\nSAP as service provider\n\nWir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n\n• \"route\" wird für Sitzungs-Stickiness verwendet\n\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt",
       "descriptionByLocale": {
@@ -398,7 +404,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Pricing-Spezialist-Aktuar-Produktmanagement-KMU-%28wmd%29/1165164355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:23.777Z",
+      "crawledAt": "2026-07-25T21:58:49.531Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -435,21 +441,26 @@
       "sfJobId": "1165164355",
       "previousSlugs": [
         "pricing-spezialist-aktuar-produktmanagement-kmu-w-m-d-mobiliar-ch",
+        "specialiste-de-la-tarification-gestion-des-produits-actuaires-pme-f-m-d-die-mobiliar-bern",
+        "pmi-f-m-d-die-mobiliar-bern",
         "pricing-spezialist-aktuar-produktmanagement-kmu-m-w-d-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pricing-spezialist-aktuar-produktmanagement-kmu-w-m-d-mobiliar-ch"
+          "pricing-spezialist-aktuar-produktmanagement-kmu-w-m-d-mobiliar-ch",
+          "pmi-f-m-d-die-mobiliar-bern"
         ],
         "en": [
           "pricing-spezialist-aktuar-produktmanagement-kmu-w-m-d-mobiliar-ch"
         ],
         "fr": [
           "pricing-spezialist-aktuar-produktmanagement-kmu-w-m-d-mobiliar-ch",
+          "specialiste-de-la-tarification-gestion-des-produits-actuaires-pme-f-m-d-die-mobiliar-bern",
           "pricing-spezialist-aktuar-produktmanagement-kmu-m-w-d-die-mobiliar-bern"
         ]
       },
       "firstSeenAt": "2026-07-23T22:12:24.224Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -495,7 +506,7 @@
       "url": "https://jobs.mobiliar.ch/job/Rapperswil-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Rapperswil-Glarus/1164984555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:22.741Z",
+      "crawledAt": "2026-07-25T21:58:48.782Z",
       "addressLocality": "Rapperswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -527,11 +538,13 @@
       },
       "sfJobId": "1164984555",
       "previousSlugs": [
-        "kv-lehrstelle-efz-2027-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch"
+        "kv-lehrstelle-efz-2027-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch",
+        "kv-apprendistato-cfc-2027-m-w-d-agenzia-generale-rapperswil-glarus-die-mobiliar-rapperswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-efz-2027-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch"
+          "kv-lehrstelle-efz-2027-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch",
+          "kv-apprendistato-cfc-2027-m-w-d-agenzia-generale-rapperswil-glarus-die-mobiliar-rapperswil"
         ],
         "en": [
           "kv-lehrstelle-efz-2027-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch"
@@ -541,6 +554,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T11:43:38.203Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -586,7 +600,7 @@
       "url": "https://jobs.mobiliar.ch/job/Langenthal-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Mobiliar-Langenthal/1164981855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:21.858Z",
+      "crawledAt": "2026-07-25T21:58:48.022Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -629,7 +643,8 @@
         "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-frauenfeld-die-mobiliar-sirnach",
         "insurance-and-pension-consultant-m-f-general-agency-frauenfeld-die-mobiliar-sirnach",
         "versicherungs-und-vorsorgeberater-m-w-generalagentur-frauenfeld-mobiliar-ch",
-        "conseiller-en-assurances-et-prevoyance-h-f-agence-generale-frauenfeld-die-mobiliar-sirnach"
+        "conseiller-en-assurances-et-prevoyance-h-f-agence-generale-frauenfeld-die-mobiliar-sirnach",
+        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-mobiliar-langenthal-die-mobiliar-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -641,7 +656,8 @@
           "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-frauenfeld-die-mobiliar-sirnach",
           "insurance-and-pension-consultant-m-f-general-agency-frauenfeld-die-mobiliar-sirnach",
           "versicherungs-und-vorsorgeberater-m-w-generalagentur-frauenfeld-mobiliar-ch",
-          "conseiller-en-assurances-et-prevoyance-h-f-agence-generale-frauenfeld-die-mobiliar-sirnach"
+          "conseiller-en-assurances-et-prevoyance-h-f-agence-generale-frauenfeld-die-mobiliar-sirnach",
+          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-mobiliar-langenthal-die-mobiliar-langenthal"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-mobiliar-langenthal-mobiliar-ch",
@@ -660,6 +676,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T11:43:37.442Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -705,7 +722,7 @@
       "url": "https://jobs.mobiliar.ch/job/Biel-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Biel/1164623355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:20.973Z",
+      "crawledAt": "2026-07-25T21:58:47.260Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -737,17 +754,20 @@
       },
       "sfJobId": "1164623355",
       "previousSlugs": [
-        "kv-lehrstelle-efz-2027-w-m-d-generalagentur-biel-mobiliar-ch"
+        "kv-lehrstelle-efz-2027-w-m-d-generalagentur-biel-mobiliar-ch",
+        "kv-apprendistato-cfc-2027-m-w-d-agenzia-generale-biel-die-mobiliar-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-efz-2027-w-m-d-generalagentur-biel-mobiliar-ch"
+          "kv-lehrstelle-efz-2027-w-m-d-generalagentur-biel-mobiliar-ch",
+          "kv-apprendistato-cfc-2027-m-w-d-agenzia-generale-biel-die-mobiliar-biel"
         ],
         "en": [
           "kv-lehrstelle-efz-2027-w-m-d-generalagentur-biel-mobiliar-ch"
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:13.543Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -793,7 +813,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Mitarbeiter-Reinigungsdienst-%28wmd%29/1165153555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:19.973Z",
+      "crawledAt": "2026-07-25T21:58:46.509Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -828,11 +848,13 @@
       "sfJobId": "1165153555",
       "previousSlugs": [
         "mitarbeiter-reinigungsdienst-w-m-d-mobiliar-ch",
-        "mitarbeiter-reinigungsdienst-w-m-d-die-mobiliar-bern"
+        "mitarbeiter-reinigungsdienst-w-m-d-die-mobiliar-bern",
+        "collaboratore-trice-reinigungsdienst-m-w-d-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-reinigungsdienst-w-m-d-mobiliar-ch"
+          "mitarbeiter-reinigungsdienst-w-m-d-mobiliar-ch",
+          "collaboratore-trice-reinigungsdienst-m-w-d-die-mobiliar-bern"
         ],
         "en": [
           "mitarbeiter-reinigungsdienst-w-m-d-die-mobiliar-bern"
@@ -842,6 +864,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T12:46:29.333Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -887,7 +910,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Fachspezialist-HR-Controlling-&-Analytics-%28wmd%29/1165001255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:19.083Z",
+      "crawledAt": "2026-07-25T21:58:45.753Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -921,6 +944,7 @@
       },
       "sfJobId": "1165001255",
       "firstSeenAt": "2026-07-22T12:46:28.317Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -966,7 +990,7 @@
       "url": "https://jobs.mobiliar.ch/job/Vaduz-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Vaduz/940913874/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:18.186Z",
+      "crawledAt": "2026-07-25T21:58:44.989Z",
       "addressLocality": "237 65 51",
       "addressCountry": "CH",
       "country": "CH",
@@ -997,11 +1021,13 @@
       },
       "sfJobId": "940913874",
       "previousSlugs": [
-        "kv-lehrstelle-efz-2027-w-m-d-generalagentur-vaduz-mobiliar-ch"
+        "kv-lehrstelle-efz-2027-w-m-d-generalagentur-vaduz-mobiliar-ch",
+        "kv-apprendistato-cfc-2027-m-w-d-agenzia-generale-vaduz-die-mobiliar-237-65-51"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-efz-2027-w-m-d-generalagentur-vaduz-mobiliar-ch"
+          "kv-lehrstelle-efz-2027-w-m-d-generalagentur-vaduz-mobiliar-ch",
+          "kv-apprendistato-cfc-2027-m-w-d-agenzia-generale-vaduz-die-mobiliar-237-65-51"
         ],
         "en": [
           "kv-lehrstelle-efz-2027-w-m-d-generalagentur-vaduz-mobiliar-ch"
@@ -1056,7 +1082,7 @@
       "url": "https://jobs.mobiliar.ch/job/Liebefeld-Versicherungs-und-Vorsorgeberater-im-Aussendienst-%28wm%29-Region-Schwarzenburg/1165144055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:17.298Z",
+      "crawledAt": "2026-07-25T21:58:44.235Z",
       "addressLocality": "Liebefeld",
       "addressCountry": "CH",
       "country": "CH",
@@ -1089,6 +1115,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:45:22.510Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1133,7 +1160,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Senior-Underwriter-Personenversicherungen-%28KTGUVGUVGZ%29-mit-Branchenverantwortung-%28wmd%29/1163846755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:16.403Z",
+      "crawledAt": "2026-07-25T21:58:43.474Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1165,13 +1192,15 @@
         "senior-underwriter-personenversicherungen-ktg-uvg-uvgz-mit-branchenverantwortung-w-m-d-mob",
         "senior-underwriter-personenversicherungen-ktg-uvg-uvgz-mit-branchenverantwortung-w-m-d-die-mobiliar-zurich",
         "senior-underwriter-personenversicherungen-ktg-uvg-uvgz-mit-branchenverantwortung-w-m-d",
-        "senior-underwriter-personenversicherungen-ktg-uvg-uvgz-con-branchenverantwortung-w-m-d-die-mobiliar-zurich"
+        "senior-underwriter-personenversicherungen-ktg-uvg-uvgz-con-branchenverantwortung-w-m-d-die-mobiliar-zurich",
+        "senior-underwriter-personal-insurance-ktg-uvg-uvgz-con-responsabilita-dell-industria-w-m-d-die-mobiliar-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-underwriter-personenversicherungen-ktg-uvg-uvgz-mit-branchenverantwortung-w-m-d-mob",
           "senior-underwriter-personenversicherungen-ktg-uvg-uvgz-mit-branchenverantwortung-w-m-d-die-mobiliar-zurich",
-          "senior-underwriter-personenversicherungen-ktg-uvg-uvgz-mit-branchenverantwortung-w-m-d"
+          "senior-underwriter-personenversicherungen-ktg-uvg-uvgz-mit-branchenverantwortung-w-m-d",
+          "senior-underwriter-personal-insurance-ktg-uvg-uvgz-con-responsabilita-dell-industria-w-m-d-die-mobiliar-zurich"
         ],
         "en": [
           "senior-underwriter-personenversicherungen-ktg-uvg-uvgz-mit-branchenverantwortung-w-m-d-die-mobiliar-zurich"
@@ -1181,6 +1210,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:41.273Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1212,7 +1242,7 @@
         "it": "Aiuto IT Service Desk (f/m/d)",
         "en": "Aid IT Service Desk (f/m/d)",
         "de": "Aushilfe IT Service Desk (w/m/d)",
-        "fr": "Aid IT Service Desk (f/m/d)"
+        "fr": "Aushilfe IT Service Desk (w/m/d)"
       },
       "description": "Das erwartet dich:\nAls IT Service Desk Mitarbeiter:in bist du Teil des Support-Teams, welches erstklassige Dienstleistungen erbringt und die Visitenkarte der IT darstellt. Es bildet das Bindeglied zwischen internen Kund:innen und der IT-Organisation und trägt mit ihrer Professionalität massgeblich zu einem reibungslosen Betrieb bei.\n\nDas bewirkst du bei uns:\nIm Zusammenhang mit der Mobiliar IT-Landschaft kümmerst du dich um sämtliche Supportanfragen (MS-Office-Anwendungen, Arbeitsplatz und versicherungstechnische Applikationen) von Mitarbeitenden der Mobiliar.\n\nDu trägst mit deinem Team die Verantwortung für die zufriedenstellende Erledigung von Supportanfragen. Die Anliegen von deutsch - und französischsprachigen Mitarbeitenden (Italienisch ist ein Plus) beantwortest du effizient. Bei Bedarf ziehst du IT-Spezialist:innen bei.\n\nAusserdem stellst du die Einhaltung des Service Levels sicher und dokumentierst dein Wissen in unserer Knowledgebase.\n\nDas bringst du mit:\n• Abgeschlossene technische oder kaufmännische Grundbildung\n\n• Berufserfahrung im 1st-Level Support\n\n• Kenntnisse der gängigen Technologien und IT-Anwendungen\n\n• Vernetzte Denkweise, hohes Verantwortungsbewusstsein sowie Kommunikationsfähigkeit\n\n• Teamorientierte, empathische und belastbare Persönlichkeit, ausgezeichnet durch eine selbständige und zuverlässige Arbeitsweise\n\n• Sehr gute mündliche Französischkenntnisse sowie gute Deutschkenntnisse in Wort und Schrift (Italienisch ist ein Plus)\n\nBei uns arbeiten:\nAuf dich wartet ein Team, das dir den Freiraum bietet, deine Erfahrungen einzubringen und deine Ideen umzusetzen. Gemeinsam pflegen sie einen unkomplizierten Umgang und legen Wert auf Chancengleichheit sowie ein Arbeitsumfeld, in dem sich alle in ihrer Vielfalt wertgeschätzt fühlen.\n\nDein Einsatz startet per 01.08.2026 oder nach Vereinbarung und ist befristet auf ein halbes Jahr. Dein Arbeitspensum ist ab 40% verhandelbar und Homeoffice stehen dir offen.\n\nDas bieten wir:\nErfolgsbeteiligung\n\nSind wir erfolgreich, profitieren auch unsere Mitarbeitenden. Jedes Jahr wird über die Ausschüttung einer Erfolgsbeteiligung und deren Höhe entschieden.\n\nWeiterbildung und Entwicklung\n\nWir bieten ein vielfältiges internes Kursangebot an. Bei jobrelevanten Weiterbildungen beteiligen wir uns.\n\nVergünstigungen\n\nWir bieten diverse Ermässigungen bei Events und kulturellen Veranstaltungen sowie ein Personalrestaurant mit reduzierten Preisen.\n\npresent\n\nWeitere Anstellungsbedingungen\n\ngo_to_link\n\nManager für Cookie-Einwilligungen:\nWenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken.\n\nNotwendige Cookies\n\nDiese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden.\n\nMehr Details anzeigen\n\nAnbieter\n Beschreibung\n Aktiviert\n\nSAP as service provider\n\nWir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n\n• \"route\" wird für Sitzungs-Stickiness verwendet\n\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt",
       "descriptionByLocale": {
@@ -1226,7 +1256,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Aushilfe-IT-Service-Desk-%28wmd%29/1165097755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:15.514Z",
+      "crawledAt": "2026-07-25T21:58:42.717Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1260,11 +1290,13 @@
       "sfJobId": "1165097755",
       "previousSlugs": [
         "aushilfe-it-service-desk-w-m-d-mobiliar-ch",
-        "bureau-d-assistance-informatique-f-m-d-die-mobiliar-bern"
+        "bureau-d-assistance-informatique-f-m-d-die-mobiliar-bern",
+        "aiuto-it-service-desk-f-m-d-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-it-service-desk-w-m-d-mobiliar-ch"
+          "aushilfe-it-service-desk-w-m-d-mobiliar-ch",
+          "aiuto-it-service-desk-f-m-d-die-mobiliar-bern"
         ],
         "en": [
           "aushilfe-it-service-desk-w-m-d-mobiliar-ch"
@@ -1274,6 +1306,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T11:41:00.082Z",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "baseSalary": {
@@ -1319,7 +1352,7 @@
       "url": "https://jobs.mobiliar.ch/job/Fleurier-Collaborateur-au-service-des-sinistres-%28fhd%29-Agence-g%C3%A9n%C3%A9ral-Montagnes-et-Vall%C3%A9es-NE/1165137455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:03:14.473Z",
+      "crawledAt": "2026-07-25T21:58:41.763Z",
       "addressLocality": "Fleurier",
       "addressCountry": "CH",
       "country": "CH",
@@ -1337,6 +1370,7 @@
       "requirementsByLocale": {},
       "sfJobId": "1165137455",
       "firstSeenAt": "2026-07-20T12:50:37.825Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1381,7 +1415,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Inspecteur-sinistres-internationaux-%28fhd%29/1165109455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:03:12.700Z",
+      "crawledAt": "2026-07-25T21:58:40.633Z",
       "addressLocality": "XpertCenter AG",
       "addressCountry": "CH",
       "country": "CH",
@@ -1400,6 +1434,7 @@
       "requirementsByLocale": {},
       "sfJobId": "1165109455",
       "firstSeenAt": "2026-07-16T11:11:27.332Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1445,7 +1480,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Schadeninspektor-Auslandschaden-%28wmd%29/1165109355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:11.277Z",
+      "crawledAt": "2026-07-25T21:58:39.434Z",
       "addressLocality": "XpertCenter AG",
       "addressCountry": "CH",
       "country": "CH",
@@ -1465,12 +1500,14 @@
       "sfJobId": "1165109355",
       "previousSlugs": [
         "schadeninspektor-auslandschaden-w-m-d-mobiliar-ch",
-        "schadeninspektor-auslandschaden-w-m-d-die-mobiliar-xpertcenter-ag"
+        "schadeninspektor-auslandschaden-w-m-d-die-mobiliar-xpertcenter-ag",
+        "ispettore-del-danno-danni-stranieri-f-m-d-die-mobiliar-xpertcenter-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadeninspektor-auslandschaden-w-m-d-mobiliar-ch",
-          "schadeninspektor-auslandschaden-w-m-d-die-mobiliar-xpertcenter-ag"
+          "schadeninspektor-auslandschaden-w-m-d-die-mobiliar-xpertcenter-ag",
+          "ispettore-del-danno-danni-stranieri-f-m-d-die-mobiliar-xpertcenter-ag"
         ],
         "en": [
           "schadeninspektor-auslandschaden-w-m-d-die-mobiliar-xpertcenter-ag"
@@ -1525,7 +1562,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Mitarbeiter-Verkaufssupport-%28wm%29-Generalagentur-Glattal-%28Z%C3%BCrich-Nord%29/1165136855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:10.196Z",
+      "crawledAt": "2026-07-25T21:58:38.572Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1543,11 +1580,13 @@
       "requirementsByLocale": {},
       "sfJobId": "1165136855",
       "previousSlugs": [
-        "mitarbeiter-verkaufssupport-w-m-generalagentur-glattal-zurich-nord-mobiliar-ch"
+        "mitarbeiter-verkaufssupport-w-m-generalagentur-glattal-zurich-nord-mobiliar-ch",
+        "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-glattal-zurich-nord-die-mobiliar-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-verkaufssupport-w-m-generalagentur-glattal-zurich-nord-mobiliar-ch"
+          "mitarbeiter-verkaufssupport-w-m-generalagentur-glattal-zurich-nord-mobiliar-ch",
+          "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-glattal-zurich-nord-die-mobiliar-zurich"
         ],
         "en": [
           "mitarbeiter-verkaufssupport-w-m-generalagentur-glattal-zurich-nord-mobiliar-ch"
@@ -1586,7 +1625,7 @@
       "title": "Fachspezialist Underwriting-Support National (w/m/d)",
       "titleByLocale": {
         "it": "Supporto di scrittura specialistica nazionale (f/m/d)",
-        "en": "Specialist Underwriting Support National (f/m/d)",
+        "en": "Fachspezialist Underwriting-Support National (w/m/d)",
         "de": "Fachspezialist Underwriting-Support National (w/m/d)",
         "fr": "Soutien à la souscription de spécialistes au niveau national (f/m/d)"
       },
@@ -1602,7 +1641,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Fachspezialist-Underwriting-Support-National-%28wmd%29/1165136155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:09.311Z",
+      "crawledAt": "2026-07-25T21:58:37.819Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1636,17 +1675,20 @@
       },
       "sfJobId": "1165136155",
       "previousSlugs": [
-        "fachspezialist-underwriting-support-national-w-m-d-mobiliar-ch"
+        "fachspezialist-underwriting-support-national-w-m-d-mobiliar-ch",
+        "supporto-di-scrittura-specialistica-nazionale-f-m-d-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-underwriting-support-national-w-m-d-mobiliar-ch"
+          "fachspezialist-underwriting-support-national-w-m-d-mobiliar-ch",
+          "supporto-di-scrittura-specialistica-nazionale-f-m-d-die-mobiliar-bern"
         ],
         "fr": [
           "fachspezialist-underwriting-support-national-w-m-d-mobiliar-ch"
         ]
       },
       "firstSeenAt": "2026-07-20T12:50:32.537Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1692,7 +1734,7 @@
       "url": "https://jobs.mobiliar.ch/job/Luzern-KV-Lehrstelle-EFZ-2027-Generalagentur-Luzern/1164429655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:08.412Z",
+      "crawledAt": "2026-07-25T21:58:37.059Z",
       "addressLocality": "Generalagentur Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1725,11 +1767,13 @@
       },
       "sfJobId": "1164429655",
       "previousSlugs": [
-        "kv-lehrstelle-efz-2027-generalagentur-luzern-mobiliar-ch"
+        "kv-lehrstelle-efz-2027-generalagentur-luzern-mobiliar-ch",
+        "kv-apprendistato-cfc-2027-agenzia-generale-luzern-die-mobiliar-generalagentur-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-efz-2027-generalagentur-luzern-mobiliar-ch"
+          "kv-lehrstelle-efz-2027-generalagentur-luzern-mobiliar-ch",
+          "kv-apprendistato-cfc-2027-agenzia-generale-luzern-die-mobiliar-generalagentur-luzern"
         ]
       },
       "needsRetranslation": true,
@@ -1779,7 +1823,7 @@
       "url": "https://jobs.mobiliar.ch/job/Affoltern-am-Albis-KV-Lehrstelle-EFZ-2027-Generalagentur-Affoltern-am-Albis/940912874/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:07.518Z",
+      "crawledAt": "2026-07-25T21:58:36.299Z",
       "addressLocality": "Affoltern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1811,11 +1855,13 @@
       },
       "sfJobId": "940912874",
       "previousSlugs": [
-        "kv-lehrstelle-efz-2027-generalagentur-affoltern-am-albis-mobiliar-ch"
+        "kv-lehrstelle-efz-2027-generalagentur-affoltern-am-albis-mobiliar-ch",
+        "kv-apprendistato-cfc-2027-agenzia-generale-affoltern-am-albis-die-mobiliar-affoltern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-efz-2027-generalagentur-affoltern-am-albis-mobiliar-ch"
+          "kv-lehrstelle-efz-2027-generalagentur-affoltern-am-albis-mobiliar-ch",
+          "kv-apprendistato-cfc-2027-agenzia-generale-affoltern-am-albis-die-mobiliar-affoltern"
         ],
         "en": [
           "kv-lehrstelle-efz-2027-generalagentur-affoltern-am-albis-mobiliar-ch"
@@ -1825,6 +1871,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:47.640Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1870,7 +1917,7 @@
       "url": "https://jobs.mobiliar.ch/job/Meilen-Schadenspezialist-%28mwd%29-Generalagentur-Meilen/1164954255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:06.628Z",
+      "crawledAt": "2026-07-25T21:58:35.546Z",
       "addressLocality": "Meilen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1906,11 +1953,13 @@
       },
       "sfJobId": "1164954255",
       "previousSlugs": [
-        "schadenspezialist-m-w-d-generalagentur-meilen-mobiliar-ch"
+        "schadenspezialist-m-w-d-generalagentur-meilen-mobiliar-ch",
+        "schadenspezialist-m-w-d-agenzia-generale-meilen-die-mobiliar-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schadenspezialist-m-w-d-generalagentur-meilen-mobiliar-ch"
+          "schadenspezialist-m-w-d-generalagentur-meilen-mobiliar-ch",
+          "schadenspezialist-m-w-d-agenzia-generale-meilen-die-mobiliar-meilen"
         ],
         "en": [
           "schadenspezialist-m-w-d-generalagentur-meilen-mobiliar-ch"
@@ -1920,6 +1969,7 @@
         ]
       },
       "firstSeenAt": "2026-06-19T22:18:47.391Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1965,7 +2015,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Fachspezialistin-Personenschaden-%28wmd%29/1164950155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:05.747Z",
+      "crawledAt": "2026-07-25T21:58:34.771Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1997,12 +2047,14 @@
       "sfJobId": "1164950155",
       "previousSlugs": [
         "fachspezialistin-personenschaden-w-m-d-mobiliar-ch",
-        "fachspezialistin-personenschaden-w-m-d-die-mobiliar-bern"
+        "fachspezialistin-personenschaden-w-m-d-die-mobiliar-bern",
+        "specialista-in-lesioni-personali-f-m-d-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachspezialistin-personenschaden-w-m-d-mobiliar-ch",
-          "fachspezialistin-personenschaden-w-m-d-die-mobiliar-bern"
+          "fachspezialistin-personenschaden-w-m-d-die-mobiliar-bern",
+          "specialista-in-lesioni-personali-f-m-d-die-mobiliar-bern"
         ],
         "en": [
           "fachspezialistin-personenschaden-w-m-d-die-mobiliar-bern"
@@ -2012,6 +2064,7 @@
         ]
       },
       "firstSeenAt": "2026-06-19T13:05:22.180Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2057,7 +2110,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wetzikon-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Wetzikon-Pf%C3%A4ffikon/1163375655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:04.850Z",
+      "crawledAt": "2026-07-25T21:58:34.015Z",
       "addressLocality": "Wetzikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -2075,11 +2128,13 @@
       "requirementsByLocale": {},
       "sfJobId": "1163375655",
       "previousSlugs": [
-        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-wetzikon-pfaffikon-mobiliar-ch"
+        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-wetzikon-pfaffikon-mobiliar-ch",
+        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-wetzikon-pfaffikon-die-mobiliar-wetzikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-wetzikon-pfaffikon-mobiliar-ch"
+          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-wetzikon-pfaffikon-mobiliar-ch",
+          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-wetzikon-pfaffikon-die-mobiliar-wetzikon"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-wetzikon-pfaffikon-mobiliar-ch"
@@ -2089,6 +2144,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:03.271Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2134,7 +2190,7 @@
       "url": "https://jobs.mobiliar.ch/job/Lenzburg-Schadenmitarbeiter-%28wmd%29-Generalagentur-Lenzburg/1164762355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:03.968Z",
+      "crawledAt": "2026-07-25T21:58:33.261Z",
       "addressLocality": "Lenzburg",
       "addressCountry": "CH",
       "country": "CH",
@@ -2171,11 +2227,13 @@
       },
       "sfJobId": "1164762355",
       "previousSlugs": [
-        "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch"
+        "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
+        "schadenmitarbeiter-m-w-d-agenzia-generale-lenzburg-die-mobiliar-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch"
+          "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
+          "schadenmitarbeiter-m-w-d-agenzia-generale-lenzburg-die-mobiliar-lenzburg"
         ],
         "en": [
           "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch"
@@ -2185,6 +2243,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:35.788Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2230,7 +2289,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Leiter-Corporate-Resilience-Management-%28wmd%29/1164936255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:03.086Z",
+      "crawledAt": "2026-07-25T21:58:32.390Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2272,6 +2331,7 @@
         ]
       },
       "firstSeenAt": "2026-06-18T12:50:43.926Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -2317,7 +2377,7 @@
       "url": "https://jobs.mobiliar.ch/job/St_-Gallen-Mitarbeiter-Verkaufssupport-%28wmd%29-Generalagentur-St_-Gallen/1165122855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:02.192Z",
+      "crawledAt": "2026-07-25T21:58:31.633Z",
       "addressLocality": "St_",
       "addressCountry": "CH",
       "country": "CH",
@@ -2350,11 +2410,13 @@
       },
       "sfJobId": "1165122855",
       "previousSlugs": [
-        "mitarbeiter-verkaufssupport-w-m-d-generalagentur-st-gallen-mobiliar-ch"
+        "mitarbeiter-verkaufssupport-w-m-d-generalagentur-st-gallen-mobiliar-ch",
+        "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-st-gallen-die-mobiliar-st"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-verkaufssupport-w-m-d-generalagentur-st-gallen-mobiliar-ch"
+          "mitarbeiter-verkaufssupport-w-m-d-generalagentur-st-gallen-mobiliar-ch",
+          "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-st-gallen-die-mobiliar-st"
         ],
         "en": [
           "mitarbeiter-verkaufssupport-w-m-d-generalagentur-st-gallen-mobiliar-ch"
@@ -2364,6 +2426,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:31:44.783Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2408,7 +2471,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wallis-KV-Lehrstelle-EFZ-2027-Generalagentur-Oberwallis/1164099655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:01.184Z",
+      "crawledAt": "2026-07-25T21:58:30.878Z",
       "addressLocality": "Generalagentur Oberwallis",
       "addressCountry": "CH",
       "country": "CH",
@@ -2439,11 +2502,13 @@
       },
       "sfJobId": "1164099655",
       "previousSlugs": [
-        "kv-lehrstelle-efz-2027-generalagentur-oberwallis-mobiliar-ch"
+        "kv-lehrstelle-efz-2027-generalagentur-oberwallis-mobiliar-ch",
+        "kv-apprendistato-cfc-2027-agenzia-generale-oberwallis-die-mobiliar-generalagentur-oberwallis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-efz-2027-generalagentur-oberwallis-mobiliar-ch"
+          "kv-lehrstelle-efz-2027-generalagentur-oberwallis-mobiliar-ch",
+          "kv-apprendistato-cfc-2027-agenzia-generale-oberwallis-die-mobiliar-generalagentur-oberwallis"
         ]
       },
       "needsRetranslation": true,
@@ -2493,7 +2558,7 @@
       "url": "https://jobs.mobiliar.ch/job/Dielsdorf-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Dielsdorf/1165109855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:00.273Z",
+      "crawledAt": "2026-07-25T21:58:30.134Z",
       "addressLocality": "Dielsdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -2511,11 +2576,13 @@
       "requirementsByLocale": {},
       "sfJobId": "1165109855",
       "previousSlugs": [
-        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-dielsdorf-mobiliar-ch"
+        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-dielsdorf-mobiliar-ch",
+        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-dielsdorf-die-mobiliar-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-dielsdorf-mobiliar-ch"
+          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-dielsdorf-mobiliar-ch",
+          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-dielsdorf-die-mobiliar-dielsdorf"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-dielsdorf-mobiliar-ch"
@@ -2525,6 +2592,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:11:28.578Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2570,7 +2638,7 @@
       "url": "https://jobs.mobiliar.ch/job/B%C3%BCtschwil-Leiter-Vorsorge-Generalagentur-Wil-%28wmd%29/1164253255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:59.389Z",
+      "crawledAt": "2026-07-25T21:58:29.333Z",
       "addressLocality": "Bütschwil",
       "addressCountry": "CH",
       "country": "CH",
@@ -2604,11 +2672,13 @@
       },
       "sfJobId": "1164253255",
       "previousSlugs": [
-        "leiter-vorsorge-generalagentur-wil-w-m-d-mobiliar-ch"
+        "leiter-vorsorge-generalagentur-wil-w-m-d-mobiliar-ch",
+        "leiter-previdenza-agenzia-generale-wil-m-w-d-die-mobiliar-butschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-vorsorge-generalagentur-wil-w-m-d-mobiliar-ch"
+          "leiter-vorsorge-generalagentur-wil-w-m-d-mobiliar-ch",
+          "leiter-previdenza-agenzia-generale-wil-m-w-d-die-mobiliar-butschwil"
         ],
         "en": [
           "leiter-vorsorge-generalagentur-wil-w-m-d-mobiliar-ch"
@@ -2663,7 +2733,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-%28Senior%29-Brokerbetreuer-und-Underwriter-Sachversicherung-Unternehmensgesch%C3%A4ft-%28wmd%29/1164253555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:58.496Z",
+      "crawledAt": "2026-07-25T21:58:28.586Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2695,6 +2765,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:40.510Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2740,7 +2811,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Lehrstelle-Entwickler-Digital-Business-EFZ-2027/1165000755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:57.601Z",
+      "crawledAt": "2026-07-25T21:58:27.827Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2770,11 +2841,13 @@
       },
       "sfJobId": "1165000755",
       "previousSlugs": [
-        "lehrstelle-entwickler-digital-business-efz-2027-mobiliar-ch"
+        "lehrstelle-entwickler-digital-business-efz-2027-mobiliar-ch",
+        "apprendistato-entwickler-digital-business-cfc-2027-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-entwickler-digital-business-efz-2027-mobiliar-ch"
+          "lehrstelle-entwickler-digital-business-efz-2027-mobiliar-ch",
+          "apprendistato-entwickler-digital-business-cfc-2027-die-mobiliar-bern"
         ],
         "en": [
           "lehrstelle-entwickler-digital-business-efz-2027-mobiliar-ch"
@@ -2784,6 +2857,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T14:26:51.520Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2829,7 +2903,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wil-Schadenspezialist-%28wmd%29-Generalagentur-Wil-SG/1164087255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:56.709Z",
+      "crawledAt": "2026-07-25T21:58:27.081Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -2866,11 +2940,13 @@
       },
       "sfJobId": "1164087255",
       "previousSlugs": [
-        "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
+        "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
+        "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
+          "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
+          "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil"
         ],
         "en": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
@@ -2880,6 +2956,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2925,7 +3002,7 @@
       "url": "https://jobs.mobiliar.ch/job/Rorschach-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Arbon-Rorschach/1164744055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:55.824Z",
+      "crawledAt": "2026-07-25T21:58:26.321Z",
       "addressLocality": "oder nach Vereinbarung",
       "addressCountry": "CH",
       "country": "CH",
@@ -2944,11 +3021,13 @@
       "requirementsByLocale": {},
       "sfJobId": "1164744055",
       "previousSlugs": [
-        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-arbon-rorschach-mobiliar-ch"
+        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-arbon-rorschach-mobiliar-ch",
+        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-arbon-rorschach-die-mobiliar-oder-nach-vereinbarung"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-arbon-rorschach-mobiliar-ch"
+          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-arbon-rorschach-mobiliar-ch",
+          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-arbon-rorschach-die-mobiliar-oder-nach-vereinbarung"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-arbon-rorschach-mobiliar-ch"
@@ -3003,7 +3082,7 @@
       "url": "https://jobs.mobiliar.ch/job/Ebikon-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Seetal-Rontal/1164548055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:54.938Z",
+      "crawledAt": "2026-07-25T21:58:25.570Z",
       "addressLocality": "Ebikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -3022,12 +3101,14 @@
       "sfJobId": "1164548055",
       "previousSlugs": [
         "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-seetal-rontal-mobiliar-ch",
-        "consulente-assicurativo-e-previdenziale-m-f-d-generalagentur-seetal-rontal-die-mobiliar-ebikon"
+        "consulente-assicurativo-e-previdenziale-m-f-d-generalagentur-seetal-rontal-die-mobiliar-ebikon",
+        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-seetal-rontal-die-mobiliar-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-seetal-rontal-mobiliar-ch",
-          "consulente-assicurativo-e-previdenziale-m-f-d-generalagentur-seetal-rontal-die-mobiliar-ebikon"
+          "consulente-assicurativo-e-previdenziale-m-f-d-generalagentur-seetal-rontal-die-mobiliar-ebikon",
+          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-seetal-rontal-die-mobiliar-ebikon"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-seetal-rontal-mobiliar-ch"
@@ -3037,6 +3118,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:56.228Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -3082,7 +3164,7 @@
       "url": "https://jobs.mobiliar.ch/job/D%C3%BCdingen-Lehrstelle-als-Kauffrau-Kaufmann-EFZ-2027-%28Profil-EM%29-Generalagentur-D%C3%BCdingen/1162909055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:54.045Z",
+      "crawledAt": "2026-07-25T21:58:24.806Z",
       "addressLocality": "Düdingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -3101,11 +3183,13 @@
       "requirementsByLocale": {},
       "sfJobId": "1162909055",
       "previousSlugs": [
-        "lehrstelle-als-kauffrau-kaufmann-efz-2027-profil-e-m-generalagentur-dudingen-mobiliar-ch"
+        "lehrstelle-als-kauffrau-kaufmann-efz-2027-profil-e-m-generalagentur-dudingen-mobiliar-ch",
+        "apprendistato-come-kauffrau-kaufmann-cfc-2027-profil-e-m-agenzia-generale-dudingen-die-mobiliar-dudingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kauffrau-kaufmann-efz-2027-profil-e-m-generalagentur-dudingen-mobiliar-ch"
+          "lehrstelle-als-kauffrau-kaufmann-efz-2027-profil-e-m-generalagentur-dudingen-mobiliar-ch",
+          "apprendistato-come-kauffrau-kaufmann-cfc-2027-profil-e-m-agenzia-generale-dudingen-die-mobiliar-dudingen"
         ],
         "en": [
           "lehrstelle-als-kauffrau-kaufmann-efz-2027-profil-e-m-generalagentur-dudingen-mobiliar-ch"
@@ -3115,6 +3199,7 @@
         ]
       },
       "firstSeenAt": "2026-05-14T22:31:28.120Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3160,7 +3245,7 @@
       "url": "https://jobs.mobiliar.ch/job/Weinfelden-Versicherungs-und-Vorsorgeberater-mit-Herz-%28wm%29-Generalagentur-Mittelthurgau/1164537855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:53.162Z",
+      "crawledAt": "2026-07-25T21:58:23.923Z",
       "addressLocality": "Weinfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -3195,13 +3280,15 @@
         "consulente-assicurativo-e-previdenziale-con-passione-m-f-generalagentur-mittelthurgau-die-mobiliar-weinfelden",
         "versicherungs-und-vorsorgeberater-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch",
         "insurance-and-pension-advisor-with-heart-m-f-generalagentur-mittelthurgau-die-mobiliar-weinfelden",
-        "conseiller-en-assurances-et-prevoyance-avec-c-ur-h-f-generalagentur-mittelthurgau-die-mobiliar-weinfelden"
+        "conseiller-en-assurances-et-prevoyance-avec-c-ur-h-f-generalagentur-mittelthurgau-die-mobiliar-weinfelden",
+        "versicherungs-e-vorsorgeberater-con-herz-m-w-d-agenzia-generale-mittelthurgau-die-mobiliar-weinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch-2",
           "consulente-assicurativo-e-previdenziale-con-passione-m-f-generalagentur-mittelthurgau-die-mobiliar-weinfelden",
-          "versicherungs-und-vorsorgeberater-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch"
+          "versicherungs-und-vorsorgeberater-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch",
+          "versicherungs-e-vorsorgeberater-con-herz-m-w-d-agenzia-generale-mittelthurgau-die-mobiliar-weinfelden"
         ],
         "en": [
           "insurance-and-pension-advisor-with-heart-m-f-generalagentur-mittelthurgau-die-mobiliar-weinfelden"
@@ -3211,6 +3298,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:50.868Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3256,7 +3344,7 @@
       "url": "https://jobs.mobiliar.ch/job/Muotathal-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Schwyz%2C-Standort-Muotathal/1163186555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:52.278Z",
+      "crawledAt": "2026-07-25T21:58:23.170Z",
       "addressLocality": "Muotathal",
       "addressCountry": "CH",
       "country": "CH",
@@ -3275,12 +3363,14 @@
       "sfJobId": "1163186555",
       "previousSlugs": [
         "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-schwyz-standort-muotathal-mobiliar-",
-        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-schwyz-standort-muotathal-mobiliar"
+        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-schwyz-standort-muotathal-mobiliar",
+        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-schwyz-standort-muotathal-die-mobiliar-muotathal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-schwyz-standort-muotathal-mobiliar-",
-          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-schwyz-standort-muotathal-mobiliar"
+          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-schwyz-standort-muotathal-mobiliar",
+          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-schwyz-standort-muotathal-die-mobiliar-muotathal"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-schwyz-standort-muotathal-mobiliar-"
@@ -3290,6 +3380,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:54.704Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -3335,7 +3426,7 @@
       "url": "https://jobs.mobiliar.ch/job/Weinfelden-Verkaufssupportmitarbeiter-mit-Herz-%28wm%29-Generalagentur-Mittelthurgau/1164539255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:51.387Z",
+      "crawledAt": "2026-07-25T21:58:22.427Z",
       "addressLocality": "Weinfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -3368,11 +3459,13 @@
       },
       "sfJobId": "1164539255",
       "previousSlugs": [
-        "verkaufssupportmitarbeiter-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch"
+        "verkaufssupportmitarbeiter-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch",
+        "verkaufssupportmitarbeiter-con-herz-m-w-d-agenzia-generale-mittelthurgau-die-mobiliar-weinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufssupportmitarbeiter-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch"
+          "verkaufssupportmitarbeiter-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch",
+          "verkaufssupportmitarbeiter-con-herz-m-w-d-agenzia-generale-mittelthurgau-die-mobiliar-weinfelden"
         ],
         "en": [
           "verkaufssupportmitarbeiter-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch"
@@ -3382,6 +3475,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:56.981Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3427,7 +3521,7 @@
       "url": "https://jobs.mobiliar.ch/job/Dielsdorf-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Dielsdorf/1164899755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:50.501Z",
+      "crawledAt": "2026-07-25T21:58:21.537Z",
       "addressLocality": "Dielsdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -3457,14 +3551,17 @@
       },
       "sfJobId": "1164899755",
       "previousSlugs": [
-        "kv-lehrstelle-efz-2027-w-m-d-generalagentur-dielsdorf-mobiliar-ch"
+        "kv-lehrstelle-efz-2027-w-m-d-generalagentur-dielsdorf-mobiliar-ch",
+        "kv-apprendistato-cfc-2027-m-w-d-agenzia-generale-dielsdorf-die-mobiliar-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-efz-2027-w-m-d-generalagentur-dielsdorf-mobiliar-ch"
+          "kv-lehrstelle-efz-2027-w-m-d-generalagentur-dielsdorf-mobiliar-ch",
+          "kv-apprendistato-cfc-2027-m-w-d-agenzia-generale-dielsdorf-die-mobiliar-dielsdorf"
         ]
       },
       "firstSeenAt": "2026-06-12T22:51:54.290Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3510,7 +3607,7 @@
       "url": "https://jobs.mobiliar.ch/job/Eschenbach-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Rapperswil-Glarus/1163794755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:49.615Z",
+      "crawledAt": "2026-07-25T21:58:20.731Z",
       "addressLocality": "Eschenbach",
       "addressCountry": "CH",
       "country": "CH",
@@ -3544,11 +3641,13 @@
       },
       "sfJobId": "1163794755",
       "previousSlugs": [
-        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch"
+        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch",
+        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-rapperswil-glarus-die-mobiliar-eschenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch"
+          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch",
+          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-rapperswil-glarus-die-mobiliar-eschenbach"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch"
@@ -3587,7 +3686,7 @@
       "title": "Product Manager (w/m/d)",
       "titleByLocale": {
         "it": "Product Manager (f/m/d)",
-        "en": "Product Manager (f/m/d)",
+        "en": "Product Manager (w/m/d)",
         "de": "Product Manager (w/m/d)",
         "fr": "Gestionnaire de produits (f/m/d)"
       },
@@ -3603,7 +3702,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Product-Manager-%28wmd%29/1164792155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:48.568Z",
+      "crawledAt": "2026-07-25T21:58:19.957Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -3638,14 +3737,17 @@
       },
       "sfJobId": "1164792155",
       "previousSlugs": [
-        "product-manager-w-m-d-mobiliar-ch"
+        "product-manager-w-m-d-mobiliar-ch",
+        "product-manager-f-m-d-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-manager-w-m-d-mobiliar-ch"
+          "product-manager-w-m-d-mobiliar-ch",
+          "product-manager-f-m-d-die-mobiliar-bern"
         ]
       },
       "firstSeenAt": "2026-07-09T12:23:01.857Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -3691,7 +3793,7 @@
       "url": "https://jobs.mobiliar.ch/job/Zug-KV-Lehrstelle-EFZ-2027-Generalagentur-Zug/940916774/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:47.672Z",
+      "crawledAt": "2026-07-25T21:58:19.196Z",
       "addressLocality": "Generalagentur Zug",
       "addressCountry": "CH",
       "country": "CH",
@@ -3724,11 +3826,13 @@
       },
       "sfJobId": "940916774",
       "previousSlugs": [
-        "kv-lehrstelle-efz-2027-generalagentur-zug-mobiliar-ch"
+        "kv-lehrstelle-efz-2027-generalagentur-zug-mobiliar-ch",
+        "kv-apprendistato-cfc-2027-agenzia-generale-zug-die-mobiliar-generalagentur-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-efz-2027-generalagentur-zug-mobiliar-ch"
+          "kv-lehrstelle-efz-2027-generalagentur-zug-mobiliar-ch",
+          "kv-apprendistato-cfc-2027-agenzia-generale-zug-die-mobiliar-generalagentur-zug"
         ],
         "en": [
           "kv-lehrstelle-efz-2027-generalagentur-zug-mobiliar-ch"
@@ -3784,7 +3888,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-KV-Lehrstelle-EFZ-2027/1165035655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:46.788Z",
+      "crawledAt": "2026-07-25T21:58:18.437Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3816,11 +3920,13 @@
       },
       "sfJobId": "1165035655",
       "previousSlugs": [
-        "kv-lehrstelle-efz-2027-mobiliar-ch"
+        "kv-lehrstelle-efz-2027-mobiliar-ch",
+        "kv-apprendistato-cfc-2027-die-mobiliar-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-efz-2027-mobiliar-ch"
+          "kv-lehrstelle-efz-2027-mobiliar-ch",
+          "kv-apprendistato-cfc-2027-die-mobiliar-zurich"
         ],
         "en": [
           "kv-lehrstelle-efz-2027-mobiliar-ch"
@@ -3830,6 +3936,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:20:41.101Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3875,7 +3982,7 @@
       "url": "https://jobs.mobiliar.ch/job/Vevey-Conseiller-en-assurances-et-en-pr%C3%A9voyance-%28fhd%29-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-Riviera-R%C3%A9gion-de-Pully/1164884655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:02:45.905Z",
+      "crawledAt": "2026-07-25T21:58:17.686Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -3907,6 +4014,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:37:05.981Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3936,7 +4044,7 @@
       "title": "Young Insurance Professional (w/m/d) Generalagentur Wil",
       "titleByLocale": {
         "it": "Young Insurance Professional (w/m/d) agenzia generale Wil",
-        "en": "Young Insurance Professional (f/m/d) General Agency Wil",
+        "en": "Young Insurance Professional (w/m/d) Generalagentur Wil",
         "de": "Young Insurance Professional (w/m/d) Generalagentur Wil",
         "fr": "Jeune professionnel de l'assurance (f/m/d) Agence générale Wil"
       },
@@ -3952,7 +4060,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wil-Young-Insurance-Professional-%28wmd%29-Generalagentur-Wil/1164879755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:45.017Z",
+      "crawledAt": "2026-07-25T21:58:16.933Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -3983,17 +4091,20 @@
       },
       "sfJobId": "1164879755",
       "previousSlugs": [
-        "young-insurance-professional-w-m-d-generalagentur-wil-mobiliar-ch"
+        "young-insurance-professional-w-m-d-generalagentur-wil-mobiliar-ch",
+        "young-insurance-professional-m-w-d-agenzia-generale-wil-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "young-insurance-professional-w-m-d-generalagentur-wil-mobiliar-ch"
+          "young-insurance-professional-w-m-d-generalagentur-wil-mobiliar-ch",
+          "young-insurance-professional-m-w-d-agenzia-generale-wil-die-mobiliar-wil"
         ],
         "fr": [
           "young-insurance-professional-w-m-d-generalagentur-wil-mobiliar-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T12:37:04.137Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4039,7 +4150,7 @@
       "url": "https://jobs.mobiliar.ch/job/Basel-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Basel/1164878055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:44.126Z",
+      "crawledAt": "2026-07-25T21:58:16.028Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -4058,11 +4169,13 @@
       "requirementsByLocale": {},
       "sfJobId": "1164878055",
       "previousSlugs": [
-        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-basel-mobiliar-ch"
+        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-basel-mobiliar-ch",
+        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-basel-die-mobiliar-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-basel-mobiliar-ch"
+          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-basel-mobiliar-ch",
+          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-basel-die-mobiliar-basel"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-basel-mobiliar-ch"
@@ -4100,7 +4213,7 @@
       "companyDomain": "mobiliar.ch",
       "title": "TechLead Inkasso-/Exkasso-Prozesse (SAP FSCD) (w/m/d)",
       "titleByLocale": {
-        "it": "Processi di raccolta/escollezione TechLead (SAP FSCD) (f/m/d)",
+        "it": "TechLead Inkasso-/Exkasso-Prozesse (SAP FSCD) (w/m/d)",
         "en": "TechLead collection/excollection processes (SAP FSCD) (f/m/d)",
         "de": "TechLead Inkasso-/Exkasso-Prozesse (SAP FSCD) (w/m/d)",
         "fr": "Processus de collecte et de collecte de données (SAP FSCD) (f/m/d)"
@@ -4117,7 +4230,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-TechLead-Inkasso-Exkasso-Prozesse-%28SAP-FSCD%29-%28wmd%29/1165049355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:43.234Z",
+      "crawledAt": "2026-07-25T21:58:15.277Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -4156,13 +4269,15 @@
       "previousSlugs": [
         "techlead-inkasso-exkasso-prozesse-sap-fscd-w-m-d-mobiliar-ch",
         "techlead-inkasso-exkasso-prozesse-sap-fscd-w-m-d-die-mobiliar-bern",
-        "processo-di-raccolta-esclamazione-del-debito-techlead-sap-fscd-f-m-d-die-mobiliar-bern"
+        "processo-di-raccolta-esclamazione-del-debito-techlead-sap-fscd-f-m-d-die-mobiliar-bern",
+        "processi-di-raccolta-escollezione-techlead-sap-fscd-f-m-d-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "techlead-inkasso-exkasso-prozesse-sap-fscd-w-m-d-mobiliar-ch",
           "techlead-inkasso-exkasso-prozesse-sap-fscd-w-m-d-die-mobiliar-bern",
-          "processo-di-raccolta-esclamazione-del-debito-techlead-sap-fscd-f-m-d-die-mobiliar-bern"
+          "processo-di-raccolta-esclamazione-del-debito-techlead-sap-fscd-f-m-d-die-mobiliar-bern",
+          "processi-di-raccolta-escollezione-techlead-sap-fscd-f-m-d-die-mobiliar-bern"
         ],
         "en": [
           "techlead-inkasso-exkasso-prozesse-sap-fscd-w-m-d-mobiliar-ch"
@@ -4172,6 +4287,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:09:27.251Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4217,7 +4333,7 @@
       "url": "https://jobs.mobiliar.ch/job/Horgen-SchadenmitarbeiterIn-%28wmd%29-Generalagentur-Horgen/1165059955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:42.343Z",
+      "crawledAt": "2026-07-25T21:58:14.509Z",
       "addressLocality": "Horgen",
       "addressCountry": "CH",
       "country": "CH",
@@ -4271,7 +4387,8 @@
         "sales-support-representative-f-m-d-general-agency-horgen-die-mobiliar-horgen",
         "mitarbeiter-verkaufssupport-w-m-d-generalagentur-horgen-mobiliar-ch",
         "praktikant-m-d-projektmanagement-die-mobiliar-flawil",
-        "employe-d-assistance-a-la-vente-h-f-d-agence-generale-horgen-die-mobiliar-horgen"
+        "employe-d-assistance-a-la-vente-h-f-d-agence-generale-horgen-die-mobiliar-horgen",
+        "schadenmitarbeiterin-m-w-d-agenzia-generale-horgen-die-mobiliar-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4293,7 +4410,8 @@
           "collaboratore-supporto-vendite-f-m-d-agenzia-generale-horgen-die-mobiliar-horgen",
           "sales-support-staff-m-f-d-general-agency-horgen-die-mobiliar-horgen",
           "employe-e-de-soutien-aux-ventes-h-f-d-agence-generale-de-horgen-die-mobiliar-horgen",
-          "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-flawil-die-mobiliar-flawil"
+          "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-flawil-die-mobiliar-flawil",
+          "schadenmitarbeiterin-m-w-d-agenzia-generale-horgen-die-mobiliar-horgen"
         ],
         "en": [
           "schadenmitarbeiterin-w-m-d-generalagentur-horgen-mobiliar-ch",
@@ -4312,6 +4430,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:40.676Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4357,7 +4476,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Teamleiter-Underwriting-KMU-Markt-West-%28wmd%29/1164874755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:41.442Z",
+      "crawledAt": "2026-07-25T21:58:13.746Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -4394,11 +4513,13 @@
       },
       "sfJobId": "1164874755",
       "previousSlugs": [
-        "teamleiter-underwriting-kmu-markt-west-w-m-d-mobiliar-ch"
+        "teamleiter-underwriting-kmu-markt-west-w-m-d-mobiliar-ch",
+        "capo-team-underwriting-mercati-kmu-ovest-uomo-donna-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-underwriting-kmu-markt-west-w-m-d-mobiliar-ch"
+          "teamleiter-underwriting-kmu-markt-west-w-m-d-mobiliar-ch",
+          "capo-team-underwriting-mercati-kmu-ovest-uomo-donna-die-mobiliar-bern"
         ],
         "en": [
           "teamleiter-underwriting-kmu-markt-west-w-m-d-mobiliar-ch"
@@ -4408,6 +4529,7 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:44:25.620Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4453,7 +4575,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Responsable-d'%C3%A9quipe-Souscription-PME-march%C3%A9-ouest-%28fhd%29/1164874655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:02:40.394Z",
+      "crawledAt": "2026-07-25T21:58:12.981Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -4530,7 +4652,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Underwriter-Marktbearbeitung-KMU-%28wmd%29/1164674755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:39.503Z",
+      "crawledAt": "2026-07-25T21:58:12.090Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4565,11 +4687,13 @@
       "sfJobId": "1164674755",
       "previousSlugs": [
         "underwriter-marktbearbeitung-kmu-w-m-d-mobiliar-ch",
-        "fachspezialist-marktbearbeitung-kmu-w-m-d-mobiliar-ch"
+        "fachspezialist-marktbearbeitung-kmu-w-m-d-mobiliar-ch",
+        "pmi-di-sviluppo-del-mercato-sottoscritto-f-m-d-die-mobiliar-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "underwriter-marktbearbeitung-kmu-w-m-d-mobiliar-ch"
+          "underwriter-marktbearbeitung-kmu-w-m-d-mobiliar-ch",
+          "pmi-di-sviluppo-del-mercato-sottoscritto-f-m-d-die-mobiliar-zurich"
         ],
         "en": [
           "underwriter-marktbearbeitung-kmu-w-m-d-mobiliar-ch"
@@ -4582,6 +4706,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:09:26.377Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4611,7 +4736,7 @@
       "title": "Betriebswirtschafter Applikationen & Daten Immobilien (w/m/d)",
       "titleByLocale": {
         "it": "Economia aziendale Applicazioni & Data Real Estate (f/m/d)",
-        "en": "Business economist Applications & Data Real Estate (f/m/d)",
+        "en": "Betriebswirtschafter Applikationen & Daten Immobilien (w/m/d)",
         "de": "Betriebswirtschafter Applikationen & Daten Immobilien (w/m/d)",
         "fr": "Économiste des affaires Applications et données immobilières (f/m/d)"
       },
@@ -4627,7 +4752,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Betriebswirtschafter-Applikationen-&-Daten-Immobilien-%28wmd%29/1165027055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:38.614Z",
+      "crawledAt": "2026-07-25T21:58:11.335Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -4680,6 +4805,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T23:05:52.766Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4725,7 +4851,7 @@
       "url": "https://jobs.mobiliar.ch/job/Nyon-Sp%C3%A9cialiste-assurances-de-personnes-%28fhd%29/1165024455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:02:37.533Z",
+      "crawledAt": "2026-07-25T21:58:10.579Z",
       "addressLocality": "Nyon",
       "addressCountry": "CH",
       "country": "CH",
@@ -4743,6 +4869,7 @@
       "requirementsByLocale": {},
       "sfJobId": "1165024455",
       "firstSeenAt": "2026-07-02T11:36:27.183Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -4788,7 +4915,7 @@
       "url": "https://jobs.mobiliar.ch/job/Herisau-Verkaufssupportmitarbeiter-%28wm%29-Generalagentur-AusserRhoden/1164822255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:36.631Z",
+      "crawledAt": "2026-07-25T21:58:09.814Z",
       "addressLocality": "Herisau",
       "addressCountry": "CH",
       "country": "CH",
@@ -4808,11 +4935,13 @@
       "previousSlugs": [
         "verkaufssupportmitarbeiter-w-m-generalagentur-ausserrhoden-mobiliar-ch",
         "schadenmitarbeiter-m-w-d-agenzia-generale-ausserrhoden-die-mobiliar-herisau",
-        "schadenmitarbeiter-w-m-generalagentur-ausserrhoden-mobiliar-ch"
+        "schadenmitarbeiter-w-m-generalagentur-ausserrhoden-mobiliar-ch",
+        "verkaufssupportmitarbeiter-m-w-d-agenzia-generale-ausserrhoden-die-mobiliar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufssupportmitarbeiter-w-m-generalagentur-ausserrhoden-mobiliar-ch"
+          "verkaufssupportmitarbeiter-w-m-generalagentur-ausserrhoden-mobiliar-ch",
+          "verkaufssupportmitarbeiter-m-w-d-agenzia-generale-ausserrhoden-die-mobiliar-herisau"
         ],
         "en": [
           "verkaufssupportmitarbeiter-w-m-generalagentur-ausserrhoden-mobiliar-ch"
@@ -4822,6 +4951,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T14:06:05.067Z",
+      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 98500,
       "baseSalary": {
@@ -4867,7 +4997,7 @@
       "url": "https://jobs.mobiliar.ch/job/Biel-Conseiller-en-assurances-et-en-pr%C3%A9voyance-%28fhd%29-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-de-Bienne/1164040055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:02:35.735Z",
+      "crawledAt": "2026-07-25T21:58:08.934Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -4885,6 +5015,7 @@
       "requirementsByLocale": {},
       "sfJobId": "1164040055",
       "firstSeenAt": "2026-05-10T22:09:55.414Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4930,7 +5061,7 @@
       "url": "https://jobs.mobiliar.ch/job/Schwyz-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Schwyz/1164207255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:34.849Z",
+      "crawledAt": "2026-07-25T21:58:08.180Z",
       "addressLocality": "Schwyz",
       "addressCountry": "CH",
       "country": "CH",
@@ -4964,13 +5095,15 @@
       "previousSlugs": [
         "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-schwyz-mobiliar-ch",
         "senior-account-manager-m-d-die-mobiliar-schwyz",
-        "versicherungs-e-vorsorgeberater-w-m-d-agenzia-generale-schwyz-die-mobiliar-schwyz"
+        "versicherungs-e-vorsorgeberater-w-m-d-agenzia-generale-schwyz-die-mobiliar-schwyz",
+        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-schwyz-die-mobiliar-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-schwyz-mobiliar-ch",
           "senior-account-manager-m-d-die-mobiliar-schwyz",
-          "versicherungs-e-vorsorgeberater-w-m-d-agenzia-generale-schwyz-die-mobiliar-schwyz"
+          "versicherungs-e-vorsorgeberater-w-m-d-agenzia-generale-schwyz-die-mobiliar-schwyz",
+          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-schwyz-die-mobiliar-schwyz"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-schwyz-mobiliar-ch"
@@ -4980,6 +5113,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:53.137Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -5025,7 +5159,7 @@
       "url": "https://jobs.mobiliar.ch/job/Burgdorf-KV-Lehrstelle-EFZ-2027-Generalagentur-Burgdorf-%28wmd%29/1164040155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:33.950Z",
+      "crawledAt": "2026-07-25T21:58:07.420Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -5057,12 +5191,14 @@
       "sfJobId": "1164040155",
       "previousSlugs": [
         "kv-lehrstelle-efz-2027-generalagentur-burgdorf-w-m-d-mobiliar-ch",
-        "kv-lehrstelle-efz-2027-w-m-d-generalagentur-lachen-mobiliar-ch"
+        "kv-lehrstelle-efz-2027-w-m-d-generalagentur-lachen-mobiliar-ch",
+        "kv-apprendistato-cfc-2027-agenzia-generale-burgdorf-m-w-d-die-mobiliar-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kv-lehrstelle-efz-2027-generalagentur-burgdorf-w-m-d-mobiliar-ch",
-          "kv-lehrstelle-efz-2027-w-m-d-generalagentur-lachen-mobiliar-ch"
+          "kv-lehrstelle-efz-2027-w-m-d-generalagentur-lachen-mobiliar-ch",
+          "kv-apprendistato-cfc-2027-agenzia-generale-burgdorf-m-w-d-die-mobiliar-burgdorf"
         ],
         "en": [
           "kv-lehrstelle-efz-2027-generalagentur-burgdorf-w-m-d-mobiliar-ch"
@@ -5072,6 +5208,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:54.660Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5117,7 +5254,7 @@
       "url": "https://jobs.mobiliar.ch/job/Biel-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Biel/1164039955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:33.042Z",
+      "crawledAt": "2026-07-25T21:58:06.659Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -5159,7 +5296,8 @@
         "versicherungs-und-vorsorgeberater-w-m-generalagentur-olten-mobiliar-ch",
         "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-olten-die-mobiliar-olten",
         "versicherungs-e-vorsorgeberater-w-m-d-agenzia-generale-kreuzlingen-die-mobiliar-kreuzlingen",
-        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-kreuzlingen-mobiliar-ch"
+        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-kreuzlingen-mobiliar-ch",
+        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-biel-die-mobiliar-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5181,7 +5319,8 @@
           "versicherungs-und-vorsorgeberater-m-w-generalagentur-winterthur-mobiliar-ch",
           "directeur-principal-des-comptes-m-m-die-mobiliar-winterthur",
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-zurich-mobiliar-ch",
-          "versicherungs-e-vorsorgeberater-m-w-agenzia-generale-winterthur-die-mobiliar-winterthur"
+          "versicherungs-e-vorsorgeberater-m-w-agenzia-generale-winterthur-die-mobiliar-winterthur",
+          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-biel-die-mobiliar-biel"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-biel-mobiliar-ch",
@@ -5196,6 +5335,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:53.897Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5241,7 +5381,7 @@
       "url": "https://jobs.mobiliar.ch/job/Basel-Schadenspezialistin-%28wmd%29-Generalagentur-Basel/1165042255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:32.147Z",
+      "crawledAt": "2026-07-25T21:58:05.907Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -5260,11 +5400,13 @@
       "requirementsByLocale": {},
       "sfJobId": "1165042255",
       "previousSlugs": [
-        "schadenspezialist-in-w-m-d-generalagentur-basel-mobiliar-ch"
+        "schadenspezialist-in-w-m-d-generalagentur-basel-mobiliar-ch",
+        "schadenspezialist-in-m-w-d-agenzia-generale-basel-die-mobiliar-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schadenspezialist-in-w-m-d-generalagentur-basel-mobiliar-ch"
+          "schadenspezialist-in-w-m-d-generalagentur-basel-mobiliar-ch",
+          "schadenspezialist-in-m-w-d-agenzia-generale-basel-die-mobiliar-basel"
         ],
         "en": [
           "schadenspezialist-in-w-m-d-generalagentur-basel-mobiliar-ch"
@@ -5274,6 +5416,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:20:44.364Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5319,7 +5462,7 @@
       "url": "https://jobs.mobiliar.ch/job/Reinach-AG-KV-Lehrstelle-EFZ-2027-Generalagentur-Reinach-AG-%28wmd%29/1165038155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:31.253Z",
+      "crawledAt": "2026-07-25T21:58:05.141Z",
       "addressLocality": "Reinach",
       "addressCountry": "CH",
       "country": "CH",
@@ -5347,14 +5490,17 @@
       },
       "sfJobId": "1165038155",
       "previousSlugs": [
-        "kv-lehrstelle-efz-2027-generalagentur-reinach-ag-w-m-d-mobiliar-ch"
+        "kv-lehrstelle-efz-2027-generalagentur-reinach-ag-w-m-d-mobiliar-ch",
+        "kv-apprendistato-cfc-2027-agenzia-generale-reinach-ag-m-w-d-die-mobiliar-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-efz-2027-generalagentur-reinach-ag-w-m-d-mobiliar-ch"
+          "kv-lehrstelle-efz-2027-generalagentur-reinach-ag-w-m-d-mobiliar-ch",
+          "kv-apprendistato-cfc-2027-agenzia-generale-reinach-ag-m-w-d-die-mobiliar-reinach"
         ]
       },
       "firstSeenAt": "2026-07-06T14:20:42.675Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -5400,7 +5546,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-TPM-Owner-%28wmd%29/1165026655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:30.349Z",
+      "crawledAt": "2026-07-25T21:58:04.386Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -5434,17 +5580,20 @@
       },
       "sfJobId": "1165026655",
       "previousSlugs": [
-        "tpm-owner-w-m-d-mobiliar-ch"
+        "tpm-owner-w-m-d-mobiliar-ch",
+        "proprietario-tpm-w-m-d-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tpm-owner-w-m-d-mobiliar-ch"
+          "tpm-owner-w-m-d-mobiliar-ch",
+          "proprietario-tpm-w-m-d-die-mobiliar-bern"
         ],
         "fr": [
           "tpm-owner-w-m-d-mobiliar-ch"
         ]
       },
       "firstSeenAt": "2026-07-05T23:22:56.095Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5490,7 +5639,7 @@
       "url": "https://jobs.mobiliar.ch/job/Sarnen-Schadenspezialist-%28wmd%29-Generalagentur-Obwalden-und-Nidwalden/1164700455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:29.459Z",
+      "crawledAt": "2026-07-25T21:58:03.631Z",
       "addressLocality": "Sarnen",
       "addressCountry": "CH",
       "country": "CH",
@@ -5527,12 +5676,14 @@
       "sfJobId": "1164700455",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-obwalden-und-nidwalden-mobiliar-ch",
-        "gestione-del-prodotto-m-d-die-mobiliar-sarnen"
+        "gestione-del-prodotto-m-d-die-mobiliar-sarnen",
+        "schadenspezialist-m-w-d-agenzia-generale-obwalden-e-nidwalden-die-mobiliar-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-obwalden-und-nidwalden-mobiliar-ch",
-          "gestione-del-prodotto-m-d-die-mobiliar-sarnen"
+          "gestione-del-prodotto-m-d-die-mobiliar-sarnen",
+          "schadenspezialist-m-w-d-agenzia-generale-obwalden-e-nidwalden-die-mobiliar-sarnen"
         ],
         "en": [
           "schadenspezialist-w-m-d-generalagentur-obwalden-und-nidwalden-mobiliar-ch"
@@ -5542,6 +5693,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:52.353Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -5587,7 +5739,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-KV-Lehrstelle-EFZ-2027-Generalagentur-Bern-Stadt/1164704655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:28.566Z",
+      "crawledAt": "2026-07-25T21:58:02.873Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -5605,11 +5757,13 @@
       "requirementsByLocale": {},
       "sfJobId": "1164704655",
       "previousSlugs": [
-        "kv-lehrstelle-efz-2027-generalagentur-bern-stadt-mobiliar-ch"
+        "kv-lehrstelle-efz-2027-generalagentur-bern-stadt-mobiliar-ch",
+        "kv-apprendistato-cfc-2027-agenzia-generale-bern-stadt-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-efz-2027-generalagentur-bern-stadt-mobiliar-ch"
+          "kv-lehrstelle-efz-2027-generalagentur-bern-stadt-mobiliar-ch",
+          "kv-apprendistato-cfc-2027-agenzia-generale-bern-stadt-die-mobiliar-bern"
         ],
         "en": [
           "kv-lehrstelle-efz-2027-generalagentur-bern-stadt-mobiliar-ch"
@@ -5619,6 +5773,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:51.591Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5664,7 +5819,7 @@
       "url": "https://jobs.mobiliar.ch/job/Moutier-Conseiller-en-assurances-et-en-pr%C3%A9voyance-%28fhd%29-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-de-Moutier-Saint-Imier/1164849455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:02:27.672Z",
+      "crawledAt": "2026-07-25T21:58:02.103Z",
       "addressLocality": "Moutier",
       "addressCountry": "CH",
       "country": "CH",
@@ -5731,6 +5886,7 @@
         ]
       },
       "firstSeenAt": "2026-06-05T12:19:23.540Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -5760,7 +5916,7 @@
       "title": "Cyber Governance & Risk Manager (w/m/d)",
       "titleByLocale": {
         "it": "Cyber Governance & Risk Manager (f/m/d)",
-        "en": "Cyber Governance & Risk Manager (f/m/d)",
+        "en": "Cyber Governance & Risk Manager (w/m/d)",
         "de": "Cyber Governance & Risk Manager (w/m/d)",
         "fr": "Cybergouvernance et gestionnaire des risques (f/m/d)"
       },
@@ -5776,7 +5932,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Cyber-Governance-&-Risk-Manager-%28wmd%29/1165025955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:26.613Z",
+      "crawledAt": "2026-07-25T21:58:01.214Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -5807,6 +5963,7 @@
       },
       "sfJobId": "1165025955",
       "firstSeenAt": "2026-07-02T11:36:28.724Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -5852,7 +6009,7 @@
       "url": "https://jobs.mobiliar.ch/job/Thurgau-Versicherungs-und-Vorsorgeberater-mit-Herz-%28wm%29-Generalagentur-Mittelthurgau/1164155255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:25.716Z",
+      "crawledAt": "2026-07-25T21:58:00.323Z",
       "addressLocality": "Thurgau",
       "addressCountry": "CH",
       "country": "CH",
@@ -5884,12 +6041,14 @@
       "sfJobId": "1164155255",
       "previousSlugs": [
         "versicherungs-und-vorsorgeberater-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch",
-        "consulente-assicurativo-e-previdenziale-con-passione-m-f-die-mobiliar-thurgau"
+        "consulente-assicurativo-e-previdenziale-con-passione-m-f-die-mobiliar-thurgau",
+        "versicherungs-e-vorsorgeberater-con-herz-m-w-d-agenzia-generale-mittelthurgau-die-mobiliar-thurgau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch",
-          "consulente-assicurativo-e-previdenziale-con-passione-m-f-die-mobiliar-thurgau"
+          "consulente-assicurativo-e-previdenziale-con-passione-m-f-die-mobiliar-thurgau",
+          "versicherungs-e-vorsorgeberater-con-herz-m-w-d-agenzia-generale-mittelthurgau-die-mobiliar-thurgau"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch"
@@ -5899,6 +6058,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:29.807Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5944,7 +6104,7 @@
       "url": "https://jobs.mobiliar.ch/job/Yverdon-les-Bains-Gestionnaire-sp%C3%A9cialis%C3%A9-du-support-vente-courtiers-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-Lausanne-Nord-vaudois-%28fhd%29/1164176155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:02:24.815Z",
+      "crawledAt": "2026-07-25T21:57:59.555Z",
       "addressLocality": "Yverdon",
       "addressCountry": "CH",
       "country": "CH",
@@ -5989,6 +6149,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:32.866Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -6034,7 +6195,7 @@
       "url": "https://jobs.mobiliar.ch/job/Hochdorf-KV-Lehrstelle-EFZ-2027-Generalagentur-Seetal-Rontal/1164010655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:23.924Z",
+      "crawledAt": "2026-07-25T21:57:58.787Z",
       "addressLocality": "Hochdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -6067,14 +6228,17 @@
       },
       "sfJobId": "1164010655",
       "previousSlugs": [
-        "kv-lehrstelle-efz-2027-generalagentur-seetal-rontal-mobiliar-ch"
+        "kv-lehrstelle-efz-2027-generalagentur-seetal-rontal-mobiliar-ch",
+        "kv-apprendistato-cfc-2027-agenzia-generale-seetal-rontal-die-mobiliar-hochdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-efz-2027-generalagentur-seetal-rontal-mobiliar-ch"
+          "kv-lehrstelle-efz-2027-generalagentur-seetal-rontal-mobiliar-ch",
+          "kv-apprendistato-cfc-2027-agenzia-generale-seetal-rontal-die-mobiliar-hochdorf"
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:31.342Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -6120,7 +6284,7 @@
       "url": "https://jobs.mobiliar.ch/job/Luzern-Mitarbeiterin-Innendienst-%28wmd%29-Generalagentur-Luzern/1164803855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:23.023Z",
+      "crawledAt": "2026-07-25T21:57:57.981Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -6156,12 +6320,14 @@
       "previousSlugs": [
         "mitarbeiter-in-innendienst-w-m-d-generalagentur-luzern-mobiliar-ch",
         "dipendente-in-servizio-interno-f-m-d-agenzia-generale-lucerna-die-mobiliar-luzern",
-        "office-assistant-f-m-d-general-agency-lucerne-die-mobiliar-luzern"
+        "office-assistant-f-m-d-general-agency-lucerne-die-mobiliar-luzern",
+        "collaboratore-trice-servizio-interno-m-w-d-agenzia-generale-luzern-die-mobiliar-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-innendienst-w-m-d-generalagentur-luzern-mobiliar-ch",
-          "dipendente-in-servizio-interno-f-m-d-agenzia-generale-lucerna-die-mobiliar-luzern"
+          "dipendente-in-servizio-interno-f-m-d-agenzia-generale-lucerna-die-mobiliar-luzern",
+          "collaboratore-trice-servizio-interno-m-w-d-agenzia-generale-luzern-die-mobiliar-luzern"
         ],
         "en": [
           "mitarbeiter-in-innendienst-w-m-d-generalagentur-luzern-mobiliar-ch",
@@ -6172,6 +6338,7 @@
         ]
       },
       "firstSeenAt": "2026-05-29T13:23:27.178Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -6217,7 +6384,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Informatik-Lehrstelle-EFZ-2027/1165001455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:22.101Z",
+      "crawledAt": "2026-07-25T21:57:57.069Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -6251,7 +6418,8 @@
         "mediamatik-apprendistato-cfc-2027-die-mobiliar-bern",
         "mediatics-teaching-centre-efz-2027-die-mobiliar-bern",
         "mediamatik-lehrstelle-efz-2027-mobiliar-ch",
-        "centre-d-enseignement-en-medecine-efz-2027-die-mobiliar-bern"
+        "centre-d-enseignement-en-medecine-efz-2027-die-mobiliar-bern",
+        "informatik-apprendistato-cfc-2027-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6259,21 +6427,23 @@
           "mediamatik-apprendistato-cfc-2027-die-mobiliar-bern",
           "mediatics-teaching-centre-efz-2027-die-mobiliar-bern",
           "mediamatik-lehrstelle-efz-2027-mobiliar-ch",
-          "centre-d-enseignement-en-medecine-efz-2027-die-mobiliar-bern"
+          "centre-d-enseignement-en-medecine-efz-2027-die-mobiliar-bern",
+          "informatik-apprendistato-cfc-2027-die-mobiliar-bern"
         ],
         "en": [
           "informatik-lehrstelle-efz-2027-mobiliar-ch",
           "mediatics-teaching-centre-efz-2027-die-mobiliar-bern"
         ],
+        "de": [
+          "mediamatik-lehrstelle-efz-2027-mobiliar-ch"
+        ],
         "fr": [
           "informatik-lehrstelle-efz-2027-mobiliar-ch",
           "centre-d-enseignement-en-medecine-efz-2027-die-mobiliar-bern"
-        ],
-        "de": [
-          "mediamatik-lehrstelle-efz-2027-mobiliar-ch"
         ]
       },
       "firstSeenAt": "2026-06-29T14:26:53.909Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6319,7 +6489,7 @@
       "url": "https://jobs.mobiliar.ch/job/Burgdorf-Stv_-Leiter-Schadendienst-im-innen-und-Aussendienst-%28wm%29-Generalagentur-Burgdorf/1164843655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:21.183Z",
+      "crawledAt": "2026-07-25T21:57:56.194Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -6356,11 +6526,13 @@
       },
       "sfJobId": "1164843655",
       "previousSlugs": [
-        "stv-leiter-schadendienst-im-innen-und-aussendienst-w-m-generalagentur-burgdorf-mobiliar-ch"
+        "stv-leiter-schadendienst-im-innen-und-aussendienst-w-m-generalagentur-burgdorf-mobiliar-ch",
+        "stv-leiter-schadendienst-im-innen-e-aussendienst-m-w-d-agenzia-generale-burgdorf-die-mobiliar-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-leiter-schadendienst-im-innen-und-aussendienst-w-m-generalagentur-burgdorf-mobiliar-ch"
+          "stv-leiter-schadendienst-im-innen-und-aussendienst-w-m-generalagentur-burgdorf-mobiliar-ch",
+          "stv-leiter-schadendienst-im-innen-e-aussendienst-m-w-d-agenzia-generale-burgdorf-die-mobiliar-burgdorf"
         ],
         "en": [
           "stv-leiter-schadendienst-im-innen-und-aussendienst-w-m-generalagentur-burgdorf-mobiliar-ch"
@@ -6370,6 +6542,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T15:26:58.827Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -6415,7 +6588,7 @@
       "url": "https://jobs.mobiliar.ch/job/Dietikon-KV-Lehrstelle-EFZ-2027-Generalagentur-Limmattal/1165022855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:20.280Z",
+      "crawledAt": "2026-07-25T21:57:55.237Z",
       "addressLocality": "Dietikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -6445,11 +6618,13 @@
       },
       "sfJobId": "1165022855",
       "previousSlugs": [
-        "kv-lehrstelle-efz-2027-generalagentur-limmattal-mobiliar-ch"
+        "kv-lehrstelle-efz-2027-generalagentur-limmattal-mobiliar-ch",
+        "kv-apprendistato-cfc-2027-agenzia-generale-limmattal-die-mobiliar-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-efz-2027-generalagentur-limmattal-mobiliar-ch"
+          "kv-lehrstelle-efz-2027-generalagentur-limmattal-mobiliar-ch",
+          "kv-apprendistato-cfc-2027-agenzia-generale-limmattal-die-mobiliar-dietikon"
         ],
         "en": [
           "kv-lehrstelle-efz-2027-generalagentur-limmattal-mobiliar-ch"
@@ -6459,6 +6634,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:36:26.425Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6504,7 +6680,7 @@
       "url": "https://jobs.mobiliar.ch/job/Lausanne-Conseiller-%C3%A8re-en-assurances%2C-pr%C3%A9voyance-et-hypoth%C3%A8ques-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-Lausanne-Nord-vaudois/1163725955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:02:19.397Z",
+      "crawledAt": "2026-07-25T21:57:54.478Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -6537,6 +6713,7 @@
         ]
       },
       "firstSeenAt": "2026-05-17T10:47:49.813Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -6582,7 +6759,7 @@
       "url": "https://jobs.mobiliar.ch/job/Basel-KV-Lehrstelle-EFZ-2027-Generalagentur-Basel/1163321355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:18.500Z",
+      "crawledAt": "2026-07-25T21:57:53.691Z",
       "addressLocality": "Generalagentur Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -6617,11 +6794,13 @@
       },
       "sfJobId": "1163321355",
       "previousSlugs": [
-        "kv-lehrstelle-efz-2027-generalagentur-basel-mobiliar-ch"
+        "kv-lehrstelle-efz-2027-generalagentur-basel-mobiliar-ch",
+        "kv-apprendistato-cfc-2027-agenzia-generale-basel-die-mobiliar-generalagentur-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-efz-2027-generalagentur-basel-mobiliar-ch"
+          "kv-lehrstelle-efz-2027-generalagentur-basel-mobiliar-ch",
+          "kv-apprendistato-cfc-2027-agenzia-generale-basel-die-mobiliar-generalagentur-basel"
         ],
         "en": [
           "kv-lehrstelle-efz-2027-generalagentur-basel-mobiliar-ch"
@@ -6631,6 +6810,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T22:49:16.742Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -6676,7 +6856,7 @@
       "url": "https://jobs.mobiliar.ch/job/Winterthur-KV-Lehrstelle-EFZ-2027-Generalagentur-Winterthur/1164471155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:17.471Z",
+      "crawledAt": "2026-07-25T21:57:52.852Z",
       "addressLocality": "Generalagentur Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -6709,11 +6889,13 @@
       },
       "sfJobId": "1164471155",
       "previousSlugs": [
-        "kv-lehrstelle-efz-2027-generalagentur-winterthur-mobiliar-ch"
+        "kv-lehrstelle-efz-2027-generalagentur-winterthur-mobiliar-ch",
+        "kv-apprendistato-cfc-2027-agenzia-generale-winterthur-die-mobiliar-generalagentur-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-efz-2027-generalagentur-winterthur-mobiliar-ch"
+          "kv-lehrstelle-efz-2027-generalagentur-winterthur-mobiliar-ch",
+          "kv-apprendistato-cfc-2027-agenzia-generale-winterthur-die-mobiliar-generalagentur-winterthur"
         ],
         "en": [
           "kv-lehrstelle-efz-2027-generalagentur-winterthur-mobiliar-ch"
@@ -6769,7 +6951,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Sachbearbeiter-Contact-Center-%28wmd%29/1164640755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:15.871Z",
+      "crawledAt": "2026-07-25T21:57:51.677Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -6803,11 +6985,13 @@
       },
       "sfJobId": "1164640755",
       "previousSlugs": [
-        "sachbearbeiter-contact-center-w-m-d-mobiliar-ch"
+        "sachbearbeiter-contact-center-w-m-d-mobiliar-ch",
+        "centro-di-contatto-m-d-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-contact-center-w-m-d-mobiliar-ch"
+          "sachbearbeiter-contact-center-w-m-d-mobiliar-ch",
+          "centro-di-contatto-m-d-die-mobiliar-bern"
         ],
         "en": [
           "sachbearbeiter-contact-center-w-m-d-mobiliar-ch"
@@ -6817,6 +7001,7 @@
         ]
       },
       "firstSeenAt": "2026-06-01T15:35:26.388Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -6862,7 +7047,7 @@
       "url": "https://jobs.mobiliar.ch/job/Schaffhausen-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Schaffhausen/1164681355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:14.451Z",
+      "crawledAt": "2026-07-25T21:57:50.609Z",
       "addressLocality": "Schaffhausen",
       "addressCountry": "CH",
       "country": "CH",
@@ -6894,17 +7079,20 @@
       },
       "sfJobId": "1164681355",
       "previousSlugs": [
-        "kv-lehrstelle-efz-2027-w-m-d-generalagentur-schaffhausen-mobiliar-ch"
+        "kv-lehrstelle-efz-2027-w-m-d-generalagentur-schaffhausen-mobiliar-ch",
+        "kv-apprendistato-cfc-2027-m-w-d-agenzia-generale-schaffhausen-die-mobiliar-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-efz-2027-w-m-d-generalagentur-schaffhausen-mobiliar-ch"
+          "kv-lehrstelle-efz-2027-w-m-d-generalagentur-schaffhausen-mobiliar-ch",
+          "kv-apprendistato-cfc-2027-m-w-d-agenzia-generale-schaffhausen-die-mobiliar-schaffhausen"
         ],
         "en": [
           "kv-lehrstelle-efz-2027-w-m-d-generalagentur-schaffhausen-mobiliar-ch"
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:42.039Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -6950,7 +7138,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-KV-Lehrstelle-EFZ-2027-Lehre-und-Sport/1164999655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:13.381Z",
+      "crawledAt": "2026-07-25T21:57:49.843Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -6979,11 +7167,13 @@
       },
       "sfJobId": "1164999655",
       "previousSlugs": [
-        "kv-lehrstelle-efz-2027-lehre-und-sport-mobiliar-ch"
+        "kv-lehrstelle-efz-2027-lehre-und-sport-mobiliar-ch",
+        "kv-apprendistato-cfc-2027-lehre-e-sport-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-efz-2027-lehre-und-sport-mobiliar-ch"
+          "kv-lehrstelle-efz-2027-lehre-und-sport-mobiliar-ch",
+          "kv-apprendistato-cfc-2027-lehre-e-sport-die-mobiliar-bern"
         ],
         "en": [
           "kv-lehrstelle-efz-2027-lehre-und-sport-mobiliar-ch"
@@ -6993,6 +7183,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T14:26:49.928Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7038,7 +7229,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Lehrstelle-Fachfrau-Fachmann-Kundendialog-EFZ-2027/1164999555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:12.485Z",
+      "crawledAt": "2026-07-25T21:57:49.086Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -7071,11 +7262,13 @@
       },
       "sfJobId": "1164999555",
       "previousSlugs": [
-        "lehrstelle-fachfrau-fachmann-kundendialog-efz-2027-mobiliar-ch"
+        "lehrstelle-fachfrau-fachmann-kundendialog-efz-2027-mobiliar-ch",
+        "apprendistato-fachfrau-fachmann-kundendialog-cfc-2027-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-fachmann-kundendialog-efz-2027-mobiliar-ch"
+          "lehrstelle-fachfrau-fachmann-kundendialog-efz-2027-mobiliar-ch",
+          "apprendistato-fachfrau-fachmann-kundendialog-cfc-2027-die-mobiliar-bern"
         ],
         "en": [
           "lehrstelle-fachfrau-fachmann-kundendialog-efz-2027-mobiliar-ch"
@@ -7085,6 +7278,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T14:26:49.141Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7130,7 +7324,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-KV-Lehrstelle-EFZ-2027/1164999455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:02:11.448Z",
+      "crawledAt": "2026-07-25T21:57:47.948Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -7158,12 +7352,14 @@
       "sfJobId": "1164999455",
       "previousSlugs": [
         "kv-lehrstelle-efz-2027-mobiliar-ch",
-        "kv-lehrstelle-efz-2027-mobiliar-ch-2"
+        "kv-lehrstelle-efz-2027-mobiliar-ch-2",
+        "kv-apprendistato-cfc-2027-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kv-lehrstelle-efz-2027-mobiliar-ch",
-          "kv-lehrstelle-efz-2027-mobiliar-ch-2"
+          "kv-lehrstelle-efz-2027-mobiliar-ch-2",
+          "kv-apprendistato-cfc-2027-die-mobiliar-bern"
         ],
         "en": [
           "kv-lehrstelle-efz-2027-mobiliar-ch"
@@ -7173,6 +7369,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T14:26:50.730Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
