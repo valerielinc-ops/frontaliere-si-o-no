@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-07-24T22:18:46.430Z",
+  "assembledAt": "2026-07-25T11:07:49.837Z",
   "jobs": [
     {
       "id": "company-cnbkzz",
@@ -25,7 +25,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-23T12:20:30.141Z",
       "titleByLocale": {
         "it": "Programma dell'agente di sicurezza F-35A (ufficiale di sicurezza SAP del governo)",
@@ -91,7 +91,8 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salaryMin": 73000,
-      "salaryMax": 124500
+      "salaryMax": 124500,
+      "needsRetranslation": true
     },
     {
       "id": "company-qhd7qj",
@@ -116,7 +117,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-22T12:07:58.479Z",
       "titleByLocale": {
         "it": "Systemspezialist/-in (Informatik-Ingegnere) Flugsimulatoren",
@@ -198,7 +199,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-22T12:07:58.479Z",
       "titleByLocale": {
         "it": "Specialista insegnante/in supporto di leadership (FU)",
@@ -290,7 +291,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-22T22:40:59.622Z",
       "titleByLocale": {
         "it": "Centro di reclutamento medico aggiunto Monteceneri",
@@ -393,7 +394,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-20T12:48:06.048Z",
       "titleByLocale": {
         "it": "Dottor Recruitment presso Mels Recruitment Center",
@@ -494,7 +495,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-16T11:33:55.895Z",
       "titleByLocale": {
         "it": "Meccanico dell'aviazione",
@@ -518,7 +519,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "group-leader-weapons-mechanic-hornet-swiss-armed-forces-vtg-bern-go5lac",
           "chef-de-groupe-mecanicien-des-armes-cornet-swiss-armed-forces-vtg-bern-go5lac",
           "gruppenfuhrer-in-waffenmechaniker-in-hornet-swiss-armed-forces-vtg-bern",
           "gruppo-leader-armi-meccanico-hornet-confederazione-svizzera-emmen",
@@ -537,7 +537,8 @@
           "materiel-mecanicien-pilote-confederazione-svizzera-emmen",
           "attrezzature-meccaniche-pilota-swiss-armed-forces-vtg-bern",
           "chef-de-groupe-mecanicien-des-armes-cornet-swiss-armed-forces-vtg-bern",
-          "gruppenfuhrer-in-waffenmechaniker-in-hornet-swiss-armed-forces-vtg-bern-go5lac"
+          "gruppenfuhrer-in-waffenmechaniker-in-hornet-swiss-armed-forces-vtg-bern-go5lac",
+          "group-leader-weapons-mechanic-hornet-swiss-armed-forces-vtg-bern-go5lac"
         ],
         "en": [
           "luftfahrzeugmechaniker-in-confederazione-svizzera-alpnach",
@@ -640,7 +641,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-15T11:36:32.888Z",
       "titleByLocale": {
         "it": "Meccatronica automobilistica tecnico/in facilmente",
@@ -719,7 +720,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-14T11:21:24.935Z",
       "titleByLocale": {
         "it": "Specialista in ingegneria elettrica (elettricista operativo)",
@@ -790,7 +791,8 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-rnlb73",
@@ -815,7 +817,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-14T11:21:24.935Z",
       "titleByLocale": {
         "it": "Pilota/in drone professionale",
@@ -910,7 +912,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-13T22:47:06.276Z",
       "titleByLocale": {
         "it": "Capo di Transmission/Communication/Electronic Systems/General Workshops (UKEA)",
@@ -1002,7 +1004,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-10T13:27:16.778Z",
       "titleByLocale": {
         "it": "Responsabile Fachausbildung Militärpolizei",
@@ -1084,7 +1086,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-10T13:27:16.778Z",
       "titleByLocale": {
         "it": "Serbatoio elettrico",
@@ -1168,7 +1170,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "titleByLocale": {
         "it": "Chef/-in Unterhalt Luftfahrzeuge, Militärflugplatz Alpnach",
@@ -1227,7 +1229,8 @@
       "postalCode": "3001",
       "country": "CH",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-4qkyj9",
@@ -1247,7 +1250,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "titleByLocale": {
         "it": "Ingegnere meccanico/in Bronschhofen",
@@ -1327,7 +1330,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "titleByLocale": {
         "it": "Ingegnere meccanico/in Hinwil",
@@ -1412,7 +1415,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "titleByLocale": {
         "it": "Tecnologia del trasportatore specializzato/in",
@@ -1491,10 +1494,10 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
-        "it": "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
+        "it": "esci-dalla-routine-diventa-un-ufficiale-professionista-swiss-armed-forces-vtg-bern",
         "en": "get-out-of-the-routine-become-a-professional-officer-swiss-armed-forces-vtg-bern",
         "de": "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
         "fr": "sortir-de-la-routine-devenir-administrateur-swiss-armed-forces-vtg-bern"
@@ -1573,10 +1576,10 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
-        "it": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
+        "it": "la-tua-professione-dovrebbe-offrire-di-piu-diventa-un-sergente-professionista-swiss-armed-forces-vtg-bern",
         "en": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funk",
         "de": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
         "fr": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funk"
@@ -1662,7 +1665,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3",
@@ -1766,11 +1769,11 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "driver-assistente-di-trasporto-swiss-armed-forces-vtg-bern",
-        "en": "driver-transport-assistant-swiss-armed-forces-vtg-bern",
+        "en": "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern",
         "de": "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern-4hynmv",
         "fr": "conducteur-assistant-de-transport-swiss-armed-forces-vtg-bern"
       },
@@ -1816,6 +1819,7 @@
         "en": [
           "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bellinzona",
           "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern-4hynmv",
+          "driver-transport-assistant-swiss-armed-forces-vtg-bern",
           "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern"
         ],
         "de": [
@@ -1833,10 +1837,12 @@
         "autista-in-comando-swiss-armed-forces-vtg-bellinzona",
         "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bellinzona",
         "fahrer-in-transportregal-swiss-armed-forces-vtg-bern-4hynmv",
-        "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern-4hynmv"
+        "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern-4hynmv",
+        "driver-transport-assistant-swiss-armed-forces-vtg-bern"
       ],
       "salaryMin": 85000,
-      "salaryMax": 119000
+      "salaryMax": 119000,
+      "needsRetranslation": true
     },
     {
       "id": "company-6okqpl",
@@ -1856,7 +1862,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
@@ -1950,7 +1956,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "agenti-del-personale-hq-kfor-swiss-armed-forces-vtg-bern",
@@ -1990,7 +1996,6 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "personnel-scientifique-industriel-swiss-armed-forces-vtg-bern",
           "wissenschaftliche-r-collaboratore-trice-in-swiss-armed-forces-vtg-bern-gt0ems",
           "impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-chur",
           "logistics-department-swiss-armed-forces-vtg-bellinzona",
@@ -2009,7 +2014,8 @@
           "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bern-etokcg",
           "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bellinzona",
           "personale-scientifico-industriale-swiss-armed-forces-vtg-bern",
-          "scientific-industry-staff-swiss-armed-forces-vtg-bern"
+          "scientific-industry-staff-swiss-armed-forces-vtg-bern",
+          "personnel-scientifique-industriel-swiss-armed-forces-vtg-bern"
         ],
         "en": [
           "staff-officers-hq-kfor-swiss-armed-forces-vtg-bellinzona",
@@ -2058,7 +2064,8 @@
         "staff-officers-hq-kfor-swiss-armed-forces-vtg-bern-o3sbqw"
       ],
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-p0hvci",
@@ -2078,7 +2085,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "camion-automobile-meccatronica-tecnico-swiss-armed-forces-vtg-bern",
@@ -2165,7 +2172,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-09T22:31:05.681Z",
       "slugByLocale": {
         "it": "pioneer-maurer-m-f-swiss-armed-forces-vtg-bern",
@@ -2211,7 +2218,8 @@
         "pionier-maurer-m-w-d-swiss-armed-forces-vtg-bern-szsnuw"
       ],
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-6iaf9o",
@@ -2231,7 +2239,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "mannschaft-e-kader-aller-stufen-im-bereich-hoch-genio-civile-swiss-armed-forces-vtg-bern-6iaf9o",
@@ -2297,7 +2305,8 @@
         "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bern-6iaf9o"
       ],
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-4u21rw",
@@ -2322,10 +2331,10 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
-        "it": "specialista-delle-infrastrutture-sanitaria-swiss-armed-forces-vtg-bern",
+        "it": "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern",
         "en": "infrastructure-specialist-sanitary-swiss-armed-forces-vtg-bern",
         "de": "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern-4u21rw",
         "fr": "specialiste-des-infrastructures-sanitaires-swiss-armed-forces-vtg-bern"
@@ -2365,7 +2374,8 @@
           "infrastrutture-specialista-in-sanitario-swiss-armed-forces-vtg-bern",
           "specialiste-des-infrastructures-en-sanitaire-swiss-armed-forces-vtg-bellinzona",
           "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bellinzona",
-          "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern-4u21rw"
+          "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern-4u21rw",
+          "specialista-delle-infrastrutture-sanitaria-swiss-armed-forces-vtg-bern"
         ],
         "en": [
           "infrastructure-specialist-in-sanitary-swiss-armed-forces-vtg-bern",
@@ -2386,10 +2396,12 @@
         "specialiste-des-infrastructures-en-sanitaire-swiss-armed-forces-vtg-bern",
         "specialiste-des-infrastructures-en-sanitaire-swiss-armed-forces-vtg-bellinzona",
         "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bellinzona",
-        "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern-4u21rw"
+        "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern-4u21rw",
+        "specialista-delle-infrastrutture-sanitaria-swiss-armed-forces-vtg-bern"
       ],
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-r2rk7v",
@@ -2414,10 +2426,10 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
-        "it": "specialista-delle-infrastrutture-in-elettrici-potenza-swiss-armed-forces-vtg-bern",
+        "it": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern",
         "en": "infrastructure-specialist-in-electrics-power-swiss-armed-forces-vtg-bern",
         "de": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
         "fr": "specialiste-de-l-infrastructure-en-electricite-energie-swiss-armed-forces-vtg-bern"
@@ -2458,7 +2470,8 @@
           "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bellinzona",
           "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
           "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-svizzera-stans-oberdorf-ausland",
-          "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland"
+          "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland",
+          "specialista-delle-infrastrutture-in-elettrici-potenza-swiss-armed-forces-vtg-bern"
         ],
         "en": [
           "infrastructure-specialist-in-electrical-power-swiss-armed-forces-vtg-bern",
@@ -2488,10 +2501,12 @@
         "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-svizzera-stans-oberdorf-ausland",
         "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland",
         "infrastructure-specialist-in-electrical-power-confederazione-svizzera-stans-oberdorf-ausland",
-        "specialiste-des-infrastructures-electriques-electriques-confederazione-svizzera-stans-oberdorf-ausland"
+        "specialiste-des-infrastructures-electriques-electriques-confederazione-svizzera-stans-oberdorf-ausland",
+        "specialista-delle-infrastrutture-in-elettrici-potenza-swiss-armed-forces-vtg-bern"
       ],
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-ta786n",
@@ -2516,7 +2531,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "trasmissione-specialista-informatica-swiss-armed-forces-vtg-bern",
@@ -2608,7 +2623,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "offiziere-per-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d",
@@ -2701,7 +2716,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "osservatore-lmt-lot-m-w-swiss-armed-forces-vtg-bern",
@@ -2785,7 +2800,8 @@
         "observer-lmt-lot-m-w-d-swiss-armed-forces-vtg-bern-i476a6"
       ],
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-q6f59r",
@@ -2810,7 +2826,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-24T22:18:45.545Z",
+      "crawledAt": "2026-07-25T11:07:48.411Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "personale-militare-m-f-swiss-armed-forces-vtg-bern",
