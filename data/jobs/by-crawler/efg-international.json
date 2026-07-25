@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-07-24T22:06:02.920Z",
+  "assembledAt": "2026-07-25T10:46:48.152Z",
   "jobs": [
     {
       "id": "efg-6336",
@@ -196,7 +196,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.418Z",
+      "crawledAt": "2026-07-25T10:46:44.319Z",
       "slugByLocale": {
         "it": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
         "en": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
@@ -222,7 +222,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1204",
       "country": "CH",
-      "firstSeenAt": "2026-06-25T22:13:58.906Z"
+      "firstSeenAt": "2026-06-25T22:13:58.906Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6334",
@@ -353,7 +354,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.415Z",
+      "crawledAt": "2026-07-25T10:46:44.316Z",
       "slugByLocale": {
         "it": "senior-compliance-officer-onboarding-recensioni-periodiche-efg-international-ag-geneve",
         "en": "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve",
@@ -387,7 +388,8 @@
       },
       "previousSlugs": [
         "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6326",
@@ -526,7 +528,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.413Z",
+      "crawledAt": "2026-07-25T10:46:44.313Z",
       "slugByLocale": {
         "it": "cash-reconciliation-specialista-efg-international-ag-geneve",
         "en": "cash-reconciliation-specialist-efg-geneve",
@@ -566,7 +568,8 @@
       },
       "previousSlugs": [
         "cash-reconciliation-specialist-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6266",
@@ -649,7 +652,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.411Z",
+      "crawledAt": "2026-07-25T10:46:44.311Z",
       "slugByLocale": {
         "it": "investment-risk-specialista-efg-international-ag-zurich",
         "en": "investment-risk-specialist-efg-zurich",
@@ -692,7 +695,8 @@
         "investment-risk-specialist-efg-zurich",
         "specialista-del-rischio-di-investimento-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6219",
@@ -743,7 +747,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.409Z",
+      "crawledAt": "2026-07-25T10:46:44.307Z",
       "slugByLocale": {
         "it": "data-ops-ingegnere-efg-international-ag-geneve",
         "en": "data-ops-engineer-efg-geneve",
@@ -786,7 +790,8 @@
         "data-ops-engineer-efg-geneve",
         "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6210",
@@ -809,7 +814,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "General Services Employee",
-        "de": "Mitarbeiter für allgemeine Dienstleistungen",
+        "de": "General Services Employee",
         "it": "Servizi generali Dipendenti",
         "fr": "Services généraux Employé"
       },
@@ -837,11 +842,11 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.406Z",
+      "crawledAt": "2026-07-25T10:46:44.305Z",
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
-        "de": "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
+        "de": "general-services-employee-efg-international-ag-geneve",
         "fr": "services-generaux-employe-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -874,14 +879,17 @@
         ],
         "de": [
           "general-services-employee-efg-geneve",
+          "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
           "general-services-employee-efg-international-ag-geneve"
         ]
       },
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
+        "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "general-services-employee-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6175",
@@ -1007,7 +1015,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.403Z",
+      "crawledAt": "2026-07-25T10:46:44.302Z",
       "slugByLocale": {
         "it": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -1052,7 +1060,8 @@
         "pb-support-specialista-middle-east-ch-efg-international-ag-geneve",
         "pb-support-specialist-middle-east-ch-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -1205,7 +1214,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.400Z",
+      "crawledAt": "2026-07-25T10:46:44.299Z",
       "slugByLocale": {
         "it": "learning-development-specialista-efg-international-ag-lugano-n932z9",
         "en": "learning-development-specialist-efg-international-ag-lugano-n932z9",
@@ -1413,7 +1422,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.394Z",
+      "crawledAt": "2026-07-25T10:46:44.296Z",
       "slugByLocale": {
         "it": "responsabile-pubblicita-media-e-marketing-strategico-efg-international-ag-zurich",
         "en": "advertising-media-and-strategic-marketing-manager-efg-zurich",
@@ -1449,7 +1458,8 @@
       },
       "previousSlugs": [
         "advertising-media-and-strategic-marketing-manager-efg-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6137",
@@ -1603,7 +1613,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.392Z",
+      "crawledAt": "2026-07-25T10:46:44.294Z",
       "slugByLocale": {
         "it": "international-payroll-specialista-efg-international-ag-lugano-n9331q",
         "en": "international-payroll-specialist-efg-international-ag-lugano-n9331q",
@@ -1738,7 +1748,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.388Z",
+      "crawledAt": "2026-07-25T10:46:44.289Z",
       "slugByLocale": {
         "it": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
         "en": "it-data-service-manager-efg-geneve",
@@ -1920,7 +1930,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.384Z",
+      "crawledAt": "2026-07-25T10:46:44.286Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -1958,7 +1968,8 @@
         "cybersecurity-internal-penetration-tester-efg-geneve",
         "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6064",
@@ -2009,7 +2020,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.381Z",
+      "crawledAt": "2026-07-25T10:46:44.284Z",
       "slugByLocale": {
         "it": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
         "en": "cybersecurity-internal-penetration-tester-efg-geneve",
@@ -2053,7 +2064,8 @@
         "client-services-officer-geneva-talent-pool-efg-international-ag-geneve",
         "client-services-officer-geneva-talent-pool-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6046",
@@ -2104,7 +2116,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.377Z",
+      "crawledAt": "2026-07-25T10:46:44.282Z",
       "slugByLocale": {
         "it": "senior-private-markets-product-specialista-efg-international-ag-zurich",
         "en": "senior-private-markets-product-specialist-efg-zurich",
@@ -2147,7 +2159,8 @@
         "senior-private-markets-product-specialist-efg-zurich",
         "specialiste-principal-des-produits-des-marches-prives-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6040",
@@ -2198,7 +2211,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.376Z",
+      "crawledAt": "2026-07-25T10:46:44.281Z",
       "slugByLocale": {
         "it": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
         "en": "network-proxy-support-team-lead-efg-geneve",
@@ -2241,7 +2254,104 @@
         "network-proxy-support-team-lead-efg-geneve",
         "network-proxy-support-capo-team-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
+    },
+    {
+      "id": "efg-5984",
+      "slug": "switchboard-operator-efg-international-ag-lugano",
+      "company": "EFG International AG",
+      "title": "Switchboard operator",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "Our Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nThe position of Switchboard Operator is based in Lugano. The role includes answering and managing incoming calls, providing information in line with internal and external guidelines, and transferring calls to the appropriate contacts and/or taking accurate messages when required. The candidate must be fluent in English, Italian, French and German.\n\nMain responsibilities\n\n- Answer incoming calls, greeting callers, providing information, transferring calls, or taking messages as necessary\n\n- Perform various data entry or word processing tasks, such as updating phone directories\n\n- Performing general administrative duties\n\n- Handle sensitive information in a confidential manner\n\nSkills and experience\n\n- Successfully completed commercial education\n\n- Fluency in English and national languages\n\n- Around 2-4 years of working experience as Switchboard operator\n\n- Excellent time management skills, ability to multitask and prioritize request from various sources, work under pressure\n\n- Active Listening: Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times\n\n- Knowledge of the Microsoft Office package\n\n- Communicative, trustworthy presence, politeness\n\n- Ability to work in a team and listening skills\n\n- Actively looking for ways to help people\n\nOur Values\n\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\nHands-on : Being proactive to rapidly deliver high-quality results\n\nPassionate : Being committed and striving for excellence\n\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-07-10",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5984",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Switchboard operator",
+        "it": "Switchboard operator",
+        "de": "Schaltstelle-Operator",
+        "fr": "Opérateur de central"
+      },
+      "descriptionByLocale": {
+        "en": "Our Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nThe position of Switchboard Operator is based in Lugano. The role includes answering and managing incoming calls, providing information in line with internal and external guidelines, and transferring calls to the appropriate contacts and/or taking accurate messages when required. The candidate must be fluent in English, Italian, French and German.\n\nMain responsibilities\n- Answer incoming calls, greeting callers, providing information, transferring calls, or taking messages as necessary\n- Perform various data entry or word processing tasks, such as updating phone directories\n- Performing general administrative duties\n- Handle sensitive information in a confidential manner\n\nSkills and experience\n- Successfully completed commercial education\n- Fluency in English and national languages\n- Around 2-4 years of working experience as Switchboard operator\n- Excellent time management skills, ability to multitask and prioritize request from various sources, work under pressure\n- Active Listening: Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times\n- Knowledge of the Microsoft Office package\n- Communicative, trustworthy presence, politeness\n- Ability to work in a team and listening skills\n- Actively looking for ways to help people\n\nOur Values\n\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\nHands-on : Being proactive to rapidly deliver high-quality results\n\nPassionate : Being committed and striving for excellence\n\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "it": "La nostra azienda\n\nEFG International è un gruppo bancario privato globale che offre servizi di private banking e gestione patrimoniale. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si sforza di essere un datore di lavoro di prima scelta.\n\nIl nostro scopo e la nostra missione\n\nConsentire alle menti imprenditoriali di creare valore – oggi e per il futuro.\n\nJob Description\n\nLa posizione di Centralinista ha sede a Lugano. Il ruolo comprende la risposta e la gestione delle chiamate in entrata, la fornitura di informazioni in linea con le linee guida interne ed esterne e il trasferimento delle chiamate ai contatti appropriati e/o l'acquisizione di messaggi accurati quando richiesto. Il candidato deve essere fluente in inglese, italiano, francese e tedesco.\n\nPrincipali responsabilità\n- Rispondere alle chiamate in arrivo, salutare i chiamanti, fornire informazioni, trasferire le chiamate o ricevere messaggi secondo necessità\n- Eseguire varie attività di inserimento dati o di elaborazione testi, come l'aggiornamento degli elenchi telefonici\n- Svolgere compiti amministrativi generali\n- Gestire le informazioni sensibili in modo riservato\n\nCompetenze ed esperienza\n- Formazione commerciale completata con successo\n- Conoscenza fluente dell'inglese e delle lingue nazionali\n- Circa 2-4 anni di esperienza lavorativa come Centralinista\n- Ottime capacità di gestione del tempo, capacità di multitasking e prioritizzazione delle richieste provenienti da varie fonti, lavoro sotto pressione\n- Ascolto attivo: prestare piena attenzione a ciò che dicono le altre persone, dedicando del tempo a comprendere",
+        "de": "Unsere Firma\n\nEFG International ist eine globale Private Banking Gruppe, die private Bank- und Asset Management-Dienstleistungen anbietet. Wir bedienen Kunden an über 40 Standorten weltweit. EFG International bietet ein anregendes und dynamisches Arbeitsumfeld und ist bestrebt, ein Arbeitgeber der Wahl zu sein.\n\nUnser Zweck und unsere Mission\n\nUnternehmergeist zur Wertschöpfung zu bewegen – heute und in Zukunft.\n\nAufgabenbeschreibung\n\nDie Position des Switchboard Operators befindet sich in Lugano. Die Rolle umfasst die Beantwortung und Verwaltung eingehender Anrufe, die Bereitstellung von Informationen gemäß internen und externen Richtlinien sowie die Übertragung von Anrufen auf die entsprechenden Kontakte und/oder die Aufnahme von korrekten Nachrichten bei Bedarf. Der Kandidat muss fließend Englisch, Italienisch, Französisch und Deutsch sprechen.\n\nHauptverantwortung\n- Beantworten Sie eingehende Anrufe, Grußrufer, Bereitstellung von Informationen, Anrufe übertragen, oder nehmen Sie Nachrichten bei Bedarf\n- Führen Sie verschiedene Dateneingabe oder Textverarbeitung Aufgaben, wie die Aktualisierung Telefonverzeichnisse\n- Allgemeine Verwaltungsaufgaben\n\n- vertrauliche Behandlung sensibler Informationen\n\nFähigkeiten und Erfahrung\n- Erfolgreich abgeschlossene kaufmännische Ausbildung\n\n- fließend in englischer und nationaler Sprache\n- Rund 2-4 Jahre Berufserfahrung als Schaltschrankbetreiber\n- Ausgezeichnete Zeitmanagement-Fähigkeiten, die Fähigkeit, Multitasking und priorisieren Anfrage aus verschiedenen Quellen, Arbeit unter Druck\n- Aktives Zuhören: Den anderen Menschen volle Aufmerksamkeit schenken, sich Zeit nehmen, die gemachten Punkte zu verstehen, Fragen stellen, wie angemessen, und nicht zu unpassenden Zeiten unterbrechen\n- Kenntnisse des Microsoft Office Pakets\n- Kommunikative, vertrauenswürdige Präsenz, Höflichkeit\n- Fähigkeit, in einem Team zu arbeiten und zu hören\n- Aktiv nach Möglichkeiten suchen, Menschen zu helfen\n\nUnsere Werte\n\nRechenschaftspflicht: Verantwortung für Aufgaben und Herausforderungen übernehmen und kontinuierliche Verbesserung anstreben\n\nHands-on : Proaktiv sein, um schnell qualitativ hochwertige Ergebnisse zu liefern\n\nLeidenschaftlich : Engagement und Streben nach Exzellenz\n\nLösungsorientiert : Fokussierung auf die Kundenergebnisse und Behandlung von Kunden mit einem risikobewussten Mindset\n\nPartnerschaftsorientiert : Förderung der Zusammenarbeit und der Teamarbeit. Zusammenarbeit mit Unternehmergeist.",
+        "fr": "Notre société\n\nEFG International est un groupe bancaire privé mondial qui offre des services de banque privée et de gestion d'actifs. Nous servons des clients dans plus de 40 endroits dans le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix.\n\nNotre but et notre mission\n\nDonner aux esprits entrepreneurs les moyens de créer de la valeur – aujourd'hui et pour l'avenir.\n\nDescription de l'emploi\n\nLe poste de Switchboard Operator est situé à Lugano. Le rôle consiste à répondre et gérer les appels entrants, à fournir des informations conformes aux lignes directrices internes et externes, et à transférer les appels aux contacts appropriés et/ou à prendre des messages précis au besoin. Le candidat doit être en anglais, italien, français et allemand.\n\nPrincipales responsabilités\n- Répondez aux appels entrants, aux appels de salutation, fournissant des informations, transférant des appels ou prenant des messages au besoin\n- Effectuer diverses tâches de saisie de données ou de traitement de texte, comme la mise à jour des répertoires téléphoniques\n- Exécuter des tâches administratives générales\n- Traiter les informations sensibles de manière confidentielle\n\nCompétences et expérience\n- Éducation commerciale réussie\n- Connaissance de l'anglais et des langues nationales\n- Environ 2-4 ans d'expérience professionnelle en tant qu'opérateur de switchboard\n- Excellente capacité de gestion du temps, capacité de multitâche et de prioriser la demande de diverses sources, travail sous pression\n- Écoute active : accorder toute l'attention aux paroles des autres, prendre le temps de comprendre les points soulevés, poser des questions selon les besoins et ne pas interrompre les moments inappropriés\n- Connaissance du paquet Microsoft Office\n- Présence communicative, digne de confiance, politesse\n- Capacité de travailler en équipe et de s'écouter\n- Recherche active de moyens d'aider les gens\n\nNos valeurs\n\nResponsabilité : Prise en charge des tâches et des défis, et recherche d'amélioration continue\n\nMains-sur : Être proactif pour obtenir rapidement des résultats de haute qualité\n\nPassionnée : Être engagée et s'efforcer d'être une personne d'excellence\n\nSolution : Se concentrer sur les résultats des clients et traiter les clients équitablement avec une attitude sensée aux risques\n\nPartenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span><br><br><strong>Job Description</strong></p><p>The position of Switchboard Operator is based in Lugano. The role includes answering and managing incoming calls, providing information in line with internal and external guidelines, and transferring calls to the appropriate contacts and/or taking accurate messages when required. The candidate must be fluent in English, Italian, French and German.</p><p><span><strong>Main responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Answer incoming calls, greeting callers, providing information, transferring calls, or taking messages as necessary</span></li><li><span>Perform various data entry or word processing tasks, such as updating phone directories</span></li><li><span>Performing general administrative duties</span></li><li><span>Handle sensitive information in a confidential manner</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Successfully completed commercial education</span></li><li><span>Fluency in English and national languages</span></li><li><span>Around 2-4 years of working experience as Switchboard operator</span></li><li><span>Excellent time management skills, ability to multitask and prioritize request from various sources, work under pressure</span></li><li><span>Active Listening: Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times</span></li><li><span>Knowledge of the Microsoft Office package </span></li><li><span>Communicative, trustworthy presence, politeness</span></li><li><span>Ability to work in a team and listening skills</span></li><li><span>Actively looking for ways to help people</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></p><p><span><strong>Passionate</strong>: Being committed and striving for excellence</span></p><p><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 2
+          }
+        }
+      },
+      "crawledAt": "2026-07-25T10:46:44.279Z",
+      "slugByLocale": {
+        "it": "switchboard-operator-efg-international-ag-lugano",
+        "en": "switchboard-operator-efg-lugano",
+        "de": "schaltstelle-operator-efg-international-ag-lugano",
+        "fr": "switchboard-operateur-efg-international-ag-lugano"
+      },
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-07-10",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "firstSeenAt": "2026-07-10T10:26:15.024Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "switchboard-operator-efg-lugano",
+          "operatore-di-commutazione-efg-international-ag-lugano"
+        ],
+        "de": [
+          "switchboard-operator-efg-lugano",
+          "schaltnetzbetreiber-efg-international-ag-lugano",
+          "schaltstelle-operator-efg-international-ag-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "switchboard-operator-efg-lugano",
+        "operatore-di-commutazione-efg-international-ag-lugano",
+        "schaltnetzbetreiber-efg-international-ag-lugano",
+        "schaltstelle-operator-efg-international-ag-lugano"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-5969",
@@ -2392,7 +2502,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.368Z",
+      "crawledAt": "2026-07-25T10:46:44.276Z",
       "slugByLocale": {
         "it": "it-trading-treasury-solutions-specialista-efg-international-ag-lugano-n93k12",
         "en": "it-trading-treasury-solutions-specialist-efg-international-ag-lugano-n93k12",
@@ -2609,7 +2719,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.360Z",
+      "crawledAt": "2026-07-25T10:46:44.267Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-zurich",
         "en": "foundation-manager-efg-international-ag-lugano-n93k14",
@@ -2669,7 +2779,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5892",
@@ -2720,7 +2831,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.357Z",
+      "crawledAt": "2026-07-25T10:46:44.266Z",
       "slugByLocale": {
         "it": "data-ingegnere-efg-international-ag-geneve",
         "en": "data-engineer-efg-geneve",
@@ -2790,7 +2901,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Group Financial Controller",
-        "fr": "Contrôleur financier du groupe",
+        "fr": "Group Financial Controller",
         "it": "Gruppo Controllore finanziario",
         "de": "Konzern Finanzverantwortlicher"
       },
@@ -2924,7 +3035,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.351Z",
+      "crawledAt": "2026-07-25T10:46:44.264Z",
       "slugByLocale": {
         "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
@@ -2962,98 +3073,8 @@
       "previousSlugs": [
         "group-financial-controller-efg-geneve"
       ],
-      "country": "CH"
-    },
-    {
-      "id": "efg-5984",
-      "slug": "switchboard-operator-efg-international-ag-lugano",
-      "company": "EFG International AG",
-      "title": "Switchboard operator",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "Our Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nThe position of Switchboard Operator is based in Lugano. The role includes answering and managing incoming calls, providing information in line with internal and external guidelines, and transferring calls to the appropriate contacts and/or taking accurate messages when required. The candidate must be fluent in English, Italian, French and German.\n\nMain responsibilities\n\n- Answer incoming calls, greeting callers, providing information, transferring calls, or taking messages as necessary\n\n- Perform various data entry or word processing tasks, such as updating phone directories\n\n- Performing general administrative duties\n\n- Handle sensitive information in a confidential manner\n\nSkills and experience\n\n- Successfully completed commercial education\n\n- Fluency in English and national languages\n\n- Around 2-4 years of working experience as Switchboard operator\n\n- Excellent time management skills, ability to multitask and prioritize request from various sources, work under pressure\n\n- Active Listening: Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times\n\n- Knowledge of the Microsoft Office package\n\n- Communicative, trustworthy presence, politeness\n\n- Ability to work in a team and listening skills\n\n- Actively looking for ways to help people\n\nOur Values\n\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\nHands-on : Being proactive to rapidly deliver high-quality results\n\nPassionate : Being committed and striving for excellence\n\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5984",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Switchboard operator",
-        "it": "Operatore di commutazione",
-        "de": "Schaltstelle-Operator",
-        "fr": "Opérateur de central"
-      },
-      "descriptionByLocale": {
-        "en": "Our Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nThe position of Switchboard Operator is based in Lugano. The role includes answering and managing incoming calls, providing information in line with internal and external guidelines, and transferring calls to the appropriate contacts and/or taking accurate messages when required. The candidate must be fluent in English, Italian, French and German.\n\nMain responsibilities\n- Answer incoming calls, greeting callers, providing information, transferring calls, or taking messages as necessary\n- Perform various data entry or word processing tasks, such as updating phone directories\n- Performing general administrative duties\n- Handle sensitive information in a confidential manner\n\nSkills and experience\n- Successfully completed commercial education\n- Fluency in English and national languages\n- Around 2-4 years of working experience as Switchboard operator\n- Excellent time management skills, ability to multitask and prioritize request from various sources, work under pressure\n- Active Listening: Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times\n- Knowledge of the Microsoft Office package\n- Communicative, trustworthy presence, politeness\n- Ability to work in a team and listening skills\n- Actively looking for ways to help people\n\nOur Values\n\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\nHands-on : Being proactive to rapidly deliver high-quality results\n\nPassionate : Being committed and striving for excellence\n\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-        "it": "La nostra azienda\n\nEFG International è un gruppo bancario privato globale che offre servizi di private banking e gestione patrimoniale. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si sforza di essere un datore di lavoro di prima scelta.\n\nIl nostro scopo e la nostra missione\n\nConsentire alle menti imprenditoriali di creare valore – oggi e per il futuro.\n\nJob Description\n\nLa posizione di Centralinista ha sede a Lugano. Il ruolo comprende la risposta e la gestione delle chiamate in entrata, la fornitura di informazioni in linea con le linee guida interne ed esterne e il trasferimento delle chiamate ai contatti appropriati e/o l'acquisizione di messaggi accurati quando richiesto. Il candidato deve essere fluente in inglese, italiano, francese e tedesco.\n\nPrincipali responsabilità\n- Rispondere alle chiamate in arrivo, salutare i chiamanti, fornire informazioni, trasferire le chiamate o ricevere messaggi secondo necessità\n- Eseguire varie attività di inserimento dati o di elaborazione testi, come l'aggiornamento degli elenchi telefonici\n- Svolgere compiti amministrativi generali\n- Gestire le informazioni sensibili in modo riservato\n\nCompetenze ed esperienza\n- Formazione commerciale completata con successo\n- Conoscenza fluente dell'inglese e delle lingue nazionali\n- Circa 2-4 anni di esperienza lavorativa come Centralinista\n- Ottime capacità di gestione del tempo, capacità di multitasking e prioritizzazione delle richieste provenienti da varie fonti, lavoro sotto pressione\n- Ascolto attivo: prestare piena attenzione a ciò che dicono le altre persone, dedicando del tempo a comprendere",
-        "de": "Unsere Firma\n\nEFG International ist eine globale Private Banking Gruppe, die private Bank- und Asset Management-Dienstleistungen anbietet. Wir bedienen Kunden an über 40 Standorten weltweit. EFG International bietet ein anregendes und dynamisches Arbeitsumfeld und ist bestrebt, ein Arbeitgeber der Wahl zu sein.\n\nUnser Zweck und unsere Mission\n\nUnternehmergeist zur Wertschöpfung zu bewegen – heute und in Zukunft.\n\nAufgabenbeschreibung\n\nDie Position des Switchboard Operators befindet sich in Lugano. Die Rolle umfasst die Beantwortung und Verwaltung eingehender Anrufe, die Bereitstellung von Informationen gemäß internen und externen Richtlinien sowie die Übertragung von Anrufen auf die entsprechenden Kontakte und/oder die Aufnahme von korrekten Nachrichten bei Bedarf. Der Kandidat muss fließend Englisch, Italienisch, Französisch und Deutsch sprechen.\n\nHauptverantwortung\n- Beantworten Sie eingehende Anrufe, Grußrufer, Bereitstellung von Informationen, Anrufe übertragen, oder nehmen Sie Nachrichten bei Bedarf\n- Führen Sie verschiedene Dateneingabe oder Textverarbeitung Aufgaben, wie die Aktualisierung Telefonverzeichnisse\n- Allgemeine Verwaltungsaufgaben\n\n- vertrauliche Behandlung sensibler Informationen\n\nFähigkeiten und Erfahrung\n- Erfolgreich abgeschlossene kaufmännische Ausbildung\n\n- fließend in englischer und nationaler Sprache\n- Rund 2-4 Jahre Berufserfahrung als Schaltschrankbetreiber\n- Ausgezeichnete Zeitmanagement-Fähigkeiten, die Fähigkeit, Multitasking und priorisieren Anfrage aus verschiedenen Quellen, Arbeit unter Druck\n- Aktives Zuhören: Den anderen Menschen volle Aufmerksamkeit schenken, sich Zeit nehmen, die gemachten Punkte zu verstehen, Fragen stellen, wie angemessen, und nicht zu unpassenden Zeiten unterbrechen\n- Kenntnisse des Microsoft Office Pakets\n- Kommunikative, vertrauenswürdige Präsenz, Höflichkeit\n- Fähigkeit, in einem Team zu arbeiten und zu hören\n- Aktiv nach Möglichkeiten suchen, Menschen zu helfen\n\nUnsere Werte\n\nRechenschaftspflicht: Verantwortung für Aufgaben und Herausforderungen übernehmen und kontinuierliche Verbesserung anstreben\n\nHands-on : Proaktiv sein, um schnell qualitativ hochwertige Ergebnisse zu liefern\n\nLeidenschaftlich : Engagement und Streben nach Exzellenz\n\nLösungsorientiert : Fokussierung auf die Kundenergebnisse und Behandlung von Kunden mit einem risikobewussten Mindset\n\nPartnerschaftsorientiert : Förderung der Zusammenarbeit und der Teamarbeit. Zusammenarbeit mit Unternehmergeist.",
-        "fr": "Notre société\n\nEFG International est un groupe bancaire privé mondial qui offre des services de banque privée et de gestion d'actifs. Nous servons des clients dans plus de 40 endroits dans le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix.\n\nNotre but et notre mission\n\nDonner aux esprits entrepreneurs les moyens de créer de la valeur – aujourd'hui et pour l'avenir.\n\nDescription de l'emploi\n\nLe poste de Switchboard Operator est situé à Lugano. Le rôle consiste à répondre et gérer les appels entrants, à fournir des informations conformes aux lignes directrices internes et externes, et à transférer les appels aux contacts appropriés et/ou à prendre des messages précis au besoin. Le candidat doit être en anglais, italien, français et allemand.\n\nPrincipales responsabilités\n- Répondez aux appels entrants, aux appels de salutation, fournissant des informations, transférant des appels ou prenant des messages au besoin\n- Effectuer diverses tâches de saisie de données ou de traitement de texte, comme la mise à jour des répertoires téléphoniques\n- Exécuter des tâches administratives générales\n- Traiter les informations sensibles de manière confidentielle\n\nCompétences et expérience\n- Éducation commerciale réussie\n- Connaissance de l'anglais et des langues nationales\n- Environ 2-4 ans d'expérience professionnelle en tant qu'opérateur de switchboard\n- Excellente capacité de gestion du temps, capacité de multitâche et de prioriser la demande de diverses sources, travail sous pression\n- Écoute active : accorder toute l'attention aux paroles des autres, prendre le temps de comprendre les points soulevés, poser des questions selon les besoins et ne pas interrompre les moments inappropriés\n- Connaissance du paquet Microsoft Office\n- Présence communicative, digne de confiance, politesse\n- Capacité de travailler en équipe et de s'écouter\n- Recherche active de moyens d'aider les gens\n\nNos valeurs\n\nResponsabilité : Prise en charge des tâches et des défis, et recherche d'amélioration continue\n\nMains-sur : Être proactif pour obtenir rapidement des résultats de haute qualité\n\nPassionnée : Être engagée et s'efforcer d'être une personne d'excellence\n\nSolution : Se concentrer sur les résultats des clients et traiter les clients équitablement avec une attitude sensée aux risques\n\nPartenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span><br><br><strong>Job Description</strong></p><p>The position of Switchboard Operator is based in Lugano. The role includes answering and managing incoming calls, providing information in line with internal and external guidelines, and transferring calls to the appropriate contacts and/or taking accurate messages when required. The candidate must be fluent in English, Italian, French and German.</p><p><span><strong>Main responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Answer incoming calls, greeting callers, providing information, transferring calls, or taking messages as necessary</span></li><li><span>Perform various data entry or word processing tasks, such as updating phone directories</span></li><li><span>Performing general administrative duties</span></li><li><span>Handle sensitive information in a confidential manner</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Successfully completed commercial education</span></li><li><span>Fluency in English and national languages</span></li><li><span>Around 2-4 years of working experience as Switchboard operator</span></li><li><span>Excellent time management skills, ability to multitask and prioritize request from various sources, work under pressure</span></li><li><span>Active Listening: Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times</span></li><li><span>Knowledge of the Microsoft Office package </span></li><li><span>Communicative, trustworthy presence, politeness</span></li><li><span>Ability to work in a team and listening skills</span></li><li><span>Actively looking for ways to help people</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></p><p><span><strong>Passionate</strong>: Being committed and striving for excellence</span></p><p><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 2
-          }
-        }
-      },
-      "crawledAt": "2026-07-24T22:05:59.347Z",
-      "slugByLocale": {
-        "it": "operatore-di-commutazione-efg-international-ag-lugano",
-        "en": "switchboard-operator-efg-lugano",
-        "de": "schaltnetzbetreiber-efg-international-ag-lugano",
-        "fr": "switchboard-operateur-efg-international-ag-lugano"
-      },
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-07-10",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-07-10T10:26:15.024Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "switchboard-operator-efg-lugano"
-        ],
-        "de": [
-          "switchboard-operator-efg-lugano",
-          "schaltstelle-operator-efg-international-ag-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "switchboard-operator-efg-lugano",
-        "schaltstelle-operator-efg-international-ag-lugano"
-      ]
+      "needsRetranslation": true
     },
     {
       "id": "efg-6384",
@@ -3188,7 +3209,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.334Z",
+      "crawledAt": "2026-07-25T10:46:44.261Z",
       "slugByLocale": {
         "it": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
         "en": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
@@ -3213,96 +3234,8 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-07-20T22:01:00.554Z"
-    },
-    {
-      "id": "efg-6039",
-      "slug": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
-      "company": "EFG International AG",
-      "title": "EPM OneStream Developer/Business Data Analyst",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "Our Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nThe EPM OneStream Developer/Business Data Analyst will be part of the Group Performance Measurement, Budgeting & Reporting Team in Lugano and will contribute to develop and run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as EPM OneStream Developer, the resource will oversee running, maintenance and development of our existing OneStream planning platform. In his role as EPM OneStream Developer/Business Data Analyst, the resource will support the performance measurement activities by running granular analysis of financial performance root causes and by providing insights on value creation levers.\n\nThe resource will play an active role supporting business development and providing value-added decision support using data modelling and forecasting intelligence.\n\nMain Responsibilities\n\n- EPM OneStream Developer\n\n- Business analyst and power user of MI data\n\n- Design and maintain data models for analysis and forecasting\n\n- Establish and compile dashboards and presentations to senior management\n\n- Take active role in the business performance dialogues\n\n- Active collaboration with Strategy & Corporate Development unit during budgeting and forecasting process\n\n- Design and develop MI reports and simulations with data from the various MIS systems of the bank to provide insight on value creation levers to the business\n\n- Develop strong relationship with business management and business controllers to support the Planning & Controlling business partnership\n\nSkills and experience\n\n- Professional experience in EPM Business Intelligence in Financial Industry\n\n- OneStream software: EPM applications maintenance and developments expert\n\n- Ability to understand large datasets and experience of data modelling, providing accurate data analysis\n\n- Power user of OneStream, MS-PowerBI, MS-Excel and PowerPoint; Knowledge of Excel Macros, VBA, Python, SAS Enterprise Guide to automate data extraction and reporting\n\n- Quick learner, accurate and efficient\n\n- Proactive attitude and willingness to take on new knowledge and skills\n\n- Ability to work under pressure and adapt to unforeseen work demands\n\n- Good communication skills to communicate effectively with stakeholders at all levels\n\n- Fluent in Italian and English\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-07-20",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6039",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "EPM OneStream Developer/Business Data Analyst",
-        "it": "Sviluppatore EPM OneStream/Analista Dati Business",
-        "de": "EPM OneStream Entwickler/Business Data Analyst",
-        "fr": "Développeur EPM OneStream/Analyste de données métier"
-      },
-      "descriptionByLocale": {
-        "en": "Our Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nThe EPM OneStream Developer/Business Data Analyst will be part of the Group Performance Measurement, Budgeting & Reporting Team in Lugano and will contribute to develop and run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as EPM OneStream Developer, the resource will oversee running, maintenance and development of our existing OneStream planning platform. In his role as EPM OneStream Developer/Business Data Analyst, the resource will support the performance measurement activities by running granular analysis of financial performance root causes and by providing insights on value creation levers.\n\nThe resource will play an active role supporting business development and providing value-added decision support using data modelling and forecasting intelligence.\n\nMain Responsibilities\n- EPM OneStream Developer\n- Business analyst and power user of MI data\n- Design and maintain data models for analysis and forecasting\n- Establish and compile dashboards and presentations to senior management\n- Take active role in the business performance dialogues\n- Active collaboration with Strategy & Corporate Development unit during budgeting and forecasting process\n- Design and develop MI reports and simulations with data from the various MIS systems of the bank to provide insight on value creation levers to the business\n- Develop strong relationship with business management and business controllers to support the Planning & Controlling business partnership\n\nSkills and experience\n- Professional experience in EPM Business Intelligence in Financial Industry\n- OneStream software: EPM applications maintenance and developments expert\n- Ability to understand large datasets and experience of data modelling, providing accurate data analysis\n- Power user of OneStream, MS-PowerBI, MS-Excel and PowerPoint; Knowledge of Excel Macros, VBA, Python, SAS Enterprise Guide to automate data extraction and reporting\n- Quick learner, accurate and efficient\n- Proactive attitude and willingness to take on new knowledge and skills\n- Ability to work under pressure and adapt to unforeseen work demands\n- Good communication skills to communicate effectively with stakeholders at all levels\n- Fluent in Italian and English\n\nOur Values\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on: Being proactive to rapidly deliver high-quality results\n- Passionate: Being committed and striving for excellence\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-        "it": "La nostra azienda EFG International è un gruppo bancario privato globale che offre servizi di private banking e gestione patrimoniale. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si impegna a essere un datore di lavoro di scelta. La nostra missione e scopo Empowering entrepreneurial minds to create value – today and for the future. Descrizione del lavoro Il Sviluppatore EPM OneStream/Analista Dati Business sarà parte del team di Misurazione delle Prestazioni, Budgeting e Reporting del Gruppo a Lugano e contribuirà a sviluppare e gestire un processo integrato di pianificazione, reporting e revisione delle prestazioni per facilitare decisioni aziendali guidate dal valore. Nel suo ruolo di Sviluppatore EPM OneStream, la risorsa sarà responsabile della gestione, manutenzione e sviluppo della nostra piattaforma di pianificazione OneStream esistente. Nel suo ruolo di Sviluppatore EPM OneStream/Analista Dati Business, la risorsa sosterrà le attività di misurazione delle prestazioni eseguendo analisi granulari delle cause profonde della performance finanziaria e fornendo informazioni approfondite sugli elementi che creano valore. La risorsa giocherà un ruolo attivo nel sostenere lo sviluppo aziendale e fornire supporto decisionale di valore aggiunto utilizzando la modellazione dei dati e l'intelligenza previsionale. Responsabilità principali\n- Sviluppatore EPM OneStream\n- Analista aziendale e utente avanzato dei dati MI\n- Progettare e mantenere modelli di dati per l'analisi e la previsione\n- Creare e compilare dashboard e presentazioni per la gestione senior\n- Partecipare attivamente ai dialoghi sulla performance aziendale\n- Collaborazione attiva con l'unità di Strategia e Sviluppo Aziendale durante il processo di budgeting e previsione\n- Progettare e sviluppare report MI e simulazioni con dati provenienti dai vari sistemi MIS della banca per fornire informazioni approfondite sugli elementi che creano valore per l'azienda\n- Sviluppare una forte relazione con la gestione aziendale e i responsabili della pianificazione e del controllo per sostenere la partnership aziendale Pianificazione e Controllo Abilità ed esperienza\n- Esperienza professionale nell'ambito dell'intelligenza aziendale EPM nel settore finanziario\n- Software OneStream: esperto in manutenzione e sviluppo di applicazioni EPM\n- Capacità di comprendere grandi dataset ed esperienza nella modellazione dei dati, fornendo analisi accurate dei dati\n- Utente avanzato di OneStream, MS-PowerBI, MS-Excel e PowerPoint; Conoscenza di Excel Macros, VBA, Python, SAS Enterprise Guide per automatizzare l'estrazione e la segnalazione dei dati\n- Velocità di apprendimento, accuratezza ed efficienza\n- Atteggiamento proattivo e disponibilità a imparare nuove conoscenze e competenze\n- Capacità di lavorare sotto pressione e adattarsi a richieste di lavoro impreviste\n- Buone capacità di comunicazione per comunicare efficacemente con le parti interessate a tutti i livelli\n- Fluente in italiano e inglese I nostri valori\n- Accountability: Assunzione della proprietà di compiti e sfide, nonché ricerca del miglioramento continuo\n- Hands-on: Essere proattivi per fornire risultati di alta qualità rapidamente\n- Passionate: Essere impegnati e impegnarsi per l'eccellenza\n- Solution-driven: Focalizzazione sui risultati dei clienti e trattamento dei clienti in modo equo con un atteggiamento consapevole del rischio\n- Partnership-oriented: Promozione della collaborazione e del lavoro di squadra. Lavorare insieme con uno spirito imprenditoriale.",
-        "de": "Unser Unternehmen EFG International ist eine globale Private-Banking-Gruppe, die private Banking- und Vermögensverwaltungsdienstleistungen anbietet. Wir bedienen Kunden an über 40 Standorten weltweit. EFG International bietet eine stimulierende und dynamische Arbeitsumgebung und bemüht sich, ein Arbeitgeber erster Wahl zu sein. Unser Zweck und unsere Mission Empowering entrepreneurial minds to create value – today and for the future. Job-Beschreibung Der EPM OneStream-Entwickler/Business Data Analyst wird Teil des Teams Group Performance Measurement, Budgeting & Reporting in Lugano sein und dazu beitragen, einen integrierten Planungs-, Berichts- und Leistungsüberprüfungsprozess zu entwickeln und zu betreiben, um wertgetriebene Geschäftsentscheidungen zu erleichtern. In seiner Rolle als EPM OneStream-Entwickler wird die Ressource die laufende, Wartung und Entwicklung unserer bestehenden OneStream-Planungsplattform überwachen. In seiner Rolle als EPM OneStream-Entwickler/Business Data Analyst wird die Ressource die Leistungsmessungsaktivitäten unterstützen, indem sie granulare Analysen der finanziellen Leistungsursachen durchführt und Einblicke in die Wertschöpfungshebel liefert. Die Ressource wird eine aktive Rolle bei der Unterstützung der Geschäftsentwicklung und der Bereitstellung von wertaddierendem Entscheidungssupport unter Verwendung von Datenmodellierung und Prognoseintelligenz spielen. Hauptverantwortungen\n- EPM OneStream-Entwickler\n- Business-Analyst und Power-User von MI-Daten\n- Entwerfen und Warten von Datenmodellen für Analyse und Prognose\n- Erstellen und Zusammenstellen von Dashboards und Präsentationen für das Senior-Management\n- Aktive Teilnahme an den Business-Performance-Dialogen\n- Aktive Zusammenarbeit mit der Strategie- und Unternehmensentwicklungseinheit während des Budgetierungs- und Prognoseprozesses\n- Entwerfen und Entwickeln von MI-Berichten und -Simulationen mit Daten aus den verschiedenen MIS-Systemen der Bank, um Einblicke in die Wertschöpfungshebel für das Geschäft zu liefern\n- Aufbau einer starken Beziehung zu den Geschäftsführern und den Planungs- und Controlling-Verantwortlichen, um die Geschäftsbeziehung zwischen Planung und Controlling zu unterstützen Fähigkeiten und Erfahrungen\n- Berufserfahrung im Bereich EPM Business Intelligence in der Finanzindustrie\n- OneStream-Software: Experte für Wartung und Entwicklung von EPM-Anwendungen\n- Fähigkeit, große Datenmengen zu verstehen und Erfahrung in der Datenmodellierung, um genaue Datenanalysen bereitzustellen\n- Power-User von OneStream, MS-PowerBI, MS-Excel und PowerPoint; Kenntnisse von Excel-Makros, VBA, Python, SAS Enterprise Guide zur Automatisierung der Datenextraktion und -berichterstattung\n- Schnelle Lerner, Genauigkeit und Effizienz\n- Proaktive Einstellung und Bereitschaft, neue Kenntnisse und Fähigkeiten zu erwerben\n- Fähigkeit, unter Druck zu arbeiten und sich an unvorhergesehene Arbeitsanforderungen anzupassen\n- Gute Kommunikationsfähigkeiten, um effektiv mit Stakeholdern auf allen Ebenen zu kommunizieren\n- Fließend in Italienisch und Englisch Unsere Werte\n- Accountability: Übernahme von Verantwortung für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: Proaktiv sein, um Ergebnisse von hoher Qualität schnell zu liefern\n- Passionate: Engagement und Streben nach Exzellenz\n- Solution-driven: Fokus auf Kundenergebnisse und faire Behandlung von Kunden mit einem risikobewussten Mindset\n- Partnership-oriented: Förderung von Zusammenarbeit und Teamarbeit. Zusammenarbeiten mit einem unternehmerischen Geist.",
-        "fr": "Notre entreprise EFG International est un groupe bancaire privé mondial offrant des services de private banking et de gestion de patrimoine. Nous servons des clients dans plus de 40 sites à travers le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix. Notre objectif et notre mission Empowering entrepreneurial minds to create value – today and for the future. Description du poste Le développeur EPM OneStream/analyste de données métier fera partie de l'équipe de mesure de la performance, de la budgétisation et du reporting du groupe à Lugano et contribuera à développer et à gérer un processus intégré de planification, de reporting et d'examen de la performance pour faciliter les décisions commerciales axées sur la valeur. Dans son rôle de développeur EPM OneStream, la ressource sera responsable de la gestion, de la maintenance et du développement de notre plate-forme de planification OneStream existante. Dans son rôle de développeur EPM OneStream/analyste de données métier, la ressource soutiendra les activités de mesure de la performance en effectuant des analyses granulaires des causes profondes de la performance financière et en fournissant des informations sur les leviers de création de valeur. La ressource jouera un rôle actif dans le soutien au développement commercial et la fourniture d'un soutien décisionnel à valeur ajoutée en utilisant la modélisation des données et l'intelligence prévisionnelle. Responsabilités principales\n- Développeur EPM OneStream\n- Analyste commercial et utilisateur expérimenté de données MI\n- Concevoir et maintenir des modèles de données pour l'analyse et la prévision\n- Établir et compiler des tableaux de bord et des présentations pour la direction supérieure\n- Participer activement aux dialogues sur la performance commerciale\n- Collaboration active avec l'unité de stratégie et de développement commercial pendant le processus de budgétisation et de prévision\n- Concevoir et développer des rapports MI et des simulations avec des données provenant des différents systèmes MIS de la banque pour fournir des informations sur les leviers de création de valeur pour l'entreprise\n- Développer une relation solide avec la direction commerciale et les responsables de la planification et du contrôle pour soutenir le partenariat commercial Planification et Contrôle Compétences et expérience\n- Expérience professionnelle dans le domaine de l'intelligence commerciale EPM dans l'industrie financière\n- Logiciel OneStream: expert en maintenance et développement d'applications EPM\n- Capacité à comprendre de grands ensembles de données et expérience de la modélisation des données, fournissant des analyses précises des données\n- Utilisateur expérimenté de OneStream, MS-PowerBI, MS-Excel et PowerPoint; Connaissance des macros Excel, VBA, Python, SAS Enterprise Guide pour automatiser l'extraction et la déclaration de données\n- Apprentissage rapide, précision et efficacité\n- Attitude proactive et volonté d'acquérir de nouvelles connaissances et compétences\n- Capacité à travailler sous pression et à s'adapter à des demandes de travail imprévues\n- Bonnes compétences en communication pour communiquer efficacement avec les parties prenantes à tous les niveaux\n- Courant en italien et en anglais Nos valeurs\n- Accountability: Prendre en charge les tâches et les défis, ainsi que la recherche d'amélioration continue\n- Hands-on: Être proactif pour fournir des résultats de haute qualité rapidement\n- Passionate: Être engagé et s'efforcer d'excellence\n- Solution-driven: Se concentrer sur les résultats des clients et traiter les clients de manière équitable avec un état d'esprit conscient des risques\n- Partnership-oriented: Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit entrepreneurial."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p> </p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p> </p><p><span><strong>Job Description</strong></span></p><p><span>The EPM OneStream Developer/Business Data Analyst will be part of the Group Performance Measurement, Budgeting & Reporting Team in Lugano and will contribute to develop and run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as EPM OneStream Developer, the resource will oversee running, maintenance and development of our existing OneStream planning platform. In his role as EPM OneStream Developer/Business Data Analyst, the resource will support the performance measurement activities by running granular analysis of financial performance root causes and by providing insights on value creation levers.</span></p><p><span>The resource will play an active role supporting business development and providing value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main Responsibilities </strong></span></p><ul><li><span>EPM OneStream Developer</span></li><li><span>Business analyst and power user of MI data</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Establish and compile dashboards and presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Active collaboration with Strategy & Corporate Development unit during budgeting and forecasting process</span></li><li><span>Design and develop MI reports and simulations with data from the various MIS systems of the bank to provide insight on value creation levers to the business</span></li><li><span>Develop strong relationship with business management and business controllers to support the Planning & Controlling business partnership</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Professional experience in EPM Business Intelligence in Financial Industry</span></li><li><span>OneStream software: EPM applications maintenance and developments expert</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of OneStream, MS-PowerBI, MS-Excel and PowerPoint; Knowledge of Excel Macros, VBA, Python, SAS Enterprise Guide to automate data extraction and reporting</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with stakeholders at all levels</span></li><li><span>Fluent in Italian and English</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><ul><li><span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span>Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span>Passionate: Being committed and striving for excellence</span></li><li><span>Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-07-24T22:05:59.332Z",
-      "slugByLocale": {
-        "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
-        "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
-        "de": "epm-onestream-developer-business-data-analyst-efg-lugano",
-        "fr": "developpeur-epm-onestream-analyste-de-donnees-metier-efg-international-ag-lugano"
-      },
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-08",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 82500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "it": [
-          "epm-onestream-developer-business-data-analyst-efg-lugano"
-        ],
-        "fr": [
-          "epm-onestream-developer-business-data-analyst-efg-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "epm-onestream-developer-business-data-analyst-efg-lugano"
-      ],
-      "firstSeenAt": "2026-04-13T10:28:21.934Z",
-      "country": "CH"
+      "firstSeenAt": "2026-07-20T22:01:00.554Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6327",
@@ -3447,7 +3380,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.307Z",
+      "crawledAt": "2026-07-25T10:46:44.259Z",
       "slugByLocale": {
         "it": "ricevitore-efg-international-ag-zurich",
         "en": "receptionist-efg-international-ag-zurich",
@@ -3486,7 +3419,98 @@
       },
       "previousSlugs": [
         "receptionist-efg-zurich"
-      ]
+      ],
+      "needsRetranslation": true
+    },
+    {
+      "id": "efg-6039",
+      "slug": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
+      "company": "EFG International AG",
+      "title": "EPM OneStream Developer/Business Data Analyst",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "Our Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nThe EPM OneStream Developer/Business Data Analyst will be part of the Group Performance Measurement, Budgeting & Reporting Team in Lugano and will contribute to develop and run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as EPM OneStream Developer, the resource will oversee running, maintenance and development of our existing OneStream planning platform. In his role as EPM OneStream Developer/Business Data Analyst, the resource will support the performance measurement activities by running granular analysis of financial performance root causes and by providing insights on value creation levers.\n\nThe resource will play an active role supporting business development and providing value-added decision support using data modelling and forecasting intelligence.\n\nMain Responsibilities\n\n- EPM OneStream Developer\n\n- Business analyst and power user of MI data\n\n- Design and maintain data models for analysis and forecasting\n\n- Establish and compile dashboards and presentations to senior management\n\n- Take active role in the business performance dialogues\n\n- Active collaboration with Strategy & Corporate Development unit during budgeting and forecasting process\n\n- Design and develop MI reports and simulations with data from the various MIS systems of the bank to provide insight on value creation levers to the business\n\n- Develop strong relationship with business management and business controllers to support the Planning & Controlling business partnership\n\nSkills and experience\n\n- Professional experience in EPM Business Intelligence in Financial Industry\n\n- OneStream software: EPM applications maintenance and developments expert\n\n- Ability to understand large datasets and experience of data modelling, providing accurate data analysis\n\n- Power user of OneStream, MS-PowerBI, MS-Excel and PowerPoint; Knowledge of Excel Macros, VBA, Python, SAS Enterprise Guide to automate data extraction and reporting\n\n- Quick learner, accurate and efficient\n\n- Proactive attitude and willingness to take on new knowledge and skills\n\n- Ability to work under pressure and adapt to unforeseen work demands\n\n- Good communication skills to communicate effectively with stakeholders at all levels\n\n- Fluent in Italian and English\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-07-20",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6039",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "EPM OneStream Developer/Business Data Analyst",
+        "it": "Sviluppatore EPM OneStream/Analista Dati Business",
+        "de": "EPM OneStream Entwickler/Business Data Analyst",
+        "fr": "Développeur EPM OneStream/Analyste de données métier"
+      },
+      "descriptionByLocale": {
+        "en": "Our Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nThe EPM OneStream Developer/Business Data Analyst will be part of the Group Performance Measurement, Budgeting & Reporting Team in Lugano and will contribute to develop and run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as EPM OneStream Developer, the resource will oversee running, maintenance and development of our existing OneStream planning platform. In his role as EPM OneStream Developer/Business Data Analyst, the resource will support the performance measurement activities by running granular analysis of financial performance root causes and by providing insights on value creation levers.\n\nThe resource will play an active role supporting business development and providing value-added decision support using data modelling and forecasting intelligence.\n\nMain Responsibilities\n- EPM OneStream Developer\n- Business analyst and power user of MI data\n- Design and maintain data models for analysis and forecasting\n- Establish and compile dashboards and presentations to senior management\n- Take active role in the business performance dialogues\n- Active collaboration with Strategy & Corporate Development unit during budgeting and forecasting process\n- Design and develop MI reports and simulations with data from the various MIS systems of the bank to provide insight on value creation levers to the business\n- Develop strong relationship with business management and business controllers to support the Planning & Controlling business partnership\n\nSkills and experience\n- Professional experience in EPM Business Intelligence in Financial Industry\n- OneStream software: EPM applications maintenance and developments expert\n- Ability to understand large datasets and experience of data modelling, providing accurate data analysis\n- Power user of OneStream, MS-PowerBI, MS-Excel and PowerPoint; Knowledge of Excel Macros, VBA, Python, SAS Enterprise Guide to automate data extraction and reporting\n- Quick learner, accurate and efficient\n- Proactive attitude and willingness to take on new knowledge and skills\n- Ability to work under pressure and adapt to unforeseen work demands\n- Good communication skills to communicate effectively with stakeholders at all levels\n- Fluent in Italian and English\n\nOur Values\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on: Being proactive to rapidly deliver high-quality results\n- Passionate: Being committed and striving for excellence\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "it": "La nostra azienda EFG International è un gruppo bancario privato globale che offre servizi di private banking e gestione patrimoniale. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si impegna a essere un datore di lavoro di scelta. La nostra missione e scopo Empowering entrepreneurial minds to create value – today and for the future. Descrizione del lavoro Il Sviluppatore EPM OneStream/Analista Dati Business sarà parte del team di Misurazione delle Prestazioni, Budgeting e Reporting del Gruppo a Lugano e contribuirà a sviluppare e gestire un processo integrato di pianificazione, reporting e revisione delle prestazioni per facilitare decisioni aziendali guidate dal valore. Nel suo ruolo di Sviluppatore EPM OneStream, la risorsa sarà responsabile della gestione, manutenzione e sviluppo della nostra piattaforma di pianificazione OneStream esistente. Nel suo ruolo di Sviluppatore EPM OneStream/Analista Dati Business, la risorsa sosterrà le attività di misurazione delle prestazioni eseguendo analisi granulari delle cause profonde della performance finanziaria e fornendo informazioni approfondite sugli elementi che creano valore. La risorsa giocherà un ruolo attivo nel sostenere lo sviluppo aziendale e fornire supporto decisionale di valore aggiunto utilizzando la modellazione dei dati e l'intelligenza previsionale. Responsabilità principali\n- Sviluppatore EPM OneStream\n- Analista aziendale e utente avanzato dei dati MI\n- Progettare e mantenere modelli di dati per l'analisi e la previsione\n- Creare e compilare dashboard e presentazioni per la gestione senior\n- Partecipare attivamente ai dialoghi sulla performance aziendale\n- Collaborazione attiva con l'unità di Strategia e Sviluppo Aziendale durante il processo di budgeting e previsione\n- Progettare e sviluppare report MI e simulazioni con dati provenienti dai vari sistemi MIS della banca per fornire informazioni approfondite sugli elementi che creano valore per l'azienda\n- Sviluppare una forte relazione con la gestione aziendale e i responsabili della pianificazione e del controllo per sostenere la partnership aziendale Pianificazione e Controllo Abilità ed esperienza\n- Esperienza professionale nell'ambito dell'intelligenza aziendale EPM nel settore finanziario\n- Software OneStream: esperto in manutenzione e sviluppo di applicazioni EPM\n- Capacità di comprendere grandi dataset ed esperienza nella modellazione dei dati, fornendo analisi accurate dei dati\n- Utente avanzato di OneStream, MS-PowerBI, MS-Excel e PowerPoint; Conoscenza di Excel Macros, VBA, Python, SAS Enterprise Guide per automatizzare l'estrazione e la segnalazione dei dati\n- Velocità di apprendimento, accuratezza ed efficienza\n- Atteggiamento proattivo e disponibilità a imparare nuove conoscenze e competenze\n- Capacità di lavorare sotto pressione e adattarsi a richieste di lavoro impreviste\n- Buone capacità di comunicazione per comunicare efficacemente con le parti interessate a tutti i livelli\n- Fluente in italiano e inglese I nostri valori\n- Accountability: Assunzione della proprietà di compiti e sfide, nonché ricerca del miglioramento continuo\n- Hands-on: Essere proattivi per fornire risultati di alta qualità rapidamente\n- Passionate: Essere impegnati e impegnarsi per l'eccellenza\n- Solution-driven: Focalizzazione sui risultati dei clienti e trattamento dei clienti in modo equo con un atteggiamento consapevole del rischio\n- Partnership-oriented: Promozione della collaborazione e del lavoro di squadra. Lavorare insieme con uno spirito imprenditoriale.",
+        "de": "Unser Unternehmen EFG International ist eine globale Private-Banking-Gruppe, die private Banking- und Vermögensverwaltungsdienstleistungen anbietet. Wir bedienen Kunden an über 40 Standorten weltweit. EFG International bietet eine stimulierende und dynamische Arbeitsumgebung und bemüht sich, ein Arbeitgeber erster Wahl zu sein. Unser Zweck und unsere Mission Empowering entrepreneurial minds to create value – today and for the future. Job-Beschreibung Der EPM OneStream-Entwickler/Business Data Analyst wird Teil des Teams Group Performance Measurement, Budgeting & Reporting in Lugano sein und dazu beitragen, einen integrierten Planungs-, Berichts- und Leistungsüberprüfungsprozess zu entwickeln und zu betreiben, um wertgetriebene Geschäftsentscheidungen zu erleichtern. In seiner Rolle als EPM OneStream-Entwickler wird die Ressource die laufende, Wartung und Entwicklung unserer bestehenden OneStream-Planungsplattform überwachen. In seiner Rolle als EPM OneStream-Entwickler/Business Data Analyst wird die Ressource die Leistungsmessungsaktivitäten unterstützen, indem sie granulare Analysen der finanziellen Leistungsursachen durchführt und Einblicke in die Wertschöpfungshebel liefert. Die Ressource wird eine aktive Rolle bei der Unterstützung der Geschäftsentwicklung und der Bereitstellung von wertaddierendem Entscheidungssupport unter Verwendung von Datenmodellierung und Prognoseintelligenz spielen. Hauptverantwortungen\n- EPM OneStream-Entwickler\n- Business-Analyst und Power-User von MI-Daten\n- Entwerfen und Warten von Datenmodellen für Analyse und Prognose\n- Erstellen und Zusammenstellen von Dashboards und Präsentationen für das Senior-Management\n- Aktive Teilnahme an den Business-Performance-Dialogen\n- Aktive Zusammenarbeit mit der Strategie- und Unternehmensentwicklungseinheit während des Budgetierungs- und Prognoseprozesses\n- Entwerfen und Entwickeln von MI-Berichten und -Simulationen mit Daten aus den verschiedenen MIS-Systemen der Bank, um Einblicke in die Wertschöpfungshebel für das Geschäft zu liefern\n- Aufbau einer starken Beziehung zu den Geschäftsführern und den Planungs- und Controlling-Verantwortlichen, um die Geschäftsbeziehung zwischen Planung und Controlling zu unterstützen Fähigkeiten und Erfahrungen\n- Berufserfahrung im Bereich EPM Business Intelligence in der Finanzindustrie\n- OneStream-Software: Experte für Wartung und Entwicklung von EPM-Anwendungen\n- Fähigkeit, große Datenmengen zu verstehen und Erfahrung in der Datenmodellierung, um genaue Datenanalysen bereitzustellen\n- Power-User von OneStream, MS-PowerBI, MS-Excel und PowerPoint; Kenntnisse von Excel-Makros, VBA, Python, SAS Enterprise Guide zur Automatisierung der Datenextraktion und -berichterstattung\n- Schnelle Lerner, Genauigkeit und Effizienz\n- Proaktive Einstellung und Bereitschaft, neue Kenntnisse und Fähigkeiten zu erwerben\n- Fähigkeit, unter Druck zu arbeiten und sich an unvorhergesehene Arbeitsanforderungen anzupassen\n- Gute Kommunikationsfähigkeiten, um effektiv mit Stakeholdern auf allen Ebenen zu kommunizieren\n- Fließend in Italienisch und Englisch Unsere Werte\n- Accountability: Übernahme von Verantwortung für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: Proaktiv sein, um Ergebnisse von hoher Qualität schnell zu liefern\n- Passionate: Engagement und Streben nach Exzellenz\n- Solution-driven: Fokus auf Kundenergebnisse und faire Behandlung von Kunden mit einem risikobewussten Mindset\n- Partnership-oriented: Förderung von Zusammenarbeit und Teamarbeit. Zusammenarbeiten mit einem unternehmerischen Geist.",
+        "fr": "Notre entreprise EFG International est un groupe bancaire privé mondial offrant des services de private banking et de gestion de patrimoine. Nous servons des clients dans plus de 40 sites à travers le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix. Notre objectif et notre mission Empowering entrepreneurial minds to create value – today and for the future. Description du poste Le développeur EPM OneStream/analyste de données métier fera partie de l'équipe de mesure de la performance, de la budgétisation et du reporting du groupe à Lugano et contribuera à développer et à gérer un processus intégré de planification, de reporting et d'examen de la performance pour faciliter les décisions commerciales axées sur la valeur. Dans son rôle de développeur EPM OneStream, la ressource sera responsable de la gestion, de la maintenance et du développement de notre plate-forme de planification OneStream existante. Dans son rôle de développeur EPM OneStream/analyste de données métier, la ressource soutiendra les activités de mesure de la performance en effectuant des analyses granulaires des causes profondes de la performance financière et en fournissant des informations sur les leviers de création de valeur. La ressource jouera un rôle actif dans le soutien au développement commercial et la fourniture d'un soutien décisionnel à valeur ajoutée en utilisant la modélisation des données et l'intelligence prévisionnelle. Responsabilités principales\n- Développeur EPM OneStream\n- Analyste commercial et utilisateur expérimenté de données MI\n- Concevoir et maintenir des modèles de données pour l'analyse et la prévision\n- Établir et compiler des tableaux de bord et des présentations pour la direction supérieure\n- Participer activement aux dialogues sur la performance commerciale\n- Collaboration active avec l'unité de stratégie et de développement commercial pendant le processus de budgétisation et de prévision\n- Concevoir et développer des rapports MI et des simulations avec des données provenant des différents systèmes MIS de la banque pour fournir des informations sur les leviers de création de valeur pour l'entreprise\n- Développer une relation solide avec la direction commerciale et les responsables de la planification et du contrôle pour soutenir le partenariat commercial Planification et Contrôle Compétences et expérience\n- Expérience professionnelle dans le domaine de l'intelligence commerciale EPM dans l'industrie financière\n- Logiciel OneStream: expert en maintenance et développement d'applications EPM\n- Capacité à comprendre de grands ensembles de données et expérience de la modélisation des données, fournissant des analyses précises des données\n- Utilisateur expérimenté de OneStream, MS-PowerBI, MS-Excel et PowerPoint; Connaissance des macros Excel, VBA, Python, SAS Enterprise Guide pour automatiser l'extraction et la déclaration de données\n- Apprentissage rapide, précision et efficacité\n- Attitude proactive et volonté d'acquérir de nouvelles connaissances et compétences\n- Capacité à travailler sous pression et à s'adapter à des demandes de travail imprévues\n- Bonnes compétences en communication pour communiquer efficacement avec les parties prenantes à tous les niveaux\n- Courant en italien et en anglais Nos valeurs\n- Accountability: Prendre en charge les tâches et les défis, ainsi que la recherche d'amélioration continue\n- Hands-on: Être proactif pour fournir des résultats de haute qualité rapidement\n- Passionate: Être engagé et s'efforcer d'excellence\n- Solution-driven: Se concentrer sur les résultats des clients et traiter les clients de manière équitable avec un état d'esprit conscient des risques\n- Partnership-oriented: Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit entrepreneurial."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p> </p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p> </p><p><span><strong>Job Description</strong></span></p><p><span>The EPM OneStream Developer/Business Data Analyst will be part of the Group Performance Measurement, Budgeting & Reporting Team in Lugano and will contribute to develop and run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as EPM OneStream Developer, the resource will oversee running, maintenance and development of our existing OneStream planning platform. In his role as EPM OneStream Developer/Business Data Analyst, the resource will support the performance measurement activities by running granular analysis of financial performance root causes and by providing insights on value creation levers.</span></p><p><span>The resource will play an active role supporting business development and providing value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main Responsibilities </strong></span></p><ul><li><span>EPM OneStream Developer</span></li><li><span>Business analyst and power user of MI data</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Establish and compile dashboards and presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Active collaboration with Strategy & Corporate Development unit during budgeting and forecasting process</span></li><li><span>Design and develop MI reports and simulations with data from the various MIS systems of the bank to provide insight on value creation levers to the business</span></li><li><span>Develop strong relationship with business management and business controllers to support the Planning & Controlling business partnership</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Professional experience in EPM Business Intelligence in Financial Industry</span></li><li><span>OneStream software: EPM applications maintenance and developments expert</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of OneStream, MS-PowerBI, MS-Excel and PowerPoint; Knowledge of Excel Macros, VBA, Python, SAS Enterprise Guide to automate data extraction and reporting</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with stakeholders at all levels</span></li><li><span>Fluent in Italian and English</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><ul><li><span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span>Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span>Passionate: Being committed and striving for excellence</span></li><li><span>Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-07-25T10:46:44.257Z",
+      "slugByLocale": {
+        "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
+        "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
+        "de": "epm-onestream-developer-business-data-analyst-efg-lugano",
+        "fr": "developpeur-epm-onestream-analyste-de-donnees-metier-efg-international-ag-lugano"
+      },
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-08",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "epm-onestream-developer-business-data-analyst-efg-lugano"
+        ],
+        "fr": [
+          "epm-onestream-developer-business-data-analyst-efg-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "epm-onestream-developer-business-data-analyst-efg-lugano"
+      ],
+      "firstSeenAt": "2026-04-13T10:28:21.934Z",
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6317",
@@ -3611,7 +3635,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-24T22:05:59.305Z",
+      "crawledAt": "2026-07-25T10:46:44.240Z",
       "slugByLocale": {
         "it": "iam-support-specialista-efg-international-ag-geneve",
         "en": "iam-support-specialist-efg-geneve",
@@ -3650,7 +3674,8 @@
       },
       "previousSlugs": [
         "iam-support-specialist-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6235",
@@ -3776,7 +3801,8 @@
         "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
         "cis-specialist-onboarding-recensioni-periodiche-compliance-officer-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6203",
@@ -3798,7 +3824,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-        "fr": "EFG Programme d'études supérieures 2026 - Fonctions corporatives - Ressources humaines - Lugano",
+        "fr": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
         "it": "Programma di Laurea EFG 2026 - Funzioni Corporate - Risorse Umane - Lugano",
         "de": "EFG Graduate Programme 2026 - Corporate Functions - Personalwesen - Lugano"
       },
@@ -3883,7 +3909,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6177",
@@ -4143,7 +4170,8 @@
         "pb-support-specialist-americas-geneva-efg-geneve",
         "pb-specialist-americas-ginevra-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5799",
@@ -4326,7 +4354,8 @@
       "previousSlugs": [
         "business-analyst-legal-compliance-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5869",
@@ -4555,7 +4584,8 @@
         "bi-solution-specialiste-efg-international-ag-geneve",
         "bi-solution-specialista-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6280",
@@ -4647,7 +4677,8 @@
       "previousSlugs": [
         "regulatory-reporting-analyst-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6212",
@@ -4837,7 +4868,8 @@
         "finance-data-analytics-power-bi-internship-efg-geneve",
         "finanza-analisi-dei-dati-e-internamento-bi-potenza-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6151",
@@ -5038,7 +5070,8 @@
       "previousSlugs": [
         "senior-strategic-transformation-manager-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6168",
@@ -5248,7 +5281,8 @@
         "talent-acquisition-internship-efg-international-ag-geneve"
       ],
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5877",
@@ -5340,7 +5374,8 @@
       "previousSlugs": [
         "back-office-cash-reconciliation-specialist-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6056",
@@ -5698,7 +5733,8 @@
           "technology-cyber-information-security-risk-analista-temporary-efg-international-ag-zurich"
         ]
       },
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6209",
@@ -5873,7 +5909,8 @@
         "operational-risk-and-advisory-it-and-information-security-specialiste-efg-international-ag-zurich",
         "rischio-operativo-e-specialista-di-sicurezza-informatica-e-informatica-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     }
   ]
 }
