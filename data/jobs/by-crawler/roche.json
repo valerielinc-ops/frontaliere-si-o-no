@@ -15774,9 +15774,9 @@
     },
     {
       "id": "roche-e651a228bab5",
-      "slug": "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland",
+      "slug": "specialista-dell-assistenza-tecnica-specialista-roche-poland",
       "slugByLocale": {
-        "it": "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland",
+        "it": "specialista-dell-assistenza-tecnica-specialista-roche-poland",
         "en": "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
         "de": "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
         "fr": "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch"
@@ -15820,12 +15820,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
-        "specialista-dell-assistenza-tecnica-specialista-roche-poland"
+        "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
-          "specialista-dell-assistenza-tecnica-specialista-roche-poland"
+          "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland"
         ]
       },
       "needsRetranslation": true,
@@ -23199,7 +23199,7 @@
         "it": "dual-studies-2027-bachelor-of-science-business-administration-digital-business-management-grenzach-posizione-roche",
         "en": "duales-studium-2027-bachelor-of-arts-bwl-digital-business-management-standort-grenzach",
         "de": "duales-studium-2027-bachelor-of-arts-bwl-digital-business-management-standort-grenzach",
-        "fr": "duales-studium-2027-bachelor-of-arts-bwl-digital-business-management-standort-grenzach"
+        "fr": "etude-double-2027-bachelor-of-science-bwl-management-d-affaires-numeriques-localite-grenzach-roche-grenzach"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -23250,6 +23250,9 @@
           "programma-di-studi-doppio-2027-laurea-in-lettere-amministrazione-aziendale-gestione-digitale-delle-imprese-sito-di",
           "duales-studium-2027-bachelor-of-science-bwl-digital-business-management-standort-grenzach",
           "programma-di-studio-duale-2027-bachelor-of-arts-business-administration-digital-business-management-sede-di-grenzach"
+        ],
+        "fr": [
+          "duales-studium-2027-bachelor-of-arts-bwl-digital-business-management-standort-grenzach"
         ]
       },
       "firstSeenAt": "2026-05-30T23:28:00.524Z",
@@ -60380,9 +60383,9 @@
     },
     {
       "id": "roche-c00d294d035b",
-      "slug": "praktikum-im-project-portfolio-management-mit-schwerpunkt-it-architektur-ki-anwendungen-m",
+      "slug": "praktikum-in-project-portfolio-management-con-enfasi-su-it-architettura-ki-applicazioni-m-f-d-roche-penzberg",
       "slugByLocale": {
-        "it": "praktikum-im-project-portfolio-management-mit-schwerpunkt-it-architektur-ki-anwendungen-m",
+        "it": "praktikum-in-project-portfolio-management-con-enfasi-su-it-architettura-ki-applicazioni-m-f-d-roche-penzberg",
         "en": "internship-in-project-portfolio-management-with-focus-on-it-architecture-ai-applications-m-f-d-roche-penzberg",
         "de": "praktikum-im-project-portfolio-management-mit-schwerpunkt-it-architektur-ki-anwendungen-m",
         "fr": "stage-en-gestion-de-portefeuille-de-projets-axe-sur-l-architecture-informatique-et-les-applications-d-ia-m-f-d-roche"
@@ -60437,7 +60440,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-im-project-portfolio-management-mit-schwerpunkt-it-architektur-ki-anwendungen-m"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-im-project-portfolio-management-mit-schwerpunkt-it-architektur-ki-anwendungen-m"
+      ]
     },
     {
       "id": "roche-78df71b8a158",
@@ -84649,7 +84660,7 @@
       "slugByLocale": {
         "it": "early-talent-associate-pdr-roche-ch",
         "en": "early-talent-associate-pdr-roche-ch",
-        "de": "early-talent-associate-pdr-roche-ch",
+        "de": "fruher-talentpartner-pdr-roche-mississauga",
         "fr": "premier-talent-associate-pdr-roche-mississauga"
       },
       "company": "Roche",
