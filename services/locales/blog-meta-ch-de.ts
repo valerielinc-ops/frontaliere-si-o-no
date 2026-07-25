@@ -1522,6 +1522,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-argovia.title': 'Steuervorteile und Einzahlungsstrategien',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-argovia.excerpt': 'Die dritte Säule 3a: Was es ist, wie es funktioniert und welche Steuervorteile es für Grenzgänger im Kanton Aargau gibt',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-argovia.imageAlt': 'Eine Szene von Lugano mit dem Luganer See im Hintergrund, wo Menschen über das dritte Säckel 3a diskutieren',
+    'blog.article.franco-svizzero-tassi-cambio.title': 'Der Schweizer Franken und die Phase der Währungsschwäche',
+    'blog.article.franco-svizzero-tassi-cambio.excerpt': 'Analyse des Euro-Franken-Wechselkurses und der aktuellen Wirtschaftsdynamik, die vom Börsen- und Finanzportal gemeldet wird.',
+    'blog.article.franco-svizzero-tassi-cambio.imageAlt': 'Panoramablick auf den See und die Schweiz',
 };
 
 export default blogMetaChDe;

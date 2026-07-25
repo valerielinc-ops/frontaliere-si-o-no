@@ -4880,6 +4880,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-vivere-lavena-ponte-tresa-frontaliere': { name: 'Lavena Ponte Tresa Frontalieri', path: '/articoli-frontaliere/vivere-lavena-ponte-tresa-frontaliere', parent: 'blog' },
     'blog-terzo-pilastro-3a-vantaggi-2026-canton-argovia': { name: 'Terzo pilastro 3a', path: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026-canton-argovia/', parent: 'blog' },
     'blog-sequestrati-7200-euro': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/sequestrati-7200-euro', parent: 'blog' },
+    'blog-franco-svizzero-tassi-cambio': { name: 'Franco Svizzero', path: '/articoli-svizzera/franco-svizzero-tassi-cambio/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
