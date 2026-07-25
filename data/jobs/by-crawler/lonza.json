@@ -2034,7 +2034,7 @@
       "slug": "operatore-bioconjugates-m-f-d-lonza-ch",
       "slugByLocale": {
         "it": "operatore-bioconjugates-m-f-d-lonza-ch",
-        "en": "operator-bioconjugates-m-w-d-lonza-ch",
+        "en": "bioconjugate-operator-m-w-d-lonza-ch",
         "de": "operator-bioconjugates-m-w-d-lonza-ch",
         "fr": "operateur-bioconjugates-m-w-d-lonza-ch"
       },
@@ -2103,7 +2103,8 @@
         ],
         "en": [
           "vi-operator-f-m-d-lonza-ch",
-          "bioconjugates-trainer-f-m-d-lonza-ch"
+          "bioconjugates-trainer-f-m-d-lonza-ch",
+          "operator-bioconjugates-m-w-d-lonza-ch"
         ],
         "de": [
           "vi-betreiber-f-m-d-lonza-ch"
@@ -2131,12 +2132,12 @@
     },
     {
       "id": "lonza-a99ff4784e93",
-      "slug": "bioprocess-engineer-mammalian-usp-dsp-lonza-ch",
+      "slug": "ingegnere-bioprocesso-mammaliano-usp-dsp-lonza-ch",
       "slugByLocale": {
-        "it": "bioprocess-engineer-mammalian-usp-dsp-lonza-ch",
+        "it": "ingegnere-bioprocesso-mammaliano-usp-dsp-lonza-ch",
         "en": "bioprocess-engineer-mammalian-usp-dsp-lonza-ch",
-        "de": "bioprocess-engineer-mammalian-usp-dsp-lonza-ch",
-        "fr": "bioprocess-engineer-mammalian-usp-dsp-lonza-ch"
+        "de": "bioprozessingenieur-mammal-usp-dsp-lonza-ch",
+        "fr": "ingenieur-bioprocessus-mammalien-usp-dsp-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2189,7 +2190,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "bioprocess-engineer-mammalian-usp-dsp-lonza-ch"
+        ],
+        "de": [
+          "bioprocess-engineer-mammalian-usp-dsp-lonza-ch"
+        ],
+        "fr": [
+          "bioprocess-engineer-mammalian-usp-dsp-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bioprocess-engineer-mammalian-usp-dsp-lonza-ch"
+      ]
     },
     {
       "id": "lonza-3151453947a1",
