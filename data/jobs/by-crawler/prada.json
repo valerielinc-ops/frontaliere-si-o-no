@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "prada-5792b8208e19",
-      "slug": "fidenza-outlet-sales-assistant-prada-group-fidenza-fidenza-outlet-sales-assistant",
+      "slug": "fidenza-outlet-assistente-commerciale-prada-group-fidenza-fidenza-outlet-sales-assistant",
       "slugByLocale": {
         "en": "fidenza-outlet-sales-assistant-prada-group-fidenza-fidenza-outlet-sales-assistant",
-        "it": "fidenza-outlet-sales-assistant-prada-group-fidenza-fidenza-outlet-sales-assistant",
+        "it": "fidenza-outlet-assistente-commerciale-prada-group-fidenza-fidenza-outlet-sales-assistant",
         "de": "fidenza-outlet-sales-assistant-prada-group-fidenza-fidenza-outlet-sales-assistant",
-        "fr": "fidenza-outlet-sales-assistant-prada-group-fidenza-fidenza-outlet-sales-assistant"
+        "fr": "fidenza-outlet-assistant-aux-ventes-prada-group-fidenza-fidenza-outlet-sales-assistant"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -60,7 +60,18 @@
       },
       "country": "CH",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-07-25T10:44:21.802Z"
+      "firstSeenAt": "2026-07-25T10:44:21.802Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fidenza-outlet-sales-assistant-prada-group-fidenza-fidenza-outlet-sales-assistant"
+        ],
+        "fr": [
+          "fidenza-outlet-sales-assistant-prada-group-fidenza-fidenza-outlet-sales-assistant"
+        ]
+      },
+      "previousSlugs": [
+        "fidenza-outlet-sales-assistant-prada-group-fidenza-fidenza-outlet-sales-assistant"
+      ]
     },
     {
       "id": "prada-4a05ae70b034",
@@ -178,15 +189,7 @@
         }
       },
       "country": "CH",
-      "addressRegion": "GR",
-      "previousSlugsByLocale": {
-        "en": [
-          "miu-miu-store-manager-saint-moritz-prada-mendrisio"
-        ]
-      },
-      "previousSlugs": [
-        "miu-miu-store-manager-saint-moritz-prada-mendrisio"
-      ]
+      "addressRegion": "GR"
     }
   ]
 }
