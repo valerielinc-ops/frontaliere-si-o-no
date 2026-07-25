@@ -26855,6 +26855,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese',
+ category: 'fiscale',
+ date: '2026-07-25T02:58:41.792Z',
+ image: '/images/blog/la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

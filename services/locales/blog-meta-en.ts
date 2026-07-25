@@ -8938,6 +8938,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sequestrati-7200-euro.title': 'More Italy: Tyrant; checkpoints, seized 7200 euros',
     'blog.article.sequestrati-7200-euro.excerpt': 'The Tirano Finance Guard seized 7,500 euros from a 62-year-old Italian on his way to Switzerland.',
     'blog.article.sequestrati-7200-euro.imageAlt': 'A border crossing between Italy and Switzerland, with a controller inspecting a vehicle.',
+    'blog.article.la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.title': 'Frontalieri, the tax battle between Italy and Ticino',
+    'blog.article.la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.excerpt': 'Italian and Ticino tax authorities are in an undercover battle for border guards. The new agreement between the two countries has opened up new opportunities for workers moving between Italy and Switzerland.',
+    'blog.article.la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.imageAlt': 'A financial journalist in the front line to discover the latest news on Ticino cross-border workers.',
 };
 
 export default blogMetaEn;
