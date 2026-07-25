@@ -1519,6 +1519,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-disoccupazione-svizzera.title': 'Svizzera: nessuna disoccupazione per frontalieri, 1 miliardo in discussione',
     'blog.article.frontalieri-disoccupazione-svizzera.excerpt': 'Die Schweiz zahlt laut Tessiner-Liga keine Arbeitslosen an Grenzgänger',
     'blog.article.frontalieri-disoccupazione-svizzera.imageAlt': 'Ein Gruppe von Grenzgängern, die in der Schweiz arbeiten, Lugano',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-argovia.title': 'Steuervorteile und Einzahlungsstrategien',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-argovia.excerpt': 'Die dritte Säule 3a: Was es ist, wie es funktioniert und welche Steuervorteile es für Grenzgänger im Kanton Aargau gibt',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-argovia.imageAlt': 'Eine Szene von Lugano mit dem Luganer See im Hintergrund, wo Menschen über das dritte Säckel 3a diskutieren',
 };
 
 export default blogMetaChDe;

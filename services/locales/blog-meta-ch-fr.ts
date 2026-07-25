@@ -1519,6 +1519,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-disoccupazione-svizzera.title': 'Svizzera non paga disoccupazione ai frontalieri. Un miliardo in discussione',
     'blog.article.frontalieri-disoccupazione-svizzera.excerpt': 'La Suisse ne paiera pas le chômage aux frontaliers, selon la Ligue des Tessinois',
     'blog.article.frontalieri-disoccupazione-svizzera.imageAlt': 'Un groupe de frontaliers qui travaillent en Suisse, Lugano',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-argovia.title': 'Avantages fiscaux et stratégies de versement',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-argovia.excerpt': 'Le troisième pilier 3a : qu\'est-ce que c\'est, comment ça marche et quels sont les avantages fiscaux pour les frontaliers dans le canton d\'Argovie',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-argovia.imageAlt': 'Une scène de Lugano avec le lac de Lugano en arrière-plan, où des gens discutent du troisième pilier 3a',
 };
 
 export default blogMetaChFr;

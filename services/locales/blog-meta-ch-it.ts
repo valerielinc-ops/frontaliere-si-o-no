@@ -1519,6 +1519,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-disoccupazione-svizzera.title': 'La Svizzera non paga disoccupazione ai frontalieri. Un miliardo di franchi in discussione',
     'blog.article.frontalieri-disoccupazione-svizzera.excerpt': 'La Svizzera non pagherà la disoccupazione ai frontalieri, secondo la Lega dei Ticinesi',
     'blog.article.frontalieri-disoccupazione-svizzera.imageAlt': 'Un gruppo di frontaliere che lavorano in Svizzera, a Lugano',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-argovia.title': 'Vantaggi fiscali e strategie di versamento',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-argovia.excerpt': 'Il terzo pilastro 3a: cosa è, come funziona e quali sono i vantaggi fiscali per i frontalieri nel Canton Argovia',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-argovia.imageAlt': 'Una scena di Lugano con la vista sul lago, in cui si vedono persone che discutono sul terzo pilastro 3a',
 };
 
 export default blogMetaChIt;
