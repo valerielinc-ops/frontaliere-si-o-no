@@ -1,6 +1,6 @@
 {
   "crawlerKey": "etat-de-fribourg",
-  "assembledAt": "2026-07-25T11:07:34.226Z",
+  "assembledAt": "2026-07-25T22:08:13.905Z",
   "jobs": [
     {
       "id": "etat-de-fribourg-d1b5d5d2fbab",
@@ -33,7 +33,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Verantwortlicher-Buchhaltung-Saan/1365172457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:07:27.923Z",
+      "crawledAt": "2026-07-25T22:08:07.383Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -120,7 +120,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Responsable-comptable-Sari/1365172357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:27.284Z",
+      "crawledAt": "2026-07-25T22:08:06.731Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -157,6 +157,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:45.015Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -203,7 +204,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professeur-e-ordinaire-de-th%C3%A9ologie-morale-fondamentale-Sari/1365177957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:26.647Z",
+      "crawledAt": "2026-07-25T22:08:06.085Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -286,7 +287,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Ordentliche-Professur-oder-als-Tenure-Track-Professur-f%C3%BCr-Dogmatik-und-%C3%96kumenische-Theologie-Saan/1365195957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:07:26.008Z",
+      "crawledAt": "2026-07-25T22:08:05.424Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -336,7 +337,8 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-65aec3e26317",
@@ -369,7 +371,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professeur-e-ordinaire-de-l'Ancien-Testament-en-langue-fran%C3%A7aise-Sari/1365199557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:25.371Z",
+      "crawledAt": "2026-07-25T22:08:04.766Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -450,7 +452,7 @@
       "url": "https://jobs.fr.ch/Police_Cantonale/job/Fribourg%2C-CH-Agent-e-de-police-judiciaire-sp%C3%A9cialis%C3%A9-e-en-analyse-criminelle-CDD-6-mois-Sari/1365328057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:24.733Z",
+      "crawledAt": "2026-07-25T22:08:04.107Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -533,7 +535,7 @@
       "url": "https://jobs.fr.ch/Police_Cantonale/job/Fribourg%2C-CH-Spez_-Kriminalpolizeibeamter-beamtin-in-Kriminalanalyse-befristeter-Vertrag-6-Monate-Saan/1365328157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:07:24.091Z",
+      "crawledAt": "2026-07-25T22:08:03.462Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -616,7 +618,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Leiterin-Finanzen-und-Software-Asset-Management-Saan/1365300057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:07:23.454Z",
+      "crawledAt": "2026-07-25T22:08:02.812Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -702,7 +704,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Responsable-finances-et-actifs-logiciels-Sari/1365299957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:22.803Z",
+      "crawledAt": "2026-07-25T22:08:02.161Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -739,6 +741,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:37.929Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -785,7 +788,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Laboratory-Technician-Position-in-Pharmacology-Saan/1362499657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:07:22.161Z",
+      "crawledAt": "2026-07-25T22:08:01.507Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -821,6 +824,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:34.085Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -852,22 +856,22 @@
       "titleByLocale": {
         "it": "Tecnico del Laboratorio in Farmacologia",
         "en": "Laboratory Technician Position in Pharmacology",
-        "de": "Labortechniker-Position in der Pharmakologie",
-        "fr": "Technicien de laboratoire en pharmacologie"
+        "de": "Laboratory Techniker Position in Pharmacology",
+        "fr": "Laboratory Technicien Position in Pharmacology"
       },
       "description": "Qui sommes-nous?\n\nEnseignement, recherche, emplois, événements: l’Université de Fribourg est un espace d’innovations et un moteur important pour la vie économique et culturelle de la région. Elle attire des étudiant-e-s et des chercheur-euse-s en provenance de toute la Suisse et du monde entier, elle marque le quotidien de la cité bilingue de Fribourg, depuis sa fondation en 1889.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\nThis is a one-year fixed-term contract which may be extended to 3 years (funded by SNF)\n\nLab Description : The Pharmacology Unit of the Faculty of Science and Medicine at the University of Fribourg investigates molecular and cellular mechanisms underlying metabolic and redox signaling in health and disease. The Zuhra Group focuses on the biology of endogenously produced cyanide, exploring its role as a novel gasotransmitter and its impact on cellular metabolism and cell signaling ( www.unifr.ch/med/en/research/group/zuhra/ ).\n\nWhat we offer:\n\n• Fixed term position in a stimulating, interdisciplinary, international and collaborative research environment\n\n• Access to modern infrastructure and training opportunities\n\nProfil souhaité\n\n• Experienced and motivated laboratory technician to support our research with 3-5 years of proven work experience with basic biochemical and molecular biology techniques (solution preparation, measuring pH, doing Western blots, cell culture, etc).\n\n• Diploma (CFC / BSc or equivalent) in Biology, Biochemistry, Pharmacology or a related field (experience in cancer research would be considered a plus)\n\n• Experience with in vivo  model (mice, rats). FELASA accreditation category B (EU functions A, C, D) or Swiss equivalent i.e. Module1/LTK1 needed\n\n• Strong sense of organization, precision, and reliability\n\n• Selections will be done in a rolling basis\n\n• Good written and spoken English skills. Knowledge of French or German is an advantage\n\nCoordonnées des personnes de contact\n\nKarim Zuhra, karim.zuhra@unifr.ch\n\nDate de publication:",
       "descriptionByLocale": {
         "it": "Qui sommes-nous?\n\nEnseignement, recherche, emplois, événements: l'Université de Fribourg est un espace d'innovation et un moteur important pour la vie économique et culturelle de la région. Elle vestire des étudiant-e-s et des chercheur-euse-s en provenance de toute la Suisse et du monde entier, elle marque le quotidien de la cité bilingue de Fribourg, depuis sa fondation en 1889.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c'est la diversité des parcours et des profils qui fait la force de l'Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nMissioni Vos\n\nSi tratta di un contratto a tempo determinato di un anno che può essere esteso a 3 anni (finanziato da SNF)\n\nLab Description : L'Unità di Farmacologia della Facoltà di Scienze e Medicina dell'Università di Friburgo indaga i meccanismi molecolari e cellulari alla base della segnalazione metabolica e redox in salute e malattia. Il Gruppo Zuhra si concentra sulla biologia del cianuro endogeno, esplorando il suo ruolo di nuovo gasotrasmettitore e il suo impatto sul metabolismo cellulare e sulla segnalazione cellulare ( www.unifr.ch/med/en/research/group/zuhra/ ).\n\nCosa offriamo:\n\n- Posizione a tempo determinato in un ambiente di ricerca stimolante, interdisciplinare, internazionale e collaborativo\n- Accesso a infrastrutture moderne e opportunità di formazione\n\nProfil",
         "en": "Qui sommes-nous?\n\nEnseignement, recherche, emplois, événements: l’Université de Fribourg est un espace d’innovations et un moteur important pour la vie économique et culturelle de la région. Elle attire des étudiant-e-s et des chercheur-euse-s en provenance de toute la Suisse et du monde entier, elle marque le quotidien de la cité bilingue de Fribourg, depuis sa fondation en 1889.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\nThis is a one-year fixed-term contract which may be extended to 3 years (funded by SNF)\n\nLab Description : The Pharmacology Unit of the Faculty of Science and Medicine at the University of Fribourg investigates molecular and cellular mechanisms underlying metabolic and redox signaling in health and disease. The Zuhra Group focuses on the biology of endogenously produced cyanide, exploring its role as a novel gasotransmitter and its impact on cellular metabolism and cell signaling ( www.unifr.ch/med/en/research/group/zuhra/ ).\n\nWhat we offer:\n\n- Fixed term position in a stimulating, interdisciplinary, international and collaborative research environment\n- Access to modern infrastructure and training opportunities\n\nProfil souhaité\n\n- Experienced and motivated laboratory technician to support our research with 3-5 years of proven work experience with basic biochemical and molecular biology techniques (solution preparation, measuring pH, doing Western blots, cell culture, etc).\n- Diploma (CFC / BSc or equivalent) in Biology, Biochemistry, Pharmacology or a related field (experience in cancer research would be considered a plus)\n- Experience with in vivo model (mice, rats). FELASA accreditation category B (EU functions A, C, D) or Swiss equivalent i.e. Module1/LTK1 needed\n- Strong sense of organization, precision, and reliability\n- Selections will be done in a rolling basis\n- Good written and spoken English skills. Knowledge of French or German is an advantage\n\nCoordonnées des personnes de contact\n\nKarim Zuhra, karim.zuhra@unifr.ch\n\nDate de publication:",
         "de": "Sommes-nous zu hören?\n\nDie Kommission hat die Kommission aufgefordert, die Ergebnisse der Arbeiten des Ausschusses für die Rechte der Frau, die in den letzten Jahren durchgeführt wurden, zu prüfen.\n\nPourquoi nous rejoindre?\n\nDie Kommission hat die Kommission aufgefordert, die Vorschläge der Kommission zu prüfen, um die Auswirkungen der neuen Richtlinie auf die Umwelt zu untersuchen.\n\nAufgaben der Vos\n\nDies ist ein einjähriger befristeter Vertrag, der auf 3 Jahre verlängert werden kann (finanziert durch SNF)\n\nLaborbeschreibung : Die Pharmakologie-Abteilung der Fakultät für Wissenschaft und Medizin der Universität Freiburg untersucht molekulare und zelluläre Mechanismen, die der Stoffwechsel- und Redoxsignalisierung in Gesundheit und Krankheit zugrunde liegen. Die Zuhra-Gruppe konzentriert sich auf die Biologie endogen produzierter Cyanids und untersucht ihre Rolle als neuartiger Gasotransmitter und ihre Auswirkungen auf den Zellstoffwechsel und Zellsignalisierung ( www.unifr.ch/med/en/research/group/zuhra/ ).\n\nWas wir anbieten:\n\n- Fester Termin in einem stimulierenden, interdisziplinären, internationalen und kollaborativen Forschungsumfeld - Zugang zu moderner Infrastruktur und Weiterbildungsmöglichkeiten\n\nProfil souhaité\n\n- Erfahrener und motivierter Labortechniker, der unsere Forschung mit 3-5 Jahren nachgewiesener Berufserfahrung mit grundlegenden biochemischen und molekularbiologischen Techniken (Lösungsvorbereitung, pH-Messung, Western Blots, Zellkultur usw.) unterstützt. - Diplom (FCC / BSc oder gleichwertig) in Biologie, Biochemie, Pharmakologie oder einem verwandten Gebiet (Erfahrung in der Krebsforschung wäre ein Plus) - Erfahrung mit in vivo Modell (Mische, Ratten). FELASA Akkreditierung Kategorie B (EU Funktionen A, C, D) oder Schweizer Äquivalent dh.\n\nModul1/LTK1 erforderlich - Starkes Organisations-, Präzisions- und Zuverlässigkeitsgefühl - Auswahl erfolgt rollend - Gut geschriebene und gesprochene Englischkenntnisse. Französisch- oder Deutschkenntnisse sind ein Vorteil\n\nCoordonnées des personnes de contact\n\nKarim Zuhra, karim.zuhra@unifr.ch\n\nDatum der Veröffentlichung:",
-        "fr": "Qui sommes-nous?\n\n, recherche, emploi,,, Université de Fribourg est un espace d,innovations et un moteur important pour la vie et culturelle de la région. Elle attire des étudiants-e-s et des chercheurs-euse-s en provenance de ces Suisse et du monde entier, elle marque le, de la cité, de Fribourg, depuis sa fondation en 1889.\n\n- Qu'est-ce que tu fais?\n\nNous mettons sur la complémentarité des compétences et la variété des perspectives car c,est la Divers des parcours et des profils qui font la force de l,Etat de Fribourg. Nous favorisons la conciliation vie et vie et les conditions de travail de la ville. Pour en savoir plus, je suis ce lien.\n\nMissions des États\n\nIl s'agit d'un contrat à durée déterminée d'un an qui peut être prolongé à trois ans (financé par la SNF)\n\nDescription du laboratoire : L'Unité de Pharmacologie de la Faculté des Sciences et de Médecine de l'Université de Fribourg étudie les mécanismes moléculaires et cellulaires sous-jacents à la signalisation métabolique et redox dans la santé et la maladie. Le Groupe Zuhra se concentre sur la biologie du cyanure produit endogène, explorant son rôle de nouveau gazotransmetteur et son impact sur le métabolisme cellulaire et la signalisation cellulaire ( www.unifr.ch/med/en/research/group/zuhra/ ).\n\nCe que nous offrons:\n\n- Position à terme dans un environnement de recherche stimulant, interdisciplinaire, international et collaboratif - Accès aux infrastructures modernes et aux possibilités de formation\n\nProfil de la société\n\n- Technicien de laboratoire expérimenté et motivé pour soutenir nos recherches avec 3-5 ans d'expérience de travail éprouvée avec des techniques de base de biochimie et de biologie moléculaire (préparation de la solution, mesure du pH, réalisation de taches occidentales, culture cellulaire, etc.). - Diplôme (CFC / BSc ou équivalent) en biologie, biochimie, pharmacologie ou un domaine connexe (l'expérience dans la recherche sur le cancer serait considérée comme un plus) - Expérience avec le modèle in vivo (migre, rats).\n\nModule1/LTK1 nécessaire - Forte idée d'organisation, de précision et de fiabilité - Les sélections se feront sur une base continue - Bonnes compétences en anglais écrit et parlé.\n\nCoordonnées des personnes de contact\n\nKarim Zuhra, karim.zuhra@unifr.ch\n\nDate de publication:"
+        "fr": "Qui sommes-nous?\n\nEnseignement, recherche, emplois, événements: l’Université de Fribourg est un espace d’innovations et un moteur important pour la vie économique et culturelle de la région. Elle attire des étudiant-e-s et des chercheur-euse-s en provenance de toute la Suisse et du monde entier, elle marque le quotidien de la cité bilingue de Fribourg, depuis sa fondation en 1889.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\nThis is a one-year fixed-term contract which may be extended to 3 years (funded by SNF)\n\nLab Description : The Pharmacology Unit of the Faculty of Science and Medicine at the University of Fribourg investigates molecular and cellular mechanisms underlying metabolic and redox signaling in health and disease. The Zuhra Group focuses on the biology of endogenously produced cyanide, exploring its role as a novel gasotransmitter and its impact on cellular metabolism and cell signaling ( www.unifr.ch/med/en/research/group/zuhra/ ).\n\nWhat we offer:\n\n• Fixed term position in a stimulating, interdisciplinary, international and collaborative research environment\n\n• Access to modern infrastructure and training opportunities\n\nProfil souhaité\n\n• Experienced and motivated laboratory technician to support our research with 3-5 years of proven work experience with basic biochemical and molecular biology techniques (solution preparation, measuring pH, doing Western blots, cell culture, etc).\n\n• Diploma (CFC / BSc or equivalent) in Biology, Biochemistry, Pharmacology or a related field (experience in cancer research would be considered a plus)\n\n• Experience with in vivo model (mice, rats). FELASA accreditation category B (EU functions A, C, D) or Swiss equivalent i.e. Module1/LTK1 needed\n\n• Strong sense of organization, precision, and reliability\n\n• Selections will be done in a rolling basis\n\n• Good written and spoken English skills. Knowledge of French or German is an advantage\n\nCoordonnées des personnes de contact\n\nKarim Zuhra, karim.zuhra@unifr.ch\n\nDate de publication:"
       },
       "location": "Fribourg",
       "canton": "FR",
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Laboratory-Technician-Position-in-Pharmacology-Sari/1362499557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-24T22:19:21.710Z",
+      "crawledAt": "2026-07-25T22:08:00.858Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -890,10 +894,12 @@
       "previousSlugsByLocale": {
         "fr": [
           "technicien-de-laboratoire-en-pharmacologie-etat-de-fribourg-fribourg",
-          "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch"
+          "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch",
+          "technicien-de-labor-en-pharmacologie-etat-de-fribourg-fribourg"
         ],
         "it": [
-          "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch"
+          "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch",
+          "laboratorio-posizione-tecnica-in-farmacologia-etat-de-fribourg-fribourg"
         ],
         "de": [
           "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch"
@@ -901,9 +907,12 @@
       },
       "previousSlugs": [
         "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch",
-        "technicien-de-laboratoire-en-pharmacologie-etat-de-fribourg-fribourg"
+        "technicien-de-laboratoire-en-pharmacologie-etat-de-fribourg-fribourg",
+        "technicien-de-labor-en-pharmacologie-etat-de-fribourg-fribourg",
+        "laboratorio-posizione-tecnica-in-farmacologia-etat-de-fribourg-fribourg"
       ],
       "firstSeenAt": "2026-07-10T23:09:18.633Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -950,7 +959,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Praktikantin-Juristin-Saan/1365406257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:07:20.880Z",
+      "crawledAt": "2026-07-25T22:08:00.207Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1033,7 +1042,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-juriste-Sari/1365406157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:20.252Z",
+      "crawledAt": "2026-07-25T22:07:59.560Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1143,7 +1152,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Fachmann-frau-f%C3%BCr-Justizvollzug-Offenes-Regime-See/1365442257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:07:19.612Z",
+      "crawledAt": "2026-07-25T22:07:58.920Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1179,6 +1188,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:30.872Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1224,7 +1234,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Agent-e-de-d%C3%A9tention-R%C3%A9gime-ouvert-Lac/1365442157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:18.958Z",
+      "crawledAt": "2026-07-25T22:07:58.266Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1306,7 +1316,7 @@
       "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-Psychologue-psychoth%C3%A9rapeute-etou-en-formation%2C-RFSM-Villars-sur-Gl%C3%A2ne-Sari/1362614857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:18.297Z",
+      "crawledAt": "2026-07-25T22:07:57.613Z",
       "addressLocality": "Villars-sur-Glâne",
       "postalCode": "1752",
       "addressCountry": "CH",
@@ -1395,7 +1405,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-post-master-domaine-juridique-Sari/1365607057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:17.661Z",
+      "crawledAt": "2026-07-25T22:07:56.960Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1478,7 +1488,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Verantwortlicher-Sanierungsprogramm-des-Immobilienbestands-Saan/1362910057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:07:17.020Z",
+      "crawledAt": "2026-07-25T22:07:56.312Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1561,7 +1571,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Responsable-du-programme-d'assainissement-du-patrimoine-immobilier-Sari/1362910157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:16.382Z",
+      "crawledAt": "2026-07-25T22:07:55.664Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1642,7 +1652,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Pflegefachperson-FNPG-Marsens-und-Villars-sur-Gl%C3%A2ne-f%C3%BCr-Spontanbewerbungen-Grey/1349950857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:07:15.715Z",
+      "crawledAt": "2026-07-25T22:07:55.008Z",
       "addressLocality": "Marsens",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1689,7 +1699,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-8479d0cc32d9",
@@ -1722,7 +1733,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Infirmier-%C3%A8re%2C-RFSM-Marsens-et-Villars-sur-Gl%C3%A2ne-pour-les-candidatures-spontan%C3%A9es-Gruy/1349950757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:15.067Z",
+      "crawledAt": "2026-07-25T22:07:54.358Z",
       "addressLocality": "Marsens",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1798,7 +1809,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Fachmann-frau-f%C3%BCr-Justizvollzug-Geschlossenes-Regime-See/1365688257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:07:14.421Z",
+      "crawledAt": "2026-07-25T22:07:53.716Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1846,6 +1857,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:41.759Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1891,7 +1903,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Agent-e-de-d%C3%A9tention-R%C3%A9gime-ferm%C3%A9-SI-Lac/1365688157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:13.788Z",
+      "crawledAt": "2026-07-25T22:07:53.050Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1973,7 +1985,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Agent-e-de-d%C3%A9tention-R%C3%A9gime-ouvert-Lac/1365692857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:12.485Z",
+      "crawledAt": "2026-07-25T22:07:51.746Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2029,7 +2041,7 @@
       "slug": "dipendente-contabile-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "it": "dipendente-contabile-etat-de-fribourg-fribourg",
-        "en": "accounting-employee-etat-de-fribourg-fribourg",
+        "en": "employe-e-de-comptabilite-etat-de-fribourg",
         "de": "buchhalter-etat-de-fribourg-fribourg-cd01d7",
         "fr": "employe-e-de-comptabilite-etat-de-fribourg-ch"
       },
@@ -2039,7 +2051,7 @@
       "title": "Employé-e de comptabilité",
       "titleByLocale": {
         "it": "Dipendente contabile",
-        "en": "Accounting employee",
+        "en": "Employé-e de comptabilité",
         "de": "Buchhalter",
         "fr": "Employé-e de comptabilité"
       },
@@ -2055,7 +2067,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Employ%C3%A9-e-de-comptabilit%C3%A9-Sari/1365731957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:11.846Z",
+      "crawledAt": "2026-07-25T22:07:51.097Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2096,6 +2108,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T13:41:27.718Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2142,7 +2155,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Wissenschaftlicher-Mitarbeiterin-in-Humanmedizin-Saan/1365682357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:07:11.202Z",
+      "crawledAt": "2026-07-25T22:07:50.457Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2225,7 +2238,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-scientifique-en-M%C3%A9decine-humaine-Sari/1365682457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:10.563Z",
+      "crawledAt": "2026-07-25T22:07:49.809Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2291,16 +2304,16 @@
       "companyDomain": "fr.ch",
       "title": "Professorship in Applied Microeconomics (Open Rank)",
       "titleByLocale": {
-        "it": "Professore in Microeconomia applicata (Open Rank)",
+        "it": "Professorship in Applied Microeconomics (Open Rank)",
         "en": "Professorship in Applied Microeconomics (Open Rank)",
-        "de": "Professur für Angewandte Mikroökonomie (Open Rank)",
+        "de": "Professorship in Applied Microeconomics (Open Rank)",
         "fr": "Professeur en Microéconomie Appliquée (Open Rank)"
       },
       "description": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDie Universität Freiburg ist Bildungsstätte, Forschungsplatz, Arbeitgeberin und Event-Veranstalterin in einem. Ihre Innovationskraft macht sie zu einem wichtigen Motor für das wirtschaftliche und kulturelle Leben der Region. Als Anziehungspunkt für Studierende und Forschende aus der gesamten Schweiz und aus allen Teilen der Welt prägt die Hochschule seit ihrer Gründung 1889 das Leben der zweisprachigen Stadt Freiburg.\n\nThe position includes one 100% doctoral assistant. The University offers attractive working conditions and a competitive salary. The position is open rank, in accordance with University statutes.\n\nSeeking to promote an equitable representation of women and men, the University strongly encourages applications from women. Having signed the CoARA declaration, the University of Fribourg emphasizes qualitative assessment of academic achievement.\n\nImportant\n\nPlease note  : Do not   use the \"apply\" button at the top of this page: your application will not be processed. Apply electronically at  Appl-Micro@unifr.ch\n\nCandidates should submit a complete application package (motivation letter, CV, list of publications, teaching evaluations, administrative experience, third-party funding, research and teaching statement, three references, and three representative publications)\n\nIhre Aufgaben\n\n• The successful candidate will teach courses in French and English at the Bachelor’s and Master’s levels. Two courses will be given in French in Microeconomics on the Bachelor’s level. The research profile as well as offered Master courses should fall within applied microeconomics. Possible areas include, for example, labour economics, health economics, education economics, competition, personnel economics, or innovation economics.\n\nGewünschtes Profil\n\n• The successful candidate must have a doctorate (Ph.D.) in economics or a related field, and demonstrate an excellent research record in applied microeconomics, strong teaching skills, and the ability to supervise theses at the Bachelor’s and Master’s level.\n\n• The University of Fribourg is bilingual (French/German). Fluency in French is required and knowledge of German (oral level B1) is expected. If this is not the case, it must be acquired within two years of taking up the position.\n\nKontaktperson\n\nProf. Dr. Berno Büchel, berno.buechel@unifr.ch\n\nDatum der Stellenausschreibung:",
       "descriptionByLocale": {
         "it": "Designazione delle merci\n\nAnstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDie Universität Freiburg ist Bildungsstätte, Forschungsplatz, Arbeitgeberin und Event-Veranstalterin in einem. Ihre Innovationskraft macht sie zu einem wichtigen Motor für das wirtschaftliche und kulturelle Leben der Region. Als asehungspunk für Studierende und Forschende aus der gesamten Schweiz und aus allen Teilen der Welt prägt die Hochschule seit ihrer Gründung 1889 das Leben der zweisprachigen Stadt Freiburg.\n\nLa posizione comprende un assistente al 100% di dottorato. L'università offre condizioni di lavoro attraenti e uno stipendio competitivo. La posizione è di rango aperto, in conformità con gli statuti dell'Università.\n\nL'Università, che cerca di promuovere una rappresentanza equa di donne e uomini, incoraggia fortemente le candidature delle donne. Dopo aver firmato la dichiarazione del CoARA, l'Università di Friburgo sottolinea la valutazione qualitativa del conseguimento accademico.\n\nImportante\n\nNota: Non utilizzare il pulsante \"applicazione\" in alto a questa pagina: la tua applicazione non verrà elaborata. Applicare elettronicamente su Appli-Micro@unifr.ch\n\nI candidati dovrebbero presentare un pacchetto completo di domande (lettera di motivazione, CV, elenco delle pubblicazioni, valutazioni didattiche, esperienza amministrativa, finanziamento di terzi, dichiarazione di ricerca e insegnamento, tre riferimenti e tre pubblicazioni rappresentative)\n\nIhre Aufgaben\n\n- Il candidato che avrà successo insegnerà corsi di francese e inglese ai livelli Bachelor.s e Master.s. - Due corsi saranno tenuti in francese in Microeconomia a livello Bachelor. - Il profilo di ricerca e i corsi Master offerti dovrebbero rientrare nella microeconomia applicata. - I possibili settori includono, ad esempio, l'economia del lavoro, l'economia della salute, l'economia dell'istruzione, la concorrenza, l'economia del personale o l'economia dell'innovazione.\n\nGewünschtes Profil\n\n- Il candidato di successo deve avere un dottorato (Ph.D.) in economia o un campo correlato, e dimostrare un eccellente record di ricerca in microeconomia applicata, forti competenze di insegnamento, e la capacità di supervisionare tesi a livello Bachelor.s e Master. - L'Università di Friburgo è bilingue (francese / tedesco). La fluidità in francese è necessaria e la conoscenza del tedesco (livello orale B1) è prevista. - Se non è così, deve essere acquisita entro due anni dall'assunzione della posizione.\n\nKontaktperson\n\nProf. Dr. Berno Büchel, berno.buechel@unifr.ch\n\nDatum der Stellenausschreibung",
         "en": "Description\n\nAnstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDie Universität Freiburg ist Bildungsstätte, Forschungsplatz, Arbeitgeberin und Event-Veranstalterin in einem. Ihre Innovationskraft macht sie zu einem wichtigen Motor für das wirtschaftliche und kulturelle Leben der Region. Als Anziehungspunkt für Studierende und Forschende aus der gesamten Schweiz und aus allen Teilen der Welt prägt die Hochschule seit ihrer Gründung 1889 das Leben der zweisprachigen Stadt Freiburg.\n\nThe position includes one 100% doctoral assistant. The University offers attractive working conditions and a competitive salary. The position is open rank, in accordance with University statutes.\n\nSeeking to promote an equitable representation of women and men, the University strongly encourages applications from women. Having signed the CoARA declaration, the University of Fribourg emphasizes qualitative assessment of academic achievement.\n\nImportant\n\nPlease note : Do not use the \"apply\" button at the top of this page: your application will not be processed. Apply electronically at Appl-Micro@unifr.ch\n\nCandidates should submit a complete application package (motivation letter, CV, list of publications, teaching evaluations, administrative experience, third-party funding, research and teaching statement, three references, and three representative publications)\n\nIhre Aufgaben\n\n- The successful candidate will teach courses in French and English at the Bachelor’s and Master’s levels.\n- Two courses will be given in French in Microeconomics on the Bachelor’s level.\n- The research profile as well as offered Master courses should fall within applied microeconomics.\n- Possible areas include, for example, labour economics, health economics, education economics, competition, personnel economics, or innovation economics.\n\nGewünschtes Profil\n\n- The successful candidate must have a doctorate (Ph.D.) in economics or a related field, and demonstrate an excellent research record in applied microeconomics, strong teaching skills, and the ability to supervise theses at the Bachelor’s and Master’s level.\n- The University of Fribourg is bilingual (French/German). Fluency in French is required and knowledge of German (oral level B1) is expected.\n- If this is not the case, it must be acquired within two years of taking up the position.\n\nKontaktperson\n\nProf. Dr. Berno Büchel, berno.buechel@unifr.ch\n\nDatum der Stellenausschreibung",
-        "de": "Warenbezeichnung\n\nZusammenstellung der Ergebnisse der Erhebung\n\nDie Universität Freiburg ist Bildungsstätte, Forschungsplatz, Arbeitgeberin und Event-Veranstaltung in einem. Die Innovationskraft macht die zu einem wichtigen Motor für das Wirtschaft und Kultur Leben der Region. Der Anziehungspunkt für Dok. und Forschende für deren Unter- und Unterweltlich-Unterweltlich-Die Hochschule seit der Gründung 1889 das Leben der zweisprachigen Stadt Freiburg.\n\nDie Stelle umfasst einen 100% Doktoranden. Die Universität bietet attraktive Arbeitsbedingungen und ein wettbewerbsfähiges Gehalt. Die Position ist nach Hochschulstatuten offen.\n\nDie Universität möchte eine ausgewogene Vertretung von Frauen und Männern fördern und fördert die Bewerbung von Frauen. Nach der Unterzeichnung der CoARA-Erklärung betont die Universität Freiburg die qualitative Beurteilung der akademischen Leistung.\n\nWichtig\n\nBitte beachten Sie : Verwenden Sie nicht die Schaltfläche \"Anwenden\" am Anfang dieser Seite: Ihre Bewerbung wird nicht bearbeitet.\n\nDie Bewerber sollten ein vollständiges Bewerbungspaket (Modifizierungsschreiben, Lebenslauf, Publikationsliste, Lehrbewertungen, Verwaltungserfahrung, Drittmittel, Forschungs- und Lehraussage, drei Referenzen und drei repräsentative Publikationen) einreichen.\n\nGESUNDHEIT\n\n- Der erfolgreiche Kandidat unterrichtet auf den Bachelor-, Master- und Bachelor-Stufen Französisch und Englisch. - Zwei Kurse werden in Französisch in Mikroökonomie auf Bachelor-Ebene gehalten. - Das Forschungsprofil sowie angebotene Master-Kurse sollten in angewandte Mikroökonomie fallen. - Mögliche Bereiche sind z.B. Arbeitsökonomie, Gesundheitsökonomie, Bildungsökonomie, Wettbewerb, Personalökonomie oder Innovationsökonomie.\n\nGewünschtes Profil\n\n- Der erfolgreiche Kandidat muss in Wirtschaftswissenschaften oder verwandten Bereichen promoviert werden und eine hervorragende Forschungsbilanz in angewandter Mikroökonomie, starke Lehrfertigkeiten und die Fähigkeit zur Betreuung von Thesen auf Bachelor-, S- und Master-Niveau nachweisen. - Die Universität Freiburg ist zweisprachig (französisch/deutsch).\n\nKontaktperson\n\nProf. Dr. Berno Büchel, berno.buechel@unifr.ch\n\nDatum der Arbeit1945",
+        "de": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDie Universität Freiburg ist Bildungsstätte, Forschungsplatz, Arbeitgeberin und Event-Veranstalterin in einem. Ihre Innovationskraft macht sie zu einem wichtigen Motor für das wirtschaftliche und kulturelle Leben der Region. Als Anziehungspunkt für Studierende und Forschende aus der gesamten Schweiz und aus allen Teilen der Welt prägt die Hochschule seit ihrer Gründung 1889 das Leben der zweisprachigen Stadt Freiburg.\n\nThe position includes one 100% doctoral assistant. The University offers attractive working conditions and a competitive salary. The position is open rank, in accordance with University statutes.\n\nSeeking to promote an equitable representation of women and men, the University strongly encourages applications from women. Having signed the CoARA declaration, the University of Fribourg emphasizes qualitative assessment of academic achievement.\n\nImportant\n\nPlease note : Do not use the \"apply\" button at the top of this page: your application will not be processed. Apply electronically at Appl-Micro@unifr.ch\n\nCandidates should submit a complete application package (motivation letter, CV, list of publications, teaching evaluations, administrative experience, third-party funding, research and teaching statement, three references, and three representative publications)\n\nIhre Aufgaben\n\n• The successful candidate will teach courses in French and English at the Bachelor’s and Master’s levels. Two courses will be given in French in Microeconomics on the Bachelor’s level. The research profile as well as offered Master courses should fall within applied microeconomics. Possible areas include, for example, labour economics, health economics, education economics, competition, personnel economics, or innovation economics.\n\nGewünschtes Profil\n\n• The successful candidate must have a doctorate (Ph.D.) in economics or a related field, and demonstrate an excellent research record in applied microeconomics, strong teaching skills, and the ability to supervise theses at the Bachelor’s and Master’s level.\n\n• The University of Fribourg is bilingual (French/German). Fluency in French is required and knowledge of German (oral level B1) is expected. If this is not the case, it must be acquired within two years of taking up the position.\n\nKontaktperson\n\nProf. Dr. Berno Büchel, berno.buechel@unifr.ch\n\nDatum der Stellenausschreibung:",
         "fr": "Désignation des marchandises\n\nLes femmes sont les plus nombreuses à avoir des enfants.\n\nDie Universität Freiburg ist Bildungsstätte, Forschungsplatz, Arbeitgeberin und Event-Veranstalterin in einem. Ihre Innovationskraft macht sie zu einem wichtigen Motor für das wirtschaftliche und kulturelle Leben der Region. Als Anziehungspunkt für Studierende und Forschende aus der gesamten Schweiz und aus allen Teilen der Welt prägt die Hochschule seit ihrer Gründung 1889 das Leben der zweisparchigen Sta93 Freiburg.\n\nLe poste comprend un assistant de doctorat de 100 %, qui offre des conditions de travail attrayantes et un salaire concurrentiel. Le poste est un poste de rang ouvert, conformément aux statuts de l'Université.\n\nSoucieux de promouvoir une représentation équitable des femmes et des hommes, l'Université encourage fortement les candidatures des femmes. Ayant signé la déclaration du CoARA, l'Université de Fribourg met l'accent sur l'évaluation qualitative des résultats académiques.\n\nImportant\n\nVeuillez noter : N'utilisez pas le bouton \"Apply\" en haut de cette page : votre demande ne sera pas traitée.\n\nLes candidats doivent présenter une trousse de demande complète (lettre de motivation, CV, liste de publications, évaluations pédagogiques, expérience administrative, financement par des tiers, déclaration de recherche et d'enseignement, trois références et trois publications représentatives).\n\nIhre Aufgaben\n\n- Le candidat retenu enseignera des cours en français et en anglais aux niveaux de baccalauréat, de maîtrise et de maîtrise. - Deux cours seront donnés en français en microéconomie au niveau de baccalauréat. - Le profil de recherche ainsi que les cours de maîtrise offerts devraient relever de la microéconomie appliquée. - Les domaines possibles comprennent, par exemple, l'économie du travail, l'économie de la santé, l'économie de l'éducation, la concurrence, l'économie du personnel ou l'économie de l'innovation.\n\nGewünschtes Profil\n\n- Le candidat retenu doit avoir un doctorat (Ph.D.) en économie ou dans un domaine connexe, et démontrer un excellent dossier de recherche en microéconomie appliquée, de solides compétences pédagogiques et la capacité de superviser les thèses au niveau Bachelor, Master,s. - L'Université de Fribourg est bilingue (français/allemand). La maîtrise en français est requise et la connaissance de l'allemand (niveau oral B1) est attendue. - Si ce n'est pas le cas, il doit être acquis dans les deux ans suivant l'entrée en fonction.\n\nM. Kontaktperson\n\nProf. Dr Berno Büchel, berno.buechel@unifr.ch\n\nDatum der Stellenausschreibung"
       },
       "location": "Fribourg",
@@ -2308,7 +2321,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professorship-in-Applied-Microeconomics-%28Open-Rank%29-Saan/1365685957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-25T11:07:09.905Z",
+      "crawledAt": "2026-07-25T22:07:49.154Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2349,6 +2362,7 @@
         "professore-in-microeconomia-applicata-open-rank-etat-de-fribourg-fribourg"
       ],
       "firstSeenAt": "2026-07-10T12:09:43.721Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2395,7 +2409,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professeur-e-en-Micro%C3%A9conomie-appliqu%C3%A9e-%28open-rank%29-Sari/1365685857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:09.268Z",
+      "crawledAt": "2026-07-25T22:07:48.501Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2478,7 +2492,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Juristin-Saan/1365842257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:07:08.627Z",
+      "crawledAt": "2026-07-25T22:07:47.859Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2561,7 +2575,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Juriste-Sari/1365842357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:07.990Z",
+      "crawledAt": "2026-07-25T22:07:47.209Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2661,7 +2675,7 @@
       "url": "https://jobs.fr.ch/job/Morat%2C-CH-Juge-de-paix-aupr%C3%A8s-de-la-Justice-de-paix-du-Lac-Lac/1365905057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:07.336Z",
+      "crawledAt": "2026-07-25T22:07:46.560Z",
       "addressLocality": "Morat",
       "postalCode": "3280",
       "addressCountry": "CH",
@@ -2743,7 +2757,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Chef-fe-de-bureau-Sari/1365886357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:06.693Z",
+      "crawledAt": "2026-07-25T22:07:45.913Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2826,7 +2840,7 @@
       "url": "https://jobs.fr.ch/job/Estavayer-le-Lac%2C-CH-Juge-de-paix-aupr%C3%A8s-de-la-Justice-de-paix-de-la-Broye-Broy/1365901357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:05.996Z",
+      "crawledAt": "2026-07-25T22:07:45.257Z",
       "addressLocality": "Estavayer-le-Lac",
       "postalCode": "1470",
       "addressCountry": "CH",
@@ -2908,7 +2922,7 @@
       "url": "https://jobs.fr.ch/job/Morat%2C-CH-Friedensrichterin-des-Seebezirks-See/1365905157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:07:05.335Z",
+      "crawledAt": "2026-07-25T22:07:44.607Z",
       "addressLocality": "Morat",
       "postalCode": "3280",
       "addressCountry": "CH",
@@ -2945,6 +2959,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:37.166Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2990,7 +3005,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-B%C3%BCroleiterin-Saan/1365886457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:07:04.677Z",
+      "crawledAt": "2026-07-25T22:07:43.958Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3073,7 +3088,7 @@
       "url": "https://jobs.fr.ch/job/Granges-Paccot%2C-CH-Responsable-de-dispositif-EPCO-free-trading-Sari/1366028057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:04.030Z",
+      "crawledAt": "2026-07-25T22:07:43.309Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -3110,6 +3125,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:32.557Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -3155,7 +3171,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-KSVA-Sachbearbeiterin-Saan/1365993057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:07:03.397Z",
+      "crawledAt": "2026-07-25T22:07:42.657Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -3213,6 +3229,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:28.642Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3258,7 +3275,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-ICT-Architect-Territoire%2C-Environnement-et-Economie-Sari/1365988457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:02.745Z",
+      "crawledAt": "2026-07-25T22:07:42.013Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -3334,7 +3351,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Kantonaler-Koordinatorin-f%C3%BCr-die-soziale-und-berufliche-Eingliederung-von-Jugendlichen-bei-der-KJS-Saan/1366015857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:07:02.105Z",
+      "crawledAt": "2026-07-25T22:07:41.349Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3384,7 +3401,8 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-6fb53c5f3965",
@@ -3417,7 +3435,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Coordinateur-trice-cantonal-e-de-l'insertion-socio-professionnelle-des-jeunes-aupr%C3%A8s-de-la-CJD-Sari/1366015757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:01.469Z",
+      "crawledAt": "2026-07-25T22:07:40.713Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3498,7 +3516,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Hauswartin-Saan/1366018457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:07:00.818Z",
+      "crawledAt": "2026-07-25T22:07:40.073Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3581,7 +3599,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Technologue-du-lait-Sari/1366021257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:07:00.175Z",
+      "crawledAt": "2026-07-25T22:07:39.420Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3639,6 +3657,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:33.215Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3684,7 +3703,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Juge-de-paix-aupr%C3%A8s-de-la-Justice-de-paix-de-la-Sarine-Sari/1365989657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:59.534Z",
+      "crawledAt": "2026-07-25T22:07:38.762Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3767,7 +3786,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Concierge-Sari/1366018357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:58.894Z",
+      "crawledAt": "2026-07-25T22:07:38.108Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3788,6 +3807,7 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "firstSeenAt": "2026-07-10T12:09:31.236Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3834,7 +3854,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Milchtechnologein-Saan/1366021357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:58.247Z",
+      "crawledAt": "2026-07-25T22:07:37.448Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3873,6 +3893,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:30.590Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3918,7 +3939,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Friedensrichterin-des-Saanebezirks-Saan/1365989757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:57.600Z",
+      "crawledAt": "2026-07-25T22:07:36.808Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4001,7 +4022,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Assistenzarzt-%C3%A4rztin-FNPG-Bereich-Kinder-und-Jugendpsychiatrie-und-psychotherapie-Grey/1366115957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:56.950Z",
+      "crawledAt": "2026-07-25T22:07:36.162Z",
       "addressLocality": "Marsens",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4036,6 +4057,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:25.356Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4081,7 +4103,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-M%C3%A9decin-assistant-e%2C-RFSM-Secteur-psychiatrie-et-psychoth%C3%A9rapie-de-l'enfantadolescent-Gruy/1366115857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:56.307Z",
+      "crawledAt": "2026-07-25T22:07:35.515Z",
       "addressLocality": "Marsens",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4120,6 +4142,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:26.019Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4165,7 +4188,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Co-Leitung-der-Praxisstelle-Saan/1366096957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:55.660Z",
+      "crawledAt": "2026-07-25T22:07:34.872Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4248,7 +4271,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Wissenschaftl_-Mitarbeiterin-Asyl-Integration-Saan/1366123657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:55.008Z",
+      "crawledAt": "2026-07-25T22:07:34.221Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4331,7 +4354,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-scientifique-asile-int%C3%A9gration-Sari/1366123557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:54.356Z",
+      "crawledAt": "2026-07-25T22:07:33.583Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4414,7 +4437,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Wissenschafticher-Assistentin-Bodenschutz-und-Pflanzenern%C3%A4hrung-Saan/1366104457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:53.710Z",
+      "crawledAt": "2026-07-25T22:07:32.936Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4449,6 +4472,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:21.383Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4494,7 +4518,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Assistant-e-scientifique-protection-des-sols-et-fumure-Sari/1366104357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:53.074Z",
+      "crawledAt": "2026-07-25T22:07:32.279Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4531,6 +4555,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:22.038Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4576,7 +4601,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Ma%C3%AEtre-sse-d'enseignement-HES-Sari/1366126757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:52.437Z",
+      "crawledAt": "2026-07-25T22:07:31.632Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4657,7 +4682,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Dozentin-FH-Saan/1366126857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:51.797Z",
+      "crawledAt": "2026-07-25T22:07:30.980Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4740,7 +4765,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Assistenzarzt-%C3%A4rztin-FNPG-Bereich-Erwachsenenpsychiatrie-und-psychotherapie-Grey/1350361957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:51.163Z",
+      "crawledAt": "2026-07-25T22:07:30.335Z",
       "addressLocality": "Marsens",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4775,6 +4800,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:42:29.512Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4820,7 +4846,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-M%C3%A9decin-assistant-e%2C-RFSM-Secteur-psychiatrie-et-psychoth%C3%A9rapie-adulte-Gruy/1350361857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:50.522Z",
+      "crawledAt": "2026-07-25T22:07:29.685Z",
       "addressLocality": "Marsens",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4861,6 +4887,7 @@
         "assistente-medico-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-etat-de-fribourg-marsens"
       ],
       "firstSeenAt": "2026-07-04T10:42:28.873Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4906,7 +4933,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Chef-fe-de-clinique%2C-RFSM-Secteur-psychiatrie-et-psychoth%C3%A9rapie-adulte-Gruy/1350362157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:49.877Z",
+      "crawledAt": "2026-07-25T22:07:29.030Z",
       "addressLocality": "Marsens",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4995,7 +5022,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Oberarzt-%C3%A4rztin-FNPG-Bereich-Erwachsenenpsychiatrie-und-psychotherapie-Grey/1350362257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:49.225Z",
+      "crawledAt": "2026-07-25T22:07:28.387Z",
       "addressLocality": "Marsens",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5030,6 +5057,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:42:30.790Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -5075,7 +5103,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Praktikantin-Post-Master-Kriminologein-See/1366242657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:48.568Z",
+      "crawledAt": "2026-07-25T22:07:27.737Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5157,7 +5185,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Stagiaire-post-master-Criminologue-Lac/1366242557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:47.926Z",
+      "crawledAt": "2026-07-25T22:07:27.091Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5239,7 +5267,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Wissenschaftlicher-Mitarbeiterin-Saan/1366264357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:47.268Z",
+      "crawledAt": "2026-07-25T22:07:26.446Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -5321,7 +5349,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Collaborateur-trice-scientifique-Sari/1366264257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:46.628Z",
+      "crawledAt": "2026-07-25T22:07:25.801Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -5358,6 +5386,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:08.244Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5403,7 +5432,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Conservateur-restaurateur-HES-Conservatrice-restauratrice-HES-Sari/1366229357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:45.976Z",
+      "crawledAt": "2026-07-25T22:07:25.148Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5483,7 +5512,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Konservatorin-Restauratorin-FH-Saan/1366229457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:45.338Z",
+      "crawledAt": "2026-07-25T22:07:24.510Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5538,7 +5567,7 @@
       "slugByLocale": {
         "it": "infermiera-etat-de-fribourg-mont-vully",
         "en": "nurse-etat-de-fribourg-mont-vully",
-        "de": "krankenschwester-etat-de-fribourg-mont-vully",
+        "de": "infirmier-ere-etat-de-fribourg-mont-vully",
         "fr": "infirmier-ere-etat-de-fribourg-ch"
       },
       "company": "Etat de Fribourg",
@@ -5548,7 +5577,7 @@
       "titleByLocale": {
         "it": "Infermiera",
         "en": "Nurse",
-        "de": "Krankenschwester",
+        "de": "Infirmier-ère",
         "fr": "Infirmier-ère"
       },
       "description": "Message important\n\n!! ATTENTION !!\n\nPour postuler à ce poste, utilisez uniquement le lien suivant :  Offres d'emploi de l'Etat de Fribourg | Stellenangebote Staat Freiburg Faute de quoi votre dossier ne sera pas traité.\n\nQui sommes-nous?\n\nL'Etablissement de détention fribourgeois (EDFR) réunit les structures pénitentiaires du canton de Fribourg. Il dispose d'un statut de droit public et est doté de la personnalité juridique. Il est rattaché administrativement à la Direction de la sécurité, de la justice et du sport (DSJS), sous la haute surveillance du Conseil d'Etat. L'Etablissement assure la garde, l'hébergement, la prise en charge et le traitement des personnes détenues qui lui sont confiées et participe à la réalisation des objectifs assignés à l'exécution des peines privatives de liberté et des mesures.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Prodiguer des soins médicaux aux détenus durant leur séjour au pénitencier\n\n• Collaborer au sein d’une équipe médicale interdisciplinaire\n\n• Garantir des soins de haute qualité\n\n• Distribuer les tâches quotidiennes en tant que responsable du jour\n\n• Conseiller et traiter des patients toxicodépendants\n\n• Préparer et distribuer des médicaments\n\n• Accompagner des étudiants\n\n• Assurer le service de piquet téléphonique\n\nProfil souhaité\n\n• Diplôme d’infirmier-ère en soins généraux ou formation jugée équivalente (avec reconnaissance Croix-Rouge) avec expérience professionnelle de plusieurs années\n\n• Expérience en milieu pénitentiaire, ou en soins spécialisés – expérience dans des contextes de soins de populations vulnérables, fortement souhaitée\n\n• Compétences en soins aigus et/ou psychiatriques\n\n• Bonne condition physique et mentale, ainsi que flexibilité et résistance au stress\n\n• Capacité à travailler dans un environnement parfois difficile\n\n• Sens des relations humaines, de la communication et de la gestion de conflits\n\n• Disposer à intervenir en dehors des heures de travail pour des cas de force majeure\n\n• Bonne connaissance des outils informatiques (MS Office)\n\n• Extraits des poursuites et du casier judiciaire vierges\n\n• Maîtrise de la langue française ou allemande avec de bonnes connaissances de l’autre langue\n\nCoordonnées des personnes de contact\n\nWüthrich Walter - Chef du service médical\nwalter.wuethrich@fr.ch, T +41 26 304 10 10\n\nDate de publication:",
@@ -5563,7 +5592,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Infirmier-%C3%A8re-Lac/1366246257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:44.704Z",
+      "crawledAt": "2026-07-25T22:07:23.858Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5604,6 +5633,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:10.889Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5632,7 +5662,7 @@
       "companyDomain": "fr.ch",
       "title": "Pflegefachfrau/-mann",
       "titleByLocale": {
-        "it": "Infermieristica professionale",
+        "it": "Pflegefachfrau/-mann",
         "en": "Nursing professional",
         "de": "Pflegefachfrau/-mann",
         "fr": "Professionnels des soins infirmiers"
@@ -5649,7 +5679,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Pflegefachfrau-mann-See/1366246357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:44.015Z",
+      "crawledAt": "2026-07-25T22:07:23.210Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5688,6 +5718,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:10.228Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5716,7 +5747,7 @@
       "companyDomain": "fr.ch",
       "title": "Collaborateur-trice administratif-ve",
       "titleByLocale": {
-        "it": "Collaboratore amministrativo",
+        "it": "Collaborateur-trice administratif-ve",
         "en": "Administrative Collaborator-ve",
         "de": "Verwaltungsmitarbeiter-Vereinigung",
         "fr": "Collaborateur-trice administratif-ve"
@@ -5733,7 +5764,7 @@
       "url": "https://jobs.fr.ch/job/Estavayer-le-Lac%2C-CH-Collaborateur-trice-administratif-ve-Broy/1366253657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:43.306Z",
+      "crawledAt": "2026-07-25T22:07:22.560Z",
       "addressLocality": "Estavayer-le-Lac",
       "postalCode": "1470",
       "addressCountry": "CH",
@@ -5772,6 +5803,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:16.806Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5817,7 +5849,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Chef-fe-de-section-Soins-de-longue-dur%C3%A9e-Sari/1366257257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:42.665Z",
+      "crawledAt": "2026-07-25T22:07:21.889Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5900,7 +5932,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Sektionschefin-Langzeitpflege-Saan/1366257357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:42.011Z",
+      "crawledAt": "2026-07-25T22:07:21.229Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5983,7 +6015,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Post-Bachelorpraktikum-See/1366232757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:41.331Z",
+      "crawledAt": "2026-07-25T22:07:20.579Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6065,7 +6097,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Stagiaire-post-bachelor-Lac/1366232657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:40.686Z",
+      "crawledAt": "2026-07-25T22:07:19.925Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6147,7 +6179,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-pr%C3%A9-HEG-Sari/1366255957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:40.042Z",
+      "crawledAt": "2026-07-25T22:07:19.276Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6230,7 +6262,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-pr%C3%A9-HEG-Sari/1366234557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:39.401Z",
+      "crawledAt": "2026-07-25T22:07:18.462Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6325,7 +6357,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Verantwortlicher-f%C3%BCr-die-Spitalplanung-Saan/1366543157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:38.748Z",
+      "crawledAt": "2026-07-25T22:07:17.816Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6360,6 +6392,7 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:09:13.246Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -6406,7 +6439,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Responsable-de-la-planification-hospitali%C3%A8re-Sari/1366543057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:38.103Z",
+      "crawledAt": "2026-07-25T22:07:17.174Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6489,7 +6522,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Juristin-Saan/1366594857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:37.462Z",
+      "crawledAt": "2026-07-25T22:07:16.519Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6572,7 +6605,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Juriste-Sari/1366594757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:36.824Z",
+      "crawledAt": "2026-07-25T22:07:15.869Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6655,7 +6688,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Sachbearbeiterin-Buchhaltung-Saan/1366579757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:36.188Z",
+      "crawledAt": "2026-07-25T22:07:15.222Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6738,7 +6771,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-en-gestion-comptable-Sari/1366579657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:35.537Z",
+      "crawledAt": "2026-07-25T22:07:14.572Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6827,7 +6860,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Hauswartin-FachfrauFachmann-Betriebsunterhalt-Saan/1366571457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:34.890Z",
+      "crawledAt": "2026-07-25T22:07:13.906Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6902,7 +6935,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Concierge-Agent-e-d'exploitation-Sari/1366571357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:34.251Z",
+      "crawledAt": "2026-07-25T22:07:13.252Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6983,7 +7016,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Hauswartin-FachfrauFachmann-Betriebsunterhalt-Saan/1366553257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:33.612Z",
+      "crawledAt": "2026-07-25T22:07:12.601Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7066,7 +7099,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Agent-e-d'exploitation-Concierge-Sari/1366553157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:32.968Z",
+      "crawledAt": "2026-07-25T22:07:11.952Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7147,7 +7180,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-universitaire-HESUNIEPFL-aupr%C3%A8s-des-Relations-Ext-de-la-Chancellerie-d'Etat-Sari/1366533857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:32.328Z",
+      "crawledAt": "2026-07-25T22:07:11.297Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7214,7 +7247,7 @@
         "it": "Stage universitario presso la Segreteria Generale di tre conferenze intercantoneali",
         "en": "University intern at the General Secretariat of three intercantonal conferences",
         "de": "Hochschulpraktikant/in FH/UNI/ETH bei der Staatskanzlei des Kantons Freiburg",
-        "fr": "Stage universitaire/en FH/UNI/ETH à la Chancellerie d'Etat du Canton de Fribourg"
+        "fr": "Hochschulpraktikant/in FH/UNI/ETH bei der Staatskanzlei des Kantons Freiburg"
       },
       "description": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nMöchten Sie in die Bundespolitik eintauchen, berufliche Netzwerke pflegen und in einem kleinen, dynamischen Team arbeiten? Der Bereich Aussenbeziehungen der Staatskanzlei ist das Bindeglied des Kantons Freiburg zum Bundeshaus in Bern, zu den kantonalen Konferenzen und zu weiteren Partnern in der Schweiz und im Ausland. Wir vertreten die Interessen des Kantons Freiburg über die Kantonsgrenzen hinaus und arbeiten direktionsübergreifend mit der Bundesverwaltung und den eidgenössischen Parlamentariern zusammen. Unsere Hauptaufgabe besteht darin, die Interessen von Freiburg über die Kantonsgrenzen hinaus zu vertreten.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Sie verfolgen und beaufsichtigen die wichtigsten Dossiers während des Gesetzgebungsverfahren in Bundesbern\n\n• Sie verfassen Dokumente für den Staatsrat\n\n• Sie koordinieren die Antworten auf Vernehmlassungen des Bundes\n\n• Sie unterstützen den Staatsrat bei der Vorbereitung für die interkantonalen Konferenzen (Konferenz der Kantonsregierungen KdK, Westschweizer Regierungskonferenz WRK und die Hauptstadtregion Schweiz HSR)\n\n• Ausserdem wirken Sie bei der Organisation von Veranstaltungen und Konferenzen mit\n\n• Sie helfen bei der Erstellung des Jahresberichts des Sektors Aussenbeziehungen mit\n\nGewünschtes Profil\n\n• Sie haben einen Masterabschluss an einer Universität, vorzugsweise im Bereich Politikwissenschaften oder verfügen über eine ähnliche Erfahrung\n\n• Sie haben gute Kenntnisse des politischen und föderalen Systems der Schweiz und Sie sind grundsätzlich an Politik interessiert\n\n• Sie kennen den Kanton Freiburg und seine wichtigsten Herausforderungen oder haben ein starkes Interesse an dieser Region\n\n• Sie sind in der Lage, schnell zu verstehen, komplexe Sachverhalte zusammenzufassen, die Initiative zu ergreifen und sich leicht in ein kleines Team zu integrieren\n\n• Sie beherrschen die deutsche oder französische  Sprache , jeweils mit sehr guten Kenntnissen der Partnersprache. Englischkenntnisse sind von Vorteil\n\nKontaktperson\n\nPatrick Mülhauser\nDélégué aux relations extérieures\nT +41 26 305 50 97\nM +41 79 287 21 51\npatrick.muelhauser.cha@fr.ch\n\nDatum der Stellenausschreibung:",
       "descriptionByLocale": {
@@ -7228,7 +7261,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Hochschulpraktikantin-FHUNIETH-bei-der-Staatskanzlei-des-Kantons-Freiburg-Saan/1366533757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:31.684Z",
+      "crawledAt": "2026-07-25T22:07:10.632Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7273,6 +7306,7 @@
         "stage-universitario-presso-la-segreteria-generale-di-tre-conferenze-intercantoneali-etat-de-fribourg-fribourg"
       ],
       "firstSeenAt": "2026-07-14T11:08:41.493Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7319,7 +7353,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professeur-e-en-Droit-canonique-Sari/1366597957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:31.048Z",
+      "crawledAt": "2026-07-25T22:07:09.987Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7402,7 +7436,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professorin-f%C3%BCr-Kirchenrecht-Saan/1366598057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:30.414Z",
+      "crawledAt": "2026-07-25T22:07:09.336Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7466,7 +7500,7 @@
       "companyDomain": "fr.ch",
       "title": "Chimiste cantonal-e",
       "titleByLocale": {
-        "it": "chimico cantonale",
+        "it": "Chimiste cantonal-e",
         "en": "Cantonal chemist",
         "de": "Kantonalchemiker",
         "fr": "Chimiste cantonal-e"
@@ -7483,7 +7517,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Chimiste-cantonal-e-Sari/1366715057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:29.784Z",
+      "crawledAt": "2026-07-25T22:07:08.679Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -7522,6 +7556,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T23:06:47.200Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -7543,7 +7578,7 @@
         "it": "chimico-cantonale-etat-de-fribourg-givisiez-6514c1",
         "en": "cantonal-chemist-etat-de-fribourg-givisiez-6514c1",
         "de": "kantonschemiker-in-etat-de-fribourg-ch",
-        "fr": "chimiste-cantonal-etat-de-fribourg-givisiez"
+        "fr": "kantonschemiker-in-etat-de-fribourg-givisiez"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7553,7 +7588,7 @@
         "it": "chimico cantonale",
         "en": "Cantonal chemist",
         "de": "Kantonschemiker/in",
-        "fr": "Chimiste cantonal"
+        "fr": "Kantonschemiker/in"
       },
       "description": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDas Amt für Lebensmittelsicherheit und Veterinärwesen (LSVW) hat die Aufgabe, die Konsumenten und Konsumentinnen mittels Inspektionen und Analysen vor gesundheitsgefährdenden Lebensmitteln und Gebrauchsgegenständen sowie vor Täuschung im Zusammenhang mit Lebensmitteln zu schützen und das Wohlbefinden und die Gesundheit der Tiere sowohl zu ihrem eigenen als auch zum Wohl des Menschen sicherzustellen.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Als Kantonschemiker/in tragen Sie, zusammen mit dem Dienstchef zur Erarbeitung und Umsetzung der staatlichen Politik zur Lebensmittelsicherheit bei\n\n• Aufgrund Ihrer Funktion sind Sie verantwortlich für das Management, den Vollzug und die Aufsicht über die Aufgaben gemäss der Gesetzgebung in den Bereichen Lebensmittel und Gebrauchsgegenstände, Chemikalien sowie Hygiene in öffentlichen Schwimm- und Strandbädern\n\n• Sie koordinieren und beaufsichtigen die Kontrolltätigkeiten im Beriech Lebensmitteln und Gebrauchsgegenständen und wirken bei der Anstellung von Spezialisten im Bereich der Lebensmittelsicherheit mit\n\n• Sie orientieren und beraten den Dienstchef, die Direktion sowie den Staatsrat in Ihrem Zuständigkeitsbereich\n\nGewünschtes Profil\n\n• Sie verfügen über einen Masterabschluss einer Universität, ETH oder FH in Chemie, Biochemie, Lebensmittel- oder Naturwissenschaften, haben ein eidgenössisches Diplom für die leitende amtliche Lebensmittelkontrolle (DLAL) im Sinne der geltenden Bundesverordnung\n\n• Sie sind ergebnisorientiert, proaktiv, ergreifen die Initiativen und treffen die Entscheids-vorschläge, die für die Ausführung Ihres Auftrags erforderlich sind\n\n• Sie verfügen über gute kommunikative Fähigkeiten, sind teamfähig und arbeiten aktiv und auf pragmatische Weise mit ihren Mitarbeiter und Ansprechpartnern zusammen\n\n• Dank Ihrer Belastbarkeit können Sie mit hoher Arbeitsbelastung und unregelmässigen Arbeitszeiten umgehen\n\n• Kenntnisse der Freiburger Agrar- und Lebensmittelbranche sind von Vorteil\n\n• Sie beherrschen die deutsche oder französische Sprache und haben hervorragende Kenntnisse der anderen Sprache\n\nKontaktperson\n\nManon Wicht\nHR-Verantwortliche\nmanon.wicht@fr.ch\nT +41 26 305 22 13\n\nDatum der Stellenausschreibung:",
       "descriptionByLocale": {
@@ -7567,7 +7602,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Kantonschemikerin-Saan/1366714957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:29.144Z",
+      "crawledAt": "2026-07-25T22:07:08.019Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -7627,6 +7662,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T23:06:46.505Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -7672,7 +7708,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Koordinatorin-des-Bachelor-in-Biomedizinischen-Wissenschaften-Saan/1366737257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:28.501Z",
+      "crawledAt": "2026-07-25T22:07:07.373Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7755,7 +7791,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Coordinateur-trice-du-Bachelor-en-sciences-biom%C3%A9dicales-Sari/1366737157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:27.871Z",
+      "crawledAt": "2026-07-25T22:07:06.685Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7838,7 +7874,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Secr%C3%A9taire-de-juge-civil-Sari/1366710157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:27.232Z",
+      "crawledAt": "2026-07-25T22:07:06.030Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -7921,7 +7957,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Lecteur-trice-Sari/1366720757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:26.580Z",
+      "crawledAt": "2026-07-25T22:07:05.384Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8004,7 +8040,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-scientifique-Sari/1366728557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:25.944Z",
+      "crawledAt": "2026-07-25T22:07:04.738Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8041,6 +8077,7 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:09:11.952Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8087,7 +8124,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-D%C3%A9veloppeur-euse-full-stack-Sari/1366732757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:25.311Z",
+      "crawledAt": "2026-07-25T22:07:04.092Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8124,6 +8161,7 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:09:10.640Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8154,7 +8192,7 @@
       "title": "Full-Stack-Entwickler/in",
       "titleByLocale": {
         "it": "Sviluppatore Full-Stack",
-        "en": "Full-Stack Developer",
+        "en": "Full-Stack-Entwickler/in",
         "de": "Full-Stack-Entwickler/in",
         "fr": "Développeur Full-Stack"
       },
@@ -8170,7 +8208,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Full-Stack-Entwicklerin-Saan/1366732857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:24.667Z",
+      "crawledAt": "2026-07-25T22:07:03.441Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8204,6 +8242,7 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:09:09.338Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8250,7 +8289,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Verwaltungssachbearbeiterin-Saan/1366821857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:24.035Z",
+      "crawledAt": "2026-07-25T22:07:02.767Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8339,8 +8378,8 @@
       "slug": "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-2",
       "slugByLocale": {
         "it": "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-2",
-        "en": "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-2",
-        "de": "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-2",
+        "en": "administrative-collaborator-ve-etat-de-fribourg-fribourg",
+        "de": "verwaltungsmitarbeiter-vereinigung-etat-de-fribourg-fribourg",
         "fr": "collaborateur-trice-administratif-ve-etat-de-fribourg-ch"
       },
       "company": "Etat de Fribourg",
@@ -8348,7 +8387,7 @@
       "companyDomain": "fr.ch",
       "title": "Collaborateur-trice administratif-ve",
       "titleByLocale": {
-        "it": "Collaboratore amministrativo",
+        "it": "Collaborateur-trice administratif-ve",
         "en": "Administrative Collaborator-ve",
         "de": "Verwaltungsmitarbeiter-Vereinigung",
         "fr": "Collaborateur-trice administratif-ve"
@@ -8365,7 +8404,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-administratif-ve-Sari/1366821757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:23.397Z",
+      "crawledAt": "2026-07-25T22:07:02.106Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8441,6 +8480,7 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:09:04.090Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8487,7 +8527,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Gerichtsschreiberin-erstinstanzliche-Gerichtsbeh%C3%B6rden-Saan/1366821457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:22.756Z",
+      "crawledAt": "2026-07-25T22:07:01.450Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8570,7 +8610,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Greffier-%C3%A8re-de-premi%C3%A8re-instance-Sari/1366821357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:22.106Z",
+      "crawledAt": "2026-07-25T22:07:00.800Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8653,7 +8693,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Lecteur-trice-Sari/1366780057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:21.464Z",
+      "crawledAt": "2026-07-25T22:07:00.149Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -8711,7 +8751,7 @@
       "companyDomain": "fr.ch",
       "title": "Psychologin/Psychologe im Praktikum, FNPG Ambulatorium",
       "titleByLocale": {
-        "it": "Psicologo in stage, FNPG Ambulatorium",
+        "it": "Psychologin/Psychologe im Praktikum, FNPG Ambulatorium",
         "en": "Psychologist in internship, FNPG Ambulatorium",
         "de": "Psychologin/Psychologe im Praktikum, FNPG Ambulatorium",
         "fr": "Psychologue en stage, FNPG Ambulatorium"
@@ -8728,7 +8768,7 @@
       "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-PsychologinPsychologe-im-Praktikum%2C-FNPG-Ambulatorium-Saan/1366846257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:20.820Z",
+      "crawledAt": "2026-07-25T22:06:59.496Z",
       "addressLocality": "Villars-sur-Glâne",
       "postalCode": "1752",
       "addressCountry": "CH",
@@ -8765,6 +8805,7 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:09:06.723Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8810,7 +8851,7 @@
       "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-Psychologue-stagiaire%2C-RFSM-Villars-sur-Gl%C3%A2ne-Consultation-ambulatoire-Sari/1366846157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:20.169Z",
+      "crawledAt": "2026-07-25T22:06:58.838Z",
       "addressLocality": "Villars-sur-Glâne",
       "postalCode": "1752",
       "addressCountry": "CH",
@@ -8892,7 +8933,7 @@
       "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-Eidg_-anerk_-Psychotherapeutin-oder-PsychologinPsychologe-in-psychotherapeutischer-Weiterbildung-Saan/1366851257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:19.539Z",
+      "crawledAt": "2026-07-25T22:06:58.195Z",
       "addressLocality": "Villars-sur-Glâne",
       "postalCode": "1752",
       "addressCountry": "CH",
@@ -8956,7 +8997,7 @@
       "title": "Psychologue rec. niv. féd., Psychothérapeute en formation, RFSM VsG - Institut psychothérapie",
       "titleByLocale": {
         "it": "Psicologo re. niv. alimentato., Psicoterapeuta in formazione, RFSM VsG - Istituto di psicoterapia",
-        "en": "Psychologist rec. niv. fed., Psychotherapist in training, RFSM VsG - Psychotherapy Institute",
+        "en": "Psychologue rec. niv. féd., Psychothérapeute en formation, RFSM VsG - Institut psychothérapie",
         "de": "Psychologe rec. niv. fed., Psychotherapeut in Ausbildung, RFSM VsG - Psychotherapie Institut",
         "fr": "Psychologue rec. niv. féd., Psychothérapeute en formation, RFSM VsG - Institut psychothérapie"
       },
@@ -8972,7 +9013,7 @@
       "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-Psychologue-rec_-niv_-f%C3%A9d_%2C-Psychoth%C3%A9rapeute-en-formation%2C-RFSM-VsG-Institut-psychoth%C3%A9rapie-Sari/1366851157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:18.849Z",
+      "crawledAt": "2026-07-25T22:06:57.541Z",
       "addressLocality": "Villars-sur-Glâne",
       "postalCode": "1752",
       "addressCountry": "CH",
@@ -9009,6 +9050,7 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:09:02.119Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -9054,7 +9096,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Sekret%C3%A4rin-Saan/1366980857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:18.213Z",
+      "crawledAt": "2026-07-25T22:06:56.888Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9141,7 +9183,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Secr%C3%A9taire-Sari/1366980757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:17.573Z",
+      "crawledAt": "2026-07-25T22:06:56.226Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9228,7 +9270,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-administratif-ve-sup%C3%A9rieur-e-Sari/1366955557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:16.939Z",
+      "crawledAt": "2026-07-25T22:06:55.563Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9317,7 +9359,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stage-juriste-Sari/1367150657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:16.300Z",
+      "crawledAt": "2026-07-25T22:06:54.915Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9400,7 +9442,7 @@
       "url": "https://jobs.fr.ch/job/Bulle%2C-CH-Juriste-stagiaire-Gruy/1367074957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:15.658Z",
+      "crawledAt": "2026-07-25T22:06:54.264Z",
       "addressLocality": "Bulle",
       "postalCode": "1630",
       "addressCountry": "CH",
@@ -9482,7 +9524,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Fachmann-frau-f%C3%BCr-Justizvollzug-Nachtwache-Hundef%C3%BChrerin-See/1367386657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:15.012Z",
+      "crawledAt": "2026-07-25T22:06:53.620Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9517,6 +9559,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:26:35.707Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -9562,7 +9605,7 @@
       "url": "https://jobs.fr.ch/job/Mont-Vully%2C-CH-Agent-e-de-d%C3%A9tention-Garde-de-nuit-Conducteur-trice-de-chiens-Lac/1367386557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:14.341Z",
+      "crawledAt": "2026-07-25T22:06:52.980Z",
       "addressLocality": "Mont-Vully",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9644,7 +9687,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Technischer-Mitarbeiterin%2C-Grafikdesignerin-Illustratorin-Arch%C3%A4ologie-%28R%C3%B6mische-Epoche%29%2C-45-50-Saan/1367339957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:13.637Z",
+      "crawledAt": "2026-07-25T22:06:52.328Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9727,7 +9770,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-technique%2C-graphiste-illustrateur-trice-en-arch%C3%A9ologie-%28%C3%89poque-romaine%29-Sari/1367339857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:13.003Z",
+      "crawledAt": "2026-07-25T22:06:51.679Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9810,7 +9853,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Sektorleiterin-f%C3%BCr-Mittelalter-und-Bauarch%C3%A4ologie%2C-F%C3%BChrungs-und-operatives-Management-Saan/1367363757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:12.369Z",
+      "crawledAt": "2026-07-25T22:06:51.039Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9891,7 +9934,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Chef-fe-de-secteur-Moyen-%C3%82ge-et-arch%C3%A9ologie-du-b%C3%A2ti%2C-gestion-manag%C3%A9riale-et-op%C3%A9rationnelle-Sari/1367363657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:11.722Z",
+      "crawledAt": "2026-07-25T22:06:50.391Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -9974,7 +10017,7 @@
       "url": "https://jobs.fr.ch/job/Granges-Paccot%2C-CH-Verwaltungsangestellter-Saan/1367340757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:11.078Z",
+      "crawledAt": "2026-07-25T22:06:49.714Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -10058,7 +10101,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Bauberater-in-im-Bereich-Denkmalpflege-50-CDD-Saan/1367342057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:10.415Z",
+      "crawledAt": "2026-07-25T22:06:49.041Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -10141,7 +10184,7 @@
       "url": "https://jobs.fr.ch/job/Granges-Paccot%2C-CH-Responsable-formation-langues-Sari/1367340357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:09.749Z",
+      "crawledAt": "2026-07-25T22:06:48.398Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -10223,7 +10266,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Profes_-HES-ass_-Management-des-organisations%2C-des-dynamiques-humaines%2C-de-la-conduite-du-changem_-Sari/1367341257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:09.103Z",
+      "crawledAt": "2026-07-25T22:06:47.746Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -10306,7 +10349,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Sekret%C3%A4rin-Saan/1367375657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:08.469Z",
+      "crawledAt": "2026-07-25T22:06:47.085Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -10389,7 +10432,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Charg%C3%A9-de-solutions-IT-pour-les-%C3%A9coles-Manager-de-services-TIC-Sari/1367347257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:07.826Z",
+      "crawledAt": "2026-07-25T22:06:46.404Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -10472,7 +10515,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Assoziierte-r-Professor-in-FH-Management-Organisationen%2C-sozialen-Prozessen-und-Ver%C3%A4nderungsprozesse-Saan/1367341357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:07.189Z",
+      "crawledAt": "2026-07-25T22:06:45.742Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -10553,7 +10596,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Secr%C3%A9taire-Sari/1367375757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:06.555Z",
+      "crawledAt": "2026-07-25T22:06:45.095Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -10636,7 +10679,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Ordentliche-Professorin-Ordentlicher-Professor-FH-Institutsleiterin-Institutsleiter-Saan/1367341157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:05.924Z",
+      "crawledAt": "2026-07-25T22:06:44.429Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -10719,7 +10762,7 @@
       "url": "https://jobs.fr.ch/job/Granges-Paccot%2C-CH-Employ%C3%A9-e-d'administration-Sari/1367340657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:05.265Z",
+      "crawledAt": "2026-07-25T22:06:43.770Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -10799,7 +10842,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Lektorin-Saan/1367340257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:04.594Z",
+      "crawledAt": "2026-07-25T22:06:43.125Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -10887,7 +10930,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professeur-e-HES-ordinaire-Responsable-d'institut-Sari/1367341057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:03.955Z",
+      "crawledAt": "2026-07-25T22:06:42.478Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -10968,7 +11011,7 @@
       "url": "https://jobs.fr.ch/job/Granges-Paccot%2C-CH-Verantwortlicher-f%C3%BCr-Sprachausbildung-Saan/1367340457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:03.319Z",
+      "crawledAt": "2026-07-25T22:06:41.830Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -11003,6 +11046,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:26:34.349Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -11048,7 +11092,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Charg%C3%A9-e-de-la-conservation-du-patrimoine-b%C3%A2ti-50-CDD-Sari/1367341957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:02.672Z",
+      "crawledAt": "2026-07-25T22:06:41.172Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -11131,7 +11175,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Assistant-e-en-soins-et-sant%C3%A9-communautaire%2C-RFSM-Marsens-Unit%C3%A9-Luna-Gruy/1367506057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:02.028Z",
+      "crawledAt": "2026-07-25T22:06:40.520Z",
       "addressLocality": "Marsens",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -11168,6 +11212,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:26:32.993Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -11197,7 +11242,7 @@
       "title": "Pflegefachperson, Triage und Notfallpsychiatrie",
       "titleByLocale": {
         "it": "Pflegefachperson, Triage e Notfallpsychiatrie",
-        "en": "Nurse, triage and emergency psychiatry",
+        "en": "Pflegefachperson, Triage und Notfallpsychiatrie",
         "de": "Pflegefachperson, Triage und Notfallpsychiatrie",
         "fr": "Infirmière, triage et psychiatrie d'urgence"
       },
@@ -11213,7 +11258,7 @@
       "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-Pflegefachperson%2C-Triage-und-Notfallpsychiatrie-Saan/1367503457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:06:01.382Z",
+      "crawledAt": "2026-07-25T22:06:39.860Z",
       "addressLocality": "Villars-sur-Glâne",
       "postalCode": "1752",
       "addressCountry": "CH",
@@ -11248,6 +11293,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:26:32.308Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -11293,7 +11339,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Assistant-e-socio-%C3%A9ducatif-ve-auxiliaire-de-vie-scolaire%2C-%C3%A9coles-francophones-du-canton%2C-1H-11H-Sari/1367488557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:00.743Z",
+      "crawledAt": "2026-07-25T22:06:39.208Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -11332,6 +11378,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:26:31.633Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -11378,7 +11425,7 @@
       "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-Infirmier-%C3%A8re%2C-RFSM-Urgences-psychiatriques-et-Triage-Sari/1367503357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:06:00.112Z",
+      "crawledAt": "2026-07-25T22:06:38.558Z",
       "addressLocality": "Villars-sur-Glâne",
       "postalCode": "1752",
       "addressCountry": "CH",
@@ -11415,6 +11462,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:26:30.957Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -11460,7 +11508,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Laborantin-Chemie-Saan/1364724057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:05:59.476Z",
+      "crawledAt": "2026-07-25T22:06:37.916Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -11510,6 +11558,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:42:04.411Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -11555,7 +11604,7 @@
       "url": "https://jobs.fr.ch/job/Hauterive-%28FR%29%2C-CH-Laborantin-e-en-chimie-Sari/1364723957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:05:58.819Z",
+      "crawledAt": "2026-07-25T22:06:37.265Z",
       "addressLocality": "Hauterive (FR)",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -11592,6 +11641,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:42:03.767Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -11623,7 +11673,7 @@
         "it": "Infermiera HF/FH, FNPG Villars-sur-Glâne - Dipartimento di Mercurio",
         "en": "Nurse HF/FH, FNPG Villars-sur-Glâne - Mercury Department",
         "de": "Pflegefachperson HF/FH, FNPG Villars-sur-Glâne - Merkur Abteilung",
-        "fr": "Infirmière HF/FH, FNPG Villars-sur-Glâne - Département Mercure"
+        "fr": "Pflegefachperson HF/FH, FNPG Villars-sur-Glâne - Merkur Abteilung"
       },
       "description": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\n\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender   Seite .\n\nIhre Aufgaben\n\nIn der zweisprachigen allgemeinpsychiatrischen Station Merkur werden Patientinnen und Patienten im Alter von 18 bis über 65 Jahre behandelt.\n\nWir bieten:\n\n• einen angenehmen und dynamischen Arbeitsrahmen an einem neuen stationären Standort, der sich in voller Entwicklung befindet\n\n• die Möglichkeit, sich aktiv einzubringen und an der Entwicklung der Angebote mitzuwirken\n\n• die Möglichkeit, sich weiterzubilden und moderne Ansätze zu praktizieren (Acudetox, Achtsamkeit, therapeutische Gruppen usw.)\n\n• die Möglichkeit, am selben Standort weitere Bereiche kennenzulernen (Ambulatorium, Tageskliniken, Notfallpsychiatrie usw.)\n\n• Französisch- und Deutschkurse (bei Möglichkeit)\n\nGewünschtes Profil\n\n• Diplomierte Pflegefachperson mit Interesse für die Fachrichtung Psychiatrie\n\n• Selbstständigkeit und Initiativfähigkeit\n\n• Anerkennung und Einhaltung der Grundsätze und Werte der Ethikcharta des FNPG\n\n• Beherrschen der deutschen oder französische Sprache mit guten Kenntnissen der anderen Sprache (mindestens Niveau B2)\n\nAngaben der Kontaktpersonen\n\nLuciana De Nardi, Stationsleiterin Merkur, T +41 26 308 11 91 luciana.denardi@rfsm.ch\nJeanne Stojanovic, Stv. Stationsleiterin, T +41 26 308 12 05 jeanne.stojanovic@rfsm.ch\n\nDatum der Stellenausschreibung:",
       "descriptionByLocale": {
@@ -11637,7 +11687,7 @@
       "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-Pflegefachperson-HFFH%2C-FNPG-Villars-sur-Gl%C3%A2ne-Merkur-Abteilung-Saan/1367637757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:05:58.180Z",
+      "crawledAt": "2026-07-25T22:06:36.613Z",
       "addressLocality": "Villars-sur-Glâne",
       "postalCode": "1752",
       "addressCountry": "CH",
@@ -11682,6 +11732,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:16:52.964Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -11727,7 +11778,7 @@
       "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-Infirmier-%C3%A8re%2C-RFSM-Villars-sur-Gl%C3%A2ne-Unit%C3%A9-Merkur-Sari/1367637657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:05:57.541Z",
+      "crawledAt": "2026-07-25T22:06:35.959Z",
       "addressLocality": "Villars-sur-Glâne",
       "postalCode": "1752",
       "addressCountry": "CH",
@@ -11781,6 +11832,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:16:52.230Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -11826,7 +11878,7 @@
       "url": "https://jobs.fr.ch/Police_Cantonale/job/Granges-Paccot%2C-CH-Chef-fe-de-la-gendarmerie-Sari/1364794657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:05:56.867Z",
+      "crawledAt": "2026-07-25T22:06:35.303Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -11907,7 +11959,7 @@
       "url": "https://jobs.fr.ch/Police_Cantonale/job/Granges-Paccot%2C-CH-Chefin-der-Gendarmerie-Saan/1364794757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:05:56.223Z",
+      "crawledAt": "2026-07-25T22:06:34.632Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -11986,7 +12038,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professeur-e-HES-assistant-e-en-hydraulique-environnementale-Sari/1362134857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T11:05:55.574Z",
+      "crawledAt": "2026-07-25T22:06:33.965Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -12027,6 +12079,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:49.531Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -12073,7 +12126,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Assistenzprofessorin-FH-f%C3%BCr-Umwelthydraulik-Saan/1362134957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:05:54.927Z",
+      "crawledAt": "2026-07-25T22:06:33.306Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -12108,6 +12161,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:50.173Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -12122,337 +12176,6 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR"
-    },
-    {
-      "id": "etat-de-fribourg-558deb907aa8",
-      "slug": "avvocato-etat-de-fribourg-fribourg",
-      "slugByLocale": {
-        "it": "avvocato-etat-de-fribourg-fribourg",
-        "en": "legal-officer-etat-de-fribourg-fribourg",
-        "de": "legal-officer-etat-de-fribourg",
-        "fr": "juriste-etat-de-fribourg-ch"
-      },
-      "company": "Etat de Fribourg",
-      "companyKey": "etat-de-fribourg",
-      "companyDomain": "fr.ch",
-      "title": "Juriste",
-      "titleByLocale": {
-        "it": "Avvocato",
-        "en": "Legal Officer",
-        "de": "Legal Officer",
-        "fr": "Juriste"
-      },
-      "description": "Taux d'activité\n\n5-10%\n\nLieu\n\nFribourg, CH, Sarine\n\nDélai de postulation\n\n24.07.2026\n\nDate d'entrée en fonction\n\n01.08.2026\n\nType de contrat\n\nCDI\n\nQui sommes-nous?\n\nLa Préfecture de la Sarine offre des prestations de proximité, notamment dans le domaine des permis de construire, des recours administratifs, du pénal, des manifestations publiques et des autorisations diverses.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce  lien .\n\nVos missions\n\nNous vous proposons de découvrir l’administration publique et son fonctionnement. Vous serez donc amené-e à effectuer les tâches suivantes :\n\n• Direction des tentatives de conciliation en allemand et français/allemand sur délégation\n\n• Traitement des rapports de dénonciation et rédaction de projets d’ordonnances pénales principalement en allemand dans tous les domaines de compétence de la Préfecture (principalement loi sur la circulation routière)\n\n• Rédaction de correspondances de nature juridique en allemand, notamment dans le cadre du traitement des oppositions aux ordonnances pénales\n\n• Traductions orales et écrites (français/allemand) de correspondances ou autres documents dans divers domaines\n\n• Rédaction de projets de décision administrative sur recours en allemand\n\nProfil souhaité et dossier de candidature\n\n• Master en droit\n\n• Maîtrise des outils informatiques usuels\n\n• Votre dossier sera composé au minimum d'une lettre de motivation, d'un CV et de vos diplômes\n\n• Parfaite maîtrise de la langue allemande avec de très bonnes connaissances de la langue française\n\nCoordonnées de la personne de contact\n\nYvan Richoz, responsable du secteur pénal, yvan.richoz@fr.ch, T +41 26 305 22 27\n\nDate de publication:",
-      "descriptionByLocale": {
-        "it": "Tasso di attività 5-10% Location Fribourg, CH, Sarine Tempo di pubblicazione 24.07.2026 Data effettiva 01.08.2026 Tipo di contratto CSI Chi siamo? La Prefettura di la Sarine offre servizi comunitari, tra cui permessi di costruzione, rimedi amministrativi, procedimenti penali, manifestazioni pubbliche e vari permessi. Perché unirsi a noi? Il datore di lavoro di Stato incoraggia la riconciliazione del lavoro e della vita privata e offre un ambiente di lavoro attraente e condizioni di lavoro ai suoi dipendenti. Per saperne di più, segui questo link . Le vostre missioni Vi proponiamo di scoprire la pubblica amministrazione e il suo funzionamento. Dovrai quindi svolgere i seguenti compiti:\n• Direzione dei tentativi di conciliazione in tedesco e francese/tedesco sulla delegazione\n• Trattamento dei rapporti di denuncia e redazione di bozze di ordinanze penali principalmente in tedesco in tutti i settori di competenza della Prefettura (principalmente diritto stradale)\n• Redazione di corrispondenza di carattere giuridico in tedesco, in particolare nel contesto del trattamento delle opposizioni agli ordini penali\n• Traduzioni orali e scritte (francese/tedesco) di corrispondenza o di altri documenti in vari campi\n• Progetto di decisione amministrativa in materia di ricorso in tedesco Profilo e file di applicazione\n• Master in Diritto\n• Mastery di strumenti informatici comuni\n• Il tuo file includerà almeno una lettera di copertura, CV e diplomi\n• La perfetta padronanza della lingua tedesca con una buona conoscenza della lingua francese Informazioni di contatto Yvan Richoz, capo del settore criminale, yvan.richoz@fr.ch, T +41 26 305 22 27 Data di pubblicazione:",
-        "en": "Activity rate 5-10% Location Fribourg, CH, Sarine Posting time 24.07.2026 Effective date 01.08.2026 Type of contract CDI Who are we? The Prefecture of la Sarine offers community services, including building permits, administrative remedies, criminal proceedings, public demonstrations and various permits. Why join us? The State-employer encourages the reconciliation of work and private life and offers an attractive working environment and working conditions to its employees. To learn more, follow this link . Your missions We propose you to discover the public administration and its functioning. You will therefore have to perform the following tasks:\n• Direction of conciliation attempts in German and French/German on delegation\n• Treatment of reports of denunciation and drafting of draft criminal ordinances mainly in German in all areas of competence of the Prefecture (mainly road traffic law)\n• Drafting of correspondence of a legal nature in German, particularly in the context of the treatment of oppositions to criminal orders\n• Oral and written translations (French/German) of correspondence or other documents in various fields\n• Draft administrative decisions on appeal in German Profile and application file\n• Master in Law\n• Mastery of common computer tools\n• Your file will include at least one cover letter, CV and diplomas\n• Perfect mastery of the German language with very good knowledge of the French language Contact details Yvan Richoz, head of the criminal sector, yvan.richoz@fr.ch, T +41 26 305 22 27 Date of publication:",
-        "de": "Aktivitätsrate 5-10% Standort Freiburg, CH, Sarine Postzeit 24.07.2026 Datum des Inkrafttretens 01.08.2026 Art des Vertrags CDI Wer sind wir? Die Präfektur La Sarine bietet Gemeinschaftsdienste an, darunter Baugenehmigungen, Verwaltungsbehelfe, Strafverfahren, öffentliche Demonstrationen und verschiedene Genehmigungen. Warum mitmachen? Der staatliche Arbeitgeber fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitern ein attraktives Arbeitsumfeld und Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link. Ihre Missionen Wir schlagen Ihnen vor, die öffentliche Verwaltung und ihre Funktionsweise zu entdecken. Sie müssen daher folgende Aufgaben ausführen:\n• Richtung der Vermittlungsversuche in Deutsch und Französisch/Delegation\n• Behandlung von Kündigungsmeldungen und Abfassung von Verordnungsentwürfen vor allem in deutscher Sprache in allen Zuständigkeitsbereichen der Präfektur (hauptsächlich Straßenverkehrsrecht)\n• Abfassung von Korrespondenz rechtlicher Natur in deutscher Sprache, insbesondere im Rahmen der Behandlung von Einsprüchen gegen strafrechtliche Anordnungen\n• Mündliche und schriftliche Übersetzungen (Französisch/Deutsch) von Korrespondenz oder anderen Dokumenten in verschiedenen Bereichen\n• Entwürfe von Verwaltungsentscheidungen über die Beschwerde in deutscher Sprache Profil und Antragsdatei\n• Master in Law\n• Beherrschung gemeinsamer Computer-Tools\n• Ihre Datei wird mindestens ein Anschreiben, Lebenslauf und Diplome enthalten\n• Perfekte Beherrschung der deutschen Sprache mit sehr guten Kenntnissen der französischen Sprache Kontaktdaten Yvan Richoz, Leiter des kriminellen Sektors, yvan.richoz@fr.ch, T +41 26 305 22 27 Datum der Veröffentlichung:",
-        "fr": "Taux d'activité\n\n5-10%\n\nLieu\n\nFribourg, CH, Sarine\n\nDélai de postulation\n\n24.07.2026\n\nDate d'entrée en fonction\n\n01.08.2026\n\nType de contrat\n\nCDI\n\nQui sommes-nous?\n\nLa Préfecture de la Sarine offre des prestations de proximité, notamment dans le domaine des permis de construire, des recours administratifs, du pénal, des manifestations publiques et des autorisations diverses.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\nNous vous proposons de découvrir l’administration publique et son fonctionnement. Vous serez donc amené-e à effectuer les tâches suivantes :\n\n• Direction des tentatives de conciliation en allemand et français/allemand sur délégation\n\n• Traitement des rapports de dénonciation et rédaction de projets d’ordonnances pénales principalement en allemand dans tous les domaines de compétence de la Préfecture (principalement loi sur la circulation routière)\n\n• Rédaction de correspondances de nature juridique en allemand, notamment dans le cadre du traitement des oppositions aux ordonnances pénales\n\n• Traductions orales et écrites (français/allemand) de correspondances ou autres documents dans divers domaines\n\n• Rédaction de projets de décision administrative sur recours en allemand\n\nProfil souhaité et dossier de candidature\n\n• Master en droit\n\n• Maîtrise des outils informatiques usuels\n\n• Votre dossier sera composé au minimum d'une lettre de motivation, d'un CV et de vos diplômes\n\n• Parfaite maîtrise de la langue allemande avec de très bonnes connaissances de la langue française\n\nCoordonnées de la personne de contact\n\nYvan Richoz, responsable du secteur pénal, yvan.richoz@fr.ch, T +41 26 305 22 27\n\nDate de publication:"
-      },
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Juriste-Sari/1365168457/",
-      "source": "Etat de Fribourg Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-24T11:18:36.225Z",
-      "addressLocality": "Fribourg",
-      "postalCode": "1700",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Giuridico",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-30",
-      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1365168457/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Préfecture de la Sarine",
-      "pensumMin": 5,
-      "pensumMax": 10,
-      "pensum": "5-10%",
-      "previousSlugs": [
-        "juriste-etat-de-fribourg-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "juriste-etat-de-fribourg-ch"
-        ],
-        "en": [
-          "juriste-etat-de-fribourg-ch"
-        ],
-        "de": [
-          "juriste-etat-de-fribourg-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:41:46.306Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "etat-de-fribourg-1c9b9e600ddc",
-      "slug": "eine-n-praktikantin-ten-im-bereich-finanzanalyse-per-eine-befristete-dauer-von-6-monaten-60-100-etat-de-fribourg",
-      "slugByLocale": {
-        "it": "eine-n-praktikantin-ten-im-bereich-finanzanalyse-per-eine-befristete-dauer-von-6-monaten-60-100-etat-de-fribourg",
-        "en": "one-intern-in-financial-analysis-for-a-limited-period-of-6-months-60-100-etat-de-fribourg-fribourg",
-        "de": "eine-n-praktikantin-ten-im-bereich-finanzanalyse-fur-eine-befristete-dauer-von-6-monaten",
-        "fr": "un-stagiaire-en-analyse-financiere-pour-une-periode-limitee-de-6-mois-60-100-etat-de-fribourg-fribourg"
-      },
-      "company": "Etat de Fribourg",
-      "companyKey": "etat-de-fribourg",
-      "companyDomain": "fr.ch",
-      "title": "Eine/n Praktikantin/ten im Bereich Finanzanalyse für eine befristete Dauer von 6 Monaten (60-100%)",
-      "titleByLocale": {
-        "it": "Eine/n Praktikantin/ten im Bereich Finanzanalyse per eine befristete Dauer von 6 Monaten (60-100%)",
-        "en": "One intern in financial analysis for a limited period of 6 months (60-100%)",
-        "de": "Eine/n Praktikantin/ten im Bereich Finanzanalyse für eine befristete Dauer von 6 Monaten (60-100%)",
-        "fr": "Un stagiaire en analyse financière pour une période limitée de 6 mois (60-100%)"
-      },
-      "description": "Beschäftigungsgrad\n\n60-100%\n\n• 100% für einen Zeitraum von 6 Monaten\n\n• Für Kandidatinnen/Kandidaten, die sich derzeit in einer Ausbildung an einer Fachhochschule oder einer Universität befinden, kann auch eine Teilzeitstelle mit mindestens 60% in Betracht gezogen werden\n\nOrt\n\nFribourg, CH, Saane\n\nBewerbungsfrist\n\n24.07.2026\n\nDatum des Stellenantritts\n\n03.08.2026\n\nVertragsart\n\nBefristeter Vertrag\n\nAnstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDie Kantonspolizei ist der Sicherheits-, Justiz- und Sportdirektion unterstellt. Ihr Auftrag ist allgemein für die öffentliche Sicherheit, die Aufrechterhaltung der Ordnung und die Einhaltung der Gesetze zu sorgen.\n\nSie steht im Dienste der Bevölkerung und der Behörden. Dafür führt sie eine grosse Anzahl vielfältiger und anspruchsvoller Aufgaben 24 Stunden am Tag und 365 Tage im Jahr aus: Notfalleinsätze, Feststellung von Straftaten, Kriminalitätsprävention, Ermittlungen usw. Die zunehmend wichtige Rolle der Polizei in der Lösung von sozialen Problemen erfordert von den Beamtinnen und Beamten Taktgefühl und Fachwissen.\n\nDie Kantonspolizei ist zudem für die Sicherheit im Strassenverkehr zuständig. Sie bietet Organisatoren von öffentlichen Veranstaltungen Hilfestellung zur Gewährleistung der Sicherheit. Sie unterstützt die kantonalen und kommunalen Behörden bei schwerwiegenden Ereignissen.\n\nDie Kantonspolizei besteht aus zwei Hauptkorps, der Gendarmerie und der Kriminalpolizei, und drei Abteilungen: Kommando, Logistik und Informatik, HR und Ausbildung.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Analyse von Kontoauszügen, Finanzberichten und Verwaltungsunterlagen, um Anzeichen für Finanzdelikte aufzudecken\n\n• Unterstützung und Beratung der Inspektoren der Brigade im Rahmen ihrer Ermittlungen\n\n• Sicherstellung der Einrichtung von Massnahmen zur Finanzanalyse im Rahmen strafrechtlicher Ermittlungen\n\n• Analyse- und Syntheserapporte verfassen und auf konkrete Anfragen der Magistraten antworten\n\nGewünschtes Profil\n\n• Bachelor-Abschluss/Master an einer Fachhochschule oder Universität im Bereich Finanzen/Wirtschaft\n\n• Beherrschung der gängigen Bürosoftware, insbesondere fundierte Kenntnisse und eine Affinität für EXCEL\n\n• Kenntnisse im Gesellschaftsrecht\n\n• Beherrschung der französischen oder deutschen Sprache mit guten Kenntnissen der jeweils anderen Sprache sowie guten Englischkenntnissen.\n\nKontaktperson\n\nBrigadechef Pierre Lötscher T +41 26 305 19 24\n\nDatum der Stellenausschreibung:",
-      "descriptionByLocale": {
-        "it": "Livello occupazionale 60-100%\n• 100% per un periodo di 6 mesi\n• Per i candidati che sono attualmente in formazione presso un college tecnico o un'università, una posizione part-time di almeno il 60% può anche essere considerato Location Fribourg, CH, Saane Termine per la presentazione 24.07.2026 Data della nomina 03.08.2026 Tipo di contratto Contratto temporaneo Nomina autorità / unità amministrativa / istituzione La polizia cantonale è subordinata alla Direzione Sicurezza, Giustizia e Sport. La sua missione è generalmente garantire la sicurezza pubblica, l'ordine e il rispetto della legge. Serve al popolo e alle autorità. A questo scopo, svolge un gran numero di compiti diversi e impegnativi 24 ore al giorno e 365 giorni all'anno: missioni di emergenza, rilevamento di crimini, prevenzione della criminalità, indagini, ecc. Il ruolo sempre più importante della polizia nel risolvere i problemi sociali richiede tatto e competenza da parte dei funzionari. La polizia cantonale è anche responsabile della sicurezza stradale. Aiuta gli organizzatori di eventi pubblici a garantire la sicurezza. Sostiene le autorità cantonali e municipali in caso di eventi gravi. La Polizia cantonale è composta da due corpi principali, la Gendarmeria e la Polizia Criminale, e tre dipartimenti: Comando, Logistica e Informatica, HR e Formazione. Diventa parte della nostra squadra! Ci concentriamo sulla complementarità delle competenze e sulla diversità delle prospettive, perché è la vasta gamma di carriere e profili che costituiscono la forza dello stato di Friburgo. Promuoviamo la riconciliazione della vita professionale e privata e le condizioni di lavoro flessibili. Per saperne di più, segui questo link. I loro compiti\n• Analisi delle dichiarazioni, delle dichiarazioni finanziarie e dei documenti amministrativi per rilevare i segni dei crimini finanziari\n• Assistenza e consulenza agli ispettori di brigata nelle loro indagini\n• Assicurare l'istituzione di misure di analisi finanziaria nel contesto delle indagini penali\n• Scrivere report di analisi e sintesi e rispondere a specifiche richieste dai magistrati Profilo desiderato\n• Laurea / Master di laurea in un college tecnico o università in finanza / economia\n• Masterizzazione del software per ufficio comune, in particolare la conoscenza approfondita e l'affinità per EXCEL\n• Conoscenza della legge aziendale\n• Mastery della lingua francese o tedesca con buona conoscenza dell'altra lingua e buona conoscenza dell'inglese. Persona di contatto Brigadier Pierre Lötscher T +41 26 305 19 24 Data di pubblicità:",
-        "en": "Employment level 60-100%\n• 100% for a period of 6 months\n• For candidates who are currently in training at a technical college or university, a part-time position of at least 60% can also be considered Location Fribourg, CH, Saane Application deadline 24.07.2026 Date of appointment 03.08.2026 Contract type Temporary contract Appointing authority / administrative unit / institution The cantonal police are subordinate to the Security, Justice and Sports Directorate. Its mission is generally to ensure public safety, order and compliance with the law. It serves the people and the authorities. For this purpose, she performs a large number of diverse and demanding tasks 24 hours a day and 365 days a year: emergency missions, detection of crime, crime prevention, investigations, etc. The increasingly important role of the police in solving social problems requires tact and expertise from civil servants. The cantonal police are also responsible for road safety. It helps organisers of public events to ensure safety. It supports the cantonal and municipal authorities in the event of serious events. The Cantonal Police consists of two main corps, the Gendarmerie and the Criminal Police, and three departments: Command, Logistics and Computer Science, HR and Training. Become part of our team! We focus on the complementarity of competences and the diversity of perspectives, because it is the wide range of careers and profiles that makes up the strength of the state of Freiburg. We promote the reconciliation of professional and private life as well as flexible working conditions. To learn more, follow this link. Their tasks\n• Analysis of statements, financial statements and administrative documents to detect signs of financial crimes\n• Assistance and advice to brigade inspectors in their investigations\n• Ensure the establishment of financial analysis measures in the context of criminal investigations\n• Write analysis and synthesis reports and respond to specific requests from magistrates Desired profile\n• Bachelor’s degree/Master’s degree at a technical college or university in finance/economics\n• Mastery of common office software, in particular in-depth knowledge and an affinity for EXCEL\n• Knowledge of company law\n• Mastery of the French or German language with good knowledge of the other language as well as good knowledge of English. Contact person Brigadier Pierre Lötscher T +41 26 305 19 24 Date of advertisement:",
-        "de": "Beschäftigungsgrad\n\n60-100%\n\n• 100% für einen Zeitraum von 6 Monaten\n\n• Für Kandidatinnen/Kandidaten, die sich derzeit in einer Ausbildung an einer Fachhochschule oder einer Universität befinden, kann auch eine Teilzeitstelle mit mindestens 60% in Betracht gezogen werden\n\nOrt\n\nFribourg, CH, Saane\n\nBewerbungsfrist\n\n24.07.2026\n\nDatum des Stellenantritts\n\n03.08.2026\n\nVertragsart\n\nBefristeter Vertrag\n\nAnstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDie Kantonspolizei ist der Sicherheits-, Justiz- und Sportdirektion unterstellt. Ihr Auftrag ist allgemein für die öffentliche Sicherheit, die Aufrechterhaltung der Ordnung und die Einhaltung der Gesetze zu sorgen.\n\nSie steht im Dienste der Bevölkerung und der Behörden. Dafür führt sie eine grosse Anzahl vielfältiger und anspruchsvoller Aufgaben 24 Stunden am Tag und 365 Tage im Jahr aus: Notfalleinsätze, Feststellung von Straftaten, Kriminalitätsprävention, Ermittlungen usw. Die zunehmend wichtige Rolle der Polizei in der Lösung von sozialen Problemen erfordert von den Beamtinnen und Beamten Taktgefühl und Fachwissen.\n\nDie Kantonspolizei ist zudem für die Sicherheit im Strassenverkehr zuständig. Sie bietet Organisatoren von öffentlichen Veranstaltungen Hilfestellung zur Gewährleistung der Sicherheit. Sie unterstützt die kantonalen und kommunalen Behörden bei schwerwiegenden Ereignissen.\n\nDie Kantonspolizei besteht aus zwei Hauptkorps, der Gendarmerie und der Kriminalpolizei, und drei Abteilungen: Kommando, Logistik und Informatik, HR und Ausbildung.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Analyse von Kontoauszügen, Finanzberichten und Verwaltungsunterlagen, um Anzeichen für Finanzdelikte aufzudecken\n\n• Unterstützung und Beratung der Inspektoren der Brigade im Rahmen ihrer Ermittlungen\n\n• Sicherstellung der Einrichtung von Massnahmen zur Finanzanalyse im Rahmen strafrechtlicher Ermittlungen\n\n• Analyse- und Syntheserapporte verfassen und auf konkrete Anfragen der Magistraten antworten\n\nGewünschtes Profil\n\n• Bachelor-Abschluss/Master an einer Fachhochschule oder Universität im Bereich Finanzen/Wirtschaft\n\n• Beherrschung der gängigen Bürosoftware, insbesondere fundierte Kenntnisse und eine Affinität für EXCEL\n\n• Kenntnisse im Gesellschaftsrecht\n\n• Beherrschung der französischen oder deutschen Sprache mit guten Kenntnissen der jeweils anderen Sprache sowie guten Englischkenntnissen.\n\nKontaktperson\n\nBrigadechef Pierre Lötscher T +41 26 305 19 24\n\nDatum der Stellenausschreibung:",
-        "fr": "Niveau d'emploi 60-100%\n• 100% pour une période de 6 mois\n• Pour les candidats qui suivent actuellement une formation dans un collège technique ou une université, un poste à temps partiel d'au moins 60 % peut également être envisagé. Lieu Fribourg, CH, Saane Date limite de présentation des demandes 24.07.2026 Date de la nomination 03.08.2026 Type de contrat Contrat temporaire Pouvoir de nomination / unité administrative / institution La police cantonale est subordonnée à la Direction de la sécurité, de la justice et des sports. Sa mission est généralement d'assurer la sécurité publique, l'ordre public et le respect de la loi. Elle sert le peuple et les autorités. À cette fin, elle s'acquitte d'un grand nombre de tâches diverses et exigeantes 24 heures sur 24 et 365 jours par an : missions d'urgence, détection de la criminalité, prévention du crime, enquêtes, etc. Le rôle de plus en plus important de la police dans la résolution des problèmes sociaux exige le tact et l'expertise des fonctionnaires. La police cantonale est également responsable de la sécurité routière. Il aide les organisateurs de manifestations publiques à assurer la sécurité. Il soutient les autorités cantonales et municipales en cas de graves événements. La police cantonale comprend deux corps principaux, la gendarmerie et la police criminelle, et trois départements : commandement, logistique et informatique, RH et formation. Faites partie de notre équipe ! Nous nous concentrons sur la complémentarité des compétences et la diversité des perspectives, car c'est le large éventail de carrières et de profils qui constitue la force de l'état de Fribourg. Nous favorisons la conciliation de la vie professionnelle et privée ainsi que des conditions de travail flexibles. Pour en savoir plus, suivez ce lien. Leurs tâches\n• Analyse des états financiers, des états financiers et des documents administratifs pour détecter les signes de délits financiers\n• Assistance et conseils aux inspecteurs de brigade dans leurs enquêtes\n• Assurer la mise en place de mesures d'analyse financière dans le cadre des enquêtes pénales\n• Rédiger des rapports d ' analyse et de synthèse et répondre aux demandes spécifiques des magistrats Profil désiré\n• Baccalauréat / Master dans un collège technique ou une université en finance / économie\n• Maîtrise des logiciels de bureau communs, notamment des connaissances approfondies et une affinité pour EXCEL\n• Connaissance du droit des sociétés\n• Maîtrise de la langue française ou allemande avec une bonne connaissance de l'autre langue ainsi qu'une bonne connaissance de l'anglais. Personne à contacter Brigadier Pierre Lötscher T +41 26 305 19 24 Date de la publicité:"
-      },
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://jobs.fr.ch/Police_Cantonale/job/Fribourg%2C-CH-Einen-Praktikantinten-im-Bereich-Finanzanalyse-f%C3%BCr-eine-befristete-Dauer-von-6-Monaten-%2860-100%29-Saan/1365464957/",
-      "source": "Etat de Fribourg Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-24T11:18:28.492Z",
-      "addressLocality": "Fribourg",
-      "postalCode": "1700",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1365464957/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Kantonspolizei",
-      "pensumMin": 60,
-      "pensumMax": 100,
-      "pensum": "60-100%",
-      "previousSlugs": [
-        "eine-n-praktikantin-ten-im-bereich-finanzanalyse-fur-eine-befristete-dauer-von-6-monaten"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "eine-n-praktikantin-ten-im-bereich-finanzanalyse-fur-eine-befristete-dauer-von-6-monaten"
-        ],
-        "en": [
-          "eine-n-praktikantin-ten-im-bereich-finanzanalyse-fur-eine-befristete-dauer-von-6-monaten"
-        ],
-        "fr": [
-          "eine-n-praktikantin-ten-im-bereich-finanzanalyse-fur-eine-befristete-dauer-von-6-monaten"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:41:27.051Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "etat-de-fribourg-d7d152caae01",
-      "slug": "uno-stage-di-analista-finanziario-per-un-periodo-fisso-di-6-mesi-60-100-etat-de-fribourg-fribourg",
-      "slugByLocale": {
-        "it": "uno-stage-di-analista-finanziario-per-un-periodo-fisso-di-6-mesi-60-100-etat-de-fribourg-fribourg",
-        "en": "a-6-month-term-financial-analyst-trainee-60-100-etat-de-fribourg-fribourg",
-        "de": "ein-6-monatiger-financial-analyst-trainee-60-100-etat-de-fribourg-fribourg",
-        "fr": "un-e-stagiaire-analyste-financier-ere-pour-une-duree-determinee-de-6-mois-60-100-etat-de"
-      },
-      "company": "Etat de Fribourg",
-      "companyKey": "etat-de-fribourg",
-      "companyDomain": "fr.ch",
-      "title": "Un-e stagiaire analyste financier-ère pour une durée déterminée de 6 mois (60-100%)",
-      "titleByLocale": {
-        "it": "Uno stage di analista finanziario per un periodo fisso di 6 mesi (60-100%)",
-        "en": "A 6-month term financial analyst trainee (60-100%)",
-        "de": "Ein 6-monatiger Financial Analyst Trainee (60-100%)",
-        "fr": "Un-e stagiaire analyste financier-ère pour une durée déterminée de 6 mois (60-100%)"
-      },
-      "description": "Taux d'activité\n\n60-100%\n\n• 100% durant une période de 6 mois\n\n• Un temps partiel de minimum 60% peut également être envisagé pour un-e candidat-e en cours de formation HES ou universitaire\n\nLieu\n\nFribourg, CH, Sarine\n\nDélai de postulation\n\n24.07.2026\n\nDate d'entrée en fonction\n\n03.08.2026\n\nType de contrat\n\nCDD\n\nQui sommes-nous?\n\nAttachée à la Direction de la sécurité, de la justice et du sport, la Police cantonale Fribourg a pour mission générale d’assurer la sécurité publique, le maintien de l’ordre et l’observation des lois.\n\nElle est au service de la population et des autorités. Cela se traduit 24 heures sur 24 et 365 jours par année par l’accomplissement d’un grand nombre de tâches variées et exigeantes: interventions d’urgence, constats d’infractions, prévention de la criminalité, enquêtes, etc. Le rôle de plus en plus important de la police dans la gestion des problèmes sociaux exige de la part des agents tact et savoir-faire.\n\nElle est également chargée d’assurer la sécurité du trafic routier. Elle apporte son appui en matière de sécurité aux organisateurs de manifestations publiques et soutient les autorités cantonales et communales lors d’événements graves.\n\nLa Police cantonale Fribourg est composée de deux corps principaux, la gendarmerie et la police de sûreté et trois divisions: commandement, logistique et informatique, ressources humaines et formation.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Analyser des extraits bancaires, états financiers et documents administratifs afin de\n détecter des indices d’infractions financières\n\n• Appuyer et orienter les inspecteurs de la brigade dans le cadre de leurs enquêtes\n\n• Assurer la mise en place de mesures d'analyses financières dans le cadre d'enquêtes pénales\n\n• Rédiger des rapports d’analyse ou de synthèse et répondre aux demandes spécifiques des magistrats\n\nProfil souhaité\n\n• Bachelor/Master HES ou universitaire dans le domaine financier/économique\n\n• Maîtrise des outils informatiques usuels de bureautique avec notamment des\n connaissances approfondies et affinité pour EXCEL\n\n• Connaissances dans le droit des sociétés\n\n• Maîtrise de la langue française ou allemande avec de bonnes connaissances de l’autre langue et bonnes connaissances de l’anglais\n\nCoordonnées des personnes de contact\n\nChef de brigade Pierre Lötscher, T +41 26 305 19 24\n\nDate de publication:",
-      "descriptionByLocale": {
-        "it": "Tasso di attività 60-100%\n• 100% su 6 mesi\n• Il tempo parziale di almeno il 60% può anche essere considerato per un candidato in HES o formazione universitaria Location Fribourg, CH, Sarine Tempo di pubblicazione 24.07.2026 Data effettiva 03.08.2026 Tipo di contratto CSD Chi siamo? Allegate alla Direzione della Sicurezza, della Giustizia e dello Sport, la polizia cantonale di Friburgo è responsabile della sicurezza pubblica, dell'applicazione della legge e dell'applicazione della legge. È al servizio della popolazione e delle autorità. Ciò si traduce in 24 ore al giorno e 365 giorni all'anno nell'esecuzione di un gran numero di compiti diversi ed esigenti: risposta di emergenza, rapporti di criminalità, prevenzione della criminalità, indagini, ecc. Il ruolo sempre più importante della polizia nella gestione dei problemi sociali richiede tatto e know-how. È inoltre responsabile della sicurezza del traffico stradale. Fornisce supporto di sicurezza agli organizzatori di manifestazioni pubbliche e sostiene le autorità cantonali e comunali in eventi gravi. La polizia cantonale Fribourg è composta da due corpi principali, la gendarmeria e la polizia di sicurezza e tre divisioni: comando, logistica e tecnologia dell'informazione, risorse umane e formazione. Perché unirsi a noi? Ci affidiamo alla complementarietà delle competenze e alla varietà delle prospettive perché è la diversità di percorsi e profili che rende lo stato di Friburgo la forza. Promuoviamo l'equilibrio della vita lavorativa e le condizioni di lavoro flessibili. Per saperne di più, segui questo link . Le vostre missioni\n• Analizzare estratti bancari, bilanci e documenti amministrativi individuare gli indici dei reati finanziari\n• Sostegno e guida ispettori di brigata nelle loro indagini\n• Assicurare l'attuazione di misure di analisi finanziaria nelle indagini penali\n• Preparare rapporti analitici o di sintesi e rispondere a specifiche richieste dei giudici Profilo desiderato\n• Bachelor/Master HES o università nel campo finanziario/economico\n• Mastery dei soliti strumenti informatici di automazione ufficio con profonda conoscenza e affinità per EXCEL\n• Conoscenza nella legge aziendale\n• Mastery della lingua francese o tedesca con buona conoscenza dell'altra lingua e buona conoscenza dell'inglese Informazioni di contatto Brigadier Pierre Lötscher, T +41 26 305 19 24 Data di pubblicazione:",
-        "en": "Activity rate 60-100%\n• 100% over 6 months\n• Part time of at least 60% may also be considered for a candidate in HES or university training Location Fribourg, CH, Sarine Posting time 24.07.2026 Effective date 03.08.2026 Type of contract CSD Who are we? Attached to the Directorate of Security, Justice and Sport, the cantonal police in Freiburg are responsible for ensuring public security, law enforcement and law enforcement. It is at the service of the population and the authorities. This results in 24 hours a day and 365 days a year in the performance of a large number of varied and demanding tasks: emergency response, crime reports, crime prevention, investigations, etc. The increasingly important role of the police in managing social problems requires tact and know-how. It is also responsible for ensuring road traffic safety. It provides security support to organizers of public demonstrations and supports cantonal and communal authorities in serious events. The cantonal police Fribourg consists of two main corps, the gendarmerie and the security police and three divisions: command, logistics and information technology, human resources and training. Why join us? We rely on the complementarity of skills and the variety of perspectives because it is the diversity of paths and profiles that makes the state of Fribourg the strength. We promote work-life balance and flexible working conditions. To learn more, follow this link . Your missions\n• Analyze bank extracts, financial statements and administrative documents to detect indices of financial offences\n• Support and guide brigade inspectors in their investigations\n• Ensure the implementation of financial analysis measures in criminal investigations\n• Prepare analytical or synthesis reports and respond to specific requests from judges Profile desired\n• Bachelor/Master HES or university in the financial/economic field\n• Mastery of the usual computer tools of office automation with deep knowledge and affinity for EXCEL\n• Knowledge in company law\n• Mastery of the French or German language with good knowledge of the other language and good knowledge of English Contact details Brigadier Pierre Lötscher, T +41 26 305 19 24 Date of publication:",
-        "de": "Aktivitätsrate 60-100%\n• 100% über 6 Monate\n• Teilzeit von mindestens 60% kann auch für einen Kandidaten in HES oder Hochschulausbildung in Betracht gezogen werden Standort Freiburg, CH, Sarine Postzeit 24.07.2026 Datum des Inkrafttretens 03.08.2026 Art des Vertrags Zentralverwahrer Wer sind wir? Mit der Direktion für Sicherheit, Justiz und Sport ist die kantonale Polizei in Freiburg für öffentliche Sicherheit, Strafverfolgung und Strafverfolgung zuständig. Sie steht im Dienste der Bevölkerung und der Behörden. Dies führt zu 24 Stunden am Tag und 365 Tagen im Jahr bei der Durchführung einer Vielzahl von vielfältigen und anspruchsvollen Aufgaben: Notfallmaßnahmen, Kriminalitätsmeldungen, Kriminalprävention, Ermittlungen usw. Die zunehmend wichtige Rolle der Polizei bei der Bewältigung sozialer Probleme erfordert Taktgefühl und Know-how. Sie ist auch für die Sicherheit im Straßenverkehr zuständig. Sie bietet Sicherheitsunterstützung für Organisatoren öffentlicher Demonstrationen und unterstützt kantonale und kommunale Behörden bei schweren Ereignissen. Die Kantonspolizei Freiburg besteht aus zwei Hauptkorps, der Gendarmerie und der Sicherheitspolizei und drei Divisionen: Kommando, Logistik und Informationstechnologie, Personal und Ausbildung. Warum mitmachen? Wir setzen auf die Komplementarität der Fähigkeiten und die Vielfalt der Perspektiven, denn es ist die Vielfalt der Wege und Profile, die den Zustand Freiburgs zur Stärke macht. Wir fördern Work-Life-Balance und flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link. Ihre Missionen\n• Analysieren Sie Bankauszüge, Jahresabschlüsse und Verwaltungsdokumente, um Indizes von Finanzdelikten erkennen\n• Unterstützung und Begleitung der Brigadeinspektoren bei ihren Ermittlungen\n• Gewährleistung der Durchführung von Finanzanalysemaßnahmen bei strafrechtlichen Ermittlungen\n• Bereiten Sie analytische oder Syntheseberichte vor und reagieren Sie auf spezifische Anfragen von Richtern Profil gewünscht\n• Bachelor/Master HES oder Hochschule im finanzwirtschaftlichen Bereich\n• Beherrschung der üblichen Computer-Tools der Büroautomation mit Tiefes Wissen und Affinität für EXCEL\n• Kenntnisse im Gesellschaftsrecht\n• Beherrschung der französischen oder deutschen Sprache mit guten Kenntnissen der anderen Sprache und guten Englischkenntnissen Kontaktdaten Brigadegeneral Pierre Lötscher, T +41 26 305 19 24 Datum der Veröffentlichung:",
-        "fr": "Taux d'activité\n\n60-100%\n\n• 100% durant une période de 6 mois\n\n• Un temps partiel de minimum 60% peut également être envisagé pour un-e candidat-e en cours de formation HES ou universitaire\n\nLieu\n\nFribourg, CH, Sarine\n\nDélai de postulation\n\n24.07.2026\n\nDate d'entrée en fonction\n\n03.08.2026\n\nType de contrat\n\nCDD\n\nQui sommes-nous?\n\nAttachée à la Direction de la sécurité, de la justice et du sport, la Police cantonale Fribourg a pour mission générale d’assurer la sécurité publique, le maintien de l’ordre et l’observation des lois.\n\nElle est au service de la population et des autorités. Cela se traduit 24 heures sur 24 et 365 jours par année par l’accomplissement d’un grand nombre de tâches variées et exigeantes: interventions d’urgence, constats d’infractions, prévention de la criminalité, enquêtes, etc. Le rôle de plus en plus important de la police dans la gestion des problèmes sociaux exige de la part des agents tact et savoir-faire.\n\nElle est également chargée d’assurer la sécurité du trafic routier. Elle apporte son appui en matière de sécurité aux organisateurs de manifestations publiques et soutient les autorités cantonales et communales lors d’événements graves.\n\nLa Police cantonale Fribourg est composée de deux corps principaux, la gendarmerie et la police de sûreté et trois divisions: commandement, logistique et informatique, ressources humaines et formation.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Analyser des extraits bancaires, états financiers et documents administratifs afin de\ndétecter des indices d’infractions financières\n\n• Appuyer et orienter les inspecteurs de la brigade dans le cadre de leurs enquêtes\n\n• Assurer la mise en place de mesures d'analyses financières dans le cadre d'enquêtes pénales\n\n• Rédiger des rapports d’analyse ou de synthèse et répondre aux demandes spécifiques des magistrats\n\nProfil souhaité\n\n• Bachelor/Master HES ou universitaire dans le domaine financier/économique\n\n• Maîtrise des outils informatiques usuels de bureautique avec notamment des\nconnaissances approfondies et affinité pour EXCEL\n\n• Connaissances dans le droit des sociétés\n\n• Maîtrise de la langue française ou allemande avec de bonnes connaissances de l’autre langue et bonnes connaissances de l’anglais\n\nCoordonnées des personnes de contact\n\nChef de brigade Pierre Lötscher, T +41 26 305 19 24\n\nDate de publication:"
-      },
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://jobs.fr.ch/Police_Cantonale/job/Fribourg%2C-CH-Un-e-stagiaire-analyste-financier-%C3%A8re-pour-une-dur%C3%A9e-d%C3%A9termin%C3%A9e-de-6-mois-%2860-100%29-Sari/1365464857/",
-      "source": "Etat de Fribourg Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-24T11:18:27.832Z",
-      "addressLocality": "Fribourg",
-      "postalCode": "1700",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Giuridico",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1365464857/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Police cantonale",
-      "pensumMin": 60,
-      "pensumMax": 100,
-      "pensum": "60-100%",
-      "previousSlugs": [
-        "un-e-stagiaire-analyste-financier-ere-pour-une-duree-determinee-de-6-mois-60-100-etat-de"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "un-e-stagiaire-analyste-financier-ere-pour-une-duree-determinee-de-6-mois-60-100-etat-de"
-        ],
-        "en": [
-          "un-e-stagiaire-analyste-financier-ere-pour-une-duree-determinee-de-6-mois-60-100-etat-de"
-        ],
-        "de": [
-          "un-e-stagiaire-analyste-financier-ere-pour-une-duree-determinee-de-6-mois-60-100-etat-de"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:41:26.407Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "etat-de-fribourg-6222240f253e",
-      "slug": "tirocinante-post-laurea-triennale-o-post-master-nel-campo-del-laboratorio-etat-de-fribourg-givisiez",
-      "slugByLocale": {
-        "it": "tirocinante-post-laurea-triennale-o-post-master-nel-campo-del-laboratorio-etat-de-fribourg-givisiez",
-        "en": "post-bachelor-or-post-master-in-the-field-of-the-laboratory-etat-de-fribourg-givisiez",
-        "de": "post-bachelor-oder-post-master-im-labor-etat-de-fribourg-givisiez",
-        "fr": "stagiaire-post-bachelor-ou-post-master-dans-le-domaine-du-laboratoire-etat-de-fribourg-ch"
-      },
-      "company": "Etat de Fribourg",
-      "companyKey": "etat-de-fribourg",
-      "companyDomain": "fr.ch",
-      "title": "Stagiaire post-bachelor ou post-master dans le domaine du Laboratoire",
-      "titleByLocale": {
-        "it": "Tirocinante post-laurea triennale o post-master nel campo del Laboratorio",
-        "en": "Post-bachelor or post-master in the field of the Laboratory",
-        "de": "Post-Bachelor oder Post-Master im Labor",
-        "fr": "Stagiaire post-bachelor ou post-master dans le domaine du Laboratoire"
-      },
-      "description": "Taux d'activité\n\n80-100%\n\nLieu\n\nGivisiez, CH, Sarine\n\nDélai de postulation\n\n24.07.2026\n\nDate d'entrée en fonction\n\n01.09.2026 ou à convenir\n\nType de contrat\n\nCDD\n\nQui sommes-nous ?\n\nLe Service de l’environnement SEn veille à l’équilibre entre l’homme et l’environnement en application des lois fédérales sur la protection des eaux et sur la protection de l’environnement. A cet effet, il observe la qualité de l’environnement, contribue à la prévention des atteintes nuisibles de nouvelles activités, assure l’assainissement des installations existantes provoquant des atteintes et informe les autorités et le public sur les comportements à l’origine d’atteintes préjudiciables à l’environnement.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce  lien .\n\nVos missions\n\nLe laboratoire réalise des analyses qualitatives et quantitatives sur différentes matrices afin de fournir au Service les informations nécessaires pour permettre la prise de décisions adéquates et mesurées.\n\nPour une période de 6 mois, le stage sera axé sur :\n\n• Mise à jour du système d’assurance qualité ISO 17’025\n\n• Mise à jour des données historiques de pollutions\n\n• Participation aux campagnes de prélèvements sur le terrain\n\n• Collaborer au bon fonctionnement du laboratoire\n\nProfil souhaité\n\n• Vous avez accompli avec succès un bachelor ou un master dans le domaine de la chimie ou formation jugée équivalente\n\n• Vous disposez d’une expérience en chimie  analytique et d’un intérêt pour l’environnement ISO\n\n• Vous êtes à l'aise avec les outils informatiques actuels\n\n• Vous maîtrisez l'anglais technique\n\n• Vous disposez d’une excellente capacité rédactionnelle en français\n\nCoordonnées des personnes de contact\n\nLionel Schouwey T +41 26 305 69 97\nlionel.schouwey@fr.ch\n\nDate de publication:",
-      "descriptionByLocale": {
-        "it": "Tasso di attività 80-100% Location Givisi, CH, Sarine Tempo di pubblicazione 24.07.2026 Data effettiva 01.09.2026 o da concordare Tipo di contratto CSD Chi siamo? Il Servizio Ambientale SEn garantisce l'equilibrio tra l'uomo e l'ambiente in base alle leggi federali sulla protezione dell'acqua e sulla tutela dell'ambiente. A tal fine, monitora la qualità dell'ambiente, contribuisce alla prevenzione dei danni dannosi alle nuove attività, assicura la bonifica degli impianti esistenti che causano danni e informa le autorità e il pubblico sul comportamento che causa danni dannosi all'ambiente. Perché unirsi a noi? Il datore di lavoro di Stato incoraggia la riconciliazione del lavoro e della vita privata e offre un ambiente di lavoro attraente e condizioni di lavoro ai suoi dipendenti. Per saperne di più, segui questo link . Le vostre missioni Il laboratorio effettua analisi qualitative e quantitative su diverse matrici al fine di fornire al Servizio le informazioni necessarie per un processo decisionale adeguato e misurato. Per un periodo di 6 mesi, il corso si concentrerà su:\n• Aggiornamento del sistema di garanzia della qualità\n• Aggiornamento dei dati di inquinamento storico\n• Partecipazione a campagne di campionamento\n• Collaborare nel corretto funzionamento del laboratorio Profilo desiderato\n• Hai completato con successo un diploma di laurea o master in chimica o formazione equivalente\n• Hai un'esperienza nella chimica analitica e un interesse per l'ambiente ISO\n• Sei a tuo agio con gli strumenti IT attuali\n• Hai imparato l'inglese tecnico\n• Hai un'eccellente capacità editoriale in francese Informazioni di contatto Lionel Schouwey T +41 26 305 69 97 Lionel.schouwey@en.ch Data di pubblicazione:",
-        "en": "Activity rate 80-100% Location Givisi, CH, Sarine Posting time 24.07.2026 Effective date 01.09.2026 or to be agreed Type of contract CSD Who are we? The Environmental Service SEn ensures the balance between man and the environment under federal water protection and environmental protection laws. To this end, it monitors the quality of the environment, contributes to the prevention of harmful damage to new activities, ensures the remediation of existing installations causing damage and informs the authorities and the public about the behaviour causing harmful damage to the environment. Why join us? The State-employer encourages the reconciliation of work and private life and offers an attractive working environment and working conditions to its employees. To learn more, follow this link . Your missions The laboratory conducts qualitative and quantitative analyses on different matrices in order to provide the Service with the information necessary for adequate and measured decision-making. For a period of 6 months, the course will focus on:\n• Updating of the quality assurance system\n• Updating historical pollution data\n• Participation in field sampling campaigns\n• Collaborate in the proper functioning of the laboratory Profile desired\n• You have successfully completed a bachelor's degree or master's degree in chemistry or equivalent training\n• You have an experience in analytical chemistry and an interest in the ISO environment\n• You are comfortable with current IT tools\n• You have mastered technical English\n• You have excellent editorial capacity in French Contact details Lionel Schouwey T +41 26 305 69 97 lionel.schouwey@en.ch Date of publication:",
-        "de": "Aktivitätsrate 80-100% Standort Givisi, CH, Sarine Postzeit 24.07.2026 Datum des Inkrafttretens 01.09.2026 oder zu vereinbaren Art des Vertrags Zentralverwahrer Wer sind wir? Der Umweltdienst SEn sorgt für das Gleichgewicht zwischen Mensch und Umwelt nach Bundeswasserschutz- und Umweltschutzgesetzen. Zu diesem Zweck überwacht sie die Qualität der Umwelt, trägt zur Vermeidung schädlicher Schäden bei neuen Tätigkeiten bei, gewährleistet die Sanierung bestehender Anlagen, die Schäden verursachen, und informiert die Behörden und die Öffentlichkeit über das Verhalten, das die Umwelt schädigen kann. Warum mitmachen? Der staatliche Arbeitgeber fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitern ein attraktives Arbeitsumfeld und Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link. Ihre Missionen Das Labor führt qualitative und quantitative Analysen zu verschiedenen Matrizen durch, um dem Service die Informationen zur Verfügung zu stellen, die für eine angemessene und maßvolle Entscheidungsfindung erforderlich sind. Für einen Zeitraum von 6 Monaten konzentriert sich der Kurs auf:\n• Aktualisierung des Qualitätssicherungssystems\n• Aktualisierung historischer Verschmutzungsdaten\n• Teilnahme an Feldbeprobungskampagnen\n• Zusammenarbeit beim ordnungsgemäßen Funktionieren des Labors Profil gewünscht\n• Sie haben einen Bachelor- oder Master-Abschluss in Chemie oder eine gleichwertige Ausbildung erfolgreich abgeschlossen\n• Sie haben eine Erfahrung in der analytischen Chemie und ein Interesse an ISO-Umgebung\n• Sie sind mit aktuellen IT-Tools vertraut\n• Sie beherrschen technisches Englisch\n• Sie haben ausgezeichnete redaktionelle Fähigkeiten in Französisch Kontaktdaten Lionel Schouwey T +41 26 305 69 97 lionel.schouwey@en.ch Datum der Veröffentlichung:",
-        "fr": "Taux d'activité\n\n80-100%\n\nLieu\n\nGivisiez, CH, Sarine\n\nDélai de postulation\n\n24.07.2026\n\nDate d'entrée en fonction\n\n01.09.2026 ou à convenir\n\nType de contrat\n\nCDD\n\nQui sommes-nous ?\n\nLe Service de l’environnement SEn veille à l’équilibre entre l’homme et l’environnement en application des lois fédérales sur la protection des eaux et sur la protection de l’environnement. A cet effet, il observe la qualité de l’environnement, contribue à la prévention des atteintes nuisibles de nouvelles activités, assure l’assainissement des installations existantes provoquant des atteintes et informe les autorités et le public sur les comportements à l’origine d’atteintes préjudiciables à l’environnement.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\nLe laboratoire réalise des analyses qualitatives et quantitatives sur différentes matrices afin de fournir au Service les informations nécessaires pour permettre la prise de décisions adéquates et mesurées.\n\nPour une période de 6 mois, le stage sera axé sur :\n\n• Mise à jour du système d’assurance qualité ISO 17’025\n\n• Mise à jour des données historiques de pollutions\n\n• Participation aux campagnes de prélèvements sur le terrain\n\n• Collaborer au bon fonctionnement du laboratoire\n\nProfil souhaité\n\n• Vous avez accompli avec succès un bachelor ou un master dans le domaine de la chimie ou formation jugée équivalente\n\n• Vous disposez d’une expérience en chimie analytique et d’un intérêt pour l’environnement ISO\n\n• Vous êtes à l'aise avec les outils informatiques actuels\n\n• Vous maîtrisez l'anglais technique\n\n• Vous disposez d’une excellente capacité rédactionnelle en français\n\nCoordonnées des personnes de contact\n\nLionel Schouwey T +41 26 305 69 97\nlionel.schouwey@fr.ch\n\nDate de publication:"
-      },
-      "location": "Givisiez",
-      "canton": "FR",
-      "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Stagiaire-post-bachelor-ou-post-master-dans-le-domaine-du-Laboratoire-Sari/1365425657/",
-      "source": "Etat de Fribourg Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-24T11:18:24.570Z",
-      "addressLocality": "Givisiez",
-      "postalCode": "1762",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ambiente",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1365425657/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Service de l'environnement",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80-100%",
-      "previousSlugs": [
-        "stagiaire-post-bachelor-ou-post-master-dans-le-domaine-du-laboratoire-etat-de-fribourg-ch",
-        "post-bachelor-or-post-master-in-the-laboratory-field-etat-de-fribourg-givisiez",
-        "post-bachelor-oder-post-master-im-laborbereich-etat-de-fribourg-givisiez"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stagiaire-post-bachelor-ou-post-master-dans-le-domaine-du-laboratoire-etat-de-fribourg-ch"
-        ],
-        "en": [
-          "stagiaire-post-bachelor-ou-post-master-dans-le-domaine-du-laboratoire-etat-de-fribourg-ch",
-          "post-bachelor-or-post-master-in-the-laboratory-field-etat-de-fribourg-givisiez"
-        ],
-        "de": [
-          "stagiaire-post-bachelor-ou-post-master-dans-le-domaine-du-laboratoire-etat-de-fribourg-ch",
-          "post-bachelor-oder-post-master-im-laborbereich-etat-de-fribourg-givisiez"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:41:31.506Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "FR",
-      "crawlerMissStreak": 2
     }
   ]
 }
