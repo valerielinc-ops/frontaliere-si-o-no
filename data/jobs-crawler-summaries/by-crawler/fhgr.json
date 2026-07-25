@@ -1,16 +1,16 @@
 {
   "key": "fhgr",
   "label": "Fachhochschule Graubünden",
-  "generatedAt": "2026-07-25T11:03:10.889Z",
-  "total": 3,
+  "generatedAt": "2026-07-25T22:00:36.757Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 6380,
-  "avgDurationMs": 6380,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 5938,
+  "avgDurationMs": 5938,
   "durationHistory": [
-    6380
+    5938
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T11:03:07.376Z",
+      "crawledAt": "2026-07-25T22:00:33.234Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -52,49 +52,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "fhgr-e575cfe5ef77",
-      "slug": "assistenti-degli-studenti-come-coders-fachhochschule-graubunden-chur",
-      "company": "Fachhochschule Graubünden",
-      "companyKey": "fhgr",
-      "companyDomain": "fhgr.ch",
-      "title": "Student Assistants as Coders",
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://jobs.fhgr.ch/Vacancies/802/Description/1",
-      "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-24T11:26:36.329Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Formazione / Ricerca",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Formazione / Ricerca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-01",
-      "applyUrl": "https://jobs.fhgr.ch/Vacancies/802/Application/CheckLogin/1",
-      "department": "Schweizerisches Institut für Informationswissenschaft (SII)",
-      "contractDuration": "temporary",
-      "firstSeenAt": "2026-07-01T22:12:45.479Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
+  "removedJobs": [
     {
       "id": "fhgr-31e63ea2b5c6",
       "slug": "studentische-hilfskrafte-come-codierer-innen-fachhochschule-graubunden-chur",
@@ -135,6 +93,48 @@
         "translation": 25,
         "completeness": 22
       }
+    },
+    {
+      "id": "fhgr-e575cfe5ef77",
+      "slug": "assistenti-degli-studenti-come-coders-fachhochschule-graubunden-chur",
+      "company": "Fachhochschule Graubünden",
+      "companyKey": "fhgr",
+      "companyDomain": "fhgr.ch",
+      "title": "Student Assistants as Coders",
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://jobs.fhgr.ch/Vacancies/802/Description/1",
+      "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-24T11:26:36.329Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Formazione / Ricerca",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Formazione / Ricerca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-01",
+      "applyUrl": "https://jobs.fhgr.ch/Vacancies/802/Application/CheckLogin/1",
+      "department": "Schweizerisches Institut für Informationswissenschaft (SII)",
+      "contractDuration": "temporary",
+      "firstSeenAt": "2026-07-01T22:12:45.479Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "addressRegion": "GR",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
