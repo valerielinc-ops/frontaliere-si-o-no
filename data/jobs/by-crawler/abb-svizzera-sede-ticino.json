@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-c2e589",
-      "slug": "sales-service-and-project-execution-regional-sales-leader-critical-power-dach-abb-svizzera-sede-ticino-baden-aargau-c2e589",
+      "slug": "sales-service-e-esecuzione-dei-progetti-leader-regionale-sales-critico-power-dach-abb-svizzera-sede-ticino-baden-aargau",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Sales, Service and Project Execution Regional Sales Leader Critical Power DACH",
       "location": "Baden, Aargau",
@@ -43,9 +43,9 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "sales-service-and-project-execution-regional-sales-leader-critical-power-dach-abb-svizzera-sede-ticino-baden-aargau-c2e589",
+        "it": "sales-service-e-esecuzione-dei-progetti-leader-regionale-sales-critico-power-dach-abb-svizzera-sede-ticino-baden-aargau",
         "en": "sales-service-and-project-execution-regional-sales-leader-critical-power-dach-abb-svizzera-sede-ticino-baden-aargau-c2e589",
-        "de": "sales-service-and-project-execution-regional-sales-leader-critical-power-dach-abb-svizzera-sede-ticino-baden-aargau-c2e589",
+        "de": "sales-service-und-projektausfuhrung-regionaler-salesleiter-kritischer-leistung-dach-abb-svizzera-sede-ticino-baden",
         "fr": "ventes-services-et-execution-de-projets-leader-commercial-regional-puissance-critique-dach-abb-svizzera-sede-ticino"
       },
       "requirementsByLocale": {
@@ -60,11 +60,16 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "sales-service-and-project-execution-regional-sales-leader-critical-power-dach-abb-svizzera-sede-ticino-baden-aargau"
+          "sales-service-and-project-execution-regional-sales-leader-critical-power-dach-abb-svizzera-sede-ticino-baden-aargau",
+          "sales-service-and-project-execution-regional-sales-leader-critical-power-dach-abb-svizzera-sede-ticino-baden-aargau-c2e589"
+        ],
+        "de": [
+          "sales-service-and-project-execution-regional-sales-leader-critical-power-dach-abb-svizzera-sede-ticino-baden-aargau-c2e589"
         ]
       },
       "previousSlugs": [
-        "sales-service-and-project-execution-regional-sales-leader-critical-power-dach-abb-svizzera-sede-ticino-baden-aargau"
+        "sales-service-and-project-execution-regional-sales-leader-critical-power-dach-abb-svizzera-sede-ticino-baden-aargau",
+        "sales-service-and-project-execution-regional-sales-leader-critical-power-dach-abb-svizzera-sede-ticino-baden-aargau-c2e589"
       ],
       "salaryMin": 107000,
       "salaryMax": 187500,
