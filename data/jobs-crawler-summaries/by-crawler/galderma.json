@@ -1,18 +1,19 @@
 {
   "key": "galderma",
   "label": "Galderma",
-  "generatedAt": "2026-07-24T22:06:40.673Z",
+  "generatedAt": "2026-07-25T10:47:23.339Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 57450,
-  "avgDurationMs": 57450,
+  "durationMs": 60735,
+  "avgDurationMs": 60735,
   "durationHistory": [
-    57450
+    60735
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "galderma-aa19f305918a",
       "slug": "head-of-human-resources-emeac-region-galderma-ch",
@@ -20,13 +21,13 @@
       "companyKey": "galderma",
       "companyDomain": "galderma.com",
       "title": "Head of Human Resources - EMEAC Region",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zug",
       "canton": "ZG",
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Head-of-Human-Resources---EMEAC-Region_JR020103",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-24T22:06:35.814Z",
+      "crawledAt": "2026-07-25T10:47:18.501Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "postedDate": "2026-07-24",
       "applyUrl": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Head-of-Human-Resources---EMEAC-Region_JR020103",
       "jobReqId": "JR020103",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-24T22:06:35.814Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "galderma-fa0b15ec4f8b",
       "slug": "head-of-medical-experts-therapeutic-dermatology-galderma-ch",
@@ -64,7 +64,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Head-of-Medical-Experts--Therapeutic-Dermatology_JR019828-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-24T22:06:37.752Z",
+      "crawledAt": "2026-07-25T10:47:20.416Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Global-Head-of-Dermatological-Skincare_JR018459-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-24T22:06:36.805Z",
+      "crawledAt": "2026-07-25T10:47:19.497Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
