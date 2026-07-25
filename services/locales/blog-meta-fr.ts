@@ -8946,6 +8946,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.italia-svizzera-nuovo-protocollo-frontalieri.title': 'Italie-Suisse : ce que dit le nouveau protocole sur le travail des frontaliers',
     'blog.article.italia-svizzera-nuovo-protocollo-frontalieri.excerpt': 'Le 23 décembre 2020, l\'Italie et la Suisse ont signé un nouveau protocole sur le travail des frontaliers. Cet accord entre en vigueur le 1er janvier 2024 et prévoit des modifications importantes pour les travailleurs qui se déplacent entre les deux pays.',
     'blog.article.italia-svizzera-nuovo-protocollo-frontalieri.imageAlt': 'Une frontière dans une autoroute entre Lugano et Milan.',
+    'blog.article.telelavoro-frontalieri-it-svizzera.title': 'Frontaliers, le télétravail entre en vigueur',
+    'blog.article.telelavoro-frontalieri-it-svizzera.excerpt': 'La loi n ° 217 de 2025 entre en vigueur le 20 janvier 2026, introduisant la reconnaissance structurelle du télétravail transfrontalier.',
+    'blog.article.telelavoro-frontalieri-it-svizzera.imageAlt': 'Un travailleur frontalier travaille à distance de chez lui',
 };
 
 export default blogMetaFr;
