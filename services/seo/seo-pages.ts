@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3502,
+ "numberOfItems": 3503,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8270,7 +8270,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3499, "name": "La BCE mantiene i tassi al 2,25%", "url": `${BASE_URL}/articoli-frontaliere/bce-mantiene-tassi-2-25` },
           { "@type": "ListItem", "position": 3500, "name": "Disoccupazione frontalieri: il futuro nel Comit...", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-frontalieri-comitato-misto` },
           { "@type": "ListItem", "position": 3501, "name": "La Svizzera non paga disoccupazione ai frontali...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupazione-svizzera` },
-          { "@type": "ListItem", "position": 3502, "name": "Casciago, al via la riqualificazione del Parco ...", "url": `${BASE_URL}/articoli-frontaliere/riqualificazione-parco-casciago` }
+          { "@type": "ListItem", "position": 3502, "name": "Casciago, al via la riqualificazione del Parco ...", "url": `${BASE_URL}/articoli-frontaliere/riqualificazione-parco-casciago` },
+          { "@type": "ListItem", "position": 3503, "name": "Vivere a Lavena Ponte Tresa e lavorare in Ticino", "url": `${BASE_URL}/articoli-frontaliere/vivere-lavena-ponte-tresa-frontaliere` }
  ]
  },
  {

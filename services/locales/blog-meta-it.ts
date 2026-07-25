@@ -8933,6 +8933,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.riqualificazione-parco-casciago.title': 'Casciago, al via la riqualificazione del Parco La Pinetina',
     'blog.article.riqualificazione-parco-casciago.excerpt': 'Proseguono i lavori di messa in sicurezza e rifacimento della recinzione nel parco di Casciago per migliorare la fruibilità degli spazi.',
     'blog.article.riqualificazione-parco-casciago.imageAlt': 'Parco pubblico riqualificato a Casciago vicino al confine svizzero',
+    'blog.article.vivere-lavena-ponte-tresa-frontaliere.title': 'Vivere a Lavena Ponte Tresa e lavorare in Ticino',
+    'blog.article.vivere-lavena-ponte-tresa-frontaliere.excerpt': 'Guida completa al pendolarismo tra Lavena Ponte Tresa e il Canton Ticino: collegamenti, tempi di percorrenza, costi e regole fiscali per frontalieri.',
+    'blog.article.vivere-lavena-ponte-tresa-frontaliere.imageAlt': 'Panorama di Lavena Ponte Tresa con vista sul confine e sul lago',
 };
 
 export default blogMetaIt;

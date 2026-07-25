@@ -8932,6 +8932,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riqualificazione-parco-casciago.title': 'Casciago, the redevelopment of La Pinetina Park is underway',
     'blog.article.riqualificazione-parco-casciago.excerpt': 'Work continues on securing and rebuilding the fence in the Casciago park to improve the usability of the spaces.',
     'blog.article.riqualificazione-parco-casciago.imageAlt': 'Renovated public park in Casciago near the Swiss border',
+    'blog.article.vivere-lavena-ponte-tresa-frontaliere.title': 'Living in Lavena Ponte Tresa and working in Ticino',
+    'blog.article.vivere-lavena-ponte-tresa-frontaliere.excerpt': 'Complete guide to commuting between Lavena Ponte Tresa and the Canton of Ticino: connections, travel times, costs and tax rules for border workers.',
+    'blog.article.vivere-lavena-ponte-tresa-frontaliere.imageAlt': 'View of Lavena Ponte Tresa near the Swiss border',
 };
 
 export default blogMetaEn;
