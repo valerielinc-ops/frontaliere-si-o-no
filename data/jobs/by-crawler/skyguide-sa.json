@@ -28,7 +28,8 @@
       "titleByLocale": {
         "it": "Istruttore APS & ADC (ATCO) (100%)",
         "de": "APS & ADC Rated (ATCO) Instruktor (100%)",
-        "fr": "Instructeur APS & ADC coté (ATCO) (100%)"
+        "fr": "Instructeur APS & ADC coté (ATCO) (100%)",
+        "en": "APS & ADC Rated (ATCO) Instructor (100%)"
       },
       "descriptionByLocale": {
         "it": "Titolo professionale\nadjust-padding{ padding-left:15px !important; }\n\nSkyguide fornisce servizi di navigazione aerea in Svizzera e in alcune parti dei paesi limitrofi. Con circa 1500 dipendenti provenienti da più di 30 nazioni, stiamo perseguendo un'ambiziosa strategia di innovazione basata su una forte cultura della sicurezza e dell'apprendimento. Siamo guidati da quattro valori: \"Facciamo squadra per avere successo\", \"Guidiamo l'innovazione\", \"Possediamo ciò che facciamo\" e, infine, \"Creiamo un grande valore per il cliente\". Sei interessato a saperne di più? Vogliamo che tu ti unisca a noi come ...\n\nPosizione e Disponibilità\nLocalità: Wangen b. Dübendorf\nQuando: in base alla disponibilità\n\nLa tua missione\nIl ruolo include la gestione dei corsi, la conformità normativa, l'esperienza nella formazione, la collaborazione e la rappresentanza globale nei gruppi aeronautici. I tuoi compiti:\n- Supervisionare la pianificazione dei corsi, l'amministrazione e il monitoraggio continuo delle prestazioni degli studenti\n- Assicurarsi che tutti i contenuti del corso siano conformi ai requisiti normativi\n- Creare, progettare e fornire materiale di formazione sia per l'aula che per gli ambienti di simulazione\n- Fornire supporto per lo sviluppo della formazione, dei colleghi e di altri reparti secondo necessità\n- Agire come rappresentante di Skyguide e della Skyguide Academy in gruppi di lavoro, gruppi di progetto e team internazionali, se necessario; mantenere un comportamento e un aspetto professionale per queste interazioni\n\nCosa Cerchiamo\n- Almeno 5 anni di esperienza come controllore del traffico aereo autorizzato sia in aeroporto (ADC) che in controllo di avvicinamento (APS), con",
@@ -65,13 +66,15 @@
           "aps-adc-rated-atco-instructor-100-skyguide-wangen-b-dubendorf-ch"
         ],
         "de": [
-          "aps-adc-rated-atco-instructor-100-skyguide-wangen-b"
+          "aps-adc-rated-atco-instructor-100-skyguide-wangen-b",
+          "aps-adc-rated-atco-instruktor-100-skyguide-wangen-b"
         ]
       },
       "previousSlugs": [
         "aps-adc-rated-atco-instructor-100-skyguide-wangen-b",
         "istruttore-aps-adc-atco-100-skyguide-wangen-b",
-        "aps-adc-rated-atco-instructor-100-skyguide-wangen-b-dubendorf-ch"
+        "aps-adc-rated-atco-instructor-100-skyguide-wangen-b-dubendorf-ch",
+        "aps-adc-rated-atco-instruktor-100-skyguide-wangen-b"
       ]
     },
     {
@@ -181,9 +184,9 @@
       },
       "slugByLocale": {
         "it": "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno",
-        "en": "air-traffic-controller-training-lugano-skyguide-lugano-agno",
-        "de": "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno",
-        "fr": "formation-controleur-du-trafic-aerien-lugano-skyguide-lugano-agno"
+        "en": "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-rgrv36",
+        "de": "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-rgrv36",
+        "fr": "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-rgrv36"
       },
       "previousSlugs": [
         "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno-rgrv36",
@@ -270,9 +273,9 @@
       },
       "slugByLocale": {
         "it": "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno",
-        "en": "air-traffic-controller-training-locarno-skyguide-locarno",
-        "de": "flugverkehrskontrollerausbildung-locarno-skyguide-locarno",
-        "fr": "formation-aux-controleurs-du-trafic-aerien-locarno-skyguide-locarno"
+        "en": "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-rgrrdp",
+        "de": "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-rgrrdp",
+        "fr": "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-rgrrdp"
       },
       "previousSlugs": [
         "flugverkehrskontrollerausbildung-locarno-skyguide-locarno-rgrrdp",
@@ -647,7 +650,6 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-06-29T14:06:51.228Z",
       "streetAddress": "",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "it-application-solutions-lead-80-100-skyguide-wangen-b-dubendorf-ch"
