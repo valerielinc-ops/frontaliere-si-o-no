@@ -8947,6 +8947,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-it-svizzera.title': 'Frontier workers, teleworking enters into operation',
     'blog.article.telelavoro-frontalieri-it-svizzera.excerpt': 'Law no. 217 of 2025 enters into force on 20 January 2026, introducing the structural recognition of cross-border teleworking.',
     'blog.article.telelavoro-frontalieri-it-svizzera.imageAlt': 'A frontline worker works remotely from home',
+    'blog.article.frontalieri-ticino-architetto-stipendio.title': 'How much does a border architect earn in Ticino',
+    'blog.article.frontalieri-ticino-architetto-stipendio.excerpt': 'The salaries of border architects in Ticino are influenced by source taxes and the transitional regime',
+    'blog.article.frontalieri-ticino-architetto-stipendio.imageAlt': 'A modern building in Lugano with Monte Bre in the background',
 };
 
 export default blogMetaEn;

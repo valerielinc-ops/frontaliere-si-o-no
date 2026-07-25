@@ -8948,6 +8948,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-it-svizzera.title': 'Frontalieri, il telelavoro entra a regime',
     'blog.article.telelavoro-frontalieri-it-svizzera.excerpt': 'La legge n. 217 del 2025 entra in vigore il 20 gennaio 2026, introducendo il riconoscimento strutturale del telelavoro transfrontaliero.',
     'blog.article.telelavoro-frontalieri-it-svizzera.imageAlt': 'Un frontaliere lavora in modo remoto da casa',
+    'blog.article.frontalieri-ticino-architetto-stipendio.title': 'Quanto guadagna un architetto frontaliere in Ticino',
+    'blog.article.frontalieri-ticino-architetto-stipendio.excerpt': 'Gli stipendi degli architetti frontaliere in Ticino sono influenzati dalle imposte sulla fonte e dal regime transitorio',
+    'blog.article.frontalieri-ticino-architetto-stipendio.imageAlt': 'Un edificio moderno in Lugano con il Monte Bre in sfondo',
 };
 
 export default blogMetaIt;

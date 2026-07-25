@@ -8946,6 +8946,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-it-svizzera.title': 'Frontalieri, die Telearbeit geht in Betrieb',
     'blog.article.telelavoro-frontalieri-it-svizzera.excerpt': 'Das Gesetz Nr. 217 von 2025 tritt am 20. Januar 2026 in Kraft und führt die strukturelle Anerkennung der grenzüberschreitenden Telearbeit ein.',
     'blog.article.telelavoro-frontalieri-it-svizzera.imageAlt': 'Ein Frontalier arbeitet von zu Hause aus remote',
+    'blog.article.frontalieri-ticino-architetto-stipendio.title': 'Wie viel verdient ein Grenzarchitekt im Tessin',
+    'blog.article.frontalieri-ticino-architetto-stipendio.excerpt': 'Die Gehälter der Grenzarchitekten im Tessin werden durch die Quellensteuer und die Übergangsregelung beeinflusst',
+    'blog.article.frontalieri-ticino-architetto-stipendio.imageAlt': 'Ein modernes Gebäude in Lugano mit Monte Bre im Hintergrund',
 };
 
 export default blogMetaDe;

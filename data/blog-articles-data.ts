@@ -26882,6 +26882,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-ticino-architetto-stipendio',
+ category: 'fiscale',
+ date: '2026-07-25T10:35:38.586Z',
+ image: '/images/blog/frontalieri-ticino-architetto-stipendio.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
