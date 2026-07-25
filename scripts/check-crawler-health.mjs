@@ -434,6 +434,20 @@ const EMPTY_OK_CRAWLERS = new Set([
   // automatically when jobs.ch lists a new vacancy. Same legitimately-empty
   // small-employer case as linnea/banca-raiffeisen-vedeggio-cassarate/wuerth-international.
   'josef-mueller',
+  // Yapeal AG (Swiss mobile banking, Zürich): verified live 2026-07-25 — the
+  // Personio XML feed (https://yapeal-ag.jobs.personio.de/xml) returns HTTP
+  // 200 with a well-formed but empty `<workzag-jobs>` document (0
+  // `<position>` elements), and the careers page
+  // (https://yapeal.ch/en/company/about-yapeal/careers/) still links to the
+  // same `yapeal-ag.jobs.personio.de` tenant — confirming the ATS and
+  // subdomain are unchanged, not a fetch/parser break. The parser's own doc
+  // comment already noted this employer runs "currently a single position —
+  // low volume" (issue #3337 backlog); `lastNonZeroJobs: 1` in
+  // `data/crawler-health.json` matches. A neobank of this size legitimately
+  // has stretches with zero open roles; the parser is healthy and re-arms
+  // automatically when Yapeal republishes a posting. Same
+  // legitimately-empty small-employer case as linnea/josef-mueller (#4751).
+  'yapeal',
 ]);
 
 /** Read JSON file, return null on any error. */
