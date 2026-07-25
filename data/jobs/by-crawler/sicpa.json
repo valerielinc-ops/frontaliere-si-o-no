@@ -310,7 +310,7 @@
       "slugByLocale": {
         "it": "gestione-dei-servizi-it-sicpa-sa-prilly",
         "en": "it-service-management-manager-sicpa-prilly",
-        "de": "it-service-management-manager-sicpa-prilly",
+        "de": "it-dienstleistungsmanagement-manager-sicpa-sa-prilly",
         "fr": "gestionnaire-de-la-gestion-des-services-informatiques-sicpa-sa-prilly"
       },
       "company": "SICPA SA",
@@ -360,6 +360,9 @@
           "it-service-management-manager-sicpa-prilly"
         ],
         "fr": [
+          "it-service-management-manager-sicpa-prilly"
+        ],
+        "de": [
           "it-service-management-manager-sicpa-prilly"
         ]
       },
