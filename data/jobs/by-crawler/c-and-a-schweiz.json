@@ -1,6 +1,6 @@
 {
   "crawlerKey": "c-and-a-schweiz",
-  "assembledAt": "2026-07-25T10:47:35.848Z",
+  "assembledAt": "2026-07-25T09:11:21.269Z",
   "jobs": [
     {
       "id": "c-and-a-schweiz-a60d29274d06",
@@ -2902,7 +2902,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-40-in-frauenfeld-befristet-bis-februar-2027-66585-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T10:47:16.581Z",
+      "crawledAt": "2026-07-24T22:06:49.819Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressCountry": "CH",
@@ -2924,7 +2924,10 @@
         "mitarbeiter-im-sales-w-m-d-40-mit-schlusselfunktion-in-frauenfeld-befristet-bis-ende-feb-2027-c-a-schweiz-frauenfeld",
         "mitarbeiter-im-verkauf-w-m-d-40-mit-schlusselfunktion-in-frauenfeld-befristet-bis-ende-feb",
         "mitarbeiter-im-vente-w-m-d-40-mit-schlusselfunktion-in-frauenfeld-befristet-bis-ende-feb-2027-c-a-schweiz-frauenfeld",
-        "collaboratore-trice-im-vendita-m-w-d-40-in-frauenfeld-befristet-bis-februar-2027-c-a-schweiz-frauenfeld"
+        "collaboratore-trice-im-vendita-m-w-d-40-per-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens",
+        "mitarbeiter-im-sales-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens",
+        "mitarbeiter-im-verkauf-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-and-a",
+        "mitarbeiter-im-vente-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2933,22 +2936,27 @@
           "mitarbeiter-im-sales-w-m-d-40-mit-schlusselfunktion-in-frauenfeld-befristet-bis-ende-feb-2027-c-a-schweiz-frauenfeld",
           "mitarbeiter-im-verkauf-w-m-d-40-mit-schlusselfunktion-in-frauenfeld-befristet-bis-ende-feb",
           "mitarbeiter-im-vente-w-m-d-40-mit-schlusselfunktion-in-frauenfeld-befristet-bis-ende-feb-2027-c-a-schweiz-frauenfeld",
-          "collaboratore-trice-im-vendita-m-w-d-40-in-frauenfeld-befristet-bis-februar-2027-c-a-schweiz-frauenfeld"
+          "collaboratore-trice-im-vendita-m-w-d-40-per-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens",
+          "mitarbeiter-im-sales-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens",
+          "mitarbeiter-im-verkauf-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-and-a",
+          "mitarbeiter-im-vente-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens"
         ],
         "en": [
           "mitarbeiter-im-sales-w-m-d-40-mit-schlusselfunktion-in-frauenfeld-befristet-bis-ende-feb-2027-c-a-schweiz-frauenfeld",
-          "mitarbeiter-im-verkauf-w-m-d-40-in-frauenfeld-befristet-bis-februar-2027-c-and-a-schweiz"
+          "mitarbeiter-im-verkauf-w-m-d-40-in-frauenfeld-befristet-bis-februar-2027-c-and-a-schweiz",
+          "mitarbeiter-im-sales-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens"
         ],
         "de": [
-          "mitarbeiter-im-verkauf-w-m-d-40-mit-schlusselfunktion-in-frauenfeld-befristet-bis-ende-feb"
+          "mitarbeiter-im-verkauf-w-m-d-40-mit-schlusselfunktion-in-frauenfeld-befristet-bis-ende-feb",
+          "mitarbeiter-im-verkauf-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-and-a"
         ],
         "fr": [
           "mitarbeiter-im-vente-w-m-d-40-mit-schlusselfunktion-in-frauenfeld-befristet-bis-ende-feb-2027-c-a-schweiz-frauenfeld",
-          "mitarbeiter-im-verkauf-w-m-d-40-in-frauenfeld-befristet-bis-februar-2027-c-and-a-schweiz"
+          "mitarbeiter-im-verkauf-w-m-d-40-in-frauenfeld-befristet-bis-februar-2027-c-and-a-schweiz",
+          "mitarbeiter-im-vente-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens"
         ]
       },
       "firstSeenAt": "2026-07-23T22:06:24.951Z",
-      "needsRetranslation": true,
       "salaryMin": 23000,
       "salaryMax": 34800,
       "baseSalary": {
