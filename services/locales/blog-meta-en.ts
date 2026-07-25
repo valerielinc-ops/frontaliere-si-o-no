@@ -8950,6 +8950,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-architetto-stipendio.title': 'How much does a border architect earn in Ticino',
     'blog.article.frontalieri-ticino-architetto-stipendio.excerpt': 'The salaries of border architects in Ticino are influenced by source taxes and the transitional regime',
     'blog.article.frontalieri-ticino-architetto-stipendio.imageAlt': 'A modern building in Lugano with Monte Bre in the background',
+    'blog.article.livigno-engadina-treni.title': 'More. From Livigno to the Engadine in ten minutes.',
+    'blog.article.livigno-engadina-treni.excerpt': 'A project for a railway connection between Livigno and S-chanf has been presented.',
+    'blog.article.livigno-engadina-treni.imageAlt': 'A train tunnel connects Livigno to the Engadine in Ticino.',
 };
 
 export default blogMetaEn;
