@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3510,
+ "numberOfItems": 3511,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8278,7 +8278,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3507, "name": "Frontalieri, la battaglia fiscale tra Italia e ...", "url": `${BASE_URL}/articoli-frontaliere/la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese` },
           { "@type": "ListItem", "position": 3508, "name": "Cercare lavoro in Svizzera: guida pratica 2026", "url": `${BASE_URL}/articoli-frontaliere/cercare-lavoro-svizzera-guida-2026` },
           { "@type": "ListItem", "position": 3509, "name": "Italia-Svizzera: cosa dice il nuovo protocollo ...", "url": `${BASE_URL}/articoli-frontaliere/italia-svizzera-nuovo-protocollo-frontalieri` },
-          { "@type": "ListItem", "position": 3510, "name": "Frontalieri, il telelavoro entra a regime", "url": `${BASE_URL}/articoli-frontaliere/telelavoro-frontalieri-it-svizzera` }
+          { "@type": "ListItem", "position": 3510, "name": "Frontalieri, il telelavoro entra a regime", "url": `${BASE_URL}/articoli-frontaliere/telelavoro-frontalieri-it-svizzera` },
+          { "@type": "ListItem", "position": 3511, "name": "Lavora in Svizzera: portali, CV e permesso di l...", "url": `${BASE_URL}/articoli-frontaliere/cerca-lavoro-svizzera-guida-2026` }
  ]
  },
  {

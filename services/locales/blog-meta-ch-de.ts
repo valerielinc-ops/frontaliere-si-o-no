@@ -1528,6 +1528,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cercare-lavoro-svizzera-guida-2026.title': 'Jobsuche in der Schweiz: Praxisleitfaden 2026',
     'blog.article.cercare-lavoro-svizzera-guida-2026.excerpt': 'Vollständiger Leitfaden 2026 für die Stellensuche in der Schweiz: Offizielle SECO Portale, Lebenslauf, Vorstellungsgespräche und Bewilligungen.',
     'blog.article.cercare-lavoro-svizzera-guida-2026.imageAlt': 'Praktischer Leitfaden für die Jobsuche in der Schweiz 2026',
+    'blog.article.cerca-lavoro-svizzera-guida-2026.title': 'Arbeiten in der Schweiz: Portale, Lebensläufe und Arbeitserlaubnis',
+    'blog.article.cerca-lavoro-svizzera-guida-2026.excerpt': 'Einen Job in der Schweiz zu finden, kann ein komplexer Prozess sein, aber mit der richtigen Anleitung können Sie Ihre Erfolgschancen erhöhen.',
+    'blog.article.cerca-lavoro-svizzera-guida-2026.imageAlt': 'Eine Szene des Arbeitsplatzes in der Schweiz mit dem Blick auf den Luganersee.',
 };
 
 export default blogMetaChDe;
