@@ -8941,6 +8941,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.title': 'Frontalieri, the tax battle between Italy and Ticino',
     'blog.article.la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.excerpt': 'Italian and Ticino tax authorities are in an undercover battle for border guards. The new agreement between the two countries has opened up new opportunities for workers moving between Italy and Switzerland.',
     'blog.article.la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.imageAlt': 'A financial journalist in the front line to discover the latest news on Ticino cross-border workers.',
+    'blog.article.italia-svizzera-nuovo-protocollo-frontalieri.title': 'Italy-Switzerland: what the new protocol says about the work of border workers',
+    'blog.article.italia-svizzera-nuovo-protocollo-frontalieri.excerpt': 'On 23 December 2020, Italy and Switzerland signed a new protocol on the work of border workers. This agreement comes into force from 1 January 2024 and provides for significant changes for workers moving between the two countries.',
+    'blog.article.italia-svizzera-nuovo-protocollo-frontalieri.imageAlt': 'A border in a highway between Lugano and Milan.',
 };
 
 export default blogMetaEn;

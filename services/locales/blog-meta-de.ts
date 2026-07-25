@@ -8940,6 +8940,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.title': 'Frontalieri, der Steuerkampf zwischen Italien und dem Tessin',
     'blog.article.la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.excerpt': 'Der italienische und der Tessiner Fiskus befinden sich in einem unterschwelligen Kampf für die Grenzgänger. Das neue Abkommen zwischen den beiden Ländern hat neue Möglichkeiten für Arbeitnehmer eröffnet, die zwischen Italien und der Schweiz pendeln.',
     'blog.article.la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese.imageAlt': 'Eine Finanzjournalistin in der ersten Linie, um die neuesten Nachrichten über die grenzüberschreitenden Arbeitnehmer in der Schweiz zu entdecken.',
+    'blog.article.italia-svizzera-nuovo-protocollo-frontalieri.title': 'Italien-Schweiz: Was das neue Protokoll über die Arbeit von Grenzgängern sagt',
+    'blog.article.italia-svizzera-nuovo-protocollo-frontalieri.excerpt': 'Am 23. Dezember 2020 haben Italien und die Schweiz ein neues Protokoll über die Arbeit von Grenzgängern unterzeichnet. Diese Vereinbarung tritt am 1. Januar 2024 in Kraft und sieht wesentliche Änderungen für Arbeitnehmer vor, die zwischen den beiden Ländern pendeln.',
+    'blog.article.italia-svizzera-nuovo-protocollo-frontalieri.imageAlt': 'Eine Grenze in einer Autobahn zwischen Lugano und Mailand.',
 };
 
 export default blogMetaDe;

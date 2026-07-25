@@ -4883,6 +4883,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-franco-svizzero-tassi-cambio': { name: 'Franco Svizzero', path: '/articoli-svizzera/franco-svizzero-tassi-cambio/', parent: 'blog' },
     'blog-la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese': { name: 'La battaglia sottotraccia sui frontalieri', path: '/articoli-frontaliere/la-battaglia-sottotraccia-sui-frontalieri-tra-il-fisco-italiano-e-quello-ticinese', parent: 'blog' },
     'blog-cercare-lavoro-svizzera-guida-2026': { name: 'Guida Lavoro Svizzera', path: '/articoli-svizzera/cercare-lavoro-svizzera-guida-2026/', parent: 'blog' },
+    'blog-italia-svizzera-nuovo-protocollo-frontalieri': { name: 'Italia-Svizzera', path: '/articoli-frontaliere/italia-svizzera-nuovo-protocollo-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];
