@@ -4571,6 +4571,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'cercare-lavoro-svizzera-guida-2026',
+    category: 'pratico',
+    date: '2026-07-25T03:16:44.072Z',
+    image: '/images/blog/cercare-lavoro-svizzera-guida-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

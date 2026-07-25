@@ -1525,6 +1525,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.franco-svizzero-tassi-cambio.title': 'Il franco svizzero e la fase di debolezza valutaria',
     'blog.article.franco-svizzero-tassi-cambio.excerpt': 'Analisi sul cambio euro franco e sulle dinamiche economiche attuali segnalate dal portale Borsa e Finanza.',
     'blog.article.franco-svizzero-tassi-cambio.imageAlt': 'Vista panoramica sul lago e sulla Svizzera',
+    'blog.article.cercare-lavoro-svizzera-guida-2026.title': 'Cercare lavoro in Svizzera: guida pratica 2026',
+    'blog.article.cercare-lavoro-svizzera-guida-2026.excerpt': 'Guida completa 2026 per la ricerca di un\'occupazione in Svizzera: portali ufficiali SECO, stesura del CV, colloqui e permessi.',
+    'blog.article.cercare-lavoro-svizzera-guida-2026.imageAlt': 'Guida pratica per cercare lavoro in Svizzera nel 2026',
 };
 
 export default blogMetaChIt;

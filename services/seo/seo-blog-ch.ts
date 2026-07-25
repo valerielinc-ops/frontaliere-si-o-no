@@ -19713,6 +19713,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cercare-lavoro-svizzera-guida-2026': {
+    title: 'Cercare lavoro in Svizzera: guida pratica 2026',
+    description: 'Guida completa 2026 per cercare lavoro in Svizzera: portali SECO, stesura CV svizzero, colloqui, permessi, imposta alla fonte e contributi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, cercare, lavoro, pratica, completa',
+    ogTitle: 'Cercare lavoro in Svizzera: guida pratica 2026',
+    ogDescription: 'Scopri la guida 2026 per trovare lavoro in Svizzera: portali ufficiali, CV, permessi e regole fiscali per frontalieri e residenti.',
+    canonicalPath: '/articoli-svizzera/cercare-lavoro-svizzera-guida-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cercare lavoro in Svizzera: guida pratica 2026",
+      "description": "Guida completa 2026 per cercare lavoro in Svizzera: portali SECO, stesura CV svizzero, colloqui, permessi, imposta alla fonte e contributi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cercare-lavoro-svizzera-guida-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Guida pratica per cercare lavoro in Svizzera nel 2026"
+      },
+      "datePublished": "2026-07-25T03:16:44+00:00",
+      "dateModified": "2026-07-25T03:16:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cercare-lavoro-svizzera-guida-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

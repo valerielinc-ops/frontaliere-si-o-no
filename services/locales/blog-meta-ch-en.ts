@@ -1525,6 +1525,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.franco-svizzero-tassi-cambio.title': 'The Swiss franc and the phase of currency weakness',
     'blog.article.franco-svizzero-tassi-cambio.excerpt': 'Analysis of the euro franc exchange rate and current economic dynamics reported by the Borsa e Finanza portal.',
     'blog.article.franco-svizzero-tassi-cambio.imageAlt': 'Panoramic view of the lake and Switzerland',
+    'blog.article.cercare-lavoro-svizzera-guida-2026.title': 'Looking for a job in Switzerland: a practical guide 2026',
+    'blog.article.cercare-lavoro-svizzera-guida-2026.excerpt': 'Complete 2026 guide to finding a job in Switzerland: official SECO portals, CV drafting, interviews and permits.',
+    'blog.article.cercare-lavoro-svizzera-guida-2026.imageAlt': 'Practical guide to finding a job in Switzerland in 2026',
 };
 
 export default blogMetaChEn;
