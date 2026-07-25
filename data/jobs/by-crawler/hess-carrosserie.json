@@ -2806,7 +2806,7 @@
       "slugByLocale": {
         "it": "tecnologia-pubblicitaria-di-designer-m-f-d-carrosserie-hess-ag-bellach",
         "en": "designer-advertising-technology-m-f-d-carrosserie-hess-ag-bellach",
-        "de": "gestalter-werbetechnik-m-w-d-hess-bellach",
+        "de": "gestalter-werbetechnik-m-w-d-hess-bellach-vjm5fh",
         "fr": "technologie-de-publicite-des-concepteurs-m-f-d-carrosserie-hess-ag-bellach"
       },
       "company": "Carrosserie HESS AG",
@@ -2853,20 +2853,20 @@
       "department": "Reparatur und Service",
       "previousSlugs": [
         "gestalter-werbetechnik-m-w-d-hess-bellach",
-        "gestalter-werbetechnik-m-w-d-hess-bellach-vjm5fh"
+        "designer-advertising-technology-m-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestalter-werbetechnik-m-w-d-hess-bellach"
         ],
         "en": [
-          "gestalter-werbetechnik-m-w-d-hess-bellach"
+          "gestalter-werbetechnik-m-w-d-hess-bellach",
+          "designer-advertising-technology-m-f-d-carrosserie-hess-ag-bellach"
         ],
         "fr": [
           "gestalter-werbetechnik-m-w-d-hess-bellach"
         ],
         "de": [
-          "gestalter-werbetechnik-m-w-d-hess-bellach-vjm5fh",
           "gestalter-werbetechnik-m-w-d-hess-bellach"
         ]
       },
@@ -2883,8 +2883,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }
