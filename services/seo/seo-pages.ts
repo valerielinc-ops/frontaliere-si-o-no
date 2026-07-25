@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3513,
+ "numberOfItems": 3514,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8281,7 +8281,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3510, "name": "Frontalieri, il telelavoro entra a regime", "url": `${BASE_URL}/articoli-frontaliere/telelavoro-frontalieri-it-svizzera` },
           { "@type": "ListItem", "position": 3511, "name": "Lavora in Svizzera: portali, CV e permesso di l...", "url": `${BASE_URL}/articoli-frontaliere/cerca-lavoro-svizzera-guida-2026` },
           { "@type": "ListItem", "position": 3512, "name": "Quanto guadagna un architetto frontaliere in Ti...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-architetto-stipendio` },
-          { "@type": "ListItem", "position": 3513, "name": "Di più. Da Livigno all'Engadina in dieci minuti.", "url": `${BASE_URL}/articoli-frontaliere/livigno-engadina-treni` }
+          { "@type": "ListItem", "position": 3513, "name": "Di più. Da Livigno all'Engadina in dieci minuti.", "url": `${BASE_URL}/articoli-frontaliere/livigno-engadina-treni` },
+          { "@type": "ListItem", "position": 3514, "name": "Benzina: prezzi al massimo degli ultimi due anni", "url": `${BASE_URL}/articoli-frontaliere/benzina-prezzi-aumentano-ticino` }
  ]
  },
  {
