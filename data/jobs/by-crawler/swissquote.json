@@ -54,13 +54,11 @@
       "streetAddress": "Chemin de la Crétaux",
       "previousSlugs": [
         "fraud-analyst-officer-swissquote-gland",
-        "betrugsanalyst-swissquote-gland",
-        "fraud-analista-officer-swissquote-gland"
+        "betrugsanalyst-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fraud-analyst-officer-swissquote-gland",
-          "fraud-analista-officer-swissquote-gland"
+          "fraud-analyst-officer-swissquote-gland"
         ],
         "de": [
           "betrugsanalyst-swissquote-gland"
@@ -134,13 +132,11 @@
       "postalCode": "1196",
       "streetAddress": "Chemin de la Crétaux 33",
       "previousSlugs": [
-        "product-owner-institutional-wealth-swissquote-gland",
-        "proprietario-del-prodotto-istituzionale-ricchezza-swissquote-gland"
+        "product-owner-institutional-wealth-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-owner-institutional-wealth-swissquote-gland",
-          "proprietario-del-prodotto-istituzionale-ricchezza-swissquote-gland"
+          "product-owner-institutional-wealth-swissquote-gland"
         ],
         "fr": [
           "product-owner-institutional-wealth-swissquote-gland"
@@ -276,13 +272,11 @@
       "postalCode": "8600",
       "streetAddress": "Zürichstrasse 132",
       "previousSlugs": [
-        "customer-care-representative-20-swissquote-dubendorf",
-        "rappresentante-della-customer-care-20-swissquote-dubendorf"
+        "customer-care-representative-20-swissquote-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-care-representative-20-swissquote-dubendorf",
-          "rappresentante-della-customer-care-20-swissquote-dubendorf"
+          "customer-care-representative-20-swissquote-dubendorf"
         ]
       },
       "firstSeenAt": "2026-07-03T23:37:13.799Z",
@@ -414,13 +408,11 @@
       "postalCode": "8600",
       "streetAddress": "Zürichstrasse 132",
       "previousSlugs": [
-        "customer-care-representative-swissquote-dubendorf",
-        "rappresentante-del-cliente-swissquote-dubendorf"
+        "customer-care-representative-swissquote-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-care-representative-swissquote-dubendorf",
-          "rappresentante-del-cliente-swissquote-dubendorf"
+          "customer-care-representative-swissquote-dubendorf"
         ],
         "de": [
           "customer-care-representative-swissquote-dubendorf"
@@ -495,13 +487,11 @@
       "postalCode": "1196",
       "streetAddress": "Chemin de la Crétaux",
       "previousSlugs": [
-        "deputy-compliance-officer-onboarding-private-5-months-swissquote-gland",
-        "agente-compliance-aggiunto-onboarding-private-5-mesi-swissquote-gland"
+        "deputy-compliance-officer-onboarding-private-5-months-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "deputy-compliance-officer-onboarding-private-5-months-swissquote-gland",
-          "agente-compliance-aggiunto-onboarding-private-5-mesi-swissquote-gland"
+          "deputy-compliance-officer-onboarding-private-5-months-swissquote-gland"
         ],
         "de": [
           "deputy-compliance-officer-onboarding-private-5-months-swissquote-gland"
@@ -579,16 +569,14 @@
         "ai-enablement-engineer-swissquote-gland",
         "ai-infrastructure-ingegnere-swissquote-gland",
         "ai-infrastructure-engineer-swissquote-gland",
-        "ai-infrastructure-ingenieur-swissquote-gland",
-        "ai-enablement-ingegnere-swissquote-gland"
+        "ai-infrastructure-ingenieur-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ai-enablement-engineer-swissquote-gland",
           "ai-infrastructure-ingegnere-swissquote-gland",
           "ai-infrastructure-engineer-swissquote-gland",
-          "ai-infrastructure-ingenieur-swissquote-gland",
-          "ai-enablement-ingegnere-swissquote-gland"
+          "ai-infrastructure-ingenieur-swissquote-gland"
         ],
         "en": [
           "ai-infrastructure-engineer-swissquote-gland"
@@ -734,14 +722,12 @@
         "responsabile-design-swissquote-gland",
         "entwurfsleiter-swissquote-gland",
         "gestionnaire-de-conception-swissquote-gland",
-        "design-manager-swissquote-gland",
-        "responsabile-design-swissquote-gland-303193"
+        "design-manager-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "design-manager-swissquote-gland",
-          "responsabile-design-swissquote-gland",
-          "responsabile-design-swissquote-gland-303193"
+          "responsabile-design-swissquote-gland"
         ],
         "de": [
           "design-manager-swissquote-gland",
@@ -832,12 +818,12 @@
     },
     {
       "id": "swissquote-2bb04ecb1c6b",
-      "slug": "insights-analyst-swissquote-gland",
+      "slug": "insights-analista-swissquote-gland",
       "slugByLocale": {
         "en": "insights-analyst-swissquote-gland",
-        "it": "insights-analyst-swissquote-gland",
+        "it": "insights-analista-swissquote-gland",
         "de": "insights-analyst-swissquote-gland",
-        "fr": "insights-analyst-swissquote-gland"
+        "fr": "insights-analyste-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -894,16 +880,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-24T22:12:14.825Z"
+      "firstSeenAt": "2026-07-24T22:12:14.825Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "insights-analyst-swissquote-gland"
+        ],
+        "fr": [
+          "insights-analyst-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "insights-analyst-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-34a702a9d0cf",
-      "slug": "compliance-assistant-onboarding-private-3-months-contract-swissquote-gland",
+      "slug": "assistente-di-compliance-onboarding-private-3-mesi-di-contratto-swissquote-gland",
       "slugByLocale": {
         "en": "compliance-assistant-onboarding-private-3-months-contract-swissquote-gland",
-        "it": "compliance-assistant-onboarding-private-3-months-contract-swissquote-gland",
+        "it": "assistente-di-compliance-onboarding-private-3-mesi-di-contratto-swissquote-gland",
         "de": "compliance-assistant-onboarding-private-3-months-contract-swissquote-gland",
-        "fr": "compliance-assistant-onboarding-private-3-months-contract-swissquote-gland"
+        "fr": "assistant-a-la-conformite-contrat-prive-3-mois-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -966,7 +963,8 @@
           "compliance-officer-onboarding-corporate-contratto-di-9-mesi-swissquote-gland",
           "compliance-officer-onboarding-corporate-9-months-contract-swissquote-gland",
           "compliance-officer-onboarding-corporate-9-monate-vertrag-swissquote-gland",
-          "agent-de-conformite-entreprise-embarquee-contrat-de-9-mois-swissquote-gland"
+          "agent-de-conformite-entreprise-embarquee-contrat-de-9-mois-swissquote-gland",
+          "compliance-assistant-onboarding-private-3-months-contract-swissquote-gland"
         ],
         "en": [
           "compliance-officer-onboarding-corporate-9-months-contract-swissquote-gland"
@@ -975,14 +973,16 @@
           "compliance-officer-onboarding-corporate-9-monate-vertrag-swissquote-gland"
         ],
         "fr": [
-          "agent-de-conformite-entreprise-embarquee-contrat-de-9-mois-swissquote-gland"
+          "agent-de-conformite-entreprise-embarquee-contrat-de-9-mois-swissquote-gland",
+          "compliance-assistant-onboarding-private-3-months-contract-swissquote-gland"
         ]
       },
       "previousSlugs": [
         "compliance-officer-onboarding-corporate-contratto-di-9-mesi-swissquote-gland",
         "compliance-officer-onboarding-corporate-9-months-contract-swissquote-gland",
         "compliance-officer-onboarding-corporate-9-monate-vertrag-swissquote-gland",
-        "agent-de-conformite-entreprise-embarquee-contrat-de-9-mois-swissquote-gland"
+        "agent-de-conformite-entreprise-embarquee-contrat-de-9-mois-swissquote-gland",
+        "compliance-assistant-onboarding-private-3-months-contract-swissquote-gland"
       ]
     },
     {
@@ -1038,14 +1038,12 @@
       "streetAddress": "Chemin de la Crétaux 33",
       "previousSlugs": [
         "regulatory-reporting-specialist-swissquote-gland",
-        "regulatory-reporting-specialista-swissquote-gland-183f34",
-        "regulatory-reporting-specialista-swissquote-gland"
+        "regulatory-reporting-specialista-swissquote-gland-183f34"
       ],
       "previousSlugsByLocale": {
         "it": [
           "regulatory-reporting-specialist-swissquote-gland",
-          "regulatory-reporting-specialista-swissquote-gland-183f34",
-          "regulatory-reporting-specialista-swissquote-gland"
+          "regulatory-reporting-specialista-swissquote-gland-183f34"
         ],
         "de": [
           "regulatory-reporting-specialist-swissquote-gland"
@@ -1070,12 +1068,12 @@
     },
     {
       "id": "swissquote-f1db703072d6",
-      "slug": "product-engineer-swissquote-gland",
+      "slug": "product-ingegnere-swissquote-gland-d8732d",
       "slugByLocale": {
         "en": "product-engineer-swissquote-gland",
-        "it": "product-engineer-swissquote-gland",
-        "de": "product-engineer-swissquote-gland",
-        "fr": "product-engineer-swissquote-gland"
+        "it": "product-ingegnere-swissquote-gland-d8732d",
+        "de": "product-ingenieur-swissquote-gland-d8732d",
+        "fr": "product-ingenieur-swissquote-gland-d8732d"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -1132,7 +1130,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-24T22:12:14.817Z"
+      "firstSeenAt": "2026-07-24T22:12:14.817Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-engineer-swissquote-gland"
+        ],
+        "de": [
+          "product-engineer-swissquote-gland"
+        ],
+        "fr": [
+          "product-engineer-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "product-engineer-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-55ed610ff6e4",
@@ -1188,15 +1200,13 @@
         "brand-marketing-tirocinante-swissquote-gland-xov0cq",
         "brand-marketing-intern-swissquote-gland-k0ffoc",
         "brand-marketing-intern-swissquote-gland",
-        "brand-marketing-tirocinante-swissquote-gland-k0ffoc",
-        "brand-marketing-tirocinante-swissquote-gland"
+        "brand-marketing-tirocinante-swissquote-gland-k0ffoc"
       ],
       "previousSlugsByLocale": {
         "it": [
           "brand-marketing-tirocinante-swissquote-gland-xov0cq",
           "brand-marketing-intern-swissquote-gland",
-          "brand-marketing-tirocinante-swissquote-gland-k0ffoc",
-          "brand-marketing-tirocinante-swissquote-gland"
+          "brand-marketing-tirocinante-swissquote-gland-k0ffoc"
         ],
         "en": [
           "brand-marketing-intern-swissquote-gland-k0ffoc"

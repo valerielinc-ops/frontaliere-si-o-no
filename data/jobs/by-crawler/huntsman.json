@@ -51,13 +51,11 @@
       "jobReqId": "J-019405",
       "previousSlugs": [
         "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-ch",
-        "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-corporati",
-        "tecnologia-di-misura-dell-ingegnere-prova-elettrica-e-fisica-delle-materie-plastiche-huntsman-corporation-basel"
+        "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-corporati"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-ch",
-          "tecnologia-di-misura-dell-ingegnere-prova-elettrica-e-fisica-delle-materie-plastiche-huntsman-corporation-basel"
+          "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-ch"
         ]
       },
       "firstSeenAt": "2026-04-13T10:44:47.716Z",
@@ -123,13 +121,11 @@
       "crawledAt": "2026-07-24T22:16:42.858Z",
       "jobReqId": "J-019681",
       "previousSlugs": [
-        "technologue-en-production-5-equipes-huntsman-ch",
-        "tecnologo-in-produzione-5-squadre-huntsman-corporation-monthey"
+        "technologue-en-production-5-equipes-huntsman-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technologue-en-production-5-equipes-huntsman-ch",
-          "tecnologo-in-produzione-5-squadre-huntsman-corporation-monthey"
+          "technologue-en-production-5-equipes-huntsman-ch"
         ],
         "en": [
           "technologue-en-production-5-equipes-huntsman-ch"
@@ -201,13 +197,11 @@
       "crawledAt": "2026-07-24T22:16:42.226Z",
       "jobReqId": "J-019937",
       "previousSlugs": [
-        "electricien-ou-automaticien-metrologie-huntsman-ch",
-        "elettricista-o-automatico-metrologia-huntsman-corporation-monthey"
+        "electricien-ou-automaticien-metrologie-huntsman-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "electricien-ou-automaticien-metrologie-huntsman-ch",
-          "elettricista-o-automatico-metrologia-huntsman-corporation-monthey"
+          "electricien-ou-automaticien-metrologie-huntsman-ch"
         ],
         "en": [
           "electricien-ou-automaticien-metrologie-huntsman-ch"
@@ -233,9 +227,9 @@
     },
     {
       "id": "huntsman-35914ab41961",
-      "slug": "logisticien-m-w-d-huntsman-corporation-monthey",
+      "slug": "logistician-h-f-huntsman-corporation-monthey",
       "slugByLocale": {
-        "it": "logisticien-m-w-d-huntsman-corporation-monthey",
+        "it": "logistician-h-f-huntsman-corporation-monthey",
         "en": "logisticien-h-f-huntsman-ch",
         "de": "logistikan-h-f-huntsman-corporation-monthey",
         "fr": "logisticien-h-f-huntsman-ch"
@@ -287,7 +281,6 @@
         "pilot-anlagenbediener-huntsman-corporation-monthey",
         "operateur-pilote-huntsman-corporation-monthey",
         "logisticien-h-f-huntsman-corporation-monthey",
-        "logistician-h-f-huntsman-corporation-monthey",
         "logisticien-m-w-d-huntsman-corporation-monthey"
       ],
       "previousSlugsByLocale": {
@@ -300,7 +293,6 @@
           "pilot-anlagenbediener-huntsman-corporation-monthey",
           "operateur-pilote-huntsman-corporation-monthey",
           "logisticien-h-f-huntsman-corporation-monthey",
-          "logistician-h-f-huntsman-corporation-monthey",
           "logisticien-m-w-d-huntsman-corporation-monthey"
         ],
         "en": [
@@ -331,12 +323,12 @@
     },
     {
       "id": "huntsman-52062f5867ce",
-      "slug": "material-scientist-pcb-materials-huntsman-ch",
+      "slug": "scienziato-materiale-materiali-pcb-huntsman-corporation-basel",
       "slugByLocale": {
         "en": "material-scientist-pcb-materials-huntsman-ch",
-        "it": "material-scientist-pcb-materials-huntsman-ch",
-        "de": "material-scientist-pcb-materials-huntsman-ch",
-        "fr": "material-scientist-pcb-materials-huntsman-ch"
+        "it": "scienziato-materiale-materiali-pcb-huntsman-corporation-basel",
+        "de": "materialwissenschaftler-pcb-materialien-huntsman-corporation-basel",
+        "fr": "scientifique-des-materiaux-materiaux-pcb-huntsman-corporation-basel"
       },
       "company": "Huntsman Corporation",
       "companyKey": "huntsman",
@@ -391,14 +383,28 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-24T22:16:40.828Z"
+      "firstSeenAt": "2026-07-24T22:16:40.828Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "material-scientist-pcb-materials-huntsman-ch"
+        ],
+        "de": [
+          "material-scientist-pcb-materials-huntsman-ch"
+        ],
+        "fr": [
+          "material-scientist-pcb-materials-huntsman-ch"
+        ]
+      },
+      "previousSlugs": [
+        "material-scientist-pcb-materials-huntsman-ch"
+      ]
     },
     {
       "id": "huntsman-36e1a25387c1",
-      "slug": "laboratory-technician-pcb-materials-huntsman-ch",
+      "slug": "laboratorio-tecnico-materiali-pcb-huntsman-corporation-basel",
       "slugByLocale": {
         "en": "laboratory-technician-pcb-materials-huntsman-ch",
-        "it": "laboratory-technician-pcb-materials-huntsman-ch",
+        "it": "laboratorio-tecnico-materiali-pcb-huntsman-corporation-basel",
         "de": "laboratory-technician-pcb-materials-huntsman-ch",
         "fr": "laboratory-technician-pcb-materials-huntsman-ch"
       },
@@ -455,7 +461,15 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-24T22:16:40.031Z"
+      "firstSeenAt": "2026-07-24T22:16:40.031Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "laboratory-technician-pcb-materials-huntsman-ch"
+        ]
+      },
+      "previousSlugs": [
+        "laboratory-technician-pcb-materials-huntsman-ch"
+      ]
     }
   ]
 }
