@@ -1552,6 +1552,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-lucerna.title': 'Guide du système de santé suisse : obligation LAMal et franchises',
     'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-lucerna.excerpt': 'Le guide pratique pour les frontaliers résidant dans le canton de Lucerne et devant utiliser le système de santé suisse.',
     'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-lucerna.imageAlt': 'Une guide pratique pour les frontaliers résidant dans le canton de Lucerne et devant utiliser le système de santé suisse.',
+    'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.title': 'Restaurants frontaliers : accord avec le Tessin',
+    'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.excerpt': 'Le sous-secrétaire à l\'économie, Sertori, a déclaré qu\'il n\'y aurait pas d\'effet immédiat sur les salaires des frontaliers, mais qu\'ils trouveraient un accord avec le Tessin',
+    'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.imageAlt': 'Paysage de Lugano avec le lac et l\'immeuble historique',
 };
 
 export default blogMetaChFr;

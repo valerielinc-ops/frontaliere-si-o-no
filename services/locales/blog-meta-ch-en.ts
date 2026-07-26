@@ -1552,6 +1552,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-lucerna.title': 'Guide to the Swiss health system: LAMal obligation and deductibles',
     'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-lucerna.excerpt': 'The practical guide for border workers who reside in the Canton of Lucerne and must use the Swiss health system.',
     'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-lucerna.imageAlt': 'A practical guide for cross-border workers residing in the Canton of Lucerne and needing to use the Swiss health system.',
+    'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.title': 'Border refurbishments: agreement with Ticino',
+    'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.excerpt': 'The Undersecretary for the Economy, Sertori, said that there will be no immediate effect on the salaries of border workers, but that they will find an agreement with Ticino',
+    'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.imageAlt': 'Lugano cityscape with lake and historic building',
 };
 
 export default blogMetaChEn;

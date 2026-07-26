@@ -1552,6 +1552,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-lucerna.title': 'Guida al sistema sanitario svizzero: obbligo LAMal e franchigie',
     'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-lucerna.excerpt': 'La guida pratica per i frontalieri che risiedono nel Canton Lucerna e devono utilizzare il sistema sanitario svizzero.',
     'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-lucerna.imageAlt': 'Una guida pratica per i frontalieri che risiedono nel Canton Lucerna e devono utilizzare il sistema sanitario svizzero.',
+    'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.title': 'Ristorni frontalieri: accordo con il Ticino',
+    'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.excerpt': 'Il sottosegretario per l\'economia, Sertori, ha dichiarato che non ci sarà alcun effetto immediato sugli stipendi dei frontalieri, ma che troveranno un accordo con il Ticino',
+    'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.imageAlt': 'Scena di Lugano con il lago e l\'edificio storico',
 };
 
 export default blogMetaChIt;

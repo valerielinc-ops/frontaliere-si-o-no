@@ -4902,6 +4902,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-trasferirsi-a-trasquera-da-frontaliere-pro-e-contro': { name: 'Trasferirsi a Trasquera da frontaliere', path: '/articoli-frontaliere/trasferirsi-a-trasquera-da-frontaliere-pro-e-contro', parent: 'blog' },
     'blog-sistema-sanitario-svizzero-lamal-guida-canton-lucerna': { name: 'Sistema sanitario svizzero', path: '/articoli-svizzera/sistema-sanitario-svizzero-lamal-guida-canton-lucerna/', parent: 'blog' },
     'blog-dazi-usa-economia-svizzera': { name: 'Dazi USA ed economia', path: '/articoli-frontaliere/dazi-usa-economia-svizzera', parent: 'blog' },
+    'blog-ristorni-frontalieri-sertori-nessun-effetto-immediato': { name: 'Frontalieri e stipendi', path: '/articoli-svizzera/ristorni-frontalieri-sertori-nessun-effetto-immediato/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
