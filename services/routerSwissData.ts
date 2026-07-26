@@ -544,6 +544,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'esercito-svizzero-valuta-bunker': { it: 'esercito-svizzero-valuta-bunker', en: 'swiss-army-evaluates-bunkers', de: 'schweizer-armee-prueft-bunker', fr: 'larmee-suisse-evalue-les-bunkers' },
  'confronto-imposta-cantonale-svizzera-cantoni': { it: 'confronto-imposta-cantonale-svizzera-cantoni', en: 'swiss-cantonal-tax-comparison', de: 'schweizer-kantonalsteuer-vergleich', fr: 'comparaison-de-l-impot-cantonal-en-suisse' },
  'lavoro-svizzera-frontalieri-guida': { it: 'lavoro-svizzera-frontalieri-guida', en: 'work-switzerland-cross-border-guide', de: 'arbeiten-schweiz-grenzgaenger-leitfaden', fr: 'travail-suisse-frontaliers-guide' },
+ 'costo-vita-cantone-svizzera': { it: 'costo-vita-cantone-svizzera', en: 'cost-of-living-swiss-cantons', de: 'lebenskosten-schweizer-kantone', fr: 'cout-de-vie-suisse-par-canton' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

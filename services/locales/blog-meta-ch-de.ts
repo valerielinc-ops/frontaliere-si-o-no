@@ -1564,6 +1564,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lavoro-svizzera-frontalieri-guida.title': 'Arbeit in der Schweiz und Grenzgänger: Forschung, Agenturen und Genehmigungen',
     'blog.article.lavoro-svizzera-frontalieri-guida.excerpt': 'Erfahren Sie, wie Sie in der Schweiz nach Arbeit suchen, welche Kanäle zwischen Agenturen und dem Internet genutzt werden und welche Genehmigungen Grenzgänger benötigen.',
     'blog.article.lavoro-svizzera-frontalieri-guida.imageAlt': 'Lugano Panorama mit Blick auf den See und die Schweizer Region',
+    'blog.article.costo-vita-cantone-svizzera.title': 'Lebenshaltungskosten in der Schweiz: Vergleich der Kantone',
+    'blog.article.costo-vita-cantone-svizzera.excerpt': 'Ein Vergleich der Lebenshaltungskosten in den wichtigsten Schweizer Kantonen: Mieten, Ausgaben, Transport und Versicherungen.',
+    'blog.article.costo-vita-cantone-svizzera.imageAlt': 'Eine Szene von Lugano mit dem See im Vordergrund',
 };
 
 export default blogMetaChDe;

@@ -1564,6 +1564,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lavoro-svizzera-frontalieri-guida.title': 'Work in Switzerland and border workers: research, agencies and permits',
     'blog.article.lavoro-svizzera-frontalieri-guida.excerpt': 'Find out how to look for work in Switzerland, what channels to use between agencies and the web, and what permits are needed for border workers.',
     'blog.article.lavoro-svizzera-frontalieri-guida.imageAlt': 'Lugano panorama overlooking the lake and Swiss territory',
+    'blog.article.costo-vita-cantone-svizzera.title': 'Cost of living in Switzerland: comparison between cantons',
+    'blog.article.costo-vita-cantone-svizzera.excerpt': 'A comparison of living costs in the main Swiss cantons: rent, spending, transport and insurance.',
+    'blog.article.costo-vita-cantone-svizzera.imageAlt': 'A scene of Lugano with the lake in the foreground',
 };
 
 export default blogMetaChEn;
