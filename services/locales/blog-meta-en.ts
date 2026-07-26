@@ -8986,6 +8986,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-rallentano-ticino-aumentano-grigioni.title': 'Frontiersmen: slow down in Ticino, increase in Graubünden',
     'blog.article.frontalieri-rallentano-ticino-aumentano-grigioni.excerpt': 'The data for the third quarter confirm the slowdown in the number of foreign workers in Ticino, while in Graubünden it increases.',
     'blog.article.frontalieri-rallentano-ticino-aumentano-grigioni.imageAlt': 'The number of foreign workers in Ticino is decreasing, while in Grigioni is increasing.',
+    'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.title': 'Moving to Claino with Osteno from border crossing: pros and cons',
+    'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.excerpt': 'What should a border worker who works in Ticino and resides in Italy consider before moving to Claino con Osteno?',
+    'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.imageAlt': 'A frontaliere who works in Ticino and resides in Italy is faced with the choice of moving to Claino with Osteno.',
 };
 
 export default blogMetaEn;

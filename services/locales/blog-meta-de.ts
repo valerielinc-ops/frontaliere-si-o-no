@@ -8985,6 +8985,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-rallentano-ticino-aumentano-grigioni.title': 'Grenzgänger: Verlangsamung im Tessin, Anstieg in Graubünden',
     'blog.article.frontalieri-rallentano-ticino-aumentano-grigioni.excerpt': 'Die Daten des dritten Quartals bestätigen die Verlangsamung der Zahl der ausländischen Arbeitnehmer im Tessin, während sie in Graubünden zunimmt.',
     'blog.article.frontalieri-rallentano-ticino-aumentano-grigioni.imageAlt': 'Die Anzahl der ausländischen Arbeiter in Tessin nimmt ab, während in Graubünden zunimmt.',
+    'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.title': 'Umzug nach Claino mit Osteno als Grenzgänger: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.excerpt': 'Was ein Grenzgänger, der im Tessin arbeitet und in Italien wohnt, beachten muss, bevor er mit Osteno nach Claino zieht.',
+    'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.imageAlt': 'Ein Frontalier, der in Ticino arbeitet und in Italien wohnt, steht vor der Wahl, nach Claino mit Osteno umzuziehen.',
 };
 
 export default blogMetaDe;
