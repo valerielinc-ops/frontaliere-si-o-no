@@ -534,6 +534,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'cercare-lavoro-svizzera-guida-2026': { it: 'cercare-lavoro-svizzera-guida-2026', en: 'job-search-switzerland-guide-2026', de: 'jobsuche-schweiz-leitfaden-2026', fr: 'recherche-emploi-suisse-guide-2026' },
  'cerca-lavoro-svizzera-guida-2026': { it: 'cerca-lavoro-svizzera-guida-2026', en: 'guide-job-search-switzerland-2026', de: 'arbeitsplatz-schweiz-anleitung-2026', fr: 'recherche-demploi-suisse-guides-2026' },
  'benzina-prezzi-aumentano-ticino': { it: 'benzina-prezzi-aumentano-ticino', en: 'benzina-prices-increase-ticino', de: 'benzina-preise-steigen-lugano', fr: 'benzina-prix-ont-increases-lugano' },
+ 'svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera': { it: 'svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera', en: 'tariff-disadvantage-will-only-mildly-brake-swiss-economy', de: 'zoll-nachteil-erfasst-schweizer-wirtschaft-nur-mild', fr: 'd-c3-a9savantage-dutaxe-ne-fera-que-d-c3-a9j-c3-a9-un-bruit-c3-a9lev-c3-a9-sur-l' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

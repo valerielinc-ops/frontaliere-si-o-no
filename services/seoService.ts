@@ -4890,6 +4890,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-livigno-engadina-treni': { name: 'Livigno Engadina Treni', path: '/articoli-frontaliere/livigno-engadina-treni', parent: 'blog' },
     'blog-benzina-prezzi-aumentano-ticino': { name: 'I prezzi della benzina', path: '/articoli-svizzera/benzina-prezzi-aumentano-ticino/', parent: 'blog' },
     'blog-lavena-ponte-tresa-frontaliere': { name: 'Lavena Ponte Tresa Frontaliere', path: '/articoli-frontaliere/lavena-ponte-tresa-frontaliere', parent: 'blog' },
+    'blog-svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera': { name: 'Svantaggio doganale', path: '/articoli-svizzera/svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

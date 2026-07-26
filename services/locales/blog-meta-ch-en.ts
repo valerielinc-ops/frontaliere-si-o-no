@@ -1534,6 +1534,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.benzina-prezzi-aumentano-ticino.title': 'Petrol: prices at the most in the last two years',
     'blog.article.benzina-prezzi-aumentano-ticino.excerpt': 'Gasoline prices have increased by 4 cents per liter and reach the highest level in the last two years',
     'blog.article.benzina-prezzi-aumentano-ticino.imageAlt': 'The lake of Lugano on a sunny day with the surrounding mountains',
+    'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.title': 'More KOF, customs disadvantage only slightly slows down the Swiss economy',
+    'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.excerpt': 'According to the KOF, the US customs duty rate should only put a minimal brake on the Swiss economy.',
+    'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.imageAlt': 'Frontalier from Ticino with view on Lugano city',
 };
 
 export default blogMetaChEn;
