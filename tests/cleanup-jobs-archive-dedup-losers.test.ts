@@ -529,6 +529,14 @@ describe('cleanup-jobs standard mode — archives within-slice slug-dedup losers
     fs.symlinkSync(path.resolve(process.cwd(), 'scripts'), path.join(sandbox, 'scripts'));
     fs.mkdirSync(path.join(sandbox, 'data'), { recursive: true });
     fs.mkdirSync(path.join(sandbox, 'public', 'data'), { recursive: true });
+    // scripts/lib/target-swiss-locations.mjs statically imports this git-tracked
+    // data file (see docs/AGENTS-HISTORY.md#spa-bundle-resolver-static-filenames,
+    // "terzo giro") — symlink it in like scripts/ above, since a static ESM
+    // import can't gracefully degrade on a missing file the way readFileSync could.
+    fs.symlinkSync(
+      path.resolve(process.cwd(), 'data', 'canton-municipalities.json'),
+      path.join(sandbox, 'data', 'canton-municipalities.json'),
+    );
 
     const expiredJobsPath = path.join(dir, 'expired-jobs.json');
     const publicExpiredJobsPath = path.join(dir, 'public-expired-jobs.json');

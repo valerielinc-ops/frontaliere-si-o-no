@@ -1,10 +1,5 @@
-import { readFileSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
+import MUNICIPALITY_DATA from '../../data/canton-municipalities.json' with { type: 'json' };
 import { TARGET_CANTONS, SWISS_CANTONS, isTargetCanton } from './crawler-location-config.mjs';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const DATA_DIR = join(__dirname, '..', '..', 'data');
 
 // ─── Text normalization ────────────────────────────────────────────────────
 
@@ -29,19 +24,20 @@ export function normalizeSwissTargetLocationText(text = '') {
   return normalizeToken(text);
 }
 
-// ─── Load municipality data from BFS-generated JSON ────────────────────────
-
-function loadMunicipalityData() {
-  try {
-    const raw = readFileSync(join(DATA_DIR, 'canton-municipalities.json'), 'utf8');
-    return JSON.parse(raw);
-  } catch {
-    console.warn('⚠️  canton-municipalities.json not found — run: npm run data:municipalities');
-    return { cantons: {} };
-  }
-}
-
-const MUNICIPALITY_DATA = loadMunicipalityData();
+// MUNICIPALITY_DATA is a static JSON import (see top of file) — this makes
+// the module bundleable for BOTH Node execution (standalone `scripts/*.mjs`
+// crawlers) AND the browser client build. `jobPostingSchema.ts` (which
+// re-exports through here) is shared with `services/seoService.ts` for
+// runtime SPA JSON-LD injection, so this file is reachable from Rollup's
+// CLIENT bundle graph, not just Node-side build plugins. The previous
+// `fs.readFileSync(dirname(fileURLToPath(...)))` approach needed Node's
+// `fs`/`path`/`url` builtins, which Rollup cannot provide when bundling for
+// the browser target — surfaced as a closeBundle-time Rollup failure
+// 2026-07-26 ("'dirname' is not exported by '__vite-browser-external'"),
+// masked for ~2 days by an unrelated build-race bug that failed earlier in
+// the pipeline (see docs/AGENTS-HISTORY.md#spa-bundle-resolver-static-filenames).
+// Same JSON-import convention already used by build-plugins/fiscalMunicipalityData.ts,
+// build-plugins/healthFacilitiesData.ts, and scripts/lib/events-utils.mjs.
 
 // ─── Ambiguous municipality tokens ─────────────────────────────────────────
 // A few real Swiss municipalities have single-word names that, after accent
