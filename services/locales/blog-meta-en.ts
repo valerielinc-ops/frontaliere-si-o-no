@@ -8989,6 +8989,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.title': 'Moving to Claino with Osteno from border crossing: pros and cons',
     'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.excerpt': 'What should a border worker who works in Ticino and resides in Italy consider before moving to Claino con Osteno?',
     'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.imageAlt': 'A frontaliere who works in Ticino and resides in Italy is faced with the choice of moving to Claino with Osteno.',
+    'blog.article.gestione-sentieri-ticino.title': 'From reports to works, the management of trails in Ticino',
+    'blog.article.gestione-sentieri-ticino.excerpt': 'The management of trails in Ticino is a coordinated process that involves several actors. Stefano Olgiati, technical manager of the TicinoSentieri hiking trails, explains how the network that keeps the routes of the Canton of Ticino viable works.',
+    'blog.article.gestione-sentieri-ticino.imageAlt': 'Hikers in a trail in the Monte Bre area',
 };
 
 export default blogMetaEn;

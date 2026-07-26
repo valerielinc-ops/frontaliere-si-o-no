@@ -27008,6 +27008,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'gestione-sentieri-ticino',
+ category: 'pratico',
+ date: '2026-07-26T06:37:45.823Z',
+ image: '/images/blog/gestione-sentieri-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

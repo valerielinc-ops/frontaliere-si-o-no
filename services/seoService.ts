@@ -4913,6 +4913,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-costo-vita-cantone-svizzera': { name: 'Costo della vita nei principali cantoni', path: '/articoli-svizzera/costo-vita-cantone-svizzera/', parent: 'blog' },
     'blog-trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro': { name: 'Trasferirsi a Claino con Osteno da', path: '/articoli-frontaliere/trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro', parent: 'blog' },
     'blog-premi-cassa-malati-lamal-per-cantone': { name: 'Perché i premi LAMal variano tanto tra', path: '/articoli-svizzera/premi-cassa-malati-lamal-per-cantone/', parent: 'blog' },
+    'blog-gestione-sentieri-ticino': { name: 'La gestione dei sentieri in Ticino', path: '/articoli-frontaliere/gestione-sentieri-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];
