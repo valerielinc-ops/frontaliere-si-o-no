@@ -8964,6 +8964,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere.title': 'Leben in Trasquera, Arbeiten im Tessin: Verbindungen und Lebenshaltungskosten',
     'blog.article.vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere.excerpt': 'Die Region Trasquera bietet eine hohe Lebensqualität und eine einzigartige natürliche Umgebung. Die Arbeit im Tessin kann jedoch einige Herausforderungen für Grenzgänger mit sich bringen.',
     'blog.article.vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'Ein Frontalier in Trasquera',
+    'blog.article.vivere-bizzarone-lavorare-ticino.title': 'Wohnen in Bizzarone und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-bizzarone-lavorare-ticino.excerpt': 'Weil das Tessin eine gute Wahl für Grenzgänger ist, die in der Schweiz arbeiten möchten.',
+    'blog.article.vivere-bizzarone-lavorare-ticino.imageAlt': 'Ein Frontalier fährt über die italienisch-schweizerische Grenze.',
 };
 
 export default blogMetaDe;

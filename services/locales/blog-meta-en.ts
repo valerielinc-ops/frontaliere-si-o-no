@@ -8965,6 +8965,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere.title': 'Living in Trasquera, working in Ticino: connections and cost of living',
     'blog.article.vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere.excerpt': 'The Trasquera region offers a high quality of life and a unique natural environment. However, working in Ticino can present some challenges for border workers.',
     'blog.article.vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'A frontalier in Trasquera',
+    'blog.article.vivere-bizzarone-lavorare-ticino.title': 'Living in Bizzarone and working in Ticino as a border worker',
+    'blog.article.vivere-bizzarone-lavorare-ticino.excerpt': 'Because Ticino is a great choice for border workers who want to work in Switzerland.',
+    'blog.article.vivere-bizzarone-lavorare-ticino.imageAlt': 'A frontaliere driving across the Italy-Switzerland border.',
 };
 
 export default blogMetaEn;
