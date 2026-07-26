@@ -5,9 +5,10 @@ import {
   type ScenarioDataMap,
 } from '../../build-plugins/salaryHubArticles';
 
-// generateArticleHtml resolves SPA entry assets from `distDir`; a non-existent
-// path is handled gracefully (resolveEntryAssets existsSync check → empty
-// strings), so no prior Vite build is needed for these unit assertions.
+// generateArticleHtml resolves SPA entry assets from `distDir`, but
+// resolveEntryAssets returns the fixed filenames unconditionally (no disk
+// check), so a non-existent path works fine — no prior Vite build is needed
+// for these unit assertions.
 const NO_DIST = '/tmp/nonexistent-dist-for-article-schema-test';
 const EMPTY_DATA: ScenarioDataMap = { scenarios: [], results: new Map() };
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
