@@ -8992,6 +8992,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gestione-sentieri-ticino.title': 'From reports to works, the management of trails in Ticino',
     'blog.article.gestione-sentieri-ticino.excerpt': 'The management of trails in Ticino is a coordinated process that involves several actors. Stefano Olgiati, technical manager of the TicinoSentieri hiking trails, explains how the network that keeps the routes of the Canton of Ticino viable works.',
     'blog.article.gestione-sentieri-ticino.imageAlt': 'Hikers in a trail in the Monte Bre area',
+    'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.title': 'Star fuel cost: petrol at €1.97 and diesel at €2.18',
+    'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.excerpt': 'The average fuel prices reported by the Ministry of Business and Made in Italy show increases along the road and motorway network.',
+    'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.imageAlt': 'High fuel costs with updated petrol and diesel prices',
 };
 
 export default blogMetaEn;

@@ -8991,6 +8991,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gestione-sentieri-ticino.title': 'Von Ausschreibungen bis Arbeiten: Wanderweg-Verwaltung im Tessin',
     'blog.article.gestione-sentieri-ticino.excerpt': 'Die Verwaltung der Wanderwege im Tessin ist ein koordinierter Prozess, an dem verschiedene Akteure beteiligt sind. Stefano Olgiati, technischer Leiter der Wanderwege von TicinoSentieri, erklärt, wie das Netz funktioniert, das die Wege des Kantons Tessin befahrbar hält.',
     'blog.article.gestione-sentieri-ticino.imageAlt': 'Wanderer auf einem Pfad im Monte Bre Gebiet',
+    'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.title': 'Starke Kraftstoffkosten: Benzin bei 1,97 Euro und Diesel bei 2,18 Euro',
+    'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.excerpt': 'Die vom Ministerium für Unternehmen und Made in Italy mitgeteilten Durchschnittspreise für Kraftstoffe zeigen Preissteigerungen entlang des Straßen- und Autobahnnetzes.',
+    'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.imageAlt': 'Hohe Kraftstoffkosten mit aktualisierten Benzin- und Dieselpreisen',
 };
 
 export default blogMetaDe;
