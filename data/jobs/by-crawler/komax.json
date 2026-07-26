@@ -1,6 +1,6 @@
 {
   "crawlerKey": "komax",
-  "assembledAt": "2026-07-25T22:14:06.122Z",
+  "assembledAt": "2026-07-26T11:07:53.655Z",
   "jobs": [
     {
       "id": "komax-5451b22315fd",
@@ -33,7 +33,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Leiter-Strategic-Procurement-100-%28mwd%29-6036/1164641555/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T22:14:03.538Z",
+      "crawledAt": "2026-07-26T11:07:51.297Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -99,7 +99,7 @@
       "title": "Elektroingenieur/in Embedded Software & Hardware 80-100%",
       "titleByLocale": {
         "it": "Ingegnere elettrico/a Embedded Software & Hardware 80-100%",
-        "en": "Electrical Engineer in Embedded Software & Hardware 80-100 %",
+        "en": "Elektroingenieur/in Embedded Software & Hardware 80-100%",
         "de": "Elektroingenieur/in Embedded Software & Hardware 80-100%",
         "fr": "Ingénieur électrique en logiciel et matériel embarqué 80-100 %"
       },
@@ -115,7 +115,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Elektroingenieurin-Embedded-Software-&-Hardware-80-100-6036/1163802255/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T22:14:03.538Z",
+      "crawledAt": "2026-07-26T11:07:51.297Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -157,6 +157,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:28:54.611Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -201,7 +202,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Logistikerin-EFZ-2027-6036/1164647555/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T22:14:03.537Z",
+      "crawledAt": "2026-07-26T11:07:51.296Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -237,6 +238,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.824Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -281,7 +283,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Fachfrau-Fachmann-Betriebsunterhalt-EFZ-2027-6036/1164647755/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T22:14:03.537Z",
+      "crawledAt": "2026-07-26T11:07:51.296Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -317,6 +319,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.826Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -361,7 +364,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Development-Engineer-Electronics-with-EMV-lead-6036/1165135955/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T22:14:03.536Z",
+      "crawledAt": "2026-07-26T11:07:51.295Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -394,6 +397,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:09:26.370Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -403,86 +407,6 @@
           "@type": "QuantitativeValue",
           "minValue": 96000,
           "maxValue": 146000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "komax-aafe73ad37b8",
-      "slug": "apprendistato-polymechaniker-in-cfc-2027-komax-dierikon",
-      "slugByLocale": {
-        "it": "apprendistato-polymechaniker-in-cfc-2027-komax-dierikon",
-        "en": "polymechanical-apprenticeship-in-efz-2027-komax-dierikon",
-        "de": "lehrstelle-polymechaniker-in-efz-2027-komax-ch",
-        "fr": "l-apprentissage-polymecanique-en-efz-2027-komax-dierikon"
-      },
-      "company": "Komax",
-      "companyKey": "komax",
-      "companyDomain": "komaxgroup.com",
-      "title": "Lehrstelle Polymechaniker/in EFZ 2027",
-      "titleByLocale": {
-        "it": "Apprendistato Polymechaniker/in CFC 2027",
-        "en": "Apprenticeship Position Polymachinist EFZ 2027",
-        "de": "Lehrstelle Polymechaniker/in EFZ 2027",
-        "fr": "Poste de travail Polymecanicien EFZ 2027"
-      },
-      "description": "An unserem Standort in Dierikon bieten wir per August 2027 diese spannende Ausbildungsstelle an.\n\nPolymechanikerinnen und Polymechaniker fertigen Werkstücke, stellen Werkzeuge und Vorrichtungen für die Produktion her oder bauen Geräte, Apparate, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte, erstellen technische Dokumente, bauen Prototypen oder führen Versuche durch. Sie wirken mit bei Inbetriebnahmen, beim Planen und Überwachen von Produktionsprozessen oder führen Instandhaltungsarbeiten an Produktionsanlagen aus.\n\nMögliche Tätigkeitsgebiete\nTeilefertigung\n\n• Einfache und hochkomplexe mechanische Werkstücke herstellen\n\n• Einzelteile zu Baugruppen für die Serienproduktion herstellen\n\n• Einrichtungen, Vorrichtungen und Hilfsmittel herstellen\n\n• Planen und Dokumentieren der hergestellten Werkstücke\n\n• Werkstücke selbständig programmieren\n\n• Einrichten und bedienen von CNC-Präzisionsmaschinen\n\n• Qualitätskontrolle der eigenen Werkstücke\n\nMontagetechnik\n\n• Baugruppen und Geräte montieren, einstellen und in Betrieb nehmen\n\n• Mithilfe bei Vor- und Endmontage\n\n• Arbeiten mit elektromechanischen Bauteilen, Motoren, Zylindern und Ventilen gemäss Instruktionen und Lieferantenmerkblättern\n\nEinsatzorte\n\n• Praktische Ausbildung: Komax Dierikon\n\n• Schulische Ausbildung: BBZ Wirtschaft, Informatik und Technik Emmen\n\n• Überbetriebliche Kurse: Swissmechanic Luzern\n\nVoraussetzungen\nSchulische Voraussetzungen\n\n• Sekundarschule Niveau B mit gutem bis sehr gutem Abschluss\n\n• Gute Leistungen in Mathematik und den naturwissenschaftlichen Fächern\n\nPersönliche Voraussetzungen\n\n• Wenn möglich Erfahrung im technischen Zeichnen\n\n• Interesse und sehr gute Leistungen in Mathematik und Physik\n\n• Interesse an technischen Zusammenhängen, Metallbearbeitung und Maschinen\n\n• Handwerkliches Geschick\n\n• Systematische Arbeitsweise\n\n• Gutes Vorstellungsvermögen\n\n• Keine Allergien auf Metalle, Fette und Öle\n\n• Freude am Arbeiten im Team\n\nDeine Zukunft ist uns wichtig!\nIn einem spannenden technischen Umfeld gestalten wir gemeinsam deinen Ausbildungsweg und bieten dir eine anspruchsvolle Tätigkeit mit viel Eigenverantwortung sowie Gestaltungsfreiraum. Wir sehen die Ausbildung von angehenden Berufsfachkräften als Gewinn und fördern mit qualitativ hochstehenden Berufslehren die Talente von morgen.\n\nWir freuen uns auf deine vollständige Bewerbung:\n\n• Motivationsschreiben\n\n• Lebenslauf inkl. Foto und Referenzen\n\n• Sämtliche Semesterzeugnisse der Oberstufe\n\n• Schnupperlehrberichte\n\n• Stellwerk\n\n• Basic- oder Multicheck\n\nPack diese Chance – bewirb dich noch heute!\n\nHast du noch Fragen?\nWir stehen dir gerne für weitere Auskünfte zur Verfügung:\nChristian Huber, Ausbildungsverantwortlicher, Tel. dir. +41 41 455 04 46\n\nWir sind jetzt auch auf TikTok – für echte Einblicke hinter die Kulissen:\n 🎥 @komax_schweiz",
-      "descriptionByLocale": {
-        "it": "A partire dall'agosto 2027 offriamo questo entusiasmante luogo di formazione presso il nostro sito Dierikon. La Polymechanics produce pezzi, produce strumenti e dispositivi per la produzione, assembla attrezzature, attrezzature, macchine o impianti. In collaborazione con altri esperti, elaborano ordini o progetti, creano documenti tecnici, costruiscono prototipi o svolgono esperimenti. Lavorano con la messa in servizio, la pianificazione e il monitoraggio dei processi produttivi o svolgono lavori di manutenzione su impianti di produzione. Possibilità di attività Produzione di pezzi\n• Pezzi meccanici semplici e altamente complessi\n• Rendere singoli pezzi in assemblaggi per la produzione in serie\n• Attrezzature, dispositivi e utensili di produzione\n• Pianificazione e documentazione dei pezzi lavorati\n• Programming pezzi indipendentemente\n• Impostazione e funzionamento di macchine di precisione CNC\n• Controllo della qualità dei propri pezzi Tecnologia di assemblaggio\n• Montaggio, installazione e messa in servizio di assemblaggi e attrezzature\n• Utilizzo di assemblaggi pre e finali\n• Lavorazione con componenti elettromeccanici, motori, Cilindri e valvole secondo istruzioni e note del fornitore Sedi\n• Formazione pratica: Komax Dierikon\n• Formazione scolastica: BBZ Economia, Informatica e Tecnologia Emmen\n• Corsi super-aziendali: Swissmechanic Luzern Requisiti scolastici Requisiti scolastici\n• Livello secondario B con buone ottime qualifiche\n• Buon rendimento in matematica e materie scientifiche Requisiti personali\n• Se possibile esperienza nel disegno tecnico\n• Interesse e ottime prestazioni in matematica e fisica\n• Interesse per i collegamenti tecnici, Lavorazione dei metalli e delle macchine\n• Capacità\n• Metodo di lavoro sistematico\n• Buona immaginazione\n• Nessuna allergia ai metalli, ai grassi e agli oli\n• Gioia nel lavorare nel team Il tuo futuro è importante per noi! In un ambiente tecnico emozionante, progettiamo insieme il tuo corso di formazione e ti offriamo un lavoro impegnativo con molta responsabilità e libertà di progettazione. Vediamo la formazione di potenziali professionisti come un guadagno e promuovere i talenti di domani con apprendistati professionali di alta qualità. Attendiamo con ansia la tua applicazione completa:\n• lettera di motivazione\n• CV compresa foto e riferimenti\n• Tutti i certificati semestri del livello superiore\n• rapporti scolastici\n• interblocco\n• Basic or Multicheck Pack questa opportunità. applicare oggi! Avete domande? Siamo lieti di fornirvi ulteriori informazioni: Christian Huber, Training Manager, Tel. dir. +41 41 455 04 46 Siamo ora anche su TikTok. per le vere e proprie intuizioni dietro le quinte:",
-        "en": "As of August 2027, we are offering this exciting training place at our Dierikon site. Polymechanics manufacture workpieces, manufacture tools and devices for production, or assemble equipment, equipment, machines or plants. In cooperation with other experts, they process orders or projects, create technical documents, build prototypes or carry out experiments. They work with commissioning, planning and monitoring production processes or carry out maintenance work on production plants. Possible areas of activity Part production\n• Simple and highly complex mechanical workpieces\n• Making individual parts into assemblies for series production\n• Manufacturing equipment, devices and tools\n• Planning and documenting the manufactured workpieces\n• Programming workpieces independently\n• Setting up and operating CNC precision machines\n• Quality control of the own workpieces Assembly technology\n• Assembly, setting up and commissioning assemblies and equipment\n• Using pre- and final assembly\n• Working with electromechanical components, motors, Cylinders and valves according to instructions and supplier notes Locations\n• Practical training: Komax Dierikon\n• School education: BBZ Economics, Computer Science and Technology Emmen\n• Super-company courses: Swissmechanic Luzern Requirements School requirements\n• Secondary level B with good to very good qualifications\n• Good performance in mathematics and the scientific subjects Personal requirements\n• If possible experience in technical drawing\n• Interest and very good performance in mathematics and physics\n• Interest in technical connections, Metalworking and machines\n• Skills\n• Systematic working method\n• Good imagination\n• No allergies to metals, fats and oils\n• Joy in working in the team Your future is important to us! In an exciting technical environment, we will jointly design your training course and offer you a demanding job with a lot of responsibility and design freedom. We see the training of prospective professional professionals as a gain and promote the talents of tomorrow with high-quality professional apprenticeships. We look forward to your complete application:\n• letter of motivation\n• CV including photo and references\n• All semester certificates of the upper level\n• schooling reports\n• interlocking\n• Basic or Multicheck Pack this opportunity – apply today! Do you have any questions? We are happy to provide you with further information: Christian Huber, Training Manager, Tel. dir. +41 41 455 04 46 We are now also on TikTok – for real insights behind the scenes:",
-        "de": "An unserem Standort in Dierikon bieten wir per August 2027 diese spannende Ausbildungsstelle an.\n\nPolymechanikerinnen und Polymechaniker fertigen Werkstücke, stellen Werkzeuge und Vorrichtungen für die Produktion her oder bauen Geräte, Apparate, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte, erstellen technische Dokumente, bauen Prototypen oder führen Versuche durch. Sie wirken mit bei Inbetriebnahmen, beim Planen und Überwachen von Produktionsprozessen oder führen Instandhaltungsarbeiten an Produktionsanlagen aus.\n\nMögliche Tätigkeitsgebiete\nTeilefertigung\n\n• Einfache und hochkomplexe mechanische Werkstücke herstellen\n\n• Einzelteile zu Baugruppen für die Serienproduktion herstellen\n\n• Einrichtungen, Vorrichtungen und Hilfsmittel herstellen\n\n• Planen und Dokumentieren der hergestellten Werkstücke\n\n• Werkstücke selbständig programmieren\n\n• Einrichten und bedienen von CNC-Präzisionsmaschinen\n\n• Qualitätskontrolle der eigenen Werkstücke\n\nMontagetechnik\n\n• Baugruppen und Geräte montieren, einstellen und in Betrieb nehmen\n\n• Mithilfe bei Vor- und Endmontage\n\n• Arbeiten mit elektromechanischen Bauteilen, Motoren, Zylindern und Ventilen gemäss Instruktionen und Lieferantenmerkblättern\n\nEinsatzorte\n\n• Praktische Ausbildung: Komax Dierikon\n\n• Schulische Ausbildung: BBZ Wirtschaft, Informatik und Technik Emmen\n\n• Überbetriebliche Kurse: Swissmechanic Luzern\n\nVoraussetzungen\nSchulische Voraussetzungen\n\n• Sekundarschule Niveau B mit gutem bis sehr gutem Abschluss\n\n• Gute Leistungen in Mathematik und den naturwissenschaftlichen Fächern\n\nPersönliche Voraussetzungen\n\n• Wenn möglich Erfahrung im technischen Zeichnen\n\n• Interesse und sehr gute Leistungen in Mathematik und Physik\n\n• Interesse an technischen Zusammenhängen, Metallbearbeitung und Maschinen\n\n• Handwerkliches Geschick\n\n• Systematische Arbeitsweise\n\n• Gutes Vorstellungsvermögen\n\n• Keine Allergien auf Metalle, Fette und Öle\n\n• Freude am Arbeiten im Team\n\nDeine Zukunft ist uns wichtig!\nIn einem spannenden technischen Umfeld gestalten wir gemeinsam deinen Ausbildungsweg und bieten dir eine anspruchsvolle Tätigkeit mit viel Eigenverantwortung sowie Gestaltungsfreiraum. Wir sehen die Ausbildung von angehenden Berufsfachkräften als Gewinn und fördern mit qualitativ hochstehenden Berufslehren die Talente von morgen.\n\nWir freuen uns auf deine vollständige Bewerbung:\n\n• Motivationsschreiben\n\n• Lebenslauf inkl. Foto und Referenzen\n\n• Sämtliche Semesterzeugnisse der Oberstufe\n\n• Schnupperlehrberichte\n\n• Stellwerk\n\n• Basic- oder Multicheck\n\nPack diese Chance – bewirb dich noch heute!\n\nHast du noch Fragen?\nWir stehen dir gerne für weitere Auskünfte zur Verfügung:\nChristian Huber, Ausbildungsverantwortlicher, Tel. dir. +41 41 455 04 46\n\nWir sind jetzt auch auf TikTok – für echte Einblicke hinter die Kulissen:\n🎥 @komax_schweiz",
-        "fr": "En date du 2027 août, nous offrons cette formation passionnante sur notre site de Dierikon. Polymécanique fabrique des pièces, des outils et des dispositifs de production, ou assemble des équipements, des équipements, des machines ou des usines. En collaboration avec d'autres experts, ils traitent des commandes ou des projets, créent des documents techniques, construisent des prototypes ou réalisent des expériences. Domaines d'activité possibles Production de pièces\n• Pièces mécaniques simples et très complexes\n• Fabrication de pièces individuelles en assemblages pour la production de série\n• Fabrication d'équipements, de dispositifs et d'outils\n• Planification et documentation des pièces fabriquées\n• Programmation indépendante des pièces\n• Mise en place et fonctionnement de machines de précision CNC\n• Contrôle de qualité des pièces propres Technologie de montage\n• Montage, mise en place et mise en service des assemblages et des équipements\n• Utilisation de l'assemblage pré- et final\n• Travail avec des composants électromécaniques, des moteurs, Cylindres et vannes selon les instructions et les notes du fournisseur Emplacements\n• Formation pratique: Komax Dierikon\n• Enseignement scolaire: BBZ Economie, Informatique et Technologie Emmen\n• Cours Super-entreprise: Suisse Mécanique Luzern Exigences Exigences scolaires\n• Niveau secondaire B avec de bonnes qualifications à très bonnes qualifications\n• Bonne performance en mathématiques et les matières scientifiques Exigences personnelles\n• Si possible expérience dans le dessin technique\n• Intérêt et très bonne performance en mathématiques et en physique\n• Intérêt dans les connexions techniques, Travail des métaux et machines\n• Compétences\n• Méthode de travail systématique\n• Bonne imagination\n• Pas d'allergies aux métaux, aux graisses et aux huiles\n• Joy au travail dans l'équipe Votre avenir est important pour nous! Dans un environnement technique passionnant, nous concevons conjointement votre formation et vous offrons un travail exigeant avec beaucoup de responsabilité et de liberté de conception. Nous considérons la formation de professionnels potentiels comme un gain et promouvoir les talents de demain avec des apprentissages professionnels de haute qualité. Nous attendons avec impatience votre candidature complète:\n• lettre de motivation\n• CV incluant photo et références\n• Tous les certificats de semestre du niveau supérieur\n• rapports scolaires\n• interlockage\n• Basic or Multicheck Pack cette opportunité – postuler aujourd'hui! Vous avez des questions? Nous sommes heureux de vous fournir des informations complémentaires : Christian Huber, Training Manager, Tel. dir. +41 41 455 04 46 Nous sommes maintenant aussi sur TikTok – pour de véritables aperçus dans les coulisses :"
-      },
-      "location": "Dierikon",
-      "canton": "LU",
-      "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Polymechanikerin-EFZ-2027-6036/1164647155/",
-      "source": "Komax Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-25T22:14:03.535Z",
-      "addressLocality": "Dierikon",
-      "addressRegion": "LU",
-      "streetAddress": "Industriestrasse 6",
-      "postalCode": "6036",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "INTERN",
-      "experienceLevel": "entry",
-      "sector": "Industria / Automazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Polymechanikerin-EFZ-2027-6036/1164647155/",
-      "jobReqId": "1164647155",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-polymechaniker-in-efz-2027-komax-ch",
-        "apprendistato-polymechaniker-in-cfc-2027-komax-dierikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-polymechaniker-in-efz-2027-komax-ch",
-          "apprendistato-polymechaniker-in-cfc-2027-komax-dierikon"
-        ],
-        "en": [
-          "lehrstelle-polymechaniker-in-efz-2027-komax-ch"
-        ],
-        "fr": [
-          "lehrstelle-polymechaniker-in-efz-2027-komax-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T11:37:16.823Z",
-      "salaryMin": 58500,
-      "salaryMax": 89000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58500,
-          "maxValue": 89000,
           "unitText": "YEAR"
         }
       }
@@ -518,7 +442,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Automatikerin-EFZ-2027-6036/1164647355/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T22:14:03.535Z",
+      "crawledAt": "2026-07-26T11:07:51.295Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -567,6 +491,88 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.824Z",
+      "needsRetranslation": true,
+      "salaryMin": 58500,
+      "salaryMax": 89000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58500,
+          "maxValue": 89000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "komax-aafe73ad37b8",
+      "slug": "apprendistato-polymechaniker-in-cfc-2027-komax-dierikon",
+      "slugByLocale": {
+        "it": "apprendistato-polymechaniker-in-cfc-2027-komax-dierikon",
+        "en": "polymechanical-apprenticeship-in-efz-2027-komax-dierikon",
+        "de": "lehrstelle-polymechaniker-in-efz-2027-komax-ch",
+        "fr": "l-apprentissage-polymecanique-en-efz-2027-komax-dierikon"
+      },
+      "company": "Komax",
+      "companyKey": "komax",
+      "companyDomain": "komaxgroup.com",
+      "title": "Lehrstelle Polymechaniker/in EFZ 2027",
+      "titleByLocale": {
+        "it": "Apprendistato Polymechaniker/in CFC 2027",
+        "en": "Apprenticeship Position Polymachinist EFZ 2027",
+        "de": "Lehrstelle Polymechaniker/in EFZ 2027",
+        "fr": "Poste de travail Polymecanicien EFZ 2027"
+      },
+      "description": "An unserem Standort in Dierikon bieten wir per August 2027 diese spannende Ausbildungsstelle an.\n\nPolymechanikerinnen und Polymechaniker fertigen Werkstücke, stellen Werkzeuge und Vorrichtungen für die Produktion her oder bauen Geräte, Apparate, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte, erstellen technische Dokumente, bauen Prototypen oder führen Versuche durch. Sie wirken mit bei Inbetriebnahmen, beim Planen und Überwachen von Produktionsprozessen oder führen Instandhaltungsarbeiten an Produktionsanlagen aus.\n\nMögliche Tätigkeitsgebiete\nTeilefertigung\n\n• Einfache und hochkomplexe mechanische Werkstücke herstellen\n\n• Einzelteile zu Baugruppen für die Serienproduktion herstellen\n\n• Einrichtungen, Vorrichtungen und Hilfsmittel herstellen\n\n• Planen und Dokumentieren der hergestellten Werkstücke\n\n• Werkstücke selbständig programmieren\n\n• Einrichten und bedienen von CNC-Präzisionsmaschinen\n\n• Qualitätskontrolle der eigenen Werkstücke\n\nMontagetechnik\n\n• Baugruppen und Geräte montieren, einstellen und in Betrieb nehmen\n\n• Mithilfe bei Vor- und Endmontage\n\n• Arbeiten mit elektromechanischen Bauteilen, Motoren, Zylindern und Ventilen gemäss Instruktionen und Lieferantenmerkblättern\n\nEinsatzorte\n\n• Praktische Ausbildung: Komax Dierikon\n\n• Schulische Ausbildung: BBZ Wirtschaft, Informatik und Technik Emmen\n\n• Überbetriebliche Kurse: Swissmechanic Luzern\n\nVoraussetzungen\nSchulische Voraussetzungen\n\n• Sekundarschule Niveau B mit gutem bis sehr gutem Abschluss\n\n• Gute Leistungen in Mathematik und den naturwissenschaftlichen Fächern\n\nPersönliche Voraussetzungen\n\n• Wenn möglich Erfahrung im technischen Zeichnen\n\n• Interesse und sehr gute Leistungen in Mathematik und Physik\n\n• Interesse an technischen Zusammenhängen, Metallbearbeitung und Maschinen\n\n• Handwerkliches Geschick\n\n• Systematische Arbeitsweise\n\n• Gutes Vorstellungsvermögen\n\n• Keine Allergien auf Metalle, Fette und Öle\n\n• Freude am Arbeiten im Team\n\nDeine Zukunft ist uns wichtig!\nIn einem spannenden technischen Umfeld gestalten wir gemeinsam deinen Ausbildungsweg und bieten dir eine anspruchsvolle Tätigkeit mit viel Eigenverantwortung sowie Gestaltungsfreiraum. Wir sehen die Ausbildung von angehenden Berufsfachkräften als Gewinn und fördern mit qualitativ hochstehenden Berufslehren die Talente von morgen.\n\nWir freuen uns auf deine vollständige Bewerbung:\n\n• Motivationsschreiben\n\n• Lebenslauf inkl. Foto und Referenzen\n\n• Sämtliche Semesterzeugnisse der Oberstufe\n\n• Schnupperlehrberichte\n\n• Stellwerk\n\n• Basic- oder Multicheck\n\nPack diese Chance – bewirb dich noch heute!\n\nHast du noch Fragen?\nWir stehen dir gerne für weitere Auskünfte zur Verfügung:\nChristian Huber, Ausbildungsverantwortlicher, Tel. dir. +41 41 455 04 46\n\nWir sind jetzt auch auf TikTok – für echte Einblicke hinter die Kulissen:\n 🎥 @komax_schweiz",
+      "descriptionByLocale": {
+        "it": "A partire dall'agosto 2027 offriamo questo entusiasmante luogo di formazione presso il nostro sito Dierikon. La Polymechanics produce pezzi, produce strumenti e dispositivi per la produzione, assembla attrezzature, attrezzature, macchine o impianti. In collaborazione con altri esperti, elaborano ordini o progetti, creano documenti tecnici, costruiscono prototipi o svolgono esperimenti. Lavorano con la messa in servizio, la pianificazione e il monitoraggio dei processi produttivi o svolgono lavori di manutenzione su impianti di produzione. Possibilità di attività Produzione di pezzi\n• Pezzi meccanici semplici e altamente complessi\n• Rendere singoli pezzi in assemblaggi per la produzione in serie\n• Attrezzature, dispositivi e utensili di produzione\n• Pianificazione e documentazione dei pezzi lavorati\n• Programming pezzi indipendentemente\n• Impostazione e funzionamento di macchine di precisione CNC\n• Controllo della qualità dei propri pezzi Tecnologia di assemblaggio\n• Montaggio, installazione e messa in servizio di assemblaggi e attrezzature\n• Utilizzo di assemblaggi pre e finali\n• Lavorazione con componenti elettromeccanici, motori, Cilindri e valvole secondo istruzioni e note del fornitore Sedi\n• Formazione pratica: Komax Dierikon\n• Formazione scolastica: BBZ Economia, Informatica e Tecnologia Emmen\n• Corsi super-aziendali: Swissmechanic Luzern Requisiti scolastici Requisiti scolastici\n• Livello secondario B con buone ottime qualifiche\n• Buon rendimento in matematica e materie scientifiche Requisiti personali\n• Se possibile esperienza nel disegno tecnico\n• Interesse e ottime prestazioni in matematica e fisica\n• Interesse per i collegamenti tecnici, Lavorazione dei metalli e delle macchine\n• Capacità\n• Metodo di lavoro sistematico\n• Buona immaginazione\n• Nessuna allergia ai metalli, ai grassi e agli oli\n• Gioia nel lavorare nel team Il tuo futuro è importante per noi! In un ambiente tecnico emozionante, progettiamo insieme il tuo corso di formazione e ti offriamo un lavoro impegnativo con molta responsabilità e libertà di progettazione. Vediamo la formazione di potenziali professionisti come un guadagno e promuovere i talenti di domani con apprendistati professionali di alta qualità. Attendiamo con ansia la tua applicazione completa:\n• lettera di motivazione\n• CV compresa foto e riferimenti\n• Tutti i certificati semestri del livello superiore\n• rapporti scolastici\n• interblocco\n• Basic or Multicheck Pack questa opportunità. applicare oggi! Avete domande? Siamo lieti di fornirvi ulteriori informazioni: Christian Huber, Training Manager, Tel. dir. +41 41 455 04 46 Siamo ora anche su TikTok. per le vere e proprie intuizioni dietro le quinte:",
+        "en": "As of August 2027, we are offering this exciting training place at our Dierikon site. Polymechanics manufacture workpieces, manufacture tools and devices for production, or assemble equipment, equipment, machines or plants. In cooperation with other experts, they process orders or projects, create technical documents, build prototypes or carry out experiments. They work with commissioning, planning and monitoring production processes or carry out maintenance work on production plants. Possible areas of activity Part production\n• Simple and highly complex mechanical workpieces\n• Making individual parts into assemblies for series production\n• Manufacturing equipment, devices and tools\n• Planning and documenting the manufactured workpieces\n• Programming workpieces independently\n• Setting up and operating CNC precision machines\n• Quality control of the own workpieces Assembly technology\n• Assembly, setting up and commissioning assemblies and equipment\n• Using pre- and final assembly\n• Working with electromechanical components, motors, Cylinders and valves according to instructions and supplier notes Locations\n• Practical training: Komax Dierikon\n• School education: BBZ Economics, Computer Science and Technology Emmen\n• Super-company courses: Swissmechanic Luzern Requirements School requirements\n• Secondary level B with good to very good qualifications\n• Good performance in mathematics and the scientific subjects Personal requirements\n• If possible experience in technical drawing\n• Interest and very good performance in mathematics and physics\n• Interest in technical connections, Metalworking and machines\n• Skills\n• Systematic working method\n• Good imagination\n• No allergies to metals, fats and oils\n• Joy in working in the team Your future is important to us! In an exciting technical environment, we will jointly design your training course and offer you a demanding job with a lot of responsibility and design freedom. We see the training of prospective professional professionals as a gain and promote the talents of tomorrow with high-quality professional apprenticeships. We look forward to your complete application:\n• letter of motivation\n• CV including photo and references\n• All semester certificates of the upper level\n• schooling reports\n• interlocking\n• Basic or Multicheck Pack this opportunity – apply today! Do you have any questions? We are happy to provide you with further information: Christian Huber, Training Manager, Tel. dir. +41 41 455 04 46 We are now also on TikTok – for real insights behind the scenes:",
+        "de": "An unserem Standort in Dierikon bieten wir per August 2027 diese spannende Ausbildungsstelle an.\n\nPolymechanikerinnen und Polymechaniker fertigen Werkstücke, stellen Werkzeuge und Vorrichtungen für die Produktion her oder bauen Geräte, Apparate, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte, erstellen technische Dokumente, bauen Prototypen oder führen Versuche durch. Sie wirken mit bei Inbetriebnahmen, beim Planen und Überwachen von Produktionsprozessen oder führen Instandhaltungsarbeiten an Produktionsanlagen aus.\n\nMögliche Tätigkeitsgebiete\nTeilefertigung\n\n• Einfache und hochkomplexe mechanische Werkstücke herstellen\n\n• Einzelteile zu Baugruppen für die Serienproduktion herstellen\n\n• Einrichtungen, Vorrichtungen und Hilfsmittel herstellen\n\n• Planen und Dokumentieren der hergestellten Werkstücke\n\n• Werkstücke selbständig programmieren\n\n• Einrichten und bedienen von CNC-Präzisionsmaschinen\n\n• Qualitätskontrolle der eigenen Werkstücke\n\nMontagetechnik\n\n• Baugruppen und Geräte montieren, einstellen und in Betrieb nehmen\n\n• Mithilfe bei Vor- und Endmontage\n\n• Arbeiten mit elektromechanischen Bauteilen, Motoren, Zylindern und Ventilen gemäss Instruktionen und Lieferantenmerkblättern\n\nEinsatzorte\n\n• Praktische Ausbildung: Komax Dierikon\n\n• Schulische Ausbildung: BBZ Wirtschaft, Informatik und Technik Emmen\n\n• Überbetriebliche Kurse: Swissmechanic Luzern\n\nVoraussetzungen\nSchulische Voraussetzungen\n\n• Sekundarschule Niveau B mit gutem bis sehr gutem Abschluss\n\n• Gute Leistungen in Mathematik und den naturwissenschaftlichen Fächern\n\nPersönliche Voraussetzungen\n\n• Wenn möglich Erfahrung im technischen Zeichnen\n\n• Interesse und sehr gute Leistungen in Mathematik und Physik\n\n• Interesse an technischen Zusammenhängen, Metallbearbeitung und Maschinen\n\n• Handwerkliches Geschick\n\n• Systematische Arbeitsweise\n\n• Gutes Vorstellungsvermögen\n\n• Keine Allergien auf Metalle, Fette und Öle\n\n• Freude am Arbeiten im Team\n\nDeine Zukunft ist uns wichtig!\nIn einem spannenden technischen Umfeld gestalten wir gemeinsam deinen Ausbildungsweg und bieten dir eine anspruchsvolle Tätigkeit mit viel Eigenverantwortung sowie Gestaltungsfreiraum. Wir sehen die Ausbildung von angehenden Berufsfachkräften als Gewinn und fördern mit qualitativ hochstehenden Berufslehren die Talente von morgen.\n\nWir freuen uns auf deine vollständige Bewerbung:\n\n• Motivationsschreiben\n\n• Lebenslauf inkl. Foto und Referenzen\n\n• Sämtliche Semesterzeugnisse der Oberstufe\n\n• Schnupperlehrberichte\n\n• Stellwerk\n\n• Basic- oder Multicheck\n\nPack diese Chance – bewirb dich noch heute!\n\nHast du noch Fragen?\nWir stehen dir gerne für weitere Auskünfte zur Verfügung:\nChristian Huber, Ausbildungsverantwortlicher, Tel. dir. +41 41 455 04 46\n\nWir sind jetzt auch auf TikTok – für echte Einblicke hinter die Kulissen:\n🎥 @komax_schweiz",
+        "fr": "En date du 2027 août, nous offrons cette formation passionnante sur notre site de Dierikon. Polymécanique fabrique des pièces, des outils et des dispositifs de production, ou assemble des équipements, des équipements, des machines ou des usines. En collaboration avec d'autres experts, ils traitent des commandes ou des projets, créent des documents techniques, construisent des prototypes ou réalisent des expériences. Domaines d'activité possibles Production de pièces\n• Pièces mécaniques simples et très complexes\n• Fabrication de pièces individuelles en assemblages pour la production de série\n• Fabrication d'équipements, de dispositifs et d'outils\n• Planification et documentation des pièces fabriquées\n• Programmation indépendante des pièces\n• Mise en place et fonctionnement de machines de précision CNC\n• Contrôle de qualité des pièces propres Technologie de montage\n• Montage, mise en place et mise en service des assemblages et des équipements\n• Utilisation de l'assemblage pré- et final\n• Travail avec des composants électromécaniques, des moteurs, Cylindres et vannes selon les instructions et les notes du fournisseur Emplacements\n• Formation pratique: Komax Dierikon\n• Enseignement scolaire: BBZ Economie, Informatique et Technologie Emmen\n• Cours Super-entreprise: Suisse Mécanique Luzern Exigences Exigences scolaires\n• Niveau secondaire B avec de bonnes qualifications à très bonnes qualifications\n• Bonne performance en mathématiques et les matières scientifiques Exigences personnelles\n• Si possible expérience dans le dessin technique\n• Intérêt et très bonne performance en mathématiques et en physique\n• Intérêt dans les connexions techniques, Travail des métaux et machines\n• Compétences\n• Méthode de travail systématique\n• Bonne imagination\n• Pas d'allergies aux métaux, aux graisses et aux huiles\n• Joy au travail dans l'équipe Votre avenir est important pour nous! Dans un environnement technique passionnant, nous concevons conjointement votre formation et vous offrons un travail exigeant avec beaucoup de responsabilité et de liberté de conception. Nous considérons la formation de professionnels potentiels comme un gain et promouvoir les talents de demain avec des apprentissages professionnels de haute qualité. Nous attendons avec impatience votre candidature complète:\n• lettre de motivation\n• CV incluant photo et références\n• Tous les certificats de semestre du niveau supérieur\n• rapports scolaires\n• interlockage\n• Basic or Multicheck Pack cette opportunité – postuler aujourd'hui! Vous avez des questions? Nous sommes heureux de vous fournir des informations complémentaires : Christian Huber, Training Manager, Tel. dir. +41 41 455 04 46 Nous sommes maintenant aussi sur TikTok – pour de véritables aperçus dans les coulisses :"
+      },
+      "location": "Dierikon",
+      "canton": "LU",
+      "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Polymechanikerin-EFZ-2027-6036/1164647155/",
+      "source": "Komax Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-26T11:07:51.294Z",
+      "addressLocality": "Dierikon",
+      "addressRegion": "LU",
+      "streetAddress": "Industriestrasse 6",
+      "postalCode": "6036",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "INTERN",
+      "experienceLevel": "entry",
+      "sector": "Industria / Automazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-04",
+      "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Polymechanikerin-EFZ-2027-6036/1164647155/",
+      "jobReqId": "1164647155",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-polymechaniker-in-efz-2027-komax-ch",
+        "apprendistato-polymechaniker-in-cfc-2027-komax-dierikon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-polymechaniker-in-efz-2027-komax-ch",
+          "apprendistato-polymechaniker-in-cfc-2027-komax-dierikon"
+        ],
+        "en": [
+          "lehrstelle-polymechaniker-in-efz-2027-komax-ch"
+        ],
+        "fr": [
+          "lehrstelle-polymechaniker-in-efz-2027-komax-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T11:37:16.823Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -611,7 +617,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Mediamatikerin-EFZ-2027-6036/1164647055/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T22:14:03.534Z",
+      "crawledAt": "2026-07-26T11:07:51.293Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -691,7 +697,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Talent-Acquisition-&-Recruiting-Specialist-%2880-100%29-6036/1165165155/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T22:14:03.533Z",
+      "crawledAt": "2026-07-26T11:07:51.292Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -722,6 +728,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:17:31.872Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -750,7 +757,7 @@
       "title": "HR Operations Specialist 60-100% (Mutterschaftsvertretung)",
       "titleByLocale": {
         "it": "Risorse Umane Operations Specialista 60-100% (Mutterschaftsvertretung)",
-        "en": "HR Operations Specialist 60-100% (Maternity Representation)",
+        "en": "HR Operations Specialist 60-100% (Mutterschaftsvertretung)",
         "de": "Personalwesen Operations Spezialist 60-100% (Mutterschaftsvertretung)",
         "fr": "Ressources Humaines Operations Spécialiste 60-100% (Mutterschaftsvertretung)"
       },
@@ -766,7 +773,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-HR-Operations-Specialist-60-100-%28Mutterschaftsvertretung%29-6036/1165149855/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T22:14:03.532Z",
+      "crawledAt": "2026-07-26T11:07:51.291Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -799,6 +806,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T12:26:00.719Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -827,7 +835,7 @@
       "title": "Technical Sales Specialist 80-100% (m/w)",
       "titleByLocale": {
         "it": "Specialista Vendite Tecnico 80-100% (m/f)",
-        "en": "Technical Sales Specialist 80-100% (m/f)",
+        "en": "Technical Sales Specialist 80-100% (m/w)",
         "de": "Technical Sales Spezialist 80-100% (m/w)",
         "fr": "Spécialiste Commercial Technique 80-100% (m/f)"
       },
@@ -843,7 +851,7 @@
       "url": "https://jobs.komaxgroup.com/job/Thun-Technical-Sales-Specialist-80-100-%28mw%29-3608/1164577655/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T22:14:03.529Z",
+      "crawledAt": "2026-07-26T11:07:51.288Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -876,6 +884,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.827Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
