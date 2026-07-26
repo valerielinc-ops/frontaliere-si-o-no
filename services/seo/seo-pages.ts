@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3535,
+ "numberOfItems": 3536,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8303,7 +8303,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3532, "name": "Zugo e Svitto, meno costosi di Ginevra e Vaud", "url": `${BASE_URL}/articoli-frontaliere/confronto-imposta-cantonale-svizzera-cantoni` },
           { "@type": "ListItem", "position": 3533, "name": "Trasferirsi a Bizzarone da frontaliere: pro e c...", "url": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro` },
           { "@type": "ListItem", "position": 3534, "name": "Lavoro in Svizzera e frontalieri: ricerca, agen...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-svizzera-frontalieri-guida` },
-          { "@type": "ListItem", "position": 3535, "name": "Frontalieri: rallentano in Ticino, aumentano ne...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-rallentano-ticino-aumentano-grigioni` }
+          { "@type": "ListItem", "position": 3535, "name": "Frontalieri: rallentano in Ticino, aumentano ne...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-rallentano-ticino-aumentano-grigioni` },
+          { "@type": "ListItem", "position": 3536, "name": "Costo della vita in Svizzera: confronto tra can...", "url": `${BASE_URL}/articoli-frontaliere/costo-vita-cantone-svizzera` }
  ]
  },
  {

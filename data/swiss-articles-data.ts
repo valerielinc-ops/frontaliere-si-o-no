@@ -4688,6 +4688,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'costo-vita-cantone-svizzera',
+    category: 'fiscale',
+    date: '2026-07-26T05:53:51.267Z',
+    image: '/images/blog/costo-vita-cantone-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

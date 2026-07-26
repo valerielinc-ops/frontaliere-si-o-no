@@ -1564,6 +1564,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lavoro-svizzera-frontalieri-guida.title': 'Travail en Suisse et frontaliers : recherche, agences et permis',
     'blog.article.lavoro-svizzera-frontalieri-guida.excerpt': 'Découvrez comment chercher du travail en Suisse, quels canaux utiliser entre les agences et le web, et quels permis sont nécessaires pour les frontaliers.',
     'blog.article.lavoro-svizzera-frontalieri-guida.imageAlt': 'Panorama de Lugano surplombant le lac et le territoire suisse',
+    'blog.article.costo-vita-cantone-svizzera.title': 'Coût de la vie en Suisse : comparaison entre cantons',
+    'blog.article.costo-vita-cantone-svizzera.excerpt': 'Une comparaison des coûts de la vie dans les principaux cantons suisses : loyers, dépenses, transports et assurances.',
+    'blog.article.costo-vita-cantone-svizzera.imageAlt': 'Une scène de Lugano avec le lac en premier plan',
 };
 
 export default blogMetaChFr;
