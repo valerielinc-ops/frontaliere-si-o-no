@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3515,
+ "numberOfItems": 3516,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8283,7 +8283,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3512, "name": "Quanto guadagna un architetto frontaliere in Ti...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-architetto-stipendio` },
           { "@type": "ListItem", "position": 3513, "name": "Di più. Da Livigno all'Engadina in dieci minuti.", "url": `${BASE_URL}/articoli-frontaliere/livigno-engadina-treni` },
           { "@type": "ListItem", "position": 3514, "name": "Benzina: prezzi al massimo degli ultimi due anni", "url": `${BASE_URL}/articoli-frontaliere/benzina-prezzi-aumentano-ticino` },
-          { "@type": "ListItem", "position": 3515, "name": "Lavena Ponte Tresa da frontaliere: pro e contro", "url": `${BASE_URL}/articoli-frontaliere/lavena-ponte-tresa-frontaliere` }
+          { "@type": "ListItem", "position": 3515, "name": "Lavena Ponte Tresa da frontaliere: pro e contro", "url": `${BASE_URL}/articoli-frontaliere/lavena-ponte-tresa-frontaliere` },
+          { "@type": "ListItem", "position": 3516, "name": "Di più KOF, svantaggio doganale frena solo legg...", "url": `${BASE_URL}/articoli-frontaliere/svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera` }
  ]
  },
  {

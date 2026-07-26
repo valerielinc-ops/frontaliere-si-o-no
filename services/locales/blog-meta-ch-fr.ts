@@ -1534,6 +1534,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.benzina-prezzi-aumentano-ticino.title': 'Essence : prix au plus haut depuis deux ans',
     'blog.article.benzina-prezzi-aumentano-ticino.excerpt': 'Les prix de l\'essence ont augmenté de 4 centimes le litre et atteignent leur plus haut niveau depuis deux ans',
     'blog.article.benzina-prezzi-aumentano-ticino.imageAlt': 'Le lac de Lugano en une journée ensoleillée avec les montagnes environnantes',
+    'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.title': 'Plus KOF, désavantage douanier ne freine que légèrement l\'économie suisse',
+    'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.excerpt': 'Selon le KOF, le taux des droits de douane américains ne devrait freiner que dans une mesure minime l\'économie suisse.',
+    'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.imageAlt': 'Frontalier du Tessin avec vue sur la ville de Lugano',
 };
 
 export default blogMetaChFr;

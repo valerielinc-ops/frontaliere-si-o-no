@@ -1534,6 +1534,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.benzina-prezzi-aumentano-ticino.title': 'Benzina: prezzi al massimo degli ultimi due anni',
     'blog.article.benzina-prezzi-aumentano-ticino.excerpt': 'I prezzi della benzina sono aumentati di 4 centesimi al litro e raggiungono il livello più alto degli ultimi due anni',
     'blog.article.benzina-prezzi-aumentano-ticino.imageAlt': 'Il lago di Lugano in una giornata di sole con le montagne circostanti',
+    'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.title': 'Di più KOF, svantaggio doganale frena solo leggermente l\'economia svizzera',
+    'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.excerpt': 'Secondo il KOF, l\'aliquota dei dazi doganali statunitensi dovrebbe frenare solo in misura minima l\'economia svizzera.',
+    'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.imageAlt': 'Frontaliere ticinese con vista sulla città di Lugano',
 };
 
 export default blogMetaChIt;

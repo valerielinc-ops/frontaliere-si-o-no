@@ -1534,6 +1534,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.benzina-prezzi-aumentano-ticino.title': 'Benzin: Höchstpreise der letzten zwei Jahre',
     'blog.article.benzina-prezzi-aumentano-ticino.excerpt': 'Die Benzinpreise sind um 4 Cent pro Liter gestiegen und erreichen den höchsten Stand seit zwei Jahren',
     'blog.article.benzina-prezzi-aumentano-ticino.imageAlt': 'Der See von Lugano an einem sonnigen Tag mit den umgebenden Bergen',
+    'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.title': 'Mehr KOF, Zollnachteil bremst die Schweizer Wirtschaft nur geringfügig',
+    'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.excerpt': 'Laut KOF dürfte der US-Zollsatz die Schweizer Wirtschaft nur minimal bremsen.',
+    'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.imageAlt': 'Frontalier aus dem Tessin mit Blick auf Lugano',
 };
 
 export default blogMetaChDe;
