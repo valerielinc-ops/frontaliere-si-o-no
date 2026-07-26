@@ -8956,6 +8956,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavena-ponte-tresa-frontaliere.title': 'Lavena Ponte Tresa for border crossers: pros and cons',
     'blog.article.lavena-ponte-tresa-frontaliere.excerpt': 'Practical guide for those who live in Lavena Ponte Tresa and work in Ticino: advantages, disadvantages, travel times and tax aspects.',
     'blog.article.lavena-ponte-tresa-frontaliere.imageAlt': 'View of Lavena Ponte Tresa on the border between Italy and Switzerland',
+    'blog.article.prestazioni-lpp-svizzere-tassazione.title': 'Swiss LPP Performance: Taxation Rules',
+    'blog.article.prestazioni-lpp-svizzere-tassazione.excerpt': 'The sums paid by the Swiss occupational pension scheme follow the tax rules of the AVS annuities.',
+    'blog.article.prestazioni-lpp-svizzere-tassazione.imageAlt': 'Swiss LPP benefits and taxation rules for workers',
 };
 
 export default blogMetaEn;

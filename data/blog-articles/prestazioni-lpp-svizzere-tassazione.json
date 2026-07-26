@@ -1,0 +1,18 @@
+{
+  "id": "prestazioni-lpp-svizzere-tassazione",
+  "slug": "prestazioni-lpp-svizzere-tassazione",
+  "publishedAt": "2026-07-26T00:40:04.638Z",
+  "cluster": "fiscale",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 3.5,
+    "confidence": 0.3,
+    "finalScore": 1.05,
+    "cluster": "fiscale",
+    "score": 1.05,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1
+  }
+}

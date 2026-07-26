@@ -8958,6 +8958,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavena-ponte-tresa-frontaliere.title': 'Lavena Ponte Tresa en tant que frontalier : avantages et inconvénients',
     'blog.article.lavena-ponte-tresa-frontaliere.excerpt': 'Guide pratique pour ceux qui vivent à Lavena Ponte Tresa et travaillent au Tessin : avantages, inconvénients, temps de déplacement et aspects fiscaux.',
     'blog.article.lavena-ponte-tresa-frontaliere.imageAlt': 'Vue de Lavena Ponte Tresa sur la frontière entre l\'Italie et la Suisse',
+    'blog.article.prestazioni-lpp-svizzere-tassazione.title': 'Prestations Lpp suisses : règles d\'imposition',
+    'blog.article.prestazioni-lpp-svizzere-tassazione.excerpt': 'Les sommes versées par la prévoyance professionnelle suisse suivent les règles d\'imposition des rentes AVS.',
+    'blog.article.prestazioni-lpp-svizzere-tassazione.imageAlt': 'Prestations LPP suisses et règles d\'imposition',
 };
 
 export default blogMetaFr;
