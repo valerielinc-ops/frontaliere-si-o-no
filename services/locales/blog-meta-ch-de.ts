@@ -1570,6 +1570,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-lamal-per-cantone.title': 'KVG-Prämien: Regionale Faktoren und kantonale Variabilität',
     'blog.article.premi-cassa-malati-lamal-per-cantone.excerpt': 'Die KVG-Prämien sind aufgrund regionaler Faktoren wie der optimalen Franchise und der verfügbaren Subventionen von Kanton zu Kanton sehr unterschiedlich.',
     'blog.article.premi-cassa-malati-lamal-per-cantone.imageAlt': 'Lugano am See.',
+    'blog.article.salario-medio-svizzera-professione.title': 'Durchschnittslohn in der Schweiz pro Beruf',
+    'blog.article.salario-medio-svizzera-professione.excerpt': 'Offizielle BfS/BfS-Daten zum durchschnittlichen Lohn in der Schweiz nach Branche und Beruf',
+    'blog.article.salario-medio-svizzera-professione.imageAlt': 'ArbeitsSzene in Lugano',
 };
 
 export default blogMetaChDe;

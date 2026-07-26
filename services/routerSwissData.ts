@@ -546,6 +546,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'lavoro-svizzera-frontalieri-guida': { it: 'lavoro-svizzera-frontalieri-guida', en: 'work-switzerland-cross-border-guide', de: 'arbeiten-schweiz-grenzgaenger-leitfaden', fr: 'travail-suisse-frontaliers-guide' },
  'costo-vita-cantone-svizzera': { it: 'costo-vita-cantone-svizzera', en: 'cost-of-living-swiss-cantons', de: 'lebenskosten-schweizer-kantone', fr: 'cout-de-vie-suisse-par-canton' },
  'premi-cassa-malati-lamal-per-cantone': { it: 'premi-cassa-malati-lamal-per-cantone', en: 'health-insurance-premiums-by-canton', de: 'kostenvoranschlage-fur-krankenversicherung-nach-kanton', fr: 'premieres-de-securite-sociale-par-canton' },
+ 'salario-medio-svizzera-professione': { it: 'salario-medio-svizzera-professione', en: 'salario-medio-svizzera-professione', de: 'salario-medio-svizzera-professione', fr: 'salario-medio-svizzera-professione' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -1570,6 +1570,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-lamal-per-cantone.title': 'Prix LAMal : facteurs régionaux et variabilité entre cantons',
     'blog.article.premi-cassa-malati-lamal-per-cantone.excerpt': 'Les primes LAMal varient considérablement d\'un canton à l\'autre en raison de facteurs régionaux, tels que la franchise optimale et les subventions disponibles.',
     'blog.article.premi-cassa-malati-lamal-per-cantone.imageAlt': 'Vue de Lugano sur le lac.',
+    'blog.article.salario-medio-svizzera-professione.title': 'Salaire moyen en Suisse par profession',
+    'blog.article.salario-medio-svizzera-professione.excerpt': 'Données officielles OFS/BFS sur la rémunération moyenne en Suisse par secteur et profession',
+    'blog.article.salario-medio-svizzera-professione.imageAlt': 'Scène de travail à Lugano',
 };
 
 export default blogMetaChFr;
