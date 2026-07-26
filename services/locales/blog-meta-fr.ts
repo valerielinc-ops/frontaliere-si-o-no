@@ -8994,6 +8994,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gestione-sentieri-ticino.title': 'Des signalements aux travaux, la gestion des sentiers au Tessin',
     'blog.article.gestione-sentieri-ticino.excerpt': 'La gestion des sentiers au Tessin est un processus coordonné impliquant plusieurs acteurs. Stefano Olgiati, responsable technique des pistes de randonnée de TessinSentieri, explique comment fonctionne le réseau qui maintient les parcours du canton du Tessin praticables.',
     'blog.article.gestione-sentieri-ticino.imageAlt': 'Randoneurs dans un sentier dans la zone du Monte Bre',
+    'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.title': 'Coût du carburant aux étoiles : essence à 1,97 euros et gasoil à 2,18 euros',
+    'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.excerpt': 'Les prix moyens des carburants communiqués par le ministère des Entreprises et du Made in Italy montrent des hausses le long du réseau routier et autoroutier.',
+    'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.imageAlt': 'Coûts élevés des carburants avec prix actualisés de l\'essence et du diesel',
 };
 
 export default blogMetaFr;

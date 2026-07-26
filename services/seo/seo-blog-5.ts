@@ -55764,6 +55764,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-costo-carburanti-benzina-gasolio-luglio-2026': {
+    title: 'Costo carburanti alle stelle: benzina a 1,97 euro e gasolio a 2,18',
+    description: 'Scopri i prezzi medi dei carburanti comunicati dal Mimit: benzina e gasolio lungo la rete stradale e autostradale in modalità self service. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, costo, carburanti, alle, stelle',
+    ogTitle: 'Costo carburanti: benzina a 1,97 euro e gasolio a 2,18',
+    ogDescription: 'I prezzi medi dei carburanti comunicati dal Ministero delle Imprese e del Made in Italy per benzina e gasolio.',
+    canonicalPath: '/articoli-frontaliere/costo-carburanti-benzina-gasolio-luglio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Costo carburanti alle stelle: benzina a 1,97 euro e gasolio a 2,18",
+      "description": "Scopri i prezzi medi dei carburanti comunicati dal Mimit: benzina e gasolio lungo la rete stradale e autostradale in modalità self service. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costo-carburanti-benzina-gasolio-luglio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Costo dei carburanti alle stelle con prezzi di benzina e gasolio aggiornati"
+      },
+      "datePublished": "2026-07-26T13:04:03+00:00",
+      "dateModified": "2026-07-26T13:04:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costo-carburanti-benzina-gasolio-luglio-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -8993,6 +8993,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gestione-sentieri-ticino.title': 'Dalle segnalazioni ai lavori, la gestione dei sentieri in Ticino',
     'blog.article.gestione-sentieri-ticino.excerpt': 'La gestione dei sentieri in Ticino è un processo coordinato che coinvolge diversi attori. Stefano Olgiati, responsabile tecnico dei tracciati escursionistici di TicinoSentieri, spiega come funziona la rete che mantiene percorribili i percorsi del Canton Ticino.',
     'blog.article.gestione-sentieri-ticino.imageAlt': 'Escursionisti in un sentiero nella zona del Monte Bre',
+    'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.title': 'Costo carburanti alle stelle: benzina a 1,97 euro e gasolio a 2,18',
+    'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.excerpt': 'I prezzi medi dei carburanti comunicati dal Ministero delle Imprese e del Made in Italy evidenziano rincari lungo la rete stradale e autostradale.',
+    'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.imageAlt': 'Costo dei carburanti alle stelle con prezzi di benzina e gasolio aggiornati',
 };
 
 export default blogMetaIt;
