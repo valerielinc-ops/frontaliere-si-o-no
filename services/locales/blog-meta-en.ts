@@ -8977,6 +8977,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bally-lultima-scarpa-svizzera-sara-prodotta-in-estate.title': 'More Bally, the latest Swiss shoe will be produced in summer',
     'blog.article.bally-lultima-scarpa-svizzera-sara-prodotta-in-estate.excerpt': 'The production of the legendary Swiss brand Bally will move to another country.',
     'blog.article.bally-lultima-scarpa-svizzera-sara-prodotta-in-estate.imageAlt': 'The production of Bally will be moved to another country.',
+    'blog.article.frontalieri-telelavoro-2026.title': 'Italy-Switzerland border workers: teleworking up to 25%',
+    'blog.article.frontalieri-telelavoro-2026.excerpt': 'Law no. 217 of 29 December 2025 introduced a new rule for border workers working in Switzerland and residing in Italy.',
+    'blog.article.frontalieri-telelavoro-2026.imageAlt': 'Frontalieri in Ticino that work in Switzerland and reside in Italy who work from home with computer and tablet',
 };
 
 export default blogMetaEn;
