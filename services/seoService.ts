@@ -4891,6 +4891,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-benzina-prezzi-aumentano-ticino': { name: 'I prezzi della benzina', path: '/articoli-svizzera/benzina-prezzi-aumentano-ticino/', parent: 'blog' },
     'blog-lavena-ponte-tresa-frontaliere': { name: 'Lavena Ponte Tresa Frontaliere', path: '/articoli-frontaliere/lavena-ponte-tresa-frontaliere', parent: 'blog' },
     'blog-svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera': { name: 'Svantaggio doganale', path: '/articoli-svizzera/svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera/', parent: 'blog' },
+    'blog-prestazioni-lpp-svizzere-tassazione': { name: 'Prestazioni Lpp', path: '/articoli-frontaliere/prestazioni-lpp-svizzere-tassazione', parent: 'blog' },
  };
 
  const info = sectionNames[section];

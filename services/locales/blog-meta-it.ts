@@ -8957,6 +8957,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavena-ponte-tresa-frontaliere.title': 'Lavena Ponte Tresa da frontaliere: pro e contro',
     'blog.article.lavena-ponte-tresa-frontaliere.excerpt': 'Guida pratica per chi vive a Lavena Ponte Tresa e lavora in Ticino: vantaggi, svantaggi, tempi di spostamento e aspetti fiscali.',
     'blog.article.lavena-ponte-tresa-frontaliere.imageAlt': 'Panorama di Lavena Ponte Tresa sul confine tra Italia e Svizzera',
+    'blog.article.prestazioni-lpp-svizzere-tassazione.title': 'Prestazioni Lpp svizzere: regole di tassazione',
+    'blog.article.prestazioni-lpp-svizzere-tassazione.excerpt': 'Le somme corrisposte dalla previdenza professionale svizzera seguono le regole impositive delle rendite AVS.',
+    'blog.article.prestazioni-lpp-svizzere-tassazione.imageAlt': 'Prestazioni Lpp svizzere e modalità di tassazione per i lavoratori',
 };
 
 export default blogMetaIt;
