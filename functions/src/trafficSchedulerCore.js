@@ -670,6 +670,10 @@ export async function runWebcamOnlyCollection(options = {}) {
  * If TomTom is the resolved provider but its account has run out of prepaid
  * credits (HTTP 403 InsufficientFunds), a preflight check falls back to HERE
  * or Google Maps for the rest of the run instead of failing every crossing.
+ * If Google Maps ends up as the resolved provider (the last-resort fallback)
+ * and its own preflight call fails (e.g. legacy Distance Matrix API disabled),
+ * the run degrades to webcam-only (or a clean skip) instead of reporting a
+ * near-total per-crossing failure.
  *
  * @param {{ hereApiKey?: string, tomtomApiKey?: string, googleApiKey?: string, enableWebcam?: boolean }} options
  * @returns {Promise<{collected: number, errors: number}>}
@@ -799,6 +803,30 @@ export async function runTrafficCollection(options = {}) {
  }
  // Any other preflight error (transient network blip) is ignored — the
  // per-crossing loop below already tolerates per-request failures.
+ }
+ }
+
+ // Google Maps is the last-resort fallback (TomTom exhausted, HERE budget
+ // exhausted or unconfigured) with no further routing provider to try. Unlike
+ // the TomTom preflight above, a broken Google Maps key/API is NOT transient:
+ // the legacy Distance Matrix API can be disabled project-wide, in which case
+ // EVERY subsequent call fails identically with REQUEST_DENIED (#4768: 135/141
+ // crossings failed this way in one run, exit code 1). A single cheap preflight
+ // call catches this before the full per-crossing loop, so a broken Google Maps
+ // fallback degrades gracefully to webcam-only (or a clean skip) instead of
+ // burning the run and reporting a near-total failure.
+ if (provider === 'google-maps') {
+ const probe = BORDER_CROSSINGS[0];
+ try {
+ await getGoogleDistanceMatrix(probe.lat, probe.lng, probe.lat + 0.01, probe.lng, googleApiKey);
+ } catch (err) {
+ console.warn(`🛑 Google Maps routing unavailable (${err.message}) — no further routing fallback`);
+ if (enableWebcam) {
+ console.warn('📷 Falling back to webcam-only collection');
+ return runWebcamOnlyCollection(options);
+ }
+ console.warn('Live data keeps the last snapshot (webcam disabled).');
+ return { collected: 0, errors: 0, skipped: 'google-maps-unavailable' };
  }
  }
 

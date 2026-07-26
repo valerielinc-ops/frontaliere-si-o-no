@@ -583,3 +583,98 @@ describe('runTrafficCollection — TomTom account exhaustion fallback', () => {
     expect(fetchMock.mock.calls.every((c) => String(c[0]).includes('calculateRoute'))).toBe(true);
   });
 });
+
+// ─── runTrafficCollection — Google Maps last-resort preflight (#4768) ─────
+
+describe('runTrafficCollection — Google Maps last-resort preflight', () => {
+  it('falls back to webcam-only when Google Maps is the resolved provider but its preflight call fails', async () => {
+    const good = BORDER_CROSSINGS[0];
+    webcamBySlug.set(slugifyCrossingName(good.name), {
+      congestionScore: 0.7,
+      queueDetected: true,
+      visibility: 'good',
+      feeds: ['02.0N'],
+    });
+
+    const fetchMock = vi.fn(async (url: unknown) => {
+      const u = String(url);
+      if (u.includes('maps.googleapis.com')) {
+        return {
+          ok: true,
+          json: async () => ({
+            status: 'REQUEST_DENIED',
+            error_message: 'You’re calling a legacy API, which is not enabled for your project.',
+          }),
+        } as unknown as Response;
+      }
+      return { ok: true, json: async () => ({}) } as unknown as Response;
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const { runTrafficCollection } = (await import(
+      '../functions/src/trafficSchedulerCore.js'
+    )) as CoreModule;
+
+    const result = await runTrafficCollection({ googleApiKey: 'google-key', enableWebcam: true });
+
+    expect(result.source).toBe('webcam-only');
+    expect(result.collected).toBe(1);
+    // Only the preflight call hit Google Maps — the per-crossing loop never ran.
+    expect(fetchMock.mock.calls.filter((c) => String(c[0]).includes('maps.googleapis.com'))).toHaveLength(1);
+    const saved = adminState.savedCurrent as Array<{ source?: string }>;
+    expect(saved.every((s) => s.source === 'webcam')).toBe(true);
+  });
+
+  it('returns a clean skip (no per-crossing failures) when Google Maps preflight fails and webcam is disabled', async () => {
+    const fetchMock = vi.fn(async (url: unknown) => {
+      const u = String(url);
+      if (u.includes('maps.googleapis.com')) {
+        return {
+          ok: true,
+          json: async () => ({ status: 'REQUEST_DENIED', error_message: 'legacy API not enabled' }),
+        } as unknown as Response;
+      }
+      return { ok: true, json: async () => ({}) } as unknown as Response;
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const { runTrafficCollection } = (await import(
+      '../functions/src/trafficSchedulerCore.js'
+    )) as CoreModule;
+
+    const result = await runTrafficCollection({ googleApiKey: 'google-key', enableWebcam: false });
+
+    expect(result).toEqual({ collected: 0, errors: 0, skipped: 'google-maps-unavailable' });
+    expect(adminState.savedCurrent).toHaveLength(0);
+  });
+
+  it('proceeds with the normal per-crossing loop when the Google Maps preflight succeeds', async () => {
+    const fetchMock = vi.fn(async (url: unknown) => {
+      const u = String(url);
+      if (u.includes('maps.googleapis.com')) {
+        return {
+          ok: true,
+          json: async () => ({
+            status: 'OK',
+            rows: [{ elements: [{ status: 'OK', duration: { value: 300 }, duration_in_traffic: { value: 600 } }] }],
+          }),
+        } as unknown as Response;
+      }
+      return { ok: true, json: async () => ({}) } as unknown as Response;
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const { runTrafficCollection } = (await import(
+      '../functions/src/trafficSchedulerCore.js'
+    )) as CoreModule;
+
+    const result = await runTrafficCollection({ googleApiKey: 'google-key', enableWebcam: false });
+
+    expect(result.skipped).toBeUndefined();
+    expect(result.collected).toBeGreaterThan(0);
+    const saved = adminState.savedCurrent as Array<{ source?: string }>;
+    expect(saved.every((s) => s.source === 'google-maps')).toBe(true);
+    // Preflight call + one call per segment per crossing — never falls back to webcam.
+    expect(fetchMock.mock.calls.filter((c) => String(c[0]).includes('maps.googleapis.com')).length).toBeGreaterThan(1);
+  });
+});
