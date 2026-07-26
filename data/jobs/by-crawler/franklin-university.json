@@ -1,6 +1,6 @@
 {
   "crawlerKey": "franklin-university",
-  "assembledAt": "2026-07-25T22:11:07.967Z",
+  "assembledAt": "2026-07-26T11:06:57.052Z",
   "jobs": [
     {
       "id": "franklin-university-c41fb337efaa",
@@ -46,7 +46,7 @@
       "applyUrl": "https://www.fus.edu/about-franklin/job-opportunities",
       "source": "Franklin University Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-25T22:11:05.227Z",
+      "crawledAt": "2026-07-26T11:06:53.415Z",
       "previousSlugs": [
         "director-of-marketing-and-communications-sorengo-franklin-university",
         "senior-advisor-for-academic-strategy-and-accreditation-temporary-assignment-sorengo",
@@ -87,7 +87,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
