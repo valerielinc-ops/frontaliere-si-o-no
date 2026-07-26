@@ -1555,6 +1555,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.title': 'Border refurbishments: agreement with Ticino',
     'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.excerpt': 'The Undersecretary for the Economy, Sertori, said that there will be no immediate effect on the salaries of border workers, but that they will find an agreement with Ticino',
     'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.imageAlt': 'Lugano cityscape with lake and historic building',
+    'blog.article.esercito-svizzero-valuta-bunker.title': 'Swiss Armed Forces: Assessment of the reuse of old bunkers',
+    'blog.article.esercito-svizzero-valuta-bunker.excerpt': 'The Swiss army assesses the remittance of old military bunkers due to the deterioration of the security situation in Europe.',
+    'blog.article.esercito-svizzero-valuta-bunker.imageAlt': 'Swiss army evaluates the reuse of old bunkers',
 };
 
 export default blogMetaChEn;

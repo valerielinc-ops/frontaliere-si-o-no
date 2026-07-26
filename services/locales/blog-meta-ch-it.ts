@@ -1555,6 +1555,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.title': 'Ristorni frontalieri: accordo con il Ticino',
     'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.excerpt': 'Il sottosegretario per l\'economia, Sertori, ha dichiarato che non ci sarà alcun effetto immediato sugli stipendi dei frontalieri, ma che troveranno un accordo con il Ticino',
     'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.imageAlt': 'Scena di Lugano con il lago e l\'edificio storico',
+    'blog.article.esercito-svizzero-valuta-bunker.title': 'Esercito svizzero: valutazione sul reimpiego dei vecchi bunker',
+    'blog.article.esercito-svizzero-valuta-bunker.excerpt': 'L\'esercito svizzero valuta la rimessa in servizio di vecchi bunker militari a causa del peggioramento della situazione sulla sicurezza in Europa.',
+    'blog.article.esercito-svizzero-valuta-bunker.imageAlt': 'L\'esercito svizzero valuta il reimpiego dei vecchi bunker',
 };
 
 export default blogMetaChIt;
