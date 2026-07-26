@@ -15,7 +15,7 @@ import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySection
 import { WriteCollector } from './batchWrite';
 import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS, clampMetaDescription } from './shared/titleSuffix';
 import { truncateCodeUnits } from './shared/safeTruncate';
-import { findChunkFile, findChunkFiles } from './shared/chunkFiles';
+import { stableChunkFile, stableChunkFiles } from './shared/chunkFiles';
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { CRITICAL_CSS_LINK } from './shared/criticalCss';
@@ -587,24 +587,18 @@ export function ogPagesPlugin(rootDir: string): Plugin {
 
  const LOC_TAG: Record<string, string> = { it: 'it_CH', en: 'en_US', de: 'de_CH', fr: 'fr_CH' };
 
- const assetsDir = np.join(distDir, 'assets');
  // Race-free SPA bundle hash extraction. See spaBundleResolver.ts.
  const { resolveSpaBundle } = await import('./spaBundleResolver');
  const spaBundle = resolveSpaBundle(distDir);
  const entryJs = spaBundle.entryJs;
  const entryCss = spaBundle.entryCss;
- let vendorReactChunk = '';
- let blogMetaItChunk = '';
- let itCriticalTags = '';
- try {
- const assetFiles = fs.readdirSync(assetsDir);
- // Stable-name chunk resolution (legacy hashed fallback) via shared/chunkFiles.ts.
- vendorReactChunk = findChunkFile(assetFiles, 'vendor-react') ?? '';
- blogMetaItChunk = findChunkFile(assetFiles, 'blog-meta-it') ?? '';
- itCriticalTags = findChunkFiles(assetFiles, ['it-core', 'it-calculator'])
+ // Stable-name chunk resolution, no disk I/O (shared/chunkFiles.ts — same
+ // closeBundle-time race as resolveSpaBundle, #4762).
+ const vendorReactChunk = stableChunkFile('vendor-react');
+ const blogMetaItChunk = stableChunkFile('blog-meta-it');
+ const itCriticalTags = stableChunkFiles(['it-core', 'it-calculator'])
  .map(f => `\n <link rel="modulepreload" href="/assets/${f}">`)
  .join('');
- } catch { /* assets dir missing */ }
  // Tautological after the resolver throws on missing bundle. Kept so the
  // template branches that gate on it stay readable.
  const hasSpaBundle = spaBundle.hasSpaBundle;

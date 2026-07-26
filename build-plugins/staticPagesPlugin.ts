@@ -13,7 +13,7 @@ import { asyncCssLink, rootShell, ASYNC_CSS_FALLBACK_SCRIPT } from './htmlTempla
 import { WriteCollector } from './batchWrite';
 import { resolveSpaBundle } from './spaBundleResolver';
 import { resolveStaticPagesFlushed } from './shared/buildSignals';
-import { findChunkFile, findChunkFiles } from './shared/chunkFiles';
+import { stableChunkFile, stableChunkFiles } from './shared/chunkFiles';
 import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { jsToJson as sharedJsToJson } from './shared/jsToJson';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml } from './articleSeoFallback';
@@ -1552,21 +1552,16 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  /* ── 0. Find entry JS/CSS bundle + Italian locale chunk ────── */
  // IMPORTANT: Extract from Vite-generated index.html to get the correct entry
  // (multiple index-*.js chunks exist; find() would pick the wrong one)
- const assetsDir = np.join(distDir, 'assets');
  // Race-free SPA bundle hash extraction. See spaBundleResolver.ts for the
  // race we close (run 25151657070: 123,184 bundle-less pages because of
  // an inline read that lost the writeBundle race).
  const spaBundle = resolveSpaBundle(distDir);
  const entryJs = spaBundle.entryJs;
  const entryCss = spaBundle.entryCss;
- let vendorReactChunk: string | undefined;
- let itCriticalChunks: string[] = [];
- try {
- const assetFiles = fs.readdirSync(assetsDir);
- // Stable-name chunk resolution (legacy hashed fallback) via shared/chunkFiles.ts.
- itCriticalChunks = findChunkFiles(assetFiles, ['it-core', 'it-calculator']);
- vendorReactChunk = findChunkFile(assetFiles, 'vendor-react');
- } catch { /* assets dir missing — will fall back to redirect */ }
+ // Stable-name chunk resolution, no disk I/O (shared/chunkFiles.ts — same
+ // closeBundle-time fs.readdirSync race as resolveSpaBundle used to have, #4762).
+ const itCriticalChunks: string[] = stableChunkFiles(['it-core', 'it-calculator']);
+ const vendorReactChunk: string = stableChunkFile('vendor-react');
 
  // resolveSpaBundle returns the fixed entry filenames unconditionally (no
  // disk check, can't return bundle-less). The flag stays for the few
@@ -1644,13 +1639,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  'jobs-im-tessin': 'stats', 'trouver-emploi-tessin': 'stats', // cathedral-allow: section→translation-chunk map, frozen original slugs
  };
 
- let assetFiles: string[] = [];
- try { assetFiles = fs.readdirSync(assetsDir); } catch { /* ignore */ }
-
- // Resolve a component chunk name to its built filename (stable name,
- // legacy hashed fallback — shared/chunkFiles.ts).
- const resolveChunk = (prefix: string): string | undefined =>
- findChunkFile(assetFiles, prefix);
+ // Resolve a component chunk name to its built filename — stable name, no
+ // disk I/O (shared/chunkFiles.ts, #4762: closeBundle-time
+ // fs.readdirSync(dist/assets) can race Rollup's write phase).
+ const resolveChunk = (prefix: string): string => stableChunkFile(prefix);
 
  // Build modulepreload tags for a given URL path
  // FRO-330: Extract blog article data from blog-articles-data.ts for hero image + SSG article cards
@@ -1748,8 +1740,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // Add locale-specific translation chunk (e.g., it-guide-xxx.js)
  const localeChunkKey = sectionLocaleChunks[firstSeg];
  if (localeChunkKey) {
- const localeChunk = findChunkFile(assetFiles, `${locale}-${localeChunkKey}`);
- if (localeChunk) tags.push(`<link rel="modulepreload" href="/assets/${localeChunk}">`);
+ const localeChunk = stableChunkFile(`${locale}-${localeChunkKey}`);
+ tags.push(`<link rel="modulepreload" href="/assets/${localeChunk}">`);
  }
  // Preload blog hero image on article listing pages
  if (blogHeroImageStatic && blogSlugs.has(firstSeg)) {
