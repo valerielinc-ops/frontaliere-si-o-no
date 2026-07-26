@@ -1573,6 +1573,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salario-medio-svizzera-professione.title': 'Salario medio in Svizzera per professione',
     'blog.article.salario-medio-svizzera-professione.excerpt': 'Dati ufficiali UST/BFS sulla retribuzione media in Svizzera per settore e professione',
     'blog.article.salario-medio-svizzera-professione.imageAlt': 'Scena di lavoro a Lugano',
+    'blog.article.secondo-pilastro-lpp-guida-completa.title': 'Secondo pilastro LPP: guida completa e funzionamento',
+    'blog.article.secondo-pilastro-lpp-guida-completa.excerpt': 'Guida completa al secondo pilastro LPP in Svizzera: funzionamento, aliquote dei contributi, riscatto delle lacune e prelievo per l\'acquisto della casa.',
+    'blog.article.secondo-pilastro-lpp-guida-completa.imageAlt': 'Guida completa al secondo pilastro LPP in Svizzera',
 };
 
 export default blogMetaChIt;
