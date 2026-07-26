@@ -18,8 +18,10 @@ import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMar
  * `dist/index.html` and `jobsSeoPagesPlugin.closeBundle` reading it, possibly
  * compounded by the post-walk-coordinator worker pool added 2026-04-29). That
  * race is now structurally impossible: `resolveSpaBundle`/`resolveEntryAssets`
- * no longer read `dist/index.html` at all — the entry filenames are fixed by
- * `vite.config.ts` and only checked for existence under `dist/assets/` (see
+ * no longer read `dist/index.html`, or check `dist/assets/` at all — the entry
+ * filenames are fixed by `vite.config.ts` and returned as plain constants (a
+ * 2026-07-26 follow-up: the disk-existence check itself raced Rollup's write
+ * phase and took every locale's deploy down for 20+ hours — see
  * `docs/AGENTS-HISTORY.md#spa-bundle-resolver-static-filenames`). This guard
  * stays as a live regression backstop. This test runs against the LIVE site
  * after every deploy — it cannot run against

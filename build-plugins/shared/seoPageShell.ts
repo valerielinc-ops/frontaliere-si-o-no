@@ -28,19 +28,32 @@
  * Entry asset resolution
  * ----------------------
  * The entry JS/CSS filenames are STABLE (fixed by vite.config.ts
- * `entryFileNames`/`assetFileNames`, see `./spaEntryFilenames.ts`), so
- * {@link resolveEntryAssets} no longer discovers them by reading and
- * regex-parsing `dist/index.html` — it just confirms the known-fixed
- * filenames exist under `dist/assets/`. This replaced a poll/parse race
- * against `dist/index.html` that was the root cause of repeated deploy
- * failures (#4745 and predecessors) in the sibling `spaBundleResolver.ts`;
- * see that module's header for the full history.
+ * `entryFileNames`/`assetFileNames`, see `./spaEntryFilenames.ts`) — known
+ * at config-authoring time, not discovered from a build artifact.
+ * {@link resolveEntryAssets} just returns those constants; it does not
+ * check `dist/assets/` at all.
+ *
+ * A prior version gated this on `fs.existsSync(dist/assets/<file>)` at
+ * closeBundle time, on the theory that plain asset files are reliably
+ * present there. That theory turned out to be false for this build: on
+ * 2026-07-26, `dist/assets/index-entry.js` / `index.css` were repeatedly
+ * still absent from disk when closeBundle-time plugins ran (Rollup's write
+ * phase not yet finished, see `spaBundleResolver.ts` header for the
+ * incident detail) — and because this function degrades to `''` instead
+ * of throwing, that race silently stripped the SPA hydration `<script>`/
+ * `<link>` tags from SEO pages instead of failing the build loudly. Since
+ * callers only need the filename *string* (Rollup guarantees the file
+ * exists by the time the `vite build` process exits, long after any HTML
+ * referencing it was generated), there is no correctness reason to gate on
+ * disk state mid-build at all. Actual presence on disk is verified once,
+ * after the whole build process exits, by
+ * `scripts/verify-spa-entry-assets.mjs`.
  *
  * {@link resolveEntryAssets} caches the result per-build (keyed by distDir)
- * so each plugin doesn't re-check disk for every page it emits.
+ * purely to keep the Map-based API tests already exercise; the underlying
+ * lookup is a plain constant return, not a disk check.
  */
 
-import fs from 'node:fs';
 import np from 'node:path';
 import { buildSimplePage, esc, type SimplePageOpts } from '../htmlTemplate';
 import { renderHubChromeSplit, type HubKey, type HubLocale, type HubHero } from './hubChrome';
@@ -81,25 +94,16 @@ const ENTRY_CACHE = new Map<string, EntryAssets>();
  * Resolve the SPA entry JS + CSS bare filenames.
  *
  * These are STABLE, fixed by vite.config.ts (`entryFileNames`/
- * `assetFileNames` — see `./spaEntryFilenames.ts`), so this just confirms
- * the known filenames exist under `dist/assets/` instead of reading and
- * regex-parsing `dist/index.html` (the former approach raced Vite's HTML
- * write — see `spaBundleResolver.ts`'s header for the incident history).
- *
- * Returns empty strings if the assets aren't there (e.g. test environment
- * without a prior Vite build). buildSimplePage tolerates empty entry asset
- * paths by omitting the script/link tags — the page still renders SEO
- * content.
+ * `assetFileNames` — see `./spaEntryFilenames.ts`) — known at
+ * config-authoring time, so this returns them directly with no disk I/O.
+ * Actual on-disk presence is verified once, post-build, by
+ * `scripts/verify-spa-entry-assets.mjs`.
  */
 export function resolveEntryAssets(distDir: string): EntryAssets {
   const cached = ENTRY_CACHE.get(distDir);
   if (cached) return cached;
 
-  const assetsDir = np.join(distDir, 'assets');
-  const entryJs = fs.existsSync(np.join(assetsDir, SPA_ENTRY_JS_FILENAME)) ? SPA_ENTRY_JS_FILENAME : '';
-  const entryCss = fs.existsSync(np.join(assetsDir, SPA_ENTRY_CSS_FILENAME)) ? SPA_ENTRY_CSS_FILENAME : '';
-
-  const out: EntryAssets = { entryJs, entryCss };
+  const out: EntryAssets = { entryJs: SPA_ENTRY_JS_FILENAME, entryCss: SPA_ENTRY_CSS_FILENAME };
   ENTRY_CACHE.set(distDir, out);
   return out;
 }

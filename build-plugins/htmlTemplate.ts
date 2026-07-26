@@ -165,13 +165,13 @@ export const HEAD_SUFFIX_GTAG = ` ${GTAG_SNIPPET}
  * can't drift apart (AGENTS.md §6).
  *
  * GATED on the SPA bundle: the spacer is only safe when React actually mounts
- * (createRoot replaces it with the real header). On a bundle-less page — e.g.
- * when `resolveEntryAssets` returns '' because `dist/assets/` doesn't have the
- * entry files yet (`seoPageShell.ts`) — there is no `<script type=module>`, React
- * never mounts, and an unconditional spacer would sit as a PERMANENT 56/80px
- * empty band above the indexed SEO content. So callers MUST pass the bundle
- * flag (`!!entryJs` / `hasSpaBundle`); when false this returns a plain empty
- * `#root` (the pre-fix harmless degrade — 0px, content at top).
+ * (createRoot replaces it with the real header). `resolveEntryAssets`
+ * (`seoPageShell.ts`) now always returns the fixed entry filenames — it no
+ * longer checks disk, so it can't degrade to `''` — but callers still pass
+ * the bundle flag (`!!entryJs` / `hasSpaBundle`) defensively: if a future
+ * regression genuinely drops the entry chunk, an unconditional spacer would
+ * sit as a PERMANENT 56/80px empty band above the indexed SEO content
+ * instead of degrading to a plain empty `#root` (0px, content at top).
  */
 export function rootShell(hasSpaBundle: boolean): string {
   return hasSpaBundle

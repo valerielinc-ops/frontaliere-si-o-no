@@ -1568,9 +1568,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  vendorReactChunk = findChunkFile(assetFiles, 'vendor-react');
  } catch { /* assets dir missing — will fall back to redirect */ }
 
- // resolveSpaBundle throws when the bundle can't be located — no silent
- // fallback to bundle-less pages. The flag stays for the few branches that
- // still gate template fragments on it; it's tautologically `true` here.
+ // resolveSpaBundle returns the fixed entry filenames unconditionally (no
+ // disk check, can't return bundle-less). The flag stays for the few
+ // branches that still gate template fragments on it; it's tautologically
+ // `true` here.
  const hasSpaBundle = spaBundle.hasSpaBundle;
  const corePreloads = [
  vendorReactChunk ? `<link rel="modulepreload" crossorigin href="/assets/${vendorReactChunk}">` : '',
