@@ -1,6 +1,6 @@
 {
   "crawlerKey": "prada",
-  "assembledAt": "2026-07-26T11:10:00.811Z",
+  "assembledAt": "2026-07-26T22:09:52.231Z",
   "jobs": [
     {
       "id": "prada-4a05ae70b034",
@@ -43,7 +43,7 @@
       "url": "https://jobs.pradagroup.com/job/Las-Vegas-Client-Advisor%2C-Las-Vegas-City-Center-NV-89044/1388996533/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-26T11:09:58.143Z",
+      "crawledAt": "2026-07-26T22:09:48.233Z",
       "firstSeenAt": "2026-07-25T10:44:20.776Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -58,7 +58,8 @@
         }
       },
       "country": "CH",
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "needsRetranslation": true
     },
     {
       "id": "prada-332f237b0ca4",
@@ -101,8 +102,9 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-26T11:09:54.641Z",
+      "crawledAt": "2026-07-26T22:09:45.219Z",
       "firstSeenAt": "2026-07-07T22:19:25.934Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -194,7 +196,8 @@
       },
       "country": "CH",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
