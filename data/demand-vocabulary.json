@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-12T22:52:50.758Z",
+  "generatedAt": "2026-07-26T22:52:04.878Z",
   "weights": {
     "gsc": 0.4,
     "suggest": 0.3,
@@ -12,6 +12,13 @@
       "weight": 0.4,
       "source": "gsc",
       "cluster": "lavoro"
+    },
+    {
+      "kw": "frontalieri",
+      "normalizedKeyword": "frontalieri",
+      "weight": 0.304,
+      "source": "gsc+fingerprint",
+      "cluster": "generic"
     },
     {
       "kw": "2026",
@@ -42,13 +49,6 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "cercato",
-      "normalizedKeyword": "cercato",
-      "weight": 0.3,
-      "source": "fingerprint",
-      "cluster": "generic"
-    },
-    {
       "kw": "cifre",
       "normalizedKeyword": "cifre",
       "weight": 0.3,
@@ -56,8 +56,15 @@
       "cluster": "generic"
     },
     {
-      "kw": "consegnando",
-      "normalizedKeyword": "consegnando",
+      "kw": "conoscere",
+      "normalizedKeyword": "conoscere",
+      "weight": 0.3,
+      "source": "fingerprint",
+      "cluster": "generic"
+    },
+    {
+      "kw": "contante",
+      "normalizedKeyword": "contante",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
@@ -91,8 +98,8 @@
       "cluster": "generic"
     },
     {
-      "kw": "licenziato",
-      "normalizedKeyword": "licenziato",
+      "kw": "italia-svizzera",
+      "normalizedKeyword": "italia-svizzera",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
@@ -112,11 +119,18 @@
       "cluster": "generic"
     },
     {
-      "kw": "postino",
-      "normalizedKeyword": "postino",
+      "kw": "prevendita",
+      "normalizedKeyword": "prevendita",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
+    },
+    {
+      "kw": "ristorni frontalieri ticino",
+      "normalizedKeyword": "ristorni frontalieri ticino",
+      "weight": 0.3,
+      "source": "suggest",
+      "cluster": "fiscale"
     },
     {
       "kw": "stipendio netto frontaliere svizzera",
@@ -154,11 +168,18 @@
       "cluster": "generic"
     },
     {
-      "kw": "vevey",
-      "normalizedKeyword": "vevey",
-      "weight": 0.3,
-      "source": "fingerprint",
-      "cluster": "generic"
+      "kw": "ristorni frontalieri blocco canton ticino",
+      "normalizedKeyword": "ristorni frontalieri blocco canton ticino",
+      "weight": 0.27,
+      "source": "suggest",
+      "cluster": "fiscale"
+    },
+    {
+      "kw": "offerte di lavoro casa di riposo svizzera",
+      "normalizedKeyword": "offerte di lavoro casa di riposo svizzera",
+      "weight": 0.261,
+      "source": "gsc",
+      "cluster": "lavoro"
     },
     {
       "kw": "offerte di lavoro ticino",
@@ -168,16 +189,16 @@
       "cluster": "lavoro"
     },
     {
-      "kw": "offerte di lavoro casa di riposo svizzera",
-      "normalizedKeyword": "offerte di lavoro casa di riposo svizzera",
-      "weight": 0.244,
+      "kw": "offerte lavoro casa di riposo svizzera",
+      "normalizedKeyword": "offerte lavoro casa di riposo svizzera",
+      "weight": 0.245,
       "source": "gsc",
       "cluster": "lavoro"
     },
     {
-      "kw": "offerte lavoro casa di riposo svizzera",
-      "normalizedKeyword": "offerte lavoro casa di riposo svizzera",
-      "weight": 0.23,
+      "kw": "nursing jobs",
+      "normalizedKeyword": "nursing jobs",
+      "weight": 0.222,
       "source": "gsc",
       "cluster": "lavoro"
     },
@@ -185,13 +206,6 @@
       "kw": "offerte lavoro ticino",
       "normalizedKeyword": "offerte lavoro ticino",
       "weight": 0.198,
-      "source": "gsc",
-      "cluster": "lavoro"
-    },
-    {
-      "kw": "nursing jobs",
-      "normalizedKeyword": "nursing jobs",
-      "weight": 0.196,
       "source": "gsc",
       "cluster": "lavoro"
     },
@@ -205,7 +219,7 @@
     {
       "kw": "case anziani lugano posti di lavoro",
       "normalizedKeyword": "case anziani lugano posti di lavoro",
-      "weight": 0.134,
+      "weight": 0.142,
       "source": "gsc",
       "cluster": "lavoro"
     },
@@ -224,6 +238,13 @@
       "cluster": "generic"
     },
     {
+      "kw": "offerte di lavoro casa anziani ticino",
+      "normalizedKeyword": "offerte di lavoro casa anziani ticino",
+      "weight": 0.086,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
       "kw": "eoc offerte di lavoro assistente di cura",
       "normalizedKeyword": "eoc offerte di lavoro assistente di cura",
       "weight": 0.083,
@@ -231,16 +252,16 @@
       "cluster": "lavoro"
     },
     {
-      "kw": "offerte di lavoro casa anziani ticino",
-      "normalizedKeyword": "offerte di lavoro casa anziani ticino",
+      "kw": "i am searching for caregiver jobs in ticino for elderly support.",
+      "normalizedKeyword": "i am searching for caregiver jobs in ticino for elderly support.",
       "weight": 0.082,
       "source": "gsc",
       "cluster": "lavoro"
     },
     {
-      "kw": "i am searching for caregiver jobs in ticino for elderly support.",
-      "normalizedKeyword": "i am searching for caregiver jobs in ticino for elderly support.",
-      "weight": 0.074,
+      "kw": "casa anziani paradiso offerta lavoro",
+      "normalizedKeyword": "casa anziani paradiso offerta lavoro",
+      "weight": 0.078,
       "source": "gsc",
       "cluster": "lavoro"
     },
@@ -259,16 +280,23 @@
       "cluster": "lavoro"
     },
     {
-      "kw": "casa anziani paradiso offerta lavoro",
-      "normalizedKeyword": "casa anziani paradiso offerta lavoro",
-      "weight": 0.072,
+      "kw": "offerte lavoro poschiavo",
+      "normalizedKeyword": "offerte lavoro poschiavo",
+      "weight": 0.067,
       "source": "gsc",
       "cluster": "lavoro"
     },
     {
-      "kw": "offerte lavoro poschiavo",
-      "normalizedKeyword": "offerte lavoro poschiavo",
-      "weight": 0.067,
+      "kw": "casa anziani comunale bellinzona offerte di lavoro",
+      "normalizedKeyword": "casa anziani comunale bellinzona offerte di lavoro",
+      "weight": 0.066,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
+      "kw": "offerte lavoro casa anziani ticino",
+      "normalizedKeyword": "offerte lavoro casa anziani ticino",
+      "weight": 0.065,
       "source": "gsc",
       "cluster": "lavoro"
     },
@@ -315,15 +343,22 @@
       "cluster": "mobilita"
     },
     {
-      "kw": "offerte lavoro casa anziani ticino",
-      "normalizedKeyword": "offerte lavoro casa anziani ticino",
-      "weight": 0.06,
+      "kw": "\"das\" \"assicurazione\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+      "normalizedKeyword": "\"das\" \"assicurazione\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casino\" -\"e-das\" -\"fibra ottica\" -\"fur\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+      "weight": 0.058,
       "source": "gsc",
-      "cluster": "lavoro"
+      "cluster": "salute"
     },
     {
       "kw": "groupe mutuel jobs",
       "normalizedKeyword": "groupe mutuel jobs",
+      "weight": 0.058,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
+      "kw": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
+      "normalizedKeyword": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
       "weight": 0.058,
       "source": "gsc",
       "cluster": "lavoro"
@@ -339,13 +374,6 @@
       "kw": "lavoro svizzera",
       "normalizedKeyword": "lavoro svizzera",
       "weight": 0.057,
-      "source": "gsc",
-      "cluster": "lavoro"
-    },
-    {
-      "kw": "casa anziani comunale bellinzona offerte di lavoro",
-      "normalizedKeyword": "casa anziani comunale bellinzona offerte di lavoro",
-      "weight": 0.056,
       "source": "gsc",
       "cluster": "lavoro"
     },
@@ -371,11 +399,11 @@
       "cluster": "lavoro"
     },
     {
-      "kw": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
-      "normalizedKeyword": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
-      "weight": 0.053,
+      "kw": "kantonsspital aarau ksa",
+      "normalizedKeyword": "kantonsspital aarau ksa",
+      "weight": 0.054,
       "source": "gsc",
-      "cluster": "lavoro"
+      "cluster": "generic"
     },
     {
       "kw": "oss ticino offerte lavoro",
@@ -385,6 +413,13 @@
       "cluster": "lavoro"
     },
     {
+      "kw": "casa anziani chiasso lavoro",
+      "normalizedKeyword": "casa anziani chiasso lavoro",
+      "weight": 0.05,
+      "source": "gsc",
+      "cluster": "mobilita"
+    },
+    {
       "kw": "lavoro in ticino",
       "normalizedKeyword": "lavoro in ticino",
       "weight": 0.05,
@@ -392,18 +427,11 @@
       "cluster": "lavoro"
     },
     {
-      "kw": "\"das\" \"assicurazione\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
-      "normalizedKeyword": "\"das\" \"assicurazione\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casino\" -\"e-das\" -\"fibra ottica\" -\"fur\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
-      "weight": 0.047,
+      "kw": "case di riposo ticino lavora con noi",
+      "normalizedKeyword": "case di riposo ticino lavora con noi",
+      "weight": 0.048,
       "source": "gsc",
-      "cluster": "salute"
-    },
-    {
-      "kw": "casa anziani chiasso lavoro",
-      "normalizedKeyword": "casa anziani chiasso lavoro",
-      "weight": 0.047,
-      "source": "gsc",
-      "cluster": "mobilita"
+      "cluster": "lavoro"
     },
     {
       "kw": "cerco lavoro in svizzera",
@@ -457,13 +485,6 @@
     {
       "kw": "casa anziani mendrisio lavoro",
       "normalizedKeyword": "casa anziani mendrisio lavoro",
-      "weight": 0.042,
-      "source": "gsc",
-      "cluster": "lavoro"
-    },
-    {
-      "kw": "case di riposo ticino lavora con noi",
-      "normalizedKeyword": "case di riposo ticino lavora con noi",
       "weight": 0.042,
       "source": "gsc",
       "cluster": "lavoro"
@@ -574,6 +595,13 @@
       "cluster": "lavoro"
     },
     {
+      "kw": "casa anziani offerte di lavoro",
+      "normalizedKeyword": "casa anziani offerte di lavoro",
+      "weight": 0.036,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
       "kw": "annunci lavoro ticino",
       "normalizedKeyword": "annunci lavoro ticino",
       "weight": 0.035,
@@ -581,8 +609,15 @@
       "cluster": "lavoro"
     },
     {
-      "kw": "casa anziani offerte di lavoro",
-      "normalizedKeyword": "casa anziani offerte di lavoro",
+      "kw": "i want care assistant jobs in switzerland in nursing homes around bern with german level b1 and weekend shifts and employers that help with integration.",
+      "normalizedKeyword": "i want care assistant jobs in switzerland in nursing homes around bern with german level b1 and weekend shifts and employers that help with integration.",
+      "weight": 0.035,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
+      "kw": "jobs chur",
+      "normalizedKeyword": "jobs chur",
       "weight": 0.035,
       "source": "gsc",
       "cluster": "lavoro"
@@ -623,18 +658,18 @@
       "cluster": "lavoro"
     },
     {
-      "kw": "i want care assistant jobs in switzerland in nursing homes around bern with german level b1 and weekend shifts and employers that help with integration.",
-      "normalizedKeyword": "i want care assistant jobs in switzerland in nursing homes around bern with german level b1 and weekend shifts and employers that help with integration.",
-      "weight": 0.032,
-      "source": "gsc",
-      "cluster": "lavoro"
-    },
-    {
       "kw": "altenpfleger bern",
       "normalizedKeyword": "altenpfleger bern",
       "weight": 0.031,
       "source": "gsc",
       "cluster": "generic"
+    },
+    {
+      "kw": "educatore sociale offerte lavoro ticino",
+      "normalizedKeyword": "educatore sociale offerte lavoro ticino",
+      "weight": 0.031,
+      "source": "gsc",
+      "cluster": "lavoro"
     },
     {
       "kw": "lavoro locarno",
@@ -700,22 +735,8 @@
       "cluster": "lavoro"
     },
     {
-      "kw": "educatore sociale offerte lavoro ticino",
-      "normalizedKeyword": "educatore sociale offerte lavoro ticino",
-      "weight": 0.028,
-      "source": "gsc",
-      "cluster": "lavoro"
-    },
-    {
       "kw": "jobs surselva",
       "normalizedKeyword": "jobs surselva",
-      "weight": 0.027,
-      "source": "gsc",
-      "cluster": "lavoro"
-    },
-    {
-      "kw": "offerte di lavoro canton ticino per frontalieri",
-      "normalizedKeyword": "offerte di lavoro canton ticino per frontalieri",
       "weight": 0.027,
       "source": "gsc",
       "cluster": "lavoro"
@@ -777,6 +798,13 @@
       "cluster": "lavoro"
     },
     {
+      "kw": "i am seeking part time work in bern at 60 to 80 percent in healthcare support like caregiver medical receptionist or pharmacy assistant and i need employers open to training.",
+      "normalizedKeyword": "i am seeking part time work in bern at 60 to 80 percent in healthcare support like caregiver medical receptionist or pharmacy assistant and i need employers open to training.",
+      "weight": 0.025,
+      "source": "gsc",
+      "cluster": "salute"
+    },
+    {
       "kw": "lavoro hr ticino",
       "normalizedKeyword": "lavoro hr ticino",
       "weight": 0.025,
@@ -789,6 +817,13 @@
       "weight": 0.025,
       "source": "gsc",
       "cluster": "generic"
+    },
+    {
+      "kw": "offerte lavoro assistente di cura ticino",
+      "normalizedKeyword": "offerte lavoro assistente di cura ticino",
+      "weight": 0.025,
+      "source": "gsc",
+      "cluster": "lavoro"
     },
     {
       "kw": "teilzeitstelle thurgau",
@@ -826,6 +861,13 @@
       "cluster": "lavoro"
     },
     {
+      "kw": "offerte lavoro educatore ticino",
+      "normalizedKeyword": "offerte lavoro educatore ticino",
+      "weight": 0.024,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
       "kw": "psicologo italiano online sciaffusa",
       "normalizedKeyword": "psicologo italiano online sciaffusa",
       "weight": 0.024,
@@ -847,11 +889,11 @@
       "cluster": "generic"
     },
     {
-      "kw": "i am seeking part time work in bern at 60 to 80 percent in healthcare support like caregiver medical receptionist or pharmacy assistant and i need employers open to training.",
-      "normalizedKeyword": "i am seeking part time work in bern at 60 to 80 percent in healthcare support like caregiver medical receptionist or pharmacy assistant and i need employers open to training.",
-      "weight": 0.023,
+      "kw": "altenpfleger jobs lugano",
+      "normalizedKeyword": "altenpfleger jobs lugano",
+      "weight": 0.022,
       "source": "gsc",
-      "cluster": "salute"
+      "cluster": "lavoro"
     },
     {
       "kw": "bacheca lavoro ticino",
@@ -896,13 +938,6 @@
       "cluster": "lavoro"
     },
     {
-      "kw": "offerte lavoro educatore ticino",
-      "normalizedKeyword": "offerte lavoro educatore ticino",
-      "weight": 0.022,
-      "source": "gsc",
-      "cluster": "lavoro"
-    },
-    {
       "kw": "psicologo italiano online horw",
       "normalizedKeyword": "psicologo italiano online horw",
       "weight": 0.022,
@@ -915,6 +950,13 @@
       "weight": 0.022,
       "source": "gsc",
       "cluster": "generic"
+    },
+    {
+      "kw": "softwareentwickler jobs lugano",
+      "normalizedKeyword": "softwareentwickler jobs lugano",
+      "weight": 0.022,
+      "source": "gsc",
+      "cluster": "lavoro"
     },
     {
       "kw": "teilzeitstelle aargau",
@@ -1015,13 +1057,6 @@
       "cluster": "mobilita"
     },
     {
-      "kw": "altenpfleger jobs lugano",
-      "normalizedKeyword": "altenpfleger jobs lugano",
-      "weight": 0.019,
-      "source": "gsc",
-      "cluster": "lavoro"
-    },
-    {
       "kw": "axa cyberversicherung",
       "normalizedKeyword": "axa cyberversicherung",
       "weight": 0.019,
@@ -1038,13 +1073,6 @@
     {
       "kw": "lavoro ticino nell'ultima settimana",
       "normalizedKeyword": "lavoro ticino nell'ultima settimana",
-      "weight": 0.019,
-      "source": "gsc",
-      "cluster": "lavoro"
-    },
-    {
-      "kw": "softwareentwickler jobs lugano",
-      "normalizedKeyword": "softwareentwickler jobs lugano",
       "weight": 0.019,
       "source": "gsc",
       "cluster": "lavoro"
@@ -1080,6 +1108,13 @@
     {
       "kw": "emploi payerne",
       "normalizedKeyword": "emploi payerne",
+      "weight": 0.018,
+      "source": "gsc",
+      "cluster": "generic"
+    },
+    {
+      "kw": "enterprise suche für entwickler",
+      "normalizedKeyword": "enterprise suche fur entwickler",
       "weight": 0.018,
       "source": "gsc",
       "cluster": "generic"
@@ -1127,22 +1162,8 @@
       "cluster": "lavoro"
     },
     {
-      "kw": "offerte di lavoro vallese svizzera",
-      "normalizedKeyword": "offerte di lavoro vallese svizzera",
-      "weight": 0.018,
-      "source": "gsc",
-      "cluster": "lavoro"
-    },
-    {
       "kw": "offerte di lavoro visp",
       "normalizedKeyword": "offerte di lavoro visp",
-      "weight": 0.018,
-      "source": "gsc",
-      "cluster": "lavoro"
-    },
-    {
-      "kw": "offerte lavoro assistente di cura ticino",
-      "normalizedKeyword": "offerte lavoro assistente di cura ticino",
       "weight": 0.018,
       "source": "gsc",
       "cluster": "lavoro"
@@ -1421,13 +1442,6 @@
       "cluster": "generic"
     },
     {
-      "kw": "enterprise suche für entwickler",
-      "normalizedKeyword": "enterprise suche fur entwickler",
-      "weight": 0.014,
-      "source": "gsc",
-      "cluster": "generic"
-    },
-    {
       "kw": "groupe mutuel job",
       "normalizedKeyword": "groupe mutuel job",
       "weight": 0.014,
@@ -1477,6 +1491,13 @@
       "cluster": "lavoro"
     },
     {
+      "kw": "offerte di lavoro centri diurni ticino",
+      "normalizedKeyword": "offerte di lavoro centri diurni ticino",
+      "weight": 0.014,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
       "kw": "offerte di lavoro presso ente ospedaliero cantonale (eoc)",
       "normalizedKeyword": "offerte di lavoro presso ente ospedaliero cantonale (eoc)",
       "weight": 0.014,
@@ -1484,8 +1505,8 @@
       "cluster": "salute"
     },
     {
-      "kw": "offerte di lavoro ticino nell'ultima settimana",
-      "normalizedKeyword": "offerte di lavoro ticino nell'ultima settimana",
+      "kw": "offerte di lavoro ticino ristorazione",
+      "normalizedKeyword": "offerte di lavoro ticino ristorazione",
       "weight": 0.014,
       "source": "gsc",
       "cluster": "lavoro"
@@ -1596,6 +1617,27 @@
       "cluster": "generic"
     },
     {
+      "kw": "what nursing jobs are open in the zurich region?",
+      "normalizedKeyword": "what nursing jobs are open in the zurich region?",
+      "weight": 0.014,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
+      "kw": "assistente di cura ticino lavoro",
+      "normalizedKeyword": "assistente di cura ticino lavoro",
+      "weight": 0.013,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
+      "kw": "educatore mendrisio lavoro",
+      "normalizedKeyword": "educatore mendrisio lavoro",
+      "weight": 0.013,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
       "kw": "emploi banque geneve",
       "normalizedKeyword": "emploi banque geneve",
       "weight": 0.013,
@@ -1638,6 +1680,20 @@
       "cluster": "lavoro"
     },
     {
+      "kw": "lavoro educatrice ticino",
+      "normalizedKeyword": "lavoro educatrice ticino",
+      "weight": 0.013,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
+      "kw": "lavoro insegnante canton ticino",
+      "normalizedKeyword": "lavoro insegnante canton ticino",
+      "weight": 0.013,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
       "kw": "lavoro pontresina",
       "normalizedKeyword": "lavoro pontresina",
       "weight": 0.013,
@@ -1666,15 +1722,8 @@
       "cluster": "generic"
     },
     {
-      "kw": "offerte di lavoro centri diurni ticino",
-      "normalizedKeyword": "offerte di lavoro centri diurni ticino",
-      "weight": 0.013,
-      "source": "gsc",
-      "cluster": "lavoro"
-    },
-    {
-      "kw": "offerte di lavoro ticino ristorazione",
-      "normalizedKeyword": "offerte di lavoro ticino ristorazione",
+      "kw": "offerte lavoro educatore canton ticino",
+      "normalizedKeyword": "offerte lavoro educatore canton ticino",
       "weight": 0.013,
       "source": "gsc",
       "cluster": "lavoro"
@@ -1792,6 +1841,13 @@
       "cluster": "lavoro"
     },
     {
+      "kw": "hire developers in switzerland",
+      "normalizedKeyword": "hire developers in switzerland",
+      "weight": 0.012,
+      "source": "gsc",
+      "cluster": "generic"
+    },
+    {
       "kw": "hoval jobs",
       "normalizedKeyword": "hoval jobs",
       "weight": 0.012,
@@ -1811,6 +1867,13 @@
       "weight": 0.012,
       "source": "gsc",
       "cluster": "generic"
+    },
+    {
+      "kw": "ingenieur jobs lugano",
+      "normalizedKeyword": "ingenieur jobs lugano",
+      "weight": 0.012,
+      "source": "gsc",
+      "cluster": "lavoro"
     },
     {
       "kw": "iwc schaffhausen jobs",
@@ -1836,20 +1899,6 @@
     {
       "kw": "lavora con noi ticino",
       "normalizedKeyword": "lavora con noi ticino",
-      "weight": 0.012,
-      "source": "gsc",
-      "cluster": "lavoro"
-    },
-    {
-      "kw": "lavoro educatrice ticino",
-      "normalizedKeyword": "lavoro educatrice ticino",
-      "weight": 0.012,
-      "source": "gsc",
-      "cluster": "lavoro"
-    },
-    {
-      "kw": "lavoro insegnante canton ticino",
-      "normalizedKeyword": "lavoro insegnante canton ticino",
       "weight": 0.012,
       "source": "gsc",
       "cluster": "lavoro"
@@ -1939,6 +1988,13 @@
       "cluster": "lavoro"
     },
     {
+      "kw": "web developer ticino",
+      "normalizedKeyword": "web developer ticino",
+      "weight": 0.012,
+      "source": "gsc",
+      "cluster": "generic"
+    },
+    {
       "kw": "\"das\" \"clienti\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
       "normalizedKeyword": "\"das\" \"clienti\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casino\" -\"e-das\" -\"fibra ottica\" -\"fur\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
       "weight": 0.011,
@@ -2002,13 +2058,6 @@
       "cluster": "generic"
     },
     {
-      "kw": "hire developers in switzerland",
-      "normalizedKeyword": "hire developers in switzerland",
-      "weight": 0.011,
-      "source": "gsc",
-      "cluster": "generic"
-    },
-    {
       "kw": "hitachi monteggio",
       "normalizedKeyword": "hitachi monteggio",
       "weight": 0.011,
@@ -2044,6 +2093,13 @@
       "cluster": "generic"
     },
     {
+      "kw": "lavoro in strutture per anziani svizzera",
+      "normalizedKeyword": "lavoro in strutture per anziani svizzera",
+      "weight": 0.011,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
       "kw": "lavoro stabio",
       "normalizedKeyword": "lavoro stabio",
       "weight": 0.011,
@@ -2060,6 +2116,13 @@
     {
       "kw": "medacta castel san pietro lavora con noi",
       "normalizedKeyword": "medacta castel san pietro lavora con noi",
+      "weight": 0.011,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
+      "kw": "offerte di lavoro casa di riposo per anziani",
+      "normalizedKeyword": "offerte di lavoro casa di riposo per anziani",
       "weight": 0.011,
       "source": "gsc",
       "cluster": "lavoro"
@@ -2100,8 +2163,8 @@
       "cluster": "mobilita"
     },
     {
-      "kw": "offerte lavoro educatore canton ticino",
-      "normalizedKeyword": "offerte lavoro educatore canton ticino",
+      "kw": "offerte lavoro educatore svizzera",
+      "normalizedKeyword": "offerte lavoro educatore svizzera",
       "weight": 0.011,
       "source": "gsc",
       "cluster": "lavoro"
@@ -2219,13 +2282,6 @@
       "cluster": "lavoro"
     },
     {
-      "kw": "educatore mendrisio lavoro",
-      "normalizedKeyword": "educatore mendrisio lavoro",
-      "weight": 0.01,
-      "source": "gsc",
-      "cluster": "lavoro"
-    },
-    {
       "kw": "emploi durabilité",
       "normalizedKeyword": "emploi durabilite",
       "weight": 0.01,
@@ -2254,18 +2310,18 @@
       "cluster": "lavoro"
     },
     {
+      "kw": "erzieher jobs lugano",
+      "normalizedKeyword": "erzieher jobs lugano",
+      "weight": 0.01,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
       "kw": "hotel svizzera cerca personale",
       "normalizedKeyword": "hotel svizzera cerca personale",
       "weight": 0.01,
       "source": "gsc",
       "cluster": "generic"
-    },
-    {
-      "kw": "ingenieur jobs lugano",
-      "normalizedKeyword": "ingenieur jobs lugano",
-      "weight": 0.01,
-      "source": "gsc",
-      "cluster": "lavoro"
     },
     {
       "kw": "job domat ems",
@@ -2324,8 +2380,8 @@
       "cluster": "lavoro"
     },
     {
-      "kw": "offerte di lavoro casa di riposo per anziani",
-      "normalizedKeyword": "offerte di lavoro casa di riposo per anziani",
+      "kw": "offerte di lavoro educatore ticino",
+      "normalizedKeyword": "offerte di lavoro educatore ticino",
       "weight": 0.01,
       "source": "gsc",
       "cluster": "lavoro"
@@ -2340,6 +2396,13 @@
     {
       "kw": "offerte lavoro lugano",
       "normalizedKeyword": "offerte lavoro lugano",
+      "weight": 0.01,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
+      "kw": "offerte lavoro ristorazione ticino",
+      "normalizedKeyword": "offerte lavoro ristorazione ticino",
       "weight": 0.01,
       "source": "gsc",
       "cluster": "lavoro"
@@ -2413,23 +2476,16 @@
       "weight": 0.01,
       "source": "gsc",
       "cluster": "generic"
-    },
-    {
-      "kw": "what nursing jobs are open in the zurich region?",
-      "normalizedKeyword": "what nursing jobs are open in the zurich region?",
-      "weight": 0.01,
-      "source": "gsc",
-      "cluster": "lavoro"
     }
   ],
   "sources": {
     "gscOrphans": {
       "ok": true,
-      "kw_count": 997
+      "kw_count": 1011
     },
     "googleSuggest": {
       "ok": true,
-      "kw_count": 6
+      "kw_count": 8
     },
     "winnerFingerprint": {
       "ok": true,
