@@ -26963,6 +26963,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bally-lultima-scarpa-svizzera-sara-prodotta-in-estate',
+ category: 'fiscale',
+ date: '2026-07-26T04:10:40.994Z',
+ image: '/images/blog/bally-lultima-scarpa-svizzera-sara-prodotta-in-estate.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

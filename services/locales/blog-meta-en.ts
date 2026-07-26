@@ -8974,6 +8974,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dazi-usa-economia-svizzera.title': 'US duties and impact on the Swiss economy: what changes',
     'blog.article.dazi-usa-economia-svizzera.excerpt': 'According to the Economic Research Institute, the US duty rate slows the Swiss economy to a minimum, with impacts below 0.1%.',
     'blog.article.dazi-usa-economia-svizzera.imageAlt': 'Castles of Bellinzona and Ticino landscape',
+    'blog.article.bally-lultima-scarpa-svizzera-sara-prodotta-in-estate.title': 'More Bally, the latest Swiss shoe will be produced in summer',
+    'blog.article.bally-lultima-scarpa-svizzera-sara-prodotta-in-estate.excerpt': 'The production of the legendary Swiss brand Bally will move to another country.',
+    'blog.article.bally-lultima-scarpa-svizzera-sara-prodotta-in-estate.imageAlt': 'The production of Bally will be moved to another country.',
 };
 
 export default blogMetaEn;

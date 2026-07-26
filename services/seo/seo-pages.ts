@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3528,
+ "numberOfItems": 3529,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8296,7 +8296,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3525, "name": "Trasferirsi a Trasquera da frontaliere: pro e c...", "url": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-trasquera-da-frontaliere-pro-e-contro` },
           { "@type": "ListItem", "position": 3526, "name": "Guida al sistema sanitario svizzero: obbligo LA...", "url": `${BASE_URL}/articoli-frontaliere/sistema-sanitario-svizzero-lamal-guida-canton-lucerna` },
           { "@type": "ListItem", "position": 3527, "name": "Dazi USA e impatto sull'economia elvetica: cosa...", "url": `${BASE_URL}/articoli-frontaliere/dazi-usa-economia-svizzera` },
-          { "@type": "ListItem", "position": 3528, "name": "Ristorni frontalieri: accordo con il Ticino", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-sertori-nessun-effetto-immediato` }
+          { "@type": "ListItem", "position": 3528, "name": "Ristorni frontalieri: accordo con il Ticino", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-sertori-nessun-effetto-immediato` },
+          { "@type": "ListItem", "position": 3529, "name": "Di più Bally, l'ultima scarpa svizzera sarà pro...", "url": `${BASE_URL}/articoli-frontaliere/bally-lultima-scarpa-svizzera-sara-prodotta-in-estate` }
  ]
  },
  {
