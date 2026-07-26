@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3526,
+ "numberOfItems": 3527,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8294,7 +8294,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3523, "name": "Vivere a Bizzarone e lavorare in Ticino da fron...", "url": `${BASE_URL}/articoli-frontaliere/vivere-bizzarone-lavorare-ticino` },
           { "@type": "ListItem", "position": 3524, "name": "Lavoro oltreconfine: l'esercito dei frontalieri...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-oltreconfine-esercito-frontalieri` },
           { "@type": "ListItem", "position": 3525, "name": "Trasferirsi a Trasquera da frontaliere: pro e c...", "url": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-trasquera-da-frontaliere-pro-e-contro` },
-          { "@type": "ListItem", "position": 3526, "name": "Guida al sistema sanitario svizzero: obbligo LA...", "url": `${BASE_URL}/articoli-frontaliere/sistema-sanitario-svizzero-lamal-guida-canton-lucerna` }
+          { "@type": "ListItem", "position": 3526, "name": "Guida al sistema sanitario svizzero: obbligo LA...", "url": `${BASE_URL}/articoli-frontaliere/sistema-sanitario-svizzero-lamal-guida-canton-lucerna` },
+          { "@type": "ListItem", "position": 3527, "name": "Dazi USA e impatto sull'economia elvetica: cosa...", "url": `${BASE_URL}/articoli-frontaliere/dazi-usa-economia-svizzera` }
  ]
  },
  {

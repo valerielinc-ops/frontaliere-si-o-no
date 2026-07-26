@@ -26954,6 +26954,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'dazi-usa-economia-svizzera',
+ category: 'novita',
+ date: '2026-07-26T03:36:52.558Z',
+ image: '/images/blog/dazi-usa-economia-svizzera.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

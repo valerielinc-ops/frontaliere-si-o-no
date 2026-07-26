@@ -8971,6 +8971,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.title': 'Moving to Trasquera from a border crossing: pros and cons',
     'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.excerpt': 'Tax settings, permits, expectations: what to know before moving to Trasquera from a border crossing',
     'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.imageAlt': 'A frontaliere in a car crossing the border between Italy and Switzerland',
+    'blog.article.dazi-usa-economia-svizzera.title': 'US duties and impact on the Swiss economy: what changes',
+    'blog.article.dazi-usa-economia-svizzera.excerpt': 'According to the Economic Research Institute, the US duty rate slows the Swiss economy to a minimum, with impacts below 0.1%.',
+    'blog.article.dazi-usa-economia-svizzera.imageAlt': 'Castles of Bellinzona and Ticino landscape',
 };
 
 export default blogMetaEn;

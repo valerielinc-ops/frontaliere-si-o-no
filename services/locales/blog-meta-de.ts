@@ -8970,6 +8970,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.title': 'Umzug nach Trasquera als Grenzgänger: Vor- und Nachteile',
     'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.excerpt': 'Steuereinstellungen, Genehmigungen, Erwartungen: Was Sie wissen müssen, bevor Sie als Grenzgänger nach Trasquera ziehen',
     'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.imageAlt': 'Ein Frontalier in einem Auto, das die Grenze zwischen Italien und der Schweiz überquert',
+    'blog.article.dazi-usa-economia-svizzera.title': 'US-Zölle und Auswirkungen auf die Schweizer Wirtschaft: Was sich ändert',
+    'blog.article.dazi-usa-economia-svizzera.excerpt': 'Gemäss dem Konjunkturforschungsinstitut bremst der US-Zollsatz die Schweizer Wirtschaft mit Auswirkungen unter 0,1% minimal.',
+    'blog.article.dazi-usa-economia-svizzera.imageAlt': 'Festungen von Bellinzona und Tessiner Landschaft',
 };
 
 export default blogMetaDe;
