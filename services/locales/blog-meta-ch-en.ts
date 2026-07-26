@@ -1567,6 +1567,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.costo-vita-cantone-svizzera.title': 'Cost of living in Switzerland: comparison between cantons',
     'blog.article.costo-vita-cantone-svizzera.excerpt': 'A comparison of living costs in the main Swiss cantons: rent, spending, transport and insurance.',
     'blog.article.costo-vita-cantone-svizzera.imageAlt': 'A scene of Lugano with the lake in the foreground',
+    'blog.article.premi-cassa-malati-lamal-per-cantone.title': 'LAMal Awards: regional factors and variability between cantons',
+    'blog.article.premi-cassa-malati-lamal-per-cantone.excerpt': 'LAMal premiums vary greatly between cantons due to regional factors, such as optimal deductible and subsidies available.',
+    'blog.article.premi-cassa-malati-lamal-per-cantone.imageAlt': 'View of Lugano on the lake.',
 };
 
 export default blogMetaChEn;

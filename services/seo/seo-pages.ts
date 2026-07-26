@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3537,
+ "numberOfItems": 3538,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8305,7 +8305,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3534, "name": "Lavoro in Svizzera e frontalieri: ricerca, agen...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-svizzera-frontalieri-guida` },
           { "@type": "ListItem", "position": 3535, "name": "Frontalieri: rallentano in Ticino, aumentano ne...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-rallentano-ticino-aumentano-grigioni` },
           { "@type": "ListItem", "position": 3536, "name": "Costo della vita in Svizzera: confronto tra can...", "url": `${BASE_URL}/articoli-frontaliere/costo-vita-cantone-svizzera` },
-          { "@type": "ListItem", "position": 3537, "name": "Trasferirsi a Claino con Osteno da frontaliere:...", "url": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro` }
+          { "@type": "ListItem", "position": 3537, "name": "Trasferirsi a Claino con Osteno da frontaliere:...", "url": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro` },
+          { "@type": "ListItem", "position": 3538, "name": "Premi LAMal: fattori regionali e variabilità tr...", "url": `${BASE_URL}/articoli-frontaliere/premi-cassa-malati-lamal-per-cantone` }
  ]
  },
  {

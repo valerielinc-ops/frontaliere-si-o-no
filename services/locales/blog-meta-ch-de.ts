@@ -1567,6 +1567,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.costo-vita-cantone-svizzera.title': 'Lebenshaltungskosten in der Schweiz: Vergleich der Kantone',
     'blog.article.costo-vita-cantone-svizzera.excerpt': 'Ein Vergleich der Lebenshaltungskosten in den wichtigsten Schweizer Kantonen: Mieten, Ausgaben, Transport und Versicherungen.',
     'blog.article.costo-vita-cantone-svizzera.imageAlt': 'Eine Szene von Lugano mit dem See im Vordergrund',
+    'blog.article.premi-cassa-malati-lamal-per-cantone.title': 'KVG-Prämien: Regionale Faktoren und kantonale Variabilität',
+    'blog.article.premi-cassa-malati-lamal-per-cantone.excerpt': 'Die KVG-Prämien sind aufgrund regionaler Faktoren wie der optimalen Franchise und der verfügbaren Subventionen von Kanton zu Kanton sehr unterschiedlich.',
+    'blog.article.premi-cassa-malati-lamal-per-cantone.imageAlt': 'Lugano am See.',
 };
 
 export default blogMetaChDe;
