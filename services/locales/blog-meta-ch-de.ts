@@ -1540,6 +1540,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sistema-sanitario-svizzero-lamal-2026.title': 'Schweizerisches Gesundheitssystem KVG: Der Leitfaden 2026',
     'blog.article.sistema-sanitario-svizzero-lamal-2026.excerpt': 'Vollständiger Leitfaden zum Schweizer Gesundheitssystem 2026: KVG-Pflicht, Optionsrecht, Krankenkassenwahl, Franchisen und Rückerstattungen.',
     'blog.article.sistema-sanitario-svizzero-lamal-2026.imageAlt': 'Schweizer Gesundheitssystem LAMal und Krankenversicherung',
+    'blog.article.lamal-svizzero-ticino-2026.title': 'Schweizerisches Gesundheitssystem: KVG und Franchise',
+    'blog.article.lamal-svizzero-ticino-2026.excerpt': 'Erfahren Sie, wie das Schweizer Gesundheitssystem funktioniert, einschließlich der Regeln für die Wahl der Kasse, der Franchise und der Rückerstattungen, mit spezifischen Daten für den Kanton Tessin.',
+    'blog.article.lamal-svizzero-ticino-2026.imageAlt': 'Ein Frontalier assistiert einem Patienten in einem Schweizer Krankenhaus, mit einem Pfleger an seiner linken Seite.',
 };
 
 export default blogMetaChDe;
