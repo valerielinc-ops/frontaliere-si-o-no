@@ -266,6 +266,13 @@ jobs:
     # No per-job concurrency: the workflow-level `pages-build-run` group already
     # guarantees a single build run at a time, so this run's 4 legs never race
     # another run's same-locale CDN / frontaliere-<loc> force-push target.
+    # shard-secrets-overflow: repo-level Actions secrets hit GitHub's 100/repo
+    # cap (89 section-shard deploy keys already used the quota). Environment
+    # secrets are a separate 100-slot pool that GitHub merges into the same
+    # `secrets.*` context when a job declares `environment:` — no change
+    # needed to how existing repo-level SHARD_*_DEPLOY_KEY secrets are read.
+    # No protection rules on this environment (see `gh api .../environments`).
+    environment: shard-secrets-overflow
     permissions:
       contents: write
       pages: write
@@ -448,6 +455,102 @@ jobs:
           SHARD_ZURIGO_EN_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_EN_DEPLOY_KEY }}
           SHARD_ZURIGO_DE_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_DE_DEPLOY_KEY }}
           SHARD_ZURIGO_FR_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_FR_DEPLOY_KEY }}
+          SHARD_ARGOVIA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_IT_DEPLOY_KEY }}
+          SHARD_ARGOVIA_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_EN_DEPLOY_KEY }}
+          SHARD_ARGOVIA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_DE_DEPLOY_KEY }}
+          SHARD_ARGOVIA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_FR_DEPLOY_KEY }}
+          SHARD_APPENZELLO_IT_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_IT_DEPLOY_KEY }}
+          SHARD_APPENZELLO_EN_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_EN_DEPLOY_KEY }}
+          SHARD_APPENZELLO_DE_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_DE_DEPLOY_KEY }}
+          SHARD_APPENZELLO_FR_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_FR_DEPLOY_KEY }}
+          SHARD_BASILEA_IT_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_IT_DEPLOY_KEY }}
+          SHARD_BASILEA_EN_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_EN_DEPLOY_KEY }}
+          SHARD_BASILEA_DE_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_DE_DEPLOY_KEY }}
+          SHARD_BASILEA_FR_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_FR_DEPLOY_KEY }}
+          SHARD_BERNA_IT_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_IT_DEPLOY_KEY }}
+          SHARD_BERNA_EN_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_EN_DEPLOY_KEY }}
+          SHARD_BERNA_DE_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_DE_DEPLOY_KEY }}
+          SHARD_BERNA_FR_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_FR_DEPLOY_KEY }}
+          SHARD_FRIBURGO_IT_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_IT_DEPLOY_KEY }}
+          SHARD_FRIBURGO_EN_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_EN_DEPLOY_KEY }}
+          SHARD_FRIBURGO_DE_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_DE_DEPLOY_KEY }}
+          SHARD_FRIBURGO_FR_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_FR_DEPLOY_KEY }}
+          SHARD_GINEVRA_IT_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_IT_DEPLOY_KEY }}
+          SHARD_GINEVRA_EN_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_EN_DEPLOY_KEY }}
+          SHARD_GINEVRA_DE_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_DE_DEPLOY_KEY }}
+          SHARD_GINEVRA_FR_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_FR_DEPLOY_KEY }}
+          SHARD_GLARONA_IT_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_IT_DEPLOY_KEY }}
+          SHARD_GLARONA_EN_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_EN_DEPLOY_KEY }}
+          SHARD_GLARONA_DE_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_DE_DEPLOY_KEY }}
+          SHARD_GLARONA_FR_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_FR_DEPLOY_KEY }}
+          SHARD_GRIGIONI_IT_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_IT_DEPLOY_KEY }}
+          SHARD_GRIGIONI_EN_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_EN_DEPLOY_KEY }}
+          SHARD_GRIGIONI_DE_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_DE_DEPLOY_KEY }}
+          SHARD_GRIGIONI_FR_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_FR_DEPLOY_KEY }}
+          SHARD_GIURA_IT_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_IT_DEPLOY_KEY }}
+          SHARD_GIURA_EN_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_EN_DEPLOY_KEY }}
+          SHARD_GIURA_DE_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_DE_DEPLOY_KEY }}
+          SHARD_GIURA_FR_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_FR_DEPLOY_KEY }}
+          SHARD_LUCERNA_IT_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_IT_DEPLOY_KEY }}
+          SHARD_LUCERNA_EN_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_EN_DEPLOY_KEY }}
+          SHARD_LUCERNA_DE_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_DE_DEPLOY_KEY }}
+          SHARD_LUCERNA_FR_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_FR_DEPLOY_KEY }}
+          SHARD_NEUCHATEL_IT_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_IT_DEPLOY_KEY }}
+          SHARD_NEUCHATEL_EN_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_EN_DEPLOY_KEY }}
+          SHARD_NEUCHATEL_DE_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_DE_DEPLOY_KEY }}
+          SHARD_NEUCHATEL_FR_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_FR_DEPLOY_KEY }}
+          SHARD_NIDVALDO_IT_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_IT_DEPLOY_KEY }}
+          SHARD_NIDVALDO_EN_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_EN_DEPLOY_KEY }}
+          SHARD_NIDVALDO_DE_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_DE_DEPLOY_KEY }}
+          SHARD_NIDVALDO_FR_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_FR_DEPLOY_KEY }}
+          SHARD_OBVALDO_IT_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_IT_DEPLOY_KEY }}
+          SHARD_OBVALDO_EN_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_EN_DEPLOY_KEY }}
+          SHARD_OBVALDO_DE_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_DE_DEPLOY_KEY }}
+          SHARD_OBVALDO_FR_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_FR_DEPLOY_KEY }}
+          SHARD_SCIAFFUSA_IT_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_IT_DEPLOY_KEY }}
+          SHARD_SCIAFFUSA_EN_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_EN_DEPLOY_KEY }}
+          SHARD_SCIAFFUSA_DE_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_DE_DEPLOY_KEY }}
+          SHARD_SCIAFFUSA_FR_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_FR_DEPLOY_KEY }}
+          SHARD_SOLETTA_IT_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_IT_DEPLOY_KEY }}
+          SHARD_SOLETTA_EN_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_EN_DEPLOY_KEY }}
+          SHARD_SOLETTA_DE_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_DE_DEPLOY_KEY }}
+          SHARD_SOLETTA_FR_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_FR_DEPLOY_KEY }}
+          SHARD_SVITTO_IT_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_IT_DEPLOY_KEY }}
+          SHARD_SVITTO_EN_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_EN_DEPLOY_KEY }}
+          SHARD_SVITTO_DE_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_DE_DEPLOY_KEY }}
+          SHARD_SVITTO_FR_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_FR_DEPLOY_KEY }}
+          SHARD_TURGOVIA_IT_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_IT_DEPLOY_KEY }}
+          SHARD_TURGOVIA_EN_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_EN_DEPLOY_KEY }}
+          SHARD_TURGOVIA_DE_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_DE_DEPLOY_KEY }}
+          SHARD_TURGOVIA_FR_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_FR_DEPLOY_KEY }}
+          SHARD_URI_IT_DEPLOY_KEY: ${{ secrets.SHARD_URI_IT_DEPLOY_KEY }}
+          SHARD_URI_EN_DEPLOY_KEY: ${{ secrets.SHARD_URI_EN_DEPLOY_KEY }}
+          SHARD_URI_DE_DEPLOY_KEY: ${{ secrets.SHARD_URI_DE_DEPLOY_KEY }}
+          SHARD_URI_FR_DEPLOY_KEY: ${{ secrets.SHARD_URI_FR_DEPLOY_KEY }}
+          SHARD_VAUD_IT_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_IT_DEPLOY_KEY }}
+          SHARD_VAUD_EN_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_EN_DEPLOY_KEY }}
+          SHARD_VAUD_DE_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_DE_DEPLOY_KEY }}
+          SHARD_VAUD_FR_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_FR_DEPLOY_KEY }}
+          SHARD_VALLESE_IT_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_IT_DEPLOY_KEY }}
+          SHARD_VALLESE_EN_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_EN_DEPLOY_KEY }}
+          SHARD_VALLESE_DE_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_DE_DEPLOY_KEY }}
+          SHARD_VALLESE_FR_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_FR_DEPLOY_KEY }}
+          SHARD_ZUGO_IT_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_IT_DEPLOY_KEY }}
+          SHARD_ZUGO_EN_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_EN_DEPLOY_KEY }}
+          SHARD_ZUGO_DE_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_DE_DEPLOY_KEY }}
+          SHARD_ZUGO_FR_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_FR_DEPLOY_KEY }}
+          SHARD_SANGALLO_IT_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_IT_DEPLOY_KEY }}
+          SHARD_SANGALLO_EN_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_EN_DEPLOY_KEY }}
+          SHARD_SANGALLO_DE_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_DE_DEPLOY_KEY }}
+          SHARD_SANGALLO_FR_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_FR_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_FR_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_RUN_ID: ${{ github.run_id }}
         run: |
@@ -460,7 +563,7 @@ jobs:
           # 2026-07-24 (run 30057726623): svizzera-it's push failure silently
           # aborted this loop before zurigo-it was even attempted.
           fail=0
-          for section in ticino svizzera zurigo; do
+          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
             bash scripts/lib/push-section-shard.sh "$section" it dist || {
               echo "::warning::$section-it shard push step failed — continuing to the next section"
               fail=1
@@ -488,9 +591,33 @@ jobs:
           TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
           SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
           ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
+          ARGOVIA_SHARD_LIVE: ${{ vars.ARGOVIA_SHARD_LIVE }}
+          APPENZELLO_SHARD_LIVE: ${{ vars.APPENZELLO_SHARD_LIVE }}
+          BASILEA_SHARD_LIVE: ${{ vars.BASILEA_SHARD_LIVE }}
+          BERNA_SHARD_LIVE: ${{ vars.BERNA_SHARD_LIVE }}
+          FRIBURGO_SHARD_LIVE: ${{ vars.FRIBURGO_SHARD_LIVE }}
+          GINEVRA_SHARD_LIVE: ${{ vars.GINEVRA_SHARD_LIVE }}
+          GLARONA_SHARD_LIVE: ${{ vars.GLARONA_SHARD_LIVE }}
+          GRIGIONI_SHARD_LIVE: ${{ vars.GRIGIONI_SHARD_LIVE }}
+          GIURA_SHARD_LIVE: ${{ vars.GIURA_SHARD_LIVE }}
+          LUCERNA_SHARD_LIVE: ${{ vars.LUCERNA_SHARD_LIVE }}
+          NEUCHATEL_SHARD_LIVE: ${{ vars.NEUCHATEL_SHARD_LIVE }}
+          NIDVALDO_SHARD_LIVE: ${{ vars.NIDVALDO_SHARD_LIVE }}
+          OBVALDO_SHARD_LIVE: ${{ vars.OBVALDO_SHARD_LIVE }}
+          SCIAFFUSA_SHARD_LIVE: ${{ vars.SCIAFFUSA_SHARD_LIVE }}
+          SOLETTA_SHARD_LIVE: ${{ vars.SOLETTA_SHARD_LIVE }}
+          SVITTO_SHARD_LIVE: ${{ vars.SVITTO_SHARD_LIVE }}
+          TURGOVIA_SHARD_LIVE: ${{ vars.TURGOVIA_SHARD_LIVE }}
+          URI_SHARD_LIVE: ${{ vars.URI_SHARD_LIVE }}
+          VAUD_SHARD_LIVE: ${{ vars.VAUD_SHARD_LIVE }}
+          VALLESE_SHARD_LIVE: ${{ vars.VALLESE_SHARD_LIVE }}
+          ZUGO_SHARD_LIVE: ${{ vars.ZUGO_SHARD_LIVE }}
+          SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
+          ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
+          ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
         run: |
           set -uo pipefail
-          for section in ticino svizzera zurigo; do
+          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
             live_var="$(echo "$section" | tr a-z A-Z)_SHARD_LIVE"
             if [ "${!live_var:-}" != "true" ]; then
               continue
@@ -548,6 +675,246 @@ jobs:
           compression-level: 1
           retention-days: 1
           if-no-files-found: ignore
+      - name: Upload argovia shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.ARGOVIA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: argovia-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/argovia-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload appenzello shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.APPENZELLO_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: appenzello-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/appenzello-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload basilea shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.BASILEA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: basilea-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/basilea-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload berna shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.BERNA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: berna-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/berna-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload friburgo shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.FRIBURGO_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: friburgo-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/friburgo-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload ginevra shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.GINEVRA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: ginevra-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/ginevra-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload glarona shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.GLARONA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: glarona-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/glarona-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload grigioni shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.GRIGIONI_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: grigioni-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/grigioni-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload giura shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.GIURA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: giura-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/giura-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload lucerna shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.LUCERNA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: lucerna-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/lucerna-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload neuchatel shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.NEUCHATEL_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: neuchatel-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/neuchatel-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload nidvaldo shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.NIDVALDO_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: nidvaldo-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/nidvaldo-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload obvaldo shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.OBVALDO_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: obvaldo-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/obvaldo-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload sciaffusa shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.SCIAFFUSA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: sciaffusa-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/sciaffusa-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload soletta shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.SOLETTA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: soletta-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/soletta-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload svitto shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.SVITTO_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: svitto-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/svitto-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload turgovia shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.TURGOVIA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: turgovia-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/turgovia-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload uri shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.URI_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: uri-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/uri-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload vaud shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.VAUD_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: vaud-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/vaud-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload vallese shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.VALLESE_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: vallese-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/vallese-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload zugo shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.ZUGO_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: zugo-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/zugo-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload sangallo shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.SANGALLO_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: sangallo-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/sangallo-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload articolifrontaliere shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.ARTICOLIFRONTALIERE_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: articolifrontaliere-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/articolifrontaliere-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload articolisvizzera shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.ARTICOLISVIZZERA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: articolisvizzera-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/articolisvizzera-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
 
       - name: Strip section subtrees (IT)
         if: matrix.locale == 'it'
@@ -555,9 +922,33 @@ jobs:
           TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
           SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
           ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
+          ARGOVIA_SHARD_LIVE: ${{ vars.ARGOVIA_SHARD_LIVE }}
+          APPENZELLO_SHARD_LIVE: ${{ vars.APPENZELLO_SHARD_LIVE }}
+          BASILEA_SHARD_LIVE: ${{ vars.BASILEA_SHARD_LIVE }}
+          BERNA_SHARD_LIVE: ${{ vars.BERNA_SHARD_LIVE }}
+          FRIBURGO_SHARD_LIVE: ${{ vars.FRIBURGO_SHARD_LIVE }}
+          GINEVRA_SHARD_LIVE: ${{ vars.GINEVRA_SHARD_LIVE }}
+          GLARONA_SHARD_LIVE: ${{ vars.GLARONA_SHARD_LIVE }}
+          GRIGIONI_SHARD_LIVE: ${{ vars.GRIGIONI_SHARD_LIVE }}
+          GIURA_SHARD_LIVE: ${{ vars.GIURA_SHARD_LIVE }}
+          LUCERNA_SHARD_LIVE: ${{ vars.LUCERNA_SHARD_LIVE }}
+          NEUCHATEL_SHARD_LIVE: ${{ vars.NEUCHATEL_SHARD_LIVE }}
+          NIDVALDO_SHARD_LIVE: ${{ vars.NIDVALDO_SHARD_LIVE }}
+          OBVALDO_SHARD_LIVE: ${{ vars.OBVALDO_SHARD_LIVE }}
+          SCIAFFUSA_SHARD_LIVE: ${{ vars.SCIAFFUSA_SHARD_LIVE }}
+          SOLETTA_SHARD_LIVE: ${{ vars.SOLETTA_SHARD_LIVE }}
+          SVITTO_SHARD_LIVE: ${{ vars.SVITTO_SHARD_LIVE }}
+          TURGOVIA_SHARD_LIVE: ${{ vars.TURGOVIA_SHARD_LIVE }}
+          URI_SHARD_LIVE: ${{ vars.URI_SHARD_LIVE }}
+          VAUD_SHARD_LIVE: ${{ vars.VAUD_SHARD_LIVE }}
+          VALLESE_SHARD_LIVE: ${{ vars.VALLESE_SHARD_LIVE }}
+          ZUGO_SHARD_LIVE: ${{ vars.ZUGO_SHARD_LIVE }}
+          SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
+          ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
+          ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
         run: |
           set -uo pipefail
-          for section in ticino svizzera zurigo; do
+          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
             bash scripts/lib/strip-section-subtree.sh "$section" it dist
           done
 
@@ -784,6 +1175,102 @@ jobs:
           SHARD_ZURIGO_EN_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_EN_DEPLOY_KEY }}
           SHARD_ZURIGO_DE_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_DE_DEPLOY_KEY }}
           SHARD_ZURIGO_FR_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_FR_DEPLOY_KEY }}
+          SHARD_ARGOVIA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_IT_DEPLOY_KEY }}
+          SHARD_ARGOVIA_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_EN_DEPLOY_KEY }}
+          SHARD_ARGOVIA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_DE_DEPLOY_KEY }}
+          SHARD_ARGOVIA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_FR_DEPLOY_KEY }}
+          SHARD_APPENZELLO_IT_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_IT_DEPLOY_KEY }}
+          SHARD_APPENZELLO_EN_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_EN_DEPLOY_KEY }}
+          SHARD_APPENZELLO_DE_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_DE_DEPLOY_KEY }}
+          SHARD_APPENZELLO_FR_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_FR_DEPLOY_KEY }}
+          SHARD_BASILEA_IT_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_IT_DEPLOY_KEY }}
+          SHARD_BASILEA_EN_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_EN_DEPLOY_KEY }}
+          SHARD_BASILEA_DE_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_DE_DEPLOY_KEY }}
+          SHARD_BASILEA_FR_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_FR_DEPLOY_KEY }}
+          SHARD_BERNA_IT_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_IT_DEPLOY_KEY }}
+          SHARD_BERNA_EN_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_EN_DEPLOY_KEY }}
+          SHARD_BERNA_DE_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_DE_DEPLOY_KEY }}
+          SHARD_BERNA_FR_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_FR_DEPLOY_KEY }}
+          SHARD_FRIBURGO_IT_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_IT_DEPLOY_KEY }}
+          SHARD_FRIBURGO_EN_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_EN_DEPLOY_KEY }}
+          SHARD_FRIBURGO_DE_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_DE_DEPLOY_KEY }}
+          SHARD_FRIBURGO_FR_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_FR_DEPLOY_KEY }}
+          SHARD_GINEVRA_IT_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_IT_DEPLOY_KEY }}
+          SHARD_GINEVRA_EN_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_EN_DEPLOY_KEY }}
+          SHARD_GINEVRA_DE_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_DE_DEPLOY_KEY }}
+          SHARD_GINEVRA_FR_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_FR_DEPLOY_KEY }}
+          SHARD_GLARONA_IT_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_IT_DEPLOY_KEY }}
+          SHARD_GLARONA_EN_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_EN_DEPLOY_KEY }}
+          SHARD_GLARONA_DE_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_DE_DEPLOY_KEY }}
+          SHARD_GLARONA_FR_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_FR_DEPLOY_KEY }}
+          SHARD_GRIGIONI_IT_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_IT_DEPLOY_KEY }}
+          SHARD_GRIGIONI_EN_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_EN_DEPLOY_KEY }}
+          SHARD_GRIGIONI_DE_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_DE_DEPLOY_KEY }}
+          SHARD_GRIGIONI_FR_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_FR_DEPLOY_KEY }}
+          SHARD_GIURA_IT_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_IT_DEPLOY_KEY }}
+          SHARD_GIURA_EN_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_EN_DEPLOY_KEY }}
+          SHARD_GIURA_DE_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_DE_DEPLOY_KEY }}
+          SHARD_GIURA_FR_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_FR_DEPLOY_KEY }}
+          SHARD_LUCERNA_IT_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_IT_DEPLOY_KEY }}
+          SHARD_LUCERNA_EN_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_EN_DEPLOY_KEY }}
+          SHARD_LUCERNA_DE_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_DE_DEPLOY_KEY }}
+          SHARD_LUCERNA_FR_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_FR_DEPLOY_KEY }}
+          SHARD_NEUCHATEL_IT_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_IT_DEPLOY_KEY }}
+          SHARD_NEUCHATEL_EN_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_EN_DEPLOY_KEY }}
+          SHARD_NEUCHATEL_DE_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_DE_DEPLOY_KEY }}
+          SHARD_NEUCHATEL_FR_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_FR_DEPLOY_KEY }}
+          SHARD_NIDVALDO_IT_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_IT_DEPLOY_KEY }}
+          SHARD_NIDVALDO_EN_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_EN_DEPLOY_KEY }}
+          SHARD_NIDVALDO_DE_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_DE_DEPLOY_KEY }}
+          SHARD_NIDVALDO_FR_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_FR_DEPLOY_KEY }}
+          SHARD_OBVALDO_IT_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_IT_DEPLOY_KEY }}
+          SHARD_OBVALDO_EN_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_EN_DEPLOY_KEY }}
+          SHARD_OBVALDO_DE_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_DE_DEPLOY_KEY }}
+          SHARD_OBVALDO_FR_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_FR_DEPLOY_KEY }}
+          SHARD_SCIAFFUSA_IT_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_IT_DEPLOY_KEY }}
+          SHARD_SCIAFFUSA_EN_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_EN_DEPLOY_KEY }}
+          SHARD_SCIAFFUSA_DE_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_DE_DEPLOY_KEY }}
+          SHARD_SCIAFFUSA_FR_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_FR_DEPLOY_KEY }}
+          SHARD_SOLETTA_IT_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_IT_DEPLOY_KEY }}
+          SHARD_SOLETTA_EN_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_EN_DEPLOY_KEY }}
+          SHARD_SOLETTA_DE_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_DE_DEPLOY_KEY }}
+          SHARD_SOLETTA_FR_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_FR_DEPLOY_KEY }}
+          SHARD_SVITTO_IT_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_IT_DEPLOY_KEY }}
+          SHARD_SVITTO_EN_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_EN_DEPLOY_KEY }}
+          SHARD_SVITTO_DE_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_DE_DEPLOY_KEY }}
+          SHARD_SVITTO_FR_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_FR_DEPLOY_KEY }}
+          SHARD_TURGOVIA_IT_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_IT_DEPLOY_KEY }}
+          SHARD_TURGOVIA_EN_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_EN_DEPLOY_KEY }}
+          SHARD_TURGOVIA_DE_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_DE_DEPLOY_KEY }}
+          SHARD_TURGOVIA_FR_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_FR_DEPLOY_KEY }}
+          SHARD_URI_IT_DEPLOY_KEY: ${{ secrets.SHARD_URI_IT_DEPLOY_KEY }}
+          SHARD_URI_EN_DEPLOY_KEY: ${{ secrets.SHARD_URI_EN_DEPLOY_KEY }}
+          SHARD_URI_DE_DEPLOY_KEY: ${{ secrets.SHARD_URI_DE_DEPLOY_KEY }}
+          SHARD_URI_FR_DEPLOY_KEY: ${{ secrets.SHARD_URI_FR_DEPLOY_KEY }}
+          SHARD_VAUD_IT_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_IT_DEPLOY_KEY }}
+          SHARD_VAUD_EN_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_EN_DEPLOY_KEY }}
+          SHARD_VAUD_DE_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_DE_DEPLOY_KEY }}
+          SHARD_VAUD_FR_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_FR_DEPLOY_KEY }}
+          SHARD_VALLESE_IT_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_IT_DEPLOY_KEY }}
+          SHARD_VALLESE_EN_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_EN_DEPLOY_KEY }}
+          SHARD_VALLESE_DE_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_DE_DEPLOY_KEY }}
+          SHARD_VALLESE_FR_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_FR_DEPLOY_KEY }}
+          SHARD_ZUGO_IT_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_IT_DEPLOY_KEY }}
+          SHARD_ZUGO_EN_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_EN_DEPLOY_KEY }}
+          SHARD_ZUGO_DE_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_DE_DEPLOY_KEY }}
+          SHARD_ZUGO_FR_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_FR_DEPLOY_KEY }}
+          SHARD_SANGALLO_IT_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_IT_DEPLOY_KEY }}
+          SHARD_SANGALLO_EN_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_EN_DEPLOY_KEY }}
+          SHARD_SANGALLO_DE_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_DE_DEPLOY_KEY }}
+          SHARD_SANGALLO_FR_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_FR_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_FR_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_RUN_ID: ${{ github.run_id }}
         run: |
@@ -796,7 +1283,7 @@ jobs:
           # 2026-07-24 (run 30057726623): svizzera-it's push failure silently
           # aborted this loop before zurigo-it was even attempted.
           fail=0
-          for section in ticino svizzera zurigo; do
+          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
             bash scripts/lib/push-section-shard.sh "$section" "${{ matrix.locale }}" dist || {
               echo "::warning::$section-${{ matrix.locale }} shard push step failed — continuing to the next section"
               fail=1
@@ -817,10 +1304,34 @@ jobs:
           TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
           SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
           ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
+          ARGOVIA_SHARD_LIVE: ${{ vars.ARGOVIA_SHARD_LIVE }}
+          APPENZELLO_SHARD_LIVE: ${{ vars.APPENZELLO_SHARD_LIVE }}
+          BASILEA_SHARD_LIVE: ${{ vars.BASILEA_SHARD_LIVE }}
+          BERNA_SHARD_LIVE: ${{ vars.BERNA_SHARD_LIVE }}
+          FRIBURGO_SHARD_LIVE: ${{ vars.FRIBURGO_SHARD_LIVE }}
+          GINEVRA_SHARD_LIVE: ${{ vars.GINEVRA_SHARD_LIVE }}
+          GLARONA_SHARD_LIVE: ${{ vars.GLARONA_SHARD_LIVE }}
+          GRIGIONI_SHARD_LIVE: ${{ vars.GRIGIONI_SHARD_LIVE }}
+          GIURA_SHARD_LIVE: ${{ vars.GIURA_SHARD_LIVE }}
+          LUCERNA_SHARD_LIVE: ${{ vars.LUCERNA_SHARD_LIVE }}
+          NEUCHATEL_SHARD_LIVE: ${{ vars.NEUCHATEL_SHARD_LIVE }}
+          NIDVALDO_SHARD_LIVE: ${{ vars.NIDVALDO_SHARD_LIVE }}
+          OBVALDO_SHARD_LIVE: ${{ vars.OBVALDO_SHARD_LIVE }}
+          SCIAFFUSA_SHARD_LIVE: ${{ vars.SCIAFFUSA_SHARD_LIVE }}
+          SOLETTA_SHARD_LIVE: ${{ vars.SOLETTA_SHARD_LIVE }}
+          SVITTO_SHARD_LIVE: ${{ vars.SVITTO_SHARD_LIVE }}
+          TURGOVIA_SHARD_LIVE: ${{ vars.TURGOVIA_SHARD_LIVE }}
+          URI_SHARD_LIVE: ${{ vars.URI_SHARD_LIVE }}
+          VAUD_SHARD_LIVE: ${{ vars.VAUD_SHARD_LIVE }}
+          VALLESE_SHARD_LIVE: ${{ vars.VALLESE_SHARD_LIVE }}
+          ZUGO_SHARD_LIVE: ${{ vars.ZUGO_SHARD_LIVE }}
+          SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
+          ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
+          ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
         run: |
           set -uo pipefail
           loc="${{ matrix.locale }}"
-          for section in ticino svizzera zurigo; do
+          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
             live_var="$(echo "$section" | tr a-z A-Z)_SHARD_LIVE"
             if [ "${!live_var:-}" != "true" ]; then
               continue
@@ -878,6 +1389,246 @@ jobs:
           compression-level: 1
           retention-days: 1
           if-no-files-found: ignore
+      - name: Upload argovia shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.ARGOVIA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: argovia-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/argovia-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload appenzello shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.APPENZELLO_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: appenzello-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/appenzello-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload basilea shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.BASILEA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: basilea-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/basilea-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload berna shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.BERNA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: berna-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/berna-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload friburgo shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.FRIBURGO_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: friburgo-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/friburgo-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload ginevra shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.GINEVRA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: ginevra-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/ginevra-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload glarona shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.GLARONA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: glarona-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/glarona-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload grigioni shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.GRIGIONI_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: grigioni-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/grigioni-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload giura shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.GIURA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: giura-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/giura-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload lucerna shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.LUCERNA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: lucerna-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/lucerna-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload neuchatel shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.NEUCHATEL_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: neuchatel-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/neuchatel-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload nidvaldo shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.NIDVALDO_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: nidvaldo-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/nidvaldo-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload obvaldo shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.OBVALDO_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: obvaldo-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/obvaldo-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload sciaffusa shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.SCIAFFUSA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: sciaffusa-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/sciaffusa-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload soletta shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.SOLETTA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: soletta-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/soletta-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload svitto shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.SVITTO_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: svitto-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/svitto-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload turgovia shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.TURGOVIA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: turgovia-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/turgovia-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload uri shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.URI_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: uri-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/uri-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload vaud shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.VAUD_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: vaud-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/vaud-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload vallese shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.VALLESE_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: vallese-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/vallese-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload zugo shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.ZUGO_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: zugo-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/zugo-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload sangallo shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.SANGALLO_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: sangallo-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/sangallo-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload articolifrontaliere shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.ARTICOLIFRONTALIERE_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: articolifrontaliere-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/articolifrontaliere-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload articolisvizzera shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.ARTICOLISVIZZERA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: articolisvizzera-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/articolisvizzera-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
 
       - name: Strip section subtrees (non-IT)
         if: matrix.locale != 'it'
@@ -885,9 +1636,33 @@ jobs:
           TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
           SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
           ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
+          ARGOVIA_SHARD_LIVE: ${{ vars.ARGOVIA_SHARD_LIVE }}
+          APPENZELLO_SHARD_LIVE: ${{ vars.APPENZELLO_SHARD_LIVE }}
+          BASILEA_SHARD_LIVE: ${{ vars.BASILEA_SHARD_LIVE }}
+          BERNA_SHARD_LIVE: ${{ vars.BERNA_SHARD_LIVE }}
+          FRIBURGO_SHARD_LIVE: ${{ vars.FRIBURGO_SHARD_LIVE }}
+          GINEVRA_SHARD_LIVE: ${{ vars.GINEVRA_SHARD_LIVE }}
+          GLARONA_SHARD_LIVE: ${{ vars.GLARONA_SHARD_LIVE }}
+          GRIGIONI_SHARD_LIVE: ${{ vars.GRIGIONI_SHARD_LIVE }}
+          GIURA_SHARD_LIVE: ${{ vars.GIURA_SHARD_LIVE }}
+          LUCERNA_SHARD_LIVE: ${{ vars.LUCERNA_SHARD_LIVE }}
+          NEUCHATEL_SHARD_LIVE: ${{ vars.NEUCHATEL_SHARD_LIVE }}
+          NIDVALDO_SHARD_LIVE: ${{ vars.NIDVALDO_SHARD_LIVE }}
+          OBVALDO_SHARD_LIVE: ${{ vars.OBVALDO_SHARD_LIVE }}
+          SCIAFFUSA_SHARD_LIVE: ${{ vars.SCIAFFUSA_SHARD_LIVE }}
+          SOLETTA_SHARD_LIVE: ${{ vars.SOLETTA_SHARD_LIVE }}
+          SVITTO_SHARD_LIVE: ${{ vars.SVITTO_SHARD_LIVE }}
+          TURGOVIA_SHARD_LIVE: ${{ vars.TURGOVIA_SHARD_LIVE }}
+          URI_SHARD_LIVE: ${{ vars.URI_SHARD_LIVE }}
+          VAUD_SHARD_LIVE: ${{ vars.VAUD_SHARD_LIVE }}
+          VALLESE_SHARD_LIVE: ${{ vars.VALLESE_SHARD_LIVE }}
+          ZUGO_SHARD_LIVE: ${{ vars.ZUGO_SHARD_LIVE }}
+          SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
+          ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
+          ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
         run: |
           set -uo pipefail
-          for section in ticino svizzera zurigo; do
+          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
             bash scripts/lib/strip-section-subtree.sh "$section" "${{ matrix.locale }}" dist
           done
 

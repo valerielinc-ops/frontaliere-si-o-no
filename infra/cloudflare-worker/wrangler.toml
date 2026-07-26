@@ -72,6 +72,39 @@ routes = [
   # gets `?utm_*`/`?fbclid=` ad/social/newsletter hits. Look-alikes match the CF
   # route but matchSection rejects them in-code.
   { pattern = "frontaliereticino.ch/cerca-lavoro-zurigo*", zone_name = "frontaliereticino.ch" },
+  # Remaining 22 canton sections + the 2 article hubs (all-cantons shard wave,
+  # 2026-07-26): same rationale as Ticino/Svizzera/Zurigo above — one shard repo
+  # per section per locale (see locale-router.js SECTION_ORIGIN/SECTION_ROUTES,
+  # source of truth scripts/lib/section-shard-slugs.json). Only each section's IT
+  # apex prefix needs its own route; en/de/fr subpaths already reach the Worker
+  # via the /en|/de|/fr routes above and are re-targeted in-code (matchSection).
+  # WILDCARD required per #2611 (a route without trailing `*` drops the query
+  # string, breaking `?utm_*`/`?fbclid=` traffic) — look-alike paths match the CF
+  # route but matchSection rejects them in-code, so it's a harmless passthrough.
+  { pattern = "frontaliereticino.ch/cerca-lavoro-argovia*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-appenzello*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-basilea*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-berna*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-friburgo*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-ginevra*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-glarona*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-grigioni*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-giura*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-lucerna*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-neuchatel*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-nidvaldo*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-obvaldo*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-sciaffusa*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-soletta*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-svitto*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-turgovia*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-uri*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-vaud*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-vallese*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-zugo*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-san-gallo*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/articoli-frontaliere*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/articoli-svizzera*", zone_name = "frontaliereticino.ch" },
   # Job-alert one-click unsubscribe (RFC 8058). Deliberate non-locale exception to
   # the "locale paths only" scoping above: the unsubscribe links + List-Unsubscribe
   # header in job-alert emails MUST live on the sending domain (frontaliereticino.ch)

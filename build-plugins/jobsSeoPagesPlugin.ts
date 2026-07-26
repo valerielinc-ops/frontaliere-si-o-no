@@ -679,12 +679,18 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const AGGREGATE_KEY = '_AGGREGATE_';
 
  /** Cantons with real-data enrichment (Issue #4303 item 1 — median salary by
-  * sector, cost-of-living vs Ticino, permit-G guidance, top employers). Single
-  * source of truth reused by: (a) the real-data block precompute below, and
-  * (b) the item-2 "stessa professione in altri cantoni" cross-links on TI job
-  * detail pages, so those links always land on a hub carrying genuine data
-  * instead of a bare thin combo shell. */
- const REAL_DATA_ENRICHED_CANTONS = ['ZH', 'BE', 'BASILEA'] as const;
+  * sector, cost-of-living vs Ticino, permit-G guidance, top employers). All
+  * canton URL-groups get this block — the underlying data (cantonSalaryIndex,
+  * aggregateLamalCantonMedians) is already canton-generic, so there's no
+  * data-authoring gap to gate on. */
+ const REAL_DATA_ENRICHED_CANTONS = ALL_CANTON_CODES;
+
+ /** Cantons shown as "stessa professione in altri cantoni" cross-links on TI
+  * job detail pages (Issue #4303 item 2). Kept as its own small, curated list
+  * — decoupled from REAL_DATA_ENRICHED_CANTONS — so widening real-data
+  * coverage to all cantons doesn't balloon this pill-link row from 3 to 23
+  * entries. */
+ const CROSS_CANTON_PROMO_CANTONS = ['ZH', 'BE', 'BASILEA'] as const;
 
  /**
   * Member BFS code → URL group key (e.g. 'AI' → 'APPENZELLO'). Built once
@@ -3480,19 +3486,21 @@ ${staticAnalyticsHtml}
  links.push(`<a href="${href}" class="pill pill-w">${esc(prefix)} &rarr;</a>`);
  }
  // Issue #4303 item 2: from a Ticino job detail, link the same profession's
- // combo page in the real-data-enriched cantons (REAL_DATA_ENRICHED_CANTONS
- // — item 1). Every non-TI-canton × SECTOR_HUB_KEYS combo page is emitted
- // unconditionally (no floor, PR #4254) later in this same closeBundle run
- // (~line 7400), so the target always exists by build end even though the
- // cantonSectorPageRegistry isn't populated yet at this earlier point in
- // execution — checking the registry here would be a false negative, not a
- // real "does it exist" answer.
+ // combo page in a curated set of cantons (CROSS_CANTON_PROMO_CANTONS —
+ // deliberately smaller than REAL_DATA_ENRICHED_CANTONS/item 1, else this
+ // pill row balloons from 3 to 23 entries). Every non-TI-canton ×
+ // SECTOR_HUB_KEYS combo page is emitted unconditionally (no floor, PR
+ // #4254) later in this same closeBundle run (~line 7400), so the target
+ // always exists by build end even though the cantonSectorPageRegistry
+ // isn't populated yet at this earlier point in execution — checking the
+ // registry here would be a false negative, not a real "does it exist"
+ // answer.
  if (matchedSector && jobCanton === 'TI') {
  const crossCantonCopy: Record<string, string> = { it: 'stessa professione a', en: 'same role in', de: 'gleiche Stelle in', fr: 'même métier à' };
  const sectorLabel = SECTOR_HUB_DISPLAY[locale as never]?.[matchedSector] || matchedSector;
  const sectorSlug = SECTOR_HUB_SLUG[locale as never]?.[matchedSector];
  if (sectorSlug) {
- for (const otherCanton of REAL_DATA_ENRICHED_CANTONS) {
+ for (const otherCanton of CROSS_CANTON_PROMO_CANTONS) {
  const section = sharedResolveCantonSection(locale as never, otherCanton);
  if (!section) continue;
  const href = withSlash(`${localePrefix[locale]}/${section}/${sectorSlug}`.replace(/\/+/g, '/'));
@@ -9802,29 +9810,25 @@ ${staticAnalyticsHtml}
    };
 
    // ── Issue #4303 item 1 — real-data block precompute ──────────────────
-   // Scoped to the 4 cathedral hubs this issue targets (Zurigo, Berna,
-   // Basilea, + the Svizzera aggregate) — every other canton keeps its
-   // existing tiles+listing+editorial body unchanged. LAMal medians are
-   // computed once (build-time file read) and reused across all 4×4
-   // (canton×locale) entries below instead of re-reading per entry.
+   // Covers every canton URL-group + the Svizzera aggregate. LAMal medians
+   // are computed once (build-time file read) and reused across all
+   // canton×locale entries below instead of re-reading per entry.
    const REAL_DATA_TARGET_KEYS = new Set<string>([...REAL_DATA_ENRICHED_CANTONS, AGGREGATE_KEY]);
-   // BASILEA is the merged half-canton URL group (BS+BL); cantonSalaryFactor/
-   // isBorderCanton and the LAMal lookup both need a real 2-letter BFS/BAG
-   // code, so this maps the group key to its representative code (Basel-Stadt
-   // — the urban half-canton, economically dominant of the pair).
-   const REAL_DATA_SALARY_CODE: Record<string, string> = { ZH: 'ZH', BE: 'BE', BASILEA: 'BS' };
+   // BASILEA and APPENZELLO are merged half-canton URL groups (BS+BL,
+   // AR+AI); cantonSalaryFactor/isBorderCanton and the LAMal lookup both
+   // need a real 2-letter BFS/BAG code, so this maps each group key to its
+   // representative code — mirrors the established convention in
+   // salaryStatsData.ts's SALARY_STATS_FACTOR_CODE / cantonSalaryIndex.ts
+   // (Basel-Stadt / Appenzell Ausserrhoden, the economically-dominant half
+   // of each pair). Every other canton code maps to itself.
+   const REAL_DATA_SALARY_CODE: Record<string, string> = Object.fromEntries(
+     ALL_CANTON_CODES.map((c) => [c, c === 'BASILEA' ? 'BS' : c === 'APPENZELLO' ? 'AR' : c]),
+   );
    const realDataLamalYear = new Date().getFullYear();
    const realDataLamalRows = aggregateLamalCantonMedians(rootDir, realDataLamalYear);
-   // aggregateLamalCantonMedians() returns IT-locale display labels (its own
-   // internal CANTON_LABEL_IT table isn't exported) — reverse-map only the
-   // 5 labels this block actually needs.
-   const REAL_DATA_LAMAL_LABEL_TO_CODE: Record<string, string> = {
-     Zurigo: 'ZH', Berna: 'BE', 'Basilea-Città': 'BS', 'Basilea-Campagna': 'BL', Ticino: 'TI',
-   };
    const realDataLamalByCode = new Map<string, number>();
    for (const row of realDataLamalRows) {
-     const code = REAL_DATA_LAMAL_LABEL_TO_CODE[row.canton];
-     if (code) realDataLamalByCode.set(code, row.medianMonthlyCHF);
+     realDataLamalByCode.set(row.code, row.medianMonthlyCHF);
    }
    // BAG_FALLBACK TI=425 inside aggregateLamalCantonMedians already covers
    // the missing-snapshot case; this literal only guards the (untested)

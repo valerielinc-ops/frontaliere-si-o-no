@@ -23,7 +23,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS Worker module, no type declarations.
-import worker from '../infra/cloudflare-worker/locale-router.js';
+import worker, { SECTION_ROUTES } from '../infra/cloudflare-worker/locale-router.js';
 
 const APEX = 'https://frontaliereticino.ch';
 const ctx = { waitUntil: () => {} } as unknown as ExecutionContext;
@@ -156,16 +156,32 @@ describe('locale-router Zurigo-section shard routing', () => {
   });
 });
 
+// The 24 sections added alongside ticino/svizzera/zurigo (22 cantons + the 2
+// article-hub sections) — every SECTION_ROUTES entry not already covered by
+// name above. Iterated straight from the real table (named-exported solely
+// for this) instead of a hand-copied list, so a future section addition
+// can't silently go untested.
+const REMAINING_SECTION_ROUTES = SECTION_ROUTES.filter(
+  (r: { section: string }) => !['ticino', 'svizzera', 'zurigo'].includes(r.section),
+);
+
+describe('locale-router remaining-section shard routing (all cantons + article hubs)', () => {
+  it.each(REMAINING_SECTION_ROUTES)('routes $locale $prefix to origin-$section-$locale', async ({ section, prefix, locale }: { section: string; prefix: string; locale: string }) => {
+    await worker.fetch(new Request(`${APEX}${prefix}/some-page/`), {}, ctx);
+    expect(lastUpstreamHost).toBe(`origin-${section}-${locale}.frontaliereticino.ch`);
+  });
+});
+
 describe('locale-router section-shard regression guards', () => {
   it('still routes an ordinary non-sharded EN path to origin-en (regression guard)', async () => {
-    // /en/find-jobs-bern is NOT one of the ticino/svizzera/zurigo section prefixes,
-    // so matchSection must return null for it and it must fall through to the
-    // generic whole-locale shard router (LOCALE_RE), landing on origin-en. (Prior
-    // to the svizzera/zurigo carve-out this guard used /en/find-jobs-zurich as the
-    // control path — now that zurigo IS a legitimate section shard that path
-    // correctly routes to origin-zurigo-en, see the describe block above, so the
-    // control path here was swapped to a canton that is still unsharded.)
-    await worker.fetch(new Request(`${APEX}/en/find-jobs-bern/some-job/`), {}, ctx);
+    // Every canton URL-group is now a section shard (see SECTION_ROUTES), so
+    // /en/find-jobs-bern — the prior control path here — now correctly routes
+    // to origin-berna-en (covered by the "remaining-section" describe block
+    // above) instead of serving as a "not a section" example. /en/find-jobs/
+    // (no canton suffix at all) is not a prefix of any SECTION_ROUTES entry,
+    // so matchSection must return null for it and it must fall through to
+    // the generic whole-locale shard router (LOCALE_RE), landing on origin-en.
+    await worker.fetch(new Request(`${APEX}/en/find-jobs/some-job/`), {}, ctx);
     expect(lastUpstreamHost).toBe('origin-en.frontaliereticino.ch');
   });
 
