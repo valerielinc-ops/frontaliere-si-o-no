@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kellerhals-carrard",
-  "assembledAt": "2026-07-26T10:57:23.343Z",
+  "assembledAt": "2026-07-26T22:09:24.674Z",
   "jobs": [
     {
       "id": "kellerhals-carrard-d799a174e0ae",
@@ -33,7 +33,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2715521",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T10:57:19.897Z",
+      "crawledAt": "2026-07-26T22:09:21.170Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -50,6 +50,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2715521",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-zentrale-fakturierung-debitorenbuchhaltung-m-w-d-80-100",
         "mitarbeiterin-collaboratore-trice-zentrale-fakturierung-debitorenbuchhaltung-m-w-d-80-100-kellerhals-carrard-basel"
@@ -76,84 +77,6 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kellerhals-carrard-49c40fa4136e",
-      "slug": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-50-kellerhals-carrard-basel",
-      "slugByLocale": {
-        "it": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-50-kellerhals-carrard-basel",
-        "en": "research-assistant-research-assistant-50-kellerhals-carrard-basel",
-        "de": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-50-kellerhals-carrard-basel",
-        "fr": "assistant-de-recherche-assistant-de-recherche-50-kellerhals-carrard-basel"
-      },
-      "company": "Kellerhals Carrard",
-      "companyKey": "kellerhals-carrard",
-      "companyDomain": "kellerhals-carrard.ch",
-      "title": "Wissenschaftliche Mitarbeiterin / Wissenschaftlicher Mitarbeiter (50%)",
-      "titleByLocale": {
-        "it": "Wissenschaftliche Mitarbeiterin / Wissenschaftlicher Collaboratore/trice (50%)",
-        "en": "Research assistant / Research assistant (50%)",
-        "de": "Wissenschaftliche Mitarbeiterin / Wissenschaftlicher Mitarbeiter (50%)",
-        "fr": "Assistant de recherche / Assistant de recherche (50%)"
-      },
-      "description": "Zur Unterstützung unserer wissenschaftlichen Projekte in Basel, insbesondere von Prof. Dr. Daniel Staehelin, suchen wir per Juli 2026 eine wissenschaftliche Mitarbeiterin / einen wissenschaftlichen Mitarbeiter (50%).\nSie verfügen über einen guten juristischen Studienabschluss (MLaw), haben allenfalls schon erste praktische Erfahrungen im Beruf sammeln können, sind interessiert an wissenschaftlicher Tätigkeit und sind belastbar, motiviert sowie teamfähig. Dann erwartet Sie bei uns eine sehr vielseitige Tätigkeit in einem erfolgreichen Team.\nEs besteht die Möglichkeit, daneben eine Dissertation zu verfassen.\n• Wir bieten ein dynamisches und abwechslungsreiches Arbeitsumfeld, in welchem wir selbständiges Arbeiten fördern. Viel Wert legen wir auf einen kollegialen Umgang und offerieren attraktive Anstellungsbedingungen.",
-      "descriptionByLocale": {
-        "it": "Sostenere i nostri progetti scientifici a Basilea, in particolare Prof. Dr. Daniel Staehelin, stiamo cercando un assistente di ricerca (50%) a partire dal luglio 2026. Hanno un buon grado di legge (MLaw), hanno al massimo già acquisito la prima esperienza pratica nella professione, sono interessati all'attività scientifica e sono resilienti, motivati e capaci di lavoro di squadra. Poi ci si può aspettare un lavoro molto versatile in un team di successo. È anche possibile scrivere una dissertazione.\n• Offriamo un ambiente di lavoro dinamico e vario in cui promuoviamo il lavoro indipendente. Noi attribuiamo grande importanza ad un approccio collegiale e offriamo interessanti condizioni di lavoro.",
-        "en": "To support our scientific projects in Basel, in particular Prof. Dr. Daniel Staehelin, we are looking for a research assistant (50%) as of July 2026. They have a good law degree (MLaw), have at most already gained first practical experience in the profession, are interested in scientific activity and are resilient, motivated and capable of teamwork. Then you can expect a very versatile job in a successful team. It is also possible to write a dissertation.\n• We offer a dynamic and varied working environment in which we promote independent work. We attach great importance to a collegial approach and offer attractive employment conditions.",
-        "de": "Zur Unterstützung unserer wissenschaftlichen Projekte in Basel, insbesondere von Prof. Dr. Daniel Staehelin, suchen wir per Juli 2026 eine wissenschaftliche Mitarbeiterin / einen wissenschaftlichen Mitarbeiter (50%).\nSie verfügen über einen guten juristischen Studienabschluss (MLaw), haben allenfalls schon erste praktische Erfahrungen im Beruf sammeln können, sind interessiert an wissenschaftlicher Tätigkeit und sind belastbar, motiviert sowie teamfähig. Dann erwartet Sie bei uns eine sehr vielseitige Tätigkeit in einem erfolgreichen Team.\nEs besteht die Möglichkeit, daneben eine Dissertation zu verfassen.\n• Wir bieten ein dynamisches und abwechslungsreiches Arbeitsumfeld, in welchem wir selbständiges Arbeiten fördern. Viel Wert legen wir auf einen kollegialen Umgang und offerieren attraktive Anstellungsbedingungen.",
-        "fr": "Soutenir nos projets scientifiques à Bâle, en particulier le Prof. Dr Daniel Staehelin, nous cherchons un assistant de recherche (50%) en juillet 2026. Ils ont un bon diplôme de droit (MLaw), ont au plus déjà acquis une première expérience pratique dans la profession, sont intéressés par l'activité scientifique et sont résilients, motivés et capables de travailler en équipe. Ensuite, vous pouvez vous attendre à un travail très polyvalent dans une équipe réussie. Il est également possible d'écrire une thèse.\n• Nous offrons un environnement de travail dynamique et varié dans lequel nous promouvons le travail indépendant. Nous attachons une grande importance à une approche collégiale et offrons des conditions d'emploi attrayantes."
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://kellerhals-carrard.jobs.personio.com/job/2653648",
-      "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-26T10:57:19.895Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4051",
-      "category": "Legale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Legale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2653648",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-50-kellerhals-carrard-basel",
-        "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-50-kellerhals-carrard-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-50-kellerhals-carrard-basel",
-          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-50-kellerhals-carrard-basel"
-        ],
-        "en": [
-          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-50-kellerhals-carrard-basel"
-        ],
-        "fr": [
-          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-50-kellerhals-carrard-basel"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T22:51:03.191Z",
-      "salaryMin": 31000,
-      "salaryMax": 47000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 31000,
-          "maxValue": 47000,
           "unitText": "YEAR"
         }
       }
@@ -189,7 +112,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2647836",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T10:57:19.894Z",
+      "crawledAt": "2026-07-26T22:09:21.169Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -206,6 +129,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2647836",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T22:51:03.191Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -216,6 +140,85 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "kellerhals-carrard-49c40fa4136e",
+      "slug": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-50-kellerhals-carrard-basel",
+      "slugByLocale": {
+        "it": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-50-kellerhals-carrard-basel",
+        "en": "research-assistant-research-assistant-50-kellerhals-carrard-basel",
+        "de": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-50-kellerhals-carrard-basel",
+        "fr": "assistant-de-recherche-assistant-de-recherche-50-kellerhals-carrard-basel"
+      },
+      "company": "Kellerhals Carrard",
+      "companyKey": "kellerhals-carrard",
+      "companyDomain": "kellerhals-carrard.ch",
+      "title": "Wissenschaftliche Mitarbeiterin / Wissenschaftlicher Mitarbeiter (50%)",
+      "titleByLocale": {
+        "it": "Wissenschaftliche Mitarbeiterin / Wissenschaftlicher Collaboratore/trice (50%)",
+        "en": "Research assistant / Research assistant (50%)",
+        "de": "Wissenschaftliche Mitarbeiterin / Wissenschaftlicher Mitarbeiter (50%)",
+        "fr": "Assistant de recherche / Assistant de recherche (50%)"
+      },
+      "description": "Zur Unterstützung unserer wissenschaftlichen Projekte in Basel, insbesondere von Prof. Dr. Daniel Staehelin, suchen wir per Juli 2026 eine wissenschaftliche Mitarbeiterin / einen wissenschaftlichen Mitarbeiter (50%).\nSie verfügen über einen guten juristischen Studienabschluss (MLaw), haben allenfalls schon erste praktische Erfahrungen im Beruf sammeln können, sind interessiert an wissenschaftlicher Tätigkeit und sind belastbar, motiviert sowie teamfähig. Dann erwartet Sie bei uns eine sehr vielseitige Tätigkeit in einem erfolgreichen Team.\nEs besteht die Möglichkeit, daneben eine Dissertation zu verfassen.\n• Wir bieten ein dynamisches und abwechslungsreiches Arbeitsumfeld, in welchem wir selbständiges Arbeiten fördern. Viel Wert legen wir auf einen kollegialen Umgang und offerieren attraktive Anstellungsbedingungen.",
+      "descriptionByLocale": {
+        "it": "Sostenere i nostri progetti scientifici a Basilea, in particolare Prof. Dr. Daniel Staehelin, stiamo cercando un assistente di ricerca (50%) a partire dal luglio 2026. Hanno un buon grado di legge (MLaw), hanno al massimo già acquisito la prima esperienza pratica nella professione, sono interessati all'attività scientifica e sono resilienti, motivati e capaci di lavoro di squadra. Poi ci si può aspettare un lavoro molto versatile in un team di successo. È anche possibile scrivere una dissertazione.\n• Offriamo un ambiente di lavoro dinamico e vario in cui promuoviamo il lavoro indipendente. Noi attribuiamo grande importanza ad un approccio collegiale e offriamo interessanti condizioni di lavoro.",
+        "en": "To support our scientific projects in Basel, in particular Prof. Dr. Daniel Staehelin, we are looking for a research assistant (50%) as of July 2026. They have a good law degree (MLaw), have at most already gained first practical experience in the profession, are interested in scientific activity and are resilient, motivated and capable of teamwork. Then you can expect a very versatile job in a successful team. It is also possible to write a dissertation.\n• We offer a dynamic and varied working environment in which we promote independent work. We attach great importance to a collegial approach and offer attractive employment conditions.",
+        "de": "Zur Unterstützung unserer wissenschaftlichen Projekte in Basel, insbesondere von Prof. Dr. Daniel Staehelin, suchen wir per Juli 2026 eine wissenschaftliche Mitarbeiterin / einen wissenschaftlichen Mitarbeiter (50%).\nSie verfügen über einen guten juristischen Studienabschluss (MLaw), haben allenfalls schon erste praktische Erfahrungen im Beruf sammeln können, sind interessiert an wissenschaftlicher Tätigkeit und sind belastbar, motiviert sowie teamfähig. Dann erwartet Sie bei uns eine sehr vielseitige Tätigkeit in einem erfolgreichen Team.\nEs besteht die Möglichkeit, daneben eine Dissertation zu verfassen.\n• Wir bieten ein dynamisches und abwechslungsreiches Arbeitsumfeld, in welchem wir selbständiges Arbeiten fördern. Viel Wert legen wir auf einen kollegialen Umgang und offerieren attraktive Anstellungsbedingungen.",
+        "fr": "Soutenir nos projets scientifiques à Bâle, en particulier le Prof. Dr Daniel Staehelin, nous cherchons un assistant de recherche (50%) en juillet 2026. Ils ont un bon diplôme de droit (MLaw), ont au plus déjà acquis une première expérience pratique dans la profession, sont intéressés par l'activité scientifique et sont résilients, motivés et capables de travailler en équipe. Ensuite, vous pouvez vous attendre à un travail très polyvalent dans une équipe réussie. Il est également possible d'écrire une thèse.\n• Nous offrons un environnement de travail dynamique et varié dans lequel nous promouvons le travail indépendant. Nous attachons une grande importance à une approche collégiale et offrons des conditions d'emploi attrayantes."
+      },
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://kellerhals-carrard.jobs.personio.com/job/2653648",
+      "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-26T22:09:21.169Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4051",
+      "category": "Legale",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Legale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2653648",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-50-kellerhals-carrard-basel",
+        "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-50-kellerhals-carrard-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-50-kellerhals-carrard-basel",
+          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-50-kellerhals-carrard-basel"
+        ],
+        "en": [
+          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-50-kellerhals-carrard-basel"
+        ],
+        "fr": [
+          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-50-kellerhals-carrard-basel"
+        ]
+      },
+      "firstSeenAt": "2026-07-03T22:51:03.191Z",
+      "salaryMin": 31000,
+      "salaryMax": 47000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 31000,
+          "maxValue": 47000,
           "unitText": "YEAR"
         }
       }
@@ -251,7 +254,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2629008",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T10:57:19.893Z",
+      "crawledAt": "2026-07-26T22:09:21.168Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -300,68 +303,6 @@
       }
     },
     {
-      "id": "kellerhals-carrard-5adbfb3c729a",
-      "slug": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
-      "slugByLocale": {
-        "it": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
-        "en": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
-        "de": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
-        "fr": "avocat-principal-en-demarrage-et-en-capital-de-risque-80-100-kellerhals-carrard-zurich"
-      },
-      "company": "Kellerhals Carrard",
-      "companyKey": "kellerhals-carrard",
-      "companyDomain": "kellerhals-carrard.ch",
-      "title": "Senior Startup & Venture Capital Lawyer (80%-100%)",
-      "titleByLocale": {
-        "it": "Avviamento senior & Venture Capital Lawyer (80%-100%)",
-        "en": "Senior Startup & Venture Capital Lawyer (80%-100%)",
-        "de": "Senior Startup & Venture Capital Anwalt (80%-100%)",
-        "fr": "Avocat principal en démarrage et en capital de risque (80%-100%)"
-      },
-      "description": "Senior Startup & Venture Capital Lawyer (80%-100%) — Stelle bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
-      "descriptionByLocale": {
-        "it": "Avviamento senior & Venture Capital Lawyer (80%-100%) — posizione a Kellerhals Carrard a Zurigo (ZH), Svizzera. Kellerhals Carrard è uno dei principali studi di diritto commerciale svizzero con sede a Berna, Zurigo, Basilea e Ginevra.",
-        "en": "Senior Startup & Venture Capital Lawyer (80%-100%) — position at Kellerhals Carrard in Zurich (ZH), Switzerland. Kellerhals Carrard is one of the leading Swiss commercial law firms with offices in Bern, Zurich, Basel and Geneva.",
-        "de": "Senior Startup & Venture Capital Rechtsanwalt (80%-100%) — Stars bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
-        "fr": "Senior Startup & Venture Capital Lawyer (80%-100%) — poste chez Kellerhals Carrard à Zurich (ZH), Suisse. Kellerhals Carrard est l'un des principaux cabinets d'avocats commerciaux suisses avec des bureaux à Berne, Zurich, Bâle et Genève."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
-      "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-26T10:57:19.889Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Legale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Legale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T22:51:03.188Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "kellerhals-carrard-59cb2c47bf96",
       "slug": "summer-trainee-programm-kurzpraktika-kellerhals-carrard-zurich",
       "slugByLocale": {
@@ -392,7 +333,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2454381",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T10:57:19.888Z",
+      "crawledAt": "2026-07-26T22:09:21.167Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -420,6 +361,69 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "kellerhals-carrard-5adbfb3c729a",
+      "slug": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
+      "slugByLocale": {
+        "it": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
+        "en": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
+        "de": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
+        "fr": "avocat-principal-en-demarrage-et-en-capital-de-risque-80-100-kellerhals-carrard-zurich"
+      },
+      "company": "Kellerhals Carrard",
+      "companyKey": "kellerhals-carrard",
+      "companyDomain": "kellerhals-carrard.ch",
+      "title": "Senior Startup & Venture Capital Lawyer (80%-100%)",
+      "titleByLocale": {
+        "it": "Senior Startup & Venture Capital Lawyer (80%-100%)",
+        "en": "Senior Startup & Venture Capital Lawyer (80%-100%)",
+        "de": "Senior Startup & Venture Capital Anwalt (80%-100%)",
+        "fr": "Avocat principal en démarrage et en capital de risque (80%-100%)"
+      },
+      "description": "Senior Startup & Venture Capital Lawyer (80%-100%) — Stelle bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
+      "descriptionByLocale": {
+        "it": "Senior Startup & Venture Capital Lawyer (80%-100%) — Stelle bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
+        "en": "Senior Startup & Venture Capital Lawyer (80%-100%) — position at Kellerhals Carrard in Zurich (ZH), Switzerland. Kellerhals Carrard is one of the leading Swiss commercial law firms with offices in Bern, Zurich, Basel and Geneva.",
+        "de": "Senior Startup & Venture Capital Rechtsanwalt (80%-100%) — Stars bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
+        "fr": "Senior Startup & Venture Capital Lawyer (80%-100%) — poste chez Kellerhals Carrard à Zurich (ZH), Suisse. Kellerhals Carrard est l'un des principaux cabinets d'avocats commerciaux suisses avec des bureaux à Berne, Zurich, Bâle et Genève."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
+      "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-26T22:09:21.167Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Legale",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Legale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T22:51:03.188Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -455,7 +459,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2331466",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T10:57:19.880Z",
+      "crawledAt": "2026-07-26T22:09:21.164Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -472,6 +476,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2331466",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "initiativbewerbung-kellerhals-carrard-basel",
         "applicazione-d-iniziativa-kellerhals-carrard-basel"
@@ -533,7 +538,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2304547",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T10:57:19.879Z",
+      "crawledAt": "2026-07-26T22:09:21.163Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -612,7 +617,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2303862",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T10:57:19.876Z",
+      "crawledAt": "2026-07-26T22:09:21.162Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -629,6 +634,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2303862",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "wildcard-bewerbung-kellerhals-carrard-bern",
         "applicazione-wildcard-kellerhals-carrard-bern"
@@ -690,7 +696,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2303637",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T10:57:19.869Z",
+      "crawledAt": "2026-07-26T22:09:21.160Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -753,7 +759,7 @@
       "title": "Substitut/-in Banking, Finance & Fintech und Kapitalmarktrecht",
       "titleByLocale": {
         "it": "Substitut/-in Banking, Finanza & Fintech e Kapitalmarktrecht",
-        "en": "Substitute/-in Banking, Finance & Fintech and Capital Market Law",
+        "en": "Substitut/-in Banking, Finance & Fintech und Kapitalmarktrecht",
         "de": "Substitut/-in Banking, Finanzen & Fintech und Kapitalmarktrecht",
         "fr": "Substitut/-in Droit bancaire, financier et fintech et du marché des capitaux"
       },
@@ -769,7 +775,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2301974",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T10:57:19.868Z",
+      "crawledAt": "2026-07-26T22:09:21.159Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -786,6 +792,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2301974",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "substitut-in-banking-finance-fintech-und-kapitalmarktrecht-kellerhals-carrard-zurich",
         "substitut-in-banking-finanza-fintech-e-kapitalmarktrecht-kellerhals-carrard-zurich"
@@ -831,7 +838,7 @@
       "title": "Rechtsanwältin/ Rechtsanwalt (100%) im Banking-Team",
       "titleByLocale": {
         "it": "Avvocato / Avvocato (100%) nel team bancario",
-        "en": "Lawyer / Lawyer (100%) in the banking team",
+        "en": "Rechtsanwältin/ Rechtsanwalt (100%) im Banking-Team",
         "de": "Rechtsanwältin/ Rechtsanwalt (100%) im Banking-Team",
         "fr": "Avocat / Avocat (100%) dans l'équipe bancaire"
       },
@@ -847,7 +854,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2301950",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T10:57:19.866Z",
+      "crawledAt": "2026-07-26T22:09:21.158Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -864,6 +871,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2301950",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "rechtsanwaltin-rechtsanwalt-100-im-banking-team-kellerhals-carrard-zurich",
         "avvocato-avvocato-100-nel-team-bancario-kellerhals-carrard-zurich"
@@ -922,7 +930,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2293818",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T10:57:19.861Z",
+      "crawledAt": "2026-07-26T22:09:21.157Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -939,6 +947,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2293818",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "volontariat-bei-kellerhals-carrard-basel-kellerhals-carrard-basel",
         "volontario-presso-kellerhals-carrard-basel-kellerhals-carrard-basel"
