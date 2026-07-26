@@ -1558,6 +1558,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.esercito-svizzero-valuta-bunker.title': 'Esercito svizzero: valutazione sul reimpiego dei vecchi bunker',
     'blog.article.esercito-svizzero-valuta-bunker.excerpt': 'L\'esercito svizzero valuta la rimessa in servizio di vecchi bunker militari a causa del peggioramento della situazione sulla sicurezza in Europa.',
     'blog.article.esercito-svizzero-valuta-bunker.imageAlt': 'L\'esercito svizzero valuta il reimpiego dei vecchi bunker',
+    'blog.article.confronto-imposta-cantonale-svizzera-cantoni.title': 'Zugo e Svitto, meno costosi di Ginevra e Vaud',
+    'blog.article.confronto-imposta-cantonale-svizzera-cantoni.excerpt': 'Le aliquote di imposta cantonale in Svizzera variano notevolmente tra i cantoni. Ecco un confronto tra alcune delle principali aliquote.',
+    'blog.article.confronto-imposta-cantonale-svizzera-cantoni.imageAlt': 'Una scena di Lugano, con un panorama della città e della montagna dietro.',
 };
 
 export default blogMetaChIt;

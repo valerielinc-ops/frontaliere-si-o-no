@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3531,
+ "numberOfItems": 3532,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8299,7 +8299,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3528, "name": "Ristorni frontalieri: accordo con il Ticino", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-sertori-nessun-effetto-immediato` },
           { "@type": "ListItem", "position": 3529, "name": "Di più Bally, l'ultima scarpa svizzera sarà pro...", "url": `${BASE_URL}/articoli-frontaliere/bally-lultima-scarpa-svizzera-sara-prodotta-in-estate` },
           { "@type": "ListItem", "position": 3530, "name": "Esercito svizzero: valutazione sul reimpiego de...", "url": `${BASE_URL}/articoli-frontaliere/esercito-svizzero-valuta-bunker` },
-          { "@type": "ListItem", "position": 3531, "name": "Frontalieri Italia-Svizzera: telelavoro fino al...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-telelavoro-2026` }
+          { "@type": "ListItem", "position": 3531, "name": "Frontalieri Italia-Svizzera: telelavoro fino al...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-telelavoro-2026` },
+          { "@type": "ListItem", "position": 3532, "name": "Zugo e Svitto, meno costosi di Ginevra e Vaud", "url": `${BASE_URL}/articoli-frontaliere/confronto-imposta-cantonale-svizzera-cantoni` }
  ]
  },
  {
