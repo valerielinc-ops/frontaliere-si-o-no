@@ -8976,6 +8976,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bally-lultima-scarpa-svizzera-sara-prodotta-in-estate.title': 'Mehr Bally, der letzte Schweizer Schuh wird im Sommer produziert',
     'blog.article.bally-lultima-scarpa-svizzera-sara-prodotta-in-estate.excerpt': 'Die Produktion der legendären Schweizer Marke Bally wird in ein anderes Land verlagert.',
     'blog.article.bally-lultima-scarpa-svizzera-sara-prodotta-in-estate.imageAlt': 'Die Produktion von Bally wird in ein anderes Land verlegt.',
+    'blog.article.frontalieri-telelavoro-2026.title': 'Grenzgänger Italien-Schweiz: Telearbeit bis zu 25%',
+    'blog.article.frontalieri-telelavoro-2026.excerpt': 'Mit dem Gesetz Nr. 217 vom 29. Dezember 2025 wurde eine neue Regel für Grenzgänger eingeführt, die in der Schweiz arbeiten und in Italien wohnen.',
+    'blog.article.frontalieri-telelavoro-2026.imageAlt': 'Frontalier in Ticino, die in der Schweiz arbeiten und in Italien wohnen, die von zu Hause aus arbeiten',
 };
 
 export default blogMetaDe;

@@ -55569,6 +55569,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-telelavoro-2026': {
+    title: 'Frontalieri Italia-Svizzera: telelavoro fino al 25%',
+    description: 'La legge n. 217 del 29 dicembre 2025 ha introdotto una nuova regola per i frontalieri che lavorano in Svizzera e risiedono in Italia. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, italia-svizzera, telelavoro, fino, legge',
+    ogTitle: 'Frontalieri Italia-Svizzera: telelavoro fino al 25%',
+    ogDescription: 'La legge n. 217 del 29 dicembre 2025 ha introdotto una nuova regola per i frontalieri che lavorano in Svizzera e risiedono in Italia.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-telelavoro-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri Italia-Svizzera: telelavoro fino al 25%",
+      "description": "La legge n. 217 del 29 dicembre 2025 ha introdotto una nuova regola per i frontalieri che lavorano in Svizzera e risiedono in Italia. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-telelavoro-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in Ticino che lavorano in Svizzera e risiedono in Italia che lavorano da casa con computer e tablet"
+      },
+      "datePublished": "2026-07-26T04:37:35+00:00",
+      "dateModified": "2026-07-26T04:37:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-telelavoro-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

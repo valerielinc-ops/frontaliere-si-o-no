@@ -1,0 +1,40 @@
+{
+  "id": "frontalieri-telelavoro-2026",
+  "slug": "frontalieri-telelavoro-2026",
+  "publishedAt": "2026-07-26T04:37:42.343Z",
+  "cluster": "pratico",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.210276885745001,
+    "confidence": 0.8,
+    "finalScore": 4.9682215085960015,
+    "topK": [
+      {
+        "slug": "frontalieri-telelavoro-pubblicato-limite-25",
+        "cosine": 0.887182412249286
+      },
+      {
+        "slug": "telelavoro-frontalieri-nuove-regole",
+        "cosine": 0.8861308842247091
+      },
+      {
+        "slug": "cu-telelavoro-regole-frontalieri",
+        "cosine": 0.8856946480865839
+      },
+      {
+        "slug": "frontalieri-telelavoro",
+        "cosine": 0.8728554861084235
+      },
+      {
+        "slug": "frontalieri-telelavoro-ratifica-accordo",
+        "cosine": 0.8712424921208158
+      }
+    ],
+    "score": 2.4841107542980008,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}
