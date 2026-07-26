@@ -8981,6 +8981,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-telelavoro-2026.title': 'Frontalieri Italia-Svizzera: telelavoro fino al 25%',
     'blog.article.frontalieri-telelavoro-2026.excerpt': 'La legge n. 217 del 29 dicembre 2025 ha introdotto una nuova regola per i frontalieri che lavorano in Svizzera e risiedono in Italia.',
     'blog.article.frontalieri-telelavoro-2026.imageAlt': 'Frontalieri in Ticino che lavorano in Svizzera e risiedono in Italia che lavorano da casa con computer e tablet',
+    'blog.article.trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Bizzarone da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro.excerpt': 'I pro e i contro del trasferimento a Bizzarone per i frontaliere',
+    'blog.article.trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere in una cucina con una mappa di Bizzarone',
 };
 
 export default blogMetaIt;
