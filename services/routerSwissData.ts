@@ -539,6 +539,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'lamal-svizzero-ticino-2026': { it: 'lamal-svizzero-ticino-2026', en: 'swiss-health-insurance-ticino-2026', de: 'schweizer-gesundheitsversicherung-tessin-2026', fr: 'assurance-sante-suisse-tessin-2026' },
  'sistema-sanitario-svizzero-lamal-guida-canton-san-gallo': { it: 'sistema-sanitario-svizzero-lamal-guida-canton-san-gallo', en: 'swiss-health-insurance-guidance-lamal-canton-san-gallo', de: 'schweizer-gesundheitsversicherung-fuhrer-lamal-kanton-san-gallo', fr: 'assurance-sante-suisse-lamal-guide-canton-san-gallo' },
  'lavoro-oltreconfine-esercito-frontalieri': { it: 'lavoro-oltreconfine-esercito-frontalieri', en: 'lavoro-oltreconfine-esercito-frontalieri', de: 'lavoro-oltreconfine-esercito-frontalieri', fr: 'lavoro-oltreconfine-esercito-frontalieri' },
+ 'sistema-sanitario-svizzero-lamal-guida-canton-lucerna': { it: 'sistema-sanitario-svizzero-lamal-guida-canton-lucerna', en: 'swiss-health-system-lamal-guide-lucerne', de: 'schweizer-gesundheitssystem-lamal-fuhrer-luzern', fr: 'systeme-de-sante-suisse-lamal-guide-lucerne' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

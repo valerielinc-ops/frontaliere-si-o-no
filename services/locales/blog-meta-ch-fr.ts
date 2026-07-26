@@ -1549,6 +1549,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lavoro-oltreconfine-esercito-frontalieri.title': 'Lavoro oltreconfine: l\'esercito dei frontalieri',
     'blog.article.lavoro-oltreconfine-esercito-frontalieri.excerpt': 'Le nombre de frontaliers en Suisse a augmenté de 5,7% par rapport au deuxième trimestre 2022',
     'blog.article.lavoro-oltreconfine-esercito-frontalieri.imageAlt': 'Frontaliers en Ticino',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-lucerna.title': 'Guide du système de santé suisse : obligation LAMal et franchises',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-lucerna.excerpt': 'Le guide pratique pour les frontaliers résidant dans le canton de Lucerne et devant utiliser le système de santé suisse.',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-lucerna.imageAlt': 'Une guide pratique pour les frontaliers résidant dans le canton de Lucerne et devant utiliser le système de santé suisse.',
 };
 
 export default blogMetaChFr;
