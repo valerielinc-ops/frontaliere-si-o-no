@@ -16,7 +16,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 50-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 50-100%",
+        "it": "Dipl. Infermieristica professionale 50-100 %",
         "en": "Dipl. Nursing professional 50-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 50-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 50-100 %"
@@ -85,7 +85,6 @@
         "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-14T11:56:33.872Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -190,7 +189,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 40-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 40-100%",
+        "it": "Dipl. Infermieristica professionale 40-100 %",
         "en": "Dipl. Nursing professional 40-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 40-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 40-100 %"
@@ -240,7 +239,6 @@
         "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-14T11:56:39.418Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -395,7 +393,6 @@
         "medico-di-base-oncologia-medica-60-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-14T11:56:41.623Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -592,7 +589,7 @@
       "companyDomain": "kssg.ch",
       "title": "Lehrorthoptist/in 40-60%",
       "titleByLocale": {
-        "it": "Lehrorthoptist/in 40-60%",
+        "it": "Ortofrutticoli in 40-60 %",
         "en": "Orthoptist/in 40-60 %",
         "de": "Lehrorthoptist/in 40-60%",
         "fr": "Orthoptiste/en 40-60 %"
@@ -649,14 +646,19 @@
         "stv-chef-des-soins-d-urgence-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "ortofrutticoli-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "ortofrutticoli-in-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "lehrorthoptist-in-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "lehrorthoptist-in-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "disponent-in-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "formatore-in-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "in-dotazione-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "trainer-in-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "ausbildner-in-80-100-kssg-ch",
+        "disponent-in-40-60-kssg-ch",
+        "formateur-en-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "detecteur-en-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrorthoptist-in-40-60-kssg-ch",
-          "responsabile-notfallpflege-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-          "head-of-emergency-care-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-          "leiter-in-notfallpflege-80-100-kssg-ch",
           "responsable-des-soins-d-urgence-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "dipl-expert-emergency-care-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "dipl-expert-emergency-care-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
@@ -672,27 +674,35 @@
           "stv-responsabile-notfallpflege-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "ortofrutticoli-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "ortofrutticoli-in-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-          "lehrorthoptist-in-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+          "lehrorthoptist-in-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "disponent-in-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "formatore-in-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "in-dotazione-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ],
         "en": [
           "lehrorthoptist-in-40-60-kssg-ch",
           "stv-head-of-emergency-care-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-          "ict-application-manager-in-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+          "ict-application-manager-in-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "trainer-in-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ],
         "de": [
           "stv-leiter-in-notfallpflege-80-100-kssg-ch",
           "leiter-in-notfallpflege-80-100-kssg-ch",
-          "ict-applikationsmanager-in-80-100-kssg-ch"
+          "ict-applikationsmanager-in-80-100-kssg-ch",
+          "ausbildner-in-80-100-kssg-ch",
+          "disponent-in-40-60-kssg-ch"
         ],
         "fr": [
           "lehrorthoptist-in-40-60-kssg-ch",
           "stv-chef-des-soins-d-urgence-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "responsable-des-soins-d-urgence-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-          "gestionnaire-d-applications-tic-dans-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+          "gestionnaire-d-applications-tic-dans-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "formateur-en-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "detecteur-en-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
       },
       "firstSeenAt": "2026-07-15T22:53:00.212Z",
-      "needsRetranslation": true,
       "salaryMin": 34500,
       "salaryMax": 52200,
       "baseSalary": {
@@ -770,7 +780,6 @@
         "assistente-i-di-base-2027-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-15T22:52:59.247Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -953,7 +962,7 @@
       "title": "Dipl. Pflegefachfrau/-mann Springerpool 80-100%",
       "titleByLocale": {
         "it": "Dipl. Specialista di cura Springerpool 80-100 %",
-        "en": "Dipl. Pflegefachfrau/-mann Springerpool 80-100%",
+        "en": "Dipl. Care specialist Springerpool 80-100 %",
         "de": "Dipl. Pflegefachfrau/-mann Springerpool 80-100%",
         "fr": "Dipl. Spécialiste des soins Springerpool 80-100 %"
       },
@@ -1002,7 +1011,6 @@
         "diplomata-di-assistenza-infermieristica-springerpool-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-15T22:52:55.800Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1031,7 +1039,7 @@
       "title": "Dipl. Pflegefachfrau/-mann Springerpool 50-100%",
       "titleByLocale": {
         "it": "Dipl. Specialista di cura Springerpool 50-100 %",
-        "en": "Dipl. Pflegefachfrau/-mann Springerpool 50-100%",
+        "en": "Dipl. Care specialist Springerpool 50-100 %",
         "de": "Dipl. Pflegefachfrau/-mann Springerpool 50-100%",
         "fr": "Dipl. Spécialiste des soins Springerpool 50-100 %"
       },
@@ -1080,7 +1088,6 @@
         "infermiere-qualificato-springerpool-50-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-15T22:52:53.788Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1324,7 +1331,6 @@
         "apprendistato-come-logistiker-in-cfc-hoch-health-ostschweiz-wil"
       ],
       "firstSeenAt": "2026-07-15T22:52:47.777Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -1479,7 +1485,6 @@
         "operatore-logistico-a-100-hoch-health-ostschweiz-grabs"
       ],
       "firstSeenAt": "2026-07-15T22:52:48.783Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1576,7 +1581,6 @@
         "medico-senior-dottore-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-15T22:52:51.771Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1654,7 +1658,6 @@
         "sanitar-installateur-in-cfc-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-15T22:52:45.278Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1836,7 +1839,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T23:01:34.293Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1930,7 +1932,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T23:01:33.316Z",
-      "needsRetranslation": true,
       "salaryMin": 34500,
       "salaryMax": 52200,
       "baseSalary": {
@@ -2116,7 +2117,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 40-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 40-100%",
+        "it": "Dipl. Infermieristica professionale 40-100 %",
         "en": "Dipl. Nursing professional 40-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 40-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 40-100 %"
@@ -2197,7 +2198,6 @@
         "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-st-gallen-9fa340"
       ],
       "firstSeenAt": "2026-07-16T12:31:26.611Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2330,7 +2330,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 80-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 80-100%",
+        "it": "Dipl. Infermieristica professionale 80-100 %",
         "en": "Dipl. Nursing professional 80-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 80-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 80-100 %"
@@ -2380,7 +2380,6 @@
         "dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-17T11:42:53.493Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2458,7 +2457,6 @@
         "specialista-in-allestimento-di-sale-operatorie-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-17T11:42:50.566Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2486,7 +2484,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 40-60%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 40-60%",
+        "it": "Dipl. Infermieristica professionale 40-60 %",
         "en": "Dipl. Nursing professional 40-60 %",
         "de": "Dipl. Pflegefachfrau/-mann 40-60%",
         "fr": "Dipl. Professionnels des soins infirmiers 40-60 %"
@@ -2536,7 +2534,6 @@
         "dipl-pflegefachfrau-mann-40-60-hoch-health-ostschweiz-wil"
       ],
       "firstSeenAt": "2026-07-17T11:42:52.499Z",
-      "needsRetranslation": true,
       "salaryMin": 34500,
       "salaryMax": 52200,
       "baseSalary": {
@@ -2664,7 +2661,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Radiologiefachfrau/-mann HF 80-100%",
       "titleByLocale": {
-        "it": "Dipl. Radiologiefachfrau/-mann HF 80-100%",
+        "it": "Dipl. Specialista di radiologia HF 80-100 %",
         "en": "Dipl. Radiology specialist HF 80-100 %",
         "de": "Dipl. Radiologiefachfrau/-mann HF 80-100%",
         "fr": "Dipl. Spécialiste de radiologie HF 80-100 %"
@@ -2714,7 +2711,6 @@
         "specialista-certificato-in-radiologia-hf-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-17T11:42:48.625Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2975,7 +2971,6 @@
         "sub-assistente-2028-hoch-health-ostschweiz-grabs"
       ],
       "firstSeenAt": "2026-07-18T11:08:28.445Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3053,7 +3048,6 @@
         "apprendistato-come-restaurantfachfrau-mann-cfc-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-18T11:08:30.378Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -3131,7 +3125,6 @@
         "apprendistato-come-kochin-koch-cfc-hoch-health-ostschweiz-grabs"
       ],
       "firstSeenAt": "2026-07-18T11:08:26.510Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -3209,7 +3202,6 @@
         "apprendistato-come-medizinproduktetechnologin-technologe-cfc-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-18T11:08:29.414Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -3396,7 +3388,6 @@
         "assistente-junior-2028-hoch-health-ostschweiz-st"
       ],
       "firstSeenAt": "2026-07-18T11:08:18.694Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3474,7 +3465,6 @@
         "sub-assistente-2028-hoch-health-ostschweiz-uznach"
       ],
       "firstSeenAt": "2026-07-18T11:08:17.631Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3552,7 +3542,6 @@
         "assistente-junior-2026-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-18T11:08:32.345Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3630,7 +3619,6 @@
         "apprendistato-come-systemgastronomiefachfrau-mann-cfc-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-18T11:08:25.522Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -3708,7 +3696,6 @@
         "apprendistato-come-kochin-koch-cfc-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-18T11:08:33.323Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -3736,7 +3723,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann Nachdiplomstudium (NDS) Intensivpflege 80-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann Nachdiplomstudium (NDS) Intensivpflege 80-100%",
+        "it": "Dipl. Studi post-laurea specialistici (NDS) Cura intensiva 80-100 %",
         "en": "Dipl. Nursing specialist post-graduate studies (NDS) Intensive care 80-100 %",
         "de": "Dipl. Pflegefachfrau/-mann Nachdiplomstudium (NDS) Intensivpflege 80-100%",
         "fr": "Dipl. Soins intensifs 80-100 %"
@@ -3786,7 +3773,6 @@
         "dipl-studi-post-laurea-specialistici-nds-cura-intensiva-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-18T11:08:20.633Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3941,7 +3927,6 @@
         "assistente-junior-2027-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-18T11:08:27.487Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4042,7 +4027,7 @@
       "title": "Dipl. Expertin/Experte Anästhesiepflege 50-100%",
       "titleByLocale": {
         "it": "Dipl. Cura dell'anestesia esperto 50-100 %",
-        "en": "Dipl. Expertin/Experte Anästhesiepflege 50-100%",
+        "en": "Dipl. Expert anesthesia care 50-100 %",
         "de": "Dipl. Expertin/Experte Anästhesiepflege 50-100%",
         "fr": "Dipl. Soins d'anesthésie experts 50-100 %"
       },
@@ -4091,7 +4076,6 @@
         "dipl-cura-dell-anestesia-esperto-50-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-18T11:08:21.575Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4169,7 +4153,6 @@
         "apprendistato-come-kochin-koch-cfc-hoch-health-ostschweiz-wil"
       ],
       "firstSeenAt": "2026-07-18T11:08:24.561Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -4276,7 +4259,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 50-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 50-100%",
+        "it": "Dipl. Infermieristica professionale 50-100 %",
         "en": "Dipl. Nursing professional 50-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 50-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 50-100 %"
@@ -4326,7 +4309,6 @@
         "dipl-infermieristica-professionale-50-100-hoch-health-ostschweiz-grabs"
       ],
       "firstSeenAt": "2026-07-18T11:08:11.503Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4481,7 +4463,6 @@
         "sub-assistente-2028-hoch-health-ostschweiz-wil"
       ],
       "firstSeenAt": "2026-07-18T11:08:15.568Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4509,7 +4490,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 80-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 80-100%",
+        "it": "Dipl. Infermieristica professionale 80-100 %",
         "en": "Dipl. Nursing professional 80-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 80-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 80-100 %"
@@ -4594,7 +4575,6 @@
         "dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-693830"
       ],
       "firstSeenAt": "2026-07-18T11:08:12.539Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4672,7 +4652,6 @@
         "apprendistato-come-fachperson-betreuung-cfc-kinder-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-18T11:08:14.590Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -4827,7 +4806,6 @@
         "apprendistato-come-fachperson-gesundheit-cfc-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-18T11:08:16.645Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -4982,7 +4960,6 @@
         "capo-team-consulenza-alimentare-e-diabetologica-60-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-19T11:33:02.082Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5137,7 +5114,6 @@
         "medico-specialista-in-oncologia-medica-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-19T11:33:01.089Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -5292,7 +5268,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T13:12:47.265Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -5373,7 +5348,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T13:12:46.157Z",
-      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 69600,
       "baseSalary": {
@@ -5451,7 +5425,6 @@
         "sott-2026-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-20T13:12:43.897Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5529,7 +5502,6 @@
         "sub-assistente-2026-hoch-health-ostschweiz-uznach"
       ],
       "firstSeenAt": "2026-07-20T13:12:42.652Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5607,7 +5579,6 @@
         "sottocapo-2027-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-20T13:12:39.466Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5636,7 +5607,7 @@
       "title": "Physiotherapeut/in 50-100%",
       "titleByLocale": {
         "it": "Fisioterapista/in 50-100 %",
-        "en": "Physiotherapeut/in 50-100%",
+        "en": "Physiotherapist/in 50-100 %",
         "de": "Physiotherapeut/in 50-100%",
         "fr": "Physiothérapeute/en 50-100 %"
       },
@@ -5685,7 +5656,6 @@
         "fisioterapista-50-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-20T13:12:41.496Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5713,7 +5683,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 70-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 70-100%",
+        "it": "Dipl. Infermieristica professionale 70-100 %",
         "en": "Dipl. Nursing professional 70-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 70-100%",
         "fr": "Dipl. Spécialiste des soins infirmiers 70-100 %"
@@ -5766,7 +5736,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:59:45.074Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5794,7 +5763,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann Nachdiplomstudium (NDS) Intensivpflege 80-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann Nachdiplomstudium (NDS) Intensivpflege 80-100%",
+        "it": "Dipl. Studi post-laurea specialistici (NDS) Cura intensiva 80-100 %",
         "en": "Dipl. Nursing specialist post-graduate studies (NDS) Intensive care 80-100 %",
         "de": "Dipl. Pflegefachfrau/-mann Nachdiplomstudium (NDS) Intensivpflege 80-100%",
         "fr": "Dipl. Soins intensifs 80-100 %"
@@ -5860,7 +5829,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T23:08:52.229Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5965,7 +5933,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 80-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 80-100%",
+        "it": "Dipl. Infermieristica professionale 80-100 %",
         "en": "Dipl. Nursing professional 80-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 80-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 80-100 %"
@@ -6015,7 +5983,6 @@
         "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil"
       ],
       "firstSeenAt": "2026-07-21T11:59:43.052Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6093,7 +6060,6 @@
         "sott-2027-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-22T12:01:33.677Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6171,7 +6137,6 @@
         "sub-assistente-2026-hoch-health-ostschweiz-wil"
       ],
       "firstSeenAt": "2026-07-22T12:01:32.604Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6249,7 +6214,6 @@
         "medico-assistente-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-22T12:01:26.894Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6327,7 +6291,6 @@
         "med-assistente-pratico-in-50-hoch-health-ostschweiz-uznach"
       ],
       "firstSeenAt": "2026-07-22T12:01:31.564Z",
-      "needsRetranslation": true,
       "salaryMin": 28800,
       "salaryMax": 43500,
       "baseSalary": {
@@ -6482,7 +6445,6 @@
         "assistente-secondario-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-22T12:01:29.180Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6655,7 +6617,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T12:35:46.574Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6684,7 +6645,7 @@
       "title": "Pflegeexpert/in APN 70%",
       "titleByLocale": {
         "it": "Professionista/in APN 70 %",
-        "en": "Pflegeexpert/in APN 70%",
+        "en": "Care expert/in APN 70 %",
         "de": "Pflegeexpert/in APN 70%",
         "fr": "Expert en soins/en APN 70 %"
       },
@@ -6735,7 +6696,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T12:35:49.488Z",
-      "needsRetranslation": true,
       "salaryMin": 40300,
       "salaryMax": 60900,
       "baseSalary": {
@@ -6764,7 +6724,7 @@
       "title": "Dipl. Experte/Expertin Notfallpflege 50-100%",
       "titleByLocale": {
         "it": "Dipl. Expert Emergency Care 50-100 %",
-        "en": "Dipl. Experte/Expertin Notfallpflege 50-100%",
+        "en": "Dipl. Expert Emergency Care 50-100 %",
         "de": "Dipl. Experte/Expertin Notfallpflege 50-100%",
         "fr": "Dipl. Expert Soins d'urgence 50-100 %"
       },
@@ -6832,7 +6792,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T12:35:47.566Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7187,7 +7146,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T12:35:44.589Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7265,7 +7223,6 @@
         "assistente-secondario-hoch-health-ostschweiz-wil"
       ],
       "firstSeenAt": "2026-07-23T12:35:43.570Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7343,7 +7300,6 @@
         "assistente-secondario-hoch-health-ostschweiz-uznach"
       ],
       "firstSeenAt": "2026-07-23T12:35:42.569Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7424,7 +7380,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:34:56.888Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7452,7 +7407,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 80-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 80-100%",
+        "it": "Dipl. Infermieristica professionale 80-100 %",
         "en": "Dipl. Nursing professional 80-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 80-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 80-100 %"
@@ -7502,7 +7457,6 @@
         "dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-700c9b"
       ],
       "firstSeenAt": "2026-07-24T11:34:51.490Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7530,7 +7484,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 80-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 80-100%",
+        "it": "Dipl. Infermieristica professionale 80-100 %",
         "en": "Dipl. Nursing professional 80-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 80-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 80-100 %"
@@ -7580,7 +7534,6 @@
         "dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-f8ca13"
       ],
       "firstSeenAt": "2026-07-24T11:34:54.724Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7608,7 +7561,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 60-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 60-100%",
+        "it": "Dipl. Infermieristica professionale 60-100 %",
         "en": "Dipl. Nursing professional 60-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 60-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 60-100 %"
@@ -7658,7 +7611,6 @@
         "dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-grabs"
       ],
       "firstSeenAt": "2026-07-24T11:34:50.423Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7736,7 +7688,6 @@
         "medico-senior-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-24T11:34:55.784Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -7764,7 +7715,7 @@
       "companyDomain": "kssg.ch",
       "title": "Medizintechniker/in 80-100%",
       "titleByLocale": {
-        "it": "Medizintechniker/in 80-100%",
+        "it": "Tecnico medico/in 80-100 %",
         "en": "Medical technician/in 80-100 %",
         "de": "Medizintechniker/in 80-100%",
         "fr": "Technicien médical/en 80-100 %"
@@ -7814,7 +7765,6 @@
         "medizintechniker-in-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-24T11:34:52.559Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7925,7 +7875,7 @@
       "companyDomain": "kssg.ch",
       "title": "Medizintechniker/in 80-100%",
       "titleByLocale": {
-        "it": "Medizintechniker/in 80-100%",
+        "it": "Tecnico medico/in 80-100 %",
         "en": "Medical technician/in 80-100 %",
         "de": "Medizintechniker/in 80-100%",
         "fr": "Technicien médical/en 80-100 %"
@@ -7975,7 +7925,6 @@
         "medizintechniker-in-80-100-hoch-health-ostschweiz-uznach"
       ],
       "firstSeenAt": "2026-07-24T11:34:49.349Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8132,7 +8081,6 @@
         "primario-a-di-medicina-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-24T11:34:46.107Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -8314,7 +8262,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 80-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 80-100%",
+        "it": "Dipl. Infermieristica professionale 80-100 %",
         "en": "Dipl. Nursing professional 80-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 80-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 80-100 %"
@@ -8364,7 +8312,6 @@
         "dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-317fe7"
       ],
       "firstSeenAt": "2026-07-24T11:34:42.880Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8392,7 +8339,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 60-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 60-100%",
+        "it": "Dipl. Infermieristica professionale 60-100 %",
         "en": "Dipl. Nursing professional 60-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 60-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 60-100 %"
@@ -8444,7 +8391,6 @@
         "dipl-infermieristica-professionale-60-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-24T11:34:41.809Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8543,7 +8489,7 @@
       "title": "Pflegehelfer/in SRK Springerpool 50-70%",
       "titleByLocale": {
         "it": "Assistente infermieristico in SRK Springerpool 50-70 %",
-        "en": "Pflegehelfer/in SRK Springerpool 50-70%",
+        "en": "Nursing assistant in SRK Springerpool 50-70 %",
         "de": "Pflegehelfer/in SRK Springerpool 50-70%",
         "fr": "Assistant infirmier en SRK Springerpool 50-70 %"
       },
@@ -8592,7 +8538,6 @@
         "assistente-per-infermieri-in-srk-springerpool-50-70-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-25T10:49:55.054Z",
-      "needsRetranslation": true,
       "salaryMin": 40300,
       "salaryMax": 60900,
       "baseSalary": {
@@ -8698,7 +8643,7 @@
       "title": "Dipl. Expertin/Experte Anästhesiepflege NDS HF 50-100%",
       "titleByLocale": {
         "it": "Dipl. Cura esperto/esperta anestesia NDS HF 50-100 %",
-        "en": "Dipl. Expertin/Experte Anästhesiepflege NDS HF 50-100%",
+        "en": "Dipl. Expert/Expert Anesthesia Care NDS HF 50-100 %",
         "de": "Dipl. Expertin/Experte Anästhesiepflege NDS HF 50-100%",
         "fr": "Dipl. Soins d'anesthésie experts NDS HF 50-100 %"
       },
@@ -8751,7 +8696,6 @@
         "esperta-esperto-di-anestesia-nds-hf-50-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-25T10:49:54.086Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8780,7 +8724,7 @@
       "title": "Case Manager/in zentrales Patientenmanagement 80-100%",
       "titleByLocale": {
         "it": "Case Manager/nella gestione centrale del paziente 80-100 %",
-        "en": "Case Manager/in zentrales Patientenmanagement 80-100%",
+        "en": "Case Manager/in central patient management 80-100 %",
         "de": "Case Manager/in zentrales Patientenmanagement 80-100%",
         "fr": "Gestionnaire de cas/gestion centrale du patient 80-100 %"
       },
@@ -8831,7 +8775,6 @@
         "case-manager-gestione-pazienti-centrale-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-07-25T10:49:53.112Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -9569,8 +9512,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "kssg-749a6a27b712",
@@ -9644,8 +9586,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "kssg-f84ba86b943a",
@@ -9810,7 +9751,7 @@
       "title": "Ausbildung zur dipl. Fachperson Operationstechnik HF",
       "titleByLocale": {
         "it": "Allenamento per dipl. Specialist Operations Engineering HF",
-        "en": "Ausbildung zur dipl. Fachperson Operationstechnik HF",
+        "en": "Training for dipl. Specialist surgical technique HF",
         "de": "Ausbildung zur dipl. Fachperson Operationstechnik HF",
         "fr": "Formation pour les dipl. Spécialiste des opérations Génie HF"
       },
@@ -9867,8 +9808,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "kssg-fc990b0648bc",
@@ -9958,7 +9898,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 50-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 50-100%",
+        "it": "Dipl. Infermieristica professionale 50-100 %",
         "en": "Dipl. Nursing professional 50-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 50-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 50-100 %"
@@ -10016,8 +9956,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "kssg-5a811b32e6d6",
@@ -10034,7 +9973,7 @@
       "title": "Dipl. Pflegefachfrau/-mann Springerpool 20-100%",
       "titleByLocale": {
         "it": "Dipl. Specialista di cura Springerpool 20-100 %",
-        "en": "Dipl. Pflegefachfrau/-mann Springerpool 20-100%",
+        "en": "Dipl. Care specialist Springerpool 20-100 %",
         "de": "Dipl. Pflegefachfrau/-mann Springerpool 20-100%",
         "fr": "Dipl. Spécialiste des soins Springerpool 20-100 %"
       },
@@ -10110,8 +10049,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

@@ -145,7 +145,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T23:06:29.842Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -288,28 +287,42 @@
       "previousSlugsByLocale": {
         "fr": [
           "un-ou-une-juriste-30-canton-du-valais-sion",
-          "un-ou-une-juriste-30-canton-valais-ch"
+          "un-ou-une-juriste-30-canton-valais-ch",
+          "un-ou-une-juriste-80-canton-valais-ch"
         ],
         "it": [
           "un-ou-une-juriste-30-canton-valais-ch",
           "un-ou-une-juriste-80-canton-du-valais-sion",
-          "uno-o-uno-avvocato-30-canton-du-valais-sion"
+          "uno-o-uno-avvocato-30-canton-du-valais-sion",
+          "uno-o-uno-avvocato-80-canton-du-valais-sion",
+          "one-or-one-lawyer-80-canton-du-valais-sion",
+          "ein-oder-ein-anwalt-80-canton-du-valais-sion",
+          "un-ou-une-juriste-80-canton-valais-ch",
+          "legal-advisor-80-canton-du-valais-sion",
+          "jurist-80-canton-du-valais-sion"
         ],
         "en": [
-          "un-ou-une-juriste-30-canton-valais-ch"
+          "un-ou-une-juriste-30-canton-valais-ch",
+          "one-or-one-lawyer-80-canton-du-valais-sion"
         ],
         "de": [
-          "un-ou-une-juriste-30-canton-valais-ch"
+          "un-ou-une-juriste-30-canton-valais-ch",
+          "ein-oder-ein-anwalt-80-canton-du-valais-sion"
         ]
       },
       "previousSlugs": [
         "un-ou-une-juriste-30-canton-valais-ch",
         "un-ou-une-juriste-80-canton-du-valais-sion",
         "un-ou-une-juriste-30-canton-du-valais-sion",
-        "uno-o-uno-avvocato-30-canton-du-valais-sion"
+        "uno-o-uno-avvocato-30-canton-du-valais-sion",
+        "uno-o-uno-avvocato-80-canton-du-valais-sion",
+        "one-or-one-lawyer-80-canton-du-valais-sion",
+        "ein-oder-ein-anwalt-80-canton-du-valais-sion",
+        "un-ou-une-juriste-80-canton-valais-ch",
+        "legal-advisor-80-canton-du-valais-sion",
+        "jurist-80-canton-du-valais-sion"
       ],
       "firstSeenAt": "2026-07-16T23:06:28.038Z",
-      "needsRetranslation": true,
       "salaryMin": 18200,
       "salaryMax": 27500,
       "baseSalary": {
@@ -807,7 +820,7 @@
       "companyDomain": "vs.ch",
       "title": "Jurist/in (80%)",
       "titleByLocale": {
-        "it": "Jurist/in (80%)",
+        "it": "Avvocato (80%)",
         "en": "Lawyer (80%)",
         "de": "Jurist/in (80%)",
         "fr": "Avocat (80 %)"
@@ -844,23 +857,35 @@
       "previousSlugs": [
         "jurist-in-80-canton-valais-ch",
         "avvocato-80-canton-du-valais-sion",
-        "jurist-in-80-canton-du-valais-sion"
+        "jurist-in-80-canton-du-valais-sion",
+        "pianificatore-di-distribuzione-100-canton-du-valais-sion",
+        "deployment-planner-100-canton-du-valais-sion",
+        "einsatzdisponent-in-100-canton-valais-ch",
+        "planificateur-de-deploiement-100-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "jurist-in-80-canton-valais-ch",
           "avvocato-80-canton-du-valais-sion",
-          "jurist-in-80-canton-du-valais-sion"
+          "jurist-in-80-canton-du-valais-sion",
+          "pianificatore-di-distribuzione-100-canton-du-valais-sion",
+          "deployment-planner-100-canton-du-valais-sion",
+          "einsatzdisponent-in-100-canton-valais-ch",
+          "planificateur-de-deploiement-100-canton-du-valais-sion"
         ],
         "en": [
-          "jurist-in-80-canton-valais-ch"
+          "jurist-in-80-canton-valais-ch",
+          "deployment-planner-100-canton-du-valais-sion"
         ],
         "fr": [
-          "jurist-in-80-canton-valais-ch"
+          "jurist-in-80-canton-valais-ch",
+          "planificateur-de-deploiement-100-canton-du-valais-sion"
+        ],
+        "de": [
+          "einsatzdisponent-in-100-canton-valais-ch"
         ]
       },
       "firstSeenAt": "2026-07-23T22:26:39.629Z",
-      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {
@@ -944,7 +969,6 @@
         "un-ragioniere-60-canton-du-valais-sion"
       ],
       "firstSeenAt": "2026-07-23T22:26:38.929Z",
-      "needsRetranslation": true,
       "salaryMin": 36300,
       "salaryMax": 54900,
       "baseSalary": {

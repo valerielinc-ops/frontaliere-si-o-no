@@ -139946,7 +139946,12 @@
     "canonicalSlug": "spitalarzt-spitalarztin-m-w-d-80-100-pbl-binningen",
     "canton": "BL",
     "createdAt": "2026-06-09",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "medico-ospedaliero-m-f-d-80-100-psychiatrie-baselland-binningen",
+      "en": "hospital-doctor-m-f-d-80-100-psychiatrie-baselland-binningen",
+      "de": "spitalarzt-spitalarztin-m-w-d-80-100-pbl-binningen",
+      "fr": "medecin-hospitalier-m-f-j-80-100-psychiatrie-baselland-binningen"
+    }
   },
   "id|pbl.ch|25a9157a-3788-4630-8d78-052415487564": {
     "canonicalSlug": "capoclinica-m-f-d-80-100-psychiatrie-baselland-liestal",
@@ -140007,7 +140012,12 @@
     "canonicalSlug": "psychologe-psychologin-m-w-d-80-100-pbl-binningen",
     "canton": "BL",
     "createdAt": "2026-06-09",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "psicologo-m-f-d-80-100-psychiatrie-baselland-binningen",
+      "en": "psychologist-m-f-d-80-100-psychiatrie-baselland-binningen",
+      "de": "psychologe-psychologin-m-w-d-80-100-pbl-binningen",
+      "fr": "psychologue-m-f-j-80-100-psychiatrie-baselland-binningen"
+    }
   },
   "id|pbl.ch|3f590259-cd9a-4284-a54b-ef07dd4e92bb": {
     "canonicalSlug": "operatore-operatrice-di-assistenza-m-f-d-60-80-psychiatrie-baselland-liestal",
@@ -140046,7 +140056,12 @@
     "canonicalSlug": "fachfrau-fachmann-gesundheit-efz-m-w-d-60-100-pbl-liestal",
     "canton": "BL",
     "createdAt": "2026-06-05",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "fachfrau-fachmann-gesundheit-cfc-m-w-d-60-100-psychiatrie-baselland-liestal",
+      "en": "senior-consultant-m-w-d-psychiatrie-baselland-liestal",
+      "de": "fachfrau-fachmann-gesundheit-efz-m-w-d-60-100-pbl-liestal",
+      "fr": "consultant-principal-m-m-j-psychiatrie-baselland-liestal"
+    }
   },
   "id|pbl.ch|430365ce-09b3-4bad-83a8-e36c2186a1e1": {
     "canonicalSlug": "dipl-pflegefachfrau-dipl-pflegefachmann-m-w-d-100-psychiatrie-baselland-liestal",
@@ -140120,8 +140135,8 @@
     "createdAt": "2026-06-09",
     "slugByLocale": {
       "de": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-m-w-d-70-100-befristet-bis-september-2026-pbl",
-      "en": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-m-w-d-70-100-befristet-bis-september-2026-pbl",
-      "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-m-w-d-70-100-befristet-bis-september-2026-pbl",
+      "en": "dipl-nursing-professional-dipl-nursing-professional-hf-m-f-d-70-100-limited-to-september-2026-psychiatrie-baselland",
+      "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-hf-m-f-d-70-100-limite-a-septembre",
       "it": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-m-w-d-70-100-befristet-bis-september-2026-psychiatrie-baselland-liestal"
     }
   },
@@ -140203,7 +140218,12 @@
     "canonicalSlug": "oberarzt-oberarztin-nachtdienst-m-w-d-80-100-pbl-liestal",
     "canton": "BL",
     "createdAt": "2026-06-02",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "consulente-senior-m-w-d-80-100-psychiatrie-baselland-liestal",
+      "en": "senior-consultant-m-w-d-80-100-psychiatrie-baselland-liestal",
+      "de": "oberarzt-oberarztin-nachtdienst-m-w-d-80-100-pbl-liestal",
+      "fr": "consultant-principal-m-m-j-80-100-psychiatrie-baselland-liestal"
+    }
   },
   "id|pbl.ch|85883177-8419-41e0-aa95-5143d050d3e2": {
     "canonicalSlug": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-m-w-d-80-100-psychiatrie-baselland-liestal",
@@ -140296,8 +140316,8 @@
     "createdAt": "2026-05-21",
     "slugByLocale": {
       "de": "fachmann-fachfrau-betreuung-efz-oder-dipl-pflegefachfrau-dipl-pflegefachfrau-fur",
-      "en": "fachmann-fachfrau-betreuung-efz-oder-dipl-pflegefachfrau-dipl-pflegefachfrau-fur",
-      "fr": "fachmann-fachfrau-betreuung-efz-oder-dipl-pflegefachfrau-dipl-pflegefachfrau-fur",
+      "en": "person-skilled-specialist-care-efz-or-dipl-career-dipl-nurse-for-night-watch-m-w-d-60-80-psychiatrie-baselland-liestal",
+      "fr": "personne-qualifiee-soins-specialises-efz-ou-dipl-carriere-dipl-infirmiere-pour-veille-de-nuit-m-w-d-60-80-psychiatrie",
       "it": "fachmann-fachfrau-betreuung-cfc-o-dipl-pflegefachfrau-per-nachtwache-m-w-d-60-80-psychiatrie-baselland-liestal"
     }
   },
@@ -140306,7 +140326,10 @@
     "canton": "BL",
     "createdAt": "2026-06-15",
     "slugByLocale": {
-      "en": "fachperson-fiat-m-w-d-60-psychiatrie-baselland-liestal"
+      "en": "fachperson-fiat-m-w-d-60-psychiatrie-baselland-liestal",
+      "it": "fiat-specialista-lun-f-d-60-psychiatrie-baselland-liestal",
+      "de": "fachperson-betreuung-sozialpadagoge-in-oder-arbeitsagoge-in-m-w-d-60-pbl-liestal",
+      "fr": "fiat-professionnel-m-f-d-60-psychiatrie-baselland-liestal"
     }
   },
   "id|pbl.ch|b5657ba4-095a-4c6e-aa9d-8a422e7d9a44": {
@@ -140335,7 +140358,12 @@
     "canonicalSlug": "sozialpadagogin-sozialpadagoge-fh-hf-m-w-d-60-80-psychiatrie-baselland-liestal",
     "canton": "BL",
     "createdAt": "2026-05-23",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "social-pedagogue-social-pedagogue-fh-hf-m-w-d-60-80-psychiatrie-baselland-liestal",
+      "en": "social-pedagogue-social-pedagogue-fh-hf-m-w-d-60-80-psychiatrie-baselland-liestal",
+      "de": "sozialpadagogin-sozialpadagoge-fh-hf-m-w-d-60-80-pbl-liestal",
+      "fr": "pedagogue-social-pedagogue-social-fh-hf-m-p-j-60-80-psychiatrie-baselland-liestal"
+    }
   },
   "id|pbl.ch|bc843ba3-411e-4df4-84be-1f982f83ab43": {
     "canonicalSlug": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-m-w-d-70-100-psychiatrie-baselland-liestal",
@@ -140424,7 +140452,12 @@
     "canonicalSlug": "oberarzt-oberarztin-m-w-d-80-100-pbl-liestal",
     "canton": "BL",
     "createdAt": "2026-06-16",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "medico-senior-l-f-d-80-100-psychiatrie-baselland-liestal",
+      "en": "senior-physician-m-f-d-80-100-psychiatrie-baselland-liestal-3e9719",
+      "de": "oberarzt-oberarztin-m-w-d-80-100-pbl-liestal",
+      "fr": "medecin-senior-l-f-d-80-100-psychiatrie-baselland-liestal"
+    }
   },
   "id|pbl.ch|dbc0763a-4f96-4600-aac3-7778765b5054": {
     "canonicalSlug": "responsabile-formatore-professionale-m-f-d-80-100-psychiatrie-baselland-liestal",
@@ -140519,7 +140552,10 @@
     "canton": "BL",
     "createdAt": "2026-06-18",
     "slugByLocale": {
-      "de": "oberarzt-oberarztin-m-w-d-80-100-erwachsenenpsychiatrie-ambulant-standort-liestal-pbl"
+      "de": "oberarzt-oberarztin-m-w-d-80-100-erwachsenenpsychiatrie-ambulant-standort-liestal-pbl",
+      "it": "medico-senior-lun-f-d-80-100-psichiatria-adulti-ambulatoriale-localita-liestal-psychiatrie-baselland-liestal",
+      "en": "senior-physician-m-f-d-80-100-adult-psychiatry-outpatient-liestal-location-psychiatrie-baselland-liestal",
+      "fr": "medecin-senior-l-f-d-80-100-psychiatrie-adulte-ambulatoire-liestal-psychiatrie-baselland-liestal"
     }
   },
   "id|pbl.ch|f7e28662-f4eb-479c-b5f7-820355cb3f5f": {
@@ -259654,7 +259690,8 @@
     "createdAt": "2026-06-19",
     "slugByLocale": {
       "en": "plasterer-plasterer-pemsa-bellinzona",
-      "fr": "cartongesista-gessatore-pemsa-bellinzona"
+      "fr": "cartongesista-gessatore-pemsa-bellinzona",
+      "it": "cartongessista-amp-8211-gessatore-pemsa-bellinzona"
     }
   },
   "url|https://www.pemsa.ch/it/job/cartongessista-gessatore-2680289": {
@@ -296127,7 +296164,7 @@
   "id|recruitingapp-122706.umantis.com|5360": {
     "canonicalSlug": "arztsekretarin-arztsekretar-augenklinik-ksa-ch",
     "slugByLocale": {
-      "it": "dottore-occhio-di-fisico-clinico-kantonsspital-aarau-ksa-aarau",
+      "it": "sottosegretario-medico-clinica-medica-kantonsspital-aarau-ksa-aarau",
       "en": "doctor-s-secretary-physician-s-eye-clinic-kantonsspital-aarau-ksa-aarau",
       "de": "arztsekretarin-arztsekretar-augenklinik-ksa-ch",
       "fr": "dottore-occhio-di-fisico-clinico-kantonsspital-aarau-ksa-aarau"
@@ -328777,7 +328814,8 @@
     "slugByLocale": {
       "it": "dipl-expert-intensive-care-60-100-sro-ag-spital-region-oberaargau-langenthal",
       "de": "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal",
-      "fr": "dipl-expert-soins-intensifs-60-100-sro-ag-spital-region-oberaargau-langenthal"
+      "fr": "dipl-expert-soins-intensifs-60-100-sro-ag-spital-region-oberaargau-langenthal",
+      "en": "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal"
     },
     "createdAt": "2026-07-14",
     "canton": "BE"
@@ -331695,7 +331733,8 @@
     "slugByLocale": {
       "de": "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
       "it": "dipl-infermiera-hf-fh-80-100-home-trattamento-sro-ag-spital-region-oberaargau-langenthal-83b67c",
-      "fr": "dipl-infirmiere-hf-fh-80-100-soins-a-domicile-sro-ag-spital-region-oberaargau-langenthal-83b67c"
+      "fr": "dipl-infirmiere-hf-fh-80-100-soins-a-domicile-sro-ag-spital-region-oberaargau-langenthal-83b67c",
+      "en": "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-psychiatrische-dienste-marktgasse-18"
     },
     "createdAt": "2026-07-15",
     "canton": "BE"
@@ -358105,7 +358144,8 @@
     "canonicalSlug": "dual-studies-2027-bachelor-of-science-business-administration-digital-business-management-grenzach-posizione-roche",
     "slugByLocale": {
       "it": "dual-studies-2027-bachelor-of-science-business-administration-digital-business-management-grenzach-posizione-roche",
-      "de": "duales-studium-2027-bachelor-of-arts-bwl-digital-business-management-standort-grenzach"
+      "de": "duales-studium-2027-bachelor-of-arts-bwl-digital-business-management-standort-grenzach",
+      "fr": "etude-double-2027-bachelor-of-science-bwl-management-d-affaires-numeriques-localite-grenzach-roche-grenzach"
     },
     "createdAt": "2026-07-20",
     "canton": "BS"
@@ -360128,7 +360168,8 @@
     "slugByLocale": {
       "en": "internship-in-project-portfolio-management-with-focus-on-it-architecture-ai-applications-m-f-d-roche-penzberg",
       "de": "praktikum-im-project-portfolio-management-mit-schwerpunkt-it-architektur-ki-anwendungen-m",
-      "fr": "stage-en-gestion-de-portefeuille-de-projets-axe-sur-l-architecture-informatique-et-les-applications-d-ia-m-f-d-roche"
+      "fr": "stage-en-gestion-de-portefeuille-de-projets-axe-sur-l-architecture-informatique-et-les-applications-d-ia-m-f-d-roche",
+      "it": "praktikum-in-project-portfolio-management-con-enfasi-su-it-architettura-ki-applicazioni-m-f-d-roche-penzberg"
     },
     "createdAt": "2026-07-20",
     "canton": "BS"
@@ -396331,7 +396372,9 @@
     "canonicalSlug": "early-talent-associate-pdr-roche-ch",
     "slugByLocale": {
       "en": "early-talent-associate-pdr-roche-ch",
-      "fr": "premier-talent-associate-pdr-roche-mississauga"
+      "fr": "premier-talent-associate-pdr-roche-mississauga",
+      "it": "early-total-associate-pdr-roche-mississauga",
+      "de": "fruher-talentpartner-pdr-roche-mississauga"
     },
     "createdAt": "2026-07-24",
     "canton": "VD"
@@ -399016,7 +399059,10 @@
   "id|migros.ch|1c5d33c5-ed8f-4afa-8296-d1c2606c5273": {
     "canonicalSlug": "verkaufsmitarbeiter-in-migrolino-bern",
     "slugByLocale": {
-      "de": "verkaufsmitarbeiter-in-migrolino-bern"
+      "de": "verkaufsmitarbeiter-in-migrolino-bern",
+      "it": "personale-di-vendita-migrolino-bern-759604",
+      "en": "sales-staff-migrolino-bern-759604",
+      "fr": "personnel-de-vente-migrolino-bern-759604"
     },
     "createdAt": "2026-07-24",
     "canton": "BE"
@@ -399615,7 +399661,8 @@
     "canonicalSlug": "audit-manager-zurich-cover-more-zurich-insurance-sede-ticino-2000-referral-bonus-if-you-bring-other-talented-people-like-you-to-the-company-oyf5mq",
     "slugByLocale": {
       "en": "audit-manager-zurich-cover-more-zurich-insurance-sede-ticino-2000-referral-bonus-if-you-bring-other-talented-people-like-you-to-the-company-oyf5mq",
-      "fr": "gestionnaire-d-audit-zurich-couverture-plus-zurich-insurance-sede-ticino-ticino"
+      "fr": "gestionnaire-d-audit-zurich-couverture-plus-zurich-insurance-sede-ticino-ticino",
+      "it": "audit-manager-zurigo-cover-more-zurich-insurance-sede-ticino-ticino"
     },
     "createdAt": "2026-07-25",
     "canton": "ZH"
@@ -399710,7 +399757,8 @@
     "canonicalSlug": "risk-surveyor-insurance-zurich-insurance-sede-ticino-lugano-3hehzk",
     "slugByLocale": {
       "en": "risk-surveyor-insurance-zurich-insurance-sede-ticino-lugano-3hehzk",
-      "fr": "enqueteur-de-risque-assurance-zurich-insurance-sede-ticino-lugano"
+      "fr": "enqueteur-de-risque-assurance-zurich-insurance-sede-ticino-lugano",
+      "de": "risk-surveyor-versicherung-zurich-insurance-sede-ticino-lugano-3hehzk"
     },
     "createdAt": "2026-07-25",
     "canton": "TI"
@@ -400351,7 +400399,10 @@
   "id|roche.wd3.myworkdayjobs.com|202605-112874-1": {
     "canonicalSlug": "pharma-specialist-rep-pjp-immuno-nephro-qld-nt-wa-12-months-max-term-contract-roche-ch",
     "slugByLocale": {
-      "en": "pharma-specialist-rep-pjp-immuno-nephro-qld-nt-wa-12-months-max-term-contract-roche-ch"
+      "en": "pharma-specialist-rep-pjp-immuno-nephro-qld-nt-wa-12-months-max-term-contract-roche-ch",
+      "it": "pharma-specialista-rep-pjp-immuno-nephro-qld-nt-wa-12-months-max-term-contract-roche-brisbane",
+      "de": "pharma-spezialist-rep-pjp-immuno-nephro-qld-nt-wa-12-months-max-term-contract-roche-brisbane",
+      "fr": "pharma-specialiste-rep-pjp-immuno-nephro-qld-nt-wa-12-months-max-term-contract-roche-brisbane"
     },
     "createdAt": "2026-07-25",
     "canton": "JU"
@@ -400359,7 +400410,9 @@
   "id|roche.wd3.myworkdayjobs.com|202607-119307": {
     "canonicalSlug": "gmp-compliance-specialist-temporary-2-years-roche-ch",
     "slugByLocale": {
-      "de": "gmp-compliance-specialist-temporary-2-years-roche-ch"
+      "de": "gmp-compliance-specialist-temporary-2-years-roche-ch",
+      "it": "gmp-compliance-specialista-temporary-2-years-roche-kaiseraugst",
+      "fr": "gmp-compliance-specialiste-temporary-2-years-roche-kaiseraugst"
     },
     "createdAt": "2026-07-25",
     "canton": "AG"
@@ -400368,7 +400421,8 @@
     "canonicalSlug": "portfolio-strategy-delivery-lead-asset-study-management-roche-ch",
     "slugByLocale": {
       "en": "portfolio-strategy-delivery-lead-asset-study-management-roche-ch",
-      "fr": "strategie-et-prestation-du-portefeuille-responsable-gestion-de-l-etude-des-biens-roche-basel"
+      "fr": "strategie-et-prestation-du-portefeuille-responsable-gestion-de-l-etude-des-biens-roche-basel",
+      "de": "portfoliostrategie-delivery-lead-asset-study-management-roche-basel"
     },
     "createdAt": "2026-07-25",
     "canton": "BS"
@@ -400378,7 +400432,8 @@
     "slugByLocale": {
       "en": "portfolio-strategy-delivery-lead-people-roche-ch",
       "de": "portfoliostrategie-delivery-lead-menschen-roche-basel",
-      "fr": "chef-de-file-de-la-strategie-et-de-la-prestation-du-portefeuille-personnes-roche-basel"
+      "fr": "chef-de-file-de-la-strategie-et-de-la-prestation-du-portefeuille-personnes-roche-basel",
+      "it": "portfolio-strategy-delivery-lead-persone-roche-basel"
     },
     "createdAt": "2026-07-25",
     "canton": "BS"
@@ -400405,7 +400460,10 @@
   "id|roche.wd3.myworkdayjobs.com|202607-117732": {
     "canonicalSlug": "sales-and-marketing-intern-roche-ch",
     "slugByLocale": {
-      "en": "sales-and-marketing-intern-roche-ch"
+      "en": "sales-and-marketing-intern-roche-ch",
+      "it": "sales-and-marketing-tirocinante-roche-vilnius",
+      "de": "sales-and-marketing-praktikant-roche-vilnius",
+      "fr": "sales-and-marketing-stagiaire-roche-vilnius"
     },
     "createdAt": "2026-07-25",
     "canton": "JU"
@@ -400422,7 +400480,10 @@
   "id|roche.wd3.myworkdayjobs.com|202606-114655-1": {
     "canonicalSlug": "commercial-support-specialist-q2c-business-support-analyst-roche-ch",
     "slugByLocale": {
-      "en": "commercial-support-specialist-q2c-business-support-analyst-roche-ch"
+      "en": "commercial-support-specialist-q2c-business-support-analyst-roche-ch",
+      "it": "commercial-support-specialista-q2c-business-support-analista-roche-san-jose-costa-rica",
+      "de": "commercial-support-spezialist-q2c-business-support-analyst-roche-san-jose-costa-rica",
+      "fr": "commercial-support-specialiste-q2c-business-support-analyste-roche-san-jose-costa-rica"
     },
     "createdAt": "2026-07-25",
     "canton": "JU"
@@ -400450,7 +400511,10 @@
   "id|roche.wd3.myworkdayjobs.com|202607-118917-1": {
     "canonicalSlug": "field-engineering-specialist-roche-ch",
     "slugByLocale": {
-      "en": "field-engineering-specialist-roche-ch"
+      "en": "field-engineering-specialist-roche-ch",
+      "it": "field-engineering-specialista-roche-wisconsin",
+      "de": "field-engineering-spezialist-roche-wisconsin",
+      "fr": "field-engineering-specialiste-roche-wisconsin"
     },
     "createdAt": "2026-07-25",
     "canton": "JU"
@@ -400458,7 +400522,10 @@
   "id|roche.wd3.myworkdayjobs.com|202605-113073-1": {
     "canonicalSlug": "senior-systems-engineer-roche-ch",
     "slugByLocale": {
-      "en": "senior-systems-engineer-roche-ch"
+      "en": "senior-systems-engineer-roche-ch",
+      "it": "senior-systems-ingegnere-roche-santa-clara",
+      "de": "senior-systems-ingenieur-roche-santa-clara",
+      "fr": "senior-systems-ingenieur-roche-santa-clara"
     },
     "createdAt": "2026-07-25",
     "canton": "JU"
@@ -400486,7 +400553,10 @@
   "id|roche.wd3.myworkdayjobs.com|202607-118577-1": {
     "canonicalSlug": "senior-field-engineering-specialist-boston-area-roche-ch",
     "slugByLocale": {
-      "en": "senior-field-engineering-specialist-boston-area-roche-ch"
+      "en": "senior-field-engineering-specialist-boston-area-roche-ch",
+      "it": "senior-field-engineering-specialista-boston-area-roche-boston",
+      "de": "senior-field-engineering-spezialist-boston-area-roche-boston",
+      "fr": "senior-field-engineering-specialiste-boston-area-roche-boston"
     },
     "createdAt": "2026-07-25",
     "canton": "JU"
@@ -400494,7 +400564,9 @@
   "id|roche.wd3.myworkdayjobs.com|202607-119287-1": {
     "canonicalSlug": "automation-business-analyst-roche-ch",
     "slugByLocale": {
-      "en": "automation-business-analyst-roche-ch"
+      "en": "automation-business-analyst-roche-ch",
+      "it": "automation-business-analista-roche-san-jose-costa-rica",
+      "fr": "automation-business-analyste-roche-san-jose-costa-rica"
     },
     "createdAt": "2026-07-25",
     "canton": "LU"
@@ -405314,5 +405386,563 @@
     },
     "createdAt": "2026-07-25",
     "canton": "ZH"
+  },
+  "id|zurich.com|1328692857": {
+    "canonicalSlug": "insurance-product-ingegnere-zurich-insurance-sede-ticino-2000-referral-bonus-if-you-bring-other-talented-people-like-you-to-the-company-hinjes",
+    "slugByLocale": {
+      "it": "insurance-product-ingegnere-zurich-insurance-sede-ticino-2000-referral-bonus-if-you-bring-other-talented-people-like-you-to-the-company-hinjes",
+      "en": "insurance-product-engineer-zurich-insurance-sede-ticino-2000-referral-bonus-if-you-bring-other-talented-people-like-you-to-the-company-hinjes",
+      "de": "insurance-product-ingenieur-zurich-insurance-sede-ticino-2000-referral-bonus-if-you-bring-other-talented-people-like-you-to-the-company-hinjes",
+      "fr": "insurance-product-ingenieur-zurich-insurance-sede-ticino-2000-referral-bonus-if-you-bring-other-talented-people-like-you-to-the-company-hinjes"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1364889457": {
+    "canonicalSlug": "natural-hazards-catastrophe-response-manager-that-s-experiencing-real-growth-and-transformation-and-if-you-share-our-commitment-to-making-a-4042xa",
+    "slugByLocale": {
+      "en": "natural-hazards-catastrophe-response-manager-that-s-experiencing-real-growth-and-transformation-and-if-you-share-our-commitment-to-making-a-4042xa"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1364973557": {
+    "canonicalSlug": "avp-commercial-auto-calgary-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambition-and-desire-to-be-4gi3jn",
+    "slugByLocale": {
+      "en": "avp-commercial-auto-calgary-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambition-and-desire-to-be-4gi3jn"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1359410057": {
+    "canonicalSlug": "ai-change-adoption-lead-by-promoting-practical-use-cases-and-success-stories-deliver-tailored-cost-effective-solutions-using-appropriate-met-ogtwkq",
+    "slugByLocale": {
+      "en": "ai-change-adoption-lead-by-promoting-practical-use-cases-and-success-stories-deliver-tailored-cost-effective-solutions-using-appropriate-met-ogtwkq"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1356835457": {
+    "canonicalSlug": "data-analista-mktg-support-executive-zurich-insurance-sede-ticino-lugano-4ggne8",
+    "slugByLocale": {
+      "it": "data-analista-mktg-support-executive-zurich-insurance-sede-ticino-lugano-4ggne8",
+      "en": "data-analyst-mktg-support-executive-zurich-insurance-sede-ticino-lugano-4ggne8",
+      "fr": "data-analyste-mktg-support-executive-zurich-insurance-sede-ticino-lugano-4ggne8"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "TI"
+  },
+  "id|zurich.com|1359405657": {
+    "canonicalSlug": "fixed-income-senior-portfolio-manager-zurich-insurance-sede-ticino-lugano-ohadsa",
+    "slugByLocale": {
+      "en": "fixed-income-senior-portfolio-manager-zurich-insurance-sede-ticino-lugano-ohadsa"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "TI"
+  },
+  "id|zurich.com|1331399257": {
+    "canonicalSlug": "marketing-support-executive-zurich-insurance-sede-ticino-lugano-d7lk5u",
+    "slugByLocale": {
+      "en": "marketing-support-executive-zurich-insurance-sede-ticino-lugano-d7lk5u"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "TI"
+  },
+  "id|zurich.com|776942402": {
+    "canonicalSlug": "medical-claims-analista-1-year-contract-zurich-insurance-sede-ticino-lugano-u0w4h0",
+    "slugByLocale": {
+      "it": "medical-claims-analista-1-year-contract-zurich-insurance-sede-ticino-lugano-u0w4h0",
+      "en": "medical-claims-analyst-1-year-contract-zurich-insurance-sede-ticino-lugano-u0w4h0",
+      "fr": "medical-claims-analyste-1-year-contract-zurich-insurance-sede-ticino-lugano-u0w4h0"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "TI"
+  },
+  "id|zurich.com|1356944157": {
+    "canonicalSlug": "actuaire-en-tarification-automobile-lignes-personnelles-zurich-insurance-sede-ticino-free-of-discrimination-of-all-forms-4y1d66",
+    "slugByLocale": {
+      "fr": "actuaire-en-tarification-automobile-lignes-personnelles-zurich-insurance-sede-ticino-free-of-discrimination-of-all-forms-4y1d66"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1356944057": {
+    "canonicalSlug": "senior-actuarial-analista-auto-pricing-personal-lines-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambi-4y1cfh",
+    "slugByLocale": {
+      "it": "senior-actuarial-analista-auto-pricing-personal-lines-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambi-4y1cfh",
+      "en": "senior-actuarial-analyst-auto-pricing-personal-lines-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambit-4y1cfh",
+      "fr": "senior-actuarial-analyste-auto-pricing-personal-lines-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambi-4y1cfh"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1364973157": {
+    "canonicalSlug": "vice-president-e-adjoint-e-avp-automobile-commercial-tout-en-offrant-de-solides-perspectives-d-affaires-avec-les-souscripteurs-et-souscriptrices-des-secteurs-sous-votre-supervision",
+    "slugByLocale": {
+      "it": "vice-president-e-adjoint-e-avp-automobile-commercial-tout-en-offrant-de-solides-perspectives-d-affaires-avec-les-souscripteurs-et-souscriptrices-des-secteurs-sous-votre-supervision",
+      "fr": "vice-president-e-adjoint-e-avp-automobile-commercial-tout-en-offrant-de-solides-perspectives-d-affaires-avec-les-souscripteurs-et-souscriptr-4gi0kv"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1364972257": {
+    "canonicalSlug": "sales-expert-iii-zurich-insurance-sede-ticino-lugano-4ghec1",
+    "slugByLocale": {
+      "fr": "sales-expert-iii-zurich-insurance-sede-ticino-lugano-4ghec1"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "TI"
+  },
+  "id|zurich.com|1356572157": {
+    "canonicalSlug": "ai-tech-lead-that-s-experiencing-real-growth-and-transformation-and-if-you-share-our-commitment-to-making-a-tangible-difference-and-taking-c-33gzef",
+    "slugByLocale": {
+      "en": "ai-tech-lead-that-s-experiencing-real-growth-and-transformation-and-if-you-share-our-commitment-to-making-a-tangible-difference-and-taking-c-33gzef",
+      "fr": "ai-responsable-technique-that-s-experiencing-real-growth-and-transformation-and-if-you-share-our-commitment-to-making-a-tangible-difference-33gzef"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1362156357": {
+    "canonicalSlug": "product-manager-underwriting-that-empowers-wellbeing-and-is-accelerating-digital-transformation-sound-like-to-you-as-one-of-forbes-2024-worl-spp5ri",
+    "slugByLocale": {
+      "en": "product-manager-underwriting-that-empowers-wellbeing-and-is-accelerating-digital-transformation-sound-like-to-you-as-one-of-forbes-2024-worl-spp5ri"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1364968457": {
+    "canonicalSlug": "accounting-associate-zurich-insurance-sede-ticino-lugano-4g1h58",
+    "slugByLocale": {
+      "en": "accounting-associate-zurich-insurance-sede-ticino-lugano-4g1h58"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "TI"
+  },
+  "id|zurich.com|1359453057": {
+    "canonicalSlug": "investment-accounting-reporting-associate-direttore-zurich-insurance-sede-ticino-lugano-oekt8p",
+    "slugByLocale": {
+      "it": "investment-accounting-reporting-associate-direttore-zurich-insurance-sede-ticino-lugano-oekt8p",
+      "en": "investment-accounting-reporting-associate-director-zurich-insurance-sede-ticino-lugano-oekt8p",
+      "de": "investment-accounting-reporting-associate-direktor-zurich-insurance-sede-ticino-lugano-oekt8p",
+      "fr": "investment-accounting-reporting-associate-directeur-zurich-insurance-sede-ticino-lugano-oekt8p"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "TI"
+  },
+  "id|zurich.com|1354210257": {
+    "canonicalSlug": "senior-tax-analista-zurich-insurance-sede-ticino-lugano-rrsh0r",
+    "slugByLocale": {
+      "it": "senior-tax-analista-zurich-insurance-sede-ticino-lugano-rrsh0r",
+      "en": "senior-tax-analyst-zurich-insurance-sede-ticino-lugano-rrsh0r",
+      "fr": "senior-tax-analyste-zurich-insurance-sede-ticino-lugano-rrsh0r"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "TI"
+  },
+  "id|zurich.com|1364973257": {
+    "canonicalSlug": "ua-analista-financial-lines-express-zurich-insurance-sede-ticino-lugano-4gi1bk",
+    "slugByLocale": {
+      "it": "ua-analista-financial-lines-express-zurich-insurance-sede-ticino-lugano-4gi1bk",
+      "en": "ua-analyst-financial-lines-express-zurich-insurance-sede-ticino-lugano-4gi1bk",
+      "fr": "ua-analyste-financial-lines-express-zurich-insurance-sede-ticino-lugano-4gi1bk"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "TI"
+  },
+  "id|zurich.com|1362115057": {
+    "canonicalSlug": "responsabile-compliance-key-responsibilities-ensure-the-compliance-function-s-strategy-is-aligned-with-business-strategy-legal-requirements-srx1ck",
+    "slugByLocale": {
+      "it": "responsabile-compliance-key-responsibilities-ensure-the-compliance-function-s-strategy-is-aligned-with-business-strategy-legal-requirements-srx1ck",
+      "en": "head-of-compliance-key-responsibilities-ensure-the-compliance-function-s-strategy-is-aligned-with-business-strategy-legal-requirements-and-t-srx1ck",
+      "de": "leiter-compliance-key-responsibilities-ensure-the-compliance-function-s-strategy-is-aligned-with-business-strategy-legal-requirements-and-tr-srx1ck",
+      "fr": "responsable-compliance-key-responsibilities-ensure-the-compliance-function-s-strategy-is-aligned-with-business-strategy-legal-requirements-a-srx1ck"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "TI"
+  },
+  "id|zurich.com|820744902": {
+    "canonicalSlug": "group-risk-proposition-consulente-zurich-insurance-sede-ticino-lugano-jwfo53",
+    "slugByLocale": {
+      "it": "group-risk-proposition-consulente-zurich-insurance-sede-ticino-lugano-jwfo53",
+      "en": "group-risk-proposition-consultant-zurich-insurance-sede-ticino-lugano-jwfo53",
+      "de": "group-risk-proposition-berater-zurich-insurance-sede-ticino-lugano-jwfo53"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "TI"
+  },
+  "id|zurich.com|1364973357": {
+    "canonicalSlug": "avp-commercial-auto-toronto-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambition-and-desire-to-be-4gi229",
+    "slugByLocale": {
+      "en": "avp-commercial-auto-toronto-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambition-and-desire-to-be-4gi229"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1354201157": {
+    "canonicalSlug": "data-quality-analista-data-governance-ai-ready-data-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambiti-rsbnda",
+    "slugByLocale": {
+      "it": "data-quality-analista-data-governance-ai-ready-data-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambiti-rsbnda",
+      "en": "data-quality-analyst-data-governance-ai-ready-data-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambitio-rsbnda",
+      "de": "data-qualitat-analyst-data-governance-ai-ready-data-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambiti-rsbnda",
+      "fr": "data-qualite-analyste-data-governance-ai-ready-data-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambiti-rsbnda"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1362994457": {
+    "canonicalSlug": "rcis-crop-claims-field-adjuster-i-minnesota-zurich-insurance-sede-ticino-lugano-ov69gv",
+    "slugByLocale": {
+      "en": "rcis-crop-claims-field-adjuster-i-minnesota-zurich-insurance-sede-ticino-lugano-ov69gv"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "TI"
+  },
+  "id|zurich.com|1364922957": {
+    "canonicalSlug": "senior-cyber-tech-pi-underwriter-zurich-insurance-sede-ticino-lugano-4dqkk3",
+    "slugByLocale": {
+      "en": "senior-cyber-tech-pi-underwriter-zurich-insurance-sede-ticino-lugano-4dqkk3"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "TI"
+  },
+  "id|solique.ch|4038678": {
+    "canonicalSlug": "praktikant-in-im-bereich-tierhaltung-milchwirtschaft-kantonale-verwaltung-zurich-lindau",
+    "slugByLocale": {
+      "de": "praktikant-in-im-bereich-tierhaltung-milchwirtschaft-kanton-zuerich-lindau",
+      "it": "praktikant-in-im-bereich-tierhaltung-milchwirtschaft-kantonale-verwaltung-zurich-lindau",
+      "en": "praktikant-in-im-bereich-tierhaltung-milchwirtschaft-kantonale-verwaltung-zurich-lindau",
+      "fr": "praktikant-in-im-bereich-tierhaltung-milchwirtschaft-kantonale-verwaltung-zurich-lindau"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "ZH"
+  },
+  "id|roche.wd3.myworkdayjobs.com|202607-119343-1": {
+    "canonicalSlug": "senior-medical-science-manager-immunology-roche-ch",
+    "slugByLocale": {
+      "en": "senior-medical-science-manager-immunology-roche-ch"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BS"
+  },
+  "id|roche.wd3.myworkdayjobs.com|202607-119342-1": {
+    "canonicalSlug": "senior-medical-science-manager-immunology-roche-ch-2",
+    "slugByLocale": {
+      "en": "senior-medical-science-manager-immunology-roche-ch-0xxi08",
+      "it": "senior-medical-science-manager-immunology-roche-ch-2",
+      "de": "senior-medical-science-manager-immunology-roche-ch-2",
+      "fr": "senior-medical-science-manager-immunology-roche-ch-2"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BS"
+  },
+  "id|roche.wd3.myworkdayjobs.com|202607-119302": {
+    "canonicalSlug": "senior-medical-science-manager-immunology-roche-ch-6",
+    "slugByLocale": {
+      "en": "senior-medical-science-manager-immunology-roche-ch-w86k5k",
+      "it": "senior-medical-science-manager-immunology-roche-ch-6",
+      "de": "senior-medical-science-manager-immunology-roche-ch-6",
+      "fr": "senior-medical-science-manager-immunology-roche-ch-6"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "JU"
+  },
+  "id|roche.wd3.myworkdayjobs.com|202607-119301": {
+    "canonicalSlug": "senior-medical-science-manager-immunology-roche-ch-7",
+    "slugByLocale": {
+      "en": "senior-medical-science-manager-immunology-roche-ch-w86k5l",
+      "it": "senior-medical-science-manager-immunology-roche-ch-7",
+      "de": "senior-medical-science-manager-immunology-roche-ch-7",
+      "fr": "senior-medical-science-manager-immunology-roche-ch-7"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "JU"
+  },
+  "id|roche.wd3.myworkdayjobs.com|202607-118594-1": {
+    "canonicalSlug": "clinical-research-expert-roche-ch",
+    "slugByLocale": {
+      "en": "clinical-research-expert-roche-ch"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BS"
+  },
+  "id|pbl.ch|424a36f3-c99a-4262-820e-e5975c508b4c": {
+    "canonicalSlug": "psicologo-m-f-d-60-70-psychiatrie-baselland-munchenstein",
+    "slugByLocale": {
+      "it": "psicologo-m-f-d-60-70-psychiatrie-baselland-munchenstein",
+      "en": "psychologist-m-f-d-60-70-psychiatrie-baselland-munchenstein",
+      "de": "psychologin-psychologe-m-w-d-60-70-pbl-munchenstein",
+      "fr": "psychologue-m-f-j-60-70-psychiatrie-baselland-munchenstein"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BL"
+  },
+  "id|pbl.ch|0d41a788-11e5-4fa1-87a7-d1502a3b1a40": {
+    "canonicalSlug": "fisioterapista-lunedi-f-d-60-80-psychiatrie-baselland-liestal",
+    "slugByLocale": {
+      "it": "fisioterapista-lunedi-f-d-60-80-psychiatrie-baselland-liestal",
+      "en": "physiotherapeut-physiotherapeutin-m-w-d-60-80-psychiatrie-baselland-liestal",
+      "de": "physiotherapeut-physiotherapeutin-m-w-d-60-80-pbl-liestal",
+      "fr": "physiotherapeute-m-f-j-60-80-psychiatrie-baselland-liestal"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BL"
+  },
+  "id|pbl.ch|a8f4dcd1-6bea-4822-a546-e8299ccacb9e": {
+    "canonicalSlug": "gestore-di-gruppo-gardener-paesaggio-gestore-di-gruppo-gardener-paesaggio-m-f-d-80-100-psychiatrie-baselland-liestal",
+    "slugByLocale": {
+      "it": "gestore-di-gruppo-gardener-paesaggio-gestore-di-gruppo-gardener-paesaggio-m-f-d-80-100-psychiatrie-baselland-liestal",
+      "en": "group-manager-landscape-gardener-group-manager-landscape-gardener-m-f-d-80-100-psychiatrie-baselland-liestal",
+      "de": "gruppenleiterin-landschaftsgartnerin-gruppenleiter-landschaftsgartner-m-w-d-80-100-pbl",
+      "fr": "chef-de-groupe-paysagiste-chef-de-groupe-paysagiste-jardinier-m-f-d-80-100-psychiatrie-baselland-liestal"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BL"
+  },
+  "id|pbl.ch|7e2a5900-e4d3-46ec-9127-58e1b199b90c": {
+    "canonicalSlug": "dipl-pflegefachfrau-pflegefachmann-hf-kinder-e-jugendpsychiatrie-m-w-d-60-100-psychiatrie-baselland-liestal",
+    "slugByLocale": {
+      "it": "dipl-pflegefachfrau-pflegefachmann-hf-kinder-e-jugendpsychiatrie-m-w-d-60-100-psychiatrie-baselland-liestal",
+      "en": "dipl-nursing-specialist-hf-child-and-adolescent-psychiatry-m-f-d-60-100-psychiatrie-baselland-liestal",
+      "de": "dipl-pflegefachfrau-pflegefachmann-hf-kinder-und-jugendpsychiatrie-m-w-d-60-100-pbl",
+      "fr": "dipl-specialiste-des-soins-infirmiers-hf-psychiatrie-des-enfants-et-des-adolescents-m-f-j-60-100-psychiatrie-baselland"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BL"
+  },
+  "id|pbl.ch|8188ef64-72a5-4f68-9caf-a8c79ec53397": {
+    "canonicalSlug": "psychologin-psychologe-m-w-d-80-schwerpunkt-sucht-e-abhangigkeitserkrankungen-psychiatrie-baselland-liestal",
+    "slugByLocale": {
+      "it": "psychologin-psychologe-m-w-d-80-schwerpunkt-sucht-e-abhangigkeitserkrankungen-psychiatrie-baselland-liestal",
+      "en": "psychologist-m-f-d-80-focus-on-addiction-and-addiction-diseases-psychiatrie-baselland-liestal",
+      "de": "psychologin-psychologe-m-w-d-80-schwerpunkt-sucht-und-abhangigkeitserkrankungen-pbl",
+      "fr": "psychologue-m-f-j-80-se-concentrent-sur-les-maladies-liees-a-la-toxicomanie-et-a-la-toxicomanie-psychiatrie-baselland"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BL"
+  },
+  "id|pbl.ch|5028ccc4-e31e-48e2-ab42-2e885d1a0a25": {
+    "canonicalSlug": "mitarbeiterin-collaboratore-trice-hotellerie-hauswirtschaft-m-w-d-60-100-psychiatrie-baselland-liestal",
+    "slugByLocale": {
+      "it": "mitarbeiterin-collaboratore-trice-hotellerie-hauswirtschaft-m-w-d-60-100-psychiatrie-baselland-liestal",
+      "en": "employee-hotel-industry-m-f-d-60-100-psychiatrie-baselland-liestal",
+      "de": "mitarbeiterin-mitarbeiter-hotellerie-hauswirtschaft-m-w-d-60-100-pbl-liestal",
+      "fr": "industrie-hoteliere-salariee-m-f-d-60-100-psychiatrie-baselland-liestal"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BL"
+  },
+  "id|pbl.ch|c486f642-9268-450c-8474-084316913c1d": {
+    "canonicalSlug": "psicologo-senior-m-f-d-80-100-psychiatrie-baselland-liestal",
+    "slugByLocale": {
+      "it": "psicologo-senior-m-f-d-80-100-psychiatrie-baselland-liestal",
+      "en": "senior-psychologist-m-f-d-80-100-psychiatrie-baselland-liestal",
+      "de": "leitende-psychologin-leitender-psychologe-m-w-d-80-100-pbl-liestal",
+      "fr": "psychologue-principal-m-f-j-80-100-psychiatrie-baselland-liestal"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BL"
+  },
+  "id|pbl.ch|d8e87047-5f17-45b5-a62b-631b45344058": {
+    "canonicalSlug": "praktikum-kunst-e-ausdruckstherapie-m-w-d-50-psychiatrie-baselland-liestal",
+    "slugByLocale": {
+      "it": "praktikum-kunst-e-ausdruckstherapie-m-w-d-50-psychiatrie-baselland-liestal",
+      "en": "internship-art-and-expression-therapy-m-f-d-50-psychiatrie-baselland-liestal",
+      "de": "praktikum-kunst-und-ausdruckstherapie-m-w-d-50-pbl-liestal",
+      "fr": "stage-art-et-expression-therapy-m-f-d-50-psychiatrie-baselland-liestal"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BL"
+  },
+  "id|pbl.ch|227c02e9-89e4-43a6-8e60-8734f618f68b": {
+    "canonicalSlug": "terapia-d-arte-m-f-d-20-psychiatrie-baselland-liestal",
+    "slugByLocale": {
+      "it": "terapia-d-arte-m-f-d-20-psychiatrie-baselland-liestal",
+      "en": "intern-practitioner-art-therapy-m-f-d-20-psychiatrie-baselland-liestal",
+      "de": "praktikantin-praktikant-kunsttherapie-m-w-d-20-pbl-liestal",
+      "fr": "stagiaire-praticien-art-therapy-m-f-d-20-psychiatrie-baselland-liestal"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BL"
+  },
+  "id|pbl.ch|eea7d932-8960-4f21-9a0e-9363e09048df": {
+    "canonicalSlug": "kochin-koch-efz-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal",
+    "slugByLocale": {
+      "it": "kochin-koch-efz-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal",
+      "en": "chef-koch-efz-in-training-2027-m-f-d-psychiatrie-baselland-liestal",
+      "de": "kochin-koch-efz-in-ausbildung-2027-m-w-d-pbl-liestal",
+      "fr": "chef-koch-efz-en-formation-2027-m-f-d-psychiatrie-baselland-liestal"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BL"
+  },
+  "id|pbl.ch|661a0d03-c9b2-4fba-adfc-6fca93e6e4c7": {
+    "canonicalSlug": "psicologia-interna-m-f-d-80-100-nella-zona-stazionaria-psychiatrie-baselland-liestal",
+    "slugByLocale": {
+      "it": "psicologia-interna-m-f-d-80-100-nella-zona-stazionaria-psychiatrie-baselland-liestal",
+      "de": "praktikant-praktikantin-psychologie-m-w-d-80-100-im-stationaren-bereich-pbl-liestal",
+      "fr": "psychologie-interne-m-f-d-80-100-dans-la-zone-stationnaire-psychiatrie-baselland-liestal"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BL"
+  },
+  "id|pbl.ch|7059afed-a29b-4d3e-b11b-c39ba2f78de6": {
+    "canonicalSlug": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-per-den-pflegepool-m-w-d-50-100-psychiatrie-baselland-liestal",
+    "slugByLocale": {
+      "it": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-per-den-pflegepool-m-w-d-50-100-psychiatrie-baselland-liestal",
+      "en": "dipl-nursing-professional-dipl-nursing-professional-hf-fh-for-the-nursing-pool-m-f-d-50-100-psychiatrie-baselland",
+      "de": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-fur-den-pflegepool-m-w-d-50-100-pbl-liestal",
+      "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-hf-fh-pour-le-bassin-de-soins"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BL"
+  },
+  "id|pbl.ch|23e4ec64-abb2-46d2-b323-2cab00a4c89c": {
+    "canonicalSlug": "dipl-professionista-hf-fh-ingresso-centrale-m-f-d-60-psychiatrie-baselland-liestal",
+    "slugByLocale": {
+      "it": "dipl-professionista-hf-fh-ingresso-centrale-m-f-d-60-psychiatrie-baselland-liestal",
+      "en": "dipl-care-professional-hf-fh-central-admission-m-f-d-60-psychiatrie-baselland-liestal",
+      "de": "dipl-pflegefachperson-hf-fh-zentrale-aufnahme-m-w-d-60-pbl-liestal",
+      "fr": "dipl-professionnel-de-soins-hf-fh-entree-centrale-m-f-d-60-psychiatrie-baselland-liestal"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BL"
+  },
+  "id|pbl.ch|bbe76eee-1157-4e91-9653-42bf321c7c78": {
+    "canonicalSlug": "fachfrau-fachmann-betreuung-cfc-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal",
+    "slugByLocale": {
+      "it": "fachfrau-fachmann-betreuung-cfc-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal",
+      "en": "professional-specialist-supervision-efz-in-training-2027-m-f-d-psychiatrie-baselland-liestal",
+      "de": "fachfrau-fachmann-betreuung-efz-in-ausbildung-2027-m-w-d-pbl-liestal",
+      "fr": "supervision-professionnelle-specialisee-efz-en-formation-2027-m-f-d-psychiatrie-baselland-liestal"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BL"
+  },
+  "id|pbl.ch|97428fe8-1cd6-4718-acb8-b8409583a980": {
+    "canonicalSlug": "fachfrau-fachmann-gesundheit-cfc-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal",
+    "slugByLocale": {
+      "it": "fachfrau-fachmann-gesundheit-cfc-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal",
+      "en": "professional-health-efz-in-education-2027-m-f-d-psychiatrie-baselland-liestal",
+      "de": "fachfrau-fachmann-gesundheit-efz-in-ausbildung-2027-m-w-d-pbl-liestal",
+      "fr": "sante-professionnelle-efz-dans-l-education-2027-m-f-d-psychiatrie-baselland-liestal"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BL"
+  },
+  "id|pbl.ch|59eeb81c-e415-4dc0-8e08-1119054c4931": {
+    "canonicalSlug": "fachmann-fachfrau-reinigungstechnik-cfc-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal",
+    "slugByLocale": {
+      "it": "fachmann-fachfrau-reinigungstechnik-cfc-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal",
+      "en": "professional-professional-cleaning-technology-efz-in-training-2027-m-f-d-psychiatrie-baselland-liestal",
+      "de": "fachmann-fachfrau-reinigungstechnik-efz-in-ausbildung-2027-m-w-d-pbl-liestal",
+      "fr": "technologie-professionnelle-de-nettoyage-efz-en-formation-2027-m-f-d-psychiatrie-baselland-liestal"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BL"
+  },
+  "id|pbl.ch|022f0b21-d21b-4c52-aed8-c0487d909666": {
+    "canonicalSlug": "fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal",
+    "slugByLocale": {
+      "it": "fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal",
+      "en": "professional-specialist-hotel-industry-housekeeping-efz-in-training-2027-m-f-d-psychiatrie-baselland-liestal",
+      "de": "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-2027-m-w-d-pbl-liestal",
+      "fr": "professionnel-specialise-hotellerie-menagement-efz-en-formation-2027-m-f-d-psychiatrie-baselland-liestal"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BL"
+  },
+  "id|pbl.ch|7e4526fa-9011-4de6-abd5-b2556c83c8f9": {
+    "canonicalSlug": "interno-wms-interno-wms-m-f-d-100-psychiatrie-baselland-liestal",
+    "slugByLocale": {
+      "it": "interno-wms-interno-wms-m-f-d-100-psychiatrie-baselland-liestal",
+      "en": "wms-intern-wms-intern-m-f-d-100-psychiatrie-baselland-liestal",
+      "de": "wms-praktikant-wms-praktikantin-m-w-d-100-pbl-liestal",
+      "fr": "stage-wms-stage-wms-m-f-d-100-psychiatrie-baselland-liestal"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BL"
+  },
+  "id|pbl.ch|2d5552f8-a85e-47e5-828b-1fb0ed6767f0": {
+    "canonicalSlug": "gartnerin-gartner-specializzazione-pflanzenproduktion-cfc-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal",
+    "slugByLocale": {
+      "it": "gartnerin-gartner-specializzazione-pflanzenproduktion-cfc-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal",
+      "en": "gardener-gartner-faculty-of-plant-production-efz-in-training-2027-m-f-d-psychiatrie-baselland-liestal",
+      "de": "gartnerin-gartner-fachrichtung-pflanzenproduktion-efz-in-ausbildung-2027-m-w-d-pbl-liestal",
+      "fr": "jardinier-gartner-faculte-de-production-vegetale-efz-en-formation-2027-m-f-d-psychiatrie-baselland-liestal"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BL"
+  },
+  "id|pbl.ch|1d707ce1-18c9-4882-807e-180463e4a9c1": {
+    "canonicalSlug": "kauffrau-kaufmann-cfc-gesundheit-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal",
+    "slugByLocale": {
+      "it": "kauffrau-kaufmann-cfc-gesundheit-in-ausbildung-2027-m-w-d-psychiatrie-baselland-liestal",
+      "de": "kauffrau-kaufmann-efz-gesundheit-in-ausbildung-2027-m-w-d-pbl-liestal"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BL"
+  },
+  "id|pbl.ch|478c8bcd-47bd-46d8-be93-1165c6148ff8": {
+    "canonicalSlug": "medico-senior-m-f-d-80-100-psychiatrie-baselland-liestal",
+    "slugByLocale": {
+      "it": "medico-senior-m-f-d-80-100-psychiatrie-baselland-liestal",
+      "en": "senior-physician-m-f-d-80-100-psychiatrie-baselland-liestal-dd850b",
+      "de": "oberarzt-oberarztin-m-w-d-80-100-pbl-liestal",
+      "fr": "medecin-principal-m-f-j-80-100-psychiatrie-baselland-liestal"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BL"
+  },
+  "id|migros.ch|a30c7340-f66e-44a8-8285-04c443f0a6d6": {
+    "canonicalSlug": "responsabile-negozio-denner-ag-villmergen",
+    "slugByLocale": {
+      "it": "responsabile-negozio-denner-ag-villmergen",
+      "en": "store-manager-denner-ag-villmergen",
+      "de": "filialleiter-in-denner-ag-villmergen",
+      "fr": "gestionnaire-de-magasin-denner-ag-villmergen"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "AG"
+  },
+  "id|migros.ch|94aba5d0-fa0e-4850-811d-5f28388316d2": {
+    "canonicalSlug": "venditore-nel-salario-orario-denner-ag-burgdorf",
+    "slugByLocale": {
+      "it": "venditore-nel-salario-orario-denner-ag-burgdorf",
+      "en": "seller-in-the-hourly-wage-denner-ag-burgdorf",
+      "de": "verkaufer-in-im-stundenlohn-denner-ag-burgdorf-g3xake",
+      "fr": "vendeur-dans-le-salaire-horaire-denner-ag-burgdorf"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BE"
+  },
+  "id|migros.ch|65d2a3aa-6eac-4a9e-912b-396dda2ad322": {
+    "canonicalSlug": "venditore-denner-ag-burgdorf",
+    "slugByLocale": {
+      "it": "venditore-denner-ag-burgdorf",
+      "en": "seller-denner-ag-burgdorf",
+      "de": "verkaufer-in-denner-ag-burgdorf",
+      "fr": "vendeur-denner-ag-burgdorf"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BE"
+  },
+  "id|migros.ch|bec562f5-64c6-4927-8227-8e61d63cccea": {
+    "canonicalSlug": "venditore-denner-ag-herzogenbuchsee",
+    "slugByLocale": {
+      "it": "venditore-denner-ag-herzogenbuchsee",
+      "en": "seller-denner-ag-herzogenbuchsee",
+      "de": "verkaufer-in-denner-ag-herzogenbuchsee",
+      "fr": "vendeur-denner-ag-herzogenbuchsee"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "BE"
+  },
+  "id|migros.ch|7cb1d75b-e54e-4076-81f3-70ca60847992": {
+    "canonicalSlug": "responsable-de-secteur-de-production-m-w-d-fresh-food-beverage-group-vuadens-6gv650",
+    "slugByLocale": {
+      "fr": "responsable-de-secteur-de-production-m-w-d-fresh-food-beverage-group-vuadens-6gv650"
+    },
+    "createdAt": "2026-07-26",
+    "canton": "FR"
   }
 }
