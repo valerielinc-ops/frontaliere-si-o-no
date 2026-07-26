@@ -10,7 +10,7 @@
  */
 
 import type { Plugin } from 'vite';
-import { findChunkFiles } from './shared/chunkFiles';
+import { stableChunkFiles } from './shared/chunkFiles';
 
 export function preloadLocalePlugin(rootDir: string): Plugin {
  return {
@@ -23,12 +23,12 @@ export function preloadLocalePlugin(rootDir: string): Plugin {
  const distDir = np.resolve(rootDir, 'dist');
  const indexPath = np.join(distDir, 'index.html');
  try {
- const assetFiles = fs.readdirSync(np.join(distDir, 'assets'));
  // Critical Italian chunks + the App chunk — App is dynamically imported
  // from the entry point, so the browser doesn't discover it until entry
- // JS executes. Stable-name resolution via shared/chunkFiles.ts.
- const criticalChunks = findChunkFiles(assetFiles, ['it-core', 'it-calculator', 'App']);
- if (!criticalChunks.length) return;
+ // JS executes. Stable-name resolution, no disk I/O (shared/chunkFiles.ts
+ // — closeBundle-time fs.readdirSync(dist/assets) can race Rollup's write
+ // phase, #4762).
+ const criticalChunks = stableChunkFiles(['it-core', 'it-calculator', 'App']);
  let html = fs.readFileSync(indexPath, 'utf-8');
  let added = 0;
  for (const chunk of criticalChunks) {
