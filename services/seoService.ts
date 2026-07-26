@@ -4919,6 +4919,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-vivere-claino-osteno-lavorare-ticino': { name: 'Claino con Osteno Frontalieri', path: '/articoli-frontaliere/vivere-claino-osteno-lavorare-ticino', parent: 'blog' },
     'blog-secondo-pilastro-lpp-guida-completa': { name: 'Secondo pilastro LPP', path: '/articoli-svizzera/secondo-pilastro-lpp-guida-completa/', parent: 'blog' },
     'blog-vivere-valsolda-lavorare-ticino': { name: 'Valsolda Frontalieri', path: '/articoli-frontaliere/vivere-valsolda-lavorare-ticino', parent: 'blog' },
+    'blog-lavoro-frontaliero-subordinazione-e-credito-dimposta-nei-rapporti-italiasvizzera': { name: 'Lavoro frontaliero, subordinazione e', path: '/articoli-frontaliere/lavoro-frontaliero-subordinazione-e-credito-dimposta-nei-rapporti-italiasvizzera', parent: 'blog' },
  };
 
  const info = sectionNames[section];

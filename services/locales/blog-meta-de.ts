@@ -9000,6 +9000,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-valsolda-lavorare-ticino.title': 'Wohnen in Valsolda und Arbeiten im Tessin als Grenzgänger: Führer',
     'blog.article.vivere-valsolda-lavorare-ticino.excerpt': 'Praktischer Leitfaden zum Pendeln zwischen Valsolda und dem Kanton Tessin für Grenzgänger: Verbindungen, Reisezeiten und steuerliche Aspekte.',
     'blog.article.vivere-valsolda-lavorare-ticino.imageAlt': 'Blick auf Valsolda mit dem Luganersee und der Schweizer Grenze',
+    'blog.article.lavoro-frontaliero-subordinazione-e-credito-dimposta-nei-rapporti-italiasvizzera.title': 'Frontaliero, subordinazione e credito d\'imposta: note su sentenza CGT Lombardia',
+    'blog.article.lavoro-frontaliero-subordinazione-e-credito-dimposta-nei-rapporti-italiasvizzera.excerpt': 'Das Urteil Nr. 83/2026 der CGT Lombardei befasst sich mit Fragen der Einkommensqualifikation und der Kreditanwendungsgrenzen für im Ausland entrichtete Steuern in',
+    'blog.article.lavoro-frontaliero-subordinazione-e-credito-dimposta-nei-rapporti-italiasvizzera.imageAlt': 'Redaktionelles Bild zu: Lavoro frontaliero, subordinazione e credito d’imposta nei rapporti Italia–Svizzera: note a margine della sentenza n. 83/2026 della CGT Lombardia',
 };
 
 export default blogMetaDe;
