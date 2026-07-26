@@ -1,15 +1,15 @@
 {
   "crawlerKey": "denner",
-  "assembledAt": "2026-07-25T21:59:01.485Z",
+  "assembledAt": "2026-07-26T10:53:00.372Z",
   "jobs": [
     {
       "id": "denner-47f9f05dd8a2",
       "slug": "responsabile-negozio-denner-wadenswil",
       "slugByLocale": {
-        "it": "direttore-di-filiale-denner-ag-wadenswil",
+        "it": "responsabile-negozio-denner-wadenswil",
         "en": "branch-manager-denner-ag-wadenswil",
         "de": "filialleiter-in-denner-ag-wadenswil",
-        "fr": "directeur-de-succursale-denner-ag-wadenswil"
+        "fr": "gestionnaire-de-magasin-denner-wadenswil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -60,28 +60,35 @@
       "workPercentage": "80-100%",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T09:58:33+0200",
+      "postedDate": "2026-07-24T06:38:26+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin/71565de6-752e-4a50-9c68-ed732c70ba11",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:57.513Z",
+      "crawledAt": "2026-07-26T10:52:58.008Z",
       "previousSlugs": [
         "filialleiter-in-denner",
         "filialleiter-in-denner-ag-nurensdorf",
         "filialleiter-in-denner-wadenswil",
+        "direttore-di-filiale-denner-ag-wadenswil",
+        "directeur-de-succursale-denner-ag-wadenswil",
+        "responsabile-negozio-denner-wadenswil",
         "gestionnaire-de-magasin-denner-wadenswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-denner",
           "filialleiter-in-denner-ag-nurensdorf",
-          "filialleiter-in-denner-wadenswil"
+          "filialleiter-in-denner-wadenswil",
+          "direttore-di-filiale-denner-ag-wadenswil",
+          "responsabile-negozio-denner-wadenswil"
         ],
         "fr": [
+          "directeur-de-succursale-denner-ag-wadenswil",
           "gestionnaire-de-magasin-denner-wadenswil"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:09.427Z",
+      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "baseSalary": {
@@ -100,7 +107,7 @@
       "id": "denner-36fccfa6a6dd",
       "slug": "stv-branch-manager-in-denner-wollerau",
       "slugByLocale": {
-        "it": "vice-direttore-di-filiale-denner-ag-wollerau",
+        "it": "stv-branch-manager-in-denner-wollerau",
         "en": "deputy-branch-manager-denner-ag-wollerau",
         "de": "stv-filialleiter-in-denner-ag-wollerau-wwdtv1",
         "fr": "directeur-adjoint-de-la-succursale-denner-ag-wollerau"
@@ -154,22 +161,27 @@
       "workPercentage": "80-100%",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T09:39:03+0200",
+      "postedDate": "2026-07-24T06:38:28+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/da40e4d3-6017-4db1-b70a-08edb2919cf5",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:57.507Z",
+      "crawledAt": "2026-07-26T10:52:58.003Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-wollerau"
+        "stv-filialleiter-in-denner-wollerau",
+        "vice-direttore-di-filiale-denner-ag-wollerau",
+        "stv-branch-manager-in-denner-wollerau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner",
-          "stv-filialleiter-in-denner-wollerau"
+          "stv-filialleiter-in-denner-wollerau",
+          "vice-direttore-di-filiale-denner-ag-wollerau",
+          "stv-branch-manager-in-denner-wollerau"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:09.422Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -246,16 +258,18 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/b6e9786e-b1b3-4c95-b3ce-a57df7dadc5e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:57.158Z",
+      "crawledAt": "2026-07-26T10:52:57.558Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner-2",
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-emmenbrucke"
+        "stv-filialleiter-in-denner-emmenbrucke",
+        "stv-branch-manager-in-denner-emmenbrucke"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner-2",
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-branch-manager-in-denner-emmenbrucke"
         ],
         "en": [
           "stv-filialleiter-in-denner-emmenbrucke"
@@ -265,6 +279,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:08.689Z",
+      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -283,10 +298,10 @@
       "id": "denner-9bfcab5fe0ec",
       "slug": "assistente-nella-gestione-delle-branche-denner-ebikon",
       "slugByLocale": {
-        "it": "vice-direttore-di-filiale-denner-ag-ebikon",
+        "it": "assistente-nella-gestione-delle-branche-denner-ebikon",
         "en": "assistant-branch-manager-denner-ag-ebikon",
         "de": "assistent-in-filialleitung-denner-ag-ebikon-3lj55e",
-        "fr": "directeur-adjoint-de-succursale-denner-ag-ebikon"
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-ebikon"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -342,22 +357,29 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/c6037c52-7469-40da-ac74-1ff87c1ccd53",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:57.153Z",
+      "crawledAt": "2026-07-26T10:52:57.553Z",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
         "assistent-in-filialleitung-denner-ebikon",
+        "vice-direttore-di-filiale-denner-ag-ebikon",
+        "directeur-adjoint-de-succursale-denner-ag-ebikon",
+        "assistente-nella-gestione-delle-branche-denner-ebikon",
         "assistant-dans-la-gestion-des-succursales-denner-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner",
-          "assistent-in-filialleitung-denner-ebikon"
+          "assistent-in-filialleitung-denner-ebikon",
+          "vice-direttore-di-filiale-denner-ag-ebikon",
+          "assistente-nella-gestione-delle-branche-denner-ebikon"
         ],
         "fr": [
+          "directeur-adjoint-de-succursale-denner-ag-ebikon",
           "assistant-dans-la-gestion-des-succursales-denner-ebikon"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:08.683Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "baseSalary": {
@@ -434,7 +456,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin-ausbildung/e2db60ff-76cf-42bd-a915-f26633472203",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:57.148Z",
+      "crawledAt": "2026-07-26T10:52:57.550Z",
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner",
         "filialleiter-in-in-ausbildung-denner-ag-ebikon",
@@ -446,7 +468,8 @@
         "responsabile-di-filiale-in-formazione-denner-kirchberg",
         "responsabile-di-filiale-in-formazione-denner-lyssach",
         "responsabile-di-filiale-in-formazione-denner-steinhausen",
-        "filialleiter-in-ausbildung-denner-ebikon"
+        "filialleiter-in-ausbildung-denner-ebikon",
+        "responsabile-della-filiale-nella-formazione-denner-ag-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -459,7 +482,8 @@
           "responsabile-di-filiale-in-formazione-denner-horw",
           "responsabile-di-filiale-in-formazione-denner-kirchberg",
           "responsabile-di-filiale-in-formazione-denner-lyssach",
-          "responsabile-di-filiale-in-formazione-denner-steinhausen"
+          "responsabile-di-filiale-in-formazione-denner-steinhausen",
+          "responsabile-della-filiale-nella-formazione-denner-ag-ebikon"
         ],
         "en": [
           "filialleiter-in-ausbildung-denner-ebikon"
@@ -469,6 +493,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:08.104Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -545,16 +570,18 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/0541905f-766e-4112-aa32-c93336bf6f7e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:56.677Z",
+      "crawledAt": "2026-07-26T10:52:56.810Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner-3",
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-ibach"
+        "stv-filialleiter-in-denner-ibach",
+        "stv-branch-manager-in-denner-ibach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner-3",
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-branch-manager-in-denner-ibach"
         ],
         "en": [
           "stv-filialleiter-in-denner-ibach"
@@ -564,6 +591,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:19:40.162Z",
+      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -636,18 +664,20 @@
       "workPercentage": "40-60%",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T13:06:37+0200",
+      "postedDate": "2026-07-24T06:14:51+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/927fdf7d-cf1d-4b68-81fa-c6a700dcc371",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:56.663Z",
+      "crawledAt": "2026-07-26T10:52:56.804Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-ibach"
+        "verkaufer-in-denner-ibach",
+        "venditore-denner-ag-ibach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "venditore-denner-ag-ibach"
         ],
         "en": [
           "verkaufer-in-denner-ibach"
@@ -657,6 +687,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:07.499Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -729,22 +760,25 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T11:19:35+0200",
+      "postedDate": "2026-07-24T06:14:51+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/c02313d5-ff08-4458-8684-813862c8916f",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:56.646Z",
+      "crawledAt": "2026-07-26T10:52:56.800Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-wattwil"
+        "verkaufer-in-denner-wattwil",
+        "venditore-denner-ag-wattwil-246b9c"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "verkaufer-in-denner-wattwil"
+          "verkaufer-in-denner-wattwil",
+          "venditore-denner-ag-wattwil-246b9c"
         ]
       },
       "firstSeenAt": "2026-07-24T22:19:40.126Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -817,22 +851,25 @@
       "workPercentage": "32%",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T18:09:49+0200",
+      "postedDate": "2026-07-24T06:33:13+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/04eb7890-5bd6-4650-8be4-5d69222d9d32",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:56.200Z",
+      "crawledAt": "2026-07-26T10:52:56.035Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-wattwil"
+        "verkaufer-in-denner-wattwil",
+        "venditore-denner-ag-wattwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "verkaufer-in-denner-wattwil"
+          "verkaufer-in-denner-wattwil",
+          "venditore-denner-ag-wattwil"
         ]
       },
       "firstSeenAt": "2026-07-25T10:42:50.562Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -852,7 +889,7 @@
       "slug": "venditore-a-denner-ag-frauenfeld",
       "slugByLocale": {
         "it": "venditore-a-denner-ag-frauenfeld",
-        "en": "sales-associate-denner-ag-frauenfeld",
+        "en": "seller-denner-frauenfeld",
         "de": "verkaufer-in-denner-ag-frauenfeld",
         "fr": "vendeur-vendeuse-denner-ag-frauenfeld"
       },
@@ -905,26 +942,31 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T14:59:11+0200",
+      "postedDate": "2026-07-24T11:48:29+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/18636b3a-3fc9-4f3f-b349-9916e2b18a9b",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:56.195Z",
+      "crawledAt": "2026-07-26T10:52:56.031Z",
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-frauenfeld",
+        "sales-associate-denner-ag-frauenfeld",
+        "venditore-a-denner-ag-frauenfeld",
         "seller-denner-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "verkaufer-in-denner-frauenfeld"
+          "verkaufer-in-denner-frauenfeld",
+          "venditore-a-denner-ag-frauenfeld"
         ],
         "en": [
+          "sales-associate-denner-ag-frauenfeld",
           "seller-denner-frauenfeld"
         ]
       },
       "firstSeenAt": "2026-07-24T22:19:39.479Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -997,18 +1039,20 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T08:10:19+0200",
+      "postedDate": "2026-07-24T07:44:33+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/6f0d9e9f-937d-4bb7-8ba1-f06903321b5f",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:56.190Z",
+      "crawledAt": "2026-07-26T10:52:56.028Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
-        "verkaufer-in-im-stundenlohn-denner-frauenfeld"
+        "verkaufer-in-im-stundenlohn-denner-frauenfeld",
+        "venditore-denner-ag-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "venditore-denner-ag-frauenfeld"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-frauenfeld"
@@ -1018,6 +1062,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:19:39.477Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -1090,20 +1135,23 @@
       "workPercentage": "80-100%",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T09:26:04+0200",
+      "postedDate": "2026-07-24T06:33:10+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/9a22a732-542f-410f-b9b7-182b304ccfd6",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:55.747Z",
+      "crawledAt": "2026-07-26T10:52:55.274Z",
       "previousSlugs": [
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-branch-manager-in-denner-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-branch-manager-in-denner-ag-luzern"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:07.485Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -1181,18 +1229,21 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/cd5fcde7-d8cc-469b-b85b-182139cdaede",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:55.744Z",
+      "crawledAt": "2026-07-26T10:52:55.272Z",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistent-in-filialleitung-denner-luzern"
+        "assistent-in-filialleitung-denner-luzern",
+        "assistente-nella-gestione-delle-branche-denner-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner",
-          "assistent-in-filialleitung-denner-luzern"
+          "assistent-in-filialleitung-denner-luzern",
+          "assistente-nella-gestione-delle-branche-denner-ag-luzern"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:07.480Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "baseSalary": {
@@ -1265,22 +1316,25 @@
       "workPercentage": "60-80%",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T11:48:08+0200",
+      "postedDate": "2026-07-24T06:33:09+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/646e1a8c-98fa-4f9b-a67b-8512f3d66a65",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:55.741Z",
+      "crawledAt": "2026-07-26T10:52:55.270Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-stans"
+        "verkaufer-in-denner-stans",
+        "venditore-denner-ag-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "verkaufer-in-denner-stans"
+          "verkaufer-in-denner-stans",
+          "venditore-denner-ag-stans"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:06.933Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "baseSalary": {
@@ -1353,22 +1407,25 @@
       "workPercentage": "60-80%",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T08:10:46+0200",
+      "postedDate": "2026-07-24T07:45:41+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/911abbcb-f3ba-49f6-828b-732715c310ed",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:55.306Z",
+      "crawledAt": "2026-07-26T10:52:54.539Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-luzern"
+        "verkaufer-in-denner-luzern",
+        "venditore-denner-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "verkaufer-in-denner-luzern"
+          "verkaufer-in-denner-luzern",
+          "venditore-denner-ag-luzern"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:06.929Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "baseSalary": {
@@ -1445,16 +1502,19 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/0663be85-be66-49ec-9221-1638b39d0397",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:55.304Z",
+      "crawledAt": "2026-07-26T10:52:54.537Z",
       "previousSlugs": [
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "venditore-denner-ag-luzern-7f4c33"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "venditore-denner-ag-luzern-7f4c33"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:06.927Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "baseSalary": {
@@ -1528,18 +1588,20 @@
       "workPercentage": "80-100%",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T09:36:50+0200",
+      "postedDate": "2026-07-24T06:33:07+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/4e603ac9-67a7-43d8-bf0f-5f01ffa6e0ec",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:55.302Z",
+      "crawledAt": "2026-07-26T10:52:54.535Z",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistent-in-filialleitung-denner-pfaffokon-sz"
+        "assistent-in-filialleitung-denner-pfaffokon-sz",
+        "assistente-nella-gestione-delle-branche-denner-ag-pfaffokon-sz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-filialleitung-denner"
+          "assistent-in-filialleitung-denner",
+          "assistente-nella-gestione-delle-branche-denner-ag-pfaffokon-sz"
         ],
         "en": [
           "assistent-in-filialleitung-denner-pfaffokon-sz"
@@ -1549,6 +1611,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:06.377Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "baseSalary": {
@@ -1626,18 +1689,21 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/c8f651be-0757-41c5-8e77-fab28c80d0a2",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:54.865Z",
+      "crawledAt": "2026-07-26T10:52:53.756Z",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistent-in-filialleitung-denner-richterswil"
+        "assistent-in-filialleitung-denner-richterswil",
+        "assistente-nella-gestione-delle-branche-denner-ag-richterswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner",
-          "assistent-in-filialleitung-denner-richterswil"
+          "assistent-in-filialleitung-denner-richterswil",
+          "assistente-nella-gestione-delle-branche-denner-ag-richterswil"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:06.374Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -1710,20 +1776,23 @@
       "workPercentage": "80-100%",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T12:30:10+0200",
+      "postedDate": "2026-07-24T06:32:59+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/70a5bd89-1b89-4627-98dd-ab900cf4e299",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:54.858Z",
+      "crawledAt": "2026-07-26T10:52:53.750Z",
       "previousSlugs": [
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-branch-manager-in-denner-ag-richterswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-branch-manager-in-denner-ag-richterswil"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:06.364Z",
+      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "baseSalary": {
@@ -1796,22 +1865,25 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T08:39:13+0200",
+      "postedDate": "2026-07-24T08:14:36+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/6af11a79-f81f-4bbb-a2f5-9f0786ddb97a",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:54.851Z",
+      "crawledAt": "2026-07-26T10:52:53.743Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-gossau-sg"
+        "verkaufer-in-denner-gossau-sg",
+        "venditore-denner-ag-gossau-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "verkaufer-in-denner-gossau-sg"
+          "verkaufer-in-denner-gossau-sg",
+          "venditore-denner-ag-gossau-sg"
         ]
       },
       "firstSeenAt": "2026-07-24T22:19:37.500Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -1884,20 +1956,23 @@
       "workPercentage": "80-100%",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T22:11:35+0200",
+      "postedDate": "2026-07-24T06:32:58+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/e0af7365-5a29-4211-adec-5d05734a868b",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:54.413Z",
+      "crawledAt": "2026-07-26T10:52:52.982Z",
       "previousSlugs": [
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-branch-manager-in-denner-ag-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-branch-manager-in-denner-ag-davos"
         ]
       },
       "firstSeenAt": "2026-07-24T22:19:36.742Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "baseSalary": {
@@ -1970,22 +2045,25 @@
       "workPercentage": "833%",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T11:40:23+0200",
+      "postedDate": "2026-07-24T06:32:13+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/c87cdd8c-4de6-4961-89bd-75fa8f3a0833",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:54.409Z",
+      "crawledAt": "2026-07-26T10:52:52.977Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-schluein"
+        "verkaufer-in-denner-schluein",
+        "venditore-denner-ag-schluein"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "verkaufer-in-denner-schluein"
+          "verkaufer-in-denner-schluein",
+          "venditore-denner-ag-schluein"
         ]
       },
       "firstSeenAt": "2026-07-24T22:19:36.735Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -2002,11 +2080,11 @@
     },
     {
       "id": "denner-b06b3b880c14",
-      "slug": "responsabile-negozio-denner-villmergen",
+      "slug": "responsabile-negozio-denner-ag-villmergen",
       "slugByLocale": {
         "it": "responsabile-negozio-denner-ag-villmergen",
         "en": "store-manager-denner-ag-villmergen",
-        "de": "filialleiter-in-denner-villmergen",
+        "de": "filialleiter-in-denner-ag-villmergen",
         "fr": "gestionnaire-de-magasin-denner-ag-villmergen"
       },
       "company": "Denner",
@@ -2058,22 +2136,24 @@
       "workPercentage": "80-100%",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T11:16:43+0200",
+      "postedDate": "2026-07-24T09:42:47+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin/a30c7340-f66e-44a8-8285-04c443f0a6d6",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:54.405Z",
+      "crawledAt": "2026-07-26T10:52:52.972Z",
       "previousSlugs": [
         "filialleiter-in-denner-2",
         "filialleiter-in-denner",
         "filialleiter-in-denner-villmergen",
         "store-manager-denner-villmergen",
-        "gestionnaire-de-magasin-denner-villmergen"
+        "gestionnaire-de-magasin-denner-villmergen",
+        "responsabile-negozio-denner-villmergen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-denner-2",
-          "filialleiter-in-denner"
+          "filialleiter-in-denner",
+          "responsabile-negozio-denner-villmergen"
         ],
         "en": [
           "filialleiter-in-denner-villmergen",
@@ -2082,9 +2162,13 @@
         "fr": [
           "filialleiter-in-denner-villmergen",
           "gestionnaire-de-magasin-denner-villmergen"
+        ],
+        "de": [
+          "filialleiter-in-denner-villmergen"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:05.744Z",
+      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "baseSalary": {
@@ -2101,11 +2185,11 @@
     },
     {
       "id": "denner-336b83331a50",
-      "slug": "venditore-nel-salario-orario-denner-burgdorf",
+      "slug": "venditore-nel-salario-orario-denner-ag-burgdorf",
       "slugByLocale": {
         "it": "venditore-nel-salario-orario-denner-ag-burgdorf",
         "en": "seller-in-the-hourly-wage-denner-ag-burgdorf",
-        "de": "verkaufer-in-im-stundenlohn-denner-burgdorf",
+        "de": "verkaufer-in-im-stundenlohn-denner-ag-burgdorf-g3xake",
         "fr": "vendeur-dans-le-salaire-horaire-denner-ag-burgdorf"
       },
       "company": "Denner",
@@ -2161,16 +2245,18 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/94aba5d0-fa0e-4850-811d-5f28388316d2",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:53.964Z",
+      "crawledAt": "2026-07-26T10:52:52.133Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
         "verkaufer-in-im-stundenlohn-denner-burgdorf",
         "seller-in-the-hourly-wage-denner-burgdorf",
-        "vendeur-dans-le-salaire-horaire-denner-burgdorf"
+        "vendeur-dans-le-salaire-horaire-denner-burgdorf",
+        "venditore-nel-salario-orario-denner-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "venditore-nel-salario-orario-denner-burgdorf"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-burgdorf",
@@ -2179,9 +2265,13 @@
         "fr": [
           "verkaufer-in-im-stundenlohn-denner-burgdorf",
           "vendeur-dans-le-salaire-horaire-denner-burgdorf"
+        ],
+        "de": [
+          "verkaufer-in-im-stundenlohn-denner-burgdorf"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:05.729Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -2198,11 +2288,11 @@
     },
     {
       "id": "denner-1794ace26c8a",
-      "slug": "venditore-denner-burgdorf",
+      "slug": "venditore-denner-ag-burgdorf",
       "slugByLocale": {
         "it": "venditore-denner-ag-burgdorf",
         "en": "seller-denner-ag-burgdorf",
-        "de": "verkaufer-in-denner-burgdorf",
+        "de": "verkaufer-in-denner-ag-burgdorf",
         "fr": "vendeur-denner-ag-burgdorf"
       },
       "company": "Denner",
@@ -2254,22 +2344,24 @@
       "workPercentage": "322%",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T11:16:41+0200",
+      "postedDate": "2026-07-24T08:19:07+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/65d2a3aa-6eac-4a9e-912b-396dda2ad322",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:53.962Z",
+      "crawledAt": "2026-07-26T10:52:52.130Z",
       "previousSlugs": [
         "verkaufer-in-denner-2",
         "verkaufer-in-denner",
         "verkaufer-in-denner-burgdorf",
         "seller-denner-burgdorf",
-        "vendeur-denner-burgdorf"
+        "vendeur-denner-burgdorf",
+        "venditore-denner-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-2",
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "venditore-denner-burgdorf"
         ],
         "en": [
           "verkaufer-in-denner-burgdorf",
@@ -2278,9 +2370,13 @@
         "fr": [
           "verkaufer-in-denner-burgdorf",
           "vendeur-denner-burgdorf"
+        ],
+        "de": [
+          "verkaufer-in-denner-burgdorf"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:05.727Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -2354,22 +2450,25 @@
       "workPercentage": "642%",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T12:35:01+0200",
+      "postedDate": "2026-07-24T06:28:07+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/a9b7cbb2-992b-42ec-9d21-da8a38268642",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:53.959Z",
+      "crawledAt": "2026-07-26T10:52:52.127Z",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistent-in-filialleitung-denner-zurich"
+        "assistent-in-filialleitung-denner-zurich",
+        "assistente-di-filiale-denner-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner",
-          "assistent-in-filialleitung-denner-zurich"
+          "assistent-in-filialleitung-denner-zurich",
+          "assistente-di-filiale-denner-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-24T22:19:35.940Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -2388,7 +2487,7 @@
       "id": "denner-161337304a20",
       "slug": "stv-branch-manager-in-denner-appenzell",
       "slugByLocale": {
-        "it": "vice-direttore-di-filiale-denner-ag-appenzell-0a018d",
+        "it": "stv-branch-manager-in-denner-appenzell",
         "en": "deputy-branch-manager-denner-ag-appenzell",
         "de": "stv-filialleiter-in-denner-ag-appenzell-3o9h68",
         "fr": "directeur-adjoint-de-la-succursale-denner-ag-appenzell"
@@ -2442,22 +2541,27 @@
       "workPercentage": "009%",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T12:08:23+0200",
+      "postedDate": "2026-07-24T11:31:02+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/3054a1ed-c5f9-4f57-bed2-309ff3b62009",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:53.422Z",
+      "crawledAt": "2026-07-26T10:52:51.389Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-appenzell"
+        "stv-filialleiter-in-denner-appenzell",
+        "vice-direttore-di-filiale-denner-ag-appenzell-0a018d",
+        "stv-branch-manager-in-denner-appenzell"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner",
-          "stv-filialleiter-in-denner-appenzell"
+          "stv-filialleiter-in-denner-appenzell",
+          "vice-direttore-di-filiale-denner-ag-appenzell-0a018d",
+          "stv-branch-manager-in-denner-appenzell"
         ]
       },
       "firstSeenAt": "2026-07-24T22:19:35.164Z",
+      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 158500,
       "baseSalary": {
@@ -2530,22 +2634,25 @@
       "workPercentage": "23%",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T12:09:55+0200",
+      "postedDate": "2026-07-24T06:28:00+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/db170b5d-6c0c-4310-bff7-c924c54eed23",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:53.416Z",
+      "crawledAt": "2026-07-26T10:52:51.387Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-sulgen"
+        "verkaufer-in-denner-sulgen",
+        "venditore-denner-ag-sulgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "verkaufer-in-denner-sulgen"
+          "verkaufer-in-denner-sulgen",
+          "venditore-denner-ag-sulgen"
         ]
       },
       "firstSeenAt": "2026-07-24T22:19:35.152Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -2564,7 +2671,7 @@
       "id": "denner-ac8e9e9a6346",
       "slug": "venditore-nel-salario-orario-denner-weinfelden",
       "slugByLocale": {
-        "it": "addetto-a-alla-vendita-retribuzione-oraria-denner-ag-weinfelden",
+        "it": "venditore-nel-salario-orario-denner-weinfelden",
         "en": "sales-assistant-hourly-wage-denner-ag-weinfelden",
         "de": "verkaufer-in-im-stundenlohn-denner-ag-weinfelden-8skwt4",
         "fr": "vendeur-vendeuse-au-salaire-horaire-denner-ag-weinfelden"
@@ -2618,22 +2725,27 @@
       "workPercentage": "840%",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T21:00:54+0200",
+      "postedDate": "2026-07-24T12:05:52+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/e0eb5945-6c38-40ba-910d-c93e80083840",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:53.404Z",
+      "crawledAt": "2026-07-26T10:52:51.381Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
-        "verkaufer-in-im-stundenlohn-denner-weinfelden"
+        "verkaufer-in-im-stundenlohn-denner-weinfelden",
+        "addetto-a-alla-vendita-retribuzione-oraria-denner-ag-weinfelden",
+        "venditore-nel-salario-orario-denner-weinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner",
-          "verkaufer-in-im-stundenlohn-denner-weinfelden"
+          "verkaufer-in-im-stundenlohn-denner-weinfelden",
+          "addetto-a-alla-vendita-retribuzione-oraria-denner-ag-weinfelden",
+          "venditore-nel-salario-orario-denner-weinfelden"
         ]
       },
       "firstSeenAt": "2026-07-24T22:19:35.135Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -2706,18 +2818,20 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T11:27:18+0200",
+      "postedDate": "2026-07-24T09:48:02+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/f0fa5042-c2c1-43e4-8690-c8165d4f0c2e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:52.813Z",
+      "crawledAt": "2026-07-26T10:52:50.642Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-butschwil"
+        "verkaufer-in-denner-butschwil",
+        "venditore-denner-ag-butschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "venditore-denner-ag-butschwil"
         ],
         "en": [
           "verkaufer-in-denner-butschwil"
@@ -2727,6 +2841,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:19:34.291Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -2799,22 +2914,24 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24T17:41:54+0200",
+      "postedDate": "2026-07-24T06:27:58+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/809da8f1-ca38-4459-aa7e-bd473626038e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:52.800Z",
+      "crawledAt": "2026-07-26T10:52:50.635Z",
       "previousSlugs": [
         "verkaufer-in-denner-3",
         "verkaufer-in-denner",
         "verkaufer-in-denner-niederuzwil",
-        "verkaufer-in-denner-2"
+        "verkaufer-in-denner-2",
+        "venditore-denner-niederuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-3",
           "verkaufer-in-denner",
-          "verkaufer-in-denner-2"
+          "verkaufer-in-denner-2",
+          "venditore-denner-niederuzwil"
         ],
         "en": [
           "verkaufer-in-denner-niederuzwil"
@@ -2824,6 +2941,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:19:34.276Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -2840,11 +2958,11 @@
     },
     {
       "id": "denner-d53081c7bf61",
-      "slug": "venditore-denner-herzogenbuchsee",
+      "slug": "venditore-denner-ag-herzogenbuchsee",
       "slugByLocale": {
         "it": "venditore-denner-ag-herzogenbuchsee",
         "en": "seller-denner-ag-herzogenbuchsee",
-        "de": "verkaufer-in-denner-herzogenbuchsee",
+        "de": "verkaufer-in-denner-ag-herzogenbuchsee",
         "fr": "vendeur-denner-ag-herzogenbuchsee"
       },
       "company": "Denner",
@@ -2900,7 +3018,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/bec562f5-64c6-4927-8227-8e61d63cccea",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-25T21:58:52.709Z",
+      "crawledAt": "2026-07-26T10:52:50.579Z",
       "previousSlugs": [
         "verkaufer-in-denner-4",
         "verkaufer-in-denner-fllnor",
@@ -2909,7 +3027,8 @@
         "verkaufer-in-denner-herzogenbuchsee",
         "verkaufer-in-denner-3",
         "seller-denner-herzogenbuchsee",
-        "vendeur-denner-herzogenbuchsee"
+        "vendeur-denner-herzogenbuchsee",
+        "venditore-denner-herzogenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2917,7 +3036,8 @@
           "verkaufer-in-denner-fllnor",
           "verkaufer-in-denner-6",
           "verkaufer-in-denner",
-          "verkaufer-in-denner-3"
+          "verkaufer-in-denner-3",
+          "venditore-denner-herzogenbuchsee"
         ],
         "en": [
           "verkaufer-in-denner-herzogenbuchsee",
@@ -2926,9 +3046,13 @@
         "fr": [
           "verkaufer-in-denner-herzogenbuchsee",
           "vendeur-denner-herzogenbuchsee"
+        ],
+        "de": [
+          "verkaufer-in-denner-herzogenbuchsee"
         ]
       },
       "firstSeenAt": "2026-07-25T10:42:46.849Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
