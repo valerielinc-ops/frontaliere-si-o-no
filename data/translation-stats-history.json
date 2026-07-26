@@ -1,233 +1,5 @@
 [
   {
-    "timestamp": "2026-07-07T10:18:03.202Z",
-    "label": "before",
-    "total": 23658,
-    "needsRetranslation": 2820,
-    "suppressed": 250,
-    "incomplete": 491,
-    "complete": 23167,
-    "missingByLocale": {
-      "it": 322,
-      "en": 384,
-      "de": 174,
-      "fr": 347
-    },
-    "topPending": [
-      {
-        "company": "Two Spice AG",
-        "pending": 237
-      },
-      {
-        "company": "Manor AG",
-        "pending": 133
-      },
-      {
-        "company": "On Running",
-        "pending": 35
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 18
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 13
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 7
-      },
-      {
-        "company": "IKEA",
-        "pending": 5
-      },
-      {
-        "company": "Roche",
-        "pending": 5
-      },
-      {
-        "company": "Valora Group",
-        "pending": 5
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 4
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-07T11:49:56.548Z",
-    "label": "after",
-    "total": 23658,
-    "needsRetranslation": 2763,
-    "suppressed": 250,
-    "incomplete": 488,
-    "complete": 23170,
-    "missingByLocale": {
-      "it": 321,
-      "en": 382,
-      "de": 172,
-      "fr": 346
-    },
-    "topPending": [
-      {
-        "company": "Two Spice AG",
-        "pending": 237
-      },
-      {
-        "company": "Manor AG",
-        "pending": 133
-      },
-      {
-        "company": "On Running",
-        "pending": 35
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 18
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 13
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 7
-      },
-      {
-        "company": "IKEA",
-        "pending": 5
-      },
-      {
-        "company": "Roche",
-        "pending": 5
-      },
-      {
-        "company": "Valora Group",
-        "pending": 5
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 4
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-07T16:15:39.472Z",
-    "label": "before",
-    "total": 23340,
-    "needsRetranslation": 6334,
-    "suppressed": 234,
-    "incomplete": 323,
-    "complete": 23017,
-    "missingByLocale": {
-      "it": 264,
-      "en": 251,
-      "de": 40,
-      "fr": 248
-    },
-    "topPending": [
-      {
-        "company": "Two Spice AG",
-        "pending": 220
-      },
-      {
-        "company": "Manor AG",
-        "pending": 21
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 18
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 13
-      },
-      {
-        "company": "Roche",
-        "pending": 5
-      },
-      {
-        "company": "Valora Group",
-        "pending": 5
-      },
-      {
-        "company": "IKEA",
-        "pending": 4
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 4
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Baden (KSB)",
-        "pending": 3
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-07T16:21:10.165Z",
-    "label": "after",
-    "total": 23340,
-    "needsRetranslation": 2992,
-    "suppressed": 236,
-    "incomplete": 323,
-    "complete": 23017,
-    "missingByLocale": {
-      "it": 264,
-      "en": 251,
-      "de": 40,
-      "fr": 248
-    },
-    "topPending": [
-      {
-        "company": "Two Spice AG",
-        "pending": 220
-      },
-      {
-        "company": "Manor AG",
-        "pending": 21
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 18
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 13
-      },
-      {
-        "company": "Roche",
-        "pending": 5
-      },
-      {
-        "company": "Valora Group",
-        "pending": 5
-      },
-      {
-        "company": "IKEA",
-        "pending": 4
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 4
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Baden (KSB)",
-        "pending": 3
-      }
-    ]
-  },
-  {
     "timestamp": "2026-07-07T23:10:35.115Z",
     "label": "before",
     "total": 23366,
@@ -11510,6 +11282,120 @@
       {
         "company": "Spital Schwyz",
         "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-26T15:47:21.625Z",
+    "label": "before",
+    "total": 24607,
+    "needsRetranslation": 9284,
+    "suppressed": 38,
+    "incomplete": 95,
+    "complete": 24512,
+    "missingByLocale": {
+      "it": 60,
+      "en": 32,
+      "de": 46,
+      "fr": 47
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 29
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 6
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "Spital Schwyz",
+        "pending": 2
+      },
+      {
+        "company": "Alpiq",
+        "pending": 1
+      },
+      {
+        "company": "Triulzi AG",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-26T16:20:53.205Z",
+    "label": "after",
+    "total": 24607,
+    "needsRetranslation": 865,
+    "suppressed": 39,
+    "incomplete": 95,
+    "complete": 24512,
+    "missingByLocale": {
+      "it": 60,
+      "en": 32,
+      "de": 45,
+      "fr": 46
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 29
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 6
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "Spital Schwyz",
+        "pending": 2
+      },
+      {
+        "company": "Alpiq",
+        "pending": 1
+      },
+      {
+        "company": "Triulzi AG",
+        "pending": 1
       }
     ]
   }
