@@ -1567,6 +1567,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.costo-vita-cantone-svizzera.title': 'Costo della vita in Svizzera: confronto tra cantoni',
     'blog.article.costo-vita-cantone-svizzera.excerpt': 'Un confronto dei costi di vita nei principali cantoni svizzeri: affitti, spesa, trasporti e assicurazioni.',
     'blog.article.costo-vita-cantone-svizzera.imageAlt': 'Una scena di Lugano con il lago in primo piano',
+    'blog.article.premi-cassa-malati-lamal-per-cantone.title': 'Premi LAMal: fattori regionali e variabilità tra cantoni',
+    'blog.article.premi-cassa-malati-lamal-per-cantone.excerpt': 'I premi LAMal variano notevolmente tra cantoni a causa di fattori regionali, come la franchigia ottimale e i sussidi disponibili.',
+    'blog.article.premi-cassa-malati-lamal-per-cantone.imageAlt': 'Vista di Lugano sul lago.',
 };
 
 export default blogMetaChIt;
