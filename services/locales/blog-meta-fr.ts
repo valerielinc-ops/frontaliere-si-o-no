@@ -8976,6 +8976,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dazi-usa-economia-svizzera.title': 'Droits de douane américains et impact sur l\'économie suisse : ce qui change',
     'blog.article.dazi-usa-economia-svizzera.excerpt': 'Selon l\'Institut de recherche conjoncturelle, le taux des droits américains freine dans une moindre mesure l\'économie suisse, avec des impacts inférieurs à 0,1%.',
     'blog.article.dazi-usa-economia-svizzera.imageAlt': 'Châteaux de Bellinzona et paysage du Tessin',
+    'blog.article.bally-lultima-scarpa-svizzera-sara-prodotta-in-estate.title': 'Plus Bally, la dernière chaussure suisse sera produite en été',
+    'blog.article.bally-lultima-scarpa-svizzera-sara-prodotta-in-estate.excerpt': 'La production de la légendaire marque suisse Bally sera transférée dans un autre pays.',
+    'blog.article.bally-lultima-scarpa-svizzera-sara-prodotta-in-estate.imageAlt': 'La production de Bally sera déplacée dans un autre pays.',
 };
 
 export default blogMetaFr;

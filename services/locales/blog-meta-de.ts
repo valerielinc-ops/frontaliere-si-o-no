@@ -8973,6 +8973,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dazi-usa-economia-svizzera.title': 'US-Zölle und Auswirkungen auf die Schweizer Wirtschaft: Was sich ändert',
     'blog.article.dazi-usa-economia-svizzera.excerpt': 'Gemäss dem Konjunkturforschungsinstitut bremst der US-Zollsatz die Schweizer Wirtschaft mit Auswirkungen unter 0,1% minimal.',
     'blog.article.dazi-usa-economia-svizzera.imageAlt': 'Festungen von Bellinzona und Tessiner Landschaft',
+    'blog.article.bally-lultima-scarpa-svizzera-sara-prodotta-in-estate.title': 'Mehr Bally, der letzte Schweizer Schuh wird im Sommer produziert',
+    'blog.article.bally-lultima-scarpa-svizzera-sara-prodotta-in-estate.excerpt': 'Die Produktion der legendären Schweizer Marke Bally wird in ein anderes Land verlagert.',
+    'blog.article.bally-lultima-scarpa-svizzera-sara-prodotta-in-estate.imageAlt': 'Die Produktion von Bally wird in ein anderes Land verlegt.',
 };
 
 export default blogMetaDe;

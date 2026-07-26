@@ -1,0 +1,40 @@
+{
+  "id": "bally-lultima-scarpa-svizzera-sara-prodotta-in-estate",
+  "slug": "bally-lultima-scarpa-svizzera-sara-prodotta-in-estate",
+  "publishedAt": "2026-07-26T04:10:46.034Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 3.2534391548988415,
+    "confidence": 0.8,
+    "finalScore": 2.6027513239190734,
+    "topK": [
+      {
+        "slug": "ultimo-svizzero-rientra-incendio-crans-montana",
+        "cosine": 0.8133597887247104
+      },
+      {
+        "slug": "bagni-bellinzona-riaprono-novita-2026",
+        "cosine": 0.8129153520342473
+      },
+      {
+        "slug": "made-in-switzerland-2026",
+        "cosine": 0.8115428901431213
+      },
+      {
+        "slug": "coop-svizzera-insetti-commestibili-2026",
+        "cosine": 0.8043860840661065
+      },
+      {
+        "slug": "app-depressione-cassa-malati-2026",
+        "cosine": 0.8034309897854862
+      }
+    ],
+    "score": 2.6027513239190734,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

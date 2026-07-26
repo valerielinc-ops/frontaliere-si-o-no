@@ -55530,6 +55530,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bally-lultima-scarpa-svizzera-sara-prodotta-in-estate': {
+    title: 'Di più Bally, l\'ultima scarpa svizzera sarà prodotta in estate',
+    description: 'La produzione di Bally si sposterà in un altro Paese. Non ci sono indicazioni su dove sarà spostata la produzione, ma si presume che sarà in un Paese nel quale',
+    keywords: 'frontalieri, ticino, svizzera, italia, bally, ultima, scarpa, sarà',
+    ogTitle: 'Di più Bally, l\'ultima scarpa svizzera sarà prodotta in estate',
+    ogDescription: 'La produzione di Bally si sposterà in un altro Paese. Non ci sono indicazioni su dove sarà spostata la produzione, ma si presume che sarà in un Paese nel quale',
+    canonicalPath: '/articoli-frontaliere/bally-lultima-scarpa-svizzera-sara-prodotta-in-estate',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più Bally, l'ultima scarpa svizzera sarà prodotta in estate",
+      "description": "La produzione di Bally si sposterà in un altro Paese. Non ci sono indicazioni su dove sarà spostata la produzione, ma si presume che sarà in un Paese nel quale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bally-lultima-scarpa-svizzera-sara-prodotta-in-estate.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La produzione di Bally si sposterà in un altro Paese."
+      },
+      "datePublished": "2026-07-26T04:10:41+00:00",
+      "dateModified": "2026-07-26T04:10:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bally-lultima-scarpa-svizzera-sara-prodotta-in-estate/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

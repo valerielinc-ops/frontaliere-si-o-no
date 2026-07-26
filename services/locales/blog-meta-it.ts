@@ -8975,6 +8975,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dazi-usa-economia-svizzera.title': 'Dazi USA e impatto sull\'economia elvetica: cosa cambia',
     'blog.article.dazi-usa-economia-svizzera.excerpt': 'Secondo l\'Istituto di ricerche congiunturali, l\'aliquota dei dazi statunitensi frena in misura minima l\'economia svizzera, con impatti sotto lo 0,1%.',
     'blog.article.dazi-usa-economia-svizzera.imageAlt': 'Castelli di Bellinzona e paesaggio del Canton Ticino',
+    'blog.article.bally-lultima-scarpa-svizzera-sara-prodotta-in-estate.title': 'Di più Bally, l\'ultima scarpa svizzera sarà prodotta in estate',
+    'blog.article.bally-lultima-scarpa-svizzera-sara-prodotta-in-estate.excerpt': 'La produzione della leggendaria marca svizzera Bally si sposterà in un altro Paese.',
+    'blog.article.bally-lultima-scarpa-svizzera-sara-prodotta-in-estate.imageAlt': 'La produzione di Bally si sposterà in un altro Paese.',
 };
 
 export default blogMetaIt;
