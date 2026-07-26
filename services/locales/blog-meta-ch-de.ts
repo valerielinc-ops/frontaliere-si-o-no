@@ -1537,6 +1537,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.title': 'Mehr KOF, Zollnachteil bremst die Schweizer Wirtschaft nur geringfügig',
     'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.excerpt': 'Laut KOF dürfte der US-Zollsatz die Schweizer Wirtschaft nur minimal bremsen.',
     'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.imageAlt': 'Frontalier aus dem Tessin mit Blick auf Lugano',
+    'blog.article.sistema-sanitario-svizzero-lamal-2026.title': 'Schweizerisches Gesundheitssystem KVG: Der Leitfaden 2026',
+    'blog.article.sistema-sanitario-svizzero-lamal-2026.excerpt': 'Vollständiger Leitfaden zum Schweizer Gesundheitssystem 2026: KVG-Pflicht, Optionsrecht, Krankenkassenwahl, Franchisen und Rückerstattungen.',
+    'blog.article.sistema-sanitario-svizzero-lamal-2026.imageAlt': 'Schweizer Gesundheitssystem LAMal und Krankenversicherung',
 };
 
 export default blogMetaChDe;
