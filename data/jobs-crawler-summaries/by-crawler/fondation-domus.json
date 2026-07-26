@@ -1,16 +1,16 @@
 {
   "key": "fondation-domus",
   "label": "Fondation Domus",
-  "generatedAt": "2026-07-25T22:07:11.767Z",
+  "generatedAt": "2026-07-26T11:01:40.853Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6495,
-  "avgDurationMs": 6495,
+  "durationMs": 4929,
+  "avgDurationMs": 4929,
   "durationHistory": [
-    6495
+    4929
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/53cd9483-dd08-4087-8305-56a97a8ddc88/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T22:07:08.541Z",
+      "crawledAt": "2026-07-26T11:01:38.901Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -50,46 +50,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "fondation-domus-31792ee5fbd1",
-      "slug": "responsabile-risorse-umane-membro-della-direzione-80-fondation-domus-ardon-e2fc13",
-      "company": "Fondation Domus",
-      "companyKey": "fondation-domus",
-      "companyDomain": "fondation-domus.ch",
-      "title": "Responsable ressources humaines - membre de la direction À 80%",
-      "location": "Ardon",
-      "canton": "VS",
-      "url": "https://www.jobup.ch/fr/emplois/detail/02f5712b-2dbf-4071-9c69-9da352bd74e8/?source=[platform]",
-      "source": "Fondation Domus Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-24T11:36:47.287Z",
-      "addressLocality": "Ardon",
-      "postalCode": "1957",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Social / Fondation",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-21",
-      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/02f5712b-2dbf-4071-9c69-9da352bd74e8/?source=[platform]",
-      "firstSeenAt": "2026-07-21T23:36:42.880Z",
-      "salaryMin": 66800,
-      "salaryMax": 101200,
-      "addressRegion": "VS",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
