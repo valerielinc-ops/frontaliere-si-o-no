@@ -50,16 +50,8 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00042387EXTERNALENGLOBAL/Lead-Divisional-Talent-Partner---EL"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-07-26T10:56:35.015Z",
+  "updatedAt": "2026-07-26T22:05:16.068Z",
   "seedMetaByUrl": {
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00042387EXTERNALENGLOBAL/Lead-Divisional-Talent-Partner---EL": {
-      "location": "Sesto San Giovanni, Milano, Italy",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00041961EXTERNALENGLOBAL/Global-Quality-Specialist---UPS_JR00041961-1": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
@@ -71,6 +63,14 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00041112EXTERNALENGLOBAL/Global-Category-Specialist-Power-Components_JR00041112-1": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00042387EXTERNALENGLOBAL/Lead-Divisional-Talent-Partner---EL": {
+      "location": "Sesto San Giovanni, Milano, Italy",
+      "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
