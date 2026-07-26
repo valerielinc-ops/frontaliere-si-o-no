@@ -8980,6 +8980,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-telelavoro-2026.title': 'Italy-Switzerland border workers: teleworking up to 25%',
     'blog.article.frontalieri-telelavoro-2026.excerpt': 'Law no. 217 of 29 December 2025 introduced a new rule for border workers working in Switzerland and residing in Italy.',
     'blog.article.frontalieri-telelavoro-2026.imageAlt': 'Frontalieri in Ticino that work in Switzerland and reside in Italy who work from home with computer and tablet',
+    'blog.article.trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro.title': 'Moving to Bizzarone from border crossings: pros and cons',
+    'blog.article.trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro.excerpt': 'The pros and cons of transferring border crossers to Bizzarone',
+    'blog.article.trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro.imageAlt': 'A frontaliere in a kitchen with a map of Bizzarone',
 };
 
 export default blogMetaEn;

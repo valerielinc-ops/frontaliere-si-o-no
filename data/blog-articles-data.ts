@@ -26981,6 +26981,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro',
+ category: 'pratico',
+ date: '2026-07-26T05:22:59.204Z',
+ image: '/images/blog/trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -8979,6 +8979,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-telelavoro-2026.title': 'Grenzgänger Italien-Schweiz: Telearbeit bis zu 25%',
     'blog.article.frontalieri-telelavoro-2026.excerpt': 'Mit dem Gesetz Nr. 217 vom 29. Dezember 2025 wurde eine neue Regel für Grenzgänger eingeführt, die in der Schweiz arbeiten und in Italien wohnen.',
     'blog.article.frontalieri-telelavoro-2026.imageAlt': 'Frontalier in Ticino, die in der Schweiz arbeiten und in Italien wohnen, die von zu Hause aus arbeiten',
+    'blog.article.trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro.title': 'Als Grenzgänger nach Bizzarone ziehen: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro.excerpt': 'Die Vor- und Nachteile des Umzugs nach Bizzarone für Grenzgänger',
+    'blog.article.trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro.imageAlt': 'Ein Frontalier in einer Küche mit einer Karte von Bizzarone',
 };
 
 export default blogMetaDe;
