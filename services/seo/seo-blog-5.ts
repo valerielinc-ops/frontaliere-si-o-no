@@ -55881,6 +55881,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-frontaliero-subordinazione-e-credito-dimposta-nei-rapporti-italiasvizzera': {
+    title: 'Lavoro frontaliero, subordinazione e credito d’imposta nei rapporti Italia–Svizzera: note a margine della sentenza n. 83/2026 della CGT Lombardia',
+    description: 'La sentenza n. 83/2026 della CGT Lombardia affronta questioni di qualificazione del reddito e limiti applicativi del credito per imposte assolte all\'estero in',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, frontaliero, subordinazione, credito',
+    ogTitle: 'Lavoro frontaliero, subordinazione e credito d’imposta nei rapporti Italia–Svizzera: note a margine della sentenza n. 83/2026 della CGT Lombardia',
+    ogDescription: 'La sentenza n. 83/2026 della CGT Lombardia affronta questioni di qualificazione del reddito e limiti applicativi del credito per imposte assolte all\'estero in',
+    canonicalPath: '/articoli-frontaliere/lavoro-frontaliero-subordinazione-e-credito-dimposta-nei-rapporti-italiasvizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro frontaliero, subordinazione e credito d’imposta nei rapporti Italia–Svizzera: note a margine della sentenza n. 83/2026 della CGT Lombardia",
+      "description": "La sentenza n. 83/2026 della CGT Lombardia affronta questioni di qualificazione del reddito e limiti applicativi del credito per imposte assolte all'estero in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/places/lago-lugano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Lavoro frontaliero, subordinazione e credito d’imposta nei rapporti Italia–Svizzera: note a margine della sentenza n. 83/2026 della CGT Lombardia"
+      },
+      "datePublished": "2026-07-26T21:15:53+00:00",
+      "dateModified": "2026-07-26T21:15:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/samuele-valente/#person",
+        "name": "Samuele Valente",
+        "url": "https://frontaliereticino.ch/autori/samuele-valente/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-frontaliero-subordinazione-e-credito-dimposta-nei-rapporti-italiasvizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
