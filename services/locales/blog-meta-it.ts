@@ -8987,6 +8987,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-rallentano-ticino-aumentano-grigioni.title': 'Frontalieri: rallentano in Ticino, aumentano nei Grigioni',
     'blog.article.frontalieri-rallentano-ticino-aumentano-grigioni.excerpt': 'I dati del terzo trimestre confermano il rallentamento del numero di lavoratori esteri in Ticino, mentre in Grigioni aumenta.',
     'blog.article.frontalieri-rallentano-ticino-aumentano-grigioni.imageAlt': 'Il numero di frontalieri in Ticino rallenta, mentre in Grigioni aumenta.',
+    'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Claino con Osteno da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.excerpt': 'Cosa deve considerare un frontaliere che lavora in Ticino e risiede in Italia prima di trasferirsi a Claino con Osteno.',
+    'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere che lavora in Ticino e risiede in Italia si trova davanti alla scelta di trasferirsi a Claino con Osteno.',
 };
 
 export default blogMetaIt;

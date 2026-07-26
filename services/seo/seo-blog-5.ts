@@ -55686,6 +55686,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro': {
+    title: 'Trasferirsi a Claino con Osteno da frontaliere: pro e contro',
+    description: 'Cosa deve considerare un frontaliere che lavora in Ticino e risiede in Italia prima di trasferirsi a Claino con Osteno. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, claino, osteno, contro',
+    ogTitle: 'Trasferirsi a Claino con Osteno da frontaliere: pro e contro',
+    ogDescription: 'Cosa deve considerare un frontaliere che lavora in Ticino e risiede in Italia prima di trasferirsi a Claino con Osteno.',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Claino con Osteno da frontaliere: pro e contro",
+      "description": "Cosa deve considerare un frontaliere che lavora in Ticino e risiede in Italia prima di trasferirsi a Claino con Osteno. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere che lavora in Ticino e risiede in Italia si trova davanti alla scelta di trasferirsi a Claino con Osteno."
+      },
+      "datePublished": "2026-07-26T06:14:03+00:00",
+      "dateModified": "2026-07-26T06:14:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

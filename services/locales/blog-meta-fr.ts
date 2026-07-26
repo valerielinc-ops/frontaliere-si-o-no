@@ -8988,6 +8988,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-rallentano-ticino-aumentano-grigioni.title': 'Frontaliers : ralentissent au Tessin, augmentent dans les Grisons',
     'blog.article.frontalieri-rallentano-ticino-aumentano-grigioni.excerpt': 'Les données du troisième trimestre confirment le ralentissement du nombre de travailleurs étrangers au Tessin, tandis qu\'il augmente dans les Grisons.',
     'blog.article.frontalieri-rallentano-ticino-aumentano-grigioni.imageAlt': 'Le nombre de travailleurs étrangers en Tessin diminue, tandis qu\'en Grigioni il aumenta.',
+    'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Claino : avantages et inconvénients',
+    'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.excerpt': 'Que doit considérer un frontalier qui travaille au Tessin et réside en Italie avant de déménager à Claino con Osteno.',
+    'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.imageAlt': 'Un frontalier qui travaille en Suisse et réside en Italie se trouve confronté à la décision de s\'installer à Claino avec Osteno.',
 };
 
 export default blogMetaFr;

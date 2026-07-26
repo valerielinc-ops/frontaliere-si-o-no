@@ -4911,6 +4911,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavoro-svizzera-frontalieri-guida': { name: 'Lavoro Svizzera', path: '/articoli-svizzera/lavoro-svizzera-frontalieri-guida/', parent: 'blog' },
     'blog-frontalieri-rallentano-ticino-aumentano-grigioni': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-rallentano-ticino-aumentano-grigioni', parent: 'blog' },
     'blog-costo-vita-cantone-svizzera': { name: 'Costo della vita nei principali cantoni', path: '/articoli-svizzera/costo-vita-cantone-svizzera/', parent: 'blog' },
+    'blog-trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro': { name: 'Trasferirsi a Claino con Osteno da', path: '/articoli-frontaliere/trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro', parent: 'blog' },
  };
 
  const info = sectionNames[section];
