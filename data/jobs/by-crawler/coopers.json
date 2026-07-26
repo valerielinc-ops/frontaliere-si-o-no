@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-07-26T11:04:05.273Z",
+  "assembledAt": "2026-07-26T22:16:42.154Z",
   "jobs": [
     {
       "id": "coopers-4c65b0608cd3",
@@ -17,7 +17,7 @@
       "title": "IT Business Applications Consultant (proALPHA) (m/w/d)",
       "titleByLocale": {
         "it": "IT Business Applications Consulente (proALPHA) (m/w/d)",
-        "en": "IT Business Applications Consultant (proALPHA)",
+        "en": "IT Business Applications Consultant (proALPHA) (m/w/d)",
         "de": "IT Business Applications Berater (proALPHA) (m/w/d)",
         "fr": "Conseiller en applications opérationnelles de TI (proALPHA)"
       },
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=P121CU",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:04:01.910Z",
+      "crawledAt": "2026-07-26T22:16:38.843Z",
       "addressLocality": "Bern Grossraum",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "title": "DevOps Engineer Storage Backup (m/w/d)",
       "titleByLocale": {
         "it": "DevOps Ingegnere Storage Backup (m/w/d)",
-        "en": "DevOps Engineer Storage Backup (m/f/d)",
+        "en": "DevOps Engineer Storage Backup (m/w/d)",
         "de": "DevOps Ingenieur Storage Backup (m/w/d)",
         "fr": "DevOps Ingénieur Storage Backup (m/w/d)"
       },
@@ -119,7 +119,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5NSJ30",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:04:01.044Z",
+      "crawledAt": "2026-07-26T22:16:37.966Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -165,6 +165,7 @@
         ]
       },
       "firstSeenAt": "2026-07-15T12:09:14.657Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -209,7 +210,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W6TR28",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:04:00.159Z",
+      "crawledAt": "2026-07-26T22:16:37.104Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -250,6 +251,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:40.650Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -278,7 +280,7 @@
       "title": "Instandhaltung & SAP-Prozesse (m/w/d)",
       "titleByLocale": {
         "it": "Gestione del prodotto (m/w/d)",
-        "en": "Maintenance & SAP processes (m/f/d)",
+        "en": "Instandhaltung & SAP-Prozesse (m/w/d)",
         "de": "Instandhaltung & SAP-Prozesse (m/w/d)",
         "fr": "Gestion du projet (m/w/d)"
       },
@@ -294,7 +296,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E624SG",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:59.285Z",
+      "crawledAt": "2026-07-26T22:16:36.209Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -345,6 +347,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:50.603Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -389,7 +392,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=V96K2V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:58.405Z",
+      "crawledAt": "2026-07-26T22:16:35.361Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -440,6 +443,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:26.872Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -484,7 +488,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-26T11:03:57.495Z",
+      "crawledAt": "2026-07-26T22:16:34.506Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -552,6 +556,7 @@
         ]
       },
       "firstSeenAt": "2026-05-27T22:41:36.318Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -580,7 +585,7 @@
       "title": "M365 Solution Manager (m/w/d)",
       "titleByLocale": {
         "it": "M365 Solution Manager/in (lunedì/mercoledì/d)",
-        "en": "M365 Solution Manager (m/f/d)",
+        "en": "M365 Solution Manager (m/w/d)",
         "de": "M365 Solution Manager (m/w/d)",
         "fr": "M365 Gestionnaire de solutions : en (m/w/d)"
       },
@@ -596,7 +601,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W2A8N9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:56.613Z",
+      "crawledAt": "2026-07-26T22:16:33.645Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -633,6 +638,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:16.784Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -661,7 +667,7 @@
       "title": "Entra ID / Active Directory Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Entra ID / Active Directory Ingegnere (m/w/d)",
-        "en": "Entra ID / Active Directory Engineer (m/f/d)",
+        "en": "Entra ID / Active Directory Engineer (m/w/d)",
         "de": "Entra ID / Active Directory Ingenieur (m/w/d)",
         "fr": "Entra ID / Active Directory Ingénieur (m/w/d)"
       },
@@ -677,7 +683,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=HF368N",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:55.749Z",
+      "crawledAt": "2026-07-26T22:16:32.779Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -721,6 +727,7 @@
         ]
       },
       "firstSeenAt": "2026-06-03T13:17:53.311Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -765,7 +772,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=49GUV9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:54.852Z",
+      "crawledAt": "2026-07-26T22:16:31.932Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -830,6 +837,7 @@
         ]
       },
       "firstSeenAt": "2026-06-03T23:17:39.897Z",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "baseSalary": {
@@ -874,7 +882,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=J044QS",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:53.848Z",
+      "crawledAt": "2026-07-26T22:16:31.091Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -951,6 +959,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T11:43:07.255Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -995,7 +1004,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E4R7W1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:52.956Z",
+      "crawledAt": "2026-07-26T22:16:30.248Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1035,6 +1044,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:28:54.533Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1079,7 +1089,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=AQP363",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:52.073Z",
+      "crawledAt": "2026-07-26T22:16:29.393Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1122,6 +1132,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T22:29:03.923Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1150,7 +1161,7 @@
       "title": "AI Governance Manager (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile della Governance AI (m/f/d)",
-        "en": "AI Governance Manager (m/f/d)",
+        "en": "AI Governance Manager (m/w/d)",
         "de": "AI Governance Manager (m/w/d)",
         "fr": "Responsable de la gouvernance de l'IA (m/f/d)"
       },
@@ -1166,7 +1177,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OL0A91",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:51.187Z",
+      "crawledAt": "2026-07-26T22:16:28.546Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1215,6 +1226,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T12:27:51.132Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1259,7 +1271,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9JE8O3",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:50.314Z",
+      "crawledAt": "2026-07-26T22:16:27.680Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1316,6 +1328,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T22:08:55.535Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1344,7 +1357,7 @@
       "title": "Customer Care Consultant (Service Desk Agent) (m/w/d)",
       "titleByLocale": {
         "it": "Customer Care Consulente (Service Desk Agent) (m/w/d)",
-        "en": "Customer Care Consultant (Service Desk Agent) (m/f/d)",
+        "en": "Customer Care Consultant (Service Desk Agent) (m/w/d)",
         "de": "Customer Care Berater (Service Desk Agent) (m/w/d)",
         "fr": "Consultant en soins à la clientèle (agent de service) (m/f/d)"
       },
@@ -1360,7 +1373,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=L3Y71M",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:49.438Z",
+      "crawledAt": "2026-07-26T22:16:26.821Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1406,6 +1419,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T13:27:39.678Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1450,7 +1464,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5JTZ59",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-26T11:03:47.695Z",
+      "crawledAt": "2026-07-26T22:16:25.091Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1491,6 +1505,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:37:57.596Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1519,7 +1534,7 @@
       "title": "Senior Netzwerk & Cloud Security Engineer (SASE / M365) (m/w/d)",
       "titleByLocale": {
         "it": "Ingegnere Senior di Rete e Sicurezza Cloud (SASE / M365)",
-        "en": "Senior Network & Cloud Security Engineer (SASE / M365) (m/f/d)",
+        "en": "Senior Netzwerk & Cloud Security Engineer (SASE / M365) (m/w/d)",
         "de": "Senior Netzwerk & Cloud Security Ingenieur (SASE / M365) (m/w/d)",
         "fr": "Ingénieur Senior Réseau et Sécurité Cloud (SASE / M365)"
       },
@@ -1535,7 +1550,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E972HZ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:46.831Z",
+      "crawledAt": "2026-07-26T22:16:24.239Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -1578,6 +1593,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T12:27:49.848Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1606,7 +1622,7 @@
       "title": "Senior Fullstack Software Engineer - Java/Angular (m/w/d)",
       "titleByLocale": {
         "it": "Senior Fullstack Software Ingegnere - Java/Angular (m/w/d)",
-        "en": "Senior Fullstack Software Engineer - Java/Angular (m/f/d)",
+        "en": "Senior Fullstack Software Engineer - Java/Angular (m/w/d)",
         "de": "Senior Fullstack Software Ingenieur - Java/Angular (m/w/d)",
         "fr": "Senior Fullstack Software Ingénieur - Java/Angular (m/w/d)"
       },
@@ -1622,7 +1638,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=VWR329",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:45.956Z",
+      "crawledAt": "2026-07-26T22:16:23.370Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1657,6 +1673,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:13:05.931Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1701,7 +1718,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=A93K9B",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:45.096Z",
+      "crawledAt": "2026-07-26T22:16:22.537Z",
       "addressLocality": "Basel Region",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1802,7 +1819,7 @@
       "title": "Senior Active Directory Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Senior Active Directory Ingegnere (m/w/d)",
-        "en": "Senior Active Directory Engineer (m/f/d)",
+        "en": "Senior Active Directory Engineer (m/w/d)",
         "de": "Senior Active Directory Ingenieur (m/w/d)",
         "fr": "Senior Active Directory Ingénieur (m/w/d)"
       },
@@ -1818,7 +1835,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E6S38Z",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:44.235Z",
+      "crawledAt": "2026-07-26T22:16:21.651Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1861,6 +1878,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:37:48.236Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1889,7 +1907,7 @@
       "title": "SHEQ Manager / Sicherheitsbeauftragte:r (SiBe) 100% (m/w/d)",
       "titleByLocale": {
         "it": "SHEQ Manager / Safety Officer (SiBe) 100% (m/f/d)",
-        "en": "SHEQ Manager / Security Officer:r (SiBe) 100% (m/f/d)",
+        "en": "SHEQ Manager / Sicherheitsbeauftragte:r (SiBe) 100% (m/w/d)",
         "de": "SHEQ Manager / Sicherheitsbeauftragte:r (SiBe) 100% (m/w/d)",
         "fr": "SHEQ Gestionnaire / Agent de sécurité (SiBe) 100% (m/f/d)"
       },
@@ -1905,7 +1923,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3MQ82W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:43.348Z",
+      "crawledAt": "2026-07-26T22:16:19.800Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1953,6 +1971,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T21:38:19.523Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1981,7 +2000,7 @@
       "title": "Release Train Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Release Train Ingegnere (m/w/d)",
-        "en": "Release Train Engineer (m/f/d)",
+        "en": "Release Train Engineer (m/w/d)",
         "de": "Release Train Ingenieur (m/w/d)",
         "fr": "Release Train Ingénieur (m/w/d)"
       },
@@ -1997,7 +2016,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B4I17W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:42.378Z",
+      "crawledAt": "2026-07-26T22:16:18.912Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2042,6 +2061,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T12:10:37.886Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2070,7 +2090,7 @@
       "title": "Senior DevOps Engineer AWS (m/w/d)",
       "titleByLocale": {
         "it": "Senior DevOps Ingegnere AWS (m/w/d)",
-        "en": "Senior DevOps Engineer AWS (m/f/d)",
+        "en": "Senior DevOps Engineer AWS (m/w/d)",
         "de": "Senior DevOps Ingenieur AWS (m/w/d)",
         "fr": "Senior DevOps Ingénieur AWS (m/w/d)"
       },
@@ -2086,7 +2106,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=H6Y46A",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:41.364Z",
+      "crawledAt": "2026-07-26T22:16:18.068Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2153,6 +2173,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:49:42.487Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -2197,7 +2218,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=WT1T07",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:39.482Z",
+      "crawledAt": "2026-07-26T22:16:17.197Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2247,6 +2268,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:33:23.637Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2291,7 +2313,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=WN66X7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:38.524Z",
+      "crawledAt": "2026-07-26T22:16:16.356Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2332,6 +2354,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:27:29.965Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2376,7 +2399,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3N22VU",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-26T11:03:37.642Z",
+      "crawledAt": "2026-07-26T22:16:15.488Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2425,6 +2448,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:28:45.542Z",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "baseSalary": {
@@ -2453,7 +2477,7 @@
       "title": "Zabbix Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Zabbix Ingegnere (m/w/d)",
-        "en": "Zabbix Engineer (m/f/d)",
+        "en": "Zabbix Engineer (m/w/d)",
         "de": "Zabbix Ingenieur (m/w/d)",
         "fr": "Zabbix Ingénieur (m/w/d)"
       },
@@ -2469,7 +2493,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C05OD2",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:36.747Z",
+      "crawledAt": "2026-07-26T22:16:14.641Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2519,6 +2543,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:28:37.373Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2563,7 +2588,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=69QGC5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:35.872Z",
+      "crawledAt": "2026-07-26T22:16:13.787Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2616,6 +2641,7 @@
         ]
       },
       "firstSeenAt": "2026-07-17T22:14:59.021Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2660,7 +2686,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=PJ1W39",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:34.958Z",
+      "crawledAt": "2026-07-26T22:16:12.936Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2704,6 +2730,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T13:31:01.932Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2732,7 +2759,7 @@
       "title": "Senior Network & Automation Architect (Private Cloud) (m/w/d)",
       "titleByLocale": {
         "it": "Senior Network & Automation Architetto (Private Cloud) (m/w/d)",
-        "en": "Senior Network & Automation Architect (Private Cloud)",
+        "en": "Senior Network & Automation Architect (Private Cloud) (m/w/d)",
         "de": "Senior Network & Automation Architect (Private Cloud) (m/w/d)",
         "fr": "Senior Network & Automation Architecte (Private Cloud) (m/w/d)"
       },
@@ -2748,7 +2775,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=RP64C4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:34.084Z",
+      "crawledAt": "2026-07-26T22:16:12.079Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2780,6 +2807,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:40:33.876Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -2808,7 +2836,7 @@
       "title": "System Engineer Open Source & Collaboration Platforms (Linux/OpenShift) (m/w/d)",
       "titleByLocale": {
         "it": "System Ingegnere Open Source & Collaboration Platforms (Linux/OpenShift) (m/w/d)",
-        "en": "System Engineer Open Source & Collaboration Platforms (Linux/OpenShift) (m/f/d)",
+        "en": "System Engineer Open Source & Collaboration Platforms (Linux/OpenShift) (m/w/d)",
         "de": "System Ingenieur Open Source & Collaboration Platforms (Linux/OpenShift) (m/w/d)",
         "fr": "System Ingénieur Open Source & Collaboration Platforms (Linux/OpenShift) (m/w/d)"
       },
@@ -2824,7 +2852,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3ZAH69",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:33.220Z",
+      "crawledAt": "2026-07-26T22:16:11.230Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2858,6 +2886,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:40:32.971Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2886,7 +2915,7 @@
       "title": "Sales Support (m/w/d)",
       "titleByLocale": {
         "it": "Business Consulente (m/w/d)",
-        "en": "Sales Support (m/f/d)",
+        "en": "Sales Support (m/w/d)",
         "de": "Sales Support (m/w/d)",
         "fr": "Consultant en affaires (m/f/d)"
       },
@@ -2902,7 +2931,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OAT063",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:32.296Z",
+      "crawledAt": "2026-07-26T22:16:10.391Z",
       "addressLocality": "Tessin",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -2955,6 +2984,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T11:35:30.570Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2999,7 +3029,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8N87XQ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-26T11:03:30.398Z",
+      "crawledAt": "2026-07-26T22:16:09.534Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3032,6 +3062,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T12:37:59.341Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3060,7 +3091,7 @@
       "title": "IT Service Manager/ Prozess Manager (m/w/d)",
       "titleByLocale": {
         "it": "IT Process Manager: in (m/f/d)",
-        "en": "IT Service Manager / Process Manager (m/f/d)",
+        "en": "IT Service Manager/ Prozess Manager (m/w/d)",
         "de": "IT Service Manager/ Prozess Manager (m/w/d)",
         "fr": "Gestionnaire de processus de TI : en (m/f/d)"
       },
@@ -3076,7 +3107,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=11I1UQ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:29.489Z",
+      "crawledAt": "2026-07-26T22:16:08.648Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3132,6 +3163,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T12:13:21.213Z",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -3176,7 +3208,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GJ589K",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-26T11:03:28.505Z",
+      "crawledAt": "2026-07-26T22:16:07.767Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3208,6 +3240,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:40:28.277Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -3252,7 +3285,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9K73US",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-26T11:03:27.524Z",
+      "crawledAt": "2026-07-26T22:16:06.750Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3284,6 +3317,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:40:27.364Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -3328,7 +3362,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=T81XK3",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-26T11:03:26.644Z",
+      "crawledAt": "2026-07-26T22:16:05.877Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3360,6 +3394,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:40:26.447Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -3390,7 +3425,7 @@
         "it": "Assistente amministrativo (m/f/d)",
         "en": "Administration Assistant (m/f/d)",
         "de": "Administration Assistent (m/f/d)",
-        "fr": "Assistant administratif (m/f/d)"
+        "fr": "Administration Assistant (m/f/d)"
       },
       "description": "For our clients team in Visp, we are looking for a reliable and motivated person for the position of Administrative Assistant (m/f/d).\n\nStart Date: Aug 2026\nEnd Date: 12-month contract (with a high chance of extension)\nWorkload: 100% with regular working hours (approx. 08:00 – 17:00) in a 41h/week\nLocation: Visp\nWorkmodel: Contracting\n\nYour responsibilies\n\n• General administrative tasks, supporting one business area\n\n• Handling access registrations for employees/visitors\n\n• Orders / POs for projects and various items\n\n• Office planning\n\n• Organizing meetings & conference rooms\n\n• Preparing meeting minutes and following up on action items\n\n• Expenses & Trainingsreports\n\n• Timekeeping\n\n• Organizing visits including badges, catering, and agendas\n\n• Supporting onboarding of new employees if needed\n\n• Calendar management for the CEO\n\n• Co-leading project teams & supporting events\n\n• Providing vacation coverage and acting as deputy for other team members\n\nYour Profil:\n\n• Commercial apprenticeship (EFZ), degree, or comparable qualification\n\n• Very good German and English skills, both written and spoken\n\n• Strong MS Office skills (Outlook, Word, Excel, PowerPoint, SharePoint)\n\n• Independent, proactive, and reliable working style\n\n• High level of responsibility and strong organizational skills\n\n• IT affinity and excellent communication skills\n\n• Assertive personality with quick comprehension\n\n• SAP/Ariba knowledge is an advantage",
       "descriptionByLocale": {
@@ -3404,7 +3439,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=M6OK94",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-26T11:03:25.763Z",
+      "crawledAt": "2026-07-26T22:16:04.840Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -3454,6 +3489,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:40:24.481Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3482,7 +3518,7 @@
       "title": "M365 Engineer (m/w/d)",
       "titleByLocale": {
         "it": "M365 Ingegnere (m/w/d)",
-        "en": "M365 Engineer (m/f/d)",
+        "en": "M365 Engineer (m/w/d)",
         "de": "M365 Ingenieur (m/w/d)",
         "fr": "M365 Ingénieur (m/w/d)"
       },
@@ -3498,7 +3534,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=010VGG",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:24.904Z",
+      "crawledAt": "2026-07-26T22:16:03.863Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3571,6 +3607,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:40:23.525Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3615,7 +3652,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=TM58E9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-26T11:03:24.011Z",
+      "crawledAt": "2026-07-26T22:16:02.977Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3662,6 +3699,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:12:32.718Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3706,7 +3744,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8SVF77",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-26T11:03:23.129Z",
+      "crawledAt": "2026-07-26T22:16:02.036Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -3754,6 +3792,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:38:38.260Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3798,7 +3837,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=1JF51S",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:03:22.212Z",
+      "crawledAt": "2026-07-26T22:16:01.140Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3846,6 +3885,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:12:30.875Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
