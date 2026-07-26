@@ -26900,6 +26900,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lavena-ponte-tresa-frontaliere',
+ category: 'pratico',
+ date: '2026-07-26T00:02:09.203Z',
+ image: '/images/blog/lavena-ponte-tresa-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
