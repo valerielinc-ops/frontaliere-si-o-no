@@ -20181,6 +20181,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-svizzera-frontalieri-guida': {
+    title: 'Lavoro in Svizzera e frontalieri: ricerca, agenzie e permessi',
+    description: 'Guida completa per cercare lavoro in Svizzera: agenzie, web, competenze linguistiche e permessi L, B, C, G per i frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, ricerca, agenzie, permessi',
+    ogTitle: 'Lavoro in Svizzera e frontalieri: guida a permessi e ricerca',
+    ogDescription: 'Scopri come cercare lavoro in Svizzera e quali permessi servono ai frontalieri.',
+    canonicalPath: '/articoli-svizzera/lavoro-svizzera-frontalieri-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro in Svizzera e frontalieri: ricerca, agenzie e permessi",
+      "description": "Guida completa per cercare lavoro in Svizzera: agenzie, web, competenze linguistiche e permessi L, B, C, G per i frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoro-svizzera-frontalieri-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con vista sul lago e sul territorio svizzero"
+      },
+      "datePublished": "2026-07-26T05:29:57+00:00",
+      "dateModified": "2026-07-26T05:29:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lavoro-svizzera-frontalieri-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

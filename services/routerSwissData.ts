@@ -543,6 +543,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'ristorni-frontalieri-sertori-nessun-effetto-immediato': { it: 'ristorni-frontalieri-sertori-nessun-effetto-immediato', en: 'no-immediate-effect-on-frontier-allowances-sertori', de: 'keine-umgehend-wirkung-auf-grenzengelder-sertori', fr: 'aucun-effet-immediat-sur-les-allocations-frontalieres-sertori' },
  'esercito-svizzero-valuta-bunker': { it: 'esercito-svizzero-valuta-bunker', en: 'swiss-army-evaluates-bunkers', de: 'schweizer-armee-prueft-bunker', fr: 'larmee-suisse-evalue-les-bunkers' },
  'confronto-imposta-cantonale-svizzera-cantoni': { it: 'confronto-imposta-cantonale-svizzera-cantoni', en: 'swiss-cantonal-tax-comparison', de: 'schweizer-kantonalsteuer-vergleich', fr: 'comparaison-de-l-impot-cantonal-en-suisse' },
+ 'lavoro-svizzera-frontalieri-guida': { it: 'lavoro-svizzera-frontalieri-guida', en: 'work-switzerland-cross-border-guide', de: 'arbeiten-schweiz-grenzgaenger-leitfaden', fr: 'travail-suisse-frontaliers-guide' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
