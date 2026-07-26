@@ -8985,6 +8985,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro.title': 'Déménager à Bizzarone en tant que frontalier : avantages et inconvénients',
     'blog.article.trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro.excerpt': 'Les avantages et les inconvénients du transfert à Bizzarone pour les frontaliers',
     'blog.article.trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro.imageAlt': 'Un frontalière dans une cuisine avec une carte de Bizzarone',
+    'blog.article.frontalieri-rallentano-ticino-aumentano-grigioni.title': 'Frontaliers : ralentissent au Tessin, augmentent dans les Grisons',
+    'blog.article.frontalieri-rallentano-ticino-aumentano-grigioni.excerpt': 'Les données du troisième trimestre confirment le ralentissement du nombre de travailleurs étrangers au Tessin, tandis qu\'il augmente dans les Grisons.',
+    'blog.article.frontalieri-rallentano-ticino-aumentano-grigioni.imageAlt': 'Le nombre de travailleurs étrangers en Tessin diminue, tandis qu\'en Grigioni il aumenta.',
 };
 
 export default blogMetaFr;

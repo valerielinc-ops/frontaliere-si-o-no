@@ -4909,6 +4909,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-confronto-imposta-cantonale-svizzera-cantoni': { name: 'Confronto imposta cantonale svizzera', path: '/articoli-svizzera/confronto-imposta-cantonale-svizzera-cantoni/', parent: 'blog' },
     'blog-trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro': { name: 'Trasferirsi a Bizzarone da frontaliere', path: '/articoli-frontaliere/trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro', parent: 'blog' },
     'blog-lavoro-svizzera-frontalieri-guida': { name: 'Lavoro Svizzera', path: '/articoli-svizzera/lavoro-svizzera-frontalieri-guida/', parent: 'blog' },
+    'blog-frontalieri-rallentano-ticino-aumentano-grigioni': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-rallentano-ticino-aumentano-grigioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];
