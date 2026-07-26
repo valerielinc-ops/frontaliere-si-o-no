@@ -7,8 +7,9 @@ import { rootShell } from '../../build-plugins/htmlTemplate';
  *
  * The spacer only reserves the sticky-nav header height correctly when React
  * actually mounts (createRoot replaces it with the real header). On a
- * bundle-less page — e.g. when `resolveEntryAssets` returns '' on a stale/missing
- * `dist/index.html` — React never mounts, so an unconditional spacer would sit as
+ * bundle-less page — e.g. when `resolveEntryAssets` returns '' because
+ * `dist/assets/` doesn't have the entry files yet — React never mounts, so an
+ * unconditional spacer would sit as
  * a PERMANENT empty band above the indexed SEO content. The gate makes that
  * impossible by construction: no bundle → plain empty `#root` (the harmless
  * pre-fix degrade).

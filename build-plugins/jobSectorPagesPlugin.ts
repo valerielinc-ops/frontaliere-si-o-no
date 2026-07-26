@@ -235,7 +235,7 @@ export interface BuildSectorLandingHtmlOptions {
   dateStamp: string;
   /** Pre-loaded sector prose data map (or empty `{}`). */
   sectorProseData: Parameters<typeof buildSectorProse>[3];
-  /** Hashed asset filenames discovered from dist/index.html (empty when SPA bundle absent). */
+  /** Stable SPA entry asset filenames from resolveSpaBundle (empty when SPA bundle absent). */
   entryJs?: string;
   entryCss?: string;
   /**

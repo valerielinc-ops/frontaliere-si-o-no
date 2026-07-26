@@ -27,13 +27,17 @@
  *
  * Entry asset resolution
  * ----------------------
- * Vite emits `/dist/index.html` before any `closeBundle` hook fires. All 6
- * feature plugins run in `closeBundle`, so we can safely read `dist/index.html`
- * and extract the hashed entry JS/CSS via regex — mirrors the pattern used
- * by staticPagesPlugin.ts and jobsSeoPagesPlugin.ts.
+ * The entry JS/CSS filenames are STABLE (fixed by vite.config.ts
+ * `entryFileNames`/`assetFileNames`, see `./spaEntryFilenames.ts`), so
+ * {@link resolveEntryAssets} no longer discovers them by reading and
+ * regex-parsing `dist/index.html` — it just confirms the known-fixed
+ * filenames exist under `dist/assets/`. This replaced a poll/parse race
+ * against `dist/index.html` that was the root cause of repeated deploy
+ * failures (#4745 and predecessors) in the sibling `spaBundleResolver.ts`;
+ * see that module's header for the full history.
  *
  * {@link resolveEntryAssets} caches the result per-build (keyed by distDir)
- * so each plugin doesn't re-read the same index.html for every page it emits.
+ * so each plugin doesn't re-check disk for every page it emits.
  */
 
 import fs from 'node:fs';
@@ -42,7 +46,7 @@ import { buildSimplePage, esc, type SimplePageOpts } from '../htmlTemplate';
 import { renderHubChromeSplit, type HubKey, type HubLocale, type HubHero } from './hubChrome';
 import { buildTitleWithBrand, TITLE_BRAND_SUFFIX } from './titleSuffix';
 import { minifyHtml } from './htmlMinify';
-import { SPA_ENTRY_JS_RX, SPA_ENTRY_CSS_RX } from './spaBundleRx';
+import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from './spaEntryFilenames';
 
 /**
  * Strip any pre-existing " | Frontaliere Ticino" suffix from a callsite-
@@ -74,37 +78,26 @@ interface EntryAssets {
 const ENTRY_CACHE = new Map<string, EntryAssets>();
 
 /**
- * Resolve the hashed entry JS + CSS from Vite's dist/index.html.
+ * Resolve the SPA entry JS + CSS bare filenames.
  *
- * Vite names the top-level entry `index-{hash}.js` / `index-{hash}.css` (not
- * `App-*`). We extract them from the already-generated `dist/index.html`
- * because Vite may emit other `index-*.js` chunks and scanning the assets
- * directory with a filename filter picks the wrong file. Reading the real
- * HTML `<script>` / `<link>` tags is the canonical approach — same trick
- * used by staticPagesPlugin.ts.
+ * These are STABLE, fixed by vite.config.ts (`entryFileNames`/
+ * `assetFileNames` — see `./spaEntryFilenames.ts`), so this just confirms
+ * the known filenames exist under `dist/assets/` instead of reading and
+ * regex-parsing `dist/index.html` (the former approach raced Vite's HTML
+ * write — see `spaBundleResolver.ts`'s header for the incident history).
  *
- * Returns empty strings if `dist/index.html` does not exist (e.g. test
- * environment). buildSimplePage tolerates empty entry asset paths by
- * omitting the script/link tags — the page still renders SEO content.
+ * Returns empty strings if the assets aren't there (e.g. test environment
+ * without a prior Vite build). buildSimplePage tolerates empty entry asset
+ * paths by omitting the script/link tags — the page still renders SEO
+ * content.
  */
 export function resolveEntryAssets(distDir: string): EntryAssets {
   const cached = ENTRY_CACHE.get(distDir);
   if (cached) return cached;
 
-  let entryJs = '';
-  let entryCss = '';
-  try {
-    const indexHtmlPath = np.join(distDir, 'index.html');
-    const built = fs.readFileSync(indexHtmlPath, 'utf-8');
-    // src/href may be same-origin or an absolute CDN URL (ASSET_CDN/renderBuiltUrl).
-    // Regexes shared with spaBundleResolver.ts via ./spaBundleRx (one definition,
-    // no copy-paste drift — see that module's header).
-    entryJs = built.match(SPA_ENTRY_JS_RX)?.[1] ?? '';
-    entryCss = built.match(SPA_ENTRY_CSS_RX)?.[1] ?? '';
-  } catch {
-    // dist/index.html missing — tests run without a prior Vite build.
-    // buildSimplePage handles empty strings by skipping the hydration tags.
-  }
+  const assetsDir = np.join(distDir, 'assets');
+  const entryJs = fs.existsSync(np.join(assetsDir, SPA_ENTRY_JS_FILENAME)) ? SPA_ENTRY_JS_FILENAME : '';
+  const entryCss = fs.existsSync(np.join(assetsDir, SPA_ENTRY_CSS_FILENAME)) ? SPA_ENTRY_CSS_FILENAME : '';
 
   const out: EntryAssets = { entryJs, entryCss };
   ENTRY_CACHE.set(distDir, out);

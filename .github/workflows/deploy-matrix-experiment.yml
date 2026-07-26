@@ -157,9 +157,6 @@ jobs:
       FAST_BUILD: ${{ github.event.inputs.fast_build == 'true' && '1' || '' }}
       SEQUENTIAL_PROFILE: ${{ github.event.inputs.parallel_plugins == 'true' && '' || '1' }}
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
-      # See deploy.yml — og-pages/etc.'s spaBundleResolver poll needs CI
-      # headroom against the growing blog-body corpus (2026-07-21 incident).
-      SPA_BUNDLE_POLL_TIMEOUT_MS: '30000'
     steps:
       - name: Checkout
         uses: actions/checkout@v5

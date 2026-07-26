@@ -4,18 +4,17 @@ import { tmpdir } from 'node:os';
 import { afterEach, describe, expect, it } from 'vitest';
 import { renderClusterPage, isClusterBelowFloor } from '../build-plugins/relatedSearchClustersPlugin';
 import { buildFlatBridgeFromSibling } from '../build-plugins/flatHtmlRedirectPlugin';
+import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from '../build-plugins/shared/spaEntryFilenames';
 
 const tmpDirs: string[] = [];
 
 function makeDist(): string {
   const dir = mkdtempSync(join(tmpdir(), 'rsc-shell-'));
   tmpDirs.push(dir);
-  mkdirSync(join(dir, 'assets'), { recursive: true });
-  writeFileSync(
-    join(dir, 'index.html'),
-    '<script type="module" crossorigin src="/assets/index-test123.js"></script><link rel="stylesheet" href="/assets/index-test123.css">',
-    'utf8',
-  );
+  const assetsDir = join(dir, 'assets');
+  mkdirSync(assetsDir, { recursive: true });
+  writeFileSync(join(assetsDir, SPA_ENTRY_JS_FILENAME), 'console.log(1)', 'utf8');
+  writeFileSync(join(assetsDir, SPA_ENTRY_CSS_FILENAME), 'body{}', 'utf8');
   return dir;
 }
 
@@ -230,8 +229,8 @@ describe('related search cluster SEO shell', () => {
     expect(page.html).toMatch(/hreflang="?x-default"?/);
     expect(page.html).toContain('<script type="application/ld+json">');
     expect(page.html).not.toContain('https:/frontaliereticino.ch');
-    expect(page.html).toContain('/assets/index-test123.js');
-    expect(page.html).toContain('/assets/index-test123.css');
+    expect(page.html).toContain(`/assets/${SPA_ENTRY_JS_FILENAME}`);
+    expect(page.html).toContain(`/assets/${SPA_ENTRY_CSS_FILENAME}`);
     expect(page.html).toContain('<!--EJP_STRIPPED-->');
     expect(page.html).toContain('og:image');
     expect(page.html).toContain('Rel 4');

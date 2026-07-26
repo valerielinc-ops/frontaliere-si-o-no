@@ -13,6 +13,7 @@ import {
   SEO_STATIC_CSS_LINK,
 } from '@/build-plugins/constants';
 import { findChunkFile, findChunkFiles } from '@/build-plugins/shared/chunkFiles';
+import { SPA_ENTRY_JS_FILENAME } from '@/build-plugins/shared/spaEntryFilenames';
 
 /**
  * Pins the STABLE-filename policy (vite.config.ts chunkFileNames /
@@ -52,7 +53,8 @@ describe('stable asset filenames', () => {
 
   it('vite.config.ts pins stable chunk and CSS names', () => {
     const src = fs.readFileSync(path.join(process.cwd(), 'vite.config.ts'), 'utf-8');
-    expect(src).toContain("entryFileNames: 'assets/index-entry.js'");
+    expect(src).toContain('entryFileNames: `assets/${SPA_ENTRY_JS_FILENAME}`');
+    expect(SPA_ENTRY_JS_FILENAME).toBe('index-entry.js');
     // chunkFileNames is a function: stable default + locale-qualified
     // blog-body chunks (their basenames collide across the 4 locale dirs).
     // The basename is routed through adFilterSafeChunkName (issue #2971) — a
