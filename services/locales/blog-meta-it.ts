@@ -8990,6 +8990,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Claino con Osteno da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.excerpt': 'Cosa deve considerare un frontaliere che lavora in Ticino e risiede in Italia prima di trasferirsi a Claino con Osteno.',
     'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere che lavora in Ticino e risiede in Italia si trova davanti alla scelta di trasferirsi a Claino con Osteno.',
+    'blog.article.gestione-sentieri-ticino.title': 'Dalle segnalazioni ai lavori, la gestione dei sentieri in Ticino',
+    'blog.article.gestione-sentieri-ticino.excerpt': 'La gestione dei sentieri in Ticino è un processo coordinato che coinvolge diversi attori. Stefano Olgiati, responsabile tecnico dei tracciati escursionistici di TicinoSentieri, spiega come funziona la rete che mantiene percorribili i percorsi del Canton Ticino.',
+    'blog.article.gestione-sentieri-ticino.imageAlt': 'Escursionisti in un sentiero nella zona del Monte Bre',
 };
 
 export default blogMetaIt;

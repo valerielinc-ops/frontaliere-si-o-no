@@ -8988,6 +8988,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.title': 'Umzug nach Claino mit Osteno als Grenzgänger: Vor- und Nachteile',
     'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.excerpt': 'Was ein Grenzgänger, der im Tessin arbeitet und in Italien wohnt, beachten muss, bevor er mit Osteno nach Claino zieht.',
     'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.imageAlt': 'Ein Frontalier, der in Ticino arbeitet und in Italien wohnt, steht vor der Wahl, nach Claino mit Osteno umzuziehen.',
+    'blog.article.gestione-sentieri-ticino.title': 'Von Ausschreibungen bis Arbeiten: Wanderweg-Verwaltung im Tessin',
+    'blog.article.gestione-sentieri-ticino.excerpt': 'Die Verwaltung der Wanderwege im Tessin ist ein koordinierter Prozess, an dem verschiedene Akteure beteiligt sind. Stefano Olgiati, technischer Leiter der Wanderwege von TicinoSentieri, erklärt, wie das Netz funktioniert, das die Wege des Kantons Tessin befahrbar hält.',
+    'blog.article.gestione-sentieri-ticino.imageAlt': 'Wanderer auf einem Pfad im Monte Bre Gebiet',
 };
 
 export default blogMetaDe;

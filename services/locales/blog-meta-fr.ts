@@ -8991,6 +8991,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Claino : avantages et inconvénients',
     'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.excerpt': 'Que doit considérer un frontalier qui travaille au Tessin et réside en Italie avant de déménager à Claino con Osteno.',
     'blog.article.trasferirsi-a-claino-con-osteno-da-frontaliere-pro-e-contro.imageAlt': 'Un frontalier qui travaille en Suisse et réside en Italie se trouve confronté à la décision de s\'installer à Claino avec Osteno.',
+    'blog.article.gestione-sentieri-ticino.title': 'Des signalements aux travaux, la gestion des sentiers au Tessin',
+    'blog.article.gestione-sentieri-ticino.excerpt': 'La gestion des sentiers au Tessin est un processus coordonné impliquant plusieurs acteurs. Stefano Olgiati, responsable technique des pistes de randonnée de TessinSentieri, explique comment fonctionne le réseau qui maintient les parcours du canton du Tessin praticables.',
+    'blog.article.gestione-sentieri-ticino.imageAlt': 'Randoneurs dans un sentier dans la zone du Monte Bre',
 };
 
 export default blogMetaFr;
