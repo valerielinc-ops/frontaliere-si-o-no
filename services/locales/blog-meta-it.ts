@@ -8972,6 +8972,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Trasquera da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.excerpt': 'Impostazioni fiscali, permessi, aspettative: cosa sapere prima di trasferirsi a Trasquera da frontaliere',
     'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere in auto che attraversa il confine tra Italia e Svizzera',
+    'blog.article.dazi-usa-economia-svizzera.title': 'Dazi USA e impatto sull\'economia elvetica: cosa cambia',
+    'blog.article.dazi-usa-economia-svizzera.excerpt': 'Secondo l\'Istituto di ricerche congiunturali, l\'aliquota dei dazi statunitensi frena in misura minima l\'economia svizzera, con impatti sotto lo 0,1%.',
+    'blog.article.dazi-usa-economia-svizzera.imageAlt': 'Castelli di Bellinzona e paesaggio del Canton Ticino',
 };
 
 export default blogMetaIt;

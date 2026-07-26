@@ -55491,6 +55491,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dazi-usa-economia-svizzera': {
+    title: 'Dazi USA e impatto sull\'economia elvetica: cosa cambia',
+    description: 'Analisi dell\'Istituto di ricerche congiunturali sui dazi doganali USA e sul loro impatto limitato sul PIL svizzero, con focus sulle esportazioni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dazi, impatto, sull, economia',
+    ogTitle: 'Dazi USA e impatto sull\'economia svizzera: cosa cambia',
+    ogDescription: 'I dazi doganali statunitensi frenano solo in parte l\'economia elvetica con un impatto sotto lo 0,1% sul PIL.',
+    canonicalPath: '/articoli-frontaliere/dazi-usa-economia-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dazi USA e impatto sull'economia elvetica: cosa cambia",
+      "description": "Analisi dell'Istituto di ricerche congiunturali sui dazi doganali USA e sul loro impatto limitato sul PIL svizzero, con focus sulle esportazioni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dazi-usa-economia-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelli di Bellinzona e paesaggio del Canton Ticino"
+      },
+      "datePublished": "2026-07-26T03:36:52+00:00",
+      "dateModified": "2026-07-26T03:36:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dazi-usa-economia-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

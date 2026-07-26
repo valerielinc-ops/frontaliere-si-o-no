@@ -8973,6 +8973,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.title': 'Déménager à Trasquera en tant que frontalier : avantages et inconvénients',
     'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.excerpt': 'Paramètres fiscaux, autorisations, attentes : ce qu\'il faut savoir avant de déménager à Trasquera en tant que frontalier',
     'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.imageAlt': 'Un frontalier en voiture qui traverse la frontière entre l\'Italie et la Suisse',
+    'blog.article.dazi-usa-economia-svizzera.title': 'Droits de douane américains et impact sur l\'économie suisse : ce qui change',
+    'blog.article.dazi-usa-economia-svizzera.excerpt': 'Selon l\'Institut de recherche conjoncturelle, le taux des droits américains freine dans une moindre mesure l\'économie suisse, avec des impacts inférieurs à 0,1%.',
+    'blog.article.dazi-usa-economia-svizzera.imageAlt': 'Châteaux de Bellinzona et paysage du Tessin',
 };
 
 export default blogMetaFr;

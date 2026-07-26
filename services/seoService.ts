@@ -4901,6 +4901,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavoro-oltreconfine-esercito-frontalieri': { name: 'Lavoro oltreconfine: l\'esercito dei', path: '/articoli-svizzera/lavoro-oltreconfine-esercito-frontalieri/', parent: 'blog' },
     'blog-trasferirsi-a-trasquera-da-frontaliere-pro-e-contro': { name: 'Trasferirsi a Trasquera da frontaliere', path: '/articoli-frontaliere/trasferirsi-a-trasquera-da-frontaliere-pro-e-contro', parent: 'blog' },
     'blog-sistema-sanitario-svizzero-lamal-guida-canton-lucerna': { name: 'Sistema sanitario svizzero', path: '/articoli-svizzera/sistema-sanitario-svizzero-lamal-guida-canton-lucerna/', parent: 'blog' },
+    'blog-dazi-usa-economia-svizzera': { name: 'Dazi USA ed economia', path: '/articoli-frontaliere/dazi-usa-economia-svizzera', parent: 'blog' },
  };
 
  const info = sectionNames[section];
