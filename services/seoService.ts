@@ -4918,6 +4918,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-costo-carburanti-benzina-gasolio-luglio-2026': { name: 'Costo Carburanti', path: '/articoli-frontaliere/costo-carburanti-benzina-gasolio-luglio-2026', parent: 'blog' },
     'blog-vivere-claino-osteno-lavorare-ticino': { name: 'Claino con Osteno Frontalieri', path: '/articoli-frontaliere/vivere-claino-osteno-lavorare-ticino', parent: 'blog' },
     'blog-secondo-pilastro-lpp-guida-completa': { name: 'Secondo pilastro LPP', path: '/articoli-svizzera/secondo-pilastro-lpp-guida-completa/', parent: 'blog' },
+    'blog-vivere-valsolda-lavorare-ticino': { name: 'Valsolda Frontalieri', path: '/articoli-frontaliere/vivere-valsolda-lavorare-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

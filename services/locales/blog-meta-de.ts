@@ -8997,6 +8997,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-claino-osteno-lavorare-ticino.title': 'Mit Osteno in Claino leben und als Grenzgänger im Tessin arbeiten',
     'blog.article.vivere-claino-osteno-lavorare-ticino.excerpt': 'Praktischer Leitfaden für das Pendeln zwischen Claino und Ostend und dem Kanton Tessin: Verbindungen, Quellensteuer, G-Genehmigungen und Lebenshaltungskosten für Grenzgänger.',
     'blog.article.vivere-claino-osteno-lavorare-ticino.imageAlt': 'Panoramablick auf Claino con Osteno nahe der Schweizer Grenze',
+    'blog.article.vivere-valsolda-lavorare-ticino.title': 'Wohnen in Valsolda und Arbeiten im Tessin als Grenzgänger: Führer',
+    'blog.article.vivere-valsolda-lavorare-ticino.excerpt': 'Praktischer Leitfaden zum Pendeln zwischen Valsolda und dem Kanton Tessin für Grenzgänger: Verbindungen, Reisezeiten und steuerliche Aspekte.',
+    'blog.article.vivere-valsolda-lavorare-ticino.imageAlt': 'Blick auf Valsolda mit dem Luganersee und der Schweizer Grenze',
 };
 
 export default blogMetaDe;
