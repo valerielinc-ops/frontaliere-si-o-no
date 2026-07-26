@@ -4897,6 +4897,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lamal-svizzero-ticino-2026': { name: 'Sistema sanitario svizzero', path: '/articoli-svizzera/lamal-svizzero-ticino-2026/', parent: 'blog' },
     'blog-vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere': { name: 'Vivere a Trasquera e lavorare in Ticino da', path: '/articoli-frontaliere/vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere', parent: 'blog' },
     'blog-sistema-sanitario-svizzero-lamal-guida-canton-san-gallo': { name: 'Guida al sistema sanitario svizzero LAMal', path: '/articoli-svizzera/sistema-sanitario-svizzero-lamal-guida-canton-san-gallo/', parent: 'blog' },
+    'blog-vivere-bizzarone-lavorare-ticino': { name: 'Vivere a Bizzarone e lavorare in Ticino da', path: '/articoli-frontaliere/vivere-bizzarone-lavorare-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];
