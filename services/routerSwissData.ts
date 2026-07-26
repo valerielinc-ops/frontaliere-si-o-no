@@ -537,6 +537,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera': { it: 'svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera', en: 'tariff-disadvantage-will-only-mildly-brake-swiss-economy', de: 'zoll-nachteil-erfasst-schweizer-wirtschaft-nur-mild', fr: 'd-c3-a9savantage-dutaxe-ne-fera-que-d-c3-a9j-c3-a9-un-bruit-c3-a9lev-c3-a9-sur-l' },
  'sistema-sanitario-svizzero-lamal-2026': { it: 'sistema-sanitario-svizzero-lamal-2026', en: 'swiss-healthcare-system-lamal-2026', de: 'schweizer-gesundheitssystem-lamal-2026', fr: 'systeme-sante-suisse-lamal-2026' },
  'lamal-svizzero-ticino-2026': { it: 'lamal-svizzero-ticino-2026', en: 'swiss-health-insurance-ticino-2026', de: 'schweizer-gesundheitsversicherung-tessin-2026', fr: 'assurance-sante-suisse-tessin-2026' },
+ 'sistema-sanitario-svizzero-lamal-guida-canton-san-gallo': { it: 'sistema-sanitario-svizzero-lamal-guida-canton-san-gallo', en: 'swiss-health-insurance-guidance-lamal-canton-san-gallo', de: 'schweizer-gesundheitsversicherung-fuhrer-lamal-kanton-san-gallo', fr: 'assurance-sante-suisse-lamal-guide-canton-san-gallo' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

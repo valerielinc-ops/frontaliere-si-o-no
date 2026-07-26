@@ -4625,6 +4625,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'sistema-sanitario-svizzero-lamal-guida-canton-san-gallo',
+    category: 'fiscale',
+    date: '2026-07-26T01:59:40.679Z',
+    image: '/images/blog/sistema-sanitario-svizzero-lamal-guida-canton-san-gallo.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

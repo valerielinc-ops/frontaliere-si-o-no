@@ -1543,6 +1543,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lamal-svizzero-ticino-2026.title': 'Schweizerisches Gesundheitssystem: KVG und Franchise',
     'blog.article.lamal-svizzero-ticino-2026.excerpt': 'Erfahren Sie, wie das Schweizer Gesundheitssystem funktioniert, einschließlich der Regeln für die Wahl der Kasse, der Franchise und der Rückerstattungen, mit spezifischen Daten für den Kanton Tessin.',
     'blog.article.lamal-svizzero-ticino-2026.imageAlt': 'Ein Frontalier assistiert einem Patienten in einem Schweizer Krankenhaus, mit einem Pfleger an seiner linken Seite.',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-san-gallo.title': 'Leitfaden zum KVG-Gesundheitssystem: Pflicht und Wahl',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-san-gallo.excerpt': 'Das Schweizer Gesundheitssystem KVG: Was ändert sich für Grenzgänger im Kanton St. Gallen und in der Schweiz?',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-san-gallo.imageAlt': 'Person, die ihre Schweizer Gesundheitsversicherungskarte betrachtet mit Sorge um Kosten und Leistungen.',
 };
 
 export default blogMetaChDe;

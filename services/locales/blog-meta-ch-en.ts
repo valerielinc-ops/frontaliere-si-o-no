@@ -1543,6 +1543,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lamal-svizzero-ticino-2026.title': 'Swiss health system: LAMal, choice of fund, deductible and reimbursements',
     'blog.article.lamal-svizzero-ticino-2026.excerpt': 'Find out how the Swiss healthcare system works, including the rules for choosing the cashier, deductible and reimbursements, with specific data for the canton of Ticino.',
     'blog.article.lamal-svizzero-ticino-2026.imageAlt': 'A frontaliere assists a patient in a Swiss hospital, with a nurse to his left.',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-san-gallo.title': 'Guide to the LAMal health system: obligation and choice',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-san-gallo.excerpt': 'The Swiss health system LAMal: what changes for border workers in the canton of St. Gallen and Switzerland.',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-san-gallo.imageAlt': 'Person looking at their Swiss health insurance card with concern for costs and coverage.',
 };
 
 export default blogMetaChEn;
