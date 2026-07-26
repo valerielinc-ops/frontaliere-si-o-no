@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadt-chur",
-  "assembledAt": "2026-07-26T11:10:24.139Z",
+  "assembledAt": "2026-07-26T22:19:40.816Z",
   "jobs": [
     {
       "title": "Treffmitarbeit Queerer Jugendtreff",
@@ -44,7 +44,7 @@
         "de": "treffmitarbeit-queerer-jugendtreff-stadt-chur-1700",
         "fr": "rencontre-avec-queerer-jugendtreff-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-26T11:02:36.629Z",
+      "crawledAt": "2026-07-26T22:13:00.057Z",
       "id": "stadt-chur-c06cc9091d80",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -117,7 +117,7 @@
         "de": "treffleitung-queerer-jugendtreff-stadt-chur-1701",
         "fr": "guidee-par-queerer-jugendtreff-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-26T11:03:43.391Z",
+      "crawledAt": "2026-07-26T22:14:06.820Z",
       "id": "stadt-chur-f6ae3a02a7e5",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -174,7 +174,7 @@
       "description": "Die Stadt Chur ist Amtssitz des Zivilstandsamtes, welches für die Region Plessur mit rund 44‘000 Einwohnerinnen und Einwohnern zuständig ist. Unser Amt befindet sich im Rathaus mitten in der wunderschönen Altstadt.Infolge Wechsels der Stelleninhaberin in ein anderes Ziv...",
       "titleByLocale": {
         "it": "Ufficiale di stato civile",
-        "en": "Civil status officer",
+        "en": "Zivilstandsbeamtin / Zivilstandsbeamter",
         "de": "Zivilstandsbeamtin / Zivilstandsbeamter",
         "fr": "Spécialiste de l ' état civil"
       },
@@ -190,7 +190,7 @@
         "de": "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699",
         "fr": "specialiste-de-l-etat-civil-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-26T11:04:50.151Z",
+      "crawledAt": "2026-07-26T22:15:13.584Z",
       "id": "stadt-chur-8181a7de3772",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -221,7 +221,8 @@
       "previousSlugs": [
         "civil-status-officer-stadt-chur-chur",
         "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Stadtgeometer/-in und Verantwortliche/-r Landerwerb (80%)",
@@ -265,7 +266,7 @@
         "de": "stadtgeometer-in-und-verantwortliche-r-landerwerb-80-stadt-chur-1679",
         "fr": "geometre-urbain-et-acquisition-responsable-de-terres-80-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-26T11:05:56.915Z",
+      "crawledAt": "2026-07-26T22:16:20.349Z",
       "id": "stadt-chur-b0fbf56b6b57",
       "salaryMin": 46000,
       "salaryMax": 69600,
@@ -294,81 +295,6 @@
       },
       "previousSlugs": [
         "stadtgeometer-in-und-verantwortliche-r-landerwerb-80-stadt-chur-1679"
-      ]
-    },
-    {
-      "title": "Dienststellenleiter/in Immobilien und Hochbau (80-100%)",
-      "slug": "dienststellenleiter-in-immobilien-e-hochbau-80-100-stadt-chur",
-      "url": "https://jobs.chur.ch/Dienststellenleiterin-Immobilien-und-Hochbau-80-100-de-j1698.html",
-      "applyUrl": "https://jobs.chur.ch/Dienststellenleiterin-Immobilien-und-Hochbau-80-100-de-j1698.html",
-      "company": "Stadt Chur",
-      "companyKey": "stadt-chur",
-      "companyDomain": "chur.ch",
-      "location": "Chur",
-      "addressLocality": "Chur",
-      "addressRegion": "Graubünden",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Pubblica Amministrazione",
-      "department": "",
-      "source": "stadt-chur-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-12",
-      "validThrough": "",
-      "employmentType": "full_time",
-      "contractType": "permanent",
-      "description": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die Dienststelle Immobilien und Hochbau wird im Zuge einer Reorganisat...",
-      "titleByLocale": {
-        "it": "Dienststellenleiter/in Immobilien e Hochbau (80-100%)",
-        "en": "Manager of Real Estate and Building Construction (80-100%)",
-        "de": "Dienststellenleiter/in Immobilien und Hochbau (80-100%)",
-        "fr": "Gestionnaire, Construction immobilière et immobilière (80-100%)"
-      },
-      "descriptionByLocale": {
-        "it": "Con 41.000 abitanti, Chur è il centro urbano di Grigioni. Come città attraente e versatile, fornisce servizi moderni e orientati al cliente con i suoi 1.400 dipendenti. Il Dipartimento di Real Estate e Edilizia sarà riorganizzato nel corso...",
-        "en": "With 41,000 inhabitants, Chur is the urban center of Graubünden. As an attractive and versatile city, it provides customer-oriented and modern services with its 1,400 employees. The Department of Real Estate and Building Construction will be reorganized in the course of...",
-        "de": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Die Dienststelle Immobilien und Hochbau wird im Zuge einer Reorganisat...",
-        "fr": "Avec 41 000 habitants, Chur est le centre urbain des Grisons. En tant que ville attrayante et polyvalente, elle offre des services axés sur le client et modernes avec ses 1 400 employés. Le département de l'immobilier et de la construction sera réorganisé..."
-      },
-      "slugByLocale": {
-        "it": "dienststellenleiter-in-immobilien-e-hochbau-80-100-stadt-chur",
-        "en": "manager-of-real-estate-and-building-construction-80-100-stadt-chur-chur",
-        "de": "dienststellenleiter-in-immobilien-und-hochbau-80-100-stadt-chur-1698",
-        "fr": "gestionnaire-construction-immobiliere-et-immobiliere-80-100-stadt-chur-chur"
-      },
-      "crawledAt": "2026-07-26T11:07:03.676Z",
-      "id": "stadt-chur-4c04fef428bd",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 67000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-12T22:34:33.671Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "gestionnaire-de-l-immobilier-et-de-la-construction-immobiliere-80-100-stadt-chur-chur",
-          "dienststellenleiter-in-immobilien-und-hochbau-80-100-stadt-chur-1698"
-        ],
-        "it": [
-          "dienststellenleiter-in-immobilien-und-hochbau-80-100-stadt-chur-1698"
-        ],
-        "en": [
-          "dienststellenleiter-in-immobilien-und-hochbau-80-100-stadt-chur-1698"
-        ]
-      },
-      "previousSlugs": [
-        "gestionnaire-de-l-immobilier-et-de-la-construction-immobiliere-80-100-stadt-chur-chur",
-        "dienststellenleiter-in-immobilien-und-hochbau-80-100-stadt-chur-1698"
       ]
     },
     {
@@ -413,7 +339,7 @@
         "de": "badmeister-in-saison-100-stadt-chur-1695",
         "fr": "badmaster-en-saison-100-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-26T11:08:10.435Z",
+      "crawledAt": "2026-07-26T22:17:27.111Z",
       "id": "stadt-chur-8abd0783429f",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -486,7 +412,7 @@
         "de": "sargtrager-in-stadt-chur-chur",
         "fr": "porte-cercueil-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-26T11:09:17.195Z",
+      "crawledAt": "2026-07-26T22:18:33.871Z",
       "id": "stadt-chur-4309d92c4ac7",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -563,7 +489,7 @@
         "de": "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446",
         "fr": "aspirants-policiers-et-aspirants-policiers-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-26T11:10:23.956Z",
+      "crawledAt": "2026-07-26T22:19:40.633Z",
       "id": "stadt-chur-b4ceea7ca5ef",
       "salaryMin": 57500,
       "salaryMax": 87000,
