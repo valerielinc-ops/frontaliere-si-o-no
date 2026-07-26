@@ -8962,6 +8962,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.permesso-g-formato-carta-credito-ticino.title': 'G leave by credit card: new from 1 October',
     'blog.article.permesso-g-formato-carta-credito-ticino.excerpt': 'From 1 October, the Canton of Ticino adopts the credit card format for G and C border workers\' permits, without biometric data.',
     'blog.article.permesso-g-formato-carta-credito-ticino.imageAlt': 'G permit in credit card format for cross-border workers in Ticino',
+    'blog.article.vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere.title': 'Living in Trasquera, working in Ticino: connections and cost of living',
+    'blog.article.vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere.excerpt': 'The Trasquera region offers a high quality of life and a unique natural environment. However, working in Ticino can present some challenges for border workers.',
+    'blog.article.vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'A frontalier in Trasquera',
 };
 
 export default blogMetaEn;

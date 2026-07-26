@@ -26927,6 +26927,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere',
+ category: 'pratico',
+ date: '2026-07-26T01:48:27.818Z',
+ image: '/images/blog/vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

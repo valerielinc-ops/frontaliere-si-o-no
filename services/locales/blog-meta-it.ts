@@ -8963,6 +8963,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.permesso-g-formato-carta-credito-ticino.title': 'Permesso G in carta di credito: novità dal 1° ottobre',
     'blog.article.permesso-g-formato-carta-credito-ticino.excerpt': 'Dal 1° ottobre il Canton Ticino adotta il formato carta di credito per i permessi dei frontalieri G e di domicilio C, senza dati biometrici.',
     'blog.article.permesso-g-formato-carta-credito-ticino.imageAlt': 'Permesso G in formato carta di credito per i frontalieri in Ticino',
+    'blog.article.vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere.title': 'Vivere a Trasquera, lavorare in Ticino: collegamenti e costo della vita',
+    'blog.article.vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere.excerpt': 'La regione di Trasquera offre una qualità della vita elevata e un ambiente naturale unico. Tuttavia, lavorare in Ticino può presentare alcuni sfidi per i frontaliere.',
+    'blog.article.vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'Un frontaliere a Trasquera',
 };
 
 export default blogMetaIt;

@@ -8961,6 +8961,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.permesso-g-formato-carta-credito-ticino.title': 'Kreditkartenausweis G: neu ab 1. Oktober',
     'blog.article.permesso-g-formato-carta-credito-ticino.excerpt': 'Ab dem 1. Oktober nimmt der Kanton Tessin das Kreditkartenformat für die Genehmigungen der Grenzgänger G und C ohne biometrische Daten an.',
     'blog.article.permesso-g-formato-carta-credito-ticino.imageAlt': 'G-Bewilligung im Kreditkartenformat für Grenzgänger im Tessin',
+    'blog.article.vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere.title': 'Leben in Trasquera, Arbeiten im Tessin: Verbindungen und Lebenshaltungskosten',
+    'blog.article.vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere.excerpt': 'Die Region Trasquera bietet eine hohe Lebensqualität und eine einzigartige natürliche Umgebung. Die Arbeit im Tessin kann jedoch einige Herausforderungen für Grenzgänger mit sich bringen.',
+    'blog.article.vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'Ein Frontalier in Trasquera',
 };
 
 export default blogMetaDe;

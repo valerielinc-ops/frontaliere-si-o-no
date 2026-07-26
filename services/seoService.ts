@@ -4895,6 +4895,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sistema-sanitario-svizzero-lamal-2026': { name: 'Sanità LAMal 2026', path: '/articoli-svizzera/sistema-sanitario-svizzero-lamal-2026/', parent: 'blog' },
     'blog-permesso-g-formato-carta-credito-ticino': { name: 'Permesso G carta di credito', path: '/articoli-frontaliere/permesso-g-formato-carta-credito-ticino', parent: 'blog' },
     'blog-lamal-svizzero-ticino-2026': { name: 'Sistema sanitario svizzero', path: '/articoli-svizzera/lamal-svizzero-ticino-2026/', parent: 'blog' },
+    'blog-vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere': { name: 'Vivere a Trasquera e lavorare in Ticino da', path: '/articoli-frontaliere/vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere', parent: 'blog' },
  };
 
  const info = sectionNames[section];
