@@ -8998,6 +8998,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-claino-osteno-lavorare-ticino.title': 'Living in Claino with Osteno and working in Ticino as a border worker',
     'blog.article.vivere-claino-osteno-lavorare-ticino.excerpt': 'Practical guide to commuting between Claino con Osteno and the Canton of Ticino: connections, tax at source, G permits and cost of living for border crossers.',
     'blog.article.vivere-claino-osteno-lavorare-ticino.imageAlt': 'Panoramic view of Claino con Osteno near the Swiss border',
+    'blog.article.vivere-valsolda-lavorare-ticino.title': 'Living in Valsolda and working in Ticino as a border worker: guide',
+    'blog.article.vivere-valsolda-lavorare-ticino.excerpt': 'Practical guide to commuting between Valsolda and the Canton of Ticino for border crossers: connections, journey times and tax aspects.',
+    'blog.article.vivere-valsolda-lavorare-ticino.imageAlt': 'View of Valsolda overlooking Lake Lugano and the Swiss border',
 };
 
 export default blogMetaEn;

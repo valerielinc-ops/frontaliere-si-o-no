@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3543,
+ "numberOfItems": 3544,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8311,7 +8311,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3540, "name": "Salario medio in Svizzera per professione", "url": `${BASE_URL}/articoli-frontaliere/salario-medio-svizzera-professione` },
           { "@type": "ListItem", "position": 3541, "name": "Costo carburanti alle stelle: benzina a 1,97 eu...", "url": `${BASE_URL}/articoli-frontaliere/costo-carburanti-benzina-gasolio-luglio-2026` },
           { "@type": "ListItem", "position": 3542, "name": "Vivere a Claino con Osteno e lavorare in Ticino...", "url": `${BASE_URL}/articoli-frontaliere/vivere-claino-osteno-lavorare-ticino` },
-          { "@type": "ListItem", "position": 3543, "name": "Secondo pilastro LPP: guida completa e funziona...", "url": `${BASE_URL}/articoli-frontaliere/secondo-pilastro-lpp-guida-completa` }
+          { "@type": "ListItem", "position": 3543, "name": "Secondo pilastro LPP: guida completa e funziona...", "url": `${BASE_URL}/articoli-frontaliere/secondo-pilastro-lpp-guida-completa` },
+          { "@type": "ListItem", "position": 3544, "name": "Vivere a Valsolda e lavorare in Ticino da front...", "url": `${BASE_URL}/articoli-frontaliere/vivere-valsolda-lavorare-ticino` }
  ]
  },
  {

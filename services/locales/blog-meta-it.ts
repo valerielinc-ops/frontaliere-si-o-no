@@ -8999,6 +8999,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-claino-osteno-lavorare-ticino.title': 'Vivere a Claino con Osteno e lavorare in Ticino da frontaliere',
     'blog.article.vivere-claino-osteno-lavorare-ticino.excerpt': 'Guida pratica al pendolarismo tra Claino con Osteno e il Canton Ticino: collegamenti, imposta alla fonte, permessi G e costo della vita per i frontalieri.',
     'blog.article.vivere-claino-osteno-lavorare-ticino.imageAlt': 'Vista panoramica di Claino con Osteno vicino al confine con il Ticino',
+    'blog.article.vivere-valsolda-lavorare-ticino.title': 'Vivere a Valsolda e lavorare in Ticino da frontaliere: guida',
+    'blog.article.vivere-valsolda-lavorare-ticino.excerpt': 'Guida pratica al pendolarismo tra Valsolda e il Canton Ticino per i frontalieri: collegamenti, tempi di percorrenza e aspetti fiscali.',
+    'blog.article.vivere-valsolda-lavorare-ticino.imageAlt': 'Panorama di Valsolda con vista sul Lago di Lugano e il confine svizzero',
 };
 
 export default blogMetaIt;
