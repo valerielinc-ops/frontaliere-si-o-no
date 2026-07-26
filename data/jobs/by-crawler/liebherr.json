@@ -81,9 +81,9 @@
     },
     {
       "id": "liebherr-fe7aa8b60a44",
-      "slug": "bid-capture-manager-defense-liebherr-nussbaumen",
+      "slug": "responsabile-offerte-e-acquisizioni-difesa-m-f-d-liebherr-nussbaumen",
       "slugByLocale": {
-        "it": "bid-capture-manager-defense-liebherr-nussbaumen",
+        "it": "responsabile-offerte-e-acquisizioni-difesa-m-f-d-liebherr-nussbaumen",
         "en": "bid-capture-manager-defense-liebherr-nussbaumen",
         "de": "bid-capture-manager-defense-liebherr-nussbaumen",
         "fr": "directeur-de-la-defense-des-soumissions-et-des-saisies-liebherr-nussbaumen"
@@ -139,7 +139,15 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "bid-capture-manager-defense-liebherr-nussbaumen"
+        ]
+      },
+      "previousSlugs": [
+        "bid-capture-manager-defense-liebherr-nussbaumen"
+      ]
     },
     {
       "id": "liebherr-f3d1a5c9d9e8",
