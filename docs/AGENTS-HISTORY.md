@@ -93,6 +93,30 @@ Riferimento: repack `-a -d -b` è costoso (CPU/tempo proporzionali al numero di 
 
 `generate-article.yml` self-trigger chain (`Determine self-trigger decision` step) aveva, sul ramo `has_changes=false` (nessuna nuova sorgente / tutti duplicati), una scala di backoff a tier sullo streak di run consecutivi senza contenuto: 0s (streak 0-2) → 600s (3-5) → 1800s (6-9) → streak≥10 = **stop self-trigger, passa a cron** (cron ogni 30min con ~34% utilization misurata, commento riga 647). Osservato in produzione (run 29554344058, 2026-07-17 04:14-04:54): streak arrivato a 9, atteso 1800s prima del dispatch; run successivo (29555980945) ha esaurito lo streak a 10 e ceduto a cron, che ha ripreso solo alle 07:27 — ~2.5h senza generazione contenuti nonostante il self-trigger fosse pensato per bypassare proprio quell'inaffidabilità. Owner decision 2026-07-17: rimossa la scala a tier e il cap streak≥10 — il ramo `has_changes=false` ora fa sempre `DELAY=60` e non cede mai a cron (`SHOULD_TRIGGER` sempre `true`). Un pool discovery vuoto non è un errore (a differenza del ramo failure, che mantiene il suo backoff 60/300/1800s + cap 3 retry — quello resta invariato: un fallimento ripetuto è un segnale reale di stato avvelenato, un pool vuoto no). `NO_CHANGES_STREAK` resta tracciato/loggato per osservabilità ma non guida più alcuna decisione.
 
+## test-verdi-gate
+
+`pr-review-loop` triggerava su `pull_request` → pattern osservato ripetutamente: PR aperta con vitest rosso → review Claude parte comunque, dà OK sul contenuto → push fix test → review re-parte da capo. Bruciava 2× quota Max sul burner #1 del loop autonomo. Fix: trigger cambiato a `workflow_run[tests]==success` — la review non parte mai finché i test non sono verdi, eliminando il ciclo sprecato.
+
+## test-fixture-relative-dates
+
+Outage main-red 2026-06-01 (fix #1035): `cleanup-jobs.mjs` pruna job con `crawledAt`/`datePosted` oltre soglia 60 giorni. Un test fixture aveva date letterali hardcoded (es. `'2026-04-01'`). Quando il calendario ha superato i 60 giorni dalla data hardcoded, il job di test è stato prunato come stale invece di seguire il path atteso → suite rossa senza alcun code change, puro confine temporale.
+
+## blocker-not-stall
+
+Errore #1831: main-red dichiarato "fuori scope" e segnalato come issue #1835, quando in realtà era GIÀ stato fixato a monte da #1840 poco prima — sarebbe bastato `git merge origin/main` localmente per verificarlo prima di dichiarare blocco. Lezione: prima di dichiarare blocked/out-of-scope, cercare sempre un fix già esistente (git log/PR/issue recenti sullo stesso sintomo).
+
+## data-refresh-gate
+
+Outage 2026-06-02: un workflow bot (`sync-gsc-orphans`/`discover-404s`) pushava `data/seo-404-compat-paths.json` diretto su `main` senza validare l'invariante contro `tests/search-console-compat.test.ts` → commit `github-actions[bot]` non presidiato ha mandato `main` rosso senza nessuna PR "colpevole" da revertare. Fix: `scripts/prune-404-compat-paths.ts` pruna pre-commit i path che `resolveSearchConsoleCompatTarget` non mappa, così l'invariante resta verde by-construction prima che il dato tocchi `main`.
+
+## unvalidated-perf-claim
+
+Pattern #795/#802 → revert #822 (PR #1185–1311, `REVIEW.md` step 7): claim "atteso GREEN/−NNN MB" su path SSG-emit memory (`build-plugins/jobsSeoPagesPlugin.ts`, `build-plugins/shared/seoPageShell.ts`, worker pool, `POST_WALK_WORKERS`) mergiati speculativamente, senza un run misurato — il `build:ci` OOM-prone gira solo post-merge su `main`, quindi il claim non è verificabile sul `pull_request`. Quando il claim si è rivelato sbagliato, il deploy post-merge ha OOMato/regredito wall-time, costando un intero ciclo deploy (30-90min) di revert. Fix: claim non validato accettato dal reviewer SOLO se accompagnato da un revert-trigger esplicito dichiarato in `## Non implementato` ("se il prossimo deploy OOMa/regredisce → revert"); senza, è 🔴.
+
+## seo-moratorium-removed
+
+Owner decision 2026-06-24: la posizione media 7-day GSC (`data/gsc-position-rolling.json`) era un gate bloccante su nuove SEO landing. Rimosso dopo che ha causato perdita di traffico reale — es. ~14k/giorno di pagine `ricerca-stipendio-*` servite 404 agli utenti pur di proteggere la metrica di posizione media. `scripts/check-seo-moratorium.mjs` ora report-only (always exit 0), step CI in `deploy.yml` `continue-on-error`. La metrica resta tracciata per visibilità ma non blocca più nulla.
+
 ## spa-bundle-resolver-static-filenames
 
 Issue #4745 (e i 3 predecessori #4638/#4738/#4746) erano lo stesso deploy failure ricorrente su tutti i 4 locale: `build-plugins/spaBundleResolver.ts` (e la sibling `resolveEntryAssets` in `build-plugins/shared/seoPageShell.ts`) pollavano e regex-parsavano `dist/index.html` per scoprire il filename hashato del bundle SPA entry, prima che i plugin SEO pesanti (jobs-seo-pages, og-pages, ecc.) girassero il loro `closeBundle`. 3 fix precedenti hanno solo tunato il timing del poll (3s → 30s → 120s, poi "prewarm come primissimo closeBundle handler con `order: 'pre'`") — tutti ri-falliti entro giorni, perché il target del poll (`dist/index.html`) continuava a non esistere ancora al momento del poll, per ragioni che sopravvivevano a ogni tuning di timeout/ordine.
