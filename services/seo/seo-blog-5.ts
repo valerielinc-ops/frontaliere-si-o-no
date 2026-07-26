@@ -55452,6 +55452,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasferirsi-a-trasquera-da-frontaliere-pro-e-contro': {
+    title: 'Trasferirsi a Trasquera da frontaliere: pro e contro',
+    description: 'Impostazioni fiscali, permessi, aspettative: cosa sapere prima di trasferirsi a Trasquera da frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, trasquera, contro, impostazioni',
+    ogTitle: 'Trasferirsi a Trasquera da frontaliere: pro e contro',
+    ogDescription: 'Impostazioni fiscali, permessi, aspettative: cosa sapere prima di trasferirsi a Trasquera da frontaliere',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-a-trasquera-da-frontaliere-pro-e-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Trasquera da frontaliere: pro e contro",
+      "description": "Impostazioni fiscali, permessi, aspettative: cosa sapere prima di trasferirsi a Trasquera da frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere in auto che attraversa il confine tra Italia e Svizzera"
+      },
+      "datePublished": "2026-07-26T03:04:46+00:00",
+      "dateModified": "2026-07-26T03:04:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-trasquera-da-frontaliere-pro-e-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -8970,6 +8970,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-bizzarone-lavorare-ticino.title': 'Vivre à Bizzarone et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-bizzarone-lavorare-ticino.excerpt': 'Parce que le Tessin est un excellent choix pour les frontaliers qui souhaitent travailler en Suisse.',
     'blog.article.vivere-bizzarone-lavorare-ticino.imageAlt': 'Un frontaliere en voiture qui traverse la frontière entre l\'Italie et la Suisse.',
+    'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.title': 'Déménager à Trasquera en tant que frontalier : avantages et inconvénients',
+    'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.excerpt': 'Paramètres fiscaux, autorisations, attentes : ce qu\'il faut savoir avant de déménager à Trasquera en tant que frontalier',
+    'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.imageAlt': 'Un frontalier en voiture qui traverse la frontière entre l\'Italie et la Suisse',
 };
 
 export default blogMetaFr;

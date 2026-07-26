@@ -8968,6 +8968,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-bizzarone-lavorare-ticino.title': 'Living in Bizzarone and working in Ticino as a border worker',
     'blog.article.vivere-bizzarone-lavorare-ticino.excerpt': 'Because Ticino is a great choice for border workers who want to work in Switzerland.',
     'blog.article.vivere-bizzarone-lavorare-ticino.imageAlt': 'A frontaliere driving across the Italy-Switzerland border.',
+    'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.title': 'Moving to Trasquera from a border crossing: pros and cons',
+    'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.excerpt': 'Tax settings, permits, expectations: what to know before moving to Trasquera from a border crossing',
+    'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.imageAlt': 'A frontaliere in a car crossing the border between Italy and Switzerland',
 };
 
 export default blogMetaEn;
