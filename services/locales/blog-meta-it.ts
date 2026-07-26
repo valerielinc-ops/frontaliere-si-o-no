@@ -8960,6 +8960,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.prestazioni-lpp-svizzere-tassazione.title': 'Prestazioni Lpp svizzere: regole di tassazione',
     'blog.article.prestazioni-lpp-svizzere-tassazione.excerpt': 'Le somme corrisposte dalla previdenza professionale svizzera seguono le regole impositive delle rendite AVS.',
     'blog.article.prestazioni-lpp-svizzere-tassazione.imageAlt': 'Prestazioni Lpp svizzere e modalità di tassazione per i lavoratori',
+    'blog.article.permesso-g-formato-carta-credito-ticino.title': 'Permesso G in carta di credito: novità dal 1° ottobre',
+    'blog.article.permesso-g-formato-carta-credito-ticino.excerpt': 'Dal 1° ottobre il Canton Ticino adotta il formato carta di credito per i permessi dei frontalieri G e di domicilio C, senza dati biometrici.',
+    'blog.article.permesso-g-formato-carta-credito-ticino.imageAlt': 'Permesso G in formato carta di credito per i frontalieri in Ticino',
 };
 
 export default blogMetaIt;

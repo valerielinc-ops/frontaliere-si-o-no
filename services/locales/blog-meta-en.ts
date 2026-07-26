@@ -8959,6 +8959,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.prestazioni-lpp-svizzere-tassazione.title': 'Swiss LPP Performance: Taxation Rules',
     'blog.article.prestazioni-lpp-svizzere-tassazione.excerpt': 'The sums paid by the Swiss occupational pension scheme follow the tax rules of the AVS annuities.',
     'blog.article.prestazioni-lpp-svizzere-tassazione.imageAlt': 'Swiss LPP benefits and taxation rules for workers',
+    'blog.article.permesso-g-formato-carta-credito-ticino.title': 'G leave by credit card: new from 1 October',
+    'blog.article.permesso-g-formato-carta-credito-ticino.excerpt': 'From 1 October, the Canton of Ticino adopts the credit card format for G and C border workers\' permits, without biometric data.',
+    'blog.article.permesso-g-formato-carta-credito-ticino.imageAlt': 'G permit in credit card format for cross-border workers in Ticino',
 };
 
 export default blogMetaEn;
