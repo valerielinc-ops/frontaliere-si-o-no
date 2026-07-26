@@ -81,3 +81,39 @@ Both work for *not having* the files, but we need them locally — `npm test`
 loads `data/all-known-job-slugs.json`, the Vite build reads
 `data/health-premiums.json`, etc. `--skip-worktree` is the right tool: keep
 the files, hide the noise.
+
+## Syncing a stale+dirty local `main` (explicit user request only)
+
+Only run this when the user explicitly asks to sync a stale/dirty local
+`main` — otherwise never touch it (see AGENTS.md, local `main` is
+shared/read-only and any dirty files on it are foreign work-in-progress).
+
+1. `git stash push -u` — backs up the foreign dirty work instead of
+   discarding it.
+2. `git reset --hard origin/main`.
+3. If step 2 fails with `Entry '...' not uptodate` but `git status` reports
+   clean — that's a racy index (repo has ~19k tracked files, a known
+   false-positive pattern at this scale). Canonical fix:
+   `rm -f .git/index && git reset --hard HEAD`.
+
+Never commit the dirty state you find on `main` — it isn't yours.
+
+## `git push` timeout / huge pack for a tiny diff
+
+Symptom: `git rev-list --objects origin/main..HEAD` shows only a handful of
+objects the branch actually needs, but the push transfers hundreds of MB
+and stalls (`RPC failed; curl 28 Operation too slow`). This is **not** a
+network problem — the local repo is unmaintained.
+
+1. Diagnose: `git count-objects -vH` (a high `prune-packable` count means
+   disjoint packs) and `git multi-pack-index write --bitmap` (fails with
+   `Packfile doesn't have full closure` when a pack has cross-pack delta
+   references that never got closed by a repack).
+2. Fix: `git repack -a -d -b` (needs roughly 2× the current pack size in
+   free disk headroom), then `git maintenance start` so it doesn't
+   recur.
+3. The object store is shared by every worktree of this clone
+   (`git worktree add` points at the same `.git`) — one repack fixes it
+   for all of them.
+
+Why this happens and how it was found: `docs/AGENTS-HISTORY.md#git-repo-maintenance`.
