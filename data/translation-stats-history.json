@@ -11398,5 +11398,119 @@
         "pending": 2
       }
     ]
+  },
+  {
+    "timestamp": "2026-07-26T07:55:42.469Z",
+    "label": "before",
+    "total": 24623,
+    "needsRetranslation": 9621,
+    "suppressed": 38,
+    "incomplete": 147,
+    "complete": 24476,
+    "missingByLocale": {
+      "it": 79,
+      "en": 37,
+      "de": 69,
+      "fr": 47
+    },
+    "topPending": [
+      {
+        "company": "SRO AG (Spital Region Oberaargau)",
+        "pending": 45
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 30
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 4
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Sulzer",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-26T08:04:02.458Z",
+    "label": "after",
+    "total": 24623,
+    "needsRetranslation": 994,
+    "suppressed": 38,
+    "incomplete": 147,
+    "complete": 24476,
+    "missingByLocale": {
+      "it": 79,
+      "en": 37,
+      "de": 69,
+      "fr": 47
+    },
+    "topPending": [
+      {
+        "company": "SRO AG (Spital Region Oberaargau)",
+        "pending": 45
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 30
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 4
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Sulzer",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      }
+    ]
   }
 ]

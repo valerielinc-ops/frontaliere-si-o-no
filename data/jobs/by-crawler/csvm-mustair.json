@@ -393,7 +393,7 @@
       "slug": "dipl-professionista-hf-center-da-sanda-val-mustair-csvm-sta",
       "slugByLocale": {
         "it": "dipl-professionista-hf-center-da-sanda-val-mustair-csvm-sta",
-        "en": "dipl-care-professional-hf-center-da-sanda-val-mustair-csvm-sta",
+        "en": "dipl-pflegefachperson-hf-csvm-mustair-mustair",
         "de": "dipl-pflegefachperson-hf-csvm-mustair-mustair",
         "fr": "dipl-soins-professionnels-hf-center-da-sanda-val-mustair-csvm-sta"
       },
@@ -438,17 +438,21 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
+          "dipl-care-professional-hf-center-da-sanda-val-mustair-csvm-sta",
           "dipl-pflegefachperson-hf-csvm-mustair-mustair"
         ],
         "it": [
-          "dipl-pflegefachperson-hf-csvm-mustair-mustair"
+          "dipl-pflegefachperson-hf-csvm-mustair-mustair",
+          "dipl-professionista-hf-center-da-sanda-val-mustair-csvm-sta"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-csvm-mustair-mustair"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-csvm-mustair-mustair"
+        "dipl-pflegefachperson-hf-csvm-mustair-mustair",
+        "dipl-care-professional-hf-center-da-sanda-val-mustair-csvm-sta",
+        "dipl-professionista-hf-center-da-sanda-val-mustair-csvm-sta"
       ],
       "firstSeenAt": "2026-07-16T23:27:37.126Z",
       "salaryMin": 57500,

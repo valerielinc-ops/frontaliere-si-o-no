@@ -2026,7 +2026,8 @@
         "bioconjugates-trainer-f-m-d-lonza-ch",
         "entraineur-de-bioconjugaison-f-m-d-lonza-ch",
         "operatore-operatore-centrale-bioconjugates-pcp-100-m-f-d-lonza-ch",
-        "operator-anlagebediener-bioconjugates-pcp-100-m-w-d-lonza-ch"
+        "operator-anlagebediener-bioconjugates-pcp-100-m-w-d-lonza-ch",
+        "operatore-bioconjugates-m-f-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2038,7 +2039,8 @@
           "bioconjugates-ausbildner-w-m-d-lonza-ch",
           "allenatore-bioconiugati-f-m-d-lonza-ch",
           "operatore-operatore-centrale-bioconjugates-pcp-100-m-f-d-lonza-ch",
-          "operator-anlagebediener-bioconjugates-pcp-100-m-w-d-lonza-ch"
+          "operator-anlagebediener-bioconjugates-pcp-100-m-w-d-lonza-ch",
+          "operatore-bioconjugates-m-f-d-lonza-ch"
         ],
         "en": [
           "vi-operator-f-m-d-lonza-ch",
@@ -5133,7 +5135,7 @@
         "it": "laboratorio-m-f-qc-mammalian-lonza-ch",
         "en": "laboratory-m-f-qc-mammalian-lonza-ch",
         "de": "laborant-m-w-qc-mammalian-lonza-ch",
-        "fr": "laboratoire-m-f-qc-mammalien-lonza-ch"
+        "fr": "laborant-m-w-d-qc-mammalian-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -5176,11 +5178,14 @@
       "previousSlugs": [
         "laborant-m-w-qc-mammalian-lonza-ch",
         "laboratoire-m-f-qc-mammalian-lonza-ch",
+        "laboratoire-m-f-qc-mammalien-lonza-ch",
+        "laboratorio-m-f-qc-mammalian-lonza-ch",
         "laborant-m-w-d-qc-mammalian-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laborant-m-w-qc-mammalian-lonza-ch"
+          "laborant-m-w-qc-mammalian-lonza-ch",
+          "laboratorio-m-f-qc-mammalian-lonza-ch"
         ],
         "en": [
           "laborant-m-w-qc-mammalian-lonza-ch"
@@ -5188,6 +5193,7 @@
         "fr": [
           "laborant-m-w-qc-mammalian-lonza-ch",
           "laboratoire-m-f-qc-mammalian-lonza-ch",
+          "laboratoire-m-f-qc-mammalien-lonza-ch",
           "laborant-m-w-d-qc-mammalian-lonza-ch"
         ]
       },
