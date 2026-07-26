@@ -76,59 +76,6 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "product-ingegnere-swissquote-gland",
-    "title": "Product Engineer",
-    "titleByLocale": {
-      "it": "Product Ingegnere",
-      "en": "Product Engineer",
-      "de": "Product Ingenieur",
-      "fr": "Product Ingénieur"
-    },
-    "company": "Swissquote",
-    "companyKey": "swissquote",
-    "location": "Gland",
-    "addressLocality": "Gland",
-    "descriptionByLocale": {
-      "it": "La missione del team CRM La missione del team è quella di sviluppare e mantenere il CRM di Swissquote e integrarlo con le nostre soluzioni di sviluppo IT & software interne. La soluzione basata su Microsoft è stata scelta; Dynamics 365 è l'ultima versione live che offre i moduli Sales & Marketing (Customer insights). Il team collabora con il reparto assistenza clienti offrendo una simile esperienza Dynamics 365 basata su soluzioni sviluppate internamente replicando MS Dynamics - Customer Service - capabilites. Informazioni sul ruolo Siamo alla ricerca di un Product Engineer che combina forti competenze di ingegneria del software con una mentalità del prodotto per costruire soluzioni AI-powered per i nostri clienti e dipendenti. Potrai progettare, sviluppare e distribuire applicazioni AI-native, possedere il ciclo di vita completo da servizi backend e l'integrazione del modello per l'esperienza utente e il monitoraggio delle prestazioni. Lavorando a stretto contatto con i team di Customer Care e Sales Team di business, vi aiuterà a trasformare la nostra soluzione CRM attraverso soluzioni pratiche e affidabili inhouse AI. responsabilità\n• Costruire e mantenere applicazioni di codice generato AI utilizzando agenti di codifica come ClaudeCode\n• Integrare con altri componenti dell'ecosistema CRM Swissquote come MS Dynamics 365, Genesys, Micro Service in ambienti produttivi.\n• Collabora con Data Scientists e gli stakeholder aziendali per offrire soluzioni puntuali e dirette al punto.\n• Assicurarsi che le soluzioni soddisfino i requisiti di sicurezza, conformità e governance previsti in un ambiente finanziario regolamentato.\n• Esperienza nello sviluppo di applicazioni software di qualità della produzione.\n• Forte capacità di programmazione in Java e moderni framework di sviluppo software, la comprensione dell'ambiente .Net è un plus.\n• Esperienza pratica con LLM, ingegneria rapida e sviluppo delle applicazioni AI.\n• Forte capacità di problem solving e pensiero orientato al prodotto.\n• L'esperienza nelle applicazioni CRM è un forte vantaggio\n• L'esperienza nei servizi bancari, finanziari o fintech è un vantaggio.",
-      "en": "The CRM team mission\nThe team mission is to develop &, maintain Swissquote's CRM and integrate it with our internal IT & software development solutions.\n\nMicrosoft based solution was chosen; Dynamics 365 being the latest version live offering the Sales & Marketing (Customer insights) modules.\n\nThe team will also soon collaborate with the customer care department by offering a similar Dynamics 365 experience based on in-house developed solutions replicating MS Dynamics - Customer Service - capabilites.\nAbout the Role\nWe are looking for a  Product Engineer who combines strong software engineering skills with a product mindset to build AI-powered solutions for our customers and employees.\n\nYou will design, develop, and deploy AI-native applications, owning the full lifecycle from backend services and model integration to user experience and performance monitoring. Working closely with Customer Care and Sales teams Business teams, you will help transform our CRM solution through practical and reliable inhouse AI solutions.\nResponsibilities\n\n• Build and maintain AI generated-code applications using coding agents such as ClaudeCode\n\n• Integrate with other components of Swissquote CRM ecosystem such as MS Dynamics 365, Genesys, Micro Service architecture into production environments.\n\n• Collaborate with Data Scientists and business stakeholders to deliver impactful and straight to the point solutions.\n\n• Ensure solutions meet security, compliance, and governance requirements expected in a regulated financial environment.\n\n• Experience developing production-grade software applications.\n\n• Strong programming skills in Java and modern software development frameworks, understanding of .Net environment is a plus.\n\n• Hands-on experience with LLMs, prompt engineering, and AI application development.\n\n• Strong problem-solving skills and product-oriented thinking.\n\n• Experience in CRM applications is a strong advantage\n\n• Experience in banking, financial services, or fintech is a plus.",
-      "de": "Die CRM-Team-Mission Die Mission des Teams ist es, das CRM von Swissquote zu entwickeln und zu pflegen und es in unsere internen IT- und Softwareentwicklungslösungen zu integrieren. Die Microsoft-basierte Lösung wurde gewählt; Dynamics 365 ist die neueste Live-Version, die die Module Sales & Marketing (Customer Insights) anbietet. Das Team wird auch in Kürze mit der Kundenbetreuung zusammenarbeiten, indem es eine ähnliche Dynamics 365-Erfahrung bietet, die auf intern entwickelten Lösungen basiert, die MS Dynamics - Customer Service - Fähigkeiten replizieren. Über die Rolle Wir suchen einen Produktingenieur, der starke Software-Engineering-Fähigkeiten mit einer Produktmentalität kombiniert, um KI-basierte Lösungen für unsere Kunden und Mitarbeiter zu entwickeln. Sie entwerfen, entwickeln und implementieren KI-native Anwendungen und besitzen den gesamten Lebenszyklus von Backend-Services und Modellintegration bis hin zu Benutzererfahrung und Leistungsüberwachung. In enger Zusammenarbeit mit Customer Care- und Sales-Teams werden Sie unsere CRM-Lösung durch praktische und zuverlässige interne KI-Lösungen transformieren. Zuständigkeiten\n• Erstellen und Pflegen von AI-Genered-Code-Anwendungen mit Codierungsagenten wie ClaudeCode\n• Integrieren Sie andere Komponenten des CRM-Ökosystems von Swissquote wie MS Dynamics 365, Genesys und Micro Service in Produktionsumgebungen.\n• Arbeiten Sie mit Data Scientists und Business Stakeholdern zusammen, um wirkungsvolle und punktgenaue Lösungen zu liefern.\n• Stellen Sie sicher, dass Lösungen die Sicherheits-, Compliance- und Governance-Anforderungen erfüllen, die in einem regulierten finanziellen Umfeld erwartet werden.\n• Erfahrung in der Entwicklung von produktionsgerechten Softwareanwendungen.\n• Starke Programmierkenntnisse in Java und moderne Softwareentwicklungs-Frameworks, das Verständnis der .Net-Umgebung ist ein Plus.\n• Hands-on-Erfahrung mit LLMs, prompt Engineering und KI-Anwendungsentwicklung.\n• Starke Problemlösungsfähigkeiten und produktorientiertes Denken.\n• Erfahrung in CRM-Anwendungen ist ein großer Vorteil\n• Erfahrung in Banking, Finanzdienstleistungen oder Fintech ist ein Plus.",
-      "fr": "La mission de l'équipe CRM La mission de l'équipe est de développer et, maintenir le CRM de Swissquote et l'intégrer à nos solutions internes de développement informatique et logiciel. La solution basée sur Microsoft a été choisie; Dynamics 365 étant la dernière version en direct offrant les modules Sales & Marketing (Aperçus des clients). L'équipe collaborera bientôt avec le service client en offrant une expérience similaire de Dynamics 365 basée sur des solutions développées en interne reproduisant MS Dynamics - Service à la clientèle - capabilites. À propos du rôle Nous sommes à la recherche d'un ingénieur de produits qui combine de solides compétences en ingénierie logicielle avec un état d'esprit produit pour construire des solutions alimentées par l'IA pour nos clients et employés. Vous concevrez, développerez et déploierez des applications de l'IA-native, possédant le cycle de vie complet des services de backend et de l'intégration de modèles à l'expérience utilisateur et le suivi des performances. Travaillant en étroite collaboration avec les équipes client et commercial Équipes d'affaires, vous aiderez à transformer notre solution CRM grâce à des solutions d'IA internes pratiques et fiables. Responsabilités\n• Construisez et maintenez des applications de code généré par l'IA en utilisant des agents de codage tels que ClaudeCode\n• Intégrer avec d'autres composants de l'écosystème CRM Swissquote tels que MS Dynamics 365, Genesys, architecture Micro Service dans les environnements de production.\n• Collaborer avec Data Scientists et les intervenants du monde des affaires pour offrir des solutions efficaces et directes.\n• Veiller à ce que les solutions répondent aux exigences de sécurité, de conformité et de gouvernance prévues dans un environnement financier réglementé.\n• Expérience de développement d'applications logicielles de qualité de production.\n• Fortes compétences en programmation en Java et les cadres modernes de développement de logiciels, la compréhension de l'environnement .Net est un plus.\n• Expérience pratique avec les LLM, l'ingénierie rapide et le développement d'applications d'IA.\n• Des compétences solides en résolution de problèmes et une pensée axée sur les produits.\n• L'expérience dans les applications CRM est un fort avantage\n• L'expérience dans les services bancaires, financiers ou fintech est un plus."
-    },
-    "slugByLocale": {
-      "it": "product-ingegnere-swissquote-gland",
-      "en": "product-engineer-swissquote-gland",
-      "de": "product-ingenieur-swissquote-gland",
-      "fr": "product-ingenieur-swissquote-gland"
-    },
-    "sector": "Fintech / Banca online",
-    "expiredAt": "2026-07-25T22:11:25.024Z",
-    "previousSlugs": [
-      "product-engineer-swissquote-gland",
-      "product-engineer-swissquote-gland-fphcr8"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "product-engineer-swissquote-gland"
-      ],
-      "de": [
-        "product-engineer-swissquote-gland"
-      ],
-      "fr": [
-        "product-engineer-swissquote-gland"
-      ],
-      "en": [
-        "product-engineer-swissquote-gland-fphcr8",
-        "product-engineer-swissquote-gland"
-      ]
-    },
-    "postalCode": "1196",
-    "streetAddress": "Chemin de la Crétaux 33",
-    "salaryMin": 63000,
-    "salaryMax": 107500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "junior-business-application-support-swissquote-gland",
     "title": "Junior Business & Application Support",
     "titleByLocale": {
