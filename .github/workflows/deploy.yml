@@ -289,11 +289,6 @@ jobs:
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
       RELATED_SEARCH_PREPASS_CONCURRENCY: '1'
       DEPLOY_CONTENT_MANIFEST: '1'
-      # og-pages/jobs-seo-pages/etc. share spaBundleResolver's poll for
-      # dist/index.html; the 3s local-dev/test default is too tight for CI
-      # given how large services/locales/blog-body* has grown (2026-07-21
-      # deploy incident: poll exhausted after 60 attempts on every locale).
-      SPA_BUNDLE_POLL_TIMEOUT_MS: '30000'
       # Per-locale emit filter + shared canonical build id (identical
       # dist/build-id.txt across all shards).
       BUILD_LOCALE: ${{ matrix.locale }}

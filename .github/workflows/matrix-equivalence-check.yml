@@ -40,9 +40,6 @@ jobs:
       BUILD_LOCALE: it
       SEQUENTIAL_PROFILE: '1'
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
-      # See deploy.yml — og-pages/etc.'s spaBundleResolver poll needs CI
-      # headroom against the growing blog-body corpus (2026-07-21 incident).
-      SPA_BUNDLE_POLL_TIMEOUT_MS: '30000'
     steps:
       - name: Checkout the equivalence tooling (this branch)
         uses: actions/checkout@v5

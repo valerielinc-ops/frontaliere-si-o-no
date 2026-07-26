@@ -142,9 +142,6 @@ jobs:
           # instead of Σ(overlap) → eliminates the parallel-build OOM. Always
           # sequential here (scheduled/dispatch gate run, never parallel).
           SEQUENTIAL_PROFILE: '1'
-          # See deploy.yml — og-pages/etc.'s spaBundleResolver poll needs CI
-          # headroom against the growing blog-body corpus (2026-07-21 incident).
-          SPA_BUNDLE_POLL_TIMEOUT_MS: '30000'
         run: |
           set -euo pipefail
           npm run build:ci &
