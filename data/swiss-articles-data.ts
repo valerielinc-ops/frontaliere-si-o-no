@@ -4643,6 +4643,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'sistema-sanitario-svizzero-lamal-guida-canton-lucerna',
+    category: 'pratico',
+    date: '2026-07-26T03:25:30.624Z',
+    image: '/images/blog/sistema-sanitario-svizzero-lamal-guida-canton-lucerna.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

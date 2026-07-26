@@ -1549,6 +1549,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lavoro-oltreconfine-esercito-frontalieri.title': 'Cross-border work: the border guards\' army does not \'march\' only in Ticino',
     'blog.article.lavoro-oltreconfine-esercito-frontalieri.excerpt': 'The number of border workers in Switzerland increased by 5.7% compared to the second quarter of 2022',
     'blog.article.lavoro-oltreconfine-esercito-frontalieri.imageAlt': 'Frontaliers in Ticino',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-lucerna.title': 'Guide to the Swiss health system: LAMal obligation and deductibles',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-lucerna.excerpt': 'The practical guide for border workers who reside in the Canton of Lucerne and must use the Swiss health system.',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-lucerna.imageAlt': 'A practical guide for cross-border workers residing in the Canton of Lucerne and needing to use the Swiss health system.',
 };
 
 export default blogMetaChEn;

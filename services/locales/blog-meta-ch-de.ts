@@ -1549,6 +1549,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lavoro-oltreconfine-esercito-frontalieri.title': 'Grenzüberschreitende Arbeit: Grenzgängerarmee "marschiert" nicht nur im Tessin',
     'blog.article.lavoro-oltreconfine-esercito-frontalieri.excerpt': 'Die Zahl der Grenzgänger in der Schweiz ist gegenüber dem zweiten Quartal 2022 um 5,7% gestiegen',
     'blog.article.lavoro-oltreconfine-esercito-frontalieri.imageAlt': 'Frontalier in Ticino',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-lucerna.title': 'Leitfaden zum schweizerischen Gesundheitssystem: KVG-Pflicht und Franchisen',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-lucerna.excerpt': 'Der Praxisleitfaden für Grenzgänger, die im Kanton Luzern wohnen und das schweizerische Gesundheitssystem nutzen müssen.',
+    'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-lucerna.imageAlt': 'Eine praktische Anleitung für Grenzgänger, die im Kanton Luzern wohnen und das Schweizer Gesundheitssystem benötigen.',
 };
 
 export default blogMetaChDe;
