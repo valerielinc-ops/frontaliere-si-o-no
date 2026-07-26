@@ -20337,6 +20337,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-secondo-pilastro-lpp-guida-completa': {
+    title: 'Secondo pilastro LPP: guida completa e funzionamento',
+    description: 'Guida completa al secondo pilastro LPP in Svizzera: funzionamento dei contributi, riscatto delle lacune, prelievo per l\'acquisto della casa e rimpatrio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, secondo, pilastro, completa, funzionamento',
+    ogTitle: 'Secondo pilastro LPP: guida completa alla previdenza svizzera',
+    ogDescription: 'Guida completa al secondo pilastro LPP in Svizzera: funzionamento, contributi, riscatto e prelievo anticipato.',
+    canonicalPath: '/articoli-svizzera/secondo-pilastro-lpp-guida-completa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Secondo pilastro LPP: guida completa e funzionamento",
+      "description": "Guida completa al secondo pilastro LPP in Svizzera: funzionamento dei contributi, riscatto delle lacune, prelievo per l'acquisto della casa e rimpatrio.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/secondo-pilastro-lpp-guida-completa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Guida completa al secondo pilastro LPP in Svizzera"
+      },
+      "datePublished": "2026-07-26T19:42:05+00:00",
+      "dateModified": "2026-07-26T19:42:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/secondo-pilastro-lpp-guida-completa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

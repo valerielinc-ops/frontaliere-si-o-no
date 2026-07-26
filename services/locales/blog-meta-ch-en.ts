@@ -1573,6 +1573,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salario-medio-svizzera-professione.title': 'Average salary in Switzerland by profession',
     'blog.article.salario-medio-svizzera-professione.excerpt': 'Official UST/BFS data on average salary in Switzerland by sector and profession',
     'blog.article.salario-medio-svizzera-professione.imageAlt': 'Scene of work in Lugano',
+    'blog.article.secondo-pilastro-lpp-guida-completa.title': 'Second pillar LPP: complete guide and operation',
+    'blog.article.secondo-pilastro-lpp-guida-completa.excerpt': 'Complete guide to the second LPP pillar in Switzerland: operation, contribution rates, redemption of gaps and levy for the purchase of the house.',
+    'blog.article.secondo-pilastro-lpp-guida-completa.imageAlt': 'Complete guide to the second pillar LPP in Switzerland',
 };
 
 export default blogMetaChEn;

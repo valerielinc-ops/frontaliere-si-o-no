@@ -1573,6 +1573,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salario-medio-svizzera-professione.title': 'Durchschnittslohn in der Schweiz pro Beruf',
     'blog.article.salario-medio-svizzera-professione.excerpt': 'Offizielle BfS/BfS-Daten zum durchschnittlichen Lohn in der Schweiz nach Branche und Beruf',
     'blog.article.salario-medio-svizzera-professione.imageAlt': 'ArbeitsSzene in Lugano',
+    'blog.article.secondo-pilastro-lpp-guida-completa.title': 'Zweite Säule BVG: Vollständige Anleitung und Bedienung',
+    'blog.article.secondo-pilastro-lpp-guida-completa.excerpt': 'Vollständiger Leitfaden zur zweiten Säule BVG in der Schweiz: Funktionsweise, Beitragssätze, Lückenrückkauf und Hausbezug.',
+    'blog.article.secondo-pilastro-lpp-guida-completa.imageAlt': 'Vollständiger Leitfaden zur zweiten Säule BVG in der Schweiz',
 };
 
 export default blogMetaChDe;

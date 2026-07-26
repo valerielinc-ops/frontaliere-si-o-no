@@ -4715,6 +4715,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'secondo-pilastro-lpp-guida-completa',
+    category: 'pensione',
+    date: '2026-07-26T19:42:05.958Z',
+    image: '/images/blog/secondo-pilastro-lpp-guida-completa.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
