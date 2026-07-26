@@ -8994,6 +8994,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.title': 'Starke Kraftstoffkosten: Benzin bei 1,97 Euro und Diesel bei 2,18 Euro',
     'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.excerpt': 'Die vom Ministerium für Unternehmen und Made in Italy mitgeteilten Durchschnittspreise für Kraftstoffe zeigen Preissteigerungen entlang des Straßen- und Autobahnnetzes.',
     'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.imageAlt': 'Hohe Kraftstoffkosten mit aktualisierten Benzin- und Dieselpreisen',
+    'blog.article.vivere-claino-osteno-lavorare-ticino.title': 'Mit Osteno in Claino leben und als Grenzgänger im Tessin arbeiten',
+    'blog.article.vivere-claino-osteno-lavorare-ticino.excerpt': 'Praktischer Leitfaden für das Pendeln zwischen Claino und Ostend und dem Kanton Tessin: Verbindungen, Quellensteuer, G-Genehmigungen und Lebenshaltungskosten für Grenzgänger.',
+    'blog.article.vivere-claino-osteno-lavorare-ticino.imageAlt': 'Panoramablick auf Claino con Osteno nahe der Schweizer Grenze',
 };
 
 export default blogMetaDe;

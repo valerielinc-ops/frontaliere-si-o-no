@@ -4916,6 +4916,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-gestione-sentieri-ticino': { name: 'La gestione dei sentieri in Ticino', path: '/articoli-frontaliere/gestione-sentieri-ticino', parent: 'blog' },
     'blog-salario-medio-svizzera-professione': { name: 'Salario medio in Svizzera', path: '/articoli-svizzera/salario-medio-svizzera-professione/', parent: 'blog' },
     'blog-costo-carburanti-benzina-gasolio-luglio-2026': { name: 'Costo Carburanti', path: '/articoli-frontaliere/costo-carburanti-benzina-gasolio-luglio-2026', parent: 'blog' },
+    'blog-vivere-claino-osteno-lavorare-ticino': { name: 'Claino con Osteno Frontalieri', path: '/articoli-frontaliere/vivere-claino-osteno-lavorare-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

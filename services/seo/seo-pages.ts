@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3541,
+ "numberOfItems": 3542,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8309,7 +8309,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3538, "name": "Premi LAMal: fattori regionali e variabilità tr...", "url": `${BASE_URL}/articoli-frontaliere/premi-cassa-malati-lamal-per-cantone` },
           { "@type": "ListItem", "position": 3539, "name": "Dalle segnalazioni ai lavori, la gestione dei s...", "url": `${BASE_URL}/articoli-frontaliere/gestione-sentieri-ticino` },
           { "@type": "ListItem", "position": 3540, "name": "Salario medio in Svizzera per professione", "url": `${BASE_URL}/articoli-frontaliere/salario-medio-svizzera-professione` },
-          { "@type": "ListItem", "position": 3541, "name": "Costo carburanti alle stelle: benzina a 1,97 eu...", "url": `${BASE_URL}/articoli-frontaliere/costo-carburanti-benzina-gasolio-luglio-2026` }
+          { "@type": "ListItem", "position": 3541, "name": "Costo carburanti alle stelle: benzina a 1,97 eu...", "url": `${BASE_URL}/articoli-frontaliere/costo-carburanti-benzina-gasolio-luglio-2026` },
+          { "@type": "ListItem", "position": 3542, "name": "Vivere a Claino con Osteno e lavorare in Ticino...", "url": `${BASE_URL}/articoli-frontaliere/vivere-claino-osteno-lavorare-ticino` }
  ]
  },
  {

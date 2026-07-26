@@ -8996,6 +8996,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.title': 'Costo carburanti alle stelle: benzina a 1,97 euro e gasolio a 2,18',
     'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.excerpt': 'I prezzi medi dei carburanti comunicati dal Ministero delle Imprese e del Made in Italy evidenziano rincari lungo la rete stradale e autostradale.',
     'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.imageAlt': 'Costo dei carburanti alle stelle con prezzi di benzina e gasolio aggiornati',
+    'blog.article.vivere-claino-osteno-lavorare-ticino.title': 'Vivere a Claino con Osteno e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-claino-osteno-lavorare-ticino.excerpt': 'Guida pratica al pendolarismo tra Claino con Osteno e il Canton Ticino: collegamenti, imposta alla fonte, permessi G e costo della vita per i frontalieri.',
+    'blog.article.vivere-claino-osteno-lavorare-ticino.imageAlt': 'Vista panoramica di Claino con Osteno vicino al confine con il Ticino',
 };
 
 export default blogMetaIt;
