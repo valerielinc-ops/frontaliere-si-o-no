@@ -4892,6 +4892,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavena-ponte-tresa-frontaliere': { name: 'Lavena Ponte Tresa Frontaliere', path: '/articoli-frontaliere/lavena-ponte-tresa-frontaliere', parent: 'blog' },
     'blog-svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera': { name: 'Svantaggio doganale', path: '/articoli-svizzera/svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera/', parent: 'blog' },
     'blog-prestazioni-lpp-svizzere-tassazione': { name: 'Prestazioni Lpp', path: '/articoli-frontaliere/prestazioni-lpp-svizzere-tassazione', parent: 'blog' },
+    'blog-sistema-sanitario-svizzero-lamal-2026': { name: 'Sanità LAMal 2026', path: '/articoli-svizzera/sistema-sanitario-svizzero-lamal-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

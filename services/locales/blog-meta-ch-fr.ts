@@ -1537,6 +1537,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.title': 'Plus KOF, désavantage douanier ne freine que légèrement l\'économie suisse',
     'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.excerpt': 'Selon le KOF, le taux des droits de douane américains ne devrait freiner que dans une mesure minime l\'économie suisse.',
     'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.imageAlt': 'Frontalier du Tessin avec vue sur la ville de Lugano',
+    'blog.article.sistema-sanitario-svizzero-lamal-2026.title': 'Système de santé suisse LAMal : le guide 2026',
+    'blog.article.sistema-sanitario-svizzero-lamal-2026.excerpt': 'Guide complet du système de santé suisse pour 2026 : obligation LAMal, droit d\'option, choix de la caisse-maladie, franchises et remboursements.',
+    'blog.article.sistema-sanitario-svizzero-lamal-2026.imageAlt': 'Systeme de sante suisse LAMal et assurance maladie',
 };
 
 export default blogMetaChFr;

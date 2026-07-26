@@ -1537,6 +1537,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.title': 'More KOF, customs disadvantage only slightly slows down the Swiss economy',
     'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.excerpt': 'According to the KOF, the US customs duty rate should only put a minimal brake on the Swiss economy.',
     'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.imageAlt': 'Frontalier from Ticino with view on Lugano city',
+    'blog.article.sistema-sanitario-svizzero-lamal-2026.title': 'Swiss health system LAMal: the 2026 guide',
+    'blog.article.sistema-sanitario-svizzero-lamal-2026.excerpt': 'Complete guide to the Swiss health system for 2026: LAMal obligation, right of option, choice of sick fund, deductibles and reimbursements.',
+    'blog.article.sistema-sanitario-svizzero-lamal-2026.imageAlt': 'Swiss healthcare system LAMal and health insurance',
 };
 
 export default blogMetaChEn;

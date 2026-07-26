@@ -1537,6 +1537,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.title': 'Di più KOF, svantaggio doganale frena solo leggermente l\'economia svizzera',
     'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.excerpt': 'Secondo il KOF, l\'aliquota dei dazi doganali statunitensi dovrebbe frenare solo in misura minima l\'economia svizzera.',
     'blog.article.svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera.imageAlt': 'Frontaliere ticinese con vista sulla città di Lugano',
+    'blog.article.sistema-sanitario-svizzero-lamal-2026.title': 'Sistema sanitario svizzero LAMal: la guida 2026',
+    'blog.article.sistema-sanitario-svizzero-lamal-2026.excerpt': 'Guida completa al sistema sanitario svizzero per il 2026: obbligo LAMal, diritto d\'opzione, scelta della cassa malati, franchigie e rimborsi.',
+    'blog.article.sistema-sanitario-svizzero-lamal-2026.imageAlt': 'Sistema sanitario svizzero LAMal e casse malati',
 };
 
 export default blogMetaChIt;
