@@ -2004,10 +2004,10 @@
       "id": "denner-b06b3b880c14",
       "slug": "responsabile-negozio-denner-villmergen",
       "slugByLocale": {
-        "it": "responsabile-negozio-denner-villmergen",
-        "en": "store-manager-denner-villmergen",
+        "it": "responsabile-negozio-denner-ag-villmergen",
+        "en": "store-manager-denner-ag-villmergen",
         "de": "filialleiter-in-denner-villmergen",
-        "fr": "gestionnaire-de-magasin-denner-villmergen"
+        "fr": "gestionnaire-de-magasin-denner-ag-villmergen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2066,7 +2066,9 @@
       "previousSlugs": [
         "filialleiter-in-denner-2",
         "filialleiter-in-denner",
-        "filialleiter-in-denner-villmergen"
+        "filialleiter-in-denner-villmergen",
+        "store-manager-denner-villmergen",
+        "gestionnaire-de-magasin-denner-villmergen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2074,10 +2076,12 @@
           "filialleiter-in-denner"
         ],
         "en": [
-          "filialleiter-in-denner-villmergen"
+          "filialleiter-in-denner-villmergen",
+          "store-manager-denner-villmergen"
         ],
         "fr": [
-          "filialleiter-in-denner-villmergen"
+          "filialleiter-in-denner-villmergen",
+          "gestionnaire-de-magasin-denner-villmergen"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:05.744Z",
@@ -2099,10 +2103,10 @@
       "id": "denner-336b83331a50",
       "slug": "venditore-nel-salario-orario-denner-burgdorf",
       "slugByLocale": {
-        "it": "venditore-nel-salario-orario-denner-burgdorf",
-        "en": "seller-in-the-hourly-wage-denner-burgdorf",
+        "it": "venditore-nel-salario-orario-denner-ag-burgdorf",
+        "en": "seller-in-the-hourly-wage-denner-ag-burgdorf",
         "de": "verkaufer-in-im-stundenlohn-denner-burgdorf",
-        "fr": "vendeur-dans-le-salaire-horaire-denner-burgdorf"
+        "fr": "vendeur-dans-le-salaire-horaire-denner-ag-burgdorf"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2160,17 +2164,21 @@
       "crawledAt": "2026-07-25T21:58:53.964Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
-        "verkaufer-in-im-stundenlohn-denner-burgdorf"
+        "verkaufer-in-im-stundenlohn-denner-burgdorf",
+        "seller-in-the-hourly-wage-denner-burgdorf",
+        "vendeur-dans-le-salaire-horaire-denner-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner-burgdorf"
+          "verkaufer-in-im-stundenlohn-denner-burgdorf",
+          "seller-in-the-hourly-wage-denner-burgdorf"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner-burgdorf"
+          "verkaufer-in-im-stundenlohn-denner-burgdorf",
+          "vendeur-dans-le-salaire-horaire-denner-burgdorf"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:05.729Z",
@@ -2192,10 +2200,10 @@
       "id": "denner-1794ace26c8a",
       "slug": "venditore-denner-burgdorf",
       "slugByLocale": {
-        "it": "venditore-denner-burgdorf",
-        "en": "seller-denner-burgdorf",
+        "it": "venditore-denner-ag-burgdorf",
+        "en": "seller-denner-ag-burgdorf",
         "de": "verkaufer-in-denner-burgdorf",
-        "fr": "vendeur-denner-burgdorf"
+        "fr": "vendeur-denner-ag-burgdorf"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2254,7 +2262,9 @@
       "previousSlugs": [
         "verkaufer-in-denner-2",
         "verkaufer-in-denner",
-        "verkaufer-in-denner-burgdorf"
+        "verkaufer-in-denner-burgdorf",
+        "seller-denner-burgdorf",
+        "vendeur-denner-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2262,10 +2272,12 @@
           "verkaufer-in-denner"
         ],
         "en": [
-          "verkaufer-in-denner-burgdorf"
+          "verkaufer-in-denner-burgdorf",
+          "seller-denner-burgdorf"
         ],
         "fr": [
-          "verkaufer-in-denner-burgdorf"
+          "verkaufer-in-denner-burgdorf",
+          "vendeur-denner-burgdorf"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:05.727Z",
@@ -2830,10 +2842,10 @@
       "id": "denner-d53081c7bf61",
       "slug": "venditore-denner-herzogenbuchsee",
       "slugByLocale": {
-        "it": "venditore-denner-herzogenbuchsee",
-        "en": "seller-denner-herzogenbuchsee",
+        "it": "venditore-denner-ag-herzogenbuchsee",
+        "en": "seller-denner-ag-herzogenbuchsee",
         "de": "verkaufer-in-denner-herzogenbuchsee",
-        "fr": "vendeur-denner-herzogenbuchsee"
+        "fr": "vendeur-denner-ag-herzogenbuchsee"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2895,7 +2907,9 @@
         "verkaufer-in-denner-6",
         "verkaufer-in-denner",
         "verkaufer-in-denner-herzogenbuchsee",
-        "verkaufer-in-denner-3"
+        "verkaufer-in-denner-3",
+        "seller-denner-herzogenbuchsee",
+        "vendeur-denner-herzogenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2906,10 +2920,12 @@
           "verkaufer-in-denner-3"
         ],
         "en": [
-          "verkaufer-in-denner-herzogenbuchsee"
+          "verkaufer-in-denner-herzogenbuchsee",
+          "seller-denner-herzogenbuchsee"
         ],
         "fr": [
-          "verkaufer-in-denner-herzogenbuchsee"
+          "verkaufer-in-denner-herzogenbuchsee",
+          "vendeur-denner-herzogenbuchsee"
         ]
       },
       "firstSeenAt": "2026-07-25T10:42:46.849Z",
