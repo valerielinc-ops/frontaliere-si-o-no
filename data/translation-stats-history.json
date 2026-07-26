@@ -11398,5 +11398,119 @@
         "pending": 2
       }
     ]
+  },
+  {
+    "timestamp": "2026-07-26T12:46:25.281Z",
+    "label": "before",
+    "total": 24611,
+    "needsRetranslation": 2466,
+    "suppressed": 38,
+    "incomplete": 102,
+    "complete": 24509,
+    "missingByLocale": {
+      "it": 59,
+      "en": 32,
+      "de": 49,
+      "fr": 47
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 30
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 4
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Sulzer",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "Roche",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-26T14:03:01.448Z",
+    "label": "after",
+    "total": 24611,
+    "needsRetranslation": 880,
+    "suppressed": 38,
+    "incomplete": 98,
+    "complete": 24513,
+    "missingByLocale": {
+      "it": 59,
+      "en": 31,
+      "de": 45,
+      "fr": 47
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 30
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 4
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Sulzer",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "Roche",
+        "pending": 2
+      },
+      {
+        "company": "Spital Schwyz",
+        "pending": 2
+      }
+    ]
   }
 ]
