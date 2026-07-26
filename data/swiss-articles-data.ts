@@ -4706,6 +4706,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'salario-medio-svizzera-professione',
+    category: 'fiscale',
+    date: '2026-07-26T06:51:30.540Z',
+    image: '/images/blog/salario-medio-svizzera-professione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

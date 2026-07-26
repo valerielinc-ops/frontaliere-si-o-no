@@ -20298,6 +20298,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salario-medio-svizzera-professione': {
+    title: 'Salario medio in Svizzera per professione | Frontaliere Ticino',
+    description: 'Dati ufficiali UST/BFS sulla retribuzione media in Svizzera per settore e professione. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, medio, professione, dati',
+    ogTitle: 'Salario medio in Svizzera per professione',
+    ogDescription: 'Dati ufficiali UST/BFS sulla retribuzione media in Svizzera per settore e professione',
+    canonicalPath: '/articoli-svizzera/salario-medio-svizzera-professione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario medio in Svizzera per professione",
+      "description": "Dati ufficiali UST/BFS sulla retribuzione media in Svizzera per settore e professione. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salario-medio-svizzera-professione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena di lavoro a Lugano"
+      },
+      "datePublished": "2026-07-26T06:51:30+00:00",
+      "dateModified": "2026-07-26T06:51:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salario-medio-svizzera-professione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
