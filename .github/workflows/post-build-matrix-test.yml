@@ -78,9 +78,6 @@ jobs:
           # enabled by default to mirror the deploy workflow (see deploy.yml).
           JOBS_SEO_PROFILE_PHASES: '1'
           JOBS_SEO_PROFILE_COMPARE_RELATED: ${{ github.event.inputs.profile_related_compare == 'true' && '1' || '' }}
-          # See deploy.yml — og-pages/etc.'s spaBundleResolver poll needs CI
-          # headroom against the growing blog-body corpus (2026-07-21 incident).
-          SPA_BUNDLE_POLL_TIMEOUT_MS: '30000'
         run: npm run build:ci
 
       - name: SPA fallback

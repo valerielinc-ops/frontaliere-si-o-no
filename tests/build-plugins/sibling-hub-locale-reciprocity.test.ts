@@ -32,23 +32,23 @@ import { jobSectorPagesPlugin } from '../../build-plugins/jobSectorPagesPlugin';
 import { nursingLandingsPlugin } from '../../build-plugins/nursingLandingsPlugin';
 import { professionLandingsPlugin } from '../../build-plugins/professionLandingsPlugin';
 import { sanitizeSitemapHreflangReciprocity } from '../../build-plugins/sitemapAliasPlugin';
+import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from '../../build-plugins/shared/spaEntryFilenames';
 
-// Vite's writeBundle happens to have already flushed `dist/index.html` by the
-// time these plugins' closeBundle hooks run in a real build. jobRecencyPagesPlugin
-// and jobSectorPagesPlugin poll for it (build-plugins/spaBundleResolver.ts) to
-// extract the hashed entry filenames, so the isolated temp dist/ needs a stub.
-const STUB_INDEX_HTML =
-  '<html><head><link rel="stylesheet" href="/assets/index.css"></head>' +
-  '<body><script type="module" src="/assets/index-entry.js"></script></body></html>';
-
+// jobRecencyPagesPlugin and jobSectorPagesPlugin resolve the SPA entry bundle
+// (build-plugins/spaBundleResolver.ts) by checking for the stable entry
+// filenames under dist/assets/, so the isolated temp dist/ needs those files
+// stubbed for those two plugins.
 const tempRoots: string[] = [];
 
-function makeTempRoot(withStubIndexHtml: boolean): string {
+function makeTempRoot(withStubSpaBundle: boolean): string {
   const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'sibling-hub-test-'));
   fs.mkdirSync(path.join(tempRoot, 'dist'));
   fs.mkdirSync(path.join(tempRoot, 'data'));
-  if (withStubIndexHtml) {
-    fs.writeFileSync(path.join(tempRoot, 'dist', 'index.html'), STUB_INDEX_HTML);
+  if (withStubSpaBundle) {
+    const assetsDir = path.join(tempRoot, 'dist', 'assets');
+    fs.mkdirSync(assetsDir, { recursive: true });
+    fs.writeFileSync(path.join(assetsDir, SPA_ENTRY_JS_FILENAME), 'console.log(1)');
+    fs.writeFileSync(path.join(assetsDir, SPA_ENTRY_CSS_FILENAME), 'body{}');
   }
   tempRoots.push(tempRoot);
   return tempRoot;

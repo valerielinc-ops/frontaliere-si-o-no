@@ -14,7 +14,6 @@ import { newsTickerDataPlugin } from './build-plugins/newsTickerDataPlugin';
 import { staticScriptsPlugin } from './build-plugins/staticScriptsPlugin';
 import { asyncCssPlugin } from './build-plugins/asyncCssPlugin';
 import { prepareOutDirPlugin } from './build-plugins/prepareOutDirPlugin';
-import { spaBundleResolverPrewarmPlugin } from './build-plugins/spaBundleResolver';
 import { preloadLocalePlugin } from './build-plugins/preloadLocalePlugin';
 import { ogPagesPlugin } from './build-plugins/ogPagesPlugin';
 import { jobsSeoPagesPlugin } from './build-plugins/jobsSeoPagesPlugin';
@@ -30,6 +29,7 @@ import { cantonOrphanRedirectsPlugin } from './build-plugins/cantonOrphanRedirec
 import { calculatorLegacyAliasPlugin } from './build-plugins/calculatorLegacyAliasPlugin';
 import { jobOrphanBridgePlugin } from './build-plugins/jobOrphanBridgePlugin';
 import { adFilterSafeChunkName } from './build-plugins/shared/adFilterSafeChunkName';
+import { SPA_ENTRY_JS_FILENAME } from './build-plugins/shared/spaEntryFilenames';
 import { locationHubBridgePlugin } from './build-plugins/locationHubBridgePlugin';
 import { companyHubBridgePlugin } from './build-plugins/companyHubBridgePlugin';
 import { legacyAliasPlugin } from './build-plugins/legacyAliasPlugin';
@@ -172,17 +172,6 @@ export default defineConfig(({ mode }) => {
  affiliateRedirectPlugin(__dirname),
  // ── SEO plugins (skipped when FAST_BUILD=1) ──────────────────
  ...(isFastBuild ? [] : [
- // Resolves + caches the SPA entry-bundle hashes (see
- // spaBundleResolver.ts) as the very FIRST closeBundle handler
- // (`order: 'pre'`, sequential), before any heavy content plugin below
- // gets a chance to run its own long synchronous corpus-parsing work.
- // Root-cause fix for the recurring "poll exhausted... index.html does
- // not exist yet" deploy failures (#4638, #4738): those were never a
- // slow Vite write, but the growing pre-poll parse time of whichever SEO
- // plugin happened to call resolveSpaBundle() first — any fixed poll
- // timeout erodes as that corpus grows. Prewarming here makes the first
- // poll fire immediately after Vite's write phase instead.
- spaBundleResolverPrewarmPlugin(__dirname),
  // Asserts every hand-authored Record<Locale, Record<Key, string>>
  // slug table used to build a canonical URL is fully populated (issue
  // #3608 item 2 sibling fix). Cheap in-memory check with no I/O; placed
@@ -644,14 +633,16 @@ export default defineConfig(({ mode }) => {
  // Worst case after a deploy is a ≤600s stale window (same as the entry today).
  // - Chunk discovery in build plugins goes through
  //   build-plugins/shared/chunkFiles.ts (stable name first, legacy hashed
- //   fallback); the entry extract regexes in shared/spaBundleRx.ts match the
- //   stable names unchanged.
+ //   fallback); the entry filename itself is the SPA_ENTRY_JS_FILENAME
+ //   constant imported above, shared with build-plugins/spaBundleResolver.ts
+ //   and seoPageShell.ts (shared/spaEntryFilenames.ts) so none of them can
+ //   drift from what's configured here.
  // - CACHE: see public/_headers — /assets/* revalidates (max-age=600); nothing
  //   may be served immutable now that names are stable.
  // - CDN offload (deploy.yml) cp -r's all of dist/assets and the additive merge
  //   (cp -n) never overwrites a freshly-built file → the stable names always
  //   carry the new bytes; prune-cdn-assets GCs the legacy hashed generations.
- entryFileNames: 'assets/index-entry.js',
+ entryFileNames: `assets/${SPA_ENTRY_JS_FILENAME}`,
  chunkFileNames: (chunk) => {
  // Per-article blog-body modules share their basename across the 4 locale
  // dirs (services/locales/{blog-body,blog-body-ch}/<locale>/<slug>.ts —

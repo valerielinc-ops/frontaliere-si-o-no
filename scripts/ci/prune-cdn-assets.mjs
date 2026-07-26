@@ -65,7 +65,7 @@ import { planJanitor } from './cdn-prune-plan.mjs';
 
 // Shared Vite content-hash matcher (base64url alphabet `[A-Za-z0-9_-]`).
 // Imported — NOT copy-pasted — so the char class can't drift from the canonical
-// SPA extractor in build-plugins/shared/spaBundleRx.ts (AGENTS.md #6). A
+// legacy-hash fallback in build-plugins/shared/chunkFiles.ts (AGENTS.md #6). A
 // quote-strict `[a-zA-Z0-9]` would silently miss the ~1-in-5 hashes containing
 // `_`/`-`, leaving those orphans ungrouped → never pruned → CDN keeps growing.
 const __dirname = fileURLToPath(new URL('.', import.meta.url));

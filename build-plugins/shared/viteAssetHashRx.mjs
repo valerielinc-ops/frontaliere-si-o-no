@@ -9,7 +9,7 @@
  *
  * This constant is the ONE definition of that alphabet. It is consumed by:
  *   - `scripts/ci/prune-cdn-assets.mjs` (generic `<name>-<hash>.<ext>` matcher)
- *   - `build-plugins/shared/spaBundleRx.ts` (the SPA `index-<hash>` extractor)
+ *   - `build-plugins/shared/chunkFiles.ts` (legacy-hash fallback matcher)
  * Keeping it here makes drift between those copies impossible by construction
  * (AGENTS.md #6 — a regex/char-class duplicated literally in ≥2 files must be
  * extracted into one shared module, not copy-pasted).

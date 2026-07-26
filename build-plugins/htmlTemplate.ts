@@ -166,8 +166,8 @@ export const HEAD_SUFFIX_GTAG = ` ${GTAG_SNIPPET}
  *
  * GATED on the SPA bundle: the spacer is only safe when React actually mounts
  * (createRoot replaces it with the real header). On a bundle-less page — e.g.
- * when `resolveEntryAssets` returns '' on a stale/missing `dist/index.html`
- * (silent catch, `seoPageShell.ts`) — there is no `<script type=module>`, React
+ * when `resolveEntryAssets` returns '' because `dist/assets/` doesn't have the
+ * entry files yet (`seoPageShell.ts`) — there is no `<script type=module>`, React
  * never mounts, and an unconditional spacer would sit as a PERMANENT 56/80px
  * empty band above the indexed SEO content. So callers MUST pass the bundle
  * flag (`!!entryJs` / `hasSpaBundle`); when false this returns a plain empty
