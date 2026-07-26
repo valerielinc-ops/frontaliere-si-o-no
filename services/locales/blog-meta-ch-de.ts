@@ -1555,6 +1555,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.title': 'Grenzrestaurants: Abkommen mit dem Tessin',
     'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.excerpt': 'Der Staatssekretär für Wirtschaft, Sertori, hat erklärt, dass es keine unmittelbaren Auswirkungen auf die Gehälter der Grenzgänger geben wird, sondern dass sie eine Einigung mit dem Tessin finden werden',
     'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.imageAlt': 'Lugano-Stadt mit See und historischem Gebäude',
+    'blog.article.esercito-svizzero-valuta-bunker.title': 'Schweizer Armee: Beurteilung der Wiederverwendung alter Bunker',
+    'blog.article.esercito-svizzero-valuta-bunker.excerpt': 'Die Schweizer Armee erwägt die Wiederinbetriebnahme alter Militärbunker aufgrund der sich verschlechternden Sicherheitslage in Europa.',
+    'blog.article.esercito-svizzero-valuta-bunker.imageAlt': 'Die Schweizer Armee prüft die Wiederinbetriebnahme alter Bunker',
 };
 
 export default blogMetaChDe;

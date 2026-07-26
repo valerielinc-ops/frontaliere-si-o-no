@@ -4904,6 +4904,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dazi-usa-economia-svizzera': { name: 'Dazi USA ed economia', path: '/articoli-frontaliere/dazi-usa-economia-svizzera', parent: 'blog' },
     'blog-ristorni-frontalieri-sertori-nessun-effetto-immediato': { name: 'Frontalieri e stipendi', path: '/articoli-svizzera/ristorni-frontalieri-sertori-nessun-effetto-immediato/', parent: 'blog' },
     'blog-bally-lultima-scarpa-svizzera-sara-prodotta-in-estate': { name: 'Bally, ultima scarpa svizzera', path: '/articoli-frontaliere/bally-lultima-scarpa-svizzera-sara-prodotta-in-estate', parent: 'blog' },
+    'blog-esercito-svizzero-valuta-bunker': { name: 'Esercito bunker', path: '/articoli-svizzera/esercito-svizzero-valuta-bunker/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

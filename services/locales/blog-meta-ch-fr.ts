@@ -1555,6 +1555,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.title': 'Restaurants frontaliers : accord avec le Tessin',
     'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.excerpt': 'Le sous-secrétaire à l\'économie, Sertori, a déclaré qu\'il n\'y aurait pas d\'effet immédiat sur les salaires des frontaliers, mais qu\'ils trouveraient un accord avec le Tessin',
     'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.imageAlt': 'Paysage de Lugano avec le lac et l\'immeuble historique',
+    'blog.article.esercito-svizzero-valuta-bunker.title': 'Forces armées suisses : Évaluation de la réutilisation des anciens bunkers',
+    'blog.article.esercito-svizzero-valuta-bunker.excerpt': 'L\'armée suisse évalue la remise de vieux bunkers militaires en raison de la détérioration de la situation sécuritaire en Europe.',
+    'blog.article.esercito-svizzero-valuta-bunker.imageAlt': 'L\'armée suisse évalue la réutilisation d\'anciens bunkers',
 };
 
 export default blogMetaChFr;

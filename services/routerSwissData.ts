@@ -541,6 +541,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'lavoro-oltreconfine-esercito-frontalieri': { it: 'lavoro-oltreconfine-esercito-frontalieri', en: 'lavoro-oltreconfine-esercito-frontalieri', de: 'lavoro-oltreconfine-esercito-frontalieri', fr: 'lavoro-oltreconfine-esercito-frontalieri' },
  'sistema-sanitario-svizzero-lamal-guida-canton-lucerna': { it: 'sistema-sanitario-svizzero-lamal-guida-canton-lucerna', en: 'swiss-health-system-lamal-guide-lucerne', de: 'schweizer-gesundheitssystem-lamal-fuhrer-luzern', fr: 'systeme-de-sante-suisse-lamal-guide-lucerne' },
  'ristorni-frontalieri-sertori-nessun-effetto-immediato': { it: 'ristorni-frontalieri-sertori-nessun-effetto-immediato', en: 'no-immediate-effect-on-frontier-allowances-sertori', de: 'keine-umgehend-wirkung-auf-grenzengelder-sertori', fr: 'aucun-effet-immediat-sur-les-allocations-frontalieres-sertori' },
+ 'esercito-svizzero-valuta-bunker': { it: 'esercito-svizzero-valuta-bunker', en: 'swiss-army-evaluates-bunkers', de: 'schweizer-armee-prueft-bunker', fr: 'larmee-suisse-evalue-les-bunkers' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

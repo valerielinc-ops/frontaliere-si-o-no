@@ -20103,6 +20103,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-esercito-svizzero-valuta-bunker': {
+    title: 'Esercito svizzero: valutazione sul reimpiego dei vecchi bunker',
+    description: 'L\'esercito svizzero valuta la rimessa in servizio di vecchi bunker militari a causa del peggioramento della sicurezza in Europa. Tutti i dettagli.',
+    keywords: 'frontalieri, ticino, svizzera, italia, esercito, svizzero, valutazione, reimpiego',
+    ogTitle: 'Esercito svizzero valuta il reimpiego dei vecchi bunker',
+    ogDescription: 'L\'esercito svizzero valuta la rimessa in servizio di vecchi bunker militari a causa del peggioramento della sicurezza in Europa.',
+    canonicalPath: '/articoli-svizzera/esercito-svizzero-valuta-bunker/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Esercito svizzero: valutazione sul reimpiego dei vecchi bunker",
+      "description": "L'esercito svizzero valuta la rimessa in servizio di vecchi bunker militari a causa del peggioramento della sicurezza in Europa. Tutti i dettagli.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/esercito-svizzero-valuta-bunker.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'esercito svizzero valuta il reimpiego dei vecchi bunker"
+      },
+      "datePublished": "2026-07-26T04:24:27+00:00",
+      "dateModified": "2026-07-26T04:24:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/esercito-svizzero-valuta-bunker/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
