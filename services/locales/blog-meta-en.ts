@@ -8995,6 +8995,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.title': 'Star fuel cost: petrol at €1.97 and diesel at €2.18',
     'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.excerpt': 'The average fuel prices reported by the Ministry of Business and Made in Italy show increases along the road and motorway network.',
     'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.imageAlt': 'High fuel costs with updated petrol and diesel prices',
+    'blog.article.vivere-claino-osteno-lavorare-ticino.title': 'Living in Claino with Osteno and working in Ticino as a border worker',
+    'blog.article.vivere-claino-osteno-lavorare-ticino.excerpt': 'Practical guide to commuting between Claino con Osteno and the Canton of Ticino: connections, tax at source, G permits and cost of living for border crossers.',
+    'blog.article.vivere-claino-osteno-lavorare-ticino.imageAlt': 'Panoramic view of Claino con Osteno near the Swiss border',
 };
 
 export default blogMetaEn;

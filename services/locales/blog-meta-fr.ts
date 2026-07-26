@@ -8997,6 +8997,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.title': 'Coût du carburant aux étoiles : essence à 1,97 euros et gasoil à 2,18 euros',
     'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.excerpt': 'Les prix moyens des carburants communiqués par le ministère des Entreprises et du Made in Italy montrent des hausses le long du réseau routier et autoroutier.',
     'blog.article.costo-carburanti-benzina-gasolio-luglio-2026.imageAlt': 'Coûts élevés des carburants avec prix actualisés de l\'essence et du diesel',
+    'blog.article.vivere-claino-osteno-lavorare-ticino.title': 'Vivre à Claino avec Osteno et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-claino-osteno-lavorare-ticino.excerpt': 'Guide pratique pour les déplacements entre Claino con Osteno et le canton du Tessin : liaisons, taxe à la source, permis G et coût de la vie pour les frontaliers.',
+    'blog.article.vivere-claino-osteno-lavorare-ticino.imageAlt': 'Vue panoramique de Claino con Osteno près de la frontière suisse',
 };
 
 export default blogMetaFr;
