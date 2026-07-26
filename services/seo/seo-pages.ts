@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3520,
+ "numberOfItems": 3521,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8288,7 +8288,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3517, "name": "Prestazioni Lpp svizzere: regole di tassazione", "url": `${BASE_URL}/articoli-frontaliere/prestazioni-lpp-svizzere-tassazione` },
           { "@type": "ListItem", "position": 3518, "name": "Sistema sanitario svizzero LAMal: la guida 2026", "url": `${BASE_URL}/articoli-frontaliere/sistema-sanitario-svizzero-lamal-2026` },
           { "@type": "ListItem", "position": 3519, "name": "Permesso G in carta di credito: novità dal 1° o...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-formato-carta-credito-ticino` },
-          { "@type": "ListItem", "position": 3520, "name": "Sistema sanitario svizzero: LAMal, scelta della...", "url": `${BASE_URL}/articoli-frontaliere/lamal-svizzero-ticino-2026` }
+          { "@type": "ListItem", "position": 3520, "name": "Sistema sanitario svizzero: LAMal, scelta della...", "url": `${BASE_URL}/articoli-frontaliere/lamal-svizzero-ticino-2026` },
+          { "@type": "ListItem", "position": 3521, "name": "Vivere a Trasquera, lavorare in Ticino: collega...", "url": `${BASE_URL}/articoli-frontaliere/vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere` }
  ]
  },
  {
