@@ -1,16 +1,16 @@
 {
   "key": "clinique-cic",
   "label": "Clinique CIC (Saxon & Clarens)",
-  "generatedAt": "2026-07-25T21:57:40.967Z",
+  "generatedAt": "2026-07-26T10:55:59.675Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4389,
-  "avgDurationMs": 4389,
+  "unchangedCount": 1,
+  "durationMs": 3738,
+  "avgDurationMs": 3738,
   "durationHistory": [
-    4389
+    3738
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/3f59d17e-ea2c-4bd5-b104-d535d593bd57/",
       "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T21:57:37.258Z",
+      "crawledAt": "2026-07-26T10:55:56.517Z",
       "addressLocality": "Saxon",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -52,43 +52,6 @@
       }
     },
     {
-      "id": "clinique-cic-eb5c9362bf28",
-      "slug": "assistant-e-medical-e-80-cdd-clinique-cic-clarens",
-      "company": "Clinique CIC Clarens",
-      "companyKey": "clinique-cic",
-      "companyDomain": "cliniquecic-saxon.ch",
-      "title": "Assistant-e médical-e 80% CDD",
-      "needsRetranslation": false,
-      "location": "Clarens",
-      "canton": "VD",
-      "url": "https://www.jobup.ch/fr/emplois/detail/176f3c08-082e-4b2e-af56-b0d2b4b06267/",
-      "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-25T21:57:37.529Z",
-      "addressLocality": "Clarens",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1815",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-16",
-      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/176f3c08-082e-4b2e-af56-b0d2b4b06267/",
-      "firstSeenAt": "2026-07-16T11:08:39.336Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
       "id": "clinique-cic-d939678d4634",
       "slug": "technicien-ne-en-radiologie-medicale-trm-clinique-cic-clarens",
       "company": "Clinique CIC Clarens",
@@ -101,7 +64,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/1d0e2f1b-a45f-4c33-8ad0-060c82928447/",
       "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-25T21:57:37.800Z",
+      "crawledAt": "2026-07-26T10:55:56.791Z",
       "addressLocality": "Clarens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -127,5 +90,45 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "id": "clinique-cic-eb5c9362bf28",
+      "slug": "assistente-medico-80-cdd-clinique-cic-clarens-clarens",
+      "company": "Clinique CIC Clarens",
+      "companyKey": "clinique-cic",
+      "companyDomain": "cliniquecic-saxon.ch",
+      "title": "Assistant-e médical-e 80% CDD",
+      "location": "Clarens",
+      "canton": "VD",
+      "url": "https://www.jobup.ch/fr/emplois/detail/176f3c08-082e-4b2e-af56-b0d2b4b06267/",
+      "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-25T21:57:37.529Z",
+      "addressLocality": "Clarens",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1815",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-16",
+      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/176f3c08-082e-4b2e-af56-b0d2b4b06267/",
+      "firstSeenAt": "2026-07-16T11:08:39.336Z",
+      "salaryMin": 48400,
+      "salaryMax": 73200,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ]
 }
