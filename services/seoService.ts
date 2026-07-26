@@ -4898,6 +4898,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere': { name: 'Vivere a Trasquera e lavorare in Ticino da', path: '/articoli-frontaliere/vivere-a-trasquera-e-lavorare-in-ticino-da-frontaliere', parent: 'blog' },
     'blog-sistema-sanitario-svizzero-lamal-guida-canton-san-gallo': { name: 'Guida al sistema sanitario svizzero LAMal', path: '/articoli-svizzera/sistema-sanitario-svizzero-lamal-guida-canton-san-gallo/', parent: 'blog' },
     'blog-vivere-bizzarone-lavorare-ticino': { name: 'Vivere a Bizzarone e lavorare in Ticino da', path: '/articoli-frontaliere/vivere-bizzarone-lavorare-ticino', parent: 'blog' },
+    'blog-lavoro-oltreconfine-esercito-frontalieri': { name: 'Lavoro oltreconfine: l\'esercito dei', path: '/articoli-svizzera/lavoro-oltreconfine-esercito-frontalieri/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

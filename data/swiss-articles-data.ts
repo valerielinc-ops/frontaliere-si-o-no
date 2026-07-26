@@ -4634,6 +4634,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'lavoro-oltreconfine-esercito-frontalieri',
+    category: 'fiscale',
+    date: '2026-07-26T02:39:58.241Z',
+    image: '/images/blog/lavoro-oltreconfine-esercito-frontalieri.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
