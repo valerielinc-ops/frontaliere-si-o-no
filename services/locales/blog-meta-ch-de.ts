@@ -1546,6 +1546,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-san-gallo.title': 'Leitfaden zum KVG-Gesundheitssystem: Pflicht und Wahl',
     'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-san-gallo.excerpt': 'Das Schweizer Gesundheitssystem KVG: Was ändert sich für Grenzgänger im Kanton St. Gallen und in der Schweiz?',
     'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-san-gallo.imageAlt': 'Person, die ihre Schweizer Gesundheitsversicherungskarte betrachtet mit Sorge um Kosten und Leistungen.',
+    'blog.article.lavoro-oltreconfine-esercito-frontalieri.title': 'Grenzüberschreitende Arbeit: Grenzgängerarmee "marschiert" nicht nur im Tessin',
+    'blog.article.lavoro-oltreconfine-esercito-frontalieri.excerpt': 'Die Zahl der Grenzgänger in der Schweiz ist gegenüber dem zweiten Quartal 2022 um 5,7% gestiegen',
+    'blog.article.lavoro-oltreconfine-esercito-frontalieri.imageAlt': 'Frontalier in Ticino',
 };
 
 export default blogMetaChDe;

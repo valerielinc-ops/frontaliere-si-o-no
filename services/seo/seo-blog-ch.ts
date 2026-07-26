@@ -19986,6 +19986,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-oltreconfine-esercito-frontalieri': {
+    title: 'Lavoro oltreconfine: l\'esercito dei frontalieri non \'marcia\' solo in Ticino',
+    description: 'Il numero di frontalieri in Svizzera è aumentato del 5,7% rispetto al secondo trimestre 2022. Il Cantone di confine ha visto un aumento del 3,5% su base annua.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, oltreconfine, esercito, marcia',
+    ogTitle: 'Lavoro oltreconfine: l\'esercito dei frontalieri non \'marcia\' solo in Ticino',
+    ogDescription: 'Il numero di frontalieri in Svizzera è aumentato del 5,7% rispetto al secondo trimestre 2022. Il Cantone di confine ha visto un aumento del 3,5% su base annua.',
+    canonicalPath: '/articoli-svizzera/lavoro-oltreconfine-esercito-frontalieri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro oltreconfine: l'esercito dei frontalieri non 'marcia' solo in Ticino",
+      "description": "Il numero di frontalieri in Svizzera è aumentato del 5,7% rispetto al secondo trimestre 2022. Il Cantone di confine ha visto un aumento del 3,5% su base annua.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoro-oltreconfine-esercito-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in Ticino"
+      },
+      "datePublished": "2026-07-26T02:39:58+00:00",
+      "dateModified": "2026-07-26T02:39:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lavoro-oltreconfine-esercito-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

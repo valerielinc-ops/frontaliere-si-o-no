@@ -1546,6 +1546,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-san-gallo.title': 'Guide to the LAMal health system: obligation and choice',
     'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-san-gallo.excerpt': 'The Swiss health system LAMal: what changes for border workers in the canton of St. Gallen and Switzerland.',
     'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-san-gallo.imageAlt': 'Person looking at their Swiss health insurance card with concern for costs and coverage.',
+    'blog.article.lavoro-oltreconfine-esercito-frontalieri.title': 'Cross-border work: the border guards\' army does not \'march\' only in Ticino',
+    'blog.article.lavoro-oltreconfine-esercito-frontalieri.excerpt': 'The number of border workers in Switzerland increased by 5.7% compared to the second quarter of 2022',
+    'blog.article.lavoro-oltreconfine-esercito-frontalieri.imageAlt': 'Frontaliers in Ticino',
 };
 
 export default blogMetaChEn;

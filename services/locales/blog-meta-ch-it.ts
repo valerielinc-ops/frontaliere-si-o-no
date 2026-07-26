@@ -1546,6 +1546,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-san-gallo.title': 'Guida al sistema sanitario LAMal: obbligo e scelta',
     'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-san-gallo.excerpt': 'Il sistema sanitario svizzero LAMal: cosa cambia per i frontalieri nel canton San Gallo e in Svizzera.',
     'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-san-gallo.imageAlt': 'Persona che si guarda la carta della sua assicurazione sanitaria svizzera con preoccupazione per i costi e le coperture.',
+    'blog.article.lavoro-oltreconfine-esercito-frontalieri.title': 'Lavoro oltreconfine: l\'esercito dei frontalieri non \'marcia\' solo in Ticino',
+    'blog.article.lavoro-oltreconfine-esercito-frontalieri.excerpt': 'Il numero di frontalieri in Svizzera è aumentato del 5,7% rispetto al secondo trimestre 2022',
+    'blog.article.lavoro-oltreconfine-esercito-frontalieri.imageAlt': 'Frontalieri in Ticino',
 };
 
 export default blogMetaChIt;
