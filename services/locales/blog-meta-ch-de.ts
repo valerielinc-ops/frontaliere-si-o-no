@@ -1558,6 +1558,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.esercito-svizzero-valuta-bunker.title': 'Schweizer Armee: Beurteilung der Wiederverwendung alter Bunker',
     'blog.article.esercito-svizzero-valuta-bunker.excerpt': 'Die Schweizer Armee erwägt die Wiederinbetriebnahme alter Militärbunker aufgrund der sich verschlechternden Sicherheitslage in Europa.',
     'blog.article.esercito-svizzero-valuta-bunker.imageAlt': 'Die Schweizer Armee prüft die Wiederinbetriebnahme alter Bunker',
+    'blog.article.confronto-imposta-cantonale-svizzera-cantoni.title': 'Zug und Schwyz günstiger als Genf und Waadt',
+    'blog.article.confronto-imposta-cantonale-svizzera-cantoni.excerpt': 'Die kantonalen Steuersätze in der Schweiz variieren stark zwischen den Kantonen. Hier ist ein Vergleich einiger der wichtigsten Steuersätze.',
+    'blog.article.confronto-imposta-cantonale-svizzera-cantoni.imageAlt': 'Eine Szene aus Lugano, mit einem Panorama der Stadt und der Berge dahinter.',
 };
 
 export default blogMetaChDe;

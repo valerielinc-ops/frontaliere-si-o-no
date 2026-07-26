@@ -1558,6 +1558,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.esercito-svizzero-valuta-bunker.title': 'Swiss Armed Forces: Assessment of the reuse of old bunkers',
     'blog.article.esercito-svizzero-valuta-bunker.excerpt': 'The Swiss army assesses the remittance of old military bunkers due to the deterioration of the security situation in Europe.',
     'blog.article.esercito-svizzero-valuta-bunker.imageAlt': 'Swiss army evaluates the reuse of old bunkers',
+    'blog.article.confronto-imposta-cantonale-svizzera-cantoni.title': 'Zug and Svitto, less expensive than Geneva and Vaud',
+    'blog.article.confronto-imposta-cantonale-svizzera-cantoni.excerpt': 'Cantonal tax rates in Switzerland vary greatly between cantons. Here\'s a comparison of some of the top rates.',
+    'blog.article.confronto-imposta-cantonale-svizzera-cantoni.imageAlt': 'A view of Lugano, with a panorama of the city and the mountains behind.',
 };
 
 export default blogMetaChEn;
