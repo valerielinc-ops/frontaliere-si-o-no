@@ -1552,6 +1552,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-lucerna.title': 'Leitfaden zum schweizerischen Gesundheitssystem: KVG-Pflicht und Franchisen',
     'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-lucerna.excerpt': 'Der Praxisleitfaden für Grenzgänger, die im Kanton Luzern wohnen und das schweizerische Gesundheitssystem nutzen müssen.',
     'blog.article.sistema-sanitario-svizzero-lamal-guida-canton-lucerna.imageAlt': 'Eine praktische Anleitung für Grenzgänger, die im Kanton Luzern wohnen und das Schweizer Gesundheitssystem benötigen.',
+    'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.title': 'Grenzrestaurants: Abkommen mit dem Tessin',
+    'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.excerpt': 'Der Staatssekretär für Wirtschaft, Sertori, hat erklärt, dass es keine unmittelbaren Auswirkungen auf die Gehälter der Grenzgänger geben wird, sondern dass sie eine Einigung mit dem Tessin finden werden',
+    'blog.article.ristorni-frontalieri-sertori-nessun-effetto-immediato.imageAlt': 'Lugano-Stadt mit See und historischem Gebäude',
 };
 
 export default blogMetaChDe;

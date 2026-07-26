@@ -20064,6 +20064,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ristorni-frontalieri-sertori-nessun-effetto-immediato': {
+    title: 'Ristorni frontalieri: accordo con il Ticino | Frontaliere Ticino',
+    description: 'Il sottosegretario per l\'economia, Sertori, ha dichiarato che non ci sarà alcun effetto immediato sugli stipendi dei frontalieri, ma che troveranno un accordo',
+    keywords: 'frontalieri, ticino, svizzera, italia, ristorni, accordo, sottosegretario, economia',
+    ogTitle: 'Nessun effetto immediato sugli stipendi dei frontalieri, Sertori',
+    ogDescription: 'Il sottosegretario per l\'economia, Sertori, ha dichiarato che non ci sarà alcun effetto immediato sugli stipendi dei frontalieri, ma che troveranno un accordo',
+    canonicalPath: '/articoli-svizzera/ristorni-frontalieri-sertori-nessun-effetto-immediato/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ristorni frontalieri: accordo con il Ticino",
+      "description": "Il sottosegretario per l'economia, Sertori, ha dichiarato che non ci sarà alcun effetto immediato sugli stipendi dei frontalieri, ma che troveranno un accordo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ristorni-frontalieri-sertori-nessun-effetto-immediato.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena di Lugano con il lago e l'edificio storico"
+      },
+      "datePublished": "2026-07-26T03:49:41+00:00",
+      "dateModified": "2026-07-26T03:49:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ristorni-frontalieri-sertori-nessun-effetto-immediato/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
