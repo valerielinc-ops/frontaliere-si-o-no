@@ -1,16 +1,16 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-07-26T11:04:55.738Z",
+  "generatedAt": "2026-07-26T22:19:01.911Z",
   "total": 56,
   "newCount": 0,
   "updatedCount": 41,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 89363,
-  "avgDurationMs": 89363,
+  "durationMs": 88670,
+  "avgDurationMs": 88670,
   "durationHistory": [
-    89363
+    88670
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1106,43 +1106,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Montagemitarbeiter",
-      "slug": "lavoratori-agie-charmilles-sa-biel",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-montagemitarbeiter/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/db8073a4dfbf4707e13d25a033a2884e14cf6f3fb38ca9948446383ae21a9aeec91461829211905c8a9b89538a2d3c9cf942b741b2ce468d6ca28bbf60a5ff",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Biel",
-      "addressLocality": "Biel",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-21",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "id": "agie-charmilles-4515db1bd13c",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-21T12:42:20.384Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
