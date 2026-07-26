@@ -1833,7 +1833,7 @@
       "slugByLocale": {
         "it": "idraulico-impianti-riscaldamento-pemsa-lugano",
         "en": "heating-systems-pemsa-lugano",
-        "de": "idraulico-implant-heating-pemsa-lugano",
+        "de": "heizsysteme-pemsa-lugano",
         "fr": "systemes-de-chauffage-pemsa-lugano"
       },
       "id": "pemsa-8975bec84b2e",
@@ -1864,7 +1864,7 @@
         "de": [
           "idrauliko-impianti-riscaldamento-wird-zu-heizungsanlagen-idrianiker-pemsa-lugano",
           "heizungsinstallateur-pemsa-lugano",
-          "heizsysteme-pemsa-lugano"
+          "idraulico-implant-heating-pemsa-lugano"
         ],
         "fr": [
           "plombier-systemes-de-chauffage-pemsa-lugano"
@@ -1876,7 +1876,7 @@
         "idrauliko-impianti-riscaldamento-wird-zu-heizungsanlagen-idrianiker-pemsa-lugano",
         "plombier-systemes-de-chauffage-pemsa-lugano",
         "heizungsinstallateur-pemsa-lugano",
-        "heizsysteme-pemsa-lugano"
+        "idraulico-implant-heating-pemsa-lugano"
       ],
       "needsRetranslation": true
     },
@@ -3508,9 +3508,9 @@
       },
       "slugByLocale": {
         "it": "aiuto-carpentiere-pemsa-fribourg",
-        "en": "carpenter-s-assistant-pemsa-fribourg",
+        "en": "carpentry-aid-pemsa-fribourg",
         "de": "schreinereibeihilfe-pemsa-fribourg",
-        "fr": "aide-maitre-charpentier-pemsa-fribourg"
+        "fr": "aides-a-la-menuiserie-pemsa-fribourg"
       },
       "id": "pemsa-bd4769fd2d78",
       "salaryMin": 68500,
@@ -3529,19 +3529,19 @@
       "firstSeenAt": "2026-07-21T11:23:36.348Z",
       "previousSlugsByLocale": {
         "en": [
-          "carpentry-aid-pemsa-fribourg"
+          "carpenter-s-assistant-pemsa-fribourg"
         ],
         "fr": [
           "aide-carpentiere-pemsa-fribourg",
           "aide-charpentier-pemsa-fribourg",
-          "aides-a-la-menuiserie-pemsa-fribourg"
+          "aide-maitre-charpentier-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
         "aide-carpentiere-pemsa-fribourg",
         "aide-charpentier-pemsa-fribourg",
-        "carpentry-aid-pemsa-fribourg",
-        "aides-a-la-menuiserie-pemsa-fribourg"
+        "carpenter-s-assistant-pemsa-fribourg",
+        "aide-maitre-charpentier-pemsa-fribourg"
       ],
       "needsRetranslation": true
     },
@@ -4476,7 +4476,7 @@
       "slugByLocale": {
         "it": "assistenza-tecnica-lavori-di-elettricita-fai-da-te-pemsa-geneve",
         "en": "technical-assistance-diy-electricity-works-pemsa-geneve",
-        "de": "technischer-support-eigenbau-elektrizitatsarbeiten-pemsa-geneve",
+        "de": "technische-hilfe-diy-elektrizitatswerke-pemsa-geneve",
         "fr": "assistance-technique-travaux-electriques-de-bricolage-pemsa-geneve"
       },
       "id": "pemsa-97e208215d86",
@@ -4496,11 +4496,11 @@
       "firstSeenAt": "2026-07-17T22:03:15.572Z",
       "previousSlugsByLocale": {
         "de": [
-          "technische-hilfe-diy-elektrizitatswerke-pemsa-geneve"
+          "technischer-support-eigenbau-elektrizitatsarbeiten-pemsa-geneve"
         ]
       },
       "previousSlugs": [
-        "technische-hilfe-diy-elektrizitatswerke-pemsa-geneve"
+        "technischer-support-eigenbau-elektrizitatsarbeiten-pemsa-geneve"
       ]
     },
     {
@@ -5692,9 +5692,9 @@
       },
       "slugByLocale": {
         "it": "giardiniere-pemsa-bellinzona",
-        "en": "gardener-pemsa-bellinzona",
+        "en": "gardens-pemsa-bellinzona",
         "de": "garten-pemsa-bellinzona",
-        "fr": "jardinier-pemsa-bellinzona"
+        "fr": "jardins-pemsa-bellinzona"
       },
       "id": "pemsa-a3d5fffae318",
       "salaryMin": 49500,
@@ -5713,15 +5713,15 @@
       "firstSeenAt": "2026-07-16T22:13:35.977Z",
       "previousSlugsByLocale": {
         "en": [
-          "gardens-pemsa-bellinzona"
+          "gardener-pemsa-bellinzona"
         ],
         "fr": [
-          "jardins-pemsa-bellinzona"
+          "jardinier-pemsa-bellinzona"
         ]
       },
       "previousSlugs": [
-        "gardens-pemsa-bellinzona",
-        "jardins-pemsa-bellinzona"
+        "gardener-pemsa-bellinzona",
+        "jardinier-pemsa-bellinzona"
       ],
       "needsRetranslation": true
     },
@@ -7224,9 +7224,9 @@
       },
       "slugByLocale": {
         "it": "giardiniere-pemsa-locarno",
-        "en": "gardener-pemsa-locarno",
+        "en": "warning-pemsa-locarno",
         "de": "warnung-pemsa-locarno",
-        "fr": "jardinier-pemsa-locarno"
+        "fr": "mise-en-garde-pemsa-locarno"
       },
       "id": "pemsa-3181e6da663e",
       "salaryMin": 49500,
@@ -7246,16 +7246,16 @@
       "previousSlugsByLocale": {
         "en": [
           "landscaper-pemsa-locarno",
-          "warning-pemsa-locarno"
+          "gardener-pemsa-locarno"
         ],
         "fr": [
-          "mise-en-garde-pemsa-locarno"
+          "jardinier-pemsa-locarno"
         ]
       },
       "previousSlugs": [
         "landscaper-pemsa-locarno",
-        "warning-pemsa-locarno",
-        "mise-en-garde-pemsa-locarno"
+        "gardener-pemsa-locarno",
+        "jardinier-pemsa-locarno"
       ],
       "needsRetranslation": true
     },
@@ -7812,12 +7812,10 @@
       "firstSeenAt": "2026-07-13T22:05:37.334Z",
       "previousSlugsByLocale": {
         "de": [
-          "installateur-von-elektrischen-gemalden-pemsa-estavayer-le-lac",
           "elektrischer-panelinstallateur-pemsa-estavayer-le-lac"
         ]
       },
       "previousSlugs": [
-        "installateur-von-elektrischen-gemalden-pemsa-estavayer-le-lac",
         "elektrischer-panelinstallateur-pemsa-estavayer-le-lac"
       ]
     },
@@ -8118,8 +8116,8 @@
       },
       "slugByLocale": {
         "it": "subacqueo-esperto-pemsa-lausanne",
-        "en": "experienced-subaquatic-specialist-pemsa-lausanne",
-        "de": "erfahrener-subaquatischer-fachmann-pemsa-lausanne",
+        "en": "diver-expert-pemsa-lausanne",
+        "de": "taucherexperte-pemsa-lausanne",
         "fr": "expert-plongeur-pemsa-lausanne"
       },
       "id": "pemsa-ea2fe58b3e19",
@@ -8144,10 +8142,10 @@
           "subaquatischer-experte-pemsa-lausanne",
           "sachverstandigengruppe-pemsa-lausanne",
           "erfahrener-taucher-pemsa-lausanne",
-          "taucherexperte-pemsa-lausanne"
+          "erfahrener-subaquatischer-fachmann-pemsa-lausanne"
         ],
         "en": [
-          "diver-expert-pemsa-lausanne"
+          "experienced-subaquatic-specialist-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
@@ -8156,8 +8154,8 @@
         "subaquatischer-experte-pemsa-lausanne",
         "sachverstandigengruppe-pemsa-lausanne",
         "erfahrener-taucher-pemsa-lausanne",
-        "diver-expert-pemsa-lausanne",
-        "taucherexperte-pemsa-lausanne"
+        "experienced-subaquatic-specialist-pemsa-lausanne",
+        "erfahrener-subaquatischer-fachmann-pemsa-lausanne"
       ],
       "needsRetranslation": true
     },
@@ -10156,7 +10154,7 @@
         "it": "si-cercano-operai-edili-m-f-d-pemsa-basel",
         "en": "they-are-looking-for-building-workers-m-f-d-pemsa-basel",
         "de": "sie-suchen-bauarbeiter-m-w-d-pemsa-basel",
-        "fr": "recherche-de-main-d-uvre-qualifiee-m-w-d-pemsa-basel"
+        "fr": "ils-cherchent-des-ouvriers-du-batiment-m-f-d-pemsa-basel"
       },
       "id": "pemsa-47a5ebabf953",
       "salaryMin": 62000,
@@ -10180,14 +10178,14 @@
         "fr": [
           "recherche-de-travailleurs-qualifies-m-w-d-pemsa-basel",
           "rechercheurs-de-main-d-uvre-m-w-d-pemsa-basel",
-          "ils-cherchent-des-ouvriers-du-batiment-m-f-d-pemsa-basel"
+          "recherche-de-main-d-uvre-qualifiee-m-w-d-pemsa-basel"
         ]
       },
       "previousSlugs": [
         "recherche-de-travailleurs-qualifies-m-w-d-pemsa-basel",
         "rechercheurs-de-main-d-uvre-m-w-d-pemsa-basel",
-        "ils-cherchent-des-ouvriers-du-batiment-m-f-d-pemsa-basel",
-        "si-cercano-operai-edili-m-w-d-pemsa-basel"
+        "si-cercano-operai-edili-m-w-d-pemsa-basel",
+        "recherche-de-main-d-uvre-qualifiee-m-w-d-pemsa-basel"
       ],
       "needsRetranslation": true
     },
@@ -11424,7 +11422,6 @@
       "previousSlugsByLocale": {
         "de": [
           "idraulierung-pemsa-pambio-noranco",
-          "hydraulik-pemsa-sigirino",
           "hydraulisch-pemsa-sigirino"
         ],
         "it": [
@@ -11442,7 +11439,6 @@
         "idraulation-pemsa-pambio-noranco",
         "idraulierung-pemsa-pambio-noranco",
         "idraulement-pemsa-pambio-noranco",
-        "hydraulik-pemsa-sigirino",
         "hydraulisch-pemsa-sigirino"
       ]
     },
@@ -11958,8 +11954,8 @@
       },
       "slugByLocale": {
         "it": "caposquadra-edile-pemsa-fribourg",
-        "en": "edile-team-leader-pemsa-fribourg",
-        "de": "edile-team-leader-pemsa-fribourg",
+        "en": "head-of-construction-pemsa-fribourg",
+        "de": "bauleiter-pemsa-fribourg",
         "fr": "chef-de-la-construction-pemsa-fribourg"
       },
       "id": "pemsa-4506017399e4",
@@ -11982,14 +11978,14 @@
         "en": [
           "edile-team-lead-pemsa-fribourg",
           "edile-site-manager-pemsa-fribourg",
-          "head-of-construction-pemsa-fribourg"
+          "edile-team-leader-pemsa-fribourg"
         ],
         "de": [
           "baufuhrer-polier-pemsa-fribourg",
           "edile-team-lead-pemsa-fribourg",
           "edile-site-manager-pemsa-fribourg",
           "baufuhrer-pemsa-fribourg",
-          "bauleiter-pemsa-fribourg"
+          "edile-team-leader-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
@@ -11997,8 +11993,7 @@
         "edile-team-lead-pemsa-fribourg",
         "edile-site-manager-pemsa-fribourg",
         "baufuhrer-pemsa-fribourg",
-        "head-of-construction-pemsa-fribourg",
-        "bauleiter-pemsa-fribourg"
+        "edile-team-leader-pemsa-fribourg"
       ],
       "needsRetranslation": true
     },
@@ -12617,11 +12612,9 @@
       "firstSeenAt": "2026-07-03T22:39:11.228Z",
       "previousSlugsByLocale": {
         "en": [
-          "stuccatore-efz-eba-m-f-d-pemsa-basel",
           "tiler-efz-eba-m-f-d-pemsa-basel"
         ],
         "fr": [
-          "stuccatore-efz-eba-m-f-d-pemsa-basel",
           "plaquiste-efz-eba-h-f-d-pemsa-basel"
         ],
         "it": [
@@ -13751,7 +13744,7 @@
       "slugByLocale": {
         "it": "idraulico-impianti-antincendio-sprinkler-pemsa-lugano",
         "en": "plumbing-fire-sprinkler-systems-pemsa-lugano",
-        "de": "sprinkler-feuerschutzsystem-installateur-pemsa-lugano",
+        "de": "hydraulische-berieselungsanlagen-pemsa-lugano",
         "fr": "systemes-d-arrosage-hydraulique-pemsa-lugano"
       },
       "id": "pemsa-91c10c4e8343",
@@ -13777,7 +13770,7 @@
           "feuerloschsystem-installateur-pemsa-lugano",
           "installateur-fur-sprinklerloschanlagen-pemsa-lugano",
           "sprinkler-anlagenmechaniker-pemsa-lugano",
-          "hydraulische-berieselungsanlagen-pemsa-lugano"
+          "sprinkler-feuerschutzsystem-installateur-pemsa-lugano"
         ]
       },
       "previousSlugs": [
@@ -13785,7 +13778,7 @@
         "feuerloschsystem-installateur-pemsa-lugano",
         "installateur-fur-sprinklerloschanlagen-pemsa-lugano",
         "sprinkler-anlagenmechaniker-pemsa-lugano",
-        "hydraulische-berieselungsanlagen-pemsa-lugano"
+        "sprinkler-feuerschutzsystem-installateur-pemsa-lugano"
       ],
       "needsRetranslation": true
     },
@@ -13960,7 +13953,7 @@
       },
       "slugByLocale": {
         "it": "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
-        "en": "cartongessista-gessatore-pemsa-bellinzona",
+        "en": "plasterer-plasterer-pemsa-bellinzona",
         "de": "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
         "fr": "cartongesista-gessatore-pemsa-bellinzona"
       },
@@ -13979,7 +13972,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-25T22:04:38.790Z"
+      "firstSeenAt": "2026-07-25T22:04:38.790Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "cartongessista-gessatore-pemsa-bellinzona"
+        ]
+      },
+      "previousSlugs": [
+        "cartongessista-gessatore-pemsa-bellinzona"
+      ]
     },
     {
       "title": "Idraulico installatore impianti riscaldamento/sanitari",
