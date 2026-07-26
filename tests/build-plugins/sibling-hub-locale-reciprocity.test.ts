@@ -35,9 +35,9 @@ import { sanitizeSitemapHreflangReciprocity } from '../../build-plugins/sitemapA
 import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from '../../build-plugins/shared/spaEntryFilenames';
 
 // jobRecencyPagesPlugin and jobSectorPagesPlugin resolve the SPA entry bundle
-// (build-plugins/spaBundleResolver.ts) by checking for the stable entry
-// filenames under dist/assets/, so the isolated temp dist/ needs those files
-// stubbed for those two plugins.
+// (build-plugins/spaBundleResolver.ts) as fixed constants, no disk check —
+// stubbing dist/assets/ is no longer required for that resolution to
+// succeed, but kept here as harmless fixture realism.
 const tempRoots: string[] = [];
 
 function makeTempRoot(withStubSpaBundle: boolean): string {

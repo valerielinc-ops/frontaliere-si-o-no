@@ -6,13 +6,12 @@ import { rootShell } from '../../build-plugins/htmlTemplate';
  * spacer on the presence of the SPA bundle (PR #2808 / #2775).
  *
  * The spacer only reserves the sticky-nav header height correctly when React
- * actually mounts (createRoot replaces it with the real header). On a
- * bundle-less page — e.g. when `resolveEntryAssets` returns '' because
- * `dist/assets/` doesn't have the entry files yet — React never mounts, so an
- * unconditional spacer would sit as
- * a PERMANENT empty band above the indexed SEO content. The gate makes that
- * impossible by construction: no bundle → plain empty `#root` (the harmless
- * pre-fix degrade).
+ * actually mounts (createRoot replaces it with the real header). `hasSpaBundle`
+ * is a defensive flag: `resolveEntryAssets` always returns the fixed entry
+ * filenames now (no disk check, can't degrade to ''), but if a future
+ * regression genuinely drops the entry chunk, an unconditional spacer would
+ * sit as a PERMANENT empty band above the indexed SEO content. The gate makes
+ * that impossible by construction: no bundle → plain empty `#root`.
  */
 describe('rootShell — header-reserve spacer is gated on the SPA bundle', () => {
   it('emits the .ft-hdr-reserve spacer when a bundle is present', () => {
