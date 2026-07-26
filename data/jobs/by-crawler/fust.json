@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-07-25T22:01:24.608Z",
+  "assembledAt": "2026-07-26T10:53:37.119Z",
   "jobs": [
     {
       "id": "company-op1oyd",
@@ -22,7 +22,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-24T22:13:31.399Z",
       "titleByLocale": {
         "de": "Chefmetzger:in",
@@ -142,7 +142,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-24T22:13:31.399Z",
       "titleByLocale": {
         "de": "Magaziner:in Verkauf",
@@ -217,7 +217,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-24T11:23:45.209Z",
       "titleByLocale": {
         "de": "Bereichsleiter:in Produktion Bäckerei Panofina",
@@ -298,7 +298,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-24T11:23:45.209Z",
       "titleByLocale": {
         "it": "Installatore: in cucine e bagni",
@@ -394,7 +394,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-24T11:23:45.209Z",
       "titleByLocale": {
         "de": "Wohnberater:in",
@@ -465,7 +465,7 @@
     },
     {
       "id": "company-3apvkj",
-      "slug": "consulente-commerciale-in-coop-genossenschaft-chur-graubunden",
+      "slug": "consulente-commerciale-in-coop-genossenschaft-chur",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in",
       "location": "Chur, Graubünden",
@@ -483,7 +483,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-24T11:23:45.209Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-24T11:23:45.209Z",
       "titleByLocale": {
         "de": "Verkaufsberater:in",
@@ -540,14 +540,14 @@
           "sales-consultant-in-coop-genossenschaft-chur-graubunden",
           "sales-consultant-coop-genossenschaft-chur-nsjp2p"
         ],
+        "de": [
+          "verkaufsberater-in-import-parfumerie-chur-graubunden-nsjp2p",
+          "verkaufsberater-in-import-parfumerie-chur-graubunden-9gew6s"
+        ],
         "fr": [
           "verkaufsberater-in-coop-genossenschaft-chur-graubunden-3apvkj",
           "consultant-en-ventes-coop-genossenschaft-chur-graubunden",
           "conseiller-de-vente-coop-genossenschaft-chur-nsjp2p"
-        ],
-        "de": [
-          "verkaufsberater-in-import-parfumerie-chur-graubunden-nsjp2p",
-          "verkaufsberater-in-import-parfumerie-chur-graubunden-9gew6s"
         ]
       },
       "previousSlugs": [
@@ -577,10 +577,9 @@
         "verkaufsberater-in-coop-genossenschaft-chur-nsjp2p",
         "verkaufsberater-in-import-parfumerie-chur-graubunden-9gew6s",
         "verkaufsberater-in-import-parfumerie-chur-graubunden",
-        "sales-consultant-coop-genossenschaft-st-gallen-f578d4"
+        "sales-consultant-coop-genossenschaft-st-gallen-f578d4",
+        "consulente-commerciale-in-coop-genossenschaft-chur-graubunden"
       ],
-      "salaryMin": 57500,
-      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -595,7 +594,9 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "salaryMin": 57500,
+      "salaryMax": 87000
     },
     {
       "id": "company-od4tvh",
@@ -617,7 +618,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-24T11:23:45.209Z",
       "titleByLocale": {
         "de": "Verkaufsberater:in",
@@ -648,7 +649,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-de-vente-coop-genossenschaft-st-gallen-5b06ca",
           "conseiller-de-vente-coop-genossenschaft-st-gallen",
           "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen",
           "conseiller-de-vente-coop-genossenschaft-luzern",
@@ -667,7 +667,8 @@
           "sales-consultant-in-coop-genossenschaft-chur-ro4syg",
           "sales-consultant-in-coop-genossenschaft-chur",
           "consultant-en-ventes-en-textile-jumbo-division-der-coop-genossenschaft-chur",
-          "verkaufsberater-in-import-parfumerie-chur-graubunden-nsjp2p"
+          "verkaufsberater-in-import-parfumerie-chur-graubunden-nsjp2p",
+          "conseiller-de-vente-coop-genossenschaft-st-gallen-5b06ca"
         ],
         "en": [
           "verkaufsberater-in-coop-genossenschaft-schaffhausen-od4tvh",
@@ -778,7 +779,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-24T11:23:45.209Z",
       "titleByLocale": {
         "it": "Installatore: in cucine e bagni",
@@ -863,7 +864,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-24T11:23:45.209Z",
       "titleByLocale": {
         "it": "Dispone di: in cucine e bagni",
@@ -978,7 +979,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-23T22:11:44.385Z",
       "titleByLocale": {
         "it": "Elettricista aziendale: in \"Intralogistics\"",
@@ -1098,7 +1099,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-23T22:11:44.385Z",
       "titleByLocale": {
         "it": "Direttore/trice lavori",
@@ -1180,7 +1181,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-21T22:17:41.811Z",
       "titleByLocale": {
         "it": "Personale: in Amministrazione Logistica",
@@ -1288,7 +1289,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-21T22:17:41.811Z",
       "titleByLocale": {
         "it": "Venditore:in / Planner:in cucine e bagni",
@@ -1312,7 +1313,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-planer-in-kuchen-bader-fust-rapperswil-jona-sankt-gallen-ekctcb",
           "salesperson-planner-kitchens-bathrooms-fust-swiss-household-services-ag-biel",
           "verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-rapperswil-jona-ekctcb",
           "verkaufer-in-planeur-in-kuchen-bader-fust-swiss-household-services-ag-biel",
@@ -1331,7 +1331,8 @@
           "installateur-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-oberburen",
           "verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel-bern",
           "verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel-bern-04zafu",
-          "verkaufer-in-planer-in-kuchen-bader-fust-biel-bern-04zafu"
+          "verkaufer-in-planer-in-kuchen-bader-fust-biel-bern-04zafu",
+          "verkaufer-in-planer-in-kuchen-bader-fust-rapperswil-jona-sankt-gallen-ekctcb"
         ],
         "en": [
           "verkaufer-in-planer-in-kuchen-bader-fust-swiss-household-services-ag-biel-bern-04zafu",
@@ -1420,7 +1421,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-21T22:17:41.811Z",
       "slugByLocale": {
         "it": "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-visp-wallis-nmm5ty",
@@ -1493,7 +1494,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-20T12:16:15.722Z",
       "titleByLocale": {
         "it": "Fiteria sanitaria: in cucine e bagni",
@@ -1622,7 +1623,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-20T12:16:15.722Z",
       "titleByLocale": {
         "it": "Collaboratore/trice Intralogistik - Bereich Warenausgang",
@@ -1693,7 +1694,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-20T12:16:15.722Z",
       "titleByLocale": {
         "it": "Chauffeur: in Cat. C/CE",
@@ -1800,7 +1801,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-20T12:16:15.722Z",
       "titleByLocale": {
         "it": "Montage-Assistent:in per la Heimlieferung von Elektrohaushaltgeräten",
@@ -1895,7 +1896,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-20T12:16:15.722Z",
       "titleByLocale": {
         "it": "Collaboratore/trice Intralogistik - Bereich Retouren",
@@ -1983,7 +1984,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-20T12:16:15.722Z",
       "titleByLocale": {
         "it": "Tecnico di servizio: in Soluzioni Professionali",
@@ -2096,7 +2097,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-17T22:30:05.510Z",
       "titleByLocale": {
         "it": "Responsabile Marketing Trading",
@@ -2175,7 +2176,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-24T11:23:45.209Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-17T22:30:05.510Z",
       "titleByLocale": {
         "it": "Tecnico di servizio: in Soluzioni Professionali",
@@ -2199,7 +2200,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-professional-solutions-fust-oberburen",
           "tecnico-di-servizio-in-soluzioni-professionali-fust-swiss-household-services-ag-bern",
           "service-technician-in-home-service-fust-swiss-household-services-ag-oberburen",
           "service-technician-in-professional-solutions-fust-swiss-household-services-ag-bern",
@@ -2218,7 +2218,8 @@
           "technicien-de-service-solutions-professionnelles-fust-swiss-household-services-ag-oberburen",
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern",
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern-3qkfr2",
-          "tecnico-di-servizio-in-soluzioni-professionali-fust-bern"
+          "tecnico-di-servizio-in-soluzioni-professionali-fust-bern",
+          "servicetechniker-in-professional-solutions-fust-oberburen"
         ],
         "en": [
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-8fm84c",
@@ -2301,11 +2302,11 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-16T11:35:31.670Z",
       "titleByLocale": {
         "it": "Analista di Categoria (h/m/d), 80%",
-        "en": "Category analyst (w/m/d), 80 %",
+        "en": "Category Analyst (w/m/d), 80%",
         "de": "Category Analyst (w/m/d), 80%",
         "fr": "Analyste de catégorie (h/f/d), 80%"
       },
@@ -2317,7 +2318,7 @@
       },
       "slugByLocale": {
         "it": "category-analista-m-w-d-80-coop-basel-stadt-8bgwjp",
-        "en": "category-analyst-m-w-d-80-coop-basel-stadt-8bgwjp",
+        "en": "category-analyst-w-m-d-80-coop-genossenschaft-basel-basel-stadt",
         "de": "category-analyst-m-w-d-80-coop-basel-stadt-8bgwjp",
         "fr": "category-analyste-m-w-d-80-coop-basel-stadt-8bgwjp"
       },
@@ -2331,6 +2332,7 @@
         ],
         "en": [
           "category-analyst-m-w-d-80-coop-genossenschaft-basel-stadt-8bgwjp",
+          "category-analyst-m-w-d-80-coop-basel-stadt-8bgwjp",
           "category-analyst-w-m-d-80-coop-genossenschaft-basel-basel-stadt"
         ],
         "de": [
@@ -2346,6 +2348,7 @@
         "category-analyste-m-w-d-80-coop-genossenschaft-basel-stadt-8bgwjp",
         "category-analyst-m-w-d-80-coop-basel-stadt",
         "category-analista-m-w-d-80-coop-genossenschaft-basel-stadt-8bgwjp",
+        "category-analyst-m-w-d-80-coop-basel-stadt-8bgwjp",
         "category-analyst-w-m-d-80-coop-genossenschaft-basel-basel-stadt"
       ],
       "baseSalary": {
@@ -2364,7 +2367,8 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salaryMin": 51600,
-      "salaryMax": 88000
+      "salaryMax": 88000,
+      "needsRetranslation": true
     },
     {
       "id": "company-7tmm0d",
@@ -2389,7 +2393,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-17T11:04:53.043Z",
       "slugByLocale": {
         "it": "verkaufsberater-in-per-elektrohaushalt-80-100-fust-olten-solothurn-7tmm0d",
@@ -2467,7 +2471,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-14T22:27:27.990Z",
       "titleByLocale": {
         "it": "Capo della ricevuta aggiunto",
@@ -2547,11 +2551,11 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-13T22:24:55.383Z",
       "titleByLocale": {
         "it": "Responsabile E-Commerce: 80% - 100%",
-        "en": "E-Commerce Manager: 80% - 100%",
+        "en": "E-Commerce Manager:in 80% - 100%",
         "de": "E-Commerce Manager:in 80% - 100%",
         "fr": "Responsable e-commerce 80 % - 100 %"
       },
@@ -2625,7 +2629,8 @@
         "canton": "SG"
       },
       "salaryMin": 79000,
-      "salaryMax": 120000
+      "salaryMax": 120000,
+      "needsRetranslation": true
     },
     {
       "id": "company-c6dwd4",
@@ -2645,11 +2650,11 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-10T22:39:27.410Z",
       "titleByLocale": {
         "it": "Project Manager: in Sponsorship",
-        "en": "Project Manager: in Sponsorship",
+        "en": "Project-Manager:in Sponsoring",
         "de": "Project-Manager:in Sponsoring",
         "fr": "Chef de Projet Sponsoring"
       },
@@ -2661,7 +2666,7 @@
       },
       "slugByLocale": {
         "it": "project-manager-in-sponsorship-coop-genossenschaft-bern",
-        "en": "project-manager-in-sponsoring-coop-bern-c6dwd4",
+        "en": "project-manager-in-sponsoring-coop-genossenschaft-bern",
         "de": "project-manager-in-sponsoring-coop-bern-c6dwd4",
         "fr": "gestionnaire-de-projet-en-commandite-coop-genossenschaft-bern"
       },
@@ -2669,7 +2674,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-de-projet-junior-coop-genossenschaft-arbedo-castione-ticino",
           "project-manager-in-sponsoring-coop-genossenschaft-bern-c6dwd4",
           "project-manager-in-sponsoring-coop-bern-c6dwd4",
           "project-manager-in-sponsoring-coop-bern",
@@ -2688,10 +2692,12 @@
           "gestionnaire-de-projet-junior-parrainage-coop-genossenschaft-arbedo-castione-1qcvc7",
           "gestionnaire-de-projet-junior-parrainage-coop-genossenschaft-arbedo-castione",
           "gestionnaire-de-projet-junior-parrainage-coop-arbedo-castione-ticino-1qcvc7",
-          "gestionnaire-de-projet-junior-parrainage-coop-genossenschaft-arbedo-castione-ticino-1qcvc7"
+          "gestionnaire-de-projet-junior-parrainage-coop-genossenschaft-arbedo-castione-ticino-1qcvc7",
+          "gestionnaire-de-projet-junior-coop-genossenschaft-arbedo-castione-ticino"
         ],
         "en": [
           "project-manager-in-sponsoring-coop-genossenschaft-bern-c6dwd4",
+          "project-manager-in-sponsoring-coop-bern-c6dwd4",
           "project-manager-in-sponsoring-coop-genossenschaft-bern"
         ],
         "fr": [
@@ -2737,7 +2743,8 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salaryMin": 94500,
-      "salaryMax": 143000
+      "salaryMax": 143000,
+      "needsRetranslation": true
     },
     {
       "id": "company-8r1g8p",
@@ -2757,7 +2764,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-10T22:39:27.410Z",
       "titleByLocale": {
         "it": "Collaboratore/trice Facility Management & Betriebsunterhalt",
@@ -2844,7 +2851,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-10T22:39:27.410Z",
       "titleByLocale": {
         "it": "Monteur per den Austausch von Kücheneinbaugeräten",
@@ -2937,7 +2944,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-10T22:39:27.410Z",
       "titleByLocale": {
         "it": "Verkaufsberater:in per Elektrohaushalt & Multimedia 80% - 100%",
@@ -2961,7 +2968,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-4opay7",
           "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-frauenfeld",
           "sales-consultant-in-electrical-household-and-multimedia-fust-swiss-household-services-ag-wallisellen",
           "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
@@ -2980,7 +2986,8 @@
           "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
           "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-oberburen",
           "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-bern",
-          "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-grenchen"
+          "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
+          "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-4opay7"
         ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-luzern-jb4wob",
@@ -3079,7 +3086,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-10T22:39:27.410Z",
       "titleByLocale": {
         "it": "Montatore/trice di impianti sanitari per cucine & bagni",
@@ -3166,7 +3173,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-10T22:39:27.410Z",
       "titleByLocale": {
         "it": "Rappresentante del servizio clienti:in",
@@ -3250,7 +3257,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-10T22:39:27.410Z",
       "titleByLocale": {
         "it": "Monteur per den Austausch von Kücheneinbaugeräten",
@@ -3333,7 +3340,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-06T13:40:26.001Z",
       "titleByLocale": {
         "it": "Techniker:in per Multimedia-Geräte",
@@ -3435,7 +3442,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-06T13:40:26.001Z",
       "titleByLocale": {
         "it": "Verkaufsberater:in per Elektrohaushalt & Multimedia 80% - 100%",
@@ -3520,7 +3527,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-06T13:40:26.001Z",
       "titleByLocale": {
         "it": "Verkaufsberater:in per Elektrohaushalt e Multimedia",
@@ -3603,7 +3610,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-06T13:40:26.001Z",
       "titleByLocale": {
         "it": "Rappresentante del servizio clienti:in servizio",
@@ -3695,7 +3702,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-06T13:40:26.001Z",
       "titleByLocale": {
         "it": "Collaboratore/trice Intralogistik - Bereich Wareneingang",
@@ -3762,7 +3769,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-03T11:11:13.855Z",
       "titleByLocale": {
         "it": "Fiteria sanitaria: in cucine e bagni",
@@ -3786,7 +3793,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern",
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-lzkg1f",
           "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-bern",
           "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-bern",
@@ -3805,7 +3811,8 @@
           "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-steg-hohtenn-wallis",
           "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-steg-hohtenn-wallis",
           "sanitarmonteur-in-kuchen-bader-fust-steg-hohtenn-wallis-h26um4",
-          "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-lzkg1f"
+          "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-lzkg1f",
+          "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern"
         ],
         "en": [
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-steg-hohtenn-wallis-h26um4",
@@ -3898,7 +3905,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-07-01T22:19:20.999Z",
       "titleByLocale": {
         "it": "Ingegnere di supporto del secondo livello",
@@ -3974,7 +3981,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-06-30T22:20:32.271Z",
       "titleByLocale": {
         "it": "Verkaufsberater:in per Elektrohaushalt & Multimedia 80% - 100%",
@@ -4055,7 +4062,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-06-30T11:26:22.953Z",
       "titleByLocale": {
         "en": "Application Developer Java 80 - 100%",
@@ -4129,10 +4136,10 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-06-30T11:26:22.953Z",
       "titleByLocale": {
-        "it": "Consulente di vendita:in per elettrodomestici 80% - 100%",
+        "it": "Verkaufsberater:in per Elektrohaushalt 80% - 100%",
         "en": "Sales consultant:in for electrical household 80% - 100%",
         "de": "Verkaufsberater:in für Elektrohaushalt 80% - 100%",
         "fr": "Consultant en ventes:pour les ménages électriques 80% - 100%"
@@ -4227,7 +4234,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-06-29T22:14:00.097Z",
       "titleByLocale": {
         "it": "Montatore a domicilio di elettrodomestici",
@@ -4359,7 +4366,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T10:43:31.923Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-06-29T22:14:00.097Z",
       "titleByLocale": {
         "it": "Addetto/a alle consegne a domicilio di elettrodomestici",
@@ -4375,9 +4382,9 @@
       },
       "slugByLocale": {
         "it": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-576dn5",
-        "en": "home-delivery-technician-for-household-appliances-fust-pratteln-basel-landschaft-576dn5",
+        "en": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-576dn5",
         "de": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-d6fb1e",
-        "fr": "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-pratteln-basel-landschaft-576dn5"
+        "fr": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-576dn5"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -4427,9 +4434,9 @@
         "technicien-de-livraison-a-domicile-d-appareils-electromenagers-fust-swiss-household-services-ag-pratteln",
         "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-pratteln",
         "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-pratteln-576dn5",
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-dubendorf",
         "home-delivery-technician-for-household-appliances-fust-pratteln-basel-landschaft-576dn5",
         "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-pratteln-basel-landschaft-576dn5",
-        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-dubendorf",
         "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-576dn5"
       ],
       "baseSalary": {
@@ -4474,7 +4481,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-06-29T22:14:00.097Z",
       "titleByLocale": {
         "it": "Tecnico di servizio: in Soluzioni Professionali",
@@ -4568,7 +4575,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-06-29T22:14:00.097Z",
       "titleByLocale": {
         "it": "Tecnico di servizio: in servizio domestico",
@@ -4664,7 +4671,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-06-29T22:14:00.097Z",
       "titleByLocale": {
         "it": "Tecnico di servizio: in Soluzioni Professionali",
@@ -4758,7 +4765,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-25T21:59:15.279Z",
+      "crawledAt": "2026-07-26T10:53:32.536Z",
       "firstSeenAt": "2026-06-29T22:14:00.097Z",
       "titleByLocale": {
         "it": "Home delivery installer: negli elettrodomestici",
@@ -4835,7 +4842,7 @@
     },
     {
       "id": "company-ow4ac2",
-      "slug": "stellvertretung-der-leitung-food-coop-genossenschaft-aarau-aargau",
+      "slug": "capo-aggiunto-dell-alimentazione-coop-genossenschaft-aarau",
       "company": "Coop Genossenschaft",
       "title": "Stellvertretung der Leitung Food",
       "location": "Aarau, Aargau",
@@ -4892,7 +4899,8 @@
           "stellvertretung-der-leitung-food-coop-genossenschaft-aarau-aargau-ow4ac2",
           "deputy-head-of-food-coop-genossenschaft-aarau-aargau",
           "chef-adjoint-de-l-alimentation-coop-genossenschaft-aarau-aargau",
-          "capo-aggiunto-dell-alimentazione-coop-genossenschaft-aarau-aargau"
+          "capo-aggiunto-dell-alimentazione-coop-genossenschaft-aarau-aargau",
+          "stellvertretung-der-leitung-food-coop-genossenschaft-aarau-aargau"
         ],
         "fr": [
           "chef-adjoint-de-l-alimentation-coop-genossenschaft-aarau-jws0oe",
@@ -4915,7 +4923,8 @@
         "stellvertretung-der-leitung-food-coop-genossenschaft-aarau-aargau-ow4ac2",
         "deputy-head-of-food-coop-genossenschaft-aarau-aargau",
         "chef-adjoint-de-l-alimentation-coop-genossenschaft-aarau-aargau",
-        "capo-aggiunto-dell-alimentazione-coop-genossenschaft-aarau-aargau"
+        "capo-aggiunto-dell-alimentazione-coop-genossenschaft-aarau-aargau",
+        "stellvertretung-der-leitung-food-coop-genossenschaft-aarau-aargau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -5363,7 +5372,7 @@
     },
     {
       "id": "company-zdul1m",
-      "slug": "venditore-in-food-coop-genossenschaft-egerkingen-solothurn",
+      "slug": "venditore-in-food-coop-genossenschaft-egerkingen",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Egerkingen, Solothurn",
@@ -5415,7 +5424,8 @@
           "verkaufer-in-food-coop-genossenschaft-egerkingen-solothurn",
           "verkaufer-in-food-coop-genossenschaft-egerkingen-solothurn-zdul1m",
           "verkaufer-in-food-coop-egerkingen-solothurn-zdul1m",
-          "verkaufer-in-food-coop-egerkingen-solothurn"
+          "verkaufer-in-food-coop-egerkingen-solothurn",
+          "venditore-in-food-coop-genossenschaft-egerkingen-solothurn"
         ],
         "en": [
           "verkaufer-in-food-coop-genossenschaft-egerkingen-solothurn-zdul1m",
@@ -5437,7 +5447,8 @@
         "verkaufer-in-food-coop-egerkingen-solothurn-zdul1m",
         "seller-in-food-coop-genossenschaft-egerkingen-solothurn",
         "vendeur-dans-la-nourriture-coop-genossenschaft-egerkingen-solothurn",
-        "verkaufer-in-food-coop-egerkingen-solothurn"
+        "verkaufer-in-food-coop-egerkingen-solothurn",
+        "venditore-in-food-coop-genossenschaft-egerkingen-solothurn"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -7022,7 +7033,7 @@
       "titleByLocale": {
         "de": "Sushi-Hilfskoch/Hilfsköchin",
         "it": "Sushi chef/chef",
-        "en": "Sushi chef/chef",
+        "en": "Sushi-Hilfskoch/Hilfsköchin",
         "fr": "Chef/chef Sushi"
       },
       "descriptionByLocale": {
@@ -7092,7 +7103,8 @@
         "chef-de-cuisine-100-two-spice-ag-dietlikon",
         "kuchenchef-in-100-two-spice-dietlikon",
         "sushi-help-chef-help-chef-two-spice-ag-dietlikon"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-ctz6y3",
@@ -7123,7 +7135,7 @@
       "titleByLocale": {
         "de": "Zenbu-Sushi Koch/Köchin",
         "it": "Chef Zenbu-Sushi",
-        "en": "Zenbu-Sushi chef",
+        "en": "Zenbu-Sushi Koch/Köchin",
         "fr": "Chef Zenbu-Sushi"
       },
       "descriptionByLocale": {
@@ -7169,7 +7181,8 @@
         "zenbu-sushi-chef-two-spice-ag-dietlikon-acfae1",
         "zenbu-sushi-koch-kochin-two-spice-dietlikon-bpjsag",
         "zenbu-sushi-koch-kochin-two-spice-dietlikon"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-zc21x8",
@@ -8664,7 +8677,7 @@
       "titleByLocale": {
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Cook / cook (f/m/d)",
+        "en": "Köchin / Koch (w/m/d)",
         "fr": "Cuire/cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -8675,7 +8688,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-bern-a8c9d4",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-bern-a8c9d4",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-bern",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-bern-7z9gmc",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-bern-a8c9d4"
       },
@@ -8700,6 +8713,7 @@
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-bern-7z9gmc",
           "cook-cook-f-m-d-coop-genossenschaft-bern",
+          "cook-cook-f-m-d-coop-genossenschaft-bern-a8c9d4",
           "kochin-koch-m-w-d-coop-genossenschaft-bern"
         ],
         "fr": [
@@ -8716,7 +8730,8 @@
         "cucinare-cucinare-f-m-d-coop-genossenschaft-bern",
         "cook-cook-f-m-d-coop-genossenschaft-bern",
         "kochin-koch-m-w-d-coop-genossenschaft-bern-irdhh4",
-        "cuire-cuire-f-m-d-coop-genossenschaft-bern"
+        "cuire-cuire-f-m-d-coop-genossenschaft-bern",
+        "cook-cook-f-m-d-coop-genossenschaft-bern-a8c9d4"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -8734,7 +8749,8 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-jsw1f0",
@@ -8826,7 +8842,8 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-nz0q9t",
@@ -9410,7 +9427,7 @@
       "titleByLocale": {
         "fr": "Coordonnateur de la production et administration (100 %)",
         "de": "Produktionskoordinator/in & Administration (100%)",
-        "it": "Coordinatore di produzione e amministrazione (100%)",
+        "it": "Produktionskoordinator/in & Administration (100%)",
         "en": "Production Coordinator & Administration (100%)"
       },
       "descriptionByLocale": {
@@ -9470,7 +9487,8 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-8izv5u",
@@ -11163,7 +11181,7 @@
       "titleByLocale": {
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Cook / cook (f/m/d)",
+        "en": "Köchin / Koch (w/m/d)",
         "fr": "Cuire/cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -11174,7 +11192,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-winterthur",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-winterthur",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-winterthur"
       },
@@ -11195,6 +11213,7 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku",
+          "cook-cook-f-m-d-coop-genossenschaft-winterthur",
           "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich"
         ],
         "fr": [
@@ -11204,7 +11223,8 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich",
         "kochin-koch-m-w-d-coop-ristorante-winterthur-zurich",
-        "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku"
+        "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku",
+        "cook-cook-f-m-d-coop-genossenschaft-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -11222,7 +11242,8 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-4u0urp",
@@ -13327,7 +13348,7 @@
       "titleByLocale": {
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Cook / cook (f/m/d)",
+        "en": "Köchin / Koch (w/m/d)",
         "fr": "Cuire / cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -13338,7 +13359,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-aarau",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-aarau",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau-ddg6am",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-aarau"
       },
@@ -13378,6 +13399,7 @@
           "cook-m-w-d-coop-genossenschaft-aarau-x72egi",
           "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau-ddg6am",
           "cook-cook-f-m-d-coop-genossenschaft-aarau-aargau",
+          "cook-cook-f-m-d-coop-genossenschaft-aarau",
           "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau"
         ],
         "de": [
@@ -13413,7 +13435,8 @@
         "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau-ddg6am",
         "cook-cook-f-m-d-coop-genossenschaft-aarau-aargau",
         "cuire-cuire-f-m-d-coop-genossenschaft-aarau-aargau",
-        "cucinare-cucinare-f-m-d-coop-genossenschaft-aarau-aargau"
+        "cucinare-cucinare-f-m-d-coop-genossenschaft-aarau-aargau",
+        "cook-cook-f-m-d-coop-genossenschaft-aarau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -13431,7 +13454,8 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-eszcs8",
@@ -14064,7 +14088,7 @@
       "titleByLocale": {
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Cook / cook (f/m/d)",
+        "en": "Köchin / Koch (w/m/d)",
         "fr": "Cuire/cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -14075,7 +14099,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-st-gallen",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-st-gallen",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen-uo8mso",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-st-gallen"
       },
@@ -14111,6 +14135,7 @@
           "cook-m-w-d-coop-genossenschaft-zurich-02wspo",
           "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen-uo8mso",
           "cook-cook-f-m-d-coop-genossenschaft-st-gallen-sankt-gallen",
+          "cook-cook-f-m-d-coop-genossenschaft-st-gallen",
           "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen"
         ],
         "de": [
@@ -14140,7 +14165,8 @@
         "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen-uo8mso",
         "cook-cook-f-m-d-coop-genossenschaft-st-gallen-sankt-gallen",
         "cuire-cuire-f-m-d-coop-genossenschaft-st-gallen-sankt-gallen",
-        "cucinare-cucinare-f-m-d-coop-genossenschaft-st-gallen-sankt-gallen"
+        "cucinare-cucinare-f-m-d-coop-genossenschaft-st-gallen-sankt-gallen",
+        "cook-cook-f-m-d-coop-genossenschaft-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -14158,7 +14184,8 @@
       "addressRegion": "SG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-n5mu7v",
@@ -15889,7 +15916,7 @@
       "titleByLocale": {
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Cook / cook (f/m/d)",
+        "en": "Köchin / Koch (w/m/d)",
         "fr": "Cuire/cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -15900,7 +15927,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-volketswil",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-volketswil",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich-womu86",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-volketswil"
       },
@@ -15921,6 +15948,7 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich-womu86",
+          "cook-cook-f-m-d-coop-genossenschaft-volketswil",
           "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich"
         ],
         "fr": [
@@ -15930,7 +15958,8 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich",
         "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich-womu86",
-        "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich"
+        "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich",
+        "cook-cook-f-m-d-coop-genossenschaft-volketswil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -15948,7 +15977,8 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-3k950o",
@@ -17968,7 +17998,7 @@
         "de": "rayonleiter-in-garden-jumbo-affoltern-am-albis",
         "fr": "chef-de-rayon-a-garden-jumbo-affoltern-am-albis",
         "it": "rayonleiter-in-garden-jumbo-affoltern-am-albis-zurich-z2t880",
-        "en": "rayon-leader-in-garden-jumbo-affoltern-am-albis-zurich-z2t880"
+        "en": "rayonleiter-in-garden-jumbo-affoltern-am-albis-zurich-z2t880"
       },
       "titleByLocale": {
         "de": "Rayonleiter:in Garden",
@@ -18055,7 +18085,7 @@
       "titleByLocale": {
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Cook / cook (f/m/d)",
+        "en": "Köchin / Koch (w/m/d)",
         "fr": "Cuire / cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -18066,7 +18096,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-oberwil",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-oberwil",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-oberwil-basel-landschaft",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-oberwil-basel-landschaft-7ms24u",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-oberwil"
       },
@@ -18089,6 +18119,7 @@
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-oberwil-basel-landschaft-7ms24u",
           "cook-cook-f-m-d-coop-genossenschaft-oberwil-basel-landschaft",
+          "cook-cook-f-m-d-coop-genossenschaft-oberwil",
           "kochin-koch-m-w-d-coop-genossenschaft-oberwil-basel-landschaft"
         ],
         "fr": [
@@ -18102,7 +18133,8 @@
         "cook-cook-f-m-d-coop-genossenschaft-oberwil-basel-landschaft",
         "cuire-cuire-f-m-d-coop-genossenschaft-oberwil-basel-landschaft",
         "kochin-koch-m-w-d-coop-ristorante-oberwil-basel-landschaft",
-        "cucinare-cucinare-f-m-d-coop-genossenschaft-oberwil-basel-landschaft"
+        "cucinare-cucinare-f-m-d-coop-genossenschaft-oberwil-basel-landschaft",
+        "cook-cook-f-m-d-coop-genossenschaft-oberwil"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -18120,7 +18152,8 @@
       "addressRegion": "BS",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-15707t",
@@ -19493,15 +19526,15 @@
       "crawledAt": "2026-07-03T22:08:48.156Z",
       "firstSeenAt": "2026-07-03T22:08:48.156Z",
       "slugByLocale": {
-        "it": "cuoco-a-m-f-d-coop-genossenschaft-zurich",
-        "en": "chef-m-w-d-coop-genossenschaft-zurich-hkqjuc",
+        "it": "cucinare-m-w-d-coop-genossenschaft-zurich",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-zurich",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-zurich-hkqjuc",
-        "fr": "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-zurich-hkqjuc"
+        "fr": "cuire-m-w-d-coop-genossenschaft-zurich"
       },
       "titleByLocale": {
         "de": "Köchin / Koch (w/m/d)",
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Cook / cook (f/m/d)",
+        "en": "Köchin / Koch (w/m/d)",
         "fr": "Cuire/cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -19538,7 +19571,8 @@
           "logistician-in-coop-genossenschaft-zurich",
           "logistiker-in-coop-genossenschaft-zurich-x5sn1h",
           "logisticien-in-coop-genossenschaft-zurich",
-          "logistiker-in-coop-genossenschaft-zurich"
+          "logistiker-in-coop-genossenschaft-zurich",
+          "cuoco-a-m-f-d-coop-genossenschaft-zurich"
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-zurich-hkqjuc",
@@ -19547,6 +19581,7 @@
           "cook-m-f-d-coop-genossenschaft-zurich",
           "logistician-in-coop-genossenschaft-zurich",
           "cook-m-w-d-coop-genossenschaft-zurich",
+          "chef-m-w-d-coop-genossenschaft-zurich-hkqjuc",
           "kochin-koch-m-w-d-coop-genossenschaft-zurich"
         ],
         "fr": [
@@ -19559,6 +19594,7 @@
           "chef-cook-m-w-d-coop-genossenschaft-bern-wq803m",
           "chef-cuisinier-m-w-d-coop-genossenschaft-bern-wq803m",
           "logisticien-in-coop-genossenschaft-zurich",
+          "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-zurich-hkqjuc",
           "cuire-m-w-d-coop-genossenschaft-zurich"
         ],
         "de": [
@@ -19595,6 +19631,9 @@
         "logisticien-in-coop-genossenschaft-zurich",
         "logistiker-in-coop-genossenschaft-zurich",
         "cook-m-w-d-coop-genossenschaft-zurich",
+        "cuoco-a-m-f-d-coop-genossenschaft-zurich",
+        "chef-m-w-d-coop-genossenschaft-zurich-hkqjuc",
+        "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-zurich-hkqjuc",
         "cuire-m-w-d-coop-genossenschaft-zurich"
       ],
       "salaryMin": 73500,
@@ -19614,7 +19653,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-5kdtlt",
@@ -19936,7 +19976,7 @@
         "fr": "gestionnaire-de-magasins-100-f-m-d-marche-restaurants-schweiz-ag-dietlikon"
       },
       "titleByLocale": {
-        "en": "Store Manager 100% (f/m/d)",
+        "en": "Store Manager 100% (w/m/d)",
         "de": "Store Manager 100% (w/m/d)",
         "it": "Store Manager 100% (f/m/d)",
         "fr": "Gestionnaire de magasins 100% (f/m/d)"
@@ -19980,7 +20020,8 @@
         "store-manager-100-m-w-d-marche-restaurants-schweiz-ag-dietlikon",
         "filialleiter-100-w-m-d-marche-restaurants-schweiz-ag-dietlikon",
         "filialleiter-100-m-w-d-marche-restaurants-schweiz-ag-dietlikon-pvziad"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-8892st",
@@ -21413,7 +21454,7 @@
       },
       "slugByLocale": {
         "it": "addetto-a-alla-logistica-jumbo-hochdorf",
-        "en": "logistics-officer-jumbo-hochdorf",
+        "en": "associate-logistik-jumbo-division-der-coop-genossenschaft-hochdorf-luzern",
         "de": "mitarbeiter-in-logistik-jumbo-hochdorf",
         "fr": "collaborateur-trice-logistik-jumbo-hochdorf"
       },
@@ -21437,6 +21478,7 @@
         "en": [
           "associate-logistik-jumbo-division-der-coop-genossenschaft-hochdorf-luzern-rfjtm4",
           "mitarbeiter-in-logistik-jumbo-hochdorf",
+          "logistics-officer-jumbo-hochdorf",
           "associate-logistik-jumbo-division-der-coop-genossenschaft-hochdorf-luzern"
         ],
         "fr": [
@@ -21451,6 +21493,7 @@
         "associate-logistik-jumbo-division-der-coop-genossenschaft-hochdorf-luzern-rfjtm4",
         "mitarbeiter-in-logistik-jumbo-hochdorf",
         "collaborateur-trice-logistik-jumbo-division-der-coop-genossenschaft-hochdorf-luzern-rfjtm4",
+        "logistics-officer-jumbo-hochdorf",
         "associate-logistik-jumbo-division-der-coop-genossenschaft-hochdorf-luzern"
       ],
       "salaryMin": 69500,
@@ -21646,7 +21689,7 @@
       "crawledAt": "2026-07-01T22:19:20.999Z",
       "firstSeenAt": "2026-07-01T22:19:20.999Z",
       "titleByLocale": {
-        "de": "Verkäufer:in Blumen",
+        "de": "Verkäufer:in Kiosk",
         "it": "Venditore: in Kiosk",
         "en": "Seller:in Kiosk",
         "fr": "Vendeur: à Kiosk"
@@ -21739,7 +21782,7 @@
       "firstSeenAt": "2026-07-01T22:19:20.999Z",
       "titleByLocale": {
         "en": "Facility Technician (m/w/d)",
-        "de": "Anlagentechniker (m/w/d)",
+        "de": "Facility Techniker (m/w/d)",
         "fr": "Technicien de Maintenance (m/f/d)",
         "it": "Tecnico di Manutenzione (m/f/d)"
       },
@@ -21750,7 +21793,7 @@
         "fr": "## Technicien des installations (m/f/d)\n\n**Coopérative de coop** — Frutigen, Berne, Svizzera\n\n## Tâche\n- Assurer le bon fonctionnement de toutes les installations et installations techniques\n- Entretien, entretien et amélioration continue des infrastructures\n- Responsabilité en matière de sécurité opérationnelle et respect des exigences environnementales et de sécurité\n- Organisation du nettoyage, logistique et gestion des déchets\n- Soutien et entretien du matériel CVC, des véhicules et de la technologie de pisciculture\n- Achat de matériel, de machines et de matériel\n\n## Exigences\n- Formation technique de base (mécanicien de machines agricoles ou équivalent)\n- Expérience en matière d ' entretien technique et d ' achat d ' équipements et de machines\n- Méthode de travail indépendante, structurée et axée sur les solutions\n- Résilient physique, fiable et axé sur l'équipe\n- Comprendre les contrôles et l'automatisation\n- La connaissance de l'allemand en mots et en écriture\n- Forte compréhension technique et force de mise en œuvre pratique\n- Un haut sens des responsabilités dans les domaines de la sécurité, de la qualité et de l'environnement\n- Engagement, initiative et méthode de travail de réflexion\n- Apparence ouverte, serviable et professionnelle\n- Capacité de hiérarchiser les tâches et de suivre\n\n## Ce que nous offrons\n- Avantages: paquet alimentaire (boissons incluses)\n- Conditions d'emploi: conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : appui à la formation\n- Durabilité: Engagement envers les personnes et les animaux et la nature avec plus de 400 actions\n- Communication : Environnement dynamique et axé sur l'équipe\n- Santé : milieux de travail ergonomiques\n\n## Votre personne à contacter\nJenny Wüthrich\nChef des finances et des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité:** Fruité"
       },
       "slugByLocale": {
-        "it": "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
+        "it": "tecnico-di-manutenzione-m-f-d-coop-genossenschaft-frutigen-bern",
         "en": "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
         "de": "facility-techniker-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
         "fr": "facility-technicien-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g"
@@ -21760,7 +21803,8 @@
       "previousSlugsByLocale": {
         "it": [
           "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
+          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern",
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-1lrh2g"
@@ -21769,7 +21813,8 @@
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
         "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern",
-        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-1lrh2g"
+        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-1lrh2g",
+        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g"
       ],
       "salaryMin": 105500,
       "salaryMax": 185000,
@@ -23323,9 +23368,9 @@
       },
       "slugByLocale": {
         "it": "lagerist-in-coop-genossenschaft-oberentfelden-aargau-h6aalq",
-        "en": "warehouse-operator-livique-oberentfelden-aargau-h6aalq",
+        "en": "lagerist-in-coop-genossenschaft-oberentfelden-aargau-h6aalq",
         "de": "lagerist-in-coop-genossenschaft-oberentfelden",
-        "fr": "magasinier-livique-oberentfelden-aargau-h6aalq"
+        "fr": "lagerist-in-coop-genossenschaft-oberentfelden-aargau-h6aalq"
       },
       "requirementsByLocale": {
         "it": [],
@@ -23492,9 +23537,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-coop-genossenschaft-basel-stadt-th9lio",
-        "en": "sales-consultant-import-parfumerie-basel-stadt-th9lio",
+        "en": "verkaufsberater-in-coop-genossenschaft-basel-stadt-th9lio",
         "de": "verkaufsberater-in-coop-genossenschaft-basel",
-        "fr": "conseiller-de-vente-import-parfumerie-basel-stadt-th9lio"
+        "fr": "verkaufsberater-in-coop-genossenschaft-basel-stadt-th9lio"
       },
       "requirementsByLocale": {
         "it": [],
