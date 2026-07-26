@@ -1561,6 +1561,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.confronto-imposta-cantonale-svizzera-cantoni.title': 'Zugo e Svitto, meno costosi di Ginevra e Vaud',
     'blog.article.confronto-imposta-cantonale-svizzera-cantoni.excerpt': 'Le aliquote di imposta cantonale in Svizzera variano notevolmente tra i cantoni. Ecco un confronto tra alcune delle principali aliquote.',
     'blog.article.confronto-imposta-cantonale-svizzera-cantoni.imageAlt': 'Una scena di Lugano, con un panorama della città e della montagna dietro.',
+    'blog.article.lavoro-svizzera-frontalieri-guida.title': 'Lavoro in Svizzera e frontalieri: ricerca, agenzie e permessi',
+    'blog.article.lavoro-svizzera-frontalieri-guida.excerpt': 'Scopri come cercare lavoro in Svizzera, quali canali utilizzare tra agenzie e web, e quali permessi servono per i frontalieri.',
+    'blog.article.lavoro-svizzera-frontalieri-guida.imageAlt': 'Panorama di Lugano con vista sul lago e sul territorio svizzero',
 };
 
 export default blogMetaChIt;

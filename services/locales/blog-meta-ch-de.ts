@@ -1561,6 +1561,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.confronto-imposta-cantonale-svizzera-cantoni.title': 'Zug und Schwyz günstiger als Genf und Waadt',
     'blog.article.confronto-imposta-cantonale-svizzera-cantoni.excerpt': 'Die kantonalen Steuersätze in der Schweiz variieren stark zwischen den Kantonen. Hier ist ein Vergleich einiger der wichtigsten Steuersätze.',
     'blog.article.confronto-imposta-cantonale-svizzera-cantoni.imageAlt': 'Eine Szene aus Lugano, mit einem Panorama der Stadt und der Berge dahinter.',
+    'blog.article.lavoro-svizzera-frontalieri-guida.title': 'Arbeit in der Schweiz und Grenzgänger: Forschung, Agenturen und Genehmigungen',
+    'blog.article.lavoro-svizzera-frontalieri-guida.excerpt': 'Erfahren Sie, wie Sie in der Schweiz nach Arbeit suchen, welche Kanäle zwischen Agenturen und dem Internet genutzt werden und welche Genehmigungen Grenzgänger benötigen.',
+    'blog.article.lavoro-svizzera-frontalieri-guida.imageAlt': 'Lugano Panorama mit Blick auf den See und die Schweizer Region',
 };
 
 export default blogMetaChDe;

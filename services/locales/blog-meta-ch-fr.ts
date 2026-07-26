@@ -1561,6 +1561,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.confronto-imposta-cantonale-svizzera-cantoni.title': 'Zoug et Schwytz, moins chers que Genève et Vaud',
     'blog.article.confronto-imposta-cantonale-svizzera-cantoni.excerpt': 'Les taux d\'imposition cantonaux en Suisse varient considérablement d\'un canton à l\'autre. Voici une comparaison entre certains des principaux taux.',
     'blog.article.confronto-imposta-cantonale-svizzera-cantoni.imageAlt': 'Une vue de Lugano, avec un panorama de la ville et des montagnes derrière.',
+    'blog.article.lavoro-svizzera-frontalieri-guida.title': 'Travail en Suisse et frontaliers : recherche, agences et permis',
+    'blog.article.lavoro-svizzera-frontalieri-guida.excerpt': 'Découvrez comment chercher du travail en Suisse, quels canaux utiliser entre les agences et le web, et quels permis sont nécessaires pour les frontaliers.',
+    'blog.article.lavoro-svizzera-frontalieri-guida.imageAlt': 'Panorama de Lugano surplombant le lac et le territoire suisse',
 };
 
 export default blogMetaChFr;

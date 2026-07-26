@@ -1561,6 +1561,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.confronto-imposta-cantonale-svizzera-cantoni.title': 'Zug and Svitto, less expensive than Geneva and Vaud',
     'blog.article.confronto-imposta-cantonale-svizzera-cantoni.excerpt': 'Cantonal tax rates in Switzerland vary greatly between cantons. Here\'s a comparison of some of the top rates.',
     'blog.article.confronto-imposta-cantonale-svizzera-cantoni.imageAlt': 'A view of Lugano, with a panorama of the city and the mountains behind.',
+    'blog.article.lavoro-svizzera-frontalieri-guida.title': 'Work in Switzerland and border workers: research, agencies and permits',
+    'blog.article.lavoro-svizzera-frontalieri-guida.excerpt': 'Find out how to look for work in Switzerland, what channels to use between agencies and the web, and what permits are needed for border workers.',
+    'blog.article.lavoro-svizzera-frontalieri-guida.imageAlt': 'Lugano panorama overlooking the lake and Swiss territory',
 };
 
 export default blogMetaChEn;
