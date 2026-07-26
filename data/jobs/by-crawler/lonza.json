@@ -3564,9 +3564,9 @@
     },
     {
       "id": "lonza-d946041c9b1a",
-      "slug": "qc-lab-technician-ii-vibex-f-m-d-lonza-ch",
+      "slug": "tecnico-di-laboratorio-qc-ii-vibex-f-m-d-lonza-ch",
       "slugByLocale": {
-        "it": "qc-lab-technician-ii-vibex-f-m-d-lonza-ch",
+        "it": "tecnico-di-laboratorio-qc-ii-vibex-f-m-d-lonza-ch",
         "en": "qc-lab-technician-ii-vibex-f-m-d-lonza-ch",
         "de": "qc-lab-technician-ii-vibex-f-m-d-lonza-ch",
         "fr": "qc-lab-technicien-ii-vibex-f-m-d-lonza-ch"
@@ -3622,7 +3622,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "qc-lab-technician-ii-vibex-f-m-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "qc-lab-technician-ii-vibex-f-m-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-0fdaef981cce",
