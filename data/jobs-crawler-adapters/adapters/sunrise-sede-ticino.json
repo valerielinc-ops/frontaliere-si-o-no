@@ -12,7 +12,7 @@
     "https://careers.sunrise.ch/it/it/search-results"
   ],
   "notes": "Dedicated Sunrise crawler parses the Phenom search pages and keeps CH-wide jobs (all 26 cantons) from the Sunrise careers portal; per-job canton inferred from the clean city signal, foreign/unresolved postings dropped.",
-  "updatedAt": "2026-07-26T10:54:14.668Z",
+  "updatedAt": "2026-07-26T22:04:08.615Z",
   "seedMetaByUrl": {
     "https://careers.sunrise.ch/it/it/job/REQ_30036626/senior-dc-network-engineer-80-100": {
       "location": "Zurich",
@@ -68,18 +68,6 @@
       "company": "Sunrise Communications AG",
       "postedDate": "2026-07-20"
     },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036669/sales-agent-luzern-weinmarkt-80": {
-      "location": "Luzern",
-      "canton": "LU",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-07-20"
-    },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036742/sales-agent-solothurn-60-100": {
-      "location": "Solothurn",
-      "canton": "SO",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-07-20"
-    },
     "https://careers.sunrise.ch/it/it/job/REQ_30036753/sales-agent-mels-60-100": {
       "location": "Mels",
       "canton": "SG",
@@ -95,6 +83,18 @@
     "https://careers.sunrise.ch/it/it/job/REQ_30036752/sales-agent-reinach-ag-60-100": {
       "location": "Reinach AG",
       "canton": "AG",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-07-20"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036669/sales-agent-luzern-weinmarkt-80": {
+      "location": "Luzern",
+      "canton": "LU",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-07-20"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036742/sales-agent-solothurn-60-100": {
+      "location": "Solothurn",
+      "canton": "SO",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-07-20"
     },
