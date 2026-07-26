@@ -3042,7 +3042,7 @@
         "de": "verkaufer-in-im-stundenlohn-denner-ag-weinfelden-8skwt4",
         "en": "sales-assistant-hourly-wage-denner-ag-weinfelden",
         "fr": "vendeur-vendeuse-au-salaire-horaire-denner-ag-weinfelden",
-        "it": "addetto-a-alla-vendita-retribuzione-oraria-denner-ag-weinfelden"
+        "it": "venditore-nel-salario-orario-denner-ag-weinfelden"
       },
       "titleByLocale": {
         "de": "Verkäufer*in im Stundenlohn",
@@ -3086,11 +3086,13 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner-ag-weinfelden"
+        "verkaufer-in-im-stundenlohn-denner-ag-weinfelden",
+        "addetto-a-alla-vendita-retribuzione-oraria-denner-ag-weinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner-ag-weinfelden"
+          "verkaufer-in-im-stundenlohn-denner-ag-weinfelden",
+          "addetto-a-alla-vendita-retribuzione-oraria-denner-ag-weinfelden"
         ]
       },
       "salaryMin": 57500,
@@ -3296,7 +3298,7 @@
         "de": "stv-filialleiter-in-denner-ag-appenzell-3o9h68",
         "en": "deputy-branch-manager-denner-ag-appenzell",
         "fr": "directeur-adjoint-de-la-succursale-denner-ag-appenzell",
-        "it": "vice-direttore-di-filiale-denner-ag-appenzell-0a018d"
+        "it": "stv-branch-manager-in-denner-ag-appenzell"
       },
       "titleByLocale": {
         "de": "Stv. Filialleiter*in",
@@ -3326,6 +3328,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
+          "vice-direttore-di-filiale-denner-ag-appenzell",
           "assistant-branch-manager-denner-ag-appenzell",
           "assistent-in-filialleitung-denner-ag-appenzell-3nhcda",
           "directeur-adjoint-de-succursale-denner-ag-appenzell",
@@ -3343,6 +3346,7 @@
           "directeur-adjoint-de-la-succursale-denner-ag-zurich-d310b2",
           "stv-filialleiter-in-denner-ag-zurich-3",
           "vice-direttore-di-filiale-denner-ag-zurich-b9428d",
+          "vice-direttore-di-filiale-denner-ag-appenzell-0a018d",
           "assistent-in-filialleitung-denner-ag-appenzell"
         ]
       },
@@ -3381,7 +3385,8 @@
         "directeur-adjoint-de-la-succursale-denner-ag-zurich-d310b2",
         "stv-filialleiter-in-denner-ag-zurich-3",
         "vice-direttore-di-filiale-denner-ag-zurich-b9428d",
-        "stv-filialleiter-in-denner-ag-appenzell"
+        "stv-filialleiter-in-denner-ag-appenzell",
+        "vice-direttore-di-filiale-denner-ag-appenzell-0a018d"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -3685,8 +3690,8 @@
       },
       "slugByLocale": {
         "it": "responsable-de-secteur-de-production-m-w-d-fresh-food-beverage-group-vuadens-6gv650",
-        "en": "production-sector-manager-h-f-d-fresh-food-beverage-group-vuadens",
-        "de": "leiter-des-produktionssektors-h-w-d-fresh-food-beverage-group-vuadens",
+        "en": "responsable-de-secteur-de-production-m-w-d-fresh-food-beverage-group-vuadens-6gv650",
+        "de": "responsable-de-secteur-de-production-m-w-d-fresh-food-beverage-group-vuadens-6gv650",
         "fr": "responsable-de-secteur-de-production-m-w-d-fresh-food-beverage-group-vuadens-6gv650"
       },
       "requirementsByLocale": {
@@ -5165,7 +5170,7 @@
         "de": "stv-filialleiter-in-denner-ag-landquart-f4990z",
         "en": "deputy-branch-manager-denner-ag-landquart",
         "fr": "directeur-adjoint-de-la-succursale-denner-ag-landquart",
-        "it": "vice-direttore-di-filiale-denner-ag-landquart"
+        "it": "stv-branch-manager-in-denner-ag-landquart"
       },
       "titleByLocale": {
         "de": "Stv. Filialleiter*in",
@@ -5209,11 +5214,13 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "previousSlugs": [
-        "stv-filialleiter-in-denner-ag-landquart"
+        "stv-filialleiter-in-denner-ag-landquart",
+        "vice-direttore-di-filiale-denner-ag-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner-ag-landquart"
+          "stv-filialleiter-in-denner-ag-landquart",
+          "vice-direttore-di-filiale-denner-ag-landquart"
         ]
       },
       "salaryMin": 57500,
@@ -7094,12 +7101,14 @@
         ],
         "fr": [
           "business-partner-finanzen-m-w-d-fresh-food-beverage-group-vuadens-zfm301",
+          "financement-des-partenaires-commerciaux-m-f-d-fresh-food-beverage-group-vuadens",
           "business-partner-finanzen-m-w-d-fresh-food-beverage-group-vuadens"
         ]
       },
       "previousSlugs": [
         "business-partner-finanzen-m-w-d-fresh-food-beverage-group-vuadens",
-        "business-partner-finanzen-m-w-d-fresh-food-beverage-group-vuadens-zfm301"
+        "business-partner-finanzen-m-w-d-fresh-food-beverage-group-vuadens-zfm301",
+        "financement-des-partenaires-commerciaux-m-f-d-fresh-food-beverage-group-vuadens"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -8189,12 +8198,14 @@
         ],
         "fr": [
           "betriebselektriker-in-facilitymanagement-haustechnik-migros-logistics-suhr-3xzxk5",
+          "electricien-d-entreprise-dans-la-gestion-des-installations-technologie-de-la-maison-migros-logistics-suhr",
           "betriebselektriker-in-facilitymanagement-haustechnik-migros-logistics-suhr"
         ]
       },
       "previousSlugs": [
         "betriebselektriker-in-facilitymanagement-haustechnik-migros-logistics-suhr",
-        "betriebselektriker-in-facilitymanagement-haustechnik-migros-logistics-suhr-3xzxk5"
+        "betriebselektriker-in-facilitymanagement-haustechnik-migros-logistics-suhr-3xzxk5",
+        "electricien-d-entreprise-dans-la-gestion-des-installations-technologie-de-la-maison-migros-logistics-suhr"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -8479,6 +8490,7 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "en": [
+          "unsolicited-application-groupe-micarna-courtepin",
           "candidature-spontanee-groupe-micarna-courtepin"
         ],
         "de": [
@@ -8486,7 +8498,8 @@
         ]
       },
       "previousSlugs": [
-        "candidature-spontanee-groupe-micarna-courtepin"
+        "candidature-spontanee-groupe-micarna-courtepin",
+        "unsolicited-application-groupe-micarna-courtepin"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -12196,6 +12209,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "en": [
+          "operational-mechanic-maintenance-production-facilities-m-f-d-fresh-food-beverage-group-volketswil",
           "betriebsmechaniker-instandhaltung-produktionsanlagen-m-w-d-fresh-food-beverage-group-volketswil"
         ],
         "fr": [
@@ -12203,7 +12217,8 @@
         ]
       },
       "previousSlugs": [
-        "betriebsmechaniker-instandhaltung-produktionsanlagen-m-w-d-fresh-food-beverage-group-volketswil"
+        "betriebsmechaniker-instandhaltung-produktionsanlagen-m-w-d-fresh-food-beverage-group-volketswil",
+        "operational-mechanic-maintenance-production-facilities-m-f-d-fresh-food-beverage-group-volketswil"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -19534,7 +19549,7 @@
     },
     {
       "id": "company-18ev56",
-      "slug": "specialista-della-logistica-degli-eventi-nella-ristorazione-dello-stadio-genossenschaft-migros-ostschweiz-gossau",
+      "slug": "eventlogistiker-in-stadioncatering-genossenschaft-migros-ostschweiz-gossau",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Eventlogistiker*in Stadioncatering",
       "location": "Gossau",
@@ -19589,7 +19604,7 @@
         "fr": "La gastronomie de la coopérative Migros Est Suisse est diversifiée, moderne et dynamique. Restaurant Migros, Migros à emporter, gastronomie partagée ou services de restauration – nous offrons à chaque client une expérience de bon goût.\n\n## Mansioni\n- Vous assurez que nos stands de restauration dans et autour du stade sont équipés des ressources matérielles nécessaires\n- Lors des matchs de football et des événements parallèles, vous êtes au milieu de l'action et prenez la tâche en tant qu'expert en logistique – aucun jour n'est le même!\n- Vous êtes responsable de l'entreposage et de la gestion du matériel pour le secteur de la restauration publique et responsable de l'inventaire mensuel\n- Appareils et véhicules? Vous êtes conjointement responsable de l'entretien, afin qu'ils soient en forme supérieure et toujours prêts à l'emploi\n\n## Exigences\n- Expérience professionnelle : un avantage dans l'industrie de la restauration, de la restauration ou de l'événementiel\n- Aucune formation/enseignement complémentaire requis: un avantage dans l'industrie de la restauration, de la restauration ou des événements\n- Vous aimez prendre des responsabilités et travailler très indépendamment - vous gardez l'aperçu en tout temps\n- Votre façon de travailler structurée vous aide à garder la concentration même dans les moments agités\n- Les horaires de travail flexibles ne leur posent aucun problème, car vous êtes une partie importante de l'équipe et vous assurez que tout se déroule bien pendant les matchs de football et les événements.\n- Vous êtes physiquement résistant, bon à pied et activement impliqué – parce que les matériaux peuvent être lourds\n- Vous êtes prêt à apprendre, s'attaquer activement aux choses et profiter de travailler en équipe - avec votre façon ouverte et orientée vers la solution vous faites votre part pour une bonne coopération\n- Permis de conduire minimum Cat B, remorque avantageuse BE\n- Allemand (très bonne connaissance)\n\n## Cosa de Friamo\n- L-GAV: Contrat de travail collectif attrayant Migros Land\n- Prestations de retraite professionnelles: Prestations de retraite attrayantes avec une forte participation de l'employeur\n- Temps de travail flexible: liberté individuelle dans l'organisation des heures de travail\n- Points Cumulus: Points Cumulus multiples sur les produits alimentaires et non alimentaires\n- Assurance: Conditions de prestations dans diverses compagnies d'assurance\n\n## Contatto\n## Demande et contact Julian Nussberger Team Leader Parc public +41 58 712 03 25"
       },
       "slugByLocale": {
-        "it": "specialista-della-logistica-degli-eventi-nella-ristorazione-dello-stadio-genossenschaft-migros-ostschweiz-gossau",
+        "it": "eventlogistiker-in-stadioncatering-genossenschaft-migros-ostschweiz-gossau",
         "en": "event-logistics-specialist-in-stadium-catering-genossenschaft-migros-ostschweiz-gossau",
         "de": "eventlogistiker-in-stadioncatering-genossenschaft-migros-ostschweiz-gossau-18ev56",
         "fr": "specialiste-logistique-evenementiel-en-restauration-de-stade-genossenschaft-migros-ostschweiz-gossau"
@@ -19612,6 +19627,7 @@
       "previousSlugsByLocale": {
         "it": [
           "eventlogistiker-in-stadioncatering-genossenschaft-migros-ostschweiz-gossau-18ev56",
+          "specialista-della-logistica-degli-eventi-nella-ristorazione-dello-stadio-genossenschaft-migros-ostschweiz-gossau",
           "eventlogistiker-in-stadioncatering-genossenschaft-migros-ostschweiz-gossau"
         ],
         "en": [
@@ -19623,6 +19639,7 @@
       },
       "previousSlugs": [
         "eventlogistiker-in-stadioncatering-genossenschaft-migros-ostschweiz-gossau-18ev56",
+        "specialista-della-logistica-degli-eventi-nella-ristorazione-dello-stadio-genossenschaft-migros-ostschweiz-gossau",
         "eventlogistiker-in-stadioncatering-genossenschaft-migros-ostschweiz-gossau"
       ],
       "baseSalary": {
@@ -25922,7 +25939,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-migros-restaurant-buchs",
-        "en": "cook-cook-migros-restaurant-buchs",
+        "en": "koch-kochin-migros-restaurant-buchs",
         "de": "koch-kochin-migros-restaurant-buchs-yx2c3k",
         "fr": "cuisiniere-migros-restaurant-buchs"
       },
@@ -25972,6 +25989,7 @@
         ],
         "en": [
           "koch-kochin-migros-restaurant-buchs-yx2c3k",
+          "cook-cook-migros-restaurant-buchs",
           "koch-kochin-migros-restaurant-buchs"
         ],
         "fr": [
@@ -25980,7 +25998,8 @@
       },
       "previousSlugs": [
         "koch-kochin-migros-restaurant-buchs",
-        "koch-kochin-migros-restaurant-buchs-yx2c3k"
+        "koch-kochin-migros-restaurant-buchs-yx2c3k",
+        "cook-cook-migros-restaurant-buchs"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -27453,7 +27472,7 @@
       "crawledAt": "2026-07-25T22:23:42.005Z",
       "firstSeenAt": "2026-07-13T22:36:24.077Z",
       "slugByLocale": {
-        "de": "abteilungsleiter-in-fleischerei-fisch-m-w-societe-cooperative-migros-vaud-yverdon-les-bains",
+        "de": "leiter-der-abteilung-metzgerei-poissonerie-h-f-d-societe-cooperative-migros-vaud-yverdon-les-bains",
         "en": "department-manager-butchery-fish-m-f-societe-cooperative-migros-vaud-yverdon-les-bains",
         "fr": "responsable-de-rayon-boucherie-poissonnerie-h-f-d-societe-cooperative-migros-vaud-yverdon-les-bains-okjjw1",
         "it": "responsabile-di-reparto-macelleria-pescheria-m-f-societe-cooperative-migros-vaud-yverdon-les-bains"
@@ -27503,10 +27522,12 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "de": [
+          "abteilungsleiter-in-fleischerei-fisch-m-w-societe-cooperative-migros-vaud-yverdon-les-bains",
           "leiter-der-abteilung-metzgerei-poissonerie-h-f-d-societe-cooperative-migros-vaud-yverdon-les-bains"
         ]
       },
       "previousSlugs": [
+        "abteilungsleiter-in-fleischerei-fisch-m-w-societe-cooperative-migros-vaud-yverdon-les-bains",
         "leiter-der-abteilung-metzgerei-poissonerie-h-f-d-societe-cooperative-migros-vaud-yverdon-les-bains"
       ],
       "salaryMin": 60500,
@@ -32866,7 +32887,7 @@
       "slugByLocale": {
         "de": "mechaniker-in-instandhaltung-haustechnik-fresh-food-beverage-group-bischofszell-mudrv0",
         "en": "mechanic-maintenance-building-services-fresh-food-beverage-group-bischofszell",
-        "fr": "maintenance-mecanique-services-de-batiments-fresh-food-beverage-group-bischofszell",
+        "fr": "mecanicien-en-genie-de-la-maison-d-entretien-fresh-food-beverage-group-bischofszell",
         "it": "manutenzione-meccanica-servizi-edilizi-fresh-food-beverage-group-bischofszell"
       },
       "titleByLocale": {
@@ -32911,10 +32932,12 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "fr": [
+          "maintenance-mecanique-services-de-batiments-fresh-food-beverage-group-bischofszell",
           "mecanicien-en-genie-de-la-maison-d-entretien-fresh-food-beverage-group-bischofszell"
         ]
       },
       "previousSlugs": [
+        "maintenance-mecanique-services-de-batiments-fresh-food-beverage-group-bischofszell",
         "mecanicien-en-genie-de-la-maison-d-entretien-fresh-food-beverage-group-bischofszell"
       ],
       "salaryMin": 57500,
@@ -34572,12 +34595,14 @@
         ],
         "de": [
           "leader-de-maintenance-elsa-group-estavayer-le-lac-gzycfn",
+          "leiter-der-instandhaltung-elsa-group-estavayer-le-lac",
           "leader-de-maintenance-elsa-group-estavayer-le-lac"
         ]
       },
       "previousSlugs": [
         "leader-de-maintenance-elsa-group-estavayer-le-lac",
-        "leader-de-maintenance-elsa-group-estavayer-le-lac-gzycfn"
+        "leader-de-maintenance-elsa-group-estavayer-le-lac-gzycfn",
+        "leiter-der-instandhaltung-elsa-group-estavayer-le-lac"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -35744,8 +35769,8 @@
       "firstSeenAt": "2026-07-10T10:32:43.492Z",
       "slugByLocale": {
         "de": "backer-konditor-als-anlagenfuhrer-m-w-d-fresh-food-beverage-group-gossau-0b8i1x",
-        "en": "account-manager-m-w-d-fresh-food-beverage-group-gossau",
-        "fr": "gestionnaire-de-compte-m-w-d-fresh-food-beverage-group-gossau",
+        "en": "baker-confectioner-as-plant-operator-m-w-d-fresh-food-beverage-group-gossau",
+        "fr": "baker-confiseur-en-tant-qu-exploitant-d-usine-m-w-d-fresh-food-beverage-group-gossau",
         "it": "backer-konditor-come-anlagenfuhrer-m-w-d-fresh-food-beverage-group-gossau-0b8i1x"
       },
       "titleByLocale": {
@@ -35792,13 +35817,17 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "en": [
+          "account-manager-m-w-d-fresh-food-beverage-group-gossau",
           "baker-confectioner-as-plant-operator-m-w-d-fresh-food-beverage-group-gossau"
         ],
         "fr": [
+          "gestionnaire-de-compte-m-w-d-fresh-food-beverage-group-gossau",
           "baker-confiseur-en-tant-qu-exploitant-d-usine-m-w-d-fresh-food-beverage-group-gossau"
         ]
       },
       "previousSlugs": [
+        "account-manager-m-w-d-fresh-food-beverage-group-gossau",
+        "gestionnaire-de-compte-m-w-d-fresh-food-beverage-group-gossau",
         "baker-confectioner-as-plant-operator-m-w-d-fresh-food-beverage-group-gossau",
         "baker-confiseur-en-tant-qu-exploitant-d-usine-m-w-d-fresh-food-beverage-group-gossau"
       ],
@@ -40339,7 +40368,7 @@
         "de": "stv-filialleiter-in-denner-ag-zurich-geicje",
         "en": "deputy-branch-manager-denner-ag-zurich",
         "fr": "directeur-adjoint-de-la-succursale-denner-ag-zurich",
-        "it": "vice-direttore-di-negozio-denner-ag-zurich"
+        "it": "stv-filialleiter-in-denner-ag-zurich"
       },
       "titleByLocale": {
         "de": "Stv. Filialleiter*in",
@@ -40369,6 +40398,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
+          "vice-direttore-di-negozio-denner-ag-zurich",
           "stv-filialleiter-in-denner-ag-zurich-gdn8qz",
           "deputy-branch-manager-denner-ag-zurich-6527ca",
           "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca",
@@ -40388,6 +40418,7 @@
         ]
       },
       "previousSlugs": [
+        "vice-direttore-di-negozio-denner-ag-zurich",
         "stv-filialleiter-in-denner-ag-zurich-gdn8qz",
         "deputy-branch-manager-denner-ag-zurich-6527ca",
         "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca",
@@ -43497,6 +43528,7 @@
         "fr": [
           "restaurationsfachmitarbeiter-in-migros-golf-ag-waldkirch-girvmb",
           "specialiste-de-la-restauration-migros-golf-ag-oberkirch-a45cba",
+          "specialiste-de-la-restauration-migros-golf-ag-waldkirch",
           "restaurationsfachmitarbeiter-in-migros-golf-ag-waldkirch"
         ]
       },
@@ -43513,7 +43545,8 @@
         "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch-ysy2xf",
         "specialiste-de-la-restauration-migros-golf-ag-oberkirch-a45cba",
         "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch-2",
-        "specialista-di-restauro-migros-golf-ag-oberkirch-a45cba"
+        "specialista-di-restauro-migros-golf-ag-oberkirch-a45cba",
+        "specialiste-de-la-restauration-migros-golf-ag-waldkirch"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -45095,7 +45128,7 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-in-lagerbewirtschaftung-genossenschaft-migros-zurich-jjy9pa",
-        "en": "employees-in-warehouse-management-genossenschaft-migros-zurich-zurich",
+        "en": "allrounder-in-verkauf-genossenschaft-migros-zurich",
         "de": "mitarbeiter-in-lagerbewirtschaftung-genossenschaft-migros-zurich-jjy9pa",
         "fr": "salaries-dans-la-gestion-des-entrepots-genossenschaft-migros-zurich-zurich"
       },
@@ -45149,6 +45182,7 @@
         "en": [
           "mitarbeiter-in-lagerbewirtschaftung-genossenschaft-migros-zurich-jjy9pa",
           "allrounder-in-verkauf-genossenschaft-migros-zurich-zurich",
+          "employees-in-warehouse-management-genossenschaft-migros-zurich-zurich",
           "allrounder-in-verkauf-genossenschaft-migros-zurich"
         ],
         "de": [
@@ -45169,6 +45203,7 @@
         "vendite-all-rounder-genossenschaft-migros-zurich-fallanden-vf4lnz",
         "ventes-de-jeux-polyvalents-genossenschaft-migros-zurich-fallanden-vf4lnz",
         "allrounder-in-verkauf-genossenschaft-migros-zurich-zurich",
+        "employees-in-warehouse-management-genossenschaft-migros-zurich-zurich",
         "allrounder-in-verkauf-genossenschaft-migros-zurich"
       ],
       "baseSalary": {
@@ -45793,7 +45828,7 @@
       "id": "migrolino-31b2fdd0e1d8",
       "slug": "rappresentante-vendite-migrolino-bern",
       "slugByLocale": {
-        "it": "personale-di-vendita-migrolino-bern",
+        "it": "rappresentante-vendite-migrolino-bern",
         "en": "sales-staff-migrolino-bern",
         "de": "verkaufsmitarbeiter-in-migrolino-bern",
         "fr": "personnel-de-vente-migrolino-bern"
@@ -45862,12 +45897,14 @@
       },
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-bern",
-        "verkaufsmitarbeiter-in-migrolino-bern-tk36gc"
+        "verkaufsmitarbeiter-in-migrolino-bern-tk36gc",
+        "personale-di-vendita-migrolino-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-bern",
-          "verkaufsmitarbeiter-in-migrolino-bern-tk36gc"
+          "verkaufsmitarbeiter-in-migrolino-bern-tk36gc",
+          "personale-di-vendita-migrolino-bern"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-bern-tk36gc",
@@ -47067,12 +47104,14 @@
         ],
         "fr": [
           "senior-controller-in-mitglied-des-kaders-migros-logistics-neuendorf-hjkton",
+          "controleur-principal-membre-de-l-equipe-migros-logistics-neuendorf",
           "senior-controller-in-mitglied-des-kaders-migros-logistics-neuendorf"
         ]
       },
       "previousSlugs": [
         "senior-controller-in-mitglied-des-kaders-migros-logistics-neuendorf",
-        "senior-controller-in-mitglied-des-kaders-migros-logistics-neuendorf-hjkton"
+        "senior-controller-in-mitglied-des-kaders-migros-logistics-neuendorf-hjkton",
+        "controleur-principal-membre-de-l-equipe-migros-logistics-neuendorf"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -47298,7 +47337,8 @@
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
-          "stv-branch-manager-in-denner-ag-schaffhausen-w85cd4"
+          "stv-branch-manager-in-denner-ag-schaffhausen-w85cd4",
+          "stv-branch-manager-in-denner-ag-schaffhausen"
         ],
         "fr": [
           "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4"
@@ -47307,7 +47347,8 @@
       "previousSlugs": [
         "stv-filialleiter-in-denner-ag-schaffhausen",
         "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
-        "stv-branch-manager-in-denner-ag-schaffhausen-w85cd4"
+        "stv-branch-manager-in-denner-ag-schaffhausen-w85cd4",
+        "stv-branch-manager-in-denner-ag-schaffhausen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -47531,6 +47572,7 @@
         ],
         "en": [
           "koch-kochin-migros-restaurant-egerkingen-10rpcs",
+          "cook-cook-migros-restaurant-egerkingen",
           "koch-kochin-migros-restaurant-egerkingen"
         ],
         "fr": [
@@ -47539,7 +47581,8 @@
       },
       "previousSlugs": [
         "koch-kochin-migros-restaurant-egerkingen",
-        "koch-kochin-migros-restaurant-egerkingen-10rpcs"
+        "koch-kochin-migros-restaurant-egerkingen-10rpcs",
+        "cook-cook-migros-restaurant-egerkingen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -48240,10 +48283,10 @@
       "crawledAt": "2026-07-25T22:23:42.005Z",
       "firstSeenAt": "2026-07-24T22:23:52.372Z",
       "slugByLocale": {
-        "de": "mehrzweck-kasse-societe-cooperative-migros-vaud-epalinges",
+        "de": "kassierer-m-w-d-societe-cooperative-migros-vaud-epalinges",
         "en": "multipurpose-cashier-societe-cooperative-migros-vaud-epalinges",
         "fr": "caissier-polyvalent-societe-cooperative-migros-vaud-epalinges-chcegs",
-        "it": "cassiere-multiuso-societe-cooperative-migros-vaud-epalinges"
+        "it": "caissier-m-w-d-societe-cooperative-migros-vaud-epalinges"
       },
       "titleByLocale": {
         "fr": "Caissier (H/F/D)",
@@ -48288,11 +48331,17 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "previousSlugs": [
+        "cassiere-multiuso-societe-cooperative-migros-vaud-epalinges",
+        "mehrzweck-kasse-societe-cooperative-migros-vaud-epalinges",
         "kassierer-m-w-d-societe-cooperative-migros-vaud-epalinges"
       ],
       "previousSlugsByLocale": {
         "de": [
+          "mehrzweck-kasse-societe-cooperative-migros-vaud-epalinges",
           "kassierer-m-w-d-societe-cooperative-migros-vaud-epalinges"
+        ],
+        "it": [
+          "cassiere-multiuso-societe-cooperative-migros-vaud-epalinges"
         ]
       },
       "salaryMin": 60500,
@@ -49698,7 +49747,7 @@
         "fr": "Tu es notre nouveau visage derrière l'infraction ? Vous connaissez les saisons dans le boucher et avez déjà acquis de l'expérience dans ce domaine? Alors vous avez raison avec nous. Dans le rôle de chef de département* dans la boucherie, vous servez et inspirez nos clients avec une gamme étendue et prenez le leadership professionnel de l'équipe.\n\n## Mansioni\n- Vous conseillez et servez nos clients avec plaisir et votre expertise au comptoir de viande\n- Une présentation attrayante des biens, une gestion efficace des biens et la garantie de disponibilité sont vos priorités\n- Vous veillez à ce que les processus définis dans votre ministère soient respectés\n- Les contrôles de qualité et la conformité au concept HACCP sont de votre responsabilité\n- Dans ce rôle, l'accent est mis sur le leadership professionnel de l'équipe\n- Vous soutenez activement et activement d'autres ministères\n\n## Exigences\n- Idéalement, plusieurs années d'expérience professionnelle: comme boucher, cuisinier / chef ou dans la spécialisation du commerce de détail en gestion de la viande\n- Achevé une formation de base ou de perfectionnement: comme boucher, cuisinier / chef ou dans la spécialisation du commerce de détail en gestion de la viande\n- En tant que personnalité orientée client avec plaisir dans les ventes, vous faites shopping une expérience positive\n- Compétences PC et fitness numérique élevé vous distingue\n- Vous avez déjà de l'expérience au comptoir de viande\n- Vous avez une expérience de leadership\n- en allemand (négociation certaine)\n\n## Cosa de Friamo\n- Congé de maternité / congé de paternité: 18 semaines de congé de maternité et 4 semaines de congé de paternité\n- Pension professionnelle: les prestations supérieures à la moyenne garantissent la sécurité financière des salariés au troisième stade de la vie\n- Prestations sociales: conditions d'emploi attrayantes avec de très bonnes prestations sociales\n- Points Cumulus: Points Cumulus multiples sur les produits alimentaires et non alimentaires\n- Club School Migros: Participation financière généreuse à des cours auto-sélectionnés\n- Offres sportives et de fitness: partage des coûts des abonnements à plus de 50 Migros fitness, bien-être, aquaparks\n- Garde d'enfants : Participation financière généreuse aux coûts des services externes de garde d'enfants\n- Mobilité: participation d'un abonnement annuel aux transports publics, rabais sur le carburant (Migrol), réduction de la contribution annuelle pour le partage de la mobilité et droit à un rabais sur la flotte\n- Abonnements mobiles : divers avantages sur abonnements mobiles\n- Migros Bank : gestion de compte gratuite, intérêts préférentiels sur le capital ou rabais sur les taux d'intérêt des prêts hypothécaires fixes nouvellement conclus\n- Offres des employés : Conditions préférentielles pour les fonds d'assurance et d'assurance maladie\n- Loisirs et offres culturelles: Diverses réductions sur les offres de vacances, séjours linguistiques, vacances Migros, interhome et événements\n\n## Contatto\n## Demande et contact Melanie Knuchel Recrutement Partenaire +41 58 565 85 85 ## Note pour les prestataires de services de recrutement Pour cette position, nous ne considérons que les demandes directes.\n\n**Grade di occupation:** 80-100 %"
       },
       "slugByLocale": {
-        "it": "capo-reparto-in-macelleria-genossenschaft-migros-aare-grenchen",
+        "it": "collaboratore-trice-in-metzgerei-genossenschaft-migros-aare-grenchen",
         "en": "head-of-department-in-butchery-genossenschaft-migros-aare-grenchen",
         "de": "abteilungsleiter-in-metzgerei-genossenschaft-migros-aare-grenchen-qmdkos",
         "fr": "chef-de-departement-en-boucherie-genossenschaft-migros-aare-grenchen"
@@ -49727,7 +49776,8 @@
           "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-langenthal",
           "dipendente-del-macelleriano-genossenschaft-migros-aare-langenthal-4akl8f",
           "employee-in-metzgerei-genossenschaft-migros-aare-langenthal-4akl8f",
-          "employe-de-boucherie-genossenschaft-migros-aare-langenthal-4akl8f"
+          "employe-de-boucherie-genossenschaft-migros-aare-langenthal-4akl8f",
+          "capo-reparto-in-macelleria-genossenschaft-migros-aare-grenchen"
         ],
         "en": [
           "abteilungsleiter-in-metzgerei-genossenschaft-migros-aare-grenchen-qmdkos",
@@ -49752,7 +49802,8 @@
         "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-langenthal",
         "dipendente-del-macelleriano-genossenschaft-migros-aare-langenthal-4akl8f",
         "employee-in-metzgerei-genossenschaft-migros-aare-langenthal-4akl8f",
-        "employe-de-boucherie-genossenschaft-migros-aare-langenthal-4akl8f"
+        "employe-de-boucherie-genossenschaft-migros-aare-langenthal-4akl8f",
+        "capo-reparto-in-macelleria-genossenschaft-migros-aare-grenchen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -50279,12 +50330,14 @@
         ],
         "fr": [
           "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau-hs7and",
+          "technicien-des-services-genossenschaft-migros-ostschweiz-gossau",
           "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau"
         ]
       },
       "previousSlugs": [
         "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau-hs7and",
-        "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau"
+        "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau",
+        "technicien-des-services-genossenschaft-migros-ostschweiz-gossau"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -52613,7 +52666,7 @@
       "slugByLocale": {
         "it": "2-riempitivi-f-h-d-societe-cooperative-migros-geneve-nyon",
         "en": "2-fillers-f-h-d-societe-cooperative-migros-geneve-nyon",
-        "de": "2-fuller-f-h-d-societe-cooperative-migros-geneve-nyon",
+        "de": "2-fullstoffe-m-w-d-societe-cooperative-migros-geneve-nyon",
         "fr": "2-remplisseuses-m-w-d-societe-cooperative-migros-geneve-nyon"
       },
       "titleByLocale": {
@@ -52689,6 +52742,7 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "de": [
+          "2-fuller-f-h-d-societe-cooperative-migros-geneve-nyon",
           "2-fullstoffe-m-w-d-societe-cooperative-migros-geneve-nyon"
         ],
         "fr": [
@@ -52697,6 +52751,7 @@
       },
       "previousSlugs": [
         "2-remplisseurs-m-w-d-societe-cooperative-migros-geneve-nyon-wk8zs9",
+        "2-fuller-f-h-d-societe-cooperative-migros-geneve-nyon",
         "2-fullstoffe-m-w-d-societe-cooperative-migros-geneve-nyon"
       ],
       "salaryMin": 60500,
@@ -53064,7 +53119,7 @@
       "id": "migrolino-87d1f7981d02",
       "slug": "rappresentante-vendite-migrolino-kriens",
       "slugByLocale": {
-        "it": "personale-di-vendita-migrolino-kriens",
+        "it": "rappresentante-vendite-migrolino-kriens",
         "en": "sales-staff-migrolino-kriens",
         "de": "verkaufsmitarbeiter-in-migrolino-kriens",
         "fr": "personnel-de-vente-migrolino-kriens"
@@ -53134,12 +53189,14 @@
       },
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-kriens",
-        "verkaufsmitarbeiter-in-migrolino-kriens-h1z6lu"
+        "verkaufsmitarbeiter-in-migrolino-kriens-h1z6lu",
+        "personale-di-vendita-migrolino-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-kriens",
-          "verkaufsmitarbeiter-in-migrolino-kriens-h1z6lu"
+          "verkaufsmitarbeiter-in-migrolino-kriens-h1z6lu",
+          "personale-di-vendita-migrolino-kriens"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-kriens-h1z6lu",
@@ -53181,7 +53238,7 @@
       "id": "migrolino-ca111ba1e49d",
       "slug": "rappresentante-vendite-migrolino-stans",
       "slugByLocale": {
-        "it": "personale-di-vendita-migrolino-stans",
+        "it": "rappresentante-vendite-migrolino-stans",
         "en": "sales-staff-migrolino-stans-704620",
         "de": "verkaufsmitarbeiter-in-migrolino-stans",
         "fr": "personnel-de-vente-migrolino-stans-704620"
@@ -53251,12 +53308,14 @@
       },
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-stans",
-        "verkaufsmitarbeiter-in-migrolino-stans-04c87b"
+        "verkaufsmitarbeiter-in-migrolino-stans-04c87b",
+        "personale-di-vendita-migrolino-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-stans",
-          "verkaufsmitarbeiter-in-migrolino-stans-04c87b"
+          "verkaufsmitarbeiter-in-migrolino-stans-04c87b",
+          "personale-di-vendita-migrolino-stans"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-stans-04c87b",
@@ -54080,12 +54139,14 @@
         ],
         "de": [
           "supporter-local-it-f-h-d-la-federation-des-cooperatives-migros-martigny",
+          "unterstutzung-lokaler-it-e-h-d-la-federation-des-cooperatives-migros-martigny",
           "supporter-local-it-m-w-d-la-federation-des-cooperatives-migros-martigny"
         ]
       },
       "previousSlugs": [
         "supporter-local-it-m-w-d-la-federation-des-cooperatives-migros-martigny",
-        "supporter-local-it-f-h-d-la-federation-des-cooperatives-migros-martigny"
+        "supporter-local-it-f-h-d-la-federation-des-cooperatives-migros-martigny",
+        "unterstutzung-lokaler-it-e-h-d-la-federation-des-cooperatives-migros-martigny"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -55198,7 +55259,7 @@
       "id": "migrolino-f1a0c9b4325e",
       "slug": "rappresentante-vendite-migrolino-thun",
       "slugByLocale": {
-        "it": "personale-di-vendita-migrolino-thun",
+        "it": "rappresentante-vendite-migrolino-thun",
         "en": "sales-staff-migrolino-thun",
         "de": "verkaufsmitarbeiter-in-migrolino-thun",
         "fr": "personnel-de-vente-migrolino-thun"
@@ -55267,12 +55328,14 @@
       },
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-thun",
-        "verkaufsmitarbeiter-in-migrolino-thun-ygp0tu"
+        "verkaufsmitarbeiter-in-migrolino-thun-ygp0tu",
+        "personale-di-vendita-migrolino-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-thun",
-          "verkaufsmitarbeiter-in-migrolino-thun-ygp0tu"
+          "verkaufsmitarbeiter-in-migrolino-thun-ygp0tu",
+          "personale-di-vendita-migrolino-thun"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-thun-ygp0tu",
@@ -55314,7 +55377,7 @@
       "id": "migrolino-721d10b711e9",
       "slug": "rappresentante-vendite-migrolino-fullinsdorf",
       "slugByLocale": {
-        "it": "personale-di-vendita-migrolino-fullinsdorf",
+        "it": "rappresentante-vendite-migrolino-fullinsdorf",
         "en": "sales-staff-migrolino-fullinsdorf",
         "de": "verkaufsmitarbeiter-in-migrolino-fullinsdorf",
         "fr": "personnel-de-vente-migrolino-fullinsdorf"
@@ -55383,12 +55446,14 @@
       },
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-fullinsdorf",
-        "verkaufsmitarbeiter-in-migrolino-fullinsdorf-sff82a"
+        "verkaufsmitarbeiter-in-migrolino-fullinsdorf-sff82a",
+        "personale-di-vendita-migrolino-fullinsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-fullinsdorf",
-          "verkaufsmitarbeiter-in-migrolino-fullinsdorf-sff82a"
+          "verkaufsmitarbeiter-in-migrolino-fullinsdorf-sff82a",
+          "personale-di-vendita-migrolino-fullinsdorf"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-fullinsdorf-sff82a",
@@ -58010,7 +58075,7 @@
       "crawledAt": "2026-07-25T22:23:42.005Z",
       "firstSeenAt": "2026-07-01T12:19:35.353Z",
       "slugByLocale": {
-        "it": "macellaio-societe-cooperative-migros-vaud-rolle",
+        "it": "boucher-societe-cooperative-migros-vaud-rolle",
         "en": "butcher-societe-cooperative-migros-vaud-rolle",
         "de": "metzger-societe-cooperative-migros-vaud-rolle",
         "fr": "boucher-societe-cooperative-migros-vaud-rolle-4gc8oz"
@@ -58045,11 +58110,13 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "boucher-societe-cooperative-migros-vaud-rolle-4gc8oz"
+          "boucher-societe-cooperative-migros-vaud-rolle-4gc8oz",
+          "macellaio-societe-cooperative-migros-vaud-rolle"
         ]
       },
       "previousSlugs": [
-        "boucher-societe-cooperative-migros-vaud-rolle-4gc8oz"
+        "boucher-societe-cooperative-migros-vaud-rolle-4gc8oz",
+        "macellaio-societe-cooperative-migros-vaud-rolle"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -69128,6 +69195,7 @@
         ],
         "en": [
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-hxojs2",
+          "cook-genossenschaft-migros-ostschweiz-st-gallen",
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen"
         ],
         "fr": [
@@ -69136,7 +69204,8 @@
       },
       "previousSlugs": [
         "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
-        "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-hxojs2"
+        "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-hxojs2",
+        "cook-genossenschaft-migros-ostschweiz-st-gallen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -69934,13 +70003,15 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "previousSlugs": [
-        "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch"
+        "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch",
+        "specialiste-de-la-restauration-migros-golf-ag-oberkirch-a45cba"
       ],
       "previousSlugsByLocale": {
         "it": [
           "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch"
         ],
         "fr": [
+          "specialiste-de-la-restauration-migros-golf-ag-oberkirch-a45cba",
           "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch"
         ]
       },
@@ -71992,12 +72063,14 @@
         ],
         "en": [
           "koch-kochin-migros-restaurant-interlaken-lb63e2",
+          "cook-cook-migros-restaurant-interlaken",
           "koch-kochin-migros-restaurant-interlaken"
         ]
       },
       "previousSlugs": [
         "koch-kochin-migros-restaurant-interlaken",
-        "koch-kochin-migros-restaurant-interlaken-lb63e2"
+        "koch-kochin-migros-restaurant-interlaken-lb63e2",
+        "cook-cook-migros-restaurant-interlaken"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -73334,6 +73407,7 @@
         "en": [
           "prozessexperte-produktion-lean-management-m-w-d-delica-ag-birsfelden-k24xmk",
           "prozessexperte-produktion-w-m-d-delica-ag-birsfelden",
+          "process-expert-production-w-m-d-delica-ag-birsfelden",
           "prozessexperte-produktion-m-w-d-delica-ag-birsfelden"
         ],
         "fr": [
@@ -73343,6 +73417,7 @@
       "previousSlugs": [
         "prozessexperte-produktion-lean-management-m-w-d-delica-ag-birsfelden-k24xmk",
         "prozessexperte-produktion-w-m-d-delica-ag-birsfelden",
+        "process-expert-production-w-m-d-delica-ag-birsfelden",
         "prozessexperte-produktion-m-w-d-delica-ag-birsfelden"
       ],
       "salaryMin": 62000,
@@ -74351,6 +74426,7 @@
         ],
         "en": [
           "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen-dekc9a",
+          "baker-confectioner-genossenschaft-migros-ostschweiz-schaffhausen",
           "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen"
         ],
         "fr": [
@@ -74359,7 +74435,8 @@
       },
       "previousSlugs": [
         "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen",
-        "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen-dekc9a"
+        "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen-dekc9a",
+        "baker-confectioner-genossenschaft-migros-ostschweiz-schaffhausen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -77082,7 +77159,7 @@
       "id": "denner-e603cd8fd6ae",
       "slug": "stv-branch-manager-in-denner-ag-schaffhausen",
       "slugByLocale": {
-        "it": "vice-direttore-di-filiale-denner-ag-schaffhausen",
+        "it": "stv-branch-manager-in-denner-ag-schaffhausen",
         "en": "deputy-branch-manager-denner-ag-schaffhausen",
         "de": "stv-filialleiter-in-denner-ag-schaffhausen-1ylvst",
         "fr": "directeur-adjoint-de-la-succursale-denner-ag-schaffhausen"
@@ -77147,13 +77224,15 @@
       "previousSlugs": [
         "stv-filialleiter-in-denner",
         "stv-filialleiter-in-denner-ag-schaffhausen",
-        "stv-filialleiter-in-denner-ag-schaffhausen-1ylvst"
+        "stv-filialleiter-in-denner-ag-schaffhausen-1ylvst",
+        "vice-direttore-di-filiale-denner-ag-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner",
           "stv-filialleiter-in-denner-ag-schaffhausen",
-          "stv-filialleiter-in-denner-ag-schaffhausen-1ylvst"
+          "stv-filialleiter-in-denner-ag-schaffhausen-1ylvst",
+          "vice-direttore-di-filiale-denner-ag-schaffhausen"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-schaffhausen-1ylvst"
@@ -85948,9 +86027,9 @@
       "slug": "assistente-di-negozio-denner-ag-uster",
       "slugByLocale": {
         "it": "assistente-di-negozio-denner-ag-uster",
-        "en": "store-assistant-denner-ag-uster",
+        "en": "stv-branch-manager-in-denner-ag-uster-3e6yfc",
         "de": "stv-filialleiter-in-denner-basel",
-        "fr": "assistant-de-magasin-denner-ag-uster"
+        "fr": "directeur-de-succursale-stv-in-denner-ag-uster"
       },
       "company": "Denner AG",
       "companyKey": "migros-ticino",
@@ -86024,6 +86103,8 @@
         "assistant-de-magasin-denner-ag-uster-b0ao32",
         "assistant-de-magasin-denner-ag-uster-3e6yfc",
         "stv-branch-manager-in-denner-ag-uster-3e6yfc",
+        "store-assistant-denner-ag-uster",
+        "assistant-de-magasin-denner-ag-uster",
         "stv-branch-manager-in-denner-ag-uster",
         "directeur-de-succursale-stv-in-denner-ag-uster"
       ],
@@ -86053,6 +86134,7 @@
           "store-assistant-denner-ag-uster-3e6yfc",
           "stv-filialleiter-in-denner",
           "stv-branch-manager-in-denner-ag-uster-3e6yfc",
+          "store-assistant-denner-ag-uster",
           "stv-branch-manager-in-denner-ag-uster"
         ],
         "fr": [
@@ -86064,6 +86146,7 @@
           "assistant-de-magasin-denner-ag-uster-b0ao32",
           "assistant-de-magasin-denner-ag-uster-3e6yfc",
           "stv-filialleiter-in-denner",
+          "assistant-de-magasin-denner-ag-uster",
           "directeur-de-succursale-stv-in-denner-ag-uster"
         ]
       },
@@ -86818,7 +86901,7 @@
         "it": "transportdisponent-in-frauenfeld-denner-ag-frauenfeld",
         "en": "transport-dispatcher-in-frauenfeld-denner-ag-frauenfeld-yffowm",
         "de": "transportdisponent-in-frauenfeld-denner-ag-frauenfeld-2vqlbi",
-        "fr": "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld"
+        "fr": "transporteur-a-frauenfeld-denner-ag-frauenfeld"
       },
       "company": "Denner AG",
       "companyKey": "migros-ticino",
@@ -86888,6 +86971,7 @@
         "transport-dispatcher-in-frauenfeld-denner-ag-frauenfeld",
         "transportdisponent-in-frauenfeld-denner-ag-frauenfeld-2vqlbi",
         "transporteur-a-frauenfeld-denner-frauenfeld",
+        "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld",
         "transporteur-a-frauenfeld-denner-ag-frauenfeld"
       ],
       "previousSlugsByLocale": {
@@ -86913,6 +86997,7 @@
           "transportmanifestant-a-frauenfeld-denner-frauenfeld",
           "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld-yffowm",
           "transporteur-a-frauenfeld-denner-frauenfeld",
+          "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld",
           "transporteur-a-frauenfeld-denner-ag-frauenfeld"
         ]
       },
@@ -87204,10 +87289,10 @@
       "id": "denner-c73c9b593c90",
       "slug": "assistente-nella-gestione-delle-branche-denner-ag-solothurn",
       "slugByLocale": {
-        "it": "vice-direttore-di-filiale-denner-ag-solothurn",
+        "it": "assistente-nella-gestione-delle-branche-denner-ag-solothurn",
         "en": "assistant-branch-manager-denner-ag-solothurn",
         "de": "assistent-in-filialleitung-denner-ag-solothurn-rkwer0",
-        "fr": "directeur-adjoint-de-succursale-denner-ag-solothurn"
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-ag-solothurn"
       },
       "company": "Denner AG",
       "companyKey": "migros-ticino",
@@ -87272,6 +87357,8 @@
         "assistent-in-filialleitung-denner-2",
         "assistent-in-filialleitung-denner-ag-solothurn",
         "assistent-in-filialleitung-denner-ag-solothurn-rkwer0",
+        "vice-direttore-di-filiale-denner-ag-solothurn",
+        "directeur-adjoint-de-succursale-denner-ag-solothurn",
         "assistant-dans-la-gestion-des-succursales-denner-ag-solothurn"
       ],
       "previousSlugsByLocale": {
@@ -87279,13 +87366,15 @@
           "assistent-in-filialleitung-denner",
           "assistent-in-filialleitung-denner-2",
           "assistent-in-filialleitung-denner-ag-solothurn",
-          "assistent-in-filialleitung-denner-ag-solothurn-rkwer0"
+          "assistent-in-filialleitung-denner-ag-solothurn-rkwer0",
+          "vice-direttore-di-filiale-denner-ag-solothurn"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-solothurn-rkwer0"
         ],
         "fr": [
           "assistent-in-filialleitung-denner-ag-solothurn-rkwer0",
+          "directeur-adjoint-de-succursale-denner-ag-solothurn",
           "assistant-dans-la-gestion-des-succursales-denner-ag-solothurn"
         ]
       },
@@ -89328,7 +89417,7 @@
         "it": "assistente-nella-gestione-delle-branche-denner-ag-biel-bienne",
         "en": "assistant-branch-manager-denner-ag-biel-bienne-a20fa2",
         "de": "assistent-in-filialleitung-denner-ag-biel-bienne-6838o1",
-        "fr": "directeur-adjoint-de-succursale-denner-ag-biel-bienne-a20fa2"
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-ag-biel-bienne"
       },
       "company": "Denner AG",
       "companyKey": "migros-ticino",
@@ -89394,6 +89483,7 @@
         "assistent-in-filialleitung-denner-ag-biel-bienne-6838o1",
         "assistent-in-filialleitung-denner-biel-bienne",
         "assistant-dans-la-gestion-des-succursales-denner-biel-bienne",
+        "directeur-adjoint-de-succursale-denner-ag-biel-bienne-a20fa2",
         "assistant-dans-la-gestion-des-succursales-denner-ag-biel-bienne"
       ],
       "previousSlugsByLocale": {
@@ -89409,6 +89499,7 @@
         "fr": [
           "assistent-in-filialleitung-denner-ag-biel-bienne-6838o1",
           "assistant-dans-la-gestion-des-succursales-denner-biel-bienne",
+          "directeur-adjoint-de-succursale-denner-ag-biel-bienne-a20fa2",
           "assistant-dans-la-gestion-des-succursales-denner-ag-biel-bienne"
         ]
       },
@@ -90910,7 +91001,7 @@
         "fr": "Nous cuisinons d'authentiques plats thaïlandais dans un wok. Nous misons sur des produits de haute qualité et préparons les plats frais chaque jour. Nous recherchons une personnalité orientée service pour compléter notre équipe motivée. Mansioni - Préparation de plats asiatiques - Conseils et service aux clients en matière de recouvrement de créances - Entretien des vitrines de vente et présentation des produits - Divers travaux de nettoyage conformément aux directives HACCP - Accompagner l'équipe dans tous les travaux nécessaires\n• Requisiti - 1 à 2 ans d'expérience professionnelle : en tant que chef thaïlandais - Formation de base ou continue terminée : en tant que chef est un avantage - Expérience professionnelle dans la vente/service avec recouvrement de créances - Expérience en cuisine de plats asiatiques - Personnalité responsable et orientée vers le service. - Peut être utilisé de manière flexible du lundi au samedi - Mode de travail efficace et ordonné - Allemand (bonne connaissance)\n• Cosa offriamo - Travailler sainement : offres favorables à la santé telles que massages et contrôles de santé - Mobilité : avec la prime de loisirs unique par an d'un montant de max. Nous contribuons à hauteur de 350 CHF à votre abonnement aux transports publics - Abonnement de téléphonie mobile : vous bénéficiez de conditions particulières pour l'abonnement de téléphonie mobile - Prévoyance professionnelle : excellentes prestations de la caisse de pension avec participation élevée de l'employeur - Prestations sociales : prestations sociales équitables - Points Cumulus : vous recevez des points Cumulus supplémentaires lors de vos achats - Banque Migros : taux d'intérêt préférentiels pour les comptes privés et d'investissement, gestion de compte gratuite, hypothèques à taux réduit, etc. - École-club Migros : participation aux frais de cours à l'école-club - Offres de loisirs et culturelles : vous bénéficiez billets à prix réduit pour certaines manifestations culturelles - Offres de sport et de fitness : Vous pouvez recevoir une fois par an une prime de loisirs d'un montant maximum de 1000 CHF, par ex. B. Échangez contre un abonnement annuel au M-Fitness Center - Soutien ciblé : GMZ Young Talents Community : vous vous impliquez dans des projets passionnants au sein de notre communauté et participez à des événements qui vous aident à avancer - Formation et formation continue : soutien à la formation professionnelle et continue, prime de formation annuelle d'une valeur de CHF 1 000.– - Possibilité de création et de décision : concrétisez vos idées innovantes - Conseil social et personnel : conseil social interne Contatto Application & Contact Mirco Camera Junior Recruitment Partner rekrutierung@gmz.migros.ch ## Processus de recrutement Présélection des candidatures Nous vérifions en permanence les candidatures que nous recevons, créons une présélection et la communiquons au manager pour consultation. La décision de poursuivre ou de quitter le processus de recrutement est communiquée par téléphone ou par courrier électronique. Durée jusqu'au retour d'information : jusqu'à trois semaines Conversation personnelle par vidéo ou par téléphone S'il y a un grand nombre de candidats, nous effectuons éventuellement une conversation personnelle par téléphone ou par vidéo. Cela nous donne la possibilité de mieux connaître davantage de candidats dans un court laps de temps afin d'inviter des personnes appropriées pour le prochain tour. Durée jusqu'au feedback : Jusqu'à une semaine de travail d'essai. Une journée ou demi-journée d'essai vous donne l'occasion de mieux connaître le futur environnement de travail et les membres de l'équipe. Et à l’inverse, cela nous donne l’occasion d’évaluer dans quelle mesure quelqu’un s’intègre dans l’équipe. Durée jusqu'au retour d'information : jusqu'à trois semaines Émission de l'offre et du contrat (numérique) Après notre offre d'emploi verbale, les points les plus importants du contrat seront à nouveau vérifiés. Une fois convenu, le contrat sera rédigé et envoyé par e-mail pour signature numérique. Durée jusqu'à la rétroaction : jusqu'à une semaine ## Remarque destinée aux prestataires de services de personnel Nous ne considérons que les candidatures directes pour ce poste. Taux d'occupation : 555%"
       },
       "slugByLocale": {
-        "it": "cucina-asiatica-kitchen-assistant-kaimug-wallisellen",
+        "it": "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen",
         "en": "asian-kitchen-cook-assistant-kaimug-wallisellen",
         "de": "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen-6vb5pd",
         "fr": "cuisinier-asiatique-chef-de-cuisine-kaimug-wallisellen"
@@ -90933,7 +91024,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen-6vb5pd"
+          "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen-6vb5pd",
+          "cucina-asiatica-kitchen-assistant-kaimug-wallisellen"
         ],
         "en": [
           "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen-6vb5pd"
@@ -90943,7 +91035,8 @@
         ]
       },
       "previousSlugs": [
-        "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen-6vb5pd"
+        "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen-6vb5pd",
+        "cucina-asiatica-kitchen-assistant-kaimug-wallisellen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -95001,7 +95094,7 @@
         "it": "vice-direttore-di-filiale-denner-ag-ebikon",
         "en": "assistant-branch-manager-denner-ag-ebikon",
         "de": "assistent-in-filialleitung-denner-ag-ebikon-3lj55e",
-        "fr": "directeur-adjoint-de-succursale-denner-ag-ebikon"
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-ag-ebikon"
       },
       "requirementsByLocale": {
         "it": [],
@@ -95028,12 +95121,14 @@
         ],
         "fr": [
           "assistent-in-filialleitung-denner-ag-ebikon-3lj55e",
+          "directeur-adjoint-de-succursale-denner-ag-ebikon",
           "assistant-dans-la-gestion-des-succursales-denner-ag-ebikon"
         ]
       },
       "previousSlugs": [
         "assistent-in-filialleitung-denner-ag-ebikon",
         "assistent-in-filialleitung-denner-ag-ebikon-3lj55e",
+        "directeur-adjoint-de-succursale-denner-ag-ebikon",
         "assistant-dans-la-gestion-des-succursales-denner-ag-ebikon"
       ],
       "baseSalary": {
@@ -95393,12 +95488,14 @@
         ],
         "en": [
           "allrounder-in-verkauf-filiallogistiker-in-genossenschaft-migros-luzern-6hd2vd",
+          "all-rounder-in-sales-branch-logistics-company-genossenschaft-migros-luzern-luzern",
           "allrounder-in-verkauf-filiallogistiker-in-genossenschaft-migros-luzern"
         ]
       },
       "previousSlugs": [
         "allrounder-in-verkauf-filiallogistiker-in-genossenschaft-migros-luzern",
-        "allrounder-in-verkauf-filiallogistiker-in-genossenschaft-migros-luzern-6hd2vd"
+        "allrounder-in-verkauf-filiallogistiker-in-genossenschaft-migros-luzern-6hd2vd",
+        "all-rounder-in-sales-branch-logistics-company-genossenschaft-migros-luzern-luzern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -99857,6 +99954,7 @@
         ],
         "en": [
           "koch-kochin-migros-restaurant-davos-platz-dlf4oh",
+          "chef-chef-de-cuisine-migros-restaurant-davos-platz",
           "koch-kochin-migros-restaurant-davos-platz"
         ],
         "fr": [
@@ -99865,7 +99963,8 @@
       },
       "previousSlugs": [
         "koch-kochin-migros-restaurant-davos-platz",
-        "koch-kochin-migros-restaurant-davos-platz-dlf4oh"
+        "koch-kochin-migros-restaurant-davos-platz-dlf4oh",
+        "chef-chef-de-cuisine-migros-restaurant-davos-platz"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -102802,12 +102901,14 @@
         ],
         "en": [
           "koch-kochin-migros-golf-ag-oberkirch-yo76i7",
+          "cook-cook-migros-golf-ag-oberkirch",
           "koch-kochin-migros-golf-ag-oberkirch"
         ]
       },
       "previousSlugs": [
         "koch-kochin-migros-golf-ag-oberkirch",
-        "koch-kochin-migros-golf-ag-oberkirch-yo76i7"
+        "koch-kochin-migros-golf-ag-oberkirch-yo76i7",
+        "cook-cook-migros-golf-ag-oberkirch"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -119749,6 +119850,7 @@
           "pasticceria-fresh-food-beverage-group-meilen-7v9g6k"
         ],
         "en": [
+          "baker-s-confectioner-fresh-food-beverage-group-meilen-7v9g6k",
           "backer-konditor-fresh-food-beverage-group-meilen"
         ],
         "fr": [
@@ -119758,7 +119860,8 @@
       "previousSlugs": [
         "backer-konditor-fresh-food-beverage-group-meilen",
         "pasticceria-fresh-food-beverage-group-meilen-7v9g6k",
-        "patissier-fresh-food-beverage-group-meilen-7v9g6k"
+        "patissier-fresh-food-beverage-group-meilen-7v9g6k",
+        "baker-s-confectioner-fresh-food-beverage-group-meilen-7v9g6k"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -120655,12 +120758,14 @@
         ],
         "en": [
           "koch-kochin-migros-restaurant-bern-vp5hj1",
+          "cook-cook-migros-restaurant-bern",
           "koch-kochin-migros-restaurant-bern"
         ]
       },
       "previousSlugs": [
         "koch-kochin-migros-restaurant-bern",
-        "koch-kochin-migros-restaurant-bern-vp5hj1"
+        "koch-kochin-migros-restaurant-bern-vp5hj1",
+        "cook-cook-migros-restaurant-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

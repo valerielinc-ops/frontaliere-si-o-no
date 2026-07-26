@@ -9,7 +9,7 @@
         "en": "account-manager-zurich-beekeeper-zurich",
         "it": "account-manager-zurich-beekeeper-zurich",
         "de": "account-manager-zurich-beekeeper-zurich",
-        "fr": "gestionnaire-de-comptes-zurich-beekeeper-zurich"
+        "fr": "account-manager-zurich-beekeeper-zurich"
       },
       "company": "Beekeeper",
       "companyKey": "beekeeper",
@@ -69,6 +69,9 @@
       "firstSeenAt": "2026-07-25T22:07:44.475Z",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-de-comptes-zurich-beekeeper-zurich"
+        ],
+        "fr": [
           "gestionnaire-de-comptes-zurich-beekeeper-zurich"
         ]
       },

@@ -123,11 +123,13 @@
       "pensum": "80 - 100%",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "fage-efz-im-adullam-spital-privatstation-adullam-riehen"
+        "fage-efz-im-adullam-spital-privatstation-adullam-riehen",
+        "fage-cfc-im-adullam-spital-privatstation-adullam-stiftung-riehen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fage-efz-im-adullam-spital-privatstation-adullam-riehen"
+          "fage-efz-im-adullam-spital-privatstation-adullam-riehen",
+          "fage-cfc-im-adullam-spital-privatstation-adullam-stiftung-riehen"
         ]
       },
       "firstSeenAt": "2026-07-17T12:02:29.635Z",
@@ -233,7 +235,7 @@
       "slug": "diplomiere-pflegefachperson-hf-fh-adullam-stiftung-basel",
       "slugByLocale": {
         "it": "diplomiere-pflegefachperson-hf-fh-adullam-stiftung-basel",
-        "en": "certified-nurse-hf-fh-adullam-stiftung-basel",
+        "en": "diplomierte-pflegefachperson-hf-fh-adullam-stiftung-basel",
         "de": "diplomierte-pflegefachperson-hf-fh-adullam-basel",
         "fr": "infirmier-ere-diplome-e-es-hes-adullam-stiftung-basel"
       },
@@ -285,16 +287,20 @@
         "diplomierte-pflegefachperson-hf-fh-adullam-basel",
         "diplomatic-nurse-hf-fh-adullam-stiftung-basel",
         "qualified-nurse-hf-fh-adullam-stiftung-basel",
+        "certified-nurse-hf-fh-adullam-stiftung-basel",
+        "diplomiere-pflegefachperson-hf-fh-adullam-stiftung-basel",
         "diplomierte-pflegefachperson-hf-fh-adullam-stiftung-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomierte-pflegefachperson-hf-fh-adullam-basel"
+          "diplomierte-pflegefachperson-hf-fh-adullam-basel",
+          "diplomiere-pflegefachperson-hf-fh-adullam-stiftung-basel"
         ],
         "en": [
           "diplomierte-pflegefachperson-hf-fh-adullam-basel",
           "diplomatic-nurse-hf-fh-adullam-stiftung-basel",
           "qualified-nurse-hf-fh-adullam-stiftung-basel",
+          "certified-nurse-hf-fh-adullam-stiftung-basel",
           "diplomierte-pflegefachperson-hf-fh-adullam-stiftung-basel"
         ],
         "fr": [
@@ -371,12 +377,14 @@
       "previousSlugs": [
         "dipl-physiotherapeut-in-adullam-basel",
         "dipl-physiotherapeut-physiotherapeutin-adullam-basel",
-        "dipl-physiotherapeut-physiotherapeutin-adullam-stiftung-basel"
+        "dipl-physiotherapeut-physiotherapeutin-adullam-stiftung-basel",
+        "dipl-fisioterapia-in-adullam-stiftung-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-physiotherapeut-in-adullam-basel",
-          "dipl-physiotherapeut-physiotherapeutin-adullam-basel"
+          "dipl-physiotherapeut-physiotherapeutin-adullam-basel",
+          "dipl-fisioterapia-in-adullam-stiftung-basel"
         ],
         "en": [
           "dipl-physiotherapeut-in-adullam-basel",
@@ -464,7 +472,8 @@
         "dipl-pflegefachperson-hf-fh-in-der-gerontopsychiatrie-adullam-basel",
         "assistant-in-health-and-social-affairs-in-the-gerontopsychiatrie-adullam-stiftung-basel",
         "dipl-pflegefachperson-hf-fh-in-der-gerontopsychiatrie-adullam-stiftung-basel",
-        "assistente-in-salute-e-affari-sociali-nella-gerontopsychiatrie-adullam-stiftung-basel"
+        "assistente-in-salute-e-affari-sociali-nella-gerontopsychiatrie-adullam-stiftung-basel",
+        "dipl-professionista-hf-fh-adullam-stiftung-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -477,7 +486,8 @@
           "dipl-pflegefachperson-hf-fh-in-der-gerontopsychiatrie-adullam-basel",
           "assistant-in-health-and-social-affairs-in-the-gerontopsychiatrie-adullam-stiftung-basel",
           "dipl-pflegefachperson-hf-fh-in-der-gerontopsychiatrie-adullam-stiftung-basel",
-          "assistente-in-salute-e-affari-sociali-nella-gerontopsychiatrie-adullam-stiftung-basel"
+          "assistente-in-salute-e-affari-sociali-nella-gerontopsychiatrie-adullam-stiftung-basel",
+          "dipl-professionista-hf-fh-adullam-stiftung-basel"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-adullam-basel",
@@ -727,12 +737,14 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-adullam-riehen",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-adullam-stiftung-riehen"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-adullam-stiftung-riehen",
+        "dipl-infermiera-infermiera-specialista-hf-fh-adullam-stiftung-riehen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-adullam-riehen",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-adullam-stiftung-riehen"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-adullam-stiftung-riehen",
+          "dipl-infermiera-infermiera-specialista-hf-fh-adullam-stiftung-riehen"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-adullam-riehen"
