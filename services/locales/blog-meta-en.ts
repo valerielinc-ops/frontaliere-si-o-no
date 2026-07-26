@@ -8983,6 +8983,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro.title': 'Moving to Bizzarone from border crossings: pros and cons',
     'blog.article.trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro.excerpt': 'The pros and cons of transferring border crossers to Bizzarone',
     'blog.article.trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro.imageAlt': 'A frontaliere in a kitchen with a map of Bizzarone',
+    'blog.article.frontalieri-rallentano-ticino-aumentano-grigioni.title': 'Frontiersmen: slow down in Ticino, increase in Graubünden',
+    'blog.article.frontalieri-rallentano-ticino-aumentano-grigioni.excerpt': 'The data for the third quarter confirm the slowdown in the number of foreign workers in Ticino, while in Graubünden it increases.',
+    'blog.article.frontalieri-rallentano-ticino-aumentano-grigioni.imageAlt': 'The number of foreign workers in Ticino is decreasing, while in Grigioni is increasing.',
 };
 
 export default blogMetaEn;

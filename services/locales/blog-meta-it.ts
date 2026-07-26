@@ -8984,6 +8984,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Bizzarone da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro.excerpt': 'I pro e i contro del trasferimento a Bizzarone per i frontaliere',
     'blog.article.trasferirsi-a-bizzarone-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere in una cucina con una mappa di Bizzarone',
+    'blog.article.frontalieri-rallentano-ticino-aumentano-grigioni.title': 'Frontalieri: rallentano in Ticino, aumentano nei Grigioni',
+    'blog.article.frontalieri-rallentano-ticino-aumentano-grigioni.excerpt': 'I dati del terzo trimestre confermano il rallentamento del numero di lavoratori esteri in Ticino, mentre in Grigioni aumenta.',
+    'blog.article.frontalieri-rallentano-ticino-aumentano-grigioni.imageAlt': 'Il numero di frontalieri in Ticino rallenta, mentre in Grigioni aumenta.',
 };
 
 export default blogMetaIt;
