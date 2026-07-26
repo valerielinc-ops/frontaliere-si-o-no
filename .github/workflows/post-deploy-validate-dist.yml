@@ -315,7 +315,7 @@ jobs:
       # un-validated. Before the tar artifact existed (Ticino era), all 4
       # legs paid the git-clone path unconditionally: ~12min combined wall on
       # run 28564001685 (~250k files/clone × 4, sequential).
-      - name: Rehydrate locale then section shards (Ticino/Svizzera/Zurigo) into dist/ (when sharding active)
+      - name: Rehydrate locale then section shards into dist/ (when sharding active)
         env:
           GH_TOKEN: ${{ github.token }}
           DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
@@ -323,6 +323,30 @@ jobs:
           TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
           SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
           ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
+          ARGOVIA_SHARD_LIVE: ${{ vars.ARGOVIA_SHARD_LIVE }}
+          APPENZELLO_SHARD_LIVE: ${{ vars.APPENZELLO_SHARD_LIVE }}
+          BASILEA_SHARD_LIVE: ${{ vars.BASILEA_SHARD_LIVE }}
+          BERNA_SHARD_LIVE: ${{ vars.BERNA_SHARD_LIVE }}
+          FRIBURGO_SHARD_LIVE: ${{ vars.FRIBURGO_SHARD_LIVE }}
+          GINEVRA_SHARD_LIVE: ${{ vars.GINEVRA_SHARD_LIVE }}
+          GLARONA_SHARD_LIVE: ${{ vars.GLARONA_SHARD_LIVE }}
+          GRIGIONI_SHARD_LIVE: ${{ vars.GRIGIONI_SHARD_LIVE }}
+          GIURA_SHARD_LIVE: ${{ vars.GIURA_SHARD_LIVE }}
+          LUCERNA_SHARD_LIVE: ${{ vars.LUCERNA_SHARD_LIVE }}
+          NEUCHATEL_SHARD_LIVE: ${{ vars.NEUCHATEL_SHARD_LIVE }}
+          NIDVALDO_SHARD_LIVE: ${{ vars.NIDVALDO_SHARD_LIVE }}
+          OBVALDO_SHARD_LIVE: ${{ vars.OBVALDO_SHARD_LIVE }}
+          SCIAFFUSA_SHARD_LIVE: ${{ vars.SCIAFFUSA_SHARD_LIVE }}
+          SOLETTA_SHARD_LIVE: ${{ vars.SOLETTA_SHARD_LIVE }}
+          SVITTO_SHARD_LIVE: ${{ vars.SVITTO_SHARD_LIVE }}
+          TURGOVIA_SHARD_LIVE: ${{ vars.TURGOVIA_SHARD_LIVE }}
+          URI_SHARD_LIVE: ${{ vars.URI_SHARD_LIVE }}
+          VAUD_SHARD_LIVE: ${{ vars.VAUD_SHARD_LIVE }}
+          VALLESE_SHARD_LIVE: ${{ vars.VALLESE_SHARD_LIVE }}
+          ZUGO_SHARD_LIVE: ${{ vars.ZUGO_SHARD_LIVE }}
+          SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
+          ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
+          ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
         run: |
           rehydrate_locale() {
             set -euo pipefail
@@ -412,13 +436,8 @@ jobs:
           rehydrate_section() {
             set -uo pipefail
             local section="$1"
-            declare -A SECTION_SUB=(
-              [ticino:it]=cerca-lavoro-ticino [ticino:en]=en/find-jobs-ticino [ticino:de]=de/jobs-im-tessin [ticino:fr]=fr/trouver-emploi-tessin
-              [svizzera:it]=cerca-lavoro-svizzera [svizzera:en]=en/find-jobs-switzerland [svizzera:de]=de/jobs-in-schweiz [svizzera:fr]=fr/trouver-emploi-suisse
-              [zurigo:it]=cerca-lavoro-zurigo [zurigo:en]=en/find-jobs-zurich [zurigo:de]=de/jobs-in-zurich [zurigo:fr]=fr/trouver-emploi-zurich
-            )
             for loc in it en de fr; do
-              sub="${SECTION_SUB[$section:$loc]}"
+              sub="$(jq -r --arg s "$section" --arg l "$loc" '.[$s][$l] // empty' scripts/lib/section-shard-slugs.json)"
               if [ -d "dist/$sub" ]; then
                 echo "$section $loc ($sub) present in artifact — skip rehydrate"
                 continue
@@ -490,34 +509,21 @@ jobs:
           # Section shards start only once locale has fully finished (see the
           # rehydrate_section/rehydrate_locale ordering note above) — not
           # backgrounded alongside it. Soft-fail by design (warnings only) —
-          # never let their exit code affect the job. Ticino/Svizzera/Zurigo
+          # never let their exit code affect the job. All sections
           # run concurrently WITH EACH OTHER (each writes a disjoint dist/
           # subtree, so there's no cross-section race), each tracked via its
           # own PID and gated on its own SHARD_LIVE var.
-          TICINO_PID=""
-          if [ "$TICINO_SHARD_LIVE" = "true" ]; then
-            rehydrate_section ticino &
-            TICINO_PID=$!
-          fi
-          SVIZZERA_PID=""
-          if [ "$SVIZZERA_SHARD_LIVE" = "true" ]; then
-            rehydrate_section svizzera &
-            SVIZZERA_PID=$!
-          fi
-          ZURIGO_PID=""
-          if [ "$ZURIGO_SHARD_LIVE" = "true" ]; then
-            rehydrate_section zurigo &
-            ZURIGO_PID=$!
-          fi
-          if [ -n "$TICINO_PID" ]; then
-            wait "$TICINO_PID" || true
-          fi
-          if [ -n "$SVIZZERA_PID" ]; then
-            wait "$SVIZZERA_PID" || true
-          fi
-          if [ -n "$ZURIGO_PID" ]; then
-            wait "$ZURIGO_PID" || true
-          fi
+          SECTION_PIDS=()
+          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+            live_var="$(echo "$section" | tr a-z A-Z)_SHARD_LIVE"
+            if [ "${!live_var:-}" = "true" ]; then
+              rehydrate_section "$section" &
+              SECTION_PIDS+=("$!")
+            fi
+          done
+          for pid in "${SECTION_PIDS[@]}"; do
+            wait "$pid" || true
+          done
 
           if [ "$LOCALE_RC" -ne 0 ]; then
             exit "$LOCALE_RC"
@@ -814,7 +820,7 @@ jobs:
       # change — each of the two jobs runs on its own fresh runner and needs
       # its own copy of dist/ rehydrated identically, since the post-build
       # audits below walk the same logical site as the source validators do.
-      - name: Rehydrate locale then section shards (Ticino/Svizzera/Zurigo) into dist/ (when sharding active)
+      - name: Rehydrate locale then section shards into dist/ (when sharding active)
         env:
           GH_TOKEN: ${{ github.token }}
           DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
@@ -822,6 +828,30 @@ jobs:
           TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
           SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
           ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
+          ARGOVIA_SHARD_LIVE: ${{ vars.ARGOVIA_SHARD_LIVE }}
+          APPENZELLO_SHARD_LIVE: ${{ vars.APPENZELLO_SHARD_LIVE }}
+          BASILEA_SHARD_LIVE: ${{ vars.BASILEA_SHARD_LIVE }}
+          BERNA_SHARD_LIVE: ${{ vars.BERNA_SHARD_LIVE }}
+          FRIBURGO_SHARD_LIVE: ${{ vars.FRIBURGO_SHARD_LIVE }}
+          GINEVRA_SHARD_LIVE: ${{ vars.GINEVRA_SHARD_LIVE }}
+          GLARONA_SHARD_LIVE: ${{ vars.GLARONA_SHARD_LIVE }}
+          GRIGIONI_SHARD_LIVE: ${{ vars.GRIGIONI_SHARD_LIVE }}
+          GIURA_SHARD_LIVE: ${{ vars.GIURA_SHARD_LIVE }}
+          LUCERNA_SHARD_LIVE: ${{ vars.LUCERNA_SHARD_LIVE }}
+          NEUCHATEL_SHARD_LIVE: ${{ vars.NEUCHATEL_SHARD_LIVE }}
+          NIDVALDO_SHARD_LIVE: ${{ vars.NIDVALDO_SHARD_LIVE }}
+          OBVALDO_SHARD_LIVE: ${{ vars.OBVALDO_SHARD_LIVE }}
+          SCIAFFUSA_SHARD_LIVE: ${{ vars.SCIAFFUSA_SHARD_LIVE }}
+          SOLETTA_SHARD_LIVE: ${{ vars.SOLETTA_SHARD_LIVE }}
+          SVITTO_SHARD_LIVE: ${{ vars.SVITTO_SHARD_LIVE }}
+          TURGOVIA_SHARD_LIVE: ${{ vars.TURGOVIA_SHARD_LIVE }}
+          URI_SHARD_LIVE: ${{ vars.URI_SHARD_LIVE }}
+          VAUD_SHARD_LIVE: ${{ vars.VAUD_SHARD_LIVE }}
+          VALLESE_SHARD_LIVE: ${{ vars.VALLESE_SHARD_LIVE }}
+          ZUGO_SHARD_LIVE: ${{ vars.ZUGO_SHARD_LIVE }}
+          SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
+          ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
+          ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
         run: |
           rehydrate_locale() {
             set -euo pipefail
@@ -871,13 +901,8 @@ jobs:
           rehydrate_section() {
             set -uo pipefail
             local section="$1"
-            declare -A SECTION_SUB=(
-              [ticino:it]=cerca-lavoro-ticino [ticino:en]=en/find-jobs-ticino [ticino:de]=de/jobs-im-tessin [ticino:fr]=fr/trouver-emploi-tessin
-              [svizzera:it]=cerca-lavoro-svizzera [svizzera:en]=en/find-jobs-switzerland [svizzera:de]=de/jobs-in-schweiz [svizzera:fr]=fr/trouver-emploi-suisse
-              [zurigo:it]=cerca-lavoro-zurigo [zurigo:en]=en/find-jobs-zurich [zurigo:de]=de/jobs-in-zurich [zurigo:fr]=fr/trouver-emploi-zurich
-            )
             for loc in it en de fr; do
-              sub="${SECTION_SUB[$section:$loc]}"
+              sub="$(jq -r --arg s "$section" --arg l "$loc" '.[$s][$l] // empty' scripts/lib/section-shard-slugs.json)"
               if [ -d "dist/$sub" ]; then
                 echo "$section $loc ($sub) present in artifact — skip rehydrate"
                 continue
@@ -940,33 +965,20 @@ jobs:
 
           # Section shards start only once locale has fully finished (see
           # validate-dist-source's copy of this step for the full ordering
-          # rationale) — not backgrounded alongside it. Ticino/Svizzera/Zurigo
+          # rationale) — not backgrounded alongside it. All sections
           # run concurrently WITH EACH OTHER (each writes a disjoint dist/
           # subtree, so there's no cross-section race).
-          TICINO_PID=""
-          if [ "$TICINO_SHARD_LIVE" = "true" ]; then
-            rehydrate_section ticino &
-            TICINO_PID=$!
-          fi
-          SVIZZERA_PID=""
-          if [ "$SVIZZERA_SHARD_LIVE" = "true" ]; then
-            rehydrate_section svizzera &
-            SVIZZERA_PID=$!
-          fi
-          ZURIGO_PID=""
-          if [ "$ZURIGO_SHARD_LIVE" = "true" ]; then
-            rehydrate_section zurigo &
-            ZURIGO_PID=$!
-          fi
-          if [ -n "$TICINO_PID" ]; then
-            wait "$TICINO_PID" || true
-          fi
-          if [ -n "$SVIZZERA_PID" ]; then
-            wait "$SVIZZERA_PID" || true
-          fi
-          if [ -n "$ZURIGO_PID" ]; then
-            wait "$ZURIGO_PID" || true
-          fi
+          SECTION_PIDS=()
+          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+            live_var="$(echo "$section" | tr a-z A-Z)_SHARD_LIVE"
+            if [ "${!live_var:-}" = "true" ]; then
+              rehydrate_section "$section" &
+              SECTION_PIDS+=("$!")
+            fi
+          done
+          for pid in "${SECTION_PIDS[@]}"; do
+            wait "$pid" || true
+          done
 
           if [ "$LOCALE_RC" -ne 0 ]; then
             exit "$LOCALE_RC"
@@ -1432,7 +1444,7 @@ jobs:
       # change — each of the two jobs runs on its own fresh runner and needs
       # its own copy of dist/ rehydrated identically, since the post-build
       # audits below walk the same logical site as the source validators do.
-      - name: Rehydrate locale then section shards (Ticino/Svizzera/Zurigo) into dist/ (when sharding active)
+      - name: Rehydrate locale then section shards into dist/ (when sharding active)
         env:
           GH_TOKEN: ${{ github.token }}
           DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
@@ -1440,6 +1452,30 @@ jobs:
           TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
           SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
           ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
+          ARGOVIA_SHARD_LIVE: ${{ vars.ARGOVIA_SHARD_LIVE }}
+          APPENZELLO_SHARD_LIVE: ${{ vars.APPENZELLO_SHARD_LIVE }}
+          BASILEA_SHARD_LIVE: ${{ vars.BASILEA_SHARD_LIVE }}
+          BERNA_SHARD_LIVE: ${{ vars.BERNA_SHARD_LIVE }}
+          FRIBURGO_SHARD_LIVE: ${{ vars.FRIBURGO_SHARD_LIVE }}
+          GINEVRA_SHARD_LIVE: ${{ vars.GINEVRA_SHARD_LIVE }}
+          GLARONA_SHARD_LIVE: ${{ vars.GLARONA_SHARD_LIVE }}
+          GRIGIONI_SHARD_LIVE: ${{ vars.GRIGIONI_SHARD_LIVE }}
+          GIURA_SHARD_LIVE: ${{ vars.GIURA_SHARD_LIVE }}
+          LUCERNA_SHARD_LIVE: ${{ vars.LUCERNA_SHARD_LIVE }}
+          NEUCHATEL_SHARD_LIVE: ${{ vars.NEUCHATEL_SHARD_LIVE }}
+          NIDVALDO_SHARD_LIVE: ${{ vars.NIDVALDO_SHARD_LIVE }}
+          OBVALDO_SHARD_LIVE: ${{ vars.OBVALDO_SHARD_LIVE }}
+          SCIAFFUSA_SHARD_LIVE: ${{ vars.SCIAFFUSA_SHARD_LIVE }}
+          SOLETTA_SHARD_LIVE: ${{ vars.SOLETTA_SHARD_LIVE }}
+          SVITTO_SHARD_LIVE: ${{ vars.SVITTO_SHARD_LIVE }}
+          TURGOVIA_SHARD_LIVE: ${{ vars.TURGOVIA_SHARD_LIVE }}
+          URI_SHARD_LIVE: ${{ vars.URI_SHARD_LIVE }}
+          VAUD_SHARD_LIVE: ${{ vars.VAUD_SHARD_LIVE }}
+          VALLESE_SHARD_LIVE: ${{ vars.VALLESE_SHARD_LIVE }}
+          ZUGO_SHARD_LIVE: ${{ vars.ZUGO_SHARD_LIVE }}
+          SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
+          ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
+          ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
         run: |
           rehydrate_locale() {
             set -euo pipefail
@@ -1489,13 +1525,8 @@ jobs:
           rehydrate_section() {
             set -uo pipefail
             local section="$1"
-            declare -A SECTION_SUB=(
-              [ticino:it]=cerca-lavoro-ticino [ticino:en]=en/find-jobs-ticino [ticino:de]=de/jobs-im-tessin [ticino:fr]=fr/trouver-emploi-tessin
-              [svizzera:it]=cerca-lavoro-svizzera [svizzera:en]=en/find-jobs-switzerland [svizzera:de]=de/jobs-in-schweiz [svizzera:fr]=fr/trouver-emploi-suisse
-              [zurigo:it]=cerca-lavoro-zurigo [zurigo:en]=en/find-jobs-zurich [zurigo:de]=de/jobs-in-zurich [zurigo:fr]=fr/trouver-emploi-zurich
-            )
             for loc in it en de fr; do
-              sub="${SECTION_SUB[$section:$loc]}"
+              sub="$(jq -r --arg s "$section" --arg l "$loc" '.[$s][$l] // empty' scripts/lib/section-shard-slugs.json)"
               if [ -d "dist/$sub" ]; then
                 echo "$section $loc ($sub) present in artifact — skip rehydrate"
                 continue
@@ -1558,33 +1589,20 @@ jobs:
 
           # Section shards start only once locale has fully finished (see
           # validate-dist-source's copy of this step for the full ordering
-          # rationale) — not backgrounded alongside it. Ticino/Svizzera/Zurigo
+          # rationale) — not backgrounded alongside it. All sections
           # run concurrently WITH EACH OTHER (each writes a disjoint dist/
           # subtree, so there's no cross-section race).
-          TICINO_PID=""
-          if [ "$TICINO_SHARD_LIVE" = "true" ]; then
-            rehydrate_section ticino &
-            TICINO_PID=$!
-          fi
-          SVIZZERA_PID=""
-          if [ "$SVIZZERA_SHARD_LIVE" = "true" ]; then
-            rehydrate_section svizzera &
-            SVIZZERA_PID=$!
-          fi
-          ZURIGO_PID=""
-          if [ "$ZURIGO_SHARD_LIVE" = "true" ]; then
-            rehydrate_section zurigo &
-            ZURIGO_PID=$!
-          fi
-          if [ -n "$TICINO_PID" ]; then
-            wait "$TICINO_PID" || true
-          fi
-          if [ -n "$SVIZZERA_PID" ]; then
-            wait "$SVIZZERA_PID" || true
-          fi
-          if [ -n "$ZURIGO_PID" ]; then
-            wait "$ZURIGO_PID" || true
-          fi
+          SECTION_PIDS=()
+          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+            live_var="$(echo "$section" | tr a-z A-Z)_SHARD_LIVE"
+            if [ "${!live_var:-}" = "true" ]; then
+              rehydrate_section "$section" &
+              SECTION_PIDS+=("$!")
+            fi
+          done
+          for pid in "${SECTION_PIDS[@]}"; do
+            wait "$pid" || true
+          done
 
           if [ "$LOCALE_RC" -ne 0 ]; then
             exit "$LOCALE_RC"
