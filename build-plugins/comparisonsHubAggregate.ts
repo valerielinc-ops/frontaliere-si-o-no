@@ -172,6 +172,8 @@ interface LamalRaw {
 export interface LamalCantonRow {
   /** Italian canton label (e.g. "Ticino"). */
   canton: string;
+  /** BAG 2-letter canton code (e.g. "TI"). */
+  code: string;
   /** Median standard adult (26+) monthly LAMal premium in CHF. */
   medianMonthlyCHF: number;
   /** Annual cost = monthly × 12. */
@@ -255,6 +257,7 @@ export function aggregateLamalCantonMedians(
     if (!medianMonthly || medianMonthly <= 0) continue;
     rows.push({
       canton: label,
+      code,
       medianMonthlyCHF: Math.round(medianMonthly),
       annualCHF: Math.round(medianMonthly * 12),
     });
