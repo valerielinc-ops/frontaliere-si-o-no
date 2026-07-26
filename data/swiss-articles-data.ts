@@ -4616,6 +4616,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'lamal-svizzero-ticino-2026',
+    category: 'fiscale',
+    date: '2026-07-26T01:26:12.579Z',
+    image: '/images/blog/lamal-svizzero-ticino-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

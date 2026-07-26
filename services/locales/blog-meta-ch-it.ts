@@ -1540,6 +1540,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sistema-sanitario-svizzero-lamal-2026.title': 'Sistema sanitario svizzero LAMal: la guida 2026',
     'blog.article.sistema-sanitario-svizzero-lamal-2026.excerpt': 'Guida completa al sistema sanitario svizzero per il 2026: obbligo LAMal, diritto d\'opzione, scelta della cassa malati, franchigie e rimborsi.',
     'blog.article.sistema-sanitario-svizzero-lamal-2026.imageAlt': 'Sistema sanitario svizzero LAMal e casse malati',
+    'blog.article.lamal-svizzero-ticino-2026.title': 'Sistema sanitario svizzero: LAMal, scelta della cassa, franchigia e rimborsi',
+    'blog.article.lamal-svizzero-ticino-2026.excerpt': 'Scopri come funziona il sistema sanitario svizzero, incluse le regole per la scelta della cassa, la franchigia e i rimborsi, con dati specifici per il canton Ticino.',
+    'blog.article.lamal-svizzero-ticino-2026.imageAlt': 'Un frontaliere assiste un paziente in un ospedale svizzero, con un infermiere alla sua sinistra.',
 };
 
 export default blogMetaChIt;
