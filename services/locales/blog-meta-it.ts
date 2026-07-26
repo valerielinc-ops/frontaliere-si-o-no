@@ -8969,6 +8969,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-bizzarone-lavorare-ticino.title': 'Vivere a Bizzarone e lavorare in Ticino da frontaliere',
     'blog.article.vivere-bizzarone-lavorare-ticino.excerpt': 'Perché il Ticino è un\'ottima scelta per i frontaliere che desiderano lavorare in Svizzera.',
     'blog.article.vivere-bizzarone-lavorare-ticino.imageAlt': 'Un frontaliere in auto che attraversa il confine tra Italia e Svizzera.',
+    'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Trasquera da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.excerpt': 'Impostazioni fiscali, permessi, aspettative: cosa sapere prima di trasferirsi a Trasquera da frontaliere',
+    'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere in auto che attraversa il confine tra Italia e Svizzera',
 };
 
 export default blogMetaIt;

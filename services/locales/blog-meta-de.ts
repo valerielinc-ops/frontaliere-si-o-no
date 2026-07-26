@@ -8967,6 +8967,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-bizzarone-lavorare-ticino.title': 'Wohnen in Bizzarone und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-bizzarone-lavorare-ticino.excerpt': 'Weil das Tessin eine gute Wahl für Grenzgänger ist, die in der Schweiz arbeiten möchten.',
     'blog.article.vivere-bizzarone-lavorare-ticino.imageAlt': 'Ein Frontalier fährt über die italienisch-schweizerische Grenze.',
+    'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.title': 'Umzug nach Trasquera als Grenzgänger: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.excerpt': 'Steuereinstellungen, Genehmigungen, Erwartungen: Was Sie wissen müssen, bevor Sie als Grenzgänger nach Trasquera ziehen',
+    'blog.article.trasferirsi-a-trasquera-da-frontaliere-pro-e-contro.imageAlt': 'Ein Frontalier in einem Auto, das die Grenze zwischen Italien und der Schweiz überquert',
 };
 
 export default blogMetaDe;
