@@ -8952,6 +8952,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.livigno-engadina-treni.title': 'Mehr. Von Livigno ins Engadin in zehn Minuten.',
     'blog.article.livigno-engadina-treni.excerpt': 'Ein Projekt für eine Bahnverbindung zwischen Livigno und S-chanf wurde vorgelegt.',
     'blog.article.livigno-engadina-treni.imageAlt': 'Ein Zugtunnel verbindet Livigno mit dem Engadin in Ticino.',
+    'blog.article.lavena-ponte-tresa-frontaliere.title': 'Lavena Ponte Tresa als Grenzgänger: Vor- und Nachteile',
+    'blog.article.lavena-ponte-tresa-frontaliere.excerpt': 'Praktischer Leitfaden für diejenigen, die in Lavena Ponte Tresa leben und im Tessin arbeiten: Vor- und Nachteile, Reisezeiten und steuerliche Aspekte.',
+    'blog.article.lavena-ponte-tresa-frontaliere.imageAlt': 'Ansicht von Lavena Ponte Tresa an der Grenze zwischen Italien und der Schweiz',
 };
 
 export default blogMetaDe;

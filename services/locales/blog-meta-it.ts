@@ -8954,6 +8954,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.livigno-engadina-treni.title': 'Di più. Da Livigno all\'Engadina in dieci minuti.',
     'blog.article.livigno-engadina-treni.excerpt': 'Un progetto per un collegamento ferroviario tra Livigno e S-chanf è stato presentato.',
     'blog.article.livigno-engadina-treni.imageAlt': 'Un treno in galleria collega Livigno all\'Engadina in Ticino.',
+    'blog.article.lavena-ponte-tresa-frontaliere.title': 'Lavena Ponte Tresa da frontaliere: pro e contro',
+    'blog.article.lavena-ponte-tresa-frontaliere.excerpt': 'Guida pratica per chi vive a Lavena Ponte Tresa e lavora in Ticino: vantaggi, svantaggi, tempi di spostamento e aspetti fiscali.',
+    'blog.article.lavena-ponte-tresa-frontaliere.imageAlt': 'Panorama di Lavena Ponte Tresa sul confine tra Italia e Svizzera',
 };
 
 export default blogMetaIt;
