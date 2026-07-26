@@ -1,6 +1,6 @@
 {
   "crawlerKey": "croix-rouge-fribourgeoise",
-  "assembledAt": "2026-07-26T10:52:54.235Z",
+  "assembledAt": "2026-07-26T22:05:05.956Z",
   "jobs": [
     {
       "id": "croix-rouge-fribourgeoise-5aa01fedb997",
@@ -33,7 +33,7 @@
       "url": "https://company.jobcloud.ch/fr/jobs/962b0a39-e87f-4de4-a068-58083fcebac5",
       "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-26T10:52:51.645Z",
+      "crawledAt": "2026-07-26T22:05:03.274Z",
       "hiringOrganization": {
         "name": "Croix-Rouge fribourgeoise"
       },
@@ -76,6 +76,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:49:18.819Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -120,7 +121,7 @@
       "url": "https://company.jobcloud.ch/fr/jobs/502b52ba-d781-416d-a177-27ac2a10c989",
       "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T10:52:51.612Z",
+      "crawledAt": "2026-07-26T22:05:03.239Z",
       "hiringOrganization": {
         "name": "Croix-Rouge fribourgeoise"
       },
@@ -165,6 +166,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:13:54.398Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
