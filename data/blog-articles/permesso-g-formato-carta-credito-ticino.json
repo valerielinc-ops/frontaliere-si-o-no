@@ -1,0 +1,40 @@
+{
+  "id": "permesso-g-formato-carta-credito-ticino",
+  "slug": "permesso-g-formato-carta-credito-ticino",
+  "publishedAt": "2026-07-26T01:16:04.300Z",
+  "cluster": "pratico",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.668594127465641,
+    "confidence": 0.8,
+    "finalScore": 3.7348753019725134,
+    "topK": [
+      {
+        "slug": "svizzera-istruzioni-uso-frontalieri",
+        "cosine": 0.8496088917544995
+      },
+      {
+        "slug": "vivere-valtellina-lavorare-grigioni-frontaliere",
+        "cosine": 0.8465554305211497
+      },
+      {
+        "slug": "como-vivibile-frontalieri-2026",
+        "cosine": 0.8396118306170242
+      },
+      {
+        "slug": "permesso-g-vs-b-frontalieri-2026-errori-comuni",
+        "cosine": 0.8362547852236037
+      },
+      {
+        "slug": "frontalieri-luino-caserma-fornasette",
+        "cosine": 0.8347900721803584
+      }
+    ],
+    "score": 3.7348753019725134,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

@@ -55335,6 +55335,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-g-formato-carta-credito-ticino': {
+    title: 'Permesso G in carta di credito: novità dal 1° ottobre',
+    description: 'Dal 1° ottobre il Canton Ticino adotta il formato carta di credito per i permessi G e C. Scopri cosa cambia per i frontalieri e le modalità di rilascio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, carta, credito, novità',
+    ogTitle: 'Permesso G in carta di credito in Ticino dal 1° ottobre',
+    ogDescription: 'Dal 1° ottobre il Canton Ticino adotta il formato carta di credito per i permessi G e C. Scopri tutti i dettagli sui nuovi documenti.',
+    canonicalPath: '/articoli-frontaliere/permesso-g-formato-carta-credito-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso G in carta di credito: novità dal 1° ottobre",
+      "description": "Dal 1° ottobre il Canton Ticino adotta il formato carta di credito per i permessi G e C. Scopri cosa cambia per i frontalieri e le modalità di rilascio.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-g-formato-carta-credito-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Permesso G in formato carta di credito per i frontalieri in Ticino"
+      },
+      "datePublished": "2026-07-26T01:16:00+00:00",
+      "dateModified": "2026-07-26T01:16:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permesso-g-formato-carta-credito-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

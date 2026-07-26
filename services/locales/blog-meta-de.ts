@@ -8958,6 +8958,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.prestazioni-lpp-svizzere-tassazione.title': 'BVG-Leistungen Schweiz: Veranlagungsregeln',
     'blog.article.prestazioni-lpp-svizzere-tassazione.excerpt': 'Die von der schweizerischen beruflichen Vorsorge ausbezahlten Beträge richten sich nach den AHV-Rentenbesteuerungsregeln.',
     'blog.article.prestazioni-lpp-svizzere-tassazione.imageAlt': 'Schweizer LPP-Leistungen und Besteuerungsregeln',
+    'blog.article.permesso-g-formato-carta-credito-ticino.title': 'Kreditkartenausweis G: neu ab 1. Oktober',
+    'blog.article.permesso-g-formato-carta-credito-ticino.excerpt': 'Ab dem 1. Oktober nimmt der Kanton Tessin das Kreditkartenformat für die Genehmigungen der Grenzgänger G und C ohne biometrische Daten an.',
+    'blog.article.permesso-g-formato-carta-credito-ticino.imageAlt': 'G-Bewilligung im Kreditkartenformat für Grenzgänger im Tessin',
 };
 
 export default blogMetaDe;

@@ -26918,6 +26918,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'permesso-g-formato-carta-credito-ticino',
+ category: 'novita',
+ date: '2026-07-26T01:16:00.292Z',
+ image: '/images/blog/permesso-g-formato-carta-credito-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

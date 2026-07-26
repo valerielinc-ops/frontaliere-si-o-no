@@ -4893,6 +4893,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera': { name: 'Svantaggio doganale', path: '/articoli-svizzera/svantaggio-doganale-frena-solo-leggermente-l-economia-svizzera/', parent: 'blog' },
     'blog-prestazioni-lpp-svizzere-tassazione': { name: 'Prestazioni Lpp', path: '/articoli-frontaliere/prestazioni-lpp-svizzere-tassazione', parent: 'blog' },
     'blog-sistema-sanitario-svizzero-lamal-2026': { name: 'Sanità LAMal 2026', path: '/articoli-svizzera/sistema-sanitario-svizzero-lamal-2026/', parent: 'blog' },
+    'blog-permesso-g-formato-carta-credito-ticino': { name: 'Permesso G carta di credito', path: '/articoli-frontaliere/permesso-g-formato-carta-credito-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];
