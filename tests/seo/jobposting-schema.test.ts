@@ -249,6 +249,96 @@ describe('buildJobPostingSchema — out-of-canton job', () => {
   });
 });
 
+describe('buildJobPostingSchema — industry / occupationalCategory (derived from category/sector)', () => {
+  it('emits industry as the raw sector/category text when present', () => {
+    const job: JobInput = {
+      title: 'Infermiere/a',
+      description:
+        'Ruolo infermieristico presso una struttura sanitaria regionale, con turni su reparto e supporto al personale medico.',
+      company: 'Clinica Demo',
+      city: 'Lugano',
+      sector: 'healthcare',
+    };
+    const schema = buildJobPostingSchema(job, OPTS);
+    expect(schema.industry).toBe('healthcare');
+  });
+
+  it('maps a known category to its O*NET-SOC occupationalCategory code', () => {
+    const job: JobInput = {
+      title: 'Software Engineer',
+      description:
+        'Ruolo di sviluppo software full-stack, con focus su TypeScript e React, in un team distribuito.',
+      company: 'Tech SA',
+      city: 'Lugano',
+      category: 'tech',
+    };
+    const schema = buildJobPostingSchema(job, OPTS);
+    expect(schema.occupationalCategory).toBe('15-0000');
+  });
+
+  it('omits industry and occupationalCategory when no category/sector signal exists', () => {
+    const job: JobInput = {
+      title: 'Impiegato',
+      description:
+        'Descrizione generica sufficientemente lunga da superare la soglia minima richiesta dal builder.',
+      company: 'Ditta Anonima',
+      city: 'Lugano',
+    };
+    const schema = buildJobPostingSchema(job, OPTS);
+    expect(schema.industry).toBeUndefined();
+    expect(schema.occupationalCategory).toBeUndefined();
+  });
+
+  it('omits occupationalCategory when the category/sector text is unmapped', () => {
+    const job: JobInput = {
+      title: 'Ruolo generico',
+      description:
+        'Descrizione generica sufficientemente lunga da superare la soglia minima richiesta dal builder.',
+      company: 'Ditta Anonima',
+      city: 'Lugano',
+      category: 'not-a-real-onet-bucket',
+    };
+    const schema = buildJobPostingSchema(job, OPTS);
+    expect(schema.industry).toBe('not-a-real-onet-bucket');
+    expect(schema.occupationalCategory).toBeUndefined();
+  });
+});
+
+// #applicantLocationRequirements: schema.org restricts this property to
+// TELECOMMUTE postings — it must never be stamped on an on-site job.
+describe('buildJobPostingSchema — applicantLocationRequirements scoped to isRemote', () => {
+  it('omits applicantLocationRequirements and jobLocationType for an on-site job', () => {
+    const job: JobInput = {
+      title: 'Magazziniere',
+      description:
+        'Ruolo operativo in magazzino logistico, gestione merci in entrata e uscita, uso muletto.',
+      company: 'Logistica SA',
+      city: 'Lugano',
+      isRemote: false,
+    };
+    const schema = buildJobPostingSchema(job, OPTS);
+    expect(schema.applicantLocationRequirements).toBeUndefined();
+    expect(schema.jobLocationType).toBeUndefined();
+  });
+
+  it('emits applicantLocationRequirements (Country CH) and jobLocationType TELECOMMUTE for a remote job', () => {
+    const job: JobInput = {
+      title: 'Remote Customer Support Agent',
+      description:
+        'Ruolo di supporto clienti da remoto, gestione richieste via chat ed email, orario flessibile.',
+      company: 'Support SA',
+      city: 'Lugano',
+      isRemote: true,
+    };
+    const schema = buildJobPostingSchema(job, OPTS);
+    expect(schema.jobLocationType).toBe('TELECOMMUTE');
+    expect(schema.applicantLocationRequirements).toEqual({
+      '@type': 'Country',
+      name: 'CH',
+    });
+  });
+});
+
 describe('buildJobPostingSchema — required opts', () => {
   it('throws when locale is missing', () => {
     expect(() =>
