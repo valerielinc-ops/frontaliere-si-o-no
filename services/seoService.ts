@@ -4928,6 +4928,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pompieri-svizzeri-gironda-francia': { name: 'Pompieri Gironda', path: '/articoli-svizzera/pompieri-svizzeri-gironda-francia/', parent: 'blog' },
     'blog-lavori-di-manutenzione-sulla-tratta-flp-agno-ponte-tresa': { name: 'Lavori di manutenzione sulla tratta FLP', path: '/articoli-frontaliere/lavori-di-manutenzione-sulla-tratta-flp-agno-ponte-tresa', parent: 'blog' },
     'blog-canton-ticino-blocca-ristorni-lombardia': { name: 'Canton Ticino', path: '/articoli-svizzera/canton-ticino-blocca-ristorni-lombardia/', parent: 'blog' },
+    'blog-trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro': { name: 'Trasferirsi a Brusimpiano da frontaliere', path: '/articoli-frontaliere/trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro', parent: 'blog' },
  };
 
  const info = sectionNames[section];

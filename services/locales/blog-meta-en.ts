@@ -9016,6 +9016,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavori-di-manutenzione-sulla-tratta-flp-agno-ponte-tresa.title': 'Maintenance work on the FLP Agno - Ponte Tresa section',
     'blog.article.lavori-di-manutenzione-sulla-tratta-flp-agno-ponte-tresa.excerpt': 'The railway section between Agno and Ponte Tresa will be suspended from 3 August to 18 August for maintenance work.',
     'blog.article.lavori-di-manutenzione-sulla-tratta-flp-agno-ponte-tresa.imageAlt': 'Maintenance works on FLP Agno - Ponte Tresa rail line',
+    'blog.article.trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro.title': 'Transfer to Brusimpiano from frontier: pro and con',
+    'blog.article.trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro.excerpt': 'What you need to consider before moving to Brusimpiano working in Ticino as a cross-border commuter.',
+    'blog.article.trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro.imageAlt': 'A frontaliere in the A2 highway, heading towards the Italian-Swiss border.',
 };
 
 export default blogMetaEn;

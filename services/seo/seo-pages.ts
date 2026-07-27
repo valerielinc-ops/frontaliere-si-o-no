@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3553,
+ "numberOfItems": 3554,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8321,7 +8321,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3550, "name": "Scomoda domanda: ticinesi razzisti o omofobi?", "url": `${BASE_URL}/articoli-frontaliere/domanda-scomoda-razzisti-omofobi` },
           { "@type": "ListItem", "position": 3551, "name": "Pompieri svizzeri in Gironda: il contingente al...", "url": `${BASE_URL}/articoli-frontaliere/pompieri-svizzeri-gironda-francia` },
           { "@type": "ListItem", "position": 3552, "name": "Lavori di manutenzione sulla tratta FLP Agno - ...", "url": `${BASE_URL}/articoli-frontaliere/lavori-di-manutenzione-sulla-tratta-flp-agno-ponte-tresa` },
-          { "@type": "ListItem", "position": 3553, "name": "Il Canton Ticino blocca oltre 50 milioni di ris...", "url": `${BASE_URL}/articoli-frontaliere/canton-ticino-blocca-ristorni-lombardia` }
+          { "@type": "ListItem", "position": 3553, "name": "Il Canton Ticino blocca oltre 50 milioni di ris...", "url": `${BASE_URL}/articoli-frontaliere/canton-ticino-blocca-ristorni-lombardia` },
+          { "@type": "ListItem", "position": 3554, "name": "Trasferirsi a Brusimpiano da frontaliere: pro e...", "url": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro` }
  ]
  },
  {

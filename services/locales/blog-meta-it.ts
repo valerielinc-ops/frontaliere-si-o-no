@@ -9017,6 +9017,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavori-di-manutenzione-sulla-tratta-flp-agno-ponte-tresa.title': 'Lavori di manutenzione sulla tratta FLP Agno - Ponte Tresa',
     'blog.article.lavori-di-manutenzione-sulla-tratta-flp-agno-ponte-tresa.excerpt': 'La tratta ferroviaria tra Agno e Ponte Tresa sarà sospesa dal 3 agosto al 18 agosto per lavori di manutenzione.',
     'blog.article.lavori-di-manutenzione-sulla-tratta-flp-agno-ponte-tresa.imageAlt': 'Lavori di manutenzione sulla tratta FLP Agno - Ponte Tresa',
+    'blog.article.trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Brusimpiano da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro.excerpt': 'Cosa si deve considerare prima di trasferirsi a Brusimpiano lavorando in Ticino da frontaliere.',
+    'blog.article.trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere in autostrada A2, diretto verso il confine italo-svizzero.',
 };
 
 export default blogMetaIt;
