@@ -30,7 +30,14 @@ export const WORKFLOW_PATH_RE = /\.github\/workflows\/[A-Za-z0-9._/-]+\.ya?ml\b/
 export const BARE_YML_RE = /\b[A-Za-z0-9][A-Za-z0-9._-]*\.ya?ml\b/g;
 
 // Non-workflow code paths: if cited, the fix might live there → not exclusively scoped.
-export const CODE_PATH_RE = /\b(?:scripts|build-plugins|services|components|hooks|build|src)\/[A-Za-z0-9._/-]+\.[A-Za-z0-9]+\b/g;
+// Must cover every top-level code dir in the repo (`ls -d */`), not just scripts/services/
+// components/hooks/build/src — a PR review on #4778 caught this list missing `infra/`
+// (infra/cloudflare-worker/locale-router.js — funnel-critical), `server/`
+// (server/newsletterResendWebhook.js), and `functions/` (functions/index.js,
+// functions/src/*.js): an issue citing a workflow path alongside one of those would be
+// wrongly judged "exclusively workflow-scoped" and blocked, reproducing the #4437 bug
+// class in a different directory.
+export const CODE_PATH_RE = /\b(?:scripts|build-plugins|services|components|hooks|build|src|infra|server|functions)\/[A-Za-z0-9._/-]+\.[A-Za-z0-9]+\b/g;
 
 // `.yml` config files that are NOT workflows (don't imply the `workflows` scope).
 export const NON_WORKFLOW_YML = new Set([

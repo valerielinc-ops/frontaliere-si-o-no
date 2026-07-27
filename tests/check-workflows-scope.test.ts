@@ -144,6 +144,24 @@ describe('isExclusivelyWorkflowScoped — Mode 1 exclusivity gate (issue #4437)'
     expect(isExclusivelyWorkflowScoped('')).toBe(false);
     expect(isExclusivelyWorkflowScoped(undefined as unknown as string)).toBe(false);
   });
+
+  it.each([
+    ['infra/cloudflare-worker/locale-router.js', 'infra/'],
+    ['server/newsletterResendWebhook.js', 'server/'],
+    ['functions/index.js', 'functions/ (top-level)'],
+    ['functions/src/jobAlertBackfillCore.js', 'functions/src/'],
+  ])(
+    'is false when a workflow path is co-cited with a %s code path (#4778 review regression)',
+    (codePath) => {
+      const body = [
+        `Fix in ${codePath}: correct the routing logic.`,
+        '',
+        '## Live-verification (manuale post-deploy)',
+        '- [ ] check .github/workflows/deploy.yml run succeeded',
+      ].join('\n');
+      expect(isExclusivelyWorkflowScoped(body)).toBe(false);
+    },
+  );
 });
 
 describe('isCiTimeoutIssue — Mode 2 auto-file predicate (issue #4227)', () => {
