@@ -114,13 +114,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berufsbildnerin-berufsbildner-fachmann-fachfrau-gesundheit-auf-der-interdisziplinaren",
-        "formazione-professionale-formazione-professionale-specialista-salute-presso-la-stazione-privata-interdisciplinare-8af16a"
+        "berufsbildnerin-berufsbildner-fachmann-fachfrau-gesundheit-auf-der-interdisziplinaren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildnerin-berufsbildner-fachmann-fachfrau-gesundheit-auf-der-interdisziplinaren",
-          "formazione-professionale-formazione-professionale-specialista-salute-presso-la-stazione-privata-interdisciplinare-8af16a"
+          "berufsbildnerin-berufsbildner-fachmann-fachfrau-gesundheit-auf-der-interdisziplinaren"
         ],
         "en": [
           "berufsbildnerin-berufsbildner-fachmann-fachfrau-gesundheit-auf-der-interdisziplinaren"
@@ -193,13 +191,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachexpertin-fachexperte-pflege-spital-zollikerberg-zollikerberg",
-        "expert-expert-care-spital-zollikerberg-zollikerberg"
+        "fachexpertin-fachexperte-pflege-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachexpertin-fachexperte-pflege-spital-zollikerberg-zollikerberg",
-          "expert-expert-care-spital-zollikerberg-zollikerberg"
+          "fachexpertin-fachexperte-pflege-spital-zollikerberg-zollikerberg"
         ],
         "en": [
           "fachexpertin-fachexperte-pflege-spital-zollikerberg-zollikerberg"
@@ -228,8 +224,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-mitarbeiterin-prozessmanagement-und-qualitatsentwicklung-middle-office-spital",
         "it": "collaboratore-trice-mitarbeiterin-prozessmanagement-e-qualitatsentwicklung-middle-office-spital-zollikerberg",
-        "en": "mitarbeiter-mitarbeiterin-prozessmanagement-und-qualitatsentwicklung-middle-office-spital",
-        "fr": "mitarbeiter-mitarbeiterin-prozessmanagement-und-qualitatsentwicklung-middle-office-spital"
+        "en": "employee-process-management-and-quality-development-middle-office-spital-zollikerberg-zollikerberg",
+        "fr": "employe-gestion-des-processus-et-amelioration-de-la-qualite-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -275,6 +271,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-mitarbeiterin-prozessmanagement-und-qualitatsentwicklung-middle-office-spital"
+        ],
+        "en": [
+          "mitarbeiter-mitarbeiterin-prozessmanagement-und-qualitatsentwicklung-middle-office-spital"
+        ],
+        "fr": [
+          "mitarbeiter-mitarbeiterin-prozessmanagement-und-qualitatsentwicklung-middle-office-spital"
         ]
       },
       "previousSlugs": [
@@ -296,12 +298,12 @@
     },
     {
       "id": "spital-zollikerberg-4a8ff68583bb",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg",
+      "slug": "dipl-infermieristica-professionale-dipl-nefologia-professionale-infermieristica-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg"
+        "it": "dipl-infermieristica-professionale-dipl-nefologia-professionale-infermieristica-spital-zollikerberg-zollikerberg",
+        "en": "dipl-nursing-professional-dipl-nursing-professional-nephrology-spital-zollikerberg-zollikerberg",
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-nephrologie-professionnelle-des-soins-infirmiers-spital-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -356,16 +358,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-b90655abf11e",
-      "slug": "leitende-arztin-leitenden-arzt-chirurgie-arztbereich-spital-zollikerberg-zollikerberg",
+      "slug": "principale-medico-principale-chirurgia-divisione-medica-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "leitende-arztin-leitenden-arzt-chirurgie-arztbereich-spital-zollikerberg-zollikerberg",
-        "it": "leitende-arztin-leitenden-arzt-chirurgie-arztbereich-spital-zollikerberg-zollikerberg",
-        "en": "leitende-arztin-leitenden-arzt-chirurgie-arztbereich-spital-zollikerberg-zollikerberg",
-        "fr": "leitende-arztin-leitenden-arzt-chirurgie-arztbereich-spital-zollikerberg-zollikerberg"
+        "it": "principale-medico-principale-chirurgia-divisione-medica-spital-zollikerberg-zollikerberg",
+        "en": "principal-physician-principal-physician-surgery-medical-division-spital-zollikerberg-zollikerberg",
+        "fr": "medecin-principal-medecin-principal-division-de-la-chirurgie-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -420,7 +436,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitenden-arzt-chirurgie-arztbereich-spital-zollikerberg-zollikerberg"
+        ],
+        "en": [
+          "leitende-arztin-leitenden-arzt-chirurgie-arztbereich-spital-zollikerberg-zollikerberg"
+        ],
+        "fr": [
+          "leitende-arztin-leitenden-arzt-chirurgie-arztbereich-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitenden-arzt-chirurgie-arztbereich-spital-zollikerberg-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-e1f893e2ab7f",
@@ -472,13 +502,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarzt-oberarztin-interdisziplinares-notfallzentrum-arztbereich-spital-zollikerberg",
-        "senior-physician-senior-physician-interdisciplinare-centro-di-emergenza-medical-area-spital-zollikerberg-zollikerberg"
+        "oberarzt-oberarztin-interdisziplinares-notfallzentrum-arztbereich-spital-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-oberarztin-interdisziplinares-notfallzentrum-arztbereich-spital-zollikerberg",
-          "senior-physician-senior-physician-interdisciplinare-centro-di-emergenza-medical-area-spital-zollikerberg-zollikerberg"
+          "oberarzt-oberarztin-interdisziplinares-notfallzentrum-arztbereich-spital-zollikerberg"
         ],
         "en": [
           "oberarzt-oberarztin-interdisziplinares-notfallzentrum-arztbereich-spital-zollikerberg"
@@ -551,13 +579,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegeexperte-pflegeexpertin-apn-geriatrie-spital-zollikerberg-zollikerberg",
-        "esperto-di-cura-esperto-di-cura-apn-geriatrics-spital-zollikerberg-zollikerberg"
+        "pflegeexperte-pflegeexpertin-apn-geriatrie-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegeexperte-pflegeexpertin-apn-geriatrie-spital-zollikerberg-zollikerberg",
-          "esperto-di-cura-esperto-di-cura-apn-geriatrics-spital-zollikerberg-zollikerberg"
+          "pflegeexperte-pflegeexpertin-apn-geriatrie-spital-zollikerberg-zollikerberg"
         ],
         "en": [
           "pflegeexperte-pflegeexpertin-apn-geriatrie-spital-zollikerberg-zollikerberg"
@@ -631,13 +657,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-langeweile-gibt-es-bei-uns-nicht-spital",
-        "dipl-infermieristica-professionale-dipl-cura-professionale-non-c-e-noia-spital-zollikerberg-zollikerberg"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-langeweile-gibt-es-bei-uns-nicht-spital"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-langeweile-gibt-es-bei-uns-nicht-spital",
-          "dipl-infermieristica-professionale-dipl-cura-professionale-non-c-e-noia-spital-zollikerberg-zollikerberg"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-langeweile-gibt-es-bei-uns-nicht-spital"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-langeweile-gibt-es-bei-uns-nicht-spital"
