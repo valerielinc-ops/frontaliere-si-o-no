@@ -76,3 +76,16 @@ export function isNewsletterExcluded(status) {
 export function isJobAlertExcluded(status) {
   return JOB_ALERT_EXCLUDED_STATUSES.has(norm(status));
 }
+
+/**
+ * True when a saved-jobs-digest recipient must be excluded on address-level hard
+ * signals alone. This channel's own consent lives on
+ * `users/{uid}.savedJobsDigest.optedOut` (a boolean, checked directly by the
+ * sender) — not a `status` string on any subscriber doc — so there is no
+ * channel-specific soft state to fold in here, unlike newsletter/job-alert above.
+ * @param {string|null|undefined} status
+ * @returns {boolean}
+ */
+export function isSavedJobsDigestExcluded(status) {
+  return isAddressSuppressed(status);
+}

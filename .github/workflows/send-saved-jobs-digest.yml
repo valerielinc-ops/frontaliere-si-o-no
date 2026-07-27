@@ -1,0 +1,84 @@
+name: Send Saved Jobs Digest
+
+on:
+  schedule:
+    # Weekly Monday 07:33 UTC — clear of the existing daily 00:33/03:33 slots
+    # and the existing Monday-specific slots at 02:35/04:00/04:21/05:00/06:00.
+    # :33 avoids the :00/:15/:30/:45 minute marks GitHub Actions cron
+    # deprioritizes under load (same rationale as send-job-alerts.yml, #3798).
+    - cron: '33 7 * * 1'
+  workflow_dispatch:
+    inputs:
+      target_email:
+        description: 'Limit send to a single email (test mode). Empty = send to all users with saved jobs.'
+        required: false
+        default: ''
+        type: string
+
+concurrency:
+  group: saved-jobs-digest
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  issues: write     # for github-issue-creator on failure
+
+jobs:
+  send-digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Assemble jobs dataset
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      - name: Send saved-jobs digest emails
+        continue-on-error: true
+        id: send-digest
+        env:
+          TARGET_EMAIL: ${{ inputs.target_email }}
+        run: node scripts/send-saved-jobs-digest.mjs
+
+      - name: Report failure to GitHub Issues
+        if: steps.send-digest.outcome == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "CI Failure: ${{ github.workflow }}" \
+            --description "## Saved Jobs Digest invio fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Branch:** ${{ github.ref_name }}
+          **Trigger:** ${{ github.event_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

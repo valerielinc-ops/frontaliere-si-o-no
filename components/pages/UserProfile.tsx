@@ -20,10 +20,12 @@ import {
  Shield, Save, CheckCircle2, MapPin, Heart, Baby, Loader2, Edit3, Sparkles,
  Plus, Trash2, Calculator, BookOpen, ArrowRightLeft, Award,
  AlertCircle, Building2, Navigation, Globe, Banknote,
- Clock, FileCheck, Mail, ExternalLink, Newspaper,
+ Clock, FileCheck, Mail, ExternalLink, Newspaper, Bookmark,
 } from 'lucide-react';
 import { useTranslation, type Locale, setLocale as setGlobalLocale, getLocale, LOCALE_LABELS } from '@/services/i18n';
 import { buildPath, ensureJobSlugMapLoaded } from '@/services/router';
+import { loadSavedJobs, SAVED_JOBS_CHANGED_EVENT, type SavedJobEntry } from '@/services/savedJobsService';
+import { fetchAllJobs } from '@/services/jobsService';
 import SubscriptionPreferencesController from '@/components/preferences/SubscriptionPreferencesController';
 import { useAuth, getUserDisplayName, getUserPhotoURL, promptOneTap, renderGoogleButton, cancelOneTap, deleteCurrentUser, signInWithFacebook, reAuthFacebook, getLinkedProviders, getAuthEmail, consumeFacebookProfilePrefill, eagerAuth, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import { useJournalistRole } from '@/hooks/useJournalistRole';
@@ -401,6 +403,36 @@ const UserProfile: React.FC = () => {
    })();
    return () => { cancelled = true; };
  }, [user]);
+ // Saved jobs (account-gating follow-up to #4466/#4467). The Firestore sync
+ // itself is mounted once at app root (App.tsx → subscribeSavedJobsFirestore,
+ // keyed on authUser?.uid) — this component only reads the already-live
+ // in-memory cache, same pattern JobBoard.tsx uses for its "Salvati" filter.
+ const [savedJobs, setSavedJobs] = useState<SavedJobEntry[]>([]);
+ useEffect(() => {
+   setSavedJobs(loadSavedJobs());
+   const onChanged = () => setSavedJobs(loadSavedJobs());
+   window.addEventListener(SAVED_JOBS_CHANGED_EVENT, onChanged);
+   return () => window.removeEventListener(SAVED_JOBS_CHANGED_EVENT, onChanged);
+ }, []);
+ // Cross-check saved jobs against the current live listing to flag expired
+ // ones (job pruning has active churn — a stale link in the account page or
+ // the weekly digest email is a dead end). `null` = not loaded yet, so the
+ // section never flashes a false "expired" badge before the check lands.
+ const [activeSavedJobIds, setActiveSavedJobIds] = useState<Set<string> | null>(null);
+ useEffect(() => {
+   if (savedJobs.length === 0) { setActiveSavedJobIds(null); return; }
+   let cancelled = false;
+   (async () => {
+     try {
+       const all = await fetchAllJobs(locale as Locale);
+       if (cancelled) return;
+       setActiveSavedJobIds(new Set(all.map((j) => j.id)));
+     } catch {
+       // best-effort: no expired badges rather than a broken section.
+     }
+   })();
+   return () => { cancelled = true; };
+ }, [savedJobs.length, locale]);
  // The "my applications" links resolve their canton section from the job slug
  // map (buildPath → getJobMetaForSlug). Ensure it is loaded so an applied
  // non-TI job links to /cerca-lavoro-<canton>/… instead of the legacy TI
@@ -1198,6 +1230,60 @@ const UserProfile: React.FC = () => {
  </a>
  ) : (
  <div className="flex items-start gap-2 p-3 rounded-xl border border-edge bg-surface">
+ {inner}
+ </div>
+ )}
+ </li>
+ );
+ })}
+ </ul>
+ </div>
+ )}
+
+ {/* ─── Saved jobs (#4466/#4467 account-gating follow-up) ────── */}
+ {savedJobs.length > 0 && (
+ <div className="mx-6 mt-4 p-4 rounded-2xl border border-edge bg-surface-alt">
+ <h3 className="text-sm font-bold text-strong flex items-center gap-2">
+ <Bookmark size={16} className="text-accent" />
+ {t('profile.savedJobs.title')}
+ </h3>
+ <p className="text-xs text-subtle mt-0.5">{t('profile.savedJobs.subtitle')}</p>
+ <ul className="mt-3 space-y-2">
+ {savedJobs.map((job) => {
+ const dateLabel = new Date(job.savedAt).toLocaleDateString(
+ locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-DE' : locale === 'fr' ? 'fr-FR' : 'en-GB',
+ { day: 'numeric', month: 'long', year: 'numeric' },
+ );
+ const isExpired = activeSavedJobIds !== null && !activeSavedJobIds.has(job.id);
+ const inner = (
+ <>
+ <span className="flex-1 min-w-0">
+ <span className="block text-sm font-medium text-strong truncate">{job.title}</span>
+ <span className="block text-xs text-muted truncate">
+ {job.company}{job.canton ? ` · ${job.canton}` : ''}
+ </span>
+ <span className="block text-xs text-muted">{t('profile.savedJobs.savedOn')} {dateLabel}</span>
+ </span>
+ {isExpired ? (
+ <span className="flex-shrink-0 mt-0.5 px-1.5 py-0.5 rounded-md text-[11px] font-medium bg-surface text-subtle border border-edge">
+ {t('profile.savedJobs.expired')}
+ </span>
+ ) : (
+ job.slug && <ExternalLink size={14} className="text-link flex-shrink-0 mt-0.5" />
+ )}
+ </>
+ );
+ return (
+ <li key={job.id}>
+ {job.slug && !isExpired ? (
+ <a
+ href={buildPath({ activeTab: 'job-board', jobSlug: job.slug }, locale)}
+ className="flex items-start gap-2 p-3 rounded-xl border border-edge bg-surface hover:border-info-border transition-[border-color]"
+ >
+ {inner}
+ </a>
+ ) : (
+ <div className="flex items-start gap-2 p-3 rounded-xl border border-edge bg-surface opacity-70">
  {inner}
  </div>
  )}

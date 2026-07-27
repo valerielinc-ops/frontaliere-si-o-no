@@ -12,4 +12,5 @@ export {
   isAddressSuppressed,
   isNewsletterExcluded,
   isJobAlertExcluded,
+  isSavedJobsDigestExcluded,
 } from '../functions/src/lib/emailSuppression.js';
