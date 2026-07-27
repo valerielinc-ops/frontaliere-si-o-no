@@ -2243,6 +2243,21 @@ export function parsePath(pathname: string): ParseResult {
    }
  }
 
+ // Self-certification forms guide — /moduli/autocertificazione-candidatura/
+ // (IT-only, source of truth: build-plugins/selfCertificationFormsPlugin.ts
+ // LANDING_URL_PATH). Emitted via buildSeoPageHtml (seoContentOutsideRoot:
+ // true); without staticOverlay this path is unmatched anywhere else in
+ // parsePath, falls through to the final notFoundPath fallback, and the SPA
+ // hides `main.seo-static-content` + renders NotFoundSuggestions inside
+ // #root on hydrate — the guide + PDF links vanish for real users. Routed to
+ // guida/first-day for back-nav, mirroring the salary-hub article pattern.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   if (normalized === '/moduli/autocertificazione-candidatura/') {
+     return { route: { activeTab: 'guida', guidaSubTab: 'first-day', staticOverlay: true }, locale: 'it' };
+   }
+ }
+
  // Border-municipality static SEO pages — one page per Italian comune under
  // the municipalities hub. The build emits the actual page body outside
  // #root; staticOverlay keeps SPA navigation from replacing it with the
