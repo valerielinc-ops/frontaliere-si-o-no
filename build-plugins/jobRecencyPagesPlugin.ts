@@ -138,14 +138,23 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
         console.warn('[job-recency-pages] failed to read data/jobs.json', err);
       }
 
-      // Filter to valid, non-expired, non-pending-translation jobs
-      const validJobs = jobs.filter((j) => {
+      // Filter to valid, non-expired jobs. needsRetranslation is checked
+      // per-locale below (once per locale is known) — a job flagged
+      // needsRetranslation=true still belongs on its own source-locale
+      // page; the flag only means OTHER-locale translations are stale (#4715).
+      const validJobsBase = jobs.filter((j) => {
         if (!j || typeof j !== 'object') return false;
         if ((j as { expired?: boolean }).expired) return false;
-        const nr = (j as { needsRetranslation?: unknown }).needsRetranslation;
-        if (nr === true) return false;
         return !!(j.title && j.company && j.location);
       });
+      const validJobsForLocale = (locale: JobLandingLocale): Array<Record<string, unknown>> =>
+        validJobsBase.filter((j) => {
+          const nr = (j as { needsRetranslation?: unknown }).needsRetranslation;
+          const sourceLang = (j as { sourceLang?: string }).sourceLang || 'it';
+          if (nr === true && locale !== sourceLang) return false;
+          if (nr && typeof nr === 'object' && (nr as Record<string, boolean>)[locale]) return false;
+          return true;
+        });
 
       // Race-free SPA bundle hash extraction. See spaBundleResolver.ts.
       const { resolveSpaBundle } = await import('./spaBundleResolver');
@@ -165,6 +174,7 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
 
       for (const variant of VARIANTS) {
         for (const locale of LOCALES) {
+          const validJobs = validJobsForLocale(locale);
           const model = buildJobRecencyLandingModel({
             jobs: validJobs,
             locale,
@@ -433,7 +443,7 @@ ${sitemapEntries.join('\n')}
       }
 
       console.log(
-        `\x1b[36m[job-recency-pages]\x1b[0m Generated ${LOCALES.length * VARIANTS.length} recency hubs (${validJobs.length} candidate jobs)`,
+        `\x1b[36m[job-recency-pages]\x1b[0m Generated ${LOCALES.length * VARIANTS.length} recency hubs (${validJobsBase.length} candidate jobs)`,
       );
 
       // Always-run: patch sitemap.xml index lastmod entry. Other plugins

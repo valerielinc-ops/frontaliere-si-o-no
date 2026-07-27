@@ -162,7 +162,7 @@ function buildSnapshot(
   const roleCounts = EMPTY_ROLE_COUNTS();
   const healthcareJobs: JobRecord[] = [];
   for (const job of jobs) {
-    const role = classifyHealthcareRole(job.title, job.titleByLocale);
+    const role = classifyHealthcareRole(job.title);
     if (role) {
       roleCounts[role]++;
       healthcareJobs.push(job);
@@ -181,8 +181,8 @@ function buildSnapshot(
   // Featured: healthcare roles first, then freshest. Falls back to any job so
   // an all-admin snapshot still surfaces the employer's live openings.
   const ranked = [...jobs].sort((a, b) => {
-    const aHealth = classifyHealthcareRole(a.title, a.titleByLocale) ? 1 : 0;
-    const bHealth = classifyHealthcareRole(b.title, b.titleByLocale) ? 1 : 0;
+    const aHealth = classifyHealthcareRole(a.title) ? 1 : 0;
+    const bHealth = classifyHealthcareRole(b.title) ? 1 : 0;
     if (aHealth !== bHealth) return bHealth - aHealth;
     const aFeat = a.featured ? 1 : 0;
     const bFeat = b.featured ? 1 : 0;

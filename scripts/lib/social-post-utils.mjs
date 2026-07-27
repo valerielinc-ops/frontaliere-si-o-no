@@ -222,13 +222,15 @@ export function selectUnpostedJobs(jobs, postedSet, limit) {
   const list = jobs.filter((j) => {
     if (!j || !j.id) return false;
     if (postedSet.has(j.id)) return false;
-    // Skip jobs flagged by the translate-pending workflow as still
-    // needing translation. Without this, the scheduler picks up
-    // German/French source titles and emits e.g. "Verkäufer*in" or
-    // "Transportdisponent*in" as the post headline — wrong language
-    // for an Italian audience. CLAUDE.md documents this same flag for
-    // locale-completeness checks.
-    if (j.needsRetranslation === true) return false;
+    // Skip jobs flagged by the translate-pending workflow ONLY when the
+    // job's own source locale isn't Italian yet — needsRetranslation means
+    // translations FROM the source locale are stale, not that the source
+    // locale's own title is bad. A DE/FR-sourced job with no IT translation
+    // yet would emit e.g. "Verkäufer*in" as the post headline — wrong
+    // language for an Italian audience — but an IT-sourced job flagged only
+    // because ITS EN/DE/FR translations are pending has a perfectly good
+    // Italian canonical title and must not be dropped (#4715).
+    if (j.needsRetranslation === true && (j.sourceLang || 'it') !== 'it') return false;
     return true;
   });
   list.sort((a, b) => recencyTs(b) - recencyTs(a));

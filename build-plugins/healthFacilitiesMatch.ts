@@ -178,34 +178,30 @@ const HEALTHCARE_UMBRELLA_RX =
 
 const NON_HEALTHCARE_RX = /\b(tierpfleg|tierarzt|veterinari|\bvet\b|assistenzpsycholog)/i;
 
-/** Classify a job title into a headline healthcare role, or `null` when the
- * title is not a healthcare/care role. Checks the base title plus any
- * locale variants supplied. */
-export function classifyHealthcareRole(
-  title: string | null | undefined,
-  titleByLocale?: Partial<Record<string, string>> | null,
-): HealthcareRole | null {
-  const haystacks: string[] = [];
-  if (title) haystacks.push(title);
-  if (titleByLocale) {
-    for (const v of Object.values(titleByLocale)) if (v) haystacks.push(v);
-  }
-  if (haystacks.length === 0) return null;
-  for (const h of haystacks) if (NON_HEALTHCARE_RX.test(h)) return null;
-  let umbrella = false;
-  for (const h of haystacks) if (HEALTHCARE_UMBRELLA_RX.test(h)) { umbrella = true; break; }
-  if (!umbrella) return null;
+/**
+ * Classify a job title into a headline healthcare role, or `null` when the
+ * title is not a healthcare/care role.
+ *
+ * Canonical `title` only — deliberately excludes `titleByLocale`. The
+ * classification is computed once per job and reused across every locale's
+ * facility page (see `buildSnapshot`), so a mistranslation in any one
+ * locale's title must never be able to misclassify a job. Every job carries
+ * a canonical `job.title` (confirmed against the live dataset), so this
+ * costs no matching coverage. See #4715 (same construct fixed in
+ * jobSectorLanding.ts::jobMatchesSector).
+ */
+export function classifyHealthcareRole(title: string | null | undefined): HealthcareRole | null {
+  if (!title) return null;
+  if (NON_HEALTHCARE_RX.test(title)) return null;
+  if (!HEALTHCARE_UMBRELLA_RX.test(title)) return null;
   for (const { role, rx } of ROLE_PATTERNS) {
-    for (const h of haystacks) if (rx.test(h)) return role;
+    if (rx.test(title)) return role;
   }
   return 'altro';
 }
 
 /** True when the job title describes any healthcare/care role. */
-export function isHealthcareRole(
-  title: string | null | undefined,
-  titleByLocale?: Partial<Record<string, string>> | null,
-): boolean {
-  return classifyHealthcareRole(title, titleByLocale) !== null;
+export function isHealthcareRole(title: string | null | undefined): boolean {
+  return classifyHealthcareRole(title) !== null;
 }
 
