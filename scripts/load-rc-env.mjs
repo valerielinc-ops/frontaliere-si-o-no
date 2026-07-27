@@ -193,6 +193,13 @@ const RC_TO_ENV = {
   // (OFF) — code requires this AND CLAUDE_CODE_OAUTH_TOKEN before offering the
   // model at all (see isClaudeCliFallbackEnabled/hasClaudeCodeOauthToken).
   ENABLE_HAIKU_ARTICLE_FALLBACK:  ['ENABLE_HAIKU_ARTICLE_FALLBACK'],
+
+  // JSON array of {provider, name, apiKey} — decrypted OmniRoute provider
+  // connections synced from a local ~/.omniroute/storage.sqlite via
+  // scripts/sync-omniroute-providers-rc.mjs. Consumed by
+  // scripts/ci/omniroute-poc-register.mjs to register the full provider set
+  // into a fresh CI OmniRoute instance instead of the small hardcoded list.
+  OMNIROUTE_PROVIDERS_JSON:       ['OMNIROUTE_PROVIDERS_JSON'],
 };
 
 // ─── Helpers ─────────────────────────────────────────────────────────────

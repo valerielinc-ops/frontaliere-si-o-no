@@ -1,17 +1,37 @@
 #!/usr/bin/env node
-// Registers a small representative set of provider connections into a locally
-// running OmniRoute instance (POC only — see .github/workflows/omniroute-poc.yml).
-// Includes one intentionally-dead key (mistral) to prove OmniRoute's auto
-// fallback skips it and still serves the completion via a live provider.
+// Registers provider connections into a locally running OmniRoute instance
+// (POC only — see .github/workflows/omniroute-poc.yml). When
+// OMNIROUTE_PROVIDERS_JSON is set (see scripts/sync-omniroute-providers-rc.mjs
+// / scripts/load-rc-env.mjs), registers that full decrypted provider set;
+// otherwise falls back to a small curated list. The fallback list includes
+// one intentionally-dead key (mistral) to prove OmniRoute's auto fallback
+// skips it and still serves the completion via a live provider.
 
 const OMNIROUTE_URL = 'http://localhost:20128';
 
-const PROVIDERS = [
-  ['groq', 'Groq (CI POC)', ['GROQ_API_KEY']],
-  ['openrouter', 'OpenRouter (CI POC)', ['OPENROUTER_API_KEY']],
-  ['gemini', 'Gemini (CI POC)', ['GEMINI_API_KEY']],
-  ['mistral', 'Mistral (CI POC, expected dead)', ['MISTRAL_API_KEY']],
+// Tuple shape: [provider, name, envNames|null, presetApiKey|null] — envNames
+// resolves the key from process.env (curated fallback), presetApiKey is
+// already-decrypted (OMNIROUTE_PROVIDERS_JSON path).
+const providersFromJson = (() => {
+  const raw = process.env.OMNIROUTE_PROVIDERS_JSON;
+  if (!raw) return null;
+  try {
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) throw new Error('not an array');
+    return parsed.map((p) => [p.provider, p.name || p.provider, null, p.apiKey]);
+  } catch (e) {
+    console.error('⚠️  OMNIROUTE_PROVIDERS_JSON present but invalid, falling back to curated POC list:', e.message);
+    return null;
+  }
+})();
+
+const PROVIDERS = providersFromJson || [
+  ['groq', 'Groq (CI POC)', ['GROQ_API_KEY'], null],
+  ['openrouter', 'OpenRouter (CI POC)', ['OPENROUTER_API_KEY'], null],
+  ['gemini', 'Gemini (CI POC)', ['GEMINI_API_KEY'], null],
+  ['mistral', 'Mistral (CI POC, expected dead)', ['MISTRAL_API_KEY'], null],
 ];
+if (providersFromJson) console.log(`ℹ️  Using OMNIROUTE_PROVIDERS_JSON — ${PROVIDERS.length} provider connection(s).`);
 
 // A fresh OmniRoute boot (always the case in CI — new sqlite db each run) sets
 // requireLogin:true and needs a session cookie for /api/* management routes
@@ -36,8 +56,8 @@ if (password) {
 const skipped = [];
 const results = [];
 
-for (const [provider, name, envNames] of PROVIDERS) {
-  const apiKey = envNames.map((n) => process.env[n]).find((v) => v && v.trim());
+for (const [provider, name, envNames, presetApiKey] of PROVIDERS) {
+  const apiKey = presetApiKey || envNames?.map((n) => process.env[n]).find((v) => v && v.trim());
   if (!apiKey) {
     skipped.push(provider);
     continue;
