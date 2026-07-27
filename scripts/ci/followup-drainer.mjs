@@ -34,6 +34,15 @@
  */
 import { execFileSync } from 'node:child_process';
 import { classifyIssue } from '../lib/classify-issue.mjs';
+import {
+  WORKFLOW_PATH_RE,
+  BARE_YML_RE,
+  NON_WORKFLOW_YML,
+  CODE_PATH_RE,
+  detectWorkflowScoped,
+} from '../lib/workflow-scope-detect.mjs';
+
+export { detectWorkflowScoped };
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
@@ -123,43 +132,11 @@ export function latestFixOutcomeFromComments(comments) {
 // il primo run Claude ha bruciato ~1M token per scoprire il blocco. Questa
 // pre-flight deterministica lo rileva PRIMA della promozione a agent:fix.
 //
-// CONSERVATIVA (bias a PROMUOVERE — un falso park ritarda un fix reale): scatta
-// SOLO sul segnale forte «il fix è esclusivamente workflow-scoped» = il body cita
-// ≥1 path di workflow (`.github/workflows/x.yml` o un bare `x.yml`) E NESSUN path
-// di codice non-workflow (scripts/build-plugins/services/components/hooks/build/
-// src/...). Se cita anche un file di codice → il fix potrebbe vivere lì → PROMUOVI
-// (lascia decidere il fixer). Nessun path citato → PROMUOVI. Mirror del bias
-// dell'already-resolved gate (check-issue-already-resolved.mjs).
-const WORKFLOW_PATH_RE = /\.github\/workflows\/[A-Za-z0-9._/-]+\.ya?ml\b/g;
-// Bare `<name>.yml` (un workflow è sempre .yml; in una follow-up un bare .yml
-// che non sia un file di config noto indica quasi sempre un workflow file).
-const BARE_YML_RE = /\b[A-Za-z0-9][A-Za-z0-9._-]*\.ya?ml\b/g;
-// File di codice NON-workflow: se citati, il fix potrebbe vivere lì → non scoped.
-const CODE_PATH_RE = /\b(?:scripts|build-plugins|services|components|hooks|build|src)\/[A-Za-z0-9._/-]+\.[A-Za-z0-9]+\b/g;
-// `.yml` di config che NON sono workflow (non implicano scope workflows).
-const NON_WORKFLOW_YML = new Set([
-  'lighthouserc.yml', 'pnpm-workspace.yml', 'docker-compose.yml',
-  '.prettierrc.yml', 'vitest.yml',
-]);
-
-/**
- * Vero se il fix della follow-up è ESCLUSIVAMENTE workflow-scoped (richiede di
- * editare `.github/workflows/**`), così la promozione a agent:fix brucerebbe
- * quota in un run che il push bloccherebbe comunque. Pura → testabile.
- * @param {string} text  title + body della issue
- */
-export function detectWorkflowScoped(text) {
-  const s = String(text || '');
-  const wfFull = s.match(WORKFLOW_PATH_RE) || [];
-  const bareYml = (s.match(BARE_YML_RE) || []).filter(
-    (y) => !NON_WORKFLOW_YML.has(y.toLowerCase()),
-  );
-  const workflowRefs = [...new Set([...wfFull, ...bareYml])];
-  if (workflowRefs.length === 0) return false; // nessun riferimento a workflow → promuovi
-  const codeRefs = s.match(CODE_PATH_RE) || [];
-  if (codeRefs.length > 0) return false; // cita anche codice non-workflow → potrebbe fixarsi lì → promuovi
-  return true; // solo workflow → blocked-workflows-scope by-construction
-}
+// Detection logic (WORKFLOW_PATH_RE/BARE_YML_RE/NON_WORKFLOW_YML/CODE_PATH_RE/
+// detectWorkflowScoped) is shared with check-workflows-scope.mjs via
+// ../lib/workflow-scope-detect.mjs — see that module's docstring for the
+// bias-to-promote rationale and the #4437 false-positive-loop incident that
+// motivated extracting it out of a hand-duplicated copy.
 
 // --- MALFORMED-BODY & NETWORK-AUDIT PRE-FLIGHT (escalation #2291) -----------
 // `fix-outcome:max-turns` ricorre ≥7×/14gg (dal 2026-06-02): due sottoclassi
