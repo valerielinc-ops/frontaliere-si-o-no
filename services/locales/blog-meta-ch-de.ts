@@ -1594,6 +1594,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.title': 'AI: Wiedereingliederung in die Arbeitswelt nimmt zu',
     'blog.article.ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.excerpt': 'Rund 19\'200 Personen wurden durch Eingliederungsmassnahmen der Invalidenversicherung (IV) eingestellt.',
     'blog.article.ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.imageAlt': 'Bild einer Person, die in einem Büro arbeitet und ein Lächeln auf dem Gesicht hat.',
+    'blog.article.frontalieri-ticino-omnibus-2026.title': 'Grenzgänger Tessin: 100% Steuer ab 2026 für alte und neue Gemeinden',
+    'blog.article.frontalieri-ticino-omnibus-2026.excerpt': 'Der Osten weist darauf hin: Ab Januar 2026 werden die Grenzgänger der neuen Grenzgemeinden, die sich für das Omnibus-Dekret entscheiden, die Quellensteuer zu 100% im Tessin zahlen, nicht mehr zu 80%. Erhöhte Steuerbelastung, wenn Sie sich für die italienische Ersatzsteuer entscheiden.',
+    'blog.article.frontalieri-ticino-omnibus-2026.imageAlt': 'Luftbild von Lugano mit See und Bergen',
 };
 
 export default blogMetaChDe;

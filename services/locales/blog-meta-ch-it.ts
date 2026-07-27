@@ -1594,6 +1594,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.title': 'AI: crescono le persone reintegrate nel mondo del lavoro',
     'blog.article.ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.excerpt': 'Circa 19\'200 persone sono state assunte grazie ai provvedimenti d\'integrazione professionale dell\'assicurazione invalidità (AI).',
     'blog.article.ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.imageAlt': 'Immagine di una persona che lavora in un ufficio con un sorriso sulla faccia.',
+    'blog.article.frontalieri-ticino-omnibus-2026.title': 'Frontalieri Ticino: imposta al 100% dal 2026 per vecchi e nuovi Comuni',
+    'blog.article.frontalieri-ticino-omnibus-2026.excerpt': 'L\'Ocst segnala: dal gennaio 2026 i frontalieri dei nuovi Comuni di confine che scelgono il Decreto Omnibus pagheranno l\'imposta alla fonte al 100% in Ticino, non più all\'80%. Carico fiscale in aumento se si opta per l\'imposta sostitutiva italiana.',
+    'blog.article.frontalieri-ticino-omnibus-2026.imageAlt': 'Vista aerea di Lugano con il lago e le montagne',
 };
 
 export default blogMetaChIt;

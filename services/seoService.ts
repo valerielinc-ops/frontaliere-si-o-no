@@ -4932,6 +4932,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cifre-nere-grigioni': { name: 'Cifre nere', path: '/articoli-svizzera/cifre-nere-grigioni/', parent: 'blog' },
     'blog-ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro': { name: 'Breadcrumb 2-3 parole', path: '/articoli-svizzera/ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro/', parent: 'blog' },
     'blog-frontalieri-ristorni-da-record': { name: 'Frontalieri, ristorni da record', path: '/articoli-frontaliere/frontalieri-ristorni-da-record', parent: 'blog' },
+    'blog-frontalieri-ticino-omnibus-2026': { name: 'Fiscale Frontalieri', path: '/articoli-svizzera/frontalieri-ticino-omnibus-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

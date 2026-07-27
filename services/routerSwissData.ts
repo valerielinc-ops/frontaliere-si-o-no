@@ -554,6 +554,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'canton-ticino-blocca-ristorni-lombardia': { it: 'canton-ticino-blocca-ristorni-lombardia', en: 'ticino-blocks-lombardy-refunds', de: 'tessin-blockiert-lombardische-ruckerstattungen', fr: 'tessin-empeche-le-recouvrement-de-lombardie' },
  'cifre-nere-grigioni': { it: 'cifre-nere-grigioni', en: 'black-figures-grisons', de: 'schwarze-zahlen-grisone', fr: 'chiffres-noirs-grisons' },
  'ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro': { it: 'ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro', en: 'ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro', de: 'ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro', fr: 'ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro' },
+ 'frontalieri-ticino-omnibus-2026': { it: 'frontalieri-ticino-omnibus-2026', en: 'cross-border-workers-ticino-omnibus-2026', de: 'grenzgaenger-tessin-omnibus-2026', fr: 'frontaliers-tessin-omnibus-2026' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

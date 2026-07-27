@@ -1594,6 +1594,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.title': 'AI : les personnes réintégrées dans le monde du travail grandissent',
     'blog.article.ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.excerpt': 'Environ 19\'200 personnes ont été embauchées grâce aux mesures de réadaptation professionnelle de l\'assurance-invalidité (AI).',
     'blog.article.ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.imageAlt': 'Image d\'une personne travaillant dans un bureau avec un sourire sur son visage.',
+    'blog.article.frontalieri-ticino-omnibus-2026.title': 'Frontalier du Tessin : 100 % dès 2026 pour tous',
+    'blog.article.frontalieri-ticino-omnibus-2026.excerpt': 'L\'OCST signale : à partir de janvier 2026, les frontaliers des nouvelles communes frontalières qui choisissent le décret Omnibus paieront l\'impôt à la source à 100 % au Tessin, et non plus à 80 %. Charge fiscale en hausse si vous optez pour la taxe de substitution italienne.',
+    'blog.article.frontalieri-ticino-omnibus-2026.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes',
 };
 
 export default blogMetaChFr;
