@@ -1600,6 +1600,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-attacco-ticino.title': 'Cutting refreshments, Canton Ticino attacks health tax',
     'blog.article.tassa-salute-frontalieri-attacco-ticino.excerpt': 'State Councillor Christian Vitta said he wanted to attack the mechanism of refunds for border workers.',
     'blog.article.tassa-salute-frontalieri-attacco-ticino.imageAlt': 'Photograph of Lugano with a protest sign in front of the town hall',
+    'blog.article.perche-tanti-svizzeri-ignorano-tutor-italia.title': 'Why do so many Swiss people ignore the Tutor in Italy?',
+    'blog.article.perche-tanti-svizzeri-ignorano-tutor-italia.excerpt': 'The New Frontier Agreement provides for the creation of an exemption regime from the payment of personal income tax in Italy for Swiss border workers.',
+    'blog.article.perche-tanti-svizzeri-ignorano-tutor-italia.imageAlt': 'A Swiss border worker going to Italy to ask for a Tutor',
 };
 
 export default blogMetaChEn;

@@ -556,6 +556,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro': { it: 'ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro', en: 'ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro', de: 'ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro', fr: 'ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro' },
  'frontalieri-ticino-omnibus-2026': { it: 'frontalieri-ticino-omnibus-2026', en: 'cross-border-workers-ticino-omnibus-2026', de: 'grenzgaenger-tessin-omnibus-2026', fr: 'frontaliers-tessin-omnibus-2026' },
  'tassa-salute-frontalieri-attacco-ticino': { it: 'tassa-salute-frontalieri-attacco-ticino', en: 'health-tax-frontaliers-attack-ticino', de: 'gesundheitsabgabe-frontalier-angriff-ticino', fr: 'impot-de-sante-frontaliers-attaque-ticino' },
+ 'perche-tanti-svizzeri-ignorano-tutor-italia': { it: 'perche-tanti-svizzeri-ignorano-tutor-italia', en: 'why-swiss-ignores-tutor-italy', de: 'warum-schweizer-tutor-italien-ignorieren', fr: 'pourquoi-suisses-ignorent-tutor-italie' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

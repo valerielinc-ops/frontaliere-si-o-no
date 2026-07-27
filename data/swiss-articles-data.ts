@@ -4796,6 +4796,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'perche-tanti-svizzeri-ignorano-tutor-italia',
+    category: 'pratico',
+    date: '2026-07-27T20:05:53.218Z',
+    image: '/images/blog/perche-tanti-svizzeri-ignorano-tutor-italia.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

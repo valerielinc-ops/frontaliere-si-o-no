@@ -1600,6 +1600,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-attacco-ticino.title': 'Tagliare i ristorni, il Canton Ticino attacca la tassa sulla salute',
     'blog.article.tassa-salute-frontalieri-attacco-ticino.excerpt': 'Il Consigliere di Stato Christian Vitta ha dichiarato di voler attaccare il meccanismo dei ristorni per i frontalieri.',
     'blog.article.tassa-salute-frontalieri-attacco-ticino.imageAlt': 'Fotografia di Lugano con un cartello di protesta davanti al municipio',
+    'blog.article.perche-tanti-svizzeri-ignorano-tutor-italia.title': 'Perché tanti svizzeri ignorano il Tutor in Italia?',
+    'blog.article.perche-tanti-svizzeri-ignorano-tutor-italia.excerpt': 'Il Nuovo Accordo Frontalieri prevede la creazione di un regime di esenzione dal pagamento dell\'IRPEF in Italia per i frontalieri svizzeri.',
+    'blog.article.perche-tanti-svizzeri-ignorano-tutor-italia.imageAlt': 'Un frontaliere che si reca in Italia per chiedere il Tutor',
 };
 
 export default blogMetaChIt;
