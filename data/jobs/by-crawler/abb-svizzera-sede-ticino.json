@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abb-svizzera-sede-ticino",
-  "assembledAt": "2026-07-27T10:46:36.596Z",
+  "assembledAt": "2026-07-27T12:44:41.638Z",
   "jobs": [
     {
       "id": "company-c2e589",
@@ -27,7 +27,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-24T11:28:01.819Z",
       "titleByLocale": {
         "en": "Sales, Service and Project Execution Regional Sales Leader Critical Power DACH",
@@ -88,6 +88,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -114,7 +115,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-24T11:28:01.819Z",
       "titleByLocale": {
         "it": "Senior Lead Ingegnere",
@@ -185,7 +186,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-24T22:26:24.459Z",
       "titleByLocale": {
         "it": "Product Manager Sistemi e-Power mobili (m/w/d)",
@@ -238,6 +239,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -264,7 +266,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-23T22:14:38.167Z",
       "titleByLocale": {
         "it": "Finanza Analista (m/w/d) 80 - 100%",
@@ -325,6 +327,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -351,7 +354,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-23T22:14:38.167Z",
       "titleByLocale": {
         "it": "Global Category Specialista Power Components",
@@ -399,7 +402,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 85500,
-      "salaryMax": 150000
+      "salaryMax": 150000,
+      "needsRetranslation": true
     },
     {
       "id": "company-4q2bcd",
@@ -424,7 +428,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-23T22:14:38.167Z",
       "titleByLocale": {
         "it": "Global Quality Specialista - UPS",
@@ -471,6 +475,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000
     },
@@ -497,7 +502,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-23T22:14:38.167Z",
       "titleByLocale": {
         "it": "Technical Sales Support Ingegnere (80-100%)",
@@ -542,6 +547,7 @@
       "addressRegion": "TG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000
     },
@@ -568,7 +574,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-23T22:14:38.167Z",
       "titleByLocale": {
         "it": "Leader Divisional Talent Partner - EL",
@@ -640,10 +646,10 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-21T11:35:09.458Z",
       "titleByLocale": {
-        "it": "Materiale Planner (IPU)",
+        "it": "Material Planner (IPU)",
         "en": "Material Planner (IPU)",
         "de": "Materialplaner (IPU)",
         "fr": "Planificateur de matériaux (IPU)"
@@ -710,6 +716,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000
     },
@@ -736,7 +743,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-22T12:33:42.277Z",
       "titleByLocale": {
         "it": "Stage in Finanza",
@@ -807,7 +814,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-20T22:13:03.020Z",
       "titleByLocale": {
         "it": "Sales Specialista Panel Builder (80 - 100%)",
@@ -868,6 +875,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000
     },
@@ -894,7 +902,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-17T11:28:52.195Z",
       "titleByLocale": {
         "it": "Customer Quality Electronics Specialista",
@@ -941,6 +949,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000
     },
@@ -967,7 +976,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-17T11:28:52.195Z",
       "titleByLocale": {
         "it": "Sales Specialista – Business Line Excitation (80-100%)",
@@ -1012,6 +1021,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -1038,7 +1048,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-17T11:28:52.195Z",
       "titleByLocale": {
         "it": "Analista M&A",
@@ -1087,6 +1097,7 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500
     },
@@ -1113,7 +1124,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-17T22:24:17.785Z",
       "titleByLocale": {
         "it": "Sales Manager – Progetti Strategici Globali, Settore Minerario",
@@ -1178,6 +1189,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -1204,7 +1216,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-17T22:24:17.785Z",
       "titleByLocale": {
         "it": "End Sales Manager – Progetti Strategici Globali, Mining",
@@ -1257,6 +1269,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -1283,7 +1296,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-17T22:24:17.785Z",
       "titleByLocale": {
         "it": "Direttore vendite - Produttori di pannelli (80-100%)",
@@ -1333,6 +1346,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -1359,7 +1373,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-15T11:28:32.129Z",
       "slugByLocale": {
         "it": "stage-strategischer-einkauf-80-100-abb-svizzera-sede-ticino-schaffhausen",
@@ -1415,6 +1429,7 @@
           "internship-strategischer-einkauf-80-100-abb-svizzera-sede-ticino-schaffhausen-gzgcmy"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000
     },
@@ -1441,7 +1456,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-14T11:08:48.231Z",
       "titleByLocale": {
         "it": "Technical Service Specialista - Gearless Mill Drive (80-100%)",
@@ -1487,7 +1502,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 107000,
-      "salaryMax": 187500
+      "salaryMax": 187500,
+      "needsRetranslation": true
     },
     {
       "id": "company-q2s226",
@@ -1512,7 +1528,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-14T22:17:51.360Z",
       "titleByLocale": {
         "it": "Specialista in test e laboratorio R&S (f/m/d) 80-100%",
@@ -1557,6 +1573,7 @@
       "addressRegion": "SH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000
     },
@@ -1583,7 +1600,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-14T22:17:51.360Z",
       "slugByLocale": {
         "it": "technical-support-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino-tooege",
@@ -1685,7 +1702,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-14T22:17:51.360Z",
       "titleByLocale": {
         "it": "IS Division Manager ELSB",
@@ -1730,6 +1747,7 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500
     },
@@ -1756,7 +1774,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-14T22:17:51.360Z",
       "titleByLocale": {
         "it": "Responsabile di Progetto R&D (f/m/d) 80-100%",
@@ -1831,7 +1849,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-10T23:23:02.570Z",
       "titleByLocale": {
         "it": "Gerente Global de Sistemas de Energía Móvil Electrónica – Tracción de Movimiento",
@@ -1841,8 +1859,8 @@
       },
       "descriptionByLocale": {
         "it": "Designazione delle merci\n\nIn ABB, aiutiamo le industrie a funzionare più snelle e più pulite.E ogni persona qui fa accadere. You.ll essere autorizzato a guidare, sostenuto per crescere, e orgoglioso dell'impatto che creiamo insieme. Unisciti a noi e aiuta a gestire ciò che gestisce il mondo.\n\nQuesta posizione riporta a: Global Head of Mobile e-Power\n\nIn ABB, aiutiamo le industrie a superare - più snelle e pulite. Qui, il progresso è un'aspettativa - per voi, il vostro team, e il mondo. Come leader di mercato globale, noi.ll vi darà quello che è necessario per farlo accadere. It won.t sempre essere facile, crescere prende grinta. Ma in ABB, you.ll mai correre da solo. Eseguire ciò che gestisce il mondo.\n\nCome parte della nostra agenda di crescita strategica, stiamo assumendo un Global Mobile e-Power Systems Manager per la nostra linea di business Motion Traction.\n\nA rapporto al Global Business Line Manager, Mobile e-Power, questo ruolo è una posizione di leadership chiave responsabile per la definizione e la guida della strategia globale dei prodotti, l'architettura di sistema e l'esecuzione di portafoglio per soluzioni elettrificate di powertrain nelle applicazioni minerarie.\n\nSi tratta di un ruolo di leadership globale all'incrocio tra tecnologia, gestione dei prodotti e crescita aziendale. Condurrà un team di Product Manager e specialisti dell'ingegneria mineraria, formando il futuro delle apparecchiature mobili elettrificate e pesanti e fornendo soluzioni a elevate prestazioni e scalabili per ambienti esigenti.\n\nQuesto ruolo è aperto a livello globale e le posizioni preferite sono vicine alle nostre principali sedi di Motion Traction in Svizzera, Germania o Polonia.\n\nIl modello di lavoro è ibrido #LIhybrid.\n\nResponsabilità\n\n- Possedere il portafoglio prodotti e il ciclo di vita globali per i sistemi mobili di energia elettronica, garantendo competitività e creazione di valore a lungo termine - Definire ed eseguire la strategia e la roadmap dei prodotti, in linea con gli obiettivi di crescita del business e le opportunità di mercato - Tradurre tendenze del mercato, esigenze dei clienti e evoluzione tecnologica in offerte differenziate a livello di sistema - Lead e sviluppare un team globale di Product Manager, promuovendo una forte titolarità dei prodotti e l'attenzione al mercato - Gestire e guidare un team di Ingegneria Mineraria, guidare l'eccellenza tecnica e le competenze applicative - Definire e supervisionare il sistema\n\narchitettura e integrazione tra convertitori di potenza, motori elettrici, sistemi di batterie e infrastrutture di controllo - Coinvolgere con clienti chiave a livello globale, OEM e partner strategici per definire proposte di valore e rafforzare il posizionamento sul mercato - il 21a secolo cross-funzionale con R&D, Vendite, Operazioni e Servizio per guidare l'innovazione, l'esecuzione del portafoglio e la crescita del business\n\nQualifica\n\n- Laurea o laurea magistrale in ingegneria elettrica, ingegneria meccanica o un campo correlato - Almeno 8 anni di esperienza in sistemi elettrici elettrici, mobilità elettronica o applicazioni industriali pertinenti - I team leader di Proven, come Product Manager o team di ingegneria senior e sviluppo di persone - Forte esperienza in elettronica di potenza, compresi convertitori e inverter - Conoscenza solida di macchine elettriche, sistemi di trazione e integrazione delle batterie - Esperienza in ingegneria di sistema, progettazione di architettura e integrazione di sistemi complessi - Esposizione a carichi pesanti\n\nveicoli, attrezzature minerarie o applicazioni fuoristrada è fortemente preferito - Forte competenze di gestione delle parti interessate con esperienza operativa in organizzazioni di matrice globale\n\nInformazioni aggiuntive\n\nQuesta opportunità è aperta ai candidati in più paesi, con la sede di lavoro finale determinata in base al candidato selezionato. Poiché il risarcimento può variare a seconda della località, ci impegniamo ad essere trasparenti durante tutto il processo di assunzione e condividere i dettagli della gamma di salari, indennità variabili e pacchetto di benefici con i candidati che progrediscono alla prima fase di colloquio per una posizione nell'Unione europea, coperto dalla direttiva UE sulla trasparenza dei pagamenti.\n\nL'offerta finale sarà personalizzata in base alla posizione del tuo ruolo, all'esperienza, alle competenze e alle qualifiche, al posizionamento sul mercato interno e all'allineamento con gli standard interni ABB.\n\nInformazioni su ABB Motion\n\nABB Motion, leader mondiale nel settore dei motori e delle trasmissioni, è al centro dell'accelerazione di un futuro più produttivo e sostenibile. Innoviamo e spiniamo i confini della tecnologia per contribuire a soluzioni efficienti, decarbonizzate e circolari per clienti, industrie e società. Con i nostri motori e servizi digitali supportamo i nostri clienti e partner per ottenere migliori prestazioni, sicurezza e affidabilità. Per aiutare le industrie mondiali a superare le loro esigenze, più snelle e pulite, offriamo soluzioni motorizzate per un'ampia gamma di applicazioni in tutti i segmenti industriali.\n\nCon oltre 140 anni di esperienza nel settore dei propulsori elettrici, i nostri oltre 22.000 dipendenti in 100 paesi imparano e migliorano ogni giorno. go.abb /motion\n\nDiversità e inclusione\n\nAbbiamo apprezzato persone provenienti da diversi background. Potrebbe essere questa la tua storia? Applicare oggi o visitare careers.abb per leggere di più su di noi e imparare l'impatto delle nostre soluzioni in tutto il mondo.\n\nCostruire un futuro più pulito e intelligente richiede ogni tipo di mente: il curioso, il coraggioso e il creativo. Ecco perché accogliamo persone provenienti da ogni provenienza ed esperienza.\n\nInvito all'azione\n\nPronti a fare un impatto? Applica oggi o visita https://www.abb.com per saperne di più sull'impatto delle nostre soluzioni in tutto il mondo.",
-        "en": "Description\n\nAt ABB, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.\n\nThis position reports to:\nGlobal Head of Mobile e-Power\n\n---\n\nAt ABB, we help industries outrun - leaner and cleaner. Here, progress is an expectation - for you, your team, and the world. As a global market leader, we’ll give you what you need to make it happen. It won’t always be easy, growing takes grit. But at ABB, you’ll never run alone. Run what runs the world.\n\nAs part of our strategic growth agenda, we are hiring a Global Mobile e-Power Systems Manager for our Motion Traction business line.\n\nReporting to the Global Business Line Manager, Mobile e-Power, this role is a key leadership position responsible for defining and driving the global product strategy, system architecture, and portfolio execution for electrified powertrain solutions in mining applications.\n\nThis is a global leadership role at the intersection of technology, product management, and business growth. You will lead a team of Product Managers and Mining Engineering specialists, shaping the future of electrified heavy-duty mobile equipment and delivering high-performance, scalable solutions for demanding environments.\n\nThis role is open globally, and preferred locations are set close to our main Motion Traction locations in Switzerland, Germany or Poland.\n\nThe work model is hybrid #LIhybrid.\n\n---\n\nResponsibilities\n\n- Own the global product portfolio and lifecycle for mobile e‑power systems, ensuring competitiveness and long-term value creation\n- Define and execute the product strategy and roadmap, aligned with business growth objectives and market opportunities\n- Translate market trends, customer needs, and technology evolution into differentiated system-level offerings\n- Lead and develop a global team of Product Managers, fostering strong product ownership and market focus\n- Manage and steer a Mining Engineering team, driving technical excellence and application expertise\n- Define and oversee system architecture and integration across power converters, electric motors, battery systems, and control infrastructure\n- Engage with key global customers, OEMs, and strategic partners to shape value propositions and strengthen market positioning\n- Collaborate cross-functionally with R&D, Sales, Operations, and Service to drive innovation, portfolio execution, and business growth\n\nQualifications\n\n- Bachelor's or master's degree in electrical engineering, Mechanical Engineering, or a related field\n- At least 8+ years of experience in electrified powertrain systems, e‑mobility, or relevant industrial applications\n- Proven experience leading teams, such as Product Managers or senior engineering teams and developing people\n- Strong expertise in power electronics, including converters and inverters\n- Solid knowledge of electric machines, traction systems, and battery integration\n- Experience in system engineering, architecture design, and complex system integration\n- Exposure to heavy-duty vehicles, mining equipment, or off-highway applications is strongly preferred\n- Strong stakeholder management skills with experience operating in global matrix organizations\n\nAdditional Information\n\nThis opportunity is open to candidates in multiple countries, with the final work location determined based on the selected candidate. As compensation may vary by location, we are committed to being transparent throughout the hiring process and will share details of the salary range, variable compensation and benefits package with candidates who progress to the first interview stage for a location in the European Union, covered by the EU Pay Transparency Directive.\n\nThe final offer will be tailored based on your role location, experience, skills and qualifications, internal market positioning and alignment with ABB internal standards.\n\n---\n\nAbout ABB Motion\n\nABB Motion, a global leader in motors and drives, is at the core of accelerating a more productive and sustainable future. We innovate and push the boundaries of technology to contribute to energy efficient, decarbonizing and circular solutions for customers, industries and societies. With our digitally enabled drives, motors and services we support our customers and partners to achieve better performance, safety and reliability. To help the world’s industries outrun – leaner and cleaner, we deliver motor-driven solutions for a wide range of applications in all industrial segments. Building on over 140 years of domain expertise in electric powertrains, our more than 22,000 employees across 100 countries learn and improve every day. go.abb /motion\n\nDiversity and Inclusion\n\nWe value people from different backgrounds. Could this be your story? Apply today or visit careers.abb to read more about us and learn about the impact of our solutions across the globe.\n\nBuilding a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.\n\nCall to Action\n\nReady to make an impact?\nApply today or visit https://www.abb.com to learn more about the impact of our solutions across the globe.",
-        "de": "Warenbezeichnung\n\nBei ABB helfen wir Industrien, schlanker und sauberer zu werden – und das macht jeder hier. Sie werden dazu ermächtigt, zu führen, zu wachsen und stolz auf die Wirkung, die wir gemeinsam erzeugen.\n\nDiese Position berichtet an: Global Head of Mobile e-Power\n\n- Nein.\n\nBei ABB helfen wir den Branchen vor dem Start - schlanker und sauberer. Hier ist Fortschritt eine Erwartung - für Sie, Ihr Team und die Welt. Als globaler Marktführer geben wir Ihnen, was Sie brauchen, um es zu geschehen. Es wird, nicht immer einfach sein, Wachsen nimmt Grit. Aber bei ABB, Sie werden nie allein laufen. Laufen, was die Welt läuft.\n\nIm Rahmen unserer strategischen Wachstumsagenda stellen wir einen Global Mobile e-Power Systems Manager für unsere Motion Traction Geschäftslinie ein.\n\nDiese Rolle ist eine zentrale Führungsposition, die für die Definition und Weiterentwicklung der globalen Produktstrategie, Systemarchitektur und Portfolioausführung für elektrifizierte Antriebslösungen in Bergbauanwendungen verantwortlich ist.\n\nDies ist eine globale Führungsrolle an der Schnittstelle von Technologie, Produktmanagement und Unternehmenswachstum. Sie leiten ein Team von Produktmanagern und Spezialisten für Bergbautechnik, gestalten die Zukunft elektrifizierter, hochbelastbarer mobiler Geräte und liefern leistungsstarke, skalierbare Lösungen für anspruchsvolle Umgebungen.\n\nDiese Rolle ist global offen und bevorzugter Standorte sind in der Nähe unserer wichtigsten Motion Traction Standorte in der Schweiz, Deutschland oder Polen angesiedelt.\n\nDas Modell ist hybrid #LIhybrid.\n\n- Nein.\n\nZuständigkeiten\n\n- Das globale Produktportfolio und den Lebenszyklus mobiler e‐power Systeme, die Wettbewerbsfähigkeit und langfristige Wertschöpfung gewährleisten - die Produktstrategie und -fahrpläne definieren und umsetzen, die mit den Wachstumszielen und Marktchancen der Unternehmen abgestimmt sind - Markttrends, Kundenbedürfnisse und Technologieentwicklung in differenzierte System-Level-Angebote übersetzen - ein globales Team von Product Managern leiten und entwickeln, starke Produktverantwortung und Marktfokussierung fördern - Mining Engineering-Team verwalten und steuern, technische Exzellenz und Anwendungskompetenz vorantreiben - System definieren und überwachen\n\nArchitektur und Integration über Stromwandler, Elektromotoren, Batteriesysteme und Steuerungsinfrastrukturen hinweg - Engagieren Sie sich mit wichtigen globalen Kunden, OEMs und strategischen Partnern, um Wertvorstellungen zu gestalten und die Marktpositionierung zu stärken - Zusammenarbeit funktionsübergreifend mit FuE, Vertrieb, Operations und Service, um Innovationen, Portfolioausführung und Unternehmenswachstum voranzutreiben\n\nQualifikationen\n\n- Bachelor- oder Master-Abschluss in Elektrotechnik, Maschinenbau oder einem verwandten Bereich - mindestens 8 Jahre Erfahrung in elektrifizierten Antriebssystemen, E‐Mobilität oder relevanten industriellen Anwendungen - Bewährte Erfahrung führende Teams, wie Produktmanager oder Senior Engineering Teams und Entwicklung von Menschen - Starke Expertise in der Leistungselektronik, einschließlich Konverter und Wechselrichter - Solides Wissen über elektrische Maschinen, Traktionssysteme und Batterieintegration - Erfahrung in der Systemtechnik, Architekturplanung und komplexen Systemintegration - Schwerlastexposition\n\nFahrzeuge, Bergbauausrüstung oder Off-Highway-Anwendungen wird stark bevorzugt - Starke Stakeholder Management-Fähigkeiten mit Erfahrung in globalen Matrix-Organisationen\n\nZusätzliche Informationen\n\nDiese Möglichkeit steht Kandidaten in mehreren Ländern offen, wobei der endgültige Arbeitsplatz auf der Grundlage des ausgewählten Kandidaten bestimmt wird. Da die Vergütung je nach Standort variieren kann, verpflichten wir uns, während des gesamten Einstellungsprozesses transparent zu sein und teilen Details über die Gehaltsspanne, variable Vergütung und Leistungspaket mit Kandidaten, die zur ersten Interviewphase für einen Standort in der Europäischen Union, die unter die EU-Pay-Transparency-Richtlinie.\n\nDas endgültige Angebot wird auf Ihre Rollenposition, Erfahrung, Kompetenzen und Qualifikationen, die Positionierung des Binnenmarktes und die Ausrichtung auf ABB-interne Standards zugeschnitten.\n\n- Nein.\n\nÜber ABB Motion\n\nABB Motion, ein weltweit führender Motor- und Antriebshersteller, ist der Kern der Beschleunigung einer produktiveren und nachhaltigeren Zukunft. Wir Innovationen und schieben die Grenzen der Technologie, um zu energieeffizienten, dekarbonisierenden und kreisförmigen Lösungen für Kunden, Industrien und Gesellschaften beizutragen. Mit unseren digital ermöglichten Antrieben, Motoren und Dienstleistungen unterstützen wir unsere Kunden und Partner bei der Erreichung einer besseren Leistung, Sicherheit und Zuverlässigkeit. Um der Welt zu helfen, die Industrien auszulaufen – schlanker und sauberer, liefern wir motorgetriebene Lösungen für eine Vielzahl von Anwendungen in allen Industriesegmenten.\n\nAufbauend auf mehr als 140 Jahren Domain-Expertise im Bereich elektrische Antriebssysteme lernen und verbessern unsere mehr als 22.000 Mitarbeiter in 100 Ländern jeden Tag. go.abb /motion\n\nVielfalt und Integration\n\nWir schätzen Menschen aus verschiedenen Hintergründen. Könnte dies Ihre Geschichte sein? Bewerben Sie sich heute oder besuchen Sie careers.abb, um mehr über uns zu erfahren und über die Auswirkungen unserer Lösungen auf der ganzen Welt zu erfahren.\n\nEine sauberere, intelligentere Zukunft zu schaffen, erfordert alle Arten von Gedanken: Neugierige, Mutige und Kreative. Deshalb heißen wir Menschen aus allen Hintergründen und Erfahrungen willkommen.\n\nAufruf zum Handeln\n\nBereit, einen Effekt zu machen? Bewerben Sie sich heute oder besuchen Sie https://www.abb.com, um mehr über die Auswirkungen unserer Lösungen auf der ganzen Welt zu erfahren.",
+        "en": "Description\n\nAt ABB, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.\n\nThis position reports to:\nGlobal Head of Mobile e-Power\n\nAt ABB, we help industries outrun - leaner and cleaner. Here, progress is an expectation - for you, your team, and the world. As a global market leader, we’ll give you what you need to make it happen. It won’t always be easy, growing takes grit. But at ABB, you’ll never run alone. Run what runs the world.\n\nAs part of our strategic growth agenda, we are hiring a Global Mobile e-Power Systems Manager for our Motion Traction business line.\n\nReporting to the Global Business Line Manager, Mobile e-Power, this role is a key leadership position responsible for defining and driving the global product strategy, system architecture, and portfolio execution for electrified powertrain solutions in mining applications.\n\nThis is a global leadership role at the intersection of technology, product management, and business growth. You will lead a team of Product Managers and Mining Engineering specialists, shaping the future of electrified heavy-duty mobile equipment and delivering high-performance, scalable solutions for demanding environments.\n\nThis role is open globally, and preferred locations are set close to our main Motion Traction locations in Switzerland, Germany or Poland.\n\nThe work model is hybrid #LIhybrid.\n\nResponsibilities\n\n- Own the global product portfolio and lifecycle for mobile e‑power systems, ensuring competitiveness and long-term value creation\n- Define and execute the product strategy and roadmap, aligned with business growth objectives and market opportunities\n- Translate market trends, customer needs, and technology evolution into differentiated system-level offerings\n- Lead and develop a global team of Product Managers, fostering strong product ownership and market focus\n- Manage and steer a Mining Engineering team, driving technical excellence and application expertise\n- Define and oversee system architecture and integration across power converters, electric motors, battery systems, and control infrastructure\n- Engage with key global customers, OEMs, and strategic partners to shape value propositions and strengthen market positioning\n- Collaborate cross-functionally with R&D, Sales, Operations, and Service to drive innovation, portfolio execution, and business growth\n\nQualifications\n\n- Bachelor's or master's degree in electrical engineering, Mechanical Engineering, or a related field\n- At least 8+ years of experience in electrified powertrain systems, e‑mobility, or relevant industrial applications\n- Proven experience leading teams, such as Product Managers or senior engineering teams and developing people\n- Strong expertise in power electronics, including converters and inverters\n- Solid knowledge of electric machines, traction systems, and battery integration\n- Experience in system engineering, architecture design, and complex system integration\n- Exposure to heavy-duty vehicles, mining equipment, or off-highway applications is strongly preferred\n- Strong stakeholder management skills with experience operating in global matrix organizations\n\nAdditional Information\n\nThis opportunity is open to candidates in multiple countries, with the final work location determined based on the selected candidate. As compensation may vary by location, we are committed to being transparent throughout the hiring process and will share details of the salary range, variable compensation and benefits package with candidates who progress to the first interview stage for a location in the European Union, covered by the EU Pay Transparency Directive.\n\nThe final offer will be tailored based on your role location, experience, skills and qualifications, internal market positioning and alignment with ABB internal standards.\n\nAbout ABB Motion\n\nABB Motion, a global leader in motors and drives, is at the core of accelerating a more productive and sustainable future. We innovate and push the boundaries of technology to contribute to energy efficient, decarbonizing and circular solutions for customers, industries and societies. With our digitally enabled drives, motors and services we support our customers and partners to achieve better performance, safety and reliability. To help the world’s industries outrun – leaner and cleaner, we deliver motor-driven solutions for a wide range of applications in all industrial segments. Building on over 140 years of domain expertise in electric powertrains, our more than 22,000 employees across 100 countries learn and improve every day. go.abb /motion\n\nDiversity and Inclusion\n\nWe value people from different backgrounds. Could this be your story? Apply today or visit careers.abb to read more about us and learn about the impact of our solutions across the globe.\n\nBuilding a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.\n\nCall to Action\n\nReady to make an impact?\nApply today or visit https://www.abb.com to learn more about the impact of our solutions across the globe.",
+        "de": "Warenbezeichnung\n\nBei ABB helfen wir Industrien, schlanker und sauberer zu werden – und das macht jeder hier. Sie werden dazu ermächtigt, zu führen, zu wachsen und stolz auf die Wirkung, die wir gemeinsam erzeugen.\n\nDiese Position berichtet an: Global Head of Mobile e-Power\n\n- Nein.\n\nBei ABB helfen wir den Branchen vor dem Start - schlanker und sauberer. Hier ist Fortschritt eine Erwartung - für Sie, Ihr Team und die Welt. Als globaler Marktführer geben wir Ihnen, was Sie brauchen, um es zu geschehen. Es wird, nicht immer einfach sein, Wachsen nimmt Grit. Aber bei ABB, Sie werden nie allein laufen. Laufen, was die Welt läuft.\n\nIm Rahmen unserer strategischen Wachstumsagenda stellen wir einen Global Mobile e-Power Systems Manager für unsere Motion Traction Geschäftslinie ein.\n\nDiese Rolle ist eine zentrale Führungsposition, die für die Definition und Weiterentwicklung der globalen Produktstrategie, Systemarchitektur und Portfolioausführung für elektrifizierte Antriebslösungen in Bergbauanwendungen verantwortlich ist.\n\nDies ist eine globale Führungsrolle an der Schnittstelle von Technologie, Produktmanagement und Unternehmenswachstum. Sie leiten ein Team von Produktmanagern und Spezialisten für Bergbautechnik, gestalten die Zukunft elektrifizierter, hochbelastbarer mobiler Geräte und liefern leistungsstarke, skalierbare Lösungen für anspruchsvolle Umgebungen.\n\nDiese Rolle ist global offen und bevorzugter Standorte sind in der Nähe unserer wichtigsten Motion Traction Standorte in der Schweiz, Deutschland oder Polen angesiedelt.\n\nDas Modell ist hybrid #LIhybrid.\n\nZuständigkeiten\n\n- Das globale Produktportfolio und den Lebenszyklus mobiler e‐power Systeme, die Wettbewerbsfähigkeit und langfristige Wertschöpfung gewährleisten - die Produktstrategie und -fahrpläne definieren und umsetzen, die mit den Wachstumszielen und Marktchancen der Unternehmen abgestimmt sind - Markttrends, Kundenbedürfnisse und Technologieentwicklung in differenzierte System-Level-Angebote übersetzen - ein globales Team von Product Managern leiten und entwickeln, starke Produktverantwortung und Marktfokussierung fördern - Mining Engineering-Team verwalten und steuern, technische Exzellenz und Anwendungskompetenz vorantreiben - System definieren und überwachen\n\nArchitektur und Integration über Stromwandler, Elektromotoren, Batteriesysteme und Steuerungsinfrastrukturen hinweg - Engagieren Sie sich mit wichtigen globalen Kunden, OEMs und strategischen Partnern, um Wertvorstellungen zu gestalten und die Marktpositionierung zu stärken - Zusammenarbeit funktionsübergreifend mit FuE, Vertrieb, Operations und Service, um Innovationen, Portfolioausführung und Unternehmenswachstum voranzutreiben\n\nQualifikationen\n\n- Bachelor- oder Master-Abschluss in Elektrotechnik, Maschinenbau oder einem verwandten Bereich - mindestens 8 Jahre Erfahrung in elektrifizierten Antriebssystemen, E‐Mobilität oder relevanten industriellen Anwendungen - Bewährte Erfahrung führende Teams, wie Produktmanager oder Senior Engineering Teams und Entwicklung von Menschen - Starke Expertise in der Leistungselektronik, einschließlich Konverter und Wechselrichter - Solides Wissen über elektrische Maschinen, Traktionssysteme und Batterieintegration - Erfahrung in der Systemtechnik, Architekturplanung und komplexen Systemintegration - Schwerlastexposition\n\nFahrzeuge, Bergbauausrüstung oder Off-Highway-Anwendungen wird stark bevorzugt - Starke Stakeholder Management-Fähigkeiten mit Erfahrung in globalen Matrix-Organisationen\n\nZusätzliche Informationen\n\nDiese Möglichkeit steht Kandidaten in mehreren Ländern offen, wobei der endgültige Arbeitsplatz auf der Grundlage des ausgewählten Kandidaten bestimmt wird. Da die Vergütung je nach Standort variieren kann, verpflichten wir uns, während des gesamten Einstellungsprozesses transparent zu sein und teilen Details über die Gehaltsspanne, variable Vergütung und Leistungspaket mit Kandidaten, die zur ersten Interviewphase für einen Standort in der Europäischen Union, die unter die EU-Pay-Transparency-Richtlinie.\n\nDas endgültige Angebot wird auf Ihre Rollenposition, Erfahrung, Kompetenzen und Qualifikationen, die Positionierung des Binnenmarktes und die Ausrichtung auf ABB-interne Standards zugeschnitten.\n\nÜber ABB Motion\n\nABB Motion, ein weltweit führender Motor- und Antriebshersteller, ist der Kern der Beschleunigung einer produktiveren und nachhaltigeren Zukunft. Wir Innovationen und schieben die Grenzen der Technologie, um zu energieeffizienten, dekarbonisierenden und kreisförmigen Lösungen für Kunden, Industrien und Gesellschaften beizutragen. Mit unseren digital ermöglichten Antrieben, Motoren und Dienstleistungen unterstützen wir unsere Kunden und Partner bei der Erreichung einer besseren Leistung, Sicherheit und Zuverlässigkeit. Um der Welt zu helfen, die Industrien auszulaufen – schlanker und sauberer, liefern wir motorgetriebene Lösungen für eine Vielzahl von Anwendungen in allen Industriesegmenten.\n\nAufbauend auf mehr als 140 Jahren Domain-Expertise im Bereich elektrische Antriebssysteme lernen und verbessern unsere mehr als 22.000 Mitarbeiter in 100 Ländern jeden Tag. go.abb /motion\n\nVielfalt und Integration\n\nWir schätzen Menschen aus verschiedenen Hintergründen. Könnte dies Ihre Geschichte sein? Bewerben Sie sich heute oder besuchen Sie careers.abb, um mehr über uns zu erfahren und über die Auswirkungen unserer Lösungen auf der ganzen Welt zu erfahren.\n\nEine sauberere, intelligentere Zukunft zu schaffen, erfordert alle Arten von Gedanken: Neugierige, Mutige und Kreative. Deshalb heißen wir Menschen aus allen Hintergründen und Erfahrungen willkommen.\n\nAufruf zum Handeln\n\nBereit, einen Effekt zu machen? Bewerben Sie sich heute oder besuchen Sie https://www.abb.com, um mehr über die Auswirkungen unserer Lösungen auf der ganzen Welt zu erfahren.",
         "fr": "Désignation des marchandises\n\nChez ABB, nous aidons les industries à fonctionner plus minces et plus propres, et chaque personne ici fait cela. Vous serez habilité à diriger, soutenu pour grandir et fier de l'impact que nous créons ensemble. Rejoignez-nous et aidez à diriger ce qui dirige le monde.\n\nCette position relève de : Responsable mondial de l'e-Power Mobile\n\nChez ABB, nous aidons les industries à dépasser - plus maigre et plus propre. Ici, le progrès est une attente - pour vous, votre équipe, et le monde. En tant que leader mondial du marché, nous vous donnerons ce que vous avez besoin pour que cela arrive. Cela ne sera pas toujours facile, la croissance prend du grain.\n\nDans le cadre de notre programme de croissance stratégique, nous embauchons un gestionnaire de systèmes e-Power Mobile pour notre secteur d'activité Motion Traction.\n\nRelevant du gestionnaire de secteur d'activité mondial, Mobile e-Power, ce rôle est un poste de leadership clé chargé de définir et de piloter la stratégie globale des produits, l'architecture système et l'exécution de portefeuilles pour les solutions de motorisation électrifiées dans les applications minières.\n\nVous dirigerez une équipe de chefs de produit et de spécialistes du génie minier, façonnerez l'avenir de l'équipement mobile de grande puissance électrifié et fournirez des solutions évolutives et performantes pour des environnements exigeants.\n\nCe rôle est ouvert au niveau mondial et les endroits préférés sont situés à proximité de nos principaux sites Motion Traction en Suisse, en Allemagne ou en Pologne.\n\nLe modèle de travail est hybride #LIhybrid.\n\nResponsabilités\n\n- Posséder le portefeuille et le cycle de vie des produits pour les systèmes mobiles de puissance électronique, en assurant la compétitivité et la création de valeur à long terme - Définir et exécuter la stratégie et la feuille de route des produits, en fonction des objectifs de croissance des entreprises et des débouchés commerciaux - Traduire les tendances du marché, les besoins des clients et l'évolution technologique en offres différenciées au niveau du système - Diriger et développer une équipe mondiale de gestionnaires de produits, en favorisant une forte propriété des produits et une orientation du marché - Gérer et diriger une équipe de génie minier, en stimulant l'excellence technique et l'expertise en matière d'application - Définir et superviser le système\n\narchitecture et intégration entre les convertisseurs d'énergie, les moteurs électriques, les systèmes de batterie et les infrastructures de contrôle - Installer en animation avec les principaux clients mondiaux, les OEM et les partenaires stratégiques pour façonner les propositions de valeur et renforcer le positionnement du marché - Collaborer de façon interfonctionnelle avec la R-D, les ventes, les opérations et le service pour stimuler l'innovation, l'exécution de portefeuilles et la croissance des entreprises\n\nQualifications\n\n- Baccalauréat ou maîtrise en génie électrique, en génie mécanique ou dans un domaine connexe - Au moins 8 ans d'expérience dans les systèmes de motorisation électrifiés, la mobilité électronique ou les applications industrielles pertinentes - Expérience éprouvée des équipes de direction, telles que les chefs de produit ou les équipes d'ingénierie supérieures et le développement des personnes - Expertise solide en électronique de puissance, y compris les convertisseurs et les onduleurs - Connaissance solide des machines électriques, des systèmes de traction et de l'intégration des batteries - Expérience en ingénierie des systèmes, en conception d'architecture et en intégration complexe des systèmes - Exposition aux poids lourds\n\nLes véhicules, les équipements miniers ou les applications hors route sont fortement préférés - Fortes compétences en gestion des intervenants avec l'expérience des organisations matricielles mondiales\n\nRenseignements supplémentaires\n\nCette possibilité est ouverte aux candidats dans plusieurs pays, le lieu de travail final étant déterminé en fonction du candidat sélectionné. Comme la rémunération peut varier selon le lieu de travail, nous nous engageons à être transparents tout au long du processus d'embauche et partagerons les détails de l'échelle salariale, de la rémunération variable et des avantages sociaux avec les candidats qui passent à la première étape d'entrevue pour un lieu dans l'Union européenne, couverte par la directive sur la transparence des rémunérations de l'UE.\n\nL'offre finale sera adaptée en fonction de votre emplacement, de votre expérience, de vos compétences et qualifications, du positionnement sur le marché intérieur et de l'alignement sur les normes internes ABB.\n\nA propos de la motion ABB\n\nABB Motion, leader mondial des moteurs et des entraînements, est au cœur de l'accélération d'un avenir plus productif et durable. Nous innovons et repoussons les frontières de la technologie pour contribuer à des solutions efficaces en énergie, décarbonées et circulaires pour les clients, les industries et les sociétés. Avec nos moteurs, nos services et nos moteurs numériques, nous soutenons nos clients et nos partenaires pour améliorer les performances, la sécurité et la fiabilité.\n\nForts de plus de 140 ans d'expertise dans les motorisations électriques, nos 22 000 employés dans 100 pays apprennent et améliorent chaque jour. go.abb /motion\n\nDiversité et inclusion\n\nNous apprécions les gens de différents horizons. Cela pourrait-il être votre histoire? Postulez aujourd'hui ou visitez carriers.abb pour en savoir plus sur nous et découvrez l'impact de nos solutions à travers le monde.\n\nConstruire un avenir plus propre et plus intelligent prend toutes sortes d'esprits : les curieux, les courageux et les créatifs. C'est pourquoi nous accueillons des gens de tous horizons et expériences.\n\nAppel à l'action\n\nPrêt à faire un impact? Faites une demande aujourd'hui ou visitez https://www.abb.com pour en savoir plus sur l'impact de nos solutions dans le monde entier."
       },
       "slugByLocale": {
@@ -1886,6 +1904,7 @@
       "retranslationAttempts": 8,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 9821,
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000
     },
@@ -1912,7 +1931,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-10T12:36:33.860Z",
       "slugByLocale": {
         "it": "process-quality-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino-u6aw32",
@@ -1978,6 +1997,7 @@
         "specialiste-qualite-des-processus-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "specialiste-qualite-processus-80-100-abb-svizzera-sede-ticino-quartino-ticino"
       ],
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000
     },
@@ -2004,7 +2024,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-10T10:26:11.298Z",
       "titleByLocale": {
         "it": "R&D (Senior)Testing & Lab Ingegnere",
@@ -2049,6 +2069,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000
     },
@@ -2075,7 +2096,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-10T10:26:11.298Z",
       "titleByLocale": {
         "it": "Maintenance Specialista",
@@ -2158,12 +2179,12 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "(80 - 100%) Allenatore tecnico - Elettronica di potenza",
         "en": "(80 - 100%) Technical Trainer - Power Electronics",
-        "de": "(80 - 100%) Technischer Trainer - Power Electronics",
+        "de": "(80 - 100%) Technical Trainer - Power Electronics",
         "fr": "(80 - 100%) Technical Trainer - Power Electronics"
       },
       "descriptionByLocale": {
@@ -2217,6 +2238,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000
     },
@@ -2243,7 +2265,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Production Shift Supervisore (80–100%)",
@@ -2289,6 +2311,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8200",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000
     },
@@ -2315,7 +2338,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Field Service Technician (Midlands / Regione di Berna) (80-100%)",
@@ -2363,6 +2386,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
+      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000
     },
@@ -2389,7 +2413,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-22T12:33:42.277Z",
       "slugByLocale": {
         "it": "sales-ingegnere-french-fluency-required-80-100-abb-svizzera-sede-ticino-morges-vaud-k6p09l",
@@ -2435,7 +2459,8 @@
         "sales-engineer-french-fluency-required-80-100-abb-svizzera-sede-ticino-morges-vaud"
       ],
       "salaryMin": 104500,
-      "salaryMax": 183500
+      "salaryMax": 183500,
+      "needsRetranslation": true
     },
     {
       "id": "company-twaosl",
@@ -2460,7 +2485,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Einrichter:in Spritzguss / Estrusione (80-100%)",
@@ -2508,6 +2533,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8610",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500
     },
@@ -2534,7 +2560,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Field Service Ingegnere",
@@ -2606,7 +2632,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "(Senior) Scienziato nei sistemi di distribuzione basati su convertitori (80 - 100%)",
@@ -2701,7 +2727,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-26T22:09:53.849Z",
+      "crawledAt": "2026-07-27T12:44:40.265Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Sales Specialista OEM (Talent Pool) | 80–100%",
@@ -2747,6 +2773,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     }
