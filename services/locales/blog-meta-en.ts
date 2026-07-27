@@ -9010,6 +9010,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.proposta-choc-ticino-frontalieri.title': 'Shock reform for border workers: they will pay more taxes',
     'blog.article.proposta-choc-ticino-frontalieri.excerpt': 'The Ticinese League proposes to transform the old frontier workers into new ones, in order to pay more taxes.',
     'blog.article.proposta-choc-ticino-frontalieri.imageAlt': 'A scenic view of Locarno, with a lake in the foreground and a busy street in the background.',
+    'blog.article.domanda-scomoda-razzisti-omofobi.title': 'Uncomfortable question: racist or homophobic Ticinese?',
+    'blog.article.domanda-scomoda-razzisti-omofobi.excerpt': 'Uncomfortable Question - Do you think the Swiss but especially the Ticinese are racist/homophobic?',
+    'blog.article.domanda-scomoda-razzisti-omofobi.imageAlt': 'frontalieri ticinesi in discussione pubblica sulle ristorsioni',
 };
 
 export default blogMetaEn;

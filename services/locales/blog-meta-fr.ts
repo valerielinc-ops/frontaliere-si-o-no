@@ -9012,6 +9012,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.proposta-choc-ticino-frontalieri.title': 'Réforme choc pour les frontaliers : ils paieront plus d\'impôts',
     'blog.article.proposta-choc-ticino-frontalieri.excerpt': 'La Ligue des Tessinois propose de transformer les anciens frontaliers en nouveaux, afin de payer plus d\'impôts.',
     'blog.article.proposta-choc-ticino-frontalieri.imageAlt': 'Une vue panoramique de Locarno, avec un lac en premier plan et une rue animée en arrière-plan.',
+    'blog.article.domanda-scomoda-razzisti-omofobi.title': 'Question inconfortable : Tessinois racistes ou homophobes ?',
+    'blog.article.domanda-scomoda-razzisti-omofobi.excerpt': 'Question inconfortable - Selon vous, les Suisses, mais en particulier les Tessinois, sont-ils racistes/homophobes ?',
+    'blog.article.domanda-scomoda-razzisti-omofobi.imageAlt': 'frontalieri ticinesi in discussione pubblica sulle ristorsioni',
 };
 
 export default blogMetaFr;

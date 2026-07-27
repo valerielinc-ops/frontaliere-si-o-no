@@ -9011,6 +9011,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.proposta-choc-ticino-frontalieri.title': 'Riforma choc per frontalieri: pagheranno più tasse',
     'blog.article.proposta-choc-ticino-frontalieri.excerpt': 'La Lega dei Ticinesi propone di trasformare i vecchi frontalieri in nuovi, in modo da pagare più tasse.',
     'blog.article.proposta-choc-ticino-frontalieri.imageAlt': 'Una scena di Locarno, con una vista del lago e una strada trafficata.',
+    'blog.article.domanda-scomoda-razzisti-omofobi.title': 'Scomoda domanda: ticinesi razzisti o omofobi?',
+    'blog.article.domanda-scomoda-razzisti-omofobi.excerpt': 'Domanda Scomoda - Secondo voi gli svizzeri ma in particolar modo i ticinesi sono razzisti/omofobi?',
+    'blog.article.domanda-scomoda-razzisti-omofobi.imageAlt': 'frontalieri ticinesi in discussione pubblica sulle ristorsioni',
 };
 
 export default blogMetaIt;
