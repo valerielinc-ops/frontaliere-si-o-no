@@ -383,9 +383,20 @@ async function resolveJobSeoBySlug(
  const canonicalUrl = `${BASE_URL}${canonicalLocalePath}`;
  const address = resolveJobAddress(job);
  const salary = resolveJobSalary(job);
+ // isRemote detection mirrors build-plugins/jobsSeoPagesPlugin.ts's regex so
+ // both paths agree on the same job. Computed BEFORE canonicalInput (rather
+ // than after canonicalSchema, as before) so it can be threaded into the
+ // canonical builder — otherwise buildJobPostingSchema never learns a job is
+ // remote and silently omits `jobLocationType`/`applicantLocationRequirements`
+ // on the SPA path, unlike the SSG path (parity fix).
+ const isRemote = /remote|telelavor|smart[-\s]?working|home office|hybrid/i.test(
+ `${localizedTitle} ${localizedDescription} ${job?.location || ''}`
+ );
  // Delegate to the canonical builder — see
  // build-plugins/shared/jobPostingSchema.ts. This guarantees all 9
- // mandatory JobPosting fields (CLAUDE.md rule #3) with realistic defaults.
+ // mandatory JobPosting fields (CLAUDE.md rule #3) with realistic defaults,
+ // plus industry/occupationalCategory/applicantLocationRequirements when the
+ // source data supports them.
  const canonicalInput: JobInput = {
  id: job?.id,
  slug: job?.slug || cleanSlug,
@@ -409,6 +420,7 @@ async function resolveJobSeoBySlug(
  sector: job?.category,
  category: job?.category,
  url: job?.url,
+ isRemote,
  };
  const canonicalSchema = buildJobPostingSchema(canonicalInput, {
  locale,
@@ -418,9 +430,7 @@ async function resolveJobSeoBySlug(
  // Job-specific FAQPage (build-plugins/shared/jobPostingFaq.ts) — same
  // deterministic template the static SSG plugin uses, so the client-hydrated
  // SPA content matches the prerendered HTML for a client-side navigation to
- // this job (content-parity rule, CLAUDE.md § Static SEO Pages). isRemote
- // detection mirrors build-plugins/jobsSeoPagesPlugin.ts's regex so both
- // paths agree on the same job.
+ // this job (content-parity rule, CLAUDE.md § Static SEO Pages).
  //
  // Canton for the FAQ's G-permit answer MUST use resolveJobCanton (the same
  // resolver JobBoard.tsx uses for its visible accordion, via `detailJobCanton
@@ -433,9 +443,6 @@ async function resolveJobSeoBySlug(
  // city-aware resolution and served the wrong canton's legal border-permit
  // guidance in the FAQ's structured data (review finding on PR #4595).
  const faqCanton = resolveJobCanton(job);
- const isRemote = /remote|telelavor|smart[-\s]?working|home office|hybrid/i.test(
- `${localizedTitle} ${localizedDescription} ${job?.location || ''}`
- );
  const isTicino = faqCanton === 'TI';
  const cantonDisplay = getCantonDisplayName(faqCanton, locale);
  const faqOpts: BuildJobPostingFaqOptions = {

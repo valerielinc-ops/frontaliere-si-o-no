@@ -8,7 +8,6 @@
 import type { SEOMetadata } from '../seoService';
 
 const BASE_URL = 'https://frontaliereticino.ch';
-const BUILD_DATE_ISO = new Date().toISOString();
 
 const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  'blog-stipendio-netto-2026': {
@@ -25,7 +24,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "description": "Guida completa al calcolo dello stipendio netto per chi lavora in Svizzera e risiede in Italia",
  "image": { "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/lugano-view.webp`, "width": 1344, "height": 756, "caption": "Panorama di Lugano con il lago e le montagne sullo sfondo, simbolo del lavoro frontaliero in Ticino." },
  "datePublished": "2026-01-15T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-01-15T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Fiscale",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
@@ -49,7 +48,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "description": "Confronto tra cassa malati svizzera e mutua italiana per frontalieri",
  "image": { "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/mendrisio.webp`, "width": 1344, "height": 756, "caption": "Centro storico di Mendrisio al tramonto, porta d'ingresso del Ticino per i frontalieri." },
  "datePublished": "2026-01-05T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-01-05T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Pratico",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
@@ -74,7 +73,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "description": "Tutto quello che devi preparare prima del primo giorno di lavoro in Svizzera",
  "image": { "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/castelgrande.webp`, "width": 1344, "height": 756, "caption": "Castelgrande di Bellinzona visto dal basso, prima tappa del viaggio da frontaliere." },
  "datePublished": "2025-12-20T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2025-12-20T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Pratico",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
@@ -99,7 +98,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "description": "Come calcolare la tredicesima netta di un frontaliere con tutte le deduzioni",
  "image": { "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/locarno.webp`, "width": 1344, "height": 756, "caption": "Piazza Grande di Locarno con i portici, simbolo del reddito e della qualità di vita in Ticino." },
  "datePublished": "2025-12-15T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2025-12-15T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Fiscale",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
@@ -124,7 +123,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "description": "Analisi vantaggi e svantaggi del pilastro 3a per chi lavora in Svizzera da frontaliere",
  "image": { "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/monte-bre.webp`, "width": 1344, "height": 756, "caption": "Veduta dal Monte Brè su Lugano e il lago, metafora della pianificazione previdenziale a lungo termine." },
  "datePublished": "2025-12-10T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2025-12-10T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Pensione",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
@@ -149,7 +148,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "description": "Classifica dei comuni italiani di frontiera più convenienti per lavoratori frontalieri",
  "image": { "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/gandria.webp`, "width": 1344, "height": 756, "caption": "Il borgo di Gandria affacciato sul lago di Lugano, esempio dei comuni di frontiera più ricercati." },
  "datePublished": "2025-12-05T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2025-12-05T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Pratico",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
@@ -174,7 +173,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "description": "Confronto dettagliato dei costi tra vivere in Svizzera e in Italia per un frontaliere",
  "image": { "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/foxtown.webp`, "width": 1344, "height": 756, "caption": "FoxTown Factory Stores a Mendrisio, simbolo dello shopping transfrontaliero tra Svizzera e Italia." },
  "datePublished": "2025-11-28T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2025-11-28T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Pratico",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
@@ -199,7 +198,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "description": "La tassa sulla salute tra Italia e Ticino genera tensioni. Scopri le implicazioni per i frontalieri e le possibili soluzioni.",
  "image": { "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/bellinzona.webp`, "width": 1344, "height": 756, "caption": "Panorama di Bellinzona con i castelli medievali sullo sfondo delle Alpi ticinesi." },
  "datePublished": "2026-02-17T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-17T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Fiscale",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
@@ -224,7 +223,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "description": "Sempre più ticinesi comprano casa in Italia per i prezzi proibitivi. Vantaggi, sfide e costo della vita a confronto.",
  "image": { "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/gandria.webp`, "width": 1344, "height": 756, "caption": "Veduta del borgo di Gandria sul lago di Lugano, meta ideale per chi cerca casa oltre confine." },
  "datePublished": "2026-02-17T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-17T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Pratico",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
@@ -249,7 +248,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "description": "Il franco svizzero continua a rafforzarsi sull'euro. Per i frontalieri che spendono in Italia, il tasso di cambio può valere centinaia di euro in più o in meno al mese.",
  "image": { "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/lac-lugano.webp`, "width": 1344, "height": 756, "caption": "Veduta del lago di Lugano con le montagne, simbolo del franco forte e del lavoro frontaliero." },
  "datePublished": "2026-02-18T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-18T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Fiscale",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
@@ -279,7 +278,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista di Lugano con lago e montagne; in primo piano, un laptop mostra un foglio di calcolo fiscale."
  },
  "datePublished": "2026-02-18T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-18T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Fiscale",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
@@ -309,7 +308,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Laptop con vista sul Lago di Lugano, che mostra un grafico finanziario. Simboleggia il telelavoro transfrontaliero tra Italia e Svizzera."
  },
  "datePublished": "2026-02-18T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-18T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Fiscale",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
@@ -339,7 +338,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista del Lago di Lugano da una postazione di telelavoro, simbolo del nuovo accordo per i frontalieri"
  },
  "datePublished": "2026-02-18T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-18T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Novità",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
@@ -369,7 +368,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Palazzo del Governo ticinese a Bellinzona, simbolo della tensione politica con l'Italia sulla tassa frontalieri.", 
  },
  "datePublished": "2026-02-19T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-19T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Fiscale",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
@@ -399,7 +398,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Scrivania di un frontaliere in telelavoro con vista sul Lago di Lugano, simbolo del nuovo accordo fiscale."
  },
  "datePublished": "2026-02-19T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-19T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Fiscale",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
@@ -429,7 +428,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Corriere Smood in pausa sul lungolago di Lugano al tramonto, simbolo della fine delle attività dell'azienda in Ticino."
  },
  "datePublished": "2026-02-19T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-19T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Novità",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
@@ -459,7 +458,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Veduta del centro finanziario di Lugano con persone che camminano, simbolo del mercato del lavoro in Ticino."
  },
  "datePublished": "2026-02-19T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-19T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Novità",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
@@ -489,7 +488,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Interno di una casa moderna in Ticino con termostato intelligente e vista sul Lago di Lugano, simbolo di efficienza energetica."
  },
  "datePublished": "2026-02-19T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-19T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Pratico",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
@@ -519,7 +518,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Moderna pompa di calore installata fuori da una casa ticinese, simbolo di efficienza energetica e risparmio per i proprietari."
  },
  "datePublished": "2026-02-19T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-19T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Pratico",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
@@ -1404,7 +1403,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Permesso B svizzero su una scrivania con contratto di lavoro, simbolo dell'integrazione in Ticino."
  },
  "datePublished": "2026-02-19T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-19T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permesso-b-integrazione-tribunale-federale-ticino/`,
@@ -1432,7 +1431,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Ufficio moderno a Lugano con vista sul lago, simbolo del mercato del lavoro ticinese in evoluzione."
  },
  "datePublished": "2026-02-19T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-19T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassazione-individuale-svizzera-impatto-lavoro-ticino-frontalieri/`,
@@ -1460,7 +1459,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Palazzo del Governo a Bellinzona con bandiere svizzera e italiana, simbolo delle tensioni fiscali sui ristorni."
  },
  "datePublished": "2026-02-19T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-19T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-scontro-ticino-berna-tassa-salute/`,
@@ -1488,7 +1487,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Traffico di frontalieri al mattino sull'autostrada A2 vicino al confine di Chiasso, con vista sul Ticino."
  },
  "datePublished": "2026-02-19T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-19T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pendolarismo-affitto-tempo-dilemma-frontalieri-ticino/`,
@@ -1516,7 +1515,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Il Palazzo delle Orsoline a Bellinzona, sede del governo ticinese, simbolo delle decisioni politiche sui ristorni dei frontalieri."
  },
  "datePublished": "2026-02-19T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-19T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/centrodestra-ticino-stop-ristorni-frontalieri-tassa-salute/`,
@@ -1544,7 +1543,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Colonna di auto di frontalieri al valico di Chiasso-Brogeda, simbolo del mercato del lavoro transfrontaliero in Ticino."
  },
  "datePublished": "2026-02-19T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-19T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-dati-calo-fine-2025/`,
@@ -1572,7 +1571,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Veduta del valico di frontiera di Chiasso-Brogeda in Ticino, che mostra le infrastrutture doganali svizzere."
  },
  "datePublished": "2026-02-19T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-19T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/calo-entrate-irregolari-migranti-chiasso-ticino/`,
@@ -1600,7 +1599,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Coda di auto di frontalieri al valico di Brogeda (Chiasso) durante l'ora di punta mattutina verso il Ticino"
  },
  "datePublished": "2026-02-21T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-21T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -1629,7 +1628,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Veduta del valico di confine di Chiasso-Brogeda al tramonto, simbolo delle tensioni fiscali tra Ticino e Italia."
  },
  "datePublished": "2026-02-21T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-21T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -1658,7 +1657,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Busta paga svizzera con monete in franchi, simbolo del dibattito sul finanziamento della 13esima AVS in Ticino."
  },
  "datePublished": "2026-02-21T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-21T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -1687,7 +1686,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Busta paga svizzera e calcolatrice su una scrivania con vista sui castelli di Bellinzona, a simboleggiare il finanziamento della 13esima AVS."
  },
  "datePublished": "2026-02-21T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-21T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -1716,7 +1715,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Palazzo delle Orsoline a Bellinzona, sede del governo ticinese, con bandiere svizzere e cantonali."
  },
  "datePublished": "2026-02-21T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-21T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -1745,7 +1744,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Panorama del centro finanziario di Lugano al crepuscolo, simbolo dell'economia ticinese sotto pressione."
  },
  "datePublished": "2026-02-21T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-21T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -1774,7 +1773,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista dal cruscotto di un'auto al valico di frontiera di Chiasso-Brogeda, con un agente della dogana sullo sfondo."
  },
  "datePublished": "2026-02-21T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-21T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -1803,7 +1802,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Auto in coda al valico di Chiasso-Brogeda, simbolo del pendolarismo e del dibattito sui frontalieri in Ticino."
  },
  "datePublished": "2026-02-21T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-21T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -1832,7 +1831,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Mani di un frontaliere che calcolano lo stipendio netto in un ufficio a Lugano, con vista sul lago."
  },
  "datePublished": "2026-02-22T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-22T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -1861,7 +1860,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Palazzo del Governo cantonale a Bellinzona, simbolo della politica ticinese al centro del dibattito sui ristorni"
  },
  "datePublished": "2026-02-20T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-20T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -1890,7 +1889,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Palazzo del Governo ticinese a Bellinzona, simbolo della politica cantonale e delle decisioni sui frontalieri."
  },
  "datePublished": "2026-02-20T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-20T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -1919,7 +1918,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Il Palazzo Federale a Berna, simbolo delle decisioni fiscali che impattano i conti della Svizzera e del Ticino."
  },
  "datePublished": "2026-02-20T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-20T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -1948,7 +1947,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Busta paga svizzera su una scrivania con vista su Lugano, a simboleggiare l'impatto della 13esima AVS sullo stipendio dei frontalieri."
  },
  "datePublished": "2026-02-20T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-20T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -1977,7 +1976,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Palazzo del governo cantonale a Bellinzona, simbolo delle tensioni fiscali tra Ticino e Italia sui ristorni."
  },
  "datePublished": "2026-02-20T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-20T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -2006,7 +2005,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Smartphone con app bancaria e vista sul lago di Lugano, simbolo di finanza sicura in Ticino."
  },
  "datePublished": "2026-02-20T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-20T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -2035,7 +2034,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Moderno stabilimento industriale nel Mendrisiotto, Ticino, che simboleggia l'export verso gli USA"
  },
  "datePublished": "2026-02-20T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-20T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -2064,7 +2063,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Veduta del lungolago di Locarno, che ospita un importante settore sanitario privato, contesto dell'articolo."
  },
  "datePublished": "2026-02-20T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-20T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -2093,7 +2092,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Scrivania di uno studio di architettura a Mendrisio con un contratto di lavoro svizzero, simbolo delle dispute salariali."
  },
  "datePublished": "2026-02-20T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-20T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -2122,7 +2121,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Busta paga svizzera su una scrivania con vista sul Lago di Lugano, a simboleggiare l'impatto dei contributi AVS."
  },
  "datePublished": "2026-02-22T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-22T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -2151,7 +2150,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Busta paga svizzera su una scrivania con vista su Lugano, a simboleggiare l'impatto della 13a AVS sullo stipendio dei frontalieri."
  },
  "datePublished": "2026-02-21T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-21T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-finanziamento-impatto-stipendio-frontalieri/`,
@@ -2179,7 +2178,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Polizia cantonale ticinese al lavoro con un tablet al valico di Chiasso-Brogeda, simbolo dello scambio dati."
  },
  "datePublished": "2026-02-21T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-21T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scambio-dati-polizia-svizzera-impatto-ticino/`,
@@ -2207,7 +2206,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Busta paga svizzera su una scrivania con vista sul lago di Lugano, a simboleggiare l'impatto delle trattenute AVS."
  },
  "datePublished": "2026-02-21T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-21T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-finanziamento-misto-stipendi-iva/`,
@@ -2235,7 +2234,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Ufficio moderno a Lugano con vista sul lago, simbolo del settore terziario qualificato in Ticino."
  },
  "datePublished": "2026-02-21T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-21T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -2264,7 +2263,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Busta paga svizzera su una scrivania con vista sul Lago di Lugano, focus sulle trattenute AVS."
  },
  "datePublished": "2026-02-21T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-21T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -2293,7 +2292,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Ufficio a Bellinzona con vista su Castelgrande, simbolo del mercato del lavoro e delle politiche cantonali in Ticino."
  },
  "datePublished": "2026-02-21T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-21T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -2322,7 +2321,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista del Castelgrande a Bellinzona, sede del governo ticinese, in un contesto di tensioni fiscali con la Lombardia."
  },
  "datePublished": "2026-02-21T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-21T00:00:00+01:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -2351,7 +2350,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Busta paga svizzera su una scrivania con vista sul Lago di Lugano, a simboleggiare il lavoro dei frontalieri in Ticino"
  },
  "datePublished": "2026-02-22T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-22T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-finanziamento-contributi-iva-impatto-frontalieri/`,
@@ -2379,7 +2378,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Contatore dell'acqua in una cantina del Mendrisiotto, simbolo dell'aumento dei costi delle utenze in Ticino."
  },
  "datePublished": "2026-02-22T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-22T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costo-acqua-mendrisiotto-aumento-tariffe-2026/`,
@@ -2407,7 +2406,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Collaborazione tra autorità svizzere e italiane al valico di frontiera di Chiasso, simbolo di cooperazione giudiziaria."
  },
  "datePublished": "2026-02-22T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-22T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cooperazione-giudiziaria-svizzera-italia-impatto-frontalieri-ticino/`,
@@ -2435,7 +2434,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista di una moderna clinica nel Locarnese, simbolo del settore sanitario ticinese e delle recenti ristrutturazioni."
  },
  "datePublished": "2026-02-22T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-22T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sanita-locarnese-collaborazione-varini-hildebrand-licenziamenti/`,
@@ -2463,7 +2462,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Primo piano di un soffione della doccia con gocce d'acqua, a simboleggiare il rischio legionellosi in Ticino."
  },
  "datePublished": "2026-02-22T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-22T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/legionellosi-ticino-tasso-piu-alto-svizzera/`,
@@ -2491,7 +2490,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Etichetta di prezzo elettronica in un supermercato del Ticino, simbolo dei prezzi dinamici e del loro impatto sui consumatori."
  },
  "datePublished": "2026-02-22T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-22T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/prezzi-dinamici-ticino-rivoluzione-o-trappola-per-frontalieri/`,
@@ -2519,7 +2518,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Piazza della Riforma a Lugano in un giorno di sole, con tavolini all'aperto e una discreta presenza di polizia in sottofondo."
  },
  "datePublished": "2026-02-22T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-22T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lugano-manifestazioni-polemica-regole-uguali-per-tutti/`,
@@ -2547,7 +2546,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Mappa dei comuni di frontiera tra Italia e Svizzera per la scelta della residenza fiscale dei frontalieri"
  },
  "datePublished": "2026-02-23T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-23T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mappa-addizionale-irpef-comuni-confine-frontalieri-tasse/`,
@@ -2575,7 +2574,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista panoramica dal Mendrisiotto verso i comuni italiani di confine al tramonto, simbolo delle scelte fiscali dei frontalieri."
  },
  "datePublished": "2026-02-23T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-23T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/addizionale-irpef-comuni-confine-mappa-tasse-frontalieri-2026/`,
@@ -2603,7 +2602,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Coppia di neogenitori frontalieri consulta i documenti per il congedo parentale in un appartamento in Ticino."
  },
  "datePublished": "2026-02-23T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-23T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/maternita-paternita-frontaliere-svizzera-italia-guida-2026/`,
@@ -2631,7 +2630,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Dettaglio di una busta paga svizzera su una scrivania con vista sul Lago di Lugano, simbolo del lavoro frontaliere"
  },
  "datePublished": "2026-02-23T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-23T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-contributi-sociali-svizzeri-busta-paga-frontaliere/`,
@@ -2659,7 +2658,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Balcone di un appartamento a Lugano con vista lago, simbolo del costo della vita per chi valuta il trasferimento in Ticino."
  },
  "datePublished": "2026-02-23T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-23T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/quanto-costa-vivere-a-lugano-da-frontaliere-analisi-costi-2026/`,
@@ -2687,7 +2686,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Permesso G svizzero per frontalieri su una scrivania con vista su Lugano, simbolo del lavoro in Ticino."
  },
  "datePublished": "2026-02-23T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-23T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontalieri-ticino-2026/`,
@@ -2715,7 +2714,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Coppia di frontalieri maturi pianifica la pensione con un tablet sul lungolago di Lugano, vista su Monte San Salvatore."
  },
  "datePublished": "2026-02-23T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-23T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/calcolo-pensione-frontaliere-avs-inps-guida-completa/`,
@@ -2743,7 +2742,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Simulazione dell'impatto del nuovo accordo fiscale per frontalieri, vista dal cruscotto di un'auto al valico di Chiasso."
  },
  "datePublished": "2026-02-23T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-23T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-nuovo-accordo-fiscale-2026-simulazione/`,
@@ -2771,7 +2770,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Scrivania con contratto di lavoro svizzero e passaporto italiano, con vista sul Lago di Lugano, simbolo della scelta assicurativa del frontaliere."
  },
  "datePublished": "2026-02-23T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-23T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lamal-o-cmi-frontaliere-quale-conviene-2026/`,
@@ -2799,7 +2798,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Documenti fiscali italiani e svizzeri su una scrivania di un frontaliere con vista su Mendrisio, Ticino."
  },
  "datePublished": "2026-02-23T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-23T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-doppia-imposizione-credito-imposta-come-funziona/`,
@@ -2827,7 +2826,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista dal cruscotto di un'auto nel traffico mattutino verso il Ticino, simbolo dei costi del pendolarismo per i frontalieri."
  },
  "datePublished": "2026-02-23T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-23T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costo-auto-pendolare-frontaliere-ticino-2026/`,
@@ -2855,7 +2854,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Coppia di neogenitori frontalieri pianifica il congedo parentale su un tablet, con vista sul Lago di Lugano, Ticino."
  },
  "datePublished": "2026-02-23T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-23T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/congedo-parentale-frontaliere-svizzera-italia-guida-2026/`,
@@ -2883,7 +2882,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Coda di auto di frontalieri al valico di Chiasso-Brogeda in Ticino al mattino presto."
  },
  "datePublished": "2026-02-23T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-23T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costo-auto-frontaliere-ticino-guida-completa-2026/`,
@@ -2911,7 +2910,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Frontaliere compila il Modello 730 con documenti svizzeri e italiani sulla scrivania con vista su Bellinzona."
  },
  "datePublished": "2026-02-23T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-23T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-dichiarazione-redditi-730-frontalieri-ticino/`,
@@ -2939,7 +2938,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Documenti necessari per lavorare in Svizzera, con un contratto e un Permesso G su una scrivania in Ticino."
  },
  "datePublished": "2026-02-23T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-23T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/documenti-necessari-lavoro-svizzera-frontaliere-ticino/`,
@@ -2967,7 +2966,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Genitore frontaliere saluta il figlio all'ingresso di un moderno asilo nido in Ticino, simbolo delle scelte familiari."
  },
  "datePublished": "2026-02-23T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-23T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/asilo-nido-svizzera-frontaliere-ticino-costi-guida/`,
@@ -2995,7 +2994,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Veduta del lungolago di Locarno con edifici residenziali, simbolo del mercato immobiliare locale."
  },
  "datePublished": "2026-02-23T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-23T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/locarno-stop-nuove-residenze-secondarie-quota-20/`,
@@ -3023,7 +3022,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Mappa del costo della vita in Svizzera su un tablet, con vista sul Lago di Lugano sullo sfondo."
  },
  "datePublished": "2026-02-23T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-23T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costo-vita-svizzera-classifica-comuni-ticino/`,
@@ -3051,7 +3050,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Un cantiere edile in Ticino con un ispettore della sicurezza al lavoro, simbolo dei controlli nelle aziende"
  },
  "datePublished": "2026-02-23T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-23T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-lavoro-svizzera-audit-federale-falle-conflitti-suva/`,
@@ -3079,7 +3078,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Mappa del Canton Ticino con indicatori di costo della vita, vista da un appartamento con panorama su Lugano."
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costo-vita-svizzera-classifica-comuni-cari-economici/`,
@@ -3107,7 +3106,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Interno di uno studio di architettura a Mendrisio, con un giovane professionista che guarda fuori dalla finestra"
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/architetti-sottopagati-ticino-mendrisio-testimonianza/`,
@@ -3135,7 +3134,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Coda di automobili di lavoratori frontalieri al valico di Chiasso in una mattina lavorativa diretta verso il Ticino"
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/calo-frontalieri-ticino-economia-non-tassa-salute/`,
@@ -3163,7 +3162,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Lavoratrice frontaliere con il suo bambino guarda il Lago di Lugano, simbolo dei diritti di maternità transfrontalieri."
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/maternita-frontaliere-cassazione-riconosce-indennita-inps/`,
@@ -3191,7 +3190,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Facciata di una farmacia moderna in una città del Ticino, simbolo del settore farmaceutico svizzero."
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/galenica-chiude-bichsel-170-posti-a-rischio-impatto-ticino/`,
@@ -3219,7 +3218,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Polo industriale e logistico nel Mendrisiotto, simbolo dell'export ticinese verso gli Stati Uniti"
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dazi-trump-usa-impatto-export-ticino-lavoro/`,
@@ -3247,7 +3246,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Veduta dell'exclave di Campione d'Italia affacciata sul Lago di Lugano, simbolo della ripresa economica."
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/campione-italia-fuori-dissesto-finanziario-nuove-assunzioni/`,
@@ -3275,7 +3274,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Un giovane architetto lavora fino a tardi in un ufficio a Mendrisio, simbolo delle pressioni nel settore."
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gavetta-tossica-architetti-ticino-denuncia/`,
@@ -3303,7 +3302,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Treno Eurocity delle FFS fermo in una stazione ticinese durante una mattinata di pendolarismo intenso."
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/odissea-eurocity-milano-treno-bloccato-galleria-pendolari/`,
@@ -3331,7 +3330,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Ispettore della sicurezza sul lavoro in un cantiere edile in Ticino che controlla dei documenti"
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-lavoro-svizzera-controlli-insufficienti-suva/`,
@@ -3359,7 +3358,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista di un moderno ufficio startup a Lugano con il team al lavoro e il lago e il Monte San Salvatore sullo sfondo."
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/startup-svizzera-boom-investimenti-ia-opportunita-ticino/`,
@@ -3387,7 +3386,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Il Tribunale federale svizzero a Losanna, dove è stata presa la decisione sul Long Covid come malattia professionale."
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/long-covid-malattia-professionale-sentenza-tribunale-federale/`,
@@ -3415,7 +3414,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Bandiere svizzera e dell'Unione Europea che sventolano con il lago di Lugano e il Monte San Salvatore sullo sfondo."
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accordo-ue-svizzera-mercato-interno-impatto-frontalieri/`,
@@ -3443,7 +3442,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Interno di una moderna fonderia nel Canton Ticino, con un operaio specializzato che ispeziona un pezzo metallico."
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fonderie-svizzere-crisi-produzione-2025-impatto-ticino/`,
@@ -3471,7 +3470,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Palazzo del Governo a Bellinzona, dove si discutono le politiche salariali del Canton Ticino"
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-ticino-accordo-aumento-22-franchi/`,
@@ -3499,7 +3498,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Un treno TILO fermo alla stazione di Bellinzona, simbolo del pendolarismo dei frontalieri in Ticino."
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasporti-pubblici-svizzera-crescita-fatturato-impatto-frontalieri/`,
@@ -3527,7 +3526,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Lavori stradali notturni in una via di Lugano, con macchinari per la posa dell'asfalto illuminati da fari."
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-notturni-lugano-marzo-2026-strade-chiuse/`,
@@ -3555,7 +3554,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "La moderna sede della SUPSI a Manno, Canton Ticino, che ospita il Dipartimento formazione e apprendimento."
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/supsi-daniela-willi-piezzi-direttrice-dipartimento-formazione/`,
@@ -3583,7 +3582,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Sede di una banca moderna a Lugano, simbolo della stabilità finanziaria del Canton Ticino."
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bps-suisse-risultati-solidi-2025-impatto-bper-frontalieri/`,
@@ -3611,7 +3610,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Linee elettriche ad alta tensione che attraversano una valle del Ticino, simbolo del settore energetico svizzero."
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aiuti-imprese-energetiche-proroga-taglio-fondi/`,
@@ -3639,7 +3638,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Sala riunioni del Gran Consiglio a Bellinzona, simbolo del dibattito politico sul salario minimo in Ticino."
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-sociale-ticino-dibattito-frontalieri/`,
@@ -3667,7 +3666,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Sede di una banca a Lugano con vista sul lago, a simboleggiare i risultati finanziari di BPS Suisse in Ticino"
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bps-suisse-utili-record-consigli-frontalieri/`,
@@ -3695,7 +3694,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Palazzo del governo cantonale a Bellinzona con bandiere svizzera e ticinese, simbolo della politica ticinese sull'accordo UE."
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accordo-ue-svizzera-ticino-chiede-referendum-obbligatorio/`,
@@ -3723,7 +3722,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Le bandiere della Svizzera e dell'Unione Europea sventolano insieme, simbolo del nuovo pacchetto di accordi bilaterali."
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accordo-svizzera-ue-cosa-cambia-frontalieri-ticino/`,
@@ -3751,7 +3750,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista del lungolago di Locarno con gli edifici della città e le montagne circostanti, che simboleggiano il mercato immobiliare locale."
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/locarno-stop-licenze-case-secondarie/`,
@@ -3779,7 +3778,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Veduta del confine italo-svizzero di Chiasso, simbolo degli accordi bilaterali tra Svizzera e Unione Europea."
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accordi-ue-svizzera-firma-vicina-cosa-cambia-frontalieri/`,
@@ -3807,7 +3806,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Scontrino della spesa in un supermercato ticinese, a simboleggiare l'impatto dell'aumento IVA sul costo della vita"
  },
  "datePublished": "2026-02-24T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-24T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumento-iva-svizzera-esercito-impatto-stipendio-frontalieri/`,
@@ -3835,7 +3834,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Famiglia passeggia vicino al Lago di Lugano in primavera."
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/maternita-paternita-ticino/`,
@@ -3862,7 +3861,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista autunnale della valle di Poschiavo con edifici storici e un treno della Ferrovia retica."
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/turismo-valposchiavo-2025/`,
@@ -3890,7 +3889,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Traffico di frontalieri al valico di Ponte Tresa con montagne sullo sfondo"
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-economia-ticino/`,
@@ -3918,7 +3917,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista del lago di Lugano con bandiere svizzere all'alba e skyline in lontananza"
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/inflazione-frontalieri-ticino/`,
@@ -3946,7 +3945,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Veduta di Lugano con un edificio bancario e pedoni che attraversano la strada"
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aprire-conto-bancario-frontalieri/`,
@@ -3974,7 +3973,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Valico di Mendrisio con auto in transito e bandiera svizzera visibile"
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-fiscali-frontaliere/`,
@@ -4002,7 +4001,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Veduta di Mendrisio con frontalieri in transito vicino a un ufficio locale"
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/contributi-sociali-busta-paga/`,
@@ -4030,7 +4029,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Strada cantonale tra Vezia e Cureglia, con guardrail e curve pericolose in una giornata di sole"
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/strada-incidenti-vezia-cureglia/`,
@@ -4058,7 +4057,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Famiglia in un ufficio sanitario a Lugano che discute di assicurazione malattia."
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/assicurazione-malattia-famiglia/`,
@@ -4085,7 +4084,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Valico di Mendrisio con auto in coda e Alpi sullo sfondo"
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-calo-economia-ticinese/`,
@@ -4113,7 +4112,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista del campus USI a Lugano con studenti e imprenditori in primo piano"
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/usi-centro-startup-classifica/`,
@@ -4141,7 +4140,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Treno Tilo alla stazione di Lugano con vista sul lago."
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sciopero-treni-tilo-febbraio-2026/`,
@@ -4169,7 +4168,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "La piscina comunale di Chiasso con la nuova copertura pressostatica in autunno."
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/piscina-chiasso-copertura/`,
@@ -4197,7 +4196,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Centrale elettrica di Grono riattivata, contornata da montagne e vegetazione"
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/centrale-elettrica-grono-attiva/`,
@@ -4225,7 +4224,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Valico di confine tra Italia e Svizzera a Chiasso, con auto e pedoni"
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/naspi-frontaliere-italia-requisiti/`,
@@ -4253,7 +4252,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista di Lugano con lago e montagne sullo sfondo."
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/prelievo-secondo-pilastro-frontaliere/`,
@@ -4281,7 +4280,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista di Lugano con il lago e le montagne sullo sfondo, in una giornata soleggiata."
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accordo-ue-frontalieri-ticino/`,
@@ -4309,7 +4308,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Veduta di Castelgrande a Bellinzona con cielo nuvoloso e la città sullo sfondo"
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-congelati-ticino-italia/`,
@@ -4338,7 +4337,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista serena del Lago di Lugano al tramonto con colline e paesaggio urbano."
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/naspi-ex-frontalieri-2026/`,
@@ -4398,7 +4397,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista di un tipico borgo italiano vicino al confine svizzero, con tetti in terracotta e colline sullo sfondo al tramonto"
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mutuo-casa-frontalieri-italia/`,
@@ -4448,7 +4447,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Lavori per la sostituzione della copertura della piscina di Chiasso in una giornata di sole."
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/piscina-chiasso-investimento/`,
@@ -4476,7 +4475,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Piazza principale di Bellinzona con il palazzo del governo sullo sfondo e persone che passeggiano."
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-congelati-gobbi-2026/`,
@@ -4504,7 +4503,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Un asilo moderno a Lugano con bambini che giocano all'esterno."
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/asilo-nido-ticino-guida-2026/`,
@@ -4532,7 +4531,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Mercato di Bellinzona con venditori e acquirenti, colori vivaci e prodotti freschi."
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-salute-2026-ticino/`,
@@ -4560,7 +4559,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Palazzo del Governo a Bellinzona, simbolo delle istituzioni ticinesi, in un contesto di tensioni sui ristorni fiscali e la tassa sulla salute."
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-scontro-ticino-berna/`,
@@ -4588,7 +4587,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "La piscina comunale di Chiasso con la copertura pressostatica usurata e le montagne sullo sfondo, simbolo di un imminente rinnovamento."
  },
  "datePublished": "2026-02-25T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-25T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/piscina-chiasso-rinnovo-copertura-sicurezza/`,
@@ -4616,7 +4615,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Pendolari in attesa alla stazione di Chiasso o Mendrisio, con un treno Tilo in arrivo sullo sfondo, al mattino presto."
  },
  "datePublished": "2026-02-26T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-26T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sciopero-tilo-italia-disagi-frontalieri/`,
@@ -4644,7 +4643,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Treno TILO in arrivo alla stazione di Mendrisio con pendolari frontalieri."
  },
  "datePublished": "2026-02-26T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-26T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/abbonamenti-sconti-treni-ticino/`,
@@ -4672,7 +4671,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Famiglie che passeggiano nella piazza di Mendrisio con le Alpi sullo sfondo in una giornata di sole."
  },
  "datePublished": "2026-02-26T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-26T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bonus-famiglia-frontalieri-2026/`,
@@ -4700,7 +4699,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Un frontaliere lavora da casa con vista sul Lago di Lugano."
  },
  "datePublished": "2026-02-26T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-26T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/smart-working-frontalieri-regole/`,
@@ -4728,7 +4727,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Auto parcheggiata vicino al valico di Ponte Tresa con il paesaggio ticinese sullo sfondo"
  },
  "datePublished": "2026-02-26T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-26T00:00:00+01:00",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
  "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/confronto-assicurazioni-auto/`,
@@ -4756,7 +4755,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Valico di confine Brogeda tra Italia e Svizzera con auto in transito"
  },
  "datePublished": "2026-02-26T10:55:41+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-26T10:55:41+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -4785,7 +4784,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Un ospedale a Mendrisio con bandiere svizzere e italiane"
  },
  "datePublished": "2026-02-26T11:12:45+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-26T11:12:45+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -4817,7 +4816,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista di Bellinzona con il Castelgrande sullo sfondo in primavera"
  },
  "datePublished": "2026-02-26T13:36:25+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-26T13:36:25+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -4846,7 +4845,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Traffico congestionato al valico di Chiasso con lavori sulla A9 visibili."
  },
  "datePublished": "2026-02-26T14:42:47+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-26T14:42:47+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -4875,7 +4874,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista del Seghezzone a Giubiasco con moduli prefabbricati in costruzione e montagne sullo sfondo"
  },
  "datePublished": "2026-02-26T17:55:05+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-26T17:55:05+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -4904,7 +4903,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Auto in coda al valico di Chiasso con segnaletica stradale visibile."
  },
  "datePublished": "2026-02-26T20:30:48+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-26T20:30:48+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -4933,7 +4932,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista di Lugano con il lago e le montagne sullo sfondo"
  },
  "datePublished": "2026-02-27T05:10:08+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-27T05:10:08+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -4962,7 +4961,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Un'auto di lusso fermata dalla polizia al confine in Ticino, con le Alpi sullo sfondo"
  },
  "datePublished": "2026-02-27T06:11:51+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-27T06:11:51+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -4991,7 +4990,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Valico di frontiera a Mendrisio con auto in coda e montagne sullo sfondo."
  },
  "datePublished": "2026-02-27T06:19:48+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-27T06:19:48+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5020,7 +5019,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Veduta del Castelgrande di Bellinzona in Ticino, con un edificio amministrativo in primo piano"
  },
  "datePublished": "2026-02-27T10:11:45+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-27T10:11:45+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5049,7 +5048,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Coda al confine svizzero-italiano vicino a Brogeda con segnaletica stradale e cantieri in corso"
  },
  "datePublished": "2026-02-27T14:13:03+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-27T14:13:03+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5078,7 +5077,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista di un serbatoio idrico a Magliaso circondato da verde e Alpi."
  },
  "datePublished": "2026-02-27T17:02:40+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-27T17:02:40+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5107,7 +5106,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Ospedale a Bellinzona con montagne sullo sfondo, giornata soleggiata."
  },
  "datePublished": "2026-02-27T18:09:17+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-27T18:09:17+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5136,7 +5135,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Ingresso di un cinema a Varese con il poster del film 'Frontaliers Sabotage' all'entrata"
  },
  "datePublished": "2026-02-27T19:35:50+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-27T19:35:50+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5165,7 +5164,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista del valico doganale di Ponte Chiasso con auto in coda sotto un cielo nuvoloso."
  },
  "datePublished": "2026-02-27T20:02:09+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-27T20:02:09+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5194,7 +5193,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Mendrisio, vista del valico di frontiera con auto e biciclette in transito, montagne sullo sfondo"
  },
  "datePublished": "2026-02-27T21:01:10+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-27T21:01:10+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5223,7 +5222,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Persone di diverse religioni fuori da una chiesa a Bellinzona, con il Castelgrande sullo sfondo"
  },
  "datePublished": "2026-02-27T22:03:04+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-27T22:03:04+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5252,7 +5251,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Bellinzona, cittadini che si recano a votare presso un edificio storico."
  },
  "datePublished": "2026-02-27T22:57:44+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-27T22:57:44+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5281,7 +5280,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Cantiere sul lungolago vicino a un caffè con piante verdi"
  },
  "datePublished": "2026-02-27T23:45:47+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-27T23:45:47+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5310,7 +5309,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Postazione mobile di controllo velocità su una strada panoramica in Ticino, con la polizia e le Alpi sullo sfondo."
  },
  "datePublished": "2026-02-28T04:40:12+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-28T04:40:12+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5339,7 +5338,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista del lungolago di Lugano al tramonto con persone a un evento culturale"
  },
  "datePublished": "2026-02-28T06:02:12+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-28T06:02:12+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5368,7 +5367,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Piazza di una città ticinese con stazione e passanti"
  },
  "datePublished": "2026-02-28T07:09:07+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-28T07:09:07+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5397,7 +5396,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Passaggio di frontiera tra Italia e Svizzera al Ponte Chiasso, con montagne sullo sfondo."
  },
  "datePublished": "2026-02-28T08:58:42+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-28T08:58:42+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5426,7 +5425,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Un seggio elettorale a Bellinzona durante le elezioni comunali, con persone che votano e bandiere svizzere in vista."
  },
  "datePublished": "2026-02-28T11:21:53+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-28T11:21:53+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5455,7 +5454,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Valico di Chiasso-Brogeda con auto in fila per i controlli doganali"
  },
  "datePublished": "2026-02-28T11:43:07+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-02-28T11:43:07+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5484,7 +5483,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Un tram 42 che attraversa la città di Lugano, in una giornata soleggiata dell'autunno in Ticino."
  },
  "datePublished": "2026-03-16T06:20:08+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-16T06:20:08+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5512,7 +5511,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Un'auto fermata al valico autostradale di Brogeda."
  },
  "datePublished": "2026-03-16T10:02:17+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-16T10:02:17+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5541,7 +5540,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Veicolo con targhe svizzere al valico di Chiasso"
  },
  "datePublished": "2026-03-16T10:58:26+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-16T10:58:26+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5570,7 +5569,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Scena fotorealistica di Lugano con montagne e lago"
  },
  "datePublished": "2026-03-16T12:06:51+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-16T12:06:51+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5599,7 +5598,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Apprendisti in aula professionale a Mendrisio"
  },
  "datePublished": "2026-03-16T20:06:55+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-16T20:06:55+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5628,7 +5627,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Una famiglia felice a passeggio nel centro storico di Bellinzona, Svizzera."
  },
  "datePublished": "2026-03-16T20:55:08+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-16T20:55:08+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5657,7 +5656,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Paesaggio urbano di Locarno con lago"
  },
  "datePublished": "2026-03-16T21:56:27+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-16T21:56:27+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5685,7 +5684,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Sequestro di droga al valico di Brogeda, Ticino"
  },
  "datePublished": "2026-03-16T23:52:14+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-16T23:52:14+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5714,7 +5713,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Autosilo interrato a Bellinzona."
  },
  "datePublished": "2026-03-17T08:12:10+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-17T08:12:10+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5743,7 +5742,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista mattutina sul lago di Varese con le Alpi svizzere sullo sfondo"
  },
  "datePublished": "2026-03-17T11:07:59+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-17T11:07:59+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5772,7 +5771,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista panoramica di Lugano con il lago e le montagne circostanti"
  },
  "datePublished": "2026-03-17T12:08:54+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-17T12:08:54+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5801,7 +5800,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Folla al Carnevale di Chiasso con agenti di sicurezza privata in primo piano"
  },
  "datePublished": "2026-03-17T15:30:59+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-17T15:30:59+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5830,7 +5829,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Corriere a domicilio in bicicletta a Lugano, Canton Ticino, con borse termiche per consegne"
  },
  "datePublished": "2026-03-17T17:29:41+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-17T17:29:41+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5859,7 +5858,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Una giovane donna cerca di trovare un appartamento in una zona residenziale di Lugano, marzo 2026"
  },
  "datePublished": "2026-03-17T19:27:49+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-17T19:27:49+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5888,7 +5887,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Controllo doganale Brogeda-Chiasso con sequestro record di cocaina"
  },
  "datePublished": "2026-03-17T21:08:34+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-17T21:08:34+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5917,7 +5916,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Bellinzona, con il Castelgrande in primo piano"
  },
  "datePublished": "2026-03-17T22:02:23+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-17T22:02:23+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -5946,7 +5945,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista di Lugano dal lago."
  },
  "datePublished": "2026-03-17T23:01:33+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-17T23:01:33+00:00",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
