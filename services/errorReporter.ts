@@ -20,6 +20,8 @@
 
 import { Analytics } from '@/services/analytics';
 import { isBenignErrorMessage } from '@/services/benignErrorPatterns';
+import { isNewsletterAutologinInFlight } from '@/services/newsletterAutologinSignal';
+import { isVersionSkewError, recoverFromStaleChunk } from '@/services/resilientImport';
 
 type ErrorType =
  | 'api_error'
@@ -86,6 +88,22 @@ export function reportCaughtError(
  } = {}
 ): void {
  const message = extractMessage(error);
+
+ // ── Cross-chunk version skew: self-heal, independent of the report gating below ──
+ // ErrorBoundary.componentDidCatch (components/shared/ErrorBoundary.tsx) already
+ // self-heals render-time skew; every dynamic import().catch(reportCaughtError)
+ // call site (hooks/seoHelpers.ts, App.tsx's loadUserProfile, etc.) previously only
+ // reported the error and left the user stuck on stale chunks with no recovery
+ // attempt. Same `version_skew:<message>` signature as ErrorBoundary so both paths
+ // share one reload budget for the same underlying stale chunk regardless of which
+ // caught it first.
+ // Suppress the reload while a newsletter autologin exchange is in flight —
+ // same guard `promptOneTap()`/auth gates use (services/authService.ts:1412):
+ // forcing a reload mid-exchange would abort the sign-in the user is already
+ // mid-way through (e.g. App.tsx's `app.newsletterAutologin` catch).
+ if (isVersionSkewError(error) && !isNewsletterAutologinInFlight()) {
+ void recoverFromStaleChunk(`version_skew:${message.slice(0, 80)}`);
+ }
 
  // ── Dev console visibility ──
  console.warn(`[${context}]`, error);

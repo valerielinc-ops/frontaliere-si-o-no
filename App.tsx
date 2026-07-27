@@ -12,6 +12,7 @@ import { ErrorBoundary, SilentErrorBoundary } from '@/components/shared/ErrorBou
 import TopAutoAdReserve from '@/components/shared/TopAutoAdReserve';
 
 import { reportCaughtError } from '@/services/errorReporter';
+import { fetchCommitHash } from '@/services/buildInfo';
 // Gamification lazily loaded — all calls are fire-and-forget
 const unlockAchievement = (id: string) => {
  import('@/services/gamificationService').then(m => m.unlockAchievement(id)).catch(() => {});
@@ -276,16 +277,13 @@ const App: React.FC = () => {
  // failing <img> to its raw.githubusercontent fallback (same SHA).
  useEffect(() => { installBlogImageCdnFallback(); }, []);
 
- // Version badge commit hash — fetched at runtime from /commit-hash.txt
- // (emitted by buildIdPlugin) instead of a Vite `define`. Baking it into the
- // bundle put a fresh value in the entry every build → ~100% deploy churn.
+ // Version badge commit hash — fetched at runtime (services/buildInfo.ts)
+ // instead of a Vite `define`. Baking it into the bundle put a fresh value in
+ // the entry every build → ~100% deploy churn.
  const [commitHash, setCommitHash] = useState('');
  useEffect(() => {
  let alive = true;
- fetch('/commit-hash.txt')
- .then((r) => (r.ok ? r.text() : ''))
- .then((t) => { if (alive && t.trim()) setCommitHash(t.trim()); })
- .catch(() => {});
+ fetchCommitHash().then((hash) => { if (alive && hash) setCommitHash(hash); });
  return () => { alive = false; };
  }, []);
 
