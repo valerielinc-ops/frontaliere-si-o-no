@@ -1,18 +1,55 @@
 {
   "key": "crr-suva-sion",
   "label": "Clinique romande de réadaptation (CRR Suva)",
-  "generatedAt": "2026-07-26T22:09:05.874Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-07-27T13:07:13.846Z",
+  "total": 2,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 105281,
-  "avgDurationMs": 105281,
+  "durationMs": 4509,
+  "avgDurationMs": 4509,
   "durationHistory": [
-    105281
+    4509
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "crr-suva-sion-1ef627a9dcec",
+      "slug": "assistant-e-qualite-et-processus-crr-suva-sion-sion",
+      "company": "Clinique romande de réadaptation (CRR Suva)",
+      "companyKey": "crr-suva-sion",
+      "companyDomain": "crr-suva.ch",
+      "title": "Assistant/e qualité et processus",
+      "needsRetranslation": true,
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://www.crr-suva.ch/clinique-readaptation/assistant-qualite-processus-2396.html",
+      "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-27T13:07:10.384Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-27",
+      "applyUrl": "https://www.crr-suva.ch/clinique-readaptation/assistant-qualite-processus-2396.html",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "crr-suva-sion-9d9e50d545c8",
@@ -27,7 +64,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/bottier-ere-orthopediste-2413.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-26T22:09:03.939Z",
+      "crawledAt": "2026-07-27T13:07:10.882Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
