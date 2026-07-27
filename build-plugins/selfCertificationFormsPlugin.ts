@@ -30,6 +30,7 @@ import { adSlotHtml } from './lib/adSlotHtml';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { PDF_PAGE_A4, PDF_MARGIN_DEFAULT, PDF_BASE_PALETTE, collectPdfBuffer } from './shared/pdfKitTheme';
 import {
   esc,
   renderBreadcrumb,
@@ -90,17 +91,9 @@ export const CRIMINAL_RECORD_FORM: SelfCertFormMeta = {
 
 /* ── PDF generation ────────────────────────────────────────────────── */
 
-const PDF_COLORS = {
-  headerBg: '#1e293b',
-  white: '#ffffff',
-  body: '#334155',
-  heading: '#1e40af',
-  muted: '#64748b',
-  rule: '#cbd5e1',
-};
-
-const PDF_PAGE = { width: 595.28, height: 841.89 }; // A4
-const PDF_MARGIN = { top: 56, bottom: 56, left: 56, right: 56 };
+const PDF_COLORS = PDF_BASE_PALETTE;
+const PDF_PAGE = PDF_PAGE_A4;
+const PDF_MARGIN = PDF_MARGIN_DEFAULT;
 const PDF_CONTENT_WIDTH = PDF_PAGE.width - PDF_MARGIN.left - PDF_MARGIN.right;
 
 function drawField(doc: PDFKit.PDFDocument, label: string, width?: number): void {
@@ -116,88 +109,84 @@ function drawField(doc: PDFKit.PDFDocument, label: string, width?: number): void
 export async function generateSelfCertificationPdf(form: SelfCertFormMeta): Promise<Buffer> {
   const PDFDocument = (await import('pdfkit')).default;
 
-  return new Promise<Buffer>((resolve, reject) => {
-    const chunks: Buffer[] = [];
-    const doc = new PDFDocument({
-      size: 'A4',
-      margins: PDF_MARGIN,
-      bufferPages: true,
-      info: {
-        Title: form.pdfTitle,
-        Author: 'Frontaliere Ticino',
-        Subject: form.pdfSubtitle,
-        Creator: 'frontaliereticino.ch',
-      },
-    });
-    doc.on('data', (chunk: Buffer) => chunks.push(chunk));
-    doc.on('end', () => resolve(Buffer.concat(chunks)));
-    doc.on('error', reject);
-
-    doc.rect(0, 0, PDF_PAGE.width, 110).fill(PDF_COLORS.headerBg);
-    doc.fillColor(PDF_COLORS.white).fontSize(16).font('Helvetica-Bold');
-    doc.text(form.pdfTitle, PDF_MARGIN.left, 34, { width: PDF_CONTENT_WIDTH });
-    doc.fontSize(11).font('Helvetica');
-    doc.text(form.pdfSubtitle, PDF_MARGIN.left, doc.y + 6, { width: PDF_CONTENT_WIDTH });
-
-    doc.y = 130;
-    doc.fillColor(PDF_COLORS.body).fontSize(10).font('Helvetica');
-    doc.text('Il/La sottoscritto/a', PDF_MARGIN.left, doc.y, { width: PDF_CONTENT_WIDTH });
-    doc.moveDown(0.3);
-    drawField(doc, 'Cognome e nome');
-    drawField(doc, 'Nato/a a', 260);
-    doc.y -= 22;
-    drawField(doc, 'il (gg/mm/aaaa)', 200);
-    doc.x = PDF_MARGIN.left;
-    drawField(doc, 'Residente a (comune, via/piazza, n., CAP)');
-    drawField(doc, 'Codice fiscale', 260);
-
-    doc.moveDown(0.5);
-    doc.fontSize(10).font('Helvetica');
-    for (const paragraph of form.declarationParagraphs) {
-      const isHeading = paragraph === 'DICHIARA';
-      if (isHeading) {
-        doc.moveDown(0.4);
-        doc.font('Helvetica-Bold').fontSize(12).fillColor(PDF_COLORS.heading);
-        doc.text(paragraph, PDF_MARGIN.left, doc.y, { width: PDF_CONTENT_WIDTH, align: 'center' });
-        doc.moveDown(0.4);
-        doc.font('Helvetica').fontSize(10).fillColor(PDF_COLORS.body);
-      } else {
-        doc.text(paragraph, PDF_MARGIN.left, doc.y, { width: PDF_CONTENT_WIDTH, align: 'justify' });
-        doc.moveDown(0.5);
-      }
-    }
-
-    drawField(doc, 'Destinatario / datore di lavoro (ragione sociale)');
-
-    doc.moveDown(0.6);
-    doc.fontSize(9).font('Helvetica').fillColor(PDF_COLORS.muted);
-    doc.text(
-      'Ai sensi dell’art. 38, comma 3, D.P.R. 445/2000, alla presente dichiarazione va allegata copia fotostatica di un documento di identità in corso di validità.',
-      PDF_MARGIN.left, doc.y, { width: PDF_CONTENT_WIDTH },
-    );
-
-    doc.moveDown(2);
-    const sigY = doc.y;
-    doc.fontSize(9).fillColor(PDF_COLORS.muted).font('Helvetica');
-    doc.text('Luogo e data', PDF_MARGIN.left, sigY, { width: 220 });
-    doc.text('Firma', PDF_MARGIN.left + 300, sigY, { width: 180 });
-    const sigLineY = sigY + 30;
-    doc.strokeColor(PDF_COLORS.rule).lineWidth(1);
-    doc.moveTo(PDF_MARGIN.left, sigLineY).lineTo(PDF_MARGIN.left + 200, sigLineY).stroke();
-    doc.moveTo(PDF_MARGIN.left + 300, sigLineY).lineTo(PDF_MARGIN.left + 480, sigLineY).stroke();
-
-    doc.fontSize(8).fillColor(PDF_COLORS.muted).font('Helvetica');
-    doc.text(
-      'Nota: verso le Pubbliche Amministrazioni italiane questa dichiarazione ha piena efficacia sostitutiva. Verso datori di lavoro privati, inclusi quelli svizzeri, è valida solo se il destinatario accetta di riceverla in luogo del documento originale (art. 2, comma 2, D.P.R. 445/2000).',
-      PDF_MARGIN.left, PDF_PAGE.height - PDF_MARGIN.bottom - 60, { width: PDF_CONTENT_WIDTH },
-    );
-    doc.text(
-      `Documento generato da ${CANONICAL_URL} — non costituisce consulenza legale.`,
-      PDF_MARGIN.left, doc.y + 6, { width: PDF_CONTENT_WIDTH },
-    );
-
-    doc.end();
+  const doc = new PDFDocument({
+    size: 'A4',
+    margins: PDF_MARGIN,
+    bufferPages: true,
+    info: {
+      Title: form.pdfTitle,
+      Author: 'Frontaliere Ticino',
+      Subject: form.pdfSubtitle,
+      Creator: 'frontaliereticino.ch',
+    },
   });
+  const bufferPromise = collectPdfBuffer(doc);
+
+  doc.rect(0, 0, PDF_PAGE.width, 110).fill(PDF_COLORS.headerBg);
+  doc.fillColor(PDF_COLORS.white).fontSize(16).font('Helvetica-Bold');
+  doc.text(form.pdfTitle, PDF_MARGIN.left, 34, { width: PDF_CONTENT_WIDTH });
+  doc.fontSize(11).font('Helvetica');
+  doc.text(form.pdfSubtitle, PDF_MARGIN.left, doc.y + 6, { width: PDF_CONTENT_WIDTH });
+
+  doc.y = 130;
+  doc.fillColor(PDF_COLORS.body).fontSize(10).font('Helvetica');
+  doc.text('Il/La sottoscritto/a', PDF_MARGIN.left, doc.y, { width: PDF_CONTENT_WIDTH });
+  doc.moveDown(0.3);
+  drawField(doc, 'Cognome e nome');
+  drawField(doc, 'Nato/a a', 260);
+  doc.y -= 22;
+  drawField(doc, 'il (gg/mm/aaaa)', 200);
+  doc.x = PDF_MARGIN.left;
+  drawField(doc, 'Residente a (comune, via/piazza, n., CAP)');
+  drawField(doc, 'Codice fiscale', 260);
+
+  doc.moveDown(0.5);
+  doc.fontSize(10).font('Helvetica');
+  for (const paragraph of form.declarationParagraphs) {
+    const isHeading = paragraph === 'DICHIARA';
+    if (isHeading) {
+      doc.moveDown(0.4);
+      doc.font('Helvetica-Bold').fontSize(12).fillColor(PDF_COLORS.heading);
+      doc.text(paragraph, PDF_MARGIN.left, doc.y, { width: PDF_CONTENT_WIDTH, align: 'center' });
+      doc.moveDown(0.4);
+      doc.font('Helvetica').fontSize(10).fillColor(PDF_COLORS.body);
+    } else {
+      doc.text(paragraph, PDF_MARGIN.left, doc.y, { width: PDF_CONTENT_WIDTH, align: 'justify' });
+      doc.moveDown(0.5);
+    }
+  }
+
+  drawField(doc, 'Destinatario / datore di lavoro (ragione sociale)');
+
+  doc.moveDown(0.6);
+  doc.fontSize(9).font('Helvetica').fillColor(PDF_COLORS.muted);
+  doc.text(
+    'Ai sensi dell’art. 38, comma 3, D.P.R. 445/2000, alla presente dichiarazione va allegata copia fotostatica di un documento di identità in corso di validità.',
+    PDF_MARGIN.left, doc.y, { width: PDF_CONTENT_WIDTH },
+  );
+
+  doc.moveDown(2);
+  const sigY = doc.y;
+  doc.fontSize(9).fillColor(PDF_COLORS.muted).font('Helvetica');
+  doc.text('Luogo e data', PDF_MARGIN.left, sigY, { width: 220 });
+  doc.text('Firma', PDF_MARGIN.left + 300, sigY, { width: 180 });
+  const sigLineY = sigY + 30;
+  doc.strokeColor(PDF_COLORS.rule).lineWidth(1);
+  doc.moveTo(PDF_MARGIN.left, sigLineY).lineTo(PDF_MARGIN.left + 200, sigLineY).stroke();
+  doc.moveTo(PDF_MARGIN.left + 300, sigLineY).lineTo(PDF_MARGIN.left + 480, sigLineY).stroke();
+
+  doc.fontSize(8).fillColor(PDF_COLORS.muted).font('Helvetica');
+  doc.text(
+    'Nota: verso le Pubbliche Amministrazioni italiane questa dichiarazione ha piena efficacia sostitutiva. Verso datori di lavoro privati, inclusi quelli svizzeri, è valida solo se il destinatario accetta di riceverla in luogo del documento originale (art. 2, comma 2, D.P.R. 445/2000).',
+    PDF_MARGIN.left, PDF_PAGE.height - PDF_MARGIN.bottom - 60, { width: PDF_CONTENT_WIDTH },
+  );
+  doc.text(
+    `Documento generato da ${CANONICAL_URL} — non costituisce consulenza legale.`,
+    PDF_MARGIN.left, doc.y + 6, { width: PDF_CONTENT_WIDTH },
+  );
+
+  doc.end();
+  return bufferPromise;
 }
 
 /* ── Landing page ──────────────────────────────────────────────────── */
