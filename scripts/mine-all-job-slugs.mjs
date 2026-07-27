@@ -97,6 +97,22 @@ function buildLocalePathsForJob(job, slug) {
   return buildLocalePathsForCanton(cantonCode, slug);
 }
 
+// Fill any locale not yet set on `entry.locales` using cantonCode. Shared by
+// mineActiveJobs/mineExpiredJobs's "Main slug" (and "Previous slugs")
+// branches — #4593: each call site used to resolve cantonCode then apply it
+// to only the `it` locale, leaving en/de/fr unset; those then fell through
+// to a hardcoded-TI last-resort default in main(), so an entry's `it` path
+// pointed at the job's real canton while en/de/fr stayed stuck on the
+// legacy TI board. Centralizing the fill here means the class can't recur
+// the next time a mining source is added.
+function fillMissingLocalePaths(entry, cantonCode, slug) {
+  const paths = buildLocalePathsForCanton(cantonCode, slug);
+  for (const l of ['it', 'en', 'de', 'fr']) {
+    if (!entry.locales[l]) entry.locales[l] = paths[l];
+  }
+  return entry;
+}
+
 // Swap the trailing slug segment of an already-resolved entry's locale paths
 // — used when recovering a slug variant (fuzzy match) of a known entry, so
 // the recovered slug inherits its parent's real canton section instead of
@@ -128,10 +144,18 @@ function mineActiveJobs() {
       for (const job of jobs) {
         const cantonCode = resolveJobCanton({ canton: job?.canton, location: job?.location });
 
-        // Main slug
+        // Main slug. #4593: this branch used to set ONLY `.it` even though
+        // cantonCode is already resolved here — every other locale then fell
+        // through to the last-resort hardcoded-TI default further down
+        // (`for (const l ...) if (!localePaths[l]) ... buildLocalePathsForCanton('TI', slug)`),
+        // producing entries where `it` correctly pointed at the job's real
+        // canton section but en/de/fr stayed on the legacy TI board. Resolve
+        // all 4 locales from the SAME cantonCode up front via the shared
+        // fillMissingLocalePaths helper, same pattern used for previousSlugs
+        // below.
         if (isValidJobSlug(job.slug)) {
           if (!slugs.has(job.slug)) slugs.set(job.slug, { locales: {} });
-          slugs.get(job.slug).locales.it = buildLocalePathsForCanton(cantonCode, job.slug).it;
+          fillMissingLocalePaths(slugs.get(job.slug), cantonCode, job.slug);
         }
 
         // Locale-specific slugs
@@ -146,14 +170,8 @@ function mineActiveJobs() {
         // Previous slugs (these are IT slugs used for all locale paths)
         for (const ps of (job.previousSlugs || [])) {
           if (!isValidJobSlug(ps)) continue;
-          if (!slugs.has(ps)) slugs.set(ps, { locales: buildLocalePathsForCanton(cantonCode, ps) });
-          else {
-            const entry = slugs.get(ps);
-            const paths = buildLocalePathsForCanton(cantonCode, ps);
-            for (const l of ['it', 'en', 'de', 'fr']) {
-              if (!entry.locales[l]) entry.locales[l] = paths[l];
-            }
-          }
+          if (!slugs.has(ps)) slugs.set(ps, { locales: {} });
+          fillMissingLocalePaths(slugs.get(ps), cantonCode, ps);
         }
       }
     } catch {}
@@ -173,9 +191,12 @@ function mineExpiredJobs() {
       const jobs = Array.isArray(data) ? data : (data.jobs || []);
       for (const job of jobs) {
         const cantonCode = resolveJobCanton({ canton: job?.canton, location: job?.location });
+        // #4593: same fix as mineActiveJobs's "Main slug" branch — resolve
+        // all 4 locales from cantonCode instead of only `.it`, via the
+        // shared fillMissingLocalePaths helper.
         if (isValidJobSlug(job.slug)) {
           if (!slugs.has(job.slug)) slugs.set(job.slug, { locales: {} });
-          slugs.get(job.slug).locales.it = buildLocalePathsForCanton(cantonCode, job.slug).it;
+          fillMissingLocalePaths(slugs.get(job.slug), cantonCode, job.slug);
         }
         if (job.slugByLocale) {
           for (const [locale, s] of Object.entries(job.slugByLocale)) {
@@ -186,7 +207,7 @@ function mineExpiredJobs() {
         }
         for (const ps of (job.previousSlugs || [])) {
           if (!isValidJobSlug(ps)) continue;
-          if (!slugs.has(ps)) slugs.set(ps, { locales: buildLocalePathsForCanton(cantonCode, ps) });
+          if (!slugs.has(ps)) slugs.set(ps, fillMissingLocalePaths({ locales: {} }, cantonCode, ps));
         }
       }
     } catch {}
@@ -654,4 +675,12 @@ function main() {
   return changed;
 }
 
-main();
+// #4593: guard so the module is safely importable for unit testing (e.g.
+// `tests/mine-all-job-slugs.test.ts`) without executing the real,
+// data-mutating pipeline as a side effect of import — established
+// convention, see `scripts/assemble-jobs-dataset.mjs`'s CLI entry point.
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  main();
+}
+
+export { buildLocalePathsForCanton, buildLocalePathsForJob, fillMissingLocalePaths };
