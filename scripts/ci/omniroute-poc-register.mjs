@@ -13,6 +13,26 @@ const PROVIDERS = [
   ['mistral', 'Mistral (CI POC, expected dead)', ['MISTRAL_API_KEY']],
 ];
 
+// A fresh OmniRoute boot (always the case in CI — new sqlite db each run) sets
+// requireLogin:true and needs a session cookie for /api/* management routes
+// even when INITIAL_PASSWORD is left unset (falls back to an internal default).
+// /v1/chat/completions is unaffected — it stays open with no auth.
+let cookie = '';
+const password = process.env.OMNIROUTE_INITIAL_PASSWORD;
+if (password) {
+  const loginRes = await fetch(`${OMNIROUTE_URL}/api/auth/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ password }),
+  });
+  if (!loginRes.ok) {
+    console.error('Login failed:', loginRes.status, await loginRes.text().catch(() => ''));
+    process.exit(1);
+  }
+  const setCookie = loginRes.headers.get('set-cookie');
+  cookie = setCookie ? setCookie.split(';')[0] : '';
+}
+
 const skipped = [];
 const results = [];
 
@@ -25,7 +45,7 @@ for (const [provider, name, envNames] of PROVIDERS) {
 
   const res = await fetch(`${OMNIROUTE_URL}/api/providers`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', ...(cookie ? { Cookie: cookie } : {}) },
     body: JSON.stringify({ provider, name, apiKey: apiKey.trim() }),
   });
   const data = await res.json().catch(() => ({}));
