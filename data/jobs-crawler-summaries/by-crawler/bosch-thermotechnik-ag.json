@@ -1,18 +1,49 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-07-27T12:33:40.299Z",
+  "generatedAt": "2026-07-27T22:09:17.077Z",
   "total": 8,
-  "newCount": 0,
-  "updatedCount": 8,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 7,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 17895,
-  "avgDurationMs": 17895,
+  "durationMs": 17059,
+  "avgDurationMs": 17059,
   "durationHistory": [
-    17895
+    17059
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Sachbearbeiter Disposition (w/m/div.) REF292710R",
+      "slug": "sachbearbeiter-disposition-w-m-div-ref292710r-bosch-steinhausen",
+      "url": "https://jobs.bosch.com/en/job/REF292710R-sachbearbeiter-disposition-w-m-div-ref292710r",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000139995449-sachbearbeiter-disposition-w-m-div-ref292710r?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Steinhausen",
+      "addressLocality": "Steinhausen",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "canton": "ZG",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "sales",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-27",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Logistiker (w/m/div.) REF292485N",
@@ -258,10 +289,12 @@
         "translation": 25,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Instandhaltung (w/m/div.) - REF285547A",
-      "slug": "instandhaltung-w-m-div-ref285547a-bosch-st-niklaus",
+      "slug": "manutenzione-f-m-div-ref285547a-bosch-thermotechnik-ag-st",
       "url": "https://jobs.bosch.com/en/job/REF285547A-instandhaltung-w-m-div-ref285547a",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000136446349-instandhaltung-w-m-div-ref285547a?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -295,6 +328,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
