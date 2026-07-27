@@ -70318,7 +70318,8 @@
     "slugByLocale": {
       "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern",
       "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern",
-      "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+      "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern-ny7153"
     }
   },
   "id|galenica.com|3115871": {
@@ -89549,7 +89550,8 @@
     "slugByLocale": {
       "de": "operatorin-operator-technik-80-luks-luzern",
       "it": "operatore-operatore-tecnica-80-luzerner-kantonsspital-luks-luzern-e4aad4",
-      "en": "operator-operator-technique-80-luzerner-kantonsspital-luks-luzern"
+      "en": "operator-operator-technique-80-luzerner-kantonsspital-luks-luzern",
+      "fr": "operatore-operatore-tecnica-80-luzerner-kantonsspital-luks-luzern-e4aad4"
     }
   },
   "id|luks.ch|1da79621-cb90-4683-a808-57338604e086": {
@@ -163511,7 +163513,12 @@
     "canonicalSlug": "diplomierte-pflegefachperson-hf-fh-adullam-basel",
     "canton": "BS",
     "createdAt": "2026-06-06",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "diplomiere-pflegefachperson-hf-fh-adullam-stiftung-basel",
+      "en": "diplomierte-pflegefachperson-hf-fh-adullam-stiftung-basel",
+      "de": "diplomierte-pflegefachperson-hf-fh-adullam-basel",
+      "fr": "infirmier-ere-diplome-e-es-hes-adullam-stiftung-basel"
+    }
   },
   "id|solique.ch|3975052": {
     "canonicalSlug": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-amriswil",
@@ -165180,7 +165187,12 @@
     "canonicalSlug": "dipl-physiotherapeut-in-adullam-basel",
     "canton": "BS",
     "createdAt": "2026-06-06",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "dipl-fisioterapia-in-adullam-stiftung-basel",
+      "en": "dipl-physiotherapist-physiotherapist-adullam-stiftung-basel",
+      "de": "dipl-physiotherapeut-in-adullam-basel",
+      "fr": "dipl-physiotherapeute-in-adullam-stiftung-basel"
+    }
   },
   "id|solique.ch|4009917": {
     "canonicalSlug": "disponentin-disponent-kantonsspital-winterthur-ksw-winterthur",
@@ -250946,7 +250958,12 @@
     "canonicalSlug": "montage-elektriker-in-efz-100-schild-elektro-ag-grindelwald",
     "canton": "BE",
     "createdAt": "2026-05-12",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "montage-elektriker-in-cfc-100-schild-elektro-ag-grindelwald",
+      "en": "assembly-electrician-in-efz-100-schild-elektro-ag-grindelwald",
+      "de": "montage-elektriker-in-efz-100-schild-elektro-ag-grindelwald",
+      "fr": "montage-elektriker-in-efz-100-schild-elektro-ag-grindelwald"
+    }
   },
   "url|https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/montage-elektriker-efz-438": {
     "canonicalSlug": "montage-elektriker-in-efz-100-robert-widmer-ag-elektrische-anlagen-luzern",
@@ -347956,7 +347973,8 @@
     "slugByLocale": {
       "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern",
       "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
-      "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern-4213fa"
+      "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern-4213fa",
+      "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern-nxp9xp"
     },
     "createdAt": "2026-07-17",
     "canton": "BE"
@@ -349869,7 +349887,8 @@
     "slugByLocale": {
       "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
       "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-15bc95",
-      "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern"
+      "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern",
+      "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern-nxpa07"
     },
     "createdAt": "2026-07-18",
     "canton": "BE"
@@ -350323,7 +350342,8 @@
     "slugByLocale": {
       "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-94bf75",
       "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
-      "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern-94bf75"
+      "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern-94bf75",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern-nxptd0"
     },
     "createdAt": "2026-07-19",
     "canton": "BE"
@@ -367380,7 +367400,8 @@
     "canonicalSlug": "senior-motor-fleet-underwriter-that-s-experiencing-real-growth-and-transformation-and-if-you-share-our-commitment-to-making-a-tangible-diffe-qtuobo",
     "slugByLocale": {
       "en": "senior-motor-fleet-underwriter-that-s-experiencing-real-growth-and-transformation-and-if-you-share-our-commitment-to-making-a-tangible-diffe-qtuobo",
-      "fr": "un-souscripteur-de-la-flotte-automobile-senior-that-s-experiencing-real-growth-and-transformation-and-if-you-share-our"
+      "fr": "un-souscripteur-de-la-flotte-automobile-senior-that-s-experiencing-real-growth-and-transformation-and-if-you-share-our",
+      "it": "sottoscrittore-della-flotta-del-motore-senior-that-s-experiencing-real-growth-and-transformation-and-if-you-share-our"
     },
     "createdAt": "2026-07-20",
     "canton": "ZH"
@@ -371186,7 +371207,9 @@
     "canonicalSlug": "apprendistato-koch-kochin-cfc-senevita-ittigen-be",
     "slugByLocale": {
       "de": "lehrstelle-koch-kochin-efz-senevita-ittigen-be",
-      "it": "apprendistato-koch-kochin-cfc-senevita-ittigen-be"
+      "it": "apprendistato-koch-kochin-cfc-senevita-ittigen-be",
+      "en": "apprendistato-koch-kochin-cfc-senevita-ittigen-be",
+      "fr": "apprendistato-koch-kochin-cfc-senevita-ittigen-be"
     },
     "createdAt": "2026-07-20",
     "canton": "BE"
@@ -371195,7 +371218,9 @@
     "canonicalSlug": "apprendistato-fage-cfc-2027-senevita-lenk-be",
     "slugByLocale": {
       "de": "lehrstelle-fage-efz-2027-senevita-lenk-be",
-      "it": "apprendistato-fage-cfc-2027-senevita-lenk-be"
+      "it": "apprendistato-fage-cfc-2027-senevita-lenk-be",
+      "en": "apprendistato-fage-cfc-2027-senevita-lenk-be",
+      "fr": "apprendistato-fage-cfc-2027-senevita-lenk-be"
     },
     "createdAt": "2026-07-20",
     "canton": "BE"
@@ -383273,7 +383298,10 @@
   "id|straumann.com|21609": {
     "canonicalSlug": "global-launch-education-manager-straumann-ch",
     "slugByLocale": {
-      "en": "global-launch-education-manager-straumann-ch"
+      "en": "global-launch-education-manager-straumann-ch",
+      "it": "responsabile-globale-dell-istruzione-di-lancio-straumann-basel",
+      "de": "globaler-start-bildungsmanager-straumann-basel",
+      "fr": "gestionnaire-de-l-education-de-lancement-mondial-straumann-basel"
     },
     "createdAt": "2026-07-21",
     "canton": "BS"
@@ -385734,7 +385762,8 @@
   "url|https://boardinternationalsa.applytojob.com/apply/42p29rsl79/ux-designer": {
     "canonicalSlug": "ux-designer-board-international-chiasso-switzerland",
     "slugByLocale": {
-      "en": "ux-designer-board-international-chiasso-switzerland"
+      "en": "ux-designer-board-international-chiasso-switzerland",
+      "fr": "concepteur-ux-board-international-chiasso-switzerland"
     },
     "createdAt": "2026-07-22",
     "canton": "TI"
@@ -390233,7 +390262,8 @@
     "canonicalSlug": "ua-associate-excess-surplus-property-zurich-insurance-sede-ticino-lugano-ozdi89",
     "slugByLocale": {
       "en": "ua-associate-excess-surplus-property-zurich-insurance-sede-ticino-lugano-ozdi89",
-      "fr": "ua-associate-biens-excedentaires-et-excedentaires-zurich-insurance-sede-ticino-lugano"
+      "fr": "ua-associate-biens-excedentaires-et-excedentaires-zurich-insurance-sede-ticino-lugano",
+      "de": "ua-associate-uberschuss-uberschuss-eigentum-zurich-insurance-sede-ticino-lugano"
     },
     "createdAt": "2026-07-23",
     "canton": "TI"
@@ -394578,7 +394608,8 @@
     "canonicalSlug": "ops-processor-iii-zurich-insurance-sede-ticino-1982-we-offer-a-comprehensive-portfolio-of-travel-insurance-solutions-and-global-vev68b",
     "slugByLocale": {
       "en": "ops-processor-iii-zurich-insurance-sede-ticino-1982-we-offer-a-comprehensive-portfolio-of-travel-insurance-solutions-and-global-vev68b",
-      "de": "ops-prozessor-iii-zurich-insurance-sede-ticino-ticino"
+      "de": "ops-prozessor-iii-zurich-insurance-sede-ticino-ticino",
+      "it": "processore-iii-zurich-insurance-sede-ticino-ticino"
     },
     "createdAt": "2026-07-24",
     "canton": "ZH"
@@ -397100,7 +397131,9 @@
     "canonicalSlug": "produktions-spezialist-in-nestle-ch",
     "slugByLocale": {
       "en": "produktions-spezialist-in-nestle-ch",
-      "fr": "produktions-spezaliste-in-nestle-basel-ch"
+      "fr": "produktions-spezaliste-in-nestle-basel-ch",
+      "it": "specialista-di-produzione-nestle-basel-ch",
+      "de": "produktionsspezialist-in-nestle-basel-ch"
     },
     "createdAt": "2026-07-24",
     "canton": "BS"
@@ -398937,7 +398970,8 @@
     "slugByLocale": {
       "en": "digital-experience-project-manager-email-mobile-roche-ch",
       "it": "gestione-del-progetto-di-esperienza-digitale-email-mobile-roche-san-jose-costa-rica",
-      "de": "digital-experience-projektmanager-e-mail-mobile-roche-san-jose-costa-rica"
+      "de": "digital-experience-projektmanager-e-mail-mobile-roche-san-jose-costa-rica",
+      "fr": "gestionnaire-de-projet-d-experience-numerique-courriel-et-mobile-roche-san-jose-costa-rica"
     },
     "createdAt": "2026-07-24",
     "canton": "JU"
@@ -405472,7 +405506,8 @@
     "canonicalSlug": "avp-commercial-auto-calgary-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambition-and-desire-to-be-4gi3jn",
     "slugByLocale": {
       "en": "avp-commercial-auto-calgary-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambition-and-desire-to-be-4gi3jn",
-      "fr": "avp-automobile-commerciale-calgary-zurich-insurance-sede-ticino-ticino"
+      "fr": "avp-automobile-commerciale-calgary-zurich-insurance-sede-ticino-ticino",
+      "it": "avp-auto-commerciale-calgary-zurich-insurance-sede-ticino-ticino"
     },
     "createdAt": "2026-07-26",
     "canton": "ZH"
@@ -405564,7 +405599,8 @@
     "slugByLocale": {
       "fr": "sales-expert-iii-zurich-insurance-sede-ticino-lugano-4ghec1",
       "it": "servizi-esperti-iii-zurich-insurance-sede-ticino-lugano",
-      "de": "ausgabeverkauf-iii-zurich-insurance-sede-ticino-lugano"
+      "de": "ausgabeverkauf-iii-zurich-insurance-sede-ticino-lugano",
+      "en": "expert-salts-iii-zurich-insurance-sede-ticino-lugano"
     },
     "createdAt": "2026-07-26",
     "canton": "TI"
@@ -405615,7 +405651,8 @@
     "slugByLocale": {
       "it": "senior-tax-analista-zurich-insurance-sede-ticino-lugano-rrsh0r",
       "en": "senior-tax-analyst-zurich-insurance-sede-ticino-lugano-rrsh0r",
-      "fr": "senior-tax-analyste-zurich-insurance-sede-ticino-lugano-rrsh0r"
+      "fr": "senior-tax-analyste-zurich-insurance-sede-ticino-lugano-rrsh0r",
+      "de": "senior-steueranalyst-zurich-insurance-sede-ticino-lugano"
     },
     "createdAt": "2026-07-26",
     "canton": "TI"
@@ -405705,7 +405742,9 @@
     "canonicalSlug": "senior-medical-science-manager-immunology-roche-ch",
     "slugByLocale": {
       "en": "senior-medical-science-manager-immunology-roche-ch",
-      "fr": "directeur-des-sciences-medicales-immunologie-roche-basel"
+      "fr": "directeur-des-sciences-medicales-immunologie-roche-basel",
+      "it": "senior-medical-science-manager-immunologia-roche-basel",
+      "de": "senior-medical-science-manager-immunologie-roche-basel"
     },
     "createdAt": "2026-07-26",
     "canton": "BS"
@@ -405746,7 +405785,10 @@
   "id|roche.wd3.myworkdayjobs.com|202607-118594-1": {
     "canonicalSlug": "clinical-research-expert-roche-ch",
     "slugByLocale": {
-      "en": "clinical-research-expert-roche-ch"
+      "en": "clinical-research-expert-roche-ch",
+      "it": "clinical-ricerca-expert-roche-basel",
+      "de": "clinical-forschung-expert-roche-basel",
+      "fr": "clinical-recherche-expert-roche-basel"
     },
     "createdAt": "2026-07-26",
     "canton": "BS"
@@ -407208,5 +407250,1318 @@
     },
     "createdAt": "2026-07-26",
     "canton": "LU"
+  },
+  "id|zurich.com|773149402": {
+    "canonicalSlug": "tirocinante-operational-excellence-apac-zurich-insurance-sede-ticino-lugano-hsj8fy",
+    "slugByLocale": {
+      "it": "tirocinante-operational-excellence-apac-zurich-insurance-sede-ticino-lugano-hsj8fy",
+      "en": "intern-operational-excellence-apac-zurich-insurance-sede-ticino-lugano-hsj8fy",
+      "de": "praktikant-operational-excellence-apac-zurich-insurance-sede-ticino-lugano-hsj8fy",
+      "fr": "stagiaire-operational-excellence-apac-zurich-insurance-sede-ticino-lugano-hsj8fy"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "TI"
+  },
+  "id|zurich.com|763768102": {
+    "canonicalSlug": "marketing-executive-zurich-insurance-sede-ticino-lugano-raayt9",
+    "slugByLocale": {
+      "en": "marketing-executive-zurich-insurance-sede-ticino-lugano-raayt9"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "TI"
+  },
+  "id|zurich.com|1354332357": {
+    "canonicalSlug": "scienziato-dei-dati-dei-prezzi-senior-zurich-insurance-sede-ticino-lugano",
+    "slugByLocale": {
+      "it": "scienziato-dei-dati-dei-prezzi-senior-zurich-insurance-sede-ticino-lugano",
+      "fr": "senior-pricing-data-scientist-zurich-insurance-sede-ticino-lugano-r9lyq3"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "TI"
+  },
+  "id|zurich.com|1362235157": {
+    "canonicalSlug": "insurance-specialista-batam-zurich-asuransi-indonesia-zurich-insurance-sede-ticino-lugano-s9rt0y",
+    "slugByLocale": {
+      "it": "insurance-specialista-batam-zurich-asuransi-indonesia-zurich-insurance-sede-ticino-lugano-s9rt0y",
+      "en": "insurance-specialist-batam-zurich-asuransi-indonesia-zurich-insurance-sede-ticino-lugano-s9rt0y",
+      "de": "insurance-spezialist-batam-zurich-asuransi-indonesia-zurich-insurance-sede-ticino-lugano-s9rt0y",
+      "fr": "insurance-specialiste-batam-zurich-asuransi-indonesia-zurich-insurance-sede-ticino-lugano-s9rt0y"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "TI"
+  },
+  "id|zurich.com|1354632857": {
+    "canonicalSlug": "coordinatore-del-call-center-zurich-insurance-sede-ticino-lugano",
+    "slugByLocale": {
+      "it": "coordinatore-del-call-center-zurich-insurance-sede-ticino-lugano",
+      "en": "call-center-coordinator-zurich-insurance-sede-ticino-lugano",
+      "de": "call-center-koordinator-zurich-insurance-sede-ticino-lugano",
+      "fr": "coordinador-de-call-center-zurich-insurance-sede-ticino-lugano-pugzu1"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "TI"
+  },
+  "id|zurich.com|1354336657": {
+    "canonicalSlug": "reporting-capo-team-zurich-farmers-new-world-life-zurich-insurance-sede-ticino-3800-eur-to-r9jcjw",
+    "slugByLocale": {
+      "it": "reporting-capo-team-zurich-farmers-new-world-life-zurich-insurance-sede-ticino-3800-eur-to-r9jcjw",
+      "en": "reporting-team-lead-zurich-farmers-new-world-life-zurich-insurance-sede-ticino-3800-eur-to-r9jcjw",
+      "de": "reporting-teamleiter-zurich-farmers-new-world-life-zurich-insurance-sede-ticino-3800-eur-to-r9jcjw",
+      "fr": "reporting-chef-d-equipe-zurich-farmers-new-world-life-zurich-insurance-sede-ticino-3800-eur-to-r9jcjw"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1362227957": {
+    "canonicalSlug": "gestione-del-sito-degli-studenti-di-lavoro-immagine-progetto-m-f-d-und-dokumentation-des-designprozesses-enge",
+    "slugByLocale": {
+      "it": "gestione-del-sito-degli-studenti-di-lavoro-immagine-progetto-m-f-d-und-dokumentation-des-designprozesses-enge",
+      "en": "working-student-website-management-image-design-m-f-d-und-dokumentation-des-designprozesses-enge-zusammenarbeit-mit",
+      "de": "werkstudent-website-management-bild-design-m-w-d-und-dokumentation-des-designprozesses-enge-zusammenarbeit-mit-internen-fachbereichen-zur-ab-saa5pp",
+      "fr": "gestion-du-site-web-de-l-etudiant-travaillant-image-design-m-f-d-und-dokumentation-des-designprozesses-enge"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "TI"
+  },
+  "id|zurich.com|1359494257": {
+    "canonicalSlug": "responsabile-customer-distribution-market-management-commercial-insurance-zurich-insurance-sede-ticino-lugano-occyec",
+    "slugByLocale": {
+      "it": "responsabile-customer-distribution-market-management-commercial-insurance-zurich-insurance-sede-ticino-lugano-occyec",
+      "en": "head-of-customer-distribution-market-management-commercial-insurance-zurich-insurance-sede-ticino-lugano-occyec",
+      "de": "leiter-customer-distribution-market-management-commercial-insurance-zurich-insurance-sede-ticino-lugano-occyec",
+      "fr": "responsable-customer-distribution-market-management-commercial-insurance-zurich-insurance-sede-ticino-lugano-occyec"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "TI"
+  },
+  "id|zurich.com|1364986957": {
+    "canonicalSlug": "claim-handler-engineering-property-zurich-asuransi-indonesia-zurich-insurance-sede-ticino-lugano-4h3w2d",
+    "slugByLocale": {
+      "en": "claim-handler-engineering-property-zurich-asuransi-indonesia-zurich-insurance-sede-ticino-lugano-4h3w2d",
+      "fr": "reclamation-handler-ingenierie-propriete-zurich-asuransi-indonesie-zurich-insurance-sede-ticino-lugano"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "TI"
+  },
+  "id|zurich.com|1354234557": {
+    "canonicalSlug": "individual-business-associate-alternate-channel-business-development-zurich-topas-life-zurich-insurance-sede-ticino-lugano-rqm9nu",
+    "slugByLocale": {
+      "en": "individual-business-associate-alternate-channel-business-development-zurich-topas-life-zurich-insurance-sede-ticino-lugano-rqm9nu"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "TI"
+  },
+  "id|zurich.com|1362228157": {
+    "canonicalSlug": "partnership-offline-business-head-zurich-asuransi-indonesia-zurich-insurance-sede-ticino-lugano-sa9onq",
+    "slugByLocale": {
+      "en": "partnership-offline-business-head-zurich-asuransi-indonesia-zurich-insurance-sede-ticino-lugano-sa9onq",
+      "de": "partnerschaft-offline-business-head-zurich-asuransi-indonesien-zurich-insurance-sede-ticino-lugano-sa9onq",
+      "fr": "chef-d-entreprise-hors-ligne-zurich-asuransi-indonesie-zurich-insurance-sede-ticino-lugano"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "TI"
+  },
+  "id|zurich.com|1354240457": {
+    "canonicalSlug": "lead-trasformazione-zurigo-asuransi-indonesia-zurich-insurance-sede-ticino-lugano",
+    "slugByLocale": {
+      "it": "lead-trasformazione-zurigo-asuransi-indonesia-zurich-insurance-sede-ticino-lugano",
+      "en": "transformation-lead-zurich-asuransi-indonesia-zurich-insurance-sede-ticino-lugano-rq51ra"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "TI"
+  },
+  "id|zurich.com|822863302": {
+    "canonicalSlug": "business-analista-p-c-retail-m-w-d-zurich-insurance-sede-ticino-ticino",
+    "slugByLocale": {
+      "it": "business-analista-p-c-retail-m-w-d-zurich-insurance-sede-ticino-ticino",
+      "de": "business-analyst-p-c-retail-m-w-d-zurich-insurance-sede-ticino-koln-teilzeit-oder-vollzeit-katina-heeg-freut-sich-auf-deine-bewerbu-9yhcg7",
+      "fr": "business-analyste-p-c-retail-m-w-d-zurich-insurance-sede-ticino-ticino"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1354256957": {
+    "canonicalSlug": "software-developer-data-fluente-tedesco-m-f-d-zurich-insurance-sede-ticino-ticino",
+    "slugByLocale": {
+      "it": "software-developer-data-fluente-tedesco-m-f-d-zurich-insurance-sede-ticino-ticino",
+      "de": "software-entwickler-data-german-fluent-m-w-d-zurich-insurance-sede-ticino-koln-teilzeit-oder-vollzeit-katina-heeg-freut-sich-auf-de-rphbja",
+      "fr": "donnees-sur-les-developpeurs-de-logiciels-en-allemand-m-f-d-zurich-insurance-sede-ticino-ticino"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1354266857": {
+    "canonicalSlug": "ai-senior-ingegnere-zurich-insurance-sede-ticino-2050-and-has-the-highest-possible-esg-rating-from-msci-in-roxjom",
+    "slugByLocale": {
+      "it": "ai-senior-ingegnere-zurich-insurance-sede-ticino-2050-and-has-the-highest-possible-esg-rating-from-msci-in-roxjom",
+      "en": "ai-senior-engineer-zurich-insurance-sede-ticino-2050-and-has-the-highest-possible-esg-rating-from-msci-in-roxjom",
+      "de": "ai-senior-ingenieur-zurich-insurance-sede-ticino-2050-and-has-the-highest-possible-esg-rating-from-msci-in-roxjom",
+      "fr": "ai-senior-ingenieur-zurich-insurance-sede-ticino-2050-and-has-the-highest-possible-esg-rating-from-msci-in-roxjom"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1356952857": {
+    "canonicalSlug": "responsabile-business-liaison-sales-quality-zurich-insurance-sede-ticino-lugano-4yk0zc",
+    "slugByLocale": {
+      "it": "responsabile-business-liaison-sales-quality-zurich-insurance-sede-ticino-lugano-4yk0zc",
+      "en": "head-of-business-liaison-sales-quality-zurich-insurance-sede-ticino-lugano-4yk0zc",
+      "de": "leiter-business-liaison-sales-qualitat-zurich-insurance-sede-ticino-lugano-4yk0zc",
+      "fr": "responsable-business-liaison-sales-qualite-zurich-insurance-sede-ticino-lugano-4yk0zc"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "TI"
+  },
+  "id|zurich.com|827180202": {
+    "canonicalSlug": "marketing-specialista-penang-zurich-insurance-sede-ticino-lugano-9130bb",
+    "slugByLocale": {
+      "it": "marketing-specialista-penang-zurich-insurance-sede-ticino-lugano-9130bb",
+      "en": "marketing-specialist-penang-zurich-insurance-sede-ticino-lugano-9130bb",
+      "de": "marketing-spezialist-penang-zurich-insurance-sede-ticino-lugano-9130bb",
+      "fr": "marketing-specialiste-penang-zurich-insurance-sede-ticino-lugano-9130bb"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "TI"
+  },
+  "id|zurich.com|785711102": {
+    "canonicalSlug": "policy-servicing-analista-system-support-projects-zurich-insurance-sede-ticino-lugano-rur2g1",
+    "slugByLocale": {
+      "it": "policy-servicing-analista-system-support-projects-zurich-insurance-sede-ticino-lugano-rur2g1",
+      "en": "policy-servicing-analyst-system-support-projects-zurich-insurance-sede-ticino-lugano-rur2g1",
+      "de": "policy-servicing-analyst-systemunterstutzung-projekte-zurich-insurance-sede-ticino-lugano",
+      "fr": "policy-servicing-analyste-system-support-projects-zurich-insurance-sede-ticino-lugano-rur2g1"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "TI"
+  },
+  "id|zurich.com|1328999957": {
+    "canonicalSlug": "formazione-amministratore-delegato-zurich-insurance-sede-ticino-lugano",
+    "slugByLocale": {
+      "it": "formazione-amministratore-delegato-zurich-insurance-sede-ticino-lugano",
+      "en": "training-admin-executive-zurich-insurance-sede-ticino-lugano-ixww8r",
+      "de": "schulung-admin-executive-zurich-insurance-sede-ticino-lugano",
+      "fr": "formation-administrateur-executif-zurich-insurance-sede-ticino-lugano"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "TI"
+  },
+  "id|zurich.com|827210202": {
+    "canonicalSlug": "attuario-dei-prezzi-zurich-insurance-sede-ticino-lugano",
+    "slugByLocale": {
+      "it": "attuario-dei-prezzi-zurich-insurance-sede-ticino-lugano",
+      "en": "pricing-actuary-zurich-insurance-sede-ticino-lugano-9ea2jz",
+      "de": "preisversicherungsmathematiker-zurich-insurance-sede-ticino-lugano",
+      "fr": "actuaire-de-tarification-zurich-insurance-sede-ticino-lugano"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "TI"
+  },
+  "id|zurich.com|1357077257": {
+    "canonicalSlug": "multinational-service-specialista-zurich-insurance-sede-ticino-ticino",
+    "slugByLocale": {
+      "it": "multinational-service-specialista-zurich-insurance-sede-ticino-ticino",
+      "en": "multinational-service-specialist-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambition-and-desire-to-be-feqdbt",
+      "de": "multinational-service-spezialist-zurich-insurance-sede-ticino-ticino",
+      "fr": "multinational-service-specialiste-zurich-insurance-sede-ticino-ticino"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1359575657": {
+    "canonicalSlug": "regional-income-development-executive-zurich-insurance-sede-ticino-lugano",
+    "slugByLocale": {
+      "it": "regional-income-development-executive-zurich-insurance-sede-ticino-lugano",
+      "en": "regional-income-development-executive-zurich-insurance-sede-ticino-lugano-nwe78k",
+      "fr": "direction-regionale-du-developpement-du-revenu-zurich-insurance-sede-ticino-lugano-7a6d52"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "TI"
+  },
+  "id|zurich.com|1362297357": {
+    "canonicalSlug": "farms-business-development-coordinatore-12-month-ftc-wexford-hybrid-zurich-insurance-sede-ticino-is-wexford-based-but-occasional-travel-may-s6fq0c",
+    "slugByLocale": {
+      "it": "farms-business-development-coordinatore-12-month-ftc-wexford-hybrid-zurich-insurance-sede-ticino-is-wexford-based-but-occasional-travel-may-s6fq0c",
+      "en": "farms-business-development-coordinator-12-month-ftc-wexford-hybrid-zurich-insurance-sede-ticino-is-wexford-based-but-occasional-travel-may-b-s6fq0c",
+      "de": "farms-business-development-koordinator-12-month-ftc-wexford-hybrid-zurich-insurance-sede-ticino-is-wexford-based-but-occasional-travel-may-b-s6fq0c",
+      "fr": "farms-business-development-coordinateur-12-month-ftc-wexford-hybrid-zurich-insurance-sede-ticino-is-wexford-based-but-occasional-travel-may-s6fq0c"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|zurich.com|1362308957": {
+    "canonicalSlug": "claims-finanza-consulente-capo-team-zurich-insurance-sede-ticino-lugano-rubhip",
+    "slugByLocale": {
+      "it": "claims-finanza-consulente-capo-team-zurich-insurance-sede-ticino-lugano-rubhip",
+      "en": "claims-finance-consultant-team-lead-zurich-insurance-sede-ticino-lugano-rubhip",
+      "de": "claims-finanzen-berater-teamleiter-zurich-insurance-sede-ticino-lugano-rubhip",
+      "fr": "claims-finance-consultant-chef-d-equipe-zurich-insurance-sede-ticino-lugano-rubhip"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "TI"
+  },
+  "id|zurich.com|1359569157": {
+    "canonicalSlug": "risk-engineering-consulente-zurich-insurance-sede-ticino-lugano-nwvjla",
+    "slugByLocale": {
+      "it": "risk-engineering-consulente-zurich-insurance-sede-ticino-lugano-nwvjla",
+      "en": "risk-engineering-consultant-zurich-insurance-sede-ticino-lugano-nwvjla",
+      "de": "risk-engineering-berater-zurich-insurance-sede-ticino-lugano-nwvjla",
+      "fr": "conseiller-en-genie-des-risques-zurich-insurance-sede-ticino-lugano"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "TI"
+  },
+  "id|solique.ch|4029872": {
+    "canonicalSlug": "sicherheitsbeauftragte-der-flughafenpolizei-kantonale-verwaltung-zurich-zurich-flughafen",
+    "slugByLocale": {
+      "de": "sicherheitsbeauftragte-der-flughafenpolizei-kanton-zuerich-zurich-flughafen",
+      "it": "sicherheitsbeauftragte-der-flughafenpolizei-kantonale-verwaltung-zurich-zurich-flughafen",
+      "en": "sicherheitsbeauftragte-der-flughafenpolizei-kantonale-verwaltung-zurich-zurich-flughafen",
+      "fr": "sicherheitsbeauftragte-der-flughafenpolizei-kantonale-verwaltung-zurich-zurich-flughafen"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "ZH"
+  },
+  "url|https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html": {
+    "canonicalSlug": "soccorritore-a-a-tempo-parziale-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
+    "slugByLocale": {
+      "it": "soccorritore-a-a-tempo-parziale-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
+      "en": "part-time-emergency-medical-technician-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
+      "de": "rettungssanitater-in-auf-teilzeitbasis-csvm-mustair-mustair",
+      "fr": "technicien-ne-en-soins-d-urgence-a-temps-partiel-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "GR"
+  },
+  "url|https://www.csvm.ch/de/aktuelles/pflegehelfer-in-srk-80-100.html": {
+    "canonicalSlug": "assistente-infermieristico-srk-80-100-center-da-sanda-val-mustair-csvm-sta",
+    "slugByLocale": {
+      "it": "assistente-infermieristico-srk-80-100-center-da-sanda-val-mustair-csvm-sta",
+      "en": "pflegehelfer-in-srk-80-100-csvm-mustair-mustair",
+      "de": "pflegehelfer-in-srk-80-100-csvm-mustair-mustair",
+      "fr": "assistant-infirmier-srk-80-100-center-da-sanda-val-mustair-csvm-sta"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "GR"
+  },
+  "url|https://www.csvm.ch/de/aktuelles/sommerpraktikum-im-pflegeheim.html": {
+    "canonicalSlug": "sommerpraktikum-im-pflegeheim-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
+    "slugByLocale": {
+      "it": "sommerpraktikum-im-pflegeheim-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
+      "en": "summer-internship-in-a-nursing-home-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
+      "de": "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair",
+      "fr": "stage-d-ete-a-la-maison-de-retraite-center-da-sanda-val-mustair-csvm-sta"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "GR"
+  },
+  "url|https://www.csvm.ch/de/aktuelles/lehrstellen-2027.html": {
+    "canonicalSlug": "applicazioni-2027-center-da-sanda-val-mustair-csvm-sta",
+    "slugByLocale": {
+      "it": "applicazioni-2027-center-da-sanda-val-mustair-csvm-sta",
+      "en": "apprentices-2027-center-da-sanda-val-mustair-csvm-sta",
+      "de": "lehrstellen-2027-csvm-mustair-mustair",
+      "fr": "apprentis-2027-center-da-sanda-val-mustair-csvm-sta"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "GR"
+  },
+  "url|https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex-80-100.html": {
+    "canonicalSlug": "linea-operativa-spitex-80-100-center-da-sanda-val-mustair-csvm-sta",
+    "slugByLocale": {
+      "it": "linea-operativa-spitex-80-100-center-da-sanda-val-mustair-csvm-sta",
+      "en": "operational-line-spitex-80-100-center-da-sanda-val-mustair-csvm-sta",
+      "de": "einsatzleitung-spitex-80-100-csvm-mustair-mustair",
+      "fr": "ligne-operationnelle-spitex-80-100-center-da-sanda-val-mustair-csvm-sta"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "GR"
+  },
+  "url|https://www.csvm.ch/de/aktuelles/dipl-pflegefachperson-hf.html": {
+    "canonicalSlug": "dipl-professionista-hf-center-da-sanda-val-mustair-csvm-sta",
+    "slugByLocale": {
+      "it": "dipl-professionista-hf-center-da-sanda-val-mustair-csvm-sta",
+      "en": "dipl-pflegefachperson-hf-csvm-mustair-mustair",
+      "de": "dipl-pflegefachperson-hf-csvm-mustair-mustair",
+      "fr": "dipl-soins-professionnels-hf-center-da-sanda-val-mustair-csvm-sta"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "GR"
+  },
+  "id|migros.ch|28b87718-fbc7-4e75-ac13-433dd9ba525c": {
+    "canonicalSlug": "koch-kochin-migros-restaurant-langenthal-dp2jsy",
+    "slugByLocale": {
+      "de": "koch-kochin-migros-restaurant-langenthal-dp2jsy"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BE"
+  },
+  "id|migros.ch|d6760fc0-6c77-4e39-90d9-6217d6f7b15d": {
+    "canonicalSlug": "leiter-in-produkt-management-nikotinprodukte-denner-ag-zurich",
+    "slugByLocale": {
+      "it": "leiter-in-produkt-management-nikotinprodukte-denner-ag-zurich",
+      "de": "leiter-in-produkt-management-nikotinprodukte-denner-ag-zurich-z0rgfe"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "ZH"
+  },
+  "id|mobiliar.ch|1165149555": {
+    "canonicalSlug": "schadenspezialist-m-w-d-agenzia-generale-affoltern-am-albis-die-mobiliar-affoltern",
+    "slugByLocale": {
+      "de": "schadenspezialist-w-m-d-generalagentur-affoltern-am-albis-mobiliar-ch",
+      "it": "schadenspezialist-m-w-d-agenzia-generale-affoltern-am-albis-die-mobiliar-affoltern"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "ZH"
+  },
+  "id|mobiliar.ch|1165082955": {
+    "canonicalSlug": "specialiste-en-gestion-de-la-sante-en-entreprise-f-h-d-mobiliar-ch",
+    "slugByLocale": {
+      "fr": "specialiste-en-gestion-de-la-sante-en-entreprise-f-h-d-mobiliar-ch"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "JU"
+  },
+  "id|mobiliar.ch|1165082855": {
+    "canonicalSlug": "fachspezialist-bgm-w-m-d-mobiliar-ch",
+    "slugByLocale": {
+      "de": "fachspezialist-bgm-w-m-d-mobiliar-ch"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BE"
+  },
+  "id|vd.ch|#5458": {
+    "canonicalSlug": "agente-di-detenzione-etat-de-vaud-administration-cantonale-vaudoise-orbe",
+    "slugByLocale": {
+      "it": "agente-di-detenzione-etat-de-vaud-administration-cantonale-vaudoise-orbe",
+      "de": "detentionsagent-in-etat-de-vaud-administration-cantonale-vaudoise-orbe",
+      "fr": "agent-e-de-detention-etat-de-vaud-orbe"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5515": {
+    "canonicalSlug": "assistente-al-direttore-dagri-responsabile-strategia-economia-rurale-etat-de-vaud-administration-cantonale-vaudoise",
+    "slugByLocale": {
+      "it": "assistente-al-direttore-dagri-responsabile-strategia-economia-rurale-etat-de-vaud-administration-cantonale-vaudoise",
+      "en": "assistant-to-the-director-dagri-responsible-for-strategy-rural-economy-etat-de-vaud-administration-cantonale-vaudoise",
+      "de": "assistenz-des-direktors-dagri-verantwortlicher-fur-strategie-landliche-wirtschaft-etat-de-vaud-administration-cantonale",
+      "fr": "adjoint-e-au-directeur-dagri-responsable-strategie-economie-rurale-etat-de-vaud-morges"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5495": {
+    "canonicalSlug": "responsabile-di-squadra-profilo-psicologo-post-obbligatorio-etat-de-vaud-administration-cantonale-vaudoise-aigle",
+    "slugByLocale": {
+      "it": "responsabile-di-squadra-profilo-psicologo-post-obbligatorio-etat-de-vaud-administration-cantonale-vaudoise-aigle",
+      "en": "team-leader-post-compulsory-education-psychologist-profile-etat-de-vaud-administration-cantonale-vaudoise-aigle",
+      "de": "teamleiter-profil-psychologe-in-der-nachobligatorischen-bildung-etat-de-vaud-administration-cantonale-vaudoise-aigle",
+      "fr": "responsable-d-equipe-profil-psychologue-post-obligatoire-etat-de-vaud-aigle"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5564": {
+    "canonicalSlug": "assistente-rh-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+    "slugByLocale": {
+      "it": "assistente-rh-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "de": "hr-assistent-in-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "fr": "assistant-e-rh-etat-de-vaud-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5591": {
+    "canonicalSlug": "direttore-dell-ente-di-accoglienza-migrante-vaudiano-evam-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+    "slugByLocale": {
+      "it": "direttore-dell-ente-di-accoglienza-migrante-vaudiano-evam-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "en": "director-of-the-vaudian-migrant-reception-institution-evam-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "de": "direktor-der-waadischen-migrantenaufnahmeeinrichtung-evam-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "fr": "directeur-trice-de-l-etablissement-vaudois-d-accueil-des-migrants-evam-etat-de-vaud"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5606": {
+    "canonicalSlug": "responsabile-laboratorio-igv-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+    "slugByLocale": {
+      "it": "responsabile-laboratorio-igv-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "en": "laboratory-manager-igv-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "de": "laborleiter-igv-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "fr": "responsable-de-laboratoire-igv-etat-de-vaud-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5593": {
+    "canonicalSlug": "analista-finanziario-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+    "slugByLocale": {
+      "it": "analista-finanziario-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "en": "financial-analyst-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "de": "analyste-financier-ere-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "fr": "analyste-financier-ere-etat-de-vaud-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5590": {
+    "canonicalSlug": "segretario-esecutivo-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+    "slugByLocale": {
+      "it": "segretario-esecutivo-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+      "en": "executive-secretary-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+      "de": "exekutivsekretar-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+      "fr": "secretaire-de-direction-etat-de-vaud-renens-vd"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5318": {
+    "canonicalSlug": "capo-del-gruppo-di-protezione-degli-adulti-etat-de-vaud-administration-cantonale-vaudoise-vevey",
+    "slugByLocale": {
+      "it": "capo-del-gruppo-di-protezione-degli-adulti-etat-de-vaud-administration-cantonale-vaudoise-vevey",
+      "en": "head-of-the-adult-protection-group-etat-de-vaud-administration-cantonale-vaudoise-vevey",
+      "de": "leiter-der-erwachsenenschutzgruppe-etat-de-vaud-administration-cantonale-vaudoise-vevey",
+      "fr": "chef-fe-de-groupe-de-la-protection-de-l-adulte-etat-de-vaud-vevey"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5588": {
+    "canonicalSlug": "logopedista-della-scuola-etat-de-vaud-administration-cantonale-vaudoise-crassier",
+    "slugByLocale": {
+      "it": "logopedista-della-scuola-etat-de-vaud-administration-cantonale-vaudoise-crassier",
+      "en": "school-logopedist-etat-de-vaud-administration-cantonale-vaudoise-crassier",
+      "de": "schullogopedist-etat-de-vaud-administration-cantonale-vaudoise-crassier",
+      "fr": "logopediste-en-milieu-scolaire-etat-de-vaud-crassier"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5641": {
+    "canonicalSlug": "direttore-delle-risorse-umane-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+    "slugByLocale": {
+      "it": "direttore-delle-risorse-umane-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "en": "director-of-human-resources-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "de": "direktor-fur-human-resources-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "fr": "directeur-trice-des-ressources-humaines-etat-de-vaud-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5635": {
+    "canonicalSlug": "capo-dell-ispettorato-fitosanitario-plant-primary-production-control-etat-de-vaud-administration-cantonale-vaudoise",
+    "slugByLocale": {
+      "it": "capo-dell-ispettorato-fitosanitario-plant-primary-production-control-etat-de-vaud-administration-cantonale-vaudoise",
+      "en": "head-of-phytosanitary-inspectorate-plant-primary-production-control-etat-de-vaud-administration-cantonale-vaudoise",
+      "de": "leiter-der-pflanzengesundheitsinspektion-pflanzenprimarproduktionskontrolle-etat-de-vaud-administration-cantonale",
+      "fr": "responsable-de-l-inspectorat-phytosanitaire-du-controle-de-la-production-primaire-vegetale"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5629": {
+    "canonicalSlug": "amministratore-di-scuola-etat-de-vaud-administration-cantonale-vaudoise-morges",
+    "slugByLocale": {
+      "it": "amministratore-di-scuola-etat-de-vaud-administration-cantonale-vaudoise-morges",
+      "en": "school-administrator-etat-de-vaud-administration-cantonale-vaudoise-morges",
+      "de": "schulverwalter-etat-de-vaud-administration-cantonale-vaudoise-morges",
+      "fr": "administrateur-trice-d-ecole-etat-de-vaud-morges"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5571": {
+    "canonicalSlug": "logopedista-della-scuola-etat-de-vaud-administration-cantonale-vaudoise-moudon",
+    "slugByLocale": {
+      "it": "logopedista-della-scuola-etat-de-vaud-administration-cantonale-vaudoise-moudon",
+      "en": "school-logopedist-etat-de-vaud-administration-cantonale-vaudoise-moudon",
+      "de": "schullogopedist-etat-de-vaud-administration-cantonale-vaudoise-moudon",
+      "fr": "logopediste-en-milieu-scolaire-etat-de-vaud-moudon"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5643": {
+    "canonicalSlug": "ingegnere-di-sicurezza-cfst-esperto-di-sicurezza-sul-lavoro-e-protezione-della-salute-etat-de-vaud-administration",
+    "slugByLocale": {
+      "it": "ingegnere-di-sicurezza-cfst-esperto-di-sicurezza-sul-lavoro-e-protezione-della-salute-etat-de-vaud-administration",
+      "en": "safety-engineer-cfst-expert-on-occupational-safety-and-health-protection-etat-de-vaud-administration-cantonale-vaudoise",
+      "de": "safety-engineer-cfst-experte-fur-arbeitssicherheit-und-gesundheitsschutz-etat-de-vaud-administration-cantonale-vaudoise",
+      "fr": "ingenieur-e-de-securite-cfst-expert-e-de-la-securite-au-travail-et-de-la-protection-de-la"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5640": {
+    "canonicalSlug": "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+    "slugByLocale": {
+      "it": "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "en": "professional-curator-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "de": "professioneller-kurator-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "fr": "curateur-trice-professionnel-le-etat-de-vaud-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5642": {
+    "canonicalSlug": "coordinatore-del-personale-amministrativo-etat-de-vaud-administration-cantonale-vaudoise-morges",
+    "slugByLocale": {
+      "it": "coordinatore-del-personale-amministrativo-etat-de-vaud-administration-cantonale-vaudoise-morges",
+      "en": "coordinator-of-administrative-staff-etat-de-vaud-administration-cantonale-vaudoise-morges",
+      "de": "koordinator-des-verwaltungspersonals-etat-de-vaud-administration-cantonale-vaudoise-morges",
+      "fr": "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-morges"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5639": {
+    "canonicalSlug": "coordinatore-del-personale-amministrativo-etat-de-vaud-administration-cantonale-vaudoise-payerne",
+    "slugByLocale": {
+      "it": "coordinatore-del-personale-amministrativo-etat-de-vaud-administration-cantonale-vaudoise-payerne",
+      "en": "coordinator-of-administrative-staff-etat-de-vaud-administration-cantonale-vaudoise-payerne",
+      "de": "koordinator-des-verwaltungspersonals-etat-de-vaud-administration-cantonale-vaudoise-payerne",
+      "fr": "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-payerne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5536": {
+    "canonicalSlug": "riscaldamento-tecnico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+    "slugByLocale": {
+      "it": "riscaldamento-tecnico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "en": "heating-technician-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "de": "heizungstechniker-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "fr": "technicien-ne-specialiste-chauffage-etat-de-vaud-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5529": {
+    "canonicalSlug": "chef-fe-de-projet-architecte-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+    "slugByLocale": {
+      "it": "chef-fe-de-projet-architecte-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "en": "architectural-project-leader-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "de": "architektonischer-projektleiter-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "fr": "chef-fe-de-projet-architecte-etat-de-vaud-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5652": {
+    "canonicalSlug": "medico-pediatrico-dell-unita-di-promozione-della-salute-e-prevenzione-della-scuola-etat-de-vaud-administration-cantonale",
+    "slugByLocale": {
+      "it": "medico-pediatrico-dell-unita-di-promozione-della-salute-e-prevenzione-della-scuola-etat-de-vaud-administration-cantonale",
+      "en": "paediatric-doctor-from-the-health-promotion-and-school-prevention-unit-etat-de-vaud-administration-cantonale-vaudoise",
+      "de": "kinderarzt-aus-der-abteilung-gesundheitsforderung-und-schulpravention-etat-de-vaud-administration-cantonale-vaudoise",
+      "fr": "medecin-pediatre-referent-e-de-l-unite-de-promotion-de-la-sante-et-prevention-en-milieu"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5613": {
+    "canonicalSlug": "capo-di-audit-mandate-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+    "slugByLocale": {
+      "it": "capo-di-audit-mandate-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "en": "head-of-audit-mandate-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "de": "leiter-des-prufungsauftrags-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "fr": "chef-fe-de-mandat-d-audit-etat-de-vaud-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5663": {
+    "canonicalSlug": "educatori-di-bambini-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+    "slugByLocale": {
+      "it": "educatori-di-bambini-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "en": "child-educators-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "de": "kindererzieher-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "fr": "educateur-trice-de-l-enfance-etat-de-vaud-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5656": {
+    "canonicalSlug": "specialista-hr-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+    "slugByLocale": {
+      "it": "specialista-hr-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+      "en": "hr-specialist-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+      "de": "hr-spezialist-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+      "fr": "specialiste-rh-etat-de-vaud-renens-vd"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5674": {
+    "canonicalSlug": "commissione-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+    "slugByLocale": {
+      "it": "commissione-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "en": "legal-complaints-commission-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "de": "kommission-fur-rechtsbeschwerden-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "fr": "juriste-commission-des-plaintes-etat-de-vaud-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5673": {
+    "canonicalSlug": "teleconsulente-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+    "slugByLocale": {
+      "it": "teleconsulente-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "en": "teleadviser-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "de": "teleadvisor-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "fr": "teleconseiller-ere-etat-de-vaud-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5671": {
+    "canonicalSlug": "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-morges",
+    "slugByLocale": {
+      "it": "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-morges",
+      "en": "professional-curator-etat-de-vaud-administration-cantonale-vaudoise-morges",
+      "de": "professioneller-kurator-etat-de-vaud-administration-cantonale-vaudoise-morges",
+      "fr": "curateur-trice-professionnel-le-etat-de-vaud-morges"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5649": {
+    "canonicalSlug": "ufficio-per-le-prosecuzioni-e-la-bancarotta-etat-de-vaud-administration-cantonale-vaudoise-nyon",
+    "slugByLocale": {
+      "it": "ufficio-per-le-prosecuzioni-e-la-bancarotta-etat-de-vaud-administration-cantonale-vaudoise-nyon",
+      "en": "office-for-prosecutions-and-bankruptcy-etat-de-vaud-administration-cantonale-vaudoise-nyon",
+      "de": "amt-fur-anklage-und-konkurs-etat-de-vaud-administration-cantonale-vaudoise-nyon",
+      "fr": "huissier-ere-aspirant-e-huissier-ere-d-un-office-des-poursuites-et-faillites-etat-de-vaud"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5637": {
+    "canonicalSlug": "ispettore-industriale-etat-de-vaud-administration-cantonale-vaudoise-epalinges",
+    "slugByLocale": {
+      "it": "ispettore-industriale-etat-de-vaud-administration-cantonale-vaudoise-epalinges",
+      "en": "industrial-inspector-etat-de-vaud-administration-cantonale-vaudoise-epalinges",
+      "de": "industrieinspektor-etat-de-vaud-administration-cantonale-vaudoise-epalinges",
+      "fr": "inspecteur-trice-specialise-e-dans-le-secteur-industriel-etat-de-vaud-epalinges"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5684": {
+    "canonicalSlug": "leader-del-progetto-rivitalizzazione-dei-biotopi-di-importanza-nazionale-etat-de-vaud-administration-cantonale-vaudoise",
+    "slugByLocale": {
+      "it": "leader-del-progetto-rivitalizzazione-dei-biotopi-di-importanza-nazionale-etat-de-vaud-administration-cantonale-vaudoise",
+      "en": "project-leader-revitalization-of-biotopes-of-national-importance-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "de": "projektleiter-revitalisierung-von-biotopen-von-nationaler-bedeutung-etat-de-vaud-administration-cantonale-vaudoise",
+      "fr": "chef-fe-projet-revitalisation-biotopes-d-importance-nationale-etat-de-vaud-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5680": {
+    "canonicalSlug": "segretario-dell-unita-etat-de-vaud-administration-cantonale-vaudoise-chavannes-renens",
+    "slugByLocale": {
+      "it": "segretario-dell-unita-etat-de-vaud-administration-cantonale-vaudoise-chavannes-renens",
+      "en": "secretary-of-unit-etat-de-vaud-administration-cantonale-vaudoise-chavannes-renens",
+      "de": "referatssekretar-etat-de-vaud-administration-cantonale-vaudoise-chavannes-renens",
+      "fr": "secretaire-d-unite-etat-de-vaud-chavannes-renens"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5676": {
+    "canonicalSlug": "infermiere-cantonali-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+    "slugByLocale": {
+      "it": "infermiere-cantonali-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "en": "cantonal-nurse-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "de": "kantonale-krankenschwester-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "fr": "infirmier-ere-cantonal-e-etat-de-vaud-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5677": {
+    "canonicalSlug": "assistente-e-applicazioni-dell-ufficio-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+    "slugByLocale": {
+      "it": "assistente-e-applicazioni-dell-ufficio-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "en": "office-assistant-and-applications-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "de": "assistent-e-bureautique-et-applications-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "fr": "assistant-e-bureautique-et-applications-etat-de-vaud-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5672": {
+    "canonicalSlug": "risposta-alle-applicazioni-hris-e-automazione-degli-uffici-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+    "slugByLocale": {
+      "it": "risposta-alle-applicazioni-hris-e-automazione-degli-uffici-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "en": "response-to-hris-applications-and-office-automation-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "de": "reaktion-auf-hris-anwendungen-und-buroautomation-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "fr": "repondant-e-applications-sirh-et-bureautique-etat-de-vaud-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5662": {
+    "canonicalSlug": "consigliere-etat-de-vaud-administration-cantonale-vaudoise-prilly",
+    "slugByLocale": {
+      "it": "consigliere-etat-de-vaud-administration-cantonale-vaudoise-prilly",
+      "en": "staff-counsellor-etat-de-vaud-administration-cantonale-vaudoise-prilly",
+      "de": "personalberater-etat-de-vaud-administration-cantonale-vaudoise-prilly",
+      "fr": "conseiller-ere-en-personnel-etat-de-vaud-prilly"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5660": {
+    "canonicalSlug": "responsabile-dei-diritti-politici-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+    "slugByLocale": {
+      "it": "responsabile-dei-diritti-politici-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "en": "manager-of-political-rights-issues-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "de": "manager-fur-politische-rechte-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "fr": "gestionnaire-de-dossiers-specialises-en-droits-politiques-etat-de-vaud-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5381": {
+    "canonicalSlug": "ispettore-trice-del-lavoro-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+    "slugByLocale": {
+      "it": "ispettore-trice-del-lavoro-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "en": "labor-inspector-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "de": "arbeitsinspektor-in-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "fr": "inspecteur-trice-du-travail-etat-de-vaud-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|vd.ch|#5551": {
+    "canonicalSlug": "capo-unita-di-assicurazione-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+    "slugByLocale": {
+      "it": "capo-unita-di-assicurazione-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "en": "head-of-unit-insurance-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "de": "leiter-der-einheit-versicherung-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "fr": "chef-fe-d-unite-assurances-etat-de-vaud-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|solique.ch|3998235": {
+    "canonicalSlug": "fage-efz-im-pflegezentrum-kurzfristig-einsteigen-viel-bewirken-adullam-basel",
+    "slugByLocale": {
+      "en": "fage-efz-in-the-care-center-get-in-at-short-notice-achieve-a-lot-adullam-stiftung-basel",
+      "de": "fage-efz-im-pflegezentrum-kurzfristig-einsteigen-viel-bewirken-adullam-basel",
+      "fr": "fage-efz-dans-le-centre-de-soins-entrer-a-court-terme-obtenir-beaucoup-adullam-stiftung-basel"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BS"
+  },
+  "id|solique.ch|4029978": {
+    "canonicalSlug": "fage-cfc-im-adullam-spital-privatstation-adullam-stiftung-riehen",
+    "slugByLocale": {
+      "it": "fage-cfc-im-adullam-spital-privatstation-adullam-stiftung-riehen",
+      "en": "fage-efz-in-adullam-hospital-private-station-adullam-stiftung-riehen",
+      "de": "fage-efz-im-adullam-spital-privatstation-adullam-riehen",
+      "fr": "fage-efz-a-l-hopital-d-adullam-station-privee-adullam-stiftung-riehen"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BS"
+  },
+  "id|solique.ch|3905084": {
+    "canonicalSlug": "stage-fms-6-mesi-adullam-stiftung-basel-und-riehen",
+    "slugByLocale": {
+      "it": "stage-fms-6-mesi-adullam-stiftung-basel-und-riehen",
+      "en": "fms-internship-6-months-adullam-stiftung-basel-und-riehen",
+      "de": "fms-praktikum-6-monate-adullam-basel-und-riehen",
+      "fr": "stage-du-fms-6-mois-adullam-stiftung-basel-und-riehen"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BS"
+  },
+  "id|solique.ch|4029980": {
+    "canonicalSlug": "dipl-professionista-hf-fh-adullam-stiftung-basel",
+    "slugByLocale": {
+      "it": "dipl-professionista-hf-fh-adullam-stiftung-basel",
+      "en": "dipl-care-professional-hf-fh-adullam-stiftung-basel",
+      "de": "dipl-pflegefachperson-hf-fh-adullam-basel",
+      "fr": "dipl-soins-professionnels-hf-fh-adullam-stiftung-basel"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BS"
+  },
+  "id|solique.ch|3997539": {
+    "canonicalSlug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-per-pooleinsatze-akutpflege-adullam-stiftung-basel-und-riehen",
+    "slugByLocale": {
+      "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-per-pooleinsatze-akutpflege-adullam-stiftung-basel-und-riehen",
+      "en": "dipl-nursing-specialist-nursing-specialist-hf-fh-for-pool-operations-acute-care-adullam-stiftung-basel-und-riehen",
+      "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-fur-pooleinsatze-akutpflege-adullam-basel-und",
+      "fr": "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-hf-fh-pour-les-operations-en-piscine-adullam"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BS"
+  },
+  "id|solique.ch|4029955": {
+    "canonicalSlug": "dipl-infermiera-infermiera-specialista-hf-fh-adullam-stiftung-riehen",
+    "slugByLocale": {
+      "it": "dipl-infermiera-infermiera-specialista-hf-fh-adullam-stiftung-riehen",
+      "en": "dipl-nurse-nurse-specialist-hf-fh-adullam-stiftung-riehen",
+      "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-adullam-riehen",
+      "fr": "dipl-infirmiere-infirmiere-specialiste-hf-fh-adullam-stiftung-riehen"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BS"
+  },
+  "id|solique.ch|3868124": {
+    "canonicalSlug": "medici-assistenti-adullam-stiftung-basel-und-riehen",
+    "slugByLocale": {
+      "it": "medici-assistenti-adullam-stiftung-basel-und-riehen",
+      "en": "assistant-doctors-assistant-doctors-adullam-stiftung-basel-und-riehen",
+      "de": "assistenzarztinnen-assistenzarzte-adullam-basel-und-riehen",
+      "fr": "medecins-adjoints-medecins-adjoints-adullam-stiftung-basel-und-riehen"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BS"
+  },
+  "id|galenica.com|3118645": {
+    "canonicalSlug": "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-bern",
+    "slugByLocale": {
+      "it": "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-bern",
+      "en": "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-bern"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BE"
+  },
+  "id|galenica.com|3121014": {
+    "canonicalSlug": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
+    "slugByLocale": {
+      "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
+      "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern-bc36c2"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BE"
+  },
+  "id|galenica.com|3123521": {
+    "canonicalSlug": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
+    "slugByLocale": {
+      "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
+      "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern-a4522d"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BE"
+  },
+  "id|galenica.com|3123558": {
+    "canonicalSlug": "galenica-galenica-ag-drogistin-drogist-w-m-d-bern",
+    "slugByLocale": {
+      "en": "galenica-galenica-ag-drogistin-drogist-w-m-d-bern",
+      "fr": "drogistine-drogist-p-m-d-galenica-ag-galenica-bern"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BE"
+  },
+  "id|galenica.com|3123559": {
+    "canonicalSlug": "galenica-galenica-ag-studentische-aushilfe-w-m-d-bern",
+    "slugByLocale": {
+      "en": "galenica-galenica-ag-studentische-aushilfe-w-m-d-bern",
+      "fr": "etudiante-auchulfe-w-m-d-galenica-ag-galenica-bern"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BE"
+  },
+  "id|galenica.com|3123584": {
+    "canonicalSlug": "galenica-galenica-ag-consulente-clienti-servizio-esterno-bern",
+    "slugByLocale": {
+      "en": "galenica-galenica-ag-consulente-clienti-servizio-esterno-bern"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BE"
+  },
+  "id|galenica.com|3123585": {
+    "canonicalSlug": "galenica-galenica-ag-sachbearbeiter-kundenservice-retouren-w-m-d-bern",
+    "slugByLocale": {
+      "en": "galenica-galenica-ag-sachbearbeiter-kundenservice-retouren-w-m-d-bern",
+      "fr": "sachbearbeiter-kundenservice-retour-w-m-d-galenica-ag-galenica-bern"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BE"
+  },
+  "id|galenica.com|3123606": {
+    "canonicalSlug": "collaboratore-trice-mitarbeiterin-koordination-e-administration-aussendienst-m-w-d-galenica-ag-galenica-bern",
+    "slugByLocale": {
+      "it": "collaboratore-trice-mitarbeiterin-koordination-e-administration-aussendienst-m-w-d-galenica-ag-galenica-bern",
+      "en": "galenica-galenica-ag-mitarbeiter-mitarbeiterin-koordination-und-administration-aussendienst-w-m-d-bern"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BE"
+  },
+  "id|galenica.com|3124015": {
+    "canonicalSlug": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
+    "slugByLocale": {
+      "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
+      "fr": "pharma-assistant-pharma-assistant-im-kundenservicecenter-p-m-d-galenica-ag-galenica-bern"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BE"
+  },
+  "id|galenica.com|3124383": {
+    "canonicalSlug": "galenica-galenica-ag-customer-consultant-w-m-d-region-zurich-bern",
+    "slugByLocale": {
+      "en": "galenica-galenica-ag-customer-consultant-w-m-d-region-zurich-bern"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BE"
+  },
+  "id|galenica.com|3124474": {
+    "canonicalSlug": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
+    "slugByLocale": {
+      "en": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
+      "de": "assistentin-und-apotheke-f-h-d-galenica-ag-galenica-bern-8cfc14",
+      "fr": "assistant-en-pharmacie-f-h-d-galenica-ag-galenica-bern-8cfc14"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BE"
+  },
+  "id|galenica.com|3124590": {
+    "canonicalSlug": "sachbearbeiter-sachbearbeiterin-debitorenbuchhaltung-e-inkasso-m-w-d-galenica-ag-galenica-bern",
+    "slugByLocale": {
+      "it": "sachbearbeiter-sachbearbeiterin-debitorenbuchhaltung-e-inkasso-m-w-d-galenica-ag-galenica-bern",
+      "en": "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-debitorenbuchhaltung-und-inkasso-w-m-d-bern"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BE"
+  },
+  "id|galenica.com|3124729": {
+    "canonicalSlug": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
+    "slugByLocale": {
+      "en": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
+      "de": "apotheker-apothekerin-w-m-d-galenica-galenica-bern"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BE"
+  },
+  "id|galenica.com|3124812": {
+    "canonicalSlug": "galenica-galenica-apotheker-w-m-d-bern",
+    "slugByLocale": {
+      "en": "galenica-galenica-apotheker-w-m-d-bern",
+      "de": "apotheker-w-m-d-galenica-galenica-bern",
+      "fr": "apothequer-m-j-galenica-galenica-bern"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BE"
+  },
+  "id|galenica.com|3124814": {
+    "canonicalSlug": "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-bern",
+    "slugByLocale": {
+      "it": "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-bern",
+      "en": "galenica-galenica-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-bern"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BE"
+  },
+  "id|galenica.com|3125187": {
+    "canonicalSlug": "galenica-galenica-ag-partner-management-lead-w-m-d-bern",
+    "slugByLocale": {
+      "en": "galenica-galenica-ag-partner-management-lead-w-m-d-bern",
+      "fr": "responsable-de-la-gestion-des-partenaires-p-m-d-galenica-ag-galenica-bern"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BE"
+  },
+  "id|galenica.com|3125351": {
+    "canonicalSlug": "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-frontoffice-w-m-d-bern",
+    "slugByLocale": {
+      "en": "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-frontoffice-w-m-d-bern",
+      "fr": "siege-social-galenica-ag-galenica-bern"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BE"
+  },
+  "id|galenica.com|12692168": {
+    "canonicalSlug": "galenica-amavita-assistente-di-farmacia-afc-wabern",
+    "slugByLocale": {
+      "it": "galenica-amavita-assistente-di-farmacia-afc-wabern",
+      "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-wabern",
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-wabern"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|galenica.com|12692171": {
+    "canonicalSlug": "galenica-amavita-assistente-di-farmacia-afc-ilanz",
+    "slugByLocale": {
+      "it": "galenica-amavita-assistente-di-farmacia-afc-ilanz",
+      "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-ilanz",
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-ilanz"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|galenica.com|12692193": {
+    "canonicalSlug": "galenica-amavita-assistente-di-farmacia-afc-urtenen-schonbuhl-be",
+    "slugByLocale": {
+      "it": "galenica-amavita-assistente-di-farmacia-afc-urtenen-schonbuhl-be",
+      "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-urtenen-schonbuhl-be",
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-urtenen-schonbuhl-be"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "BE"
+  },
+  "id|galenica.com|12692195": {
+    "canonicalSlug": "galenica-amavita-assistente-di-farmacia-afc-cheseaux-lausanne",
+    "slugByLocale": {
+      "it": "galenica-amavita-assistente-di-farmacia-afc-cheseaux-lausanne",
+      "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-cheseaux-lausanne",
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-cheseaux-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|galenica.com|12692226": {
+    "canonicalSlug": "galenica-amavita-assistente-di-farmacia-afc-davos-dorf",
+    "slugByLocale": {
+      "it": "galenica-amavita-assistente-di-farmacia-afc-davos-dorf",
+      "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-davos-dorf",
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-davos-dorf"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "GR"
+  },
+  "id|galenica.com|12692262": {
+    "canonicalSlug": "galenica-amavita-assistente-di-farmacia-afc-kussnacht-am-rigi",
+    "slugByLocale": {
+      "it": "galenica-amavita-assistente-di-farmacia-afc-kussnacht-am-rigi",
+      "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-kussnacht-am-rigi",
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-kussnacht-am-rigi"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|galenica.com|12692283": {
+    "canonicalSlug": "galenica-amavita-assistente-di-farmacia-afc-le-lignon",
+    "slugByLocale": {
+      "it": "galenica-amavita-assistente-di-farmacia-afc-le-lignon",
+      "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-le-lignon",
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-le-lignon"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|galenica.com|126922861": {
+    "canonicalSlug": "galenica-amavita-assistente-di-farmacia-afc-crans-montana-1",
+    "slugByLocale": {
+      "it": "galenica-amavita-assistente-di-farmacia-afc-crans-montana-1",
+      "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-crans-montana-1",
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-crans-montana-1"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VS"
+  },
+  "id|galenica.com|126923401": {
+    "canonicalSlug": "galenica-amavita-assistente-di-farmacia-afc-wil-sg-1",
+    "slugByLocale": {
+      "it": "galenica-amavita-assistente-di-farmacia-afc-wil-sg-1",
+      "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-wil-sg-1",
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-wil-sg-1"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "SG"
+  },
+  "id|galenica.com|12692353": {
+    "canonicalSlug": "galenica-coop-vitality-assistente-di-farmacia-afc-haag",
+    "slugByLocale": {
+      "it": "galenica-coop-vitality-assistente-di-farmacia-afc-haag",
+      "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-haag",
+      "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-haag"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|galenica.com|12692355": {
+    "canonicalSlug": "galenica-coop-vitality-assistente-di-farmacia-afc-rickenbach-b-wil",
+    "slugByLocale": {
+      "it": "galenica-coop-vitality-assistente-di-farmacia-afc-rickenbach-b-wil",
+      "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-rickenbach-b-wil",
+      "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-rickenbach-b-wil"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|galenica.com|12692359": {
+    "canonicalSlug": "galenica-coop-vitality-assistente-di-farmacia-afc-glattpark-opfikon",
+    "slugByLocale": {
+      "it": "galenica-coop-vitality-assistente-di-farmacia-afc-glattpark-opfikon",
+      "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-glattpark-opfikon",
+      "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-glattpark-opfikon"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "ZH"
+  },
+  "id|galenica.com|12692370": {
+    "canonicalSlug": "galenica-coop-vitality-assistente-di-farmacia-afc-thalwil",
+    "slugByLocale": {
+      "it": "galenica-coop-vitality-assistente-di-farmacia-afc-thalwil",
+      "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-thalwil",
+      "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-thalwil"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "ZH"
+  },
+  "id|galenica.com|12692374": {
+    "canonicalSlug": "galenica-coop-vitality-assistente-di-farmacia-afc-fontainemelon",
+    "slugByLocale": {
+      "it": "galenica-coop-vitality-assistente-di-farmacia-afc-fontainemelon",
+      "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-fontainemelon",
+      "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-fontainemelon"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|galenica.com|12692413": {
+    "canonicalSlug": "galenica-coop-vitality-assistente-di-farmacia-afc-seewen-sz",
+    "slugByLocale": {
+      "it": "galenica-coop-vitality-assistente-di-farmacia-afc-seewen-sz",
+      "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-seewen-sz",
+      "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-seewen-sz"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "SO"
+  },
+  "id|galenica.com|12692414": {
+    "canonicalSlug": "galenica-coop-vitality-assistente-di-farmacia-afc-chur",
+    "slugByLocale": {
+      "it": "galenica-coop-vitality-assistente-di-farmacia-afc-chur",
+      "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-chur",
+      "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-chur"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "GR"
+  },
+  "id|galenica.com|12692429": {
+    "canonicalSlug": "galenica-coop-vitality-assistente-di-farmacia-afc-st-gallen-shopping-arena",
+    "slugByLocale": {
+      "it": "galenica-coop-vitality-assistente-di-farmacia-afc-st-gallen-shopping-arena",
+      "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-gallen-shopping-arena",
+      "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-st-gallen-shopping-arena"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "SG"
+  },
+  "id|galenica.com|12692473": {
+    "canonicalSlug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-romont",
+    "slugByLocale": {
+      "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-romont",
+      "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-romont",
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-romont"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|galenica.com|126924781": {
+    "canonicalSlug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-martigny-1",
+    "slugByLocale": {
+      "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-martigny-1",
+      "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-martigny-1",
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-martigny-1"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VS"
+  },
+  "id|galenica.com|126924871": {
+    "canonicalSlug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-villars-sur-glane-1",
+    "slugByLocale": {
+      "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-villars-sur-glane-1",
+      "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-villars-sur-glane-1",
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-villars-sur-glane-1"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "FR"
+  },
+  "id|galenica.com|12692497": {
+    "canonicalSlug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-romanel-s-lausanne",
+    "slugByLocale": {
+      "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-romanel-s-lausanne",
+      "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-romanel-s-lausanne",
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-romanel-s-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|galenica.com|12692510": {
+    "canonicalSlug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bussigny-lausanne",
+    "slugByLocale": {
+      "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bussigny-lausanne",
+      "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bussigny-lausanne",
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-bussigny-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|galenica.com|12692516": {
+    "canonicalSlug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-montagny-yverdon",
+    "slugByLocale": {
+      "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-montagny-yverdon",
+      "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-montagny-yverdon",
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-montagny-yverdon"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|galenica.com|12692531": {
+    "canonicalSlug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-blonay",
+    "slugByLocale": {
+      "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-blonay",
+      "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-blonay",
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-blonay"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|galenica.com|12692533": {
+    "canonicalSlug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-avry-sur-matran",
+    "slugByLocale": {
+      "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-avry-sur-matran",
+      "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-avry-sur-matran",
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-avry-sur-matran"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "FR"
+  },
+  "id|galenica.com|12692535": {
+    "canonicalSlug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-clarens",
+    "slugByLocale": {
+      "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-clarens",
+      "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-clarens",
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-clarens"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|galenica.com|12692542": {
+    "canonicalSlug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-cossonay-ville",
+    "slugByLocale": {
+      "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-cossonay-ville",
+      "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-cossonay-ville",
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-cossonay-ville"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|galenica.com|12692547": {
+    "canonicalSlug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-prilly-lausanne",
+    "slugByLocale": {
+      "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-prilly-lausanne",
+      "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-prilly-lausanne",
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-prilly-lausanne"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
+  },
+  "id|galenica.com|12692555": {
+    "canonicalSlug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-vesenaz",
+    "slugByLocale": {
+      "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-vesenaz",
+      "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-vesenaz",
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-vesenaz"
+    },
+    "createdAt": "2026-07-27",
+    "canton": "VD"
   }
 }
