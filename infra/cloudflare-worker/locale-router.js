@@ -411,6 +411,7 @@ const UNSUB_PROXIES = {
   '/disiscrivi-alert': `${CF_FN_BASE}/jobAlertUnsubscribe`,
   '/disiscrivi-outreach': `${CF_FN_BASE}/outreachUnsubscribe`,
   '/disiscrivi-newsletter': `${CF_FN_BASE}/newsletterManageSubscription`,
+  '/disiscrivi-promemoria-salvati': `${CF_FN_BASE}/savedJobsDigestUnsubscribe`,
 };
 
 // Returns the upstream Cloud Function origin for an unsubscribe path (bare or

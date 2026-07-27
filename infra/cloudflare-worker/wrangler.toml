@@ -144,6 +144,18 @@ routes = [
   # `?action=…&email=…&token=…`, so a non-wildcard route would silently miss
   # all real traffic (#2611). Look-alike paths rejected by the in-code guard.
   { pattern = "frontaliereticino.ch/disiscrivi-newsletter*", zone_name = "frontaliereticino.ch" },
+  # Saved-jobs weekly digest one-click unsubscribe (RFC 8058). Same deliberate
+  # non-locale exception as /disiscrivi-alert above: the List-Unsubscribe header
+  # in digest emails MUST live on the sending domain (frontaliereticino.ch) or
+  # the URL↔From-domain mismatch trips spam filters. The Worker proxies it
+  # straight to the savedJobsDigestUnsubscribe Cloud Function (in-code
+  # UNSUB_PROXIES branch — method + query + body preserved for the one-click
+  # POST). Scoped to this channel only: it flips `users/{uid}.savedJobsDigest.
+  # optedOut`, never `newsletter_subscribers` or `job_alert_subscribers/*`.
+  # WILDCARD required: every emitted link carries `?uid=…&email=…&token=…`, so
+  # a non-wildcard route would silently miss all real traffic (#2611).
+  # Look-alike paths rejected by the in-code guard.
+  { pattern = "frontaliereticino.ch/disiscrivi-promemoria-salvati*", zone_name = "frontaliereticino.ch" },
   # NOTE: the /assets/* /data/* /og/* CDN-proxy routes were removed (2026-06-10).
   # Since #1665 the shard locale HTML references those static paths CDN-absolute
   # (cdn.frontaliereticino.ch/...), so the browser fetches them straight from the

@@ -19,6 +19,7 @@ const JobDetailJobAlertButton = lazyRetry(() => import('@/components/community/J
 const JobMatchAlertCta = lazyRetry(() => import('@/components/community/JobMatchAlertCta'));
 const JobBoardFilterAlertCta = lazyRetry(() => import('@/components/community/JobBoardFilterAlertCta'));
 const SavedJobsAlertNudge = lazyRetry(() => import('@/components/community/SavedJobsAlertNudge'));
+const SaveSignInPromptModal = lazyRetry(() => import('@/components/community/SaveSignInPromptModal'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
 const PartnerRecommendations = lazyRetry(() => import('@/components/shared/PartnerRecommendations'));
 import { reportCaughtError } from '@/services/errorReporter';
@@ -2210,6 +2211,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [savedJobs, setSavedJobs] = useState<SavedJobEntry[]>([]);
  const [showSavedOnly, setShowSavedOnly] = useState(false);
  const deferredShowSavedOnly = useDeferredValue(showSavedOnly);
+ // Account-gating follow-up: saving now requires a real Firebase login (no
+ // anonymous/email-capture fallback). An anonymous tap stashes the pending
+ // action here and opens SaveSignInPromptModal; the effect below replays it
+ // once authUser.uid becomes truthy.
+ const [saveAuthPromptOpen, setSaveAuthPromptOpen] = useState(false);
+ const pendingSaveJobRef = useRef<{ job: JobListing; surface: 'list' | 'detail' } | null>(null);
+ const pendingShowSavedOnlyRef = useRef(false);
  const [savedNudge, setSavedNudge] = useState<{ categoryLabel: string; cantonCode: string | null } | null>(null);
  // Once per SPA session: never re-arm the nudge after any show/dismiss cycle.
  const savedNudgeArmedRef = useRef(false);
@@ -2275,16 +2283,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const savedJobIds = useMemo(() => new Set(savedJobs.map((entry) => entry.id)), [savedJobs]);
 
- const handleToggleSave = useCallback((job: JobListing, surface: 'list' | 'detail' = 'list') => {
- const nowSaved = toggleSavedJob({
+ const performToggleSave = useCallback((job: JobListing, surface: 'list' | 'detail', uid: string) => {
+ const result = toggleSavedJob({
  id: job.id,
  slug: job.slug ?? null,
  title: job.title,
  company: job.company,
  canton: job.canton ?? null,
  category: job.category ?? null,
- });
- Analytics.trackEvent(nowSaved ? 'job_saved' : 'job_unsaved', {
+ }, uid);
+ Analytics.trackEvent(result === 'saved' ? 'job_saved' : 'job_unsaved', {
  job_id: job.id,
  job_canton: job.canton || '(none)',
  job_category: job.category || '(none)',
@@ -2293,10 +2301,57 @@ const JobBoard: React.FC<JobBoardProps> = ({
  });
  }, []);
 
+ // Account-gating (#4466 follow-up): anonymous tap never writes — stash the
+ // pending job + open the sign-in modal instead. authUser?.uid replay effect
+ // below fires the actual save once sign-in completes.
+ const handleToggleSave = useCallback((job: JobListing, surface: 'list' | 'detail' = 'list') => {
+ const uid = authUser?.uid ?? null;
+ if (!uid) {
+ pendingSaveJobRef.current = { job, surface };
+ setSaveAuthPromptOpen(true);
+ Analytics.trackEvent('save_signin_prompt_shown', { job_id: job.id, surface });
+ return;
+ }
+ performToggleSave(job, surface, uid);
+ }, [authUser?.uid, performToggleSave]);
+
  const handleToggleSaveFromList = useCallback(
  (job: JobListing) => handleToggleSave(job, 'list'),
  [handleToggleSave],
  );
+
+ // Replays the pending save (bookmark tap) or opens the saved-only filter
+ // (pill tap) once the sign-in modal reports a real authUser.uid — modal
+ // itself closes as a side effect (SocialSignInButtons renders null once
+ // signed in, so there's no completion callback to hook instead).
+ useEffect(() => {
+ if (!saveAuthPromptOpen) return;
+ const uid = authUser?.uid;
+ if (!uid) return;
+ setSaveAuthPromptOpen(false);
+ const pendingJob = pendingSaveJobRef.current;
+ pendingSaveJobRef.current = null;
+ if (pendingJob) {
+ Analytics.trackEvent('save_signin_prompt_completed', { job_id: pendingJob.job.id, surface: pendingJob.surface });
+ performToggleSave(pendingJob.job, pendingJob.surface, uid);
+ }
+ if (pendingShowSavedOnlyRef.current) {
+ pendingShowSavedOnlyRef.current = false;
+ Analytics.trackEvent('save_signin_prompt_completed', { surface: 'saved_filter_pill' });
+ setShowSavedOnly(true);
+ }
+ }, [authUser?.uid, saveAuthPromptOpen, performToggleSave]);
+
+ const handleSaveAuthPromptDismiss = useCallback(() => {
+ const pendingJob = pendingSaveJobRef.current;
+ Analytics.trackEvent(
+ 'save_signin_prompt_dismissed',
+ pendingJob ? { job_id: pendingJob.job.id, surface: pendingJob.surface } : { surface: 'saved_filter_pill' },
+ );
+ pendingSaveJobRef.current = null;
+ pendingShowSavedOnlyRef.current = false;
+ setSaveAuthPromptOpen(false);
+ }, []);
 
  // Track filter usage changes
  useEffect(() => {
@@ -5996,6 +6051,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  ) : null;
 
+ // Save account-gating sign-in prompt (#4466 follow-up). Deliberately
+ // separate from authGateModalJsx below — that one gates job-detail content
+ // unlock (real login OR email-capture OR crawler bypass); saving requires a
+ // real account only, no email fallback.
+ const saveAuthPromptJsx = saveAuthPromptOpen ? (
+ <Suspense fallback={null}>
+ <SaveSignInPromptModal locale={locale} onDismiss={handleSaveAuthPromptDismiss} />
+ </Suspense>
+ ) : null;
+
  const authGateModalJsx = authGateOpen ? (
  <div className="fixed inset-0 z-[90] flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); } }}>
  <div aria-hidden="true" className="absolute inset-0 bg-black/45 backdrop-blur-sm" />
@@ -8049,6 +8114,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </article>
  {jobDetailPromptJsx}
  {savedJobsNudgeJsx}
+ {saveAuthPromptJsx}
  </div>
  );
  }
@@ -8533,6 +8599,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </nav>
  {jobDetailPromptJsx}
  {savedJobsNudgeJsx}
+ {saveAuthPromptJsx}
  </div>
  );
  }
@@ -8814,6 +8881,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  type="button"
  onClick={() => {
  const next = !showSavedOnly;
+ if (next && !authUser?.uid) {
+ pendingShowSavedOnlyRef.current = true;
+ setSaveAuthPromptOpen(true);
+ Analytics.trackEvent('save_signin_prompt_shown', { surface: 'saved_filter_pill' });
+ return;
+ }
  setShowSavedOnly(next);
  if (next) {
  Analytics.trackEvent('saved_list_viewed', { saved_count: savedJobs.length });
@@ -9329,6 +9402,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {jobDetailPromptJsx}
  {savedJobsNudgeJsx}
+ {saveAuthPromptJsx}
 
  {authGateModalJsx}
 
