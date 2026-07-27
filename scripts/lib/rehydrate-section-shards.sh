@@ -103,8 +103,10 @@ rehydrate_section() {
 
     tmp="$RUNNER_TEMP/rehydrate-$section-$loc"
     rm -rf "$tmp"
+    owner="$(jq -r --arg s "$section" '.[$s] // "valerielinc-ops"' scripts/lib/section-shard-owners.json 2>/dev/null || echo valerielinc-ops)"
+    if [ -z "$owner" ] || [ "$owner" = "null" ]; then owner="valerielinc-ops"; fi
     if ! git clone --depth 1 --single-branch --branch main \
-         "https://github.com/valerielinc-ops/frontaliere-$section-$loc.git" "$tmp" 2>/dev/null; then
+         "https://github.com/$owner/frontaliere-$section-$loc.git" "$tmp" 2>/dev/null; then
       echo "::warning::$section-$loc shard clone failed — validators may flag $loc $section pages missing"
       continue
     fi
