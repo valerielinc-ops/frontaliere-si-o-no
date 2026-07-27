@@ -1,18 +1,100 @@
 {
   "key": "on-running",
   "label": "On Running",
-  "generatedAt": "2026-07-23T22:10:41.576Z",
-  "total": 42,
-  "newCount": 41,
+  "generatedAt": "2026-07-27T22:10:47.845Z",
+  "total": 83,
+  "newCount": 43,
   "updatedCount": 41,
   "removedCount": 1,
-  "unchangedCount": 1,
-  "durationMs": 5520,
-  "avgDurationMs": 5520,
+  "unchangedCount": 0,
+  "durationMs": 8280,
+  "avgDurationMs": 8280,
   "durationHistory": [
-    5520
+    8280
   ],
   "newJobs": [
+    {
+      "id": "on-running-483132585434",
+      "slug": "lead-project-manager-brand-product-assets-on-running-ch",
+      "company": "On Running",
+      "companyKey": "on-running",
+      "companyDomain": "on-running.com",
+      "title": "Lead - Project Manager, Brand & Product Assets",
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://boards.greenhouse.io/onrunning/jobs/8083302?gh_jid=8083302",
+      "source": "On Running Dedicated Parser (Greenhouse)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-27T22:10:40.012Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "streetAddress": "Förrlibuckstrasse 190",
+      "postalCode": "8005",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sportswear / Calzature sportive",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-24",
+      "applyUrl": "https://boards.greenhouse.io/onrunning/jobs/8083302?gh_jid=8083302",
+      "jobReqId": "8083302",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "on-running-49ef8f989a22",
+      "slug": "program-manager-global-distributor-led-store-business-on-running-ch",
+      "company": "On Running",
+      "companyKey": "on-running",
+      "companyDomain": "on-running.com",
+      "title": "Program Manager - Global Distributor-led Store Business",
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://boards.greenhouse.io/onrunning/jobs/8074409?gh_jid=8074409",
+      "source": "On Running Dedicated Parser (Greenhouse)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-27T22:10:40.025Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "streetAddress": "Förrlibuckstrasse 190",
+      "postalCode": "8005",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sportswear / Calzature sportive",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-24",
+      "applyUrl": "https://boards.greenhouse.io/onrunning/jobs/8074409?gh_jid=8074409",
+      "jobReqId": "8074409",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 20
+      }
+    },
     {
       "id": "on-running-bc94d8c884c4",
       "slug": "lead-footwear-dynamic-testing-innovation-on-running-ch",
@@ -25,7 +107,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8078986?gh_jid=8078986",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.342Z",
+      "crawledAt": "2026-07-27T22:10:39.994Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -33,8 +115,8 @@
       "addressCountry": "CH",
       "country": "CH",
       "category": "Qualità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
+      "contract": "internship",
+      "employmentType": "INTERN",
       "experienceLevel": "senior",
       "sector": "Sportswear / Calzature sportive",
       "currency": "CHF",
@@ -46,10 +128,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 20,
         "translation": 4,
         "completeness": 20
       }
@@ -66,7 +148,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8079590?gh_jid=8079590",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.345Z",
+      "crawledAt": "2026-07-27T22:10:40.015Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -74,8 +156,8 @@
       "addressCountry": "CH",
       "country": "CH",
       "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
       "experienceLevel": "senior",
       "sector": "Sportswear / Calzature sportive",
       "currency": "CHF",
@@ -87,10 +169,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -107,7 +189,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8079425?gh_jid=8079425",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.348Z",
+      "crawledAt": "2026-07-27T22:10:40.021Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -128,10 +210,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -148,7 +230,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8079080?gh_jid=8079080",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.384Z",
+      "crawledAt": "2026-07-27T22:10:40.084Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -169,10 +251,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -189,7 +271,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8074401?gh_jid=8074401",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.385Z",
+      "crawledAt": "2026-07-27T22:10:40.087Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -197,8 +279,8 @@
       "addressCountry": "CH",
       "country": "CH",
       "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
+      "contract": "internship",
+      "employmentType": "INTERN",
       "experienceLevel": "senior",
       "sector": "Sportswear / Calzature sportive",
       "currency": "CHF",
@@ -210,10 +292,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -230,7 +312,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8074415?gh_jid=8074415",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.373Z",
+      "crawledAt": "2026-07-27T22:10:40.069Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -251,10 +333,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -271,7 +353,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8060038?gh_jid=8060038",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.377Z",
+      "crawledAt": "2026-07-27T22:10:40.075Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -279,8 +361,8 @@
       "addressCountry": "CH",
       "country": "CH",
       "category": "Design",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
+      "contract": "internship",
+      "employmentType": "INTERN",
       "experienceLevel": "senior",
       "sector": "Sportswear / Calzature sportive",
       "currency": "CHF",
@@ -292,10 +374,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -312,7 +394,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8048430?gh_jid=8048430",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.335Z",
+      "crawledAt": "2026-07-27T22:10:39.944Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -320,8 +402,8 @@
       "addressCountry": "CH",
       "country": "CH",
       "category": "Ingegneria",
-      "contract": "internship",
-      "employmentType": "INTERN",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "intern",
       "sector": "Sportswear / Calzature sportive",
       "currency": "CHF",
@@ -333,10 +415,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -353,7 +435,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8054998?gh_jid=8054998",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.367Z",
+      "crawledAt": "2026-07-27T22:10:40.060Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -374,10 +456,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -394,7 +476,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8053584?gh_jid=8053584",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.381Z",
+      "crawledAt": "2026-07-27T22:10:40.079Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -415,10 +497,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -435,7 +517,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8051230?gh_jid=8051230",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.335Z",
+      "crawledAt": "2026-07-27T22:10:39.948Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -443,8 +525,8 @@
       "addressCountry": "CH",
       "country": "CH",
       "category": "Produzione",
-      "contract": "internship",
-      "employmentType": "INTERN",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "intern",
       "sector": "Sportswear / Calzature sportive",
       "currency": "CHF",
@@ -456,10 +538,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 24,
         "translation": 4,
         "completeness": 20
       }
@@ -476,7 +558,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8052185?gh_jid=8052185",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.385Z",
+      "crawledAt": "2026-07-27T22:10:40.090Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -497,10 +579,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -517,7 +599,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8046066?gh_jid=8046066",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.344Z",
+      "crawledAt": "2026-07-27T22:10:40.006Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -538,51 +620,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
-        "translation": 4,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "on-running-70744c7a416f",
-      "slug": "senior-specialist-media-and-performance-marketing-analyst-on-running-ch",
-      "company": "On Running",
-      "companyKey": "on-running",
-      "companyDomain": "on-running.com",
-      "title": "Senior Specialist - Media and Performance Marketing Analyst",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://boards.greenhouse.io/onrunning/jobs/8048720?gh_jid=8048720",
-      "source": "On Running Dedicated Parser (Greenhouse)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.384Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "streetAddress": "Förrlibuckstrasse 190",
-      "postalCode": "8005",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Marketing",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sportswear / Calzature sportive",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-07",
-      "applyUrl": "https://boards.greenhouse.io/onrunning/jobs/8048720?gh_jid=8048720",
-      "jobReqId": "8048720",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zürich"
-      },
-      "_qualityScore": 49,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 0,
+        "richness": 24,
         "translation": 4,
         "completeness": 20
       }
@@ -599,7 +640,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8002504?gh_jid=8002504",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.345Z",
+      "crawledAt": "2026-07-27T22:10:40.014Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -620,10 +661,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 24,
         "translation": 4,
         "completeness": 20
       }
@@ -640,7 +681,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7831449?gh_jid=7831449",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.330Z",
+      "crawledAt": "2026-07-27T22:10:39.930Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -661,10 +702,51 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "on-running-fbea7cfbbea7",
+      "slug": "head-of-engineering-customer-experience-on-running-ch",
+      "company": "On Running",
+      "companyKey": "on-running",
+      "companyDomain": "on-running.com",
+      "title": "Head of Engineering - Customer Experience",
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://boards.greenhouse.io/onrunning/jobs/8010254?gh_jid=8010254",
+      "source": "On Running Dedicated Parser (Greenhouse)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-27T22:10:39.910Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "streetAddress": "Förrlibuckstrasse 190",
+      "postalCode": "8005",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sportswear / Calzature sportive",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-19",
+      "applyUrl": "https://boards.greenhouse.io/onrunning/jobs/8010254?gh_jid=8010254",
+      "jobReqId": "8010254",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -681,7 +763,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8018167?gh_jid=8018167",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.350Z",
+      "crawledAt": "2026-07-27T22:10:40.031Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -702,10 +784,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -722,7 +804,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8009888?gh_jid=8009888",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.353Z",
+      "crawledAt": "2026-07-27T22:10:40.039Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -743,10 +825,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -763,7 +845,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8015208?gh_jid=8015208",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.384Z",
+      "crawledAt": "2026-07-27T22:10:40.086Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -771,8 +853,8 @@
       "addressCountry": "CH",
       "country": "CH",
       "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
       "experienceLevel": "senior",
       "sector": "Sportswear / Calzature sportive",
       "currency": "CHF",
@@ -784,10 +866,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -804,7 +886,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8009568?gh_jid=8009568",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.344Z",
+      "crawledAt": "2026-07-27T22:10:40.008Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -812,8 +894,8 @@
       "addressCountry": "CH",
       "country": "CH",
       "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
+      "contract": "internship",
+      "employmentType": "INTERN",
       "experienceLevel": "senior",
       "sector": "Sportswear / Calzature sportive",
       "currency": "CHF",
@@ -825,10 +907,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -845,7 +927,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7988349?gh_jid=7988349",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.353Z",
+      "crawledAt": "2026-07-27T22:10:40.041Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -866,10 +948,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -886,7 +968,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7984641?gh_jid=7984641",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.335Z",
+      "crawledAt": "2026-07-27T22:10:39.957Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -894,8 +976,8 @@
       "addressCountry": "CH",
       "country": "CH",
       "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
+      "contract": "internship",
+      "employmentType": "INTERN",
       "experienceLevel": "senior",
       "sector": "Sportswear / Calzature sportive",
       "currency": "CHF",
@@ -907,10 +989,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 24,
         "translation": 4,
         "completeness": 20
       }
@@ -927,7 +1009,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7984586?gh_jid=7984586",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.387Z",
+      "crawledAt": "2026-07-27T22:10:40.099Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -935,8 +1017,8 @@
       "addressCountry": "CH",
       "country": "CH",
       "category": "Qualità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
+      "contract": "internship",
+      "employmentType": "INTERN",
       "experienceLevel": "mid",
       "sector": "Sportswear / Calzature sportive",
       "currency": "CHF",
@@ -948,10 +1030,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -968,7 +1050,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7981749?gh_jid=7981749",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.385Z",
+      "crawledAt": "2026-07-27T22:10:40.095Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -989,10 +1071,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -1009,7 +1091,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7976404?gh_jid=7976404",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.363Z",
+      "crawledAt": "2026-07-27T22:10:40.052Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1030,10 +1112,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -1050,7 +1132,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7845232?gh_jid=7845232",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.371Z",
+      "crawledAt": "2026-07-27T22:10:40.066Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1058,8 +1140,8 @@
       "addressCountry": "CH",
       "country": "CH",
       "category": "Design",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
+      "contract": "internship",
+      "employmentType": "INTERN",
       "experienceLevel": "senior",
       "sector": "Sportswear / Calzature sportive",
       "currency": "CHF",
@@ -1071,10 +1153,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 24,
         "translation": 4,
         "completeness": 20
       }
@@ -1091,7 +1173,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7742550?gh_jid=7742550",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.342Z",
+      "crawledAt": "2026-07-27T22:10:39.998Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1112,10 +1194,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 24,
         "translation": 4,
         "completeness": 20
       }
@@ -1132,7 +1214,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7929715?gh_jid=7929715",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.299Z",
+      "crawledAt": "2026-07-27T22:10:39.827Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1153,92 +1235,10 @@
         "canton": "ZH",
         "location": "Zürich"
       },
-      "_qualityScore": 49,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
-        "translation": 4,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "on-running-9acec917b962",
-      "slug": "lead-data-scientist-supply-chain-demand-forecasting-on-running-ch",
-      "company": "On Running",
-      "companyKey": "on-running",
-      "companyDomain": "on-running.com",
-      "title": "Lead Data Scientist - Supply Chain Demand Forecasting",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://boards.greenhouse.io/onrunning/jobs/7882559?gh_jid=7882559",
-      "source": "On Running Dedicated Parser (Greenhouse)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.339Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "streetAddress": "Förrlibuckstrasse 190",
-      "postalCode": "8005",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sportswear / Calzature sportive",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-06",
-      "applyUrl": "https://boards.greenhouse.io/onrunning/jobs/7882559?gh_jid=7882559",
-      "jobReqId": "7882559",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zürich"
-      },
-      "_qualityScore": 49,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 0,
-        "translation": 4,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "on-running-89699eb89aa1",
-      "slug": "senior-lead-sports-engineer-on-running-ch",
-      "company": "On Running",
-      "companyKey": "on-running",
-      "companyDomain": "on-running.com",
-      "title": "Senior Lead - Sports Engineer",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://boards.greenhouse.io/onrunning/jobs/7892990?gh_jid=7892990",
-      "source": "On Running Dedicated Parser (Greenhouse)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.377Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "streetAddress": "Förrlibuckstrasse 190",
-      "postalCode": "8005",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sportswear / Calzature sportive",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-05",
-      "applyUrl": "https://boards.greenhouse.io/onrunning/jobs/7892990?gh_jid=7892990",
-      "jobReqId": "7892990",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zürich"
-      },
-      "_qualityScore": 49,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 0,
+        "richness": 22,
         "translation": 4,
         "completeness": 20
       }
@@ -1257,7 +1257,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8079396?gh_jid=8079396",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.334Z",
+      "crawledAt": "2026-07-27T22:10:39.942Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1299,7 +1299,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8064121?gh_jid=8064121",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.382Z",
+      "crawledAt": "2026-07-27T22:10:40.080Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1341,7 +1341,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8066650?gh_jid=8066650",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.339Z",
+      "crawledAt": "2026-07-27T22:10:39.974Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1383,7 +1383,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8056606?gh_jid=8056606",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.366Z",
+      "crawledAt": "2026-07-27T22:10:40.055Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1425,7 +1425,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8054189?gh_jid=8054189",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.342Z",
+      "crawledAt": "2026-07-27T22:10:39.991Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1467,7 +1467,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8053185?gh_jid=8053185",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.358Z",
+      "crawledAt": "2026-07-27T22:10:40.046Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1509,7 +1509,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8053064?gh_jid=8053064",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.361Z",
+      "crawledAt": "2026-07-27T22:10:40.049Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1551,7 +1551,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8053160?gh_jid=8053160",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.373Z",
+      "crawledAt": "2026-07-27T22:10:40.067Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1593,7 +1593,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8046508?gh_jid=8046508",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.324Z",
+      "crawledAt": "2026-07-27T22:10:39.900Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1635,7 +1635,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8044980?gh_jid=8044980",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.349Z",
+      "crawledAt": "2026-07-27T22:10:40.027Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1677,7 +1677,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8038187?gh_jid=8038187",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.376Z",
+      "crawledAt": "2026-07-27T22:10:40.072Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1719,7 +1719,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8037837?gh_jid=8037837",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.379Z",
+      "crawledAt": "2026-07-27T22:10:40.076Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1761,7 +1761,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8028776?gh_jid=8028776",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.367Z",
+      "crawledAt": "2026-07-27T22:10:40.056Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1803,7 +1803,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8028745?gh_jid=8028745",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.388Z",
+      "crawledAt": "2026-07-27T22:10:40.101Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1845,7 +1845,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8030127?gh_jid=8030127",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.321Z",
+      "crawledAt": "2026-07-27T22:10:39.881Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1887,7 +1887,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7954022?gh_jid=7954022",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.326Z",
+      "crawledAt": "2026-07-27T22:10:39.913Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1929,7 +1929,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8028097?gh_jid=8028097",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.364Z",
+      "crawledAt": "2026-07-27T22:10:40.053Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1971,7 +1971,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8025652?gh_jid=8025652",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.375Z",
+      "crawledAt": "2026-07-27T22:10:40.071Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2013,7 +2013,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7972311?gh_jid=7972311",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.316Z",
+      "crawledAt": "2026-07-27T22:10:39.852Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2055,7 +2055,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8016535?gh_jid=8016535",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.380Z",
+      "crawledAt": "2026-07-27T22:10:40.078Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2097,7 +2097,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7908053?gh_jid=7908053",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.371Z",
+      "crawledAt": "2026-07-27T22:10:40.064Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2139,7 +2139,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7972381?gh_jid=7972381",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.344Z",
+      "crawledAt": "2026-07-27T22:10:40.004Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2181,7 +2181,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7999992?gh_jid=7999992",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.365Z",
+      "crawledAt": "2026-07-27T22:10:40.054Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2223,7 +2223,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7995040?gh_jid=7995040",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.369Z",
+      "crawledAt": "2026-07-27T22:10:40.062Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2265,7 +2265,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7962925?gh_jid=7962925",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.338Z",
+      "crawledAt": "2026-07-27T22:10:39.972Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2307,7 +2307,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7959864?gh_jid=7959864",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.386Z",
+      "crawledAt": "2026-07-27T22:10:40.096Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2349,7 +2349,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7857798?gh_jid=7857798",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.329Z",
+      "crawledAt": "2026-07-27T22:10:39.923Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2391,7 +2391,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7841951?gh_jid=7841951",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.322Z",
+      "crawledAt": "2026-07-27T22:10:39.889Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2433,7 +2433,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7840993?gh_jid=7840993",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.333Z",
+      "crawledAt": "2026-07-27T22:10:39.937Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2475,7 +2475,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7835371?gh_jid=7835371",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-23T22:10:36.384Z",
+      "crawledAt": "2026-07-27T22:10:40.082Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2507,53 +2507,6 @@
     }
   ],
   "removedJobs": [
-    {
-      "id": "on-running-896e3c77e2b4",
-      "slug": "senior-specialista-payroll-south-europe-on-running-zurich",
-      "company": "On Running",
-      "companyKey": "on-running",
-      "companyDomain": "on-running.com",
-      "title": "Senior Specialist - Payroll, South Europe",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://boards.greenhouse.io/onrunning/jobs/7838184?gh_jid=7838184",
-      "source": "On Running Dedicated Parser (Greenhouse)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-22T11:40:40.348Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "streetAddress": "Förrlibuckstrasse 190",
-      "postalCode": "8005",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "internship",
-      "employmentType": "INTERN",
-      "experienceLevel": "senior",
-      "sector": "Sportswear / Calzature sportive",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://boards.greenhouse.io/onrunning/jobs/7838184?gh_jid=7838184",
-      "jobReqId": "7838184",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zürich"
-      },
-      "firstSeenAt": "2026-07-04T11:36:27.193Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "unchangedJobs": [
     {
       "id": "on-running-db408792959d",
       "slug": "tirocinante-emea-sales-planning-on-running-zurich",
@@ -2599,5 +2552,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
