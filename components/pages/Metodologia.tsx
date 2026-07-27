@@ -10,7 +10,6 @@ import {
   ListChecks,
 } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
-import { ORGANIZATION_LD } from '@/services/seo/organizationLd';
 
 /**
  * Metodologia — /metodologia/ Editorial methodology page.
@@ -22,36 +21,20 @@ import { ORGANIZATION_LD } from '@/services/seo/organizationLd';
  * Pairs with the AI disclosure box rendered on every blog article and the
  * public corrections log at /correzioni/.
  *
- * Inline JSON-LD WebPage schema with `lastReviewed` set to the real last
- * content-edit date (git blame on the prose below) — bump this literal by
- * hand whenever the editorial copy on this page actually changes.
+ * No inline JSON-LD here — the canonical AboutPage structured data for this
+ * URL is emitted server-side from services/seo/seo-pages.ts's 'metodologia'
+ * entry (single source of truth, avoids two conflicting schema blocks for
+ * the same page). `lastReviewed` below is display-only and must match that
+ * entry's `lastReviewed` literal — bump both together by hand whenever the
+ * editorial copy actually changes.
  */
 export const Metodologia: React.FC = () => {
   const nav = useNavigation();
 
-  const lastReviewed = '2026-05-27';
-
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: 'Metodologia editoriale — Come scriviamo gli articoli',
-    url: 'https://frontaliereticino.ch/metodologia/',
-    description:
-      "Come utilizziamo l'IA generativa, le fonti primarie e il processo di revisione editoriale per garantire accuratezza e trasparenza.",
-    lastReviewed,
-    publisher: ORGANIZATION_LD,
-    inLanguage: 'it',
-    isPartOf: { '@id': 'https://frontaliereticino.ch/#website' },
-  };
+  const lastReviewed = '2026-06-16';
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 animate-fade-in">
-      {/* Inline WebPage JSON-LD with lastReviewed */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
       {/* Back Button */}
       <button
         onClick={() => nav.navigateTo('calculator')}
