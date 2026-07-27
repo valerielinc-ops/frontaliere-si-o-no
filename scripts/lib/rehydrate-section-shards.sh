@@ -24,13 +24,27 @@ rehydrate_section() {
     if gh run download "$DEPLOY_RUN_ID" --name "$section-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/$section-dist-$loc.tar" ]; then
       mkdir -p "dist/$(dirname "$sub")"
       rm -rf "dist/$sub"
+      # Completeness, not just existence (#2761 item 2, mirrors the locale
+      # rehydrate above): `[ -d dist/$sub ]` alone only proves SOME files
+      # landed, not that extraction finished. Compare what the tar itself
+      # claims to contain (`tar -tf`, empty on a corrupt header) against
+      # what actually landed on disk after extraction — catches a
+      # truncated/corrupted tar that a bare directory check would miss.
+      # `|| true` throughout: any anomaly here must fall through to the
+      # git-clone fallback below, not abort under `set -e`.
+      expected_n=$(tar -tf "$dl/$section-dist-$loc.tar" 2>/dev/null | { grep -vc '/$' || true; })
       tar -C dist -xf "$dl/$section-dist-$loc.tar" || true
       rm -rf "$dl"
+      actual_n=0
       if [ -d "dist/$sub" ]; then
-        echo "rehydrated $section $loc from tar artifact: $(find "dist/$sub" -type f | wc -l) files"
+        actual_n=$(find "dist/$sub" -type f | wc -l)
+      fi
+      if [ -d "dist/$sub" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -ge "$expected_n" ]; then
+        echo "rehydrated $section $loc from tar artifact: $actual_n files (tar listed $expected_n)"
         continue
       fi
-      echo "[rehydrate] $section-$loc tar present but no $sub subtree after extract — falling back to git clone"
+      rm -rf "dist/$sub"
+      echo "[rehydrate] $section-$loc tar extraction incomplete (expected $expected_n files, got $actual_n) — falling back to git clone"
     else
       rm -rf "$dl"
       echo "[rehydrate] $section-$loc artifact absent — falling back to git clone"
