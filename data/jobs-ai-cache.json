@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-07-27T12:36:21.192Z",
+  "savedAt": "2026-07-27T12:54:32.533Z",
   "entries": [
     {
       "key": "d75719e12bc559369b74abd12b1a133042ef5e67255856876010887a99333ff9",
@@ -112272,7 +112272,7 @@
     },
     {
       "key": "956341c8d913b41912507d2fd87415574e7cf80f4acfa7eb1d10e07efc8c0a51",
-      "touchedAt": 1783600326525,
+      "touchedAt": 1785156793779,
       "value": {
         "isJob": true,
         "confidence": 90,
@@ -238549,16 +238549,16 @@
     },
     {
       "key": "94e2df269dee06298ca5f282e72f6d0b4f7f43028a60f3fca25a492c6a34831f",
-      "touchedAt": 1785104433505,
+      "touchedAt": 1785156502227,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are the key characteristics of a real single job detail page."
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, which meets the criteria for a real single job detail page."
       }
     },
     {
       "key": "8fdc8149e0005a7ec7b3cd4cab8ed4b0713d90211efadb31d2dda43d4d006509",
-      "touchedAt": 1785104433646,
+      "touchedAt": 1785156502417,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -250132,6 +250132,348 @@
         "isJob": false,
         "confidence": 20,
         "reason": "The page contains a general description of application procedures and company information but lacks a specific role title, detailed responsibilities, requirements, or clear application context for a particular job."
+      }
+    },
+    {
+      "key": "624f1fc2540ce84a0254b889b1237bfae6ba2e4687cdf070145928e87bca584f",
+      "touchedAt": 1785156772953,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Karrierechance: Kundenberatung Region OST'), detailed responsibilities, requirements, and application information, indicating a concrete job posting rather than a generic page."
+      }
+    },
+    {
+      "key": "4dc0d2f15042b1098fb7a7ed9bfdef67c5482e1cf30df12dd95061956826a06f",
+      "touchedAt": 1785156773224,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Direktionsbeauftragte Gewerbe Region Nürnberg/Bamberg/Bayreuth'), detailed responsibilities, requirements, and application instructions, indicating a concrete job posting rather than a generic page."
+      }
+    },
+    {
+      "key": "772df6d8e70af47978772e62a8d05d0b131173236777351ecfedd36a241390c2",
+      "touchedAt": 1785156773523,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Executive Underwriter or AVP, Underwriting Director - Construction Casualty'), detailed responsibilities, qualifications, and application context, indicating a genuine job detail page rather than a generic or informational page."
+      }
+    },
+    {
+      "key": "c6687ff7457c5f944611fe9f7c6b19eb703d63ef03e8454e3ec46ef6b6b126dd",
+      "touchedAt": 1785156773883,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Senior Claims Specialist, Liability') along with detailed responsibilities, qualifications, and application context, indicating a concrete job posting rather than a generic page."
+      }
+    },
+    {
+      "key": "708d975a7de8ff7dd2c1ae6173049c99a2963e34a3e7fd46a8c4011d4b7fa66b",
+      "touchedAt": 1785156774236,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Catastrophe Modeler') along with detailed responsibilities, qualifications, and application context, indicating a genuine job posting rather than a generic or informational page."
+      }
+    },
+    {
+      "key": "99e1359c9647e877407825e6969dda12d4f6b91f3e58a820c7e36f43944c2526",
+      "touchedAt": 1785156774614,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Branch Sales Manager - Penang'), detailed responsibilities and qualifications, and application prompts, indicating it is a concrete job detail page rather than a generic or informational page."
+      }
+    },
+    {
+      "key": "09858969dbab75098c8c7611d8c9bbba071ca03dcb2ed715ca1314d70cbc43f5",
+      "touchedAt": 1785156774879,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Senior Development Underwriter') along with detailed responsibilities, requirements, and application context, indicating a concrete job posting rather than a generic page."
+      }
+    },
+    {
+      "key": "ac267ee9a2451597fe3a7c05e5576b0d449a72618bf4a320b4458787f62e7f8e",
+      "touchedAt": 1785156775225,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Underwriting Excellence Coordinator'), detailed responsibilities, qualifications, and application prompts, indicating a concrete job posting rather than a generic or company overview page."
+      }
+    },
+    {
+      "key": "4dd10410f4467f6089eb6bcda4a7c46f09d802b09c5c727d3c3fd37016af9742",
+      "touchedAt": 1785156775513,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Intelligent Automation Engineer'), detailed responsibilities, required skills, and application context, indicating it is a dedicated job detail page rather than a generic or informational page."
+      }
+    },
+    {
+      "key": "e720f35b3679c52f19de591d2837ede102f8cac708c65b5048b046369abd7420",
+      "touchedAt": 1785156775779,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific role title ('Case Manager') along with detailed responsibilities, required skills, and application context, indicating it is a dedicated job detail page rather than a generic or informational page."
+      }
+    },
+    {
+      "key": "fe3cc6fa0bb4376bdf58cb50529d529d0b5a8e88f5ffdc32a1e11069548ab3fe",
+      "touchedAt": 1785156776099,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Pricing Manager') along with detailed responsibilities, requirements, and application context, indicating it is a genuine job detail page rather than a generic or informational page."
+      }
+    },
+    {
+      "key": "db99033b1313776c388c26cc8156cc6591208b9f24285bd8613ffdb5c35fdb4c",
+      "touchedAt": 1785156793418,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Lead Enterprise IT Architect'), detailed responsibilities, requirements, and application context, indicating it is a dedicated job detail page rather than a generic or informational page."
+      }
+    },
+    {
+      "key": "fb17bc285aaa1162215579f3c78f6993275dbcaf86ed15e145f9c5d8f9327c0a",
+      "touchedAt": 1785156793958,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a specific job title ('Senior Captive Underwriter (Employee Benefits)'), detailed responsibilities, requirements, and application context, indicating it is a dedicated job detail page rather than a generic or informational page."
+      }
+    },
+    {
+      "key": "7b334186ae977c48d272c0a36fc7f35262930c6694871722821ae5319025e31c",
+      "touchedAt": 1785156842207,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Karrierechance: Kundenberatung Region OST'), detailed responsibilities, requirements, and application context, indicating a concrete job posting rather than a generic page."
+      }
+    },
+    {
+      "key": "161c2c9e980c0ad35eea2471e2f12434b15c0e482834a7dc70a359f12cd16a98",
+      "touchedAt": 1785156842787,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Direktionsbeauftragte Gewerbe Region Nürnberg/Bamberg/ Bayreuth'), detailed responsibilities, requirements, and application instructions, indicating it is a concrete job posting rather than a generic page."
+      }
+    },
+    {
+      "key": "92bb3bbb0034f0a6769061b7dad43a8837160a88b8475eaefc519acc96dd7c83",
+      "touchedAt": 1785156843484,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Executive Underwriter or AVP, Underwriting Director - Construction Casualty'), detailed responsibilities, qualifications, and application context, indicating a concrete job posting rather than a generic page."
+      }
+    },
+    {
+      "key": "60d6ba4954983d98a090ba1b804ad1fdd5e5dd915a86860fb92b009eb1bbf9c2",
+      "touchedAt": 1785156843988,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Senior Claims Specialist, Liability'), detailed responsibilities, qualifications, and application context, indicating a concrete job posting rather than a generic page."
+      }
+    },
+    {
+      "key": "564dd131b24d2e5c06d85e97b10e517b046f2738a535030a23177cafa3e04e03",
+      "touchedAt": 1785156844642,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Catastrophe Modeler') along with detailed responsibilities, qualifications, and application context, indicating it is a dedicated job detail page rather than a generic or informational page."
+      }
+    },
+    {
+      "key": "cd4720bcc0348662ee1435fc803a1766e11ce20cd80df05ea622b3c6fbc9eacf",
+      "touchedAt": 1785156845215,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Branch Sales Manager - Penang'), detailed responsibilities and requirements, and application prompts, indicating a concrete job posting rather than a generic page."
+      }
+    },
+    {
+      "key": "abdd1794844aebd63bd3b2172a214ae31e1c9214e8e7575bb527d93cd4d951f7",
+      "touchedAt": 1785156845703,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Senior Development Underwriter') along with detailed responsibilities, requirements, and application context, indicating it is a dedicated job detail page rather than a generic or informational page."
+      }
+    },
+    {
+      "key": "e4ea7373450439e64a34f1a46606596666c1bacf794670986fb4b945af3c401c",
+      "touchedAt": 1785156846156,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Underwriting Excellence Coordinator'), detailed responsibilities, qualifications, and application prompts, indicating it is a concrete job posting rather than a generic or informational page."
+      }
+    },
+    {
+      "key": "efcd2a215c1c8f92df505eb8f31e17d5aad0beb577729ac9d7294dd9ed22ef72",
+      "touchedAt": 1785156846558,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Intelligent Automation Engineer') along with detailed responsibilities, requirements, and application context, indicating a concrete job posting rather than a generic or company overview page."
+      }
+    },
+    {
+      "key": "4ba190473e8a496c88d59ba16c206854110c6a1725ae658143407dfa71d53d5a",
+      "touchedAt": 1785156846945,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Case Manager') along with detailed responsibilities, required skills, and application context, indicating a genuine job posting rather than a generic or informational page."
+      }
+    },
+    {
+      "key": "9bf63b4f1bc235958a80b15058bef8a84cd70367e6767856d10b3ef39eebf952",
+      "touchedAt": 1785156847468,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Pricing Manager') along with detailed responsibilities, requirements, and application context, indicating it is a genuine job detail page rather than a generic or informational page."
+      }
+    },
+    {
+      "key": "7400880b913d3b07a4a26baa19707efe5827af21caef9da12f93f104a73c0bce",
+      "touchedAt": 1785156848033,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Financial Line Junior Underwriter'), detailed responsibilities and qualifications, and application prompts, indicating a concrete job posting rather than a generic page."
+      }
+    },
+    {
+      "key": "df672640ff3455d3c5dea985360ea7a8f82d3ffad0643e13385d8c8720cff982",
+      "touchedAt": 1785156848521,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Underwriter - Cyber & Tech PI'), detailed responsibilities, requirements, and application context, indicating a genuine job posting rather than a generic page."
+      }
+    },
+    {
+      "key": "fc2acb1c811fcf049a1b63bdce25895f65e9b7a7a62cf710d14aa65108453a7a",
+      "touchedAt": 1785156849100,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Senior Cyber & Tech PI Underwriter'), detailed responsibilities, required skills, and application context, indicating a genuine job posting rather than a generic page."
+      }
+    },
+    {
+      "key": "64f6155f99dce84a771a7150c3ecf78a9b08bca508c0285a446f472dcabc6025",
+      "touchedAt": 1785156849738,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Lead Enterprise IT Architect'), detailed responsibilities, requirements, and application context, indicating a genuine job detail page rather than a generic or informational page."
+      }
+    },
+    {
+      "key": "4fa01df8cdd6a501d38efbc14ce80646e684f727f6fe20a111d662ddd2576e59",
+      "touchedAt": 1785156850172,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('AI Senior Engineer'), detailed responsibilities, candidate profile requirements, and application prompts, indicating a concrete job posting rather than a generic or company overview page."
+      }
+    },
+    {
+      "key": "9aaf37326f182aa9412dfb8892c0b81040b7cd095fddd0a94b8e345b19e65055",
+      "touchedAt": 1785156850559,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Individual Business Associate (Alternate Channel & Business Development)') along with detailed responsibilities, qualifications, and application instructions, indicating it is a concrete job detail page rather than a generic or informational page."
+      }
+    },
+    {
+      "key": "ae78fe16ab2bb7495b21cf794f29b48a26e26b77495ac297779fbb209c8b40ba",
+      "touchedAt": 1785156851031,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Coordinador de call center'), detailed responsibilities and requirements, and application prompts, indicating it is a concrete job posting rather than a generic page."
+      }
+    },
+    {
+      "key": "6a085451cb8a94702ddcd55759f26c1b15fd97cd9c89dda5510b81cb184905ff",
+      "touchedAt": 1785156851451,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Insurance Specialist (Batam)') along with detailed responsibilities, qualifications, and application instructions, indicating it is a genuine job detail page rather than a generic or informational page."
+      }
+    },
+    {
+      "key": "4340d5f9ea48acb519a329a2e4b2cdea065135b3ff73f1264fc9c7a54932dd35",
+      "touchedAt": 1785156851863,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Transformation Lead - Zurich Asuransi Indonesia'), detailed responsibilities and qualifications, and application instructions, indicating a concrete job posting rather than a generic or informational page."
+      }
+    },
+    {
+      "key": "51d82c6c7e4e85fa003699e462f3e260bb68fb7196da6f66116ffae5ffb81d35",
+      "touchedAt": 1785156852338,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Multinational Service Specialist'), detailed responsibilities, qualifications, and application context, indicating it is a concrete job posting rather than a generic page."
+      }
+    },
+    {
+      "key": "3d57adaf76c443ddea0b44fbcbef6005bbe871c2daa6b03a0e17b767470a06d1",
+      "touchedAt": 1785156852899,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page describes a specific job opening for a Software Entwickler Data in Köln, including detailed responsibilities, required skills, and application instructions, indicating it is a genuine single job detail page."
+      }
+    },
+    {
+      "key": "37b52970329ceb10c38692e73bad98c1c2477bda8c04d6937b2325bb8179df81",
+      "touchedAt": 1785156853379,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Reporting Team Lead') along with detailed responsibilities, required skills, and application context, indicating a concrete job posting rather than a generic page."
+      }
+    },
+    {
+      "key": "9b73c9895f32f26c92ab3c24fd75a6f7d9af66e25b17ee675d5a6a97eabc42a0",
+      "touchedAt": 1785156853907,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Regional Income Development Executive') along with detailed responsibilities, qualifications, and application instructions, indicating it is a concrete job posting rather than a generic or company overview page."
+      }
+    },
+    {
+      "key": "f6d01e2dc948d0a903ce4bd6188f733c7f0a07d601e98e600c5a61b88f5b401f",
+      "touchedAt": 1785156854381,
+      "value": {
+        "isJob": true,
+        "confidence": 90,
+        "reason": "The page contains a specific job title ('Head of Customer, Distribution & Market Management (Commercial Insurance)'), detailed responsibilities, qualifications, and application prompts, indicating it is a dedicated job detail page rather than a generic or company overview page."
       }
     }
   ]
