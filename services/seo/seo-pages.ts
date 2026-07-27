@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3548,
+ "numberOfItems": 3549,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8316,7 +8316,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3545, "name": "Lavoro frontaliero, subordinazione e credito d’...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-frontaliero-subordinazione-e-credito-dimposta-nei-rapporti-italiasvizzera` },
           { "@type": "ListItem", "position": 3546, "name": "trasferirsi a Valsolda da frontaliere pro e contro", "url": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-valsolda-da-frontaliere-pro-e-contro` },
           { "@type": "ListItem", "position": 3547, "name": "Terzo pilastro 3a: vantaggi fiscali e risparmio...", "url": `${BASE_URL}/articoli-frontaliere/terzo-pilastro-3a-vantaggi-fiscali` },
-          { "@type": "ListItem", "position": 3548, "name": "Riforma choc per frontalieri: pagheranno più tasse", "url": `${BASE_URL}/articoli-frontaliere/proposta-choc-ticino-frontalieri` }
+          { "@type": "ListItem", "position": 3548, "name": "Riforma choc per frontalieri: pagheranno più tasse", "url": `${BASE_URL}/articoli-frontaliere/proposta-choc-ticino-frontalieri` },
+          { "@type": "ListItem", "position": 3549, "name": "Non ho studiato undici anni per lavorare gratis", "url": `${BASE_URL}/articoli-frontaliere/medici-di-base-carenza-svizzera` }
  ]
  },
  {

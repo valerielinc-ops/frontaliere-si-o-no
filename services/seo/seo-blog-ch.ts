@@ -20415,6 +20415,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-medici-di-base-carenza-svizzera': {
+    title: 'Non ho studiato undici anni per lavorare gratis',
+    description: 'La Svizzera si avvia verso una carenza di medici di base. Linda Habib ne vive già oggi le conseguenze: ambulatori pieni e sempre più lavoro oltre ai pazienti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, studiato, undici, anni, lavorare',
+    ogTitle: 'La Svizzera si avvia verso una carenza di medici di base',
+    ogDescription: 'La Svizzera si avvia verso una carenza di medici di base. Linda Habib ne vive già oggi le conseguenze: ambulatori pieni e sempre più lavoro oltre ai pazienti.',
+    canonicalPath: '/articoli-svizzera/medici-di-base-carenza-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Non ho studiato undici anni per lavorare gratis",
+      "description": "La Svizzera si avvia verso una carenza di medici di base. Linda Habib ne vive già oggi le conseguenze: ambulatori pieni e sempre più lavoro oltre ai pazienti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/medici-di-base-carenza-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di un ambulatorio di medicina di famiglia in Svizzera"
+      },
+      "datePublished": "2026-07-27T09:24:10+00:00",
+      "dateModified": "2026-07-27T09:24:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/medici-di-base-carenza-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

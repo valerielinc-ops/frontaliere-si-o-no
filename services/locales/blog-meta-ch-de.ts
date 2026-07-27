@@ -1579,6 +1579,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-fiscali.title': 'Dritte Säule 3a: Steuervorteile und Sparen in der Schweiz',
     'blog.article.terzo-pilastro-3a-vantaggi-fiscali.excerpt': 'Vollständiger Leitfaden zur dritten Säule 3a in der Schweiz: Echte Steuervorteile, Unterschiede zwischen Banken- und Versicherungssäule und Steueroptimierung.',
     'blog.article.terzo-pilastro-3a-vantaggi-fiscali.imageAlt': 'Panoramablick auf Lugano und das Finanzviertel mit modernen Gebaeuden',
+    'blog.article.medici-di-base-carenza-svizzera.title': 'Ich habe keine elf Jahre studiert, um kostenlos zu arbeiten',
+    'blog.article.medici-di-base-carenza-svizzera.excerpt': 'Die Schweiz steuert auf einen Mangel an Hausärzten zu. Schon heute erlebt Linda Habib die Folgen: volle Praxen und immer mehr Arbeit neben den Patienten.',
+    'blog.article.medici-di-base-carenza-svizzera.imageAlt': 'Eine Szene eines Schweizer Familienmedizin-Klinikums',
 };
 
 export default blogMetaChDe;

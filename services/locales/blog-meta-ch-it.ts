@@ -1579,6 +1579,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-fiscali.title': 'Terzo pilastro 3a: vantaggi fiscali e risparmio in Svizzera',
     'blog.article.terzo-pilastro-3a-vantaggi-fiscali.excerpt': 'Guida completa al terzo pilastro 3a in Svizzera: vantaggi fiscali reali, differenze tra pilastro bancario e assicurativo e ottimizzazione delle imposte.',
     'blog.article.terzo-pilastro-3a-vantaggi-fiscali.imageAlt': 'Vista panoramica di Lugano e del distretto finanziario con edifici moderni',
+    'blog.article.medici-di-base-carenza-svizzera.title': 'Non ho studiato undici anni per lavorare gratis',
+    'blog.article.medici-di-base-carenza-svizzera.excerpt': 'La Svizzera si avvia verso una carenza di medici di base. Linda Habib ne vive già oggi le conseguenze: ambulatori pieni e sempre più lavoro oltre ai pazienti.',
+    'blog.article.medici-di-base-carenza-svizzera.imageAlt': 'Una scena di un ambulatorio di medicina di famiglia in Svizzera',
 };
 
 export default blogMetaChIt;

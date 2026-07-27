@@ -549,6 +549,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'salario-medio-svizzera-professione': { it: 'salario-medio-svizzera-professione', en: 'salario-medio-svizzera-professione', de: 'salario-medio-svizzera-professione', fr: 'salario-medio-svizzera-professione' },
  'secondo-pilastro-lpp-guida-completa': { it: 'secondo-pilastro-lpp-guida-completa', en: 'second-pillar-lpp-complete-guide', de: 'zweite-saeule-bvg-kompletter-leitfaden', fr: 'deuxieme-pilier-lpp-guide-complet' },
  'terzo-pilastro-3a-vantaggi-fiscali': { it: 'terzo-pilastro-3a-vantaggi-fiscali', en: 'third-pillar-3a-tax-benefits', de: 'dritte-saeule-3a-steuervorteile', fr: 'troisieme-pilastro-3a-avantages-fiscaux' },
+ 'medici-di-base-carenza-svizzera': { it: 'medici-di-base-carenza-svizzera', en: 'medics-of-base-shortage-switzerland', de: 'arzte-mangel-schweiz', fr: 'medecins-manque-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
