@@ -78,6 +78,70 @@ describe('job alert email — subject personalization', () => {
   });
 });
 
+describe('job alert email — headline-locale backstop (second line of defense)', () => {
+  // Live regression (2026-07-27): an 'it' subscriber's subject AND lead card
+  // were built from the top-ranked job's title, which was 100% untranslated
+  // German ("Fachperson Gesundheit Universitäre Klinik per Altersmedizin",
+  // employer Stadtspital Zürich) — even though a lower-ranked job in the SAME
+  // email had a correctly-localized Italian title. The upstream
+  // needsRetranslation flag is *supposed* to exclude untranslated titles
+  // before they reach buildAlertEmail, but has real detection gaps by
+  // construction. buildAlertEmail must not trust shownJobs[0]'s title blindly:
+  // it now headlines the first job whose title reliably reads as the alert's
+  // locale (via detectJobTitleLocaleDetails, same 0.55 confidence bar as the
+  // upstream gate). Fixture mirrors the real title/employer, swapping in a
+  // stronger German dictionary word ("Fachfrau" instead of "Fachperson", which
+  // isn't in the detector's DE hint list) so it deterministically crosses the
+  // 0.55 bar in this test — the literal live-bug string itself only scored
+  // ~0.45, illustrating that even this backstop can't catch every case.
+  const wrongLocaleJob = () => fixtureJob({
+    title: 'Fachfrau Gesundheit Universitäre Klinik für Altersmedizin',
+    company: 'Stadtspital Zürich',
+  });
+  const correctLocaleJob = () => fixtureJob({
+    title: 'Infermiere di reparto medicina interna',
+    company: 'Ospedale Regionale',
+  });
+
+  it('headlines the correctly-localized job when the top-ranked job is untranslated', () => {
+    // Rank order matters: index 0 is the "best match" per scoreJobForAlert —
+    // deliberately the untranslated German job here, mirroring the live bug.
+    const jobs = [wrongLocaleJob(), correctLocaleJob()];
+    const result = buildAlertEmail(fixtureAlert('it'), jobs, true);
+
+    // (a) subject is derived from the correctly-localized job, not the German one.
+    expect(result.subject).toContain('Infermiere');
+    expect(result.subject).not.toContain('Fachfrau');
+
+    // (b) the correctly-localized job is the first rendered card, in both
+    // the HTML and plaintext alternatives.
+    expect(result.html.indexOf('Infermiere')).toBeGreaterThan(-1);
+    expect(result.html.indexOf('Fachfrau')).toBeGreaterThan(-1);
+    expect(result.html.indexOf('Infermiere')).toBeLessThan(result.html.indexOf('Fachfrau'));
+    expect(result.text.indexOf('Infermiere')).toBeGreaterThan(-1);
+    expect(result.text.indexOf('Fachfrau')).toBeGreaterThan(-1);
+    expect(result.text.indexOf('Infermiere')).toBeLessThan(result.text.indexOf('Fachfrau'));
+
+    // (c) the German-titled job is demoted, NOT dropped — unlike
+    // needsRetranslation (which excludes a flagged job entirely), it still
+    // appears further down (its salary/location/company data is still valid).
+    expect(result.html).toContain('Fachfrau');
+    expect(result.text).toContain('Fachfrau');
+  });
+
+  it('falls back to the top-ranked job when NO job passes the locale check (never breaks a send)', () => {
+    // Edge case: a single-job alert whose only job is untranslated. There is
+    // no better option to headline — the email must still build successfully,
+    // with a non-empty subject, rather than crash or send blank.
+    const result = buildAlertEmail(fixtureAlert('it'), [wrongLocaleJob()], true);
+    expect(result.subject).toBeTruthy();
+    expect(result.subject.length).toBeGreaterThan(0);
+    expect(result.subject).toContain('Fachfrau');
+    expect(result.html).toContain('Fachfrau');
+    expect(result.text).toContain('Fachfrau');
+  });
+});
+
 describe('job alert email — honest counts (shown jobs, never the raw pool size)', () => {
   // Live regression (July 2026): "🔔 186 nuove offerte per te" on an email
   // rendering 10 cards. The candidate pool is a rolling crawledAt window that
@@ -312,7 +376,14 @@ describe('job alert email — subject title noise (Pensum / gender markers)', ()
   // — the "(100%)" Pensum overflowed the cap and was truncated mid-token, leaving
   // a dangling unbalanced "(100%…". The subject must drop the Pensum entirely.
   it('strips a trailing workload "(100%)" from the subject title (no dangling paren)', () => {
-    const job = { ...fixtureJob(), title: 'Senior Technical Product Manager - Portafogli (100%)', company: 'Helvetia' };
+    // Title reworded to a reliably-Italian phrasing (was originally an
+    // English-loanword-heavy title) so this fixture — which is testing
+    // Pensum-stripping/truncation, NOT headline-locale selection — doesn't
+    // collide with the headline-locale backstop (see the dedicated describe
+    // block below): "Senior Technical Product Manager" scores confidence 0.85
+    // as 'en' via detectJobTitleLocaleDetails and would otherwise get
+    // demoted below a "Filler" job, which is not what this test is about.
+    const job = { ...fixtureJob(), title: 'Responsabile Tecnico Prodotto - Gestione Portafogli (100%)', company: 'Helvetia' };
     const jobs = [job, ...Array.from({ length: 48 }, () => fixtureJob({ title: 'Filler' }))];
     const result = buildAlertEmail(fixtureAlert('it'), jobs, true);
     expect(result.subject.length).toBeLessThanOrEqual(78);
@@ -320,7 +391,7 @@ describe('job alert email — subject title noise (Pensum / gender markers)', ()
     expect(result.subject).not.toContain('(100%');
     // No unbalanced "(" left anywhere in the subject.
     expect((result.subject.match(/\(/g) || []).length).toBe((result.subject.match(/\)/g) || []).length);
-    expect(result.subject).toContain('Senior Technical Product Manager - Portafogli');
+    expect(result.subject).toContain('Responsabile Tecnico Prodotto - Gestione Portafogli');
     // Honest shown-count: 10 cards rendered → +9, not the raw pool size (+48).
     expect(result.subject).toContain('(+9 altre offerte)');
   });

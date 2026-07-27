@@ -32,6 +32,7 @@ import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/ca
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { isAddressSuppressed, isJobAlertExcluded } from '../services/emailSuppression.mjs';
+import { detectJobTitleLocaleDetails } from './lib/job-locale-utils.mjs';
 import {
   normalizeSentMap,
   filterUnsentJobs,
@@ -673,6 +674,40 @@ function behaviorSignals(personalization) {
 
 // ── Email template ───────────────────────────────────────────
 
+// Mirrors the confidence bar used by the upstream needsRetranslation gate
+// (scripts/lib/dedicated-crawler-common.mjs, ~line 1395/1415: detectJobTitleLocaleDetails
+// + minConfidence 0.55) so the two layers stay consistent.
+const HEADLINE_LOCALE_MIN_CONFIDENCE = 0.55;
+
+// Second, independent line of defense against a wrong-language headline
+// (live bug, 2026-07-27: an 'it' subscriber's subject + lead card was built
+// from an untranslated German title, even though a correctly-localized job
+// sat lower in the same ranked list). The upstream `needsRetranslation` flag
+// is supposed to fully exclude untranslated-title jobs before they ever reach
+// `matchedJobs`, but by construction it can't catch every case (new
+// employers, new source languages, code-switched titles under its confidence
+// threshold). So rather than trust `shownJobs[0]` blindly, walk the
+// rank-ordered list and headline the FIRST job whose title reliably reads as
+// `locale` — a bad title can never become the thing a subscriber sees first,
+// regardless of whether the upstream flag caught it.
+//
+// Pure + unit-testable (kept next to buildAlertEmail per this file's stated
+// design goal — see the "Matching logic" comment above).
+function selectHeadlineIndex(shownJobs, locale) {
+  for (let i = 0; i < shownJobs.length; i++) {
+    const job = shownJobs[i];
+    const title = job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || '';
+    const detected = detectJobTitleLocaleDetails(title, locale);
+    const reliablyInLocale = detected.lang === locale || detected.confidence < HEADLINE_LOCALE_MIN_CONFIDENCE;
+    if (reliablyInLocale) return i;
+  }
+  // Edge case: none pass (e.g. a single-job alert whose only job is
+  // untranslated) — never break the "an alert always sends something"
+  // guarantee, and never produce an empty subject. Fall back to today's
+  // behavior: the top-ranked job leads regardless.
+  return 0;
+}
+
 function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
   const locale = nlNormLocale(alert.locale);
   const s = getStrings(locale);
@@ -693,6 +728,17 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
   // novelty. What makes the rendered jobs "new for you" is the sentJobIds
   // dedup (never emailed to this alert before) + the freshness-first ranking.
   const shownJobs = matchedJobs.slice(0, MAX_JOB_CARDS);
+
+  // Headline-language backstop (see selectHeadlineIndex): swap the first
+  // reliably-`locale` job into the lead position (index 0) so it becomes both
+  // the subject and the visually-first card. This only exchanges two
+  // positions — the rest of shownJobs keeps its original rank order, and the
+  // displaced job is NOT dropped, just no longer leads (its salary/location/
+  // company data is still valid; only its fitness as a headline was in doubt).
+  const headlineIdx = selectHeadlineIndex(shownJobs, locale);
+  if (headlineIdx > 0) {
+    [shownJobs[0], shownJobs[headlineIdx]] = [shownJobs[headlineIdx], shownJobs[0]];
+  }
 
   // Subject: lead with the most relevant job (LinkedIn-style personalization).
   // Format: "🔔 {title} at {company}" or "🔔 {title} at {company} (+N more)"
