@@ -6094,6 +6094,30 @@ export function hasFullLocaleCoverage(job, { minTitleChars = 3, minSlugChars = 3
 }
 
 /**
+ * Same bar as hasFullLocaleCoverage, plus a language-correctness check:
+ * hasFullLocaleCoverage only verifies each locale slot has ENOUGH characters,
+ * not that those characters are actually in that locale. An already-indexed
+ * job whose IT slot still holds the DE source title (untranslated) passes
+ * hasFullLocaleCoverage as long as it's long enough, which let the
+ * translation stability lock below silently re-clear `needsRetranslation` on
+ * every re-crawl even though the title was never actually translated (issue
+ * #4788). This check additionally requires that no non-source-locale title
+ * still reads as the source language.
+ */
+export function hasCorrectLocaleCoverage(job, srcLang, opts = {}) {
+  if (!hasFullLocaleCoverage(job, opts)) return false;
+  if (!srcLang) return true;
+  const titleByLocale = job?.titleByLocale || {};
+  for (const locale of LOCALES) {
+    if (locale === srcLang) continue;
+    if (titleLooksUntranslatedFromSource(titleByLocale[locale], srcLang, locale)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+/**
  * Whitespace normalizer for locale-map values that PRESERVES newlines.
  *
  * mergeLocaleTextMap used to run every value through `normalizeSpace`, which
@@ -6426,7 +6450,11 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
       const newSrcTitle = normalizeSpace(String(fresh?.titleByLocale?.[srcLang] || fresh?.title || ''));
       const sourceTitleStable = oldSrcTitle.length >= 3 && oldSrcTitle === newSrcTitle;
       if (sourceTitleStable) {
-        if (hasFullLocaleCoverage(old)) {
+        // hasCorrectLocaleCoverage (not hasFullLocaleCoverage): presence alone
+        // isn't enough here — an already-indexed wrong-locale title (source
+        // text sitting in a translated slot) must NOT re-lock the retranslation
+        // flag off just because the source title didn't change (issue #4788).
+        if (hasCorrectLocaleCoverage(old, srcLang)) {
           fresh.needsRetranslation = false;
         }
       }

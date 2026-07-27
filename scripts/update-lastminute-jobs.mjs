@@ -39,7 +39,7 @@ import {
   normalize,
   normalizeKey,
   mergeLocaleTextMap,
-  hasFullLocaleCoverage,
+  hasCorrectLocaleCoverage,
   normalizeSpace,
 } from './lib/dedicated-crawler-common.mjs';
 import {
@@ -673,7 +673,11 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
       const sourceContentChanged = normalizeSpace(priorDescription) !== normalizeSpace(detail.description);
       // Only replace if SR API content is richer, or the source text itself drifted
       if (sourceContentChanged || detail.description.length > priorDescription.length * 0.8) {
-        const wasFullyLocalized = hasFullLocaleCoverage(existing);
+        // hasCorrectLocaleCoverage (not hasFullLocaleCoverage): presence-only
+        // coverage would trust an already-indexed wrong-locale title as
+        // "fully localized" and skip re-flagging it forever (same class of
+        // bug as issue #4788's stability lock — sibling sweep, AGENTS.md #6).
+        const wasFullyLocalized = hasCorrectLocaleCoverage(existing, existing.sourceLang);
         existing.description = detail.description;
         existing.requirements = Array.isArray(detail.requirements) ? detail.requirements : [];
         existing.descriptionByLocale = mergeLocaleTextMap(
