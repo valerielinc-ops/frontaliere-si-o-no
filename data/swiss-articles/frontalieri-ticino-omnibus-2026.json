@@ -1,0 +1,19 @@
+{
+  "id": "frontalieri-ticino-omnibus-2026",
+  "slug": "frontalieri-ticino-omnibus-2026",
+  "publishedAt": "2026-07-27T14:56:13.306Z",
+  "cluster": "fiscale",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 149.68609251555554,
+    "confidence": 1,
+    "finalScore": 149.68609251555554,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 18.710761564444443,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}
