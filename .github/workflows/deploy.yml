@@ -296,6 +296,21 @@ jobs:
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
       RELATED_SEARCH_PREPASS_CONCURRENCY: '1'
       DEPLOY_CONTENT_MANIFEST: '1'
+      # Runner-level OOM mitigation (run 30274470672, 2026-07-27): IT build
+      # got host-killed ("runner has received a shutdown signal") mid
+      # related-search-clusters at rss_mb=11848 while heapTotal was only
+      # ~5.1GB — the gap is glibc malloc arenas never returned to the OS,
+      # not V8 heap (jobsSeoPagesPlugin/staticPagesPlugin/etc. already gc()
+      # between phases — see profilePlugin.ts — so V8-side reclaim is not
+      # the gap). postWalkCoordinatorPlugin.ts spawns POST_WALK_WORKERS
+      # worker_threads earlier in the build; each worker's glibc arenas can
+      # outlive the thread and pin RSS for the rest of closeBundle, which
+      # matches the ~9.8GB pinned-RSS pattern already logged in past
+      # investigations. Capping arenas makes glibc trim more aggressively.
+      # Revert trigger: if a build still OOMs at/above this same RSS after
+      # this lands, this wasn't the (whole) cause — pursue reducing the
+      # related-search-clusters candidate set instead, don't re-try this knob.
+      MALLOC_ARENA_MAX: '2'
       # Per-locale emit filter + shared canonical build id (identical
       # dist/build-id.txt across all shards).
       BUILD_LOCALE: ${{ matrix.locale }}
