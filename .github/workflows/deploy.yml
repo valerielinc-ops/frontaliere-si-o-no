@@ -683,8 +683,6 @@ jobs:
       - name: Upload ticino shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.TICINO_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-ticino-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: ticino-dist-it-${{ github.run_id }}
@@ -695,8 +693,6 @@ jobs:
       - name: Upload svizzera shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.SVIZZERA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-svizzera-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: svizzera-dist-it-${{ github.run_id }}
@@ -707,8 +703,6 @@ jobs:
       - name: Upload zurigo shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.ZURIGO_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-zurigo-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: zurigo-dist-it-${{ github.run_id }}
@@ -719,8 +713,6 @@ jobs:
       - name: Upload argovia shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.ARGOVIA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-argovia-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: argovia-dist-it-${{ github.run_id }}
@@ -731,8 +723,6 @@ jobs:
       - name: Upload appenzello shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.APPENZELLO_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-appenzello-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: appenzello-dist-it-${{ github.run_id }}
@@ -743,8 +733,6 @@ jobs:
       - name: Upload basilea shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.BASILEA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-basilea-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: basilea-dist-it-${{ github.run_id }}
@@ -755,8 +743,6 @@ jobs:
       - name: Upload berna shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.BERNA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-berna-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: berna-dist-it-${{ github.run_id }}
@@ -767,8 +753,6 @@ jobs:
       - name: Upload friburgo shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.FRIBURGO_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-friburgo-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: friburgo-dist-it-${{ github.run_id }}
@@ -779,8 +763,6 @@ jobs:
       - name: Upload ginevra shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.GINEVRA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-ginevra-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: ginevra-dist-it-${{ github.run_id }}
@@ -791,8 +773,6 @@ jobs:
       - name: Upload glarona shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.GLARONA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-glarona-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: glarona-dist-it-${{ github.run_id }}
@@ -803,8 +783,6 @@ jobs:
       - name: Upload grigioni shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.GRIGIONI_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-grigioni-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: grigioni-dist-it-${{ github.run_id }}
@@ -815,8 +793,6 @@ jobs:
       - name: Upload giura shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.GIURA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-giura-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: giura-dist-it-${{ github.run_id }}
@@ -827,8 +803,6 @@ jobs:
       - name: Upload lucerna shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.LUCERNA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-lucerna-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: lucerna-dist-it-${{ github.run_id }}
@@ -839,8 +813,6 @@ jobs:
       - name: Upload neuchatel shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.NEUCHATEL_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-neuchatel-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: neuchatel-dist-it-${{ github.run_id }}
@@ -851,8 +823,6 @@ jobs:
       - name: Upload nidvaldo shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.NIDVALDO_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-nidvaldo-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: nidvaldo-dist-it-${{ github.run_id }}
@@ -863,8 +833,6 @@ jobs:
       - name: Upload obvaldo shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.OBVALDO_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-obvaldo-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: obvaldo-dist-it-${{ github.run_id }}
@@ -875,8 +843,6 @@ jobs:
       - name: Upload sciaffusa shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.SCIAFFUSA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-sciaffusa-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: sciaffusa-dist-it-${{ github.run_id }}
@@ -887,8 +853,6 @@ jobs:
       - name: Upload soletta shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.SOLETTA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-soletta-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: soletta-dist-it-${{ github.run_id }}
@@ -899,8 +863,6 @@ jobs:
       - name: Upload svitto shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.SVITTO_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-svitto-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: svitto-dist-it-${{ github.run_id }}
@@ -911,8 +873,6 @@ jobs:
       - name: Upload turgovia shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.TURGOVIA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-turgovia-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: turgovia-dist-it-${{ github.run_id }}
@@ -923,8 +883,6 @@ jobs:
       - name: Upload uri shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.URI_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-uri-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: uri-dist-it-${{ github.run_id }}
@@ -935,8 +893,6 @@ jobs:
       - name: Upload vaud shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.VAUD_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-vaud-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: vaud-dist-it-${{ github.run_id }}
@@ -947,8 +903,6 @@ jobs:
       - name: Upload vallese shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.VALLESE_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-vallese-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: vallese-dist-it-${{ github.run_id }}
@@ -959,8 +913,6 @@ jobs:
       - name: Upload zugo shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.ZUGO_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-zugo-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: zugo-dist-it-${{ github.run_id }}
@@ -971,8 +923,6 @@ jobs:
       - name: Upload sangallo shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.SANGALLO_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-sangallo-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: sangallo-dist-it-${{ github.run_id }}
@@ -983,8 +933,6 @@ jobs:
       - name: Upload articolifrontaliere shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.ARTICOLIFRONTALIERE_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-articolifrontaliere-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: articolifrontaliere-dist-it-${{ github.run_id }}
@@ -995,8 +943,6 @@ jobs:
       - name: Upload articolisvizzera shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.ARTICOLISVIZZERA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-articolisvizzera-it
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: articolisvizzera-dist-it-${{ github.run_id }}
@@ -1004,10 +950,6 @@ jobs:
           compression-level: 1
           retention-days: 1
           if-no-files-found: ignore
-
-      - name: Wait for section shard uploads (IT)
-        if: matrix.locale == 'it'
-        wait-all: true
 
       - name: Strip section subtrees (IT)
         if: matrix.locale == 'it'
@@ -1486,8 +1428,6 @@ jobs:
       - name: Upload ticino shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.TICINO_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-ticino-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: ticino-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1498,8 +1438,6 @@ jobs:
       - name: Upload svizzera shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.SVIZZERA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-svizzera-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: svizzera-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1510,8 +1448,6 @@ jobs:
       - name: Upload zurigo shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.ZURIGO_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-zurigo-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: zurigo-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1522,8 +1458,6 @@ jobs:
       - name: Upload argovia shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.ARGOVIA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-argovia-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: argovia-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1534,8 +1468,6 @@ jobs:
       - name: Upload appenzello shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.APPENZELLO_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-appenzello-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: appenzello-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1546,8 +1478,6 @@ jobs:
       - name: Upload basilea shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.BASILEA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-basilea-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: basilea-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1558,8 +1488,6 @@ jobs:
       - name: Upload berna shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.BERNA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-berna-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: berna-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1570,8 +1498,6 @@ jobs:
       - name: Upload friburgo shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.FRIBURGO_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-friburgo-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: friburgo-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1582,8 +1508,6 @@ jobs:
       - name: Upload ginevra shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.GINEVRA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-ginevra-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: ginevra-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1594,8 +1518,6 @@ jobs:
       - name: Upload glarona shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.GLARONA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-glarona-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: glarona-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1606,8 +1528,6 @@ jobs:
       - name: Upload grigioni shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.GRIGIONI_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-grigioni-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: grigioni-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1618,8 +1538,6 @@ jobs:
       - name: Upload giura shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.GIURA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-giura-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: giura-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1630,8 +1548,6 @@ jobs:
       - name: Upload lucerna shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.LUCERNA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-lucerna-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: lucerna-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1642,8 +1558,6 @@ jobs:
       - name: Upload neuchatel shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.NEUCHATEL_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-neuchatel-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: neuchatel-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1654,8 +1568,6 @@ jobs:
       - name: Upload nidvaldo shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.NIDVALDO_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-nidvaldo-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: nidvaldo-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1666,8 +1578,6 @@ jobs:
       - name: Upload obvaldo shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.OBVALDO_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-obvaldo-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: obvaldo-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1678,8 +1588,6 @@ jobs:
       - name: Upload sciaffusa shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.SCIAFFUSA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-sciaffusa-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: sciaffusa-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1690,8 +1598,6 @@ jobs:
       - name: Upload soletta shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.SOLETTA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-soletta-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: soletta-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1702,8 +1608,6 @@ jobs:
       - name: Upload svitto shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.SVITTO_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-svitto-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: svitto-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1714,8 +1618,6 @@ jobs:
       - name: Upload turgovia shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.TURGOVIA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-turgovia-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: turgovia-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1726,8 +1628,6 @@ jobs:
       - name: Upload uri shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.URI_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-uri-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: uri-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1738,8 +1638,6 @@ jobs:
       - name: Upload vaud shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.VAUD_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-vaud-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: vaud-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1750,8 +1648,6 @@ jobs:
       - name: Upload vallese shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.VALLESE_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-vallese-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: vallese-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1762,8 +1658,6 @@ jobs:
       - name: Upload zugo shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.ZUGO_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-zugo-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: zugo-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1774,8 +1668,6 @@ jobs:
       - name: Upload sangallo shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.SANGALLO_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-sangallo-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: sangallo-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1786,8 +1678,6 @@ jobs:
       - name: Upload articolifrontaliere shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.ARTICOLIFRONTALIERE_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-articolifrontaliere-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: articolifrontaliere-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1798,8 +1688,6 @@ jobs:
       - name: Upload articolisvizzera shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.ARTICOLISVIZZERA_SHARD_LIVE == 'true'
         continue-on-error: true
-        id: up-articolisvizzera-nonit
-        background: true
         uses: actions/upload-artifact@v7
         with:
           name: articolisvizzera-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -1807,10 +1695,6 @@ jobs:
           compression-level: 1
           retention-days: 1
           if-no-files-found: ignore
-
-      - name: Wait for section shard uploads (non-IT)
-        if: matrix.locale != 'it'
-        wait-all: true
 
       - name: Strip section subtrees (non-IT)
         if: matrix.locale != 'it'
