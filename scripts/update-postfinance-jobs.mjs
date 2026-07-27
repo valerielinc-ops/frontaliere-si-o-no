@@ -1,14 +1,38 @@
 #!/usr/bin/env node
 /**
  * Dedicated PostFinance crawler runner.
- * Crawls jobs.postfinance.ch sitemap for positions across all 26 Swiss cantons.
+ * Discovers PostFinance positions (CH-wide, all 26 cantons) via the
+ * job.post.ch Swiss Post Group recruiting platform.
  *
  * PostFinance is a national Swiss bank and a subsidiary of Swiss Post. Both
- * share the same SuccessFactors NES job platform (job.post.ch). This crawler
- * targets PostFinance-specific positions via the branded careers portal,
- * CH-wide (no canton/region pre-filter).
+ * share the same job.post.ch recruiting platform. This crawler targets
+ * PostFinance-specific positions, CH-wide (no canton/region pre-filter).
  *
- * Discovery flow:
+ * job.post.ch migrated to a client-side-rendered SPA at some point before
+ * 2026-07; the jobs.postfinance.ch sitemap no longer lists any
+ * /PostFinance/job/ URLs (site now serves /PostKG/job/ and bare /job/ paths
+ * instead — see #4759), which silently starved the old sitemap-based
+ * discovery. Primary discovery flow (fallback flow below it):
+ *   1. Paginate the job.post.ch recruiting JSON API
+ *      (POST /services/recruiting/v1/jobs) and filter entries whose
+ *      `brandUrl` field equals "PostFinance" (the API has no server-side
+ *      brand filter param that works — passing brand:"PFCH" returns
+ *      totalJobs:0 — so filtering happens client-side on the full result set)
+ *   2. Build the canonical job URL from each entry's `id`/`urlTitle`
+ *      (https://job.post.ch/PostFinance/job/{urlTitle}/{id}/)
+ *   3. Resolve canton from the entry's `jobLocationShort` field, falling
+ *      back to inferAnyCanton (all 26 cantons); drop jobs that don't
+ *      resolve to a Swiss canton (non-CH). Never default to TI.
+ *   4. Best-effort fetch the detail page for a fuller description; since
+ *      job.post.ch hydrates the description client-side this is often thin,
+ *      so a substantive fallback description is built from listing fields
+ *      whenever scraped content is too short (thin-content floor, see
+ *      Non-Negotiable #4)
+ *   5. Merge into dataset, run AI localization, validate locale coverage
+ *   6. Write per-crawler slice and reassemble global dataset
+ *
+ * Legacy fallback flow (only runs if the recruiting API returns 0
+ * PostFinance jobs — kept in case sitemap coverage is restored upstream):
  *   1. Fetch sitemap from jobs.postfinance.ch/sitemap.xml
  *   2. Filter for /PostFinance/job/ URLs (national, unfiltered)
  *   3. Optionally scan PostCH corporate listing pages for /v2/ URLs
@@ -16,8 +40,6 @@
  *   5. Fetch detail pages, extract data from meta tags or JSON-LD
  *   6. Per-job canton via inferAnyCanton on the city slug (all 26 cantons);
  *      drop jobs whose canton does not resolve to a Swiss canton (non-CH)
- *   7. Merge into dataset, run AI localization, validate locale coverage
- *   8. Write per-crawler slice and reassemble global dataset
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -48,6 +70,7 @@ import {
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parsePostJobDetail } from './lib/postch-job-parser.mjs';
 import {  inferAnyCanton  } from './lib/target-swiss-locations.mjs';
+import { normalizeCantonCode } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError, stripScriptsAndStyles } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -74,6 +97,13 @@ const SITEMAP_URL = 'https://jobs.postfinance.ch/sitemap.xml';
 const POSTCH_LISTING_URLS = [
   'https://www.post.ch/en/jobs/jobs?jobsCategory=professionals&workload-maximum=1&workload-minimum=0',
 ];
+
+// job.post.ch recruiting JSON API — reverse-engineered from the site's own
+// client-side JS (postJobs()/fetchAllJobs()); this is what the SPA itself
+// calls to hydrate listings. Reachable directly, unauthenticated. See #4759.
+const RECRUITING_API_URL = 'https://job.post.ch/services/recruiting/v1/jobs';
+const RECRUITING_API_PAGE_SIZE = 10;
+const RECRUITING_API_MAX_PAGES = 60; // safety cap; ~126 total postings today (~13 pages)
 
 // ──────────────────────────────────────────────────────────────
 // Helpers
@@ -150,6 +180,75 @@ async function fetchPage(url, timeoutMs = 15000) {
   } finally {
     clearTimeout(timer);
   }
+}
+
+/**
+ * Fetch one page of the job.post.ch recruiting JSON API.
+ * Returns the parsed response body, or null on failure.
+ */
+async function fetchRecruitingApiPage(pageNumber, { locale = 'de_DE', timeoutMs = 15000 } = {}) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(RECRUITING_API_URL, {
+      method: 'POST',
+      signal: controller.signal,
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
+          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+      },
+      body: JSON.stringify({
+        locale,
+        pageNumber,
+        pageSize: RECRUITING_API_PAGE_SIZE,
+        sortBy: 'date',
+      }),
+    });
+    if (!res.ok) {
+      console.warn(`⚠️ HTTP ${res.status} for recruiting API page ${pageNumber}`);
+      return null;
+    }
+    return await res.json();
+  } catch (err) {
+    console.warn(`⚠️ Recruiting API fetch failed (page ${pageNumber}): ${err.message}`);
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/**
+ * Paginate the recruiting API and return every Swiss Post Group posting
+ * whose `brandUrl` is "PostFinance". There is no working server-side brand
+ * filter (passing brand:"PFCH" in the request body returns totalJobs:0),
+ * so the full result set is fetched and filtered client-side — see #4759.
+ */
+async function fetchPostFinanceListingsViaRecruitingApi() {
+  const results = [];
+  let total = null;
+  let pageNumber = 0;
+
+  while (pageNumber < RECRUITING_API_MAX_PAGES) {
+    const page = await fetchRecruitingApiPage(pageNumber);
+    if (!page) break;
+
+    const entries = Array.isArray(page.jobSearchResult) ? page.jobSearchResult : [];
+    if (total === null) total = Number(page.totalJobs) || 0;
+    for (const entry of entries) {
+      if (entry?.response) results.push(entry.response);
+    }
+
+    pageNumber += 1;
+    if (entries.length === 0) break;
+    if (total !== null && results.length >= total) break;
+    await delay(300);
+  }
+
+  const pfJobs = results.filter((r) => r?.brandUrl === 'PostFinance');
+  console.log(`  🔎 Recruiting API: ${results.length} Swiss Post Group postings scanned, ${pfJobs.length} PostFinance-branded.`);
+  return pfJobs;
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -467,14 +566,202 @@ function detectSector(title = '') {
   return 'Servizi Finanziari';
 }
 
+// Localities the recruiting API uses for non-physical placements
+// (home office / remote / hybrid, DE/FR/IT/EN). They appear as a
+// `jobLocationShort` entry and carry no canton — skip them when resolving a
+// record's canton. Mirrors NON_PHYSICAL_LOCALITIES in update-postch-jobs.mjs
+// (same job.post.ch platform, same field shape).
+const NON_PHYSICAL_LOCALITIES = new Set([
+  'homeoffice', 'home office', 'home-office',
+  'remote', 'remotearbeit', 'travail à distance', 'lavoro a distanza', 'fernarbeit',
+  'hybrid', 'hybride', 'ibrido', 'hub locations', 'siti hub',
+]);
+
+/**
+ * Resolve city + canton from a recruiting-API `jobLocationShort` entry.
+ *
+ * Full shape for a resolved Swiss location: 5 pipe-delimited fields —
+ * "City|CantonName|CantonCode|Country|CountryCode". Remote/homeoffice
+ * postings collapse to 3 fields — "Homeoffice|Schweiz|CHE" — with no
+ * canton. Multi-site postings list several entries; walk them looking for
+ * the first explicit canton code before falling back to inferAnyCanton on
+ * any city-like token. Never defaults to TI.
+ *
+ * The canton-code token is read from the UNFILTERED split at its POSITIONAL
+ * index (2) rather than from a `.filter(Boolean)`'d array — filtering first
+ * would shift the code off index 2 whenever the localized canton-name token
+ * (index 1) is empty ("City||CC|Country|CCC"), silently dropping valid CH
+ * jobs in small municipalities. Mirrors resolveRecordCanton in
+ * update-postch-jobs.mjs, which hit and fixed this exact positional bug on
+ * the same API/field shape.
+ */
+function resolveRecruitingApiLocation(jobLocationShort) {
+  const entries = Array.isArray(jobLocationShort)
+    ? jobLocationShort
+    : [jobLocationShort].filter(Boolean);
+
+  for (const entry of entries) {
+    const raw = String(entry || '').split('|').map((p) => p.trim());
+    const parts = raw.filter(Boolean);
+    if (parts.length === 0) continue;
+
+    const city = parts[0];
+    if (!city || NON_PHYSICAL_LOCALITIES.has(city.toLowerCase())) continue;
+
+    // Reject foreign locations: the trailing token is the ISO-3 country code.
+    const countryCode = String(parts[parts.length - 1] || '').toUpperCase();
+    if (/^[A-Z]{3}$/.test(countryCode) && countryCode !== 'CHE') continue;
+
+    // Canonical 2-letter canton code — positional index 2 in the UNFILTERED
+    // 5-token CH form (see doc note above).
+    const code = raw.length >= 5 ? normalizeCantonCode(raw[2]) : '';
+    if (code) return { city, canton: code };
+
+    const inferred = inferAnyCanton(city);
+    if (inferred) return { city, canton: inferred };
+  }
+
+  const fallbackCity = entries[0] ? String(entries[0]).split('|')[0].trim() : '';
+  return { city: fallbackCity, canton: '' };
+}
+
+/**
+ * Build a substantive fallback description (well above the 50-word
+ * thin-content floor, Non-Negotiable #4) from listing fields.
+ *
+ * job.post.ch hydrates the job description client-side, so a raw fetch of
+ * the detail page frequently returns SPA-shell boilerplate with no usable
+ * body text (see #4759). Used both by the recruiting-API path and by the
+ * legacy sitemap path whenever the scraped/JSON-LD description is thin.
+ */
+function buildPostFinanceFallbackDescription({ title, city, canton, category, workloadMin, workloadMax }) {
+  const workloadText = workloadMin && workloadMax
+    ? (Number(workloadMin) === Number(workloadMax)
+      ? `con un grado di occupazione del ${workloadMin}%`
+      : `con un grado di occupazione flessibile tra il ${workloadMin}% e il ${workloadMax}%`)
+    : 'con grado di occupazione da concordare';
+  const categoryText = category ? ` nell'ambito "${category}"` : '';
+  return [
+    `PostFinance, la sussidiaria di servizi finanziari della Posta Svizzera, ricerca attualmente la figura "${title}" per la sede di ${city} (Cantone ${canton}).`,
+    `La posizione${categoryText} è pubblicata ${workloadText} sul portale ufficiale delle carriere PostFinance/Posta Svizzera e rientra nell'offerta corrente di impieghi disponibili in Svizzera.`,
+    `Per consultare i requisiti completi del profilo ricercato, le condizioni di impiego e candidarsi direttamente, è necessario visitare la pagina dell'annuncio collegata a questo articolo.`,
+  ].join(' ');
+}
+
+/**
+ * Build a job record from one recruiting-API listing entry, enriching it
+ * with a best-effort scrape of the detail page when possible.
+ */
+async function buildJobFromRecruitingApiEntry(entry) {
+  const id = entry?.id;
+  const urlTitle = entry?.urlTitle || '';
+  if (!id || !urlTitle) return null;
+
+  const title = cleanTitle(entry.unifiedStandardTitle || '');
+  if (!title) return null;
+
+  const { city, canton } = resolveRecruitingApiLocation(entry.jobLocationShort);
+  if (!canton) {
+    console.log(`     ↳ Skipping (non-CH / unresolved canton): ${title} — ${city || '?'}`);
+    return null;
+  }
+
+  // Canonical detail URL: jobs.postfinance.ch/job/{slug}/{id}-{locale} —
+  // verified live (2026-07-27). The job.post.ch/PostFinance/job/{slug}/{id}/
+  // form used by the pre-migration sitemap now 301-redirects to a generic
+  // errorpage; jobs.postfinance.ch (this crawler's own COMPANY_HOST) with
+  // the `-{locale}` id suffix is the format update-postch-jobs.mjs's
+  // buildDetailUrl already relies on for the same job.post.ch platform, and
+  // is confirmed to still serve the legacy SuccessFactors HTML (real
+  // `rtltextaligneligible` body spans, not an SPA shell) that
+  // extractPostFinanceBodyDescription/parsePostFinanceMetaPage expect.
+  const url = `https://${COMPANY_HOST}/job/${decodeHtmlEntities(urlTitle)}/${id}-de_DE`;
+
+  // Best-effort enrichment — real content is expected here (see URL doc
+  // above), but fall back to buildPostFinanceFallbackDescription below if
+  // the page ever regresses to thin/no content.
+  const html = await fetchPage(url, 15000);
+  const scraped = html ? parsePostFinanceMetaPage(html, url) : null;
+  await delay(300);
+
+  const category = entry.filter1 || entry.filter2 || '';
+  const workloadMin = entry.cust_WorkingTimeMin;
+  const workloadMax = entry.cust_WorkingTimeMax;
+
+  // 150 chars mirrors parsePostFinanceMetaPage's own bar for "real body
+  // content vs SEO meta-tag snippet" (see its extractPostFinanceBodyDescription
+  // call) — anything shorter is treated as thin and gets the substantive
+  // fallback instead.
+  const scrapedDescription = scraped?.description && scraped.description.length >= 150
+    ? scraped.description
+    : '';
+  const descriptionIt = scrapedDescription || buildPostFinanceFallbackDescription({
+    title, city, canton, category, workloadMin, workloadMax,
+  });
+
+  const slug = slugify(title, 'postfinance');
+
+  return {
+    url,
+    applyUrl: url,
+    title,
+    company: COMPANY_NAME,
+    companyKey: COMPANY_KEY,
+    location: city,
+    canton,
+    country: 'CH',
+    description: descriptionIt,
+    descriptionByLocale: { it: descriptionIt },
+    titleByLocale: { it: title },
+    slug,
+    slugByLocale: { it: slug },
+    sourceLang: detectLang(descriptionIt || title, 'en'),
+    department: category,
+    category: category || 'servizi-finanziari',
+    datePosted: entry.unifiedStandardStart || new Date().toISOString().split('T')[0],
+    validThrough: entry.unifiedStandardEnd || '',
+    source: 'postfinance-careers-crawler',
+    employmentType: category ? detectEmploymentType({ employmentType: category }) : 'FULL_TIME',
+    experienceLevel: '',
+    sector: detectSector(title),
+    workload: workloadMin && workloadMax ? `${workloadMin}-${workloadMax}%` : '',
+    needsRetranslation: !scrapedDescription,
+    _targetScope: { canton, location: city },
+  };
+}
+
+async function fetchPostFinanceJobsViaRecruitingApi() {
+  const entries = await fetchPostFinanceListingsViaRecruitingApi();
+  const jobs = [];
+  for (const entry of entries) {
+    const job = await buildJobFromRecruitingApiEntry(entry);
+    if (job) {
+      jobs.push(job);
+      console.log(`     ✅ ${job.title} — ${job.location} (${job.canton})${job.needsRetranslation ? ' [needs retranslation]' : ''}`);
+    }
+  }
+  console.log(`\n📋 Total PostFinance CH-wide jobs discovered via recruiting API: ${jobs.length}`);
+  return jobs;
+}
+
 // ──────────────────────────────────────────────────────────────
 // Main discovery flow
 // ──────────────────────────────────────────────────────────────
 
 async function fetchPostFinanceJobs() {
-  console.log('🏦 Fetching PostFinance job listings from sitemap...');
+  console.log('🏦 Fetching PostFinance job listings...');
 
-  // Step 1: Fetch sitemap
+  // Primary path: job.post.ch recruiting API. See file header for why the
+  // sitemap-based flow below is now a fallback rather than the primary.
+  const apiJobs = await fetchPostFinanceJobsViaRecruitingApi();
+  if (apiJobs.length > 0) return apiJobs;
+
+  console.warn('  ⚠️ Recruiting API returned 0 PostFinance jobs — falling back to legacy sitemap discovery.');
+
+  // Legacy path — expected to also return [] today (sitemap no longer lists
+  // /PostFinance/job/ URLs, see #4759); kept in case sitemap coverage is
+  // restored upstream so a future platform change degrades gracefully
+  // instead of a hard outage.
   console.log(`  📄 Sitemap URL: ${SITEMAP_URL}`);
   const sitemapXml = await fetchPage(SITEMAP_URL, 20000);
   if (!sitemapXml) {
@@ -485,16 +772,13 @@ async function fetchPostFinanceJobs() {
   const allUrls = parseSitemapUrls(sitemapXml);
   console.log(`  📋 Total URLs in sitemap: ${allUrls.length}`);
 
-  // Step 2: Filter for PostFinance jobs (CH-wide, no canton pre-filter)
   const pfUrls = filterPostFinanceUrls(allUrls);
   console.log(`  🎯 PostFinance job URLs (national): ${pfUrls.length}`);
 
   if (pfUrls.length === 0) return [];
 
-  // Step 3: Scan PostCH listings for supplementary /v2/ URLs
   const v2Map = await scanPostChListingsForV2Urls();
 
-  // Step 4: Fetch detail pages
   return fetchAndParseJobDetails(pfUrls, v2Map);
 }
 
@@ -557,7 +841,7 @@ async function fetchAndParseJobDetails(urls, v2Map = new Map()) {
 
     const descriptionIt = detail.description && detail.description.length > 30
       ? detail.description
-      : `Posizione aperta presso ${COMPANY_NAME} a ${city}. Ruolo: ${title}. PostFinance è una sussidiaria della Posta Svizzera.`;
+      : buildPostFinanceFallbackDescription({ title, city, canton, category: '', workloadMin: null, workloadMax: null });
 
     // Mark as needsRetranslation if description came from meta tags (thin content)
     const needsRetranslation = !detail.hasJsonLd || detail.description?.length < 100;
