@@ -445,6 +445,47 @@ export async function handleReaderWebhookEvent(event, { db: dbFn, ts }) {
         ({ uid } = await resolveOrCreateReaderUid(email));
       }
 
+      // Duplicate-subscription guard (#4790): the signed-in path in
+      // handleCreateReaderCheckout already no-ops before creating a session
+      // when the caller's own reader_subscriptions/{uid} doc is already
+      // 'active' — but the GUEST path (no uid known upfront, Stripe collects
+      // the email) has no such check, because there is nothing to check
+      // against yet at session-creation time. If local entitlement state is
+      // lost client-side (private browsing, cleared storage, a different
+      // device) a reader can pay for a second guest subscription on an email
+      // that resolves right back to an account that already has one active.
+      // This webhook write is the first point where both facts are known
+      // together (the resolved uid AND its current subscription status), and
+      // it fires regardless of whether the client ever calls
+      // claimReaderCheckout — so it's the only reliable place to catch this.
+      // Blindly merging the new ids in would silently orphan the FIRST
+      // subscription (still billing, no longer referenced by this doc, so
+      // its future invoice.paid/failed events find no match via
+      // readerByStripeRef and are dropped) while leaving two live Stripe
+      // subscriptions charging the same payer. Cancel the newly-created
+      // (duplicate) one instead and leave the tracked subscription alone.
+      const existingSnap = await dbFn().collection(READER_SUBSCRIPTIONS_COLLECTION).doc(uid).get();
+      const existingData = existingSnap.exists ? existingSnap.data() : null;
+      if (
+        existingData?.status === 'active' &&
+        obj.subscription &&
+        existingData.stripeSubscriptionId &&
+        existingData.stripeSubscriptionId !== obj.subscription
+      ) {
+        try {
+          const stripe = await getStripe();
+          await stripe.subscriptions.cancel(obj.subscription);
+        } catch {
+          // Never let a cancellation failure fall through to the blind
+          // merge below — that would overwrite the tracked subscription
+          // and orphan the original. Worst case the duplicate needs a
+          // manual cancel via the Stripe Dashboard; not blocking the
+          // webhook ack (Stripe retries non-2xx responses) is preferable
+          // to silently losing track of the original subscription.
+        }
+        return true;
+      }
+
       await dbFn().collection(READER_SUBSCRIPTIONS_COLLECTION).doc(uid).set(
         {
           stripeCustomerId: obj.customer || null,

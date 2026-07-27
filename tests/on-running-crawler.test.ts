@@ -273,6 +273,34 @@ describe('fetchAllOnRunningJobs (Greenhouse board "onrunning")', () => {
     expect(j.id).toMatch(/^on-running-/);
   });
 
+  it('falls back to metadata long_text fields when content is a thin placeholder stub (#4731)', async () => {
+    mockBoard([
+      rawJob({
+        id: 900009,
+        title: 'Retail Team Lead',
+        // On Running's live Greenhouse board leaves `content` as a literal
+        // "-" placeholder for some postings, with the real description
+        // stored in metadata long_text custom fields instead.
+        content: '&lt;p&gt;-&lt;/p&gt;',
+        metadata: [
+          { name: 'In short', value_type: 'long_text', value: 'We are looking for a passionate Retail Team Lead to join our Zurich flagship store.' },
+          { name: 'Your mission', value_type: 'long_text', value: 'Lead the retail team, drive sales performance and deliver an outstanding customer experience.' },
+          { name: 'Employment Type', value_type: 'single_select', value: 'Full-time' },
+        ],
+      }),
+    ]);
+    const jobs = await fetchAllOnRunningJobs();
+    expect(jobs).toHaveLength(1);
+    const j = jobs[0];
+    // Must NOT be the thin placeholder stub.
+    expect(j.description).not.toBe('-');
+    expect(j.description.length).toBeGreaterThan(50);
+    expect(j.description).toMatch(/passionate Retail Team Lead/);
+    expect(j.description).toMatch(/drive sales performance/);
+    // single_select fields (e.g. Employment Type) must not leak into the description body.
+    expect(j.description).not.toMatch(/Full-time/);
+  });
+
   it('excludes non-Swiss postings', async () => {
     mockBoard([
       rawJob({ id: 900002, title: 'Warehouse Associate', location: { name: 'Berlin, Germany' } }),

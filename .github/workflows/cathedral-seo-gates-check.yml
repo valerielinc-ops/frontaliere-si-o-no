@@ -88,6 +88,19 @@ jobs:
           node-version: '22'
           cache: 'npm'
 
+      # Ensure the labels exist BEFORE the `gh issue create --label seo-gates`
+      # calls below — the improvements-issue step runs under `set -euo pipefail`
+      # with no fallback, so a missing label crashes the whole job instead of
+      # just failing to file the issue (same class of bug as #4598).
+      - name: Ensure labels exist
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create "seo-gates" --color "1D76DB" \
+            --description "cathedral-seo-gates-check: SEO content gate regression/improvement" --force 2>/dev/null || true
+          gh label create "regression" --color "D93F0B" \
+            --description "cathedral-seo-gates-check: gate regressed above baseline" --force 2>/dev/null || true
+
       - name: Install dependencies
         run: npm ci
 

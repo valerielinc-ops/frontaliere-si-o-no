@@ -91,6 +91,21 @@ jobs:
             --branch "$GITHUB_REF_NAME" \
             --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts && git add -A"
 
+      # Ensure the labels exist BEFORE `gh issue create --label` below. The
+      # call already has a soft `|| echo` fallback so a missing label doesn't
+      # crash the job, but it silently drops the labels — same underlying
+      # missing-label gap as #4598, fixed here for coherence with the sibling
+      # workflows even though this one degrades safely.
+      - name: Ensure labels exist
+        if: inputs.dry_run != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create "ai-visibility" --color "1D76DB" \
+            --description "ai-visibility-check: monthly AI citation visibility report" --force 2>/dev/null || true
+          gh label create "priority" --color "D93F0B" \
+            --description "ai-visibility-check: citations dropped vs previous report" --force 2>/dev/null || true
+
       - name: Create GitHub issue if citations dropped
         if: inputs.dry_run != 'true'
         env:

@@ -5781,6 +5781,7 @@ export function isExplicitlyOutsideTarget(text) {
   const outsideMarkers = [
     'österreich', 'austria', 'graz', 'wien', 'vienna',
     'deutschland', 'germany', 'berlin', 'munich', 'münchen', 'hamburg', 'frankfurt',
+    'köln', 'koeln', 'cologne',
     'france', 'paris', 'lyon', 'marseille', 'toulouse', 'strasbourg',
     'spain', 'madrid', 'barcelona', 'sevilla', 'valencia',
     'uk', 'united kingdom', 'london', 'manchester', 'birmingham', 'edinburgh',
@@ -5873,7 +5874,7 @@ export function isLocationExplicitlyForeign(locationField) {
     'venezia', 'venice', 'forte dei marmi', 'toscana', 'lombardia',
     // Western Europe
     'paris', 'lyon', 'marseille', 'london', 'berlin', 'munich', 'münchen',
-    'frankfurt', 'hamburg', 'vienna', 'wien', 'madrid', 'barcelona',
+    'frankfurt', 'hamburg', 'köln', 'koeln', 'cologne', 'vienna', 'wien', 'madrid', 'barcelona',
     'amsterdam', 'brussels', 'bruxelles', 'stockholm', 'oslo', 'copenhagen',
     'lisbon', 'dublin', 'helsinki', 'athens',
     'luxembourg', 'jersey',
@@ -6139,6 +6140,14 @@ function normalizeLocaleTextKeepLines(value = '') {
     .trim();
 }
 
+// Below this Jaccard token-similarity score between the OLD and NEW
+// source-locale text at merge time, `a` and `b` are treated as describing
+// two DIFFERENT underlying job postings rather than the same job re-crawled
+// (#4569). Permissive enough to tolerate ordinary wording/grammar edits to
+// the same posting (e.g. "per la Ricerca" → "di ricerca"), low enough to
+// catch a genuinely unrelated role.
+const SOURCE_DRIFT_JACCARD_FLOOR = 0.15;
+
 export function mergeLocaleTextMap(a = {}, b = {}, minChars = 1, sourceLocale = null) {
   const out = {};
 
@@ -6147,14 +6156,42 @@ export function mergeLocaleTextMap(a = {}, b = {}, minChars = 1, sourceLocale = 
   // and never overwrite it with crawler data that is almost certainly a
   // source-language copy or stale text.
   if (sourceLocale) {
+    // Some ATS platforms recycle the same stable job ID/URL for a brand-new,
+    // unrelated posting once the original is filled/closed (observed: EOC's
+    // Umantis vacancy IDs, #4569 — job `company-uil5mc`'s
+    // titleByLocale.en/de/fr stayed stuck on "Dipl. Physiotherapist" for
+    // dozens of crawls after the vacancy was refilled with a completely
+    // different "Cuoco/a in dietetica" (Cook) posting under the same URL).
+    // The matcher upstream (mergePreserveLocaleData's matchKey) only keys on
+    // that stable ID, so it happily hands us `a` (old, physiotherapist) and
+    // `b` (fresh, cook) as if they were the same job. Detect that case here,
+    // where we have the only pair of same-locale source texts to compare:
+    // if the source-locale text itself changed beyond recognition, the old
+    // non-source-locale translations almost certainly belong to a different
+    // job entirely and must NOT be carried forward — better to leave the
+    // slot empty (the AI/local-MT translation pipeline retranslates it
+    // against the new source on this or the next run) than to silently
+    // contaminate a fresh job record with stale, unrelated content.
+    const aSourceText = normalizeLocaleTextKeepLines(String(a?.[sourceLocale] || ''));
+    const bSourceText = normalizeLocaleTextKeepLines(String(b?.[sourceLocale] || ''));
+    const sourceDrifted = aSourceText.length >= minChars && bSourceText.length >= minChars
+      && slugJaccard(slugify(aSourceText), slugify(bSourceText)) < SOURCE_DRIFT_JACCARD_FLOOR;
+
     for (const locale of LOCALES) {
       const av = normalizeLocaleTextKeepLines(String(a?.[locale] || ''));
       const bv = normalizeLocaleTextKeepLines(String(b?.[locale] || ''));
       if (locale === sourceLocale) {
         // Source locale: new data wins (the crawler just fetched it)
         out[locale] = bv.length >= minChars ? bv : (av.length >= minChars ? av : undefined);
+      } else if (sourceDrifted) {
+        // Source content changed too much to trust `a`'s cross-locale
+        // translations — only take `b` if the fresh crawl already produced
+        // something for this locale, otherwise leave empty so the
+        // translation pipeline fills it in against the NEW source text.
+        if (bv.length >= minChars) out[locale] = bv;
       } else {
-        // Non-source locale: keep existing translation; only use b if a is empty
+        // Non-source locale, same underlying job: keep existing translation;
+        // only use b if a is empty
         if (av.length >= minChars) {
           out[locale] = av;
         } else if (bv.length >= minChars) {
@@ -6338,6 +6375,23 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
     fresh.slugByLocale = mergeLocaleTextMap(
       old.slugByLocale, fresh.slugByLocale || {}, 3, srcLang
     );
+
+    // Same "stable ID reused for an unrelated posting" case mergeLocaleTextMap
+    // guards against internally (#4569) — when the source-locale title itself
+    // drifted beyond recognition, force retranslation so the locales left
+    // empty by that guard get (re)populated against the NEW source text
+    // instead of sitting blank until some unrelated future edit happens to
+    // trigger it.
+    if (srcLang) {
+      const oldSrcTitleForDrift = normalizeSpace(String(old?.titleByLocale?.[srcLang] || old?.title || ''));
+      const newSrcTitleForDrift = normalizeSpace(String(fresh?.titleByLocale?.[srcLang] || fresh?.title || ''));
+      if (
+        oldSrcTitleForDrift.length >= 3 && newSrcTitleForDrift.length >= 3
+        && slugJaccard(slugify(oldSrcTitleForDrift), slugify(newSrcTitleForDrift)) < SOURCE_DRIFT_JACCARD_FLOOR
+      ) {
+        fresh.needsRetranslation = true;
+      }
+    }
 
     // Apply isSlugStable to each locale in slugByLocale — prevent slug churn
     // from minor title wording changes (e.g. "per la Ricerca" → "di ricerca")
@@ -6955,7 +7009,19 @@ export function getMergeExclusionReasons(job, qualityCfg) {
   if (isLikelyGenericCareerTitle(job.title)) reasons.push('generic_title');
   if (!isLikelyJobDetailUrl(job.url || '') && !hasSeedMetaTargetScope(job)) reasons.push('non_detail_url');
   if (/linkedin\.com/i.test(String(job.url || ''))) reasons.push('linkedin_url');
-  if (isLocationExplicitlyForeign(job.location) && !hasSeedMetaTargetScope(job)) reasons.push('location_explicitly_foreign');
+  // #4587: hasSeedMetaTargetScope means the SEED URL was reached via a
+  // Switzerland-targeting search term/canton scope — it says nothing about
+  // any individual job the seed happens to return. It used to
+  // unconditionally suppress the three explicit-foreign checks below, so a
+  // country-name-seeded crawler (zurich-insurance-sede-ticino, seeded by
+  // locationsearch=Switzerland/Schweiz/Suisse/Svizzera) merged explicitly
+  // foreign postings (Köln, Wien, Vorarlberg, Barcelona) into the dataset.
+  // isLocationExplicitlyForeign / isExplicitlyOutsideTarget already no-op
+  // when the same text also mentions Switzerland, so an EXPLICIT foreign
+  // signal is strong enough to exclude regardless of seed trust. Seed scope
+  // still rescues the URL-shape check and the ambiguous "no explicit signal
+  // either way" cases (non_detail_url, not_target_relevant) below.
+  if (isLocationExplicitlyForeign(job.location)) reasons.push('location_explicitly_foreign');
   // Structured ATS job-location block names a non-Swiss country: authoritative
   // (overrides Swiss-HQ boilerplate and any seed scope) — see
   // jobLocationBlockCountryIsForeign.
@@ -6965,8 +7031,8 @@ export function getMergeExclusionReasons(job, qualityCfg) {
     const signal = `${job.title} ${job.location} ${job.description}`;
     const hasLocalPrimaryScope = isTargetSwissLocation(job.location || '');
     if (!hasLocalPrimaryScope) {
-      if (isExplicitlyOutsideTarget(signal) && !hasSeedMetaTargetScope(job)) reasons.push('explicitly_outside_target');
-      if (isExplicitlyOutsideTargetCantons(signal) && !hasSeedMetaTargetScope(job)) reasons.push('outside_target_cantons');
+      if (isExplicitlyOutsideTarget(signal)) reasons.push('explicitly_outside_target');
+      if (isExplicitlyOutsideTargetCantons(signal)) reasons.push('outside_target_cantons');
     }
   }
   const quality = evaluateJobQuality(job, qualityCfg);

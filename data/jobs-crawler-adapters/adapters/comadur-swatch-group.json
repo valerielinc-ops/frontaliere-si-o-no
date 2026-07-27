@@ -10,13 +10,9 @@
     "jsonld"
   ],
   "seedUrls": [
-    "https://www.swatchgroup.com/careers",
-    "https://www.swatchgroup.com/career",
-    "https://www.swatchgroup.com/jobs",
-    "https://www.swatchgroup.com/karriere",
-    "https://www.swatchgroup.com/offene-stellen",
-    "https://www.swatchgroup.com/lavora-con-noi"
+    "https://www.swatchgroup.com/en/job-finder?jf_country=40",
+    "https://www.swatchgroup.com/careers"
   ],
-  "notes": "",
-  "updatedAt": "2026-02-27T17:06:06.935Z"
+  "notes": "swatchgroup.com migrated to Drupal 10; old /career(s)|/jobs|/karriere|/offene-stellen|/lavora-con-noi paths 404 or redirect to a landing page exposing only ~3 featured jobs (sibling of parser-health #4500/#4501). Real listing is the paginated /en/job-finder Views page (?page=0..N); jf_country=40 pre-filters to Switzerland so the shared-pool crawl doesn't have to walk the full ~290-job worldwide pager. Per-brand text re-filter still applied downstream via swatchgroup-brand-filter.mjs.",
+  "updatedAt": "2026-07-27T11:53:24.000Z"
 }

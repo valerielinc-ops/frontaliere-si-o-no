@@ -8,58 +8,64 @@
     "api"
   ],
   "seedUrls": [
-    "https://ohws.prospective.ch/public/v1/medium/1000626/jobs?lang=it&f=verwaltungseinheit:1083812"
+    "https://ohws.prospective.ch/public/v1/medium/1000624/jobs?lang=it"
   ],
-  "notes": "Dedicated Agroscope crawler — CH-wide (all 26 cantons). Uses Prospective.ch API (medium 1000626, verwaltungseinheit 1083812 — the Agroscope org unit, NOT a canton facet, so the listing is already national). Swiss federal center of competence for agricultural research, part of DEFR. Research sites across CH: Posieux (FR), Reckenholz/Zürich (ZH), Changins/Nyon (VD), Conthey (VS), Cadenazzo (TI), Tänikon (TG), etc. Keeps every job that resolves to a Swiss canton (inferAnyCanton); drops foreign \"Estero\" postings. Full job data in API response, no detail page fetching needed.",
-  "updatedAt": "2026-07-23T22:19:09.117Z",
+  "notes": "Dedicated Agroscope crawler — CH-wide (all 26 cantons). Uses Prospective.ch API (medium 1000624 — fixed 2026-07-27 for #4799, was stale 1000626 which silently returned {total:0,jobs:[]} for every query after a jobs.admin.ch platform migration). No server-side org-unit filter exists for Agroscope specifically (the old numeric verwaltungseinheit:1083812 filter no longer resolves anything); fetches the whole federal portal (~370 jobs) and filters client-side via isAgroscopeApiRecord matching the verwaltungseinheit_* sub-facet text \"Agroscope\" (see scripts/lib/agroscope-job-parser.mjs). Listing is already national since the whole portal is scanned. Swiss federal center of competence for agricultural research, part of DEFR. Research sites across CH: Posieux (FR), Reckenholz/Zürich (ZH), Changins/Nyon (VD), Conthey (VS), Cadenazzo (TI), Tänikon (TG), etc. Keeps every job that resolves to a Swiss canton (inferAnyCanton); drops foreign \"Estero\" postings. Full job data in API response, no detail page fetching needed.",
+  "updatedAt": "2026-07-27T12:47:53.209Z",
   "seedMetaByUrl": {
-    "https://jobs.admin.ch/posti-vacanti/collaboratore-trice-scientifico-a/2831c0bf-f7ac-4b32-8148-245268dabc35": {
-      "location": "6210 Sursee",
-      "canton": "LU",
-      "company": "Agroscope",
-      "postedDate": "2026-07-07"
-    },
-    "https://jobs.admin.ch/posti-vacanti/responsabile-gruppo-di-ricerca-estensione-orticoltura/25996d96-c146-41a0-8acf-eb48fb41dc56": {
-      "location": "8046 Zürich",
-      "canton": "ZH",
-      "company": "Agroscope",
-      "postedDate": "2026-07-14"
-    },
-    "https://jobs.admin.ch/posti-vacanti/praticante-scuola-universitaria-scuola-universitaria-professionale-informazione-e-documentazione/f9bc2602-9fef-4b89-bf34-70a6c623248d": {
-      "location": "Zurigo, Svizzera",
-      "canton": "ZH",
-      "company": "Agroscope",
-      "postedDate": "2026-07-15"
-    },
-    "https://jobs.admin.ch/posti-vacanti/dottorando-a-trasferimento-dei-pfas-da-suolo-e-foraggi-a-latte-e-carne-di-ruminanti/d5a2a564-08cb-4159-9864-2a83f7cb6511": {
-      "location": "Posieux, Svizzera",
+    "https://jobs.admin.ch/posti-vacanti/hr-business-partner-in/b08cb435-34ce-4c16-a180-b524e2476b8f": {
+      "location": "Posieux, Schweiz",
       "canton": "FR",
       "company": "Agroscope",
-      "postedDate": "2026-07-07"
+      "postedDate": "2026-07-27"
     },
-    "https://jobs.admin.ch/posti-vacanti/system-engineer-responsabile-di-progetto/66e0f353-a604-4242-aa49-6180e5a80818": {
-      "location": "Posieux, Swizzera",
-      "canton": "BE",
-      "company": "Agroscope",
-      "postedDate": "2026-06-29"
-    },
-    "https://jobs.admin.ch/posti-vacanti/responsabile-stazione-sperimentale-orticoltura-collaboratore-trice-tecnico-scientifico-a/bfebcb8c-f57e-4433-89ed-abb0818726ae": {
-      "location": "Ins, Svizzera",
-      "canton": "BE",
-      "company": "Agroscope",
-      "postedDate": "2026-07-01"
-    },
-    "https://jobs.admin.ch/posti-vacanti/collaboratore-trice-tecnico-agricolo-a-in-frutticoltura/2a51d67a-1578-4c37-acfb-890df94880dc": {
+    "https://jobs.admin.ch/posti-vacanti/landwirtschaftliche-r-fachmitarbeiter-in-obstbau/9e499cac-c108-4bc5-a9bf-63f940ec55b0": {
       "location": "8820 Wädenswil",
       "canton": "ZH",
       "company": "Agroscope",
       "postedDate": "2026-06-03"
     },
-    "https://jobs.admin.ch/posti-vacanti/apprendista-frutticoltore-trice-afc/c773a6c7-cc46-4f32-a85b-ac3c50ae9d45": {
+    "https://jobs.admin.ch/posti-vacanti/leiter-in-versuchsstation-gemuesebau-wissenschaftlich-technische-r-mitarbeiter-in/16ee205f-c342-41e3-9a74-a3dd2eeb6b3b": {
+      "location": "Ins, Schweiz",
+      "canton": "BE",
+      "company": "Agroscope",
+      "postedDate": "2026-07-01"
+    },
+    "https://jobs.admin.ch/posti-vacanti/lernende-r-obstfachmann-frau-efz/56514357-7ec5-4e13-b1a3-44d821ed61e7": {
       "location": "8820 Wädenswil",
       "canton": "ZH",
       "company": "Agroscope",
       "postedDate": "2025-12-17"
+    },
+    "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in/2f7ef015-85cb-40ec-bf64-518ab3714505": {
+      "location": "6210 Sursee",
+      "canton": "LU",
+      "company": "Agroscope",
+      "postedDate": "2026-07-07"
+    },
+    "https://jobs.admin.ch/posti-vacanti/system-engineer-projektleiter-in/acda8e02-5c7c-4859-b50e-c533832208e7": {
+      "location": "Posieux, Schweiz",
+      "canton": "FR",
+      "company": "Agroscope",
+      "postedDate": "2026-06-29"
+    },
+    "https://jobs.admin.ch/posti-vacanti/leiter-in-der-forschungsgruppe-soziooekonomie/51853958-ee8c-4095-ac44-7c59f1cc5160": {
+      "location": "8356 Ettenhausen (Geplant Arbeitort mittelfristig: 1725 Posieux FR)",
+      "canton": "AI",
+      "company": "Agroscope",
+      "postedDate": "2024-12-17"
+    },
+    "https://jobs.admin.ch/posti-vacanti/forschungsgruppenleiter-in-extension-gemuesebau/31f941f6-bc14-4a00-a762-6efca0c1f85f": {
+      "location": "8046 Zürich",
+      "canton": "ZH",
+      "company": "Agroscope",
+      "postedDate": "2026-07-14"
+    },
+    "https://jobs.admin.ch/posti-vacanti/hochschulpraktikum-information-dokumentation/a5c39ef3-b50e-4eeb-a3b4-818998e017ad": {
+      "location": "Zürich, Schweiz",
+      "canton": "ZH",
+      "company": "Agroscope",
+      "postedDate": "2026-07-15"
     }
   }
 }

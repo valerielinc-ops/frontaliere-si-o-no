@@ -1683,11 +1683,17 @@ function extractWorkdayLocation(html) {
   const postalLine = plain.match(/\b(\d{4,5}\s+[A-ZÀ-ÖØ-Ýa-zà-öø-ÿ'(). -]{2,80})\b/g) || [];
   for (const p of postalLine.slice(0, 4)) candidates.push(normalizeSpace(p));
 
+  // #4587: the "jl" div split and the loose label regex above are the same
+  // crude full-text label scan pattern guarded elsewhere in this file (see
+  // looksLikeShortLabelValue above extractCompanyFromText) — without this
+  // check a label keyword found mid-prose (e.g. "Workplace: where your ideas
+  // valued...") gets captured whole as a "location". Sanitize + guard every
+  // candidate before picking the longest one.
   const best = candidates
-    .map((x) => x.replace(/\s{2,}/g, ' ').trim())
-    .filter(Boolean)
+    .map((x) => sanitizeLocation(x.replace(/\s{2,}/g, ' ').trim()))
+    .filter((x) => x && looksLikeShortLabelValue(x))
     .sort((a, b) => b.length - a.length)[0] || '';
-  return sanitizeLocation(best);
+  return best;
 }
 
 function extractWorkdayApplyUrl(html, baseUrl) {
@@ -2149,7 +2155,39 @@ async function enrichJobLocalesWithRetry(job, crawlerConfig, maxAttempts = 3) {
   return _enrichJobLocalesWithRetryDCC(job, crawlerConfig, _buildLocalizationCtx(), maxAttempts);
 }
 
-function extractCompanyFromText(html = '', fallback = '') {
+// Guards the crude "label: <up to N chars>" regex fallbacks in
+// extractCompanyFromText / extractLocationFromText (#4587). Those regexes
+// match a label keyword (e.g. "hiring organization", "Sede di lavoro")
+// ANYWHERE in the page's stripped plain text, with no guarantee the label
+// actually introduces a short field value — on templated ATS pages the same
+// keyword can appear inside ordinary marketing/description prose (e.g. a
+// "Company Description" paragraph, or an "Arbeitsort" mention buried in a
+// sentence), and the regex then grabs a chunk of that prose as if it were
+// the company name or location. Real company names / city names are short
+// and don't read like sentences, so reject long, multi-clause captures
+// instead of trusting them blindly.
+export function looksLikeShortLabelValue(text = '') {
+  const v = String(text || '').trim();
+  if (!v) return false;
+  if (v.length > 60) return false;
+  if (v.split(/\s+/).filter(Boolean).length > 8) return false;
+  // Prose has internal sentence punctuation; short labels/names don't.
+  if (/[.,;][^.,;]/.test(v)) return false;
+  // A mid-sentence fragment (the regex matched a label keyword that turned
+  // out to be embedded inside prose, not introducing a field) almost always
+  // starts on a lowercase word, a bare digit-led clause, or punctuation —
+  // real company/location names start with a capital letter, or a number
+  // immediately followed by a capitalized word (e.g. a street/postal number:
+  // "8001 Zürich").
+  const first = v.match(/^([\p{L}\p{N}][\p{L}]*)/u)?.[1] || '';
+  if (!first) return false;
+  const isCapitalized = /^\p{Lu}/u.test(first);
+  const isDigitLedProperNoun = /^\d/.test(first) && /^\d+\s+\p{Lu}/u.test(v);
+  if (!isCapitalized && !isDigitLedProperNoun) return false;
+  return true;
+}
+
+export function extractCompanyFromText(html = '', fallback = '') {
   const jd = bestJobPostingNodeFromHtml(html);
   const fromLd = normalizeSpace(jd?.hiringOrganization?.name || jd?.hiringOrganization || '');
   if (fromLd && !isLikelyGenericCareerTitle(fromLd)) return fromLd;
@@ -2177,7 +2215,7 @@ function extractCompanyFromText(html = '', fallback = '') {
   for (const re of labelMatches) {
     const m = plain.match(re)?.[1];
     const v = normalizeSpace(m);
-    if (v && !isLikelyGenericCareerTitle(v)) return v;
+    if (v && !isLikelyGenericCareerTitle(v) && looksLikeShortLabelValue(v)) return v;
   }
 
   const siteName = normalizeSpace(extractMetaContent(html, 'property', 'og:site_name') || '');
@@ -2186,7 +2224,7 @@ function extractCompanyFromText(html = '', fallback = '') {
   return normalizeSpace(fallback);
 }
 
-function extractLocationFromText(html = '', fallback = '') {
+export function extractLocationFromText(html = '', fallback = '') {
   const jd = bestJobPostingNodeFromHtml(html);
   const ldLoc = normalizeSpace(
     jd?.jobLocation?.address?.addressLocality ||
@@ -2225,7 +2263,12 @@ function extractLocationFromText(html = '', fallback = '') {
     /(?:Arbeitsort|Lieu de travail|Workplace|Sede di lavoro|Work location)\s*:?\s*([^\n]{3,180})/i
   )?.[1];
   const labelLoc = sanitizeLocation(normalizeSpace(labelMatch || ''));
-  if (labelLoc) return labelLoc;
+  // #4587: sanitizeLocation trims known noise-phrase boundaries but doesn't
+  // reject text that never matched one — a label keyword found mid-prose
+  // (see looksLikeShortLabelValue above extractCompanyFromText) can still
+  // survive as a sentence fragment. Apply the same short-value sanity check
+  // before trusting it as the job's location.
+  if (labelLoc && looksLikeShortLabelValue(labelLoc)) return labelLoc;
 
   return normalizeSpace(fallback);
 }
@@ -3882,8 +3925,19 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
   if (isLikelyCommercialPromoContent({ title, description, pageUrl: url })) {
     return { job: null, reason: 'jsonld_commercial_promo_page' };
   }
-  if (isLocationExplicitlyForeign(location) && !seedMetaRelevant) return { job: null, reason: 'jsonld_location_explicitly_foreign' };
-  if ((isExplicitlyOutsideTarget(mergedLocText) || isExplicitlyOutsideTargetCantons(mergedLocText)) && !seedMetaRelevant) {
+  // #4587: seedMetaRelevant only means the SEED URL was reached via a
+  // Switzerland-targeting search term/canton scope — it says nothing about
+  // any individual JSON-LD JobPosting the seed happens to return. It used
+  // to blanket-suppress both explicit-foreign checks below, so a
+  // country-name-seeded crawler (zurich-insurance-sede-ticino) ingested
+  // explicitly foreign postings and then forged them a fake Swiss
+  // location/canton via seedLocation/seedCanton further down. Both foreign
+  // checks already no-op when the same text also mentions Switzerland, so
+  // an EXPLICIT foreign signal is strong enough to reject regardless of
+  // seed trust. Keep the seedMetaRelevant rescue only for the ambiguous
+  // "no explicit signal either way" case below.
+  if (isLocationExplicitlyForeign(location)) return { job: null, reason: 'jsonld_location_explicitly_foreign' };
+  if (isExplicitlyOutsideTarget(mergedLocText) || isExplicitlyOutsideTargetCantons(mergedLocText)) {
     return { job: null, reason: 'jsonld_explicitly_outside_target' };
   }
   if (!isTargetSwissLocation(mergedLocText) && !seedMetaRelevant) return { job: null, reason: 'jsonld_not_target_relevant' };
@@ -4063,8 +4117,19 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
   // Relevance must come from explicit page signals, not only company-city fallback.
   const geoSignalExplicit = `${title} ${locationMatch || ''} ${description} ${pageUrl}`;
   const geoSignal = `${title} ${location} ${description}`;
-  if (isLocationExplicitlyForeign(locationMatch) && !seedMetaRelevant) return { job: null, reason: 'html_location_explicitly_foreign' };
-  if ((isExplicitlyOutsideTarget(geoSignal) || isExplicitlyOutsideTargetCantons(geoSignal)) && !seedMetaRelevant) {
+  // #4587: seedMetaRelevant only means the SEED URL was reached via a
+  // Switzerland-targeting search term (e.g. locationsearch=Switzerland on a
+  // global ATS) — it says nothing about any individual result the search
+  // happens to return. It used to blanket-suppress every foreign check
+  // below, so a country-name-seeded crawler (zurich-insurance-sede-ticino)
+  // ingested explicitly foreign postings (Köln, Wien, Vorarlberg, Barcelona)
+  // and forged them a fake Swiss location downstream. isLocationExplicitlyForeign
+  // / isExplicitlyOutsideTarget already no-op when the same text also
+  // mentions Switzerland, so an EXPLICIT foreign signal here is strong
+  // enough to reject regardless of seed trust. Keep the seedMetaRelevant
+  // rescue only for the ambiguous "no explicit signal either way" case below.
+  if (isLocationExplicitlyForeign(locationMatch)) return { job: null, reason: 'html_location_explicitly_foreign' };
+  if (isExplicitlyOutsideTarget(geoSignal) || isExplicitlyOutsideTargetCantons(geoSignal)) {
     return { job: null, reason: 'html_explicitly_outside_target' };
   }
   if (!isTargetSwissLocation(geoSignalExplicit) && !seedMetaRelevant) return { job: null, reason: 'html_not_target_relevant' };

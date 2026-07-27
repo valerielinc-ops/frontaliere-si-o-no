@@ -158,12 +158,17 @@ const stripeCheckoutSessionsRetrieve = vi.fn(async (): Promise<{
   metadata: { plan: 'reader_noads' },
   created: SESSION_CREATED_UNIX,
 }));
+// Duplicate-subscription guard (#4790): mocked cancel call the webhook makes
+// on the newly-created subscription when it finds an already-active one
+// tracked for the resolved uid.
+const stripeSubscriptionsCancel = vi.fn(async (id: string) => ({ id, status: 'canceled' }));
 
 vi.mock('stripe', () => {
   class MockStripe {
     customers = { create: stripeCustomersCreate };
     checkout = { sessions: { create: stripeCheckoutSessionsCreate, retrieve: stripeCheckoutSessionsRetrieve } };
     billingPortal = { sessions: { create: stripeBillingPortalSessionsCreate } };
+    subscriptions = { cancel: stripeSubscriptionsCancel };
   }
   return { default: MockStripe };
 });
@@ -778,6 +783,83 @@ describe('handleReaderWebhookEvent', () => {
     expect(handled).toBe(true);
     expect(createUser).not.toHaveBeenCalled();
     expect(store['existing-uid-7']).toBeDefined();
+  });
+
+  it('cancels a newly-created duplicate guest subscription instead of overwriting an already-active tracked one (#4790)', async () => {
+    // Simulates: reader1 already has an active reader_noads subscription
+    // (sub_original), then loses local entitlement state and pays for a
+    // second guest checkout on the same email — which resolves back to the
+    // same Firebase uid via resolveOrCreateReaderUid.
+    usersByEmail['reader1@example.com'] = {
+      uid: 'reader1',
+      creationTime: new Date(SESSION_CREATED_UNIX * 1000 - 3600_000).toISOString(),
+    };
+    store.reader1 = {
+      stripeCustomerId: 'cus_original',
+      stripeSubscriptionId: 'sub_original',
+      stripeCheckoutSessionId: 'cs_original',
+      status: 'active',
+      updatedAt: '__ts_original__',
+    };
+    const { handleReaderWebhookEvent, READER_NOADS_PLAN } = await load();
+    const event = {
+      type: 'checkout.session.completed',
+      data: {
+        object: {
+          id: 'cs_duplicate_1',
+          customer: 'cus_duplicate',
+          subscription: 'sub_duplicate',
+          customer_details: { email: 'reader1@example.com' },
+          metadata: { plan: READER_NOADS_PLAN },
+        },
+      },
+    };
+    const handled = await handleReaderWebhookEvent(event, fakeCtx(ts));
+    expect(handled).toBe(true);
+    expect(stripeSubscriptionsCancel).toHaveBeenCalledWith('sub_duplicate');
+    // The original tracked subscription must be left untouched — not
+    // overwritten with the duplicate's ids.
+    expect(store.reader1).toEqual({
+      stripeCustomerId: 'cus_original',
+      stripeSubscriptionId: 'sub_original',
+      stripeCheckoutSessionId: 'cs_original',
+      status: 'active',
+      updatedAt: '__ts_original__',
+    });
+  });
+
+  it('does not treat a retried webhook delivery for the SAME subscription as a duplicate', async () => {
+    // Idempotent-retry case: Stripe redelivers the same event (or two events
+    // reference the same subscription id) — must fall through to the normal
+    // merge, not the cancel branch, since stripeSubscriptionId === obj.subscription.
+    usersByEmail['reader1@example.com'] = {
+      uid: 'reader1',
+      creationTime: new Date(SESSION_CREATED_UNIX * 1000 - 3600_000).toISOString(),
+    };
+    store.reader1 = {
+      stripeCustomerId: 'cus_new',
+      stripeSubscriptionId: 'sub_1',
+      stripeCheckoutSessionId: 'cs_test_1',
+      status: 'active',
+      updatedAt: '__ts_original__',
+    };
+    const { handleReaderWebhookEvent, READER_NOADS_PLAN } = await load();
+    const event = {
+      type: 'checkout.session.completed',
+      data: {
+        object: {
+          id: 'cs_test_1',
+          customer: 'cus_new',
+          subscription: 'sub_1',
+          customer_details: { email: 'reader1@example.com' },
+          metadata: { plan: READER_NOADS_PLAN },
+        },
+      },
+    };
+    const handled = await handleReaderWebhookEvent(event, fakeCtx(ts));
+    expect(handled).toBe(true);
+    expect(stripeSubscriptionsCancel).not.toHaveBeenCalled();
+    expect(store.reader1).toMatchObject({ stripeSubscriptionId: 'sub_1', status: 'active', updatedAt: ts });
   });
 
   it('no-ops when neither readerUid metadata nor customer_details.email is present (unrecoverable)', async () => {
