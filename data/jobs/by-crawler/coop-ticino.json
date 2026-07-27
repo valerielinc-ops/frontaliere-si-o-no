@@ -7073,7 +7073,9 @@
           "ensemble-m-j-coop-genossenschaft-frauenfeld-y8pwnx",
           "allrounder-m-m-d-coop-genossenschaft-frauenfeld",
           "allrounder-m-w-d-coop-genossenschaft-frauenfeld-thurgau",
-          "allrounder-m-w-d-livique-frauenfeld-thurgau-j19qyz"
+          "allrounder-m-w-d-livique-frauenfeld-thurgau-j19qyz",
+          "tuttofare-w-m-d-coop-genossenschaft-frauenfeld",
+          "tuttofare-m-f-d-coop-genossenschaft-frauenfeld-thurgau"
         ],
         "de": [
           "allrounder-m-w-d-coop-genossenschaft-frauenfeld-thurgau-y8pwnx"
@@ -7089,7 +7091,9 @@
         "ensemble-m-j-coop-genossenschaft-frauenfeld-y8pwnx",
         "allrounder-m-m-d-coop-genossenschaft-frauenfeld",
         "allrounder-m-w-d-coop-genossenschaft-frauenfeld-thurgau",
-        "allrounder-m-w-d-livique-frauenfeld-thurgau-j19qyz"
+        "allrounder-m-w-d-livique-frauenfeld-thurgau-j19qyz",
+        "tuttofare-w-m-d-coop-genossenschaft-frauenfeld",
+        "tuttofare-m-f-d-coop-genossenschaft-frauenfeld-thurgau"
       ],
       "needsRetranslation": true,
       "salaryMin": 57500,
@@ -16580,18 +16584,30 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-swissmill-zurich"
+          "logistiker-in-swissmill-zurich",
+          "impiegata-impiegato-in-logistica-coop-genossenschaft-zurich-x5sn1h",
+          "logistiker-in-coop-genossenschaft-zurich"
         ],
         "en": [
-          "logistiker-in-swissmill-zurich-br32hr"
+          "logistiker-in-swissmill-zurich-br32hr",
+          "logistician-in-coop-genossenschaft-zurich"
         ],
         "fr": [
-          "logistiker-in-swissmill-zurich-br32hr"
+          "logistiker-in-swissmill-zurich-br32hr",
+          "logisticien-in-coop-genossenschaft-zurich"
+        ],
+        "de": [
+          "logistiker-in-coop-genossenschaft-zurich-x5sn1h"
         ]
       },
       "previousSlugs": [
         "logistiker-in-swissmill-zurich-br32hr",
-        "logistiker-in-swissmill-zurich"
+        "logistiker-in-swissmill-zurich",
+        "impiegata-impiegato-in-logistica-coop-genossenschaft-zurich-x5sn1h",
+        "logistiker-in-coop-genossenschaft-zurich",
+        "logistician-in-coop-genossenschaft-zurich",
+        "logistiker-in-coop-genossenschaft-zurich-x5sn1h",
+        "logisticien-in-coop-genossenschaft-zurich"
       ],
       "needsRetranslation": true,
       "salaryMin": 73500,
@@ -17731,18 +17747,31 @@
           "addetto-alle-casse-servizi-coop-genossenschaft-zurich",
           "addetto-a-alle-casse-servizi-studente-coop-genossenschaft-zurich",
           "verkaufer-in-kassen-services-coop-zurich-dnth7v",
-          "verkaufer-in-kassen-services-coop-zurich"
+          "verkaufer-in-kassen-services-coop-zurich",
+          "verkaufer-in-kassen-services-coop-genossenschaft-erstfeld",
+          "verkaufer-in-kassen-services-coop-genossenschaft-cham",
+          "verkaufer-in-kassen-services-coop-genossenschaft-einsiedeln",
+          "verkaufer-in-kassen-services-coop-genossenschaft-arlesheim",
+          "verkaufer-in-kassen-services-coop-genossenschaft-pfaffikon",
+          "verkaufer-in-kassen-services-coop-genossenschaft-grellingen",
+          "sales-assistant-cashier-service-coop-genossenschaft-zurich"
         ],
         "en": [
           "cashier-service-assistant-coop-genossenschaft-zurich-44sdb4",
-          "verkaufer-in-kassen-services-coop-zurich-dnth7v"
+          "verkaufer-in-kassen-services-coop-zurich-dnth7v",
+          "sales-assistant-cashier-service-coop-genossenschaft-zurich-9u726c",
+          "seller-in-cash-registers-services-coop-genossenschaft-zurich-cd36fa"
         ],
         "de": [
-          "verkaufer-in-kassen-services-coop-zurich-44sdb4"
+          "verkaufer-in-kassen-services-coop-zurich-44sdb4",
+          "verkaufer-in-kassen-services-coop-genossenschaft-zurich-9u726c",
+          "verkaufer-in-kassen-services-coop-zurich-7cgsxx"
         ],
         "fr": [
           "caissier-assistant-service-coop-genossenschaft-zurich-44sdb4",
-          "verkaufer-in-kassen-services-coop-zurich-dnth7v"
+          "verkaufer-in-kassen-services-coop-zurich-dnth7v",
+          "vendeur-euse-caisse-services-coop-genossenschaft-zurich-9u726c",
+          "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-zurich-cd36fa"
         ]
       },
       "previousSlugs": [
@@ -17758,7 +17787,14 @@
         "addetto-alle-casse-servizi-coop-genossenschaft-zurich",
         "addetto-a-alle-casse-servizi-studente-coop-genossenschaft-zurich",
         "verkaufer-in-kassen-services-coop-zurich-dnth7v",
-        "verkaufer-in-kassen-services-coop-zurich"
+        "verkaufer-in-kassen-services-coop-zurich",
+        "verkaufer-in-kassen-services-coop-genossenschaft-erstfeld",
+        "verkaufer-in-kassen-services-coop-genossenschaft-cham",
+        "verkaufer-in-kassen-services-coop-genossenschaft-einsiedeln",
+        "verkaufer-in-kassen-services-coop-genossenschaft-arlesheim",
+        "verkaufer-in-kassen-services-coop-genossenschaft-pfaffikon",
+        "verkaufer-in-kassen-services-coop-genossenschaft-grellingen",
+        "sales-assistant-cashier-service-coop-genossenschaft-zurich"
       ],
       "needsRetranslation": true,
       "salaryMin": 73500,
@@ -18740,13 +18776,15 @@
         "it": [
           "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern",
           "application-manager-in-sap-operations-senior-interdiscount-jegenstorf",
-          "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern-r4u4co"
+          "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern-r4u4co",
+          "responsabile-applicativo-sap-operations-senior-interdiscount-jegenstorf-bern"
         ]
       },
       "previousSlugs": [
         "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern",
         "application-manager-in-sap-operations-senior-interdiscount-jegenstorf",
-        "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern-r4u4co"
+        "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern-r4u4co",
+        "responsabile-applicativo-sap-operations-senior-interdiscount-jegenstorf-bern"
       ],
       "needsRetranslation": true,
       "salaryMin": 94500,
