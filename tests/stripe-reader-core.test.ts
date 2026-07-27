@@ -95,9 +95,30 @@ const createUser = vi.fn(async ({ email }: { email: string }) => {
 const createCustomToken = vi.fn(async (uid: string) => `custom-token-for-${uid}`);
 
 vi.mock('firebase-admin', () => {
-  const firestore = Object.assign(() => ({ collection: () => makeCollection() }), {
-    FieldValue: { serverTimestamp: () => '__ts__' },
-  });
+  // Minimal `db.runTransaction` shim (mirrors the idiom used across the other
+  // functions/src tests, e.g. tests/publisher-pending-reap.test.ts): reads and
+  // writes go straight to the same in-memory `store` the doc-ref get/set
+  // helpers above use, since the fake `collection()` ignores its name and
+  // always returns the same generic store-backed collection.
+  const firestore = Object.assign(
+    () => ({
+      collection: () => makeCollection(),
+      runTransaction: async (fn: (tx: unknown) => Promise<unknown>) =>
+        fn({
+          get: async (ref: { __id: string }) => ({
+            id: ref.__id,
+            exists: store[ref.__id] != null,
+            data: () => store[ref.__id],
+          }),
+          set: (ref: { __id: string }, data: Record<string, unknown>) => {
+            store[ref.__id] = data;
+          },
+        }),
+    }),
+    {
+      FieldValue: { serverTimestamp: () => '__ts__' },
+    },
+  );
   return {
     default: {
       firestore,
@@ -576,6 +597,29 @@ describe('handleClaimReaderCheckout', () => {
     const { handleClaimReaderCheckout } = await load();
     const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
     expect(res).toEqual({ status: 200, body: { ok: true, authToken: 'custom-token-for-boundary-upper-uid' } });
+  });
+
+  it('marks the session as claimed after minting a token (claim-exhaustion ledger)', async () => {
+    const { handleClaimReaderCheckout } = await load();
+    const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
+    expect(res.status).toBe(200);
+    expect(store.cs_guest_1).toMatchObject({ uid: 'guest-uid-1', claimedAt: '__ts__' });
+  });
+
+  it('refuses to mint a second token for a session already claimed once (claim-exhaustion guard, #4800)', async () => {
+    // A paid Checkout Session stays retrievable via Stripe indefinitely and
+    // success_url carries session_id in the query string — without this
+    // guard, anyone who later obtains that string (Referer leak, browser
+    // history, shared screenshot) could keep minting fresh sign-in tokens for
+    // the account forever.
+    const { handleClaimReaderCheckout } = await load();
+    const first = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
+    expect(first.status).toBe(200);
+
+    createCustomToken.mockClear();
+    const second = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
+    expect(second).toEqual({ status: 409, body: { ok: false, error: 'session_already_claimed' } });
+    expect(createCustomToken).not.toHaveBeenCalled();
   });
 });
 
