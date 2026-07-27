@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-buelach",
-  "assembledAt": "2026-07-26T22:09:58.282Z",
+  "assembledAt": "2026-07-27T12:07:41.641Z",
   "jobs": [
     {
       "id": "spital-buelach-292bab1d5f97",
@@ -3299,98 +3299,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:44:24.747Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-buelach-93968cf71a5d",
-      "slug": "fisioterapista-in-spital-bulach-bulach",
-      "slugByLocale": {
-        "it": "fisioterapista-in-spital-bulach-bulach",
-        "en": "physiotherapist-in-spital-bulach-bulach",
-        "de": "physiotherapeut-in-spital-buelach-bulach",
-        "fr": "physiotherapeute-in-spital-bulach-bulach"
-      },
-      "company": "Spital Bülach",
-      "companyKey": "spital-buelach",
-      "companyDomain": "spitalbuelach.ch",
-      "title": "Physiotherapeut:in",
-      "titleByLocale": {
-        "it": "Fisioterapista:in",
-        "en": "Physiotherapist:in",
-        "de": "Physiotherapeut:in",
-        "fr": "Physiothérapeute:in"
-      },
-      "description": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Behandlung ambulanter Patientinnen und Patienten (ca. 50%)\n\n• Behandlung stationärer Patientinnen und Patienten in den Bereichen Medizin, Chirurgie, Orthopädie, Gynäkologie, Neurologie, Intensivmedizin und Rheumatologie. Mit Schwerpunkt Altersmedizin, geriatrische Rehabilitation\n\n• Vollständige Dokumentation und Leistungserfassung\n\nAnforderungen:\n•\tAbgeschlossene Berufsausbildung HF/FH oder SRK-anerkannt\n•\tFundierte MS Office-Kenntnisse\n•\tKunden- und dienstleistungsorientiertes Verhalten\n•\tInteresse bzw. Erfahrungen in der Herzrehabilitation oder Beckenbodentherapie wäre von Vorteil\n•\tBereitschaft Wochenend- und Feiertagsdienste zu leisten\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P7-Arbeitszeit.svg,P8-Fort-und-Weiterbildung.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-      "descriptionByLocale": {
-        "it": "<b>Bülach Ospedale cresce - crescere con esso.\n\nCompiti:\n• Trattamento degli ambulatori (circa 50%)\n\n• Trattamento di pazienti affetti da malattia nei campi della medicina, chirurgia, ortopedia, ginecologia, neurologia, medicina intensiva e reumatologia. Concentrandosi su Medicina dell'invecchiamento, Riabilitazione Geriatrica\n\n• Documentazione completa e misurazione delle prestazioni\n\nRequisiti\n• Formazione professionale completa HF/FH o SRC riconosciuto\n• Suono MS Capacità di ufficio\n• Comportamento orientato al cliente e al servizio\n• interesse o esperienza nella riabilitazione cardiaca o terapia del pavimento pelvico sarebbe vantaggioso\n• Volontà di fornire i servizi di fine settimana e vacanza\n\nOffriamo:\nP1-oeV.svg,P2-food.svg,P3-benefits.svg,P4-change package.svg,P5-social benefit.svg,P7-working time.svg,P8-continuad e formazione avanzata.svg,P11-valuation.svg,P13-coffee break. #\n\nCon i suoi 170 posti letto e circa 1.200 dipendenti, il Bülach Hospital fornisce assistenza medica per 180.000 persone nella zona di Zurigo e nelle regioni limitrofe. Ogni anno, trattiamo e curiamo circa 10.000 pazienti inpatici e oltre 78.000 pazienti ambulatoriali. In totale, circa 1.400 bambini vedono la luce della giornata all'ospedale di Bülach ogni anno.",
-        "en": "<b>Bülach Hospital grows - grow with it.</b>\n\nTasks:\n• Treatment of outpatients (about 50%)\n\n• Treatment of inpatient patients in the fields of medicine, surgery, orthopaedics, gynecology, neurology, intensive care medicine and rheumatology. Focusing on Aging Medicine, Geriatric Rehabilitation\n\n• Complete documentation and performance measurement\n\nRequirements\n• Completed vocational training HF/FH or SRC recognised\n• Sound MS Office skills\n• Customer and service-oriented behaviour\n• interest or Experience in cardiac rehabilitation or pelvic floor therapy would be beneficial\n• Willingness to provide weekend and holiday services\n\nWe offer:\nP1-oeV.svg,P2-food.svg,P3-benefits.svg,P4-changing package.svg,P5-social benefits.svg,P7-working time.svg,P8-continued and advanced training.svg,P11-valuation.svg,P13-coffee break. svg\n\nWith its 170 beds and around 1,200 employees, the Bülach Hospital provides medical care for 180,000 people in the Zurich Underland and neighbouring regions. Every year, we treat and care for around 10,000 inpatient and over 78,000 outpatient patients. In total, around 1,400 babies see the light of day in Bülach Hospital every year.",
-        "de": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Behandlung ambulanter Patientinnen und Patienten (ca. 50%)\n\n• Behandlung stationärer Patientinnen und Patienten in den Bereichen Medizin, Chirurgie, Orthopädie, Gynäkologie, Neurologie, Intensivmedizin und Rheumatologie. Mit Schwerpunkt Altersmedizin, geriatrische Rehabilitation\n\n• Vollständige Dokumentation und Leistungserfassung\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung HF/FH oder SRK-anerkannt\n• Fundierte MS Office-Kenntnisse\n• Kunden- und dienstleistungsorientiertes Verhalten\n• Interesse bzw. Erfahrungen in der Herzrehabilitation oder Beckenbodentherapie wäre von Vorteil\n• Bereitschaft Wochenend- und Feiertagsdienste zu leisten\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P7-Arbeitszeit.svg,P8-Fort-und-Weiterbildung.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-        "fr": "<b>L'hôpital de Bülach pousse - grandir avec.</b>\n\nTâches :\n• Traitement des patients externes (environ 50%)\n\n• Traitement des patients hospitalisés en médecine, chirurgie, orthopédie, gynécologie, neurologie, médecine de soins intensifs et rhumatologie. Se concentrer sur la médecine du vieillissement, la réadaptation gériatrique\n\n• Documentation complète et mesure du rendement\n\nExigences\n• Formation professionnelle terminée HF/FH ou SRC reconnue\n• Son MS Compétences de bureau\n• Comportement axé sur le client et le service\n• l'intérêt ou l'expérience en réadaptation cardiaque ou en thérapie pelvienne serait bénéfique\n• Volonté de fournir des services de week-end et de vacances\n\nNous offrons:\nP1-oeV.svg,P2-food.svg,P3- benefits.svg,P4-changement package.svg,P5-social benefits.svg,P7-working time.svg,P8-suite et formation avancée.svg,P11-valuation.svg,P13-cafee break. Svg\n\nAvec ses 170 lits et ses quelque 1 200 employés, l'hôpital Bülach fournit des soins médicaux à 180 000 personnes dans les sous-terres de Zurich et les régions voisines. Chaque année, nous traitons et soigneons environ 10 000 patients hospitalisés et plus de 78 000 patients externes. Au total, environ 1 400 bébés voient chaque année le jour à l'hôpital Bülach."
-      },
-      "location": "Bülach",
-      "canton": "ZH",
-      "url": "https://job.spitalbuelach.ch/offene-stellen/physiotherapeut-in/60d1fb27-c198-4718-b5ee-a223c9cb122d",
-      "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-26T22:09:54.754Z",
-      "addressLocality": "Bülach",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8180",
-      "streetAddress": "Spitalstrasse 24",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-21",
-      "applyUrl": "https://jobs.spitalbuelach.ch/physiotherapie-de-f1435.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "physiotherapeut-in-spital-buelach-bulach",
-        "physiotherapeut-in-spital-bulach-bulach",
-        "ricevitore-in-spital-bulach-bulach",
-        "receptionist-in-spital-bulach-bulach",
-        "receptionist-in-spital-buelach-bulach",
-        "receptionniste-in-spital-bulach-bulach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "physiotherapeut-in-spital-buelach-bulach",
-          "physiotherapeut-in-spital-bulach-bulach",
-          "ricevitore-in-spital-bulach-bulach",
-          "receptionist-in-spital-bulach-bulach",
-          "receptionist-in-spital-buelach-bulach",
-          "receptionniste-in-spital-bulach-bulach"
-        ],
-        "en": [
-          "physiotherapeut-in-spital-bulach-bulach",
-          "receptionist-in-spital-bulach-bulach"
-        ],
-        "de": [
-          "receptionist-in-spital-buelach-bulach"
-        ],
-        "fr": [
-          "physiotherapeut-in-spital-bulach-bulach",
-          "receptionniste-in-spital-bulach-bulach"
-        ]
-      },
-      "firstSeenAt": "2026-07-21T12:14:59.063Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
