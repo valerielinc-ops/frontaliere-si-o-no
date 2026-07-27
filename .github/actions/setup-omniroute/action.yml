@@ -17,19 +17,28 @@ description: >-
   pilot workflow (see generate-company-parser.yml's omniroute_enabled
   input) share one implementation instead of copy-pasted bash drifting
   apart (AGENTS.md #6).
-  Caller MUST run "node scripts/load-rc-env.mjs" before this action so the
-  small curated provider keys are present in env for registration, and MUST
-  gate the `uses:` step itself with an `if:` — this action has no internal
-  opt-in gate of its own (unlike setup-claude-haiku-fallback, which is a
-  default-ON kill-switch); every step here always runs when invoked.
+  Default-ON kill-switch (RC flag ENABLE_OMNIROUTE_FALLBACK='0' disables
+  every step below, mirrors setup-claude-haiku-fallback's ENABLE_HAIKU_
+  ARTICLE_FALLBACK gate) added when this action was rolled out from the two
+  original pilot callers to every other workflow that runs an ai-models.mjs
+  consumer script — a single RC flip now kills OmniRoute registration
+  everywhere at once without editing each caller.
+  Caller MUST run "node scripts/load-rc-env.mjs" before this action so both
+  the kill-switch flag and the small curated provider keys are present in
+  env. Callers that still want a narrower, explicit opt-in (e.g. a
+  workflow_dispatch boolean) keep gating the `uses:` step itself with their
+  own `if:` on top — this action's internal gate is additive, not a
+  replacement.
 runs:
   using: "composite"
   steps:
     - name: Install OmniRoute
+      if: env.ENABLE_OMNIROUTE_FALLBACK != '0'
       shell: bash
       run: OMNIROUTE_SKIP_POSTINSTALL=1 npm install -g omniroute
 
     - name: Start OmniRoute server
+      if: env.ENABLE_OMNIROUTE_FALLBACK != '0'
       shell: bash
       run: |
         OMNI_PW="$(openssl rand -hex 20)"
@@ -48,9 +57,25 @@ runs:
         exit 1
 
     - name: Register OmniRoute providers (small curated set)
+      if: env.ENABLE_OMNIROUTE_FALLBACK != '0'
       shell: bash
       run: node scripts/ci/omniroute-poc-register.mjs
 
     - name: Enable OmniRoute for the rest of this job
+      if: env.ENABLE_OMNIROUTE_FALLBACK != '0'
       shell: bash
       run: echo "OMNIROUTE_ENABLED=1" >> "$GITHUB_ENV"
+
+    # Unconditional (no `if:`) so it also fires when the steps above got
+    # skipped — surfaces flag/registration desync directly in this run's
+    # log instead of requiring a forensic dig through job.steps[].conclusion.
+    - name: Diagnose OmniRoute fallback state
+      shell: bash
+      run: |
+        echo "ENABLE_OMNIROUTE_FALLBACK=${ENABLE_OMNIROUTE_FALLBACK:-<unset>}"
+        echo "OMNIROUTE_ENABLED=${OMNIROUTE_ENABLED:-<unset>}"
+        if command -v omniroute >/dev/null 2>&1; then
+          echo "omniroute CLI: present"
+        else
+          echo "omniroute CLI: NOT on PATH — fallback will no-op if the runtime gate offers it this run"
+        fi
