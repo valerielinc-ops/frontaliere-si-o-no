@@ -328,6 +328,23 @@ function treeEntryToRoute(entry) {
 // tolerate a not-yet-seeded shard should treat `null` as "0 pages, skip the
 // floor check" rather than a failure. Any other clone/list error still
 // throws (auth, network, wrong repo name — real problems).
+// Bounded-concurrency mapper — mirrors the MAX_PARALLEL=4 cap used for
+// section-shard push/pack/rehydrate elsewhere in the pipeline (conservative
+// margin against runner disk/network limits when fanning out across up to
+// ~27 sections x 4 locales of `git clone`).
+async function mapPool(items, limit, fn) {
+  const results = new Array(items.length);
+  let next = 0;
+  async function worker() {
+    while (next < items.length) {
+      const i = next++;
+      results[i] = await fn(items[i], i);
+    }
+  }
+  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker));
+  return results;
+}
+
 async function listShardTree(repo) {
   const dir = await mkdtemp(join(tmpdir(), 'audit404-'));
   try {
@@ -418,39 +435,46 @@ async function buildServedSet() {
     // and out of every en/de/fr locale shard, so without this loop every page
     // in that section looks unserved even though it's live on
     // frontaliere-<section>-<loc>. See SECTION_SHARD_REPOS comment.
-    for (const [section, repos] of Object.entries(SECTION_SHARD_REPOS)) {
+    for (const section of Object.keys(SECTION_SHARD_REPOS)) {
       meta.sectionShards[section] = {};
-      for (const [loc, repo] of Object.entries(repos)) {
-        log(`[404] listing ${loc} ${section} shard tree (${repo}) …`);
-        const entries = await listShardTree(repo);
-        if (entries === null) {
-          // Genuinely empty repo (no commits) — this section isn't seeded/
-          // live yet (e.g. a new section between `gh repo create` and its
-          // first push-section-shard.sh run). Its content is still fully
-          // served from wherever it hasn't been stripped from, so this
-          // contributes 0 pages with NO floor check — not a degenerate-clone
-          // regression. See listShardTree()'s doc comment.
-          meta.sectionShards[section][loc] = null;
-          log(`[404]   ${section}-${loc}: not seeded yet (empty repo) — skipping`);
-          continue;
-        }
-        let n = 0;
-        for (const e of entries) {
-          if (!/\.html$/i.test(e)) continue;
-          served.add(treeEntryToRoute(e));
-          n++;
-        }
-        const floor = sectionShardFloor(section, loc);
-        meta.sectionShards[section][loc] = n;
-        log(`[404]   ${section}-${loc}: ${n} served pages (floor ${floor})`);
-        // Same degenerate-clone guard as the locale shards above — a renamed
-        // repo / failed push / rate-limited clone must fail loud, not
-        // silently report tens of thousands of false section-scoped 404s.
-        if (n < floor) {
-          throw new Error(`${section} shard ${loc} (${repo}) returned only ${n} pages (< floor ${floor}) — degenerate clone, refusing to emit a poisoned report. If this is expected (e.g. ${section.toUpperCase()}_SHARD_LIVE rolled back), lower it via AUDIT_404_${section.toUpperCase()}_SHARD_FLOOR_${loc.toUpperCase()} (or AUDIT_404_${section.toUpperCase()}_SHARD_FLOOR).`);
-        }
-      }
     }
+    const shardTasks = Object.entries(SECTION_SHARD_REPOS).flatMap(([section, repos]) =>
+      Object.entries(repos).map(([loc, repo]) => ({ section, loc, repo })),
+    );
+    // Bounded concurrency (MAX_PARALLEL=4, same cap as the push/pack/rehydrate
+    // loops this mirrors): up to ~27 sections x 4 locales of `git clone` run
+    // one-at-a-time here used to be the slow path this audit shares with the
+    // deploy pipeline it audits.
+    await mapPool(shardTasks, 4, async ({ section, loc, repo }) => {
+      log(`[404] listing ${loc} ${section} shard tree (${repo}) …`);
+      const entries = await listShardTree(repo);
+      if (entries === null) {
+        // Genuinely empty repo (no commits) — this section isn't seeded/
+        // live yet (e.g. a new section between `gh repo create` and its
+        // first push-section-shard.sh run). Its content is still fully
+        // served from wherever it hasn't been stripped from, so this
+        // contributes 0 pages with NO floor check — not a degenerate-clone
+        // regression. See listShardTree()'s doc comment.
+        meta.sectionShards[section][loc] = null;
+        log(`[404]   ${section}-${loc}: not seeded yet (empty repo) — skipping`);
+        return;
+      }
+      let n = 0;
+      for (const e of entries) {
+        if (!/\.html$/i.test(e)) continue;
+        served.add(treeEntryToRoute(e));
+        n++;
+      }
+      const floor = sectionShardFloor(section, loc);
+      meta.sectionShards[section][loc] = n;
+      log(`[404]   ${section}-${loc}: ${n} served pages (floor ${floor})`);
+      // Same degenerate-clone guard as the locale shards above — a renamed
+      // repo / failed push / rate-limited clone must fail loud, not
+      // silently report tens of thousands of false section-scoped 404s.
+      if (n < floor) {
+        throw new Error(`${section} shard ${loc} (${repo}) returned only ${n} pages (< floor ${floor}) — degenerate clone, refusing to emit a poisoned report. If this is expected (e.g. ${section.toUpperCase()}_SHARD_LIVE rolled back), lower it via AUDIT_404_${section.toUpperCase()}_SHARD_FLOOR_${loc.toUpperCase()} (or AUDIT_404_${section.toUpperCase()}_SHARD_FLOOR).`);
+      }
+    });
   }
   return { served, meta };
 }
