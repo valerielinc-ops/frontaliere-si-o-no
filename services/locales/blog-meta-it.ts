@@ -9008,6 +9008,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-valsolda-da-frontaliere-pro-e-contro.title': 'trasferirsi a Valsolda da frontaliere pro e contro',
     'blog.article.trasferirsi-a-valsolda-da-frontaliere-pro-e-contro.excerpt': 'Scopri i vantaggi e gli svantaggi di trasferirsi a Valsolda da frontaliere.',
     'blog.article.trasferirsi-a-valsolda-da-frontaliere-pro-e-contro.imageAlt': 'Una vista panoramica di Valsolda con il lago in primo piano e le montagne in seconda.',
+    'blog.article.proposta-choc-ticino-frontalieri.title': 'Riforma choc per frontalieri: pagheranno più tasse',
+    'blog.article.proposta-choc-ticino-frontalieri.excerpt': 'La Lega dei Ticinesi propone di trasformare i vecchi frontalieri in nuovi, in modo da pagare più tasse.',
+    'blog.article.proposta-choc-ticino-frontalieri.imageAlt': 'Una scena di Locarno, con una vista del lago e una strada trafficata.',
 };
 
 export default blogMetaIt;
