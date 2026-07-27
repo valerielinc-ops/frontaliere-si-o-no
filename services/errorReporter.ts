@@ -20,6 +20,7 @@
 
 import { Analytics } from '@/services/analytics';
 import { isBenignErrorMessage } from '@/services/benignErrorPatterns';
+import { isNewsletterAutologinInFlight } from '@/services/newsletterAutologinSignal';
 import { isVersionSkewError, recoverFromStaleChunk } from '@/services/resilientImport';
 
 type ErrorType =
@@ -96,7 +97,11 @@ export function reportCaughtError(
  // attempt. Same `version_skew:<message>` signature as ErrorBoundary so both paths
  // share one reload budget for the same underlying stale chunk regardless of which
  // caught it first.
- if (isVersionSkewError(error)) {
+ // Suppress the reload while a newsletter autologin exchange is in flight —
+ // same guard `promptOneTap()`/auth gates use (services/authService.ts:1412):
+ // forcing a reload mid-exchange would abort the sign-in the user is already
+ // mid-way through (e.g. App.tsx's `app.newsletterAutologin` catch).
+ if (isVersionSkewError(error) && !isNewsletterAutologinInFlight()) {
  void recoverFromStaleChunk(`version_skew:${message.slice(0, 80)}`);
  }
 

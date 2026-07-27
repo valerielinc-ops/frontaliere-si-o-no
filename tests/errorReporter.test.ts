@@ -18,7 +18,14 @@ vi.mock('@/services/resilientImport', async (importOriginal) => {
   return { ...actual, recoverFromStaleChunk: vi.fn().mockResolvedValue(true) };
 });
 
+// Controllable in the "does not self-heal during newsletter autologin" test
+// below without depending on window.location.search at module-load time.
+vi.mock('@/services/newsletterAutologinSignal', () => ({
+  isNewsletterAutologinInFlight: vi.fn().mockReturnValue(false),
+}));
+
 import { Analytics } from '@/services/analytics';
+import { isNewsletterAutologinInFlight } from '@/services/newsletterAutologinSignal';
 import { recoverFromStaleChunk } from '@/services/resilientImport';
 
 // Analytics.trackAppError is auto-mocked in tests/setup.tsx as vi.fn()
@@ -165,6 +172,15 @@ describe('reportCaughtError', () => {
 
     it('does not trigger recoverFromStaleChunk for an ordinary error', () => {
       reportCaughtError(new Error('genuine bug, not a skew'), 'real.bug.skewcheck');
+      expect(recoverFromStaleChunk).not.toHaveBeenCalled();
+    });
+
+    it('does not trigger recoverFromStaleChunk while a newsletter autologin exchange is in flight', () => {
+      vi.mocked(isNewsletterAutologinInFlight).mockReturnValueOnce(true);
+      const err = new Error('ls(...).then is not a function');
+      err.name = 'TypeError';
+      reportCaughtError(err, 'app.newsletterAutologin');
+
       expect(recoverFromStaleChunk).not.toHaveBeenCalled();
     });
 
