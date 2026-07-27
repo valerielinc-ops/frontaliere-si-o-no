@@ -61,6 +61,20 @@ jobs:
             echo "severity=none" >> "$GITHUB_OUTPUT"
           fi
 
+      # Ensure the labels exist BEFORE `gh issue create --label` — without this,
+      # a missing label makes the create call fail under `set -euo pipefail`,
+      # crashing the whole job and masking the real oversized-shard condition
+      # behind a generic "unexpected failure" report (#4598).
+      - name: Ensure labels exist
+        if: steps.check.outcome == 'failure' && steps.severity.outputs.severity != 'none'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create "sitemap-shard-warning" --color "FBCA04" \
+            --description "sitemap-shard-size-monitor: shard >=40k urls" --force 2>/dev/null || true
+          gh label create "sitemap-shard-critical" --color "D93F0B" \
+            --description "sitemap-shard-size-monitor: shard >=45k urls" --force 2>/dev/null || true
+
       - name: Open issue for oversized shards
         if: steps.check.outcome == 'failure' && steps.severity.outputs.severity != 'none'
         env:

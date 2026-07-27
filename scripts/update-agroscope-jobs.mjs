@@ -3,11 +3,24 @@
  * Agroscope — Dedicated Crawler
  *
  * Crawls Swiss federal job portal via Prospective.ch API:
- *   https://ohws.prospective.ch/public/v1/medium/1000626/jobs?lang=it&offset=0&limit=100&f=verwaltungseinheit:1083812
+ *   https://ohws.prospective.ch/public/v1/medium/1000624/jobs?lang=it&offset=0&limit=100
  *
- * 1. Fetches ALL Agroscope job listings via JSON API (verwaltungseinheit 1083812).
- *    The verwaltungseinheit facet scopes to the Agroscope org unit, NOT a canton —
- *    the listing is already national (CH-wide, all 26 cantons).
+ * Fix for #4799 (2026-07-27): the API's medium_id drifted from 1000626 to
+ * 1000624 (jobs.admin.ch platform migration — old id returns {total:0,
+ * jobs:[]} for every query, not an error, so it silently looked like a
+ * genuinely-empty board) AND the old numeric org-unit filter
+ * (`f=verwaltungseinheit:1083812`) no longer isolates Agroscope — the office
+ * is now only identifiable via a per-job free-text sub-facet, not a stable
+ * numeric id (see scripts/lib/agroscope-job-parser.mjs docblock). See
+ * docs/AGENTS-HISTORY.md for the sibling-pattern connection to #4759
+ * (job.post.ch also has no working server-side brand filter).
+ *
+ * 1. Fetches the ENTIRE unfiltered federal jobs.admin.ch listing (no
+ *    server-side org-unit filter — ~370 jobs / ~4 pages across every
+ *    department), then keeps only Agroscope records client-side via
+ *    `isAgroscopeApiRecord` (matches the `verwaltungseinheit_*` sub-facet
+ *    text, not a numeric id — resilient to future department reorganisation).
+ *    The listing is already national (CH-wide, all 26 cantons).
  * 2. Keeps every job whose location resolves to a Swiss canton (inferAnyCanton);
  *    drops foreign "Estero" postings. Agroscope is a national federal research org.
  * 3. All data is in the API response (no detail page fetching needed)
@@ -66,8 +79,7 @@ const COMPANY_KEY = 'agroscope';
 const COMPANY_NAME = 'Agroscope';
 const COMPANY_HOST = 'jobs.admin.ch';
 const COMPANY_DOMAIN = 'admin.ch';
-const API_BASE = 'https://ohws.prospective.ch/public/v1/medium/1000626/jobs';
-const VERWALTUNGSEINHEIT = '1083812';
+const API_BASE = 'https://ohws.prospective.ch/public/v1/medium/1000624/jobs';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 25000;
@@ -141,21 +153,23 @@ async function fetchAllListings() {
   const allItems = [];
   let offset = 0;
   const limit = 100;
-  let total = 0;
+  let portalTotal = 0;
 
-  // Paginate through all results
+  // No server-side org-unit filter (see module + parser docblocks) — paginate
+  // through the ENTIRE federal portal, then parseAgroscopeApiResponse filters
+  // each page down to Agroscope records client-side.
   do {
-    const url = `${API_BASE}?lang=it&offset=${offset}&limit=${limit}&f=verwaltungseinheit:${VERWALTUNGSEINHEIT}`;
+    const url = `${API_BASE}?lang=it&offset=${offset}&limit=${limit}`;
     console.log(`  API: ${url}`);
 
     const data = await fetchJson(url);
     const { items } = parseAgroscopeApiResponse(data);
-    total = data.total || 0;
+    portalTotal = data.total || 0;
     allItems.push(...items);
     offset += limit;
-  } while (offset < total);
+  } while (offset < portalTotal);
 
-  console.log(`API returned ${total} Agroscope jobs total`);
+  console.log(`Scanned ${portalTotal} federal jobs.admin.ch listings, matched ${allItems.length} Agroscope jobs`);
 
   // Keep every job that resolves to a Swiss canton (CH-wide, all 26); drop
   // foreign "Estero" postings. The fetch is already national — no canton facet.
@@ -168,7 +182,12 @@ async function fetchAllListings() {
 function buildAgroscopeJob(row) {
   const localized = buildAgroscopeLocalizedContent(row);
   const canton = inferAgroscopeCanton(row);
-  const detailUrl = row.directLink || `https://jobs.admin.ch/?lang=it&f=verwaltungseinheit:${VERWALTUNGSEINHEIT}`;
+  // `row.directLink` (from the API's `links.directlink`) is populated on every
+  // live record observed; this fallback is defensive only. Points at the
+  // portal root rather than a filtered search — there is no reliable numeric
+  // filter for Agroscope specifically (see module docblock), so a fallback
+  // link that *claims* precision it can't deliver would be worse than none.
+  const detailUrl = row.directLink || 'https://jobs.admin.ch/?lang=it';
   return {
     title: localized.titleByLocale.it,
     slug: localized.slugByLocale.it,
@@ -259,8 +278,8 @@ function updateAdapterConfig(jobs) {
     enabled: true,
     priority: 18,
     crawlerModes: ['api'],
-    seedUrls: [`${API_BASE}?lang=it&f=verwaltungseinheit:${VERWALTUNGSEINHEIT}`],
-    notes: 'Dedicated Agroscope crawler — CH-wide (all 26 cantons). Uses Prospective.ch API (medium 1000626, verwaltungseinheit 1083812 — the Agroscope org unit, NOT a canton facet, so the listing is already national). Swiss federal center of competence for agricultural research, part of DEFR. Research sites across CH: Posieux (FR), Reckenholz/Zürich (ZH), Changins/Nyon (VD), Conthey (VS), Cadenazzo (TI), Tänikon (TG), etc. Keeps every job that resolves to a Swiss canton (inferAnyCanton); drops foreign "Estero" postings. Full job data in API response, no detail page fetching needed.',
+    seedUrls: [`${API_BASE}?lang=it`],
+    notes: 'Dedicated Agroscope crawler — CH-wide (all 26 cantons). Uses Prospective.ch API (medium 1000624 — fixed 2026-07-27 for #4799, was stale 1000626 which silently returned {total:0,jobs:[]} for every query after a jobs.admin.ch platform migration). No server-side org-unit filter exists for Agroscope specifically (the old numeric verwaltungseinheit:1083812 filter no longer resolves anything); fetches the whole federal portal (~370 jobs) and filters client-side via isAgroscopeApiRecord matching the verwaltungseinheit_* sub-facet text "Agroscope" (see scripts/lib/agroscope-job-parser.mjs). Listing is already national since the whole portal is scanned. Swiss federal center of competence for agricultural research, part of DEFR. Research sites across CH: Posieux (FR), Reckenholz/Zürich (ZH), Changins/Nyon (VD), Conthey (VS), Cadenazzo (TI), Tänikon (TG), etc. Keeps every job that resolves to a Swiss canton (inferAnyCanton); drops foreign "Estero" postings. Full job data in API response, no detail page fetching needed.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -288,7 +307,7 @@ async function main() {
   console.log('  Agroscope — Dedicated Crawler');
   console.log('===============================================');
   console.log(`  API: ${API_BASE}`);
-  console.log(`  Filter: verwaltungseinheit:${VERWALTUNGSEINHEIT}\n`);
+  console.log('  Filter: none (whole portal), client-side isAgroscopeApiRecord match\n');
 
   const listings = await fetchAllListings();
   if (listings.length === 0) {

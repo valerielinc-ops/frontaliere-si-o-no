@@ -49,6 +49,7 @@
 
 import { fetchWithRetry } from '../transient-fetch.mjs';
 import { assertJsonListShapeMultiKey } from '../assert-json-list-shape.mjs';
+import { decodeHtmlEntities } from '../decode-html-entities.mjs';
 
 /* ── Error class ─────────────────────────────────────────────── */
 
@@ -297,6 +298,50 @@ function normalizeWhitespace(value = '') {
   return String(value || '').replace(/ /g, ' ').replace(/\s+/g, ' ').trim();
 }
 
+function escapeHtml(value = '') {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+// Below this many chars of tag-stripped `content`, treat it as a placeholder
+// stub (observed: literal "-") rather than a real description (#4731).
+const MIN_REAL_CONTENT_LENGTH = 20;
+
+function roughTextLength(html) {
+  // Greenhouse `content` is sometimes HTML-entity-encoded (e.g. literal
+  // "&lt;p&gt;-&lt;/p&gt;" text rather than a real `<p>-</p>` tag) — decode
+  // entities first, otherwise the tag-strip regex below never matches and a
+  // one-character placeholder stub reads as 20+ "real" characters (#4731).
+  return decodeHtmlEntities(String(html || '')).replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim().length;
+}
+
+/**
+ * Some Greenhouse boards (observed: On Running) leave `content` as a thin
+ * placeholder and store the real job description across `metadata[]`
+ * `long_text` custom fields instead (e.g. "In short", "Your mission",
+ * "Your story"). Reconstruct an HTML description from those fields so
+ * downstream translation/quality checks see real content instead of a stub.
+ *
+ * @param {object} rawJob
+ * @returns {string} HTML, empty string if no usable metadata found.
+ */
+function buildDescriptionFromMetadata(rawJob) {
+  const metadata = Array.isArray(rawJob?.metadata) ? rawJob.metadata : [];
+  const sections = metadata
+    .filter((field) => field
+      && field.value_type === 'long_text'
+      && typeof field.value === 'string'
+      && field.value.trim().length > 0)
+    .map((field) => {
+      const heading = escapeHtml(normalizeWhitespace(field.name || ''));
+      const body = escapeHtml(field.value.trim());
+      return heading ? `<p><strong>${heading}</strong></p><p>${body}</p>` : `<p>${body}</p>`;
+    });
+  return sections.join('\n');
+}
+
 /**
  * Convert a raw Greenhouse job object into the vendor-agnostic
  * NormalizedJob shape used by downstream pipeline stages.
@@ -339,8 +384,25 @@ export function normalizeGreenhouseJob(rawJob, options = {}) {
     applyUrl,
   };
 
-  if (includeContent && typeof rawJob.content === 'string' && rawJob.content.length > 0) {
-    normalized.descriptionHtml = rawJob.content;
+  if (includeContent) {
+    const rawContent = typeof rawJob.content === 'string' ? rawJob.content : '';
+    if (roughTextLength(rawContent) >= MIN_REAL_CONTENT_LENGTH) {
+      // `content` has substantive text — use it as-is (fast path, unchanged
+      // behaviour for boards that populate it properly).
+      normalized.descriptionHtml = rawContent;
+    } else {
+      // `content` is missing or a thin placeholder stub (e.g. "-"). Some
+      // boards (observed: On Running) store the real description across
+      // `metadata[]` long_text fields instead — fall back to those (#4731).
+      const metadataDescription = buildDescriptionFromMetadata(rawJob);
+      if (metadataDescription) {
+        normalized.descriptionHtml = metadataDescription;
+      } else if (rawContent.length > 0) {
+        // No usable metadata either — preserve prior behaviour of passing
+        // through whatever thin content exists rather than dropping it.
+        normalized.descriptionHtml = rawContent;
+      }
+    }
   }
 
   return normalized;

@@ -1,0 +1,128 @@
+/**
+ * Tests for `components/shared/ErrorBoundary.tsx` — SilentErrorBoundary.
+ *
+ * Focus (#4590): SilentErrorBoundary wraps non-critical widget clusters
+ * (nav-actions, ai-chatbot via SafeLazy, home-widgets-*) and — unlike the
+ * top-level `ErrorBoundary` — deliberately never forces a
+ * `window.location.reload()` on catch (ref cwji52: a forced reload from a
+ * non-critical widget previously disrupted an in-progress newsletter
+ * autologin). Before this fix it also never called `bustAssetHttpCache()`,
+ * so a stale chunk / version-skew SyntaxError caught here left the
+ * browser's HTTP disk cache holding the stale bytes for the rest of the
+ * session. Asserts:
+ *   (a) chunk-load errors trigger bustAssetHttpCache(),
+ *   (b) version-skew (link-time) SyntaxErrors trigger bustAssetHttpCache(),
+ *   (c) NEITHER case ever calls window.location.reload(),
+ *   (d) non-chunk errors do NOT trigger bustAssetHttpCache(),
+ *   (e) the subtree fallback still renders (existing behaviour unchanged).
+ */
+
+import React from 'react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { cleanup, render, screen } from '@testing-library/react';
+import { SilentErrorBoundary } from '@/components/shared/ErrorBoundary';
+import * as resilientImport from '@/services/resilientImport';
+
+const originalLocation = window.location;
+let reloadSpy: ReturnType<typeof vi.fn>;
+
+beforeEach(() => {
+  reloadSpy = vi.fn();
+  Object.defineProperty(window, 'location', {
+    configurable: true,
+    value: { ...originalLocation, reload: reloadSpy },
+    writable: true,
+  });
+  sessionStorage.clear();
+  // Silence the React error-in-render console noise for the deliberate throws.
+  vi.spyOn(console, 'error').mockImplementation(() => undefined);
+});
+
+afterEach(() => {
+  cleanup();
+  Object.defineProperty(window, 'location', {
+    configurable: true,
+    value: originalLocation,
+    writable: true,
+  });
+  vi.restoreAllMocks();
+});
+
+/** Throws on render — used to simulate a failing widget subtree. */
+function Thrower({ message }: { message: string }) {
+  throw new Error(message);
+}
+
+/**
+ * Throws a SyntaxError on render — isVersionSkewError's message-pattern
+ * branch (resilientImport.ts) only matches when `error.name === 'SyntaxError'`
+ * (mirrors the real link-time failure: a native `SyntaxError` from the module
+ * loader), so a plain `new Error(...)` (name: 'Error') would never match it.
+ */
+function SkewThrower({ message }: { message: string }) {
+  throw Object.assign(new Error(message), { name: 'SyntaxError' });
+}
+
+describe('SilentErrorBoundary', () => {
+  it('renders children when no error occurs', () => {
+    render(
+      <SilentErrorBoundary boundary="test-widget">
+        <p>widget ok</p>
+      </SilentErrorBoundary>,
+    );
+    expect(screen.getByText('widget ok')).toBeInTheDocument();
+  });
+
+  it('renders the fallback (default: nothing) after a render error, without crashing the page', () => {
+    render(
+      <SilentErrorBoundary boundary="test-widget">
+        <Thrower message="boom" />
+      </SilentErrorBoundary>,
+    );
+    expect(screen.queryByText('boom')).not.toBeInTheDocument();
+  });
+
+  it('busts the HTTP asset cache on a chunk-load error (#4590)', async () => {
+    const bustSpy = vi.spyOn(resilientImport, 'bustAssetHttpCache').mockResolvedValue(undefined);
+    render(
+      <SilentErrorBoundary boundary="ai-chatbot">
+        <Thrower message="Failed to fetch dynamically imported module: /assets/AiChatbot.js" />
+      </SilentErrorBoundary>,
+    );
+    expect(bustSpy).toHaveBeenCalledTimes(1);
+    // Non-disruptive by design — SafeLazy/ref cwji52 constraint.
+    expect(reloadSpy).not.toHaveBeenCalled();
+  });
+
+  it('busts the HTTP asset cache on a link-time version-skew SyntaxError (#4590)', async () => {
+    const bustSpy = vi.spyOn(resilientImport, 'bustAssetHttpCache').mockResolvedValue(undefined);
+    render(
+      <SilentErrorBoundary boundary="nav-actions">
+        <SkewThrower message="The requested module './internalLinks.js' does not provide an export named 'NAV_ACTION_HOME'" />
+      </SilentErrorBoundary>,
+    );
+    expect(bustSpy).toHaveBeenCalledTimes(1);
+    expect(reloadSpy).not.toHaveBeenCalled();
+  });
+
+  it('does NOT bust the HTTP asset cache on a non-chunk, non-skew error', () => {
+    const bustSpy = vi.spyOn(resilientImport, 'bustAssetHttpCache').mockResolvedValue(undefined);
+    render(
+      <SilentErrorBoundary boundary="home-widgets-desktop">
+        <Thrower message="Cannot read properties of undefined (reading 'foo')" />
+      </SilentErrorBoundary>,
+    );
+    expect(bustSpy).not.toHaveBeenCalled();
+    expect(reloadSpy).not.toHaveBeenCalled();
+  });
+
+  it('never calls window.location.reload(), regardless of error type (SafeLazy / ref cwji52 constraint)', () => {
+    vi.spyOn(resilientImport, 'bustAssetHttpCache').mockResolvedValue(undefined);
+    render(
+      <SilentErrorBoundary boundary="ai-chatbot">
+        <Thrower message="ChunkLoadError: Loading chunk 7 failed." />
+      </SilentErrorBoundary>,
+    );
+    expect(reloadSpy).not.toHaveBeenCalled();
+  });
+});
