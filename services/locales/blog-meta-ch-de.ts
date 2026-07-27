@@ -1600,6 +1600,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-attacco-ticino.title': 'Erstattungen kürzen, Kanton Tessin greift Gesundheitssteuer an',
     'blog.article.tassa-salute-frontalieri-attacco-ticino.excerpt': 'Regierungsrat Christian Vitta erklärte, er wolle den Rückerstattungsmechanismus für Grenzgänger angreifen.',
     'blog.article.tassa-salute-frontalieri-attacco-ticino.imageAlt': 'Fotografie von Lugano mit einem Protestplakat vor dem Rathaus',
+    'blog.article.perche-tanti-svizzeri-ignorano-tutor-italia.title': 'Warum ignorieren so viele Schweizer den Tutor in Italien?',
+    'blog.article.perche-tanti-svizzeri-ignorano-tutor-italia.excerpt': 'Das neue Frontalieri-Abkommen sieht die Schaffung einer Regelung zur Befreiung von der Zahlung der IRPEF in Italien für Schweizer Grenzgänger vor.',
+    'blog.article.perche-tanti-svizzeri-ignorano-tutor-italia.imageAlt': 'Ein Schweizer Grenzgänger, der nach Italien geht, um einen Tutor zu beantragen',
 };
 
 export default blogMetaChDe;

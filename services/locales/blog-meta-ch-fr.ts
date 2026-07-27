@@ -1600,6 +1600,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-attacco-ticino.title': 'Couper les restaurations, le canton du Tessin s\'attaque à la taxe santé',
     'blog.article.tassa-salute-frontalieri-attacco-ticino.excerpt': 'Le Conseiller d\'Etat Christian Vitta a déclaré vouloir s\'attaquer au mécanisme des restaurations pour les frontaliers.',
     'blog.article.tassa-salute-frontalieri-attacco-ticino.imageAlt': 'Photographie de Lugano avec un panneau de protestation devant le hôtel de ville',
+    'blog.article.perche-tanti-svizzeri-ignorano-tutor-italia.title': 'Pourquoi tant de Suisses ignorent-ils le Tuteur en Italie ?',
+    'blog.article.perche-tanti-svizzeri-ignorano-tutor-italia.excerpt': 'Le nouvel accord frontalier prévoit la création d\'un régime d\'exemption du paiement de l\'IRPEF en Italie pour les frontaliers suisses.',
+    'blog.article.perche-tanti-svizzeri-ignorano-tutor-italia.imageAlt': 'Un travailleur frontalier suisse qui se rend en Italie pour demander un Tutor',
 };
 
 export default blogMetaChFr;

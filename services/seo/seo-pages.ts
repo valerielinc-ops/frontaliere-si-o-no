@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3560,
+ "numberOfItems": 3561,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8320,7 +8320,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3557, "name": "Frontalieri, ristorni da record: all'Italia ben...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ristorni-da-record` },
           { "@type": "ListItem", "position": 3558, "name": "Frontalieri Ticino: imposta al 100% dal 2026 pe...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-omnibus-2026` },
           { "@type": "ListItem", "position": 3559, "name": "Tagliare i ristorni, il Canton Ticino attacca l...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-attacco-ticino` },
-          { "@type": "ListItem", "position": 3560, "name": "Ristorni per frontalieri: i cantoni che ricevon...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri` }
+          { "@type": "ListItem", "position": 3560, "name": "Ristorni per frontalieri: i cantoni che ricevon...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri` },
+          { "@type": "ListItem", "position": 3561, "name": "Perché tanti svizzeri ignorano il Tutor in Italia?", "url": `${BASE_URL}/articoli-frontaliere/perche-tanti-svizzeri-ignorano-tutor-italia` }
  ]
  },
  {
