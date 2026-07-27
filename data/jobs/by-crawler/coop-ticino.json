@@ -66,7 +66,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-coop-genossenschaft-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-verkauf-administration-und-kundendienst-coop-genossenschaft-zurich"
+      ]
     },
     {
       "id": "company-gwby3y",
@@ -1734,18 +1742,24 @@
       "previousSlugsByLocale": {
         "it": [
           "wohnberater-in-coop-genossenschaft-egerkingen-solothurn-s2tpjz",
-          "wohnberater-in-coop-genossenschaft-egerkingen-solothurn"
+          "wohnberater-in-coop-genossenschaft-egerkingen-solothurn",
+          "consulente-immobiliare-in-coop-genossenschaft-egerkingen-solothurn"
         ],
         "en": [
-          "wohnberater-in-coop-genossenschaft-egerkingen-solothurn-s2tpjz"
+          "wohnberater-in-coop-genossenschaft-egerkingen-solothurn-s2tpjz",
+          "housing-consultant-in-coop-genossenschaft-egerkingen-solothurn"
         ],
         "fr": [
-          "wohnberater-in-coop-genossenschaft-egerkingen-solothurn-s2tpjz"
+          "wohnberater-in-coop-genossenschaft-egerkingen-solothurn-s2tpjz",
+          "consultant-en-logement-en-coop-genossenschaft-egerkingen-solothurn"
         ]
       },
       "previousSlugs": [
         "wohnberater-in-coop-genossenschaft-egerkingen-solothurn-s2tpjz",
-        "wohnberater-in-coop-genossenschaft-egerkingen-solothurn"
+        "wohnberater-in-coop-genossenschaft-egerkingen-solothurn",
+        "consulente-immobiliare-in-coop-genossenschaft-egerkingen-solothurn",
+        "housing-consultant-in-coop-genossenschaft-egerkingen-solothurn",
+        "consultant-en-logement-en-coop-genossenschaft-egerkingen-solothurn"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -1820,7 +1834,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-en-vente-import-parfumerie-chur-graubunden",
           "verkaufsberater-in-import-parfumerie-chur-graubunden-iull67",
           "verkaufsberater-in-import-parfumerie-chur-graubunden-xzo8qe",
           "sales-consultant-coop-genossenschaft-chur",
@@ -1839,16 +1852,22 @@
           "verkaufsberater-in-coop-genossenschaft-st-gallen-f578d4",
           "sales-consultant-import-parfumerie-chur-graubunden",
           "consulente-del-venditore-import-parfumerie-chur-graubunden",
-          "verkaufsberater-in-import-parfumerie-chur-graubunden-kj0yby"
+          "verkaufsberater-in-import-parfumerie-chur-graubunden-kj0yby",
+          "consulente-commerciale-in-coop-genossenschaft-chur-graubunden"
         ],
         "en": [
-          "verkaufsberater-in-coop-genossenschaft-chur-graubunden-3apvkj"
+          "verkaufsberater-in-coop-genossenschaft-chur-graubunden-3apvkj",
+          "sales-consultant-in-coop-genossenschaft-chur-graubunden",
+          "sales-consultant-coop-genossenschaft-chur-nsjp2p"
         ],
         "de": [
-          "verkaufsberater-in-import-parfumerie-chur-graubunden-9gew6s"
+          "verkaufsberater-in-import-parfumerie-chur-graubunden-9gew6s",
+          "verkaufsberater-in-import-parfumerie-chur-graubunden-nsjp2p"
         ],
         "fr": [
-          "verkaufsberater-in-coop-genossenschaft-chur-graubunden-3apvkj"
+          "verkaufsberater-in-coop-genossenschaft-chur-graubunden-3apvkj",
+          "consultant-en-ventes-coop-genossenschaft-chur-graubunden",
+          "conseiller-de-vente-coop-genossenschaft-chur-nsjp2p"
         ]
       },
       "previousSlugs": [
@@ -1876,7 +1895,10 @@
         "conseiller-de-vente-coop-genossenschaft-chur-nsjp2p",
         "verkaufsberater-in-import-parfumerie-chur-graubunden-9gew6s",
         "verkaufsberater-in-import-parfumerie-chur-graubunden",
-        "sales-consultant-coop-genossenschaft-st-gallen-f578d4"
+        "sales-consultant-coop-genossenschaft-st-gallen-f578d4",
+        "sales-consultant-in-coop-genossenschaft-chur-graubunden",
+        "consultant-en-ventes-coop-genossenschaft-chur-graubunden",
+        "consulente-commerciale-in-coop-genossenschaft-chur-graubunden"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -2972,18 +2994,33 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-egerkingen-solothurn-zdul1m",
-          "verkaufer-in-food-coop-egerkingen-solothurn"
+          "verkaufer-in-food-coop-egerkingen-solothurn",
+          "verkaufer-in-food-coop-genossenschaft-egerkingen-solothurn",
+          "verkaufer-in-food-coop-genossenschaft-egerkingen-solothurn-zdul1m",
+          "venditore-in-food-coop-genossenschaft-egerkingen-solothurn"
         ],
         "en": [
-          "verkaufer-in-food-coop-egerkingen-solothurn-zdul1m"
+          "verkaufer-in-food-coop-egerkingen-solothurn-zdul1m",
+          "verkaufer-in-food-coop-genossenschaft-egerkingen-solothurn-zdul1m",
+          "seller-in-food-coop-genossenschaft-egerkingen-solothurn"
         ],
         "fr": [
-          "verkaufer-in-food-coop-egerkingen-solothurn-zdul1m"
+          "verkaufer-in-food-coop-egerkingen-solothurn-zdul1m",
+          "verkaufer-in-food-coop-genossenschaft-egerkingen-solothurn-zdul1m",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-egerkingen-solothurn"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-genossenschaft-egerkingen-solothurn-zdul1m"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-egerkingen-solothurn-zdul1m",
-        "verkaufer-in-food-coop-egerkingen-solothurn"
+        "verkaufer-in-food-coop-egerkingen-solothurn",
+        "verkaufer-in-food-coop-genossenschaft-egerkingen-solothurn",
+        "verkaufer-in-food-coop-genossenschaft-egerkingen-solothurn-zdul1m",
+        "venditore-in-food-coop-genossenschaft-egerkingen-solothurn",
+        "seller-in-food-coop-genossenschaft-egerkingen-solothurn",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-egerkingen-solothurn"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -10132,18 +10169,39 @@
       "previousSlugsByLocale": {
         "it": [
           "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-b765q5",
-          "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon"
+          "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon",
+          "coordinatore-di-produzione-e-amministrazione-100-two-spice-ag-dietlikon",
+          "production-coordinator-administration-100-two-spice-ag-dietlikon",
+          "produktionskoordinator-in-administration-100-two-spice-dietlikon-dhxzeq",
+          "coordonnateur-de-la-production-et-administration-100-two-spice-ag-dietlikon",
+          "produktionskoordinator-in-administration-100-two-spice-ag-dietlikon",
+          "produktionskoordinator-in-administration-100-two-spice-ag-dietlikon-dhxzeq",
+          "produktionskoordinator-in-administration-100-two-spice-dietlikon",
+          "coordinatore-di-produzione-amministrazione-100-two-spice-ag-rumlang"
         ],
         "en": [
-          "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-b765q5"
+          "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-b765q5",
+          "production-coordinator-administration-100-two-spice-ag-dietlikon"
         ],
         "fr": [
-          "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-b765q5"
+          "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-b765q5",
+          "coordonnateur-de-la-production-et-administration-100-two-spice-ag-dietlikon"
+        ],
+        "de": [
+          "produktionskoordinator-in-administration-100-two-spice-dietlikon-dhxzeq"
         ]
       },
       "previousSlugs": [
         "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-b765q5",
-        "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon"
+        "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon",
+        "coordinatore-di-produzione-e-amministrazione-100-two-spice-ag-dietlikon",
+        "production-coordinator-administration-100-two-spice-ag-dietlikon",
+        "produktionskoordinator-in-administration-100-two-spice-dietlikon-dhxzeq",
+        "coordonnateur-de-la-production-et-administration-100-two-spice-ag-dietlikon",
+        "produktionskoordinator-in-administration-100-two-spice-ag-dietlikon",
+        "produktionskoordinator-in-administration-100-two-spice-ag-dietlikon-dhxzeq",
+        "produktionskoordinator-in-administration-100-two-spice-dietlikon",
+        "coordinatore-di-produzione-amministrazione-100-two-spice-ag-rumlang"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -14232,7 +14290,8 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-bern-7z9gmc",
-          "cook-cook-f-m-d-coop-genossenschaft-bern"
+          "cook-cook-f-m-d-coop-genossenschaft-bern",
+          "kochin-koch-m-w-d-coop-genossenschaft-bern"
         ],
         "de": [
           "kochin-koch-m-w-d-coop-genossenschaft-bern-irdhh4"
@@ -21079,8 +21138,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-ihyw9w",
-          "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern",
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern",
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-ihyw9w",
           "installatore-sanitario-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf",
@@ -21095,26 +21152,34 @@
           "dispatcher-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-mts3op",
           "dispatcheur-se-cuisines-salles-de-bain-fust-swiss-household-services-ag-burgdorf-mts3op",
           "carpenter-fitter-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf",
-          "menuisier-installateur-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf"
+          "menuisier-installateur-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf",
+          "schreinermonteur-in-kuchen-bader-fust-burgdorf-bern",
+          "installer-in-kitchens-bathrooms-fust-burgdorf-bern",
+          "installateur-dans-les-cuisines-et-salles-de-bains-fust-burgdorf-bern",
+          "installatore-in-cucine-e-bagni-fust-burgdorf-bern",
+          "installatore-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf"
         ],
         "en": [
           "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-ihyw9w",
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-ihyw9w",
           "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-bern",
           "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-lzkg1f",
-          "dispatcher-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-mts3op"
+          "dispatcher-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-mts3op",
+          "installer-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf"
         ],
         "de": [
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-ihyw9w",
           "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-lzkg1f",
-          "disponent-in-kuchen-bader-fust-burgdorf-bern-mts3op"
+          "disponent-in-kuchen-bader-fust-burgdorf-bern-mts3op",
+          "schreinermonteur-in-kuchen-bader-fust-burgdorf-bern-wdvtnj"
         ],
         "fr": [
           "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-ihyw9w",
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-ihyw9w",
           "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-bern",
           "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-lzkg1f",
-          "dispatcheur-se-cuisines-salles-de-bain-fust-swiss-household-services-ag-burgdorf-mts3op"
+          "dispatcheur-se-cuisines-salles-de-bain-fust-swiss-household-services-ag-burgdorf-mts3op",
+          "installateur-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf"
         ]
       },
       "previousSlugs": [
@@ -21136,7 +21201,15 @@
         "dispatcher-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-mts3op",
         "dispatcheur-se-cuisines-salles-de-bain-fust-swiss-household-services-ag-burgdorf-mts3op",
         "carpenter-fitter-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf",
-        "menuisier-installateur-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf"
+        "menuisier-installateur-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf",
+        "schreinermonteur-in-kuchen-bader-fust-burgdorf-bern",
+        "installer-in-kitchens-bathrooms-fust-burgdorf-bern",
+        "installateur-dans-les-cuisines-et-salles-de-bains-fust-burgdorf-bern",
+        "installatore-in-cucine-e-bagni-fust-burgdorf-bern",
+        "installatore-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf",
+        "installer-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf",
+        "schreinermonteur-in-kuchen-bader-fust-burgdorf-bern-wdvtnj",
+        "installateur-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -23535,9 +23608,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-professional-solutions-fust-oberburen-aqcu7o",
-          "servicetechniker-in-professional-solutions-fust-oberburen",
-          "tecnico-di-servizio-in-soluzioni-professionali-fust-bern",
           "service-technician-in-professional-solutions-fust-swiss-household-services-ag-bern",
           "servicetechniker-in-professional-solutions-fust-bern-3qkfr2",
           "technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-bern",
@@ -23551,7 +23621,13 @@
           "service-technician-in-professional-solutions-fust-swiss-household-services-ag-oberburen",
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern",
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern-3qkfr2",
-          "tecnico-di-servizio-in-soluzioni-professionali-fust-oberburen"
+          "tecnico-di-servizio-in-soluzioni-professionali-fust-oberburen",
+          "service-technician-professional-solutions-fust-swiss-household-services-ag-oberburen",
+          "service-technician-professional-solutions-fust-swiss-household-services-ag-oberburen-6yxyhs",
+          "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-6yxyhs",
+          "servicetechniker-dans-solutions-professionnelles-fust-swiss-household-services-ag-oberburen",
+          "technicien-de-service-solutions-professionnelles-fust-swiss-household-services-ag-oberburen-6yxyhs",
+          "tecnico-di-servizio-in-soluzioni-professionali-fust-oberburen-9ae874"
         ],
         "en": [
           "servicetechniker-in-professional-solutions-fust-oberburen-aqcu7o",
@@ -23559,12 +23635,14 @@
           "service-technician-in-professional-solutions-fust-swiss-household-services-ag-bern"
         ],
         "de": [
-          "servicetechniker-in-professional-solutions-fust-bern-3qkfr2"
+          "servicetechniker-in-professional-solutions-fust-bern-3qkfr2",
+          "servicetechniker-in-professional-solutions-fust-oberburen-6yxyhs"
         ],
         "fr": [
           "servicetechniker-in-professional-solutions-fust-oberburen-aqcu7o",
           "technicien-de-service-en-solutions-professionnelles-fust-oberburen-4496a0",
-          "technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-bern"
+          "technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-bern",
+          "technicien-de-service-en-solutions-professionnelles-fust-oberburen"
         ]
       },
       "previousSlugs": [
@@ -23586,7 +23664,15 @@
         "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern-3qkfr2",
         "tecnico-di-servizio-in-soluzioni-professionali-fust-oberburen",
         "service-technician-in-professional-solutions-fust-oberburen-4496a0",
-        "technicien-de-service-en-solutions-professionnelles-fust-oberburen-4496a0"
+        "technicien-de-service-en-solutions-professionnelles-fust-oberburen-4496a0",
+        "service-technician-professional-solutions-fust-swiss-household-services-ag-oberburen",
+        "service-technician-professional-solutions-fust-swiss-household-services-ag-oberburen-6yxyhs",
+        "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-6yxyhs",
+        "servicetechniker-dans-solutions-professionnelles-fust-swiss-household-services-ag-oberburen",
+        "technicien-de-service-solutions-professionnelles-fust-swiss-household-services-ag-oberburen-6yxyhs",
+        "tecnico-di-servizio-in-soluzioni-professionali-fust-oberburen-9ae874",
+        "servicetechniker-in-professional-solutions-fust-oberburen-6yxyhs",
+        "technicien-de-service-en-solutions-professionnelles-fust-oberburen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -26500,7 +26586,8 @@
           "kochin-koch-m-w-d-coop-ristorante-winterthur-zurich"
         ],
         "en": [
-          "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku"
+          "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku",
+          "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku"
@@ -30381,7 +30468,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-aarau-x72egi",
           "chef-chef-w-m-d-coop-genossenschaft-aarau",
           "chef-m-w-d-coop-genossenschaft-aarau-x72egi",
           "cook-w-m-d-coop-genossenschaft-aarau",
@@ -30400,12 +30486,14 @@
           "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau-ddg6am",
           "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau",
           "cook-m-w-d-coop-genossenschaft-aarau-x72egi",
-          "kochin-koch-w-m-d-coop-genossenschaft-aarau-b7efd1"
+          "kochin-koch-w-m-d-coop-genossenschaft-aarau-b7efd1",
+          "cuisinier-cuisiniere-h-f-d-coop-genossenschaft-aarau"
         ],
         "en": [
           "cook-m-w-d-coop-genossenschaft-aarau-x72egi",
           "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau-ddg6am",
-          "cook-cook-f-m-d-coop-genossenschaft-aarau-aargau"
+          "cook-cook-f-m-d-coop-genossenschaft-aarau-aargau",
+          "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau"
         ],
         "de": [
           "kochin-koch-w-m-d-coop-genossenschaft-aarau-b7efd1"
@@ -36335,7 +36423,8 @@
         "en": [
           "cook-m-w-d-coop-genossenschaft-zurich-02wspo",
           "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen-uo8mso",
-          "cook-cook-f-m-d-coop-genossenschaft-st-gallen-sankt-gallen"
+          "cook-cook-f-m-d-coop-genossenschaft-st-gallen-sankt-gallen",
+          "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen"
         ],
         "de": [
           "kochin-koch-m-w-d-coop-genossenschaft-zurich-02wspo"
@@ -41198,11 +41287,16 @@
         ],
         "en": [
           "verkaufsberater-in-interdiscount-wadenswil-zurich-e64mup",
-          "sales-consultant-in-interdiscount-wadenswil-zurich"
+          "sales-consultant-in-interdiscount-wadenswil-zurich",
+          "sales-consultant-in-interdiscount-wadenswil"
         ],
         "fr": [
           "verkaufsberater-in-interdiscount-wadenswil-zurich-e64mup",
-          "consultant-en-ventes-interdiscount-wadenswil-zurich"
+          "consultant-en-ventes-interdiscount-wadenswil-zurich",
+          "consultant-en-ventes-interdiscount-wadenswil"
+        ],
+        "de": [
+          "verkaufsberater-in-interdiscount-wadenswil-zurich-77m117"
         ]
       },
       "previousSlugs": [
@@ -43647,7 +43741,8 @@
           "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich"
         ],
         "en": [
-          "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich-womu86"
+          "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich-womu86",
+          "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich-womu86"
@@ -49456,7 +49551,8 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-oberwil-basel-landschaft-7ms24u",
-          "cook-cook-f-m-d-coop-genossenschaft-oberwil-basel-landschaft"
+          "cook-cook-f-m-d-coop-genossenschaft-oberwil-basel-landschaft",
+          "kochin-koch-m-w-d-coop-genossenschaft-oberwil-basel-landschaft"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-oberwil-basel-landschaft-7ms24u",
@@ -51910,14 +52006,32 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-kosmetik-coop-city-aarau-aargau-hlf4z5",
-          "verkaufsberater-in-kosmetik-coop-city-aarau-aargau"
+          "verkaufsberater-in-kosmetik-coop-city-aarau-aargau",
+          "consulente-di-vendita-in-abbigliamento-maschile-coop-genossenschaft-aarau",
+          "sales-consultant-in-men-s-clothing-coop-genossenschaft-aarau",
+          "verkaufsberater-in-herrenkonfektion-coop-city-aarau-aargau-knd3lv",
+          "consultant-en-ventes-en-vetements-pour-hommes-coop-genossenschaft-aarau",
+          "consulente-di-vendita-pret-a-porter-maschile-coop-genossenschaft-aarau",
+          "verkaufsberater-in-herrenkonfektion-coop-city-aarau-aargau-h7vzlg",
+          "sales-consultant-men-s-ready-to-wear-coop-genossenschaft-aarau-h7vzlg",
+          "consultant-en-vente-pret-a-porter-masculin-coop-genossenschaft-aarau-h7vzlg",
+          "sales-consultant-men-s-ready-to-wear-coop-genossenschaft-aarau",
+          "verkaufsberater-in-herrenkonfektion-coop-genossenschaft-aarau",
+          "consultant-en-vente-pret-a-porter-masculin-coop-genossenschaft-aarau",
+          "verkaufsberater-in-herrenkonfektion-coop-genossenschaft-aarau-h7vzlg",
+          "verkaufsberater-in-herrenkonfektion-coop-city-aarau-aargau"
         ],
         "en": [
           "verkaufsberater-in-kosmetik-coop-city-aarau-aargau-hlf4z5",
-          "verkaufsberater-in-kosmetik-coop-genossenschaft-aarau-hlf4z5"
+          "verkaufsberater-in-kosmetik-coop-genossenschaft-aarau-hlf4z5",
+          "sales-consultant-in-men-s-clothing-coop-genossenschaft-aarau"
         ],
         "fr": [
-          "verkaufsberater-in-kosmetik-coop-city-aarau-aargau-hlf4z5"
+          "verkaufsberater-in-kosmetik-coop-city-aarau-aargau-hlf4z5",
+          "consultant-en-ventes-en-vetements-pour-hommes-coop-genossenschaft-aarau"
+        ],
+        "de": [
+          "verkaufsberater-in-herrenkonfektion-coop-city-aarau-aargau-knd3lv"
         ]
       },
       "previousSlugs": [
@@ -51933,7 +52047,20 @@
         "verkaufsberater-in-kosmetik-coop-genossenschaft-aarau-hlf4z5",
         "verkaufsberater-in-kosmetik-coop-genossenschaft-zurich-bvmy5q",
         "consulente-di-vendita-in-cosmetici-coop-genossenschaft-zurich-bvmy5q",
-        "consulente-di-vendita-cosmetici-coop-genossenschaft-zug"
+        "consulente-di-vendita-cosmetici-coop-genossenschaft-zug",
+        "consulente-di-vendita-in-abbigliamento-maschile-coop-genossenschaft-aarau",
+        "sales-consultant-in-men-s-clothing-coop-genossenschaft-aarau",
+        "verkaufsberater-in-herrenkonfektion-coop-city-aarau-aargau-knd3lv",
+        "consultant-en-ventes-en-vetements-pour-hommes-coop-genossenschaft-aarau",
+        "consulente-di-vendita-pret-a-porter-maschile-coop-genossenschaft-aarau",
+        "verkaufsberater-in-herrenkonfektion-coop-city-aarau-aargau-h7vzlg",
+        "sales-consultant-men-s-ready-to-wear-coop-genossenschaft-aarau-h7vzlg",
+        "consultant-en-vente-pret-a-porter-masculin-coop-genossenschaft-aarau-h7vzlg",
+        "sales-consultant-men-s-ready-to-wear-coop-genossenschaft-aarau",
+        "verkaufsberater-in-herrenkonfektion-coop-genossenschaft-aarau",
+        "consultant-en-vente-pret-a-porter-masculin-coop-genossenschaft-aarau",
+        "verkaufsberater-in-herrenkonfektion-coop-genossenschaft-aarau-h7vzlg",
+        "verkaufsberater-in-herrenkonfektion-coop-city-aarau-aargau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000
@@ -62258,16 +62385,29 @@
           "kundendienstmitarbeiter-in-service-fust-koniz-bern",
           "rappresentante-del-servizio-clienti-in-servizio-fust-koniz-bern",
           "kundendienstmitarbeiter-in-service-fust-swiss-household-services-ag-koniz",
-          "operatore-a-di-assistenza-clienti-fust-swiss-household-services-ag-koniz"
+          "operatore-a-di-assistenza-clienti-fust-swiss-household-services-ag-koniz",
+          "rappresentante-del-servizio-clienti-in-fust-swiss-household-services-ag-oberburen",
+          "customer-service-representative-in-fust-swiss-household-services-ag-oberburen",
+          "kundendienstmitarbeiter-in-fust-oberburen-sankt-gallen-wki4de",
+          "representant-du-service-a-la-clientele-in-fust-swiss-household-services-ag-oberburen",
+          "kundendienstmitarbeiter-in-fust-oberburen-sankt-gallen",
+          "kundendienstmitarbeiter-in-fust-swiss-household-services-ag-oberburen-wki4de",
+          "technicien-service-a-domicile-fust-swiss-household-services-ag-oberburen"
         ],
         "en": [
           "kundendienstmitarbeiter-in-service-fust-koniz-bern-3w5tb0",
           "kundendienstmitarbeiter-in-service-fust-swiss-household-services-ag-koniz-3w5tb0",
-          "customer-service-representative-in-service-fust-koniz-bern"
+          "customer-service-representative-in-service-fust-koniz-bern",
+          "customer-service-representative-in-fust-swiss-household-services-ag-oberburen"
         ],
         "fr": [
           "kundendienstmitarbeiter-in-service-fust-koniz-bern-3w5tb0",
-          "representant-du-service-a-la-clientele-en-service-fust-koniz-bern"
+          "representant-du-service-a-la-clientele-en-service-fust-koniz-bern",
+          "representant-du-service-a-la-clientele-in-fust-swiss-household-services-ag-oberburen",
+          "technicien-service-a-domicile-fust-swiss-household-services-ag-oberburen"
+        ],
+        "de": [
+          "kundendienstmitarbeiter-in-fust-oberburen-sankt-gallen-wki4de"
         ]
       },
       "previousSlugs": [
@@ -62278,7 +62418,14 @@
         "kundendienstmitarbeiter-in-service-fust-swiss-household-services-ag-koniz",
         "operatore-a-di-assistenza-clienti-fust-swiss-household-services-ag-koniz",
         "customer-service-representative-in-service-fust-koniz-bern",
-        "representant-du-service-a-la-clientele-en-service-fust-koniz-bern"
+        "representant-du-service-a-la-clientele-en-service-fust-koniz-bern",
+        "rappresentante-del-servizio-clienti-in-fust-swiss-household-services-ag-oberburen",
+        "customer-service-representative-in-fust-swiss-household-services-ag-oberburen",
+        "kundendienstmitarbeiter-in-fust-oberburen-sankt-gallen-wki4de",
+        "representant-du-service-a-la-clientele-in-fust-swiss-household-services-ag-oberburen",
+        "kundendienstmitarbeiter-in-fust-oberburen-sankt-gallen",
+        "kundendienstmitarbeiter-in-fust-swiss-household-services-ag-oberburen-wki4de",
+        "technicien-service-a-domicile-fust-swiss-household-services-ag-oberburen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -76948,12 +77095,14 @@
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
         "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern",
-        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-1lrh2g"
+        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-1lrh2g",
+        "tecnico-di-manutenzione-m-f-d-coop-genossenschaft-frutigen-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
+          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern",
+          "tecnico-di-manutenzione-m-f-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-1lrh2g"
@@ -81086,25 +81235,36 @@
         "verkaufer-in-frischprodukte-fleisch-coop-winterthur-zurich-v8yqmt",
         "venditore-in-prodotti-freschi-coop-genossenschaft-winterthur",
         "venditore-di-prodotti-freschi-coop-genossenschaft-winterthur",
-        "verkaufer-in-frischprodukte-fleisch-coop-winterthur-zurich"
+        "verkaufer-in-frischprodukte-fleisch-coop-winterthur-zurich",
+        "venditore-di-prodotti-freschi-di-produzione-coop-genossenschaft-winterthur",
+        "verkaufer-in-frischprodukte-produktion-coop-winterthur-zurich-epoy4p",
+        "fresh-produce-production-salesperson-coop-genossenschaft-winterthur-epoy4p",
+        "vendeur-de-produits-frais-de-production-coop-genossenschaft-winterthur-epoy4p"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-frischprodukte-fleisch-coop-winterthur-zurich-v8yqmt",
-          "verkaufer-in-frischprodukte-fleisch-coop-winterthur-zurich"
+          "verkaufer-in-frischprodukte-fleisch-coop-winterthur-zurich",
+          "venditore-di-prodotti-freschi-di-produzione-coop-genossenschaft-winterthur",
+          "verkaufer-in-frischprodukte-produktion-coop-winterthur-zurich-epoy4p",
+          "fresh-produce-production-salesperson-coop-genossenschaft-winterthur-epoy4p",
+          "vendeur-de-produits-frais-de-production-coop-genossenschaft-winterthur-epoy4p"
         ],
         "en": [
           "verkaufer-in-frischprodukte-fleisch-coop-genossenschaft-winterthur-v8yqmt",
           "fresh-meat-products-salesperson-coop-genossenschaft-winterthur",
-          "verkaufer-in-frischprodukte-fleisch-coop-winterthur-zurich-v8yqmt"
+          "verkaufer-in-frischprodukte-fleisch-coop-winterthur-zurich-v8yqmt",
+          "fresh-produce-production-salesperson-coop-genossenschaft-winterthur-epoy4p"
         ],
         "de": [
-          "verkaufer-in-frischprodukte-fleisch-coop-genossenschaft-winterthur-v8yqmt"
+          "verkaufer-in-frischprodukte-fleisch-coop-genossenschaft-winterthur-v8yqmt",
+          "verkaufer-in-frischprodukte-produktion-coop-winterthur-zurich-epoy4p"
         ],
         "fr": [
           "verkaufer-dans-frischprodukte-fleisch-coop-genossenschaft-winterthur-v8yqmt",
           "vendeur-de-produits-frais-de-viande-coop-genossenschaft-winterthur",
-          "verkaufer-in-frischprodukte-fleisch-coop-winterthur-zurich-v8yqmt"
+          "verkaufer-in-frischprodukte-fleisch-coop-winterthur-zurich-v8yqmt",
+          "vendeur-de-produits-frais-de-production-coop-genossenschaft-winterthur-epoy4p"
         ]
       },
       "sourceLang": "de",
@@ -83248,7 +83408,13 @@
           "cuisinier-cuisiniere-h-f-d-coop-genossenschaft-luzern",
           "cook-m-w-d-coop-genossenschaft-luzern-wpjsql",
           "kochin-koch-m-w-d-coop-ristorante-zurich-5nrzuq",
-          "kochin-koch-m-w-d-coop-ristorante-zurich"
+          "kochin-koch-m-w-d-coop-ristorante-zurich",
+          "kochin-koch-m-w-d-coop-genossenschaft-zurich-02wspo",
+          "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-zurich-02wspo",
+          "cuisinier-cuisiniere-h-f-d-coop-genossenschaft-zurich-0220fa",
+          "cook-m-f-d-coop-genossenschaft-zurich-0220fa",
+          "kochin-koch-m-w-d-coop-genossenschaft-zurich-2",
+          "cuoca-cuoco-f-m-d-coop-genossenschaft-zurich"
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-zurich-5nrzuq",
@@ -83256,17 +83422,20 @@
           "cook-m-f-d-coop-genossenschaft-zurich",
           "chef-m-f-d-coop-genossenschaft-zurich",
           "chef-m-f-d-coop-genossenschaft-zurich-71ec50",
-          "kochin-koch-m-w-d-coop-ristorante-zurich-5nrzuq"
+          "kochin-koch-m-w-d-coop-ristorante-zurich-5nrzuq",
+          "cook-m-w-d-coop-genossenschaft-zurich-02wspo"
         ],
         "de": [
-          "kochin-koch-m-w-d-coop-genossenschaft-zurich-5nrzuq"
+          "kochin-koch-m-w-d-coop-genossenschaft-zurich-5nrzuq",
+          "kochin-koch-m-w-d-coop-genossenschaft-zurich-02wspo"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-zurich-5nrzuq",
           "chef-cheffe-w-m-d-coop-genossenschaft-zurich",
           "cuisinier-cuisiniere-m-f-d-coop-genossenschaft-zurich",
           "cuisinier-ere-coop-genossenschaft-zurich",
-          "kochin-koch-m-w-d-coop-ristorante-zurich-5nrzuq"
+          "kochin-koch-m-w-d-coop-ristorante-zurich-5nrzuq",
+          "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-zurich-02wspo"
         ]
       },
       "previousSlugs": [
@@ -83291,7 +83460,14 @@
         "cuisinier-cuisiniere-h-f-d-coop-genossenschaft-luzern",
         "cook-m-w-d-coop-genossenschaft-luzern-wpjsql",
         "kochin-koch-m-w-d-coop-ristorante-zurich",
-        "kochin-koch-m-w-d-coop-genossenschaft-zurich-5nrzuq"
+        "kochin-koch-m-w-d-coop-genossenschaft-zurich-5nrzuq",
+        "kochin-koch-m-w-d-coop-genossenschaft-zurich-02wspo",
+        "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-zurich-02wspo",
+        "cuisinier-cuisiniere-h-f-d-coop-genossenschaft-zurich-0220fa",
+        "cook-m-f-d-coop-genossenschaft-zurich-0220fa",
+        "kochin-koch-m-w-d-coop-genossenschaft-zurich-2",
+        "cuoca-cuoco-f-m-d-coop-genossenschaft-zurich",
+        "cook-m-w-d-coop-genossenschaft-zurich-02wspo"
       ],
       "sourceLang": "de",
       "salaryMin": 73500,
@@ -84726,7 +84902,8 @@
           "sales-consultant-coop-genossenschaft-basel-stadt-th9lio",
           "sales-consultant-in-coop-genossenschaft-basel-basel-stadt",
           "sales-consultant-in-coop-genossenschaft-basel-stadt-th9lio",
-          "sales-consultant-import-parfumerie-basel-stadt-th9lio"
+          "sales-consultant-import-parfumerie-basel-stadt-th9lio",
+          "verkaufsberater-in-coop-genossenschaft-basel-stadt-th9lio"
         ],
         "fr": [
           "conseiller-de-vente-coop-genossenschaft-basel",
@@ -84734,7 +84911,8 @@
           "conseiller-de-vente-coop-genossenschaft-basel-stadt-th9lio",
           "consultant-en-ventes-coop-genossenschaft-basel-basel-stadt",
           "consultant-en-ventes-coop-genossenschaft-basel-stadt-th9lio",
-          "conseiller-de-vente-import-parfumerie-basel-stadt-th9lio"
+          "conseiller-de-vente-import-parfumerie-basel-stadt-th9lio",
+          "verkaufsberater-in-coop-genossenschaft-basel-stadt-th9lio"
         ]
       },
       "previousSlugs": [
@@ -84752,7 +84930,8 @@
         "consultant-en-ventes-coop-genossenschaft-basel-basel-stadt",
         "consultant-en-ventes-coop-genossenschaft-basel-stadt-th9lio",
         "sales-consultant-import-parfumerie-basel-stadt-th9lio",
-        "conseiller-de-vente-import-parfumerie-basel-stadt-th9lio"
+        "conseiller-de-vente-import-parfumerie-basel-stadt-th9lio",
+        "verkaufsberater-in-coop-genossenschaft-basel-stadt-th9lio"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -84835,14 +85014,16 @@
           "warehouse-operator-coop-genossenschaft-oberentfelden",
           "warehouse-operator-coop-genossenschaft-oberentfelden-h6aalq",
           "warehouse-operator-coop-genossenschaft-oberentfelden-aargau-h6aalq",
-          "warehouse-operator-livique-oberentfelden-aargau-h6aalq"
+          "warehouse-operator-livique-oberentfelden-aargau-h6aalq",
+          "lagerist-in-coop-genossenschaft-oberentfelden-aargau-h6aalq"
         ],
         "fr": [
           "magasinier-coop-genossenschaft-oberentfelden",
           "magasinier-coop-genossenschaft-oberentfelden-h6aalq",
           "lageriste-in-coop-genossenschaft-oberentfelden-aargau-h6aalq",
           "magasinier-coop-genossenschaft-oberentfelden-aargau-h6aalq",
-          "magasinier-livique-oberentfelden-aargau-h6aalq"
+          "magasinier-livique-oberentfelden-aargau-h6aalq",
+          "lagerist-in-coop-genossenschaft-oberentfelden-aargau-h6aalq"
         ]
       },
       "previousSlugs": [
@@ -84855,7 +85036,8 @@
         "lageriste-in-coop-genossenschaft-oberentfelden-aargau-h6aalq",
         "magasinier-coop-genossenschaft-oberentfelden-aargau-h6aalq",
         "warehouse-operator-livique-oberentfelden-aargau-h6aalq",
-        "magasinier-livique-oberentfelden-aargau-h6aalq"
+        "magasinier-livique-oberentfelden-aargau-h6aalq",
+        "lagerist-in-coop-genossenschaft-oberentfelden-aargau-h6aalq"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -119880,18 +120062,24 @@
       "previousSlugsByLocale": {
         "it": [
           "rayonleiter-in-convenience-fleisch-coop-genossenschaft-gossau-sankt-gallen-2e9upl",
-          "rayonleiter-in-convenience-fleisch-coop-genossenschaft-gossau-sankt-gallen"
+          "rayonleiter-in-convenience-fleisch-coop-genossenschaft-gossau-sankt-gallen",
+          "conduttore-rayon-in-convenienza-carne-coop-genossenschaft-gossau-sankt-gallen"
         ],
         "en": [
-          "rayonleiter-in-convenience-fleisch-coop-genossenschaft-gossau-sankt-gallen-2e9upl"
+          "rayonleiter-in-convenience-fleisch-coop-genossenschaft-gossau-sankt-gallen-2e9upl",
+          "rayon-conductor-in-convenience-meat-coop-genossenschaft-gossau-sankt-gallen"
         ],
         "fr": [
-          "rayonleiter-in-convenience-fleisch-coop-genossenschaft-gossau-sankt-gallen-2e9upl"
+          "rayonleiter-in-convenience-fleisch-coop-genossenschaft-gossau-sankt-gallen-2e9upl",
+          "chauffeur-de-rayon-en-pratique-viande-coop-genossenschaft-gossau-sankt-gallen"
         ]
       },
       "previousSlugs": [
         "rayonleiter-in-convenience-fleisch-coop-genossenschaft-gossau-sankt-gallen-2e9upl",
-        "rayonleiter-in-convenience-fleisch-coop-genossenschaft-gossau-sankt-gallen"
+        "rayonleiter-in-convenience-fleisch-coop-genossenschaft-gossau-sankt-gallen",
+        "conduttore-rayon-in-convenienza-carne-coop-genossenschaft-gossau-sankt-gallen",
+        "rayon-conductor-in-convenience-meat-coop-genossenschaft-gossau-sankt-gallen",
+        "chauffeur-de-rayon-en-pratique-viande-coop-genossenschaft-gossau-sankt-gallen"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -119967,18 +120155,24 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-frischprodukte-brot-molkerei-coop-genossenschaft-aadorf-thurgau-y6mwgw",
-          "verkaufer-in-frischprodukte-brot-molkerei-coop-genossenschaft-aadorf-thurgau"
+          "verkaufer-in-frischprodukte-brot-molkerei-coop-genossenschaft-aadorf-thurgau",
+          "venditore-in-prodotti-freschi-pane-e-latticini-coop-genossenschaft-aadorf-thurgau"
         ],
         "en": [
-          "verkaufer-in-frischprodukte-brot-molkerei-coop-genossenschaft-aadorf-thurgau-y6mwgw"
+          "verkaufer-in-frischprodukte-brot-molkerei-coop-genossenschaft-aadorf-thurgau-y6mwgw",
+          "seller-in-fresh-products-bread-dairy-coop-genossenschaft-aadorf-thurgau"
         ],
         "fr": [
-          "verkaufer-in-frischprodukte-brot-molkerei-coop-genossenschaft-aadorf-thurgau-y6mwgw"
+          "verkaufer-in-frischprodukte-brot-molkerei-coop-genossenschaft-aadorf-thurgau-y6mwgw",
+          "vendeur-en-produits-frais-pain-et-laiterie-coop-genossenschaft-aadorf-thurgau"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-frischprodukte-brot-molkerei-coop-genossenschaft-aadorf-thurgau-y6mwgw",
-        "verkaufer-in-frischprodukte-brot-molkerei-coop-genossenschaft-aadorf-thurgau"
+        "verkaufer-in-frischprodukte-brot-molkerei-coop-genossenschaft-aadorf-thurgau",
+        "venditore-in-prodotti-freschi-pane-e-latticini-coop-genossenschaft-aadorf-thurgau",
+        "seller-in-fresh-products-bread-dairy-coop-genossenschaft-aadorf-thurgau",
+        "vendeur-en-produits-frais-pain-et-laiterie-coop-genossenschaft-aadorf-thurgau"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -120367,7 +120561,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-genossenschaft-wald-zurich-2fx5k9",
-          "verkaufer-in-food-coop-genossenschaft-wald-zurich"
+          "verkaufer-in-food-coop-genossenschaft-wald-zurich",
+          "venditore-in-food-coop-genossenschaft-wald-zurich"
         ],
         "en": [
           "verkaufer-in-food-coop-genossenschaft-wald-zurich-2fx5k9",
@@ -120382,7 +120577,8 @@
         "verkaufer-in-food-coop-genossenschaft-wald-zurich-2fx5k9",
         "verkaufer-in-food-coop-genossenschaft-wald-zurich",
         "seller-in-food-coop-genossenschaft-wald-zurich",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-wald-zurich"
+        "vendeur-dans-la-nourriture-coop-genossenschaft-wald-zurich",
+        "venditore-in-food-coop-genossenschaft-wald-zurich"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -120465,7 +120661,8 @@
           "verkaufer-in-food-coop-hinwil-zurich-wg0vee",
           "verkaufer-in-food-coop-hinwil-zurich",
           "verkaufer-in-food-coop-genossenschaft-hinwil-zurich",
-          "verkaufer-in-food-coop-genossenschaft-hinwil-zurich-wg0vee"
+          "verkaufer-in-food-coop-genossenschaft-hinwil-zurich-wg0vee",
+          "venditore-in-food-coop-genossenschaft-hinwil-zurich"
         ],
         "en": [
           "verkaufer-in-food-coop-hinwil-zurich-wg0vee",
@@ -120487,7 +120684,8 @@
         "verkaufer-in-food-coop-genossenschaft-hinwil-zurich",
         "verkaufer-in-food-coop-genossenschaft-hinwil-zurich-wg0vee",
         "seller-in-food-coop-genossenschaft-hinwil-zurich",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-hinwil-zurich"
+        "vendeur-dans-la-nourriture-coop-genossenschaft-hinwil-zurich",
+        "venditore-in-food-coop-genossenschaft-hinwil-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500
@@ -121491,18 +121689,43 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-frischprodukte-coop-basel-stadt-h2av65",
-          "verkaufer-in-frischprodukte-coop-basel-stadt"
+          "verkaufer-in-frischprodukte-coop-basel-stadt",
+          "vendita-prodotti-freschi-coop-genossenschaft-basel",
+          "seller-fresh-products-coop-genossenschaft-basel",
+          "verkaufer-in-frischprodukte-coop-basel-stadt-57maz8",
+          "vendeur-produits-frais-coop-genossenschaft-basel",
+          "verkaufer-in-frischprodukte-coop-genossenschaft-basel-57maz8",
+          "assistente-alla-vendita-di-pane-per-prodotti-freschi-coop-genossenschaft-basel",
+          "venditore-di-prodotti-freschi-coop-genossenschaft-basel",
+          "verkaufer-in-frischprodukte-coop-basel-stadt-hu66sj",
+          "fresh-produce-salesperson-coop-genossenschaft-basel-hu66sj",
+          "vendeur-de-produits-frais-coop-genossenschaft-basel-hu66sj"
         ],
         "en": [
-          "verkaufer-in-frischprodukte-coop-basel-stadt-h2av65"
+          "verkaufer-in-frischprodukte-coop-basel-stadt-h2av65",
+          "seller-fresh-products-coop-genossenschaft-basel"
         ],
         "fr": [
-          "verkaufer-in-frischprodukte-coop-basel-stadt-h2av65"
+          "verkaufer-in-frischprodukte-coop-basel-stadt-h2av65",
+          "vendeur-produits-frais-coop-genossenschaft-basel"
+        ],
+        "de": [
+          "verkaufer-in-frischprodukte-coop-basel-stadt-57maz8"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-frischprodukte-coop-basel-stadt-h2av65",
-        "verkaufer-in-frischprodukte-coop-basel-stadt"
+        "verkaufer-in-frischprodukte-coop-basel-stadt",
+        "vendita-prodotti-freschi-coop-genossenschaft-basel",
+        "seller-fresh-products-coop-genossenschaft-basel",
+        "verkaufer-in-frischprodukte-coop-basel-stadt-57maz8",
+        "vendeur-produits-frais-coop-genossenschaft-basel",
+        "verkaufer-in-frischprodukte-coop-genossenschaft-basel-57maz8",
+        "assistente-alla-vendita-di-pane-per-prodotti-freschi-coop-genossenschaft-basel",
+        "venditore-di-prodotti-freschi-coop-genossenschaft-basel",
+        "verkaufer-in-frischprodukte-coop-basel-stadt-hu66sj",
+        "fresh-produce-salesperson-coop-genossenschaft-basel-hu66sj",
+        "vendeur-de-produits-frais-coop-genossenschaft-basel-hu66sj"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000
@@ -133154,20 +133377,45 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-frischprodukte-coop-bern-8cb64e",
-          "verkaufer-in-frischprodukte-coop-bern-2"
+          "verkaufer-in-frischprodukte-coop-bern-2",
+          "vendita-prodotti-freschi-coop-genossenschaft-bern",
+          "seller-fresh-products-coop-genossenschaft-bern",
+          "verkaufer-in-frischprodukte-coop-bern-l9okbu",
+          "vendeur-produits-frais-coop-genossenschaft-bern",
+          "verkaufer-in-frischprodukte-coop-bern",
+          "venditore-di-prodotti-freschi-coop-genossenschaft-bern",
+          "verkaufer-in-frischprodukte-coop-bern-m4pztn",
+          "fresh-produce-salesperson-coop-genossenschaft-bern-m4pztn",
+          "vendeur-de-produits-frais-coop-genossenschaft-bern-m4pztn",
+          "verkaufer-in-frischprodukte-coop-genossenschaft-bern-l9okbu"
         ],
         "en": [
           "verkaufer-in-frischprodukte-coop-bern-8cb64e",
-          "verkaufer-in-frischprodukte-coop-genossenschaft-bern-8cb64e"
+          "verkaufer-in-frischprodukte-coop-genossenschaft-bern-8cb64e",
+          "seller-fresh-products-coop-genossenschaft-bern"
         ],
         "fr": [
-          "verkaufer-in-frischprodukte-coop-bern-8cb64e"
+          "verkaufer-in-frischprodukte-coop-bern-8cb64e",
+          "vendeur-produits-frais-coop-genossenschaft-bern"
+        ],
+        "de": [
+          "verkaufer-in-frischprodukte-coop-bern-l9okbu"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-frischprodukte-coop-bern-8cb64e",
         "verkaufer-in-frischprodukte-coop-bern-2",
-        "verkaufer-in-frischprodukte-coop-genossenschaft-bern-8cb64e"
+        "verkaufer-in-frischprodukte-coop-genossenschaft-bern-8cb64e",
+        "vendita-prodotti-freschi-coop-genossenschaft-bern",
+        "seller-fresh-products-coop-genossenschaft-bern",
+        "verkaufer-in-frischprodukte-coop-bern-l9okbu",
+        "vendeur-produits-frais-coop-genossenschaft-bern",
+        "verkaufer-in-frischprodukte-coop-bern",
+        "venditore-di-prodotti-freschi-coop-genossenschaft-bern",
+        "verkaufer-in-frischprodukte-coop-bern-m4pztn",
+        "fresh-produce-salesperson-coop-genossenschaft-bern-m4pztn",
+        "vendeur-de-produits-frais-coop-genossenschaft-bern-m4pztn",
+        "verkaufer-in-frischprodukte-coop-genossenschaft-bern-l9okbu"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -144576,11 +144824,59 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-lugano-ticino"
+          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-lugano-ticino",
+          "butcher-butcher-salumiera-salumiere-w-m-d-coop-genossenschaft-viganello",
+          "boucher-boucher-salumiera-salumiere-f-m-d-coop-genossenschaft-viganello",
+          "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-genossenschaft-viganello",
+          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino",
+          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino-ojyz90",
+          "butcher-butcher-salumiera-salumiere-f-m-d-coop-genossenschaft-viganello-41d3d4",
+          "butcher-butcher-salumiera-salumiere-w-m-d-coop-genossenschaft-viganello-41d3d4",
+          "boucher-boucher-salumiera-salumiere-f-m-d-coop-genossenschaft-viganello-41d3d4",
+          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino-6c575t",
+          "butcher-salumiera-salumiere-m-w-d-coop-genossenschaft-viganello-6c575t",
+          "boucher-salumiera-salumiere-m-w-d-coop-genossenschaft-viganello-6c575t",
+          "butcher-salumiera-salumiere-m-w-d-coop-genossenschaft-viganello-ojyz90",
+          "boucher-salumiera-salumiere-m-w-d-coop-genossenschaft-viganello-ojyz90",
+          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-genossenschaft-melide-ticino-liy20s",
+          "butcher-butcher-salumiera-salumiere-f-m-d-coop-genossenschaft-melide",
+          "butcher-butcher-salumiera-salumiere-w-m-d-coop-genossenschaft-melide",
+          "boucher-boucher-salumiera-salumiere-f-m-d-coop-genossenschaft-melide",
+          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-genossenschaft-melide-ticino",
+          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino-chy01i"
+        ],
+        "en": [
+          "butcher-butcher-salumiera-salumiere-f-m-d-coop-genossenschaft-viganello"
+        ],
+        "de": [
+          "butcher-butcher-salumiera-salumiere-w-m-d-coop-genossenschaft-viganello"
+        ],
+        "fr": [
+          "boucher-boucher-salumiera-salumiere-f-m-d-coop-genossenschaft-viganello"
         ]
       },
       "previousSlugs": [
-        "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-lugano-ticino"
+        "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-lugano-ticino",
+        "butcher-butcher-salumiera-salumiere-w-m-d-coop-genossenschaft-viganello",
+        "boucher-boucher-salumiera-salumiere-f-m-d-coop-genossenschaft-viganello",
+        "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-genossenschaft-viganello",
+        "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino",
+        "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino-ojyz90",
+        "butcher-butcher-salumiera-salumiere-f-m-d-coop-genossenschaft-viganello-41d3d4",
+        "butcher-butcher-salumiera-salumiere-w-m-d-coop-genossenschaft-viganello-41d3d4",
+        "boucher-boucher-salumiera-salumiere-f-m-d-coop-genossenschaft-viganello-41d3d4",
+        "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino-6c575t",
+        "butcher-salumiera-salumiere-m-w-d-coop-genossenschaft-viganello-6c575t",
+        "boucher-salumiera-salumiere-m-w-d-coop-genossenschaft-viganello-6c575t",
+        "butcher-salumiera-salumiere-m-w-d-coop-genossenschaft-viganello-ojyz90",
+        "boucher-salumiera-salumiere-m-w-d-coop-genossenschaft-viganello-ojyz90",
+        "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-genossenschaft-melide-ticino-liy20s",
+        "butcher-butcher-salumiera-salumiere-f-m-d-coop-genossenschaft-melide",
+        "butcher-butcher-salumiera-salumiere-w-m-d-coop-genossenschaft-melide",
+        "boucher-boucher-salumiera-salumiere-f-m-d-coop-genossenschaft-melide",
+        "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-genossenschaft-melide-ticino",
+        "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-viganello-ticino-chy01i",
+        "butcher-butcher-salumiera-salumiere-f-m-d-coop-genossenschaft-viganello"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000
@@ -147022,18 +147318,37 @@
       "previousSlugsByLocale": {
         "it": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-mzolpx",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-2"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-2",
+          "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-winterthur",
+          "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-winterthur",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-tuscdc",
+          "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-winterthur",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-5d3n3s",
+          "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-winterthur-5d3n3s",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich"
         ],
         "en": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-mzolpx"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-mzolpx",
+          "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-winterthur"
         ],
         "fr": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-mzolpx"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-mzolpx",
+          "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-winterthur"
+        ],
+        "de": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-tuscdc"
         ]
       },
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-mzolpx",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-2"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-2",
+        "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-winterthur",
+        "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-winterthur",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-tuscdc",
+        "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-winterthur",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-5d3n3s",
+        "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-winterthur-5d3n3s",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500

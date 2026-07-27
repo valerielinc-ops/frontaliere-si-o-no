@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rheinmetall-air-defence",
-  "assembledAt": "2026-07-27T12:44:22.247Z",
+  "assembledAt": "2026-07-27T11:59:18.941Z",
   "jobs": [
     {
       "id": "rheinmetall-air-defence-94aed13c3889",
@@ -1116,7 +1116,7 @@
       "title": "Electrical Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Electrical Ingegnere (m/w/d)",
-        "en": "Electrical Engineer (m/w/d)",
+        "en": "Electrical Engineer (m/f/d)",
         "de": "Electrical Ingenieur (m/w/d)",
         "fr": "Electrical Ingénieur (m/w/d)"
       },
@@ -1132,7 +1132,7 @@
       "url": "https://www.rheinmetall.com/en/job/electrical_engineer__m_w_d_/1033847",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:43:26.547Z",
+      "crawledAt": "2026-07-26T22:08:14.272Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -1156,16 +1156,21 @@
       },
       "previousSlugs": [
         "electrical-engineer-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "electrical-ingegnere-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "embedded-linux-engineer-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "project-engineer-algorithms-ai-m-w-d-rheinmetall-air-defence-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "electrical-engineer-m-w-d-rheinmetall-air-defence-ag-zurich",
-          "electrical-ingegnere-m-w-d-rheinmetall-air-defence-ag-zurich"
+          "embedded-linux-engineer-m-w-d-rheinmetall-air-defence-ag-zurich",
+          "project-engineer-algorithms-ai-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "embedded-linux-engineer-m-w-d-rheinmetall-air-defence-ag-zurich",
+          "project-engineer-algorithms-ai-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:20.932Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
