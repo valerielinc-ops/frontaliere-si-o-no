@@ -9013,6 +9013,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.domanda-scomoda-razzisti-omofobi.title': 'Uncomfortable question: racist or homophobic Ticinese?',
     'blog.article.domanda-scomoda-razzisti-omofobi.excerpt': 'Uncomfortable Question - Do you think the Swiss but especially the Ticinese are racist/homophobic?',
     'blog.article.domanda-scomoda-razzisti-omofobi.imageAlt': 'frontalieri ticinesi in discussione pubblica sulle ristorsioni',
+    'blog.article.lavori-di-manutenzione-sulla-tratta-flp-agno-ponte-tresa.title': 'Maintenance work on the FLP Agno - Ponte Tresa section',
+    'blog.article.lavori-di-manutenzione-sulla-tratta-flp-agno-ponte-tresa.excerpt': 'The railway section between Agno and Ponte Tresa will be suspended from 3 August to 18 August for maintenance work.',
+    'blog.article.lavori-di-manutenzione-sulla-tratta-flp-agno-ponte-tresa.imageAlt': 'Maintenance works on FLP Agno - Ponte Tresa rail line',
 };
 
 export default blogMetaEn;

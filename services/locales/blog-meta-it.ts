@@ -9014,6 +9014,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.domanda-scomoda-razzisti-omofobi.title': 'Scomoda domanda: ticinesi razzisti o omofobi?',
     'blog.article.domanda-scomoda-razzisti-omofobi.excerpt': 'Domanda Scomoda - Secondo voi gli svizzeri ma in particolar modo i ticinesi sono razzisti/omofobi?',
     'blog.article.domanda-scomoda-razzisti-omofobi.imageAlt': 'frontalieri ticinesi in discussione pubblica sulle ristorsioni',
+    'blog.article.lavori-di-manutenzione-sulla-tratta-flp-agno-ponte-tresa.title': 'Lavori di manutenzione sulla tratta FLP Agno - Ponte Tresa',
+    'blog.article.lavori-di-manutenzione-sulla-tratta-flp-agno-ponte-tresa.excerpt': 'La tratta ferroviaria tra Agno e Ponte Tresa sarà sospesa dal 3 agosto al 18 agosto per lavori di manutenzione.',
+    'blog.article.lavori-di-manutenzione-sulla-tratta-flp-agno-ponte-tresa.imageAlt': 'Lavori di manutenzione sulla tratta FLP Agno - Ponte Tresa',
 };
 
 export default blogMetaIt;

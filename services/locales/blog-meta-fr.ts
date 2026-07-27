@@ -9015,6 +9015,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.domanda-scomoda-razzisti-omofobi.title': 'Question inconfortable : Tessinois racistes ou homophobes ?',
     'blog.article.domanda-scomoda-razzisti-omofobi.excerpt': 'Question inconfortable - Selon vous, les Suisses, mais en particulier les Tessinois, sont-ils racistes/homophobes ?',
     'blog.article.domanda-scomoda-razzisti-omofobi.imageAlt': 'frontalieri ticinesi in discussione pubblica sulle ristorsioni',
+    'blog.article.lavori-di-manutenzione-sulla-tratta-flp-agno-ponte-tresa.title': 'Travaux d\'entretien sur le tronçon FLP Agno - Ponte Tresa',
+    'blog.article.lavori-di-manutenzione-sulla-tratta-flp-agno-ponte-tresa.excerpt': 'La liaison ferroviaire entre Agno et Ponte Tresa sera suspendue du 3 au 18 août pour des travaux d\'entretien.',
+    'blog.article.lavori-di-manutenzione-sulla-tratta-flp-agno-ponte-tresa.imageAlt': 'Travaux de maintenance sur la ligne de chemin de fer FLP Agno - Ponte Tresa',
 };
 
 export default blogMetaFr;
