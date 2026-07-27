@@ -38,7 +38,12 @@ export const SUPPRESSION_RETRY_GRACE_DAYS = 21;
 // Caps API calls per run (this is the only place mailtrapSuppressionsApi.mjs
 // gets called) and staggers the backlog drain across several weekly runs
 // instead of resending to ~1900 people in one run the first time it ships.
-export const MAX_REACTIVATIONS_PER_RUN = 400;
+// Raised 400->800 2026-07-27: first apply run hit the cap (400/400
+// reactivated, 234 deferred) same-day, well under the ~1900 one-shot
+// burst this constant guards against — doubling still bounds the batch
+// while clearing same-day backlog instead of waiting for the next
+// weekly cron.
+export const MAX_REACTIVATIONS_PER_RUN = 800;
 
 /**
  * `subscriberData.suppressed_at` must already be populated — either written
