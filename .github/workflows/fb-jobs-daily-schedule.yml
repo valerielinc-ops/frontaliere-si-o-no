@@ -32,7 +32,18 @@ permissions:
 jobs:
   schedule:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # Raised from 10 → 20 (#4764, recurring x4 + #4244 earlier occurrence).
+    # Observed run durations grew steadily as the jobs dataset grew: ~3.3-3.7min
+    # in late May, ~5-6.5min through late June, a step up to ~8-9min from
+    # 2026-07-04 onward (npm ci + assemble-jobs-dataset.mjs scale with dataset
+    # size). By mid-July runs were chronically landing at 8-10min against a
+    # 10min ceiling with zero margin — 3 of the last ~20 scheduled runs were
+    # hard-cancelled at the wall (2026-07-15, 2026-07-26 x2). No single-step
+    # regression found; this is dataset-size growth eating a timeout that had
+    # no headroom left. 20min gives ~2x headroom over the worst observed run
+    # (10.3min) so continued organic dataset growth doesn't immediately trip
+    # the ceiling again.
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
