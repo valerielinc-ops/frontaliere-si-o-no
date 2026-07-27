@@ -663,6 +663,7 @@ export interface SectorCountableJob {
   addressLocality?: string;
   expired?: boolean;
   needsRetranslation?: boolean | Partial<Record<JobBoardLocale, boolean>>;
+  sourceLang?: JobBoardLocale;
   descriptionByLocale?: Partial<Record<JobBoardLocale, string>>;
   titleByLocale?: Partial<Record<JobBoardLocale, string>>;
   company?: string;
@@ -719,7 +720,7 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   vendite: /\bvendit|\bsales\b|\bverkauf|\bventeur|\bventes\b|account[ -]executive|business[ -]development|commercial[ -]agent|key[ -]account|addetto[ -]vendit|verk[aä]ufer/i,
   commercio: /commercio[ -]al[ -]dettagl|\bretail\b|negozio|\bshop[ -]assistant|store[ -]manager|einzelhandel|\bverkaufsber|commerce[ -]de[ -]d[eé]tail|commess|\bcassier/i,
   trasporti: /\btrasport|\btransport|\bspedizion|\blogistik[ -]transport|\bferrovi|\brailway|\bsped[ -]|\bcorriere\b/i,
-  magazzino: /\bmagazzin|\bmagazziner|\bwarehouse\b|\blagerist|\blager[ -]?mitarbeiter|\bstock[ -]?(?:keeper|clerk)|\bmagasinier/i,
+  magazzino: /\bmagazzin|\bmagazziner|\bwarehouse\b|\blagerist|\blager[ -]?mitarbeiter|\bstock[ -]?(?:keeper|clerk)|\bmagasinier|\bimpiegat[oa][\w\s/]{0,20}logistic[ao]\b|\blogistic[ao][\w\s]{0,15}\bafc\b|\blogistiker\b|\blogistik(?:er)?\b|\blogisticien\b|\blogistique\b/i,
   meccanici: /\bmeccanic|\bmechanic\b|\bmechanik|\bm[eé]canicien|\bmonteur|\bmanutent|\bwartung|\bmaintenance[ -]technician|\bmechatronik|\bmeccatronic/i,
   elettricisti: /\belettricist|\belektriker|\belectrician|\b[eé]lectricien|\belettrotecnic|\belektroinstallat|\belektromonteur/i,
   idraulici: /\bidraulic|\bsanit[aä]rinstallat|\bplumber\b|\bplombier\b|\bsanit[aä]r\b|\bheizung|\binstallatore[ -]idraulic|\bspengler/i,
@@ -767,7 +768,12 @@ function jobIsActive(job: SectorCountableJob, locale: JobBoardLocale): boolean {
   if (!job || typeof job !== 'object') return false;
   if (job.expired) return false;
   const nr = job.needsRetranslation;
-  if (nr === true) return false;
+  // needsRetranslation=true means translations FROM the job's source locale
+  // are stale/pending — it never means the source locale's own content is
+  // bad. Blocking the source locale too wrongly zeroes out well-formed jobs
+  // in their own language (#4715: real TI agricoltura/fisioterapisti jobs
+  // excluded from the it-locale count despite correct it title/description).
+  if (nr === true && locale !== (job.sourceLang || 'it')) return false;
   if (nr && typeof nr === 'object' && nr[locale]) return false;
   const localeDesc = job.descriptionByLocale?.[locale];
   const fallback = locale === 'it' ? job.description : undefined;
@@ -836,28 +842,22 @@ const SECTOR_DESCRIPTION_SCOPE: Record<SectorHubKey, boolean> = {
 };
 
 /**
- * True when a job's text metadata matches the sector keyword pattern.
- *
- * For every sector the title (+ titleByLocale) / category / tags are
- * scanned. The body description is scanned only for sectors flagged in
- * `SECTOR_DESCRIPTION_SCOPE` — those need named-entity matching.
- *
- * Rationale: job titles state the role; descriptions add narrative that
- * can mention adjacent roles ("chauffeur service available", "Fahrer
- * coordination") and cause cross-sector false positives.
+ * Locale-independent sector signal: canonical title/category/tags (+, for
+ * description-scoped sectors, description/company/location/addressLocality).
+ * Never touches titleByLocale/descriptionByLocale, so a hit here is true for
+ * EVERY locale. Split out of jobMatchesSector so countSectorJobsByLocale can
+ * compute it ONCE per (job, sector) instead of once per (job, sector,
+ * locale) — that 4× re-test inside the locale loop is what made the
+ * locale-scoping fix (#4715) a real perf regression on the full CH dataset
+ * (22k+ jobs) before this split.
  */
-export function jobMatchesSector(job: SectorCountableJob, sector: SectorHubKey): boolean {
+function jobMatchesSectorCanonical(job: SectorCountableJob, sector: SectorHubKey): boolean {
   const pattern = SECTOR_MATCHERS[sector];
   const titleOnlyParts: string[] = [];
   if (job.title) titleOnlyParts.push(String(job.title));
   if (job.category) titleOnlyParts.push(String(job.category));
   if (job.tags) {
     titleOnlyParts.push(Array.isArray(job.tags) ? job.tags.join(' ') : String(job.tags));
-  }
-  if (job.titleByLocale) {
-    for (const v of Object.values(job.titleByLocale)) {
-      if (typeof v === 'string') titleOnlyParts.push(v);
-    }
   }
   if (pattern.test(titleOnlyParts.join(' \n '))) return true;
 
@@ -872,12 +872,63 @@ export function jobMatchesSector(job: SectorCountableJob, sector: SectorHubKey):
   if (job.company) descParts.push(String(job.company));
   if (job.location) descParts.push(String(job.location));
   if (job.addressLocality) descParts.push(String(job.addressLocality));
-  if (job.descriptionByLocale) {
-    for (const v of Object.values(job.descriptionByLocale)) {
-      if (typeof v === 'string') descParts.push(v);
+  return pattern.test(descParts.join(' \n '));
+}
+
+/**
+ * True when a job's text metadata matches the sector keyword pattern.
+ *
+ * For every sector the title (+ titleByLocale) / category / tags are
+ * scanned. The body description is scanned only for sectors flagged in
+ * `SECTOR_DESCRIPTION_SCOPE` — those need named-entity matching.
+ *
+ * Rationale: job titles state the role; descriptions add narrative that
+ * can mention adjacent roles ("chauffeur service available", "Fahrer
+ * coordination") and cause cross-sector false positives.
+ *
+ * `locale`: when passed, only that locale's `titleByLocale` slot is scanned
+ * instead of every locale's translation at once. Without it every locale's
+ * translation is tested together (existing default, unchanged for callers
+ * that don't need per-locale scoping). A mistranslation in one locale's
+ * title (e.g. a French MT error inserting an unrelated word) must not leak
+ * into another locale's sector count/listing — see #4715.
+ */
+export function jobMatchesSector(
+  job: SectorCountableJob,
+  sector: SectorHubKey,
+  locale?: JobBoardLocale,
+): boolean {
+  if (jobMatchesSectorCanonical(job, sector)) return true;
+
+  const pattern = SECTOR_MATCHERS[sector];
+
+  if (job.titleByLocale) {
+    if (locale) {
+      const localeTitle = job.titleByLocale[locale];
+      if (typeof localeTitle === 'string' && pattern.test(localeTitle)) return true;
+    } else {
+      for (const v of Object.values(job.titleByLocale)) {
+        if (typeof v === 'string' && pattern.test(v)) return true;
+      }
     }
   }
-  return pattern.test(descParts.join(' \n '));
+
+  if (!SECTOR_DESCRIPTION_SCOPE[sector]) return false;
+
+  // Canonical description/company/location/addressLocality already tested by
+  // jobMatchesSectorCanonical() above — only the locale-specific description
+  // delta remains here.
+  if (job.descriptionByLocale) {
+    if (locale) {
+      const localeDesc = job.descriptionByLocale[locale];
+      if (typeof localeDesc === 'string' && pattern.test(localeDesc)) return true;
+    } else {
+      for (const v of Object.values(job.descriptionByLocale)) {
+        if (typeof v === 'string' && pattern.test(v)) return true;
+      }
+    }
+  }
+  return false;
 }
 
 /** Count active jobs by (locale, sector). Returns a 4 × {SECTOR_HUB_KEYS.length} matrix. */
@@ -944,8 +995,17 @@ export function countSectorJobsByLocale(
   if (!Array.isArray(jobs)) return counts;
   for (const job of jobs) {
     for (const sector of SECTOR_HUB_KEYS) {
-      if (!jobMatchesSector(job, sector)) continue;
+      // Canonical (locale-independent) match computed ONCE per (job, sector)
+      // — a hit credits every active locale without re-running the regex
+      // per locale; only a miss falls through to the per-locale delta.
+      const canonicalMatch = jobMatchesSectorCanonical(job, sector);
       for (const locale of ['it', 'en', 'de', 'fr'] as JobBoardLocale[]) {
+        // Match check (cheap: title-length regex) BEFORE jobIsActive (expensive:
+        // wordCount() over the full description) — mirrors the original
+        // locale-agnostic loop's `continue`-before-jobIsActive short-circuit, so
+        // the per-locale scoping fix (#4715) doesn't turn into an O(jobs × sectors
+        // × locales) wordCount() sweep on the full CH dataset.
+        if (!canonicalMatch && !jobMatchesSector(job, sector, locale)) continue;
         if (jobIsActive(job, locale)) counts[locale][sector]++;
       }
     }
@@ -964,7 +1024,7 @@ export function filterSectorJobs(
   const matches: SectorCountableJob[] = [];
   for (const job of jobs) {
     if (!jobIsActive(job, locale)) continue;
-    if (jobMatchesSector(job, sector)) matches.push(job);
+    if (jobMatchesSector(job, sector, locale)) matches.push(job);
   }
   matches.sort((a, b) => {
     // First PARSEABLE date, not first truthy: a malformed datePosted must not

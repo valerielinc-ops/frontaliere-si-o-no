@@ -277,14 +277,16 @@ function loadJobs(rootDir: string): readonly JobRecord[] {
   }
 }
 
+// Canonical `job.title` only — deliberately excludes `titleByLocale`. This
+// match feeds a single job pool shared across every locale's profession
+// page, so a mistranslation in any one locale's title must never be able
+// to pull an unrelated job in. Every job carries a canonical `job.title`
+// (confirmed against the live dataset), so this costs no matching
+// coverage. See #4715 (same construct fixed in
+// jobSectorLanding.ts::jobMatchesSector).
 function jobMatchesProfession(job: JobRecord, m: ProfessionMatcher): boolean {
   const haystacks: string[] = [];
   if (job.title) haystacks.push(job.title);
-  if (job.titleByLocale) {
-    for (const v of Object.values(job.titleByLocale)) {
-      if (v) haystacks.push(v);
-    }
-  }
   let titleHit = false;
   for (const h of haystacks) {
     if (m.title.test(h)) {

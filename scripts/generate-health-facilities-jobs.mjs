@@ -169,10 +169,10 @@ function main() {
     // clicks through to. The directory hospital's canton only breaks the tie
     // when the employer has no canton-tagged jobs at all.
     const canton = dominant(e.cantonCounts) || f.hospitals[0].canton || '';
-    const healthcareJobs = e.jobs.filter((j) => classifyHealthcareRole(j.title, j.titleByLocale));
+    const healthcareJobs = e.jobs.filter((j) => classifyHealthcareRole(j.title));
     const roleCounts = {};
     for (const j of healthcareJobs) {
-      const r = classifyHealthcareRole(j.title, j.titleByLocale);
+      const r = classifyHealthcareRole(j.title);
       if (r) roleCounts[r] = (roleCounts[r] || 0) + 1;
     }
     const median =

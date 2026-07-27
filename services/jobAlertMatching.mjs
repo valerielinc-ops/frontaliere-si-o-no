@@ -377,9 +377,15 @@ export function partitionByGeoPreference(jobs, profile, { minLocal = GEO_PREFERE
  *
  * @param {object} job          Job from data/jobs.json.
  * @param {AlertProfile} profile Output of {@link buildAlertProfile}.
+ * @param {string} [locale]     Recipient's alert locale. When passed, only that
+ *   locale's `titleByLocale` slot feeds keyword matching instead of every
+ *   locale's translation at once — a mistranslation in one locale's title
+ *   (e.g. a French MT error inserting an unrelated word) must not cause a
+ *   job to wrongly match and get emailed to a subscriber in a DIFFERENT
+ *   locale. Omitted keeps the prior locale-agnostic behavior. See #4715.
  * @returns {number}
  */
-export function scoreJobForAlert(job, profile) {
+export function scoreJobForAlert(job, profile, locale) {
   if (!job || !profile) return 0;
 
   // Job-specific scope: a pinned alert ("notify me about THIS job/company")
@@ -395,7 +401,9 @@ export function scoreJobForAlert(job, profile) {
     return (idHit || companyHit) ? 10 : 0;
   }
 
-  const localizedTitles = Object.values(job.titleByLocale || {}).join(' ');
+  const localizedTitles = locale
+    ? String((job.titleByLocale || {})[locale] || '')
+    : Object.values(job.titleByLocale || {}).join(' ');
   const titleText = `${job.title || ''} ${localizedTitles}`.toLowerCase();
   const fullText = `${titleText} ${(job.description || '').toLowerCase()}`;
   const jobTokens = extractKeywords(

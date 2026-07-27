@@ -79,6 +79,7 @@ export function isJobBoardLandingPath(urlPath: string): boolean {
 interface RawJob {
   expired?: boolean
   needsRetranslation?: boolean | Partial<Record<JobBoardLocale, boolean>>
+  sourceLang?: JobBoardLocale
   description?: string
   descriptionByLocale?: Partial<Record<JobBoardLocale, string>>
 }
@@ -105,7 +106,11 @@ export function isJobActiveForLocale(job: RawJob, locale: JobBoardLocale): boole
   if (job.expired) return false
 
   const nr = job.needsRetranslation
-  if (nr === true) return false
+  // needsRetranslation=true means translations FROM the job's source locale
+  // are stale/pending — it never means the source locale's own content is
+  // bad. Blocking the source locale too wrongly zeroes out well-formed jobs
+  // in their own language (#4715).
+  if (nr === true && locale !== (job.sourceLang || 'it')) return false
   if (nr && typeof nr === 'object' && nr[locale]) return false
 
   const localeDesc = job.descriptionByLocale?.[locale]

@@ -593,9 +593,14 @@ function loadJobs() {
         if (c && !cityToCanton.has(c)) cityToCanton.set(c, canton);
       }
     }
-    // Exclude jobs flagged for retranslation (leftover source-language title) from
-    // the alert candidate pool — mirrors the jobsSeoPagesPlugin.ts static-page gate.
-    if (j.needsRetranslation === true) continue;
+    // needsRetranslation is NOT checked here: this pool is shared across every
+    // subscriber alert regardless of locale, and the flag only means
+    // translations FROM the job's source locale are stale — it never means
+    // the source locale's own title/description is bad. Blanket-excluding
+    // here wrongly dropped a job from EVERY alert (including ones in its own
+    // source language) whenever any other locale's translation was pending.
+    // The locale-aware exemption is applied per-alert below, where the
+    // recipient's locale is actually known (#4715).
     if (firstParsableMs(j.crawledAt, j.postedDate) >= cutoff) recent.push(j);
   }
   return { recent, locationIndex, cityToCanton };
@@ -1592,7 +1597,14 @@ async function main() {
     );
     // Canary gate: broadcast-restricted ads only ever match the OWNER's alerts,
     // so a test listing can't reach real alert subscribers.
-    const eligibleJobs = isOwnerEmail(alert.email) ? recentJobs : recentJobs.filter((j) => !isCanaryJob(j));
+    const canaryEligible = isOwnerEmail(alert.email) ? recentJobs : recentJobs.filter((j) => !isCanaryJob(j));
+    // needsRetranslation only means translations FROM the job's source locale
+    // are stale — exclude a job from THIS alert only when its own source
+    // locale differs from the recipient's locale (#4715).
+    const alertLocale = nlNormLocale(alert.locale);
+    const eligibleJobs = canaryEligible.filter(
+      (j) => !(j.needsRetranslation === true && alertLocale !== (j.sourceLang || 'it')),
+    );
     // Relevance score + graduated freshness boost: a job first seen within
     // 24h/48h gets +2/+1 on top of its relevance so GENUINELY new listings win
     // near-ties against the re-crawled backlog (the pool re-admits the whole
@@ -1601,7 +1613,7 @@ async function main() {
     // decides how high.
     const sorted = eligibleJobs
       .map((job) => {
-        const relevance = scoreJobForAlert(job, profile);
+        const relevance = scoreJobForAlert(job, profile, nlNormLocale(alert.locale));
         return { job, score: relevance > 0 ? relevance + freshnessBoost(job, now) : 0 };
       })
       .filter((m) => m.score > 0)

@@ -93,7 +93,9 @@ function jobIsActive(job, locale) {
   if (!job || typeof job !== 'object') return false;
   if (job.expired) return false;
   const nr = job.needsRetranslation;
-  if (nr === true) return false;
+  // needsRetranslation=true only means translations FROM the source locale
+  // are stale — never that the source locale's own content is bad (#4715).
+  if (nr === true && locale !== (job.sourceLang || 'it')) return false;
   if (nr && typeof nr === 'object' && nr[locale]) return false;
   const localeDesc = job.descriptionByLocale && job.descriptionByLocale[locale];
   const fallback = locale === 'it' ? job.description : undefined;

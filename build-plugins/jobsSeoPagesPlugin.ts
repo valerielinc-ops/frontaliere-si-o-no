@@ -2583,7 +2583,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const perJob_cat = String(job.category || '').toLowerCase();
  const perJob_contractKey = String(job.contract || '').toLowerCase();
  const perJob_matchedCity = CITY_HUB_KEYS.find((c) => jobMatchesCity(job as never, c));
- const perJob_matchedSector = SECTOR_HUB_KEYS.find((s) => jobMatchesSector(job as never, s));
  const perJob_logoUrl = companyLogo(job);
  const perJob_relatedPool = getRelatedPool(job);
  const perJob_relatedSeed = (() => {
@@ -3446,7 +3445,7 @@ ${staticAnalyticsHtml}
  const faqSection: Record<string, string> = { it: faqSectionHtml, en: faqSectionHtml, de: faqSectionHtml, fr: faqSectionHtml };
  const hubLinks = (() => {
  const matchedCity = perJob_matchedCity;
- const matchedSector = perJob_matchedSector;
+ const matchedSector = SECTOR_HUB_KEYS.find((s) => jobMatchesSector(job as never, s, locale as never));
  if (!matchedCity && !matchedSector) return '';
  const heading: Record<string, string> = { it: 'Esplora annunci simili', en: 'Explore similar jobs', de: 'Ähnliche Stellen entdecken', fr: 'Explorer des offres similaires' };
  const cityCopy: Record<string, string> = { it: 'Tutti i lavori a', en: 'All jobs in', de: 'Alle Jobs in', fr: 'Tous les emplois à' };
@@ -3714,11 +3713,12 @@ ${staticAnalyticsHtml}
  /** Sectors matched by at least one of this company's jobs. */
  const companySectorMatches = (
  jobs: ReadonlyArray<unknown>,
+ locale: 'it' | 'en' | 'de' | 'fr',
  ): SectorHubKey[] => {
  const hits: SectorHubKey[] = [];
  for (const sector of SECTOR_HUB_KEYS) {
  // eslint-disable-next-line @typescript-eslint/no-explicit-any
- if (jobs.some((j) => jobMatchesSector(j as any, sector))) hits.push(sector);
+ if (jobs.some((j) => jobMatchesSector(j as any, sector, locale as never))) hits.push(sector);
  }
  return hits;
  };
@@ -3801,7 +3801,7 @@ ${staticAnalyticsHtml}
  jobs: ReadonlyArray<any>,
  locale: 'it' | 'en' | 'de' | 'fr',
  ): string => {
- const sectors = companySectorMatches(jobs);
+ const sectors = companySectorMatches(jobs, locale);
  const cities = companyCityMatches(jobs);
  if (sectors.length === 0 && cities.length === 0) return '';
  const labels = {
@@ -7462,18 +7462,24 @@ ${staticAnalyticsHtml}
   */
  {
  const SECTOR_JOB_LIST_CAP = 30;
- // Group validJobs by (canton, sector).
- const cantonSectorBuckets: Map<string, Map<SectorHubKey, typeof validJobs>> = new Map();
+ // Group validJobs by (canton, sector, locale) — matching must be locale-scoped
+ // (jobMatchesSector's locale param) so a translation defect in one locale
+ // can't leak the job into/out of the other 3 locale variants of the page (#4715).
+ const cantonSectorBuckets: Map<string, Map<SectorHubKey, Map<string, typeof validJobs>>> = new Map();
  for (const job of validJobs) {
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (c === 'TI') continue;
  for (const sector of SECTOR_HUB_KEYS) {
- if (!jobMatchesSector(job as never, sector)) continue;
+ for (const locale of localeList) {
+ if (!jobMatchesSector(job as never, sector, locale as never)) continue;
  if (!cantonSectorBuckets.has(c)) cantonSectorBuckets.set(c, new Map());
  const bySector = cantonSectorBuckets.get(c)!;
- if (!bySector.has(sector)) bySector.set(sector, []);
- bySector.get(sector)!.push(job);
+ if (!bySector.has(sector)) bySector.set(sector, new Map());
+ const byLocale = bySector.get(sector)!;
+ if (!byLocale.has(locale)) byLocale.set(locale, []);
+ byLocale.get(locale)!.push(job);
+ }
  }
  }
  const cantonDisplayLocalSec = (canton: string, locale: typeof localeList[number]): string => {
@@ -7485,11 +7491,14 @@ ${staticAnalyticsHtml}
  if (canton === 'TI') continue;
  const bySector = cantonSectorBuckets.get(canton);
  for (const sector of SECTOR_HUB_KEYS) {
- const sJobs = bySector?.get(sector) ?? [];
+ const sJobsByLocale = bySector?.get(sector);
  // Source of truth for seoHubsPlugin's canton `settori` hub: record that a
  // crawlable `/{section}/{sectorSlug}/` page exists for this (canton, sector)
  // so the hub deep-links it instead of a robots-disallowed `?q=` URL.
  markCantonSectorPage(canton, sector);
+ for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
+ const sJobs = sJobsByLocale?.get(locale) ?? [];
  const sSorted = [...sJobs].sort((a: any, b: any) => {
  const da = firstParsableMs(b.crawledAt, b.datePosted);
  const db = firstParsableMs(a.crawledAt, a.datePosted);
@@ -7497,8 +7506,6 @@ ${staticAnalyticsHtml}
  return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
  });
  const cappedJobs = sSorted.slice(0, SECTOR_JOB_LIST_CAP);
- for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tSectorCanton = startTimer();
  const sectionSlug = sharedResolveCantonSection(locale, canton);
  const sectorSlug = SECTOR_HUB_SLUG[locale][sector];
@@ -8422,22 +8429,26 @@ ${staticAnalyticsHtml}
  const kwSlug = String(kwPage.slug || '').trim();
  const kwFilterWords: string[] = Array.isArray(kwPage.filterKeywords) ? kwPage.filterKeywords : [];
  if (!kwSlug || kwFilterWords.length === 0) continue;
- // Match jobs where ALL filter keywords appear in title/description/company/location
- const kwJobs = sortedForPagination.filter((j: any) => {
- const haystack = [
- String(j.title || ''), String(j.description || ''),
- String(j.company || ''), String(j.location || ''),
- ...(Object.values(j.titleByLocale || {}) as string[]),
- ].join(' ').toLowerCase();
- return kwFilterWords.every((kw: string) => haystack.includes(kw));
- }).slice(0, 30);
- if (kwJobs.length < 3) continue;
  const itCopy = kwPage.copy?.it;
  if (!itCopy) continue;
- const kwUniqueCompanies = [...new Set(kwJobs.map((j: any) => String(j.company || '')).filter(Boolean))];
- const kwUniqueLocations = [...new Set(kwJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
+ // Match jobs where ALL filter keywords appear in title/description/company/location,
+ // scoped to THIS locale's own translation — never blended across all 4 locales.
+ // A mistranslated title in one locale must not leak a job into (or out of)
+ // another locale's keyword-landing membership (#4715).
+ const kwMatchesLocale = (j: any, locale: string): boolean => {
+ const haystack = [
+ String(j?.titleByLocale?.[locale] || j.title || ''),
+ String(j?.descriptionByLocale?.[locale] || j.description || ''),
+ String(j.company || ''), String(j.location || ''),
+ ].join(' ').toLowerCase();
+ return kwFilterWords.every((kw: string) => haystack.includes(kw));
+ };
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
+ const kwJobs = sortedForPagination.filter((j: any) => kwMatchesLocale(j, locale)).slice(0, 30);
+ if (kwJobs.length < 3) continue;
+ const kwUniqueCompanies = [...new Set(kwJobs.map((j: any) => String(j.company || '')).filter(Boolean))];
+ const kwUniqueLocations = [...new Set(kwJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
  const __tGsc = startTimer();
  const kwFullSlug = `${searchRoutePrefix[locale]}-${kwSlug}`;
  if (editorialSearchSlugsByLocale.get(locale)?.has(kwFullSlug)) continue;
@@ -9274,11 +9285,15 @@ ${staticAnalyticsHtml}
  }).join('\n');
 
  // Filter out thin content jobs (<50 words IT description) from sitemap (FRO-278).
- // Also exclude jobs flagged `needsRetranslation` — per-locale alternates would
- // point at stale/auto-generated text and waste crawl budget until AI
- // retranslation completes (seo/sitemap-crawl-budget).
+ // Also exclude jobs flagged `needsRetranslation` when their OWN source
+ // locale isn't IT — the <loc> below is always the IT canonical URL, so
+ // stale-alternate crawl-budget waste only applies when IT itself is the
+ // pending translation. An IT-sourced job flagged only because its
+ // EN/DE/FR alternates are pending has a perfectly good IT canonical page
+ // and must not be dropped from the sitemap entirely (#4715).
  const sitemapEligibleJobs = validJobs.filter((job) => {
- if ((job as any).needsRetranslation === true) return false;
+ const nr = (job as any).needsRetranslation;
+ if (nr === true && ((job as any).sourceLang || 'it') !== 'it') return false;
  const desc = String((job as any).descriptionByLocale?.it || (job as any).description || '');
  const wordCount = desc.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
  return wordCount >= 50;
@@ -10460,7 +10475,7 @@ ${staticAnalyticsHtml}
          const salaries: number[] = [];
          let matchCount = 0;
          for (const j of realDataJobPool) {
-           if (!jobMatchesSector(j as never, sector)) continue;
+           if (!jobMatchesSector(j as never, sector, entry.locale as never)) continue;
            matchCount++;
            const jt = j as { salaryMin?: number | string | null; salaryMax?: number | string | null };
            const min = Number(jt.salaryMin);

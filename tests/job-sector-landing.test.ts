@@ -340,6 +340,26 @@ describe('jobSectorLanding — sector match regex', () => {
     expect(jobMatchesSector({ title: 'Cuoco partita pesce' }, 'logistica')).toBe(false);
   });
 
+  it('matches magazzino (warehouse) keywords, including the Swiss "impiegato/a in logistica" vocational title', () => {
+    expect(jobMatchesSector({ title: 'Magazziniere notturno' }, 'magazzino')).toBe(true);
+    expect(jobMatchesSector({ title: 'Warehouse operator' }, 'magazzino')).toBe(true);
+    expect(jobMatchesSector({ title: 'Lagerist Schicht' }, 'magazzino')).toBe(true);
+    expect(jobMatchesSector({ title: 'Impiegato/a in logistica (100%)' }, 'magazzino')).toBe(true);
+    expect(jobMatchesSector({ title: "Apprendistato: Impiegato/a in logistica" }, 'magazzino')).toBe(true);
+    expect(jobMatchesSector({ title: 'Impiegato/a in logistica AFC' }, 'magazzino')).toBe(true);
+    expect(jobMatchesSector({ title: 'Logistiker/in EFZ' }, 'magazzino')).toBe(true);
+    // a bare "Logistica" department/category label on an unrelated job must NOT
+    // count as a magazzino match — only title phrasing that actually names the
+    // warehouse/logistics-operative role does.
+    expect(
+      jobMatchesSector(
+        { title: 'Stage nel settore eventi e mediapartenariati', category: 'Logistica' },
+        'magazzino',
+      ),
+    ).toBe(false);
+    expect(jobMatchesSector({ title: 'Responsabile marketing digitale' }, 'magazzino')).toBe(false);
+  });
+
   it('matches apprenticeship/internship keywords across locales', () => {
     expect(jobMatchesSector({ title: 'Apprendista cuoco AFC' }, 'apprendistato')).toBe(true);
     expect(jobMatchesSector({ title: 'Tirocinio formativo bancario' }, 'apprendistato')).toBe(true);
@@ -412,6 +432,40 @@ describe('jobSectorLanding — counts and filtering', () => {
     expect(counts.en.infermieri).toBe(1);
     expect(counts.de.infermieri).toBe(0);
     expect(counts.fr.infermieri).toBe(0);
+  });
+
+  it('a mistranslated titleByLocale entry in ONE locale must not leak a false sector match into the OTHER locales (#4715)', () => {
+    // Real-world case: an EOC "Levatrice / ostetrica" (midwife) job whose FR
+    // machine translation was corrupted to "Serveur / sage-femme" — "serveur"
+    // (waiter) false-matches the `camerieri` sector. Before locale-scoping,
+    // jobMatchesSector joined every titleByLocale value into one haystack, so
+    // this ONE bad FR translation polluted the IT/EN/DE counts and listings
+    // too, even though none of those locales' own text mentions a waiter.
+    const midwifeJob = {
+      title: 'Levatrice / ostetrica',
+      description: baseDesc,
+      descriptionByLocale: { en: baseDesc, de: baseDesc, fr: baseDesc },
+      titleByLocale: {
+        it: 'Levatrice/ostetrica',
+        en: 'Leverage / midwife',
+        de: 'Hebelwirkung/Hebamme',
+        fr: 'Serveur / sage-femme',
+      },
+    };
+    const counts = countSectorJobsByLocale([midwifeJob]);
+    expect(counts.it.camerieri).toBe(0);
+    expect(counts.en.camerieri).toBe(0);
+    expect(counts.de.camerieri).toBe(0);
+    expect(counts.fr.camerieri).toBe(1);
+
+    expect(filterSectorJobs([midwifeJob], 'camerieri', 'it')).toHaveLength(0);
+    expect(filterSectorJobs([midwifeJob], 'camerieri', 'fr')).toHaveLength(1);
+
+    // Two-arg jobMatchesSector (no locale) keeps its existing locale-agnostic
+    // behavior — matches because the FR slot alone contains "serveur".
+    expect(jobMatchesSector(midwifeJob, 'camerieri')).toBe(true);
+    expect(jobMatchesSector(midwifeJob, 'camerieri', 'it')).toBe(false);
+    expect(jobMatchesSector(midwifeJob, 'camerieri', 'fr')).toBe(true);
   });
 
   it('filterSectorJobs sorts by datePosted desc and caps at maxJobs', () => {

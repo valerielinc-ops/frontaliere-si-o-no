@@ -70,6 +70,7 @@ export interface OrphanCountableJob {
   addressLocality?: string;
   expired?: boolean;
   needsRetranslation?: boolean | Partial<Record<OrphanLandingLocale, boolean>>;
+  sourceLang?: OrphanLandingLocale;
   description?: string;
   descriptionByLocale?: Partial<Record<OrphanLandingLocale, string>>;
   salaryMin?: number;
@@ -130,7 +131,11 @@ function isJobActiveForLocale(job: OrphanCountableJob, locale: OrphanLandingLoca
   if (!job || typeof job !== 'object') return false;
   if (job.expired) return false;
   const nr = job.needsRetranslation;
-  if (nr === true) return false;
+  // needsRetranslation=true means translations FROM the job's source locale
+  // are stale/pending — it never means the source locale's own content is
+  // bad. Blocking the source locale too wrongly zeroes out well-formed jobs
+  // in their own language (#4715).
+  if (nr === true && locale !== (job.sourceLang || 'it')) return false;
   if (nr && typeof nr === 'object' && (nr as Record<string, boolean>)[locale]) return false;
   const localeDesc = job.descriptionByLocale?.[locale];
   const fallback = locale === 'it' ? job.description : undefined;

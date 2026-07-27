@@ -284,6 +284,34 @@ describe('jobAlertMatching — behaviour + source-job soft signals (#2993)', () 
   });
 });
 
+describe('jobAlertMatching — locale-scoped title matching (#4715)', () => {
+  // Real-world case: a nurse job whose FR machine translation was corrupted to
+  // mention "cameriere" (waiter). Without locale-scoping, scoreJobForAlert
+  // joined every titleByLocale value into one haystack, so this ONE bad FR
+  // translation could match an unrelated "cameriere" keyword alert and get
+  // emailed to an IT-locale subscriber even though the IT title never
+  // mentions it.
+  const mistranslatedJob = job({
+    title: 'Infermiere',
+    titleByLocale: { it: 'Infermiere', en: 'Nurse', de: 'Pflegefachperson', fr: 'Cameriere di sala' },
+  });
+
+  it('a mistranslated OTHER-locale title does not leak a false keyword match when the recipient locale is passed', () => {
+    const profile = buildAlertProfile({ keywords: ['cameriere'] }, null);
+    expect(scoreJobForAlert(mistranslatedJob, profile, 'it')).toBe(0);
+  });
+
+  it('the FR-locale recipient still matches — their own locale title literally contains the keyword', () => {
+    const profile = buildAlertProfile({ keywords: ['cameriere'] }, null);
+    expect(scoreJobForAlert(mistranslatedJob, profile, 'fr')).toBeGreaterThan(0);
+  });
+
+  it('omitting locale keeps the prior locale-agnostic (all-locales-joined) behavior', () => {
+    const profile = buildAlertProfile({ keywords: ['cameriere'] }, null);
+    expect(scoreJobForAlert(mistranslatedJob, profile)).toBeGreaterThan(0);
+  });
+});
+
 describe('jobAlertMatching — robustness', () => {
   it('handles null job / profile without throwing', () => {
     expect(scoreJobForAlert(null as never, buildAlertProfile({}, null))).toBe(0);

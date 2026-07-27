@@ -433,11 +433,17 @@ export function loadChCities(rootDir: string): ReadonlyArray<SnapshotCity> {
 export function buildActiveJobsPool(
   jobs: ReadonlyArray<JobRecord>,
 ): ReadonlyArray<JobRecord> {
+  // needsRetranslation is never checked here: it flags that translations
+  // FROM this job's source locale are stale, which has no bearing on
+  // canonical (source-language) content validity — every job carries a
+  // valid canonical title/company/location. This pool feeds locale-agnostic
+  // aggregates (hero stats, sector stats) shared across all 4 locale pages
+  // by design, so gating on a per-locale translation flag here wrongly
+  // deflated real, active job counts (#4715).
   const out: JobRecord[] = [];
   for (const job of jobs) {
     if (!job || typeof job !== 'object') continue;
     if (job.expired) continue;
-    if (job.needsRetranslation === true) continue;
     out.push(job);
   }
   return out;
@@ -2326,7 +2332,20 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
 
 // ── Per-sector snapshot generation (D-3A) ──────────────────────
 
-/** Case-insensitive match of a job against a sector keyword pattern. */
+/**
+ * Case-insensitive match of a job against a sector keyword pattern.
+ *
+ * Deliberately scans only canonical (locale-independent) fields — title,
+ * description, category, company, location, tags — never `titleByLocale`
+ * / `descriptionByLocale`. This stat is computed once and shared across
+ * every locale's snapshot page (see `generateSectorSnapshotPages`), so a
+ * mistranslation in any one locale's title must never be able to pollute
+ * it; every job carries a canonical `job.title` (confirmed against the
+ * live dataset), so dropping the per-locale translations here costs no
+ * matching coverage. See #4715 (same construct fixed in
+ * jobSectorLanding.ts::jobMatchesSector, which instead adds locale-scoping
+ * because that matcher feeds genuinely per-locale job listings).
+ */
 function jobMatchesSector(job: JobRecord, sector: JobMarketSectorKey): boolean {
   const pattern = JOB_MARKET_SECTOR_MATCHERS[sector];
   const parts: string[] = [];
@@ -2340,24 +2359,16 @@ function jobMatchesSector(job: JobRecord, sector: JobMarketSectorKey): boolean {
     if (Array.isArray(job.tags)) parts.push(job.tags.join(' '));
     else parts.push(String(job.tags));
   }
-  if (job.titleByLocale) {
-    for (const v of Object.values(job.titleByLocale)) {
-      if (typeof v === 'string') parts.push(v);
-    }
-  }
-  if (job.descriptionByLocale) {
-    for (const v of Object.values(job.descriptionByLocale)) {
-      if (typeof v === 'string') parts.push(v);
-    }
-  }
   return pattern.test(parts.join(' \n '));
 }
 
 function jobIsActiveForSector(job: JobRecord): boolean {
   if (!job || typeof job !== 'object') return false;
   if (job.expired) return false;
-  const nr = job.needsRetranslation;
-  if (nr === true) return false;
+  // needsRetranslation intentionally not checked — see buildActiveJobsPool
+  // above (#4715): the flag is about other-locale translation staleness,
+  // not canonical content validity, and this matcher scans canonical
+  // fields only.
   return true;
 }
 
