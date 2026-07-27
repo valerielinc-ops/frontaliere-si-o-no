@@ -64,8 +64,9 @@ Trigger sull'aggiunta della label `agent:fix`. La label È il consenso. Può met
 
 0. **Pre-flight already-resolved (zero-Claude, BEFORE the Claude step)** — `scripts/ci/check-issue-already-resolved.mjs`. Gate strutturale (#1647) contro il bucket `fix-outcome:already-fixed`: molte follow-up sono **done-but-open** (risolte da una PR successiva senza `Closes #N`). Prima di spendere quota, se un token DISTINTIVO di `## Suggested action` è già presente **verbatim** nel file citato su main → short-circuit: rimuove `agent:fix`, posta commento + `<!-- FIX_OUTCOME: already-fixed -->`, emette `already_resolved=true`, step Claude saltati (`if:`). CONSERVATIVO (bias a procedere — un false short-circuit dropperebbe un bug reale): solo follow-up **singole** (no aggregate "N items deferred"), **non-in-flight**, con match forte; aggregate/ambiguo/nessun match → procede invariato. Matcher condiviso con `reconcile-followups.mjs` (`scripts/ci/followup-resolution-match.mjs`, single source of truth).
 0.5. **Pre-flight workflows-scope capability guard (zero-Claude, BEFORE the Claude step)** — `scripts/ci/check-workflows-scope.mjs`. Gate strutturale (#4227) contro il bucket `fix-outcome:blocked-workflows-scope` (12×/14gg — la regola prosa allo step "Abort senza PR" sotto NON preveniva la ricorrenza, solo il costo *dopo* diagnosi completa). Due modalità, entrambe short-circuit prima che Claude parta (rimuove `agent:fix`, posta commento + `<!-- FIX_OUTCOME: blocked-workflows-scope -->`, emette `workflows_blocked=true`, step Claude saltati): (a) **body-esplicito** — la issue cita `.github/workflows/**` verbatim in backtick/code-block; (b) **recurrence** — la issue è un auto-file `scan-job-timeouts.mjs` (label `ci-timeout`) il cui **titolo esatto** coincide con una issue PRECEDENTE già chiusa con lo stesso marker (es. "CI Failure: Refresh thin-page promotions" ricorso 8× in una settimana, ognuna ri-diagnosticando da zero l'identica root cause checkout-timeout già trovata e bloccata giorni prima). CONSERVATIVO (bias a procedere): nessun path esplicito + nessun titolo-match esatto con marker pregresso → procede invariato, diagnosi normale.
+0.75. **Pre-flight in-progress claim gate (zero-Claude, BEFORE the Claude step)** — `scripts/ci/claim-issue-in-flight.mjs`. Gate strutturale (#4788/#4793: una sessione locale e questo fixer autonomo hanno lavorato la STESSA issue in parallelo → due PR competitive in conflitto al merge). L'unica difesa precedente era il controllo prompt-level allo step 1 sotto ("PR già in volo") — valutato DOPO tier/checkout, cieco a un lavoro iniziato ma non ancora aperto in PR (esattamente il caso #4793: creata prima che la sessione locale, più lenta perché includeva root-cause+test, avesse nulla da mostrare). Questo step reclama deterministicamente la label `agent:in-progress` PRIMA di ogni lavoro: se già presente → un'altra sessione (locale, via `/fix-issue` — Appendice A, o un run concorrente) l'ha presa per prima → posta commento + `<!-- FIX_OUTCOME: overlap-skip -->`, emette `in_flight=true`, step successivi saltati (`if:`), zero quota Max OAuth spesa. Se assente → la reclama e procede; un release step simmetrico (`if: always()`, fine job) la rimuove su OGNI path terminale così un run morto non lascia mai la issue stranded. PROCEED-SAFE: qualunque errore gh/API → `in_flight=false`, procede invariato (rischio accettato: rara duplicazione di lavoro, mai una issue bloccata).
 1. **Pre-condizioni** (abort con commento se falliscono):
-   - PR aperta già citante la issue → skip ("PR già in volo").
+   - PR aperta già citante la issue → skip ("PR già in volo"). Defense-in-depth: la claim label sopra (0.75) è ora la difesa primaria, questo resta un secondo controllo per il caso raro in cui una PR sia già aperta senza la label (es. lavoro manuale pre-esistente).
    - **Overlap-file**: estrai i path target dal body issue; se una PR aperta (`gh pr list --state open` + `gh pr diff <n> --name-only`) **già modifica** uno di quei file → skip ("file già in volo in PR #N; riaprire dopo il merge se pertinente"). (rif. #934 vs #943). Issue non file-specifica → procedi.
 2. Branch `fix/issue-<N>`.
 3. Diagnosi **root cause** (non sintomo). `crawler` → rigenera parser / edit mirato selector+config.
@@ -119,6 +120,7 @@ Per issue HIGH-risk, o per intervenire a mano su una categoria (es. `revenue`/`t
 | Label | Significato | Chi la mette |
 |---|---|---|
 | `agent:fix` | opt-in: l'agent tenta un fix → PR | triage (`crawler` diretto, o promosso dalla coda per ogni altra categoria, **via PAT**) o owner manuale |
+| `agent:in-progress` | mutex: qualcuno (fixer CI o sessione locale `/fix-issue`) sta lavorando la issue ORA — anti-doppione (#4788/#4793) | claim gate (0.75 sopra) o sessione locale (Appendice A); rilasciata a fine lavoro/abbandono da entrambi |
 | `agent:triaged` | issue già processata da triage | triage (anti-loop) |
 | `duplicate` | storm-duplicate, chiusa | triage |
 
@@ -127,6 +129,7 @@ Per issue HIGH-risk, o per intervenire a mano su una categoria (es. `revenue`/`t
 - Disattivare auto-fix di una categoria: in `issue-triage.yml` togliere la categoria dal ramo che applica `agent:fix`, oppure disabilitare il workflow da GitHub UI.
 - Disattivare TUTTO l'auto-routing mantenendo classify/dedup: rimuovere il `GITHUB_PAT` da Remote Config (o azzerare la Firebase SA) → triage ripiega su `GITHUB_TOKEN` e le label `agent:fix` smettono di triggerare il fixer.
 - Bloccare un singolo fix: rimuovere `agent:fix` dalla issue prima che il fixer apra la PR (concurrency serializza, c'è una finestra).
+- Claim stale (run morto senza rilasciare `agent:in-progress` — non dovrebbe succedere, il release step gira `if: always()`, ma un crash del runner stesso può comunque saltarlo): rimuovi la label a mano, poi ri-labella `agent:fix` se il fix serve ancora.
 - Pausa totale: disabilitare `issue-fix.yml` / `issue-triage.yml` (Actions → workflow → Disable).
 
 ## Auto-improvement loop (`lessons-harvester.yml`, daily)
@@ -172,6 +175,7 @@ Companion locale di `issue-fix.yml` (CI). Usalo per issue HIGH-risk dove vuoi co
 
 ## Pre-condizioni
 - PR aperta già citante `#$ARGUMENTS` → fermati (no doppione).
+- **Claim mutex** (#4788/#4793 — una sessione locale e `issue-fix.yml` hanno fixato la stessa issue in parallelo, due PR competitive in conflitto al merge): `gh issue view $ARGUMENTS --json labels` (già letto al Bootstrap 2). Se compare `agent:in-progress` → un'altra sessione (locale o il fixer CI) la sta già lavorando → fermati, avvisa l'utente, NON procedere. Se assente → reclamala SUBITO, prima di ogni altro passo: `gh label create agent:in-progress --color fbca04 --description "Fixer o sessione interattiva al lavoro ORA (mutex anti-doppione)" 2>/dev/null; gh issue edit $ARGUMENTS --add-label agent:in-progress`.
 - Overlap-file: se una PR aperta modifica già un file target della issue (`gh pr list --state open` + `gh pr diff <n> --name-only`) → fermati (evita conflitto con lavoro in corso, es. #934 vs #943).
 - Worktree-first obbligatorio: `git fetch origin main` + verifica `git rev-parse main` == `git rev-parse origin/main`; se divergono basa il worktree su `origin/main`.
 
@@ -184,6 +188,7 @@ Companion locale di `issue-fix.yml` (CI). Usalo per issue HIGH-risk dove vuoi co
 6. Dopo OK: `gitnexus_detect_changes()`, poi commit (identity `Valerie Linc <valerielinc@gmail.com>`, no path home, no email personali).
 7. Push + `gh pr create`. Body `## Implementato` (`Closes #$ARGUMENTS`) + `## Non implementato (ancora)`.
 8. PR → `pr-review-loop` → `## LGTM` → auto-merge. Attendi `MERGED`, poi rimuovi worktree + branch + ref remoto.
+9. **Rilascia il claim** (a lavoro concluso o se abbandoni prima): `gh issue edit $ARGUMENTS --remove-label agent:in-progress`. Mai lasciarla stale — blocca il fixer CI su questa issue finché resta.
 
 ## Constraint
 - Approvazione umana del diff prima del push.
