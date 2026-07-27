@@ -631,7 +631,11 @@ const JOB_CANON_CACHE_TTL = 21600; // 6 h — map changes only on deploy
 // same base, so a job-canon-scoped name would be misleading. One constant,
 // reused, instead of a second copy of the literal (which would itself trip
 // check-sibling-patterns.mjs).
-const CDN_BASE = 'https://cdn.frontaliereticino.ch';
+// Exported (like SECTION_ROUTES above) so scripts/publish-edge-files.mjs can
+// build the same CDN URL it PUTs the file to, instead of a second hardcoded
+// copy of this domain — single source of truth for both the read (this
+// Worker) and write (that script) sides of the same key family.
+export const CDN_BASE = 'https://cdn.frontaliereticino.ch';
 
 // Shard key for /job-canon/<sk>.json. MIRRORS public/404.html + the plugin's
 // shardKey(): first 2 chars of the lowercased slug, non-alphanumerics → '_',
@@ -714,7 +718,12 @@ async function recoverCantonDriftOrphan(url, locale) {
 // BEFORE matchSection/LOCALE_RE or they would fall through unmatched anyway
 // (harmlessly, to the same passthrough — see servePushedEdgeFile's fail-open
 // note below).
-const EDGE_PUSHED_FILES = {
+//
+// Exported so scripts/publish-edge-files.mjs (the write side) iterates this
+// SAME table instead of a second hardcoded path/key list — adding a path
+// here is then the ONLY code-side change needed for both read and write
+// (plus the matching wrangler.toml route), never two edits that can drift.
+export const EDGE_PUSHED_FILES = {
   '/sitemap-blog-ch.xml': { cdnKey: '/edge/sitemap-blog-ch.xml', contentType: 'application/xml; charset=utf-8' },
 };
 const EDGE_PUSHED_FETCH_TIMEOUT_MS = 2000;
@@ -732,7 +741,11 @@ const EDGE_PUSHED_FETCH_TIMEOUT_MS = 2000;
 // --files=` purge for the live + CDN URL right after the PUT, which is what
 // actually keeps the typical staleness window short — this TTL is only the
 // worst-case ceiling if that purge is skipped/fails.
-const EDGE_PUSHED_CACHE_TTL = 300; // 5 min
+//
+// Exported so publish-edge-files.mjs sets the SAME value as the R2 object's
+// own Cache-Control on PUT — one number, not a second literal `300` that
+// could silently drift from this one.
+export const EDGE_PUSHED_CACHE_TTL = 300; // 5 min
 
 // Returns a 200 Response served from the R2-pushed copy of `pathname`, or
 // null when the path is not in EDGE_PUSHED_FILES, the object hasn't been
