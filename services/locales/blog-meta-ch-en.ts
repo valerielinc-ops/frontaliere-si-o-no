@@ -1597,6 +1597,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-omnibus-2026.title': 'Border Ticino: 100% tax from 2026 for old and new municipalities',
     'blog.article.frontalieri-ticino-omnibus-2026.excerpt': 'The OCST reports: from January 2026, border workers of the new border municipalities who choose the Omnibus Decree will pay 100% tax at source in Ticino, no more than 80%. Increased tax burden if you opt for the Italian substitute tax.',
     'blog.article.frontalieri-ticino-omnibus-2026.imageAlt': 'Aerial view of Lugano with lake and mountains',
+    'blog.article.tassa-salute-frontalieri-attacco-ticino.title': 'Cutting refreshments, Canton Ticino attacks health tax',
+    'blog.article.tassa-salute-frontalieri-attacco-ticino.excerpt': 'State Councillor Christian Vitta said he wanted to attack the mechanism of refunds for border workers.',
+    'blog.article.tassa-salute-frontalieri-attacco-ticino.imageAlt': 'Photograph of Lugano with a protest sign in front of the town hall',
 };
 
 export default blogMetaChEn;

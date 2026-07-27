@@ -4787,6 +4787,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'tassa-salute-frontalieri-attacco-ticino',
+    category: 'fiscale',
+    date: '2026-07-27T16:09:16.444Z',
+    image: '/images/blog/tassa-salute-frontalieri-attacco-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
