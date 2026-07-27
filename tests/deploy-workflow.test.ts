@@ -19,6 +19,10 @@ import { resolve } from 'node:path';
 const ROOT = resolve(import.meta.dirname, '..');
 const VALIDATION_YML = readFileSync(resolve(ROOT, '.github/workflows/post-deploy-validate-dist.yml'), 'utf-8');
 const DEPLOY_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), 'utf-8');
+// Section rehydrate loop (rehydrate_section) lives here, extracted out of
+// post-deploy-validate-dist.yml's 3 inline copies + the 4 seed-baseline
+// workflows' copies into one shared script (AGENTS.md #6 dedupe).
+const REHYDRATE_SECTION_SCRIPT = readFileSync(resolve(ROOT, 'scripts/lib/rehydrate-section-shards.sh'), 'utf-8');
 const PACKAGE_JSON = JSON.parse(readFileSync(resolve(ROOT, 'package.json'), 'utf-8'));
 const BATCH_WRITE = readFileSync(resolve(ROOT, 'build-plugins/batchWrite.ts'), 'utf-8');
 const AUDIT_ALL_REGISTRY_SRC = readFileSync(resolve(ROOT, 'scripts/audit-all.mjs'), 'utf-8');
@@ -175,20 +179,33 @@ describe('deploy.yml + post-deploy-validate-dist.yml — tar-pack rehydrate fast
     // The section loop's tar filename is `$section-dist-$loc.tar` (a shell
     // variable, not a literal per-section name) since rehydrate_section()
     // covers ticino/svizzera/zurigo through the same code path.
-    for (const label of ['locale-dist-\\$loc', '\\$section-dist-\\$loc']) {
+    // locale rehydrate stays inline in post-deploy-validate-dist.yml; section
+    // rehydrate was extracted into scripts/lib/rehydrate-section-shards.sh
+    // (shared with the 4 seed-baseline workflows, AGENTS.md #6 dedupe) — the
+    // guarded invariant is unchanged, only its file moved.
+    const sources = [
+      { label: 'locale-dist-\\$loc', text: VALIDATION_YML },
+      { label: '\\$section-dist-\\$loc', text: REHYDRATE_SECTION_SCRIPT },
+    ];
+    for (const { label, text } of sources) {
       const re = new RegExp(
         `expected_n=\\$\\(tar -tf "\\$dl/${label}\\.tar" 2>/dev/null \\| \\{ grep -vc '/\\$' \\|\\| true; \\}\\)[\\s\\S]*?` +
         `tar -C dist -xf "\\$dl/${label}\\.tar" \\|\\| true[\\s\\S]*?` +
         `if \\[ -d "dist/\\$(?:loc|sub)" \\] && \\[ "\\\$\\{expected_n:-0\\}" -gt 0 \\] && \\[ "\\$actual_n" -ge "\\$expected_n" \\]`,
       );
-      expect(VALIDATION_YML, `rehydrate loop for "${label}" missing completeness gate (expected_n/actual_n)`).toMatch(re);
+      expect(text, `rehydrate loop for "${label}" missing completeness gate (expected_n/actual_n)`).toMatch(re);
     }
     // The bare `if [ -d dist/$loc ]; then ... continue; fi` (no count check)
     // pattern from before the fix must not remain anywhere in the tar
-    // extraction branches.
-    expect(
-      VALIDATION_YML,
-      'a bare directory-existence-only accept branch survived post-tar-extract (regression of #2761 item 2)',
-    ).not.toMatch(/\|\| true\n\s*rm -rf "\$dl"\n\s*if \[ -d "dist\/\$(?:loc|sub)" \]; then\n\s*echo "rehydrated/);
+    // extraction branches, in either file.
+    for (const { text, name } of [
+      { text: VALIDATION_YML, name: 'post-deploy-validate-dist.yml' },
+      { text: REHYDRATE_SECTION_SCRIPT, name: 'rehydrate-section-shards.sh' },
+    ]) {
+      expect(
+        text,
+        `${name}: a bare directory-existence-only accept branch survived post-tar-extract (regression of #2761 item 2)`,
+      ).not.toMatch(/\|\| true\n\s*rm -rf "\$dl"\n\s*if \[ -d "dist\/\$(?:loc|sub)" \]; then\n\s*echo "rehydrated/);
+    }
   });
 });
