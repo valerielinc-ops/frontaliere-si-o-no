@@ -2,15 +2,19 @@
  * seo-correzioni — SEO metadata builder for the /correzioni/ page.
  *
  * Used by:
- *  - components/pages/Correzioni.tsx (runtime title/meta sync)
- *  - build-plugins/staticPagesPlugin.ts (static HTML generation)
- *  - tests/correzioni-page.test.tsx (assertions on JSON-LD shape)
+ *  - components/pages/Correzioni.tsx (client-rendered JSON-LD)
+ *
+ * NOT used by build-plugins/staticPagesPlugin.ts: that plugin text-parses
+ * services/seo/seo-pages.ts's 'correzioni' entry at build time (regex +
+ * JSON.parse, not a real JS import), so it cannot call this function —
+ * its literal mirrors this builder's shape minus `lastReviewed`. Keep the
+ * two in sync by hand if the schema shape changes; see the comment on
+ * that entry.
  *
  * Returns a stable SEO bundle per locale with a WebPage JSON-LD that
  * includes `lastReviewed` so search engines see freshness signals.
  */
 import correctionsLog from '@/data/corrections-log.json';
-import { ORGANIZATION_LD } from './organizationLd';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -81,9 +85,15 @@ export function buildCorrezioniSeo(locale: CorrezioniLocale = 'it'): CorrezioniS
   const jsonLd: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: TITLE[locale],
+    // WebPage-specific name/description, distinct from the <title>/meta
+    // TITLE/DESCRIPTION above — matches the SSG static literal in
+    // seo-pages.ts's 'correzioni' entry ('it' is the only shipped locale).
+    name: locale === 'it' ? 'Correzioni — Frontaliere Ticino' : TITLE[locale],
     url: canonical,
-    description: DESCRIPTION[locale],
+    description:
+      locale === 'it'
+        ? 'Politica di correzione pubblica e registro cronologico delle rettifiche pubblicate da Frontaliere Ticino.'
+        : DESCRIPTION[locale],
     inLanguage: locale,
     lastReviewed,
     isPartOf: { '@id': `${BASE_URL}/#website` },
@@ -91,7 +101,7 @@ export function buildCorrezioniSeo(locale: CorrezioniLocale = 'it'): CorrezioniS
       '@type': 'CreativeWork',
       name: 'Editorial corrections policy',
     },
-    publisher: ORGANIZATION_LD,
+    publisher: { '@id': `${BASE_URL}/#organization` },
   };
 
   return {
