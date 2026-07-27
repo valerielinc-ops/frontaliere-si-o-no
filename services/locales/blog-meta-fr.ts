@@ -9006,6 +9006,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavoro-frontaliero-subordinazione-e-credito-dimposta-nei-rapporti-italiasvizzera.title': 'Lavoro frontaliero e credito d\'imposta Italia-Svizzera',
     'blog.article.lavoro-frontaliero-subordinazione-e-credito-dimposta-nei-rapporti-italiasvizzera.excerpt': 'L\'arrêt n ° 83/2026 de la CGT Lombardie aborde les questions de qualification du revenu et les limites d\'application du crédit pour les impôts payés à l\'étranger en',
     'blog.article.lavoro-frontaliero-subordinazione-e-credito-dimposta-nei-rapporti-italiasvizzera.imageAlt': 'Image éditoriale relative à: Lavoro frontaliero, subordinazione e credito d’imposta nei rapporti Italia–Svizzera: note a margine della sentenza n. 83/2026 della CGT Lombardia',
+    'blog.article.trasferirsi-a-valsolda-da-frontaliere-pro-e-contro.title': 'déménager à Valsolda en tant que frontalier pour et contre',
+    'blog.article.trasferirsi-a-valsolda-da-frontaliere-pro-e-contro.excerpt': 'Découvrez les avantages et les inconvénients de déménager à Valsolda en tant que frontalier.',
+    'blog.article.trasferirsi-a-valsolda-da-frontaliere-pro-e-contro.imageAlt': 'Vue panoramique de Valsolda avec le lac en premier plan et les montagnes en arrière-plan.',
 };
 
 export default blogMetaFr;

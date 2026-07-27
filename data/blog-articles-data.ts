@@ -27053,6 +27053,15 @@ const RAW_ARTICLES = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+ {
+ id: 'trasferirsi-a-valsolda-da-frontaliere-pro-e-contro',
+ category: 'pratico',
+ date: '2026-07-27T02:40:36.105Z',
+ image: '/images/blog/trasferirsi-a-valsolda-da-frontaliere-pro-e-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
