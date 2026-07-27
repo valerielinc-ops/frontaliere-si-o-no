@@ -62,6 +62,10 @@ describe('healthFacilitiesMatch — healthcare-role classification', () => {
     expect(isHealthcareRole('Buchhalter')).toBe(false);
     expect(isHealthcareRole('Pflegefachfrau HF')).toBe(true);
   });
+
+  it('classifies on the canonical title only — a non-healthcare title stays null regardless of what any translation might say (#4715)', () => {
+    expect(classifyHealthcareRole('Impiegato/a di commercio')).toBeNull();
+  });
 });
 
 describe('healthFacilitiesData — committed registry + routing', () => {

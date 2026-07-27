@@ -151,10 +151,27 @@ describe('isJobActiveForLocale', () => {
     ).toBe(false)
   })
 
-  it('excludes jobs flagged needsRetranslation (boolean)', () => {
+  it('keeps a needsRetranslation=true job active for its own source locale (boolean)', () => {
+    // needsRetranslation=true means translations FROM the source locale are
+    // stale/pending — it never means the source locale's own content is bad.
     expect(
       isJobActiveForLocale(
         { needsRetranslation: true, descriptionByLocale: { it: longDesc } },
+        'it',
+      ),
+    ).toBe(true)
+    expect(
+      isJobActiveForLocale(
+        { needsRetranslation: true, sourceLang: 'de', descriptionByLocale: { de: longDesc } },
+        'de',
+      ),
+    ).toBe(true)
+  })
+
+  it('excludes jobs flagged needsRetranslation (boolean) for a non-source locale', () => {
+    expect(
+      isJobActiveForLocale(
+        { needsRetranslation: true, sourceLang: 'de', descriptionByLocale: { it: longDesc } },
         'it',
       ),
     ).toBe(false)

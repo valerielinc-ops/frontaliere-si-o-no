@@ -220,15 +220,15 @@ function loadConcorsi(rootDir: string): ConcorsiSnapshot | null {
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
+// Canonical `job.title` only — deliberately excludes `titleByLocale`. This
+// haystack feeds category matches (staffing/internship) computed once and
+// shared across every locale's career page, so a mistranslation in any one
+// locale's title must never be able to pull an unrelated job into the
+// snapshot. Every job carries a canonical `job.title` (confirmed against
+// the live dataset), so this costs no matching coverage. See #4715 (same
+// construct fixed in jobSectorLanding.ts::jobMatchesSector).
 function jobTitleHaystack(job: JobRecord): string {
-  const parts: string[] = [];
-  if (job.title) parts.push(job.title);
-  if (job.titleByLocale) {
-    for (const v of Object.values(job.titleByLocale)) {
-      if (v) parts.push(v);
-    }
-  }
-  return parts.join(' ');
+  return job.title ? job.title : '';
 }
 
 function jobCityString(job: JobRecord): string {
