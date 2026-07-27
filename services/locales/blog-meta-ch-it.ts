@@ -1603,6 +1603,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.perche-tanti-svizzeri-ignorano-tutor-italia.title': 'Perché tanti svizzeri ignorano il Tutor in Italia?',
     'blog.article.perche-tanti-svizzeri-ignorano-tutor-italia.excerpt': 'Il Nuovo Accordo Frontalieri prevede la creazione di un regime di esenzione dal pagamento dell\'IRPEF in Italia per i frontalieri svizzeri.',
     'blog.article.perche-tanti-svizzeri-ignorano-tutor-italia.imageAlt': 'Un frontaliere che si reca in Italia per chiedere il Tutor',
+    'blog.article.incontro-sbt-finanze-clima-colpo-freno-svizzera.title': 'Di più Iniziativa SBTi finanza e clima, colpo di freno in Svizzera',
+    'blog.article.incontro-sbt-finanze-clima-colpo-freno-svizzera.excerpt': 'La Science Based Targets initiative (SBTi) perde colpi in Svizzera, dove il numero di aziende che aderiscono al progetto aumenta a rilento.',
+    'blog.article.incontro-sbt-finanze-clima-colpo-freno-svizzera.imageAlt': 'Immagine di una conferenza ambientale con rappresentanti delle aziende',
 };
 
 export default blogMetaChIt;

@@ -1,0 +1,40 @@
+{
+  "id": "incontro-sbt-finanze-clima-colpo-freno-svizzera",
+  "slug": "incontro-sbt-finanze-clima-colpo-freno-svizzera",
+  "publishedAt": "2026-07-27T21:18:42.428Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.3670712078135265,
+    "confidence": 0.8,
+    "finalScore": 3.4936569662508212,
+    "topK": [
+      {
+        "slug": "frontalieri-e-indennita",
+        "cosine": 0.8734142415627053
+      },
+      {
+        "slug": "svizzeri-scelgono-capitale-pensione",
+        "cosine": 0.8617177390958736
+      },
+      {
+        "slug": "stazioni-sciistiche-ticino-credito-dati-2026",
+        "cosine": 0.8610333098782949
+      },
+      {
+        "slug": "disoccupazione-frontalieri-comitato-misto",
+        "cosine": 0.8593844227752973
+      },
+      {
+        "slug": "banche-golfo-frontalieri-ticino-2026",
+        "cosine": 0.859326076031287
+      }
+    ],
+    "score": 3.4936569662508212,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

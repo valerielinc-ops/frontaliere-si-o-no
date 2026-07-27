@@ -1603,6 +1603,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.perche-tanti-svizzeri-ignorano-tutor-italia.title': 'Why do so many Swiss people ignore the Tutor in Italy?',
     'blog.article.perche-tanti-svizzeri-ignorano-tutor-italia.excerpt': 'The New Frontier Agreement provides for the creation of an exemption regime from the payment of personal income tax in Italy for Swiss border workers.',
     'blog.article.perche-tanti-svizzeri-ignorano-tutor-italia.imageAlt': 'A Swiss border worker going to Italy to ask for a Tutor',
+    'blog.article.incontro-sbt-finanze-clima-colpo-freno-svizzera.title': 'More SBTi Finance and Climate Initiative, a brake in Switzerland',
+    'blog.article.incontro-sbt-finanze-clima-colpo-freno-svizzera.excerpt': 'The Science Based Targets initiative (SBTi) is losing ground in Switzerland, where the number of companies joining the project is slowly increasing.',
+    'blog.article.incontro-sbt-finanze-clima-colpo-freno-svizzera.imageAlt': 'Image of an environmental conference with company representatives',
 };
 
 export default blogMetaChEn;
