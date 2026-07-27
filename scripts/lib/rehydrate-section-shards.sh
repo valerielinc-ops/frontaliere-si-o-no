@@ -13,7 +13,18 @@ set -uo pipefail
 rehydrate_section() {
   local section="$1"
   for loc in it en de fr; do
-    sub="$(jq -r --arg s "$section" --arg l "$loc" '.[$s][$l] // empty' scripts/lib/section-shard-slugs.json)"
+    slug="$(jq -r --arg s "$section" --arg l "$loc" '.[$s][$l] // empty' scripts/lib/section-shard-slugs.json)"
+    # section-shard-slugs.json values are the URL slug ONLY (no locale
+    # prefix) — same it/en-de-fr branch as push-section-shard.sh and
+    # strip-section-subtree.sh. Using the bare slug as `sub` for en/de/fr
+    # made every non-IT dist-subtree check look at the wrong path (missing
+    # its `$loc/` prefix), so a correctly-packed tar always read back as 0
+    # files extracted and the git-clone fallback's dir check failed the
+    # same way (run 30238078775).
+    case "$loc" in
+      it) sub="$slug" ;;
+      en|de|fr) sub="$loc/$slug" ;;
+    esac
     if [ -d "dist/$sub" ]; then
       echo "$section $loc ($sub) present in artifact — skip rehydrate"
       continue
