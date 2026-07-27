@@ -8,9 +8,24 @@
  * (disables Auto Ads client-side for that one paying reader; NEVER a
  * global/per-route toggle, see AGENTS.md Non-Negotiable #7).
  *
- * Two HTTP entry points (wired in functions/index.js):
- *   - createReaderCheckout      : authenticated reader → Stripe Checkout
- *                                 Session in `subscription` mode.
+ * Three HTTP entry points (wired in functions/index.js):
+ *   - createReaderCheckout      : Stripe Checkout Session in `subscription`
+ *                                 mode. Works both signed-in (uid known
+ *                                 upfront, mirrors createConsultingCheckout's
+ *                                 own "anonymous visitors shouldn't need an
+ *                                 account to pay" precedent) and signed-out —
+ *                                 the guest path lets Stripe collect the
+ *                                 email itself; identity is resolved AFTER
+ *                                 payment (see checkout.session.completed
+ *                                 below) instead of gating checkout on a
+ *                                 pre-existing Firebase session.
+ *   - claimReaderCheckout       : post-payment reconciliation for the guest
+ *                                 path. Exchanges a completed Checkout
+ *                                 Session id for a Firebase custom auth
+ *                                 token, same "resolve/create user by email →
+ *                                 createCustomToken" shape already used by
+ *                                 functions/src/newsletterSubscriptionManagement.js's
+ *                                 autologin exchange.
  *   - createReaderBillingPortal : self-serve cancel/manage via Stripe's
  *                                 hosted Billing Portal.
  *
@@ -61,14 +76,26 @@ const READER_SUBSCRIPTIONS_COLLECTION = 'reader_subscriptions';
 const POSTHOG_KEY = 'phc_u8jsgXxFQNB6WcQt9JBcdj9tJrR4NsMws3nQoKdigjbT';
 const POSTHOG_HOST = 'https://t.frontaliereticino.ch';
 
+// Resolve a Firebase user by email, creating one if none exists yet. Shared
+// by the guest-checkout webhook branch and claimReaderCheckout below — same
+// "getUserByEmail → catch → createUser({email})" shape already used by
+// functions/src/newsletterSubscriptionManagement.js's autologin exchange.
+async function resolveOrCreateReaderUid(email) {
+  try {
+    const userRecord = await admin.auth().getUserByEmail(email);
+    return userRecord.uid;
+  } catch {
+    const newUser = await admin.auth().createUser({ email });
+    return newUser.uid;
+  }
+}
+
 // ── createReaderCheckout ─────────────────────────────────────────────────
 
 export async function handleCreateReaderCheckout(req) {
   if (req.method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
 
   const decoded = await verifyCaller(req);
-  if (!decoded) return { status: 401, body: { ok: false, error: 'unauthenticated' } };
-  const uid = decoded.uid;
 
   const body = req.body || {};
   const successUrl = String(body.successUrl || '');
@@ -85,6 +112,32 @@ export async function handleCreateReaderCheckout(req) {
   const priceId = await getRemoteConfigValue('STRIPE_PRICE_READER_NOADS');
   if (!priceId) return { status: 500, body: { ok: false, error: 'reader_price_not_configured' } };
 
+  const stripe = await getStripe();
+
+  // Guest path: no Firebase session yet — mirrors createConsultingCheckout's
+  // own precedent (anonymous visitors shouldn't need an account to pay).
+  // Stripe Checkout collects the email itself; identity is resolved AFTER
+  // payment from the webhook's `customer_details.email` (see
+  // handleReaderWebhookEvent below) and claimed client-side via
+  // claimReaderCheckout, instead of gating checkout on a pre-existing
+  // sign-in. No Firestore write here — there is no uid yet to key it on.
+  if (!decoded) {
+    const separator = successUrl.includes('?') ? '&' : '?';
+    const session = await stripe.checkout.sessions.create({
+      mode: 'subscription',
+      line_items: [{ price: priceId, quantity: 1 }],
+      success_url: `${successUrl}${separator}session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: cancelUrl,
+      metadata: {
+        plan: READER_NOADS_PLAN,
+        ...(posthogDistinctId ? { posthogDistinctId } : {}),
+      },
+      subscription_data: { metadata: { plan: READER_NOADS_PLAN } },
+    });
+    return { status: 200, body: { ok: true, url: session.url } };
+  }
+
+  const uid = decoded.uid;
   const readerRef = db().collection(READER_SUBSCRIPTIONS_COLLECTION).doc(uid);
   const readerSnap = await readerRef.get();
   const existing = readerSnap.exists ? readerSnap.data() : null;
@@ -97,7 +150,6 @@ export async function handleCreateReaderCheckout(req) {
     return { status: 200, body: { ok: true, alreadyActive: true } };
   }
 
-  const stripe = await getStripe();
   let customerId = existing ? existing.stripeCustomerId : undefined;
   if (!customerId) {
     const customer = await stripe.customers.create({
@@ -135,6 +187,48 @@ export async function handleCreateReaderCheckout(req) {
   );
 
   return { status: 200, body: { ok: true, url: session.url } };
+}
+
+// ── claimReaderCheckout ──────────────────────────────────────────────────
+// Post-payment reconciliation for the guest checkout path above: exchanges a
+// completed Checkout Session id for a Firebase custom auth token so the SPA
+// can sign the payer in without ever asking for a password — same
+// services/authService.ts signInWithCustomAuthToken() call already used for
+// the LinkedIn OAuth callback and the newsletter autologin exchange
+// (App.tsx). The Session id is the proof of payment: Stripe ids are
+// unguessable, and this endpoint only ever signs someone into the account
+// tied to an email that already completed that exact payment — never a
+// privilege escalation beyond what already happened at Stripe.
+export async function handleClaimReaderCheckout(req) {
+  if (req.method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
+
+  const sessionId = String((req.body || {}).sessionId || '');
+  if (!/^cs_/.test(sessionId)) return { status: 400, body: { ok: false, error: 'invalid_session_id' } };
+
+  const stripe = await getStripe();
+  let session;
+  try {
+    session = await stripe.checkout.sessions.retrieve(sessionId);
+  } catch {
+    return { status: 404, body: { ok: false, error: 'session_not_found' } };
+  }
+
+  // Guest sessions only — an authenticated-flow session already has readerUid
+  // in metadata and never needs claiming (the SPA already holds a live
+  // Firebase session in that case).
+  if (session.metadata?.plan !== READER_NOADS_PLAN || session.metadata?.readerUid) {
+    return { status: 400, body: { ok: false, error: 'not_a_guest_session' } };
+  }
+  if (session.payment_status !== 'paid') {
+    return { status: 400, body: { ok: false, error: 'not_paid' } };
+  }
+
+  const email = session.customer_details?.email;
+  if (!email) return { status: 400, body: { ok: false, error: 'no_email_on_session' } };
+
+  const uid = await resolveOrCreateReaderUid(email);
+  const authToken = await admin.auth().createCustomToken(uid);
+  return { status: 200, body: { ok: true, authToken } };
 }
 
 // ── createReaderBillingPortal ────────────────────────────────────────────
@@ -228,8 +322,20 @@ export async function handleReaderWebhookEvent(event, { db: dbFn, ts }) {
 
   switch (event.type) {
     case 'checkout.session.completed': {
-      if (obj.metadata?.plan !== READER_NOADS_PLAN || !obj.metadata?.readerUid) return false;
-      const uid = obj.metadata.readerUid;
+      if (obj.metadata?.plan !== READER_NOADS_PLAN) return false;
+
+      // Guest path (no readerUid in metadata — see handleCreateReaderCheckout):
+      // identity wasn't known at checkout creation time, so resolve/create the
+      // Firebase user from the email Stripe collected during checkout. Same
+      // "getUserByEmail → catch → createUser({email})" shape already used by
+      // functions/src/newsletterSubscriptionManagement.js's autologin exchange.
+      let uid = obj.metadata?.readerUid || null;
+      if (!uid) {
+        const email = obj.customer_details?.email;
+        if (!email) return true; // unrecoverable without an email — nothing to reconcile against
+        uid = await resolveOrCreateReaderUid(email);
+      }
+
       await dbFn().collection(READER_SUBSCRIPTIONS_COLLECTION).doc(uid).set(
         {
           stripeCustomerId: obj.customer || null,

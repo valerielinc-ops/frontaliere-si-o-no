@@ -65,6 +65,28 @@ const verifyIdToken = vi.fn(async (token: string) => {
   throw new Error('invalid token');
 });
 
+// ── In-memory Firebase Auth users-by-email store, for the guest checkout /
+// claim-token flow (resolveOrCreateReaderUid in stripeReaderCore.js) ───────
+let usersByEmail: Record<string, { uid: string }> = {};
+let uidCounter = 0;
+
+const getUserByEmail = vi.fn(async (email: string) => {
+  const rec = usersByEmail[email];
+  if (!rec) {
+    const err = new Error('no user') as Error & { code: string };
+    err.code = 'auth/user-not-found';
+    throw err;
+  }
+  return { uid: rec.uid };
+});
+const createUser = vi.fn(async ({ email }: { email: string }) => {
+  uidCounter += 1;
+  const uid = `guest-uid-${uidCounter}`;
+  usersByEmail[email] = { uid };
+  return { uid };
+});
+const createCustomToken = vi.fn(async (uid: string) => `custom-token-for-${uid}`);
+
 vi.mock('firebase-admin', () => {
   const firestore = Object.assign(() => ({ collection: () => makeCollection() }), {
     FieldValue: { serverTimestamp: () => '__ts__' },
@@ -72,7 +94,7 @@ vi.mock('firebase-admin', () => {
   return {
     default: {
       firestore,
-      auth: () => ({ verifyIdToken }),
+      auth: () => ({ verifyIdToken, getUserByEmail, createUser, createCustomToken }),
     },
   };
 });
@@ -95,11 +117,22 @@ const stripeCheckoutSessionsCreate = vi.fn(async () => ({
 const stripeBillingPortalSessionsCreate = vi.fn(async () => ({
   url: 'https://billing.stripe.com/session/test',
 }));
+const stripeCheckoutSessionsRetrieve = vi.fn(async (): Promise<{
+  id: string;
+  payment_status: string;
+  customer_details: { email?: string };
+  metadata: { plan: string; readerUid?: string };
+}> => ({
+  id: 'cs_guest_1',
+  payment_status: 'paid',
+  customer_details: { email: 'guest@example.com' },
+  metadata: { plan: 'reader_noads' },
+}));
 
 vi.mock('stripe', () => {
   class MockStripe {
     customers = { create: stripeCustomersCreate };
-    checkout = { sessions: { create: stripeCheckoutSessionsCreate } };
+    checkout = { sessions: { create: stripeCheckoutSessionsCreate, retrieve: stripeCheckoutSessionsRetrieve } };
     billingPortal = { sessions: { create: stripeBillingPortalSessionsCreate } };
   }
   return { default: MockStripe };
@@ -134,17 +167,41 @@ function req(overrides: Record<string, unknown> = {}) {
 
 beforeEach(() => {
   store = {};
+  usersByEmail = {};
+  uidCounter = 0;
   vi.clearAllMocks();
   vi.resetModules();
   verifyIdToken.mockImplementation(async (token: string) => {
     if (token === 'good-token') return { uid: 'reader1', email: 'reader1@example.com' };
     throw new Error('invalid token');
   });
+  getUserByEmail.mockImplementation(async (email: string) => {
+    const rec = usersByEmail[email];
+    if (!rec) {
+      const err = new Error('no user') as Error & { code: string };
+      err.code = 'auth/user-not-found';
+      throw err;
+    }
+    return { uid: rec.uid };
+  });
+  createUser.mockImplementation(async ({ email }: { email: string }) => {
+    uidCounter += 1;
+    const uid = `guest-uid-${uidCounter}`;
+    usersByEmail[email] = { uid };
+    return { uid };
+  });
+  createCustomToken.mockImplementation(async (uid: string) => `custom-token-for-${uid}`);
   getRemoteConfigValueMock.mockImplementation(async (key: string) => {
     if (key === 'STRIPE_SECRET_KEY') return 'sk_test_fake';
     if (key === 'STRIPE_PRICE_READER_NOADS') return 'price_reader_noads_test';
     return '';
   });
+  stripeCheckoutSessionsRetrieve.mockImplementation(async () => ({
+    id: 'cs_guest_1',
+    payment_status: 'paid',
+    customer_details: { email: 'guest@example.com' },
+    metadata: { plan: 'reader_noads' },
+  }));
   fetchMock.mockImplementation(async () => ({ ok: true }));
   vi.stubGlobal('fetch', fetchMock);
 });
@@ -169,12 +226,53 @@ describe('handleCreateReaderCheckout', () => {
     expect(res).toEqual({ status: 405, body: { ok: false, error: 'method_not_allowed' } });
   });
 
-  it('rejects an unauthenticated caller', async () => {
-    const { handleCreateReaderCheckout } = await load();
+  it('creates a guest checkout session when unauthenticated, no customer/uid pinned yet', async () => {
+    const { handleCreateReaderCheckout, READER_NOADS_PLAN } = await load();
     const res = await handleCreateReaderCheckout(
       req({ get: () => undefined, body: { successUrl: 'https://a.test/ok', cancelUrl: 'https://a.test/cancel' } }),
     );
-    expect(res).toEqual({ status: 401, body: { ok: false, error: 'unauthenticated' } });
+    expect(res).toEqual({ status: 200, body: { ok: true, url: 'https://checkout.stripe.com/cs_test_1' } });
+    expect(stripeCustomersCreate).not.toHaveBeenCalled();
+    expect(stripeCheckoutSessionsCreate).toHaveBeenCalledWith({
+      mode: 'subscription',
+      line_items: [{ price: 'price_reader_noads_test', quantity: 1 }],
+      success_url: 'https://a.test/ok?session_id={CHECKOUT_SESSION_ID}',
+      cancel_url: 'https://a.test/cancel',
+      metadata: { plan: READER_NOADS_PLAN },
+      subscription_data: { metadata: { plan: READER_NOADS_PLAN } },
+    });
+  });
+
+  it('guest checkout appends session_id with & when successUrl already has a query string', async () => {
+    const { handleCreateReaderCheckout } = await load();
+    await handleCreateReaderCheckout(
+      req({
+        get: () => undefined,
+        body: { successUrl: 'https://a.test/ok?foo=bar', cancelUrl: 'https://a.test/cancel' },
+      }),
+    );
+    expect(stripeCheckoutSessionsCreate).toHaveBeenCalledWith(
+      expect.objectContaining({ success_url: 'https://a.test/ok?foo=bar&session_id={CHECKOUT_SESSION_ID}' }),
+    );
+  });
+
+  it('guest checkout forwards posthogDistinctId into session metadata when the client sent one', async () => {
+    const { handleCreateReaderCheckout, READER_NOADS_PLAN } = await load();
+    await handleCreateReaderCheckout(
+      req({
+        get: () => undefined,
+        body: {
+          successUrl: 'https://a.test/ok',
+          cancelUrl: 'https://a.test/cancel',
+          posthogDistinctId: 'ph-anon-guest',
+        },
+      }),
+    );
+    expect(stripeCheckoutSessionsCreate).toHaveBeenCalledWith(
+      expect.objectContaining({
+        metadata: { plan: READER_NOADS_PLAN, posthogDistinctId: 'ph-anon-guest' },
+      }),
+    );
   });
 
   it('rejects non-https(s) redirect URLs', async () => {
@@ -263,6 +361,94 @@ describe('handleCreateReaderCheckout', () => {
         metadata: { plan: READER_NOADS_PLAN, readerUid: 'reader1', posthogDistinctId: 'ph-anon-123' },
       }),
     );
+  });
+});
+
+describe('handleClaimReaderCheckout', () => {
+  it('rejects non-POST', async () => {
+    const { handleClaimReaderCheckout } = await load();
+    const res = await handleClaimReaderCheckout(req({ method: 'GET' }));
+    expect(res).toEqual({ status: 405, body: { ok: false, error: 'method_not_allowed' } });
+  });
+
+  it('rejects a malformed sessionId', async () => {
+    const { handleClaimReaderCheckout } = await load();
+    const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'not-a-session' } }));
+    expect(res).toEqual({ status: 400, body: { ok: false, error: 'invalid_session_id' } });
+  });
+
+  it('returns session_not_found when Stripe cannot retrieve the session', async () => {
+    stripeCheckoutSessionsRetrieve.mockImplementation(async () => {
+      throw new Error('No such checkout session');
+    });
+    const { handleClaimReaderCheckout } = await load();
+    const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_missing' } }));
+    expect(res).toEqual({ status: 404, body: { ok: false, error: 'session_not_found' } });
+  });
+
+  it('rejects a session for the wrong plan', async () => {
+    stripeCheckoutSessionsRetrieve.mockImplementation(async () => ({
+      id: 'cs_guest_1',
+      payment_status: 'paid',
+      customer_details: { email: 'guest@example.com' },
+      metadata: { plan: 'publisher_ad' },
+    }));
+    const { handleClaimReaderCheckout } = await load();
+    const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
+    expect(res).toEqual({ status: 400, body: { ok: false, error: 'not_a_guest_session' } });
+  });
+
+  it('rejects a session that already has readerUid metadata (already-authenticated flow, nothing to claim)', async () => {
+    const { handleClaimReaderCheckout, READER_NOADS_PLAN } = await load();
+    stripeCheckoutSessionsRetrieve.mockImplementation(async () => ({
+      id: 'cs_auth_1',
+      payment_status: 'paid',
+      customer_details: { email: 'reader1@example.com' },
+      metadata: { plan: READER_NOADS_PLAN, readerUid: 'reader1' },
+    }));
+    const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_auth_1' } }));
+    expect(res).toEqual({ status: 400, body: { ok: false, error: 'not_a_guest_session' } });
+  });
+
+  it('rejects an unpaid session', async () => {
+    stripeCheckoutSessionsRetrieve.mockImplementation(async () => ({
+      id: 'cs_guest_1',
+      payment_status: 'unpaid',
+      customer_details: { email: 'guest@example.com' },
+      metadata: { plan: 'reader_noads' },
+    }));
+    const { handleClaimReaderCheckout } = await load();
+    const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
+    expect(res).toEqual({ status: 400, body: { ok: false, error: 'not_paid' } });
+  });
+
+  it('rejects a paid session with no email on file', async () => {
+    stripeCheckoutSessionsRetrieve.mockImplementation(async () => ({
+      id: 'cs_guest_1',
+      payment_status: 'paid',
+      customer_details: {},
+      metadata: { plan: 'reader_noads' },
+    }));
+    const { handleClaimReaderCheckout } = await load();
+    const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
+    expect(res).toEqual({ status: 400, body: { ok: false, error: 'no_email_on_session' } });
+  });
+
+  it('mints a custom token for a new guest email (creates the Firebase user)', async () => {
+    const { handleClaimReaderCheckout } = await load();
+    const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
+    expect(getUserByEmail).toHaveBeenCalledWith('guest@example.com');
+    expect(createUser).toHaveBeenCalledWith({ email: 'guest@example.com' });
+    expect(createCustomToken).toHaveBeenCalledWith('guest-uid-1');
+    expect(res).toEqual({ status: 200, body: { ok: true, authToken: 'custom-token-for-guest-uid-1' } });
+  });
+
+  it('mints a custom token for a returning guest email without creating a duplicate user', async () => {
+    usersByEmail['guest@example.com'] = { uid: 'existing-uid-3' };
+    const { handleClaimReaderCheckout } = await load();
+    const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
+    expect(createUser).not.toHaveBeenCalled();
+    expect(res).toEqual({ status: 200, body: { ok: true, authToken: 'custom-token-for-existing-uid-3' } });
   });
 });
 
@@ -366,6 +552,78 @@ describe('handleReaderWebhookEvent', () => {
       'https://t.frontaliereticino.ch/capture/',
       expect.objectContaining({ body: expect.stringContaining('"distinct_id":"reader1"') }),
     );
+  });
+
+  it('resolves/creates a Firebase uid from customer_details.email when readerUid metadata is absent (guest checkout)', async () => {
+    const { handleReaderWebhookEvent, READER_NOADS_PLAN } = await load();
+    const event = {
+      type: 'checkout.session.completed',
+      data: {
+        object: {
+          id: 'cs_guest_1',
+          customer: 'cus_guest',
+          subscription: 'sub_guest',
+          customer_details: { email: 'guest@example.com' },
+          metadata: { plan: READER_NOADS_PLAN },
+        },
+      },
+    };
+    const handled = await handleReaderWebhookEvent(event, fakeCtx(ts));
+    expect(handled).toBe(true);
+    expect(getUserByEmail).toHaveBeenCalledWith('guest@example.com');
+    expect(createUser).toHaveBeenCalledWith({ email: 'guest@example.com' });
+    expect(store['guest-uid-1']).toEqual({
+      stripeCustomerId: 'cus_guest',
+      stripeSubscriptionId: 'sub_guest',
+      stripeCheckoutSessionId: 'cs_guest_1',
+      status: 'active',
+      updatedAt: ts,
+    });
+    expect(fetchMock).toHaveBeenCalledWith(
+      'https://t.frontaliereticino.ch/capture/',
+      expect.objectContaining({ body: expect.stringContaining('"distinct_id":"guest-uid-1"') }),
+    );
+  });
+
+  it('reuses the existing Firebase uid for a returning guest email instead of creating a duplicate user', async () => {
+    usersByEmail['returning@example.com'] = { uid: 'existing-uid-7' };
+    const { handleReaderWebhookEvent, READER_NOADS_PLAN } = await load();
+    const event = {
+      type: 'checkout.session.completed',
+      data: {
+        object: {
+          id: 'cs_guest_2',
+          customer: 'cus_guest2',
+          subscription: 'sub_guest2',
+          customer_details: { email: 'returning@example.com' },
+          metadata: { plan: READER_NOADS_PLAN },
+        },
+      },
+    };
+    const handled = await handleReaderWebhookEvent(event, fakeCtx(ts));
+    expect(handled).toBe(true);
+    expect(createUser).not.toHaveBeenCalled();
+    expect(store['existing-uid-7']).toBeDefined();
+  });
+
+  it('no-ops when neither readerUid metadata nor customer_details.email is present (unrecoverable)', async () => {
+    const { handleReaderWebhookEvent, READER_NOADS_PLAN } = await load();
+    const event = {
+      type: 'checkout.session.completed',
+      data: {
+        object: {
+          id: 'cs_orphan_1',
+          customer: 'cus_orphan',
+          subscription: 'sub_orphan',
+          metadata: { plan: READER_NOADS_PLAN },
+        },
+      },
+    };
+    const handled = await handleReaderWebhookEvent(event, fakeCtx(ts));
+    expect(handled).toBe(true);
+    expect(getUserByEmail).not.toHaveBeenCalled();
+    expect(createUser).not.toHaveBeenCalled();
+    expect(Object.keys(store)).toHaveLength(0);
   });
 
   it('does not let a PostHog capture failure break entitlement processing', async () => {

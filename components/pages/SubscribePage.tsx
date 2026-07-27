@@ -7,13 +7,22 @@
  * same as `admin`. That access path is unchanged; this file now renders the
  * real checkout / manage-subscription UI instead of a placeholder:
  *
- *   - signed-out visitor  → standard site sign-in (Google/LinkedIn/email —
- *                            same SocialSignInButtons used by every other
- *                            gate on the site, #3654 UX pass) → checkout
- *                            requires a Firebase ID token server-side, see
- *                            functions/src/stripeReaderCore.js.
+ *   - signed-out visitor  → "Subscribe" goes straight to Stripe Checkout, no
+ *                            sign-in wall (guest path — POST createReaderCheckout
+ *                            without an Authorization header, see
+ *                            functions/src/stripeReaderCore.js). Stripe
+ *                            collects the email itself; on return, ?session_id
+ *                            is exchanged via claimReaderCheckout for a
+ *                            Firebase custom auth token so the payer gets
+ *                            signed in automatically, no password. Signing in
+ *                            first (Google/LinkedIn/email — same
+ *                            SocialSignInButtons used by every other gate on
+ *                            the site) is offered as a secondary option, for
+ *                            visitors who already have an account and want
+ *                            the subscription tied to it from the start.
  *   - signed-in, no active entitlement → "Subscribe" → POST createReaderCheckout
- *                            → redirect to the returned Stripe Checkout URL.
+ *                            (with a Firebase ID token) → redirect to the
+ *                            returned Stripe Checkout URL.
  *   - signed-in, active entitlement    → "Manage subscription" → POST
  *                            createReaderBillingPortal → redirect to Stripe's
  *                            hosted Billing Portal (cancel / payment method / invoices).
@@ -42,7 +51,7 @@ import {
 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { useNavigation } from '@/services/NavigationContext';
-import { useAuth } from '@/services/authService';
+import { useAuth, signInWithCustomAuthToken } from '@/services/authService';
 import { Analytics } from '@/services/analytics';
 import { getDistinctId } from '@/services/posthog';
 import { reportCaughtError } from '@/services/errorReporter';
@@ -55,6 +64,8 @@ import {
 
 const READER_CHECKOUT_ENDPOINT =
   'https://europe-west6-frontaliere-ticino.cloudfunctions.net/createReaderCheckout';
+const READER_CLAIM_ENDPOINT =
+  'https://europe-west6-frontaliere-ticino.cloudfunctions.net/claimReaderCheckout';
 const READER_BILLING_PORTAL_ENDPOINT =
   'https://europe-west6-frontaliere-ticino.cloudfunctions.net/createReaderBillingPortal';
 
@@ -88,6 +99,7 @@ interface SubscribeCopy {
   activeNote: string;
   errorGeneric: string;
   redirecting: string;
+  claiming: string;
   back: string;
   ctaBannerTitle: string;
 }
@@ -114,7 +126,7 @@ const COPY: Record<PageLocale, SubscribeCopy> = {
       { q: 'L’abbonamento vale su più dispositivi?', a: 'Sì, è legato al tuo account, non al dispositivo: accedi con la stessa email/Google/LinkedIn su qualsiasi dispositivo e la pubblicità resterà disattivata.' },
     ],
     cancelNote: 'Disdici quando vuoi dal pulsante "Gestisci abbonamento" qui sotto: l’addebito si ferma al termine del periodo già pagato.',
-    signInPrompt: 'Accedi per attivare l’abbonamento — stesso accesso di tutto il sito.',
+    signInPrompt: 'Hai già un account? Accedi per ritrovare l’abbonamento su ogni dispositivo.',
     emailLoginLabel: 'La tua email',
     passwordLabel: 'Password',
     emailLoginCta: 'Accedi con email',
@@ -125,6 +137,7 @@ const COPY: Record<PageLocale, SubscribeCopy> = {
     activeNote: 'Il tuo abbonamento è attivo. Grazie per il supporto!',
     errorGeneric: 'Qualcosa è andato storto. Riprova tra poco.',
     redirecting: 'Reindirizzamento a Stripe…',
+    claiming: 'Attivazione abbonamento in corso…',
     back: 'Torna al sito',
     ctaBannerTitle: 'Pronto a navigare senza pubblicità?',
   },
@@ -149,7 +162,7 @@ const COPY: Record<PageLocale, SubscribeCopy> = {
       { q: 'Does it work across devices?', a: 'Yes — it’s tied to your account, not the device. Sign in with the same email/Google/LinkedIn on any device and ads stay off.' },
     ],
     cancelNote: 'Cancel anytime with the "Manage subscription" button below: billing stops at the end of the period you already paid for.',
-    signInPrompt: 'Sign in to activate the subscription — same sign-in as the rest of the site.',
+    signInPrompt: 'Already have an account? Sign in to keep your subscription in sync across devices.',
     emailLoginLabel: 'Your email',
     passwordLabel: 'Password',
     emailLoginCta: 'Sign in with email',
@@ -160,6 +173,7 @@ const COPY: Record<PageLocale, SubscribeCopy> = {
     activeNote: 'Your subscription is active. Thank you for your support!',
     errorGeneric: 'Something went wrong. Please try again shortly.',
     redirecting: 'Redirecting to Stripe…',
+    claiming: 'Activating your subscription…',
     back: 'Back to the site',
     ctaBannerTitle: 'Ready to browse ad-free?',
   },
@@ -184,7 +198,7 @@ const COPY: Record<PageLocale, SubscribeCopy> = {
       { q: 'Gilt das Abo auf mehreren Geräten?', a: 'Ja, es ist an Ihr Konto gebunden, nicht an das Gerät: melden Sie sich mit derselben E-Mail/Google/LinkedIn auf jedem Gerät an, und die Werbung bleibt deaktiviert.' },
     ],
     cancelNote: 'Kündigen Sie jederzeit über die Schaltfläche „Abonnement verwalten“ unten: die Abbuchung endet am Ende des bereits bezahlten Zeitraums.',
-    signInPrompt: 'Melden Sie sich an, um das Abonnement zu aktivieren — derselbe Login wie auf der ganzen Website.',
+    signInPrompt: 'Sie haben bereits ein Konto? Melden Sie sich an, um Ihr Abo geräteübergreifend zu nutzen.',
     emailLoginLabel: 'Ihre E-Mail',
     passwordLabel: 'Passwort',
     emailLoginCta: 'Mit E-Mail anmelden',
@@ -195,6 +209,7 @@ const COPY: Record<PageLocale, SubscribeCopy> = {
     activeNote: 'Ihr Abonnement ist aktiv. Vielen Dank für Ihre Unterstützung!',
     errorGeneric: 'Etwas ist schiefgelaufen. Bitte versuchen Sie es in Kürze erneut.',
     redirecting: 'Weiterleitung zu Stripe…',
+    claiming: 'Abonnement wird aktiviert…',
     back: 'Zurück zur Website',
     ctaBannerTitle: 'Bereit, werbefrei zu surfen?',
   },
@@ -219,7 +234,7 @@ const COPY: Record<PageLocale, SubscribeCopy> = {
       { q: 'L’abonnement fonctionne-t-il sur plusieurs appareils ?', a: 'Oui, il est lié à votre compte, pas à l’appareil : connectez-vous avec le même email/Google/LinkedIn sur n’importe quel appareil et la publicité restera désactivée.' },
     ],
     cancelNote: 'Résiliez à tout moment avec le bouton « Gérer l’abonnement » ci-dessous : le prélèvement s’arrête à la fin de la période déjà payée.',
-    signInPrompt: 'Connectez-vous pour activer l’abonnement — la même connexion que sur tout le site.',
+    signInPrompt: 'Vous avez déjà un compte ? Connectez-vous pour retrouver votre abonnement sur tous vos appareils.',
     emailLoginLabel: 'Votre email',
     passwordLabel: 'Mot de passe',
     emailLoginCta: 'Se connecter par email',
@@ -230,6 +245,7 @@ const COPY: Record<PageLocale, SubscribeCopy> = {
     activeNote: 'Votre abonnement est actif. Merci pour votre soutien !',
     errorGeneric: 'Une erreur est survenue. Veuillez réessayer sous peu.',
     redirecting: 'Redirection vers Stripe…',
+    claiming: 'Activation de l’abonnement en cours…',
     back: 'Retour au site',
     ctaBannerTitle: 'Prêt à naviguer sans publicité ?',
   },
@@ -284,6 +300,7 @@ const SubscribePage: React.FC = () => {
 
   const [checkoutBusy, setCheckoutBusy] = useState(false);
   const [portalBusy, setPortalBusy] = useState(false);
+  const [claiming, setClaiming] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
@@ -292,16 +309,65 @@ const SubscribePage: React.FC = () => {
   const [emailLoginBusy, setEmailLoginBusy] = useState(false);
   const [emailLoginError, setEmailLoginError] = useState<string | null>(null);
 
+  // Post-payment reconciliation for the guest checkout path below: Stripe
+  // redirects back here with ?session_id=... (only for guest sessions — see
+  // handleCreateReaderCheckout's success_url templating). Exchange it for a
+  // Firebase custom auth token via claimReaderCheckout and sign in — same
+  // signInWithCustomAuthToken() the LinkedIn/newsletter autologin flows use.
+  useEffect(() => {
+    if (loading || user) return;
+    const params = new URLSearchParams(window.location.search);
+    const sessionId = params.get('session_id');
+    if (!sessionId) return;
+
+    const url = new URL(window.location.href);
+    url.searchParams.delete('session_id');
+    window.history.replaceState({}, '', url.toString());
+
+    let cancelled = false;
+    (async () => {
+      setClaiming(true);
+      setErrorMsg(null);
+      try {
+        const res = await fetch(READER_CLAIM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ sessionId }),
+        });
+        const data = (await res.json().catch(() => ({}))) as { ok?: boolean; authToken?: string };
+        if (cancelled) return;
+        if (!data.ok || !data.authToken) throw new Error('reader_claim_failed');
+        await signInWithCustomAuthToken(data.authToken);
+        Analytics.trackUIInteraction('reader_subscription', 'subscribe_page', 'claim', 'success');
+      } catch (error) {
+        if (cancelled) return;
+        reportCaughtError(error, 'subscribePage.claimCheckout');
+        Analytics.trackUIInteraction('reader_subscription', 'subscribe_page', 'claim', 'error');
+        setErrorMsg(copy.errorGeneric);
+      } finally {
+        if (!cancelled) setClaiming(false);
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [loading, user, copy.errorGeneric]);
+
   const handleSubscribe = async () => {
-    if (!user || checkoutBusy) return;
+    if (checkoutBusy) return;
     setCheckoutBusy(true);
     setErrorMsg(null);
     Analytics.trackUIInteraction('reader_subscription', 'subscribe_page', 'checkout', 'click');
     try {
-      const idToken = await user.getIdToken();
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+      if (user) {
+        const idToken = await user.getIdToken();
+        headers.Authorization = `Bearer ${idToken}`;
+      }
       const res = await fetch(READER_CHECKOUT_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${idToken}` },
+        headers,
         body: JSON.stringify({
           successUrl: `${window.location.origin}${window.location.pathname}`,
           cancelUrl: window.location.href,
@@ -453,8 +519,35 @@ const SubscribePage: React.FC = () => {
       {/* Checkout / sign-in */}
       <section id="subscribe-checkout" className="px-4 pb-14 sm:pb-20">
         <Reveal className="mx-auto max-w-md rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          {!loading && !user && (
+          {!loading && !user && claiming && (
+            <div className="flex items-center justify-center gap-2 py-4 text-center text-sm text-on-accent/75">
+              <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+              {copy.claiming}
+            </div>
+          )}
+
+          {!loading && !user && !claiming && (
             <div>
+              <div className="text-center">
+                <button
+                  type="button"
+                  onClick={handleSubscribe}
+                  disabled={checkoutBusy}
+                  className="cta-sheen inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-accent-hover px-6 py-3.5 text-sm font-bold text-on-accent shadow-lg transition hover:brightness-110 disabled:opacity-60"
+                >
+                  {checkoutBusy && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
+                  {checkoutBusy ? copy.redirecting : copy.subscribeCta}
+                </button>
+                <p className="mt-3 text-xs text-on-accent/50">{copy.cancelNote}</p>
+                {errorMsg && <p className="mt-3 text-sm text-danger">{errorMsg}</p>}
+              </div>
+
+              <div className="my-5 flex items-center gap-3">
+                <div className="h-px flex-1 bg-white/10" aria-hidden="true" />
+                <span className="text-xs uppercase tracking-wide text-on-accent/40">{copy.orDivider}</span>
+                <div className="h-px flex-1 bg-white/10" aria-hidden="true" />
+              </div>
+
               <p className="mb-5 text-center text-sm text-on-accent/75">{copy.signInPrompt}</p>
               <SocialSignInButtons locale={locale} errorContext="subscribePage" googleWidth={320} />
 
