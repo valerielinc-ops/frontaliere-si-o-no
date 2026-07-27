@@ -4,7 +4,6 @@
 import type { SEOMetadata } from '../seoService';
 
 const BASE_URL = 'https://frontaliereticino.ch';
-const BUILD_DATE_ISO = new Date().toISOString();
 
 const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
   'blog-risoluzione-federviti-vino-ticinese-2025': {

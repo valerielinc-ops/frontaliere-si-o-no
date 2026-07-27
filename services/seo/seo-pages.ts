@@ -11,14 +11,6 @@ import { EXCHANGE_RATE_EUR } from './exchangeRateMeta';
 const BASE_URL = 'https://frontaliereticino.ch';
 
 /**
- * Dynamic build-time dateModified for content pages.
- * AI systems weight freshness heavily — this ensures every build emits a
- * current timestamp so crawlers see up-to-date signals without manual edits.
- * datePublished stays fixed (original creation date); only dateModified moves.
- */
-const BUILD_DATE_ISO = new Date().toISOString();
-
-/**
  * SpeakableSpecification for section landings and content pages.
  * Voice assistants and AI readers use this to identify key passages
  * for spoken answers and cited snippets.
@@ -1015,7 +1007,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "applicationCategory": "FinanceApplication",
  "operatingSystem": "Web",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-07-04T00:00:00+02:00",
  "provider": {
  "@type": "Organization",
  "name": "Frontaliere Ticino",
@@ -1448,7 +1440,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "Dataset",
  "name": "Statistiche frontalieri e osservatorio offerte lavoro Ticino 2026",
  "description": "Dati statistici sui frontalieri svizzeri-italiani e osservatorio del job board Ticino: numero permessi G, aziende attive, localities, trend offerte e statistiche BFS 2026.",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2024-01-01",
  "datePublished": "2024-01-01",
  "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
@@ -1568,7 +1560,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "datePublished": "2026-01-01T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO
+ "dateModified": "2026-01-01T00:00:00+01:00"
  },
  {
  "@context": "https://schema.org",
@@ -1636,7 +1628,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "datePublished": "2026-01-01T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO
+ "dateModified": "2026-01-01T00:00:00+01:00"
  },
  {
  "@context": "https://schema.org",
@@ -2030,7 +2022,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "datePublished": "2026-01-01T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO
+ "dateModified": "2026-01-01T00:00:00+01:00"
  }
  },
 
@@ -2050,7 +2042,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "datePublished": "2026-01-01T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO
+ "dateModified": "2026-01-01T00:00:00+01:00"
  }
  },
 
@@ -2071,7 +2063,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "datePublished": "2026-01-01T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO
+ "dateModified": "2026-01-01T00:00:00+01:00"
  },
  {
  "@context": "https://schema.org",
@@ -2224,7 +2216,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "datePublished": "2026-01-01T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO
+ "dateModified": "2026-01-01T00:00:00+01:00"
  }
  },
 
@@ -2245,7 +2237,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "datePublished": "2026-01-01T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO
+ "dateModified": "2026-01-01T00:00:00+01:00"
  },
  {
  "@context": "https://schema.org",
@@ -2289,7 +2281,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "datePublished": "2026-01-01T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO
+ "dateModified": "2026-01-01T00:00:00+01:00"
  },
  {
  "@context": "https://schema.org",
@@ -2385,7 +2377,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "datePublished": "2026-01-01T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-01-01T00:00:00+01:00",
  "keywords": "festività ticino 2026, giorni festivi ticino, calendario ticino 2026",
  "speakable": SPEAKABLE_SECTION
  },
@@ -2486,7 +2478,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "inLanguage": "de",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "datePublished": "2026-01-01T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-01-01T00:00:00+01:00",
  "keywords": "feiertage tessin 2026, feiertage kanton tessin, kalender tessin 2026",
  "speakable": SPEAKABLE_SECTION
  },
@@ -2684,7 +2676,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "datePublished": "2026-01-01T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-01-01T00:00:00+01:00",
  "keywords": "mappa confine italia svizzera, valichi ticino, comuni frontalieri 20 km, addizionali irpef frontiera",
  "speakable": SPEAKABLE_SECTION
  },
@@ -4249,7 +4241,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Confronto Stipendi Frontalieri Svizzera-Italia 2026",
  "url": `${BASE_URL}/statistiche/confronta-stipendi/`,
  "description": "Database salariale con 60 professioni in 15 settori: range min-mediano-max per livello junior, mid e senior. Dati Svizzera (CHF) e Italia (EUR) per lavoratori frontalieri.",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2024-06-01",
  "datePublished": "2024-06-01",
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
  "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
@@ -4290,7 +4282,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Classifica Migliori Comuni di Frontiera 2026",
  "url": `${BASE_URL}/statistiche/migliori-comuni-frontiera/`,
  "description": "Classifica dei migliori comuni italiani di frontiera per qualità della vita, servizi e distanza dalla dogana",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2024-06-01",
  "datePublished": "2024-06-01",
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
  "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
@@ -4319,7 +4311,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Osservatorio stipendi e lavori in Ticino",
  "url": `${BASE_URL}/statistiche/osservatorio-stipendi-lavori-ticino/`,
  "description": "Osservatorio giornaliero del job board Frontaliere Ticino con trend annunci, aziende attive, localita piu dinamiche e salary range osservati nelle offerte.",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2024-06-01",
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
  "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
  "datePublished": "2024-06-01",
@@ -4357,7 +4349,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Storico Traffico Dogane Svizzera-Italia",
  "url": `${BASE_URL}/statistiche/storico-traffico-dogane/`,
  "description": "Dati storici del traffico ai valichi di frontiera tra Svizzera e Italia con tendenze e confronti",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2024-01-01",
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
  "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
  "datePublished": "2024-01-01",
@@ -4385,7 +4377,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Tasso di Disoccupazione Svizzera",
  "url": `${BASE_URL}/statistiche/disoccupazione-svizzera/`,
  "description": "Serie storica mensile del tasso di disoccupazione registrata in Svizzera (SECO) dal 2016",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2016-01-01",
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
  "creator": { "@type": "Organization", "name": "SECO — Segreteria di Stato dell'economia", "url": "https://www.seco.admin.ch" },
  "datePublished": "2016-01-01",
@@ -4431,7 +4423,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Prezzi benzina al confine Italia-Svizzera",
  "url": `${BASE_URL}/statistiche/prezzi-benzina-confine/`,
  "description": "Dataset comparativo dei prezzi benzina tra comuni di confine italiani e stazioni svizzere dell'area di frontiera.",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2024-01-01",
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
  "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
  "datePublished": "2024-01-01",
@@ -4460,7 +4452,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Premi cassa malati per comune svizzero",
  "url": `${BASE_URL}/statistiche/premi-malattia-comuni/`,
  "description": "Dataset dei premi LAMal per comune e cantone svizzero, con evoluzione storica e confronto tra fasce d'età.",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2024-01-01",
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
  "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
  "datePublished": "2024-01-01",
@@ -4522,7 +4514,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Ristorni Fiscali Frontalieri per Comune",
  "url": `${BASE_URL}/tasse-e-pensione/ristorni-fiscali/`,
  "description": "Statistiche sui ristorni fiscali versati ai comuni italiani di frontiera",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2024-01-01",
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
  "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
  "datePublished": "2024-01-01",
@@ -8397,7 +8389,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista di Lugano con lago e montagne circostanti."
  },
  "datePublished": "2026-03-03T14:39:51+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-03T14:39:51+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -8426,7 +8418,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Panorama di Lugano al tramonto sul lago"
  },
  "datePublished": "2026-03-04T07:43:28+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-04T07:43:28+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -8455,7 +8447,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista di Bellinzona con i suoi castelli storici e la vita cittadina."
  },
  "datePublished": "2026-03-04T08:11:51+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-04T08:11:51+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -8484,7 +8476,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Infermieri al lavoro in un ospedale del Ticino"
  },
  "datePublished": "2026-03-04T10:17:08+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-04T10:17:08+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -8513,7 +8505,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Panorama di Lugano con vista sul lago"
  },
  "datePublished": "2026-03-04T12:09:08+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-04T12:09:08+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -8542,7 +8534,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista panoramica di Bellinzona con i suoi castelli storici."
  },
  "datePublished": "2026-03-04T14:22:12+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-04T14:22:12+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -8571,7 +8563,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Panorama di Lugano con grafico in calo"
  },
  "datePublished": "2026-03-04T17:38:10+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-04T17:38:10+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -8600,7 +8592,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista panoramica del Medio Vedeggio con i comuni di Bedano, Cadempino, Gravesano e Lamone in Ticino"
  },
  "datePublished": "2026-03-04T20:08:46+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-04T20:08:46+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -8629,7 +8621,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista panoramica dell'aeroporto di Lugano con il lago e la città sullo sfondo in Ticino."
  },
  "datePublished": "2026-03-04T21:05:31+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-04T21:05:31+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -8658,7 +8650,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista panoramica di Lugano con lago e montagne sullo sfondo in una giornata limpida di primavera"
  },
  "datePublished": "2026-03-04T23:07:46+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-04T23:07:46+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -8687,7 +8679,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista panoramica di Lugano con lavoratori frontalieri che attraversano un ponte, simbolo dell’economia ticinese"
  },
  "datePublished": "2026-03-05T05:06:52+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-05T05:06:52+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -8716,7 +8708,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista panoramica di Lugano con il lago e le montagne sullo sfondo in Ticino"
  },
  "datePublished": "2026-03-05T08:01:20+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-05T08:01:20+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -8745,7 +8737,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Stazione di Lugano affollata con passeggeri TILO nel 2025, vista urbana del Canton Ticino"
  },
  "datePublished": "2026-03-05T10:11:48+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-05T10:11:48+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -8774,7 +8766,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Frontalieri che si recano al lavoro a Locarno"
  },
  "datePublished": "2026-03-05T12:12:19+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-05T12:12:19+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -8803,7 +8795,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Panoramica di Lugano con stazione ferroviaria"
  },
  "datePublished": "2026-03-05T14:46:54+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-05T14:46:54+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -8832,7 +8824,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Treno Tilo in viaggio verso il Canton Ticino."
  },
  "datePublished": "2026-03-05T21:55:24+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-05T21:55:24+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -8861,7 +8853,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista del valico di Brogeda tra Ticino e Italia con traffico e paesaggi naturali"
  },
  "datePublished": "2026-03-06T00:03:53+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-06T00:03:53+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -8890,7 +8882,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Stazione di rifornimento a Lugano, auto in attesa di carburante, paesaggio Ticino."
  },
  "datePublished": "2026-03-06T10:00:10+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-06T10:00:10+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -8919,7 +8911,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Paesaggio montano nel Ticino con valico e strada, scenario realistico"
  },
  "datePublished": "2026-03-06T11:19:03+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-06T11:19:03+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -8948,7 +8940,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista storica di Bellinzona, Ticino con architettura affascinante al tramonto."
  },
  "datePublished": "2026-03-06T14:11:24+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-06T14:11:24+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -8977,7 +8969,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Panoramica di Lugano, con il lago e gli edifici moderni."
  },
  "datePublished": "2026-03-06T16:10:57+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-06T16:10:57+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9006,7 +8998,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista panoramica del Lago di Lugano con montagne sullo sfondo."
  },
  "datePublished": "2026-03-06T18:10:25+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-06T18:10:25+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9035,7 +9027,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista panoramica di Bellinzona con i suoi castelli storici."
  },
  "datePublished": "2026-03-06T20:06:08+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-06T20:06:08+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9064,7 +9056,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista del Lago di Lugano con montagne circostanti, rappresentante l'influenza svizzera e italiana."
  },
  "datePublished": "2026-03-06T21:06:25+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-06T21:06:25+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9093,7 +9085,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista panoramica di Lugano con lago e montagne."
  },
  "datePublished": "2026-03-06T22:04:08+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-06T22:04:08+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9122,7 +9114,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista panoramica di Lugano con montagne sullo sfondo."
  },
  "datePublished": "2026-03-06T23:12:41+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-06T23:12:41+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9151,7 +9143,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Acquirenti soddisfatti escono da Foxtown, il famoso outlet di Mendrisio, con i loro acquisti."
  },
  "datePublished": "2026-03-06T23:56:51+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-06T23:56:51+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9180,7 +9172,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Valico di Gaggiolo in Ticino con vista sul confine italo-svizzero durante le votazioni del 8 marzo."
  },
  "datePublished": "2026-03-07T04:47:30+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-07T04:47:30+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9209,7 +9201,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Valico di Gaggiolo in Ticino con vista su Lugano e il Lago Maggiore"
  },
  "datePublished": "2026-03-07T06:05:59+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-07T06:05:59+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9238,7 +9230,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Valico frontaliero in Ticino con controlli di sicurezza, scena realistica"
  },
  "datePublished": "2026-03-07T07:52:55+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-07T07:52:55+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9267,7 +9259,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Auto in transito sul valico di Gaggiolo, confine tra Italia e Svizzera, con paesaggio ticinese sullo sfondo"
  },
  "datePublished": "2026-03-07T09:01:01+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-07T09:01:01+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9296,7 +9288,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Panorama di Locarno con Lago Maggiore e montagne, scena fotorealistica DSLR."
  },
  "datePublished": "2026-03-07T09:56:44+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-07T09:56:44+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9325,7 +9317,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Infermiere che assiste una persona anziana a domicilio a Lugano, Ticino"
  },
  "datePublished": "2026-03-07T10:53:30+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-07T10:53:30+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9354,7 +9346,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista urbana di Lugano con autobus e parcheggio park and ride poco utilizzato"
  },
  "datePublished": "2026-03-07T11:41:11+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-07T11:41:11+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9383,7 +9375,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista panoramica del Lago di Lugano durante il tramonto, con riflessi sull'acqua."
  },
  "datePublished": "2026-03-07T13:54:36+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-07T13:54:36+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9412,7 +9404,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Turisti svizzeri in attesa di informazioni in un valico di frontiera."
  },
  "datePublished": "2026-03-07T14:54:22+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-07T14:54:22+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9441,7 +9433,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Volo di rimpatrio da Mascate, Oman, verso Zurigo, Svizzera."
  },
  "datePublished": "2026-03-07T15:51:15+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-07T15:51:15+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9470,7 +9462,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Scuole di Ticino con segni di sicurezza antincendio. Vista aerea con montagne in sfondo."
  },
  "datePublished": "2026-03-07T17:00:20+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-07T17:00:20+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9499,7 +9491,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Impresa varesina che esporta macchinari e prodotti chimici in India. Vista panoramica dal Lago di Lugano."
  },
  "datePublished": "2026-03-07T17:48:07+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-07T17:48:07+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9528,7 +9520,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Camion parcheggiato vicino al valico di Chiasso con vista sul paesaggio del Ticino al tramonto"
  },
  "datePublished": "2026-03-08T10:57:24+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-08T10:57:24+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9557,7 +9549,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Stazione di servizio al confine Ticino-Lombardia con auto in attesa e cartelloni prezzi al mattino"
  },
  "datePublished": "2026-03-08T11:45:19+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-08T11:45:19+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9586,7 +9578,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Elettori davanti a un seggio a Bellinzona con bandiere svizzere e scatole per le schede, luce invernale naturale."
  },
  "datePublished": "2026-03-08T13:59:41+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-08T13:59:41+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9615,7 +9607,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Veduta fotorealistica di Lugano con pendolare sul lungolago e skyline al mattino"
  },
  "datePublished": "2026-03-08T15:03:13+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-08T15:03:13+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9644,7 +9636,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "caption": "Vista panoramica di Lugano con lago e montagne."
  },
  "datePublished": "2026-03-08T15:50:38+00:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-08T15:50:38+00:00",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -9669,7 +9661,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "description": "La guida definitiva per lavoratori frontalieri Italia-Svizzera: permesso G, regime fiscale nuovo accordo, contributi sociali AVS/LPP, assicurazione LAMal, pendolarismo e dichiarazione dei redditi. Aggiornata al 2026.",
  "url": `${BASE_URL}/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026/`,
  "datePublished": "2026-03-31T08:00:00+02:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-31T08:00:00+02:00",
  "inLanguage": "it",
  "author": { "@id": "https://frontaliereticino.ch/#organization" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
@@ -9816,7 +9808,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "description": "Guida esaustiva alla tassazione dei frontalieri Italia-Svizzera nel 2026: Nuovo Accordo del 17 luglio 2023, doppia imposizione, confronto permesso G vs B, aliquote d'imposta alla fonte Ticino, deduzioni fiscali, casi particolari e dichiarazione dei redditi.",
  "url": `${BASE_URL}/guida-tassazione-frontalieri-2026/`,
  "datePublished": "2026-04-22T08:00:00+02:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-04-22T08:00:00+02:00",
  "inLanguage": "it",
  "author": { "@id": "https://frontaliereticino.ch/#organization" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
@@ -10033,6 +10025,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ogTitle: 'Correzioni — Politica di rettifica e registro pubblico',
  ogDescription: 'Come segnaliamo e registriamo le correzioni: SLA 48 ore, tipologie accettate, registro pubblico cronologico.',
  canonicalPath: '/correzioni/',
+ // staticPagesPlugin.ts text-parses this literal at build time (regex +
+ // JSON.parse, not a real JS import) — cannot reference buildCorrezioniSeo()
+ // here. That builder (services/seo/seo-correzioni.ts) mirrors this exact
+ // shape for the client-rendered copy in Correzioni.tsx and additionally
+ // computes `lastReviewed` from the real corrections log, which this static
+ // literal deliberately omits (no safe way to keep it fresh without either
+ // a stale hand-bumped date or the BUILD_DATE_ISO false-freshness bug).
  structuredData: [
  {
  "@context": "https://schema.org",
@@ -10071,7 +10070,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Metodologia editoriale — Come scriviamo gli articoli",
  "url": `${BASE_URL}/metodologia/`,
  "description": "Come utilizziamo l'IA generativa, le fonti primarie e il processo di revisione editoriale per garantire accuratezza e trasparenza.",
- "lastReviewed": BUILD_DATE_ISO,
+ "lastReviewed": "2026-06-16T00:00:00+02:00",
  "inLanguage": "it",
  "isPartOf": { "@id": `${BASE_URL}/#website` },
  "about": {
@@ -10178,7 +10177,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "author": { "@type": "Organization", "name": "Frontaliere Ticino" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
  "datePublished": "2026-04-22",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-04-22",
  "inLanguage": "it",
  "mainEntityOfPage": `${BASE_URL}/guida-frontaliere/tassa-salute-frontalieri/`,
  "speakable": SPEAKABLE_SECTION
@@ -10290,7 +10289,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "author": { "@type": "Organization", "name": "Frontaliere Ticino" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
  "datePublished": "2026-04-22",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-04-22",
  "inLanguage": "it",
  "mainEntityOfPage": `${BASE_URL}/guida-frontaliere/lamal-frontalieri/`,
  "speakable": SPEAKABLE_SECTION
@@ -10460,7 +10459,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "author": { "@type": "Organization", "name": "Frontaliere Ticino" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
  "datePublished": "2026-04-22",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-04-22",
  "inLanguage": "it",
  "mainEntityOfPage": `${BASE_URL}/vita-in-ticino/ponti-2026-ticino/`,
  "speakable": SPEAKABLE_SECTION
@@ -10485,7 +10484,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "author": { "@type": "Organization", "name": "Frontaliere Ticino" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
  "datePublished": "2026-04-22",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-04-22",
  "inLanguage": "it",
  "mainEntityOfPage": `${BASE_URL}/vita-in-ticino/vacanze-scolastiche-ticino-2026/`,
  "speakable": SPEAKABLE_SECTION
@@ -10522,7 +10521,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "author": { "@type": "Organization", "name": "Frontaliere Ticino" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
  "datePublished": "2026-04-23",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-04-23",
  "inLanguage": "it",
  "mainEntityOfPage": `${BASE_URL}/tasse-e-pensione/tasse-svizzere-frontalieri/`,
  "speakable": SPEAKABLE_SECTION
@@ -10608,7 +10607,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "author": { "@type": "Organization", "name": "Frontaliere Ticino" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
  "datePublished": "2026-04-23",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-04-23",
  "inLanguage": "it",
  "mainEntityOfPage": `${BASE_URL}/vita-in-ticino/lavoro-a-lugano/`,
  "speakable": SPEAKABLE_SECTION
@@ -10678,7 +10677,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "author": { "@type": "Organization", "name": "Frontaliere Ticino" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
  "datePublished": "2026-04-23",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-04-23",
  "inLanguage": "it",
  "mainEntityOfPage": `${BASE_URL}/tasse-e-pensione/nuova-legge-frontalieri-2026/`,
  "speakable": SPEAKABLE_SECTION
@@ -10764,7 +10763,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "author": { "@type": "Organization", "name": "Frontaliere Ticino" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
  "datePublished": "2026-04-23",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-04-23",
  "inLanguage": "it",
  "mainEntityOfPage": `${BASE_URL}/vita-in-ticino/oss-svizzera/`,
  "speakable": SPEAKABLE_SECTION
@@ -10834,7 +10833,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "author": { "@type": "Organization", "name": "Frontaliere Ticino" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
  "datePublished": "2026-04-23",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-04-23",
  "inLanguage": "it",
  "mainEntityOfPage": `${BASE_URL}/statistiche/stipendi-svizzera-vs-italia/`,
  "speakable": SPEAKABLE_SECTION

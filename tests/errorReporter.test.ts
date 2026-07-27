@@ -9,7 +9,24 @@
 // @/services/errorReporter that would otherwise shadow the real implementation.
 vi.unmock('@/services/errorReporter');
 
+// Keep isVersionSkewError/isModuleLinkSkewMessage real (so test messages exercise
+// the actual classifier) but replace recoverFromStaleChunk with a spy — its own
+// behavior (cache-busting, reload, budget) is covered by tests/resilient-import.test.ts;
+// here we only need to assert reportCaughtError calls it for skew-shaped errors.
+vi.mock('@/services/resilientImport', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@/services/resilientImport')>();
+  return { ...actual, recoverFromStaleChunk: vi.fn().mockResolvedValue(true) };
+});
+
+// Controllable in the "does not self-heal during newsletter autologin" test
+// below without depending on window.location.search at module-load time.
+vi.mock('@/services/newsletterAutologinSignal', () => ({
+  isNewsletterAutologinInFlight: vi.fn().mockReturnValue(false),
+}));
+
 import { Analytics } from '@/services/analytics';
+import { isNewsletterAutologinInFlight } from '@/services/newsletterAutologinSignal';
+import { recoverFromStaleChunk } from '@/services/resilientImport';
 
 // Analytics.trackAppError is auto-mocked in tests/setup.tsx as vi.fn()
 
@@ -134,6 +151,49 @@ describe('reportCaughtError', () => {
 
     expect(warnSpy).toHaveBeenCalledWith('[console.test]', err);
     warnSpy.mockRestore();
+  });
+
+  describe('version-skew self-heal', () => {
+    it('triggers recoverFromStaleChunk for a link-time module-skew SyntaxError', () => {
+      const err = new Error("The requested module './router.js' does not provide an export named 'MUNICIPALITY_DATA'");
+      err.name = 'SyntaxError';
+      reportCaughtError(err, 'seo.updateMetaTags');
+
+      expect(recoverFromStaleChunk).toHaveBeenCalledWith(`version_skew:${err.message.slice(0, 80)}`);
+    });
+
+    it('triggers recoverFromStaleChunk for a call-time skew TypeError', () => {
+      const err = new Error('ls(...).then is not a function');
+      err.name = 'TypeError';
+      reportCaughtError(err, 'app.loadUserProfile');
+
+      expect(recoverFromStaleChunk).toHaveBeenCalledWith(`version_skew:${err.message.slice(0, 80)}`);
+    });
+
+    it('does not trigger recoverFromStaleChunk for an ordinary error', () => {
+      reportCaughtError(new Error('genuine bug, not a skew'), 'real.bug.skewcheck');
+      expect(recoverFromStaleChunk).not.toHaveBeenCalled();
+    });
+
+    it('does not trigger recoverFromStaleChunk while a newsletter autologin exchange is in flight', () => {
+      vi.mocked(isNewsletterAutologinInFlight).mockReturnValueOnce(true);
+      const err = new Error('ls(...).then is not a function');
+      err.name = 'TypeError';
+      reportCaughtError(err, 'app.newsletterAutologin');
+
+      expect(recoverFromStaleChunk).not.toHaveBeenCalled();
+    });
+
+    it('still reports the error to Analytics after triggering self-heal', () => {
+      const err = new Error("does not provide an export named 'X'");
+      err.name = 'SyntaxError';
+      reportCaughtError(err, 'seo.trackSectionView');
+
+      expect(recoverFromStaleChunk).toHaveBeenCalled();
+      expect(Analytics.trackAppError).toHaveBeenCalledWith('api_error', expect.objectContaining({
+        message: `[seo.trackSectionView] ${err.message}`,
+      }));
+    });
   });
 
   describe('benign noise filter', () => {

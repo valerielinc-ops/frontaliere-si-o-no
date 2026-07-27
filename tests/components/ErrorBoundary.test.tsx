@@ -19,8 +19,8 @@
 
 import React from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { cleanup, render, screen } from '@testing-library/react';
-import { SilentErrorBoundary } from '@/components/shared/ErrorBoundary';
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { ErrorBoundary, SilentErrorBoundary } from '@/components/shared/ErrorBoundary';
 import * as resilientImport from '@/services/resilientImport';
 
 const originalLocation = window.location;
@@ -124,5 +124,74 @@ describe('SilentErrorBoundary', () => {
       </SilentErrorBoundary>,
     );
     expect(reloadSpy).not.toHaveBeenCalled();
+  });
+});
+
+/**
+ * Tests for the top-level `ErrorBoundary` — the crash-page debug tooling
+ * added alongside the side-banner layout (build/commit row, stack-trace
+ * disclosure, "Copia info debug" clipboard button). Banners themselves
+ * (DesktopTopBanner/ArticleRailAd/AdSenseBanner) self-gate to `null` outside
+ * `IS_PROD` (GptAdSlot), so they're not asserted on directly here — only
+ * that they don't crash the page (covered by the "renders the crash card"
+ * assertions below, which pass only if the whole tree mounted cleanly).
+ */
+describe('ErrorBoundary (top-level crash page)', () => {
+  it('renders the crash card with a Build/Commit debug row', async () => {
+    render(
+      <ErrorBoundary>
+        <Thrower message="boom" />
+      </ErrorBoundary>,
+    );
+    const details = screen.getByTestId('error-boundary-details');
+    // Before fetchBuildId/fetchCommitHash resolve (unmocked fetch in jsdom
+    // — safely caught by buildInfo.ts's try/catch), the row shows the
+    // "(sconosciuto)" fallback rather than being absent.
+    expect(details).toHaveTextContent('Build');
+    await waitFor(() => expect(details).toHaveTextContent('sconosciuto'));
+  });
+
+  it('copies debug info to the clipboard and shows confirmation feedback', async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: { writeText },
+    });
+
+    render(
+      <ErrorBoundary>
+        <Thrower message="boom" />
+      </ErrorBoundary>,
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: /copia info debug/i }));
+
+    await waitFor(() => expect(writeText).toHaveBeenCalledTimes(1));
+    const copiedText = writeText.mock.calls[0][0] as string;
+    expect(copiedText).toContain('REF:');
+    expect(copiedText).toContain('Build ID:');
+    expect(copiedText).toContain('Stack:');
+
+    await waitFor(() => expect(screen.getByRole('button', { name: /copiato/i })).toBeInTheDocument());
+  });
+
+  it('does NOT crash when clipboard API is unavailable (falls back to execCommand)', async () => {
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: undefined,
+    });
+    const execCommandSpy = vi.fn().mockReturnValue(true);
+    document.execCommand = execCommandSpy;
+
+    render(
+      <ErrorBoundary>
+        <Thrower message="boom" />
+      </ErrorBoundary>,
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: /copia info debug/i }));
+
+    await waitFor(() => expect(execCommandSpy).toHaveBeenCalledWith('copy'));
+    await waitFor(() => expect(screen.getByRole('button', { name: /copiato/i })).toBeInTheDocument());
   });
 });

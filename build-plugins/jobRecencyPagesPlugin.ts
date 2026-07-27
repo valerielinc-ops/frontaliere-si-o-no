@@ -18,6 +18,7 @@ import {
   GTAG_SNIPPET,
   ADSENSE_SNIPPET,
   CDN_PRECONNECT_HINT,
+  robotsMetaEnhancedForContent,
 } from './constants';
 import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
 import {
@@ -291,6 +292,33 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
 
           const openAllHref = sectionRootUrl;
 
+          // Extracted (not inlined) so its text can feed the body word count
+          // below -- this accordion is what keeps low-inventory windows past
+          // the text-to-HTML ratio floor (see comment above proseHtml).
+          const commuterContextSummary = ({
+            it: 'Guida frontalieri: salario, permesso G, fisco, rientro',
+            en: 'Cross-border guide: salary, G permit, tax, weekly return',
+            de: 'Grenzgänger-Leitfaden: Lohn, G-Bewilligung, Steuer, Rückkehr',
+            fr: 'Guide frontaliers : salaire, permis G, fiscalité, retour',
+          } as Record<JobLandingLocale, string>)[locale];
+          const commuterContextInner = renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true });
+          const commuterContextHtml = `<details class="hub-seo-context s-mxdIN0">
+          <summary class="s-1yn7b_">${commuterContextSummary}</summary>
+          <div class="s-yZU6bn">
+            <section class="s-p_RJwm">
+              ${commuterContextInner}
+            </section>
+          </div>
+        </details>`;
+
+          // No upstream inventory floor gates this page (unlike the
+          // canton/city editorial hubs in jobsSeoPagesPlugin.ts) -- every
+          // variant x locale combo emits regardless of job count, so the
+          // robots tag must be computed per-render from the actual assembled
+          // body content instead of assumed indexable.
+          const recencyBodyHtml = `${jobsHtml}${proseHtml}${faqHtml}${commuterContextHtml}`;
+          const recencyRobotsTag = robotsMetaEnhancedForContent(recencyBodyHtml);
+
           const html = `<!doctype html>
 <html lang="${locale}">
   <head>
@@ -298,7 +326,7 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
     <meta name="viewport" content="width=device-width,initial-scale=1">
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}${FAVICON_LINKS}
     <title>${esc(model.title)}</title>
-    <meta name="description" content="${esc(clampMetaDescription(model.description))}">
+    <meta name="description" content="${esc(clampMetaDescription(model.description))}">${recencyRobotsTag}
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">
@@ -358,23 +386,7 @@ ${alternates}
       </section>
       ${proseHtml}
       ${faqHtml}
-      ${(() => {
-        const summary = ({
-          it: 'Guida frontalieri: salario, permesso G, fisco, rientro',
-          en: 'Cross-border guide: salary, G permit, tax, weekly return',
-          de: 'Grenzgänger-Leitfaden: Lohn, G-Bewilligung, Steuer, Rückkehr',
-          fr: 'Guide frontaliers : salaire, permis G, fiscalité, retour',
-        } as Record<JobLandingLocale, string>)[locale];
-        const inner = renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true });
-        return `<details class="hub-seo-context s-mxdIN0">
-          <summary class="s-1yn7b_">${summary}</summary>
-          <div class="s-yZU6bn">
-            <section class="s-p_RJwm">
-              ${inner}
-            </section>
-          </div>
-        </details>`;
-      })()}
+      ${commuterContextHtml}
     </main>${railGutters(true).close}
     <div id="footer-root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
   </body>
