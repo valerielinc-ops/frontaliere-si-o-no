@@ -4941,6 +4941,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-ristorni-da-record': { name: 'Frontalieri, ristorni da record', path: '/articoli-frontaliere/frontalieri-ristorni-da-record', parent: 'blog' },
     'blog-frontalieri-ticino-omnibus-2026': { name: 'Fiscale Frontalieri', path: '/articoli-svizzera/frontalieri-ticino-omnibus-2026/', parent: 'blog' },
     'blog-tassa-salute-frontalieri-attacco-ticino': { name: 'Tassa sulla salute per i frontalieri', path: '/articoli-svizzera/tassa-salute-frontalieri-attacco-ticino/', parent: 'blog' },
+    'blog-ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri': { name: 'Ristorni \'al contrario\'', path: '/articoli-frontaliere/ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

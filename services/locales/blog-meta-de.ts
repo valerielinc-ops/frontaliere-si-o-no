@@ -9021,6 +9021,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-ristorni-da-record.title': 'Grenzgänger, rekordverdächtige Erstattungen: 112 Millionen für Italien',
     'blog.article.frontalieri-ristorni-da-record.excerpt': 'Die Zahl der Rückerstattungen aus dem Tessin an Italien ist laut Quelle auf 112 Millionen Franken gestiegen.',
     'blog.article.frontalieri-ristorni-da-record.imageAlt': 'Lugano-Blick, mit den Ticino-Bergen im Hintergrund.',
+    'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.title': 'Restaurants für Grenzgänger: Die Kantone, die Geld erhalten',
+    'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.excerpt': 'Die Schweizer Kantone, die Geld aus den Herkunftsländern der Grenzgänger erhalten. Die Daten vom September 2025.',
+    'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.imageAlt': 'Frontalier in Ticino, die in Italien arbeiten',
 };
 
 export default blogMetaDe;

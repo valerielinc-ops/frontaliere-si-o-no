@@ -9024,6 +9024,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-ristorni-da-record.title': 'Frontaliers, restaurations record : 112 millions pour l\'Italie',
     'blog.article.frontalieri-ristorni-da-record.excerpt': 'Le montant des remboursements versés par le Tessin à l\'Italie est passé à 112 millions de francs, selon la source.',
     'blog.article.frontalieri-ristorni-da-record.imageAlt': 'Vue de Lugano, avec les monts Ticino en arrière-plan.',
+    'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.title': 'Restaurants pour frontaliers : les cantons qui reçoivent de l\'argent',
+    'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.excerpt': 'Les cantons suisses qui reçoivent de l\'argent des pays d\'origine des frontaliers. Les données de septembre 2025.',
+    'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.imageAlt': 'Frontalier suisses travaillant en Italie',
 };
 
 export default blogMetaFr;
