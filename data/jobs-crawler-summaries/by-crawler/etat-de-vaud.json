@@ -1,34 +1,32 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-07-27T12:40:12.750Z",
-  "total": 45,
+  "generatedAt": "2026-07-27T22:19:42.108Z",
+  "total": 43,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 26476,
-  "avgDurationMs": 26476,
+  "unchangedCount": 0,
+  "durationMs": 22025,
+  "avgDurationMs": 22025,
   "durationHistory": [
-    26476
+    22025
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "etat-de-vaud-5551",
-      "slug": "capo-unita-di-assicurazione-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "id": "etat-de-vaud-5640",
+      "slug": "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
       "companyDomain": "vd.ch",
-      "title": "Chef·fe d'unité Assurances",
+      "title": "Curateur·trice professionnel·le",
       "location": "Lausanne",
       "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5551",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5640",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-26T10:58:45.162Z",
+      "crawledAt": "2026-07-27T12:40:01.500Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -38,16 +36,16 @@
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
+      "experienceLevel": "mid",
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5551",
-      "firstSeenAt": "2026-07-05T11:43:20.041Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "crawlerMissStreak": 2,
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5640",
+      "firstSeenAt": "2026-07-05T11:43:24.618Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -56,5 +54,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
