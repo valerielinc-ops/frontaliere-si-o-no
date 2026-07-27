@@ -1,0 +1,19 @@
+{
+  "id": "frontalieri-ristorni-da-record",
+  "slug": "frontalieri-ristorni-da-record",
+  "publishedAt": "2026-07-27T14:35:30.366Z",
+  "cluster": "generic",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 149.68609251555554,
+    "confidence": 1,
+    "finalScore": 149.68609251555554,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 149.68609251555554,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

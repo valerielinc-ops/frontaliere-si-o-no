@@ -27098,6 +27098,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-ristorni-da-record',
+ category: 'pratico',
+ date: '2026-07-27T14:35:26.681Z',
+ image: '/images/blog/frontalieri-ristorni-da-record.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

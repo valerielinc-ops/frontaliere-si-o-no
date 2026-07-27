@@ -9021,6 +9021,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro.title': 'Transfert à Brusimpiano de la frontière: pour et contre',
     'blog.article.trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro.excerpt': 'Ce qui doit être considéré avant de déménager à Brusimpiano en travaillant au Tessin par frontière.',
     'blog.article.trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro.imageAlt': 'Un frontalière en autoroute A2, en direction de la frontière italo-suisse.',
+    'blog.article.frontalieri-ristorni-da-record.title': 'Frontaliers, restaurations record : 112 millions pour l\'Italie',
+    'blog.article.frontalieri-ristorni-da-record.excerpt': 'Le montant des remboursements versés par le Tessin à l\'Italie est passé à 112 millions de francs, selon la source.',
+    'blog.article.frontalieri-ristorni-da-record.imageAlt': 'Vue de Lugano, avec les monts Ticino en arrière-plan.',
 };
 
 export default blogMetaFr;

@@ -9019,6 +9019,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro.title': 'Transfer to Brusimpiano from frontier: pro and con',
     'blog.article.trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro.excerpt': 'What you need to consider before moving to Brusimpiano working in Ticino as a cross-border commuter.',
     'blog.article.trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro.imageAlt': 'A frontaliere in the A2 highway, heading towards the Italian-Swiss border.',
+    'blog.article.frontalieri-ristorni-da-record.title': 'Frontier workers, record-breaking refreshments: as much as 112 million to Italy',
+    'blog.article.frontalieri-ristorni-da-record.excerpt': 'The figure of refunds paid by Ticino to Italy increased to 112 million francs, according to the source.',
+    'blog.article.frontalieri-ristorni-da-record.imageAlt': 'View of Lugano, with the Ticino mountains in the background.',
 };
 
 export default blogMetaEn;

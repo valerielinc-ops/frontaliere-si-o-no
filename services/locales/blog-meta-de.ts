@@ -9018,6 +9018,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro.title': 'Umzug nach Brusimpiano als grenzüberschreitender Pendler: Vor- und Nachteile',
     'blog.article.trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro.excerpt': 'Was sollte man beachten, bevor man nach Brusimpiano zieht, indem man in Tessin an der Grenze arbeitet.',
     'blog.article.trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro.imageAlt': 'Ein Frontalier in der A2-Autobahn, auf dem Weg zum italienisch-schweizerischen Grenzgebiet.',
+    'blog.article.frontalieri-ristorni-da-record.title': 'Grenzgänger, rekordverdächtige Erstattungen: 112 Millionen für Italien',
+    'blog.article.frontalieri-ristorni-da-record.excerpt': 'Die Zahl der Rückerstattungen aus dem Tessin an Italien ist laut Quelle auf 112 Millionen Franken gestiegen.',
+    'blog.article.frontalieri-ristorni-da-record.imageAlt': 'Lugano-Blick, mit den Ticino-Bergen im Hintergrund.',
 };
 
 export default blogMetaDe;
