@@ -93,7 +93,7 @@ jobs:
         # pipeline runs, so the AdSense audit inspects production-identical
         # pages. build:ci sets its own inline `--max-old-space-size=12288
         # --expose-gc` (fits the 16 GB runner); build:prod's 18 GB exceeds
-        # physical RAM. The two env knobs are deploy.yml's documented OOM
+        # physical RAM. The three env knobs are deploy.yml's documented OOM
         # controls (build OOM #1290) — they cap the dominant memory term so the
         # full SEO build fits at 12 GB alongside the data-prep reduction above.
         env:
@@ -103,6 +103,10 @@ jobs:
           # Cap the post-walk worker pool so it doesn't structured-clone the full
           # path list into cpus()-many workers at once (the #1290 blowup).
           POST_WALK_WORKERS: '2'
+          # Same worker pool as above: cap glibc malloc arenas so they don't
+          # outlive the worker_threads and pin RSS for the rest of the build
+          # (mirrors deploy.yml's build-locale mitigation, run 30274470672).
+          MALLOC_ARENA_MAX: '2'
           # Force sequential plugin closeBundle: peak heap = max(single plugin)
           # instead of Σ(overlap). Always sequential here (scheduled/dispatch).
           SEQUENTIAL_PROFILE: '1'

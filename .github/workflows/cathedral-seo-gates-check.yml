@@ -138,7 +138,7 @@ jobs:
           # The previous `18432` here was dead config — silently overridden to
           # 12288 — and 18 GB exceeds the 16 GB runner's RAM anyway.
           #
-          # The two knobs below are deploy.yml's documented OOM controls
+          # The three knobs below are deploy.yml's documented OOM controls
           # (build OOM #1290) — they cap the DOMINANT memory term, not the
           # dataset size. deploy fits the full SEO build at 12288 BECAUSE of
           # these; the shared data-prep action above is a smaller,
@@ -151,6 +151,10 @@ jobs:
           # full ~247K-path list into cpus()-many workers at once (the #1290
           # blowup). Output-identical — only fewer parallel workers.
           POST_WALK_WORKERS: '2'
+          # Same worker pool as above: cap glibc malloc arenas so they don't
+          # outlive the worker_threads and pin RSS for the rest of the build
+          # (mirrors deploy.yml's build-locale mitigation, run 30274470672).
+          MALLOC_ARENA_MAX: '2'
           # Force sequential plugin closeBundle: peak heap = max(single plugin)
           # instead of Σ(overlap) → eliminates the parallel-build OOM. Always
           # sequential here (scheduled/dispatch gate run, never parallel).
