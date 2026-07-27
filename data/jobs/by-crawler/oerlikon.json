@@ -1,6 +1,6 @@
 {
   "crawlerKey": "oerlikon",
-  "assembledAt": "2026-07-26T22:01:16.307Z",
+  "assembledAt": "2026-07-27T12:31:08.150Z",
   "jobs": [
     {
       "id": "oerlikon-623eccb0a7a7",
@@ -33,7 +33,7 @@
       "url": "https://careers.oerlikon.com/job/Customer-Service-Specialist-Riri-Zippers/104205-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-26T22:01:13.279Z",
+      "crawledAt": "2026-07-27T12:31:04.922Z",
       "addressLocality": "Mendrisio, TI",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -51,11 +51,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "customer-service-specialist-riri-zippers-oerlikon-ch"
+        "customer-service-specialist-riri-zippers-oerlikon-ch",
+        "servizio-clienti-specialista-riri-zippers-oerlikon-mendrisio-ti"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-service-specialist-riri-zippers-oerlikon-ch"
+          "customer-service-specialist-riri-zippers-oerlikon-ch",
+          "servizio-clienti-specialista-riri-zippers-oerlikon-mendrisio-ti"
         ],
         "de": [
           "customer-service-specialist-riri-zippers-oerlikon-ch"
@@ -109,7 +111,7 @@
       "url": "https://careers.oerlikon.com/job/Automatiker-%28gn%29-im-Anlagenbau/103438-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T22:01:12.655Z",
+      "crawledAt": "2026-07-27T12:31:04.298Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -128,11 +130,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatiker-gn-im-anlagenbau-oerlikon-ch",
-        "automatiker-gn-im-anlagenbau-oerlikon-wohlen"
+        "automatiker-gn-im-anlagenbau-oerlikon-wohlen",
+        "automatico-gn-in-ingegneria-vegetale-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-gn-im-anlagenbau-oerlikon-ch"
+          "automatiker-gn-im-anlagenbau-oerlikon-ch",
+          "automatico-gn-in-ingegneria-vegetale-oerlikon-wohlen"
         ],
         "en": [
           "automatiker-gn-im-anlagenbau-oerlikon-ch"
@@ -189,7 +193,7 @@
       "url": "https://careers.oerlikon.com/job/Lehrstelle-als-Konstrukteur-%28gn%29-EFZ/103628-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T22:01:12.050Z",
+      "crawledAt": "2026-07-27T12:31:03.626Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -207,11 +211,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-konstrukteur-gn-efz-oerlikon-ch"
+        "lehrstelle-als-konstrukteur-gn-efz-oerlikon-ch",
+        "apprendistato-come-konstrukteur-gn-cfc-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-konstrukteur-gn-efz-oerlikon-ch"
+          "lehrstelle-als-konstrukteur-gn-efz-oerlikon-ch",
+          "apprendistato-come-konstrukteur-gn-cfc-oerlikon-wohlen"
         ],
         "en": [
           "lehrstelle-als-konstrukteur-gn-efz-oerlikon-ch"
@@ -221,6 +227,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:12:57.467Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -265,7 +272,7 @@
       "url": "https://careers.oerlikon.com/job/Project-Manager-%28gn%29/103867-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T22:01:11.437Z",
+      "crawledAt": "2026-07-27T12:31:03.001Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -283,6 +290,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-08T22:12:55.057Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -327,7 +335,7 @@
       "url": "https://careers.oerlikon.com/job/Export-Verpacker-%28gn%29/103043-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T22:01:10.810Z",
+      "crawledAt": "2026-07-27T12:31:02.368Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -346,11 +354,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "export-verpacker-gn-oerlikon-ch",
-        "export-verpacker-gn-oerlikon-wohlen"
+        "export-verpacker-gn-oerlikon-wohlen",
+        "esportatore-gn-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "export-verpacker-gn-oerlikon-ch"
+          "export-verpacker-gn-oerlikon-ch",
+          "esportatore-gn-oerlikon-wohlen"
         ],
         "en": [
           "export-verpacker-gn-oerlikon-ch"
@@ -407,7 +417,7 @@
       "url": "https://careers.oerlikon.com/job/Konstruktionsingenieur-%28gn%29/104256-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T22:01:10.168Z",
+      "crawledAt": "2026-07-27T12:31:01.575Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -426,12 +436,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "konstruktionsingenieur-gn-oerlikon-ch",
-        "konstruktionsingenieur-gn-oerlikon-wohlen"
+        "konstruktionsingenieur-gn-oerlikon-wohlen",
+        "ingegnere-di-progettazione-gn-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "konstruktionsingenieur-gn-oerlikon-ch",
-          "konstruktionsingenieur-gn-oerlikon-wohlen"
+          "konstruktionsingenieur-gn-oerlikon-wohlen",
+          "ingegnere-di-progettazione-gn-oerlikon-wohlen"
         ],
         "en": [
           "konstruktionsingenieur-gn-oerlikon-wohlen"
@@ -488,7 +500,7 @@
       "url": "https://careers.oerlikon.com/job/Service-Techniker-f%C3%BCr-Produktionsanlagen-%28inhouse%29-%28gn%29/104492-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T22:01:09.541Z",
+      "crawledAt": "2026-07-27T12:31:00.940Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -520,6 +532,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:12:58.275Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -540,7 +553,7 @@
         "it": "tecnico-di-servizio-gn-oerlikon-wohlen",
         "en": "service-technician-gn-oerlikon-wohlen",
         "de": "servicetechniker-gn-oerlikon-ch",
-        "fr": "technicien-des-services-gn-oerlikon-wohlen"
+        "fr": "servicetechniker-gn-oerlikon-wohlen"
       },
       "company": "Oerlikon",
       "companyKey": "oerlikon",
@@ -550,7 +563,7 @@
         "it": "Tecnico di servizio (gn)",
         "en": "Service technician (gn)",
         "de": "Servicetechniker (gn)",
-        "fr": "Technicien des services (gn)"
+        "fr": "Servicetechniker (gn)"
       },
       "description": "Willst Du etwas bewegen und hast Du Spass an Auslandseinsätzen weltweit (ca. 60%). Dann bist Du bei uns richtig!\n\nServicetechniker (gn)\n\nDein Aufgabenbereich\n\n• Du bist für die weltweite Installation und Inbetriebnahme von thermischen Beschichtungssystemen verantwortlich (Einsatzdauer ca. 4-6 Wochen). Dabei arbeitest Du sehr eng mit unserem Kunden zusammen\n\n• Du bist verantwortlich für interne Abnahmen von Beschichtungssystemen\n\n• Du führst Service-, Kalibrier- und Wartungsarbeiten an thermischen Beschichtungsanlagen durch, sowie Umbauten und Aufrüstungen\n\n• Du erstellst einfache Rapporte von deinen Einsätzen\n\n• Du gibst Schulungen und berätst die Kunden und Bediener vor Ort\n\n• Du unterstützt bei Innovationsprojekten\n\nDein Profil\n\n• Du hast eine abgeschlossene Ausbildung als Elektrotechniker, Mechatroniker oder Automatiker (gn), sowie Erfahrung im Anlagenbau mit Steuerungs-/Regeltechnik und vorzugsweise erste Robotik Kenntnisse\n\n• Du zeigst Interesse an einer Herausforderung, die einen breiten technischen Hintergrund sowie Einfallsreichtum und Flexibilität fordern\n\n• Der Kunde steht für Dich an erster Stelle und Du setzt alles daran im Team Projekte erfolgreich umzusetzen\n\n• Du fühlst Dich wohl in Deutsch und Englisch, um mit internationalen Kunden zu kommunizieren\n\nDas kannst du von uns erwarten\n\n• Ein sehr aufregendes, spannendes, internationales Arbeitsumfeld im High-Tech-Bereich\n\n• Anfang 2027 wird Oerlikon Metco nach Hausen (AG) umziehen – ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung wartet auf uns\n\n• Du kannst dich persönlich und beruflich weiterentwickeln\n\n• Wir sind offen und ehrlich im Umgang miteinander\n\n• Wir sind ein Team dass Dich stets unterstützt\n\n• Wir bieten fortschrittliche Anstellungsbedingungen, ein attraktives Vergütungspaket, mit guten Sozialleistungen\n\n• Über die Pensionskasse bieten wir Dir eine gut ausgebaute Altersvorsorge\n\nFühlst Du dich angesprochen? Dann sind wir neugierig darauf, Dich kennen zu lernen! Bewirb Dich sich bitte online über unsere Career-Seite\n\nMehr Informationen findest du unter folgenden Link: Servicetechniker (gn) bei Oerlikon\n\nÜber Oerlikon\n\nOerlikon ist ein global führendes Unternehmen in den Bereichen Oberflächentechnologien und Hochleistungsmaterialien. Mit einem einzigartigen Portfolio, das Oberflächenengineering, Hochleistungsmaterialien, Beschichtungsanlagen und Komponenten umfasst, verbessern wir Produkte durch die Steigerung von Leistung, Effizienz und Nachhaltigkeit. Oerlikon bedient eine breite Palette von Branchen, darunter Luft‑ und Raumfahrt, Automobil, Energie, Medizin, Luxus, Halbleiter und Werkzeugtechnik. Der Hauptsitz befindet sich in Pfäffikon, Schweiz. Oerlikon ist in 38 Ländern tätig, beschäftigt rund 9.500 Mitarbeitende und erzielte 2024 einen Umsatz von 1,6 Milliarden CHF.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\n LinkedIn  |  Instagram  |  YouTube\n\nwww.oerlikon.com",
       "descriptionByLocale": {
@@ -564,7 +577,7 @@
       "url": "https://careers.oerlikon.com/job/Servicetechniker-%28gn%29/103981-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T22:01:08.906Z",
+      "crawledAt": "2026-07-27T12:31:00.283Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -583,21 +596,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicetechniker-gn-oerlikon-ch",
-        "servicetechniker-gn-oerlikon-wohlen"
+        "servicetechniker-gn-oerlikon-wohlen",
+        "technicien-des-services-gn-oerlikon-wohlen",
+        "tecnico-di-servizio-gn-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-gn-oerlikon-ch",
-          "servicetechniker-gn-oerlikon-wohlen"
+          "servicetechniker-gn-oerlikon-wohlen",
+          "tecnico-di-servizio-gn-oerlikon-wohlen"
         ],
         "en": [
           "servicetechniker-gn-oerlikon-wohlen"
         ],
         "fr": [
+          "technicien-des-services-gn-oerlikon-wohlen",
           "servicetechniker-gn-oerlikon-wohlen"
         ]
       },
       "firstSeenAt": "2026-07-08T22:12:56.655Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -642,7 +660,7 @@
       "url": "https://careers.oerlikon.com/job/Software-Engineer-%28gn%29/104224-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T22:01:08.259Z",
+      "crawledAt": "2026-07-27T12:30:59.465Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -660,17 +678,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "software-engineer-gn-oerlikon-ch"
+        "software-engineer-gn-oerlikon-ch",
+        "software-ingegnere-gn-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-gn-oerlikon-ch"
+          "software-engineer-gn-oerlikon-ch",
+          "software-ingegnere-gn-oerlikon-wohlen"
         ],
         "fr": [
           "software-engineer-gn-oerlikon-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T22:12:55.863Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
