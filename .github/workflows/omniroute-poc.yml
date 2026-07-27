@@ -1,0 +1,69 @@
+name: OmniRoute POC
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  omniroute-poc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Install OmniRoute
+        run: OMNIROUTE_SKIP_POSTINSTALL=1 npm install -g omniroute
+
+      - name: Start OmniRoute server
+        run: |
+          nohup omniroute > /tmp/omniroute.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:20128/api/settings/require-login >/dev/null; then
+              echo "OmniRoute ready after ${i}s"
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "OmniRoute did not become ready in time"
+          cat /tmp/omniroute.log
+          exit 1
+
+      - name: Register providers (one known-dead key on purpose, to prove fallback)
+        run: node scripts/ci/omniroute-poc-register.mjs
+
+      - name: Call a completion through OmniRoute (auto routing/fallback)
+        run: |
+          RESPONSE=$(curl -sf -X POST http://localhost:20128/v1/chat/completions \
+            -H 'Content-Type: application/json' \
+            -d '{"model":"auto","stream":false,"messages":[{"role":"user","content":"Reply with exactly this token and nothing else: OMNIROUTE_POC_OK"}]}')
+          echo "$RESPONSE" | tee /tmp/omniroute-response.json
+          echo "$RESPONSE" | grep -q "OMNIROUTE_POC_OK" || { echo "POC FAILED: expected token not found in response"; exit 1; }
+          echo "POC OK — model used: $(node -e "console.log(JSON.parse(require('fs').readFileSync('/tmp/omniroute-response.json','utf8')).model || 'unknown')")"
+
+      - name: Dump OmniRoute logs on failure
+        if: failure()
+        run: cat /tmp/omniroute.log || true
