@@ -11,8 +11,14 @@
     "https://jobs.bosch.com/en/?country=ch"
   ],
   "notes": "Dedicated Bosch career crawler for Swiss vacancies, filtered with shared Ticino/Grigioni location matching and parsed from the Bosch job portal HTML.",
-  "updatedAt": "2026-07-27T12:33:40.077Z",
+  "updatedAt": "2026-07-27T22:09:16.827Z",
   "seedMetaByUrl": {
+    "https://jobs.bosch.com/en/job/REF292710R-sachbearbeiter-disposition-w-m-div-ref292710r": {
+      "location": "Steinhausen",
+      "canton": "ZG",
+      "company": "Bosch Thermotechnik AG",
+      "postedDate": "2026-07-27"
+    },
     "https://jobs.bosch.com/en/job/REF292485N-logistiker-w-m-div-ref292485n": {
       "location": "Spreitenbach",
       "canton": "AG",
@@ -50,12 +56,6 @@
       "postedDate": "2026-07-08"
     },
     "https://jobs.bosch.com/en/job/REF289873F-lehrstelle-polymechaniker-w-m-div-2027-ref289873f": {
-      "location": "St. Niklaus",
-      "canton": "VS",
-      "company": "Bosch Thermotechnik AG",
-      "postedDate": "2026-07-08"
-    },
-    "https://jobs.bosch.com/en/job/REF285547A-instandhaltung-w-m-div-ref285547a": {
       "location": "St. Niklaus",
       "canton": "VS",
       "company": "Bosch Thermotechnik AG",
