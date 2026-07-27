@@ -238,12 +238,26 @@ export async function handleCreateReaderCheckout(req) {
 // see an "existing" account for a guest who is, in reality, brand new, and
 // wrongly 409 them into a passwordless account they can't sign into. Instead,
 // compare the resolved account's creationTime against this Stripe session's
-// own `created` timestamp: an account created at/after the session started
-// can only be a byproduct of this exact payment (nothing else in this app
-// creates Firebase users on demand), regardless of whether the webhook or
-// this claim call happened to create it first. An account that predates the
-// session is unrelated to this payment — the account-takeover case.
+// own `created` timestamp, with BOTH a lower and an upper bound:
+//   - lower bound (ACCOUNT_RACE_GRACE_MS): absorbs clock skew between
+//     Stripe's and Firebase's clocks — a legitimate account can never be
+//     created meaningfully before the session that paid for it existed.
+//   - upper bound (MAX_CLAIM_WINDOW_MS): without one, a paid guest session
+//     stays retrievable via stripe.checkout.sessions.retrieve long after
+//     creation (Stripe does not expire already-paid sessions the way it
+//     expires unpaid ones), and other flows DO create Firebase users
+//     unrelated to Stripe (e.g. services/authService.ts's signInWithGoogle
+//     on first login) — so "created after the session" alone is not proof
+//     of "created by the session". Without the upper bound an attacker
+//     could pay a few francs for a guest session using a victim's
+//     not-yet-registered email, sit on the paid session id, and claim it
+//     whenever the victim later signs up for real through any unrelated
+//     method — their brand-new account would trivially satisfy an
+//     unbounded "after" check. The window only needs to cover the actual
+//     guest-checkout round trip (session created → payment → webhook/claim),
+//     which completes in seconds to low minutes in practice.
 const ACCOUNT_RACE_GRACE_MS = 60 * 1000;
+const MAX_CLAIM_WINDOW_MS = 30 * 60 * 1000;
 export async function handleClaimReaderCheckout(req) {
   if (req.method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
 
@@ -275,7 +289,8 @@ export async function handleClaimReaderCheckout(req) {
   // Missing/non-numeric session.created fails closed (Infinity) rather than
   // open — Stripe always sets it, this only guards a malformed response.
   const sessionCreatedMs = typeof session.created === 'number' ? session.created * 1000 : Infinity;
-  if (createdAtMs < sessionCreatedMs - ACCOUNT_RACE_GRACE_MS) {
+  const accountCreatedDeltaMs = createdAtMs - sessionCreatedMs;
+  if (accountCreatedDeltaMs < -ACCOUNT_RACE_GRACE_MS || accountCreatedDeltaMs > MAX_CLAIM_WINDOW_MS) {
     return { status: 409, body: { ok: false, error: 'account_exists' } };
   }
   const authToken = await admin.auth().createCustomToken(uid);

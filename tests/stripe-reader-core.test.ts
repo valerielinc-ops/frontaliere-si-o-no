@@ -491,6 +491,24 @@ describe('handleClaimReaderCheckout', () => {
     });
   });
 
+  it('refuses to mint a token for an account created long after the session (delayed-claim attack guard)', async () => {
+    // An attacker pays for a guest session with a victim's not-yet-registered
+    // email, then sits on the still-retrievable paid session id instead of
+    // claiming right away. If the victim later signs up for real through an
+    // unrelated flow (e.g. Google sign-in), their brand-new account's
+    // creationTime is still "after" session.created — an unbounded "after"
+    // check would wrongly let the attacker claim it whenever they like.
+    usersByEmail['guest@example.com'] = {
+      uid: 'later-google-signup-uid',
+      creationTime: new Date(SESSION_CREATED_UNIX * 1000 + 2 * 24 * 60 * 60 * 1000).toISOString(),
+    };
+    const { handleClaimReaderCheckout } = await load();
+    const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
+    expect(createUser).not.toHaveBeenCalled();
+    expect(createCustomToken).not.toHaveBeenCalled();
+    expect(res).toEqual({ status: 409, body: { ok: false, error: 'account_exists' } });
+  });
+
   it('mints a token when createUser loses a race to a concurrent create for the same brand-new email', async () => {
     const notFoundErr = new Error('no user') as Error & { code: string };
     notFoundErr.code = 'auth/user-not-found';
