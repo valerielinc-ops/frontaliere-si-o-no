@@ -1,19 +1,21 @@
 {
   "key": "diakoniewerk-neumuenster",
   "label": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)",
-  "generatedAt": "2026-07-27T12:55:06.355Z",
+  "generatedAt": "2026-07-27T22:30:20.266Z",
   "total": 9,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 35131,
-  "avgDurationMs": 35131,
+  "unchangedCount": 1,
+  "durationMs": 38480,
+  "avgDurationMs": 38480,
   "durationHistory": [
-    35131
+    38480
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "diakoniewerk-neumuenster-36ff72f1b749",
       "slug": "dipl-infermieristica-professionale-dipl-cura-professionale-non-c-e-noia-diakoniewerk-neumunster-gesundheitswelt",
@@ -45,7 +47,7 @@
       "firstSeenAt": "2026-05-19T15:19:47.620Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -54,7 +56,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
