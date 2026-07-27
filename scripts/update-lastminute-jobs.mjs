@@ -39,7 +39,7 @@ import {
   normalize,
   normalizeKey,
   mergeLocaleTextMap,
-  hasFullLocaleCoverage,
+  hasCorrectLocaleCoverage,
   normalizeSpace,
 } from './lib/dedicated-crawler-common.mjs';
 import {
@@ -673,7 +673,12 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
       const sourceContentChanged = normalizeSpace(priorDescription) !== normalizeSpace(detail.description);
       // Only replace if SR API content is richer, or the source text itself drifted
       if (sourceContentChanged || detail.description.length > priorDescription.length * 0.8) {
-        const wasFullyLocalized = hasFullLocaleCoverage(existing);
+        // hasCorrectLocaleCoverage (not hasFullLocaleCoverage) is deliberate
+        // (issue #4788 sibling): presence-only coverage would call a job
+        // "already fully localized" even if a non-source title slot still
+        // holds source-language (EN) text, permanently suppressing the
+        // retranslation flag once the SR API source title stops changing.
+        const wasFullyLocalized = hasCorrectLocaleCoverage(existing, 'en');
         existing.description = detail.description;
         existing.requirements = Array.isArray(detail.requirements) ? detail.requirements : [];
         existing.descriptionByLocale = mergeLocaleTextMap(
