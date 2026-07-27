@@ -53,6 +53,8 @@ if (HAS_DOM) Object.defineProperty(globalThis, 'localStorage', {
  setItem: (key: string, val: string) => { store[key] = val; },
  removeItem: (key: string) => { delete store[key]; },
  clear: () => { Object.keys(store).forEach(k => delete store[k]); },
+ key: (index: number) => Object.keys(store)[index] ?? null,
+ get length() { return Object.keys(store).length; },
  },
 });
 

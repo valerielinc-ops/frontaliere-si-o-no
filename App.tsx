@@ -29,6 +29,8 @@ const GamificationWidget = lazyRetry(() => import('@/components/community/Gamifi
 // WhatsNewModal below.
 const NewsletterPopup = React.lazy(() => import('@/components/community/NewsletterPopup'));
 const OfferwallNewsletterGate = React.lazy(() => import('@/components/community/OfferwallNewsletterGate'));
+// Gates [data-pdf-gate] anchor downloads (self-certification forms) behind email/social signup.
+const PdfDownloadGate = React.lazy(() => import('@/components/shared/PdfDownloadGate'));
 // AdBlock detection gate + A/B bucket (#3654). Client-only overlay, never SSR.
 const AdBlockGate = React.lazy(() => import('@/components/community/AdBlockGate'));
 const NewsletterInline = lazyRetry(() => import('@/components/community/Newsletter'));
@@ -3635,6 +3637,7 @@ const App: React.FC = () => {
 
  <SafeLazy boundary="newsletter-popup"><NewsletterPopup /></SafeLazy>
  <SafeLazy boundary="offerwall-gate"><OfferwallNewsletterGate /></SafeLazy>
+ <SafeLazy boundary="pdf-download-gate"><PdfDownloadGate /></SafeLazy>
  <SafeLazy boundary="adblock-gate"><AdBlockGate /></SafeLazy>
  <SafeLazy boundary="newsletter-mount"><NewsletterMount /></SafeLazy>
  {showWhatsNew && (

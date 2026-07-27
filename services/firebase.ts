@@ -125,6 +125,22 @@ async function getAppInstance(): Promise<FirebaseApp> {
  return _app;
 }
 
+let _firestoreDb: unknown = null;
+
+// Shared lazy Firestore singleton for one-off writes (newsletter/lead-magnet
+// gates). Callers pass their own errorContext tag for reportCaughtError.
+export async function getFirestoreLazy(errorContext: string): Promise<unknown> {
+ if (_firestoreDb) return _firestoreDb;
+ try {
+ const { getFirestore } = await import("firebase/firestore");
+ _firestoreDb = getFirestore(await getAppInstance());
+ return _firestoreDb;
+ } catch (e) {
+ reportCaughtError(e, errorContext);
+ return null;
+ }
+}
+
 async function getAnalyticsInstance(): Promise<FirebaseAnalytics | null> {
  if (_analytics) return _analytics;
  // If a previous attempt failed (ad blocker), don't retry — avoid infinite loops.

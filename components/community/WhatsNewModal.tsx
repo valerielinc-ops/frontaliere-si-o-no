@@ -35,6 +35,19 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.86.0',
+    date: '2026-07-27',
+    titleKey: 'whatsNew.v3860.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3860.selfCertSwiss.title',
+        descKey: 'whatsNew.v3860.selfCertSwiss.desc',
+        href: '/moduli/autocertificazione-candidatura/',
+      },
+    ],
+  },
+  {
     version: '3.85.0',
     date: '2026-07-27',
     titleKey: 'whatsNew.v3850.title',
