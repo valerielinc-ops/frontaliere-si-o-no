@@ -615,6 +615,83 @@ describe('mergePreserveLocaleData URL matching', () => {
   });
 });
 
+describe('mergeLocaleTextMap / mergePreserveLocaleData — source-locale drift guard (#4569)', () => {
+  it('mergeLocaleTextMap drops non-source-locale translations when the source text is unrelated', () => {
+    // Reproduces the EOC/Umantis bug: a vacancy URL got reused for a totally
+    // different posting. Old (source=it) is a Physiotherapist job; fresh
+    // (same matched key) is a Cook job. The non-source locales must NOT
+    // silently inherit the old (now-wrong) Physiotherapist translations.
+    const old = {
+      it: 'Fisioterapista dipl. SSS 40%',
+      en: 'Dipl. Physiotherapist FH 40% (m/f/d)',
+      de: 'Dipl. Physiotherapeut FH 40% (m/w/d)',
+      fr: 'Dipl. Physiothérapeute FH 40% (m/f/d)',
+    };
+    const fresh = { it: 'Cuoco/a e/o Cuoco/a in dietetica' };
+
+    const merged = mergeLocaleTextMap(old, fresh, 3, 'it');
+    expect(merged.it).toBe('Cuoco/a e/o Cuoco/a in dietetica');
+    expect(merged.en).toBeUndefined();
+    expect(merged.de).toBeUndefined();
+    expect(merged.fr).toBeUndefined();
+  });
+
+  it('mergeLocaleTextMap still preserves translations for ordinary wording edits to the same job', () => {
+    const old = {
+      it: 'Impiegato/a di commercio per la Ricerca 80-100%',
+      en: 'Commercial Employee for Research 80-100%',
+      de: 'Kaufmann/-frau für Forschung 80-100%',
+      fr: 'Employé(e) de commerce pour la Recherche 80-100%',
+    };
+    // Minor rewording of the same posting (still clearly the same role).
+    const fresh = { it: 'Impiegato/a di commercio di ricerca 80-100%' };
+
+    const merged = mergeLocaleTextMap(old, fresh, 3, 'it');
+    expect(merged.it).toBe('Impiegato/a di commercio di ricerca 80-100%');
+    expect(merged.en).toBe('Commercial Employee for Research 80-100%');
+    expect(merged.de).toBe('Kaufmann/-frau für Forschung 80-100%');
+    expect(merged.fr).toBe('Employé(e) de commerce pour la Recherche 80-100%');
+  });
+
+  it('mergePreserveLocaleData end-to-end: reused vacancy URL does not contaminate the new posting and flags retranslation', async () => {
+    const { mergePreserveLocaleData } = await import('../scripts/lib/dedicated-crawler-common.mjs');
+
+    const existing = [{
+      id: 'eoc-old-id',
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/1950/Description/4',
+      title: 'Fisioterapista dipl. SSS 40%',
+      sourceLang: 'it',
+      titleByLocale: {
+        it: 'Fisioterapista dipl. SSS 40%',
+        en: 'Dipl. Physiotherapist FH 40% (m/f/d)',
+        de: 'Dipl. Physiotherapeut FH 40% (m/w/d)',
+        fr: 'Dipl. Physiothérapeute FH 40% (m/f/d)',
+      },
+    }];
+
+    const fresh = [{
+      id: 'eoc-fresh-id',
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/1950/Description/4',
+      title: 'Cuoco/a e/o Cuoco/a in dietetica',
+      sourceLang: 'it',
+      titleByLocale: { it: 'Cuoco/a e/o Cuoco/a in dietetica' },
+    }];
+
+    const merged = mergePreserveLocaleData(existing, fresh);
+    expect(merged).toHaveLength(1);
+    const job = merged[0];
+    expect(job.titleByLocale.it).toBe('Cuoco/a e/o Cuoco/a in dietetica');
+    // Must NOT carry over the unrelated Physiotherapist translations — left
+    // empty (undefined) rather than contaminated, ready for retranslation.
+    expect(job.titleByLocale.en || '').not.toMatch(/Physiotherapist/);
+    expect(job.titleByLocale.de || '').not.toMatch(/Physiotherapeut/);
+    expect(job.titleByLocale.fr || '').not.toMatch(/Physiothérapeute/);
+    // Flagged so the AI/local-MT pipeline (re)populates en/de/fr against the
+    // new source text instead of leaving them empty indefinitely.
+    expect(job.needsRetranslation).toBe(true);
+  });
+});
+
 describe('mergePreserveLocaleData grace-period retention (silent job loss guard)', () => {
   it('retains a job missing from a single run instead of dropping it immediately', async () => {
     const { mergePreserveLocaleData } = await import('../scripts/lib/dedicated-crawler-common.mjs');
@@ -769,6 +846,40 @@ describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)'
     };
     expect(getMergeExclusionReasons(usJob, cfg)).toContain('job_location_block_foreign');
     expect(getMergeExclusionReasons(chJob, cfg)).not.toContain('job_location_block_foreign');
+  });
+
+  it('getMergeExclusionReasons: seed target-scope does not rescue an EXPLICITLY foreign posting (#4587)', async () => {
+    const { getMergeExclusionReasons } = await import('../scripts/lib/dedicated-crawler-common.mjs');
+    const cfg = { minQualityScore: 0, minDescriptionChars: 0 };
+    // Reproduces the zurich-insurance-sede-ticino bug: the seed URL was
+    // reached via a Switzerland-targeting search term (locationsearch=
+    // Switzerland), so _targetScope claims Swiss relevance for every result
+    // the seed returns — but this particular posting is explicitly in Köln
+    // (Germany). Before the fix, hasSeedMetaTargetScope(job) being true
+    // unconditionally suppressed 'location_explicitly_foreign' and
+    // 'explicitly_outside_target', letting the foreign posting merge in
+    // with a forged Swiss location downstream.
+    const foreignJobWithSeedScope = {
+      title: 'HR Consultant / Personalreferent Köln (m/w/d)',
+      company: 'Zurich Insurance (sede Ticino)',
+      location: 'Köln',
+      url: 'https://careers.zurich.com/job/Koeln-HR-Consultant-Personalreferent-Koeln/1363854557/',
+      description: 'Wir suchen einen HR Consultant für unser Team in Köln, Deutschland.',
+      _targetScope: { canton: 'TI', location: 'Ticino' },
+    };
+    const reasons = getMergeExclusionReasons(foreignJobWithSeedScope, cfg);
+    expect(reasons).toContain('location_explicitly_foreign');
+    // A genuinely Swiss posting from the same seed-scoped crawler must still
+    // be kept — the fix must not turn seed scope into a dead flag entirely.
+    const genuineSwissJobWithSeedScope = {
+      title: 'Underwriter Sachversicherung (m/w/d) 80-100%',
+      company: 'Zurich Insurance (sede Ticino)',
+      location: 'Ticino',
+      url: 'https://careers.zurich.com/job/Lugano-Underwriter/1363800001/',
+      description: 'Underwriter-Position für unser Team in Lugano, Ticino, Schweiz.',
+      _targetScope: { canton: 'TI', location: 'Ticino' },
+    };
+    expect(getMergeExclusionReasons(genuineSwissJobWithSeedScope, cfg)).not.toContain('location_explicitly_foreign');
   });
 });
 
