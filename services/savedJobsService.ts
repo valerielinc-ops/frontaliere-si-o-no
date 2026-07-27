@@ -177,6 +177,23 @@ async function deleteSavedJobDoc(uid: string, jobId: string): Promise<void> {
 
 export type ToggleSavedJobResult = 'saved' | 'unsaved' | 'auth_required';
 
+/** Shared "add" branch for toggleSavedJob and ensureSavedJob — applies the cap/eviction and writes through. */
+function addSavedJobEntry(entry: Omit<SavedJobEntry, 'savedAt'>, uid: string): 'saved' {
+  const savedEntry: SavedJobEntry = { ...entry, savedAt: Date.now() };
+  let next = [...cache, savedEntry];
+  const overflow = next.length - SAVED_JOBS_CAP;
+  let dropped: SavedJobEntry[] = [];
+  if (overflow > 0) {
+    dropped = [...next].sort((a, b) => a.savedAt - b.savedAt).slice(0, overflow);
+    const droppedIds = new Set(dropped.map((d) => d.id));
+    next = next.filter((e) => !droppedIds.has(e.id));
+  }
+  setCache(next);
+  void writeSavedJobDoc(uid, savedEntry);
+  for (const d of dropped) void deleteSavedJobDoc(uid, d.id);
+  return 'saved';
+}
+
 /**
  * Toggle a job in the saved list for a signed-in user. `uid` null/undefined
  * (anonymous visitor) refuses the write and returns `'auth_required'` — the
@@ -198,19 +215,27 @@ export function toggleSavedJob(
     return 'unsaved';
   }
 
-  const savedEntry: SavedJobEntry = { ...entry, savedAt: Date.now() };
-  let next = [...cache, savedEntry];
-  const overflow = next.length - SAVED_JOBS_CAP;
-  let dropped: SavedJobEntry[] = [];
-  if (overflow > 0) {
-    dropped = [...next].sort((a, b) => a.savedAt - b.savedAt).slice(0, overflow);
-    const droppedIds = new Set(dropped.map((d) => d.id));
-    next = next.filter((e) => !droppedIds.has(e.id));
-  }
-  setCache(next);
-  void writeSavedJobDoc(uid, savedEntry);
-  for (const d of dropped) void deleteSavedJobDoc(uid, d.id);
-  return 'saved';
+  return addSavedJobEntry(entry, uid);
+}
+
+export type EnsureSavedJobResult = 'saved' | 'already_saved' | 'auth_required';
+
+/**
+ * Idempotent add-only variant of toggleSavedJob — NEVER un-saves. Used by the
+ * cross-tab pending-save replay (services/pendingSaveJob.ts): two tabs racing
+ * to replay the same intent (e.g. a magic-link email opened in a fresh tab
+ * while the original tab also picks up the auth-state change) must not
+ * toggle each other off, since a genuine toggle reading stale cache state
+ * would flip an already-saved job back out. Worst case here is a harmless
+ * duplicate `setDoc` to the same doc id.
+ */
+export function ensureSavedJob(
+  entry: Omit<SavedJobEntry, 'savedAt'>,
+  uid: string | null | undefined,
+): EnsureSavedJobResult {
+  if (!uid) return 'auth_required';
+  if (cache.some((e) => e.id === entry.id)) return 'already_saved';
+  return addSavedJobEntry(entry, uid);
 }
 
 // ── localStorage → Firestore migration (one-time per uid, per page load) ───

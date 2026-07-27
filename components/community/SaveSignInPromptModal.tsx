@@ -1,26 +1,45 @@
 /**
  * SaveSignInPromptModal — lightweight sign-in gate shown when an anonymous
- * visitor taps "save" on a job or opens the saved-jobs filter (account-gating
- * follow-up to #4466/#4467).
+ * visitor taps "save" on job or opens saved-jobs filter (account-gating
+ * follow-up #4466/#4467).
  *
- * Deliberately NOT the job-detail "auth gate" already in JobBoard.tsx
- * (`authGateOpen`/`handleAuthAndOpen`) — that one conflates real login with
- * an email-capture bypass and crawler allowlisting, and carries unrelated
- * side effects (auto newsletter subscribe, slug-based redirect). Saving a
- * job requires a REAL account, so this modal only offers
- * `SocialSignInButtons` (Google/LinkedIn) — no email fallback.
+ * Deliberately NOT job-detail "auth gate" already in JobBoard.tsx
+ * (`authGateOpen`/`handleAuthAndOpen`) — one conflates real login with
+ * email-capture bypass crawler allowlisting, carries unrelated
+ * side effects (auto newsletter subscribe, slug-based redirect). Saving
+ * job requires REAL account, so this modal offers `SocialSignInButtons`
+ * (Google/LinkedIn) AND an email path. Email reuses the newsletter
+ * double-opt-in (same pattern as PublisherPublishPage.tsx's gate): a NEW
+ * address gets the opt-in email, which doubles as a sign-in link via
+ * ?action=confirm_newsletter auto-login (wired generically in App.tsx for
+ * any sourcePath — including a magic link opened in a brand new tab); an
+ * EXISTING address gets a login link sent explicitly (requestConfirmationEmail
+ * purpose:'login'). All three methods also subscribe to the newsletter
+ * (implicit consent, owner policy, same as the publisher gate).
  *
- * Purely presentational: the parent (`JobBoard.tsx`) owns open/close state
- * and reacts to `authUser?.uid` becoming truthy to close this modal and
- * replay the pending save — `SocialSignInButtons` renders nothing once
- * signed in, so there's no completion callback to wire here.
+ * Purely presentational: parent (`JobBoard.tsx`) owns open/close state
+ * reacts `authUser?.uid` becoming truthy close modal replay pending save —
+ * `SocialSignInButtons` renders nothing once signed in (no completion
+ * callback needed there). The email path's own "sent" state is local —
+ * dismissing the modal after sending does NOT cancel the pending save,
+ * since the link may still be clicked later (possibly in a new tab).
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Bookmark } from 'lucide-react';
+import { X, Bookmark, Mail, Loader2, AlertCircle, Shield } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
+import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
+import { upsertNewsletterSubscriber, requestConfirmationEmail } from '@/services/newsletterSubscribers';
+import { getFirestore } from 'firebase/firestore';
+import { getApp } from '@/services/firebase';
+import { Analytics } from '@/services/analytics';
+import { reportCaughtError } from '@/services/errorReporter';
+
+/** GDPR consent proof recorded when a visitor signs in through this gate. */
+const SAVE_SIGNIN_CONSENT_TEXT =
+  'Accedendo per salvare un annuncio, accetto di ricevere la newsletter per frontalieri (cambio CHF/EUR, traffico e novità fiscali). Posso disiscrivermi in qualsiasi momento.';
 
 interface SaveSignInPromptModalProps {
   locale: string;
@@ -29,6 +48,48 @@ interface SaveSignInPromptModalProps {
 
 export default function SaveSignInPromptModal({ locale, onDismiss }: SaveSignInPromptModalProps) {
   const { t } = useTranslation();
+  const [email, setEmail] = useState('');
+  const [emailStatus, setEmailStatus] = useState<'idle' | 'loading' | 'sent' | 'error'>('idle');
+  const [emailError, setEmailError] = useState('');
+
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (emailStatus === 'loading') return;
+    const trimmed = email.trim();
+    if (!validateEmailStrict(trimmed).valid) {
+      setEmailError(t('newsletter.invalidEmail'));
+      setEmailStatus('error');
+      return;
+    }
+    setEmailStatus('loading');
+    setEmailError('');
+    try {
+      const firestore = getFirestore(await getApp());
+      const upsert = await upsertNewsletterSubscriber(firestore, {
+        email: trimmed,
+        preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
+        source: 'save_signin_prompt_email',
+        sourcePage: window.location.pathname,
+        sourceCta: 'save_signin_prompt_email',
+        sourceComponent: 'SaveSignInPromptModal',
+        sourceRouteFamily: 'community',
+        locale: navigator.language || 'it-IT',
+        consentGiven: true,
+        consentText: SAVE_SIGNIN_CONSENT_TEXT,
+        consentMethod: 'email_checkbox',
+        consentUserAgent: navigator.userAgent,
+      });
+      if (upsert.existed) {
+        await requestConfirmationEmail(trimmed, 'login');
+      }
+      setEmailStatus('sent');
+      Analytics.trackEvent('save_signin_prompt_email_sent', {});
+    } catch (error) {
+      reportCaughtError(error, 'saveSignInPrompt.emailSubmit');
+      setEmailError(t('newsletter.subscribeError'));
+      setEmailStatus('error');
+    }
+  };
 
   return createPortal(
     <div
@@ -60,7 +121,67 @@ export default function SaveSignInPromptModal({ locale, onDismiss }: SaveSignInP
 
         <p className="mb-4 text-sm text-muted">{t('jobBoard.saveAuthPrompt.body')}</p>
 
-        <SocialSignInButtons locale={locale} errorContext="saveAuthPrompt" googleWidth={360} />
+        {emailStatus === 'sent' ? (
+          <div className="flex flex-col items-center text-center py-4">
+            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-success-subtle">
+              <Mail className="h-6 w-6 text-success" aria-hidden="true" />
+            </div>
+            <h3 className="text-sm font-semibold text-heading">{t('jobBoard.saveAuthPrompt.checkEmailTitle')}</h3>
+            <p className="mt-1 text-xs text-muted">{t('jobBoard.saveAuthPrompt.checkEmailBody')}</p>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            <SocialSignInButtons locale={locale} errorContext="saveAuthPrompt" googleWidth={360} />
+
+            <div className="flex items-center gap-3">
+              <div className="flex-1 h-px bg-edge" />
+              <span className="text-xs text-muted uppercase tracking-wider">{t('jobBoard.saveAuthPrompt.or')}</span>
+              <div className="flex-1 h-px bg-edge" />
+            </div>
+
+            <form onSubmit={handleEmailSubmit} className="space-y-2">
+              <label htmlFor="save-signin-prompt-email" className="sr-only">
+                {t('newsletter.emailPlaceholder')}
+              </label>
+              <EmailInput
+                id="save-signin-prompt-email"
+                value={email}
+                onChange={(val) => {
+                  setEmail(val);
+                  if (emailStatus === 'error') setEmailStatus('idle');
+                }}
+                placeholder={t('newsletter.emailPlaceholder')}
+                className="w-full px-4 py-2.5 bg-surface border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent text-strong text-sm"
+              />
+              {emailStatus === 'error' && emailError && (
+                <div className="flex items-start gap-2 p-2 bg-danger-subtle rounded-lg text-danger text-xs">
+                  <AlertCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" />
+                  <span>{emailError}</span>
+                </div>
+              )}
+              <button
+                type="submit"
+                disabled={emailStatus === 'loading'}
+                className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold text-on-accent bg-accent hover:bg-accent-hover rounded-xl transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {emailStatus === 'loading' ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" /> {t('jobBoard.saveAuthPrompt.emailCta')}
+                  </>
+                ) : (
+                  <>
+                    <Mail className="w-4 h-4" /> {t('jobBoard.saveAuthPrompt.emailCta')}
+                  </>
+                )}
+              </button>
+            </form>
+
+            <p className="flex items-start gap-1.5 text-xs text-muted leading-relaxed">
+              <Shield className="w-3.5 h-3.5 text-success shrink-0 mt-0.5" />
+              <span>{t('jobBoard.saveAuthPrompt.consentNote')}</span>
+            </p>
+          </div>
+        )}
 
         <button
           type="button"

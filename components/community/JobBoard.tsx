@@ -42,6 +42,7 @@ import { cantonSearchTokens, CANTON_CODES, getCantonLabel } from '@/services/can
 import {
   loadSavedJobs,
   toggleSavedJob,
+  ensureSavedJob,
   deriveSavedJobsAlertCriteria,
   loadNudgeState,
   saveNudgeState,
@@ -52,6 +53,11 @@ import {
   SAVED_JOBS_NUDGE_THRESHOLD,
   type SavedJobEntry,
 } from '@/services/savedJobsService';
+import {
+  savePendingSaveJobIntent,
+  consumePendingSaveJobIntent,
+  peekPendingSaveJobIntent,
+} from '@/services/pendingSaveJob';
 import {
  type BehaviorData,
  getBehaviorData,
@@ -2216,8 +2222,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // action here and opens SaveSignInPromptModal; the effect below replays it
  // once authUser.uid becomes truthy.
  const [saveAuthPromptOpen, setSaveAuthPromptOpen] = useState(false);
- const pendingSaveJobRef = useRef<{ job: JobListing; surface: 'list' | 'detail' } | null>(null);
- const pendingShowSavedOnlyRef = useRef(false);
  const [savedNudge, setSavedNudge] = useState<{ categoryLabel: string; cantonCode: string | null } | null>(null);
  // Once per SPA session: never re-arm the nudge after any show/dismiss cycle.
  const savedNudgeArmedRef = useRef(false);
@@ -2302,12 +2306,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, []);
 
  // Account-gating (#4466 follow-up): anonymous tap never writes — stash the
- // pending job + open the sign-in modal instead. authUser?.uid replay effect
- // below fires the actual save once sign-in completes.
+ // pending job in services/pendingSaveJob.ts (localStorage, survives a
+ // magic-link email opened in a brand new tab) + open the sign-in modal.
+ // The authUser?.uid replay effect below fires the actual save once sign-in
+ // completes, in THIS tab or a fresh one.
  const handleToggleSave = useCallback((job: JobListing, surface: 'list' | 'detail' = 'list') => {
  const uid = authUser?.uid ?? null;
  if (!uid) {
- pendingSaveJobRef.current = { job, surface };
+ savePendingSaveJobIntent({
+ kind: 'save_job',
+ entry: {
+ id: job.id,
+ slug: job.slug ?? null,
+ title: job.title,
+ company: job.company,
+ canton: job.canton ?? null,
+ category: job.category ?? null,
+ },
+ surface,
+ });
  setSaveAuthPromptOpen(true);
  Analytics.trackEvent('save_signin_prompt_shown', { job_id: job.id, surface });
  return;
@@ -2320,36 +2337,48 @@ const JobBoard: React.FC<JobBoardProps> = ({
  [handleToggleSave],
  );
 
- // Replays the pending save (bookmark tap) or opens the saved-only filter
- // (pill tap) once the sign-in modal reports a real authUser.uid — modal
- // itself closes as a side effect (SocialSignInButtons renders null once
- // signed in, so there's no completion callback to hook instead).
+ // Replays a pending save-job intent (bookmark tap) or opens the saved-only
+ // filter (pill tap) whenever authUser?.uid becomes truthy. Gated ONLY on
+ // uid — NOT on saveAuthPromptOpen — because the email magic-link path can
+ // complete sign-in in a brand new tab where the modal was never rendered;
+ // services/pendingSaveJob.ts (localStorage), not this component's own
+ // state, is what survives that round-trip. ensureSavedJob (not
+ // toggleSavedJob) is used so a second tab replaying the same intent around
+ // the same time can't race a genuine toggle back off.
  useEffect(() => {
- if (!saveAuthPromptOpen) return;
  const uid = authUser?.uid;
  if (!uid) return;
  setSaveAuthPromptOpen(false);
- const pendingJob = pendingSaveJobRef.current;
- pendingSaveJobRef.current = null;
- if (pendingJob) {
- Analytics.trackEvent('save_signin_prompt_completed', { job_id: pendingJob.job.id, surface: pendingJob.surface });
- performToggleSave(pendingJob.job, pendingJob.surface, uid);
+ const intent = consumePendingSaveJobIntent();
+ if (!intent) return;
+ if (intent.kind === 'save_job') {
+ Analytics.trackEvent('save_signin_prompt_completed', { job_id: intent.entry.id, surface: intent.surface });
+ const result = ensureSavedJob(intent.entry, uid);
+ if (result === 'saved') {
+ Analytics.trackEvent('job_saved', {
+ job_id: intent.entry.id,
+ job_canton: intent.entry.canton || '(none)',
+ job_category: intent.entry.category || '(none)',
+ job_company: intent.entry.company || '(none)',
+ surface: intent.surface,
+ });
  }
- if (pendingShowSavedOnlyRef.current) {
- pendingShowSavedOnlyRef.current = false;
+ } else {
  Analytics.trackEvent('save_signin_prompt_completed', { surface: 'saved_filter_pill' });
  setShowSavedOnly(true);
  }
- }, [authUser?.uid, saveAuthPromptOpen, performToggleSave]);
+ }, [authUser?.uid]);
 
+ // Dismiss only closes the modal — it does NOT clear the pending intent.
+ // The email path is inherently async (the link may be clicked later, in
+ // another tab); closing the "check your email" card isn't abandonment.
+ // The 15-minute TTL in pendingSaveJob.ts handles true abandonment.
  const handleSaveAuthPromptDismiss = useCallback(() => {
- const pendingJob = pendingSaveJobRef.current;
+ const intent = peekPendingSaveJobIntent();
  Analytics.trackEvent(
  'save_signin_prompt_dismissed',
- pendingJob ? { job_id: pendingJob.job.id, surface: pendingJob.surface } : { surface: 'saved_filter_pill' },
+ intent?.kind === 'save_job' ? { job_id: intent.entry.id, surface: intent.surface } : { surface: 'saved_filter_pill' },
  );
- pendingSaveJobRef.current = null;
- pendingShowSavedOnlyRef.current = false;
  setSaveAuthPromptOpen(false);
  }, []);
 
@@ -8886,7 +8915,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onClick={() => {
  const next = !showSavedOnly;
  if (next && !authUser?.uid) {
- pendingShowSavedOnlyRef.current = true;
+ savePendingSaveJobIntent({ kind: 'show_saved_only' });
  setSaveAuthPromptOpen(true);
  Analytics.trackEvent('save_signin_prompt_shown', { surface: 'saved_filter_pill' });
  return;
