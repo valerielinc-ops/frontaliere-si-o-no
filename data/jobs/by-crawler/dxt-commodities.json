@@ -1,6 +1,6 @@
 {
   "crawlerKey": "dxt-commodities",
-  "assembledAt": "2026-07-27T12:46:26.576Z",
+  "assembledAt": "2026-07-27T22:12:06.947Z",
   "jobs": [
     {
       "url": "https://dxt.com/careers/?panel=20897_1",
@@ -44,22 +44,23 @@
       },
       "id": "dxt-commodities-f60f8843492a",
       "previousSlugsByLocale": {
-        "en": [
-          "quant-internship-power-market-dxt",
-          "junior-legal-dxt-commodities-s-a-lugano-3z6x3l"
-        ],
         "it": [
           "quant-internship-power-market-dxt",
           "junior-legal-dxt"
+        ],
+        "en": [
+          "quant-internship-power-market-dxt",
+          "junior-legal-dxt-commodities-s-a-lugano-3z6x3l"
         ]
       },
       "previousSlugs": [
         "quant-internship-power-market-dxt",
-        "junior-legal-dxt-commodities-s-a-lugano-3z6x3l",
-        "junior-legal-dxt"
+        "junior-legal-dxt",
+        "junior-legal-dxt-commodities-s-a-lugano-3z6x3l"
       ],
       "firstSeenAt": "2026-07-10T12:04:35.208Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
