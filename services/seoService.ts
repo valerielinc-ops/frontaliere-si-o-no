@@ -4921,6 +4921,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-vivere-valsolda-lavorare-ticino': { name: 'Valsolda Frontalieri', path: '/articoli-frontaliere/vivere-valsolda-lavorare-ticino', parent: 'blog' },
     'blog-lavoro-frontaliero-subordinazione-e-credito-dimposta-nei-rapporti-italiasvizzera': { name: 'Lavoro frontaliero, subordinazione e', path: '/articoli-frontaliere/lavoro-frontaliero-subordinazione-e-credito-dimposta-nei-rapporti-italiasvizzera', parent: 'blog' },
     'blog-trasferirsi-a-valsolda-da-frontaliere-pro-e-contro': { name: 'trasferimento a Valsolda', path: '/articoli-frontaliere/trasferirsi-a-valsolda-da-frontaliere-pro-e-contro', parent: 'blog' },
+    'blog-terzo-pilastro-3a-vantaggi-fiscali': { name: 'Terzo pilastro 3a', path: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-fiscali/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -20376,6 +20376,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-terzo-pilastro-3a-vantaggi-fiscali': {
+    title: 'Terzo pilastro 3a: vantaggi fiscali e risparmio in Svizzera',
+    description: 'Guida completa al terzo pilastro 3a in Svizzera: scopri i vantaggi fiscali, le differenze tra conto bancario e assicurazione e come ottimizzare le imposte.',
+    keywords: 'frontalieri, ticino, svizzera, italia, terzo, pilastro, vantaggi, fiscali',
+    ogTitle: 'Terzo pilastro 3a: vantaggi fiscali e risparmio in Svizzera',
+    ogDescription: 'Scopri come funziona il terzo pilastro 3a in Svizzera, i vantaggi fiscali reali e le differenze tra le soluzioni bancarie e assicurative.',
+    canonicalPath: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-fiscali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Terzo pilastro 3a: vantaggi fiscali e risparmio in Svizzera",
+      "description": "Guida completa al terzo pilastro 3a in Svizzera: scopri i vantaggi fiscali, le differenze tra conto bancario e assicurazione e come ottimizzare le imposte.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/terzo-pilastro-3a-vantaggi-fiscali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano e del distretto finanziario con edifici moderni"
+      },
+      "datePublished": "2026-07-27T02:48:17+00:00",
+      "dateModified": "2026-07-27T02:48:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/terzo-pilastro-3a-vantaggi-fiscali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

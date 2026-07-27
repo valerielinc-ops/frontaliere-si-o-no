@@ -4724,6 +4724,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'terzo-pilastro-3a-vantaggi-fiscali',
+    category: 'fiscale',
+    date: '2026-07-27T02:48:17.714Z',
+    image: '/images/blog/terzo-pilastro-3a-vantaggi-fiscali.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

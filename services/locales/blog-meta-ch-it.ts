@@ -1576,6 +1576,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-guida-completa.title': 'Secondo pilastro LPP: guida completa e funzionamento',
     'blog.article.secondo-pilastro-lpp-guida-completa.excerpt': 'Guida completa al secondo pilastro LPP in Svizzera: funzionamento, aliquote dei contributi, riscatto delle lacune e prelievo per l\'acquisto della casa.',
     'blog.article.secondo-pilastro-lpp-guida-completa.imageAlt': 'Guida completa al secondo pilastro LPP in Svizzera',
+    'blog.article.terzo-pilastro-3a-vantaggi-fiscali.title': 'Terzo pilastro 3a: vantaggi fiscali e risparmio in Svizzera',
+    'blog.article.terzo-pilastro-3a-vantaggi-fiscali.excerpt': 'Guida completa al terzo pilastro 3a in Svizzera: vantaggi fiscali reali, differenze tra pilastro bancario e assicurativo e ottimizzazione delle imposte.',
+    'blog.article.terzo-pilastro-3a-vantaggi-fiscali.imageAlt': 'Vista panoramica di Lugano e del distretto finanziario con edifici moderni',
 };
 
 export default blogMetaChIt;
