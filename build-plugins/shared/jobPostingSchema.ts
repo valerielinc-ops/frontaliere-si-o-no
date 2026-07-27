@@ -22,6 +22,28 @@
  *   - `build-plugins/jobsSeoPagesPlugin.ts` (per-job active + soft-landing)
  *   - `build-plugins/weeklyEmployersPlugin.ts` (per-company × per-city hubs)
  *   - `services/seoService.ts` (runtime SPA JSON-LD injection)
+ *
+ * Beyond the 9 mandatory fields, the builder also emits three optional
+ * schema.org properties when the source data supports them:
+ *   - `industry` / `occupationalCategory` — derived from `job.sector`/
+ *     `job.category` (already present on every job for the ONet mapping
+ *     used elsewhere), so this is real signal, not invented data.
+ *   - `applicantLocationRequirements` — only when `job.isRemote` is true
+ *     (schema.org defines this property for TELECOMMUTE postings; stamping
+ *     it on every job regardless of location type is a validator-visible
+ *     but semantically wrong shortcut — see #jobLocationType below).
+ *
+ * `experienceRequirements` and `educationRequirements` are deliberately
+ * NOT emitted: there is no reliable upstream source. A handful of ATS
+ * parsers (`scripts/lib/fincons-job-parser.mjs`, `scripts/lib/board-job-
+ * parser.mjs`) do scrape an `experienceRequirements` string, but it is
+ * stashed in a per-crawler `metadata` bag that is never threaded into
+ * `JobInput` and covers a tiny fraction of jobs/crawlers — wiring it in
+ * would either fabricate the field for ~all other jobs or silently ship
+ * inconsistent coverage. `educationRequirements` is mentioned only in a
+ * doc comment (`scripts/lib/spitex-ch-job-parser.mjs`) describing what the
+ * *source* JSON-LD contains — no parser actually extracts it. Revisit if a
+ * crawler starts capturing either field consistently across companies.
  */
 
 import {
@@ -180,6 +202,19 @@ export interface JobPostingSchema {
     readonly value: string;
   };
   readonly jobLocationType?: 'TELECOMMUTE';
+  /** schema.org `industry` — Text, derived from `job.sector`/`job.category`. */
+  readonly industry?: string;
+  /** schema.org `occupationalCategory` — O*NET-SOC code, when the category maps. */
+  readonly occupationalCategory?: string;
+  /**
+   * schema.org `applicantLocationRequirements` — only present alongside
+   * `jobLocationType: 'TELECOMMUTE'` (i.e. `job.isRemote`); MUST be absent
+   * for on-site postings.
+   */
+  readonly applicantLocationRequirements?: {
+    readonly '@type': 'Country';
+    readonly name: string;
+  };
 }
 
 /** Schema.org `JobPosting.employmentType` closed set. */
@@ -244,6 +279,74 @@ function normaliseEmploymentType(raw: string | null | undefined): EmploymentType
   if (!raw) return 'FULL_TIME';
   const key = String(raw).toLowerCase().trim().replace(/\s+/g, '_');
   return EMPLOYMENT_TYPE_MAP[key] || 'FULL_TIME';
+}
+
+/**
+ * `job.category`/`job.sector` → O*NET-SOC major-group code, for the
+ * schema.org `occupationalCategory` property. Relocated here (from the
+ * single previous call site in `jobsSeoPagesPlugin.ts`) so every caller of
+ * `buildJobPostingSchema` — including the SPA path in `services/seoService.ts`
+ * — emits the same field instead of drifting per-caller copies (AGENTS.md
+ * anti-duplication rule).
+ */
+const CATEGORY_TO_ONET: Record<string, string> = {
+  tech: '15-0000', technology: '15-0000', it: '15-0000', development: '15-0000',
+  devops: '15-0000', analysis: '15-2000', 'IT / Software Development': '15-0000',
+  'Corporate and Staff Functions/Information Technology': '15-0000',
+  engineering: '17-0000', 'Ingegneria & Tecnica': '17-0000', impiantistica: '17-0000',
+  meccanica: '17-0000', metallo: '17-0000', drafting: '17-3000', technician: '17-3000',
+  architecture: '17-1000', 'Robotica & Automazione': '17-0000',
+  health: '29-0000', healthcare: '29-0000', 'Life Science & Tecnologia Medica': '29-0000',
+  'Chimica & Analisi': '19-0000', science: '19-0000', researcher: '19-0000',
+  phd: '19-0000', sustainability: '19-0000',
+  finance: '13-0000', finanza: '13-0000', assicurazioni: '13-0000', insurance: '13-0000',
+  'Corporate and Staff Functions/Finance & Control': '13-0000', accounting: '13-2000',
+  management: '11-0000', consulting: '11-0000', 'Consulenza gestionale': '11-0000',
+  operations: '11-0000',
+  admin: '43-0000', Administration: '43-0000', 'Servizi Aziendali': '43-0000',
+  staff: '43-0000', general: '43-0000', 'public-administration': '43-0000',
+  sales: '41-0000', vendita: '41-0000', 'Vendita & Commercio': '41-0000',
+  'Commercio al dettaglio': '41-0000',
+  logistics: '53-0000', 'Logistica & Trasporti': '53-0000', 'Logistica & Magazzino': '53-0000',
+  Logistik: '53-0000', aviation: '53-0000',
+  marketing: '27-3000', design: '27-1000', translation: '27-3000',
+  hr: '13-1000', 'risorse-umane': '13-1000',
+  legal: '23-0000',
+  education: '25-0000', professor: '25-0000',
+  'social-services': '21-0000', 'real-estate': '13-0000',
+  'Turismo & Ospitalità': '35-0000', hospitality: '35-0000', gastronomy: '35-0000',
+  cucina: '35-0000', servizio: '35-0000',
+  'Agricoltura & Commercio': '45-0000',
+  edilizia: '47-0000', cantiere: '47-0000',
+  production: '51-0000', manufacturing: '51-0000',
+  security: '33-0000', safety: '33-0000',
+};
+
+/** Resolve `job.sector`/`job.category` to an O*NET-SOC code, if known. */
+function resolveOccupationalCategory(job: JobInput): string | undefined {
+  const cat = String(job.sector || job.category || '').trim();
+  return cat ? CATEGORY_TO_ONET[cat] : undefined;
+}
+
+/**
+ * Resolve schema.org `industry` (Text) from the same category/sector
+ * signal used for `occupationalCategory` — no separate source needed.
+ */
+function resolveIndustry(job: JobInput): string | undefined {
+  const raw = String(job.sector || job.category || '').trim();
+  return raw.length > 0 ? raw : undefined;
+}
+
+/**
+ * Resolve `applicantLocationRequirements` — schema.org restricts this
+ * property to TELECOMMUTE postings; it must be omitted for on-site jobs
+ * (#applicantLocationRequirements hardcode fix). Country is always 'CH'
+ * because this board only lists Swiss-based (frontalieri) remote roles.
+ */
+function resolveApplicantLocationRequirements(
+  job: JobInput,
+): { readonly '@type': 'Country'; readonly name: string } | undefined {
+  return job.isRemote ? { '@type': 'Country', name: 'CH' } : undefined;
 }
 
 /** Normalise any date-ish input to an ISO 8601 string; `null` on failure. */
@@ -590,6 +693,9 @@ export function buildJobPostingSchema(
     job.employmentType || job.contractType || job.contract,
   );
   const baseSalary = resolveBaseSalary(job);
+  const industry = resolveIndustry(job);
+  const occupationalCategory = resolveOccupationalCategory(job);
+  const applicantLocationRequirements = resolveApplicantLocationRequirements(job);
 
   const rawLogo = job.companyLogoUrl && String(job.companyLogoUrl).trim().length > 0
     ? String(job.companyLogoUrl).trim()
@@ -641,6 +747,9 @@ export function buildJobPostingSchema(
         }
       : {}),
     ...(job.isRemote ? { jobLocationType: 'TELECOMMUTE' as const } : {}),
+    ...(industry ? { industry } : {}),
+    ...(occupationalCategory ? { occupationalCategory } : {}),
+    ...(applicantLocationRequirements ? { applicantLocationRequirements } : {}),
   };
 
   assertMandatoryFieldsComplete(schema);
