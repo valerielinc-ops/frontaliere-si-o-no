@@ -123,6 +123,18 @@ describe('WhatsNewModal', () => {
 
     expect(link.getAttribute('href')).toBe(buildPath({ activeTab: 'calculator', calcolatoreSubTab: 'calculator' }, 'it'));
   });
+
+  it('links the self-certification forms item to its standalone static page via href, not an SPA tab', () => {
+    const item = findReleaseItem('3.83.0', 'whatsNew.v3830.selfCertForms.title');
+    expect(item?.href).toBe('/moduli/autocertificazione-candidatura/');
+    expect(item?.link).toBeUndefined();
+
+    render(<WhatsNewModal open={true} onClose={vi.fn()} />);
+    const label = `${itCore['whatsNew.v3830.selfCertForms.title']} — ${itCore['whatsNew.goTo']}`;
+    const link = screen.getByRole('link', { name: label });
+
+    expect(link.getAttribute('href')).toBe('/moduli/autocertificazione-candidatura/');
+  });
 });
 
 // ─── RELEASES data integrity ─────────────────────────────────────────────
