@@ -705,6 +705,9 @@ export function countHtmlBodyWords(html: string): number {
 /** Minimum word count for a page to be considered indexable (not thin content). */
 export const MIN_INDEXABLE_WORDS = 50;
 
+/** Shared below-floor tag -- reused by both content-gated robots helpers below. */
+const ROBOTS_NOINDEX_FOLLOW = '\n <meta name="robots" content="noindex,follow">';
+
 /**
  * Returns the appropriate robots meta tag based on the word count of the page body.
  * Pages with >= MIN_INDEXABLE_WORDS get `index,follow`; below that, `noindex,follow`.
@@ -715,5 +718,29 @@ export function robotsMetaForContent(bodyHtml: string): string {
  if (wordCount >= MIN_INDEXABLE_WORDS) {
  return '\n <meta name="robots" content="index,follow">';
  }
- return '\n <meta name="robots" content="noindex,follow">';
+ return ROBOTS_NOINDEX_FOLLOW;
+}
+
+/**
+ * Enhanced robots directive for indexable pages, asking Google for large
+ * snippet/image/video previews in search results. Value matches what's
+ * already live on canton hub pages (e.g. /cerca-lavoro-ticino/) and used by
+ * staticPagesPlugin.ts / ogPagesPlugin.ts -- a single shared export so new
+ * callers reuse it instead of hand-typing the qualifier list.
+ */
+export const ROBOTS_INDEX_ENHANCED = '\n <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">';
+
+/**
+ * Same word-count gate as `robotsMetaForContent`, but returns the enhanced
+ * snippet/preview directives on the indexable branch instead of plain
+ * `index,follow`. For hub-style landing pages (sector/recency hubs) that
+ * aren't protected by an upstream inventory floor -- unlike the canton/city
+ * editorial hubs, which are always past a floor gate by the time they reach
+ * HTML emission and can use `ROBOTS_INDEX_ENHANCED` directly -- so content
+ * depth must be checked per-render instead of assumed.
+ */
+export function robotsMetaEnhancedForContent(bodyHtml: string): string {
+ return countHtmlBodyWords(bodyHtml) >= MIN_INDEXABLE_WORDS
+ ? ROBOTS_INDEX_ENHANCED
+ : ROBOTS_NOINDEX_FOLLOW;
 }

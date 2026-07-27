@@ -4,7 +4,6 @@
 import type { SEOMetadata } from '../seoService';
 
 const BASE_URL = 'https://frontaliereticino.ch';
-const BUILD_DATE_ISO = new Date().toISOString();
 
 const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  'blog-acquarossa-nuovo-polo-filovia-2026': {
@@ -1864,7 +1863,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  "caption": "Cross-border worker calculator comparison"
  },
  "datePublished": "2026-03-31T10:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-03-31T10:00:00+01:00",
  "inLanguage": "en",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -1890,7 +1889,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  "description": "Analisi completa dei pro e contro del permesso G per frontalieri: tassazione, previdenza AVS/LPP, diritti lavorativi, e quando conviene rispetto al permesso B.",
  "image": { "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/mendrisio.webp`, "width": 1200, "height": 675 },
  "datePublished": "2026-04-03",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-04-03",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -1926,7 +1925,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  "description": "Guida alla scelta tra assicurazione sanitaria svizzera LAMal e SSN italiano per frontalieri: costi, coperture e scenari concreti.",
  "image": { "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/lac-lugano.webp`, "width": 1200, "height": 675 },
  "datePublished": "2026-04-03",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-04-03",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -1962,7 +1961,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  "description": "Portali di ricerca, settori che assumono, CV svizzero, colloquio e stipendi medi: guida completa per trovare lavoro in Canton Ticino.",
  "image": { "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/lugano-view.webp`, "width": 1200, "height": 675 },
  "datePublished": "2026-04-03",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-04-03",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -1998,7 +1997,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  "description": "Dalla ricerca del lavoro al primo giorno: permessi, tasse, previdenza, assicurazione e tutto quello che serve per lavorare in Svizzera dall\'Italia.",
  "image": { "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/castelgrande.webp`, "width": 1200, "height": 675 },
  "datePublished": "2026-04-03",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-04-03",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},

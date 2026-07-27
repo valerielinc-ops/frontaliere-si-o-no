@@ -23,6 +23,7 @@ import {
   GTAG_SNIPPET,
   ADSENSE_SNIPPET,
   CDN_PRECONNECT_HINT,
+  robotsMetaEnhancedForContent,
 } from './constants';
 import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
 import {
@@ -458,6 +459,14 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
   const statGridHtml = renderStatGrid(statTiles);
   const ctaHtml = `<a href="${sectionRootUrl}" class="${CTA_PRIMARY_CLASS}" style="margin:0 0 24px">${esc(openAllByLocale[locale])} →</a>`;
 
+  // No upstream inventory floor gates this page (unlike the canton/city
+  // editorial hubs in jobsSeoPagesPlugin.ts) -- SECTOR_HUB_KEYS x LOCALES
+  // emits unconditionally regardless of job count, so the robots tag must be
+  // computed per-render from the actual assembled body content instead of
+  // assumed indexable.
+  const sectorBodyHtml = `${jobsHtml}${prose.html}${faqHtml}${sectorContextHtml}${siblingRailHtml}${crossCantonRailHtml}`;
+  const sectorRobotsTag = robotsMetaEnhancedForContent(sectorBodyHtml);
+
   return `<!doctype html>
 <html lang="${locale}">
   <head>
@@ -465,7 +474,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     <meta name="viewport" content="width=device-width,initial-scale=1">
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}${FAVICON_LINKS}
     <title>${esc(seo.title)}</title>
-    <meta name="description" content="${esc(clampMetaDescription(seo.desc))}">
+    <meta name="description" content="${esc(clampMetaDescription(seo.desc))}">${sectorRobotsTag}
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">

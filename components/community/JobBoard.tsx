@@ -4835,10 +4835,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  logo,
  },
  jobLocationType: isRemote ? 'TELECOMMUTE' : undefined,
- applicantLocationRequirements: {
- '@type': 'Country',
- name: 'CH',
- },
  jobLocation: {
  '@type': 'Place',
  address: {
@@ -4853,6 +4849,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  directApply: Boolean(job.url),
  url: canonicalUrl,
  };
+ if (isRemote) {
+ // Scoped to remote jobs only — an on-site job is not "open to applicants
+ // from CH" in the schema.org sense (mirrors build-plugins/shared/jobPostingSchema.ts).
+ posting.applicantLocationRequirements = {
+ '@type': 'Country',
+ name: 'CH',
+ };
+ }
  if (Number.isFinite(salaryMin)) {
  // FRO-maxValue: maxValue MUST always be present — GSC flags missing maxValue as quality issue.
  const effectiveMax = Number.isFinite(salaryMax) && salaryMax > salaryMin

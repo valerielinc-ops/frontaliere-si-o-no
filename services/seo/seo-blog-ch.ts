@@ -7,7 +7,6 @@
 import type { SEOMetadata } from '../seoService';
 
 const BASE_URL = 'https://frontaliereticino.ch';
-const BUILD_DATE_ISO = new Date().toISOString();
 
 const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
  'blog-costo-vita-svizzera-2026': {
@@ -24,7 +23,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
  "description": "Confronto tra i cantoni svizzeri su affitti, premi cassa malati, imposte e spesa quotidiana nel 2026",
  "image": { "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/swissminiatur.webp`, "width": 1344, "height": 756, "caption": "Modellini di edifici svizzeri allo Swissminiatur di Melide, simbolo del confronto tra i cantoni." },
  "datePublished": "2026-06-02T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-06-02T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Pratico",
  "author": {"@type": "Person", "name": "Marco Ferrari", "jobTitle": "Esperto fiscalità frontaliera", "url": "https://frontaliereticino.ch/autori/marco-ferrari/", "sameAs": "https://www.linkedin.com/in/marco-ferrari-frontaliere-ticino/"},
@@ -48,7 +47,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
  "description": "I premi dell'assicurazione malattia obbligatoria LAMal aumentano in media del 6% nel 2026 in tutti i cantoni svizzeri",
  "image": { "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/bellinzona.webp`, "width": 1344, "height": 756, "caption": "Panorama di Bellinzona con i castelli medievali, capoluogo di un cantone tra i più cari per la cassa malati." },
  "datePublished": "2026-06-02T00:00:00+01:00",
- "dateModified": BUILD_DATE_ISO,
+ "dateModified": "2026-06-02T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Fiscale",
  "author": {"@type": "Person", "name": "Laura Bianchi", "jobTitle": "Specialista previdenza svizzera", "url": "https://frontaliereticino.ch/autori/laura-bianchi/", "sameAs": "https://www.linkedin.com/in/laura-bianchi-previdenza-svizzera/"},

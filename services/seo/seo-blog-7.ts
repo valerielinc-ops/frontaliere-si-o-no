@@ -4,7 +4,6 @@
 import type { SEOMetadata } from '../seoService';
 
 const BASE_URL = 'https://frontaliereticino.ch';
-const BUILD_DATE_ISO = new Date().toISOString();
 
 const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
   'blog-education-day-confindustria-varese-2026': {
