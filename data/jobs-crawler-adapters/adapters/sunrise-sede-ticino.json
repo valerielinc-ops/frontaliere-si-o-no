@@ -12,7 +12,7 @@
     "https://careers.sunrise.ch/it/it/search-results"
   ],
   "notes": "Dedicated Sunrise crawler parses the Phenom search pages and keeps CH-wide jobs (all 26 cantons) from the Sunrise careers portal; per-job canton inferred from the clean city signal, foreign/unresolved postings dropped.",
-  "updatedAt": "2026-07-27T12:33:58.062Z",
+  "updatedAt": "2026-07-27T22:18:03.495Z",
   "seedMetaByUrl": {
     "https://careers.sunrise.ch/it/it/job/REQ_30036626/senior-dc-network-engineer-80-100": {
       "location": "Zurich",
@@ -44,6 +44,12 @@
       "company": "Sunrise Communications AG",
       "postedDate": "2026-07-13"
     },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036762/sales-capability-coach-80-100": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-07-17"
+    },
     "https://careers.sunrise.ch/it/it/job/REQ_30036610/sales-agent-pfaffikon-sz-seedamm-center-60-100": {
       "location": "Pfäffikon SZ",
       "canton": "SZ",
@@ -70,18 +76,6 @@
     },
     "https://careers.sunrise.ch/it/it/job/REQ_30036752/sales-agent-reinach-ag-60-100": {
       "location": "Reinach AG",
-      "canton": "AG",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-07-27"
-    },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036669/sales-agent-luzern-weinmarkt-80": {
-      "location": "Luzern",
-      "canton": "LU",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-07-27"
-    },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036735/sales-agent-oftringen-perry-center-60-100": {
-      "location": "Oftringen",
       "canton": "AG",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-07-27"
@@ -113,6 +107,18 @@
     "https://careers.sunrise.ch/it/it/job/REQ_30036800/sales-agent-nyon-60-100": {
       "location": "Nyon",
       "canton": "VD",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-07-27"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036669/sales-agent-luzern-weinmarkt-80": {
+      "location": "Luzern",
+      "canton": "LU",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-07-27"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036735/sales-agent-oftringen-perry-center-60-100": {
+      "location": "Oftringen",
+      "canton": "AG",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-07-27"
     }
