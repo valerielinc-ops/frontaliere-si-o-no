@@ -1,18 +1,50 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-07-26T22:09:17.388Z",
-  "total": 22,
-  "newCount": 0,
+  "generatedAt": "2026-07-27T12:40:12.924Z",
+  "total": 23,
+  "newCount": 1,
   "updatedCount": 22,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 65671,
-  "avgDurationMs": 65671,
+  "durationMs": 25409,
+  "avgDurationMs": 25409,
   "durationHistory": [
-    65671
+    25409
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-functional-cancer-genomics-lab-techncian-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-functional-cancer-genomics-lab-techncian-2026.pdf",
+      "title": "Posizione di tecnico di laboratorio nel laboratorio di genomica del cancro funzionale",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "posizione-di-tecnico-di-laboratorio-nel-laboratorio-di-genomica-del-cancro-funzionale-usi-lugano",
+      "department": "Institute of Oncology Research (IOR)",
+      "category": "staff",
+      "datePosted": "2026-07-27",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "usi-universita-della-svizzera-italiana-5f787a06ff5b",
+      "sourceLang": "en",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 23,
+        "completeness": 9
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-diritto-tributario-2026.pdf",
@@ -100,7 +132,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-2127129167ca",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -132,7 +164,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-7c10c511fa1a",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-06-30T23:23:38.579Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -164,7 +196,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-ceb3beaca884",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -177,13 +209,13 @@
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-postdoc-radioligand-radiotherapy-prostate-cancer-2026.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-postdoc-radioligand-radiotherapy-prostate-cancer-2026.pdf",
-      "title": "Posizione post-dottorale sulla resistenza alla radioligione e alla radioterapia nel cancro alla prostata nel laboratorio funzionale della genomica del cancro",
+      "title": "Posizione post-dottorale sulla resistenza alla radioligione e alla radioterapia nel cancro alla dose nel laboratorio funzionale della genomica del cancro",
       "company": "USI – Università della Svizzera italiana",
       "companyKey": "usi-universita-della-svizzera-italiana",
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
-      "slug": "posizione-post-dottorale-sulla-resistenza-alla-radioligione-e-alla-radioterapia-nel-cancro-alla-prostata-nel-laboratorio-funzionale-della-genomica-del-cancro-usi-lugano",
+      "slug": "posizione-post-dottorale-sulla-resistenza-alla-radioligione-e-alla-radioterapia-nel-cancro-alla-dose-nel-laboratorio-funzionale-della-genomica-del-cancro-usi-lugano",
       "department": "Institute of Oncology Research (IOR)",
       "category": "researcher",
       "datePosted": "2026-05-21",
@@ -196,7 +228,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-c7a3db81dae5",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-05-21T13:45:01.598Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -228,7 +260,7 @@
         "location": "Mendrisio"
       },
       "id": "usi-universita-della-svizzera-italiana-0c041bfbbfc0",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-04-29T22:47:38.313Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -292,7 +324,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-2b3f47cf60be",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -324,7 +356,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-c86503b7b022",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -356,7 +388,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-91715087b937",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-05-27T00:41:02.159Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -388,7 +420,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-19ab83c519f2",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-07-17T22:09:12.866Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -452,7 +484,7 @@
         "location": "Mendrisio"
       },
       "id": "usi-universita-della-svizzera-italiana-e0ffeaa92fff",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-07-10T10:25:30.321Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -484,7 +516,7 @@
         "location": "Mendrisio"
       },
       "id": "usi-universita-della-svizzera-italiana-4bd022dc1bdc",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-07-10T10:25:30.321Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -644,7 +676,7 @@
         "location": "Mendrisio"
       },
       "id": "usi-universita-della-svizzera-italiana-51bba80ca662",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -708,7 +740,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-9fb16e6738bc",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-07-01T12:53:55.759Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
