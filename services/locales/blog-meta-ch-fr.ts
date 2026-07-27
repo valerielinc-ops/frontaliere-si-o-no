@@ -1597,6 +1597,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-omnibus-2026.title': 'Frontalier du Tessin : 100 % dès 2026 pour tous',
     'blog.article.frontalieri-ticino-omnibus-2026.excerpt': 'L\'OCST signale : à partir de janvier 2026, les frontaliers des nouvelles communes frontalières qui choisissent le décret Omnibus paieront l\'impôt à la source à 100 % au Tessin, et non plus à 80 %. Charge fiscale en hausse si vous optez pour la taxe de substitution italienne.',
     'blog.article.frontalieri-ticino-omnibus-2026.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes',
+    'blog.article.tassa-salute-frontalieri-attacco-ticino.title': 'Couper les restaurations, le canton du Tessin s\'attaque à la taxe santé',
+    'blog.article.tassa-salute-frontalieri-attacco-ticino.excerpt': 'Le Conseiller d\'Etat Christian Vitta a déclaré vouloir s\'attaquer au mécanisme des restaurations pour les frontaliers.',
+    'blog.article.tassa-salute-frontalieri-attacco-ticino.imageAlt': 'Photographie de Lugano avec un panneau de protestation devant le hôtel de ville',
 };
 
 export default blogMetaChFr;

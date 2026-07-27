@@ -1597,6 +1597,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-omnibus-2026.title': 'Frontalieri Ticino: imposta al 100% dal 2026 per vecchi e nuovi Comuni',
     'blog.article.frontalieri-ticino-omnibus-2026.excerpt': 'L\'Ocst segnala: dal gennaio 2026 i frontalieri dei nuovi Comuni di confine che scelgono il Decreto Omnibus pagheranno l\'imposta alla fonte al 100% in Ticino, non più all\'80%. Carico fiscale in aumento se si opta per l\'imposta sostitutiva italiana.',
     'blog.article.frontalieri-ticino-omnibus-2026.imageAlt': 'Vista aerea di Lugano con il lago e le montagne',
+    'blog.article.tassa-salute-frontalieri-attacco-ticino.title': 'Tagliare i ristorni, il Canton Ticino attacca la tassa sulla salute',
+    'blog.article.tassa-salute-frontalieri-attacco-ticino.excerpt': 'Il Consigliere di Stato Christian Vitta ha dichiarato di voler attaccare il meccanismo dei ristorni per i frontalieri.',
+    'blog.article.tassa-salute-frontalieri-attacco-ticino.imageAlt': 'Fotografia di Lugano con un cartello di protesta davanti al municipio',
 };
 
 export default blogMetaChIt;
