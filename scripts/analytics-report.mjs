@@ -1460,6 +1460,11 @@ async function reportGA4(token) {
     { parameterName: 'route_family', displayName: 'Route Family', description: 'Stable route family for grouping similar pages' },
     { parameterName: 'search_origin', displayName: 'Search Origin', description: 'Template or feature where the internal search originated' },
     { parameterName: 'search_results_count', displayName: 'Search Results Count', description: 'Number of results shown when an internal search was performed' },
+    // Generic ui_interaction breakdown dimensions (adblock gate, subscribe page, etc.)
+    { parameterName: 'page', displayName: 'UI Interaction Page', description: 'Top-level page/feature for generic ui_interaction events (e.g. adblock_gate, reader_subscription)' },
+    { parameterName: 'section', displayName: 'UI Interaction Section', description: 'Section within the page for ui_interaction events (e.g. ab_test, modal, subscribe_page)' },
+    { parameterName: 'component', displayName: 'UI Interaction Component', description: 'Component within the section for ui_interaction events (e.g. bucket_assigned, outcome, checkout)' },
+    { parameterName: 'cta_id', displayName: 'UI Interaction CTA ID', description: 'Stable CTA id for funnel joins, defaults to page.section.component.action' },
   ];
 
   try {
