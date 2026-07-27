@@ -4924,6 +4924,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-terzo-pilastro-3a-vantaggi-fiscali': { name: 'Terzo pilastro 3a', path: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-fiscali/', parent: 'blog' },
     'blog-proposta-choc-ticino-frontalieri': { name: 'Proposta choc in Ticino', path: '/articoli-frontaliere/proposta-choc-ticino-frontalieri', parent: 'blog' },
     'blog-medici-di-base-carenza-svizzera': { name: 'Medici di base in Svizzera', path: '/articoli-svizzera/medici-di-base-carenza-svizzera/', parent: 'blog' },
+    'blog-domanda-scomoda-razzisti-omofobi': { name: 'Domanda Scomoda - Secondo voi gli svizzeri', path: '/articoli-frontaliere/domanda-scomoda-razzisti-omofobi', parent: 'blog' },
  };
 
  const info = sectionNames[section];

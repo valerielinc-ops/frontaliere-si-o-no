@@ -9009,6 +9009,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.proposta-choc-ticino-frontalieri.title': 'Schockreform für Grenzgänger: Sie zahlen mehr Steuern',
     'blog.article.proposta-choc-ticino-frontalieri.excerpt': 'Die Lega dei Ticinesi schlägt vor, die alten Grenzgänger in neue Grenzgänger umzuwandeln, um mehr Steuern zu zahlen.',
     'blog.article.proposta-choc-ticino-frontalieri.imageAlt': 'Eine Szene aus Locarno, mit einem See im Vordergrund und einer belebten Straße im Hintergrund.',
+    'blog.article.domanda-scomoda-razzisti-omofobi.title': 'Unbequeme Frage: Rassistische oder homophobe Tessiner?',
+    'blog.article.domanda-scomoda-razzisti-omofobi.excerpt': 'Unbequeme Frage - Sind Ihrer Meinung nach die Schweizer, aber vor allem die Tessiner rassistisch/homophob?',
+    'blog.article.domanda-scomoda-razzisti-omofobi.imageAlt': 'frontalieri ticinesi in discussione pubblica sulle ristorsioni',
 };
 
 export default blogMetaDe;
