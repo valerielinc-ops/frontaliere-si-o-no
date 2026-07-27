@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sfs-group",
-  "assembledAt": "2026-07-27T12:39:52.098Z",
+  "assembledAt": "2026-07-27T22:19:26.149Z",
   "jobs": [
     {
       "id": "sfs-group-d28e368a8b5c",
@@ -33,7 +33,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/techniker-in-wärmebehandlung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:39:49.299Z",
+      "crawledAt": "2026-07-27T22:19:23.365Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -54,11 +54,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
+        "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg",
+        "trattamento-tecnico-riscaldamento-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
+          "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg",
+          "trattamento-tecnico-riscaldamento-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
@@ -112,7 +114,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/teamleiter-in-qm-reklamationsmanagement-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:39:49.187Z",
+      "crawledAt": "2026-07-27T22:19:23.247Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -134,11 +136,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "teamleiter-in-qm-reklamationsmanagement-m-f-d-sfs-group-heerbrugg",
-        "chef-d-equipe-en-qm-gestion-des-plaintes-m-f-d-sfs-group-heerbrugg"
+        "chef-d-equipe-en-qm-gestion-des-plaintes-m-f-d-sfs-group-heerbrugg",
+        "team-leader-nella-gestione-qm-complaint-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-qm-reklamationsmanagement-m-f-d-sfs-group-heerbrugg"
+          "teamleiter-in-qm-reklamationsmanagement-m-f-d-sfs-group-heerbrugg",
+          "team-leader-nella-gestione-qm-complaint-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "teamleiter-in-qm-reklamationsmanagement-m-f-d-sfs-group-heerbrugg"
@@ -149,6 +153,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:33.392Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -193,7 +198,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/spécialiste-vente-interne-pour-(epi)-en-équipement-d'atelier-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T12:39:49.077Z",
+      "crawledAt": "2026-07-27T22:19:23.133Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "postalCode": "1000",
@@ -213,11 +218,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialiste-vente-interne-pour-epi-en-equipement-d-atelier-m-f-d-sfs-group-payerne"
+        "specialiste-vente-interne-pour-epi-en-equipement-d-atelier-m-f-d-sfs-group-payerne",
+        "specialista-di-vendita-interna-per-epi-e-attrezzature-di-officina-m-f-d-sfs-group-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-vente-interne-pour-epi-en-equipement-d-atelier-m-f-d-sfs-group-payerne"
+          "specialiste-vente-interne-pour-epi-en-equipement-d-atelier-m-f-d-sfs-group-payerne",
+          "specialista-di-vendita-interna-per-epi-e-attrezzature-di-officina-m-f-d-sfs-group-payerne"
         ],
         "en": [
           "specialiste-vente-interne-pour-epi-en-equipement-d-atelier-m-f-d-sfs-group-payerne"
@@ -271,7 +278,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/senior-software-engineer-–-smart-factory-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:39:48.967Z",
+      "crawledAt": "2026-07-27T22:19:23.015Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -292,6 +299,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T12:18:33.038Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -336,7 +344,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/senior-qualitätsmanager-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:39:48.857Z",
+      "crawledAt": "2026-07-27T22:19:22.895Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -357,11 +365,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-qualitatsmanager-m-f-d-80-sfs-group-heerbrugg"
+        "senior-qualitatsmanager-m-f-d-80-sfs-group-heerbrugg",
+        "senior-quality-manager-m-f-d-80-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-qualitatsmanager-m-f-d-80-sfs-group-heerbrugg"
+          "senior-qualitatsmanager-m-f-d-80-sfs-group-heerbrugg",
+          "senior-quality-manager-m-f-d-80-sfs-group-heerbrugg"
         ],
         "en": [
           "senior-qualitatsmanager-m-f-d-80-sfs-group-heerbrugg"
@@ -371,6 +381,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:15:23.617Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -415,7 +426,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/sap-modulbetreuung-pp-qm-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:39:48.748Z",
+      "crawledAt": "2026-07-27T22:19:22.780Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -436,11 +447,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sap-modulbetreuung-pp-qm-m-f-d-80-sfs-group-heerbrugg"
+        "sap-modulbetreuung-pp-qm-m-f-d-80-sfs-group-heerbrugg",
+        "supporto-modulo-sap-pp-qm-m-f-d-80-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sap-modulbetreuung-pp-qm-m-f-d-80-sfs-group-heerbrugg"
+          "sap-modulbetreuung-pp-qm-m-f-d-80-sfs-group-heerbrugg",
+          "supporto-modulo-sap-pp-qm-m-f-d-80-sfs-group-heerbrugg"
         ],
         "en": [
           "sap-modulbetreuung-pp-qm-m-f-d-80-sfs-group-heerbrugg"
@@ -450,6 +463,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:32.860Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -494,7 +508,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/sap-modulbetreuer-fi-co-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:39:48.638Z",
+      "crawledAt": "2026-07-27T22:19:22.667Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -515,11 +529,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sap-modulbetreuer-fi-co-m-f-d-80-sfs-group-heerbrugg"
+        "sap-modulbetreuer-fi-co-m-f-d-80-sfs-group-heerbrugg",
+        "manutentore-del-modulo-sap-fi-co-m-f-d-80-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sap-modulbetreuer-fi-co-m-f-d-80-sfs-group-heerbrugg"
+          "sap-modulbetreuer-fi-co-m-f-d-80-sfs-group-heerbrugg",
+          "manutentore-del-modulo-sap-fi-co-m-f-d-80-sfs-group-heerbrugg"
         ],
         "en": [
           "sap-modulbetreuer-fi-co-m-f-d-80-sfs-group-heerbrugg"
@@ -529,6 +545,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:32.686Z",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -544,11 +561,11 @@
     },
     {
       "id": "sfs-group-5dbce9df082c",
-      "slug": "produktentwickler-in-aerospace-blind-fastener-m-f-d-sfs-group-heerbrugg",
+      "slug": "sviluppatore-del-prodotto-aerospace-blind-fastener-m-f-d-sfs-group-heerbrugg",
       "slugByLocale": {
+        "it": "sviluppatore-del-prodotto-aerospace-blind-fastener-m-f-d-sfs-group-heerbrugg",
+        "en": "product-developer-aerospace-blind-fastener-m-f-d-sfs-group-heerbrugg",
         "de": "produktentwickler-in-aerospace-blind-fastener-m-f-d-sfs-group-heerbrugg",
-        "it": "produktentwickler-in-aerospace-blind-fastener-m-f-d-sfs-group-heerbrugg",
-        "en": "produktentwickler-in-aerospace-blind-fastener-m-f-d-sfs-group-heerbrugg",
         "fr": "developpeur-de-produit-aeronautique-a-fermeture-aveugle-m-f-d-sfs-group-heerbrugg"
       },
       "company": "SFS Group",
@@ -556,16 +573,16 @@
       "companyDomain": "sfs.com",
       "title": "Produktentwickler/in — Aerospace Blind Fastener (m/f/d)",
       "titleByLocale": {
-        "de": "Produktentwickler/in — Aerospace Blind Fastener (m/f/d)",
         "it": "Sviluppatore del prodotto — Aerospace Blind Fastener (m/f/d)",
         "en": "Product Developer — Aerospace Blind Fastener (m/f/d)",
+        "de": "Produktentwickler/in — Aerospace Blind Fastener (m/f/d)",
         "fr": "Développeur de produit — Aéronautique à fermeture aveugle (m/f/d)"
       },
       "description": "Du möchtest innovative Befestigungstechnologien entwickeln, die in der Luftfahrtindustrie höchsten Anforderungen gerecht werden? Im Bereich Engineering Blind Fastener arbeitest du an technologisch anspruchsvollen Produkten und erlebst die Produktentstehung hautnah — von der ersten Idee über die Entwicklung bis zur erfolgreichen Industrialisierung. Spannende und abwechslungsreiche Aufgaben mehr als nur am Schreibtisch erwarten dich in einer wertschätzenden Arbeitskultur Your Tasks:\n• Entwicklung neuer Blind Fastener Produkte für internationale Aerospace Kunden\n• Umsetzung von Entwicklungsprojekten inklusive Planung, Tests und Industrialisierung\n• Betreuung von Prototypenfertigung, Versuchen sowie Produkteinführungen\n• Optimierung bestehender Produkte hinsichtlich Funktion, Qualität und Herstellbarkeit\n• Zusammenarbeit mit internationalen Engineering- und Produktionsteams\n• Technischer Support für Fertigung, Qualität und Vertrieb Your profile:\n• Ausbildung als Ingenieur oder Techniker im Bereich Maschinenbau, Produktentwicklung oder vergleichbar\n• Erfahrung in Produktentwicklung, Konstruktion, Umform-, Werkstoff- oder Oberflächentechnik\n• Begeisterung für die Entwicklung und Umsetzung technischer Konzepte\n• Analytische Denkweise kombiniert mit pragmatischer Lösungsorientierung\n• Sicherer Umgang mit CAD; Kenntnisse in FEM von Vorteil\n• Sehr gute Deutsch- sowie Englischkenntnisse in Wort und Schrift We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Personalrestaurant mit attraktiven Preisen Have we sparked your interest?: Bewerbe dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern.",
       "descriptionByLocale": {
-        "de": "Du möchtest innovative Befestigungstechnologien entwickeln, die in der Luftfahrtindustrie höchsten Anforderungen gerecht werden? Im Bereich Engineering Blind Fastener arbeitest du an technologisch anspruchsvollen Produkten und erlebst die Produktentstehung hautnah — von der ersten Idee über die Entwicklung bis zur erfolgreichen Industrialisierung. Spannende und abwechslungsreiche Aufgaben mehr als nur am Schreibtisch erwarten dich in einer wertschätzenden Arbeitskultur Your Tasks:\n• Entwicklung neuer Blind Fastener Produkte für internationale Aerospace Kunden\n• Umsetzung von Entwicklungsprojekten inklusive Planung, Tests und Industrialisierung\n• Betreuung von Prototypenfertigung, Versuchen sowie Produkteinführungen\n• Optimierung bestehender Produkte hinsichtlich Funktion, Qualität und Herstellbarkeit\n• Zusammenarbeit mit internationalen Engineering- und Produktionsteams\n• Technischer Support für Fertigung, Qualität und Vertrieb Your profile:\n• Ausbildung als Ingenieur oder Techniker im Bereich Maschinenbau, Produktentwicklung oder vergleichbar\n• Erfahrung in Produktentwicklung, Konstruktion, Umform-, Werkstoff- oder Oberflächentechnik\n• Begeisterung für die Entwicklung und Umsetzung technischer Konzepte\n• Analytische Denkweise kombiniert mit pragmatischer Lösungsorientierung\n• Sicherer Umgang mit CAD; Kenntnisse in FEM von Vorteil\n• Sehr gute Deutsch- sowie Englischkenntnisse in Wort und Schrift We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Personalrestaurant mit attraktiven Preisen Have we sparked your interest?: Bewerbe dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern.",
         "it": "Vuoi sviluppare tecnologie di fissaggio innovative che soddisfano le più elevate esigenze del settore aeronautico? Nel campo di Engineering Blind Fastener, lavorerai su prodotti tecnologicamente sofisticati e sperimenterai lo sviluppo del prodotto da vicino – dalla prima idea allo sviluppo e all'industrializzazione di successo. Attività emozionanti e variegate più che solo alla scrivania vi aspettano in una cultura di lavoro apprezzata Le vostre attività:\n• Sviluppo di nuovi prodotti Blind Fastener per clienti aerospaziali internazionali\n• Attuazione di progetti di sviluppo, tra cui pianificazione, test e industrializzazione\n• Sostegno alla produzione di prototipi, prove e lanci di prodotti\n• Ottimizzazione dei prodotti esistenti in termini di funzionalità, qualità e manufacturabilità\n• Collaborazione con team di ingegneria e produzione internazionali\n• Supporto tecnico per produzione, qualità e vendita Il tuo profilo:\n• Formazione come ingegnere o tecnico in ingegneria meccanica, sviluppo del prodotto o equivalente\n• Esperienza nello sviluppo del prodotto, nella progettazione, nella formazione, nei materiali o nell'ingegneria delle superfici\n• Entusiasmo per lo sviluppo e l'attuazione di concetti tecnici\n• Il pensiero analitico combinato con l'orientamento pragmatico della soluzione\n• Gestione sicura del CAD; La conoscenza del FEM è utile\n• Molto buone competenze in tedesco e inglese in parola e scrittura Offriamo:\n• Sei settimane di vacanze e possibilità di acquisto di vacanze aggiuntive\n• Partecipazione annuale al successo\n• fondi pensione sani e propri con piani di risparmio individuali\n• Corsi di formazione interna e sostegno alla formazione esterna\n• Staff ristorante con prezzi attraenti Abbiamo scatenato il vostro interesse?: Applicare oggi tramite la nostra homepage Offerte di lavoro Riempiamo questa posizione senza il supporto dei fornitori di servizi del personale.",
         "en": "Do you want to develop innovative fixing technologies that meet the highest demands in the aviation industry? In the field of Engineering Blind Fastener, you will work on technologically sophisticated products and experience the product development up close – from the first idea to development and successful industrialization. Exciting and varied tasks more than just at the desk await you in an appreciative work culture Your Tasks:\n• Development of new Blind Fastener products for international aerospace customers\n• Implementation of development projects including planning, testing and industrialization\n• Support of prototype production, trials and product launches\n• Optimization of existing products in terms of function, quality and manufacturability\n• Collaboration with international engineering and production teams\n• Technical support for production, quality and sales Your profile:\n• Training as an engineer or technician in mechanical engineering, product development or equivalent\n• Experience in product development, design, forming, materials or surface engineering\n• Enthusiasm for developing and implementing technical concepts\n• Analytical thinking combined with pragmatic solution orientation\n• Safe handling of CAD; Knowledge of FEM is beneficial\n• Very good German and English skills in word and writing We offer:\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success\n• Own healthy pension fund with individual savings plans\n• Internal training courses & support for external training\n• Staff restaurant with attractive prices Have we sparked your interest?: Apply today via our homepage Job offers | Join SFS We fill this position without the support of personnel service providers.",
+        "de": "Du möchtest innovative Befestigungstechnologien entwickeln, die in der Luftfahrtindustrie höchsten Anforderungen gerecht werden? Im Bereich Engineering Blind Fastener arbeitest du an technologisch anspruchsvollen Produkten und erlebst die Produktentstehung hautnah — von der ersten Idee über die Entwicklung bis zur erfolgreichen Industrialisierung. Spannende und abwechslungsreiche Aufgaben mehr als nur am Schreibtisch erwarten dich in einer wertschätzenden Arbeitskultur Your Tasks:\n• Entwicklung neuer Blind Fastener Produkte für internationale Aerospace Kunden\n• Umsetzung von Entwicklungsprojekten inklusive Planung, Tests und Industrialisierung\n• Betreuung von Prototypenfertigung, Versuchen sowie Produkteinführungen\n• Optimierung bestehender Produkte hinsichtlich Funktion, Qualität und Herstellbarkeit\n• Zusammenarbeit mit internationalen Engineering- und Produktionsteams\n• Technischer Support für Fertigung, Qualität und Vertrieb Your profile:\n• Ausbildung als Ingenieur oder Techniker im Bereich Maschinenbau, Produktentwicklung oder vergleichbar\n• Erfahrung in Produktentwicklung, Konstruktion, Umform-, Werkstoff- oder Oberflächentechnik\n• Begeisterung für die Entwicklung und Umsetzung technischer Konzepte\n• Analytische Denkweise kombiniert mit pragmatischer Lösungsorientierung\n• Sicherer Umgang mit CAD; Kenntnisse in FEM von Vorteil\n• Sehr gute Deutsch- sowie Englischkenntnisse in Wort und Schrift We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Personalrestaurant mit attraktiven Preisen Have we sparked your interest?: Bewerbe dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern.",
         "fr": "Voulez-vous développer des technologies de fixation innovantes qui répondent aux exigences les plus élevées de l'industrie aéronautique? Dans le domaine de Engineering Blind Fastener, vous travaillerez sur des produits technologiquement sophistiqués et vivrez le développement de produits de près – de la première idée au développement et à l'industrialisation réussie. Des tâches passionnantes et variées plus qu'au bureau vous attendent dans une culture de travail appréciée Vos tâches :\n• Développement de nouveaux produits Blind Fastener pour les clients aérospatiales internationaux\n• Mise en œuvre de projets de développement, y compris la planification, les essais et l ' industrialisation\n• Soutien à la production de prototypes, essais et lancements de produits\n• Optimisation des produits existants en termes de fonction, de qualité et de fabrication\n• Collaboration avec des équipes internationales d'ingénierie et de production\n• Support technique pour la production, la qualité et les ventes Votre profil:\n• Formation d'ingénieur ou de technicien en génie mécanique, développement de produits ou équivalent\n• Expérience en développement de produits, conception, formage, matériaux ou ingénierie de surface\n• Enthousiasme pour développer et mettre en œuvre des concepts techniques\n• La pensée analytique combinée à l'orientation pragmatique de la solution\n• Gestion sécuritaire de la CAO; La connaissance de la FEM est bénéfique\n• Très bonnes compétences en allemand et en anglais en paroles et en écriture Nous offrons:\n• Six semaines de vacances et un achat de vacances supplémentaire possible\n• Participation annuelle au succès\n• Un fonds de pension sain avec des régimes d'épargne individuels\n• Formation interne et soutien à la formation externe\n• Restaurant du personnel à prix attractifs Avons-nous suscité votre intérêt?: Postuler aujourd'hui via notre page d'accueil Offres d'emploi Nous remplissons ce poste sans le soutien des fournisseurs de services de personnel."
       },
       "location": "Heerbrugg",
@@ -573,7 +590,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/produktentwickler-in-—-aerospace-blind-fastener-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:39:48.527Z",
+      "crawledAt": "2026-07-27T22:19:22.553Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -592,9 +609,19 @@
       "jobReqId": "2966",
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-27T12:39:48.527Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "produktentwickler-in-aerospace-blind-fastener-m-f-d-sfs-group-heerbrugg"
+        ],
+        "en": [
+          "produktentwickler-in-aerospace-blind-fastener-m-f-d-sfs-group-heerbrugg"
+        ]
       },
+      "previousSlugs": [
+        "produktentwickler-in-aerospace-blind-fastener-m-f-d-sfs-group-heerbrugg"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -606,8 +633,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-27T12:39:48.527Z"
+      }
     },
     {
       "id": "sfs-group-eb2408b85d2b",
@@ -640,7 +666,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-schleifen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:39:48.416Z",
+      "crawledAt": "2026-07-27T22:19:22.433Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -661,11 +687,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "polymechaniker-in-schleifen-m-f-d-sfs-group-heerbrugg"
+        "polymechaniker-in-schleifen-m-f-d-sfs-group-heerbrugg",
+        "polimeccanica-in-loop-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polymechaniker-in-schleifen-m-f-d-sfs-group-heerbrugg"
+          "polymechaniker-in-schleifen-m-f-d-sfs-group-heerbrugg",
+          "polimeccanica-in-loop-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "polymechaniker-in-schleifen-m-f-d-sfs-group-heerbrugg"
@@ -675,6 +703,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:32.163Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -719,7 +748,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-erosion-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:39:48.306Z",
+      "crawledAt": "2026-07-27T22:19:22.318Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -740,11 +769,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
+        "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg",
+        "polimeccanica-in-erosione-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
+          "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg",
+          "polimeccanica-in-erosione-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
@@ -798,7 +829,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:39:48.189Z",
+      "crawledAt": "2026-07-27T22:19:22.203Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -818,11 +849,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kunststofftechnologe-in-m-f-d-sfs-group-hallau"
+        "kunststofftechnologe-in-m-f-d-sfs-group-hallau",
+        "tecnologo-delle-materie-plastiche-m-f-d-sfs-group-hallau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kunststofftechnologe-in-m-f-d-sfs-group-hallau"
+          "kunststofftechnologe-in-m-f-d-sfs-group-hallau",
+          "tecnologo-delle-materie-plastiche-m-f-d-sfs-group-hallau"
         ],
         "en": [
           "kunststofftechnologe-in-m-f-d-sfs-group-hallau"
@@ -832,6 +865,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:31.814Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -876,7 +910,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/group-finance-specialist-sap-fi-key-user-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-27T12:39:48.078Z",
+      "crawledAt": "2026-07-27T22:19:22.090Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -897,11 +931,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "group-finance-specialist-sap-fi-key-user-m-f-d-80-sfs-group-heerbrugg"
+        "group-finance-specialist-sap-fi-key-user-m-f-d-80-sfs-group-heerbrugg",
+        "group-finanza-specialista-sap-fi-key-user-m-f-d-80-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "group-finance-specialist-sap-fi-key-user-m-f-d-80-sfs-group-heerbrugg"
+          "group-finance-specialist-sap-fi-key-user-m-f-d-80-sfs-group-heerbrugg",
+          "group-finanza-specialista-sap-fi-key-user-m-f-d-80-sfs-group-heerbrugg"
         ],
         "de": [
           "group-finance-specialist-sap-fi-key-user-m-f-d-80-sfs-group-heerbrugg"
@@ -952,7 +988,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:39:47.967Z",
+      "crawledAt": "2026-07-27T22:19:21.974Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -973,11 +1009,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
+        "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg",
+        "modello-di-livello-automatico-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
+          "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg",
+          "modello-di-livello-automatico-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
@@ -1031,7 +1069,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-instandhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:39:47.854Z",
+      "crawledAt": "2026-07-27T22:19:21.855Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1054,11 +1092,13 @@
       "previousSlugs": [
         "automatiker-in-instandhaltung-m-f-d-sfs-group-heerbrugg",
         "automatician-under-maintenance-m-f-d-sfs-group-heerbrugg",
-        "automatic-operator-under-maintenance-m-f-d-sfs-group-heerbrugg"
+        "automatic-operator-under-maintenance-m-f-d-sfs-group-heerbrugg",
+        "operatore-automatico-in-manutenzione-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-instandhaltung-m-f-d-sfs-group-heerbrugg"
+          "automatiker-in-instandhaltung-m-f-d-sfs-group-heerbrugg",
+          "operatore-automatico-in-manutenzione-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "automatiker-in-instandhaltung-m-f-d-sfs-group-heerbrugg",
@@ -1070,6 +1110,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:31.117Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1114,7 +1155,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/anwendungstechniker-in-rainscreen-vhf-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:39:47.740Z",
+      "crawledAt": "2026-07-27T22:19:21.726Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1135,11 +1176,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anwendungstechniker-in-rainscreen-vhf-m-f-d-80-sfs-group-heerbrugg"
+        "anwendungstechniker-in-rainscreen-vhf-m-f-d-80-sfs-group-heerbrugg",
+        "ingegnere-di-applicazione-in-parapioggia-vhf-m-f-d-80-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anwendungstechniker-in-rainscreen-vhf-m-f-d-80-sfs-group-heerbrugg"
+          "anwendungstechniker-in-rainscreen-vhf-m-f-d-80-sfs-group-heerbrugg",
+          "ingegnere-di-applicazione-in-parapioggia-vhf-m-f-d-80-sfs-group-heerbrugg"
         ],
         "en": [
           "anwendungstechniker-in-rainscreen-vhf-m-f-d-80-sfs-group-heerbrugg"
@@ -1193,7 +1236,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/anwendungstechniker-in-hauraton-entwässerungssysteme-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:39:47.600Z",
+      "crawledAt": "2026-07-27T22:19:21.569Z",
       "addressLocality": "Buchs ZH",
       "addressRegion": "ZH",
       "postalCode": "9435",
@@ -1213,11 +1256,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anwendungstechniker-in-hauraton-entwasserungssysteme-m-f-d-sfs-group-buchs-zh"
+        "anwendungstechniker-in-hauraton-entwasserungssysteme-m-f-d-sfs-group-buchs-zh",
+        "ingegnere-di-applicazione-in-sistemi-di-drenaggio-hauraton-m-f-d-sfs-group-buchs-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anwendungstechniker-in-hauraton-entwasserungssysteme-m-f-d-sfs-group-buchs-zh"
+          "anwendungstechniker-in-hauraton-entwasserungssysteme-m-f-d-sfs-group-buchs-zh",
+          "ingegnere-di-applicazione-in-sistemi-di-drenaggio-hauraton-m-f-d-sfs-group-buchs-zh"
         ],
         "en": [
           "anwendungstechniker-in-hauraton-entwasserungssysteme-m-f-d-sfs-group-buchs-zh"
@@ -1271,7 +1316,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/anlagenbediener-in-wärmebehandlung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:39:47.488Z",
+      "crawledAt": "2026-07-27T22:19:21.438Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1292,11 +1337,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagenbediener-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
+        "anlagenbediener-in-warmebehandlung-m-f-d-sfs-group-heerbrugg",
+        "operatore-impianti-trattamento-termico-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagenbediener-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
+          "anlagenbediener-in-warmebehandlung-m-f-d-sfs-group-heerbrugg",
+          "operatore-impianti-trattamento-termico-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "anlagenbediener-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
