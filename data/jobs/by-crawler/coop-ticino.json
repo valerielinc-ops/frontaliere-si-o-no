@@ -1849,7 +1849,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-import-parfumerie-chur-graubunden-iull67",
           "verkaufsberater-in-import-parfumerie-chur-graubunden-xzo8qe",
           "sales-consultant-coop-genossenschaft-chur",
           "verkaufsberater-in-coop-genossenschaft-chur",
@@ -1868,7 +1867,8 @@
           "sales-consultant-import-parfumerie-chur-graubunden",
           "consulente-del-venditore-import-parfumerie-chur-graubunden",
           "verkaufsberater-in-import-parfumerie-chur-graubunden-kj0yby",
-          "consulente-commerciale-in-coop-genossenschaft-chur-graubunden"
+          "consulente-commerciale-in-coop-genossenschaft-chur-graubunden",
+          "conseiller-en-vente-import-parfumerie-chur-graubunden"
         ],
         "en": [
           "verkaufsberater-in-coop-genossenschaft-chur-graubunden-3apvkj",
@@ -14214,7 +14214,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-bern-a8c9d4",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-bern-a8c9d4",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-bern",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-bern-7z9gmc",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-bern-a8c9d4"
       },
@@ -14253,7 +14253,8 @@
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-bern-7z9gmc",
           "cook-cook-f-m-d-coop-genossenschaft-bern",
-          "kochin-koch-m-w-d-coop-genossenschaft-bern"
+          "kochin-koch-m-w-d-coop-genossenschaft-bern",
+          "cook-cook-f-m-d-coop-genossenschaft-bern-a8c9d4"
         ],
         "de": [
           "kochin-koch-m-w-d-coop-genossenschaft-bern-irdhh4"
@@ -14269,7 +14270,8 @@
         "cucinare-cucinare-f-m-d-coop-genossenschaft-bern",
         "cook-cook-f-m-d-coop-genossenschaft-bern",
         "kochin-koch-m-w-d-coop-genossenschaft-bern-irdhh4",
-        "cuire-cuire-f-m-d-coop-genossenschaft-bern"
+        "cuire-cuire-f-m-d-coop-genossenschaft-bern",
+        "cook-cook-f-m-d-coop-genossenschaft-bern-a8c9d4"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -15361,7 +15363,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
-      "crawledAt": "2026-07-27T15:11:07.476Z",
+      "crawledAt": "2026-07-27T00:33:55.742Z",
       "firstSeenAt": "2026-07-21T13:54:40.708Z",
       "titleByLocale": {
         "it": "Guida lineare: in produzione deformazione del cioccolato",
@@ -15401,19 +15403,44 @@
         "it": [
           "linienfuhrer-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln-basel-landschaft-cfpzu0",
           "linienfuhrer-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln-basel-landschaft",
-          "linienfuhrer-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln"
+          "linienfuhrer-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln",
+          "team-leader-nella-deformazione-del-cioccolato-di-produzione-coop-genossenschaft-pratteln",
+          "team-leader-in-production-chocolate-deformation-coop-genossenschaft-pratteln",
+          "teamleiter-in-produktion-schokolade-verformung-halba-pratteln-basel-landschaft-set68q",
+          "chef-d-equipe-deformation-du-chocolat-en-production-coop-genossenschaft-pratteln",
+          "teamleiter-in-produktion-schokolade-verformung-halba-pratteln-basel-landschaft",
+          "team-leader-nella-deformazione-del-cioccolato-di-produzione-coop-genossenschaft-pratteln-basel-landschaft",
+          "team-leader-in-produzione-deformazione-cioccolato-coop-genossenschaft-pratteln-basel-landschaft",
+          "teamleiter-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln-basel-landschaft-set68q",
+          "team-leader-in-production-chocolate-deformation-coop-genossenschaft-pratteln-basel-landschaft",
+          "chef-d-equipe-deformation-du-chocolat-en-production-coop-genossenschaft-pratteln-basel-landschaft"
         ],
         "en": [
-          "linienfuhrer-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln-basel-landschaft-cfpzu0"
+          "linienfuhrer-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln-basel-landschaft-cfpzu0",
+          "team-leader-in-production-chocolate-deformation-coop-genossenschaft-pratteln"
         ],
         "fr": [
-          "linienfuhrer-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln-basel-landschaft-cfpzu0"
+          "linienfuhrer-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln-basel-landschaft-cfpzu0",
+          "chef-d-equipe-deformation-du-chocolat-en-production-coop-genossenschaft-pratteln"
+        ],
+        "de": [
+          "teamleiter-in-produktion-schokolade-verformung-halba-pratteln-basel-landschaft-set68q"
         ]
       },
       "previousSlugs": [
         "linienfuhrer-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln-basel-landschaft-cfpzu0",
         "linienfuhrer-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln-basel-landschaft",
-        "linienfuhrer-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln"
+        "linienfuhrer-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln",
+        "team-leader-nella-deformazione-del-cioccolato-di-produzione-coop-genossenschaft-pratteln",
+        "team-leader-in-production-chocolate-deformation-coop-genossenschaft-pratteln",
+        "teamleiter-in-produktion-schokolade-verformung-halba-pratteln-basel-landschaft-set68q",
+        "chef-d-equipe-deformation-du-chocolat-en-production-coop-genossenschaft-pratteln",
+        "teamleiter-in-produktion-schokolade-verformung-halba-pratteln-basel-landschaft",
+        "team-leader-nella-deformazione-del-cioccolato-di-produzione-coop-genossenschaft-pratteln-basel-landschaft",
+        "team-leader-in-produzione-deformazione-cioccolato-coop-genossenschaft-pratteln-basel-landschaft",
+        "teamleiter-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln-basel-landschaft-set68q",
+        "team-leader-in-production-chocolate-deformation-coop-genossenschaft-pratteln-basel-landschaft",
+        "chef-d-equipe-deformation-du-chocolat-en-production-coop-genossenschaft-pratteln-basel-landschaft"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -21051,7 +21078,7 @@
       },
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
-      "crawledAt": "2026-07-27T15:11:07.476Z",
+      "crawledAt": "2026-07-27T00:33:55.742Z",
       "firstSeenAt": "2026-07-20T14:30:37.924Z",
       "titleByLocale": {
         "it": "Fiteria sanitaria: in cucine e bagni",
@@ -21089,10 +21116,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-ihyw9w",
-          "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern",
-          "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern",
-          "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-ihyw9w",
           "installatore-sanitario-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf",
           "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-lzkg1f",
           "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-lzkg1f",
@@ -21106,9 +21129,13 @@
           "dispatcheur-se-cuisines-salles-de-bain-fust-swiss-household-services-ag-burgdorf-mts3op",
           "carpenter-fitter-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf",
           "menuisier-installateur-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf",
+          "schreinermonteur-in-kuchen-bader-fust-burgdorf-bern",
+          "installer-in-kitchens-bathrooms-fust-burgdorf-bern",
           "installateur-dans-les-cuisines-et-salles-de-bains-fust-burgdorf-bern",
           "installatore-in-cucine-e-bagni-fust-burgdorf-bern",
-          "installatore-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf"
+          "installatore-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf",
+          "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-ihyw9w",
+          "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern"
         ],
         "en": [
           "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-ihyw9w",
@@ -21153,7 +21180,14 @@
         "dispatcheur-se-cuisines-salles-de-bain-fust-swiss-household-services-ag-burgdorf-mts3op",
         "carpenter-fitter-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf",
         "menuisier-installateur-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf",
-        "installateur-dans-les-cuisines-et-salles-de-bains-fust-burgdorf-bern"
+        "schreinermonteur-in-kuchen-bader-fust-burgdorf-bern",
+        "installer-in-kitchens-bathrooms-fust-burgdorf-bern",
+        "installateur-dans-les-cuisines-et-salles-de-bains-fust-burgdorf-bern",
+        "installatore-in-cucine-e-bagni-fust-burgdorf-bern",
+        "installatore-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf",
+        "installer-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf",
+        "schreinermonteur-in-kuchen-bader-fust-burgdorf-bern-wdvtnj",
+        "installateur-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -26521,7 +26555,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-winterthur",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-winterthur",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-winterthur"
       },
@@ -26556,7 +26590,8 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku",
-          "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich"
+          "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich",
+          "cook-cook-f-m-d-coop-genossenschaft-winterthur"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku"
@@ -26565,7 +26600,8 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich-9qlmku",
         "kochin-koch-m-w-d-coop-genossenschaft-winterthur-zurich",
-        "kochin-koch-m-w-d-coop-ristorante-winterthur-zurich"
+        "kochin-koch-m-w-d-coop-ristorante-winterthur-zurich",
+        "cook-cook-f-m-d-coop-genossenschaft-winterthur"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -30400,7 +30436,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-aarau",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-aarau",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau-ddg6am",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-aarau"
       },
@@ -30451,11 +30487,11 @@
         "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau",
         "cook-cook-f-m-d-coop-genossenschaft-aarau-aargau",
         "cuire-cuire-f-m-d-coop-genossenschaft-aarau-aargau",
-        "cucinare-cucinare-f-m-d-coop-genossenschaft-aarau-aargau"
+        "cucinare-cucinare-f-m-d-coop-genossenschaft-aarau-aargau",
+        "cook-cook-f-m-d-coop-genossenschaft-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-chef-w-m-d-coop-genossenschaft-aarau",
           "chef-m-w-d-coop-genossenschaft-aarau-x72egi",
           "cook-w-m-d-coop-genossenschaft-aarau",
           "chef-m-f-d-coop-genossenschaft-aarau",
@@ -30474,13 +30510,15 @@
           "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau",
           "cook-m-w-d-coop-genossenschaft-aarau-x72egi",
           "kochin-koch-w-m-d-coop-genossenschaft-aarau-b7efd1",
-          "cuisinier-cuisiniere-h-f-d-coop-genossenschaft-aarau"
+          "cuisinier-cuisiniere-h-f-d-coop-genossenschaft-aarau",
+          "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-aarau-x72egi"
         ],
         "en": [
           "cook-m-w-d-coop-genossenschaft-aarau-x72egi",
           "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau-ddg6am",
           "cook-cook-f-m-d-coop-genossenschaft-aarau-aargau",
-          "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau"
+          "kochin-koch-m-w-d-coop-genossenschaft-aarau-aargau",
+          "cook-cook-f-m-d-coop-genossenschaft-aarau"
         ],
         "de": [
           "kochin-koch-w-m-d-coop-genossenschaft-aarau-b7efd1"
@@ -31026,11 +31064,11 @@
       },
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
-      "crawledAt": "2026-07-27T15:11:07.476Z",
+      "crawledAt": "2026-07-27T00:33:55.742Z",
       "firstSeenAt": "2026-07-16T13:42:47.211Z",
       "titleByLocale": {
         "it": "Analista di Categoria (h/m/d), 80%",
-        "en": "",
+        "en": "Category analyst (w/m/d), 80 %",
         "de": "Category Analyst (w/m/d), 80%",
         "fr": "Analyste de catégorie (h/f/d), 80%"
       },
@@ -31042,7 +31080,7 @@
       },
       "slugByLocale": {
         "it": "category-analista-m-w-d-80-coop-basel-stadt-8bgwjp",
-        "en": "category-analyst-m-w-d-80-coop-basel-stadt-8bgwjp",
+        "en": "category-analyst-w-m-d-80-coop-genossenschaft-basel-basel-stadt",
         "de": "category-analyst-m-w-d-80-coop-basel-stadt-8bgwjp",
         "fr": "category-analyste-m-w-d-80-coop-basel-stadt-8bgwjp"
       },
@@ -31068,7 +31106,8 @@
         "category-analista-m-w-d-80-coop-genossenschaft-basel-stadt-8bgwjp",
         "category-analyst-m-w-d-80-coop-genossenschaft-basel-stadt-8bgwjp",
         "category-analyst-w-m-d-80-coop-genossenschaft-basel-basel-stadt",
-        "category-analyste-m-w-d-80-coop-genossenschaft-basel-stadt-8bgwjp"
+        "category-analyste-m-w-d-80-coop-genossenschaft-basel-stadt-8bgwjp",
+        "category-analyst-m-w-d-80-coop-basel-stadt-8bgwjp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -31078,7 +31117,8 @@
         ],
         "en": [
           "category-analyst-m-w-d-80-coop-genossenschaft-basel-stadt-8bgwjp",
-          "category-analyst-w-m-d-80-coop-genossenschaft-basel-basel-stadt"
+          "category-analyst-w-m-d-80-coop-genossenschaft-basel-basel-stadt",
+          "category-analyst-m-w-d-80-coop-basel-stadt-8bgwjp"
         ],
         "de": [
           "category-analyst-m-w-d-80-coop-genossenschaft-basel-stadt-8bgwjp"
@@ -31087,7 +31127,6 @@
           "category-analyste-m-w-d-80-coop-genossenschaft-basel-stadt-8bgwjp"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 51600,
       "salaryMax": 88000
     },
@@ -36299,7 +36338,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-st-gallen",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-st-gallen",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen-uo8mso",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-st-gallen"
       },
@@ -36344,7 +36383,8 @@
         "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen",
         "cucinare-cucinare-f-m-d-coop-genossenschaft-st-gallen-sankt-gallen",
         "cook-cook-f-m-d-coop-genossenschaft-st-gallen-sankt-gallen",
-        "cuire-cuire-f-m-d-coop-genossenschaft-st-gallen-sankt-gallen"
+        "cuire-cuire-f-m-d-coop-genossenschaft-st-gallen-sankt-gallen",
+        "cook-cook-f-m-d-coop-genossenschaft-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -36369,7 +36409,8 @@
           "cook-m-w-d-coop-genossenschaft-zurich-02wspo",
           "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen-uo8mso",
           "cook-cook-f-m-d-coop-genossenschaft-st-gallen-sankt-gallen",
-          "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen"
+          "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen",
+          "cook-cook-f-m-d-coop-genossenschaft-st-gallen"
         ],
         "de": [
           "kochin-koch-m-w-d-coop-genossenschaft-zurich-02wspo"
@@ -43617,7 +43658,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-volketswil",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-volketswil",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich-womu86",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-volketswil"
       },
@@ -43652,7 +43693,8 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich-womu86",
-          "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich"
+          "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich",
+          "cook-cook-f-m-d-coop-genossenschaft-volketswil"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich-womu86"
@@ -43661,7 +43703,8 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich-womu86",
         "kochin-koch-m-w-d-coop-genossenschaft-volketswil-zurich",
-        "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich"
+        "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich",
+        "cook-cook-f-m-d-coop-genossenschaft-volketswil"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -49374,7 +49417,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-oberwil",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-oberwil",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-oberwil-basel-landschaft",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-oberwil-basel-landschaft-7ms24u",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-oberwil"
       },
@@ -49403,7 +49446,8 @@
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-oberwil-basel-landschaft-7ms24u",
           "cook-cook-f-m-d-coop-genossenschaft-oberwil-basel-landschaft",
-          "kochin-koch-m-w-d-coop-genossenschaft-oberwil-basel-landschaft"
+          "kochin-koch-m-w-d-coop-genossenschaft-oberwil-basel-landschaft",
+          "cook-cook-f-m-d-coop-genossenschaft-oberwil"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-oberwil-basel-landschaft-7ms24u",
@@ -49416,7 +49460,8 @@
         "kochin-koch-m-w-d-coop-ristorante-oberwil-basel-landschaft",
         "cucinare-cucinare-f-m-d-coop-genossenschaft-oberwil-basel-landschaft",
         "cook-cook-f-m-d-coop-genossenschaft-oberwil-basel-landschaft",
-        "cuire-cuire-f-m-d-coop-genossenschaft-oberwil-basel-landschaft"
+        "cuire-cuire-f-m-d-coop-genossenschaft-oberwil-basel-landschaft",
+        "cook-cook-f-m-d-coop-genossenschaft-oberwil"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -50358,11 +50403,11 @@
       },
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
-      "crawledAt": "2026-07-27T15:11:07.476Z",
+      "crawledAt": "2026-07-27T00:33:55.742Z",
       "firstSeenAt": "2026-07-10T14:29:33.341Z",
       "titleByLocale": {
         "it": "Project Manager: in Sponsorship",
-        "en": "",
+        "en": "Project Manager: in Sponsorship",
         "de": "Project-Manager:in Sponsoring",
         "fr": "Chef de Projet Sponsoring"
       },
@@ -50374,7 +50419,7 @@
       },
       "slugByLocale": {
         "it": "project-manager-in-sponsorship-coop-genossenschaft-bern",
-        "en": "project-manager-in-sponsoring-coop-bern-c6dwd4",
+        "en": "project-manager-in-sponsoring-coop-genossenschaft-bern",
         "de": "project-manager-in-sponsoring-coop-bern-c6dwd4",
         "fr": "gestionnaire-de-projet-en-commandite-coop-genossenschaft-bern"
       },
@@ -50396,6 +50441,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-de-projet-junior-parrainage-coop-genossenschaft-arbedo-castione-ticino-1qcvc7",
           "gestionnaire-de-projet-junior-coop-genossenschaft-arbedo-castione-ticino",
           "project-manager-in-sponsoring-coop-genossenschaft-bern-c6dwd4",
           "junior-project-manager-sponsoring-coop-arbedo-castione-ticino",
@@ -50414,12 +50460,12 @@
           "project-manager-in-sponsoring-coop-bern",
           "gestionnaire-de-projet-junior-parrainage-coop-genossenschaft-arbedo-castione-1qcvc7",
           "gestionnaire-de-projet-junior-parrainage-coop-genossenschaft-arbedo-castione",
-          "gestionnaire-de-projet-junior-parrainage-coop-arbedo-castione-ticino-1qcvc7",
-          "gestionnaire-de-projet-junior-parrainage-coop-genossenschaft-arbedo-castione-ticino-1qcvc7"
+          "gestionnaire-de-projet-junior-parrainage-coop-arbedo-castione-ticino-1qcvc7"
         ],
         "en": [
           "project-manager-in-sponsoring-coop-genossenschaft-bern-c6dwd4",
-          "project-manager-in-sponsoring-coop-genossenschaft-bern"
+          "project-manager-in-sponsoring-coop-genossenschaft-bern",
+          "project-manager-in-sponsoring-coop-bern-c6dwd4"
         ],
         "fr": [
           "project-manager-in-sponsoring-coop-bern-c6dwd4"
@@ -50448,7 +50494,6 @@
         "gestionnaire-de-projet-junior-coop-genossenschaft-arbedo-castione-ticino",
         "project-manager-in-sponsoring-coop-genossenschaft-bern"
       ],
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000
     },

@@ -79,12 +79,12 @@
     },
     {
       "id": "hopital-de-moutier-6564d813f782",
-      "slug": "dottore-dermatologo-hopital-de-moutier-moutier-875d87",
+      "slug": "medecin-dermatologue-hopital-de-moutier",
       "slugByLocale": {
         "fr": "medecin-dermatologue-hopital-de-moutier",
-        "it": "dottore-dermatologo-hopital-de-moutier-moutier-875d87",
-        "en": "doctor-dermatologist-hopital-de-moutier-moutier-875d87",
-        "de": "arzt-dermatologe-hopital-de-moutier-moutier-875d87"
+        "it": "medecin-dermatologue-hopital-de-moutier",
+        "en": "medecin-dermatologue-hopital-de-moutier",
+        "de": "medecin-dermatologue-hopital-de-moutier"
       },
       "company": "Hôpital de Moutier",
       "companyKey": "hopital-de-moutier",
@@ -140,21 +140,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-27T12:33:25.319Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-dermatologue-hopital-de-moutier"
-        ],
-        "en": [
-          "medecin-dermatologue-hopital-de-moutier"
-        ],
-        "de": [
-          "medecin-dermatologue-hopital-de-moutier"
-        ]
-      },
-      "previousSlugs": [
-        "medecin-dermatologue-hopital-de-moutier"
-      ]
+      "firstSeenAt": "2026-07-27T12:33:25.319Z"
     },
     {
       "id": "hopital-de-moutier-5cb18fa6d117",
@@ -206,11 +192,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medecin-adjoint-e-en-psychiatrie-hospitaliere-hopital-de-moutier"
+        "medecin-adjoint-e-en-psychiatrie-hospitaliere-hopital-de-moutier",
+        "assistente-medico-in-psichiatria-ospedaliera-hopital-de-moutier-moutier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-adjoint-e-en-psychiatrie-hospitaliere-hopital-de-moutier"
+          "medecin-adjoint-e-en-psychiatrie-hospitaliere-hopital-de-moutier",
+          "assistente-medico-in-psichiatria-ospedaliera-hopital-de-moutier-moutier"
         ],
         "en": [
           "medecin-adjoint-e-en-psychiatrie-hospitaliere-hopital-de-moutier"
@@ -360,7 +348,8 @@
         "assistente-medico-in-psichiatria-infantile-stazionaria-swiss-medical-network-moutier",
         "assistente-medico-in-psichiatria-infantile-stazionaria-hopital-de-moutier-moutier-8037c0",
         "assistant-physician-in-stationary-child-psychiatry-hopital-de-moutier-moutier",
-        "medecin-assistant-e-en-pedopsychiatrie-stationnaire-hopital-de-moutier"
+        "medecin-assistant-e-en-pedopsychiatrie-stationnaire-hopital-de-moutier",
+        "assistente-medico-in-psichiatria-infantile-stazionaria-hopital-de-moutier-moutier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -368,7 +357,8 @@
           "assistenzarzt-in-stationarer-kinderpsychiatrie-swiss-medical-network-moutier",
           "assistente-medico-in-psichiatria-infantile-stazionaria-swiss-medical-network-moutier",
           "assistente-medico-in-psichiatria-infantile-stazionaria-hopital-de-moutier-moutier-8037c0",
-          "medecin-assistant-e-en-pedopsychiatrie-stationnaire-hopital-de-moutier"
+          "medecin-assistant-e-en-pedopsychiatrie-stationnaire-hopital-de-moutier",
+          "assistente-medico-in-psichiatria-infantile-stazionaria-hopital-de-moutier-moutier"
         ],
         "en": [
           "assistant-physician-in-stationary-child-psychiatry-swiss-medical-network-moutier",
@@ -446,12 +436,14 @@
         "collaborateur-trice-en-hotellerie-restauration-50-60-hopital-de-moutier",
         "collaborator-in-hotels-food-50-60-hopital-de-moutier-moutier",
         "mitarbeiter-in-hotels-food-50-60-hopital-de-moutier-moutier",
-        "collaboratore-in-alberghi-e-cibo-50-60-hopital-de-moutier-moutier"
+        "collaboratore-in-alberghi-e-cibo-50-60-hopital-de-moutier-moutier",
+        "collaboratore-in-alberghi-e-cibo-50-60-swiss-medical-network-moutier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-en-hotellerie-restauration-50-60-hopital-de-moutier",
-          "collaboratore-in-alberghi-e-cibo-50-60-hopital-de-moutier-moutier"
+          "collaboratore-in-alberghi-e-cibo-50-60-hopital-de-moutier-moutier",
+          "collaboratore-in-alberghi-e-cibo-50-60-swiss-medical-network-moutier"
         ],
         "en": [
           "collaborateur-trice-en-hotellerie-restauration-50-60-hopital-de-moutier",
