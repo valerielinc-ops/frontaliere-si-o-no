@@ -14,6 +14,7 @@ import { getNewsletterSecrets, getRemoteConfigValue } from './src/remoteConfigSe
 import { handleChatbotInference } from './src/chatbotInference.js';
 import { handleLinkedInCallback } from './src/linkedinAuthCallback.js';
 import { handleJobAlertUnsubscribe } from './src/jobAlertUnsubscribe.js';
+import { handleSavedJobsDigestUnsubscribe } from './src/savedJobsDigestUnsubscribe.js';
 import { handleOutreachUnsubscribe } from './src/outreachUnsubscribe.js';
 import { handleOutreachStopReply } from './src/outreachStopReply.js';
 import { handleOutreachReplyTrack } from './src/outreachReplyTrack.js';
@@ -35,6 +36,7 @@ import { handleCreateReaderCheckout, handleClaimReaderCheckout, handleCreateRead
 import { handleCreateConsultingCheckout, handleConsultingDetailsSubmitted } from './src/consultingCore.js';
 import { reapStalePendingPayments } from './src/publisherPendingReapCore.js';
 import { onDocumentCreated, onDocumentWritten } from 'firebase-functions/v2/firestore';
+import * as functionsV1 from 'firebase-functions/v1';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
 import {
   handleForwardApplication,
@@ -45,6 +47,7 @@ import { sendRenewalReminders } from './src/publisherRenewalCore.js';
 import { handleVerifyPublisherDomain } from './src/publisherDomainVerifyCore.js';
 import { enforceFreeTierCap } from './src/publisherFreeCapCore.js';
 import { syncAuthAccountForSubscriber } from './src/newsletterSubscriberAuthSync.js';
+import { cleanupSavedJobsForDeletedUser } from './src/authAccountCleanup.js';
 import { handleNewsletterSubscriberCreated } from './src/jobAlertBackfillTrigger.js';
 import { signalTierChanged, getSignalTier } from './src/jobAlertBackfillCore.js';
 
@@ -742,6 +745,47 @@ export const jobAlertUnsubscribe = onRequest(
  },
 );
 
+export const savedJobsDigestUnsubscribe = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: true,
+ },
+ async (req, res) => {
+ if (req.method !== 'GET' && req.method !== 'POST') {
+ res.status(405).send('Method not allowed');
+ return;
+ }
+
+ // Same RFC 8058 query+body merge as jobAlertUnsubscribe above — the
+ // one-click POST carries uid/email/token in the query string, not the body.
+ const params = req.method === 'GET' ? req.query : { ...req.query, ...req.body };
+ const uid = String(params.uid || '').trim();
+ const email = String(params.email || '').trim();
+ const token = String(params.token || '').trim();
+
+ try {
+ const { newsletterSecret } = await getNewsletterSecrets();
+ const result = await handleSavedJobsDigestUnsubscribe({
+ uid,
+ email,
+ token,
+ secret: newsletterSecret,
+ });
+
+ if (req.method === 'POST') {
+ res.status(result.status).type('text').send(result.status === 200 ? 'OK' : 'Error');
+ } else {
+ res.status(result.status).type('html').send(result.html);
+ }
+ } catch (error) {
+ console.error('[savedJobsDigestUnsubscribe] Error:', error);
+ res.status(500).type('html').send('<h1>Errore interno</h1><p>Riprova più tardi.</p>');
+ }
+ },
+);
+
 export const outreachUnsubscribe = onRequest(
  {
  region: 'europe-west6',
@@ -1251,6 +1295,21 @@ export const syncNewsletterSubscriberAuth = onDocumentCreated(
  }
  },
 );
+
+// v1 (not v2/identity's beforeUserDeleted) deliberately: that's a blocking
+// function requiring Identity Platform, an upgrade this project doesn't have
+// confirmed. functions.auth.user().onDelete() is a plain non-blocking gen1
+// trigger that works on any stock Firebase Auth project — fires AFTER
+// deleteCurrentUser() (services/authService.ts) removes the Auth user, and
+// cascade-deletes the now-permanently-unreachable users/{uid} + savedJobs.
+export const cleanupUserDataOnAccountDelete = functionsV1.auth.user().onDelete(async (user) => {
+ try {
+ const { deletedSavedJobs } = await cleanupSavedJobsForDeletedUser(user.uid);
+ console.log(`[cleanupUserDataOnAccountDelete] uid=${user.uid} deletedSavedJobs=${deletedSavedJobs}`);
+ } catch (error) {
+ console.error('[cleanupUserDataOnAccountDelete]', error instanceof Error ? error.message : String(error));
+ }
+});
 
 // Real-time counterpart of scripts/backfill-jobalerts-from-newsletter.mjs:
 // every newsletter_subscribers doc that carries job-search signal (or,

@@ -197,6 +197,7 @@ import {
 import type { AuthJobContext } from '@/services/authService';
 import { settleNewsletterAutologin, parseNewsletterAutologin } from '@/services/newsletterAutologinSignal';
 import { subscribeReaderEntitlement } from '@/services/readerEntitlement';
+import { subscribeSavedJobsFirestore } from '@/services/savedJobsService';
 import { useNewsletterAutologinInFlight } from '@/hooks/useNewsletterAutologinInFlight';
 import {
  upsertNewsletterSubscriber as upsertNewsletterSubscriberRecord,
@@ -1157,6 +1158,19 @@ const App: React.FC = () => {
  unsubscribe?.();
  };
  }, [authUser?.uid]);
+
+ // Saved-jobs Firestore sync (account-gating follow-up to #4466/#4467).
+ // Mounted once at app root, same shape as subscribeReaderEntitlement above —
+ // migrates any pre-existing localStorage saves on first sign-in, then keeps
+ // services/savedJobsService.ts's in-memory cache live via onSnapshot so
+ // JobBoard's SAVED_JOBS_CHANGED_EVENT listener picks up cross-device changes.
+ useEffect(() => {
+ const unsubscribe = subscribeSavedJobsFirestore(authUser?.uid ?? null, {
+ email: authEmail,
+ locale,
+ });
+ return unsubscribe;
+ }, [authUser?.uid, authEmail, locale]);
 
  // GA4 user-scoped `is_registered` custom dimension (analytics Stage 1,
  // revenue-per-user segmentation) — keyed off the signed-in uid so it

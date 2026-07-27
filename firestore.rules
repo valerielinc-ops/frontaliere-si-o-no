@@ -128,6 +128,13 @@ service cloud.firestore {
       allow read: if request.auth != null && request.auth.uid == uid;
       allow create: if request.auth != null && request.auth.uid == uid;
       allow update: if request.auth != null && request.auth.uid == uid;
+
+      // Saved jobs (registered-account "Salvati" feature) — owner-only CRUD,
+      // no cross-uid read. Client enforces the 100-entry cap; delete is used
+      // by unsave and by the account-deletion cascade cleanup function.
+      match /savedJobs/{jobId} {
+        allow read, create, update, delete: if request.auth != null && request.auth.uid == uid;
+      }
     }
 
     // Fuel prices — public read only (writes via Admin SDK from CI)
