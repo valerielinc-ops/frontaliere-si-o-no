@@ -20,6 +20,7 @@
 
 import { Analytics } from '@/services/analytics';
 import { isBenignErrorMessage } from '@/services/benignErrorPatterns';
+import { isVersionSkewError, recoverFromStaleChunk } from '@/services/resilientImport';
 
 type ErrorType =
  | 'api_error'
@@ -86,6 +87,18 @@ export function reportCaughtError(
  } = {}
 ): void {
  const message = extractMessage(error);
+
+ // ── Cross-chunk version skew: self-heal, independent of the report gating below ──
+ // ErrorBoundary.componentDidCatch (components/shared/ErrorBoundary.tsx) already
+ // self-heals render-time skew; every dynamic import().catch(reportCaughtError)
+ // call site (hooks/seoHelpers.ts, App.tsx's loadUserProfile, etc.) previously only
+ // reported the error and left the user stuck on stale chunks with no recovery
+ // attempt. Same `version_skew:<message>` signature as ErrorBoundary so both paths
+ // share one reload budget for the same underlying stale chunk regardless of which
+ // caught it first.
+ if (isVersionSkewError(error)) {
+ void recoverFromStaleChunk(`version_skew:${message.slice(0, 80)}`);
+ }
 
  // ── Dev console visibility ──
  console.warn(`[${context}]`, error);
