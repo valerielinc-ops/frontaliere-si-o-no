@@ -1591,6 +1591,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cifre-nere-grigioni.title': 'Cifre nere per quasi tutti i grandi comuni grigionesi',
     'blog.article.cifre-nere-grigioni.excerpt': '19 comuni grigionesi su 20 con il maggior numero di abitanti hanno registrato conti in positivo',
     'blog.article.cifre-nere-grigioni.imageAlt': 'Immagine di un comune grigionario con un bilancio in rosso',
+    'blog.article.ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.title': 'AI: crescono le persone reintegrate nel mondo del lavoro',
+    'blog.article.ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.excerpt': 'Circa 19\'200 persone sono state assunte grazie ai provvedimenti d\'integrazione professionale dell\'assicurazione invalidità (AI).',
+    'blog.article.ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.imageAlt': 'Immagine di una persona che lavora in un ufficio con un sorriso sulla faccia.',
 };
 
 export default blogMetaChIt;

@@ -1591,6 +1591,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cifre-nere-grigioni.title': 'Black figures for almost all the large Grison municipalities',
     'blog.article.cifre-nere-grigioni.excerpt': '19 out of 20 Grison municipalities with the largest number of inhabitants recorded positive accounts',
     'blog.article.cifre-nere-grigioni.imageAlt': 'Image of a Grisonian commune with a red budget',
+    'blog.article.ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.title': 'AI: people reintegrated into the world of work are growing',
+    'blog.article.ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.excerpt': 'Approximately 19,200 people were hired thanks to the professional integration measures of disability insurance (AI).',
+    'blog.article.ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.imageAlt': 'Image of a person working in an office with a smile on their face.',
 };
 
 export default blogMetaChEn;

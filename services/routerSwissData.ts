@@ -553,6 +553,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'pompieri-svizzeri-gironda-francia': { it: 'pompieri-svizzeri-gironda-francia', en: 'swiss-firefighters-gironda-france', de: 'schweizer-feuerwehrleute-gironda-frankreich', fr: 'pompiers-suisses-gironda-france' },
  'canton-ticino-blocca-ristorni-lombardia': { it: 'canton-ticino-blocca-ristorni-lombardia', en: 'ticino-blocks-lombardy-refunds', de: 'tessin-blockiert-lombardische-ruckerstattungen', fr: 'tessin-empeche-le-recouvrement-de-lombardie' },
  'cifre-nere-grigioni': { it: 'cifre-nere-grigioni', en: 'black-figures-grisons', de: 'schwarze-zahlen-grisone', fr: 'chiffres-noirs-grisons' },
+ 'ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro': { it: 'ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro', en: 'ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro', de: 'ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro', fr: 'ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

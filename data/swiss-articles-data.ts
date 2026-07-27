@@ -4769,6 +4769,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro',
+    category: 'pratico',
+    date: '2026-07-27T14:18:24.774Z',
+    image: '/images/blog/ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
