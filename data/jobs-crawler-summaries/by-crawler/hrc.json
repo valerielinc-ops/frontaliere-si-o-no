@@ -1,16 +1,16 @@
 {
   "key": "hrc",
   "label": "Hôpital Riviera-Chablais (HRC)",
-  "generatedAt": "2026-07-27T12:37:29.898Z",
-  "total": 6,
+  "generatedAt": "2026-07-27T22:07:26.738Z",
+  "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5790,
-  "avgDurationMs": 5790,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4671,
+  "avgDurationMs": 4671,
   "durationHistory": [
-    5790
+    4671
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/chef-dunite-administrative-hf-a-80-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T12:37:26.407Z",
+      "crawledAt": "2026-07-27T22:07:24.536Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/coordinateur-clinique-hf-de-lunite-de-medecine-integrative-a-50",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T12:37:26.428Z",
+      "crawledAt": "2026-07-27T22:07:24.558Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/technicien-maintenance-infrastructures-hf-a-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T12:37:26.432Z",
+      "crawledAt": "2026-07-27T22:07:24.562Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/chef-dunite-immobilier-hf-a-80-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T12:37:26.436Z",
+      "crawledAt": "2026-07-27T22:07:24.565Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/chef-dunite-proprete-hygiene-et-environnement-hf-a-80-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T12:37:26.440Z",
+      "crawledAt": "2026-07-27T22:07:24.570Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -200,8 +200,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "hrc-3e5771de3d3b",
       "slug": "phel-50-h-f-assistente-farmaceutico-nella-logistica-farmaceutica-hopital-riviera-chablais-hrc-rennaz",
@@ -241,5 +240,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
