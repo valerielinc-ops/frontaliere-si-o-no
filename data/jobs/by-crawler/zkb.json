@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "zkb-fdcbf34c13e0",
-      "slug": "key-fornitore-manager-in-central-purchasing-zurcher-kantonalbank-zurich",
+      "slug": "key-supplier-manager-in-zentraler-einkauf-zkb-zurich",
       "slugByLocale": {
         "de": "key-supplier-manager-in-zentraler-einkauf-zkb-zurich",
-        "it": "key-fornitore-manager-in-central-purchasing-zurcher-kantonalbank-zurich",
-        "en": "key-supplier-manager-in-central-purchasing-zurcher-kantonalbank-zurich",
-        "fr": "gestionnaire-de-fournisseurs-cles-dans-achats-centraux-zurcher-kantonalbank-zurich"
+        "it": "key-supplier-manager-in-zentraler-einkauf-zkb-zurich",
+        "en": "key-supplier-manager-in-zentraler-einkauf-zurcher-kantonalbank-zurich",
+        "fr": "key-supplier-manager-in-zentraler-einkauf-zkb-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -68,31 +68,16 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-27T12:31:06.176Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "key-supplier-manager-in-zentraler-einkauf-zkb-zurich"
-        ],
-        "en": [
-          "key-supplier-manager-in-zentraler-einkauf-zurcher-kantonalbank-zurich"
-        ],
-        "fr": [
-          "key-supplier-manager-in-zentraler-einkauf-zkb-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "key-supplier-manager-in-zentraler-einkauf-zkb-zurich",
-        "key-supplier-manager-in-zentraler-einkauf-zurcher-kantonalbank-zurich"
-      ]
+      "firstSeenAt": "2026-07-27T12:31:06.176Z"
     },
     {
       "id": "zkb-20df3cc4da34",
-      "slug": "controllo-della-comunicazione-m-f-d-zurcher-kantonalbank-zurich",
+      "slug": "compliance-officer-kommunikationsuberwachung-m-w-d-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "compliance-officer-kommunikationsuberwachung-m-w-d-zkb-zurich",
-        "it": "controllo-della-comunicazione-m-f-d-zurcher-kantonalbank-zurich",
-        "en": "compliance-officer-communication-monitoring-m-f-d-zurcher-kantonalbank-zurich",
-        "fr": "agent-de-conformite-surveillance-des-communications-m-f-d-zurcher-kantonalbank-zurich"
+        "it": "compliance-officer-kommunikationsuberwachung-m-w-d-zurcher-kantonalbank-zurich",
+        "en": "compliance-officer-kommunikationsuberwachung-m-w-d-zurcher-kantonalbank-zurich",
+        "fr": "compliance-officer-kommunikationsuberwachung-m-w-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -141,19 +126,11 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
-          "compliance-officer-kommunikationsuberwachung-m-w-d-zkb-zurich",
-          "compliance-officer-kommunikationsuberwachung-m-w-d-zurcher-kantonalbank-zurich"
-        ],
-        "en": [
-          "compliance-officer-kommunikationsuberwachung-m-w-d-zurcher-kantonalbank-zurich"
-        ],
-        "fr": [
-          "compliance-officer-kommunikationsuberwachung-m-w-d-zurcher-kantonalbank-zurich"
+          "compliance-officer-kommunikationsuberwachung-m-w-d-zkb-zurich"
         ]
       },
       "previousSlugs": [
-        "compliance-officer-kommunikationsuberwachung-m-w-d-zkb-zurich",
-        "compliance-officer-kommunikationsuberwachung-m-w-d-zurcher-kantonalbank-zurich"
+        "compliance-officer-kommunikationsuberwachung-m-w-d-zkb-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -333,7 +310,7 @@
       "title": "Projekt- und Risiko Manager Client Channels (m/w/d)",
       "titleByLocale": {
         "it": "Projekt- e Risiko Manager Client Channels (m/w/d)",
-        "en": "Project and Risk Manager Client Channels (m/f/d)",
+        "en": "Projekt- und Risiko Manager Client Channels (m/w/d)",
         "de": "Projekt- und Risiko Manager Client Channels (m/w/d)",
         "fr": "Gestionnaire de projets et de risques Canaux clients (m/f/d)"
       },
@@ -372,11 +349,13 @@
       "pensum": "80%",
       "previousSlugs": [
         "projekt-und-risiko-manager-client-channels-m-w-d-zkb-zurich",
-        "projekt-und-risiko-manager-client-channels-m-w-d-zurcher-kantonalbank-zurich"
+        "projekt-und-risiko-manager-client-channels-m-w-d-zurcher-kantonalbank-zurich",
+        "projekt-e-risiko-manager-client-channels-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projekt-und-risiko-manager-client-channels-m-w-d-zkb-zurich"
+          "projekt-und-risiko-manager-client-channels-m-w-d-zkb-zurich",
+          "projekt-e-risiko-manager-client-channels-m-w-d-zurcher-kantonalbank-zurich"
         ],
         "en": [
           "projekt-und-risiko-manager-client-channels-m-w-d-zurcher-kantonalbank-zurich"
@@ -414,7 +393,7 @@
       "title": "SQL Software Engineer im Bereich Application Integration (m/w/d)",
       "titleByLocale": {
         "it": "SQL Software Ingegnere im Bereich Application Integration (m/w/d)",
-        "en": "SQL Software Engineer in Application Integration (m/f/d)",
+        "en": "SQL Software Engineer im Bereich Application Integration (m/w/d)",
         "de": "SQL Software Ingenieur im Bereich Application Integration (m/w/d)",
         "fr": "SQL Software Ingénieur im Bereich Application Integration (m/w/d)"
       },
@@ -452,11 +431,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "sql-software-engineer-im-bereich-application-integration-m-w-d-zkb-zurich"
+        "sql-software-engineer-im-bereich-application-integration-m-w-d-zkb-zurich",
+        "sql-software-ingegnere-im-bereich-application-integration-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sql-software-engineer-im-bereich-application-integration-m-w-d-zkb-zurich"
+          "sql-software-engineer-im-bereich-application-integration-m-w-d-zkb-zurich",
+          "sql-software-ingegnere-im-bereich-application-integration-m-w-d-zurcher-kantonalbank-zurich"
         ],
         "fr": [
           "sql-software-engineer-im-bereich-application-integration-m-w-d-zkb-zurich"
@@ -491,7 +472,7 @@
       "title": "Junior Relationship Manager HNWI (m/w/d)",
       "titleByLocale": {
         "it": "Junior Relationship Manager HNWI (m/f/d)",
-        "en": "Junior Relationship Manager HNWI (m/f/d)",
+        "en": "Junior Relationship Manager HNWI (m/w/d)",
         "de": "Junior Relationship Manager HNWI (m/w/d)",
         "fr": "Gestionnaire de relations juniors HNWI (m/f/d)"
       },
@@ -529,11 +510,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "junior-relationship-manager-hnwi-m-w-d-zkb-horgen"
+        "junior-relationship-manager-hnwi-m-w-d-zkb-horgen",
+        "junior-relationship-manager-hnwi-m-f-d-zurcher-kantonalbank-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-relationship-manager-hnwi-m-w-d-zkb-horgen"
+          "junior-relationship-manager-hnwi-m-w-d-zkb-horgen",
+          "junior-relationship-manager-hnwi-m-f-d-zurcher-kantonalbank-horgen"
         ]
       },
       "firstSeenAt": "2026-07-21T11:14:24.924Z",
@@ -603,11 +586,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "sachbearbeiter-in-vorsorgestiftungen-zkb-zurich"
+        "sachbearbeiter-in-vorsorgestiftungen-zkb-zurich",
+        "sachbearbeiter-in-vorsorgestiftungen-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-vorsorgestiftungen-zkb-zurich"
+          "sachbearbeiter-in-vorsorgestiftungen-zkb-zurich",
+          "sachbearbeiter-in-vorsorgestiftungen-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-07-20T11:51:24.964Z",
@@ -793,7 +778,7 @@
       "title": "Senior Sales Strukturierte Produkte Cross Asset (w/m/d)",
       "titleByLocale": {
         "it": "Senior Sales Strutturato Prodotti Cross Asset (f/m/d)",
-        "en": "Senior Sales Structured Products Cross Asset (f/m/d)",
+        "en": "Senior Sales Strukturierte Produkte Cross Asset (w/m/d)",
         "de": "Senior Sales Strukturierte Produkte Cross Asset (w/m/d)",
         "fr": "Produits structurés de vente senior Biens croisés (f/m/d)"
       },
@@ -831,11 +816,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "senior-sales-strukturierte-produkte-cross-asset-w-m-d-zkb-zurich"
+        "senior-sales-strukturierte-produkte-cross-asset-w-m-d-zkb-zurich",
+        "senior-sales-strutturato-prodotti-cross-asset-f-m-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-sales-strukturierte-produkte-cross-asset-w-m-d-zkb-zurich"
+          "senior-sales-strukturierte-produkte-cross-asset-w-m-d-zkb-zurich",
+          "senior-sales-strutturato-prodotti-cross-asset-f-m-d-zurcher-kantonalbank-zurich"
         ],
         "en": [
           "senior-sales-strukturierte-produkte-cross-asset-w-m-d-zkb-zurich"
@@ -982,7 +969,7 @@
       "title": "Input Engineer Dokumentenmanagement (m/w/d)",
       "titleByLocale": {
         "it": "Input Ingegnere Dokumentenmanagement (m/w/d)",
-        "en": "Input Engineer Document Management (m/f/d)",
+        "en": "Input Engineer Dokumentenmanagement (m/w/d)",
         "de": "Input Ingenieur Dokumentenmanagement (m/w/d)",
         "fr": "Input Ingénieur Dokumentenmanagement (m/w/d)"
       },
@@ -1020,11 +1007,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "input-engineer-dokumentenmanagement-m-w-d-zkb-zurich"
+        "input-engineer-dokumentenmanagement-m-w-d-zkb-zurich",
+        "input-engineer-dokumentenmanagement-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "input-engineer-dokumentenmanagement-m-w-d-zkb-zurich"
+          "input-engineer-dokumentenmanagement-m-w-d-zkb-zurich",
+          "input-engineer-dokumentenmanagement-m-w-d-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-07-17T10:52:43.447Z",
@@ -1056,7 +1045,7 @@
       "title": "Senior Business Engineer API Banking & ID Management (m/w/d)",
       "titleByLocale": {
         "it": "Senior Business Ingegnere API Banking & ID Management (m/w/d)",
-        "en": "Senior Business Engineer API Banking & ID Management (m/f/d)",
+        "en": "Senior Business Engineer API Banking & ID Management (m/w/d)",
         "de": "Senior Business Ingenieur API Banking & ID Management (m/w/d)",
         "fr": "Senior Business Ingénieur API Banking & ID Management (m/w/d)"
       },
@@ -1098,7 +1087,8 @@
         "senior-business-ingegnere-digitales-banking-m-w-d-zurcher-kantonalbank-zurich",
         "senior-business-engineer-digitales-banking-m-w-d-zurcher-kantonalbank-zurich",
         "senior-business-engineer-digitales-banking-m-w-d-zkb-zurich",
-        "senior-business-ingenieur-digitales-banking-m-w-d-zurcher-kantonalbank-zurich"
+        "senior-business-ingenieur-digitales-banking-m-w-d-zurcher-kantonalbank-zurich",
+        "senior-business-ingegnere-api-banking-id-management-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1106,7 +1096,8 @@
           "senior-business-ingegnere-digitales-banking-m-w-d-zurcher-kantonalbank-zurich",
           "senior-business-engineer-digitales-banking-m-w-d-zurcher-kantonalbank-zurich",
           "senior-business-engineer-digitales-banking-m-w-d-zkb-zurich",
-          "senior-business-ingenieur-digitales-banking-m-w-d-zurcher-kantonalbank-zurich"
+          "senior-business-ingenieur-digitales-banking-m-w-d-zurcher-kantonalbank-zurich",
+          "senior-business-ingegnere-api-banking-id-management-m-w-d-zurcher-kantonalbank-zurich"
         ],
         "en": [
           "senior-business-engineer-digitales-banking-m-w-d-zurcher-kantonalbank-zurich"
@@ -1267,11 +1258,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "lehre-kauffrau-kaufmann-efz-branche-bank-zkb-zurich"
+        "lehre-kauffrau-kaufmann-efz-branche-bank-zkb-zurich",
+        "lehre-kauffrau-kaufmann-cfc-branche-bank-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-kauffrau-kaufmann-efz-branche-bank-zkb-zurich"
+          "lehre-kauffrau-kaufmann-efz-branche-bank-zkb-zurich",
+          "lehre-kauffrau-kaufmann-cfc-branche-bank-zurcher-kantonalbank-zurich"
         ],
         "en": [
           "lehre-kauffrau-kaufmann-efz-branche-bank-zkb-zurich"
@@ -1347,11 +1340,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "lehre-informatiker-in-efz-fachrichtung-plattformentwicklung-zkb-zurich"
+        "lehre-informatiker-in-efz-fachrichtung-plattformentwicklung-zkb-zurich",
+        "lehre-informatiker-in-cfc-specializzazione-plattformentwicklung-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-informatiker-in-efz-fachrichtung-plattformentwicklung-zkb-zurich"
+          "lehre-informatiker-in-efz-fachrichtung-plattformentwicklung-zkb-zurich",
+          "lehre-informatiker-in-cfc-specializzazione-plattformentwicklung-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-07-13T12:12:29.128Z",
@@ -1421,11 +1416,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "lehre-informatiker-in-efz-fachrichtung-applikationsentwicklung-zkb-zurich"
+        "lehre-informatiker-in-efz-fachrichtung-applikationsentwicklung-zkb-zurich",
+        "lehre-informatiker-in-cfc-specializzazione-applikationsentwicklung-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-informatiker-in-efz-fachrichtung-applikationsentwicklung-zkb-zurich"
+          "lehre-informatiker-in-efz-fachrichtung-applikationsentwicklung-zkb-zurich",
+          "lehre-informatiker-in-cfc-specializzazione-applikationsentwicklung-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-07-13T12:12:28.688Z",
@@ -1495,11 +1492,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "lehre-entwickler-in-digitales-business-efz-zkb-zurich"
+        "lehre-entwickler-in-digitales-business-efz-zkb-zurich",
+        "lehre-entwickler-in-digitales-business-cfc-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-entwickler-in-digitales-business-efz-zkb-zurich"
+          "lehre-entwickler-in-digitales-business-efz-zkb-zurich",
+          "lehre-entwickler-in-digitales-business-cfc-zurcher-kantonalbank-zurich"
         ],
         "en": [
           "lehre-entwickler-in-digitales-business-efz-zkb-zurich"
@@ -1537,7 +1536,7 @@
       "title": "Senior Full Stack Engineer Billing & Payments (w/m/d)",
       "titleByLocale": {
         "it": "Senior Full Stack Ingegnere Billing & Payments (w/m/d)",
-        "en": "Senior Full Stack Engineer Billing & Payments (f/m/d)",
+        "en": "Senior Full Stack Engineer Billing & Payments (w/m/d)",
         "de": "Senior Full Stack Ingenieur Billing & Payments (w/m/d)",
         "fr": "Senior Full Stack Ingénieur Billing & Payments (w/m/d)"
       },
@@ -1575,11 +1574,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "senior-full-stack-engineer-billing-payments-w-m-d-zkb-zurich"
+        "senior-full-stack-engineer-billing-payments-w-m-d-zkb-zurich",
+        "senior-full-stack-ingegnere-billing-payments-w-m-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-full-stack-engineer-billing-payments-w-m-d-zkb-zurich"
+          "senior-full-stack-engineer-billing-payments-w-m-d-zkb-zurich",
+          "senior-full-stack-ingegnere-billing-payments-w-m-d-zurcher-kantonalbank-zurich"
         ],
         "fr": [
           "senior-full-stack-engineer-billing-payments-w-m-d-zkb-zurich"
@@ -1652,11 +1653,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "leiter-in-market-risk-analyse-risikodialog-w-m-d-zkb-zurich"
+        "leiter-in-market-risk-analyse-risikodialog-w-m-d-zkb-zurich",
+        "responsabile-market-risk-analyse-risikodialog-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-market-risk-analyse-risikodialog-w-m-d-zkb-zurich"
+          "leiter-in-market-risk-analyse-risikodialog-w-m-d-zkb-zurich",
+          "responsabile-market-risk-analyse-risikodialog-m-w-d-zurcher-kantonalbank-zurich"
         ],
         "en": [
           "leiter-in-market-risk-analyse-risikodialog-w-m-d-zkb-zurich"
@@ -1895,12 +1898,14 @@
       "pensum": "80%",
       "previousSlugs": [
         "kundenberater-in-kundenservice-direktbank-zkb-zurich",
-        "consulente-clienti-in-customer-service-direct-bank-zurcher-kantonalbank-zurich"
+        "consulente-clienti-in-customer-service-direct-bank-zurcher-kantonalbank-zurich",
+        "kundenberater-in-kundenservice-direktbank-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-in-kundenservice-direktbank-zkb-zurich",
-          "consulente-clienti-in-customer-service-direct-bank-zurcher-kantonalbank-zurich"
+          "consulente-clienti-in-customer-service-direct-bank-zurcher-kantonalbank-zurich",
+          "kundenberater-in-kundenservice-direktbank-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-07-08T11:10:52.905Z",
@@ -1932,7 +1937,7 @@
       "title": "Product Manager:in Fixed Income",
       "titleByLocale": {
         "it": "Product Manager: in Risultato Fisso",
-        "en": "Product Manager: in Fixed Income",
+        "en": "Product Manager:in Fixed Income",
         "de": "Product Manager:in Fixed Income",
         "fr": "Gestionnaire de produits: en revenu fixe"
       },
@@ -1970,11 +1975,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "product-manager-in-fixed-income-zkb-zurich"
+        "product-manager-in-fixed-income-zkb-zurich",
+        "product-manager-in-risultato-fisso-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-manager-in-fixed-income-zkb-zurich"
+          "product-manager-in-fixed-income-zkb-zurich",
+          "product-manager-in-risultato-fisso-zurcher-kantonalbank-zurich"
         ],
         "fr": [
           "product-manager-in-fixed-income-zkb-zurich"
@@ -2009,7 +2016,7 @@
       "title": "Privileged Access Management (PAM) Security Specialist (m/w/d)",
       "titleByLocale": {
         "it": "Privileged Access Management (PAM) Security Specialista (m/w/d)",
-        "en": "Privileged Access Management (PAM) Security Specialist (m/f/d)",
+        "en": "Privileged Access Management (PAM) Security Specialist (m/w/d)",
         "de": "Privileged Access Management (PAM) Security Spezialist (m/w/d)",
         "fr": "Privileged Access Management (PAM) Security Spécialiste (m/w/d)"
       },
@@ -2047,11 +2054,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "privileged-access-management-pam-security-specialist-m-w-d-zkb-zurich"
+        "privileged-access-management-pam-security-specialist-m-w-d-zkb-zurich",
+        "privileged-access-management-pam-security-specialista-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "privileged-access-management-pam-security-specialist-m-w-d-zkb-zurich"
+          "privileged-access-management-pam-security-specialist-m-w-d-zkb-zurich",
+          "privileged-access-management-pam-security-specialista-m-w-d-zurcher-kantonalbank-zurich"
         ],
         "fr": [
           "privileged-access-management-pam-security-specialist-m-w-d-zkb-zurich"
@@ -2086,7 +2095,7 @@
       "title": "IT-Architekt Vertriebsplattform (m/w/d)",
       "titleByLocale": {
         "it": "Piattaforma di vendita IT Architect (m/f/d)",
-        "en": "IT Architect Sales Platform (m/f/d)",
+        "en": "IT-Architekt Vertriebsplattform (m/w/d)",
         "de": "IT-Architekt Vertriebsplattform (m/w/d)",
         "fr": "Plateforme de vente d'architectes informatiques (m/f/d)"
       },
@@ -2125,12 +2134,14 @@
       "pensum": "80%",
       "previousSlugs": [
         "it-architekt-vertriebsplattform-m-w-d-zkb-zurich",
-        "it-architekt-vertriebsplattform-m-w-d-zurcher-kantonalbank-zurich"
+        "it-architekt-vertriebsplattform-m-w-d-zurcher-kantonalbank-zurich",
+        "piattaforma-di-vendita-it-architect-m-f-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-architekt-vertriebsplattform-m-w-d-zkb-zurich",
-          "it-architekt-vertriebsplattform-m-w-d-zurcher-kantonalbank-zurich"
+          "it-architekt-vertriebsplattform-m-w-d-zurcher-kantonalbank-zurich",
+          "piattaforma-di-vendita-it-architect-m-f-d-zurcher-kantonalbank-zurich"
         ],
         "fr": [
           "it-architekt-vertriebsplattform-m-w-d-zurcher-kantonalbank-zurich"
@@ -2296,12 +2307,14 @@
       "previousSlugsByLocale": {
         "de": [
           "senior-fachspezialist-in-risiko-u00fcberwachung-anlage-und-vorsorgegesch-u00e4ft-zkb",
-          "senior-fachspezialist-in-risikouberwachung-anlage-und-vorsorgegeschaft-zkb-zurich"
+          "senior-fachspezialist-in-risikouberwachung-anlage-und-vorsorgegeschaft-zkb-zurich",
+          "senior-fachspezialist-in-risikouberwachung-anlage-und-vorsorgegeschaft-zurcher-kantonalbank-zurich"
         ],
         "it": [
           "senior-fachspezialist-in-risiko-u00fcberwachung-anlage-und-vorsorgegesch-u00e4ft-zkb",
           "senior-fachspezialist-in-risiko-u00fcberwachung-anlage-e-vorsorgegesch-u00e4ft-zurcher-kantonalbank-zurich",
-          "senior-fachspezialist-in-risikouberwachung-anlage-und-vorsorgegeschaft-zkb-zurich"
+          "senior-fachspezialist-in-risikouberwachung-anlage-und-vorsorgegeschaft-zkb-zurich",
+          "senior-fachspezialist-in-risikouberwachung-anlage-e-vorsorgegeschaft-zurcher-kantonalbank-zurich"
         ],
         "en": [
           "senior-specialist-in-risk-u00fcbermonitorung-investment-and-pension-scheme-u00e4ft-zurcher-kantonalbank-zurich",
@@ -2317,7 +2330,9 @@
         "senior-specialist-in-risk-u00fcbermonitorung-investment-and-pension-scheme-u00e4ft-zurcher-kantonalbank-zurich",
         "specialiste-principal-inrisk-u00fcbermonitorung-regime-d-investissement-et-de-retraite-zurcher-kantonalbank-zurich",
         "senior-fachspezialist-in-risiko-u00fcberwachung-anlage-e-vorsorgegesch-u00e4ft-zurcher-kantonalbank-zurich",
-        "senior-fachspezialist-in-risikouberwachung-anlage-und-vorsorgegeschaft-zkb-zurich"
+        "senior-fachspezialist-in-risikouberwachung-anlage-und-vorsorgegeschaft-zkb-zurich",
+        "senior-fachspezialist-in-risikouberwachung-anlage-und-vorsorgegeschaft-zurcher-kantonalbank-zurich",
+        "senior-fachspezialist-in-risikouberwachung-anlage-e-vorsorgegeschaft-zurcher-kantonalbank-zurich"
       ],
       "firstSeenAt": "2026-07-06T22:14:41.791Z",
       "salaryMin": 101500,
@@ -2348,7 +2363,7 @@
       "title": "DevOps Engineer Digital Assets & Scrum Master (m/w/d)",
       "titleByLocale": {
         "it": "DevOps Ingegnere Digital Assets & Scrum Master (m/w/d)",
-        "en": "DevOps Engineer Digital Assets & Scrum Master (m/f/d)",
+        "en": "DevOps Engineer Digital Assets & Scrum Master (m/w/d)",
         "de": "DevOps Ingenieur Digital Assets & Scrum Master (m/w/d)",
         "fr": "DevOps Ingénieur Digital Assets & Scrum Master (m/w/d)"
       },
@@ -2386,11 +2401,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "devops-engineer-digital-assets-scrum-master-m-w-d-zkb-zurich"
+        "devops-engineer-digital-assets-scrum-master-m-w-d-zkb-zurich",
+        "devops-ingegnere-digital-assets-scrum-master-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "devops-engineer-digital-assets-scrum-master-m-w-d-zkb-zurich"
+          "devops-engineer-digital-assets-scrum-master-m-w-d-zkb-zurich",
+          "devops-ingegnere-digital-assets-scrum-master-m-w-d-zurcher-kantonalbank-zurich"
         ],
         "fr": [
           "devops-engineer-digital-assets-scrum-master-m-w-d-zkb-zurich"
@@ -2575,7 +2592,7 @@
       "title": "Security Specialist Trust Management (m/w/d)",
       "titleByLocale": {
         "it": "Security Specialista Trust Management (m/w/d)",
-        "en": "Security Specialist Trust Management (m/f/d)",
+        "en": "Security Specialist Trust Management (m/w/d)",
         "de": "Security Spezialist Trust Management (m/w/d)",
         "fr": "Security Spécialiste Trust Management (m/w/d)"
       },
@@ -2613,11 +2630,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "security-specialist-trust-management-m-w-d-zkb-zurich"
+        "security-specialist-trust-management-m-w-d-zkb-zurich",
+        "security-specialista-trust-management-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "security-specialist-trust-management-m-w-d-zkb-zurich"
+          "security-specialist-trust-management-m-w-d-zkb-zurich",
+          "security-specialista-trust-management-m-w-d-zurcher-kantonalbank-zurich"
         ],
         "fr": [
           "security-specialist-trust-management-m-w-d-zkb-zurich"
@@ -2767,11 +2786,13 @@
       "previousSlugs": [
         "kundenberater-in-privatkunden-als-stellvertretung-der-teamleitung-zkb-affoltern-a-a",
         "kundenberater-in-privatkunden-als-stellvertretung-der-teamleitung-zurcher-kantonalbank-affoltern-a-a",
-        "consultants-clients-dans-les-clients-prives-en-tant-que-sous-gestion-d-equipe-zurcher-kantonalbank-affoltern-a"
+        "consultants-clients-dans-les-clients-prives-en-tant-que-sous-gestion-d-equipe-zurcher-kantonalbank-affoltern-a",
+        "kundenberater-in-privatkunden-come-stellvertretung-der-teamleitung-zurcher-kantonalbank-affoltern-a"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-privatkunden-als-stellvertretung-der-teamleitung-zkb-affoltern-a-a"
+          "kundenberater-in-privatkunden-als-stellvertretung-der-teamleitung-zkb-affoltern-a-a",
+          "kundenberater-in-privatkunden-come-stellvertretung-der-teamleitung-zurcher-kantonalbank-affoltern-a"
         ],
         "en": [
           "kundenberater-in-privatkunden-als-stellvertretung-der-teamleitung-zurcher-kantonalbank-affoltern-a-a"
@@ -2810,7 +2831,7 @@
       "title": "Fullstack DevOps Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Fullstack DevOps Ingegnere (m/w/d)",
-        "en": "Fullstack DevOps Engineer (m/f/d)",
+        "en": "Fullstack DevOps Engineer (m/w/d)",
         "de": "Fullstack DevOps Ingenieur (m/w/d)",
         "fr": "Fullstack DevOps Ingénieur (m/w/d)"
       },
@@ -2848,11 +2869,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "fullstack-devops-engineer-m-w-d-zkb-zurich"
+        "fullstack-devops-engineer-m-w-d-zkb-zurich",
+        "fullstack-devops-ingegnere-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fullstack-devops-engineer-m-w-d-zkb-zurich"
+          "fullstack-devops-engineer-m-w-d-zkb-zurich",
+          "fullstack-devops-ingegnere-m-w-d-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-07-06T22:14:36.678Z",
@@ -2969,7 +2992,7 @@
       "title": "SAP S/4HANA Developer (m/w/d)",
       "titleByLocale": {
         "it": "SAP S/4HANA Sviluppatore (m/w/d)",
-        "en": "SAP S/4HANA Developer (m/f/d)",
+        "en": "SAP S/4HANA Developer (m/w/d)",
         "de": "SAP S/4HANA Entwickler (m/w/d)",
         "fr": "SAP S/4HANA Développeur (m/w/d)"
       },
@@ -3007,11 +3030,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "sap-s-4hana-developer-m-w-d-zkb-zurich"
+        "sap-s-4hana-developer-m-w-d-zkb-zurich",
+        "sap-s-4hana-sviluppatore-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sap-s-4hana-developer-m-w-d-zkb-zurich"
+          "sap-s-4hana-developer-m-w-d-zkb-zurich",
+          "sap-s-4hana-sviluppatore-m-w-d-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-07-06T22:14:35.006Z",
@@ -3043,7 +3068,7 @@
       "title": "Senior Business Engineer Digitale Eröffnungen (m/w/d)",
       "titleByLocale": {
         "it": "Senior Business Ingegnere Digitale Eröffnungen (m/w/d)",
-        "en": "Senior Business Engineer Digital Openings (m/f/d)",
+        "en": "Senior Business Engineer Digitale Eröffnungen (m/w/d)",
         "de": "Senior Business Ingenieur Digitale Eröffnungen (m/w/d)",
         "fr": "Senior Business Ingénieur Digitale Eröffnungen (m/w/d)"
       },
@@ -3083,12 +3108,14 @@
       "previousSlugsByLocale": {
         "de": [
           "senior-business-engineer-digitale-er-u00f6ffnungen-m-w-d-zkb-zurich",
-          "senior-business-engineer-digitale-eroffnungen-m-w-d-zkb-zurich"
+          "senior-business-engineer-digitale-eroffnungen-m-w-d-zkb-zurich",
+          "senior-business-ingenieur-digitale-eroffnungen-m-w-d-zurcher-kantonalbank-zurich"
         ],
         "it": [
           "senior-business-engineer-digitale-er-u00f6ffnungen-m-w-d-zkb-zurich",
           "senior-business-ingegnere-digitale-er-u00f6ffnungen-m-w-d-zurcher-kantonalbank-zurich",
-          "senior-business-engineer-digitale-eroffnungen-m-w-d-zkb-zurich"
+          "senior-business-engineer-digitale-eroffnungen-m-w-d-zkb-zurich",
+          "senior-business-ingegnere-digitale-eroffnungen-m-w-d-zurcher-kantonalbank-zurich"
         ],
         "en": [
           "senior-business-engineer-digitale-er-u00f6ffnungen-m-w-d-zurcher-kantonalbank-zurich"
@@ -3103,7 +3130,9 @@
         "senior-business-ingegnere-digitale-er-u00f6ffnungen-m-w-d-zurcher-kantonalbank-zurich",
         "senior-business-engineer-digitale-er-u00f6ffnungen-m-w-d-zurcher-kantonalbank-zurich",
         "senior-business-ingenieur-digitale-er-u00f6ffnungen-m-w-d-zurcher-kantonalbank-zurich",
-        "senior-business-engineer-digitale-eroffnungen-m-w-d-zkb-zurich"
+        "senior-business-engineer-digitale-eroffnungen-m-w-d-zkb-zurich",
+        "senior-business-ingenieur-digitale-eroffnungen-m-w-d-zurcher-kantonalbank-zurich",
+        "senior-business-ingegnere-digitale-eroffnungen-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "firstSeenAt": "2026-07-06T22:14:34.593Z",
       "salaryMin": 101500,
@@ -3134,7 +3163,7 @@
       "title": "Relationship Manager Key Clients (m/w/d)",
       "titleByLocale": {
         "it": "Gestione delle relazioni Clienti chiave (m/f/d)",
-        "en": "Relationship Manager Key Clients (m/f/d)",
+        "en": "Relationship Manager Key Clients (m/w/d)",
         "de": "Relationship Manager Key Clients (m/w/d)",
         "fr": "Gestionnaire de relations Clients clés (m/f/d)"
       },
@@ -3172,11 +3201,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "relationship-manager-key-clients-m-w-d-zkb-zurich"
+        "relationship-manager-key-clients-m-w-d-zkb-zurich",
+        "gestione-delle-relazioni-clienti-chiave-m-f-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "relationship-manager-key-clients-m-w-d-zkb-zurich"
+          "relationship-manager-key-clients-m-w-d-zkb-zurich",
+          "gestione-delle-relazioni-clienti-chiave-m-f-d-zurcher-kantonalbank-zurich"
         ],
         "fr": [
           "relationship-manager-key-clients-m-w-d-zkb-zurich"
@@ -3211,7 +3242,7 @@
       "title": "Business Engineer Billing & Payments (m/w/d)",
       "titleByLocale": {
         "it": "Business Ingegnere Billing & Payments (m/w/d)",
-        "en": "Business Engineer Billing & Payments (m/f/d)",
+        "en": "Business Engineer Billing & Payments (m/w/d)",
         "de": "Business Ingenieur Billing & Payments (m/w/d)",
         "fr": "Business Ingénieur Billing & Payments (m/w/d)"
       },
@@ -3255,7 +3286,8 @@
         "business-engineer-erp-m-w-d-zkb-zurich",
         "business-ingegnere-ai-genai-w-m-d-zurcher-kantonalbank-zurich",
         "business-engineer-ai-genai-w-m-d-zurcher-kantonalbank-zurich",
-        "business-engineer-ai-genai-w-m-d-zkb-zurich"
+        "business-engineer-ai-genai-w-m-d-zkb-zurich",
+        "business-ingegnere-billing-payments-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3265,7 +3297,8 @@
           "business-engineer-erp-m-w-d-zkb-zurich",
           "business-ingegnere-ai-genai-w-m-d-zurcher-kantonalbank-zurich",
           "business-engineer-ai-genai-w-m-d-zurcher-kantonalbank-zurich",
-          "business-engineer-ai-genai-w-m-d-zkb-zurich"
+          "business-engineer-ai-genai-w-m-d-zkb-zurich",
+          "business-ingegnere-billing-payments-m-w-d-zurcher-kantonalbank-zurich"
         ],
         "en": [
           "business-engineer-erp-m-w-d-zurcher-kantonalbank-zurich"
@@ -3342,11 +3375,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "spezialist-in-versicherungen-private-zkb-zurich"
+        "spezialist-in-versicherungen-private-zkb-zurich",
+        "specialista-in-assicurazione-privata-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-versicherungen-private-zkb-zurich"
+          "spezialist-in-versicherungen-private-zkb-zurich",
+          "specialista-in-assicurazione-privata-zurcher-kantonalbank-zurich"
         ],
         "en": [
           "spezialist-in-versicherungen-private-zkb-zurich"
@@ -3386,7 +3421,7 @@
         "it": "Senior Contabile",
         "en": "Senior Accountant",
         "de": "Senior Buchhalter",
-        "fr": "Comptable principal"
+        "fr": "Senior Accountant"
       },
       "description": "• Senior Accountant\n\n80% - 100% | Rechnungswesen / Controlling | Zürich | Berufserfahrene\n\nJetzt online bewerben\n\nIm Team Finanzielles Rechnungswesen hilfst Du unserer Bank, die regulatorischen Vorgaben umzusetzen und einzuhalten. Du erstellst Monatsabschlüsse, SNB-Statistiken, setzt neue Vorgaben um und optimierst kontinuierlich das Reporting sowie die Analyseprozesse. Du arbeitest gerne in Projekten.\nUm die neuen und komplexen Regulierungen und Reportinganforderungen erfolgreich zu meistern, suchen wir für unser Team Finanzielles Rechnungswesen eine tatkräftige Verstärkung und starke Persönlichkeit.\n\nDeine Aufgaben\n\n• Erstellung der SNB-Kreditstatistiken\n• Fachliche Verantwortung und Mitarbeit im Projekt zur Umsetzung der EKE-Einzelkrediterhebung\n• Teilerstellung Abschlüsse nach Rechnungslegung FINMA RelV und FINMA RS 2020/1\n• (Weiter-) Entwicklung und Optimierung von Geschäfts- und Reportingprozessen zur Verbesserung der operativen Effizienz\n• Unterhalt und Weiterentwicklung von Datenmodellen und Reports\n• Verfolgen von regulatorischen Entwicklungen und Umsetzung regulatorischer Anforderungen im Bereich Rechnungslegung und SNB-Statistiken\n• Mitarbeit und Verantwortung von weiteren Projekten im Bereich Rechnungswesen und Regulatorischem Reporting\n• Universität/FH Masterabschluss in Accounting/Finance/Banking oder gleichwertige Ausbildung\n• Mehrjährige Erfahrung im Bankbereich sowie Kenntnisse von Bankprodukten und Bankenregulierung mit Schwerpunkt Rechnungswesen und regulatorisches Reporting\n• Sehr gute Kenntnisse der SNB-Statistiken, insbesondere der Kreditstatistiken sowie der neuen Einzelkrediterhebung (EKE) von Vorteil\n• Adressatengerechte Kommunikation von regulatorischen Themen an verschiedene Stakeholder (z. B. Management, Regulatoren, interne Abteilungen)\n• Erfahrung in Projektarbeit, agiles Mindset sowie Business Engineering Erfahrung\n• Fähigkeit, komplexe Probleme zu identifizieren und innovative Lösungen zu entwickeln\n• Ausgeprägtes Zahlenflair sowie starke analytische und konzeptionelle Fähigkeiten\n• Fundierte Kenntnisse SAP FI, SAP-BW und SAP-BA von Vorteil, professioneller Umgang mit Office Programmen, insbesondere Excel\n• Teamorientiertes Verhalten sowie exakte und selbständige Arbeitsweise\n• Sehr gute Deutsch- und Englischkenntnisse\n• Abwechslungsreiches Aufgabengebiet in einer unterstützenden Teamkultur\n• Zusammenarbeit mit vielen internen und externen Stakeholdern\n• Langfristige Perspektiven in einem stabilen, nachhaltigen Umfeld bei einer der sichersten Universalbanken der Welt\n• Aktive Unterstützung bei deiner Weiterentwicklung durch gezielte Investitionen in deine Fähigkeiten\n• Moderner Arbeitsplatz im Kreis 5 mit sehr guter Verkehrsanbindung (Bahnhof Hardbrücke) und Möglichkeit von Homeoffice\n• Attraktives Gesamtpaket mit Grundsalär, variabler Vergütung und zahlreichen Benefits – von A wie Altersvorsorge bis Z wie Zoo-Tickets\n• Verschiedene Anlässe und interne Netzwerke für schnelles und einfaches Vernetzen",
       "descriptionByLocale": {
@@ -3422,11 +3457,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "senior-accountant-zkb-zurich"
+        "senior-accountant-zkb-zurich",
+        "senior-contabile-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-accountant-zkb-zurich"
+          "senior-accountant-zkb-zurich",
+          "senior-contabile-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-07-06T22:14:32.519Z",
@@ -3458,7 +3495,7 @@
       "title": "Senior Engineer Storage & Backup (m/w/d)",
       "titleByLocale": {
         "it": "Senior Ingegnere Storage & Backup (m/w/d)",
-        "en": "Senior Engineer Storage & Backup (m/f/d)",
+        "en": "Senior Engineer Storage & Backup (m/w/d)",
         "de": "Senior Ingenieur Storage & Backup (m/w/d)",
         "fr": "Senior Ingénieur Storage & Backup (m/w/d)"
       },
@@ -3496,11 +3533,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "senior-engineer-storage-backup-m-w-d-zkb-zurich"
+        "senior-engineer-storage-backup-m-w-d-zkb-zurich",
+        "senior-ingegnere-storage-backup-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-engineer-storage-backup-m-w-d-zkb-zurich"
+          "senior-engineer-storage-backup-m-w-d-zkb-zurich",
+          "senior-ingegnere-storage-backup-m-w-d-zurcher-kantonalbank-zurich"
         ],
         "fr": [
           "senior-engineer-storage-backup-m-w-d-zkb-zurich"
@@ -3610,7 +3649,7 @@
       "title": "Software Engineer in Asset Management (m/w/d)",
       "titleByLocale": {
         "it": "Software Ingegnere in Asset Management (m/w/d)",
-        "en": "Software Engineer in Asset Management (m/f/d)",
+        "en": "Software Engineer in Asset Management (m/w/d)",
         "de": "Software Ingenieur in Asset Management (m/w/d)",
         "fr": "Software Ingénieur in Asset Management (m/w/d)"
       },
@@ -3652,11 +3691,13 @@
         "junior-business-ingegnere-im-asset-management-w-m-d-zurcher-kantonalbank-zurich",
         "junior-business-engineer-im-asset-management-w-m-d-zurcher-kantonalbank-zurich",
         "junior-business-engineer-im-asset-management-w-m-d-zkb-zurich",
-        "junior-business-ingenieur-im-asset-management-w-m-d-zurcher-kantonalbank-zurich"
+        "junior-business-ingenieur-im-asset-management-w-m-d-zurcher-kantonalbank-zurich",
+        "software-ingegnere-in-asset-management-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-in-asset-management-m-w-d-zkb-zurich"
+          "software-engineer-in-asset-management-m-w-d-zkb-zurich",
+          "software-ingegnere-in-asset-management-m-w-d-zurcher-kantonalbank-zurich"
         ],
         "fr": [
           "software-engineer-in-asset-management-m-w-d-zkb-zurich"
@@ -3691,7 +3732,7 @@
       "title": "Entra ID Security Specialist (m/w/d)",
       "titleByLocale": {
         "it": "Entra ID Security Specialista (m/w/d)",
-        "en": "Entra ID Security Specialist (m/f/d)",
+        "en": "Entra ID Security Specialist (m/w/d)",
         "de": "Entra ID Security Spezialist (m/w/d)",
         "fr": "Entra ID Security Spécialiste (m/w/d)"
       },
@@ -3729,11 +3770,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "entra-id-security-specialist-m-w-d-zkb-zurich"
+        "entra-id-security-specialist-m-w-d-zkb-zurich",
+        "entra-id-security-specialista-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "entra-id-security-specialist-m-w-d-zkb-zurich"
+          "entra-id-security-specialist-m-w-d-zkb-zurich",
+          "entra-id-security-specialista-m-w-d-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-07-06T22:14:26.632Z",
@@ -3915,7 +3958,7 @@
       "title": "Senior Business Analyst Customer Identity & Access Management (m/w/d)",
       "titleByLocale": {
         "it": "Senior Business Analista Customer Identity & Access Management (m/w/d)",
-        "en": "Senior Business Analyst Customer Identity & Access Management (m/f/d)",
+        "en": "Senior Business Analyst Customer Identity & Access Management (m/w/d)",
         "de": "Senior Business Analyst Customer Identity & Access Management (m/w/d)",
         "fr": "Senior Business Analyste Customer Identity & Access Management (m/w/d)"
       },
@@ -3953,11 +3996,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "senior-business-analyst-customer-identity-access-management-m-w-d-zkb-zurich"
+        "senior-business-analyst-customer-identity-access-management-m-w-d-zkb-zurich",
+        "senior-business-analista-customer-identity-access-management-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-business-analyst-customer-identity-access-management-m-w-d-zkb-zurich"
+          "senior-business-analyst-customer-identity-access-management-m-w-d-zkb-zurich",
+          "senior-business-analista-customer-identity-access-management-m-w-d-zurcher-kantonalbank-zurich"
         ],
         "fr": [
           "senior-business-analyst-customer-identity-access-management-m-w-d-zkb-zurich"
@@ -3991,7 +4036,7 @@
       "companyDomain": "zkb.ch",
       "title": "Enterprise Architect AI & Data (m/w/d)",
       "titleByLocale": {
-        "it": "Enterprise Architect AI & Data (m/f/d)",
+        "it": "Enterprise Architect AI & Data (m/w/d)",
         "en": "Enterprise Architect AI & Data (m/f/d)",
         "de": "Enterprise Architect AI & Data (m/w/d)",
         "fr": "Enterprise Architecte AI & Data (m/w/d)"
@@ -4034,7 +4079,8 @@
         "enterprise-application-architetto-data-analytics-m-w-d-zurcher-kantonalbank-zurich",
         "enterprise-application-architect-data-analytics-m-w-d-zurcher-kantonalbank-zurich",
         "enterprise-application-architect-data-analytics-m-w-d-zkb-zurich",
-        "enterprise-application-architecte-data-analytics-m-w-d-zurcher-kantonalbank-zurich"
+        "enterprise-application-architecte-data-analytics-m-w-d-zurcher-kantonalbank-zurich",
+        "enterprise-architect-ai-data-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4042,7 +4088,8 @@
           "enterprise-application-architetto-data-analytics-m-w-d-zurcher-kantonalbank-zurich",
           "enterprise-application-architect-data-analytics-m-w-d-zurcher-kantonalbank-zurich",
           "enterprise-application-architect-data-analytics-m-w-d-zkb-zurich",
-          "enterprise-application-architecte-data-analytics-m-w-d-zurcher-kantonalbank-zurich"
+          "enterprise-application-architecte-data-analytics-m-w-d-zurcher-kantonalbank-zurich",
+          "enterprise-architect-ai-data-m-w-d-zurcher-kantonalbank-zurich"
         ],
         "en": [
           "enterprise-application-architect-data-analytics-m-w-d-zurcher-kantonalbank-zurich"
@@ -4082,7 +4129,7 @@
       "companyDomain": "zkb.ch",
       "title": "Senior Business Engineer Security – Digitale Kanäle (m/w/d)",
       "titleByLocale": {
-        "it": "Sicurezza degli ingegneri senior – Canali digitali (m/f/d)",
+        "it": "Senior Business Engineer Security – Digitale Kanäle (m/w/d)",
         "en": "Senior Business Engineer Security – Digital Channels (m/f/d)",
         "de": "Senior Business Ingenieur Security – Digitale Kanäle (m/w/d)",
         "fr": "Senior Business Ingénieur Security – Digitale Kanäle (m/w/d)"
@@ -4123,12 +4170,14 @@
       "previousSlugsByLocale": {
         "de": [
           "senior-business-engineer-security-u2013-digitale-kan-u00e4le-m-w-d-zkb-zurich",
-          "senior-business-engineer-security-digitale-kanale-m-w-d-zkb-zurich"
+          "senior-business-engineer-security-digitale-kanale-m-w-d-zkb-zurich",
+          "senior-business-ingenieur-security-digitale-kanale-m-w-d-zurcher-kantonalbank-zurich"
         ],
         "it": [
           "senior-business-engineer-security-u2013-digitale-kan-u00e4le-m-w-d-zkb-zurich",
           "senior-business-ingegnere-security-u2013-digitale-kan-u00e4le-m-w-d-zurcher-kantonalbank-zurich",
-          "senior-business-engineer-security-digitale-kanale-m-w-d-zkb-zurich"
+          "senior-business-engineer-security-digitale-kanale-m-w-d-zkb-zurich",
+          "senior-business-ingegnere-security-digitale-kanale-m-w-d-zurcher-kantonalbank-zurich"
         ],
         "en": [
           "senior-business-engineer-security-u2013-digitale-kan-u00e4le-m-w-d-zkb-zurich"
@@ -4142,7 +4191,9 @@
         "senior-business-engineer-security-u2013-digitale-kan-u00e4le-m-w-d-zkb-zurich",
         "senior-business-ingegnere-security-u2013-digitale-kan-u00e4le-m-w-d-zurcher-kantonalbank-zurich",
         "senior-business-ingenieur-security-u2013-digitale-kan-u00e4le-m-w-d-zurcher-kantonalbank-zurich",
-        "senior-business-engineer-security-digitale-kanale-m-w-d-zkb-zurich"
+        "senior-business-engineer-security-digitale-kanale-m-w-d-zkb-zurich",
+        "senior-business-ingenieur-security-digitale-kanale-m-w-d-zurcher-kantonalbank-zurich",
+        "senior-business-ingegnere-security-digitale-kanale-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "firstSeenAt": "2026-07-06T22:14:24.072Z",
       "salaryMin": 101500,
@@ -4173,7 +4224,7 @@
       "title": "DevOps Engineer Fullstack (m/w/d)",
       "titleByLocale": {
         "it": "DevOps Ingegnere Fullstack (m/w/d)",
-        "en": "DevOps Engineer Fullstack (m/f/d)",
+        "en": "DevOps Engineer Fullstack (m/w/d)",
         "de": "DevOps Ingenieur Fullstack (m/w/d)",
         "fr": "DevOps Ingénieur Fullstack (m/w/d)"
       },
@@ -4211,11 +4262,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "devops-engineer-fullstack-m-w-d-zkb-zurich"
+        "devops-engineer-fullstack-m-w-d-zkb-zurich",
+        "devops-ingegnere-fullstack-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "devops-engineer-fullstack-m-w-d-zkb-zurich"
+          "devops-engineer-fullstack-m-w-d-zkb-zurich",
+          "devops-ingegnere-fullstack-m-w-d-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-07-06T22:14:23.649Z",
@@ -4246,7 +4299,7 @@
       "companyDomain": "zkb.ch",
       "title": "Enterprise IT Technology Architect (m/w/d)",
       "titleByLocale": {
-        "it": "Enterprise IT Technology Architect (m/f/d)",
+        "it": "Enterprise IT Technology Architect (m/w/d)",
         "en": "Enterprise IT Technology Architect (m/f/d)",
         "de": "Enterprise IT Technology Architect (m/w/d)",
         "fr": "Enterprise IT Technology Architecte (m/w/d)"
@@ -4285,11 +4338,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "enterprise-it-technology-architect-m-w-d-zkb-zurich"
+        "enterprise-it-technology-architect-m-w-d-zkb-zurich",
+        "enterprise-it-technology-architect-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "enterprise-it-technology-architect-m-w-d-zkb-zurich"
+          "enterprise-it-technology-architect-m-w-d-zkb-zurich",
+          "enterprise-it-technology-architect-m-w-d-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-07-06T22:14:23.227Z",
@@ -4321,7 +4376,7 @@
       "title": "DevOps Engineer SAP PaPM (m/w/d)",
       "titleByLocale": {
         "it": "DevOps Ingegnere SAP PaPM (m/w/d)",
-        "en": "DevOps Engineer SAP PaPM (m/f/d)",
+        "en": "DevOps Engineer SAP PaPM (m/w/d)",
         "de": "DevOps Ingenieur SAP PaPM (m/w/d)",
         "fr": "DevOps Ingénieur SAP PaPM (m/w/d)"
       },
@@ -4359,11 +4414,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "devops-engineer-sap-papm-m-w-d-zkb-zurich"
+        "devops-engineer-sap-papm-m-w-d-zkb-zurich",
+        "devops-ingegnere-sap-papm-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "devops-engineer-sap-papm-m-w-d-zkb-zurich"
+          "devops-engineer-sap-papm-m-w-d-zkb-zurich",
+          "devops-ingegnere-sap-papm-m-w-d-zurcher-kantonalbank-zurich"
         ],
         "fr": [
           "devops-engineer-sap-papm-m-w-d-zkb-zurich"
@@ -4436,11 +4493,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "produktmanager-anlagefonds-m-w-d-zkb-zurich"
+        "produktmanager-anlagefonds-m-w-d-zkb-zurich",
+        "fondi-di-investimento-del-product-manager-m-f-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "produktmanager-anlagefonds-m-w-d-zkb-zurich"
+          "produktmanager-anlagefonds-m-w-d-zkb-zurich",
+          "fondi-di-investimento-del-product-manager-m-f-d-zurcher-kantonalbank-zurich"
         ],
         "en": [
           "produktmanager-anlagefonds-m-w-d-zkb-zurich"
