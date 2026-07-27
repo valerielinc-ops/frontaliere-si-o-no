@@ -355,6 +355,15 @@ export const AI_MODELS = Object.freeze({
   // id, so this tracks whatever Anthropic ships as "current Haiku" without
   // needing a code change on every Haiku release.
   CLAUDE_CLI_HAIKU:    'claude-cli/haiku',
+
+  // ── OmniRoute (self-hosted local AI gateway, opt-in, last-resort) ──
+  // Single node using OmniRoute's own "auto" routing sentinel — OmniRoute
+  // fans out across its ~78-100+ locally-registered providers internally, so
+  // this deliberately does NOT enumerate those providers as separate chain
+  // entries (that would duplicate routing logic OmniRoute already does, and
+  // the roster is a developer-local runtime concern, not a stable identity).
+  // Inert unless OMNIROUTE_ENABLED is set. See PROVIDER.OMNIROUTE / _callOmniRoute.
+  OMNIROUTE_AUTO:      'omniroute/auto',
 });
 
 /**
@@ -584,10 +593,20 @@ export const DEFAULT_CHAIN = [
   // above is daily-exhausted, generation still produces instead of deferring.
   AI_MODELS.LOCAL_FALLBACK,
 
-  // Absolute last resort. Always sorted below LOCAL_FALLBACK (sortChainByScore)
-  // and skipped unless ENABLE_HAIKU_ARTICLE_FALLBACK (RC) + CLAUDE_CODE_OAUTH_TOKEN
-  // are both present — so a run only ever reaches it once every free-tier cloud
-  // model AND the local CPU fallback have already failed.
+  // Self-hosted local AI gateway (OmniRoute), opt-in pilot. Sorted below
+  // LOCAL_FALLBACK (sortChainByScore) — LOCAL is deterministic zero-network CPU
+  // inference with no failure mode worth deferring further; OmniRoute depends on
+  // its own registered upstream providers (same failure class as the main
+  // chain), so it sits below the guaranteed-available local model but above the
+  // reserved, Max-subscription-backed Claude CLI tier. Skipped entirely unless
+  // OMNIROUTE_ENABLED is set.
+  AI_MODELS.OMNIROUTE_AUTO,
+
+  // Absolute last resort. Always sorted below LOCAL_FALLBACK and OMNIROUTE_AUTO
+  // (sortChainByScore) and skipped unless ENABLE_HAIKU_ARTICLE_FALLBACK (RC) +
+  // CLAUDE_CODE_OAUTH_TOKEN are both present — so a run only ever reaches it
+  // once every free-tier cloud model AND the local/OmniRoute fallbacks have
+  // already failed.
   AI_MODELS.CLAUDE_CLI_HAIKU,
 ];
 
@@ -618,6 +637,13 @@ const PROVIDER = Object.freeze({
   // Claude CLI subprocess (Haiku), opt-in via Remote Config, absolute last
   // resort below LOCAL. See AI_MODELS.CLAUDE_CLI_HAIKU / _callClaudeCli.
   CLAUDE_CLI:  'claude_cli',
+  // Self-hosted local AI gateway (OmniRoute — Homebrew CLI, OpenAI-compatible
+  // /v1/chat/completions on http://localhost:20128). Opt-in pilot, last resort
+  // between LOCAL and CLAUDE_CLI. Single model id calls with model:"auto" so
+  // OmniRoute does its OWN internal multi-provider fallback across whatever it
+  // has registered — we deliberately don't mirror its provider roster here.
+  // See AI_MODELS.OMNIROUTE_AUTO / _callOmniRoute.
+  OMNIROUTE:   'omniroute',
 });
 
 // ── Endpoints ────────────────────────────────────────────────
@@ -661,6 +687,29 @@ function getLocalLlmTimeoutMs() {
   const v = parseInt((process.env.LOCAL_LLM_TIMEOUT_MS || '').trim(), 10);
   return Number.isFinite(v) && v > 0 ? v : 1_500_000; // 25 min default — see comment above
 }
+
+// ── OmniRoute (self-hosted local AI gateway, OpenAI-compatible) ──────
+// Opt-in: inert unless OMNIROUTE_ENABLED is truthy. OmniRoute runs
+// persistently on the host (Homebrew CLI v3.8.48+, http://localhost:20128)
+// with ~78-100+ individually-registered providers and does its OWN internal
+// provider fallback when given the literal model id "auto" — confirmed live
+// (2026-07-27): a bare {"model":"auto"} POST to /v1/chat/completions is
+// accepted as a routing sentinel, even though "auto" itself never appears as
+// a literal entry in /v1/models' catalog (only auto/<combo> shortcuts do).
+// We intentionally use ONE stable model id here instead of mirroring
+// OmniRoute's registered providers as separate AI_MODELS/DEFAULT_CHAIN
+// entries — that roster is a developer-local runtime concern (CI registers
+// only a small curated set; see scripts/ci/omniroute-poc-register.mjs), not a
+// stable identity worth pinning chain entries to, and duplicating it here
+// would just re-implement routing OmniRoute already does internally.
+const OMNIROUTE_DEFAULT_URL = 'http://127.0.0.1:20128/v1/chat/completions';
+export function isOmniRouteEnabled() { return /^(1|true|yes|on)$/i.test((process.env.OMNIROUTE_ENABLED || '').trim()); }
+function getOmniRouteUrl() { return (process.env.OMNIROUTE_URL || OMNIROUTE_DEFAULT_URL).trim(); }
+// OmniRoute's /v1/chat/completions is unauthenticated by default (session
+// cookie only gates /api/* management routes — see
+// omniroute-poc-register.mjs); _callOpenAICompatible requires a non-empty
+// key, so keep a sentinel, same pattern as Local/getLocalLlmApiKey.
+function getOmniRouteApiKey() { return (process.env.OMNIROUTE_API_KEY || 'omniroute-no-key').trim(); }
 
 // ── Claude CLI Haiku fallback (opt-in via RC, absolute last resort) ──
 // ENABLE_HAIKU_ARTICLE_FALLBACK is loaded from Firebase Remote Config by
@@ -775,6 +824,7 @@ function getProvider(model) {
   if (model.startsWith('zai/'))        return PROVIDER.ZAI;
   if (model.startsWith('local/'))      return PROVIDER.LOCAL;
   if (model.startsWith('claude-cli/')) return PROVIDER.CLAUDE_CLI;
+  if (model.startsWith('omniroute/'))  return PROVIDER.OMNIROUTE;
   return PROVIDER.GITHUB;
 }
 
@@ -809,6 +859,7 @@ function getApiModelId(model) {
   if (model.startsWith('zai/'))        return model.slice(4);   // 4 chars: "zai/"
   if (model.startsWith('local/'))      return getLocalLlmModelId(); // served-model label is runtime-configured
   if (model.startsWith('claude-cli/')) return model.slice(11);  // 11 chars: "claude-cli/"
+  if (model.startsWith('omniroute/'))  return model.slice(10);  // 10 chars: "omniroute/" → "auto"
   return model;
 }
 
@@ -844,22 +895,31 @@ function getApiKeyForProvider(provider) {
     // by the `claude` CLI subprocess. Gate on RC flag + token presence so the
     // chain only offers this model when both are actually usable. Mirrors Local.
     case PROVIDER.CLAUDE_CLI:  return (!_claudeCliBinaryMissing && !_claudeCliTimeoutStormDetected && isClaudeCliFallbackEnabled() && hasClaudeCodeOauthToken()) ? 'claude-cli-no-key' : '';
+    // OmniRoute needs no real key from us either; gate purely on the opt-in
+    // flag, same sentinel pattern as Local. '' when disabled → every
+    // omniroute/* model is skipped.
+    case PROVIDER.OMNIROUTE:   return isOmniRouteEnabled() ? getOmniRouteApiKey() : '';
     default: return '';
   }
 }
 
 /**
- * True for opt-in, no-external-quota, absolute-last-resort providers (local
- * CPU fallback, Claude CLI Haiku — see AI_MODELS.LOCAL_FALLBACK /
- * AI_MODELS.CLAUDE_CLI_HAIKU). Neither has a daily-quota concept, so
- * exhausting/banning them mid-run (or persisting a ban across runs) just
- * guarantees zero output for the rest of the budget — there's nothing left to
- * fall back to. Centralizes what were several separate `!== PROVIDER.LOCAL`
- * checks so adding a second last-resort tier didn't require touching each one.
+ * True for opt-in, absolute-last-resort providers (local CPU fallback, Claude
+ * CLI Haiku, OmniRoute — see AI_MODELS.LOCAL_FALLBACK / CLAUDE_CLI_HAIKU /
+ * OMNIROUTE_AUTO) that must never be marked exhausted/banned. Local and Claude
+ * CLI have no daily-quota concept at all, so persisting a ban just guarantees
+ * zero output for the rest of the budget. OmniRoute's reasoning is distinct
+ * but lands on the same exemption: the CI pilot instance is EPHEMERAL — a
+ * fresh, empty sqlite provider DB every run (scripts/ci/omniroute-poc-register.mjs
+ * re-registers from scratch each boot) — so a Firestore-persisted "exhausted
+ * until midnight" ban computed from one run's registered providers is
+ * meaningless (and actively harmful) for a different run's freshly-provisioned
+ * instance. Centralizes what were several separate `!== PROVIDER.LOCAL`
+ * checks so adding further last-resort tiers didn't require touching each one.
  */
 function _isLastResortProvider(modelId) {
   const p = getProvider(modelId);
-  return p === PROVIDER.LOCAL || p === PROVIDER.CLAUDE_CLI;
+  return p === PROVIDER.LOCAL || p === PROVIDER.CLAUDE_CLI || p === PROVIDER.OMNIROUTE;
 }
 
 // Backward-compatible helpers (kept for external code)
@@ -922,6 +982,12 @@ const DEFAULT_OPTS = {
  *   of the recurring "content.it non normalizzabile" / JSON parse failures
  *   logged whenever the cascade reached local/fallback (e.g. run
  *   28744325535's `imageAlt` object left dangling mid-payload).
+ * - OmniRoute deliberately NOT included: model:"auto" means WE don't control
+ *   which upstream provider actually serves a given request, so unlike every
+ *   other entry above there's no single verified backend to point this
+ *   decision at — it can silently vary per call across OmniRoute's ~78-100+
+ *   registered providers. Falls back to the safe `json_object` default;
+ *   revisit only if/when OmniRoute normalizes schema support across backends.
  */
 const PROVIDERS_WITH_STRICT_JSON_SCHEMA = new Set(['GitHub', 'OpenRouter', 'Mistral', 'Local']);
 
@@ -1972,10 +2038,13 @@ export function getScoreBoard() {
  */
 // Last-resort tiering for sortChainByScore: higher tier always sinks below
 // lower tier regardless of score. Local CPU fallback sinks below every real
-// remote API; Claude CLI Haiku sinks even below local — it's the absolute
-// last resort, only reached once local has ALSO failed.
+// remote API; OmniRoute sinks below Local (deterministic zero-network CPU
+// inference vs. OmniRoute's dependency on its own upstream providers); Claude
+// CLI Haiku sinks even below OmniRoute — it's the absolute last resort, only
+// reached once local AND OmniRoute have ALSO failed.
 function _lastResortTier(model) {
-  if (model.startsWith('claude-cli/')) return 2;
+  if (model.startsWith('claude-cli/')) return 3;
+  if (model.startsWith('omniroute/')) return 2;
   if (model.startsWith('local/')) return 1;
   return 0;
 }
@@ -2737,12 +2806,13 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
         // another credential to try (GitHub multi-PAT: _suppressExhaustionMark),
         // do NOT mark the model globally exhausted — it's only out on THIS
         // account; the error still propagates so the caller can rotate.
-        // Same PROVIDER.LOCAL exemption as the 429/timeout/content-failure
-        // circuit breakers elsewhere in this file — _callLocal routes through
-        // here (trackAs: model), so an HTTP-shaped failure (daily-limit-looking
-        // response, stale local auth 401) must never hard-ban local/fallback.
+        // Same last-resort exemption as the 429/timeout/content-failure
+        // circuit breakers elsewhere in this file — _callLocal/_callOmniRoute
+        // route through here (trackAs: model), so an HTTP-shaped failure
+        // (daily-limit-looking response, stale local/OmniRoute auth 401) must
+        // never hard-ban a last-resort provider. See _isLastResortProvider.
         if (isDailyLimitError(res.status, raw)) {
-          if (!_suppressExhaustionMark && getProvider(modelForTracking) !== PROVIDER.LOCAL) {
+          if (!_suppressExhaustionMark && !_isLastResortProvider(modelForTracking)) {
             markModelExhausted(modelForTracking);
             _stats.exhausted++;
           }
@@ -2763,7 +2833,7 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
           if (nrc.reason === 'schema_unsupported' && responseFormat?.type === 'json_schema') {
             _learnSchemaIncompatible(modelForTracking);
           }
-          if (nrc.markExhausted && getProvider(modelForTracking) !== PROVIDER.LOCAL) {
+          if (nrc.markExhausted && !_isLastResortProvider(modelForTracking)) {
             markModelExhausted(modelForTracking, 'nonretryable');
             _stats.exhausted++;
           }
@@ -3179,6 +3249,27 @@ async function _callLocal(model, messages, opts) {
 }
 
 /**
+ * Call OmniRoute (self-hosted local AI gateway) using its own "auto" routing
+ * sentinel — OmniRoute selects and falls back across its own registered
+ * providers internally, so this is deliberately a single call with the
+ * literal model id "auto" (getApiModelId strips the omniroute/ prefix down
+ * to it), not a per-provider fan-out on our side. Opt-in via OMNIROUTE_ENABLED
+ * (default OFF). No local-CPU-style timeout floor here (unlike _callLocal):
+ * OmniRoute forwards to real network providers, so it behaves like the rest
+ * of the remote chain rather than like slow CPU inference. See
+ * PROVIDER.OMNIROUTE / AI_MODELS.OMNIROUTE_AUTO.
+ */
+function _callOmniRoute(model, messages, opts) {
+  const apiModel = getApiModelId(model); // = 'auto'
+  return _callOpenAICompatible(apiModel, messages, opts, {
+    endpoint: getOmniRouteUrl(),
+    apiKey: getOmniRouteApiKey(),
+    providerName: 'OmniRoute',
+    trackAs: model,
+  });
+}
+
+/**
  * Call Claude Haiku via the `claude` CLI subprocess (RC-gated, absolute
  * last resort — reuses CLAUDE_CODE_OAUTH_TOKEN, same zero-cost Max-plan auth
  * already wired for pr-review-loop.yml/issue-fix.yml, never a raw
@@ -3443,6 +3534,7 @@ function _callModel(model, messages, opts) {
     case PROVIDER.ZAI:         return _callZai(model, messages, opts);
     case PROVIDER.LOCAL:       return _callLocal(model, messages, opts);
     case PROVIDER.CLAUDE_CLI:  return _callClaudeCli(model, messages, opts);
+    case PROVIDER.OMNIROUTE:   return _callOmniRoute(model, messages, opts);
     default: throw new Error(`[${model}] Unknown provider: ${provider}`);
   }
 }
