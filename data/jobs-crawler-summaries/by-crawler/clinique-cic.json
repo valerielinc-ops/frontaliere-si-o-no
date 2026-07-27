@@ -1,16 +1,16 @@
 {
   "key": "clinique-cic",
   "label": "Clinique CIC (Saxon & Clarens)",
-  "generatedAt": "2026-07-26T22:02:08.295Z",
-  "total": 3,
+  "generatedAt": "2026-07-27T12:33:18.583Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4470,
-  "avgDurationMs": 4470,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3720,
+  "avgDurationMs": 3720,
   "durationHistory": [
-    4470
+    3720
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -21,13 +21,13 @@
       "companyKey": "clinique-cic",
       "companyDomain": "cliniquecic-saxon.ch",
       "title": "Assistant·e technique en stérilisation niveau 2",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Saxon",
       "canton": "VS",
       "url": "https://www.jobup.ch/fr/emplois/detail/3f59d17e-ea2c-4bd5-b104-d535d593bd57/",
       "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-26T22:02:04.499Z",
+      "crawledAt": "2026-07-27T12:33:15.611Z",
       "addressLocality": "Saxon",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/1d0e2f1b-a45f-4c33-8ad0-060c82928447/",
       "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-26T22:02:04.773Z",
+      "crawledAt": "2026-07-27T12:33:15.883Z",
       "addressLocality": "Clarens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -89,8 +89,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "clinique-cic-eb5c9362bf28",
       "slug": "assistente-medico-80-cdd-clinique-cic-clarens-clarens",
@@ -130,5 +129,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
