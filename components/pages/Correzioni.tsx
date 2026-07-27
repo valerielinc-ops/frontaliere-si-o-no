@@ -10,7 +10,7 @@ import {
 } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
 import correctionsLog from '@/data/corrections-log.json';
-import { ORGANIZATION_LD } from '@/services/seo/organizationLd';
+import { buildCorrezioniSeo } from '@/services/seo/seo-correzioni';
 
 /**
  * Correzioni — /correzioni/ public corrections policy + chronological log.
@@ -73,17 +73,6 @@ function formatDate(iso: string): string {
   }
 }
 
-function resolveLastReviewed(entries: CorrectionEntry[]): string {
-  if (entries.length === 0) {
-    // No corrections yet — anchor freshness on today's date.
-    return new Date().toISOString().slice(0, 10);
-  }
-  const sorted = [...entries].sort((a, b) =>
-    a.date < b.date ? 1 : a.date > b.date ? -1 : 0,
-  );
-  return sorted[0].date.slice(0, 10);
-}
-
 export const Correzioni: React.FC = () => {
   const nav = useNavigation();
 
@@ -95,29 +84,9 @@ export const Correzioni: React.FC = () => {
     [],
   );
 
-  const lastReviewed = useMemo(
-    () => resolveLastReviewed(log.entries),
-    [],
-  );
-
-  const jsonLd = useMemo(() => {
-    return {
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      name: 'Correzioni — Frontaliere Ticino',
-      url: 'https://frontaliereticino.ch/correzioni/',
-      description:
-        'Politica di correzione pubblica e registro cronologico delle rettifiche pubblicate da Frontaliere Ticino.',
-      inLanguage: 'it',
-      lastReviewed,
-      mainEntity: {
-        '@type': 'CreativeWork',
-        name: 'Politica di correzione di Frontaliere Ticino',
-        about: 'Editorial corrections policy and public log',
-        publisher: ORGANIZATION_LD,
-      },
-    };
-  }, [lastReviewed]);
+  // Same builder used SSG-side for this page's seo-pages.ts entry — keeps
+  // both surfaces identical by construction instead of two drifted schemas.
+  const jsonLd = useMemo(() => buildCorrezioniSeo('it').jsonLd, []);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 animate-fade-in">
