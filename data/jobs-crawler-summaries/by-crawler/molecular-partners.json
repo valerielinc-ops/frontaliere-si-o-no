@@ -1,18 +1,19 @@
 {
   "key": "molecular-partners",
   "label": "Molecular Partners",
-  "generatedAt": "2026-07-27T12:32:22.749Z",
+  "generatedAt": "2026-07-27T22:08:48.903Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5550,
-  "avgDurationMs": 5550,
+  "durationMs": 5846,
+  "avgDurationMs": 5846,
   "durationHistory": [
-    5550
+    5846
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "molecular-partners-99c11a77cd35",
       "slug": "senior-accounting-manager-molecular-partners-schlieren",
@@ -25,7 +26,7 @@
       "url": "https://molecularpartners-career.talent-soft.com/job/job-senior-accounting-manager_179.aspx",
       "source": "Molecular Partners Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-27T12:32:19.008Z",
+      "crawledAt": "2026-07-27T22:08:44.746Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -40,16 +41,15 @@
       "featured": false,
       "postedDate": "2026-07-27",
       "applyUrl": "https://molecularpartners-career.talent-soft.com/job/job-senior-accounting-manager_179.aspx",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-07-27T12:32:19.008Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 23,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "molecular-partners-b49b35ae4d5d",
       "slug": "head-of-process-development-80-100-molecular-partners-schlieren",
@@ -62,7 +62,7 @@
       "url": "https://molecularpartners-career.talent-soft.com/job/job-head-of-process-development-80-100-_178.aspx",
       "source": "Molecular Partners Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-27T12:32:19.776Z",
+      "crawledAt": "2026-07-27T22:08:45.569Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
