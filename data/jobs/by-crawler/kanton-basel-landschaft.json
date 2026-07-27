@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-basel-landschaft",
-  "assembledAt": "2026-07-26T22:03:06.284Z",
+  "assembledAt": "2026-07-27T11:38:20.315Z",
   "jobs": [
     {
       "id": "kanton-basel-landschaft-f2e06c52b32a",
@@ -293,83 +293,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:06:06.031Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kanton-basel-landschaft-b0b7f61d2c2b",
-      "slug": "supporta-lernoase-kantonale-verwaltung-basel-landschaft-grellingen",
-      "slugByLocale": {
-        "it": "supporta-lernoase-kantonale-verwaltung-basel-landschaft-grellingen",
-        "en": "care-of-lernoase-kantonale-verwaltung-basel-landschaft-grellingen",
-        "de": "betreuung-lernoase-kanton-basel-landschaft-grellingen",
-        "fr": "soins-de-larnoase-kantonale-verwaltung-basel-landschaft-grellingen"
-      },
-      "company": "Kantonale Verwaltung Basel-Landschaft",
-      "companyKey": "kanton-basel-landschaft",
-      "companyDomain": "baselland.ch",
-      "title": "Betreuung LernOase",
-      "titleByLocale": {
-        "it": "Supporta LernOase",
-        "en": "Care of LernOase",
-        "de": "Betreuung LernOase",
-        "fr": "Soins de LarnOase"
-      },
-      "description": "Aufgaben:\n• Du betreust eigenverantwortlich die LernOase.\n\n• Du sorgst für ein positives Lernklima.\n\n• Du unterstützt die anwesenden Kinder bei der Arbeit an ihren eignen Zielen.\n\n• Du pflegst einen wertschätzenden Umgang mit den Schülerinnen und Schülern.\n\nAnforderungen:\n• Du bist dabei das Lehrdiplom für die Primarstufe zu erwerben.\n\n• Du hast bereits vier Semester deines Stundengangs absolviert.\n\n• Du bist eine offene, kreative und motivierte Lehrperson, die sich rasch auf Kinder und ihre Bedürfnisse einstellen kann.\n\n• Du bist zuverlässig und eigenverantwortlich.\n\nDie Primarstufe Grellingen ist eine kleine Schule mit 2 Kindergärten und 6 Primarklassen. Die Grellinger Schule zeichnet sich durch ein engagiertes und gut funktionierendes Team aus. Das Schulhaus und das Pausenareal wurden kürzlich erweitert und saniert. Die Räume sind mit modernster digitaler Infrastruktur ausgerüstet.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Sei responsabile della LernOase.\n• Fornisci un clima di apprendimento positivo.\n• Sostiene i bambini presenti nel lavorare sui propri obiettivi.\n• Hai un rapporto apprezzativo con gli studenti. Requisiti\n• State per ottenere il diploma di insegnamento per il livello primario.\n• Hai già completato quattro semestri del corso d'ora.\n• Sei un insegnante aperto, creativo e motivato che può adattarsi rapidamente ai bambini e alle loro esigenze.\n• Sei affidabile e responsabile. Il livello primario Grellingen è una piccola scuola con 2 asili e 6 classi primarie. Il Grellinger Schule è caratterizzato da un team impegnato e ben funzionante. La scuola e la zona relax sono state recentemente ampliate e rinnovate. Le camere sono dotate delle più moderne infrastrutture digitali.",
-        "en": "Tasks:\n• You are responsible for the LernOase.\n• You provide a positive learning climate.\n• You support the children present in working on their own goals.\n• You have an appreciative relationship with the students. Requirements\n• You are about to obtain the teaching diploma for the primary level.\n• You have already completed four semesters of your hour course.\n• You are an open, creative and motivated teacher who can quickly adapt to children and their needs.\n• You are reliable and self-responsible. Primary level Grellingen is a small school with 2 kindergartens and 6 primary classes. The Grellinger Schule is characterized by a committed and well-functioning team. The schoolhouse and the break area have recently been extended and renovated. The rooms are equipped with the most modern digital infrastructure.",
-        "de": "Aufgaben:\n• Du betreust eigenverantwortlich die LernOase.\n\n• Du sorgst für ein positives Lernklima.\n\n• Du unterstützt die anwesenden Kinder bei der Arbeit an ihren eignen Zielen.\n\n• Du pflegst einen wertschätzenden Umgang mit den Schülerinnen und Schülern.\n\nAnforderungen:\n• Du bist dabei das Lehrdiplom für die Primarstufe zu erwerben.\n\n• Du hast bereits vier Semester deines Stundengangs absolviert.\n\n• Du bist eine offene, kreative und motivierte Lehrperson, die sich rasch auf Kinder und ihre Bedürfnisse einstellen kann.\n\n• Du bist zuverlässig und eigenverantwortlich.\n\nDie Primarstufe Grellingen ist eine kleine Schule mit 2 Kindergärten und 6 Primarklassen. Die Grellinger Schule zeichnet sich durch ein engagiertes und gut funktionierendes Team aus. Das Schulhaus und das Pausenareal wurden kürzlich erweitert und saniert. Die Räume sind mit modernster digitaler Infrastruktur ausgerüstet.",
-        "fr": "Tâches :\n• Vous êtes responsable de la LernOase.\n• Vous offrez un climat d'apprentissage positif.\n• Vous aidez les enfants présents à travailler sur leurs propres objectifs.\n• Vous avez une relation reconnaissante avec les étudiants. Exigences\n• Vous êtes sur le point d'obtenir le diplôme d'enseignement pour le niveau primaire.\n• Vous avez déjà terminé quatre semestres de votre cours d'heure.\n• Vous êtes un enseignant ouvert, créatif et motivé qui peut s'adapter rapidement aux enfants et à leurs besoins.\n• Vous êtes fiable et responsable. Le niveau primaire est une petite école avec 2 jardins d'enfants et 6 classes primaires. Le Grillinger Schule est caractérisé par une équipe engagée et performante. L'école et la zone de repos ont été récemment agrandies et rénovées. Les chambres sont équipées de l'infrastructure numérique la plus moderne."
-      },
-      "location": "Grellingen",
-      "canton": "BL",
-      "url": "https://jobs.baselland.ch/offene-stellen/betreuung-lernoase/4774de95-2448-4632-ac27-ccfbd3f25fd0",
-      "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-26T22:03:01.928Z",
-      "addressLocality": "Grellingen",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4203",
-      "streetAddress": "Nenzlingerweg 2",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-11",
-      "applyUrl": "https://jobs.baselland.ch/offene-stellen/betreuung-lernoase/4774de95-2448-4632-ac27-ccfbd3f25fd0",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "betreuung-lernoase-kanton-basel-landschaft-grellingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "betreuung-lernoase-kanton-basel-landschaft-grellingen"
-        ],
-        "en": [
-          "betreuung-lernoase-kanton-basel-landschaft-grellingen"
-        ],
-        "fr": [
-          "betreuung-lernoase-kanton-basel-landschaft-grellingen"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T11:06:06.029Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1252,89 +1175,6 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kanton-basel-landschaft-67cbd5b20b2f",
-      "slug": "capo-delle-misure-amministrative-kantonale-verwaltung-basel-landschaft-lausen",
-      "slugByLocale": {
-        "it": "capo-delle-misure-amministrative-kantonale-verwaltung-basel-landschaft-lausen",
-        "en": "head-of-administrative-measures-kantonale-verwaltung-basel-landschaft-lausen",
-        "de": "verfahrensleiterin-verfahrensleiter-administrativmassnahmen-kanton-basel-landschaft-lausen",
-        "fr": "chef-des-mesures-administratives-kantonale-verwaltung-basel-landschaft-lausen"
-      },
-      "company": "Kantonale Verwaltung Basel-Landschaft",
-      "companyKey": "kanton-basel-landschaft",
-      "companyDomain": "baselland.ch",
-      "title": "Verfahrensleiterin/Verfahrensleiter Administrativmassnahmen",
-      "titleByLocale": {
-        "it": "Capo delle misure amministrative",
-        "en": "Head of administrative measures",
-        "de": "Verfahrensleiterin/Verfahrensleiter Administrativmassnahmen",
-        "fr": "Chef des mesures administratives"
-      },
-      "description": "Aufgaben:\n• Umfassendes Führen von administrativrechtlichen Verfahren\n\n• Rechtliche Beurteilung von teilweise komplexen Sachverhalten mit Bezug zum Strassenverkehr\n\n• Prüfung umfangreicher Sachverständigengutachten\n\n• Schriftlicher sowie telefonischer Kundenkontakt mit Anwälten, Gutachterstellen, Staatsanwaltschaften, Gerichten, usw.\n\n• Verfassen von Vernehmlassungen im Rahmen von Beschwerdeverfahren zu Handen des Rechtsdienstes der Sicherheitsdirektion\n\nAnforderungen:\n• Kaufmännische Grundausbildung oder gleichwertige Ausbildung\n\n• Einige Jahre Berufserfahrung vorhanden\n\n• Gute EDV-Kenntnisse, sehr gute mündliche und schriftliche Ausdrucksweise\n\n• Kommunikationsfähigkeit sowie Belastbarkeit\n\n• Ausgeprägtes Interesse an juristischer Arbeit\n\n• Fremdsprachen von Vorteil\n\nDie Polizei Basel-Landschaft ist ein modernes Polizeikorps mit einem breiten Spektrum an Aufgaben. Über 700 Mitarbeitende sorgen im Kanton für eine hohe Sicherheit seiner Einwohnerinnen und Einwohner. Mit fortschrittlichen Technologien, Ausrüstungen und Fahrzeugen und in enger Zusammenarbeit mit der Bevölkerung und Partnerorganisationen werden Straftaten verhindert, bekämpft sowie geklärt und bei Notfällen interveniert. Zielgerichtet und effizient leistet die Dienststelle der Sicherheitsdirektion einen wichtigen Beitrag für das Sicherheitsgefühl und die Lebensqualität im Kanton Basel-Landschaft.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Comportamento completo delle procedure amministrative\n• Valutazione giuridica delle questioni parzialmente complesse relative al trasporto stradale\n• Esame di rapporti di esperti\n• Contatto del cliente scritto e telefonico con avvocati, posizioni di esperti, pubblici ministeri, tribunali, ecc.\n• Creazione di consultazioni nel contesto delle procedure di denuncia per il servizio legale della Direzione di Sicurezza Requisiti\n• Formazione commerciale di base o formazione equivalente\n• Alcuni anni di esperienza professionale\n• Buone competenze informatiche, molto buona lingua orale e scritta\n• Capacità di comunicazione e resilienza\n• Forte interesse per il lavoro legale\n• Le lingue straniere sono benefiche La Police Basel-Landschaft è un moderno corpo di polizia con una vasta gamma di compiti. Più di 700 dipendenti nel cantone garantiscono un elevato livello di sicurezza per i suoi residenti. Con tecnologie avanzate, attrezzature e veicoli e in stretta collaborazione con la popolazione e le organizzazioni partner, i crimini sono impediti, combattuti e chiariti e intervenuti nelle emergenze. Destinato ed efficiente, il dipartimento della Direzione di Sicurezza contribuisce in modo importante al senso di sicurezza e alla qualità della vita nel Cantone di Basilea-Landschaft.",
-        "en": "Tasks:\n• Comprehensive conduct of administrative proceedings\n• Legal assessment of partially complex issues relating to road transport\n• Examination of extensive expert reports\n• Written and telephone customer contact with lawyers, expert positions, public prosecutors, courts, etc.\n• Writing of consultations in the context of complaint procedures for the legal service of the Security Directorate Requirements\n• Basic commercial training or equivalent training\n• Some years of professional experience\n• Good computer skills, very good oral and written language\n• Communication capability and resilience\n• Strong interest in legal work\n• Foreign languages are beneficial The Police Basel-Landschaft is a modern police corps with a wide range of tasks. More than 700 employees in the canton ensure a high level of security for its residents. With advanced technologies, equipment and vehicles and in close cooperation with the population and partner organisations, crimes are prevented, combated and clarified and intervened in emergencies. Targeted and efficient, the department of the Security Directorate makes an important contribution to the sense of security and the quality of life in the Canton of Basel-Landschaft.",
-        "de": "Aufgaben:\n• Umfassendes Führen von administrativrechtlichen Verfahren\n\n• Rechtliche Beurteilung von teilweise komplexen Sachverhalten mit Bezug zum Strassenverkehr\n\n• Prüfung umfangreicher Sachverständigengutachten\n\n• Schriftlicher sowie telefonischer Kundenkontakt mit Anwälten, Gutachterstellen, Staatsanwaltschaften, Gerichten, usw.\n\n• Verfassen von Vernehmlassungen im Rahmen von Beschwerdeverfahren zu Handen des Rechtsdienstes der Sicherheitsdirektion\n\nAnforderungen:\n• Kaufmännische Grundausbildung oder gleichwertige Ausbildung\n\n• Einige Jahre Berufserfahrung vorhanden\n\n• Gute EDV-Kenntnisse, sehr gute mündliche und schriftliche Ausdrucksweise\n\n• Kommunikationsfähigkeit sowie Belastbarkeit\n\n• Ausgeprägtes Interesse an juristischer Arbeit\n\n• Fremdsprachen von Vorteil\n\nDie Polizei Basel-Landschaft ist ein modernes Polizeikorps mit einem breiten Spektrum an Aufgaben. Über 700 Mitarbeitende sorgen im Kanton für eine hohe Sicherheit seiner Einwohnerinnen und Einwohner. Mit fortschrittlichen Technologien, Ausrüstungen und Fahrzeugen und in enger Zusammenarbeit mit der Bevölkerung und Partnerorganisationen werden Straftaten verhindert, bekämpft sowie geklärt und bei Notfällen interveniert. Zielgerichtet und effizient leistet die Dienststelle der Sicherheitsdirektion einen wichtigen Beitrag für das Sicherheitsgefühl und die Lebensqualität im Kanton Basel-Landschaft.",
-        "fr": "Tâches :\n• Conduite complète des procédures administratives\n• Évaluation juridique des questions partiellement complexes relatives au transport routier\n• Examen de nombreux rapports d ' experts\n• Contacts écrits et téléphoniques avec des avocats, des experts, des procureurs, des tribunaux, etc.\n• Rédaction des consultations dans le cadre des procédures de plainte pour le service juridique de la Direction de la sécurité Exigences\n• Formation commerciale de base ou formation équivalente\n• Quelques années d'expérience professionnelle\n• Bonnes compétences en informatique, très bonne langue orale et écrite\n• Capacité de communication et résilience\n• Un vif intérêt pour le travail juridique\n• Les langues étrangères sont bénéfiques La Police Basel-Landschaft est un corps de police moderne avec un large éventail de tâches. Plus de 700 employés du canton assurent un haut niveau de sécurité à ses résidents. Avec des technologies, des équipements et des véhicules de pointe et en étroite coopération avec la population et les organisations partenaires, les crimes sont prévenus, combattus et clarifiés et sont intervenus dans les situations d'urgence. Cible et efficace, le département de la Direction de la sécurité apporte une contribution importante au sens de la sécurité et à la qualité de vie dans le canton de Bâle-Landschaft."
-      },
-      "needsRetranslation": false,
-      "location": "Lausen",
-      "canton": "BL",
-      "url": "https://jobs.baselland.ch/offene-stellen/verfahrensleiterin-verfahrensleiter-administrativmassnahmen/32b1d82c-f32a-4c94-8730-a139747ec4a3",
-      "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-26T22:03:01.913Z",
-      "addressLocality": "Lausen",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4415",
-      "streetAddress": "Brühlstrasse 43",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-05",
-      "applyUrl": "https://jobs.baselland.ch/offene-stellen/verfahrensleiterin-verfahrensleiter-administrativmassnahmen/32b1d82c-f32a-4c94-8730-a139747ec4a3",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "verfahrensleiterin-verfahrensleiter-administrativmassnahmen-kanton-basel-landschaft-lausen",
-        "verfahrensleiterin-verfahrensleiter-administrativmassnahmen-kantonale-verwaltung-basel-landschaft-lausen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verfahrensleiterin-verfahrensleiter-administrativmassnahmen-kanton-basel-landschaft-lausen",
-          "verfahrensleiterin-verfahrensleiter-administrativmassnahmen-kantonale-verwaltung-basel-landschaft-lausen"
-        ],
-        "en": [
-          "verfahrensleiterin-verfahrensleiter-administrativmassnahmen-kantonale-verwaltung-basel-landschaft-lausen"
-        ],
-        "de": [
-          "verfahrensleiterin-verfahrensleiter-administrativmassnahmen-kantonale-verwaltung-basel-landschaft-lausen"
-        ],
-        "fr": [
-          "verfahrensleiterin-verfahrensleiter-administrativmassnahmen-kantonale-verwaltung-basel-landschaft-lausen"
-        ]
-      },
-      "firstSeenAt": "2026-07-06T14:05:16.723Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
           "unitText": "YEAR"
         }
       }
@@ -2762,84 +2602,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:50:09.642Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kanton-basel-landschaft-ff2123b7f025",
-      "slug": "case-handler-case-handler-studio-legale-generale-offenkte-kantonale-verwaltung-basel-landschaft-muttenz",
-      "slugByLocale": {
-        "it": "case-handler-case-handler-studio-legale-generale-offenkte-kantonale-verwaltung-basel-landschaft-muttenz",
-        "en": "case-handler-case-handler-law-firm-general-offenkte-kantonale-verwaltung-basel-landschaft-muttenz",
-        "de": "sachbearbeiterin-sachbearbeiter-kanzlei-allgemeine-delikte-kanton-basel-landschaft-muttenz",
-        "fr": "gestionnaire-de-cas-gestionnaire-de-cas-cabinet-d-avocats-general-offenkte-kantonale-verwaltung-basel-landschaft-muttenz"
-      },
-      "company": "Kantonale Verwaltung Basel-Landschaft",
-      "companyKey": "kanton-basel-landschaft",
-      "companyDomain": "baselland.ch",
-      "title": "Sachbearbeiterin/Sachbearbeiter Kanzlei Allgemeine Delikte",
-      "titleByLocale": {
-        "it": "Case handler/case handler Studio legale generale Offenkte",
-        "en": "Case handler/case handler Law Firm General Offenkte",
-        "de": "Sachbearbeiterin/Sachbearbeiter Kanzlei Allgemeine Delikte",
-        "fr": "Gestionnaire de cas / gestionnaire de cas Cabinet d'avocats Général Offenkte"
-      },
-      "description": "Aufgaben:\n• Administrative Unterstützung von Staatsanwältinnen und Staatsanwälten sowie der Untersuchungsbeauftragen bei der Fallbearbeitung\n\n• Rotulierung der Untersuchungsakten für Anklage-, Einstellungs- uns Strafbefehlsverfahren\n\n• Erledigung von Akteneinsichtsbegehren\n\n• Bearbeitung der Verfahrensein- und ausgänge mit Hilfe unserer elektronischen Geschäftskontrolle\n\n• Freundlicher und professioneller Telefon- und Schalterdienst\n\n• Bearbeitung der ein- und ausgehenden Post\n\nAnforderungen:\n• Für diese herausfordernde und vielseitige Aufgabe wünschen wir uns eine aufgeschlossene und belastbare Persönlichkeit mit einem kaufmännischen Berufsabschluss.\n\n• Sie drücken sich in der deutschen Sprache mündlich und schriftlich gewandt aus. Fremdsprachenkenntnisse sind ein Plus.\n\n• Sie haben Interesse am Strafrecht und der Strafverfolgung.\n\n• Sie bringen vorzugsweise Berufserfahrung in der Justiz, der Advokatur oder der Verwaltung mit.\n\n• Sie sind erfahren im Umgang mit digitalen Medien und Office-Programmen.\n\n• Selbständiges und exaktes Arbeiten sind für Sie eine Selbstverständlichkeit.\n\n• Sie sind verschwiegen, flexibel, belastbar und haben einen Sinn für Organisation.\n\n• Kontaktfreudigkeit, Teamfähigkeit und kundenorientiertes Auftreten gehören zu Ihren Stärken.\n\nDie kantonale Verwaltung Basel-Landschaft ist die grösste Arbeitgeberin im Kanton. Sie bietet interessante Arbeitsplätze und ausserdem eine Vielzahl an Ausbildungsmöglichkeiten. In vielfältigen Berufen und Fachgebieten erbringen über 6'000 Mitarbeiterinnen und Mitarbeiter täglich Dienstleistungen für die Bevölkerung und die Wirtschaft. Damit leisten sie einen Beitrag zu einem hohen Lebensstandard und fördern die Attraktivität des Kantons. Gestalten Sie mit uns aktiv die Zukunft!",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Sostegno amministrativo per pubblici ministeri e investigatori in caso di gestione\n\n• Procedura d'incriminazione, di assunzione e di ordinanza penale\n\n• Completamento delle richieste di accesso ai file\n\n• Elaborazione di voci e uscite di procedura con l'aiuto del nostro controllo elettronico aziendale\n\n• Telefono amichevole e professionale e servizio contatore\n\n• Elaborazione di posta in entrata e in uscita\n\nRequisiti\n• Per questo compito impegnativo e versatile, vogliamo una personalità aperta e resiliente con un grado professionale commerciale.\n\n• Si esprimono verbalmente e per iscritto nella lingua tedesca. Le competenze linguistiche straniere sono un vantaggio.\n\n• Hanno un interesse per il diritto penale e l'accusa.\n\n• Preferibilmente portano con loro esperienza professionale nella magistratura, professione legale o amministrazione.\n\n• Essi sono esperti nel trattare con i media digitali e programmi di ufficio.\n\n• Il lavoro indipendente ed esatto è una questione naturalmente per voi.\n\n• Sono nascosti, flessibili, resilienti e hanno un senso di organizzazione.\n\n• Sociabilità, lavoro di squadra e aspetto orientato al cliente sono tra i vostri punti di forza.\n\nL'amministrazione cantonale di Basilea-Landschaft è il più grande datore di lavoro del cantone. Offre posti di lavoro interessanti e una varietà di opportunità di formazione. In una vasta gamma di professioni e aree specialistiche, più di 6.000 dipendenti forniscono servizi per la popolazione e l'economia su base giornaliera. In questo modo, contribuiscono ad un alto livello di vita e promuovono l'attrattiva del cantone. Formare attivamente il futuro con noi!",
-        "en": "Tasks:\n• Administrative support for prosecutors and investigators in case handling\n\n• Rotating the investigation files for indictment, recruitment and criminal order proceedings\n\n• Completion of requests for access to files\n\n• Processing of procedure entries and exits with the help of our electronic business control\n\n• Friendly and professional telephone and counter service\n\n• Processing of incoming and outgoing mail\n\nRequirements\n• For this challenging and versatile task, we want an open-minded and resilient personality with a commercial professional degree.\n\n• They express themselves verbally and in writing in the German language. Foreign language skills are a plus.\n\n• They have an interest in criminal law and prosecution.\n\n• They preferably bring with them professional experience in the judiciary, legal profession or administration.\n\n• They are experienced in dealing with digital media and office programs.\n\n• Independent and exact work is a matter of course for you.\n\n• They are concealed, flexible, resilient and have a sense of organization.\n\n• Sociability, teamwork and customer-oriented appearance are among your strengths.\n\nThe cantonal administration of Basel-Landschaft is the largest employer in the canton. It offers interesting jobs and a variety of training opportunities. In a wide range of professions and specialist areas, more than 6,000 employees provide services for the population and the economy on a daily basis. In doing so, they contribute to a high standard of living and promote the attractiveness of the canton. Actively shape the future with us!",
-        "de": "Aufgaben:\n• Administrative Unterstützung von Staatsanwältinnen und Staatsanwälten sowie der Untersuchungsbeauftragen bei der Fallbearbeitung\n\n• Rotulierung der Untersuchungsakten für Anklage-, Einstellungs- uns Strafbefehlsverfahren\n\n• Erledigung von Akteneinsichtsbegehren\n\n• Bearbeitung der Verfahrensein- und ausgänge mit Hilfe unserer elektronischen Geschäftskontrolle\n\n• Freundlicher und professioneller Telefon- und Schalterdienst\n\n• Bearbeitung der ein- und ausgehenden Post\n\nAnforderungen:\n• Für diese herausfordernde und vielseitige Aufgabe wünschen wir uns eine aufgeschlossene und belastbare Persönlichkeit mit einem kaufmännischen Berufsabschluss.\n\n• Sie drücken sich in der deutschen Sprache mündlich und schriftlich gewandt aus. Fremdsprachenkenntnisse sind ein Plus.\n\n• Sie haben Interesse am Strafrecht und der Strafverfolgung.\n\n• Sie bringen vorzugsweise Berufserfahrung in der Justiz, der Advokatur oder der Verwaltung mit.\n\n• Sie sind erfahren im Umgang mit digitalen Medien und Office-Programmen.\n\n• Selbständiges und exaktes Arbeiten sind für Sie eine Selbstverständlichkeit.\n\n• Sie sind verschwiegen, flexibel, belastbar und haben einen Sinn für Organisation.\n\n• Kontaktfreudigkeit, Teamfähigkeit und kundenorientiertes Auftreten gehören zu Ihren Stärken.\n\nDie kantonale Verwaltung Basel-Landschaft ist die grösste Arbeitgeberin im Kanton. Sie bietet interessante Arbeitsplätze und ausserdem eine Vielzahl an Ausbildungsmöglichkeiten. In vielfältigen Berufen und Fachgebieten erbringen über 6'000 Mitarbeiterinnen und Mitarbeiter täglich Dienstleistungen für die Bevölkerung und die Wirtschaft. Damit leisten sie einen Beitrag zu einem hohen Lebensstandard und fördern die Attraktivität des Kantons. Gestalten Sie mit uns aktiv die Zukunft!",
-        "fr": "Tâches :\n• Appui administratif aux procureurs et aux enquêteurs dans le traitement des affaires\n\n• Rotation des dossiers d'enquête pour les procédures d'accusation, de recrutement et d'ordre pénal\n\n• Traitement des demandes d'accès aux dossiers\n\n• Traitement des entrées et des sorties de procédure avec l'aide de notre contrôle électronique du commerce\n\n• Service téléphonique et de comptoir amical et professionnel\n\n• Traitement du courrier entrant et sortant\n\nExigences\n• Pour cette tâche difficile et polyvalente, nous voulons une personnalité ouverte d'esprit et résistante avec un diplôme professionnel commercial.\n\n• Ils s'expriment verbalement et par écrit en langue allemande. Les compétences linguistiques sont un plus.\n\n• Ils s'intéressent au droit pénal et aux poursuites.\n\n• Ils apportent de préférence une expérience professionnelle dans le domaine judiciaire, juridique ou administratif.\n\n• Ils ont de l'expérience en matière de médias numériques et de programmes de bureau.\n\n• Un travail indépendant et précis est une question bien sûr pour vous.\n\n• Ils sont cachés, flexibles, résilients et ont un sens de l'organisation.\n\n• La sociabilité, le travail d'équipe et l'apparence axée sur le client font partie de vos forces.\n\nL'administration cantonale de Bâle-Landschaft est le plus grand employeur du canton. Il offre des emplois intéressants et une variété de possibilités de formation. Dans un large éventail de professions et de domaines spécialisés, plus de 6 000 employés fournissent quotidiennement des services à la population et à l'économie. Ce faisant, elles contribuent à un niveau de vie élevé et favorisent l'attractivité du canton. Formez activement l'avenir avec nous!"
-      },
-      "needsRetranslation": false,
-      "location": "Muttenz",
-      "canton": "BL",
-      "url": "https://jobs.baselland.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-kanzlei-allgemeine-delikte/52621828-e965-4f48-ac51-a3070e2eab22",
-      "source": "Kantonale Verwaltung Basel-Landschaft Dedicated Parser (Prospective medium 1571)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-26T22:03:01.830Z",
-      "addressLocality": "Muttenz",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4132",
-      "streetAddress": "Grenzacherstrasse 8",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-21",
-      "applyUrl": "https://jobs.baselland.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-kanzlei-allgemeine-delikte/52621828-e965-4f48-ac51-a3070e2eab22",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-kanzlei-allgemeine-delikte-kanton-basel-landschaft-muttenz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiterin-sachbearbeiter-kanzlei-allgemeine-delikte-kanton-basel-landschaft-muttenz"
-        ],
-        "en": [
-          "sachbearbeiterin-sachbearbeiter-kanzlei-allgemeine-delikte-kanton-basel-landschaft-muttenz"
-        ],
-        "fr": [
-          "sachbearbeiterin-sachbearbeiter-kanzlei-allgemeine-delikte-kanton-basel-landschaft-muttenz"
-        ]
-      },
-      "firstSeenAt": "2026-07-21T11:24:56.291Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
