@@ -308,6 +308,21 @@ export class SilentErrorBoundary extends Component<SilentBoundaryProps, SilentBo
  } catch {
  /* analytics may be unavailable */
  }
+
+ // Chunk-load / version-skew recovery (#4590): this boundary wraps
+ // non-critical widget clusters (nav-actions, ai-chatbot via SafeLazy,
+ // home-widgets-*) and deliberately never forces window.location.reload()
+ // — a forced reload from one of these widgets previously disrupted an
+ // in-progress newsletter autologin (ref cwji52). But leaving the stale
+ // chunk unhandled meant the browser's HTTP disk cache kept re-serving
+ // the same bad bytes for the rest of the session (and to the next page
+ // load), unlike the top-level ErrorBoundary which busts the cache before
+ // its manual-reload button. Bust the HTTP cache only — no reload — so a
+ // future fetch (this session or the next) picks up the fresh chunk
+ // without disrupting whatever the user is doing right now.
+ if (isChunkLoadError(error) || isVersionSkewError(error)) {
+ void bustAssetHttpCache();
+ }
  }
 
  public render(): ReactNode {
