@@ -19,6 +19,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   extractWorkflowPaths,
+  isExclusivelyWorkflowScoped,
   isCiTimeoutIssue,
   hasBlockedWorkflowsScopeMarker,
   filterExactTitleRecurrences,
@@ -115,6 +116,33 @@ describe('extractWorkflowPaths — PROCEED (no explicit workflow path)', () => {
   it('returns empty array for empty/undefined body', () => {
     expect(extractWorkflowPaths('')).toHaveLength(0);
     expect(extractWorkflowPaths(undefined as unknown as string)).toHaveLength(0);
+  });
+});
+
+describe('isExclusivelyWorkflowScoped — Mode 1 exclusivity gate (issue #4437)', () => {
+  it('is true when the body cites ONLY a workflow path', () => {
+    const body = 'The fix must edit .github/workflows/deploy.yml timeout-minutes.';
+    expect(isExclusivelyWorkflowScoped(body)).toBe(true);
+  });
+
+  it('is false when a workflow path is co-cited with a non-workflow code path (#4437 regression)', () => {
+    const body = [
+      'Fix in scripts/send-job-alerts.mjs: wrap the zero-match createGithubIssue call in try-catch.',
+      '',
+      '## Live-verification (manuale post-deploy)',
+      '- [ ] check .github/workflows/send-job-alerts.yml run succeeded',
+    ].join('\n');
+    expect(isExclusivelyWorkflowScoped(body)).toBe(false);
+  });
+
+  it('is false when there is no workflow path at all', () => {
+    const body = 'Fix in scripts/send-job-alerts.mjs: add a try-catch guard.';
+    expect(isExclusivelyWorkflowScoped(body)).toBe(false);
+  });
+
+  it('is false for an empty/undefined body', () => {
+    expect(isExclusivelyWorkflowScoped('')).toBe(false);
+    expect(isExclusivelyWorkflowScoped(undefined as unknown as string)).toBe(false);
   });
 });
 
