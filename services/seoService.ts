@@ -4943,6 +4943,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tassa-salute-frontalieri-attacco-ticino': { name: 'Tassa sulla salute per i frontalieri', path: '/articoli-svizzera/tassa-salute-frontalieri-attacco-ticino/', parent: 'blog' },
     'blog-ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri': { name: 'Ristorni \'al contrario\'', path: '/articoli-frontaliere/ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri', parent: 'blog' },
     'blog-perche-tanti-svizzeri-ignorano-tutor-italia': { name: 'Perché tanti svizzeri ignorano il Tutor in', path: '/articoli-svizzera/perche-tanti-svizzeri-ignorano-tutor-italia/', parent: 'blog' },
+    'blog-incontro-sbt-finanze-clima-colpo-freno-svizzera': { name: 'Iniziativa SBTi finanza e clima', path: '/articoli-svizzera/incontro-sbt-finanze-clima-colpo-freno-svizzera/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

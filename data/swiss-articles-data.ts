@@ -4805,6 +4805,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'incontro-sbt-finanze-clima-colpo-freno-svizzera',
+    category: 'novita',
+    date: '2026-07-27T21:18:38.768Z',
+    image: '/images/blog/incontro-sbt-finanze-clima-colpo-freno-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
