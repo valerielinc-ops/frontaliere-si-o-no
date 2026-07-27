@@ -1,0 +1,54 @@
+name: "Setup OmniRoute (self-hosted local AI gateway)"
+description: >-
+  Installs OmniRoute (Homebrew CLI, published to npm), starts it with a
+  random INITIAL_PASSWORD, waits for readiness on
+  http://localhost:20128, registers a small curated set of provider
+  connections from env (GROQ_API_KEY/OPENROUTER_API_KEY/GEMINI_API_KEY/
+  MISTRAL_API_KEY — see scripts/ci/omniroute-poc-register.mjs), then sets
+  OMNIROUTE_ENABLED=1 so scripts/lib/ai-models.mjs offers
+  AI_MODELS.OMNIROUTE_AUTO (single "auto" routing-sentinel node — OmniRoute
+  does its OWN internal provider fallback across whatever it has
+  registered; we deliberately don't enumerate its providers as separate
+  chain entries) for the rest of this job.
+  Extracted from the original inline steps in
+  .github/workflows/omniroute-poc.yml (PR #4797) so both that POC and any
+  pilot workflow (see generate-company-parser.yml's omniroute_enabled
+  input) share one implementation instead of copy-pasted bash drifting
+  apart (AGENTS.md #6).
+  Caller MUST run "node scripts/load-rc-env.mjs" before this action so the
+  small curated provider keys are present in env for registration, and MUST
+  gate the `uses:` step itself with an `if:` — this action has no internal
+  opt-in gate of its own (unlike setup-claude-haiku-fallback, which is a
+  default-ON kill-switch); every step here always runs when invoked.
+runs:
+  using: "composite"
+  steps:
+    - name: Install OmniRoute
+      shell: bash
+      run: OMNIROUTE_SKIP_POSTINSTALL=1 npm install -g omniroute
+
+    - name: Start OmniRoute server
+      shell: bash
+      run: |
+        OMNI_PW="$(openssl rand -hex 20)"
+        echo "::add-mask::$OMNI_PW"
+        echo "OMNIROUTE_INITIAL_PASSWORD=$OMNI_PW" >> "$GITHUB_ENV"
+        INITIAL_PASSWORD="$OMNI_PW" nohup omniroute > /tmp/omniroute.log 2>&1 &
+        for i in $(seq 1 30); do
+          if curl -sf http://localhost:20128/api/settings/require-login >/dev/null; then
+            echo "OmniRoute ready after ${i}s"
+            exit 0
+          fi
+          sleep 1
+        done
+        echo "OmniRoute did not become ready in time"
+        cat /tmp/omniroute.log
+        exit 1
+
+    - name: Register OmniRoute providers (small curated set)
+      shell: bash
+      run: node scripts/ci/omniroute-poc-register.mjs
+
+    - name: Enable OmniRoute for the rest of this job
+      shell: bash
+      run: echo "OMNIROUTE_ENABLED=1" >> "$GITHUB_ENV"

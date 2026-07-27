@@ -23,6 +23,11 @@ on:
         options:
           - 'false'
           - 'true'
+      omniroute_enabled:
+        description: 'Pilot: register OmniRoute (self-hosted local AI gateway) as an opt-in last-resort AI fallback for this run only'
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: generate-company-parser
@@ -66,6 +71,25 @@ jobs:
 
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
+
+      # ── OmniRoute pilot (opt-in, OFF by default — see omniroute_enabled
+      # input). Install/start/register/enable factored into
+      # .github/actions/setup-omniroute (shared with omniroute-poc.yml,
+      # PR #4797) so the two workflows don't drift on the same bash
+      # (AGENTS.md #6). Reuses the same small curated provider-key set
+      # loaded above by load-rc-env.mjs — does NOT provision OmniRoute's
+      # full ~78-100+ locally-registered provider roster as CI secrets
+      # (see PR body's "Non implementato"). When the input is false/unset,
+      # the composite action is skipped entirely and OMNIROUTE_ENABLED is
+      # never set, so ai-models.mjs's OmniRoute provider stays inert —
+      # identical behavior to before this pilot.
+      - name: Setup OmniRoute (pilot, opt-in)
+        if: ${{ inputs.omniroute_enabled }}
+        uses: ./.github/actions/setup-omniroute
+
+      - name: Dump OmniRoute logs on failure (pilot, opt-in)
+        if: ${{ failure() && inputs.omniroute_enabled }}
+        run: cat /tmp/omniroute.log || true
 
       # ── Claude CLI Haiku fallback (ON by default, kill-switch '0') ──────
       # Absolute last resort in ai-models.mjs's DEFAULT_CHAIN, reached only

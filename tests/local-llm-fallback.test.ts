@@ -22,15 +22,20 @@ describe('local LLM fallback provider', () => {
     expect(AI_MODELS.LOCAL_FALLBACK).toBe('local/fallback');
   });
 
-  it('sits below every remote API, with only the opt-in Claude CLI Haiku fallback below it', () => {
+  it('sits below every remote API, with only the opt-in OmniRoute and Claude CLI Haiku fallbacks below it', () => {
     // AI_MODELS.CLAUDE_CLI_HAIKU (RC-gated, see ai-models-claude-cli-fallback.test.ts)
-    // is now the true final entry — an absolute last resort below even local
-    // CPU inference — but local/fallback must still sit below every real
-    // remote API, which is the invariant this test guards.
+    // is still the true final entry — an absolute last resort below even local
+    // CPU inference and OmniRoute — but local/fallback must still sit below
+    // every real remote API, which is the invariant this test guards.
+    // AI_MODELS.OMNIROUTE_AUTO (opt-in, see ai-models-omniroute-fallback.test.ts)
+    // sits between local/fallback and Claude CLI Haiku (see ai-models.mjs's
+    // DEFAULT_CHAIN / _lastResortTier comments for the tiering rationale).
     expect(DEFAULT_CHAIN[DEFAULT_CHAIN.length - 1]).toBe(AI_MODELS.CLAUDE_CLI_HAIKU);
-    expect(DEFAULT_CHAIN[DEFAULT_CHAIN.length - 2]).toBe(AI_MODELS.LOCAL_FALLBACK);
+    expect(DEFAULT_CHAIN[DEFAULT_CHAIN.length - 2]).toBe(AI_MODELS.OMNIROUTE_AUTO);
+    expect(DEFAULT_CHAIN[DEFAULT_CHAIN.length - 3]).toBe(AI_MODELS.LOCAL_FALLBACK);
     // Each must appear exactly once.
     expect(DEFAULT_CHAIN.filter((m) => m === AI_MODELS.LOCAL_FALLBACK)).toHaveLength(1);
+    expect(DEFAULT_CHAIN.filter((m) => m === AI_MODELS.OMNIROUTE_AUTO)).toHaveLength(1);
     expect(DEFAULT_CHAIN.filter((m) => m === AI_MODELS.CLAUDE_CLI_HAIKU)).toHaveLength(1);
   });
 
@@ -489,6 +494,28 @@ describe('local LLM fallback exhaustion never persists past the run (Firestore)'
     } finally {
       logSpy.mockRestore();
     }
+  });
+
+  // OmniRoute (opt-in last-resort, sits between local/fallback and Claude CLI
+  // Haiku — see ai-models.mjs _isLastResortProvider) earns the same exemption
+  // for a DIFFERENT reason than local/fallback: the CI pilot instance is
+  // EPHEMERAL (fresh, empty sqlite provider DB every run — see
+  // scripts/ci/omniroute-poc-register.mjs), so a ban computed from one run's
+  // registered providers would be meaningless for a different run's
+  // freshly-provisioned instance. Guards it gets the identical never-persists
+  // treatment as local/fallback despite the different rationale.
+  it('write path: exhausting omniroute/auto never sets exhaustedUntil either (different rationale, same exemption)', async () => {
+    const store: Record<string, { models?: Record<string, unknown> }> = {};
+    mockFirestore(store);
+    const mod = await import('../scripts/lib/ai-models.mjs');
+    await mod.initScoreStore();
+    mod.markModelExhausted(mod.AI_MODELS.OMNIROUTE_AUTO, 'quota');
+    mod.markModelExhausted(mod.AI_MODELS.GPT4O, 'quota');
+    await mod.flushScores();
+
+    const persisted = store._all.models as Record<string, { exhaustedUntil: string | null }>;
+    expect(persisted['omniroute__auto'].exhaustedUntil).toBeNull();
+    expect(persisted['gpt-4o'].exhaustedUntil).not.toBeNull();
   });
 });
 

@@ -35,28 +35,15 @@ jobs:
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 
-      - name: Install OmniRoute
-        run: OMNIROUTE_SKIP_POSTINSTALL=1 npm install -g omniroute
-
-      - name: Start OmniRoute server
-        run: |
-          OMNI_PW="$(openssl rand -hex 20)"
-          echo "::add-mask::$OMNI_PW"
-          echo "OMNIROUTE_INITIAL_PASSWORD=$OMNI_PW" >> "$GITHUB_ENV"
-          INITIAL_PASSWORD="$OMNI_PW" nohup omniroute > /tmp/omniroute.log 2>&1 &
-          for i in $(seq 1 30); do
-            if curl -sf http://localhost:20128/api/settings/require-login >/dev/null; then
-              echo "OmniRoute ready after ${i}s"
-              exit 0
-            fi
-            sleep 1
-          done
-          echo "OmniRoute did not become ready in time"
-          cat /tmp/omniroute.log
-          exit 1
-
-      - name: Register providers (one known-dead key on purpose, to prove fallback)
-        run: node scripts/ci/omniroute-poc-register.mjs
+      # Install/start/register/enable factored into
+      # .github/actions/setup-omniroute — shared with the opt-in pilot
+      # wiring in generate-company-parser.yml so the two workflows don't
+      # drift on the same bash (AGENTS.md #6). The trailing "enable" step
+      # inside the action (OMNIROUTE_ENABLED=1) is a no-op here — this POC
+      # calls OmniRoute's raw HTTP API directly below, not via
+      # ai-models.mjs's callLLM.
+      - name: Setup OmniRoute
+        uses: ./.github/actions/setup-omniroute
 
       - name: Call a completion through OmniRoute (auto routing/fallback)
         run: |
