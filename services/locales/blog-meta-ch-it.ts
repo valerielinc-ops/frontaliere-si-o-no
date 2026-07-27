@@ -1588,6 +1588,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.canton-ticino-blocca-ristorni-lombardia.title': 'Il Canton Ticino blocca oltre 50 milioni di ristorni alla Lombardia',
     'blog.article.canton-ticino-blocca-ristorni-lombardia.excerpt': 'Il Consiglio di Stato del Canton Ticino ha deciso di sospendere cautelativamente metà della quota lombarda dei ristorni',
     'blog.article.canton-ticino-blocca-ristorni-lombardia.imageAlt': 'Vista di Lugano sul lago',
+    'blog.article.cifre-nere-grigioni.title': 'Cifre nere per quasi tutti i grandi comuni grigionesi',
+    'blog.article.cifre-nere-grigioni.excerpt': '19 comuni grigionesi su 20 con il maggior numero di abitanti hanno registrato conti in positivo',
+    'blog.article.cifre-nere-grigioni.imageAlt': 'Immagine di un comune grigionario con un bilancio in rosso',
 };
 
 export default blogMetaChIt;
