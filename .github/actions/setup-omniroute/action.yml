@@ -2,10 +2,12 @@ name: "Setup OmniRoute (self-hosted local AI gateway)"
 description: >-
   Installs OmniRoute (Homebrew CLI, published to npm), starts it with a
   random INITIAL_PASSWORD, waits for readiness on
-  http://localhost:20128, registers a small curated set of provider
-  connections from env (GROQ_API_KEY/OPENROUTER_API_KEY/GEMINI_API_KEY/
-  MISTRAL_API_KEY — see scripts/ci/omniroute-poc-register.mjs), then sets
-  OMNIROUTE_ENABLED=1 so scripts/lib/ai-models.mjs offers
+  http://localhost:20128, registers provider connections — the full set
+  decrypted from a local OmniRoute install when OMNIROUTE_PROVIDERS_JSON is
+  present in Remote Config (see scripts/sync-omniroute-providers-rc.mjs),
+  else a small curated fallback from env (GROQ_API_KEY/OPENROUTER_API_KEY/
+  GEMINI_API_KEY/MISTRAL_API_KEY — see scripts/ci/omniroute-poc-register.mjs),
+  then sets OMNIROUTE_ENABLED=1 so scripts/lib/ai-models.mjs offers
   AI_MODELS.OMNIROUTE_AUTO (single "auto" routing-sentinel node — OmniRoute
   does its OWN internal provider fallback across whatever it has
   registered; we deliberately don't enumerate its providers as separate
