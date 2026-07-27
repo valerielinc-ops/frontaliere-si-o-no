@@ -31,7 +31,7 @@ import { handleManageJournalistRole } from './src/journalistRoleCore.js';
 import { handleRedazioneAdmin } from './src/redazioneAdminCore.js';
 import { getAdminDb } from './src/newsletterResendWebhookCore.js';
 import { handleCreatePublisherCheckout, handleAttachPublisherJob, handleStripeWebhook, handleCreateBillingPortal, handleArchivePublisherAd, handleRestorePublisherAd } from './src/stripePublisherCore.js';
-import { handleCreateReaderCheckout, handleCreateReaderBillingPortal } from './src/stripeReaderCore.js';
+import { handleCreateReaderCheckout, handleClaimReaderCheckout, handleCreateReaderBillingPortal } from './src/stripeReaderCore.js';
 import { handleCreateConsultingCheckout, handleConsultingDetailsSubmitted } from './src/consultingCore.js';
 import { reapStalePendingPayments } from './src/publisherPendingReapCore.js';
 import { onDocumentCreated, onDocumentWritten } from 'firebase-functions/v2/firestore';
@@ -1057,8 +1057,10 @@ export const restorePublisherAd = onRequest(
 
 // ── Reader no-ads subscription (#3655, part 2/2 of #2961) ─────────────────
 // Create a Stripe Checkout Session (subscription mode) for the CHF 2.99/month
-// reader ad-free plan. Authenticated reader only; fully separate from the
-// publisher checkout above (different price, different Firestore collection).
+// reader ad-free plan. Works both signed-in and signed-out (guest path —
+// Stripe collects the email, identity is resolved post-payment via
+// claimReaderCheckout below); fully separate from the publisher checkout
+// above (different price, different Firestore collection).
 export const createReaderCheckout = onRequest(
   {
     region: 'europe-west6',
@@ -1077,6 +1079,33 @@ export const createReaderCheckout = onRequest(
       res.status(status).json(body);
     } catch (error) {
       console.error('[createReaderCheckout]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// Post-payment reconciliation for the guest checkout path: exchanges a
+// completed Checkout Session id for a Firebase custom auth token so the SPA
+// can sign the payer in. No verifyCaller — the Session id itself is the
+// proof of payment (see handleClaimReaderCheckout's own doc comment).
+export const claimReaderCheckout = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: [
+      'https://frontaliereticino.ch',
+      'https://frontaliere-ticino.web.app',
+      'https://frontaliere-ticino.firebaseapp.com',
+      /^http:\/\/localhost(:\d+)?$/,
+    ],
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleClaimReaderCheckout(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[claimReaderCheckout]', error instanceof Error ? error.message : String(error));
       res.status(500).json({ ok: false, error: 'internal_error' });
     }
   },
