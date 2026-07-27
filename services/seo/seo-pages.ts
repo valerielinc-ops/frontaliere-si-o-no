@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3551,
+ "numberOfItems": 3552,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8319,7 +8319,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3548, "name": "Riforma choc per frontalieri: pagheranno più tasse", "url": `${BASE_URL}/articoli-frontaliere/proposta-choc-ticino-frontalieri` },
           { "@type": "ListItem", "position": 3549, "name": "Non ho studiato undici anni per lavorare gratis", "url": `${BASE_URL}/articoli-frontaliere/medici-di-base-carenza-svizzera` },
           { "@type": "ListItem", "position": 3550, "name": "Scomoda domanda: ticinesi razzisti o omofobi?", "url": `${BASE_URL}/articoli-frontaliere/domanda-scomoda-razzisti-omofobi` },
-          { "@type": "ListItem", "position": 3551, "name": "Pompieri svizzeri in Gironda: il contingente al...", "url": `${BASE_URL}/articoli-frontaliere/pompieri-svizzeri-gironda-francia` }
+          { "@type": "ListItem", "position": 3551, "name": "Pompieri svizzeri in Gironda: il contingente al...", "url": `${BASE_URL}/articoli-frontaliere/pompieri-svizzeri-gironda-francia` },
+          { "@type": "ListItem", "position": 3552, "name": "Lavori di manutenzione sulla tratta FLP Agno - ...", "url": `${BASE_URL}/articoli-frontaliere/lavori-di-manutenzione-sulla-tratta-flp-agno-ponte-tresa` }
  ]
  },
  {
