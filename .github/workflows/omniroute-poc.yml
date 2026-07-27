@@ -40,7 +40,10 @@ jobs:
 
       - name: Start OmniRoute server
         run: |
-          nohup omniroute > /tmp/omniroute.log 2>&1 &
+          OMNI_PW="$(openssl rand -hex 20)"
+          echo "::add-mask::$OMNI_PW"
+          echo "OMNIROUTE_INITIAL_PASSWORD=$OMNI_PW" >> "$GITHUB_ENV"
+          INITIAL_PASSWORD="$OMNI_PW" nohup omniroute > /tmp/omniroute.log 2>&1 &
           for i in $(seq 1 30); do
             if curl -sf http://localhost:20128/api/settings/require-login >/dev/null; then
               echo "OmniRoute ready after ${i}s"
