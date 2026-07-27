@@ -67,7 +67,12 @@ const verifyIdToken = vi.fn(async (token: string) => {
 
 // ── In-memory Firebase Auth users-by-email store, for the guest checkout /
 // claim-token flow (resolveOrCreateReaderUid in stripeReaderCore.js) ───────
-let usersByEmail: Record<string, { uid: string }> = {};
+// Fixed reference instant every mocked Stripe session's `created` defaults
+// to, so per-user creationTime can be placed deterministically before/after
+// it (handleClaimReaderCheckout compares the two instead of a runtime-only
+// isNew flag — see stripeReaderCore.js:resolveOrCreateReaderUid).
+const SESSION_CREATED_UNIX = 1_700_000_000;
+let usersByEmail: Record<string, { uid: string; creationTime: string }> = {};
 let uidCounter = 0;
 
 const getUserByEmail = vi.fn(async (email: string) => {
@@ -77,13 +82,15 @@ const getUserByEmail = vi.fn(async (email: string) => {
     err.code = 'auth/user-not-found';
     throw err;
   }
-  return { uid: rec.uid };
+  return { uid: rec.uid, metadata: { creationTime: rec.creationTime } };
 });
 const createUser = vi.fn(async ({ email }: { email: string }) => {
   uidCounter += 1;
   const uid = `guest-uid-${uidCounter}`;
-  usersByEmail[email] = { uid };
-  return { uid };
+  // 2s after the default session's `created` — a realistic just-now creation.
+  const creationTime = new Date(SESSION_CREATED_UNIX * 1000 + 2000).toISOString();
+  usersByEmail[email] = { uid, creationTime };
+  return { uid, metadata: { creationTime } };
 });
 const createCustomToken = vi.fn(async (uid: string) => `custom-token-for-${uid}`);
 
@@ -122,11 +129,13 @@ const stripeCheckoutSessionsRetrieve = vi.fn(async (): Promise<{
   payment_status: string;
   customer_details: { email?: string };
   metadata: { plan: string; readerUid?: string };
+  created: number;
 }> => ({
   id: 'cs_guest_1',
   payment_status: 'paid',
   customer_details: { email: 'guest@example.com' },
   metadata: { plan: 'reader_noads' },
+  created: SESSION_CREATED_UNIX,
 }));
 
 vi.mock('stripe', () => {
@@ -182,13 +191,14 @@ beforeEach(() => {
       err.code = 'auth/user-not-found';
       throw err;
     }
-    return { uid: rec.uid };
+    return { uid: rec.uid, metadata: { creationTime: rec.creationTime } };
   });
   createUser.mockImplementation(async ({ email }: { email: string }) => {
     uidCounter += 1;
     const uid = `guest-uid-${uidCounter}`;
-    usersByEmail[email] = { uid };
-    return { uid };
+    const creationTime = new Date(SESSION_CREATED_UNIX * 1000 + 2000).toISOString();
+    usersByEmail[email] = { uid, creationTime };
+    return { uid, metadata: { creationTime } };
   });
   createCustomToken.mockImplementation(async (uid: string) => `custom-token-for-${uid}`);
   getRemoteConfigValueMock.mockImplementation(async (key: string) => {
@@ -201,6 +211,7 @@ beforeEach(() => {
     payment_status: 'paid',
     customer_details: { email: 'guest@example.com' },
     metadata: { plan: 'reader_noads' },
+    created: SESSION_CREATED_UNIX,
   }));
   fetchMock.mockImplementation(async () => ({ ok: true }));
   vi.stubGlobal('fetch', fetchMock);
@@ -392,6 +403,7 @@ describe('handleClaimReaderCheckout', () => {
       payment_status: 'paid',
       customer_details: { email: 'guest@example.com' },
       metadata: { plan: 'publisher_ad' },
+      created: SESSION_CREATED_UNIX,
     }));
     const { handleClaimReaderCheckout } = await load();
     const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
@@ -405,6 +417,7 @@ describe('handleClaimReaderCheckout', () => {
       payment_status: 'paid',
       customer_details: { email: 'reader1@example.com' },
       metadata: { plan: READER_NOADS_PLAN, readerUid: 'reader1' },
+      created: SESSION_CREATED_UNIX,
     }));
     const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_auth_1' } }));
     expect(res).toEqual({ status: 400, body: { ok: false, error: 'not_a_guest_session' } });
@@ -416,6 +429,7 @@ describe('handleClaimReaderCheckout', () => {
       payment_status: 'unpaid',
       customer_details: { email: 'guest@example.com' },
       metadata: { plan: 'reader_noads' },
+      created: SESSION_CREATED_UNIX,
     }));
     const { handleClaimReaderCheckout } = await load();
     const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
@@ -428,6 +442,7 @@ describe('handleClaimReaderCheckout', () => {
       payment_status: 'paid',
       customer_details: {},
       metadata: { plan: 'reader_noads' },
+      created: SESSION_CREATED_UNIX,
     }));
     const { handleClaimReaderCheckout } = await load();
     const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
@@ -443,8 +458,13 @@ describe('handleClaimReaderCheckout', () => {
     expect(res).toEqual({ status: 200, body: { ok: true, authToken: 'custom-token-for-guest-uid-1' } });
   });
 
-  it('refuses to mint a token when the email already belongs to an existing account (account takeover guard)', async () => {
-    usersByEmail['guest@example.com'] = { uid: 'existing-uid-3' };
+  it('refuses to mint a token when the email belongs to an account that predates this checkout session (account takeover guard)', async () => {
+    // Created a full hour before this session started — genuinely pre-existing,
+    // unrelated to this payment.
+    usersByEmail['guest@example.com'] = {
+      uid: 'existing-uid-3',
+      creationTime: new Date(SESSION_CREATED_UNIX * 1000 - 3600_000).toISOString(),
+    };
     const { handleClaimReaderCheckout } = await load();
     const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
     expect(createUser).not.toHaveBeenCalled();
@@ -452,11 +472,31 @@ describe('handleClaimReaderCheckout', () => {
     expect(res).toEqual({ status: 409, body: { ok: false, error: 'account_exists' } });
   });
 
-  it('falls back to re-resolving the uid when createUser loses a race to a concurrent create', async () => {
+  it('mints a token even when the Stripe webhook already resolved/created the account moments before this claim call (race, not a takeover)', async () => {
+    // The webhook (handleReaderWebhookEvent) can win the race against the
+    // browser's redirect + claim call and create the account first. That
+    // account is still a byproduct of THIS payment (created a few seconds
+    // after the session started), so it must not be mistaken for a
+    // pre-existing, unrelated account — see stripeReaderCore.js:L256.
+    usersByEmail['guest@example.com'] = {
+      uid: 'webhook-created-uid-1',
+      creationTime: new Date(SESSION_CREATED_UNIX * 1000 + 3000).toISOString(),
+    };
+    const { handleClaimReaderCheckout } = await load();
+    const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
+    expect(createUser).not.toHaveBeenCalled();
+    expect(res).toEqual({
+      status: 200,
+      body: { ok: true, authToken: 'custom-token-for-webhook-created-uid-1' },
+    });
+  });
+
+  it('mints a token when createUser loses a race to a concurrent create for the same brand-new email', async () => {
     const notFoundErr = new Error('no user') as Error & { code: string };
     notFoundErr.code = 'auth/user-not-found';
     const existsErr = new Error('already exists') as Error & { code: string };
     existsErr.code = 'auth/email-already-exists';
+    const racedCreationTime = new Date(SESSION_CREATED_UNIX * 1000 + 1000).toISOString();
 
     getUserByEmail.mockImplementationOnce(async () => {
       throw notFoundErr;
@@ -464,11 +504,14 @@ describe('handleClaimReaderCheckout', () => {
     createUser.mockImplementationOnce(async () => {
       throw existsErr;
     });
-    getUserByEmail.mockImplementationOnce(async () => ({ uid: 'raced-uid-1' }));
+    getUserByEmail.mockImplementationOnce(async () => ({
+      uid: 'raced-uid-1',
+      metadata: { creationTime: racedCreationTime },
+    }));
 
     const { handleClaimReaderCheckout } = await load();
     const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
-    expect(res).toEqual({ status: 409, body: { ok: false, error: 'account_exists' } });
+    expect(res).toEqual({ status: 200, body: { ok: true, authToken: 'custom-token-for-raced-uid-1' } });
   });
 });
 
@@ -606,7 +649,10 @@ describe('handleReaderWebhookEvent', () => {
   });
 
   it('reuses the existing Firebase uid for a returning guest email instead of creating a duplicate user', async () => {
-    usersByEmail['returning@example.com'] = { uid: 'existing-uid-7' };
+    usersByEmail['returning@example.com'] = {
+      uid: 'existing-uid-7',
+      creationTime: new Date(SESSION_CREATED_UNIX * 1000 - 3600_000).toISOString(),
+    };
     const { handleReaderWebhookEvent, READER_NOADS_PLAN } = await load();
     const event = {
       type: 'checkout.session.completed',

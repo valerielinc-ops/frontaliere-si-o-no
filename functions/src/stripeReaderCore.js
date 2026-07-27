@@ -80,26 +80,29 @@ const POSTHOG_HOST = 'https://t.frontaliereticino.ch';
 // by the guest-checkout webhook branch and claimReaderCheckout below — same
 // "getUserByEmail → catch → createUser({email})" shape already used by
 // functions/src/newsletterSubscriptionManagement.js's autologin exchange.
-// Returns isNew so callers that mint sign-in tokens (claimReaderCheckout)
-// can refuse to do so for a pre-existing account: Stripe Checkout's guest
-// email field is payer-typed and unverified, so resolving straight to an
-// existing uid there would let anyone "claim" someone else's account by
-// entering their email at checkout — see handleClaimReaderCheckout.
+// Returns createdAtMs (from Firebase's own account metadata) instead of a
+// runtime-computed isNew flag: webhook delivery and the browser's claim call
+// race independently (no ordering guarantee), so "isNew relative to THIS
+// call" is not a safe signal — if the webhook wins the race and creates the
+// account first, the claim call would see isNew:false for a genuinely
+// brand-new guest. createdAtMs lets the caller compare against the Stripe
+// session's own creation time instead, which is race-proof — see
+// handleClaimReaderCheckout.
 async function resolveOrCreateReaderUid(email) {
   try {
     const userRecord = await admin.auth().getUserByEmail(email);
-    return { uid: userRecord.uid, isNew: false };
+    return { uid: userRecord.uid, createdAtMs: Date.parse(userRecord.metadata.creationTime) };
   } catch (err) {
     if (err?.code !== 'auth/user-not-found') throw err;
     try {
       const newUser = await admin.auth().createUser({ email });
-      return { uid: newUser.uid, isNew: true };
+      return { uid: newUser.uid, createdAtMs: Date.parse(newUser.metadata.creationTime) };
     } catch (createErr) {
       // Lost a race with a concurrent create (e.g. duplicate webhook
       // delivery) — the user now exists, re-resolve instead of failing.
       if (createErr?.code !== 'auth/email-already-exists') throw createErr;
       const userRecord = await admin.auth().getUserByEmail(email);
-      return { uid: userRecord.uid, isNew: false };
+      return { uid: userRecord.uid, createdAtMs: Date.parse(userRecord.metadata.creationTime) };
     }
   }
 }
@@ -217,14 +220,30 @@ export async function handleCreateReaderCheckout(req) {
 //
 // SECURITY: the Stripe session id proves *payment*, not *email ownership* —
 // Stripe Checkout's guest email field is free text the payer typed, never
-// verified as an inbox they control. Only ever mint a sign-in token for a
-// BRAND NEW account (resolveOrCreateReaderUid's isNew): otherwise anyone
-// could pay a few francs with their own card, type an existing reader's /
-// publisher's / admin's email at checkout, and use the resulting session id
-// to sign in as that person. If the email already resolves to an existing
-// Firebase account, refuse — the webhook (handleReaderWebhookEvent) still
-// attaches the reader_noads entitlement to that existing account via the
-// same email match, so the payer only needs to sign in normally to see it.
+// verified as an inbox they control. Only ever mint a sign-in token for an
+// account that was created BY THIS PAYMENT: otherwise anyone could pay a few
+// francs with their own card, type an existing reader's / publisher's /
+// admin's email at checkout, and use the resulting session id to sign in as
+// that person. If the email resolves to an account that already existed
+// before this checkout session started, refuse — the webhook
+// (handleReaderWebhookEvent) still attaches the reader_noads entitlement to
+// that existing account via the same email match, so the payer only needs
+// to sign in normally to see it.
+//
+// "Created by this payment" is checked via timestamp, not a runtime isNew
+// flag: the webhook and this claim call both call resolveOrCreateReaderUid
+// independently and race (no ordering guarantee between Stripe webhook
+// delivery and the browser's redirect back to success_url). If the webhook
+// wins, it creates the account first — a naive isNew check here would then
+// see an "existing" account for a guest who is, in reality, brand new, and
+// wrongly 409 them into a passwordless account they can't sign into. Instead,
+// compare the resolved account's creationTime against this Stripe session's
+// own `created` timestamp: an account created at/after the session started
+// can only be a byproduct of this exact payment (nothing else in this app
+// creates Firebase users on demand), regardless of whether the webhook or
+// this claim call happened to create it first. An account that predates the
+// session is unrelated to this payment — the account-takeover case.
+const ACCOUNT_RACE_GRACE_MS = 60 * 1000;
 export async function handleClaimReaderCheckout(req) {
   if (req.method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
 
@@ -252,8 +271,13 @@ export async function handleClaimReaderCheckout(req) {
   const email = session.customer_details?.email;
   if (!email) return { status: 400, body: { ok: false, error: 'no_email_on_session' } };
 
-  const { uid, isNew } = await resolveOrCreateReaderUid(email);
-  if (!isNew) return { status: 409, body: { ok: false, error: 'account_exists' } };
+  const { uid, createdAtMs } = await resolveOrCreateReaderUid(email);
+  // Missing/non-numeric session.created fails closed (Infinity) rather than
+  // open — Stripe always sets it, this only guards a malformed response.
+  const sessionCreatedMs = typeof session.created === 'number' ? session.created * 1000 : Infinity;
+  if (createdAtMs < sessionCreatedMs - ACCOUNT_RACE_GRACE_MS) {
+    return { status: 409, body: { ok: false, error: 'account_exists' } };
+  }
   const authToken = await admin.auth().createCustomToken(uid);
   return { status: 200, body: { ok: true, authToken } };
 }
