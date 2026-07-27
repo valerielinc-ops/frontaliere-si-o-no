@@ -1579,6 +1579,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-fiscali.title': 'Third pillar 3a: tax advantages and savings in Switzerland',
     'blog.article.terzo-pilastro-3a-vantaggi-fiscali.excerpt': 'Complete guide to the third pillar 3a in Switzerland: real tax advantages, differences between banking and insurance pillar and tax optimization.',
     'blog.article.terzo-pilastro-3a-vantaggi-fiscali.imageAlt': 'Panoramic view of Lugano and financial district with modern buildings',
+    'blog.article.medici-di-base-carenza-svizzera.title': 'I didn\'t study eleven years to work for free',
+    'blog.article.medici-di-base-carenza-svizzera.excerpt': 'Switzerland is heading towards a shortage of primary care doctors. Linda Habib is already experiencing the consequences: full clinics and more and more work in addition to patients.',
+    'blog.article.medici-di-base-carenza-svizzera.imageAlt': 'A scene of a Swiss family medicine clinic',
 };
 
 export default blogMetaChEn;

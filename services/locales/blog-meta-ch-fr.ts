@@ -1579,6 +1579,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-fiscali.title': 'Troisième pilier 3a : avantages fiscaux et épargne en Suisse',
     'blog.article.terzo-pilastro-3a-vantaggi-fiscali.excerpt': 'Guide complet du troisième pilier 3a en Suisse : avantages fiscaux réels, différences entre pilier bancaire et assurance et optimisation fiscale.',
     'blog.article.terzo-pilastro-3a-vantaggi-fiscali.imageAlt': 'Vue panoramique de Lugano et du quartier financier avec des batiments modernes',
+    'blog.article.medici-di-base-carenza-svizzera.title': 'Je n\'ai pas étudié onze ans pour travailler gratuitement',
+    'blog.article.medici-di-base-carenza-svizzera.excerpt': 'La Suisse s\'achemine vers une pénurie de médecins généralistes. Linda Habib en vit déjà aujourd\'hui les conséquences : des cabinets complets et de plus en plus de travail en plus en plus de patients.',
+    'blog.article.medici-di-base-carenza-svizzera.imageAlt': 'Une scène d\'un cabinet de médecine de famille en Suisse',
 };
 
 export default blogMetaChFr;
