@@ -1,6 +1,6 @@
 {
   "crawlerKey": "volg-fenaco",
-  "assembledAt": "2026-07-27T12:42:54.738Z",
+  "assembledAt": "2026-07-27T12:25:07.528Z",
   "jobs": [
     {
       "title": "Lehrstelle als Kauffrau / Kaufmann EFZ",
@@ -10091,7 +10091,7 @@
         "de": "verkauferin-verkaufer-volg-w-m-d-volg-ballwil",
         "fr": "fournisseur-fournisseur-volg-f-m-d-volg-ballwil"
       },
-      "crawledAt": "2026-07-27T12:32:49.787Z",
+      "crawledAt": "2026-07-26T22:03:20.164Z",
       "id": "volg-fenaco-7ed48cb01984",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -10109,17 +10109,28 @@
       "firstSeenAt": "2026-07-13T12:21:17.547Z",
       "previousSlugs": [
         "verkauferin-verkaufer-m-w-d-volg-vissoie",
-        "verkauferin-verkaufer-volg-w-m-d-volg-ballwil"
+        "verkauferin-verkaufer-volg-w-m-d-volg-ballwil",
+        "vendor-vendor-volg-dielsdorf-w-m-d-volg-dielsdorf",
+        "verkauferin-verkaufer-volg-dielsdorf-w-m-d-volg-dielsdorf",
+        "fournisseur-fournisseur-volg-dielsdorf-w-m-d-volg-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-volg-w-m-d-volg-ballwil"
+          "verkauferin-verkaufer-volg-w-m-d-volg-ballwil",
+          "vendor-vendor-volg-dielsdorf-w-m-d-volg-dielsdorf",
+          "verkauferin-verkaufer-volg-dielsdorf-w-m-d-volg-dielsdorf",
+          "fournisseur-fournisseur-volg-dielsdorf-w-m-d-volg-dielsdorf"
         ],
         "en": [
-          "verkauferin-verkaufer-volg-w-m-d-volg-ballwil"
+          "verkauferin-verkaufer-volg-w-m-d-volg-ballwil",
+          "vendor-vendor-volg-dielsdorf-w-m-d-volg-dielsdorf"
         ],
         "fr": [
-          "verkauferin-verkaufer-volg-w-m-d-volg-ballwil"
+          "verkauferin-verkaufer-volg-w-m-d-volg-ballwil",
+          "fournisseur-fournisseur-volg-dielsdorf-w-m-d-volg-dielsdorf"
+        ],
+        "de": [
+          "verkauferin-verkaufer-volg-dielsdorf-w-m-d-volg-dielsdorf"
         ]
       }
     },
@@ -25382,7 +25393,7 @@
         "de": "verkauferin-verkaufer-m-w-d-volg-zug",
         "fr": "assistant-commercial-m-f-d-volg-zug-87ea87"
       },
-      "crawledAt": "2026-07-27T12:32:49.796Z",
+      "crawledAt": "2026-07-26T22:03:20.175Z",
       "id": "volg-fenaco-f612c9241d2c",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -25401,20 +25412,28 @@
       "previousSlugsByLocale": {
         "en": [
           "vendor-m-f-d-volg-zug",
-          "verkauferin-verkaufer-m-w-d-volg-zug"
+          "verkauferin-verkaufer-m-w-d-volg-zug",
+          "sales-assistant-m-f-d-volg-zug"
         ],
         "fr": [
           "fournisseur-m-f-d-volg-zug",
-          "verkauferin-verkaufer-m-w-d-volg-zug"
+          "verkauferin-verkaufer-m-w-d-volg-zug",
+          "assistant-commercial-m-f-d-volg-zug"
         ],
         "it": [
-          "verkauferin-verkaufer-m-w-d-volg-zug"
+          "verkauferin-verkaufer-m-w-d-volg-zug",
+          "assistente-alle-vendite-m-f-d-volg-zug",
+          "sales-assistant-m-f-d-volg-zug",
+          "assistant-commercial-m-f-d-volg-zug"
         ]
       },
       "previousSlugs": [
         "vendor-m-f-d-volg-zug",
         "fournisseur-m-f-d-volg-zug",
-        "verkauferin-verkaufer-m-w-d-volg-zug"
+        "verkauferin-verkaufer-m-w-d-volg-zug",
+        "assistente-alle-vendite-m-f-d-volg-zug",
+        "sales-assistant-m-f-d-volg-zug",
+        "assistant-commercial-m-f-d-volg-zug"
       ]
     },
     {

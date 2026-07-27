@@ -1,6 +1,6 @@
 {
   "crawlerKey": "emil-frey",
-  "assembledAt": "2026-07-27T12:33:15.763Z",
+  "assembledAt": "2026-07-27T11:22:49.501Z",
   "jobs": [
     {
       "id": "emil-frey-9eb73a66d657",
@@ -1329,7 +1329,7 @@
       "url": "https://jobs.emilfrey.ch/Automobil-Mechatronikerin-EFZ-de-j2055.html",
       "source": "Emil Frey Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:33:13.049Z",
+      "crawledAt": "2026-07-26T22:03:40.373Z",
       "addressLocality": "Schlieren",
       "streetAddress": "Zürcherstrasse 94",
       "postalCode": "8952",
@@ -1378,16 +1378,30 @@
         "automotive-mechatronics-cfc-emil-frey-marly",
         "automobilmechatroniker-cfc-emil-frey-marly",
         "mecatronicien-d-automobiles-cfc-emil-frey-marly",
-        "tecnico-di-meccatronica-automobilistica-efz-emil-frey-schlieren"
+        "tecnico-di-meccatronica-automobilistica-efz-emil-frey-schlieren",
+        "automobil-mechatroniker-in-efz-emil-frey-au-wadenswil",
+        "automotive-mechatronics-specialist-efz-emil-frey-au-wadenswil",
+        "mecatronique-automobile-specialiste-efz-emil-frey-au-wadenswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automobil-mechatroniker-in-efz-emil-frey-schlieren",
-          "tecnico-di-meccatronica-automobilistica-efz-emil-frey-schlieren"
+          "tecnico-di-meccatronica-automobilistica-efz-emil-frey-schlieren",
+          "automobil-mechatroniker-in-efz-emil-frey-au-wadenswil",
+          "automotive-mechatronics-specialist-efz-emil-frey-au-wadenswil",
+          "mecatronique-automobile-specialiste-efz-emil-frey-au-wadenswil"
+        ],
+        "en": [
+          "automotive-mechatronics-specialist-efz-emil-frey-au-wadenswil"
+        ],
+        "de": [
+          "automobil-mechatroniker-in-efz-emil-frey-au-wadenswil"
+        ],
+        "fr": [
+          "mecatronique-automobile-specialiste-efz-emil-frey-au-wadenswil"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:28.364Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-07-27T12:37:47.323Z",
+  "assembledAt": "2026-07-27T11:30:16.359Z",
   "jobs": [
     {
       "id": "company-9iij1t",
@@ -1924,7 +1924,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-27T12:35:28.566Z",
+      "crawledAt": "2026-07-26T22:04:36.970Z",
       "firstSeenAt": "2026-07-20T12:16:15.722Z",
       "titleByLocale": {
         "it": "Fiteria sanitaria: in cucine e bagni",
@@ -1948,8 +1948,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern",
-          "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-ihyw9w",
           "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-ihyw9w",
           "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern",
           "installatore-sanitario-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf",
@@ -1964,26 +1962,34 @@
           "dispatcher-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-mts3op",
           "dispatcheur-se-cuisines-salles-de-bain-fust-swiss-household-services-ag-burgdorf-mts3op",
           "carpenter-fitter-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf",
-          "menuisier-installateur-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf"
+          "menuisier-installateur-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf",
+          "schreinermonteur-in-kuchen-bader-fust-burgdorf-bern",
+          "installer-in-kitchens-bathrooms-fust-burgdorf-bern",
+          "installateur-dans-les-cuisines-et-salles-de-bains-fust-burgdorf-bern",
+          "installatore-in-cucine-e-bagni-fust-burgdorf-bern",
+          "installatore-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf"
         ],
         "en": [
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-ihyw9w",
           "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-ihyw9w",
           "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-bern",
           "sanitary-fitter-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-lzkg1f",
-          "dispatcher-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-mts3op"
+          "dispatcher-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-mts3op",
+          "installer-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf"
         ],
         "de": [
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-ihyw9w",
           "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-lzkg1f",
-          "disponent-in-kuchen-bader-fust-burgdorf-bern-mts3op"
+          "disponent-in-kuchen-bader-fust-burgdorf-bern-mts3op",
+          "schreinermonteur-in-kuchen-bader-fust-burgdorf-bern-wdvtnj"
         ],
         "fr": [
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-ihyw9w",
           "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-ihyw9w",
           "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-bern",
           "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-lzkg1f",
-          "dispatcheur-se-cuisines-salles-de-bain-fust-swiss-household-services-ag-burgdorf-mts3op"
+          "dispatcheur-se-cuisines-salles-de-bain-fust-swiss-household-services-ag-burgdorf-mts3op",
+          "installateur-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf"
         ]
       },
       "previousSlugs": [
@@ -2005,7 +2011,15 @@
         "dispatcher-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-mts3op",
         "dispatcheur-se-cuisines-salles-de-bain-fust-swiss-household-services-ag-burgdorf-mts3op",
         "carpenter-fitter-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf",
-        "menuisier-installateur-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf"
+        "menuisier-installateur-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf",
+        "schreinermonteur-in-kuchen-bader-fust-burgdorf-bern",
+        "installer-in-kitchens-bathrooms-fust-burgdorf-bern",
+        "installateur-dans-les-cuisines-et-salles-de-bains-fust-burgdorf-bern",
+        "installatore-in-cucine-e-bagni-fust-burgdorf-bern",
+        "installatore-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf",
+        "installer-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf",
+        "schreinermonteur-in-kuchen-bader-fust-burgdorf-bern-wdvtnj",
+        "installateur-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -2414,7 +2428,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-27T12:35:28.566Z",
+      "crawledAt": "2026-07-26T22:04:36.970Z",
       "firstSeenAt": "2026-07-20T12:16:15.722Z",
       "titleByLocale": {
         "it": "Tecnico di servizio: in Soluzioni Professionali",
@@ -2438,9 +2452,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-professional-solutions-fust-oberburen-aqcu7o",
-          "servicetechniker-in-professional-solutions-fust-oberburen",
-          "tecnico-di-servizio-in-soluzioni-professionali-fust-bern",
           "service-technician-in-professional-solutions-fust-swiss-household-services-ag-bern",
           "servicetechniker-in-professional-solutions-fust-bern-3qkfr2",
           "technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-bern",
@@ -2454,7 +2465,13 @@
           "service-technician-in-professional-solutions-fust-swiss-household-services-ag-oberburen",
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern",
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern-3qkfr2",
-          "tecnico-di-servizio-in-soluzioni-professionali-fust-oberburen"
+          "tecnico-di-servizio-in-soluzioni-professionali-fust-oberburen",
+          "service-technician-professional-solutions-fust-swiss-household-services-ag-oberburen",
+          "service-technician-professional-solutions-fust-swiss-household-services-ag-oberburen-6yxyhs",
+          "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-6yxyhs",
+          "servicetechniker-dans-solutions-professionnelles-fust-swiss-household-services-ag-oberburen",
+          "technicien-de-service-solutions-professionnelles-fust-swiss-household-services-ag-oberburen-6yxyhs",
+          "tecnico-di-servizio-in-soluzioni-professionali-fust-oberburen-9ae874"
         ],
         "en": [
           "servicetechniker-in-professional-solutions-fust-oberburen-aqcu7o",
@@ -2462,12 +2479,14 @@
           "service-technician-in-professional-solutions-fust-swiss-household-services-ag-bern"
         ],
         "de": [
-          "servicetechniker-in-professional-solutions-fust-bern-3qkfr2"
+          "servicetechniker-in-professional-solutions-fust-bern-3qkfr2",
+          "servicetechniker-in-professional-solutions-fust-oberburen-6yxyhs"
         ],
         "fr": [
           "servicetechniker-in-professional-solutions-fust-oberburen-aqcu7o",
           "technicien-de-service-en-solutions-professionnelles-fust-oberburen-4496a0",
-          "technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-bern"
+          "technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-bern",
+          "technicien-de-service-en-solutions-professionnelles-fust-oberburen"
         ]
       },
       "previousSlugs": [
@@ -2489,7 +2508,15 @@
         "service-technician-in-professional-solutions-fust-swiss-household-services-ag-oberburen",
         "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern",
         "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern-3qkfr2",
-        "tecnico-di-servizio-in-soluzioni-professionali-fust-oberburen"
+        "tecnico-di-servizio-in-soluzioni-professionali-fust-oberburen",
+        "service-technician-professional-solutions-fust-swiss-household-services-ag-oberburen",
+        "service-technician-professional-solutions-fust-swiss-household-services-ag-oberburen-6yxyhs",
+        "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-6yxyhs",
+        "servicetechniker-dans-solutions-professionnelles-fust-swiss-household-services-ag-oberburen",
+        "technicien-de-service-solutions-professionnelles-fust-swiss-household-services-ag-oberburen-6yxyhs",
+        "tecnico-di-servizio-in-soluzioni-professionali-fust-oberburen-9ae874",
+        "servicetechniker-in-professional-solutions-fust-oberburen-6yxyhs",
+        "technicien-de-service-en-solutions-professionnelles-fust-oberburen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -3956,7 +3983,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-27T12:35:28.566Z",
+      "crawledAt": "2026-07-26T22:04:36.970Z",
       "firstSeenAt": "2026-07-06T13:40:26.001Z",
       "titleByLocale": {
         "it": "Rappresentante del servizio clienti:in servizio",
@@ -3984,16 +4011,29 @@
           "rappresentante-del-servizio-clienti-in-servizio-fust-koniz-bern",
           "kundendienstmitarbeiter-in-service-fust-koniz-bern",
           "kundendienstmitarbeiter-in-service-fust-swiss-household-services-ag-koniz",
-          "operatore-a-di-assistenza-clienti-fust-swiss-household-services-ag-koniz"
+          "operatore-a-di-assistenza-clienti-fust-swiss-household-services-ag-koniz",
+          "rappresentante-del-servizio-clienti-in-fust-swiss-household-services-ag-oberburen",
+          "customer-service-representative-in-fust-swiss-household-services-ag-oberburen",
+          "kundendienstmitarbeiter-in-fust-oberburen-sankt-gallen-wki4de",
+          "representant-du-service-a-la-clientele-in-fust-swiss-household-services-ag-oberburen",
+          "kundendienstmitarbeiter-in-fust-oberburen-sankt-gallen",
+          "kundendienstmitarbeiter-in-fust-swiss-household-services-ag-oberburen-wki4de",
+          "technicien-service-a-domicile-fust-swiss-household-services-ag-oberburen"
         ],
         "en": [
           "kundendienstmitarbeiter-in-service-fust-koniz-bern-3w5tb0",
           "customer-service-representative-in-service-fust-koniz-bern",
-          "kundendienstmitarbeiter-in-service-fust-swiss-household-services-ag-koniz-3w5tb0"
+          "kundendienstmitarbeiter-in-service-fust-swiss-household-services-ag-koniz-3w5tb0",
+          "customer-service-representative-in-fust-swiss-household-services-ag-oberburen"
         ],
         "fr": [
           "kundendienstmitarbeiter-in-service-fust-koniz-bern-3w5tb0",
-          "representant-du-service-a-la-clientele-en-service-fust-koniz-bern"
+          "representant-du-service-a-la-clientele-en-service-fust-koniz-bern",
+          "representant-du-service-a-la-clientele-in-fust-swiss-household-services-ag-oberburen",
+          "technicien-service-a-domicile-fust-swiss-household-services-ag-oberburen"
+        ],
+        "de": [
+          "kundendienstmitarbeiter-in-fust-oberburen-sankt-gallen-wki4de"
         ]
       },
       "previousSlugs": [
@@ -4004,7 +4044,14 @@
         "kundendienstmitarbeiter-in-service-fust-koniz-bern",
         "kundendienstmitarbeiter-in-service-fust-swiss-household-services-ag-koniz-3w5tb0",
         "kundendienstmitarbeiter-in-service-fust-swiss-household-services-ag-koniz",
-        "operatore-a-di-assistenza-clienti-fust-swiss-household-services-ag-koniz"
+        "operatore-a-di-assistenza-clienti-fust-swiss-household-services-ag-koniz",
+        "rappresentante-del-servizio-clienti-in-fust-swiss-household-services-ag-oberburen",
+        "customer-service-representative-in-fust-swiss-household-services-ag-oberburen",
+        "kundendienstmitarbeiter-in-fust-oberburen-sankt-gallen-wki4de",
+        "representant-du-service-a-la-clientele-in-fust-swiss-household-services-ag-oberburen",
+        "kundendienstmitarbeiter-in-fust-oberburen-sankt-gallen",
+        "kundendienstmitarbeiter-in-fust-swiss-household-services-ag-oberburen-wki4de",
+        "technicien-service-a-domicile-fust-swiss-household-services-ag-oberburen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -7068,18 +7115,39 @@
       "previousSlugsByLocale": {
         "it": [
           "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon",
-          "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-b765q5"
+          "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-b765q5",
+          "coordinatore-di-produzione-e-amministrazione-100-two-spice-ag-dietlikon",
+          "production-coordinator-administration-100-two-spice-ag-dietlikon",
+          "produktionskoordinator-in-administration-100-two-spice-dietlikon-dhxzeq",
+          "coordonnateur-de-la-production-et-administration-100-two-spice-ag-dietlikon",
+          "produktionskoordinator-in-administration-100-two-spice-ag-dietlikon",
+          "produktionskoordinator-in-administration-100-two-spice-ag-dietlikon-dhxzeq",
+          "produktionskoordinator-in-administration-100-two-spice-dietlikon",
+          "coordinatore-di-produzione-amministrazione-100-two-spice-ag-rumlang"
         ],
         "en": [
-          "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-b765q5"
+          "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-b765q5",
+          "production-coordinator-administration-100-two-spice-ag-dietlikon"
         ],
         "fr": [
-          "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-b765q5"
+          "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-b765q5",
+          "coordonnateur-de-la-production-et-administration-100-two-spice-ag-dietlikon"
+        ],
+        "de": [
+          "produktionskoordinator-in-administration-100-two-spice-dietlikon-dhxzeq"
         ]
       },
       "previousSlugs": [
         "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon",
-        "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-b765q5"
+        "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-b765q5",
+        "coordinatore-di-produzione-e-amministrazione-100-two-spice-ag-dietlikon",
+        "production-coordinator-administration-100-two-spice-ag-dietlikon",
+        "produktionskoordinator-in-administration-100-two-spice-dietlikon-dhxzeq",
+        "coordonnateur-de-la-production-et-administration-100-two-spice-ag-dietlikon",
+        "produktionskoordinator-in-administration-100-two-spice-ag-dietlikon",
+        "produktionskoordinator-in-administration-100-two-spice-ag-dietlikon-dhxzeq",
+        "produktionskoordinator-in-administration-100-two-spice-dietlikon",
+        "coordinatore-di-produzione-amministrazione-100-two-spice-ag-rumlang"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -21535,7 +21603,7 @@
       "firstSeenAt": "2026-07-01T22:19:20.999Z",
       "titleByLocale": {
         "en": "Facility Technician (m/w/d)",
-        "de": "Facility Techniker (m/w/d)",
+        "de": "Anlagentechniker (m/w/d)",
         "fr": "Technicien de Maintenance (m/f/d)",
         "it": "Tecnico di Manutenzione (m/f/d)"
       },
@@ -21546,7 +21614,7 @@
         "fr": "## Technicien des installations (m/f/d)\n\n**Coopérative de coop** — Frutigen, Berne, Svizzera\n\n## Tâche\n- Assurer le bon fonctionnement de toutes les installations et installations techniques\n- Entretien, entretien et amélioration continue des infrastructures\n- Responsabilité en matière de sécurité opérationnelle et respect des exigences environnementales et de sécurité\n- Organisation du nettoyage, logistique et gestion des déchets\n- Soutien et entretien du matériel CVC, des véhicules et de la technologie de pisciculture\n- Achat de matériel, de machines et de matériel\n\n## Exigences\n- Formation technique de base (mécanicien de machines agricoles ou équivalent)\n- Expérience en matière d ' entretien technique et d ' achat d ' équipements et de machines\n- Méthode de travail indépendante, structurée et axée sur les solutions\n- Résilient physique, fiable et axé sur l'équipe\n- Comprendre les contrôles et l'automatisation\n- La connaissance de l'allemand en mots et en écriture\n- Forte compréhension technique et force de mise en œuvre pratique\n- Un haut sens des responsabilités dans les domaines de la sécurité, de la qualité et de l'environnement\n- Engagement, initiative et méthode de travail de réflexion\n- Apparence ouverte, serviable et professionnelle\n- Capacité de hiérarchiser les tâches et de suivre\n\n## Ce que nous offrons\n- Avantages: paquet alimentaire (boissons incluses)\n- Conditions d'emploi: conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : appui à la formation\n- Durabilité: Engagement envers les personnes et les animaux et la nature avec plus de 400 actions\n- Communication : Environnement dynamique et axé sur l'équipe\n- Santé : milieux de travail ergonomiques\n\n## Votre personne à contacter\nJenny Wüthrich\nChef des finances et des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité:** Fruité"
       },
       "slugByLocale": {
-        "it": "tecnico-di-manutenzione-m-f-d-coop-genossenschaft-frutigen-bern",
+        "it": "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
         "en": "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
         "de": "facility-techniker-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
         "fr": "facility-technicien-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g"
@@ -21557,7 +21625,7 @@
         "it": [
           "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
           "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern",
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g"
+          "tecnico-di-manutenzione-m-f-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-1lrh2g"
@@ -21567,7 +21635,7 @@
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
         "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern",
         "facility-technician-m-w-d-bergquellfisch-frutigen-bern-1lrh2g",
-        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g"
+        "tecnico-di-manutenzione-m-f-d-coop-genossenschaft-frutigen-bern"
       ],
       "salaryMin": 105500,
       "salaryMax": 185000,

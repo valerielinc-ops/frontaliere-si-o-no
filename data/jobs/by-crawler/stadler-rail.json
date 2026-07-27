@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadler-rail",
-  "assembledAt": "2026-07-27T12:53:28.418Z",
+  "assembledAt": "2026-07-27T12:11:01.897Z",
   "jobs": [
     {
       "id": "stadler-rail-b49474b5c402",
@@ -7668,7 +7668,7 @@
       "url": "https://careers.stadlerrail.com/job/Wallisellen-System-Engineer-CBTC-ZH-Z-8304/1360493455/",
       "source": "Stadler Rail Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:52:36.936Z",
+      "crawledAt": "2026-07-26T22:23:45.960Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "addressRegion": "ZH",
@@ -7691,7 +7691,9 @@
         "senior-system-sales-engineer-stadler-rail-ch",
         "leitender-systemverkaufsingenieur-stadler-rail-wallisellen",
         "ingenieur-commercial-systeme-senior-stadler-rail-wallisellen",
-        "system-ingegnere-cbtc-stadler-rail-wallisellen"
+        "system-commissioning-ingegnere-stadler-rail-wallisellen",
+        "system-commissioning-engineer-stadler-rail-ch",
+        "system-commissioning-ingenieur-stadler-rail-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7700,21 +7702,24 @@
           "senior-system-sales-engineer-stadler-rail-ch",
           "leitender-systemverkaufsingenieur-stadler-rail-wallisellen",
           "ingenieur-commercial-systeme-senior-stadler-rail-wallisellen",
-          "system-ingegnere-cbtc-stadler-rail-wallisellen"
+          "system-commissioning-ingegnere-stadler-rail-wallisellen",
+          "system-commissioning-engineer-stadler-rail-ch",
+          "system-commissioning-ingenieur-stadler-rail-wallisellen"
         ],
         "en": [
-          "senior-system-sales-engineer-stadler-rail-ch"
+          "senior-system-sales-engineer-stadler-rail-ch",
+          "system-commissioning-engineer-stadler-rail-ch"
         ],
         "de": [
           "leitender-systemverkaufsingenieur-stadler-rail-wallisellen"
         ],
         "fr": [
           "system-engineer-cbtc-stadler-rail-ch",
-          "ingenieur-commercial-systeme-senior-stadler-rail-wallisellen"
+          "ingenieur-commercial-systeme-senior-stadler-rail-wallisellen",
+          "system-commissioning-ingenieur-stadler-rail-wallisellen"
         ]
       },
       "firstSeenAt": "2026-07-15T11:32:23.026Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
