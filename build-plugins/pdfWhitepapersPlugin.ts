@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import type { Plugin } from 'vite';
 import { BASE_URL, ANALYTICS_SNIPPET } from './constants';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { PDF_PAGE_A4, PDF_MARGIN_DEFAULT, PDF_BASE_PALETTE, collectPdfBuffer } from './shared/pdfKitTheme';
 
 /**
  * Cache directory for the PDF content-hash manifest. Mirrors the convention
@@ -75,21 +76,15 @@ const GUIDES: PdfGuide[] = [
  },
 ];
 
-/* ── Colour palette (decimal RGB for pdfkit) ─────────────── */
 /* ── Colour palette (hex strings for pdfkit) ─────────────── */
 const COLORS = {
- headerBg: '#1e293b', // slate-800
- white: '#ffffff',
- body: '#334155', // slate-700
- heading: '#1e40af', // blue-800
+ ...PDF_BASE_PALETTE,
  link: '#2563eb', // blue-600
- muted: '#64748b', // slate-500
  bullet: '#1e40af', // blue-800
- rule: '#cbd5e1', // slate-300
 };
 
-const PAGE = { width: 595.28, height: 841.89 }; // A4
-const MARGIN = { top: 56, bottom: 56, left: 56, right: 56 };
+const PAGE = PDF_PAGE_A4;
+const MARGIN = PDF_MARGIN_DEFAULT;
 const CONTENT_WIDTH = PAGE.width - MARGIN.left - MARGIN.right;
 
 /* ── Parsed content types ─────────────────────────────────── */
@@ -221,8 +216,6 @@ function stripMarkdownFormatting(text: string): string {
 async function generatePdf(guide: PdfGuide, markdown: string): Promise<Buffer> {
  const PDFDocument = (await import('pdfkit')).default;
 
- return new Promise((resolve, reject) => {
- const chunks: Buffer[] = [];
  const doc = new PDFDocument({
  size: 'A4',
  margins: { top: MARGIN.top, bottom: MARGIN.bottom, left: MARGIN.left, right: MARGIN.right },
@@ -234,10 +227,7 @@ async function generatePdf(guide: PdfGuide, markdown: string): Promise<Buffer> {
  Creator: 'frontaliereticino.ch',
  },
  });
-
- doc.on('data', (chunk: Buffer) => chunks.push(chunk));
- doc.on('end', () => resolve(Buffer.concat(chunks)));
- doc.on('error', reject);
+ const bufferPromise = collectPdfBuffer(doc);
 
  const { sections, blocks } = parseContent(markdown);
 
@@ -277,7 +267,7 @@ async function generatePdf(guide: PdfGuide, markdown: string): Promise<Buffer> {
  }
 
  doc.end();
- });
+ return bufferPromise;
 }
 
 function renderCoverPage(doc: PDFKit.PDFDocument, guide: PdfGuide): void {
