@@ -9023,6 +9023,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-ristorni-da-record.title': 'Frontalieri, ristorni da record: all\'Italia ben 112 milioni',
     'blog.article.frontalieri-ristorni-da-record.excerpt': 'La cifra dei ristorni versati dal Ticino all\'Italia è aumentata a 112 milioni di franchi, secondo la fonte.',
     'blog.article.frontalieri-ristorni-da-record.imageAlt': 'Vista di Lugano, con i monti Ticini sullo sfondo.',
+    'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.title': 'Ristorni per frontalieri: i cantoni che ricevono soldi',
+    'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.excerpt': 'I cantoni svizzeri che ricevono soldi dai Paesi di origine dei frontalieri. I dati di settembre 2025.',
+    'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.imageAlt': 'Frontalieri ticinesi che lavorano in Italia',
 };
 
 export default blogMetaIt;

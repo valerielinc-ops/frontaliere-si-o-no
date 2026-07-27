@@ -9022,6 +9022,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-ristorni-da-record.title': 'Frontier workers, record-breaking refreshments: as much as 112 million to Italy',
     'blog.article.frontalieri-ristorni-da-record.excerpt': 'The figure of refunds paid by Ticino to Italy increased to 112 million francs, according to the source.',
     'blog.article.frontalieri-ristorni-da-record.imageAlt': 'View of Lugano, with the Ticino mountains in the background.',
+    'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.title': 'Refurbishments for border workers: cantons that receive money',
+    'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.excerpt': 'Swiss cantons that receive money from the countries of origin of border workers. Data for September 2025.',
+    'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.imageAlt': 'Ticino-Italian border workers',
 };
 
 export default blogMetaEn;
