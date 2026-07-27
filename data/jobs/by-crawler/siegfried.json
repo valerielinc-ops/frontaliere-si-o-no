@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-07-27T12:31:46.515Z",
+  "assembledAt": "2026-07-27T22:13:33.344Z",
   "jobs": [
     {
       "id": "siegfried-b2e1fb16eb0f",
@@ -33,7 +33,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T12:31:44.182Z",
+      "crawledAt": "2026-07-27T22:13:29.874Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -53,11 +53,13 @@
       "previousSlugs": [
         "operateur-de-production-4-8-siegfried-ch",
         "wechseltechniker-3-8-siegfried-evionnaz",
-        "operateur-de-production-4-8-siegfried-evionnaz"
+        "operateur-de-production-4-8-siegfried-evionnaz",
+        "operatore-di-produzione-4-8-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operateur-de-production-4-8-siegfried-ch"
+          "operateur-de-production-4-8-siegfried-ch",
+          "operatore-di-produzione-4-8-siegfried-evionnaz"
         ],
         "fr": [
           "operateur-de-production-4-8-siegfried-evionnaz"
@@ -109,7 +111,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T12:31:43.514Z",
+      "crawledAt": "2026-07-27T22:13:29.271Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -151,11 +153,13 @@
         "technicien-de-laboratoire-ad-siegfried-evionnaz",
         "change-over-techniker-3-8-siegfried-evionnaz",
         "changement-de-technicien-3-8-siegfried-evionnaz",
-        "tecnico-di-cambio-3-8-siegfried-evionnaz"
+        "tecnico-di-cambio-3-8-siegfried-evionnaz",
+        "tecnico-di-laboratorio-ad-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lab-technician-ad-siegfried-ch"
+          "lab-technician-ad-siegfried-ch",
+          "tecnico-di-laboratorio-ad-siegfried-evionnaz"
         ],
         "de": [
           "labotechniker-ad-siegfried-evionnaz"
@@ -165,6 +169,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:35.504Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -210,7 +215,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-R-D_R26_104",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:31:42.788Z",
+      "crawledAt": "2026-07-27T22:13:28.664Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -228,17 +233,20 @@
       "jobReqId": "R26_104",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "senior-lab-technician-analytics-siegfried-ch"
+        "senior-lab-technician-analytics-siegfried-ch",
+        "analisi-tecnica-del-laboratorio-senior-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lab-technician-analytics-siegfried-ch"
+          "senior-lab-technician-analytics-siegfried-ch",
+          "analisi-tecnica-del-laboratorio-senior-siegfried-zofingen"
         ],
         "fr": [
           "senior-lab-technician-analytics-siegfried-ch"
         ]
       },
       "firstSeenAt": "2026-05-11T12:28:48.174Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -284,7 +292,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-R-D_R26_438",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T12:31:42.027Z",
+      "crawledAt": "2026-07-27T22:13:28.050Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -302,14 +310,17 @@
       "jobReqId": "R26_438",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
-        "lab-technician-r-d-siegfried-ch"
+        "lab-technician-r-d-siegfried-ch",
+        "laboratorio-tecnico-r-d-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lab-technician-r-d-siegfried-ch"
+          "lab-technician-r-d-siegfried-ch",
+          "laboratorio-tecnico-r-d-siegfried-evionnaz"
         ]
       },
       "firstSeenAt": "2026-05-18T13:08:56.939Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -355,7 +366,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Supervisor-QC_R26_463",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T12:31:41.395Z",
+      "crawledAt": "2026-07-27T22:13:27.433Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -376,12 +387,14 @@
         "lab-supervisor-qc-siegfried-ch",
         "lab-supervisore-qc-siegfried-evionnaz",
         "lab-vorgesetzter-qc-siegfried-evionnaz",
-        "lab-supervisor-qc-siegfried-evionnaz"
+        "lab-supervisor-qc-siegfried-evionnaz",
+        "controllo-del-laboratorio-qc-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-supervisor-qc-siegfried-ch",
-          "lab-supervisore-qc-siegfried-evionnaz"
+          "lab-supervisore-qc-siegfried-evionnaz",
+          "controllo-del-laboratorio-qc-siegfried-evionnaz"
         ],
         "en": [
           "lab-supervisor-qc-siegfried-ch"
@@ -440,7 +453,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Lab-Technician_R26_410",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:31:40.673Z",
+      "crawledAt": "2026-07-27T22:13:26.815Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -460,13 +473,15 @@
       "previousSlugs": [
         "laborant-in-efz-chemie-siegfried-ch",
         "lehrstelle-laborant-in-efz-chemie-siegfried-ch",
-        "laborant-in-cfc-chemie-siegfried-zofingen"
+        "laborant-in-cfc-chemie-siegfried-zofingen",
+        "tecnico-di-laboratorio-efz-chemie-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "laborant-in-efz-chemie-siegfried-ch",
           "lehrstelle-laborant-in-efz-chemie-siegfried-ch",
-          "laborant-in-cfc-chemie-siegfried-zofingen"
+          "laborant-in-cfc-chemie-siegfried-zofingen",
+          "tecnico-di-laboratorio-efz-chemie-siegfried-zofingen"
         ],
         "en": [
           "laborant-in-efz-chemie-siegfried-ch"
@@ -476,6 +491,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:08:57.746Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -521,7 +537,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T12:31:39.969Z",
+      "crawledAt": "2026-07-27T22:13:26.214Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -540,12 +556,14 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
         "manutenzione-tecnica-elettrica-siegfried-evionnaz",
-        "technicien-de-maintenance-electricite-siegfried-ch"
+        "technicien-de-maintenance-electricite-siegfried-ch",
+        "tecnico-di-manutenzione-elettricita-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manutenzione-tecnica-elettrica-siegfried-evionnaz",
-          "technicien-de-maintenance-electricite-siegfried-ch"
+          "technicien-de-maintenance-electricite-siegfried-ch",
+          "tecnico-di-manutenzione-elettricita-siegfried-evionnaz"
         ],
         "en": [
           "technicien-de-maintenance-electricite-siegfried-ch"
@@ -555,6 +573,7 @@
         ]
       },
       "firstSeenAt": "2026-06-15T15:11:19.489Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -600,7 +619,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Senior-Lab-Technician---Process-Safety_R26_532",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T12:31:39.089Z",
+      "crawledAt": "2026-07-27T22:13:25.606Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -620,12 +639,14 @@
       "previousSlugs": [
         "senior-lab-technician-process-safety-siegfried-ch",
         "senior-lab-techniker-process-safety-siegfried-evionnaz",
-        "senior-lab-technicien-process-safety-siegfried-evionnaz"
+        "senior-lab-technicien-process-safety-siegfried-evionnaz",
+        "senior-lab-technician-sicurezza-dei-processi-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-lab-technician-process-safety-siegfried-ch",
-          "senior-lab-technicien-process-safety-siegfried-evionnaz"
+          "senior-lab-technicien-process-safety-siegfried-evionnaz",
+          "senior-lab-technician-sicurezza-dei-processi-siegfried-evionnaz"
         ],
         "de": [
           "senior-lab-techniker-process-safety-siegfried-evionnaz"
@@ -635,6 +656,7 @@
         ]
       },
       "firstSeenAt": "2026-06-18T13:04:11.702Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -680,7 +702,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Intern-Commercial-Excellence_R26_511",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-27T12:31:38.394Z",
+      "crawledAt": "2026-07-27T22:13:24.907Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -698,11 +720,13 @@
       "jobReqId": "R26_511",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "intern-commercial-excellence-siegfried-ch"
+        "intern-commercial-excellence-siegfried-ch",
+        "tirocinante-commercial-excellence-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "intern-commercial-excellence-siegfried-ch"
+          "intern-commercial-excellence-siegfried-ch",
+          "tirocinante-commercial-excellence-siegfried-zofingen"
         ],
         "de": [
           "intern-commercial-excellence-siegfried-ch"
@@ -712,6 +736,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:18:10.178Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -757,7 +782,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/QA-Supervisor_R26_565",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T12:31:37.778Z",
+      "crawledAt": "2026-07-27T22:13:24.312Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -776,11 +801,13 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
         "qa-supervisor-siegfried-ch",
-        "qa-supervisor-siegfried-evionnaz"
+        "qa-supervisor-siegfried-evionnaz",
+        "qa-supervisore-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "qa-supervisor-siegfried-ch"
+          "qa-supervisor-siegfried-ch",
+          "qa-supervisore-siegfried-evionnaz"
         ],
         "de": [
           "qa-supervisor-siegfried-ch"
@@ -790,6 +817,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T22:42:54.087Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -835,7 +863,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Global-Category-Manager-CapEx_R26_537",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-27T12:31:37.040Z",
+      "crawledAt": "2026-07-27T22:13:23.712Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -853,14 +881,17 @@
       "jobReqId": "R26_537",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "global-category-manager-capex-siegfried-ch"
+        "global-category-manager-capex-siegfried-ch",
+        "global-categoria-manager-capex-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-category-manager-capex-siegfried-ch"
+          "global-category-manager-capex-siegfried-ch",
+          "global-categoria-manager-capex-siegfried-zofingen"
         ]
       },
       "firstSeenAt": "2026-07-08T11:16:26.761Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -906,7 +937,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/CAD-Designer_R26_592",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T12:31:36.360Z",
+      "crawledAt": "2026-07-27T22:13:23.103Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -924,14 +955,17 @@
       "jobReqId": "R26_592",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
-        "cad-designer-siegfried-ch"
+        "cad-designer-siegfried-ch",
+        "designer-cad-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cad-designer-siegfried-ch"
+          "cad-designer-siegfried-ch",
+          "designer-cad-siegfried-evionnaz"
         ]
       },
       "firstSeenAt": "2026-07-13T22:10:27.704Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -961,7 +995,7 @@
       "title": "Betriebselektriker*in",
       "titleByLocale": {
         "it": "Elettricista aziendale*",
-        "en": "Business electrician*",
+        "en": "Betriebselektriker*in",
         "de": "Betriebselektriker*in",
         "fr": "Électricien d'affaires*"
       },
@@ -977,7 +1011,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebselektriker-in_R26_616",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:31:35.688Z",
+      "crawledAt": "2026-07-27T22:13:22.497Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -997,12 +1031,14 @@
       "previousSlugs": [
         "betriebselektriker-in-siegfried-ch",
         "betriebselektriker-in-siegfried-zofingen",
-        "business-electrician-siegfried-zofingen"
+        "business-electrician-siegfried-zofingen",
+        "elettricista-aziendale-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebselektriker-in-siegfried-ch",
-          "betriebselektriker-in-siegfried-zofingen"
+          "betriebselektriker-in-siegfried-zofingen",
+          "elettricista-aziendale-siegfried-zofingen"
         ],
         "en": [
           "business-electrician-siegfried-zofingen"
@@ -1012,6 +1048,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:19:28.317Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1057,7 +1094,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Schlieren/Manufacturing-Specialist---Sr-Manufacturing-Specialist--Downstream-Processing--DSP---Drug-Product_R26_628",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-27T12:31:34.977Z",
+      "crawledAt": "2026-07-27T22:13:21.898Z",
       "addressLocality": "Schlieren",
       "addressCountry": "CH",
       "country": "CH",
@@ -1075,11 +1112,13 @@
       "jobReqId": "R26_628",
       "hiringOrganization": "SIEGFRIED DiNAMIQS AG",
       "previousSlugs": [
-        "manufacturing-specialist-sr-manufacturing-specialist-downstream-processing-dsp-drug"
+        "manufacturing-specialist-sr-manufacturing-specialist-downstream-processing-dsp-drug",
+        "manufacturing-specialista-sr-manufacturing-specialista-downstream-processing-dsp-drug-product-siegfried-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manufacturing-specialist-sr-manufacturing-specialist-downstream-processing-dsp-drug"
+          "manufacturing-specialist-sr-manufacturing-specialist-downstream-processing-dsp-drug",
+          "manufacturing-specialista-sr-manufacturing-specialista-downstream-processing-dsp-drug-product-siegfried-schlieren"
         ],
         "de": [
           "manufacturing-specialist-sr-manufacturing-specialist-downstream-processing-dsp-drug"
@@ -1089,6 +1128,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T22:09:50.407Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1107,8 +1147,8 @@
       "id": "siegfried-aad2b5061730",
       "slug": "senior-chemist-r-d-siegfried-evionnaz",
       "slugByLocale": {
-        "en": "senior-chemist-r-d-siegfried-ch",
         "it": "senior-chemist-r-d-siegfried-evionnaz",
+        "en": "senior-chemist-r-d-siegfried-ch",
         "de": "senior-chemiker-r-d-siegfried-evionnaz",
         "fr": "r-d-chimiste-senior-siegfried-evionnaz"
       },
@@ -1117,24 +1157,24 @@
       "companyDomain": "siegfried.ch",
       "title": "Senior Chemist R&D",
       "titleByLocale": {
-        "en": "Senior Chemist R&D",
         "it": "Senior Chemist R&D",
+        "en": "Senior Chemist R&D",
         "de": "Senior Chemiker R&D",
         "fr": "R-D chimiste senior"
       },
       "description": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nAs a Senior Chemist R&D, you will play a key role in developing and optimizing robust chemical processes for clinical and commercial pharmaceutical products. Working within a multidisciplinary environment, you will combine scientific expertise, project leadership, and industrial mindset to deliver scalable and sustainable manufacturing solutions.\n\nYour responsibilities will include:\n\nLeading the development, optimization, and troubleshooting of chemical manufacturing processes.\n\nSupporting process scale-up and technology transfer from laboratory to pilot plant and commercial manufacturing.\n\nDriving continuous improvement initiatives to increase process robustness, efficiency, quality, and sustainability.\n\nApplying Quality by Design (QbD), Design of Experiments (DoE), Process Analytical Technology (PAT), and scientific data analysis to accelerate process understanding.\n\nActing as the technical lead for customer projects, providing scientific expertise during client meetings and technical discussions.\n\nCollaborating closely with Process Research, Analytical Development, Production, Quality Assurance, Regulatory Affairs, Engineering, and HSE.\n\nPreparing technical documentation including development reports, risk assessments, technology transfer packages, and regulatory support documents.\n\nIdentifying innovative technologies and new scientific approaches to strengthen process development capabilities.\n\nMentoring junior scientists and sharing technical knowledge across the organization.\n\nContributing to the strategic development of Process Development through innovation, operational excellence, and continuous improvement.\n Your Profile:\n\n• PhD or MSc in Organic Chemistry, Process Chemistry or a related scientific discipline.\n\n• Significant experience (5+ years) in pharmaceutical process development, ideally within a CDMO or GMP manufacturing environment.\n\n• Strong expertise in synthetic organic chemistry, reaction mechanisms, process optimization, and scale-up.\n\n• Good knowledge of Design of Experiments (DoE), Quality by Design ( QbD ), Process Analytical Technology (PAT), and statistical data analysis.\n\n• Experience supporting technology transfer from laboratory to pilot or commercial manufacturing.\n\n• Solid understanding of GMP requirements and ICH guidelines.\n\n• Excellent problem-solving and scientific reasoning skills.\n\n• Strong communication and stakeholder management abilities, including customer interactions.\n\n• Ability to manage multiple priorities while maintaining high scientific standards.\n\n• Fluency in English and French .\n\nYour Benefits:\n\n• Free on-site parking\n\n• Health insurance: up to 10% discount on supplementary health insurance through our partner providers\n\n• Generous and flexible employee share purchase plan\n\n• Child allowance: Siegfried AG supplements the statutory cantonal child allowance by 10% and provides an additional CHF 100 per month\n\n• Individual learning and development opportunities\n\n• REKA checks: employees benefit from a 20% discount on REKA holiday checks\n\n• Attractive company pension plan\n\n• On-site fitness classes and a wide range of company events\n\n• Access to the Swibeco employee benefits platform\n\n• 5 weeks of annual leave with the option to purchase up to 2 additional weeks of vacation\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
       "descriptionByLocale": {
-        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nAs a Senior Chemist R&D, you will play a key role in developing and optimizing robust chemical processes for clinical and commercial pharmaceutical products. Working within a multidisciplinary environment, you will combine scientific expertise, project leadership, and industrial mindset to deliver scalable and sustainable manufacturing solutions.\n\nYour responsibilities will include:\n\nLeading the development, optimization, and troubleshooting of chemical manufacturing processes.\n\nSupporting process scale-up and technology transfer from laboratory to pilot plant and commercial manufacturing.\n\nDriving continuous improvement initiatives to increase process robustness, efficiency, quality, and sustainability.\n\nApplying Quality by Design (QbD), Design of Experiments (DoE), Process Analytical Technology (PAT), and scientific data analysis to accelerate process understanding.\n\nActing as the technical lead for customer projects, providing scientific expertise during client meetings and technical discussions.\n\nCollaborating closely with Process Research, Analytical Development, Production, Quality Assurance, Regulatory Affairs, Engineering, and HSE.\n\nPreparing technical documentation including development reports, risk assessments, technology transfer packages, and regulatory support documents.\n\nIdentifying innovative technologies and new scientific approaches to strengthen process development capabilities.\n\nMentoring junior scientists and sharing technical knowledge across the organization.\n\nContributing to the strategic development of Process Development through innovation, operational excellence, and continuous improvement.\n Your Profile:\n\n• PhD or MSc in Organic Chemistry, Process Chemistry or a related scientific discipline.\n\n• Significant experience (5+ years) in pharmaceutical process development, ideally within a CDMO or GMP manufacturing environment.\n\n• Strong expertise in synthetic organic chemistry, reaction mechanisms, process optimization, and scale-up.\n\n• Good knowledge of Design of Experiments (DoE), Quality by Design ( QbD ), Process Analytical Technology (PAT), and statistical data analysis.\n\n• Experience supporting technology transfer from laboratory to pilot or commercial manufacturing.\n\n• Solid understanding of GMP requirements and ICH guidelines.\n\n• Excellent problem-solving and scientific reasoning skills.\n\n• Strong communication and stakeholder management abilities, including customer interactions.\n\n• Ability to manage multiple priorities while maintaining high scientific standards.\n\n• Fluency in English and French .\n\nYour Benefits:\n\n• Free on-site parking\n\n• Health insurance: up to 10% discount on supplementary health insurance through our partner providers\n\n• Generous and flexible employee share purchase plan\n\n• Child allowance: Siegfried AG supplements the statutory cantonal child allowance by 10% and provides an additional CHF 100 per month\n\n• Individual learning and development opportunities\n\n• REKA checks: employees benefit from a 20% discount on REKA holiday checks\n\n• Attractive company pension plan\n\n• On-site fitness classes and a wide range of company events\n\n• Access to the Swibeco employee benefits platform\n\n• 5 weeks of annual leave with the option to purchase up to 2 additional weeks of vacation\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e ampie opportunità per mostrare i vostri talenti. In qualità di partner affidabile e rispettato per l'industria farmaceutica, sosteniamo i più elevati standard di sicurezza, qualità e sostenibilità, promuovendo al contempo una cultura che ti consente di prosperare. Unisciti a una società globale in rapida espansione, dove prospettive e esperienze diverse si uniscono in un ambiente collaborativo. Qui troverete un posto di lavoro che valorizzi il successo collettivo e i vostri contributi individuali, offrendo opportunità a lungo termine per crescere e fare un impatto.\n\nIl tuo ruolo:\nCome Senior Chemist R&D, si svolgerà un ruolo chiave nello sviluppo e nell'ottimizzazione di processi chimici robusti per i prodotti farmaceutici clinici e commerciali. Lavorando in un ambiente multidisciplinare, unirete competenze scientifiche, leadership di progetto e mentalità industriale per fornire soluzioni di produzione scalabili e sostenibili.\n\nLe tue responsabilità includono:\n\nCondurre lo sviluppo, l'ottimizzazione e la risoluzione dei problemi dei processi di produzione chimica.\n\nSostenere la scala di processo e il trasferimento tecnologico da laboratorio a impianti pilota e produzione commerciale.\n\nGuidare iniziative di miglioramento continuo per aumentare la robustezza dei processi, l'efficienza, la qualità e la sostenibilità.\n\nApplicando Qualità per Design (QbD), Design of Experiments (DoE), Process Analytical Technology (PAT), e analisi dei dati scientifici per accelerare la comprensione del processo.\n\nAgire come leader tecnico per i progetti dei clienti, fornendo competenze scientifiche durante le riunioni dei clienti e discussioni tecniche.\n\nCollaborando a stretto contatto con la ricerca di processo, lo sviluppo analitico, la produzione, la garanzia di qualità, gli affari regolamentari, l'ingegneria e HSE.\n\nPreparazione della documentazione tecnica, compresi i rapporti di sviluppo, le valutazioni dei rischi, i pacchetti di trasferimento tecnologico e i documenti di supporto normativo.\n\nIdentificare tecnologie innovative e nuovi approcci scientifici per rafforzare le capacità di sviluppo del processo.\n\nMentoring giovani scienziati e condivisione di conoscenze tecniche in tutta l'organizzazione.\n\nContribuire allo sviluppo strategico del processo attraverso innovazione, eccellenza operativa e miglioramento continuo.\n Il tuo profilo:\n\n• PhD o MSc in Chimica Organica, Chimica di Processo o una disciplina scientifica correlata.\n\n• Esperienza significativa (5+ anni) nello sviluppo di processi farmaceutici, idealmente all'interno di un ambiente di produzione CDMO o GMP.\n\n• Forte esperienza nella chimica organica sintetica, meccanismi di reazione, ottimizzazione dei processi e scale-up.\n\n• Buona conoscenza di Design of Experiments (DoE), Quality by Design (QbD ), Process Analytical Technology (PAT), e analisi statistica dei dati.\n\n• Esperienza di supporto trasferimento tecnologico da laboratorio a produzione pilota o commerciale.\n\n• Una solida comprensione dei requisiti GMP e delle linee guida ICH.\n\n• Ottima capacità di problem solving e ragionamento scientifico.\n\n• Forte capacità di comunicazione e gestione degli stakeholder, comprese le interazioni dei clienti.\n\n• Capacità di gestire più priorità mantenendo elevati standard scientifici.\n\n• Fluency in inglese e francese .\n\nI tuoi vantaggi:\n\n• Parcheggio gratuito in loco\n\n• Assicurazione sanitaria: fino al 10% di sconto sull'assicurazione sanitaria supplementare attraverso i nostri partner fornitori\n\n• Piano d'acquisto azionario dei dipendenti generoso e flessibile\n\n• Indennità d'infanzia: Siegfried AG completa l'assegno cantonale legale del 10% e fornisce un supplemento di CHF 100 al mese\n\n• Opportunità di apprendimento e sviluppo individuali\n\n• REKA verifica: i dipendenti beneficiano di uno sconto del 20% sui controlli vacanze REKA\n\n• Piano pensionistico aziendale attraente\n\n• Corsi di fitness in loco e una vasta gamma di eventi aziendali\n\n• Accesso alla piattaforma di benefici per i dipendenti di Swibeco\n\n• 5 settimane di congedo annuale con la possibilità di acquistare fino a 2 settimane supplementari di vacanza\n\nFondata nel 1873 a Zofingen, Svizzera, Siegfried è cresciuta in una rete globale di 16 siti in tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici a scala industriale e produciamo farmaci sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni oggi in grado di effettuare lo sviluppo e la produzione di API e forme di dosaggio finito sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico.\n\nSiegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce stabilimenti produttivi a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
-        "de": "\"Erwarten zu wachsen\", persönlich und beruflich: Bei Siegfried bieten wir spannende Herausforderungen und reichlich Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und angesehener Partner der Pharmaindustrie halten wir die höchsten Standards in Bezug auf Sicherheit, Qualität und Nachhaltigkeit ein und fördern gleichzeitig eine Kultur, die es Ihnen ermöglicht, erfolgreich zu sein. Treten Sie einem schnell wachsenden globalen Unternehmen bei, in dem vielfältige Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl den kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt und langfristige Wachstumsmöglichkeiten bietet.\n\nIhre Rolle:\nAls Senior Chemist R&D spielen Sie eine Schlüsselrolle bei der Entwicklung und Optimierung robuster chemischer Prozesse für klinische und kommerzielle pharmazeutische Produkte. In einem multidisziplinären Umfeld kombinieren Sie wissenschaftliche Expertise, Projektleitung und industrielle Denkweise, um skalierbare und nachhaltige Fertigungslösungen zu liefern.\n\nIhre Aufgaben umfassen:\n\nLeitung der Entwicklung, Optimierung und Fehlerbehebung von chemischen Herstellungsprozessen.\n\nUnterstützung der Prozessskalierung und des Technologietransfers vom Labor zur Pilotanlage und zur kommerziellen Fertigung.\n\nFörderung kontinuierlicher Verbesserungsinitiativen zur Steigerung von Prozessrobustheit, Effizienz, Qualität und Nachhaltigkeit.\n\nAnwendung von Quality by Design (QbD), Design of Experiments (DoE), Process Analytical Technology (PAT) und wissenschaftlicher Datenanalyse zur Beschleunigung des Prozessverständnisses.\n\nAls technischer Leiter für Kundenprojekte und Bereitstellung wissenschaftlicher Expertise bei Kundentreffen und technischen Diskussionen.\n\nEnge Zusammenarbeit mit Prozessforschung, analytischer Entwicklung, Produktion, Qualitätssicherung, Regulatory Affairs, Engineering und HSE.\n\nVorbereitung der technischen Dokumentation, einschließlich Entwicklungsberichten, Risikobewertungen, Technologietransferpaketen und regulatorischen Unterstützungsdokumenten.\n\nIdentifizierung innovativer Technologien und neuer wissenschaftlicher Ansätze zur Stärkung der Prozessentwicklungsfähigkeiten.\n\nMentoring Nachwuchswissenschaftler und Austausch von technischem Wissen in der gesamten Organisation.\n\nBeitrag zur strategischen Entwicklung der Prozessentwicklung durch Innovation, operative Exzellenz und kontinuierliche Verbesserung.\n Ihr Profil:\n\n• PhD oder MSc in Organischer Chemie, Prozesschemie oder einer verwandten wissenschaftlichen Disziplin.\n\n• Bedeutende Erfahrung (5+ Jahre) in der pharmazeutischen Prozessentwicklung, idealerweise in einer CDMO- oder GMP-Herstellungsumgebung.\n\n• Starke Expertise in synthetischer organischer Chemie, Reaktionsmechanismen, Prozessoptimierung und Scale-up.\n\n• Gute Kenntnisse in Design of Experiments (DoE), Quality by Design (QbD), Process Analytical Technology (PAT) und statistische Datenanalyse.\n\n• Erfahrung in der Unterstützung des Technologietransfers vom Labor zur Pilot- oder kommerziellen Fertigung.\n\n• Solides Verständnis der GMP-Anforderungen und ICH-Richtlinien.\n\n• Ausgezeichnete Problemlösung und wissenschaftliche Argumentation Fähigkeiten.\n\n• Starke Kommunikation und Stakeholder-Management-Fähigkeiten, einschließlich Kundeninteraktionen.\n\n• Fähigkeit, mehrere Prioritäten zu verwalten und gleichzeitig hohe wissenschaftliche Standards einzuhalten.\n\n• Fließend in Englisch und Französisch.\n\nIhre Vorteile:\n\n• Kostenlose Parkplätze vor Ort\n\n• Krankenversicherung: bis zu 10% Rabatt auf die Zusatzkrankenversicherung über unsere Partneranbieter\n\n• Großzügiger und flexibler Mitarbeiteraktienkaufplan\n\n• Kindergeld: Siegfried AG ergänzt das gesetzliche kantonale Kindergeld um 10% und stellt zusätzlich CHF 100 pro Monat zur Verfügung\n\n• Individuelle Lern- und Entwicklungsmöglichkeiten\n\n• REKA-Checks: Mitarbeiter profitieren von 20% Rabatt auf REKA-Ferienschecks\n\n• Attraktive betriebliche Altersvorsorge\n\n• Vor-Ort-Fitnesskurse und eine breite Palette von Firmenveranstaltungen\n\n• Zugang zur Swibeco Employee Benefits Plattform\n\n• 5 Wochen Jahresurlaub mit der Option, bis zu 2 zusätzliche Wochen Urlaub zu kaufen\n\n1873 in Zofingen, Schweiz, gegründet, hat sich Siegfried zu einem globalen Netzwerk von 16 Standorten auf drei Kontinenten entwickelt. Mit einem Team von mehr als 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer Pharmakunden in den industriellen Maßstab und stellen sichere Medikamente für Patienten weltweit her. Als voll integriertes CDMO ist Siegfried heute eine der wenigen Organisationen, die die Entwicklung und Herstellung von APIs und fertigen Darreichungsformen unter einem Dach durchführen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner in der Pharmaindustrie.\n\nSiegfried ist eine führende CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Das Unternehmen betreibt Produktionsstätten in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zürich).",
-        "fr": "\"S'attendre à grandir\", personnellement et professionnellement: Chez Siegfried, nous offrons des défis passionnants et de nombreuses occasions de mettre en valeur vos talents. En tant que partenaire fiable et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en favorisant une culture qui vous donne les moyens de prospérer. Rejoignez une entreprise mondiale en expansion rapide, où des perspectives et des expériences diversifiées se réunissent dans un environnement collaboratif. Ici, vous trouverez un milieu de travail qui valorise à la fois la réussite collective et vos contributions individuelles, offrant des occasions à long terme de croître et d'avoir un impact.\n\nVotre rôle :\nEn tant que principal chimiste, vous jouerez un rôle clé dans le développement et l'optimisation de procédés chimiques robustes pour les produits pharmaceutiques cliniques et commerciaux. Travaillant dans un environnement multidisciplinaire, vous combinerez expertise scientifique, leadership de projet et esprit industriel pour fournir des solutions de fabrication évolutives et durables.\n\nVos responsabilités comprendront :\n\nDiriger le développement, l'optimisation et le dépannage des processus de fabrication chimique.\n\nSoutenir l'expansion des processus et le transfert de technologie des laboratoires aux usines pilotes et à la fabrication commerciale.\n\nMener des initiatives d'amélioration continue pour accroître la robustesse, l'efficacité, la qualité et la durabilité des processus.\n\nApplication de la qualité par conception (QbD), conception d'expériences (DoE), technologie d'analyse des processus (PAT) et analyse des données scientifiques pour accélérer la compréhension des processus.\n\nEn tant que chef de file technique pour les projets clients, fournir une expertise scientifique lors des réunions de clients et des discussions techniques.\n\nCollaborer étroitement avec la recherche sur les procédés, le développement analytique, la production, l'assurance de la qualité, les affaires réglementaires, l'ingénierie et le HSE.\n\nPréparer la documentation technique, y compris les rapports de développement, les évaluations des risques, les trousses de transfert de technologie et les documents d'appui à la réglementation.\n\nIdentifier des technologies novatrices et de nouvelles approches scientifiques pour renforcer les capacités de développement des processus.\n\nMentoring de jeunes scientifiques et partage des connaissances techniques dans toute l'organisation.\n\nContribuer au développement stratégique du développement des processus par l'innovation, l'excellence opérationnelle et l'amélioration continue.\n Votre profil:\n\n• Doctorat ou maîtrise en chimie organique, chimie des procédés ou discipline scientifique connexe.\n\n• Expérience significative (5+ ans) dans le développement de procédés pharmaceutiques, idéalement dans un environnement de fabrication CDMO ou GMP.\n\n• Forte expertise en chimie organique synthétique, mécanismes de réaction, optimisation des processus et mise à niveau.\n\n• Bonne connaissance de la conception des expériences (DoE), de la qualité par conception (QbD), de la technologie analytique des procédés (PAT) et de l'analyse des données statistiques.\n\n• Expérience appuyant le transfert de technologie du laboratoire à la fabrication pilote ou commerciale.\n\n• Connaissance approfondie des exigences des BPF et des lignes directrices de l'ICH.\n\n• Excellente capacité de résolution de problèmes et de raisonnement scientifique.\n\n• Fortes capacités de communication et de gestion des intervenants, y compris les interactions avec les clients.\n\n• Capacité de gérer plusieurs priorités tout en maintenant des normes scientifiques élevées.\n\n• Connaissance de l'anglais et du français .\n\nVos avantages :\n\n• Parking gratuit sur place\n\n• Assurance maladie: jusqu'à 10% de réduction sur l'assurance maladie complémentaire par l'intermédiaire de nos partenaires\n\n• Régime d'actionnariat salarié généreux et flexible\n\n• Allocation pour enfant: Siegfried AG complète l'allocation pour enfant cantonale légale de 10% et fournit un supplément de CHF 100 par mois\n\n• Possibilités individuelles d'apprentissage et de perfectionnement\n\n• Reka checks: les employés bénéficient d'une réduction de 20% sur les chèques vacances REKA\n\n• Régime de pension d'entreprise attrayant\n\n• Cours de fitness sur place et un large éventail d'événements d'entreprise\n\n• Accès à la plateforme d'avantages sociaux des employés de Swibeco\n\n• 5 semaines de congé annuel avec possibilité d'acheter jusqu'à 2 semaines de vacances supplémentaires\n\nFondé en 1873 à Zofingen, en Suisse, Siegfried est devenu un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques à l'échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégré, Siegfried est l'une des rares organisations aujourd'hui à pouvoir réaliser le développement et la fabrication d'API et de formes posologiques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus fiable de l'industrie pharmaceutique.\n\nSiegfried est l'un des principaux CDMO (Contract Development & Manufacturing Organization) dont le siège est à Zofingen, en Suisse. L'entreprise exploite des sites de fabrication à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
+        "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e ampie opportunità per mostrare i vostri talenti. In qualità di partner affidabile e rispettato per l'industria farmaceutica, sosteniamo i più elevati standard di sicurezza, qualità e sostenibilità, promuovendo al contempo una cultura che ti consente di prosperare. Unisciti a una società globale in rapida espansione, dove prospettive e esperienze diverse si uniscono in un ambiente collaborativo. Qui troverete un posto di lavoro che valorizzi il successo collettivo e i vostri contributi individuali, offrendo opportunità a lungo termine per crescere e fare un impatto.\n\nIl tuo ruolo:\nCome Senior Chemist R&D, si svolgerà un ruolo chiave nello sviluppo e nell'ottimizzazione di processi chimici robusti per i prodotti farmaceutici clinici e commerciali. Lavorando in un ambiente multidisciplinare, unirete competenze scientifiche, leadership di progetto e mentalità industriale per fornire soluzioni di produzione scalabili e sostenibili.\n\nLe tue responsabilità includono:\n\nCondurre lo sviluppo, l'ottimizzazione e la risoluzione dei problemi dei processi di produzione chimica.\n\nSostenere la scala di processo e il trasferimento tecnologico da laboratorio a impianti pilota e produzione commerciale.\n\nGuidare iniziative di miglioramento continuo per aumentare la robustezza dei processi, l'efficienza, la qualità e la sostenibilità.\n\nApplicando Qualità per Design (QbD), Design of Experiments (DoE), Process Analytical Technology (PAT), e analisi dei dati scientifici per accelerare la comprensione del processo.\n\nAgire come leader tecnico per i progetti dei clienti, fornendo competenze scientifiche durante le riunioni dei clienti e discussioni tecniche.\n\nCollaborando a stretto contatto con la ricerca di processo, lo sviluppo analitico, la produzione, la garanzia di qualità, gli affari regolamentari, l'ingegneria e HSE.\n\nPreparazione della documentazione tecnica, compresi i rapporti di sviluppo, le valutazioni dei rischi, i pacchetti di trasferimento tecnologico e i documenti di supporto normativo.\n\nIdentificare tecnologie innovative e nuovi approcci scientifici per rafforzare le capacità di sviluppo del processo.\n\nMentoring giovani scienziati e condivisione di conoscenze tecniche in tutta l'organizzazione.\n\nContribuire allo sviluppo strategico del processo attraverso innovazione, eccellenza operativa e miglioramento continuo.\nIl tuo profilo:\n\n• PhD o MSc in Chimica Organica, Chimica di Processo o una disciplina scientifica correlata.\n\n• Esperienza significativa (5+ anni) nello sviluppo di processi farmaceutici, idealmente all'interno di un ambiente di produzione CDMO o GMP.\n\n• Forte esperienza nella chimica organica sintetica, meccanismi di reazione, ottimizzazione dei processi e scale-up.\n\n• Buona conoscenza di Design of Experiments (DoE), Quality by Design (QbD ), Process Analytical Technology (PAT), e analisi statistica dei dati.\n\n• Esperienza di supporto trasferimento tecnologico da laboratorio a produzione pilota o commerciale.\n\n• Una solida comprensione dei requisiti GMP e delle linee guida ICH.\n\n• Ottima capacità di problem solving e ragionamento scientifico.\n\n• Forte capacità di comunicazione e gestione degli stakeholder, comprese le interazioni dei clienti.\n\n• Capacità di gestire più priorità mantenendo elevati standard scientifici.\n\n• Fluency in inglese e francese .\n\nI tuoi vantaggi:\n\n• Parcheggio gratuito in loco\n\n• Assicurazione sanitaria: fino al 10% di sconto sull'assicurazione sanitaria supplementare attraverso i nostri partner fornitori\n\n• Piano d'acquisto azionario dei dipendenti generoso e flessibile\n\n• Indennità d'infanzia: Siegfried AG completa l'assegno cantonale legale del 10% e fornisce un supplemento di CHF 100 al mese\n\n• Opportunità di apprendimento e sviluppo individuali\n\n• REKA verifica: i dipendenti beneficiano di uno sconto del 20% sui controlli vacanze REKA\n\n• Piano pensionistico aziendale attraente\n\n• Corsi di fitness in loco e una vasta gamma di eventi aziendali\n\n• Accesso alla piattaforma di benefici per i dipendenti di Swibeco\n\n• 5 settimane di congedo annuale con la possibilità di acquistare fino a 2 settimane supplementari di vacanza\n\nFondata nel 1873 a Zofingen, Svizzera, Siegfried è cresciuta in una rete globale di 16 siti in tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici a scala industriale e produciamo farmaci sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni oggi in grado di effettuare lo sviluppo e la produzione di API e forme di dosaggio finito sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico.\n\nSiegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce stabilimenti produttivi a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
+        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nAs a Senior Chemist R&D, you will play a key role in developing and optimizing robust chemical processes for clinical and commercial pharmaceutical products. Working within a multidisciplinary environment, you will combine scientific expertise, project leadership, and industrial mindset to deliver scalable and sustainable manufacturing solutions.\n\nYour responsibilities will include:\n\nLeading the development, optimization, and troubleshooting of chemical manufacturing processes.\n\nSupporting process scale-up and technology transfer from laboratory to pilot plant and commercial manufacturing.\n\nDriving continuous improvement initiatives to increase process robustness, efficiency, quality, and sustainability.\n\nApplying Quality by Design (QbD), Design of Experiments (DoE), Process Analytical Technology (PAT), and scientific data analysis to accelerate process understanding.\n\nActing as the technical lead for customer projects, providing scientific expertise during client meetings and technical discussions.\n\nCollaborating closely with Process Research, Analytical Development, Production, Quality Assurance, Regulatory Affairs, Engineering, and HSE.\n\nPreparing technical documentation including development reports, risk assessments, technology transfer packages, and regulatory support documents.\n\nIdentifying innovative technologies and new scientific approaches to strengthen process development capabilities.\n\nMentoring junior scientists and sharing technical knowledge across the organization.\n\nContributing to the strategic development of Process Development through innovation, operational excellence, and continuous improvement.\nYour Profile:\n\n• PhD or MSc in Organic Chemistry, Process Chemistry or a related scientific discipline.\n\n• Significant experience (5+ years) in pharmaceutical process development, ideally within a CDMO or GMP manufacturing environment.\n\n• Strong expertise in synthetic organic chemistry, reaction mechanisms, process optimization, and scale-up.\n\n• Good knowledge of Design of Experiments (DoE), Quality by Design ( QbD ), Process Analytical Technology (PAT), and statistical data analysis.\n\n• Experience supporting technology transfer from laboratory to pilot or commercial manufacturing.\n\n• Solid understanding of GMP requirements and ICH guidelines.\n\n• Excellent problem-solving and scientific reasoning skills.\n\n• Strong communication and stakeholder management abilities, including customer interactions.\n\n• Ability to manage multiple priorities while maintaining high scientific standards.\n\n• Fluency in English and French .\n\nYour Benefits:\n\n• Free on-site parking\n\n• Health insurance: up to 10% discount on supplementary health insurance through our partner providers\n\n• Generous and flexible employee share purchase plan\n\n• Child allowance: Siegfried AG supplements the statutory cantonal child allowance by 10% and provides an additional CHF 100 per month\n\n• Individual learning and development opportunities\n\n• REKA checks: employees benefit from a 20% discount on REKA holiday checks\n\n• Attractive company pension plan\n\n• On-site fitness classes and a wide range of company events\n\n• Access to the Swibeco employee benefits platform\n\n• 5 weeks of annual leave with the option to purchase up to 2 additional weeks of vacation\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "de": "\"Erwarten zu wachsen\", persönlich und beruflich: Bei Siegfried bieten wir spannende Herausforderungen und reichlich Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und angesehener Partner der Pharmaindustrie halten wir die höchsten Standards in Bezug auf Sicherheit, Qualität und Nachhaltigkeit ein und fördern gleichzeitig eine Kultur, die es Ihnen ermöglicht, erfolgreich zu sein. Treten Sie einem schnell wachsenden globalen Unternehmen bei, in dem vielfältige Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl den kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt und langfristige Wachstumsmöglichkeiten bietet.\n\nIhre Rolle:\nAls Senior Chemist R&D spielen Sie eine Schlüsselrolle bei der Entwicklung und Optimierung robuster chemischer Prozesse für klinische und kommerzielle pharmazeutische Produkte. In einem multidisziplinären Umfeld kombinieren Sie wissenschaftliche Expertise, Projektleitung und industrielle Denkweise, um skalierbare und nachhaltige Fertigungslösungen zu liefern.\n\nIhre Aufgaben umfassen:\n\nLeitung der Entwicklung, Optimierung und Fehlerbehebung von chemischen Herstellungsprozessen.\n\nUnterstützung der Prozessskalierung und des Technologietransfers vom Labor zur Pilotanlage und zur kommerziellen Fertigung.\n\nFörderung kontinuierlicher Verbesserungsinitiativen zur Steigerung von Prozessrobustheit, Effizienz, Qualität und Nachhaltigkeit.\n\nAnwendung von Quality by Design (QbD), Design of Experiments (DoE), Process Analytical Technology (PAT) und wissenschaftlicher Datenanalyse zur Beschleunigung des Prozessverständnisses.\n\nAls technischer Leiter für Kundenprojekte und Bereitstellung wissenschaftlicher Expertise bei Kundentreffen und technischen Diskussionen.\n\nEnge Zusammenarbeit mit Prozessforschung, analytischer Entwicklung, Produktion, Qualitätssicherung, Regulatory Affairs, Engineering und HSE.\n\nVorbereitung der technischen Dokumentation, einschließlich Entwicklungsberichten, Risikobewertungen, Technologietransferpaketen und regulatorischen Unterstützungsdokumenten.\n\nIdentifizierung innovativer Technologien und neuer wissenschaftlicher Ansätze zur Stärkung der Prozessentwicklungsfähigkeiten.\n\nMentoring Nachwuchswissenschaftler und Austausch von technischem Wissen in der gesamten Organisation.\n\nBeitrag zur strategischen Entwicklung der Prozessentwicklung durch Innovation, operative Exzellenz und kontinuierliche Verbesserung.\nIhr Profil:\n\n• PhD oder MSc in Organischer Chemie, Prozesschemie oder einer verwandten wissenschaftlichen Disziplin.\n\n• Bedeutende Erfahrung (5+ Jahre) in der pharmazeutischen Prozessentwicklung, idealerweise in einer CDMO- oder GMP-Herstellungsumgebung.\n\n• Starke Expertise in synthetischer organischer Chemie, Reaktionsmechanismen, Prozessoptimierung und Scale-up.\n\n• Gute Kenntnisse in Design of Experiments (DoE), Quality by Design (QbD), Process Analytical Technology (PAT) und statistische Datenanalyse.\n\n• Erfahrung in der Unterstützung des Technologietransfers vom Labor zur Pilot- oder kommerziellen Fertigung.\n\n• Solides Verständnis der GMP-Anforderungen und ICH-Richtlinien.\n\n• Ausgezeichnete Problemlösung und wissenschaftliche Argumentation Fähigkeiten.\n\n• Starke Kommunikation und Stakeholder-Management-Fähigkeiten, einschließlich Kundeninteraktionen.\n\n• Fähigkeit, mehrere Prioritäten zu verwalten und gleichzeitig hohe wissenschaftliche Standards einzuhalten.\n\n• Fließend in Englisch und Französisch.\n\nIhre Vorteile:\n\n• Kostenlose Parkplätze vor Ort\n\n• Krankenversicherung: bis zu 10% Rabatt auf die Zusatzkrankenversicherung über unsere Partneranbieter\n\n• Großzügiger und flexibler Mitarbeiteraktienkaufplan\n\n• Kindergeld: Siegfried AG ergänzt das gesetzliche kantonale Kindergeld um 10% und stellt zusätzlich CHF 100 pro Monat zur Verfügung\n\n• Individuelle Lern- und Entwicklungsmöglichkeiten\n\n• REKA-Checks: Mitarbeiter profitieren von 20% Rabatt auf REKA-Ferienschecks\n\n• Attraktive betriebliche Altersvorsorge\n\n• Vor-Ort-Fitnesskurse und eine breite Palette von Firmenveranstaltungen\n\n• Zugang zur Swibeco Employee Benefits Plattform\n\n• 5 Wochen Jahresurlaub mit der Option, bis zu 2 zusätzliche Wochen Urlaub zu kaufen\n\n1873 in Zofingen, Schweiz, gegründet, hat sich Siegfried zu einem globalen Netzwerk von 16 Standorten auf drei Kontinenten entwickelt. Mit einem Team von mehr als 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer Pharmakunden in den industriellen Maßstab und stellen sichere Medikamente für Patienten weltweit her. Als voll integriertes CDMO ist Siegfried heute eine der wenigen Organisationen, die die Entwicklung und Herstellung von APIs und fertigen Darreichungsformen unter einem Dach durchführen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner in der Pharmaindustrie.\n\nSiegfried ist eine führende CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Das Unternehmen betreibt Produktionsstätten in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zürich).",
+        "fr": "\"S'attendre à grandir\", personnellement et professionnellement: Chez Siegfried, nous offrons des défis passionnants et de nombreuses occasions de mettre en valeur vos talents. En tant que partenaire fiable et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en favorisant une culture qui vous donne les moyens de prospérer. Rejoignez une entreprise mondiale en expansion rapide, où des perspectives et des expériences diversifiées se réunissent dans un environnement collaboratif. Ici, vous trouverez un milieu de travail qui valorise à la fois la réussite collective et vos contributions individuelles, offrant des occasions à long terme de croître et d'avoir un impact.\n\nVotre rôle :\nEn tant que principal chimiste, vous jouerez un rôle clé dans le développement et l'optimisation de procédés chimiques robustes pour les produits pharmaceutiques cliniques et commerciaux. Travaillant dans un environnement multidisciplinaire, vous combinerez expertise scientifique, leadership de projet et esprit industriel pour fournir des solutions de fabrication évolutives et durables.\n\nVos responsabilités comprendront :\n\nDiriger le développement, l'optimisation et le dépannage des processus de fabrication chimique.\n\nSoutenir l'expansion des processus et le transfert de technologie des laboratoires aux usines pilotes et à la fabrication commerciale.\n\nMener des initiatives d'amélioration continue pour accroître la robustesse, l'efficacité, la qualité et la durabilité des processus.\n\nApplication de la qualité par conception (QbD), conception d'expériences (DoE), technologie d'analyse des processus (PAT) et analyse des données scientifiques pour accélérer la compréhension des processus.\n\nEn tant que chef de file technique pour les projets clients, fournir une expertise scientifique lors des réunions de clients et des discussions techniques.\n\nCollaborer étroitement avec la recherche sur les procédés, le développement analytique, la production, l'assurance de la qualité, les affaires réglementaires, l'ingénierie et le HSE.\n\nPréparer la documentation technique, y compris les rapports de développement, les évaluations des risques, les trousses de transfert de technologie et les documents d'appui à la réglementation.\n\nIdentifier des technologies novatrices et de nouvelles approches scientifiques pour renforcer les capacités de développement des processus.\n\nMentoring de jeunes scientifiques et partage des connaissances techniques dans toute l'organisation.\n\nContribuer au développement stratégique du développement des processus par l'innovation, l'excellence opérationnelle et l'amélioration continue.\nVotre profil:\n\n• Doctorat ou maîtrise en chimie organique, chimie des procédés ou discipline scientifique connexe.\n\n• Expérience significative (5+ ans) dans le développement de procédés pharmaceutiques, idéalement dans un environnement de fabrication CDMO ou GMP.\n\n• Forte expertise en chimie organique synthétique, mécanismes de réaction, optimisation des processus et mise à niveau.\n\n• Bonne connaissance de la conception des expériences (DoE), de la qualité par conception (QbD), de la technologie analytique des procédés (PAT) et de l'analyse des données statistiques.\n\n• Expérience appuyant le transfert de technologie du laboratoire à la fabrication pilote ou commerciale.\n\n• Connaissance approfondie des exigences des BPF et des lignes directrices de l'ICH.\n\n• Excellente capacité de résolution de problèmes et de raisonnement scientifique.\n\n• Fortes capacités de communication et de gestion des intervenants, y compris les interactions avec les clients.\n\n• Capacité de gérer plusieurs priorités tout en maintenant des normes scientifiques élevées.\n\n• Connaissance de l'anglais et du français .\n\nVos avantages :\n\n• Parking gratuit sur place\n\n• Assurance maladie: jusqu'à 10% de réduction sur l'assurance maladie complémentaire par l'intermédiaire de nos partenaires\n\n• Régime d'actionnariat salarié généreux et flexible\n\n• Allocation pour enfant: Siegfried AG complète l'allocation pour enfant cantonale légale de 10% et fournit un supplément de CHF 100 par mois\n\n• Possibilités individuelles d'apprentissage et de perfectionnement\n\n• Reka checks: les employés bénéficient d'une réduction de 20% sur les chèques vacances REKA\n\n• Régime de pension d'entreprise attrayant\n\n• Cours de fitness sur place et un large éventail d'événements d'entreprise\n\n• Accès à la plateforme d'avantages sociaux des employés de Swibeco\n\n• 5 semaines de congé annuel avec possibilité d'acheter jusqu'à 2 semaines de vacances supplémentaires\n\nFondé en 1873 à Zofingen, en Suisse, Siegfried est devenu un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques à l'échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégré, Siegfried est l'une des rares organisations aujourd'hui à pouvoir réaliser le développement et la fabrication d'API et de formes posologiques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus fiable de l'industrie pharmaceutique.\n\nSiegfried est l'un des principaux CDMO (Contract Development & Manufacturing Organization) dont le siège est à Zofingen, en Suisse. L'entreprise exploite des sites de fabrication à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
       },
       "location": "Evionnaz",
       "canton": "VS",
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Chemist-R-D_R26_639",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-27T12:31:34.306Z",
+      "crawledAt": "2026-07-27T22:13:21.259Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1148,14 +1188,17 @@
       "postedDate": "2026-07-27",
       "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Chemist-R-D_R26_639",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "jobReqId": "R26_639",
       "hiringOrganization": "Siegfried Evionnaz SA",
+      "previousSlugs": [
+        "senior-chemist-r-d-siegfried-ch",
+        "senior-chemist-r-d-siegfried-evionnaz"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-chemist-r-d-siegfried-ch"
+          "senior-chemist-r-d-siegfried-ch",
+          "senior-chemist-r-d-siegfried-evionnaz"
         ],
         "de": [
           "senior-chemist-r-d-siegfried-ch"
@@ -1164,9 +1207,8 @@
           "senior-chemist-r-d-siegfried-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-chemist-r-d-siegfried-ch"
-      ],
+      "firstSeenAt": "2026-07-27T12:31:34.306Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1179,8 +1221,139 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "firstSeenAt": "2026-07-27T12:31:34.306Z"
+      "addressRegion": "VS"
+    },
+    {
+      "id": "siegfried-aef2ae1f8a79",
+      "slug": "mechaniker-in-a-siegfried-ch",
+      "slugByLocale": {
+        "de": "mechaniker-in-a-siegfried-ch",
+        "it": "mechaniker-in-a-siegfried-ch",
+        "en": "mechaniker-in-a-siegfried-ch",
+        "fr": "mechaniker-in-a-siegfried-ch"
+      },
+      "company": "Siegfried",
+      "companyKey": "siegfried",
+      "companyDomain": "siegfried.ch",
+      "title": "Mechaniker/in (a)",
+      "titleByLocale": {
+        "de": "Mechaniker/in (a)",
+        "it": "Mechaniker/in (a)",
+        "en": "Mechaniker/in (a)",
+        "fr": "Mechaniker/in (a)"
+      },
+      "description": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nZur Verstärkung unseres Teams in Zofingen suchen wir eine engagierte und zuverlässige Persönlichkeit als Mechaniker/in (a). In dieser Funktion stellen Sie den sicheren und störungsfreien Betrieb unserer Maschinen und Anlagen im chemischen Produktionsumfeld sicher.\n\nSie arbeiten in einem vielseitigen technischen Umfeld und leisten durch Ihre Fachkenntnisse einen wichtigen Beitrag zur Betriebssicherheit, Anlagenverfügbarkeit und kontinuierlichen Verbesserung unserer Produktionsprozesse.\n Your Profile:\n Ihre Rolle\n\n• Instandhaltung (Wartung, Unterhalt, Reparatur) von Maschinen und Anlagen im chemischen Produktionsumfeld (z. B. Pumpen, Motoren, Ventile)\n\n• Betreuung von Reinwasser- und Rückkühlanlagen\n\n• Mitarbeit bei der Optimierung bestehender Anlagen\n\n• Fehleranalyse und -behebung an mechanischen und mechatronischen Systemen in Zusammenarbeit mit Anlagenbetreuer und Produktion\n\n• Allgemeine spanbearbeitende Arbeiten wie Drehen, Fräsen und Bohren (konventionell)\n\n• Sorgfältige Dokumentation der durchgeführten Arbeiten\n\n• Sicherstellung der Einhaltung gesetzlicher und regulatorischer Anforderungen (insbesondere GMP)\n\nIhr Profil\nFachkenntnisse\n\n• Abgeschlossene mechanische Grundausbildung EFZ (z. B. Polymechaniker, Produktionsmechaniker, Mechapraktiker)\n\n• Mehrjährige Berufserfahrung als Mechaniker im industriellen Umfeld\n\n• Erfahrung in der Instandhaltung von Maschinen und Anlagen von Vorteil\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Bereitschaft für Pikettdienst (keine Schichtarbeit)\n\nPersönliche Stärken\n\n• Ausgeprägtes Qualitätsbewusstsein und zuverlässige Arbeitsweise\n\n• Technisches Verständnis sowie Freude am Zerlegen und Zusammenbauen von Maschinen\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Teamfähigkeit, Flexibilität und hohe Einsatzbereitschaft\n\n• Dienstleistungsorientiertes Denken und Handeln\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+      "descriptionByLocale": {
+        "de": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nZur Verstärkung unseres Teams in Zofingen suchen wir eine engagierte und zuverlässige Persönlichkeit als Mechaniker/in (a). In dieser Funktion stellen Sie den sicheren und störungsfreien Betrieb unserer Maschinen und Anlagen im chemischen Produktionsumfeld sicher.\n\nSie arbeiten in einem vielseitigen technischen Umfeld und leisten durch Ihre Fachkenntnisse einen wichtigen Beitrag zur Betriebssicherheit, Anlagenverfügbarkeit und kontinuierlichen Verbesserung unserer Produktionsprozesse.\n Your Profile:\n Ihre Rolle\n\n• Instandhaltung (Wartung, Unterhalt, Reparatur) von Maschinen und Anlagen im chemischen Produktionsumfeld (z. B. Pumpen, Motoren, Ventile)\n\n• Betreuung von Reinwasser- und Rückkühlanlagen\n\n• Mitarbeit bei der Optimierung bestehender Anlagen\n\n• Fehleranalyse und -behebung an mechanischen und mechatronischen Systemen in Zusammenarbeit mit Anlagenbetreuer und Produktion\n\n• Allgemeine spanbearbeitende Arbeiten wie Drehen, Fräsen und Bohren (konventionell)\n\n• Sorgfältige Dokumentation der durchgeführten Arbeiten\n\n• Sicherstellung der Einhaltung gesetzlicher und regulatorischer Anforderungen (insbesondere GMP)\n\nIhr Profil\nFachkenntnisse\n\n• Abgeschlossene mechanische Grundausbildung EFZ (z. B. Polymechaniker, Produktionsmechaniker, Mechapraktiker)\n\n• Mehrjährige Berufserfahrung als Mechaniker im industriellen Umfeld\n\n• Erfahrung in der Instandhaltung von Maschinen und Anlagen von Vorteil\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Bereitschaft für Pikettdienst (keine Schichtarbeit)\n\nPersönliche Stärken\n\n• Ausgeprägtes Qualitätsbewusstsein und zuverlässige Arbeitsweise\n\n• Technisches Verständnis sowie Freude am Zerlegen und Zusammenbauen von Maschinen\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Teamfähigkeit, Flexibilität und hohe Einsatzbereitschaft\n\n• Dienstleistungsorientiertes Denken und Handeln\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "it": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nZur Verstärkung unseres Teams in Zofingen suchen wir eine engagierte und zuverlässige Persönlichkeit als Mechaniker/in (a). In dieser Funktion stellen Sie den sicheren und störungsfreien Betrieb unserer Maschinen und Anlagen im chemischen Produktionsumfeld sicher.\n\nSie arbeiten in einem vielseitigen technischen Umfeld und leisten durch Ihre Fachkenntnisse einen wichtigen Beitrag zur Betriebssicherheit, Anlagenverfügbarkeit und kontinuierlichen Verbesserung unserer Produktionsprozesse.\n Your Profile:\n Ihre Rolle\n\n• Instandhaltung (Wartung, Unterhalt, Reparatur) von Maschinen und Anlagen im chemischen Produktionsumfeld (z. B. Pumpen, Motoren, Ventile)\n\n• Betreuung von Reinwasser- und Rückkühlanlagen\n\n• Mitarbeit bei der Optimierung bestehender Anlagen\n\n• Fehleranalyse und -behebung an mechanischen und mechatronischen Systemen in Zusammenarbeit mit Anlagenbetreuer und Produktion\n\n• Allgemeine spanbearbeitende Arbeiten wie Drehen, Fräsen und Bohren (konventionell)\n\n• Sorgfältige Dokumentation der durchgeführten Arbeiten\n\n• Sicherstellung der Einhaltung gesetzlicher und regulatorischer Anforderungen (insbesondere GMP)\n\nIhr Profil\nFachkenntnisse\n\n• Abgeschlossene mechanische Grundausbildung EFZ (z. B. Polymechaniker, Produktionsmechaniker, Mechapraktiker)\n\n• Mehrjährige Berufserfahrung als Mechaniker im industriellen Umfeld\n\n• Erfahrung in der Instandhaltung von Maschinen und Anlagen von Vorteil\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Bereitschaft für Pikettdienst (keine Schichtarbeit)\n\nPersönliche Stärken\n\n• Ausgeprägtes Qualitätsbewusstsein und zuverlässige Arbeitsweise\n\n• Technisches Verständnis sowie Freude am Zerlegen und Zusammenbauen von Maschinen\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Teamfähigkeit, Flexibilität und hohe Einsatzbereitschaft\n\n• Dienstleistungsorientiertes Denken und Handeln\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "en": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nZur Verstärkung unseres Teams in Zofingen suchen wir eine engagierte und zuverlässige Persönlichkeit als Mechaniker/in (a). In dieser Funktion stellen Sie den sicheren und störungsfreien Betrieb unserer Maschinen und Anlagen im chemischen Produktionsumfeld sicher.\n\nSie arbeiten in einem vielseitigen technischen Umfeld und leisten durch Ihre Fachkenntnisse einen wichtigen Beitrag zur Betriebssicherheit, Anlagenverfügbarkeit und kontinuierlichen Verbesserung unserer Produktionsprozesse.\n Your Profile:\n Ihre Rolle\n\n• Instandhaltung (Wartung, Unterhalt, Reparatur) von Maschinen und Anlagen im chemischen Produktionsumfeld (z. B. Pumpen, Motoren, Ventile)\n\n• Betreuung von Reinwasser- und Rückkühlanlagen\n\n• Mitarbeit bei der Optimierung bestehender Anlagen\n\n• Fehleranalyse und -behebung an mechanischen und mechatronischen Systemen in Zusammenarbeit mit Anlagenbetreuer und Produktion\n\n• Allgemeine spanbearbeitende Arbeiten wie Drehen, Fräsen und Bohren (konventionell)\n\n• Sorgfältige Dokumentation der durchgeführten Arbeiten\n\n• Sicherstellung der Einhaltung gesetzlicher und regulatorischer Anforderungen (insbesondere GMP)\n\nIhr Profil\nFachkenntnisse\n\n• Abgeschlossene mechanische Grundausbildung EFZ (z. B. Polymechaniker, Produktionsmechaniker, Mechapraktiker)\n\n• Mehrjährige Berufserfahrung als Mechaniker im industriellen Umfeld\n\n• Erfahrung in der Instandhaltung von Maschinen und Anlagen von Vorteil\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Bereitschaft für Pikettdienst (keine Schichtarbeit)\n\nPersönliche Stärken\n\n• Ausgeprägtes Qualitätsbewusstsein und zuverlässige Arbeitsweise\n\n• Technisches Verständnis sowie Freude am Zerlegen und Zusammenbauen von Maschinen\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Teamfähigkeit, Flexibilität und hohe Einsatzbereitschaft\n\n• Dienstleistungsorientiertes Denken und Handeln\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "fr": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nZur Verstärkung unseres Teams in Zofingen suchen wir eine engagierte und zuverlässige Persönlichkeit als Mechaniker/in (a). In dieser Funktion stellen Sie den sicheren und störungsfreien Betrieb unserer Maschinen und Anlagen im chemischen Produktionsumfeld sicher.\n\nSie arbeiten in einem vielseitigen technischen Umfeld und leisten durch Ihre Fachkenntnisse einen wichtigen Beitrag zur Betriebssicherheit, Anlagenverfügbarkeit und kontinuierlichen Verbesserung unserer Produktionsprozesse.\n Your Profile:\n Ihre Rolle\n\n• Instandhaltung (Wartung, Unterhalt, Reparatur) von Maschinen und Anlagen im chemischen Produktionsumfeld (z. B. Pumpen, Motoren, Ventile)\n\n• Betreuung von Reinwasser- und Rückkühlanlagen\n\n• Mitarbeit bei der Optimierung bestehender Anlagen\n\n• Fehleranalyse und -behebung an mechanischen und mechatronischen Systemen in Zusammenarbeit mit Anlagenbetreuer und Produktion\n\n• Allgemeine spanbearbeitende Arbeiten wie Drehen, Fräsen und Bohren (konventionell)\n\n• Sorgfältige Dokumentation der durchgeführten Arbeiten\n\n• Sicherstellung der Einhaltung gesetzlicher und regulatorischer Anforderungen (insbesondere GMP)\n\nIhr Profil\nFachkenntnisse\n\n• Abgeschlossene mechanische Grundausbildung EFZ (z. B. Polymechaniker, Produktionsmechaniker, Mechapraktiker)\n\n• Mehrjährige Berufserfahrung als Mechaniker im industriellen Umfeld\n\n• Erfahrung in der Instandhaltung von Maschinen und Anlagen von Vorteil\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Bereitschaft für Pikettdienst (keine Schichtarbeit)\n\nPersönliche Stärken\n\n• Ausgeprägtes Qualitätsbewusstsein und zuverlässige Arbeitsweise\n\n• Technisches Verständnis sowie Freude am Zerlegen und Zusammenbauen von Maschinen\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Teamfähigkeit, Flexibilität und hohe Einsatzbereitschaft\n\n• Dienstleistungsorientiertes Denken und Handeln\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
+      },
+      "location": "Zofingen",
+      "canton": "AG",
+      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Mechaniker-in--a-_R26_620",
+      "source": "Siegfried Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-27T22:13:20.607Z",
+      "addressLocality": "Zofingen",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Biotecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-27",
+      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Mechaniker-in--a-_R26_620",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "jobReqId": "R26_620",
+      "hiringOrganization": "Siegfried AG",
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "AG",
+      "firstSeenAt": "2026-07-27T22:13:20.607Z"
+    },
+    {
+      "id": "siegfried-8039947a8afd",
+      "slug": "cad-konstrukteur-m-w-d-siegfried-ch",
+      "slugByLocale": {
+        "de": "cad-konstrukteur-m-w-d-siegfried-ch",
+        "it": "cad-konstrukteur-m-w-d-siegfried-ch",
+        "en": "cad-konstrukteur-m-w-d-siegfried-ch",
+        "fr": "cad-konstrukteur-m-w-d-siegfried-zofingen"
+      },
+      "company": "Siegfried",
+      "companyKey": "siegfried",
+      "companyDomain": "siegfried.ch",
+      "title": "CAD Konstrukteur (m/w/d)",
+      "titleByLocale": {
+        "de": "CAD Konstrukteur (m/w/d)",
+        "fr": "CAD Konstrukteur (m/w/d)",
+        "it": "CAD Konstrukteur (m/w/d)",
+        "en": "CAD Konstrukteur (m/w/d)"
+      },
+      "description": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nAls CAD Konstrukteur/in sind Sie verantwortlich für die Erstellung, Pflege und Weiterentwicklung der technischen Anlagendokumentation am Standort Zofingen. Sie unterstützen Investitionsprojekte durch die Erstellung von CAD-Dokumentationen und 3D-Modellen und leisten damit einen wichtigen Beitrag zur Sicherstellung einer aktuellen und GMP-konformen Anlagendokumentation.\n Your Profile:\n Deine Rolle\n\n• Erstellen und Pflegen von Rohrleitungs- und Instrumentenfliessschemata (R&I) für Bestandsanlagen und Investitionsprojekte im CAD-System\n\n• Erstellen und Aktualisieren von 3D-Modellen für Neu- und Umbauprojekte\n\n• Verantwortlich für die Versionierung und Verwaltung von CAD-Masterdokumenten\n\n• Erstellen und Pflegen von Gebäudeplänen, Grundrissen, Schnitten und Ansichten für den Standort Zofingen\n\n• Pflege und Aktualisierung von Arealplänen sowie Versorgungs- und Entsorgungsnetzplänen (z. B. Wasser-, Dampf-, Stickstoff- und Abwassernetze)\n\n• Erstellen und Aktualisieren von Reinraum-, Ex-Zonen-, Brandschutz- und Fluchtwegplänen\n\n• Erstellen und Pflegen von Apparate- und Anlagenlayouts\n\n• Unterstützen von Investitionsprojekten durch die Erstellung technischer Projektdokumentationen\n\n• Sicherstellen einer aktuellen, vollständigen und nachvollziehbaren Anlagendokumentation\n\n• Zusammenarbeit mit internen Fachbereichen und externen Partnern zur Sicherstellung einer korrekten Dokumentation\n\nDein Profil\n Fachkenntnisse\n\n• Abgeschlossene Ausbildung als CAD-Konstrukteur/in, Zeichner/in Fachrichtung Ingenieurbau, Maschinenbau oder vergleichbare technische Qualifikation\n\n• Mehrjährige Erfahrung in der Erstellung technischer Dokumentationen und CAD-Plänen, idealerweise im Industrieumfeld\n\n• Gute Kenntnisse in CAD-Systemen sowie im Umgang mit technischen Dokumentationen\n\n• Verständnis für Prozessanlagen, Rohrleitungsplanung und technische Infrastrukturen von Vorteil\n\nPersönliche Stärken\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Hohes Qualitäts- und Verantwortungsbewusstsein\n\n• Analytisches Denkvermögen und technisches Verständnis\n\n• Teamfähigkeit und ausgeprägte Kommunikationsfähigkeit\n\n• Hohe Dienstleistungsorientierung und Flexibilität\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+      "descriptionByLocale": {
+        "de": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nAls CAD Konstrukteur/in sind Sie verantwortlich für die Erstellung, Pflege und Weiterentwicklung der technischen Anlagendokumentation am Standort Zofingen. Sie unterstützen Investitionsprojekte durch die Erstellung von CAD-Dokumentationen und 3D-Modellen und leisten damit einen wichtigen Beitrag zur Sicherstellung einer aktuellen und GMP-konformen Anlagendokumentation.\n Your Profile:\n Deine Rolle\n\n• Erstellen und Pflegen von Rohrleitungs- und Instrumentenfliessschemata (R&I) für Bestandsanlagen und Investitionsprojekte im CAD-System\n\n• Erstellen und Aktualisieren von 3D-Modellen für Neu- und Umbauprojekte\n\n• Verantwortlich für die Versionierung und Verwaltung von CAD-Masterdokumenten\n\n• Erstellen und Pflegen von Gebäudeplänen, Grundrissen, Schnitten und Ansichten für den Standort Zofingen\n\n• Pflege und Aktualisierung von Arealplänen sowie Versorgungs- und Entsorgungsnetzplänen (z. B. Wasser-, Dampf-, Stickstoff- und Abwassernetze)\n\n• Erstellen und Aktualisieren von Reinraum-, Ex-Zonen-, Brandschutz- und Fluchtwegplänen\n\n• Erstellen und Pflegen von Apparate- und Anlagenlayouts\n\n• Unterstützen von Investitionsprojekten durch die Erstellung technischer Projektdokumentationen\n\n• Sicherstellen einer aktuellen, vollständigen und nachvollziehbaren Anlagendokumentation\n\n• Zusammenarbeit mit internen Fachbereichen und externen Partnern zur Sicherstellung einer korrekten Dokumentation\n\nDein Profil\n Fachkenntnisse\n\n• Abgeschlossene Ausbildung als CAD-Konstrukteur/in, Zeichner/in Fachrichtung Ingenieurbau, Maschinenbau oder vergleichbare technische Qualifikation\n\n• Mehrjährige Erfahrung in der Erstellung technischer Dokumentationen und CAD-Plänen, idealerweise im Industrieumfeld\n\n• Gute Kenntnisse in CAD-Systemen sowie im Umgang mit technischen Dokumentationen\n\n• Verständnis für Prozessanlagen, Rohrleitungsplanung und technische Infrastrukturen von Vorteil\n\nPersönliche Stärken\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Hohes Qualitäts- und Verantwortungsbewusstsein\n\n• Analytisches Denkvermögen und technisches Verständnis\n\n• Teamfähigkeit und ausgeprägte Kommunikationsfähigkeit\n\n• Hohe Dienstleistungsorientierung und Flexibilität\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "it": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nAls CAD Konstrukteur/in sind Sie verantwortlich für die Erstellung, Pflege und Weiterentwicklung der technischen Anlagendokumentation am Standort Zofingen. Sie unterstützen Investitionsprojekte durch die Erstellung von CAD-Dokumentationen und 3D-Modellen und leisten damit einen wichtigen Beitrag zur Sicherstellung einer aktuellen und GMP-konformen Anlagendokumentation.\n Your Profile:\n Deine Rolle\n\n• Erstellen und Pflegen von Rohrleitungs- und Instrumentenfliessschemata (R&I) für Bestandsanlagen und Investitionsprojekte im CAD-System\n\n• Erstellen und Aktualisieren von 3D-Modellen für Neu- und Umbauprojekte\n\n• Verantwortlich für die Versionierung und Verwaltung von CAD-Masterdokumenten\n\n• Erstellen und Pflegen von Gebäudeplänen, Grundrissen, Schnitten und Ansichten für den Standort Zofingen\n\n• Pflege und Aktualisierung von Arealplänen sowie Versorgungs- und Entsorgungsnetzplänen (z. B. Wasser-, Dampf-, Stickstoff- und Abwassernetze)\n\n• Erstellen und Aktualisieren von Reinraum-, Ex-Zonen-, Brandschutz- und Fluchtwegplänen\n\n• Erstellen und Pflegen von Apparate- und Anlagenlayouts\n\n• Unterstützen von Investitionsprojekten durch die Erstellung technischer Projektdokumentationen\n\n• Sicherstellen einer aktuellen, vollständigen und nachvollziehbaren Anlagendokumentation\n\n• Zusammenarbeit mit internen Fachbereichen und externen Partnern zur Sicherstellung einer korrekten Dokumentation\n\nDein Profil\n Fachkenntnisse\n\n• Abgeschlossene Ausbildung als CAD-Konstrukteur/in, Zeichner/in Fachrichtung Ingenieurbau, Maschinenbau oder vergleichbare technische Qualifikation\n\n• Mehrjährige Erfahrung in der Erstellung technischer Dokumentationen und CAD-Plänen, idealerweise im Industrieumfeld\n\n• Gute Kenntnisse in CAD-Systemen sowie im Umgang mit technischen Dokumentationen\n\n• Verständnis für Prozessanlagen, Rohrleitungsplanung und technische Infrastrukturen von Vorteil\n\nPersönliche Stärken\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Hohes Qualitäts- und Verantwortungsbewusstsein\n\n• Analytisches Denkvermögen und technisches Verständnis\n\n• Teamfähigkeit und ausgeprägte Kommunikationsfähigkeit\n\n• Hohe Dienstleistungsorientierung und Flexibilität\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "en": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nAls CAD Konstrukteur/in sind Sie verantwortlich für die Erstellung, Pflege und Weiterentwicklung der technischen Anlagendokumentation am Standort Zofingen. Sie unterstützen Investitionsprojekte durch die Erstellung von CAD-Dokumentationen und 3D-Modellen und leisten damit einen wichtigen Beitrag zur Sicherstellung einer aktuellen und GMP-konformen Anlagendokumentation.\n Your Profile:\n Deine Rolle\n\n• Erstellen und Pflegen von Rohrleitungs- und Instrumentenfliessschemata (R&I) für Bestandsanlagen und Investitionsprojekte im CAD-System\n\n• Erstellen und Aktualisieren von 3D-Modellen für Neu- und Umbauprojekte\n\n• Verantwortlich für die Versionierung und Verwaltung von CAD-Masterdokumenten\n\n• Erstellen und Pflegen von Gebäudeplänen, Grundrissen, Schnitten und Ansichten für den Standort Zofingen\n\n• Pflege und Aktualisierung von Arealplänen sowie Versorgungs- und Entsorgungsnetzplänen (z. B. Wasser-, Dampf-, Stickstoff- und Abwassernetze)\n\n• Erstellen und Aktualisieren von Reinraum-, Ex-Zonen-, Brandschutz- und Fluchtwegplänen\n\n• Erstellen und Pflegen von Apparate- und Anlagenlayouts\n\n• Unterstützen von Investitionsprojekten durch die Erstellung technischer Projektdokumentationen\n\n• Sicherstellen einer aktuellen, vollständigen und nachvollziehbaren Anlagendokumentation\n\n• Zusammenarbeit mit internen Fachbereichen und externen Partnern zur Sicherstellung einer korrekten Dokumentation\n\nDein Profil\n Fachkenntnisse\n\n• Abgeschlossene Ausbildung als CAD-Konstrukteur/in, Zeichner/in Fachrichtung Ingenieurbau, Maschinenbau oder vergleichbare technische Qualifikation\n\n• Mehrjährige Erfahrung in der Erstellung technischer Dokumentationen und CAD-Plänen, idealerweise im Industrieumfeld\n\n• Gute Kenntnisse in CAD-Systemen sowie im Umgang mit technischen Dokumentationen\n\n• Verständnis für Prozessanlagen, Rohrleitungsplanung und technische Infrastrukturen von Vorteil\n\nPersönliche Stärken\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Hohes Qualitäts- und Verantwortungsbewusstsein\n\n• Analytisches Denkvermögen und technisches Verständnis\n\n• Teamfähigkeit und ausgeprägte Kommunikationsfähigkeit\n\n• Hohe Dienstleistungsorientierung und Flexibilität\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "fr": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nAls CAD Konstrukteur/in sind Sie verantwortlich für die Erstellung, Pflege und Weiterentwicklung der technischen Anlagendokumentation am Standort Zofingen. Sie unterstützen Investitionsprojekte durch die Erstellung von CAD-Dokumentationen und 3D-Modellen und leisten damit einen wichtigen Beitrag zur Sicherstellung einer aktuellen und GMP-konformen Anlagendokumentation.\n Your Profile:\n Deine Rolle\n\n• Erstellen und Pflegen von Rohrleitungs- und Instrumentenfliessschemata (R&I) für Bestandsanlagen und Investitionsprojekte im CAD-System\n\n• Erstellen und Aktualisieren von 3D-Modellen für Neu- und Umbauprojekte\n\n• Verantwortlich für die Versionierung und Verwaltung von CAD-Masterdokumenten\n\n• Erstellen und Pflegen von Gebäudeplänen, Grundrissen, Schnitten und Ansichten für den Standort Zofingen\n\n• Pflege und Aktualisierung von Arealplänen sowie Versorgungs- und Entsorgungsnetzplänen (z. B. Wasser-, Dampf-, Stickstoff- und Abwassernetze)\n\n• Erstellen und Aktualisieren von Reinraum-, Ex-Zonen-, Brandschutz- und Fluchtwegplänen\n\n• Erstellen und Pflegen von Apparate- und Anlagenlayouts\n\n• Unterstützen von Investitionsprojekten durch die Erstellung technischer Projektdokumentationen\n\n• Sicherstellen einer aktuellen, vollständigen und nachvollziehbaren Anlagendokumentation\n\n• Zusammenarbeit mit internen Fachbereichen und externen Partnern zur Sicherstellung einer korrekten Dokumentation\n\nDein Profil\n Fachkenntnisse\n\n• Abgeschlossene Ausbildung als CAD-Konstrukteur/in, Zeichner/in Fachrichtung Ingenieurbau, Maschinenbau oder vergleichbare technische Qualifikation\n\n• Mehrjährige Erfahrung in der Erstellung technischer Dokumentationen und CAD-Plänen, idealerweise im Industrieumfeld\n\n• Gute Kenntnisse in CAD-Systemen sowie im Umgang mit technischen Dokumentationen\n\n• Verständnis für Prozessanlagen, Rohrleitungsplanung und technische Infrastrukturen von Vorteil\n\nPersönliche Stärken\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Hohes Qualitäts- und Verantwortungsbewusstsein\n\n• Analytisches Denkvermögen und technisches Verständnis\n\n• Teamfähigkeit und ausgeprägte Kommunikationsfähigkeit\n\n• Hohe Dienstleistungsorientierung und Flexibilität\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
+      },
+      "location": "Zofingen",
+      "canton": "AG",
+      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/CAD-Konstrukteur--m-w-d-_R26_621",
+      "source": "Siegfried Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-27T22:13:20.003Z",
+      "addressLocality": "Zofingen",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Biotecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-27",
+      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/CAD-Konstrukteur--m-w-d-_R26_621",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "jobReqId": "R26_621",
+      "hiringOrganization": "Siegfried AG",
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "AG",
+      "firstSeenAt": "2026-07-27T22:13:20.003Z"
     }
   ]
 }
