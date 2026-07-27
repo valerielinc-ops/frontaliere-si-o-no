@@ -1585,6 +1585,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pompieri-svizzeri-gironda-francia.title': 'Pompieri svizzeri in Gironda: il contingente all\'opera',
     'blog.article.pompieri-svizzeri-gironda-francia.excerpt': 'Un contingente di pompieri romandi è arrivato in Francia per dare manforte ai colleghi impegnati contro i vasti incendi nella regione della Gironda.',
     'blog.article.pompieri-svizzeri-gironda-francia.imageAlt': 'Pompieri svizzeri impegnati nelle operazioni di soccorso',
+    'blog.article.canton-ticino-blocca-ristorni-lombardia.title': 'Il Canton Ticino blocca oltre 50 milioni di ristorni alla Lombardia',
+    'blog.article.canton-ticino-blocca-ristorni-lombardia.excerpt': 'Il Consiglio di Stato del Canton Ticino ha deciso di sospendere cautelativamente metà della quota lombarda dei ristorni',
+    'blog.article.canton-ticino-blocca-ristorni-lombardia.imageAlt': 'Vista di Lugano sul lago',
 };
 
 export default blogMetaChIt;

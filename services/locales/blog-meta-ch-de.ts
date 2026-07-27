@@ -1585,6 +1585,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pompieri-svizzeri-gironda-francia.title': 'Schweizer Feuerwehrleute in der Gironde: Das Einsatzkontingent',
     'blog.article.pompieri-svizzeri-gironda-francia.excerpt': 'Ein Kontingent von Feuerwehrleuten aus der Romandie ist in Frankreich eingetroffen, um den Kollegen, die sich gegen die großen Brände in der Region Gironde einsetzen, Schutz zu bieten.',
     'blog.article.pompieri-svizzeri-gironda-francia.imageAlt': 'Schweizer Feuerwehrleute bei Rettungseinsätzen',
+    'blog.article.canton-ticino-blocca-ristorni-lombardia.title': 'Der Kanton Tessin blockiert über 50 Millionen Rückzahlungen an die Lombardei',
+    'blog.article.canton-ticino-blocca-ristorni-lombardia.excerpt': 'Der Staatsrat des Kantons Tessin hat beschlossen, vorsorglich die Hälfte des lombardischen Anteils an den Rückvergütungen auszusetzen',
+    'blog.article.canton-ticino-blocca-ristorni-lombardia.imageAlt': 'Lugano-Seenblick',
 };
 
 export default blogMetaChDe;
