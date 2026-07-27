@@ -89,7 +89,9 @@ jobs:
 
       - name: Dump OmniRoute logs on failure (pilot, opt-in)
         if: ${{ failure() && inputs.omniroute_enabled }}
-        run: cat /tmp/omniroute.log || true
+        run: |
+          cat /tmp/omniroute.log || true
+          node scripts/omniroute-diagnose.mjs || true
 
       # ── Claude CLI Haiku fallback (ON by default, kill-switch '0') ──────
       # Absolute last resort in ai-models.mjs's DEFAULT_CHAIN, reached only
