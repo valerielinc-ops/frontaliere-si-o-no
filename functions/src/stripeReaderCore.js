@@ -289,6 +289,15 @@ export async function handleClaimReaderCheckout(req) {
   // Missing/non-numeric session.created fails closed (Infinity) rather than
   // open — Stripe always sets it, this only guards a malformed response.
   const sessionCreatedMs = typeof session.created === 'number' ? session.created * 1000 : Infinity;
+  // A malformed/missing Auth creationTime (Date.parse → NaN) must also fail
+  // closed. Without this, NaN - sessionCreatedMs = NaN, and BOTH bound
+  // comparisons below evaluate to false for any NaN operand (JS spec, not a
+  // typo) — the guard would silently never trigger and mint a token instead
+  // of rejecting, the opposite of the session.created guard's fail-closed
+  // intent right above it.
+  if (!Number.isFinite(createdAtMs)) {
+    return { status: 409, body: { ok: false, error: 'account_exists' } };
+  }
   const accountCreatedDeltaMs = createdAtMs - sessionCreatedMs;
   if (accountCreatedDeltaMs < -ACCOUNT_RACE_GRACE_MS || accountCreatedDeltaMs > MAX_CLAIM_WINDOW_MS) {
     return { status: 409, body: { ok: false, error: 'account_exists' } };
