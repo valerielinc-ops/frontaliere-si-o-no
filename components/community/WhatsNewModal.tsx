@@ -33,6 +33,18 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.83.0',
+    date: '2026-07-27',
+    titleKey: 'whatsNew.v3830.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3830.selfCertForms.title',
+        descKey: 'whatsNew.v3830.selfCertForms.desc',
+      },
+    ],
+  },
+  {
     version: '3.82.0',
     date: '2026-07-20',
     titleKey: 'whatsNew.v3820.title',
