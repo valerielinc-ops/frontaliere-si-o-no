@@ -39,7 +39,10 @@ concurrency:
 jobs:
   retry:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    # MAX_REACTIVATIONS_PER_RUN=800, worst case 2 paced API calls each at
+    # MIN_API_CALL_INTERVAL_MS=6s (mailtrapSuppressionsApi.mjs) => up to
+    # ~160min; 200min leaves margin instead of killing the job mid-run.
+    timeout-minutes: 200
 
     steps:
       - name: Checkout

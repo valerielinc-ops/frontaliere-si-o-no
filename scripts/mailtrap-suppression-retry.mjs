@@ -131,6 +131,29 @@ async function main() {
     return fn();
   };
 
+  // Commit progressively instead of once after the whole paced-API loop
+  // finishes: at MAX_REACTIVATIONS_PER_RUN=800 the loop can run ~2.5h
+  // worst-case, and a mid-run timeout/kill must not lose reactivations
+  // already applied Mailtrap-side but not yet written back to Firestore.
+  const COMMIT_CHUNK_SIZE = 100;
+  let pendingCommit = [];
+  const writeReactivation = (batch, it) => {
+    batch.set(it.ref, {
+      status: 'pending',
+      isActive: true,
+      active: true,
+      reactivated_at: FieldValue.serverTimestamp(),
+      mailtrap_suppression_resolved_at: FieldValue.serverTimestamp(),
+      mailtrap_suppression_type: it.record?.type || null,
+      mailtrap_suppression_category: it.record?.message_bounce_category || null,
+    }, { merge: true });
+  };
+  const flushPending = async () => {
+    if (!pendingCommit.length) return;
+    await commitInChunks(db, pendingCommit, writeReactivation);
+    pendingCommit = [];
+  };
+
   for (const s of toReactivate) {
     let record = null;
     try {
@@ -146,21 +169,11 @@ async function main() {
       }
     }
     reactivated.push({ ref: s.ref, record });
+    pendingCommit.push({ ref: s.ref, record });
+    if (pendingCommit.length >= COMMIT_CHUNK_SIZE) await flushPending();
   }
 
-  if (reactivated.length) {
-    await commitInChunks(db, reactivated, (batch, it) => {
-      batch.set(it.ref, {
-        status: 'pending',
-        isActive: true,
-        active: true,
-        reactivated_at: FieldValue.serverTimestamp(),
-        mailtrap_suppression_resolved_at: FieldValue.serverTimestamp(),
-        mailtrap_suppression_type: it.record?.type || null,
-        mailtrap_suppression_category: it.record?.message_bounce_category || null,
-      }, { merge: true });
-    });
-  }
+  await flushPending();
   console.log(`✅ Un-suppressed + reactivated ${reactivated.length}/${toReactivate.length}`);
 }
 
