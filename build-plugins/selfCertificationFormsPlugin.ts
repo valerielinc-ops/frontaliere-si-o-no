@@ -1,20 +1,40 @@
 /**
  * Self-certification forms — Vite build plugin.
  *
- * Emits a static IT-only landing page explaining Italian self-certification
- * (DPR 445/2000) for job applications, plus two ready-to-fill legally-formatted
- * PDF templates generated with pdfkit:
- *   - autocertificazione-stato-di-salute.pdf (art. 47 DPR 445/2000)
- *   - autocertificazione-casellario-giudiziario.pdf (art. 46 c.1 lett. z DPR 445/2000)
+ * Emits a static IT-only landing page explaining self-certification for job
+ * applications, plus four ready-to-fill legally-formatted PDF templates
+ * generated with pdfkit:
+ *   - autocertificazione-stato-di-salute.pdf (Italian, art. 47 DPR 445/2000)
+ *   - autocertificazione-casellario-giudiziario.pdf (Italian, art. 46 c.1 lett. z DPR 445/2000)
+ *   - questionario-salute-svizzero.pdf (Swiss-style, art. 328b CO / LORD artt. 13-40)
+ *   - autocertificazione-casellario-giudiziario-svizzero.pdf (Swiss-style, art. 369 CP)
  *
- * IT-only: the underlying legal instrument (DPR 445/2000) is Italian law and
- * has no equivalent facsimile in the other locales (same precedent as
- * pdfWhitepapersPlugin.ts, which only sources services/locales/blog-body/it/).
+ * The Italian pair follows the DPR 445/2000 self-certification instrument
+ * (dichiarazione sostitutiva). The Swiss-style pair mirrors the questionnaire
+ * format used by Ticino employers (cantonal model inspired by the SESCO
+ * gennaio 2018 health questionnaire and Lugano-LIS criminal-record template),
+ * scoped by Swiss law instead: art. 328b CO (Codice delle obbligazioni) caps
+ * what an employer may ask to what is relevant for job suitability, LORD
+ * artt. 13 e 40 covers cantonal public employment, and art. 369 CP (why the
+ * newer criminal-record questionnaires only ask about pending proceedings,
+ * not past convictions) explains the narrower 2025 scope. All four PDFs are
+ * original wording, not verbatim copies of any official form.
+ *
+ * IT-only: target audience is Italian frontalieri, same precedent as
+ * pdfWhitepapersPlugin.ts (only sources services/locales/blog-body/it/).
+ *
+ * Download gate: all four PDF links carry data-pdf-gate attributes; the
+ * global PdfDownloadGate component (components/shared/PdfDownloadGate.tsx)
+ * intercepts the click and requires a free email/social registration before
+ * triggering the actual download. Links keep a real crawlable href+download
+ * so search engines and no-JS visitors still see valid PDF links.
  *
  * URLs:
  *   /moduli/autocertificazione-candidatura/
  *   /moduli/autocertificazione-stato-di-salute.pdf
  *   /moduli/autocertificazione-casellario-giudiziario.pdf
+ *   /moduli/questionario-salute-svizzero.pdf
+ *   /moduli/autocertificazione-casellario-giudiziario-svizzero.pdf
  *
  * Gate: SKIP_SELF_CERTIFICATION_FORMS=1 fast-path exits without generating
  * pages (used by local fast builds alongside other SKIP_* gates in CLAUDE.md).
@@ -47,11 +67,13 @@ export const LANDING_URL_PATH = '/moduli/autocertificazione-candidatura/';
 const CANONICAL_URL = `${BASE_URL}${LANDING_URL_PATH}`;
 export const HEALTH_PDF_PATH = '/moduli/autocertificazione-stato-di-salute.pdf';
 export const CRIMINAL_RECORD_PDF_PATH = '/moduli/autocertificazione-casellario-giudiziario.pdf';
+export const CH_HEALTH_PDF_PATH = '/moduli/questionario-salute-svizzero.pdf';
+export const CH_CRIMINAL_RECORD_PDF_PATH = '/moduli/autocertificazione-casellario-giudiziario-svizzero.pdf';
 
-const TITLE = 'Autocertificazione stato di salute e casellario giudiziario | Frontaliere Ticino';
-const H1 = 'Autocertificazione stato di salute e casellario giudiziario: moduli e guida';
-const DESCRIPTION = 'Modulo di autocertificazione dello stato di salute e del casellario giudiziario per candidarti a un lavoro: due PDF pronti da compilare, gratis, conformi al DPR 445/2000.';
-const LEDE = 'Due PDF pronti da compilare per autocertificare stato di salute e casellario giudiziario in una candidatura di lavoro.';
+const TITLE = 'Autocertificazione stato di salute e casellario giudiziario (IT e CH) | Frontaliere Ticino';
+const H1 = 'Autocertificazione stato di salute e casellario giudiziario: moduli italiani e svizzeri';
+const DESCRIPTION = 'Moduli di autocertificazione dello stato di salute e del casellario giudiziario per candidarti a un lavoro in Ticino: quattro PDF gratis, versione italiana (DPR 445/2000) e versione in uso presso i datori di lavoro svizzeri.';
+const LEDE = 'Quattro PDF pronti da compilare per autocertificare stato di salute e casellario giudiziario in una candidatura di lavoro: versione italiana e versione in uso in Svizzera.';
 
 interface SelfCertFormMeta {
   slug: string;
@@ -89,6 +111,51 @@ export const CRIMINAL_RECORD_FORM: SelfCertFormMeta = {
   ],
 };
 
+interface SwissSelfCertFormMeta {
+  slug: string;
+  urlPath: string;
+  pdfTitle: string;
+  pdfSubtitle: string;
+  legalBasis: string;
+  introParagraph: string;
+  questions: string[];
+  closingParagraphs: string[];
+}
+
+export const CH_HEALTH_FORM: SwissSelfCertFormMeta = {
+  slug: 'stato-di-salute-svizzero',
+  urlPath: CH_HEALTH_PDF_PATH,
+  pdfTitle: 'QUESTIONARIO DI AUTOVALUTAZIONE DELLO STATO DI SALUTE',
+  pdfSubtitle: 'Modello in uso presso datori di lavoro svizzeri — art. 328b CO',
+  legalBasis: 'art. 328b Codice delle obbligazioni (CO); LORD artt. 13 e 40 per l’impiego pubblico cantonale',
+  introParagraph: 'Il presente questionario raccoglie solo le informazioni sullo stato di salute rilevanti per valutare l’idoneità alla posizione per cui ci si candida, nei limiti previsti dall’art. 328b del Codice delle obbligazioni svizzero. Rispondere con onestà: una dichiarazione falsa su un punto rilevante per l’idoneità alla mansione può costituire motivo di risoluzione del rapporto di lavoro.',
+  questions: [
+    'Gode attualmente di un buono stato di salute generale?',
+    'È affetto/a da patologie croniche che potrebbero limitare lo svolgimento delle mansioni proprie della posizione?',
+    'È attualmente in cura per una condizione che potrebbe incidere sulla capacità lavorativa nella posizione per cui si candida?',
+    'Ha avuto, negli ultimi 12 mesi, assenze per malattia superiori a 30 giorni consecutivi?',
+    'È disponibile a sottoporsi, se richiesto dal datore di lavoro, a una visita di idoneità presso un medico del lavoro?',
+  ],
+  closingParagraphs: [
+    'Confermo che le risposte fornite sono veritiere e complete, per quanto a mia conoscenza, e riguardano esclusivamente aspetti rilevanti per l’idoneità alla posizione indicata.',
+  ],
+};
+
+export const CH_CRIMINAL_RECORD_FORM: SwissSelfCertFormMeta = {
+  slug: 'casellario-giudiziario-svizzero',
+  urlPath: CH_CRIMINAL_RECORD_PDF_PATH,
+  pdfTitle: 'AUTOCERTIFICAZIONE ASSENZA DI PROCEDIMENTI PENALI PENDENTI',
+  pdfSubtitle: 'Modello in uso presso datori di lavoro svizzeri — aggiornato 2025',
+  legalBasis: 'art. 369 Codice penale svizzero (CP) — cancellazione delle iscrizioni nel casellario giudiziale',
+  introParagraph: 'Il modello più recente in uso presso i datori di lavoro svizzeri si limita a chiedere l’assenza di procedimenti penali in corso, non le condanne passate: l’art. 369 del Codice penale svizzero prevede infatti la cancellazione delle iscrizioni nel casellario giudiziale dopo un periodo di buona condotta, e una condanna cancellata non può più essere fatta valere contro la persona interessata.',
+  questions: [
+    'È attualmente parte in un procedimento penale pendente per un reato incompatibile con le mansioni della posizione per cui si candida?',
+  ],
+  closingParagraphs: [
+    'Dichiaro la mia disponibilità a produrre, su richiesta del datore di lavoro, un estratto del casellario giudiziale svizzero per privati, rilasciato dall’Ufficio federale di giustizia.',
+  ],
+};
+
 /* ── PDF generation ────────────────────────────────────────────────── */
 
 const PDF_COLORS = PDF_BASE_PALETTE;
@@ -104,6 +171,32 @@ function drawField(doc: PDFKit.PDFDocument, label: string, width?: number): void
   doc.strokeColor(PDF_COLORS.rule).lineWidth(1);
   doc.moveTo(doc.x, lineY).lineTo(doc.x + w, lineY).stroke();
   doc.y = lineY + 8;
+}
+
+/**
+ * Draws a question with two vector checkboxes (SI / NO). Uses doc.rect()
+ * outlines rather than Unicode box-drawing glyphs (☐) — Helvetica's base-14
+ * WinAnsi encoding doesn't reliably render those characters.
+ */
+function drawYesNoQuestion(doc: PDFKit.PDFDocument, question: string): void {
+  const boxSize = 11;
+  const noBoxX = PDF_MARGIN.left + PDF_CONTENT_WIDTH - 40;
+  const siBoxX = noBoxX - 62;
+  const startY = doc.y;
+
+  doc.fontSize(10).font('Helvetica').fillColor(PDF_COLORS.body);
+  doc.text(question, PDF_MARGIN.left, startY, { width: PDF_CONTENT_WIDTH - 90 });
+  const textBottomY = doc.y;
+
+  doc.strokeColor(PDF_COLORS.rule).lineWidth(1);
+  doc.rect(siBoxX, startY, boxSize, boxSize).stroke();
+  doc.rect(noBoxX, startY, boxSize, boxSize).stroke();
+  doc.fontSize(8).fillColor(PDF_COLORS.muted).font('Helvetica');
+  doc.text('SI', siBoxX + boxSize + 4, startY - 1, { width: 20, lineBreak: false });
+  doc.text('NO', noBoxX + boxSize + 4, startY - 1, { width: 24, lineBreak: false });
+
+  doc.x = PDF_MARGIN.left;
+  doc.y = Math.max(textBottomY, startY + boxSize) + 10;
 }
 
 export async function generateSelfCertificationPdf(form: SelfCertFormMeta): Promise<Buffer> {
@@ -189,6 +282,75 @@ export async function generateSelfCertificationPdf(form: SelfCertFormMeta): Prom
   return bufferPromise;
 }
 
+export async function generateSwissSelfCertificationPdf(form: SwissSelfCertFormMeta): Promise<Buffer> {
+  const PDFDocument = (await import('pdfkit')).default;
+
+  const doc = new PDFDocument({
+    size: 'A4',
+    margins: PDF_MARGIN,
+    bufferPages: true,
+    info: {
+      Title: form.pdfTitle,
+      Author: 'Frontaliere Ticino',
+      Subject: form.pdfSubtitle,
+      Creator: 'frontaliereticino.ch',
+    },
+  });
+  const bufferPromise = collectPdfBuffer(doc);
+
+  doc.rect(0, 0, PDF_PAGE.width, 110).fill(PDF_COLORS.headerBg);
+  doc.fillColor(PDF_COLORS.white).fontSize(15).font('Helvetica-Bold');
+  doc.text(form.pdfTitle, PDF_MARGIN.left, 30, { width: PDF_CONTENT_WIDTH });
+  doc.fontSize(10).font('Helvetica');
+  doc.text(form.pdfSubtitle, PDF_MARGIN.left, doc.y + 6, { width: PDF_CONTENT_WIDTH });
+
+  doc.y = 130;
+  doc.fillColor(PDF_COLORS.body).fontSize(10).font('Helvetica');
+  doc.text('Candidato/a', PDF_MARGIN.left, doc.y, { width: PDF_CONTENT_WIDTH });
+  doc.moveDown(0.3);
+  drawField(doc, 'Cognome e nome');
+  drawField(doc, 'Posizione per cui presenta candidatura', 260);
+  doc.y -= 22;
+  drawField(doc, 'Datore di lavoro / azienda', 200);
+  doc.x = PDF_MARGIN.left;
+
+  doc.moveDown(0.4);
+  doc.fontSize(9).font('Helvetica').fillColor(PDF_COLORS.muted);
+  doc.text(form.introParagraph, PDF_MARGIN.left, doc.y, { width: PDF_CONTENT_WIDTH, align: 'justify' });
+  doc.moveDown(0.6);
+  doc.x = PDF_MARGIN.left;
+
+  for (const question of form.questions) {
+    drawYesNoQuestion(doc, question);
+  }
+
+  doc.moveDown(0.3);
+  doc.fontSize(10).font('Helvetica').fillColor(PDF_COLORS.body);
+  for (const paragraph of form.closingParagraphs) {
+    doc.text(paragraph, PDF_MARGIN.left, doc.y, { width: PDF_CONTENT_WIDTH, align: 'justify' });
+    doc.moveDown(0.5);
+  }
+
+  doc.moveDown(1.4);
+  const sigY = doc.y;
+  doc.fontSize(9).fillColor(PDF_COLORS.muted).font('Helvetica');
+  doc.text('Luogo e data', PDF_MARGIN.left, sigY, { width: 220 });
+  doc.text('Firma', PDF_MARGIN.left + 300, sigY, { width: 180 });
+  const sigLineY = sigY + 30;
+  doc.strokeColor(PDF_COLORS.rule).lineWidth(1);
+  doc.moveTo(PDF_MARGIN.left, sigLineY).lineTo(PDF_MARGIN.left + 200, sigLineY).stroke();
+  doc.moveTo(PDF_MARGIN.left + 300, sigLineY).lineTo(PDF_MARGIN.left + 480, sigLineY).stroke();
+
+  doc.fontSize(8).fillColor(PDF_COLORS.muted).font('Helvetica');
+  doc.text(
+    `Riferimento normativo: ${form.legalBasis}. Documento generato da ${CANONICAL_URL} — non costituisce consulenza legale.`,
+    PDF_MARGIN.left, PDF_PAGE.height - PDF_MARGIN.bottom - 40, { width: PDF_CONTENT_WIDTH },
+  );
+
+  doc.end();
+  return bufferPromise;
+}
+
 /* ── Landing page ──────────────────────────────────────────────────── */
 
 export function renderLandingHtml(distDir?: string): { html: string; wordCount: number } {
@@ -229,7 +391,7 @@ export function renderLandingHtml(distDir?: string): { html: string; wordCount: 
   const faqEntries: [string, string][] = [
     [
       'Dove trovo il modulo di autocertificazione dello stato di salute e del casellario giudiziario?',
-      'In questa pagina, gratuitamente: sono due PDF pronti da scaricare e compilare, uno per lo stato di salute (art. 47 D.P.R. 445/2000) e uno per il casellario giudiziale (art. 46, comma 1, lett. z, D.P.R. 445/2000).',
+      'In questa pagina, gratuitamente: sono quattro PDF pronti da scaricare e compilare, due in versione italiana (art. 47 e art. 46 c.1 lett. z, D.P.R. 445/2000) e due in versione svizzera, sul modello dei questionari usati dai datori di lavoro ticinesi.',
     ],
     [
       'Chi deve compilare l’autocertificazione per una candidatura di lavoro?',
@@ -238,6 +400,18 @@ export function renderLandingHtml(distDir?: string): { html: string; wordCount: 
     [
       'L’autocertificazione è valida anche per un datore di lavoro svizzero?',
       'Verso le Pubbliche Amministrazioni italiane l’autocertificazione ha piena efficacia per legge. Verso un datore di lavoro privato, incluse le aziende svizzere, è valida solo se il destinatario accetta di riceverla al posto del documento originale (art. 2, comma 2, D.P.R. 445/2000): conviene chiedere conferma prima di inviarla.',
+    ],
+    [
+      'Serve anche un modulo in stile svizzero, oltre a quello italiano?',
+      'Non è obbligatorio, ma può essere utile: molte aziende ticinesi impostano il proprio questionario di autovalutazione sul modello dei formulari cantonali (ad es. quello della SESCO sullo stato di salute) invece che sul D.P.R. 445/2000 italiano. Su questa pagina trovi entrambe le versioni, gratuite.',
+    ],
+    [
+      'Perché il modulo più recente sul casellario giudiziale non chiede più le condanne passate?',
+      'Perché l’art. 369 del Codice penale svizzero prevede la cancellazione delle iscrizioni nel casellario dopo un periodo di buona condotta: una condanna cancellata non è più opponibile alla persona, quindi il modulo aggiornato si limita a chiedere se sono in corso procedimenti penali pendenti.',
+    ],
+    [
+      'Un datore di lavoro svizzero può chiedermi qualsiasi informazione sulla mia salute?',
+      'No. L’art. 328b del Codice delle obbligazioni limita la raccolta dei dati del candidato a quanto è effettivamente rilevante per valutare l’idoneità alla posizione o necessario per eseguire il contratto: domande generiche o sproporzionate rispetto alle mansioni non sono ammesse.',
     ],
   ];
   const faqLd = inlineScriptJson({
@@ -254,15 +428,15 @@ export function renderLandingHtml(distDir?: string): { html: string; wordCount: 
     <section class="s-epjKYm">
       <div class="s-tbase">
         <div class="s-tlbl">Moduli PDF pronti</div>
-        <div class="s-tval">2</div>
+        <div class="s-tval">4</div>
       </div>
       <div class="s-tbase">
         <div class="s-tlbl">Costo</div>
         <div class="s-tval">Gratis</div>
       </div>
       <div class="s-tbase">
-        <div class="s-tlbl">Riferimento normativo</div>
-        <div class="s-tval">D.P.R. 445/2000</div>
+        <div class="s-tlbl">Versioni</div>
+        <div class="s-tval">IT + CH</div>
       </div>
       <div class="s-tbase">
         <div class="s-tlbl">Tempo di compilazione</div>
@@ -272,13 +446,15 @@ export function renderLandingHtml(distDir?: string): { html: string; wordCount: 
 
   const adviceBanner = `
     <div class="s-card" style="border-left: 4px solid var(--color-warning, #d97706); padding: 1rem; margin: 1.5rem 0;">
-      <p style="${BODY_STYLE}"><strong>Attenzione:</strong> l’autocertificazione ha valore pieno solo verso le Pubbliche Amministrazioni italiane. Verso datori di lavoro privati, incluse le aziende svizzere, è valida solo se chi la riceve accetta esplicitamente di sostituirla al documento originale.</p>
+      <p style="${BODY_STYLE}"><strong>Attenzione:</strong> l’autocertificazione italiana ha valore pieno solo verso le Pubbliche Amministrazioni italiane. Verso datori di lavoro privati, incluse le aziende svizzere, è valida solo se chi la riceve accetta esplicitamente di sostituirla al documento originale — per questo mettiamo a disposizione anche una versione in stile svizzero.</p>
     </div>`;
 
   const ctaSection = `
     <section class="s-p1QaOi">
-      <a href="${esc(HEALTH_PDF_PATH)}" class="s-cta" download>Scarica autocertificazione stato di salute (PDF)</a>
-      <a href="${esc(CRIMINAL_RECORD_PDF_PATH)}" class="s-cta" download>Scarica autocertificazione casellario giudiziario (PDF)</a>
+      <a href="${esc(HEALTH_PDF_PATH)}" class="s-cta" download data-pdf-gate data-pdf-gate-source="self_cert_health_it" data-pdf-gate-label="Autocertificazione italiana — stato di salute">Scarica autocertificazione italiana stato di salute (PDF)</a>
+      <a href="${esc(CRIMINAL_RECORD_PDF_PATH)}" class="s-cta" download data-pdf-gate data-pdf-gate-source="self_cert_criminal_record_it" data-pdf-gate-label="Autocertificazione italiana — casellario giudiziario">Scarica autocertificazione italiana casellario giudiziario (PDF)</a>
+      <a href="${esc(CH_HEALTH_PDF_PATH)}" class="s-cta" download data-pdf-gate data-pdf-gate-source="self_cert_health_ch" data-pdf-gate-label="Questionario svizzero — stato di salute">Scarica questionario svizzero stato di salute (PDF)</a>
+      <a href="${esc(CH_CRIMINAL_RECORD_PDF_PATH)}" class="s-cta" download data-pdf-gate data-pdf-gate-source="self_cert_criminal_record_ch" data-pdf-gate-label="Autocertificazione svizzera — casellario giudiziario">Scarica autocertificazione svizzera casellario giudiziario (PDF)</a>
     </section>`;
 
   const body = `
@@ -294,20 +470,20 @@ export function renderLandingHtml(distDir?: string): { html: string; wordCount: 
     ${DRIVEBY_AD_SNIPPET}
     <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">Cos’è l’autocertificazione</h2>
-      <p style="${BODY_STYLE}">L’autocertificazione (o dichiarazione sostitutiva) è un documento con cui una persona dichiara sotto la propria responsabilità fatti, stati o qualità personali, senza dover produrre un certificato ufficiale rilasciato da un ente. È disciplinata dal Decreto del Presidente della Repubblica 28 dicembre 2000, n. 445 (D.P.R. 445/2000), la legge italiana che semplifica i rapporti tra cittadini e amministrazioni pubbliche.</p>
+      <p style="${BODY_STYLE}">L’autocertificazione (o dichiarazione sostitutiva) è un documento con cui una persona dichiara sotto la propria responsabilità fatti, stati o qualità personali, senza dover produrre un certificato ufficiale rilasciato da un ente. In Italia è disciplinata dal Decreto del Presidente della Repubblica 28 dicembre 2000, n. 445 (D.P.R. 445/2000), la legge che semplifica i rapporti tra cittadini e amministrazioni pubbliche. In Svizzera non esiste un istituto identico, ma i datori di lavoro utilizzano da tempo questionari di autovalutazione dai contenuti molto simili, costruiti sul quadro normativo svizzero.</p>
       <p style="${BODY_STYLE}">Nel caso di una candidatura di lavoro, l’autocertificazione più richiesta riguarda due aspetti: lo stato di salute generale (art. 47 D.P.R. 445/2000, dichiarazione sostitutiva di atto di notorietà) e l’assenza di condanne penali risultanti dal casellario giudiziale (art. 46, comma 1, lett. z, D.P.R. 445/2000, dichiarazione sostitutiva di certificazione).</p>
     </section>
     <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">Chi deve compilarla</h2>
-      <p style="${BODY_STYLE}">Il modulo va compilato dal candidato in prima persona: nessun altro può dichiarare al posto suo. Va scritto in stampatello o compilato al computer, firmato di proprio pugno in originale e consegnato o inviato insieme a una copia fotostatica di un documento di identità in corso di validità, come richiesto dall’art. 38, comma 3, del D.P.R. 445/2000.</p>
+      <p style="${BODY_STYLE}">Il modulo va compilato dal candidato in prima persona: nessun altro può dichiarare al posto suo. Va scritto in stampatello o compilato al computer, firmato di proprio pugno in originale e consegnato o inviato insieme a una copia fotostatica di un documento di identità in corso di validità, come richiesto dall’art. 38, comma 3, del D.P.R. 445/2000 per la versione italiana.</p>
     </section>
     <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">Come si compila, passo per passo</h2>
       <ol class="s-C1hMlw">
-        <li class="s-U2-lJ-">Scarica il PDF corrispondente (stato di salute o casellario giudiziario) qui sopra.</li>
+        <li class="s-U2-lJ-">Scarica il PDF corrispondente (stato di salute o casellario giudiziario, versione italiana o svizzera) qui sopra.</li>
         <li class="s-U2-lJ-">Compila i dati anagrafici: nome, cognome, luogo e data di nascita, residenza, codice fiscale.</li>
         <li class="s-U2-lJ-">Indica il nome dell’azienda o ente a cui invii la candidatura nel campo destinatario.</li>
-        <li class="s-U2-lJ-">Leggi la dichiarazione: descrive esattamente cosa stai attestando e le responsabilità penali in caso di dichiarazioni false (art. 76 D.P.R. 445/2000).</li>
+        <li class="s-U2-lJ-">Leggi la dichiarazione o le domande: descrivono esattamente cosa stai attestando e, per la versione italiana, le responsabilità penali in caso di dichiarazioni false (art. 76 D.P.R. 445/2000).</li>
         <li class="s-U2-lJ-">Indica luogo, data e firma di proprio pugno.</li>
         <li class="s-q3nqK4">Allega una copia (anche fotografia leggibile) di un documento di identità valido.</li>
       </ol>
@@ -315,7 +491,20 @@ export function renderLandingHtml(distDir?: string): { html: string; wordCount: 
     <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">Quando vale davvero: Italia vs datori di lavoro svizzeri</h2>
       <p style="${BODY_STYLE}">Verso le Pubbliche Amministrazioni italiane e i gestori di servizi pubblici, l’autocertificazione sostituisce per legge il certificato originale: l’ente non può rifiutarla né chiedere il documento ufficiale al suo posto.</p>
-      <p style="${BODY_STYLE}">Verso un soggetto privato — incluso un datore di lavoro svizzero — la situazione è diversa: l’art. 2, comma 2, del D.P.R. 445/2000 la rende valida solo se chi la riceve accetta di considerarla equivalente al documento originale. Molte aziende ticinesi la accettano volentieri in fase di candidatura, per snellire il processo, ma è buona norma chiederlo esplicitamente. Se il datore di lavoro richiede il documento originale, il certificato medico va richiesto al proprio medico curante o al servizio di medicina del lavoro, mentre l’estratto del casellario giudiziale si richiede tramite lo sportello online del Ministero della Giustizia o presso qualunque ufficio del casellario in Italia.</p>
+      <p style="${BODY_STYLE}">Verso un soggetto privato — incluso un datore di lavoro svizzero — la situazione è diversa: l’art. 2, comma 2, del D.P.R. 445/2000 la rende valida solo se chi la riceve accetta di considerarla equivalente al documento originale. Molte aziende ticinesi preferiscono invece un proprio questionario in stile svizzero, come quelli proposti più sotto. Se il datore di lavoro richiede il documento originale, il certificato medico va richiesto al proprio medico curante o al servizio di medicina del lavoro, mentre l’estratto del casellario giudiziale italiano si richiede tramite lo sportello online del Ministero della Giustizia o presso qualunque ufficio del casellario in Italia; l’equivalente svizzero (estratto per privati) si richiede all’Ufficio federale di giustizia.</p>
+    </section>
+    <section class="s-KZc0LQ">
+      <h2 style="${H2_STYLE}">Il modello in uso presso i datori di lavoro svizzeri</h2>
+      <p style="${BODY_STYLE}">Molte aziende ed enti in Ticino, oltre o al posto dell’autocertificazione italiana, utilizzano un proprio questionario di autovalutazione, costruito sul modello dei formulari cantonali — ad esempio il questionario sullo stato di salute della SESCO (Sezione delle risorse umane del Cantone Ticino, versione gennaio 2018) o i moduli di autocertificazione del casellario giudiziale diffusi da enti come Lugano Living In Switzerland (Lugano-LIS). Per gli impieghi pubblici cantonali, il riferimento normativo è la LORD (Legge sull’ordinamento degli impiegati dello Stato e dei docenti), artt. 13 e 40; per i rapporti di lavoro privati vale l’art. 328b del Codice delle obbligazioni (CO), che limita la raccolta di dati personali del candidato a quanto è realmente rilevante per valutare l’idoneità alla posizione.</p>
+      <p style="${BODY_STYLE}">Abbiamo preparato due PDF aggiuntivi, in italiano, che seguono questo modello: un questionario di autovalutazione dello stato di salute e un’autocertificazione dell’assenza di procedimenti penali pendenti, entrambi pensati per candidature presso datori di lavoro ticinesi.</p>
+    </section>
+    <section class="s-KZc0LQ">
+      <h2 style="${H2_STYLE}">Cosa può chiedere (e cosa no) un datore di lavoro svizzero</h2>
+      <p style="${BODY_STYLE}">L’art. 328b CO stabilisce un principio semplice: il datore di lavoro può raccogliere solo i dati del candidato che riguardano la sua idoneità al posto di lavoro o che sono necessari per eseguire il contratto. Domande su stato di salute o casellario giudiziale sono lecite solo se il tema è rilevante per le mansioni specifiche della posizione — ad esempio la sicurezza sul lavoro, la guida di veicoli, il contatto con minori o con valori. Domande generiche, sproporzionate o riferite a condanne penali già cancellate dal casellario non sono ammesse.</p>
+    </section>
+    <section class="s-KZc0LQ">
+      <h2 style="${H2_STYLE}">Perché il modulo aggiornato sul casellario giudiziale è più snello</h2>
+      <p style="${BODY_STYLE}">I modelli più recenti in circolazione chiedono solo se il candidato è parte in un procedimento penale attualmente pendente, senza più domandare condanne passate. Il motivo è l’art. 369 del Codice penale svizzero, che prevede la cancellazione delle iscrizioni nel casellario giudiziale dopo un periodo di buona condotta: una condanna cancellata non può più essere fatta valere contro la persona interessata, quindi chiedere conto di condanne passate espone il datore di lavoro al rischio di una domanda non più lecita.</p>
     </section>
     <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">Domande frequenti</h2>
@@ -397,13 +586,17 @@ export function selfCertificationFormsPlugin(rootDir: string): Plugin {
       collector.add(path.join(distDir, LANDING_URL_PATH, 'index.html'), html);
       collector.add(path.join(distDir, LANDING_URL_PATH.replace(/\/+$/, '') + '.html'), html);
 
-      const [healthPdf, criminalRecordPdf] = await Promise.all([
+      const [healthPdf, criminalRecordPdf, chHealthPdf, chCriminalRecordPdf] = await Promise.all([
         generateSelfCertificationPdf(HEALTH_FORM),
         generateSelfCertificationPdf(CRIMINAL_RECORD_FORM),
+        generateSwissSelfCertificationPdf(CH_HEALTH_FORM),
+        generateSwissSelfCertificationPdf(CH_CRIMINAL_RECORD_FORM),
       ]);
       fs.mkdirSync(path.join(distDir, 'moduli'), { recursive: true });
       fs.writeFileSync(path.join(distDir, HEALTH_PDF_PATH), healthPdf);
       fs.writeFileSync(path.join(distDir, CRIMINAL_RECORD_PDF_PATH), criminalRecordPdf);
+      fs.writeFileSync(path.join(distDir, CH_HEALTH_PDF_PATH), chHealthPdf);
+      fs.writeFileSync(path.join(distDir, CH_CRIMINAL_RECORD_PDF_PATH), chCriminalRecordPdf);
 
       const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>${CANONICAL_URL}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n</urlset>\n`;
       try {
@@ -414,7 +607,7 @@ export function selfCertificationFormsPlugin(rootDir: string): Plugin {
 
       const t0 = Date.now();
       const written = await collector.flush();
-      console.log(`\x1b[36m[self-certification-forms]\x1b[0m Generated landing + 2 PDFs — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
+      console.log(`\x1b[36m[self-certification-forms]\x1b[0m Generated landing + 4 PDFs — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
 
       if (fs.existsSync(path.join(distDir, 'sitemap-moduli.xml'))) {
         patchSitemapIndex(distDir, dateStamp);
