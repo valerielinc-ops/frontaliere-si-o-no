@@ -1582,6 +1582,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.medici-di-base-carenza-svizzera.title': 'Je n\'ai pas étudié onze ans pour travailler gratuitement',
     'blog.article.medici-di-base-carenza-svizzera.excerpt': 'La Suisse s\'achemine vers une pénurie de médecins généralistes. Linda Habib en vit déjà aujourd\'hui les conséquences : des cabinets complets et de plus en plus de travail en plus en plus de patients.',
     'blog.article.medici-di-base-carenza-svizzera.imageAlt': 'Une scène d\'un cabinet de médecine de famille en Suisse',
+    'blog.article.pompieri-svizzeri-gironda-francia.title': 'Pompiers suisses en Gironde : le contingent à l\'œuvre',
+    'blog.article.pompieri-svizzeri-gironda-francia.excerpt': 'Un contingent de pompiers romands est arrivé en France pour renforcer les collègues engagés contre les vastes incendies dans la région de la Gironde.',
+    'blog.article.pompieri-svizzeri-gironda-francia.imageAlt': 'Pompiers suisses engagés dans des opérations de secours',
 };
 
 export default blogMetaChFr;

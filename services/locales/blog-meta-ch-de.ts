@@ -1582,6 +1582,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.medici-di-base-carenza-svizzera.title': 'Ich habe keine elf Jahre studiert, um kostenlos zu arbeiten',
     'blog.article.medici-di-base-carenza-svizzera.excerpt': 'Die Schweiz steuert auf einen Mangel an Hausärzten zu. Schon heute erlebt Linda Habib die Folgen: volle Praxen und immer mehr Arbeit neben den Patienten.',
     'blog.article.medici-di-base-carenza-svizzera.imageAlt': 'Eine Szene eines Schweizer Familienmedizin-Klinikums',
+    'blog.article.pompieri-svizzeri-gironda-francia.title': 'Schweizer Feuerwehrleute in der Gironde: Das Einsatzkontingent',
+    'blog.article.pompieri-svizzeri-gironda-francia.excerpt': 'Ein Kontingent von Feuerwehrleuten aus der Romandie ist in Frankreich eingetroffen, um den Kollegen, die sich gegen die großen Brände in der Region Gironde einsetzen, Schutz zu bieten.',
+    'blog.article.pompieri-svizzeri-gironda-francia.imageAlt': 'Schweizer Feuerwehrleute bei Rettungseinsätzen',
 };
 
 export default blogMetaChDe;

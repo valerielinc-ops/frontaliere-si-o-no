@@ -1582,6 +1582,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.medici-di-base-carenza-svizzera.title': 'Non ho studiato undici anni per lavorare gratis',
     'blog.article.medici-di-base-carenza-svizzera.excerpt': 'La Svizzera si avvia verso una carenza di medici di base. Linda Habib ne vive già oggi le conseguenze: ambulatori pieni e sempre più lavoro oltre ai pazienti.',
     'blog.article.medici-di-base-carenza-svizzera.imageAlt': 'Una scena di un ambulatorio di medicina di famiglia in Svizzera',
+    'blog.article.pompieri-svizzeri-gironda-francia.title': 'Pompieri svizzeri in Gironda: il contingente all\'opera',
+    'blog.article.pompieri-svizzeri-gironda-francia.excerpt': 'Un contingente di pompieri romandi è arrivato in Francia per dare manforte ai colleghi impegnati contro i vasti incendi nella regione della Gironda.',
+    'blog.article.pompieri-svizzeri-gironda-francia.imageAlt': 'Pompieri svizzeri impegnati nelle operazioni di soccorso',
 };
 
 export default blogMetaChIt;
