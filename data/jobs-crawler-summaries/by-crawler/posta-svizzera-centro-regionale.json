@@ -1,41 +1,41 @@
 {
   "key": "posta-svizzera-centro-regionale",
   "label": "Post.ch",
-  "generatedAt": "2026-07-26T22:10:14.959Z",
-  "total": 86,
-  "newCount": 2,
+  "generatedAt": "2026-07-27T12:39:07.367Z",
+  "total": 88,
+  "newCount": 4,
   "updatedCount": 84,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 459981,
-  "avgDurationMs": 459981,
+  "durationMs": 410113,
+  "avgDurationMs": 410113,
   "durationHistory": [
-    459981
+    410113
   ],
   "newJobs": [
     {
-      "url": "https://job.post.ch/default/job/Key-Account-Managerin-Gesch%C3%A4ftskunden-Ostschweiz/74325-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Key-Account-Managerin-Gesch%C3%A4ftskunden-Ostschweiz/74325-de_DE",
-      "title": "Key Account Manager:in Geschäftskunden Ostschweiz",
-      "company": "PostAuto",
+      "url": "https://job.post.ch/default/job/Kundenberaterin/74383-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Kundenberaterin/74383-de_DE",
+      "title": "Kundenberater:in",
+      "company": "Die Schweizerische Post",
       "companyKey": "posta-svizzera-centro-regionale",
-      "location": "St. Gallen",
-      "canton": "SG",
+      "location": "Altdorf UR",
+      "canton": "UR",
       "country": "CH",
-      "slug": "key-account-manager-in-geschaftskunden-ostschweiz-post",
+      "slug": "kundenberater-in-post",
       "sourceLang": "de",
       "department": "",
       "category": "servizi-postali",
-      "datePosted": "2026-07-26",
-      "validThrough": "2026-08-18",
+      "datePosted": "2026-07-27",
+      "validThrough": "2026-08-24",
       "source": "postch-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
       "sector": "Servizi Postali",
-      "workload": "80-100%",
+      "workload": "60-100%",
       "_targetScope": {
-        "canton": "SG",
-        "location": "St. Gallen"
+        "canton": "UR",
+        "location": "Altdorf UR"
       },
       "crawledAt": "",
       "needsRetranslation": true,
@@ -43,6 +43,74 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
+        "translation": 6,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://job.post.ch/default/job/Kundenberaterin/74382-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Kundenberaterin/74382-de_DE",
+      "title": "Kundenberater:in",
+      "company": "Die Schweizerische Post",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Emmenbrücke",
+      "canton": "LU",
+      "country": "CH",
+      "slug": "kundenberater-in-post",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-07-27",
+      "validThrough": "2026-08-24",
+      "source": "postch-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "60-100%",
+      "_targetScope": {
+        "canton": "LU",
+        "location": "Emmenbrücke"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 62,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 6,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74246-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74246-de_DE",
+      "title": "Zusteller:in Briefe und Pakete",
+      "company": "Die Schweizerische Post",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Leukerbad",
+      "canton": "VS",
+      "country": "CH",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-leukerbad",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-07-27",
+      "validThrough": "2026-08-14",
+      "source": "postch-careers-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "40-60%",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Leukerbad"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 43,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 3,
         "translation": 6,
         "completeness": 9
       }
@@ -83,6 +151,47 @@
     }
   ],
   "updatedJobs": [
+    {
+      "url": "https://job.post.ch/default/job/Key-Account-Managerin-Gesch%C3%A4ftskunden-Ostschweiz/74325-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Key-Account-Managerin-Gesch%C3%A4ftskunden-Ostschweiz/74325-de_DE",
+      "title": "Key Account Manager:in Geschäftskunden Ostschweiz",
+      "company": "PostAuto",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "St. Gallen",
+      "canton": "SG",
+      "country": "CH",
+      "slug": "key-account-manager-in-business-clienti-svizzera-orientale-postauto-st-gallen",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-07-26",
+      "validThrough": "2026-08-18",
+      "source": "postch-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "SG",
+        "location": "St. Gallen"
+      },
+      "crawledAt": "",
+      "id": "posta-svizzera-centro-regionale-e3f91bb1e72b",
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "currency": "CHF",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-07-26T22:10:14.953Z",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
     {
       "url": "https://job.post.ch/default/job/Servicetechnikerin/73841-de_DE",
       "applyUrl": "https://job.post.ch/default/job/Servicetechnikerin/73841-de_DE",
@@ -655,48 +764,6 @@
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "url": "https://job.post.ch/default/job/Waffenplatz-Feldpostunteroffizierin-St_Gallen/74348-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Waffenplatz-Feldpostunteroffizierin-St_Gallen/74348-de_DE",
-      "title": "Waffenplatz-Feldpostunteroffizier:in St.Gallen",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "St. Gallen",
-      "canton": "SG",
-      "country": "CH",
-      "slug": "waffenplatz-feldpostunteroffizier-in-st-gallen-post",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-07-21",
-      "validThrough": "2026-08-12",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "SG",
-        "location": "St. Gallen"
-      },
-      "crawledAt": "",
-      "id": "posta-svizzera-centro-regionale-698b9570cdc0",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-07-21T22:14:04.728Z",
-      "needsRetranslation": true,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 23,
         "completeness": 14
       }
     },
@@ -1321,6 +1388,48 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "url": "https://job.post.ch/default/job/Waffenplatz-Feldpostunteroffizierin-St_Gallen/74348-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Waffenplatz-Feldpostunteroffizierin-St_Gallen/74348-de_DE",
+      "title": "Waffenplatz-Feldpostunteroffizier:in St.Gallen",
+      "company": "Die Schweizerische Post",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "St. Gallen",
+      "canton": "SG",
+      "country": "CH",
+      "slug": "waffenplatz-feldpostunteroffizier-in-st-gallen-post",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-07-21",
+      "validThrough": "2026-08-12",
+      "source": "postch-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "SG",
+        "location": "St. Gallen"
+      },
+      "crawledAt": "",
+      "id": "posta-svizzera-centro-regionale-698b9570cdc0",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-07-21T22:14:04.728Z",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 14
+      }
+    }
+  ],
   "unchangedJobs": []
 }
