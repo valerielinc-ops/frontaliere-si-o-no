@@ -673,6 +673,23 @@ describe('Router — per-municipality fiscal guide pages (finding #1)', () => {
   });
 });
 
+describe('Router — self-certification forms guide (/moduli/autocertificazione-candidatura/)', () => {
+  it('parsePath resolves the guide URL to a staticOverlay guida route (no notFoundPath)', () => {
+    const { route, locale, notFoundPath } = parsePath('/moduli/autocertificazione-candidatura/');
+    expect(route.activeTab).toBe('guida');
+    expect(route.staticOverlay).toBe(true);
+    expect(locale).toBe('it');
+    expect(notFoundPath).toBeUndefined();
+  });
+
+  it('parsePath resolves the guide URL without a trailing slash the same way', () => {
+    const { route, notFoundPath } = parsePath('/moduli/autocertificazione-candidatura');
+    expect(route.activeTab).toBe('guida');
+    expect(route.staticOverlay).toBe(true);
+    expect(notFoundPath).toBeUndefined();
+  });
+});
+
 /* ─────────── parsePath/buildPath round-trip symmetry (issue #2698) ─────────── */
 
 /**

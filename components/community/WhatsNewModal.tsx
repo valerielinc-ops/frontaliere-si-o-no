@@ -19,6 +19,8 @@ interface ReleaseItem {
  titleKey: string;
  descKey: string;
  link?: { tab: string; subTab?: string };
+ /** Absolute path to a standalone static page outside the SPA tab system (e.g. /moduli/...). Mutually exclusive with `link`. */
+ href?: string;
 }
 
 interface Release {
@@ -41,6 +43,7 @@ export const RELEASES: Release[] = [
         type: 'feature',
         titleKey: 'whatsNew.v3830.selfCertForms.title',
         descKey: 'whatsNew.v3830.selfCertForms.desc',
+        href: '/moduli/autocertificazione-candidatura/',
       },
     ],
   },
@@ -2428,13 +2431,18 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
  }
  }, [open]);
 
- const handleLinkClick = useCallback((e: MouseEvent<HTMLAnchorElement>, link: { tab: string; subTab?: string }) => {
- e.preventDefault();
+ const handleLinkClick = useCallback((e: MouseEvent<HTMLAnchorElement>, item: ReleaseItem) => {
  onClose();
+ if (item.href) {
+ // Standalone static page outside the SPA tab system (e.g. /moduli/...) —
+ // let the browser follow the href with a normal navigation.
+ return;
+ }
+ e.preventDefault();
  // Use SPA navigation when available; the href on the <a> element is a
  // deterministic fallback so the link works even if NavigationContext is absent.
- if (nav) {
- nav.navigateTo(link.tab as any, link.subTab);
+ if (nav && item.link) {
+ nav.navigateTo(item.link.tab as any, item.link.subTab);
  } else {
  window.location.href = e.currentTarget.getAttribute('href') || '/';
  }
@@ -2516,8 +2524,8 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
  const cfg = TYPE_CONFIG[item.type];
  const Icon = cfg.icon;
  const route = item.link ? releaseLinkToRoute(item.link) : null;
- const href = route ? buildPath(route, locale as any) : '';
- const isClickable = !!item.link;
+ const href = item.href ? item.href : route ? buildPath(route, locale as any) : '';
+ const isClickable = !!item.link || !!item.href;
  const cardContent = (
  <>
  <span className={`mt-0.5 p-1 rounded-md shrink-0 ${cfg.bg}`}>
@@ -2540,7 +2548,7 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
  <li key={idx}>
  <a
  href={href}
- onClick={(e) => handleLinkClick(e, item.link!)}
+ onClick={(e) => handleLinkClick(e, item)}
  className="w-full flex items-start gap-3 group p-2 -mx-2 rounded-lg cursor-pointer hover:bg-surface-raised/50 active:bg-surface-raised transition-colors text-left no-underline"
  aria-label={`${t(item.titleKey)} — ${t('whatsNew.goTo')}`}
  >
