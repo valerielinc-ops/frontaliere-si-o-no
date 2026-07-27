@@ -25,8 +25,10 @@ vi.mock('@/services/authService', () => ({
   signInWithLinkedIn: vi.fn().mockResolvedValue(undefined),
 }));
 
-vi.mock('firebase/firestore', () => ({ getFirestore: vi.fn().mockReturnValue({}) }));
-vi.mock('@/services/firebase', () => ({ getApp: vi.fn().mockResolvedValue({}) }));
+vi.mock('@/services/firebase', () => ({
+  getApp: vi.fn().mockResolvedValue({}),
+  getFirestoreLazy: vi.fn().mockResolvedValue({}),
+}));
 vi.mock('@/services/errorReporter', () => ({ reportCaughtError: vi.fn() }));
 
 const upsertNewsletterSubscriberMock = vi.fn().mockResolvedValue({ existed: false, id: 'sub-1', status: 'pending' });

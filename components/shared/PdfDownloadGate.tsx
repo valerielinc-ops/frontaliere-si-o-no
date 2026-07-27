@@ -27,27 +27,12 @@ import { reportCaughtError } from '@/services/errorReporter';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 import { useAuth } from '@/services/authService';
+import { getFirestoreLazy } from '@/services/firebase';
 import {
   upsertNewsletterSubscriber,
   markNewsletterSubscribedLocally,
 } from '@/services/newsletterSubscribers';
 import { NEWSLETTER_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
-
-let firestoreDb: any = null;
-const initFirestore = async () => {
-  if (firestoreDb) return firestoreDb;
-  try {
-    const [{ getFirestore }, { getApp }] = await Promise.all([
-      import('firebase/firestore'),
-      import('@/services/firebase'),
-    ]);
-    firestoreDb = getFirestore(await getApp());
-    return firestoreDb;
-  } catch (e) {
-    reportCaughtError(e, 'pdfDownloadGate.firestoreInit');
-    return null;
-  }
-};
 
 function hasGateAccess(): boolean {
   try {
@@ -152,9 +137,9 @@ const PdfDownloadGate: React.FC = () => {
     }
     setStatus('loading');
     try {
-      const firestore = await initFirestore();
+      const firestore = await getFirestoreLazy('pdfDownloadGate.firestoreInit');
       if (!firestore) throw new Error('firestore_unavailable');
-      await upsertNewsletterSubscriber(firestore, {
+      await upsertNewsletterSubscriber(firestore as any, {
         email,
         name: null,
         preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false, jobs: true },
