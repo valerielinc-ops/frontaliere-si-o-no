@@ -1576,6 +1576,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-guida-completa.title': 'Zweite Säule BVG: Vollständige Anleitung und Bedienung',
     'blog.article.secondo-pilastro-lpp-guida-completa.excerpt': 'Vollständiger Leitfaden zur zweiten Säule BVG in der Schweiz: Funktionsweise, Beitragssätze, Lückenrückkauf und Hausbezug.',
     'blog.article.secondo-pilastro-lpp-guida-completa.imageAlt': 'Vollständiger Leitfaden zur zweiten Säule BVG in der Schweiz',
+    'blog.article.terzo-pilastro-3a-vantaggi-fiscali.title': 'Dritte Säule 3a: Steuervorteile und Sparen in der Schweiz',
+    'blog.article.terzo-pilastro-3a-vantaggi-fiscali.excerpt': 'Vollständiger Leitfaden zur dritten Säule 3a in der Schweiz: Echte Steuervorteile, Unterschiede zwischen Banken- und Versicherungssäule und Steueroptimierung.',
+    'blog.article.terzo-pilastro-3a-vantaggi-fiscali.imageAlt': 'Panoramablick auf Lugano und das Finanzviertel mit modernen Gebaeuden',
 };
 
 export default blogMetaChDe;

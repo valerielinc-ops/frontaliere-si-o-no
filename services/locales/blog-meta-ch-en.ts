@@ -1576,6 +1576,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-guida-completa.title': 'Second pillar LPP: complete guide and operation',
     'blog.article.secondo-pilastro-lpp-guida-completa.excerpt': 'Complete guide to the second LPP pillar in Switzerland: operation, contribution rates, redemption of gaps and levy for the purchase of the house.',
     'blog.article.secondo-pilastro-lpp-guida-completa.imageAlt': 'Complete guide to the second pillar LPP in Switzerland',
+    'blog.article.terzo-pilastro-3a-vantaggi-fiscali.title': 'Third pillar 3a: tax advantages and savings in Switzerland',
+    'blog.article.terzo-pilastro-3a-vantaggi-fiscali.excerpt': 'Complete guide to the third pillar 3a in Switzerland: real tax advantages, differences between banking and insurance pillar and tax optimization.',
+    'blog.article.terzo-pilastro-3a-vantaggi-fiscali.imageAlt': 'Panoramic view of Lugano and financial district with modern buildings',
 };
 
 export default blogMetaChEn;

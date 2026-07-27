@@ -548,6 +548,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'premi-cassa-malati-lamal-per-cantone': { it: 'premi-cassa-malati-lamal-per-cantone', en: 'health-insurance-premiums-by-canton', de: 'kostenvoranschlage-fur-krankenversicherung-nach-kanton', fr: 'premieres-de-securite-sociale-par-canton' },
  'salario-medio-svizzera-professione': { it: 'salario-medio-svizzera-professione', en: 'salario-medio-svizzera-professione', de: 'salario-medio-svizzera-professione', fr: 'salario-medio-svizzera-professione' },
  'secondo-pilastro-lpp-guida-completa': { it: 'secondo-pilastro-lpp-guida-completa', en: 'second-pillar-lpp-complete-guide', de: 'zweite-saeule-bvg-kompletter-leitfaden', fr: 'deuxieme-pilier-lpp-guide-complet' },
+ 'terzo-pilastro-3a-vantaggi-fiscali': { it: 'terzo-pilastro-3a-vantaggi-fiscali', en: 'third-pillar-3a-tax-benefits', de: 'dritte-saeule-3a-steuervorteile', fr: 'troisieme-pilastro-3a-avantages-fiscaux' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
