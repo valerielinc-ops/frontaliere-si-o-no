@@ -69,6 +69,19 @@ export const READER_NOADS_PLAN = 'reader_noads';
 
 const READER_SUBSCRIPTIONS_COLLECTION = 'reader_subscriptions';
 
+// Claim-exhaustion ledger for handleClaimReaderCheckout (#4800): a paid
+// Checkout Session stays retrievable via stripe.checkout.sessions.retrieve
+// indefinitely (Stripe never expires already-paid sessions), and success_url
+// carries session_id in the query string — a string that can leak via
+// Referer headers, browser history, or shared screenshots long after the
+// original purchase. Without a one-time-use ledger, anyone who later obtains
+// that string could keep minting fresh sign-in tokens for the account
+// forever. One doc per sessionId, created exactly once via a transaction so
+// two concurrent claim calls for the same session can't both win.
+const READER_CHECKOUT_CLAIMS_COLLECTION = 'reader_checkout_claims';
+
+class SessionAlreadyClaimedError extends Error {}
+
 // Deploy-boundary duplicate of services/posthog.ts's POSTHOG_KEY/POSTHOG_HOST —
 // the functions bundle has no bundler and cannot import the SPA TS module
 // (same convention as READER_NOADS_PLAN above). Both values are public/non-secret
@@ -302,6 +315,27 @@ export async function handleClaimReaderCheckout(req) {
   if (accountCreatedDeltaMs < -ACCOUNT_RACE_GRACE_MS || accountCreatedDeltaMs > MAX_CLAIM_WINDOW_MS) {
     return { status: 409, body: { ok: false, error: 'account_exists' } };
   }
+
+  // Claim-exhaustion guard (#4800): a paid session id must mint at most one
+  // sign-in token, ever — otherwise it stays a standing credential for as
+  // long as Stripe keeps the paid session retrievable. tx.get + tx.set inside
+  // one transaction makes "does a claim doc exist yet" and "create it" atomic,
+  // so two concurrent claim calls for the same sessionId can't both pass the
+  // existence check before either writes.
+  const claimRef = db().collection(READER_CHECKOUT_CLAIMS_COLLECTION).doc(sessionId);
+  try {
+    await db().runTransaction(async (tx) => {
+      const claimSnap = await tx.get(claimRef);
+      if (claimSnap.exists) throw new SessionAlreadyClaimedError();
+      tx.set(claimRef, { uid, claimedAt: admin.firestore.FieldValue.serverTimestamp() });
+    });
+  } catch (err) {
+    if (err instanceof SessionAlreadyClaimedError) {
+      return { status: 409, body: { ok: false, error: 'session_already_claimed' } };
+    }
+    throw err;
+  }
+
   const authToken = await admin.auth().createCustomToken(uid);
   return { status: 200, body: { ok: true, authToken } };
 }
