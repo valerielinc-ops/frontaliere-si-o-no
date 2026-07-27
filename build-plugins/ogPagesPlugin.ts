@@ -20,6 +20,8 @@ import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { ORGANIZATION_LD } from '../services/seo/organizationLd';
+import { getAuthorBySlug } from '../data/authors';
 import { loadSwissArticleCanonicalOverrides, resolveSwissArticleCanonicalUrl, resolveShadowedArticleWinnerSlug } from './shared/swissArticleCanonicalOverrides';
 import { stripMarkdownPlain } from './shared/stripMarkdownPlain';
 import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
@@ -116,6 +118,11 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const EVERGREEN_CATEGORIES = new Set(['fiscale', 'pratico', 'pensione']);
  const articleCategoryById: Record<string, string> = {};
  const articleUpdatedAtById: Record<string, string> = {};
+ // Per-article author (E-E-A-T): was hardcoded to a single Person for every
+ // article (JSON-LD + visible byline) — real values live alongside each
+ // entry in SECTION.registry, resolved against data/authors.ts below.
+ const articleAuthorSlugById: Record<string, string> = {};
+ const articleAuthorNameById: Record<string, string> = {};
  try {
  const articleDataSrc = fs.readFileSync(np.resolve(rootDir, SECTION.registry), 'utf-8');
  const catRx = /id:\s*'([^']+)'[\s\S]*?category:\s*'([^']+)'/g;
@@ -128,6 +135,17 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  let um: RegExpExecArray | null;
  while ((um = uaRx.exec(articleDataSrc)) !== null) {
  articleUpdatedAtById[um[1]] = um[2];
+ }
+ // Parse authorSlug/authorName (E-E-A-T byline + JSON-LD author, #author-eeat)
+ const asRx = /id:\s*'([^']+)'[\s\S]*?authorSlug:\s*'([^']*)'/g;
+ let asm: RegExpExecArray | null;
+ while ((asm = asRx.exec(articleDataSrc)) !== null) {
+ articleAuthorSlugById[asm[1]] = asm[2];
+ }
+ const anRx = /id:\s*'([^']+)'[\s\S]*?authorName:\s*'([^']*)'/g;
+ let anm: RegExpExecArray | null;
+ while ((anm = anRx.exec(articleDataSrc)) !== null) {
+ articleAuthorNameById[anm[1]] = anm[2];
  }
  } catch { /* non-fatal — FAQ extraction will be skipped for all articles */ }
 
@@ -251,6 +269,9 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  sdAuthorHasId: boolean;
  /** Raw structuredData block text for extracting Event-specific fields */
  sdBlock: string;
+ /** Real per-article author slug/name from SECTION.registry (data/authors.ts key), empty when unset */
+ authorSlug: string;
+ authorName: string;
  }
  const entries: Entry[] = [];
 
@@ -323,7 +344,9 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  }
 
  if (cp.startsWith(SECTION.canonicalPrefix)) {
- entries.push({ key, articleId, title, desc, keywords, ogT, ogD, path: cp, img: im, datePub, dateMod, sdType, sdAuthorHasId, sdBlock });
+ const authorSlug = articleAuthorSlugById[articleId] || '';
+ const authorName = articleAuthorNameById[articleId] || '';
+ entries.push({ key, articleId, title, desc, keywords, ogT, ogD, path: cp, img: im, datePub, dateMod, sdType, sdAuthorHasId, sdBlock, authorSlug, authorName });
  }
  }
 
@@ -761,14 +784,27 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  .concat([` <link rel="alternate" hreflang="x-default" href="${BASE_URL}${withTrailingSlash(lp.it)}">`])
  .join('\n');
 
- // Determine author: always use named Person for E-E-A-T
- const authorObj = {
+ // Determine author: real per-article Person from data/authors.ts via
+ // authorSlug (SECTION.registry field), Organization fallback when unset —
+ // mirrors the SPA's mergeArticleByline (services/authorProfileService.ts)
+ // + JSON-LD in components/community/BlogArticles.tsx (~1331-1351) and the
+ // visible byline below, so static build + client hydration match (was:
+ // hardcoded to a single author for every article, all sections).
+ const resolvedAuthor = en.authorSlug ? getAuthorBySlug(en.authorSlug) : undefined;
+ const authorObj: Record<string, unknown> = resolvedAuthor
+ ? {
  '@type': 'Person' as const,
- name: 'Valerie Linc',
- jobTitle: 'Esperta fiscale frontalieri',
- url: `${BASE_URL}/chi-siamo/`,
+ name: resolvedAuthor.name,
+ jobTitle: resolvedAuthor.role,
+ url: `${BASE_URL}/autori/${resolvedAuthor.slug}/`,
  worksFor: { '@type': 'Organization', name: 'Frontaliere Ticino', '@id': `${BASE_URL}/#organization` },
- sameAs: ['https://www.linkedin.com/in/valerie-linc/'],
+ ...(resolvedAuthor.social?.linkedin ? { sameAs: [resolvedAuthor.social.linkedin] } : {}),
+ }
+ : {
+ '@type': 'Organization' as const,
+ '@id': `${BASE_URL}/#organization`,
+ name: en.authorName || 'Redazione Frontaliere Ticino',
+ url: `${BASE_URL}/chi-siamo/`,
  };
 
  // Build the JSON-LD object, respecting source @type (Event vs NewsArticle)
@@ -868,21 +904,15 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  image: imgU,
  url: full,
  inLanguage: locale,
- // Author matches the visible "Di Valerie Linc" byline and the SPA-side
- // Person schema (#3520) — Google's guidance: structured-data author must
- // match the byline. Person object defined once above (authorObj).
+ // Author matches the visible "Di {authorName}" byline below and the
+ // SPA-side Person schema (#3520) — Google's guidance: structured-data
+ // author must match the byline. Person/Organization object defined once
+ // above (authorObj), resolved from the article's real authorSlug.
  author: authorObj,
- publisher: {
- '@type': 'Organization',
- // Same canonical entity as index.html / SPA (#3524); inline name+logo
- // keep it resolvable by page-local structured-data parsers.
- '@id': `${BASE_URL}/#organization`,
- name: 'Frontaliere Ticino',
- url: `${BASE_URL}/`,
- logo: imageObjectLd({
- url: `${BASE_URL}/images/logo-192.png`,
- }),
- },
+ // Same canonical entity as index.html / SPA (#3524); ORGANIZATION_LD is
+ // the single source of truth (services/seo/organizationLd.ts) — was a
+ // hand-rolled duplicate pointing at a 404'd logo (/images/logo-192.png).
+ publisher: ORGANIZATION_LD,
  mainEntityOfPage: full,
  isPartOf: { '@type': 'WebSite', '@id': `${BASE_URL}/#website`, name: 'Frontaliere Ticino' },
  speakable: {
@@ -1088,7 +1118,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- <div id="root"><main id="main-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p class="article-byline s-L_lk4l">Di <a href="/chi-siamo/" rel="author">Valerie Linc</a> · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main></div>
+ <div id="root"><main id="main-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')} · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main></div>
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;
