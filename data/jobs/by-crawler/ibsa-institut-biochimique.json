@@ -1,13 +1,13 @@
 {
   "crawlerKey": "ibsa-institut-biochimique",
-  "assembledAt": "2026-07-27T13:00:44.485Z",
+  "assembledAt": "2026-07-27T22:20:30.097Z",
   "jobs": [
     {
       "id": "company-d2v3bw",
       "slug": "jr-clinical-safety-compliance-specialista-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-clinical-safety-compliance-specialist-lo-d2v3bw",
       "company": "IBSA Institut Biochimique",
       "title": "Jr Clinical & Safety Compliance Specialist",
-      "location": "Ticino",
+      "location": "6926 Working Area",
       "canton": "TI",
       "category": "health",
       "contract": "internship",
@@ -30,7 +30,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-07-27T13:00:43.799Z",
+      "crawledAt": "2026-07-27T22:20:29.380Z",
       "firstSeenAt": "2026-07-22T11:43:57.748Z",
       "titleByLocale": {
         "en": "Jr Clinical & Safety Compliance Specialist",
@@ -65,11 +65,13 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "jr-clinical-safety-compliance-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-clinical-safety-compliance-specialist-loc"
+          "jr-clinical-safety-compliance-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-clinical-safety-compliance-specialist-loc",
+          "jr-clinical-safety-compliance-specialist-ibsa-institut-biochimique-6926-working-area"
         ]
       },
       "previousSlugs": [
-        "jr-clinical-safety-compliance-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-clinical-safety-compliance-specialist-loc"
+        "jr-clinical-safety-compliance-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-clinical-safety-compliance-specialist-loc",
+        "jr-clinical-safety-compliance-specialist-ibsa-institut-biochimique-6926-working-area"
       ],
       "salaryMin": 63000,
       "salaryMax": 87500,
@@ -86,14 +88,15 @@
       "addressLocality": "Ticino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-d18wk3",
       "slug": "pharmaceutical-technology-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma-d18wk3",
       "company": "IBSA Institut Biochimique",
       "title": "Pharmaceutical Technology Technician",
-      "location": "Ma",
+      "location": "6928 Working Area",
       "canton": "TI",
       "category": "engineering",
       "contract": "full-time",
@@ -115,7 +118,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-07-27T13:00:43.799Z",
+      "crawledAt": "2026-07-27T22:20:29.380Z",
       "firstSeenAt": "2026-07-22T22:26:29.099Z",
       "titleByLocale": {
         "en": "Pharmaceutical Technology Technician",
@@ -131,7 +134,7 @@
       },
       "slugByLocale": {
         "it": "pharmaceutical-technology-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma-d18wk3",
-        "en": "pharmaceutical-technology-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma-d18wk3",
+        "en": "pharmaceutical-technology-technician-ibsa-institut-biochimique-6928-working-area-d18wk3",
         "de": "pharmaceutical-technology-techniker-ibsa-institut-biochimique-ma-9357e6",
         "fr": "pharmaceutical-technology-technicien-ibsa-institut-biochimique-ma-9357e6"
       },
@@ -149,7 +152,8 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "pharmaceutical-technology-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma"
+          "pharmaceutical-technology-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma",
+          "pharmaceutical-technology-technician-ibsa-institut-biochimique-6928-working-area"
         ],
         "de": [
           "pharmaceutical-technology-techniker-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma-d18wk3"
@@ -161,7 +165,8 @@
       "previousSlugs": [
         "pharmaceutical-technology-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma",
         "pharmaceutical-technology-techniker-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma-d18wk3",
-        "pharmaceutical-technology-technicien-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma-d18wk3"
+        "pharmaceutical-technology-technicien-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma-d18wk3",
+        "pharmaceutical-technology-technician-ibsa-institut-biochimique-6928-working-area"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -178,14 +183,15 @@
       "addressLocality": "Ma",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-dh2g46",
       "slug": "pharmaceutical-technology-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma-dh2g46",
       "company": "IBSA Institut Biochimique",
       "title": "Pharmaceutical Technology Technicia",
-      "location": "Man",
+      "location": "6928 Working Area",
       "canton": "TI",
       "category": "engineering",
       "contract": "internship",
@@ -209,7 +215,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-07-27T13:00:43.799Z",
+      "crawledAt": "2026-07-27T22:20:29.380Z",
       "firstSeenAt": "2026-07-21T22:11:42.744Z",
       "titleByLocale": {
         "en": "Pharmaceutical Technology Technician",
@@ -246,7 +252,8 @@
       "previousSlugsByLocale": {
         "it": [
           "pharmaceutical-technology-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma",
-          "pharmaceutical-technology-technicia-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technicia-location-man"
+          "pharmaceutical-technology-technicia-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technicia-location-man",
+          "pharmaceutical-technology-technicia-ibsa-institut-biochimique-6928-working-area"
         ],
         "en": [
           "pharmaceutical-technology-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technicia-location-man-dh2g46"
@@ -263,7 +270,8 @@
         "pharmaceutical-technology-techniker-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma-dh2g46",
         "pharmaceutical-technology-technicien-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma-dh2g46",
         "pharmaceutical-technology-technicia-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technicia-location-man",
-        "pharmaceutical-technology-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technicia-location-man-dh2g46"
+        "pharmaceutical-technology-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technicia-location-man-dh2g46",
+        "pharmaceutical-technology-technicia-ibsa-institut-biochimique-6928-working-area"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -280,14 +288,15 @@
       "addressLocality": "Ma",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-tngyfi",
       "slug": "jr-medical-writing-specialista-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi",
       "company": "IBSA Institut Biochimique",
       "title": "Jr Medical Writing Specialist",
-      "location": "Collina d",
+      "location": "6926 Working Area",
       "canton": "TI",
       "category": "health",
       "contract": "full-time",
@@ -309,7 +318,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-07-27T13:00:43.799Z",
+      "crawledAt": "2026-07-27T22:20:29.380Z",
       "firstSeenAt": "2026-07-14T22:10:56.599Z",
       "titleByLocale": {
         "en": "Jr Medical Writing Specialist",
@@ -343,7 +352,8 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "jr-medical-writing-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d"
+          "jr-medical-writing-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d",
+          "jr-medical-writing-specialist-ibsa-institut-biochimique-6926-working-area"
         ],
         "en": [
           "jr-medical-writing-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi"
@@ -359,7 +369,8 @@
         "jr-medical-writing-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d",
         "jr-medical-writing-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi",
         "jr-medical-writing-spezialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi",
-        "jr-medical-writing-specialiste-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi"
+        "jr-medical-writing-specialiste-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi",
+        "jr-medical-writing-specialist-ibsa-institut-biochimique-6926-working-area"
       ],
       "salaryMin": 63000,
       "salaryMax": 87500,
@@ -376,14 +387,15 @@
       "addressLocality": "Collina d",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-356u61",
       "slug": "qc-analysis-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo-356u61",
       "company": "IBSA Institut Biochimique",
       "title": "QC Analysis Technician",
-      "location": "Lugano-Pazzallo",
+      "location": "6912 Working Area",
       "canton": "TI",
       "category": "health",
       "contract": "full-time",
@@ -403,7 +415,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-07-27T13:00:43.799Z",
+      "crawledAt": "2026-07-27T22:20:29.380Z",
       "firstSeenAt": "2026-07-06T22:20:40.267Z",
       "titleByLocale": {
         "en": "QC Analysis Technician",
@@ -419,7 +431,7 @@
       },
       "slugByLocale": {
         "it": "qc-analysis-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo-356u61",
-        "en": "qc-analysis-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo-356u61",
+        "en": "qc-analysis-technician-ibsa-institut-biochimique-lugano-pazzallo",
         "de": "qc-analysis-techniker-ibsa-institut-biochimique-lugano-pazzallo",
         "fr": "qc-analysis-technicien-ibsa-institut-biochimique-lugano-pazzallo"
       },
@@ -435,19 +447,25 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "qc-analysis-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo"
+          "qc-analysis-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo",
+          "qc-analysis-technician-ibsa-institut-biochimique-6912-working-area"
         ],
         "de": [
           "qc-analysis-techniker-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo-356u61"
         ],
         "fr": [
           "qc-analysis-technicien-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo-356u61"
+        ],
+        "en": [
+          "qc-analysis-technician-ibsa-institut-biochimique-6912-working-area-356u61"
         ]
       },
       "previousSlugs": [
         "qc-analysis-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo",
         "qc-analysis-techniker-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo-356u61",
-        "qc-analysis-technicien-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo-356u61"
+        "qc-analysis-technicien-ibsa-institut-biochimique-all-area-all-clear-apply-now-qc-analysis-technician-location-lugano-pazzallo-356u61",
+        "qc-analysis-technician-ibsa-institut-biochimique-6912-working-area",
+        "qc-analysis-technician-ibsa-institut-biochimique-6912-working-area-356u61"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -465,14 +483,15 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "6912"
+      "postalCode": "6912",
+      "needsRetranslation": true
     },
     {
       "id": "company-bm0ep4",
       "slug": "cmo-manager-e-i-fornitori-il-ruolo-prevede-il-coordinamento-di-un-team-di-4-persone-svizzera-e-italia-e-una-costante-interazione-con-stakeho-bm0ep4",
       "company": "IBSA Institut Biochimique",
       "title": "CMO Manager",
-      "location": "Grancia",
+      "location": "6916 Working Area",
       "canton": "TI",
       "category": "sales",
       "contract": "temporary",
@@ -490,7 +509,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-07-27T13:00:43.799Z",
+      "crawledAt": "2026-07-27T22:20:29.380Z",
       "firstSeenAt": "2026-07-06T22:20:40.267Z",
       "slugByLocale": {
         "it": "cmo-manager-e-i-fornitori-il-ruolo-prevede-il-coordinamento-di-un-team-di-4-persone-svizzera-e-italia-e-una-costante-interazione-con-stakeho-bm0ep4",
@@ -539,14 +558,15 @@
       "previousSlugs": [
         "cmo-manager-ibsa-institut-biochimique-grancia-bm0ep4",
         "responsabile-cmo-ibsa-institut-biochimique-grancia"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-u7vkyi",
       "slug": "clinical-ricerca-officer-e-il-mantenimento-del-trial-master-file-tmf-attraverso-la-gestione-e-l-archiviazione-della-documentazione-di-studio-u7vkyi",
       "company": "IBSA Institut Biochimique",
       "title": "Clinical Research Officer",
-      "location": "Collina d'Oro",
+      "location": "6926 Working Area",
       "canton": "TI",
       "category": "finance",
       "contract": "internship",
@@ -566,7 +586,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-07-27T13:00:43.799Z",
+      "crawledAt": "2026-07-27T22:20:29.380Z",
       "firstSeenAt": "2026-07-06T22:20:40.267Z",
       "slugByLocale": {
         "it": "clinical-ricerca-officer-e-il-mantenimento-del-trial-master-file-tmf-attraverso-la-gestione-e-l-archiviazione-della-documentazione-di-studio-u7vkyi",
@@ -612,98 +632,15 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "6500"
-    },
-    {
-      "id": "company-24q2ge",
-      "slug": "dossier-compliance-specialista-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge",
-      "company": "IBSA Institut Biochimique",
-      "title": "Dossier Compliance Specialist",
-      "location": "Collina d",
-      "canton": "TI",
-      "category": "other",
-      "contract": "internship",
-      "currency": "CHF",
-      "description": "Responsabilità principali\n\n- Aggiornare, mantenere e gestire la documentazione QC e i dossier di qualità\n\n- Verificare la conformità della documentazione rispetto a procedure interne, linee guida regolatorie e farmacopee\n\n- Supportare il team Quality Control nella raccolta, verifica e consolidamento delle informazioni tecniche\n\n- Applicare strumenti statistici a supporto delle attività di analisi e revisione documentale\n\n- Collaborare con le funzioni coinvolte per garantire coerenza e tracciabilità della documentazione di qualità\n\nRequisiti\n\n- Conoscenza dei prodotti farmaceutici dal punto di vista analitico, di processo produttivo e delle specifiche\n(preferenziale esperienza su prodotti sterili/iniettabili)\n\n- Familiarità con dossier e procedure regolatorie, linee guida e farmacopee\n\n- Competenze di base in ambito statistico\n\n- Esperienza nella redazione e gestione di documentazione tecnica\n\n- Preferibile esperienza pregressa in laboratorio chimico\n\n- Conoscenza di sistemi gestionali in ambito farmaceutico (es. ERP, LIMS, QMS)\n\n- Precisione, flessibilità e predisposizione al lavoro in team",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-06-09",
-      "url": "https://career.ibsagroup.com/job/Collina-d'Oro-Dossier-Compliance-Specialist-TI-6926/1354804755/",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "ibsa-institut-biochimique",
-      "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-07-27T13:00:43.799Z",
-      "firstSeenAt": "2026-07-06T22:20:40.267Z",
-      "titleByLocale": {
-        "it": "Dossier Compliance Specialista",
-        "en": "Dossier Compliance Specialist",
-        "de": "Dossier Compliance Spezialist",
-        "fr": "Dossier Compliance Spécialiste"
-      },
-      "descriptionByLocale": {
-        "it": "Responsabilità principali - Aggiornare, mantenere e gestire la documentazione QC e i dossier di qualità - Verificare la conformità della documentazione rispetto a procedure interne, linee guida regolatorie e farmacopee - Supportare il team Quality Control nella raccolta, verifica e consolidamento delle informazioni tecniche - Applicare strumenti statistici a supporto delle attività di analisi e revisione documentale - Collaborare con le funzioni coinvolte per garantire coerenza e tracciabilità della documentazione di qualità\n• Requisiti - Conoscenza dei prodotti farmaceutici dal punto di vista analitico, di processo produttivo e delle specifiche (preferenziale esperienza su prodotti sterili/iniettabili) - Familiarità con dossier e procedure regolatorie, linee guida e farmacopee - Competenze di base in ambito statistico - Esperienza nella redazione e gestione di documentazione tecnica - Preferibile esperienza pregressa in laboratorio chimico - Conoscenza di sistemi gestionali in ambito farmaceutico (es. ERP, LIMS, QMS) - Precisione, flessibilità e predisposizione al lavoro in team",
-        "en": "Main responsibilities\n\n- Update, maintain and manage QC documentation and quality dossiers\n\n- Check documentation compliance with internal procedures, regulatory guidelines and pharmacopee\n\n- Support the Quality Control team in the collection, verification and consolidation of technical information\n\n- Apply statistical tools to support document analysis and review activities\n\n- Collaboration with the functions involved to ensure consistency and traceability of quality documentation\n\nRequirements\n\n- Knowledge of pharmaceutical products from analytical point of view, production process and specifications\n(preferential experience on sterile/injectable products)\n\n- Familiarity with regulatory dossiers and procedures, guidelines and pharmacopee\n\n- Basic statistical skills\n\n- Experience in drafting and managing technical documentation\n\n- Preferable experience in chemical laboratory\n\n- Knowledge of pharmaceutical management systems (e.g. ERP, LIMS, QMS)\n\n- Precision, flexibility and teamwork preparation",
-        "de": "Hauptzuständigkeiten\n\n- Aktualisieren, Pflegen und Verwalten von QC-Dokumentation und Qualitätsdossiers\n\n- Überprüfung der Einhaltung interner Verfahren, regulatorischer Richtlinien und Pharmacopee\n\n- Unterstützung des Qualitätskontrollteams bei der Erfassung, Verifizierung und Konsolidierung technischer Informationen\n\n- Anwendung statistischer Tools zur Unterstützung von Dokumentenanalyse- und -überprüfungsaktivitäten\n\n- Zusammenarbeit mit den beteiligten Funktionen zur Gewährleistung der Konsistenz und Rückverfolgbarkeit der Qualitätsdokumentation\n\nAnforderungen\n\n- Kenntnis der pharmazeutischen Produkte aus analytischer Sicht, Produktionsprozess und Spezifikationen\n(Vorzugserfahrung bei sterilen/injizierbaren Produkten)\n\n- Vertrautheit mit regulatorischen Dossiers und Verfahren, Richtlinien und Pharmacopee\n\n- Statistische Grundkenntnisse\n\n- Erfahrung in der Erstellung und Verwaltung der technischen Dokumentation\n\n- Bevorzugte Erfahrung im Chemielabor\n\n- Kenntnisse in pharmazeutischen Managementsystemen (z.B. ERP, LIMS, QMS)\n\n- Präzision, Flexibilität und Teamworkvorbereitung",
-        "fr": "Principales responsabilités\n\n- Mettre à jour, maintenir et gérer la documentation et les dossiers de qualité du CQ\n\n- Vérifier la conformité des documents avec les procédures internes, les lignes directrices réglementaires et les pharmacopées\n\n- Soutenir l'équipe de contrôle de la qualité dans la collecte, la vérification et la consolidation des informations techniques\n\n- Appliquer des outils statistiques pour appuyer les activités d'analyse et d'examen des documents\n\n- Collaboration avec les fonctions concernées pour assurer la cohérence et la traçabilité des documents de qualité\n\nExigences\n\n- Connaissance des produits pharmaceutiques du point de vue de l'analyse, du processus de production et des spécifications\n(expérience préférentielle sur les produits stériles/injectables)\n\n- Connaissance des dossiers et des procédures réglementaires, des lignes directrices et de la pharmacopée\n\n- Compétences statistiques de base\n\n- Expérience dans la rédaction et la gestion de la documentation technique\n\n- Expérience préférentielle en laboratoire chimique\n\n- Connaissance des systèmes de gestion des produits pharmaceutiques (p. ex. PGI, SGD, SGQ)\n\n- Précision, flexibilité et préparation au travail d'équipe"
-      },
-      "slugByLocale": {
-        "it": "dossier-compliance-specialista-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge",
-        "en": "dossier-compliance-specialist-ibsa-institut-biochimique-collina-d",
-        "de": "dossier-compliance-spezialist-ibsa-institut-biochimique-collina-d",
-        "fr": "dossier-compliance-specialiste-ibsa-institut-biochimique-collina-d"
-      },
-      "requirementsByLocale": {},
-      "sourceLang": "it",
-      "country": "CH",
-      "previousSlugsByLocale": {
-        "it": [
-          "dossier-compliance-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d"
-        ],
-        "en": [
-          "dossier-compliance-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge"
-        ],
-        "de": [
-          "dossier-compliance-spezialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge"
-        ],
-        "fr": [
-          "dossier-compliance-specialiste-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge"
-        ]
-      },
-      "previousSlugs": [
-        "dossier-compliance-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d",
-        "dossier-compliance-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge",
-        "dossier-compliance-spezialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge",
-        "dossier-compliance-specialiste-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Collina d",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "6500"
+      "postalCode": "6500",
+      "needsRetranslation": true
     },
     {
       "id": "company-um2f7f",
       "slug": "industrial-controlling-manager-ibsa-institut-biochimique-6926-working-area",
       "company": "IBSA Institut Biochimique",
       "title": "Industrial Controlling Manager",
-      "location": "Collina",
+      "location": "6926 Working Area",
       "canton": "TI",
       "category": "finance",
       "contract": "internship",
@@ -723,7 +660,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-07-27T13:00:43.799Z",
+      "crawledAt": "2026-07-27T22:20:29.380Z",
       "firstSeenAt": "2026-07-06T22:20:40.267Z",
       "slugByLocale": {
         "de": "industrial-controlling-manager-delle-technical-operations-nella-realizzazione-dei-programmi-di-efficientamento-industriale-responsabilita-co-um2f7f",
@@ -800,7 +737,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "6500"
+      "postalCode": "6500",
+      "needsRetranslation": true
     }
   ]
 }
