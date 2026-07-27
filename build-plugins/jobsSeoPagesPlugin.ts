@@ -11,7 +11,7 @@ import path from 'path';
 import os from 'node:os';
 import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
-import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT } from './constants';
+import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, ROBOTS_INDEX_ENHANCED, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT } from './constants';
 import { buildSimplePage, asyncCssHeadBlock, rootShell, esc as escHtml } from './htmlTemplate';
 import { railGutters } from './shared/railGutters';
 import { buildSeoPageHtml } from './shared/seoPageShell';
@@ -3198,7 +3198,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(title)}</title>
- <meta name="description" content="${esc(clampMetaDescription(description))}">
+ <meta name="description" content="${esc(clampMetaDescription(description))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="article">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
@@ -5022,7 +5022,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(clampMetaDescription(model.description))}">
+ <meta name="description" content="${esc(clampMetaDescription(model.description))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
@@ -5185,7 +5185,7 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(clampMetaDescription(model.description))}">
+ <meta name="description" content="${esc(clampMetaDescription(model.description))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
@@ -5361,7 +5361,7 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(clampMetaDescription(model.description))}">
+ <meta name="description" content="${esc(clampMetaDescription(model.description))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
@@ -5549,7 +5549,7 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(clampMetaDescription(model.description))}">
+ <meta name="description" content="${esc(clampMetaDescription(model.description))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
@@ -5740,7 +5740,7 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(clampMetaDescription(model.description))}">
+ <meta name="description" content="${esc(clampMetaDescription(model.description))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
@@ -6025,7 +6025,7 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(pageTitle)}</title>
- <meta name="description" content="${esc(clampMetaDescription(pageDesc))}">
+ <meta name="description" content="${esc(clampMetaDescription(pageDesc))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
@@ -6252,7 +6252,7 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(clampMetaDescription(model.description))}">
+ <meta name="description" content="${esc(clampMetaDescription(model.description))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
@@ -6420,7 +6420,7 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(clampMetaDescription(model.description))}">
+ <meta name="description" content="${esc(clampMetaDescription(model.description))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
