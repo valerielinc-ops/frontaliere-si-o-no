@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-07-27T12:47:09.759Z",
+  "assembledAt": "2026-07-27T22:11:15.352Z",
   "jobs": [
     {
       "id": "kanton-gr-8ba2e44bad5e",
@@ -9,7 +9,7 @@
         "it": "addetto-a-specializzato-a-in-albergo-gestione-alberghiera-cfp-kantonale-verwaltung-graubunden-landquart",
         "en": "specialist-in-hotel-and-hospitality-management-efz-kantonale-verwaltung-graubunden-landquart",
         "de": "fachmann-frau-hotellerie-hauswirtschaft-efz-kantonale-verwaltung-graubunden-landquart",
-        "fr": "specialiste-en-hotellerie-gestion-hoteliere-cfc-kantonale-verwaltung-graubunden-landquart"
+        "fr": "apprentissage-professionnel-hotelier-efz-kantonale-verwaltung-graubunden-landquart"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/514915/2643/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:47:06.901Z",
+      "crawledAt": "2026-07-27T22:11:12.894Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -84,20 +84,27 @@
       "applicationDeadline": "2026-07-31",
       "previousSlugsByLocale": {
         "de": [
-          "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch"
+          "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch",
+          "fachmann-frau-hotellerie-hauswirtschaft-efz-kantonale-verwaltung-graubunden-landquart"
         ],
         "it": [
-          "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch"
+          "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch",
+          "addetto-a-specializzato-a-in-albergo-gestione-alberghiera-cfp-kantonale-verwaltung-graubunden-landquart"
         ],
         "fr": [
+          "specialiste-en-hotellerie-gestion-hoteliere-cfc-kantonale-verwaltung-graubunden-landquart",
           "apprentissage-professionnel-hotelier-efz-kantonale-verwaltung-graubunden-landquart"
         ]
       },
       "previousSlugs": [
         "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch",
+        "specialiste-en-hotellerie-gestion-hoteliere-cfc-kantonale-verwaltung-graubunden-landquart",
+        "fachmann-frau-hotellerie-hauswirtschaft-efz-kantonale-verwaltung-graubunden-landquart",
+        "addetto-a-specializzato-a-in-albergo-gestione-alberghiera-cfp-kantonale-verwaltung-graubunden-landquart",
         "apprentissage-professionnel-hotelier-efz-kantonale-verwaltung-graubunden-landquart"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -143,7 +150,7 @@
       "url": "https://apply.refline.ch/514915/2438/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:47:06.281Z",
+      "crawledAt": "2026-07-27T22:11:12.210Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -194,16 +201,21 @@
       "applicationDeadline": "2026-07-31",
       "previousSlugsByLocale": {
         "de": [
-          "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
+          "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch",
+          "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kantonale-verwaltung-graubunden-scuol"
         ],
         "it": [
-          "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
+          "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch",
+          "apprendista-meccanico-automobilistico-efz-automobili-kantonale-verwaltung-graubunden-scuol"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
+        "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch",
+        "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kantonale-verwaltung-graubunden-scuol",
+        "apprendista-meccanico-automobilistico-efz-automobili-kantonale-verwaltung-graubunden-scuol"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -249,7 +261,7 @@
       "url": "https://apply.refline.ch/514915/2437/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:47:05.657Z",
+      "crawledAt": "2026-07-27T22:11:11.523Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -300,16 +312,21 @@
       "applicationDeadline": "2026-07-31",
       "previousSlugsByLocale": {
         "de": [
-          "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
+          "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch",
+          "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kantonale-verwaltung-graubunden-scuol"
         ],
         "it": [
-          "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
+          "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch",
+          "apprendista-specializzato-in-automobili-efz-automobili-personali-kantonale-verwaltung-graubunden-scuol"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
+        "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch",
+        "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kantonale-verwaltung-graubunden-scuol",
+        "apprendista-specializzato-in-automobili-efz-automobili-personali-kantonale-verwaltung-graubunden-scuol"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -355,7 +372,7 @@
       "url": "https://apply.refline.ch/514915/2319/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:47:05.038Z",
+      "crawledAt": "2026-07-27T22:11:10.836Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -406,16 +423,21 @@
       "applicationDeadline": "2026-07-31",
       "previousSlugsByLocale": {
         "de": [
-          "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
+          "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch",
+          "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kantonale-verwaltung-graubunden-scuol"
         ],
         "it": [
-          "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
+          "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch",
+          "apprendista-specializzato-in-manutenzione-veicoli-efz-servizio-tecnico-scuol-kantonale-verwaltung-graubunden-scuol"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
+        "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch",
+        "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kantonale-verwaltung-graubunden-scuol",
+        "apprendista-specializzato-in-manutenzione-veicoli-efz-servizio-tecnico-scuol-kantonale-verwaltung-graubunden-scuol"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -461,7 +483,7 @@
       "url": "https://apply.refline.ch/514915/2593/pub/19/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:47:04.413Z",
+      "crawledAt": "2026-07-27T22:11:10.148Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -484,11 +506,13 @@
       "pensum": "100%",
       "previousSlugs": [
         "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kanton-gr-ch",
-        "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis"
+        "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis",
+        "collaboratore-trice-in-betreuungs-e-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kanton-gr-ch"
+          "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kanton-gr-ch",
+          "collaboratore-trice-in-betreuungs-e-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis"
         ],
         "en": [
           "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis"
@@ -543,7 +567,7 @@
       "url": "https://apply.refline.ch/514915/2787/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:47:03.790Z",
+      "crawledAt": "2026-07-27T22:11:09.463Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -565,11 +589,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch"
+        "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch",
+        "candidato-a-in-riqualificazione-in-come-bauleiter-in-im-bezirk-3-kantonale-verwaltung-graubunden-samedan"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch"
+          "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch",
+          "candidato-a-in-riqualificazione-in-come-bauleiter-in-im-bezirk-3-kantonale-verwaltung-graubunden-samedan"
         ],
         "en": [
           "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch"
@@ -624,7 +650,7 @@
       "url": "https://apply.refline.ch/514915/2790/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:47:03.168Z",
+      "crawledAt": "2026-07-27T22:11:08.765Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -647,12 +673,14 @@
       "pensum": "80%",
       "previousSlugs": [
         "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kanton-gr-ch",
-        "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur"
+        "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur",
+        "specialist-caregivers-riconoscimento-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kanton-gr-ch",
-          "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur"
+          "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur",
+          "specialist-caregivers-riconoscimento-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur"
@@ -662,6 +690,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T12:33:19.361Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -707,7 +736,7 @@
       "url": "https://apply.refline.ch/514915/2783/pub/2/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:47:02.545Z",
+      "crawledAt": "2026-07-27T22:11:08.073Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -730,11 +759,13 @@
       "pensum": "70-100%",
       "previousSlugs": [
         "mitarbeiter-in-forstliche-ausbildung-kanton-gr-ch",
-        "mitarbeiter-in-forstliche-ausbildung-kantonale-verwaltung-graubunden-chur"
+        "mitarbeiter-in-forstliche-ausbildung-kantonale-verwaltung-graubunden-chur",
+        "collaboratore-trice-in-forstliche-ausbildung-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-forstliche-ausbildung-kanton-gr-ch"
+          "mitarbeiter-in-forstliche-ausbildung-kanton-gr-ch",
+          "collaboratore-trice-in-forstliche-ausbildung-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "mitarbeiter-in-forstliche-ausbildung-kantonale-verwaltung-graubunden-chur"
@@ -744,6 +775,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T12:33:18.692Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -789,7 +821,7 @@
       "url": "https://apply.refline.ch/514915/2757/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:47:01.924Z",
+      "crawledAt": "2026-07-27T22:11:07.386Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -816,7 +848,8 @@
         "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
         "responsabile-amministrativo-kantonale-verwaltung-graubunden-chur",
         "administrative-officer-kantonale-verwaltung-graubunden-chur",
-        "responsable-administratif-kantonale-verwaltung-graubunden-chur"
+        "responsable-administratif-kantonale-verwaltung-graubunden-chur",
+        "persona-responsabile-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -825,7 +858,8 @@
           "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
           "responsabile-amministrativo-kantonale-verwaltung-graubunden-chur",
           "administrative-officer-kantonale-verwaltung-graubunden-chur",
-          "responsable-administratif-kantonale-verwaltung-graubunden-chur"
+          "responsable-administratif-kantonale-verwaltung-graubunden-chur",
+          "persona-responsabile-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
@@ -885,7 +919,7 @@
       "url": "https://apply.refline.ch/514915/2791/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:47:01.301Z",
+      "crawledAt": "2026-07-27T22:11:06.690Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -908,11 +942,13 @@
       "pensum": "60%",
       "previousSlugs": [
         "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch",
-        "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur"
+        "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur",
+        "wissenschaftliche-r-collaboratore-trice-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch"
+          "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch",
+          "wissenschaftliche-r-collaboratore-trice-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur"
@@ -967,7 +1003,7 @@
       "url": "https://apply.refline.ch/514915/2789/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:47:00.678Z",
+      "crawledAt": "2026-07-27T22:11:06.003Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -995,7 +1031,8 @@
         "ict-supporter-in-kanton-gr-ch",
         "soutien-aux-tic-kantonale-verwaltung-graubunden-chur-0b2e30",
         "supporto-delle-tic-in-kantonale-verwaltung-graubunden-chur-0b2e30",
-        "abteilungsleiter-in-ict-betrieb-kantonale-verwaltung-graubunden-chur"
+        "abteilungsleiter-in-ict-betrieb-kantonale-verwaltung-graubunden-chur",
+        "capo-reparto-in-operazioni-ict-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1005,7 +1042,8 @@
           "ict-supporter-in-kanton-gr-ch",
           "soutien-aux-tic-kantonale-verwaltung-graubunden-chur-0b2e30",
           "supporto-delle-tic-in-kantonale-verwaltung-graubunden-chur-0b2e30",
-          "abteilungsleiter-in-ict-betrieb-kantonale-verwaltung-graubunden-chur"
+          "abteilungsleiter-in-ict-betrieb-kantonale-verwaltung-graubunden-chur",
+          "capo-reparto-in-operazioni-ict-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "ict-supporter-in-kantonale-verwaltung-graubunden-chur",
@@ -1065,7 +1103,7 @@
       "url": "https://apply.refline.ch/514915/2792/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:47:00.055Z",
+      "crawledAt": "2026-07-27T22:11:05.317Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1088,11 +1126,13 @@
       "pensum": "50%",
       "previousSlugs": [
         "sachbearbeiter-in-beitragswesen-und-finanzen-kanton-gr-ch",
-        "sachbearbeiter-in-beitragswesen-und-finanzen-kantonale-verwaltung-graubunden-chur"
+        "sachbearbeiter-in-beitragswesen-und-finanzen-kantonale-verwaltung-graubunden-chur",
+        "sachbearbeiter-in-beitragswesen-e-finanzen-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-beitragswesen-und-finanzen-kanton-gr-ch"
+          "sachbearbeiter-in-beitragswesen-und-finanzen-kanton-gr-ch",
+          "sachbearbeiter-in-beitragswesen-e-finanzen-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "sachbearbeiter-in-beitragswesen-und-finanzen-kantonale-verwaltung-graubunden-chur"
@@ -1102,6 +1142,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T12:33:16.017Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1147,7 +1188,7 @@
       "url": "https://apply.refline.ch/514915/2760/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:46:59.433Z",
+      "crawledAt": "2026-07-27T22:11:04.630Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1170,11 +1211,13 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kanton-gr-ch",
-        "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kantonale-verwaltung-graubunden-chur"
+        "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kantonale-verwaltung-graubunden-chur",
+        "zeichner-konstrukteur-in-specializzazione-strassenprojektierung-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kanton-gr-ch"
+          "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kanton-gr-ch",
+          "zeichner-konstrukteur-in-specializzazione-strassenprojektierung-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kantonale-verwaltung-graubunden-chur"
@@ -1229,7 +1272,7 @@
       "url": "https://apply.refline.ch/514915/2759/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:46:58.812Z",
+      "crawledAt": "2026-07-27T22:11:03.943Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1252,12 +1295,14 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kanton-gr-ch",
-        "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur"
+        "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur",
+        "project-manager-in-esecuzione-sezione-direttore-in-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kanton-gr-ch",
-          "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur"
+          "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur",
+          "project-manager-in-esecuzione-sezione-direttore-in-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur"
@@ -1267,6 +1312,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T12:36:37.849Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1312,7 +1358,7 @@
       "url": "https://apply.refline.ch/514915/2780/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:46:58.187Z",
+      "crawledAt": "2026-07-27T22:11:03.257Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1334,11 +1380,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "sozialarbeiter-in-oder-sozialpadagoge-in-kanton-gr-ch"
+        "sozialarbeiter-in-oder-sozialpadagoge-in-kanton-gr-ch",
+        "sozialarbeiter-in-o-sozialpadagoge-in-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-oder-sozialpadagoge-in-kanton-gr-ch"
+          "sozialarbeiter-in-oder-sozialpadagoge-in-kanton-gr-ch",
+          "sozialarbeiter-in-o-sozialpadagoge-in-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "sozialarbeiter-in-oder-sozialpadagoge-in-kanton-gr-ch"
@@ -1348,6 +1396,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T12:36:37.170Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1393,7 +1442,7 @@
       "url": "https://apply.refline.ch/514915/2779/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:46:57.564Z",
+      "crawledAt": "2026-07-27T22:11:02.571Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1415,11 +1464,13 @@
       "pensumMax": 80,
       "pensum": "60-80%",
       "previousSlugs": [
-        "sekretar-in-kanton-gr-ch"
+        "sekretar-in-kanton-gr-ch",
+        "segretario-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sekretar-in-kanton-gr-ch"
+          "sekretar-in-kanton-gr-ch",
+          "segretario-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "sekretar-in-kanton-gr-ch"
@@ -1474,7 +1525,7 @@
       "url": "https://apply.refline.ch/514915/2736/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:46:56.940Z",
+      "crawledAt": "2026-07-27T22:11:01.885Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1497,12 +1548,14 @@
       "pensum": "60%",
       "previousSlugs": [
         "assistent-in-generalsekretar-kanton-gr-ch",
-        "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur"
+        "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur",
+        "segretario-aggiunto-generale-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-generalsekretar-kanton-gr-ch",
-          "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur"
+          "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur",
+          "segretario-aggiunto-generale-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur"
@@ -1512,6 +1565,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T12:36:35.117Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1557,7 +1611,7 @@
       "url": "https://apply.refline.ch/514915/2784/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:46:56.316Z",
+      "crawledAt": "2026-07-27T22:11:01.199Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1579,11 +1633,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "werkmeister-in-arbeitsagogin-arbeitsagoge-kanton-gr-ch"
+        "werkmeister-in-arbeitsagogin-arbeitsagoge-kanton-gr-ch",
+        "maestro-operaio-attore-di-lavoro-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "werkmeister-in-arbeitsagogin-arbeitsagoge-kanton-gr-ch"
+          "werkmeister-in-arbeitsagogin-arbeitsagoge-kanton-gr-ch",
+          "maestro-operaio-attore-di-lavoro-kantonale-verwaltung-graubunden-cazis"
         ],
         "en": [
           "werkmeister-in-arbeitsagogin-arbeitsagoge-kanton-gr-ch"
@@ -1638,7 +1694,7 @@
       "url": "https://apply.refline.ch/514915/2782/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:46:55.692Z",
+      "crawledAt": "2026-07-27T22:11:00.512Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1660,11 +1716,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "teamleiter-in-sicherheit-kanton-gr-ch"
+        "teamleiter-in-sicherheit-kanton-gr-ch",
+        "team-leader-sicurezza-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-sicherheit-kanton-gr-ch"
+          "teamleiter-in-sicherheit-kanton-gr-ch",
+          "team-leader-sicurezza-kantonale-verwaltung-graubunden-cazis"
         ],
         "en": [
           "teamleiter-in-sicherheit-kanton-gr-ch"
@@ -1674,6 +1732,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T12:36:33.758Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1719,7 +1778,7 @@
       "url": "https://apply.refline.ch/514915/2785/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:46:55.061Z",
+      "crawledAt": "2026-07-27T22:10:59.825Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1743,13 +1802,15 @@
       "previousSlugs": [
         "assistente-sociale-kantonale-verwaltung-graubunden-cazis",
         "sozialarbeiter-in-kanton-gr-ch",
-        "sozialarbeiter-in-kanton-gr-ch-2"
+        "sozialarbeiter-in-kanton-gr-ch-2",
+        "lavoratore-sociale-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-sociale-kantonale-verwaltung-graubunden-cazis",
           "sozialarbeiter-in-kanton-gr-ch",
-          "sozialarbeiter-in-kanton-gr-ch-2"
+          "sozialarbeiter-in-kanton-gr-ch-2",
+          "lavoratore-sociale-kantonale-verwaltung-graubunden-cazis"
         ],
         "en": [
           "sozialarbeiter-in-kanton-gr-ch-2"
@@ -1804,7 +1865,7 @@
       "url": "https://apply.refline.ch/514915/2786/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:46:54.429Z",
+      "crawledAt": "2026-07-27T22:10:59.139Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1826,11 +1887,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "teamleiter-in-administration-kanton-gr-ch"
+        "teamleiter-in-administration-kanton-gr-ch",
+        "leader-in-amministrazione-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-administration-kanton-gr-ch"
+          "teamleiter-in-administration-kanton-gr-ch",
+          "leader-in-amministrazione-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "teamleiter-in-administration-kanton-gr-ch"
@@ -1885,7 +1948,7 @@
       "url": "https://apply.refline.ch/514915/2709/pub/11/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:46:53.806Z",
+      "crawledAt": "2026-07-27T22:10:58.450Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1908,12 +1971,14 @@
       "pensum": "50%",
       "previousSlugs": [
         "projektkoordinator-in-facility-management-kanton-gr-ch",
-        "projektkoordinator-in-facility-management-kantonale-verwaltung-graubunden-chur"
+        "projektkoordinator-in-facility-management-kantonale-verwaltung-graubunden-chur",
+        "coordinatore-del-progetto-in-gestione-delle-strutture-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektkoordinator-in-facility-management-kanton-gr-ch",
-          "projektkoordinator-in-facility-management-kantonale-verwaltung-graubunden-chur"
+          "projektkoordinator-in-facility-management-kantonale-verwaltung-graubunden-chur",
+          "coordinatore-del-progetto-in-gestione-delle-strutture-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "projektkoordinator-in-facility-management-kantonale-verwaltung-graubunden-chur"
@@ -1951,7 +2016,7 @@
       "companyDomain": "gr.ch",
       "title": "Strassenwart/-in",
       "titleByLocale": {
-        "it": "Streetkeeper/in",
+        "it": "Strassenwart/-in",
         "en": "Road Maintenance Worker",
         "de": "Strassenwart/-in",
         "fr": "Agent de Maintenance Routière"
@@ -1968,7 +2033,7 @@
       "url": "https://apply.refline.ch/514915/2754/pub/4/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:46:53.160Z",
+      "crawledAt": "2026-07-27T22:10:57.762Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1995,13 +2060,15 @@
         "streetkeeper-in-kantonale-verwaltung-graubunden-thusis",
         "gardien-de-rue-in-kantonale-verwaltung-graubunden-thusis",
         "road-maintenance-officer-kantonale-verwaltung-graubunden-thusis",
-        "road-maintenance-in-kantonale-verwaltung-graubunden-thusis"
+        "road-maintenance-in-kantonale-verwaltung-graubunden-thusis",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-thusis-f3e3c1"
       ],
       "previousSlugsByLocale": {
         "it": [
           "strassenwart-in-kanton-gr-ch",
           "strassenwart-in-kantonale-verwaltung-graubunden-thusis",
-          "road-maintenance-in-kantonale-verwaltung-graubunden-thusis"
+          "road-maintenance-in-kantonale-verwaltung-graubunden-thusis",
+          "streetkeeper-in-kantonale-verwaltung-graubunden-thusis-f3e3c1"
         ],
         "en": [
           "strassenwart-in-kanton-gr-ch",
@@ -2013,6 +2080,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:21:06.855Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2058,7 +2126,7 @@
       "url": "https://apply.refline.ch/514915/2758/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:46:52.528Z",
+      "crawledAt": "2026-07-27T22:10:56.194Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2081,11 +2149,13 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "projektleiter-in-biodiversitat-und-landschaftsqualitat-kanton-gr-ch",
-        "projektleiter-in-biodiversitat-und-landschaftsqualitat-kantonale-verwaltung-graubunden-chur"
+        "projektleiter-in-biodiversitat-und-landschaftsqualitat-kantonale-verwaltung-graubunden-chur",
+        "projektleiter-in-biodiversitat-e-landschaftsqualitat-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-biodiversitat-und-landschaftsqualitat-kanton-gr-ch"
+          "projektleiter-in-biodiversitat-und-landschaftsqualitat-kanton-gr-ch",
+          "projektleiter-in-biodiversitat-e-landschaftsqualitat-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "projektleiter-in-biodiversitat-und-landschaftsqualitat-kantonale-verwaltung-graubunden-chur"
@@ -2104,6 +2174,371 @@
           "@type": "QuantitativeValue",
           "minValue": 79000,
           "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "kanton-gr-69754a7e3212",
+      "slug": "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart",
+      "slugByLocale": {
+        "it": "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart",
+        "en": "legal-internship-at-the-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart",
+        "de": "juristisches-praktikum-am-regionalgericht-landquart-kanton-gr-ch",
+        "fr": "stage-juridique-au-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Juristisches Praktikum am Regionalgericht Landquart",
+      "titleByLocale": {
+        "it": "Juristisches Praktikum am Regionalgericht Landquart",
+        "en": "Legal internship at the Regionalgericht Landquart",
+        "de": "Juristisches Praktikum am Regionalgericht Landquart",
+        "fr": "Stage juridique au Regionalgericht Landquart"
+      },
+      "description": "Wir suchen per 01. Januar 2027 eine/-n Rechtspraktikant/-in\n\nAufgaben\n• Rechtliche Abklärungen\n\n• Unterstützung der Richter in der Prozessleitung\n\n• Protokollführung an den Gerichtsverhandlungen\n\n• Verfassen von Entscheiden in den Bereichen des Zivil-, Straf- und Schuldbetreibungs- und Konkursrechts\n\nAnforderungen\n• Abgeschlossenes Studium der Rechtswissenschaften (lic. iur. oder MLaw)\n\n• Interesse an Fragestellungen aus dem Zivil-, Straf-, Zivilprozess- und Strafprozessrecht, Erbrecht sowie am Schuldbetreibungs- und Konkursrecht.\n\n• Vorausgesetzt werden gute fachliche Qualifikationen, selbständiges und genaues Arbeiten sowie Diskretion.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando il 01. Gennaio 2027 un professionista legale Compiti\n• Inchieste legali\n• Assistenza dei giudici nella gestione del processo\n• Verbale delle audizioni\n• Redazione delle decisioni in materia di recupero civile, penale e del debito e diritto fallimentare Requisiti\n• Grado di legge completato (lic. iur. o MLaw)\n• Interessato a questioni relative alla procedura civile, penale, civile e penale, diritto di successione, diritto di riscossione del debito e diritto di fallimento.\n• Sono richieste buone qualifiche professionali, lavoro e discrezione indipendenti e precisi.",
+        "en": "We are looking for 01. January 2027 a legal practitioner Tasks\n• Legal investigations\n• Assistance of judges in the management of the trial\n• Minutes at court hearings\n• Writing of decisions in the fields of civil, criminal and debt recovery and bankruptcy law Requirements\n• Completed law degree (lic. iur. or MLaw)\n• Interested in issues relating to civil, criminal, civil procedure and criminal procedure law, inheritance law as well as debt collection and bankruptcy law.\n• Good professional qualifications, independent and precise work and discretion are required.",
+        "de": "Wir suchen per 01. Januar 2027 eine/-n Rechtspraktikant/-in\n\nAufgaben\n• Rechtliche Abklärungen\n\n• Unterstützung der Richter in der Prozessleitung\n\n• Protokollführung an den Gerichtsverhandlungen\n\n• Verfassen von Entscheiden in den Bereichen des Zivil-, Straf- und Schuldbetreibungs- und Konkursrechts\n\nAnforderungen\n• Abgeschlossenes Studium der Rechtswissenschaften (lic. iur. oder MLaw)\n\n• Interesse an Fragestellungen aus dem Zivil-, Straf-, Zivilprozess- und Strafprozessrecht, Erbrecht sowie am Schuldbetreibungs- und Konkursrecht.\n\n• Vorausgesetzt werden gute fachliche Qualifikationen, selbständiges und genaues Arbeiten sowie Diskretion.",
+        "fr": "Nous cherchons 01. Janvier 2027 un avocat Tâche\n• Enquêtes juridiques\n• Assistance des juges dans la gestion du procès\n• Procès-verbal des audiences\n• Rédaction des décisions dans les domaines du droit civil, pénal, du recouvrement des créances et de la faillite Exigences\n• Diplôme de droit (licence ou maîtrise de droit)\n• Intéressé par les questions relatives au droit civil, pénal, de procédure civile et de procédure pénale, au droit successoral ainsi qu'au droit du recouvrement des créances et de la faillite.\n• De bonnes qualifications professionnelles, un travail indépendant et précis et une discrétion sont nécessaires."
+      },
+      "location": "Landquart",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2749/pub/1/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-27T22:10:55.507Z",
+      "addressLocality": "Landquart",
+      "postalCode": "7302",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Legale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-02",
+      "applyUrl": "https://apply.refline.ch/514915/2749/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Regionalgericht Landquart",
+      "applicationDeadline": "2026-07-31",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "previousSlugs": [
+        "juristisches-praktikum-am-regionalgericht-landquart-kanton-gr-ch",
+        "tirocinio-legale-presso-il-tribunale-regionale-di-landquart-kantonale-verwaltung-graubunden-landquart",
+        "stage-giuridico-presso-il-landgericht-kantonale-verwaltung-graubunden-landquart",
+        "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "juristisches-praktikum-am-regionalgericht-landquart-kanton-gr-ch",
+          "tirocinio-legale-presso-il-tribunale-regionale-di-landquart-kantonale-verwaltung-graubunden-landquart",
+          "stage-giuridico-presso-il-landgericht-kantonale-verwaltung-graubunden-landquart",
+          "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart"
+        ]
+      },
+      "firstSeenAt": "2026-07-02T11:34:12.050Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "kanton-gr-e513b4e066db",
+      "slug": "assistenza-trasformazione-digitale-kantonale-verwaltung-graubunden-chur",
+      "slugByLocale": {
+        "it": "assistenza-trasformazione-digitale-kantonale-verwaltung-graubunden-chur",
+        "en": "assistance-digital-transformation-kantonale-verwaltung-graubunden-chur",
+        "de": "assistenz-digitale-transformation-kanton-gr-ch",
+        "fr": "aide-a-la-transformation-numerique-kantonale-verwaltung-graubunden-chur"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Assistenz digitale Transformation",
+      "titleByLocale": {
+        "it": "Assistenza trasformazione digitale",
+        "en": "Assistance digital transformation",
+        "de": "Assistenz digitale Transformation",
+        "fr": "Aide à la transformation numérique"
+      },
+      "description": "Wenn es um die Themen Digitalisierung und digitale Transformation in der Kantonalen Verwaltung geht, ist die Stabsstelle Digitale Verwaltung Dreh- und Angelpunkt. Wir arbeiten eng mit dem Amt für Informatik, dem Personalamt und den Dienststellen der Verwaltung zusammen.\n\nAufgaben\n• Du unterstützt unser Team bei administrativen und organisatorischen Aufgaben und sorgst damit für einen reibungslosen Ablauf im Arbeitsalltag.\n\n• Du wirkst bei der Planung, Koordination und Durchführung von Online-Veranstaltungen und Anlässen vor Ort mit und bringst deine Ideen aktiv ein.\n\n• Du gestaltest unsere interne und externe Kommunikation mit und übernimmst Aufgaben wie die Erstellung von Newslettern sowie die Pflege unserer Internet- und Intranetseiten.\n\n• Du bringst deine Kreativität ein und entwickelst ansprechende Präsentationen, die unsere Inhalte wirkungsvoll vermitteln.\n\n• Du hältst unsere Digitalisierungsprojekte fest und erstellst inspirierende Best-Practice-Beispiele in Form von Texten, Bildern und Videos.\n\nAnforderungen\n• Du verfügst über eine kaufmännische Ausbildung, eine abgeschlossene gymnasiale Matura oder eine vergleichbare Qualifikation und bringst Interesse an vielseitigen Aufgaben mit.\n\n• Du kommunizierst stilsicher auf Deutsch – sowohl mündlich als auch schriftlich. Kenntnisse in Romanisch und Italienisch sind von Vorteil.\n\n• Du bist versiert im Umgang mit MS Office-Programmen respektive M365 und setzt die gängigen Anwendungen sicher und effizient ein.\n\n• Idealerweise bringst du bereits Erfahrung mit Video- und Grafikprogrammen mit und hast Freude daran, kreative Inhalte zu gestalten.\n\n• Du überzeugst durch dein Organisationstalent, behältst auch bei mehreren Aufgaben den Überblick und setzt Prioritäten geschickt.\n\n• Du zeichnest dich durch Eigeninitiative, Verantwortungsbewusstsein, eine ausgeprägte Dienstleistungsorientierung und Flexibilität aus.",
+      "descriptionByLocale": {
+        "it": "Per quanto riguarda i temi della digitalizzazione e della trasformazione digitale nell'amministrazione cantonale, l'Ufficio per l'Amministrazione digitale è il pilastro. Lavoriamo a stretto contatto con l'Ufficio Informatico, l'Ufficio del Personale e i servizi di amministrazione. Compiti\n• Supporti il nostro team con compiti amministrativi e organizzativi e garantisci così una giornata di lavoro fluida.\n• Contribuisci alla pianificazione, al coordinamento e all'implementazione di eventi e eventi online in loco e contribuisci attivamente alle tue idee.\n• Aiuta a plasmare la nostra comunicazione interna ed esterna e ad assumere compiti come la creazione di newsletter e il mantenimento dei nostri siti Internet e intranet.\n• Porti la tua creatività e sviluppi presentazioni coinvolgenti che trasmettono efficacemente i nostri contenuti.\n• È possibile catturare i nostri progetti di digitalizzazione e creare esempi di best practice ispiranti sotto forma di testo, immagini e video. Requisiti\n• Hai una formazione commerciale, una palestra completa o una qualifica paragonabile e sono interessati a una varietà di compiti.\n• Si comunica con stile in tedesco – sia verbalmente che per iscritto. La conoscenza del romanico e dell'italiano è un vantaggio.\n• Sei ben versato nel trattare con programmi MS Office o M365 e utilizzare le applicazioni comuni in modo sicuro ed efficiente.\n• Idealmente, hai già esperienza con i programmi video e grafici e godere di creare contenuti creativi.\n• Convinci con il tuo talento organizzativo, tieni traccia di diversi compiti e imposta le priorità abilmente.\n• Siete caratterizzati dalla vostra iniziativa, dal senso di responsabilità, da un orientamento di servizio pronunciato e dalla flessibilità.",
+        "en": "When it comes to the topics of digitalization and digital transformation in cantonal administration, the Office for Digital Administration is the linchpin. We work closely with the Office of Informatics, the Personnel Office and the administration services. Tasks\n• You support our team with administrative and organizational tasks and thus ensure a smooth workday.\n• You contribute to the planning, coordination and implementation of online events and events on site and actively contribute your ideas.\n• You help shape our internal and external communication and take on tasks such as creating newsletters and maintaining our Internet and intranet sites.\n• You bring your creativity and develop engaging presentations that effectively convey our content.\n• You capture our digitalization projects and create inspiring best practice examples in the form of text, pictures and videos. Requirements\n• You have a commercial education, a completed gymnasium or a comparable qualification and are interested in a variety of tasks.\n• You communicate stylishly in German – both verbally and in writing. Knowledge of Romanesque and Italian is an advantage.\n• You are well versed in dealing with MS Office programs or M365 and use the common applications safely and efficiently.\n• Ideally, you already have experience with video and graphics programs and enjoy creating creative content.\n• You convince with your organizational talent, keep track of several tasks and set priorities skillfully.\n• You are characterized by your own initiative, a sense of responsibility, a pronounced service orientation and flexibility.",
+        "de": "Wenn es um die Themen Digitalisierung und digitale Transformation in der Kantonalen Verwaltung geht, ist die Stabsstelle Digitale Verwaltung Dreh- und Angelpunkt. Wir arbeiten eng mit dem Amt für Informatik, dem Personalamt und den Dienststellen der Verwaltung zusammen.\n\nAufgaben\n• Du unterstützt unser Team bei administrativen und organisatorischen Aufgaben und sorgst damit für einen reibungslosen Ablauf im Arbeitsalltag.\n\n• Du wirkst bei der Planung, Koordination und Durchführung von Online-Veranstaltungen und Anlässen vor Ort mit und bringst deine Ideen aktiv ein.\n\n• Du gestaltest unsere interne und externe Kommunikation mit und übernimmst Aufgaben wie die Erstellung von Newslettern sowie die Pflege unserer Internet- und Intranetseiten.\n\n• Du bringst deine Kreativität ein und entwickelst ansprechende Präsentationen, die unsere Inhalte wirkungsvoll vermitteln.\n\n• Du hältst unsere Digitalisierungsprojekte fest und erstellst inspirierende Best-Practice-Beispiele in Form von Texten, Bildern und Videos.\n\nAnforderungen\n• Du verfügst über eine kaufmännische Ausbildung, eine abgeschlossene gymnasiale Matura oder eine vergleichbare Qualifikation und bringst Interesse an vielseitigen Aufgaben mit.\n\n• Du kommunizierst stilsicher auf Deutsch – sowohl mündlich als auch schriftlich. Kenntnisse in Romanisch und Italienisch sind von Vorteil.\n\n• Du bist versiert im Umgang mit MS Office-Programmen respektive M365 und setzt die gängigen Anwendungen sicher und effizient ein.\n\n• Idealerweise bringst du bereits Erfahrung mit Video- und Grafikprogrammen mit und hast Freude daran, kreative Inhalte zu gestalten.\n\n• Du überzeugst durch dein Organisationstalent, behältst auch bei mehreren Aufgaben den Überblick und setzt Prioritäten geschickt.\n\n• Du zeichnest dich durch Eigeninitiative, Verantwortungsbewusstsein, eine ausgeprägte Dienstleistungsorientierung und Flexibilität aus.",
+        "fr": "En ce qui concerne les thèmes de la numérisation et de la transformation numérique dans l'administration cantonale, l'Office de l'administration numérique est le pivot. Nous travaillons en étroite collaboration avec le Bureau de l'informatique, le Bureau du personnel et les services administratifs. Tâche\n• Vous soutenez notre équipe avec des tâches administratives et organisationnelles et ainsi assurer une journée de travail en douceur.\n• Vous contribuez à la planification, à la coordination et à la mise en oeuvre d'événements et d'événements en ligne sur le site et contribuez activement à vos idées.\n• Vous aidez à façonner notre communication interne et externe et à assumer des tâches telles que créer des bulletins d'information et maintenir nos sites Internet et intranet.\n• Vous apportez votre créativité et développez des présentations engageantes qui transmettent efficacement notre contenu.\n• Vous capturez nos projets de numérisation et créez des exemples inspirants de bonnes pratiques sous forme de texte, d'images et de vidéos. Exigences\n• Vous avez une formation commerciale, un gymnase terminé ou une qualification comparable et êtes intéressé par une variété de tâches.\n• Vous communiquez élégamment en allemand – à la fois verbalement et par écrit. La connaissance du roman et de l'italien est un avantage.\n• Vous êtes bien renseigné dans le traitement des programmes MS Office ou M365 et utiliser les applications communes en toute sécurité et efficacement.\n• Idéalement, vous avez déjà de l'expérience avec les programmes vidéo et graphiques et aimez créer du contenu créatif.\n• Vous convainquez avec votre talent organisationnel, suivez plusieurs tâches et définissez des priorités habilement.\n• Vous êtes caractérisé par votre propre initiative, un sens des responsabilités, une orientation de service prononcée et une flexibilité."
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2746/pub/1/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-27T22:10:54.820Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione Pubblica",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-25",
+      "applyUrl": "https://apply.refline.ch/514915/2746/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Departementssekretariat DFG",
+      "applicationDeadline": "2026-07-31",
+      "pensumMin": 50,
+      "pensumMax": 50,
+      "pensum": "50%",
+      "previousSlugs": [
+        "assistenz-digitale-transformation-kanton-gr-ch",
+        "assistenza-trasformazione-digitale-kantonale-verwaltung-graubunden-chur"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenz-digitale-transformation-kanton-gr-ch",
+          "assistenza-trasformazione-digitale-kantonale-verwaltung-graubunden-chur"
+        ],
+        "en": [
+          "assistenz-digitale-transformation-kanton-gr-ch"
+        ],
+        "fr": [
+          "assistenz-digitale-transformation-kanton-gr-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-25T11:23:53.031Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "kanton-gr-fe139115b82e",
+      "slug": "procedura-di-ordinazione-del-project-manager-kantonale-verwaltung-graubunden-chur",
+      "slugByLocale": {
+        "it": "procedura-di-ordinazione-del-project-manager-kantonale-verwaltung-graubunden-chur",
+        "en": "project-manager-public-transport-ordering-procedure-kantonale-verwaltung-graubunden-chur",
+        "de": "projektleiter-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch",
+        "fr": "gestionnaire-de-projet-procedure-de-commande-des-transports-en-commun-kantonale-verwaltung-graubunden-chur"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Projektleiter/-in Bestellverfahren öffentlicher Verkehr",
+      "titleByLocale": {
+        "it": "Procedura di ordinazione del Project Manager",
+        "en": "Project Manager Public Transport Ordering Procedure",
+        "de": "Projektleiter/-in Bestellverfahren öffentlicher Verkehr",
+        "fr": "Gestionnaire de projet/procédure de commande des transports en commun"
+      },
+      "description": "Das Amt für Energie und Verkehr ist das kantonale Kompetenzzentrum für Fragen in den Bereichen Energie und öffentlicher Verkehr. Im Bereich öffentlicher Verkehr sind wir zuständig für die strategische Planung und die gegenseitige Abstimmung des gesamten öffentlichen Verkehrs im Kanton Graubünden. Wir koordinieren den öffentlichen Verkehr von Bahn und Bus und sind federführend bei der Planung, Projektierung und Verwirklichung von Projekten für einen zukunftsgerichteten öffentlichen Verkehr. Gute Anbindungen an das nationale und internationale Schienennetz wie auch regelmässige und häufige Verbindungen im Regional- und im Agglomerationsverkehr sind für die Erhaltung und Weiterentwicklung des Lebens-, Tourismus- und Wirtschaftsraums Graubünden von zentraler Bedeutung\n\nWir suchen für das Amt für Energie und Verkehr per 1. September 2026 oder nach Vereinbarung eine/n Projektleiter/-in Bestellverfahren öffentlicher Verkehr.\n\nAufgaben\n• Durchführung des Bestellverfahrens für den regionalen öffentlichen Verkehr (RPV) für die Strassentransportdienste im Kanton Graubünden\n\n• Durchführung von Ausschreibungen und Verantwortung für den Abschluss von Zielvereinbarungen mit den Transportunternehmen\n\n• Fachliche Beurteilung von Betriebsmittelgesuchen nach ARPV\n\n• Fachliche Beurteilung von Fördergesuchen\n\n• Betreuung der Tarifverbünde im Kanton Graubünden\n\nAnforderungen\n• Hochschul- oder Fachhochschulabschluss in betriebswirtschaftlicher oder verkehrsplanerischer Richtung\n\n• Interesse an interdisziplinärer Zusammenarbeit, Verhandlungsgeschick und Gewandtheit im Umgang mit Transportunternehmen, Behörden und Verbänden\n\n• Erfahrung bei der selbstständigen Bearbeitung konzeptioneller Fragen\n\n• Mehrjährige Berufserfahrung im Bereich öffentlicher Verkehr von Vorteil\n\n• Stilsichere Beherrschung der deutschen Sprache in Wort und Schrift\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
+      "descriptionByLocale": {
+        "it": "L'Ufficio per l'Energia e i Trasporti è il centro di competenza cantonale per le questioni relative all'energia e ai trasporti pubblici. Nel settore dei trasporti pubblici, siamo responsabili della pianificazione strategica e del coordinamento reciproco di tutti i trasporti pubblici nel Cantone dei Grigioni. Coorfiamo i trasporti pubblici di treni e autobus e siamo responsabili della pianificazione, della progettazione e dell'attuazione di progetti per i trasporti pubblici orientati al futuro. I buoni collegamenti con la rete ferroviaria nazionale e internazionale nonché i collegamenti regolari e frequenti nel traffico regionale e agglomerato sono di fondamentale importanza per il mantenimento e lo sviluppo della vita, del turismo e dell'area economica Grigioni Stiamo cercando l'Ufficio per l'Energia e i Trasporti a 1. Settembre 2026 o d'accordo un responsabile/in procedura di ordinazione dei trasporti pubblici.\n• Attuazione della procedura di ordinazione per i trasporti pubblici regionali (RPV) per i servizi di trasporto stradale nel Cantone dei Grigioni\n• Attuazione delle offerte e responsabilità per la conclusione di accordi di destinazione con le società di trasporto\n• Valutazione tecnica delle domande di materiale operativo secondo ARPV\n• Valutazione tecnica delle domande di finanziamento\n• Supervisione delle associazioni tariffarie nel Cantone dei Grigioni Requisiti\n• Università o università di scienze applicate laurea in amministrazione aziendale o direzione di pianificazione dei trasporti",
+        "en": "The Office for Energy and Transport is the cantonal competence centre for energy and public transport issues. In the area of public transport, we are responsible for the strategic planning and the mutual coordination of all public transport in the Canton of Graubünden. We coordinate the public transport of trains and buses and are responsible for the planning, project planning and implementation of projects for future-oriented public transport. Good connections to the national and international rail network as well as regular and frequent connections in regional and agglomeration traffic are of central importance for the maintenance and further development of the life, tourism and economic area Graubünden We are looking for the Office for Energy and Transport at 1. September 2026 or by agreement a project manager/in public transport ordering procedure. Tasks\n• Implementation of the ordering procedure for regional public transport (RPV) for road transport services in the Canton of Graubünden\n• Implementation of tenders and responsibility for concluding target agreements with the transport companies\n• Technical assessment of applications for operating materials according to ARPV\n• Technical assessment of applications for funding\n• Supervision of the tariff associations in the Canton of Graubünden Requirements\n• University or university of applied sciences degree in business administration or transport planning direction\n• Interest in interdisciplinary cooperation, negotiating skills and skill in dealing with transport companies, authorities and associations\n• Experience in the independent handling of conceptual issues\n• Several years of professional experience in the field of public transport of advantage\n• Style-confident command of the German language in words and writing\n• Good knowledge in several cantonal languages of advantage",
+        "de": "Das Amt für Energie und Verkehr ist das kantonale Kompetenzzentrum für Fragen in den Bereichen Energie und öffentlicher Verkehr. Im Bereich öffentlicher Verkehr sind wir zuständig für die strategische Planung und die gegenseitige Abstimmung des gesamten öffentlichen Verkehrs im Kanton Graubünden. Wir koordinieren den öffentlichen Verkehr von Bahn und Bus und sind federführend bei der Planung, Projektierung und Verwirklichung von Projekten für einen zukunftsgerichteten öffentlichen Verkehr. Gute Anbindungen an das nationale und internationale Schienennetz wie auch regelmässige und häufige Verbindungen im Regional- und im Agglomerationsverkehr sind für die Erhaltung und Weiterentwicklung des Lebens-, Tourismus- und Wirtschaftsraums Graubünden von zentraler Bedeutung\n\nWir suchen für das Amt für Energie und Verkehr per 1. September 2026 oder nach Vereinbarung eine/n Projektleiter/-in Bestellverfahren öffentlicher Verkehr.\n\nAufgaben\n• Durchführung des Bestellverfahrens für den regionalen öffentlichen Verkehr (RPV) für die Strassentransportdienste im Kanton Graubünden\n\n• Durchführung von Ausschreibungen und Verantwortung für den Abschluss von Zielvereinbarungen mit den Transportunternehmen\n\n• Fachliche Beurteilung von Betriebsmittelgesuchen nach ARPV\n\n• Fachliche Beurteilung von Fördergesuchen\n\n• Betreuung der Tarifverbünde im Kanton Graubünden\n\nAnforderungen\n• Hochschul- oder Fachhochschulabschluss in betriebswirtschaftlicher oder verkehrsplanerischer Richtung\n\n• Interesse an interdisziplinärer Zusammenarbeit, Verhandlungsgeschick und Gewandtheit im Umgang mit Transportunternehmen, Behörden und Verbänden\n\n• Erfahrung bei der selbstständigen Bearbeitung konzeptioneller Fragen\n\n• Mehrjährige Berufserfahrung im Bereich öffentlicher Verkehr von Vorteil\n\n• Stilsichere Beherrschung der deutschen Sprache in Wort und Schrift\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
+        "fr": "L'Office de l'énergie et des transports est le centre cantonal de compétence en matière d'énergie et de transports publics. Dans le domaine des transports publics, nous sommes responsables de la planification stratégique et de la coordination mutuelle de tous les transports publics dans le canton des Grisons. Nous coordonnons les transports publics de trains et d'autobus et sommes responsables de la planification, de la planification de projets et de la mise en œuvre de projets de transports publics orientés vers l'avenir. De bonnes liaisons avec le réseau ferroviaire national et international ainsi que des liaisons régulières et fréquentes dans le trafic régional et d'agglomération sont d'une importance capitale pour l'entretien et le développement de la vie, du tourisme et de la zone économique Graubünden Nous cherchons l'Office de l'énergie et des transports à 1. Septembre 2026 ou par accord un gestionnaire de projet/dans la procédure de commande des transports publics. Tâches\n• Mise en oeuvre de la procédure de commande des transports publics régionaux (RPV) pour les services de transport routier dans le canton des Grisons\n• Mise en oeuvre des appels d'offres et responsabilité de la conclusion d'accords cibles avec les entreprises de transport\n• Évaluation technique des demandes de matériaux d'exploitation selon ARPV\n• Évaluation technique des demandes de financement\n• Surveillance des associations tarifaires dans le canton des Grisons\n• Exigences de l'université ou de l'université des sciences appliquées en administration des entreprises ou direction de la planification des transports\n• Intérêt pour la coopération interdisciplinaire, les compétences de négociation et les compétences dans le traitement des entreprises, des autorités et des associations de transport\n• Expérience dans le traitement indépendant des questions conceptuelles\n• Plusieurs années d'expérience professionnelle dans le domaine des transports publics d'avantage\n• Style-confidentialité de la langue allemande en paroles et en écriture\n• Bonne connaissance dans plusieurs langues cantonales d'avantage"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2681/pub/10/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-27T22:10:54.130Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-19",
+      "applyUrl": "https://apply.refline.ch/514915/2681/pub/10/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Amt für Energie und Verkehr",
+      "applicationDeadline": "2026-08-02",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80-100%",
+      "previousSlugs": [
+        "projektleiter-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch",
+        "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur",
+        "procedura-di-ordinazione-del-project-manager-kantonale-verwaltung-graubunden-chur"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch",
+          "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur",
+          "procedura-di-ordinazione-del-project-manager-kantonale-verwaltung-graubunden-chur"
+        ],
+        "en": [
+          "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
+        ],
+        "fr": [
+          "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
+        ]
+      },
+      "firstSeenAt": "2026-06-19T12:48:18.540Z",
+      "needsRetranslation": true,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "kanton-gr-1a4dadc055e0",
+      "slug": "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur",
+      "slugByLocale": {
+        "it": "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur",
+        "en": "become-a-police-officer-at-kapo-gr-kantonale-verwaltung-graubunden-chur",
+        "de": "werde-polizist-in-bei-der-kapo-gr-kantonale-verwaltung-graubunden-chur",
+        "fr": "devenez-policier-policiere-chez-kapo-gr-kantonale-verwaltung-graubunden-chur"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Werde Polizist/-in bei der Kapo GR",
+      "titleByLocale": {
+        "it": "Diventa agente di polizia a Kapo GR",
+        "en": "Become a police officer at Kapo GR",
+        "de": "Werde Polizist/-in bei der Kapo GR",
+        "fr": "Devenez policier à Kapo GR"
+      },
+      "description": "Die Kantonale Verwaltung – eine moderne Arbeitgeberin für motivierte Mitarbeitende wie dich. Nicht jeder Tag ist gleich, aber jeden Tag trägst du zur Sicherheit in Graubünden bei. Bewirb dich für die nächste 2-jährige Polizeiausbildung und werde Polizistin oder Polizist mit eidg. Fachausweis bei der Kantonspolizei Graubünden.\n\nAufgaben\nDu sorgst für Sicherheit im vielfältigsten Kanton, für Bewohnerinnen und Bewohner, für Feriengäste, Kongressteilnehmende und Durchreisende, Ruhe und Ordnung für alle. Bei uns steht immer der Mensch im Zentrum, ob Grundversorgung oder Spezialdienst – dir stehen Tür und Tor offen – www.kapo.gr.ch\n\nAnforderungen\n• Schweizer Bürgerrecht oder Niederlassungsbewilligung (C-Bewilligung ist mit der Bewerbung einzureichen)\n\n• Alter ab 20\n\n• Abgeschlossene Berufsausbildung mit eidgenössischem Fähigkeitszeugnis, gymnasiale Maturität, Fachmaturität oder gleichwertige Qualifikationen\n\n• Einwandfreier Leumund\n\n• Hohe Selbst- und Sozialkompetenz, bürgerfreundliche Einstellung\n\n• Führerausweis Kat. B\n\n• EDV-Anwenderkenntnisse (Microsoft Office)\n\n• Gute Gesundheit, psychische und physische Belastbarkeit\n\n• Erfolgreich absolvierter Eignungstest (www.werdepolizist.ch)\nDaten Eignungstest: 14. März 2026, 20. Juni 2026 und 10. Oktober 2026",
+      "descriptionByLocale": {
+        "it": "L'amministrazione cantonale – un datore di lavoro moderno per dipendenti motivati come te. Non ogni giorno è lo stesso, ma ogni giorno contribuisce alla sicurezza dei Grigioni. Applicare per il prossimo addestramento di polizia di 2 anni e diventare una poliziotta con un documento federale professionale presso la polizia cantonale Grigioni. Fornite sicurezza nel cantone più vario, per i residenti, per i turisti, i partecipanti al congresso e i passeggeri di transito, la pace e l'ordine per tutti. Con noi, il focus è sempre sulla persona, se la cura primaria o servizio speciale – la porta è aperta a voi – www.kapo.gr.ch Requisiti\n• permesso svizzero di soggiorno o di soggiorno (il permesso C deve essere presentato con la domanda)\n• Età da 20\n• Formazione professionale completata con un certificato federale di abilità, maturità scolastica, maturità specialistica o qualifiche equivalenti\n• Buona reputazione\n• Alta competenza mentale e social, atteggiamento cittadino-friendly\n• Patente di guida Cat. Test di attitudine dei dati: 14 marzo 2026, 20 giugno 2026 e 10 ottobre 2026",
+        "en": "The Cantonal Administration – a modern employer for motivated employees like you. Not every day is the same, but every day you contribute to the safety in Graubünden. Apply for the next 2-year police training and become a policewoman with a Federal Professional ID at the Cantonal Police Graubünden. You provide security in the most diverse canton, for residents, for holidaymakers, congress participants and transit passengers, peace and order for everyone. With us, the focus is always on the person, whether primary care or special service – the door is open to you – www.kapo.gr.ch Requirements\n• Swiss citizenship or settlement permit (C permit must be submitted with the application)\n• Age from 20\n• Completed vocational training with a federal certificate of ability, high school maturity, specialist maturity or equivalent qualifications\n• Good repute\n• High self- and social competence, citizen-friendly attitude\n• Driver’s license Cat. B\n• Computer user knowledge (Microsoft Office)\n• Good health, mental and physical resilience\n• Successfully completed aptitude test (www.werdepolizist.ch) Data aptitude test: 14. March 2026, 20. June 2026 and 10 October 2026",
+        "de": "Die Kantonale Verwaltung – eine moderne Arbeitgeberin für motivierte Mitarbeitende wie dich. Nicht jeder Tag ist gleich, aber jeden Tag trägst du zur Sicherheit in Graubünden bei. Bewirb dich für die nächste 2-jährige Polizeiausbildung und werde Polizistin oder Polizist mit eidg. Fachausweis bei der Kantonspolizei Graubünden.\n\nAufgaben\nDu sorgst für Sicherheit im vielfältigsten Kanton, für Bewohnerinnen und Bewohner, für Feriengäste, Kongressteilnehmende und Durchreisende, Ruhe und Ordnung für alle. Bei uns steht immer der Mensch im Zentrum, ob Grundversorgung oder Spezialdienst – dir stehen Tür und Tor offen – www.kapo.gr.ch\n\nAnforderungen\n• Schweizer Bürgerrecht oder Niederlassungsbewilligung (C-Bewilligung ist mit der Bewerbung einzureichen)\n\n• Alter ab 20\n\n• Abgeschlossene Berufsausbildung mit eidgenössischem Fähigkeitszeugnis, gymnasiale Maturität, Fachmaturität oder gleichwertige Qualifikationen\n\n• Einwandfreier Leumund\n\n• Hohe Selbst- und Sozialkompetenz, bürgerfreundliche Einstellung\n\n• Führerausweis Kat. B\n\n• EDV-Anwenderkenntnisse (Microsoft Office)\n\n• Gute Gesundheit, psychische und physische Belastbarkeit\n\n• Erfolgreich absolvierter Eignungstest (www.werdepolizist.ch)\nDaten Eignungstest: 14. März 2026, 20. Juni 2026 und 10. Oktober 2026",
+        "fr": "L'Administration cantonale – un employeur moderne pour les employés motivés comme vous. Pas tous les jours, mais tous les jours, vous contribuez à la sécurité à Graubünden. Postulez à la formation policière de 2 ans et devenez policier avec une carte d'identité professionnelle fédérale à la Police cantonale Graubünden. Vous assurez la sécurité dans le canton le plus diversifié, pour les résidents, pour les vacanciers, les participants au congrès et les passagers de transit, la paix et l'ordre pour tous. Avec nous, l'accent est toujours mis sur la personne, qu'il s'agisse de soins primaires ou de services spéciaux – la porte est ouverte à vous – www.kapo.gr.ch Exigences\n• Citoyenneté suisse ou permis d'établissement (le permis C doit être soumis avec la demande)\n• Âge à partir de 20 ans\n• Formation professionnelle complète avec un certificat fédéral d'aptitude, de maturité d'études secondaires, de maturité spécialisée ou de qualifications équivalentes\n• Bonne réputation\n• Haute compétence sociale et auto- compétente, attitude conviviale\n• Licence de conducteur Cat. B\n• Connaissance de l'utilisateur informatique (Microsoft Office)\n• Bonne santé, résilience mentale et physique\n• Test d'aptitude réussi (www.werdepolizist.ch) Test d'aptitude aux données : 14 mars 2026, 20 juin 2026 et 10 octobre 2026"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/0912/pub/41/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-27T22:10:53.420Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sicurezza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-27",
+      "applyUrl": "https://apply.refline.ch/514915/0912/pub/41/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Cittadinanza svizzera o permesso di soggiorno",
+          "Età a partire da 20 anni",
+          "Formazione professionale completata con certificato di capacità federale",
+          "Reputazione immacolata",
+          "Alta competenza sociale e di sé",
+          "Possesso di patente di guida categoria B",
+          "Conoscenze di base di informatica (Microsoft Office)",
+          "Buona salute, resistenza psicologica e fisica"
+        ],
+        "en": [
+          "Swiss citizenship or residence permit",
+          "Age from 20 years",
+          "Completed professional training with federal capability certificate",
+          "Clean reputation",
+          "High self- and social competence",
+          "Driver's license category B",
+          "Basic computer skills (Microsoft Office)",
+          "Good health, psychological and physical endurance"
+        ],
+        "fr": [
+          "Citoyenneté suisse ou permis de séjour",
+          "Âge à partir de 20 ans",
+          "Formation professionnelle terminée avec certificat de capacité fédéral",
+          "Réputation irréprochable",
+          "Haute compétence sociale et personnelle",
+          "Permis de conduire catégorie B",
+          "Connaissances de base en informatique (Microsoft Office)",
+          "Bonne santé, résistance psychologique et physique"
+        ]
+      },
+      "department": "Kantonspolizei",
+      "applicationDeadline": "2026-12-31",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "previousSlugsByLocale": {
+        "de": [
+          "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
+          "werde-polizist-in-bei-der-kapo-gr-kantonale-verwaltung-graubunden-chur"
+        ],
+        "it": [
+          "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
+          "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
+        "werde-polizist-in-bei-der-kapo-gr-kantonale-verwaltung-graubunden-chur",
+        "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur"
+      ],
+      "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -2194,521 +2629,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "kanton-gr-69754a7e3212",
-      "slug": "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart",
-      "slugByLocale": {
-        "it": "stage-giuridico-presso-il-landgericht-kantonale-verwaltung-graubunden-landquart",
-        "en": "legal-internship-at-the-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart",
-        "de": "juristisches-praktikum-am-regionalgericht-landquart-kanton-gr-ch",
-        "fr": "stage-juridique-au-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Juristisches Praktikum am Regionalgericht Landquart",
-      "titleByLocale": {
-        "it": "Stage giuridico presso il Landgericht",
-        "en": "Legal internship at the Regionalgericht Landquart",
-        "de": "Juristisches Praktikum am Regionalgericht Landquart",
-        "fr": "Stage juridique au Regionalgericht Landquart"
-      },
-      "description": "Wir suchen per 01. Januar 2027 eine/-n Rechtspraktikant/-in\n\nAufgaben\n• Rechtliche Abklärungen\n\n• Unterstützung der Richter in der Prozessleitung\n\n• Protokollführung an den Gerichtsverhandlungen\n\n• Verfassen von Entscheiden in den Bereichen des Zivil-, Straf- und Schuldbetreibungs- und Konkursrechts\n\nAnforderungen\n• Abgeschlossenes Studium der Rechtswissenschaften (lic. iur. oder MLaw)\n\n• Interesse an Fragestellungen aus dem Zivil-, Straf-, Zivilprozess- und Strafprozessrecht, Erbrecht sowie am Schuldbetreibungs- und Konkursrecht.\n\n• Vorausgesetzt werden gute fachliche Qualifikationen, selbständiges und genaues Arbeiten sowie Diskretion.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando il 01. Gennaio 2027 un professionista legale Compiti\n• Inchieste legali\n• Assistenza dei giudici nella gestione del processo\n• Verbale delle audizioni\n• Redazione delle decisioni in materia di recupero civile, penale e del debito e diritto fallimentare Requisiti\n• Grado di legge completato (lic. iur. o MLaw)\n• Interessato a questioni relative alla procedura civile, penale, civile e penale, diritto di successione, diritto di riscossione del debito e diritto di fallimento.\n• Sono richieste buone qualifiche professionali, lavoro e discrezione indipendenti e precisi.",
-        "en": "We are looking for 01. January 2027 a legal practitioner Tasks\n• Legal investigations\n• Assistance of judges in the management of the trial\n• Minutes at court hearings\n• Writing of decisions in the fields of civil, criminal and debt recovery and bankruptcy law Requirements\n• Completed law degree (lic. iur. or MLaw)\n• Interested in issues relating to civil, criminal, civil procedure and criminal procedure law, inheritance law as well as debt collection and bankruptcy law.\n• Good professional qualifications, independent and precise work and discretion are required.",
-        "de": "Wir suchen per 01. Januar 2027 eine/-n Rechtspraktikant/-in\n\nAufgaben\n• Rechtliche Abklärungen\n\n• Unterstützung der Richter in der Prozessleitung\n\n• Protokollführung an den Gerichtsverhandlungen\n\n• Verfassen von Entscheiden in den Bereichen des Zivil-, Straf- und Schuldbetreibungs- und Konkursrechts\n\nAnforderungen\n• Abgeschlossenes Studium der Rechtswissenschaften (lic. iur. oder MLaw)\n\n• Interesse an Fragestellungen aus dem Zivil-, Straf-, Zivilprozess- und Strafprozessrecht, Erbrecht sowie am Schuldbetreibungs- und Konkursrecht.\n\n• Vorausgesetzt werden gute fachliche Qualifikationen, selbständiges und genaues Arbeiten sowie Diskretion.",
-        "fr": "Nous cherchons 01. Janvier 2027 un avocat Tâche\n• Enquêtes juridiques\n• Assistance des juges dans la gestion du procès\n• Procès-verbal des audiences\n• Rédaction des décisions dans les domaines du droit civil, pénal, du recouvrement des créances et de la faillite Exigences\n• Diplôme de droit (licence ou maîtrise de droit)\n• Intéressé par les questions relatives au droit civil, pénal, de procédure civile et de procédure pénale, au droit successoral ainsi qu'au droit du recouvrement des créances et de la faillite.\n• De bonnes qualifications professionnelles, un travail indépendant et précis et une discrétion sont nécessaires."
-      },
-      "location": "Landquart",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2749/pub/1/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:46:51.032Z",
-      "addressLocality": "Landquart",
-      "postalCode": "7302",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Legale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "applyUrl": "https://apply.refline.ch/514915/2749/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Regionalgericht Landquart",
-      "applicationDeadline": "2026-07-31",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugs": [
-        "juristisches-praktikum-am-regionalgericht-landquart-kanton-gr-ch",
-        "tirocinio-legale-presso-il-tribunale-regionale-di-landquart-kantonale-verwaltung-graubunden-landquart"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "juristisches-praktikum-am-regionalgericht-landquart-kanton-gr-ch",
-          "tirocinio-legale-presso-il-tribunale-regionale-di-landquart-kantonale-verwaltung-graubunden-landquart"
-        ]
-      },
-      "firstSeenAt": "2026-07-02T11:34:12.050Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "kanton-gr-e513b4e066db",
-      "slug": "assistenza-trasformazione-digitale-kantonale-verwaltung-graubunden-chur",
-      "slugByLocale": {
-        "it": "assistenza-trasformazione-digitale-kantonale-verwaltung-graubunden-chur",
-        "en": "assistance-digital-transformation-kantonale-verwaltung-graubunden-chur",
-        "de": "assistenz-digitale-transformation-kanton-gr-ch",
-        "fr": "aide-a-la-transformation-numerique-kantonale-verwaltung-graubunden-chur"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Assistenz digitale Transformation",
-      "titleByLocale": {
-        "it": "Assistenza trasformazione digitale",
-        "en": "Assistance digital transformation",
-        "de": "Assistenz digitale Transformation",
-        "fr": "Aide à la transformation numérique"
-      },
-      "description": "Wenn es um die Themen Digitalisierung und digitale Transformation in der Kantonalen Verwaltung geht, ist die Stabsstelle Digitale Verwaltung Dreh- und Angelpunkt. Wir arbeiten eng mit dem Amt für Informatik, dem Personalamt und den Dienststellen der Verwaltung zusammen.\n\nAufgaben\n• Du unterstützt unser Team bei administrativen und organisatorischen Aufgaben und sorgst damit für einen reibungslosen Ablauf im Arbeitsalltag.\n\n• Du wirkst bei der Planung, Koordination und Durchführung von Online-Veranstaltungen und Anlässen vor Ort mit und bringst deine Ideen aktiv ein.\n\n• Du gestaltest unsere interne und externe Kommunikation mit und übernimmst Aufgaben wie die Erstellung von Newslettern sowie die Pflege unserer Internet- und Intranetseiten.\n\n• Du bringst deine Kreativität ein und entwickelst ansprechende Präsentationen, die unsere Inhalte wirkungsvoll vermitteln.\n\n• Du hältst unsere Digitalisierungsprojekte fest und erstellst inspirierende Best-Practice-Beispiele in Form von Texten, Bildern und Videos.\n\nAnforderungen\n• Du verfügst über eine kaufmännische Ausbildung, eine abgeschlossene gymnasiale Matura oder eine vergleichbare Qualifikation und bringst Interesse an vielseitigen Aufgaben mit.\n\n• Du kommunizierst stilsicher auf Deutsch – sowohl mündlich als auch schriftlich. Kenntnisse in Romanisch und Italienisch sind von Vorteil.\n\n• Du bist versiert im Umgang mit MS Office-Programmen respektive M365 und setzt die gängigen Anwendungen sicher und effizient ein.\n\n• Idealerweise bringst du bereits Erfahrung mit Video- und Grafikprogrammen mit und hast Freude daran, kreative Inhalte zu gestalten.\n\n• Du überzeugst durch dein Organisationstalent, behältst auch bei mehreren Aufgaben den Überblick und setzt Prioritäten geschickt.\n\n• Du zeichnest dich durch Eigeninitiative, Verantwortungsbewusstsein, eine ausgeprägte Dienstleistungsorientierung und Flexibilität aus.",
-      "descriptionByLocale": {
-        "it": "Per quanto riguarda i temi della digitalizzazione e della trasformazione digitale nell'amministrazione cantonale, l'Ufficio per l'Amministrazione digitale è il pilastro. Lavoriamo a stretto contatto con l'Ufficio Informatico, l'Ufficio del Personale e i servizi di amministrazione. Compiti\n• Supporti il nostro team con compiti amministrativi e organizzativi e garantisci così una giornata di lavoro fluida.\n• Contribuisci alla pianificazione, al coordinamento e all'implementazione di eventi e eventi online in loco e contribuisci attivamente alle tue idee.\n• Aiuta a plasmare la nostra comunicazione interna ed esterna e ad assumere compiti come la creazione di newsletter e il mantenimento dei nostri siti Internet e intranet.\n• Porti la tua creatività e sviluppi presentazioni coinvolgenti che trasmettono efficacemente i nostri contenuti.\n• È possibile catturare i nostri progetti di digitalizzazione e creare esempi di best practice ispiranti sotto forma di testo, immagini e video. Requisiti\n• Hai una formazione commerciale, una palestra completa o una qualifica paragonabile e sono interessati a una varietà di compiti.\n• Si comunica con stile in tedesco – sia verbalmente che per iscritto. La conoscenza del romanico e dell'italiano è un vantaggio.\n• Sei ben versato nel trattare con programmi MS Office o M365 e utilizzare le applicazioni comuni in modo sicuro ed efficiente.\n• Idealmente, hai già esperienza con i programmi video e grafici e godere di creare contenuti creativi.\n• Convinci con il tuo talento organizzativo, tieni traccia di diversi compiti e imposta le priorità abilmente.\n• Siete caratterizzati dalla vostra iniziativa, dal senso di responsabilità, da un orientamento di servizio pronunciato e dalla flessibilità.",
-        "en": "When it comes to the topics of digitalization and digital transformation in cantonal administration, the Office for Digital Administration is the linchpin. We work closely with the Office of Informatics, the Personnel Office and the administration services. Tasks\n• You support our team with administrative and organizational tasks and thus ensure a smooth workday.\n• You contribute to the planning, coordination and implementation of online events and events on site and actively contribute your ideas.\n• You help shape our internal and external communication and take on tasks such as creating newsletters and maintaining our Internet and intranet sites.\n• You bring your creativity and develop engaging presentations that effectively convey our content.\n• You capture our digitalization projects and create inspiring best practice examples in the form of text, pictures and videos. Requirements\n• You have a commercial education, a completed gymnasium or a comparable qualification and are interested in a variety of tasks.\n• You communicate stylishly in German – both verbally and in writing. Knowledge of Romanesque and Italian is an advantage.\n• You are well versed in dealing with MS Office programs or M365 and use the common applications safely and efficiently.\n• Ideally, you already have experience with video and graphics programs and enjoy creating creative content.\n• You convince with your organizational talent, keep track of several tasks and set priorities skillfully.\n• You are characterized by your own initiative, a sense of responsibility, a pronounced service orientation and flexibility.",
-        "de": "Wenn es um die Themen Digitalisierung und digitale Transformation in der Kantonalen Verwaltung geht, ist die Stabsstelle Digitale Verwaltung Dreh- und Angelpunkt. Wir arbeiten eng mit dem Amt für Informatik, dem Personalamt und den Dienststellen der Verwaltung zusammen.\n\nAufgaben\n• Du unterstützt unser Team bei administrativen und organisatorischen Aufgaben und sorgst damit für einen reibungslosen Ablauf im Arbeitsalltag.\n\n• Du wirkst bei der Planung, Koordination und Durchführung von Online-Veranstaltungen und Anlässen vor Ort mit und bringst deine Ideen aktiv ein.\n\n• Du gestaltest unsere interne und externe Kommunikation mit und übernimmst Aufgaben wie die Erstellung von Newslettern sowie die Pflege unserer Internet- und Intranetseiten.\n\n• Du bringst deine Kreativität ein und entwickelst ansprechende Präsentationen, die unsere Inhalte wirkungsvoll vermitteln.\n\n• Du hältst unsere Digitalisierungsprojekte fest und erstellst inspirierende Best-Practice-Beispiele in Form von Texten, Bildern und Videos.\n\nAnforderungen\n• Du verfügst über eine kaufmännische Ausbildung, eine abgeschlossene gymnasiale Matura oder eine vergleichbare Qualifikation und bringst Interesse an vielseitigen Aufgaben mit.\n\n• Du kommunizierst stilsicher auf Deutsch – sowohl mündlich als auch schriftlich. Kenntnisse in Romanisch und Italienisch sind von Vorteil.\n\n• Du bist versiert im Umgang mit MS Office-Programmen respektive M365 und setzt die gängigen Anwendungen sicher und effizient ein.\n\n• Idealerweise bringst du bereits Erfahrung mit Video- und Grafikprogrammen mit und hast Freude daran, kreative Inhalte zu gestalten.\n\n• Du überzeugst durch dein Organisationstalent, behältst auch bei mehreren Aufgaben den Überblick und setzt Prioritäten geschickt.\n\n• Du zeichnest dich durch Eigeninitiative, Verantwortungsbewusstsein, eine ausgeprägte Dienstleistungsorientierung und Flexibilität aus.",
-        "fr": "En ce qui concerne les thèmes de la numérisation et de la transformation numérique dans l'administration cantonale, l'Office de l'administration numérique est le pivot. Nous travaillons en étroite collaboration avec le Bureau de l'informatique, le Bureau du personnel et les services administratifs. Tâche\n• Vous soutenez notre équipe avec des tâches administratives et organisationnelles et ainsi assurer une journée de travail en douceur.\n• Vous contribuez à la planification, à la coordination et à la mise en oeuvre d'événements et d'événements en ligne sur le site et contribuez activement à vos idées.\n• Vous aidez à façonner notre communication interne et externe et à assumer des tâches telles que créer des bulletins d'information et maintenir nos sites Internet et intranet.\n• Vous apportez votre créativité et développez des présentations engageantes qui transmettent efficacement notre contenu.\n• Vous capturez nos projets de numérisation et créez des exemples inspirants de bonnes pratiques sous forme de texte, d'images et de vidéos. Exigences\n• Vous avez une formation commerciale, un gymnase terminé ou une qualification comparable et êtes intéressé par une variété de tâches.\n• Vous communiquez élégamment en allemand – à la fois verbalement et par écrit. La connaissance du roman et de l'italien est un avantage.\n• Vous êtes bien renseigné dans le traitement des programmes MS Office ou M365 et utiliser les applications communes en toute sécurité et efficacement.\n• Idéalement, vous avez déjà de l'expérience avec les programmes vidéo et graphiques et aimez créer du contenu créatif.\n• Vous convainquez avec votre talent organisationnel, suivez plusieurs tâches et définissez des priorités habilement.\n• Vous êtes caractérisé par votre propre initiative, un sens des responsabilités, une orientation de service prononcée et une flexibilité."
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2746/pub/1/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:46:50.409Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione Pubblica",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-25",
-      "applyUrl": "https://apply.refline.ch/514915/2746/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Departementssekretariat DFG",
-      "applicationDeadline": "2026-07-31",
-      "pensumMin": 50,
-      "pensumMax": 50,
-      "pensum": "50%",
-      "previousSlugs": [
-        "assistenz-digitale-transformation-kanton-gr-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistenz-digitale-transformation-kanton-gr-ch"
-        ],
-        "en": [
-          "assistenz-digitale-transformation-kanton-gr-ch"
-        ],
-        "fr": [
-          "assistenz-digitale-transformation-kanton-gr-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-25T11:23:53.031Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "kanton-gr-fe139115b82e",
-      "slug": "procedura-di-ordinazione-del-project-manager-kantonale-verwaltung-graubunden-chur",
-      "slugByLocale": {
-        "it": "procedura-di-ordinazione-del-project-manager-kantonale-verwaltung-graubunden-chur",
-        "en": "project-manager-public-transport-ordering-procedure-kantonale-verwaltung-graubunden-chur",
-        "de": "projektleiter-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch",
-        "fr": "gestionnaire-de-projet-procedure-de-commande-des-transports-en-commun-kantonale-verwaltung-graubunden-chur"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Projektleiter/-in Bestellverfahren öffentlicher Verkehr",
-      "titleByLocale": {
-        "it": "Procedura di ordinazione del Project Manager",
-        "en": "Project Manager Public Transport Ordering Procedure",
-        "de": "Projektleiter/-in Bestellverfahren öffentlicher Verkehr",
-        "fr": "Gestionnaire de projet/procédure de commande des transports en commun"
-      },
-      "description": "Das Amt für Energie und Verkehr ist das kantonale Kompetenzzentrum für Fragen in den Bereichen Energie und öffentlicher Verkehr. Im Bereich öffentlicher Verkehr sind wir zuständig für die strategische Planung und die gegenseitige Abstimmung des gesamten öffentlichen Verkehrs im Kanton Graubünden. Wir koordinieren den öffentlichen Verkehr von Bahn und Bus und sind federführend bei der Planung, Projektierung und Verwirklichung von Projekten für einen zukunftsgerichteten öffentlichen Verkehr. Gute Anbindungen an das nationale und internationale Schienennetz wie auch regelmässige und häufige Verbindungen im Regional- und im Agglomerationsverkehr sind für die Erhaltung und Weiterentwicklung des Lebens-, Tourismus- und Wirtschaftsraums Graubünden von zentraler Bedeutung\n\nWir suchen für das Amt für Energie und Verkehr per 1. September 2026 oder nach Vereinbarung eine/n Projektleiter/-in Bestellverfahren öffentlicher Verkehr.\n\nAufgaben\n• Durchführung des Bestellverfahrens für den regionalen öffentlichen Verkehr (RPV) für die Strassentransportdienste im Kanton Graubünden\n\n• Durchführung von Ausschreibungen und Verantwortung für den Abschluss von Zielvereinbarungen mit den Transportunternehmen\n\n• Fachliche Beurteilung von Betriebsmittelgesuchen nach ARPV\n\n• Fachliche Beurteilung von Fördergesuchen\n\n• Betreuung der Tarifverbünde im Kanton Graubünden\n\nAnforderungen\n• Hochschul- oder Fachhochschulabschluss in betriebswirtschaftlicher oder verkehrsplanerischer Richtung\n\n• Interesse an interdisziplinärer Zusammenarbeit, Verhandlungsgeschick und Gewandtheit im Umgang mit Transportunternehmen, Behörden und Verbänden\n\n• Erfahrung bei der selbstständigen Bearbeitung konzeptioneller Fragen\n\n• Mehrjährige Berufserfahrung im Bereich öffentlicher Verkehr von Vorteil\n\n• Stilsichere Beherrschung der deutschen Sprache in Wort und Schrift\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
-      "descriptionByLocale": {
-        "it": "L'Ufficio per l'Energia e i Trasporti è il centro di competenza cantonale per le questioni relative all'energia e ai trasporti pubblici. Nel settore dei trasporti pubblici, siamo responsabili della pianificazione strategica e del coordinamento reciproco di tutti i trasporti pubblici nel Cantone dei Grigioni. Coorfiamo i trasporti pubblici di treni e autobus e siamo responsabili della pianificazione, della progettazione e dell'attuazione di progetti per i trasporti pubblici orientati al futuro. I buoni collegamenti con la rete ferroviaria nazionale e internazionale nonché i collegamenti regolari e frequenti nel traffico regionale e agglomerato sono di fondamentale importanza per il mantenimento e lo sviluppo della vita, del turismo e dell'area economica Grigioni Stiamo cercando l'Ufficio per l'Energia e i Trasporti a 1. Settembre 2026 o d'accordo un responsabile/in procedura di ordinazione dei trasporti pubblici.\n• Attuazione della procedura di ordinazione per i trasporti pubblici regionali (RPV) per i servizi di trasporto stradale nel Cantone dei Grigioni\n• Attuazione delle offerte e responsabilità per la conclusione di accordi di destinazione con le società di trasporto\n• Valutazione tecnica delle domande di materiale operativo secondo ARPV\n• Valutazione tecnica delle domande di finanziamento\n• Supervisione delle associazioni tariffarie nel Cantone dei Grigioni Requisiti\n• Università o università di scienze applicate laurea in amministrazione aziendale o direzione di pianificazione dei trasporti",
-        "en": "The Office for Energy and Transport is the cantonal competence centre for energy and public transport issues. In the area of public transport, we are responsible for the strategic planning and the mutual coordination of all public transport in the Canton of Graubünden. We coordinate the public transport of trains and buses and are responsible for the planning, project planning and implementation of projects for future-oriented public transport. Good connections to the national and international rail network as well as regular and frequent connections in regional and agglomeration traffic are of central importance for the maintenance and further development of the life, tourism and economic area Graubünden We are looking for the Office for Energy and Transport at 1. September 2026 or by agreement a project manager/in public transport ordering procedure. Tasks\n• Implementation of the ordering procedure for regional public transport (RPV) for road transport services in the Canton of Graubünden\n• Implementation of tenders and responsibility for concluding target agreements with the transport companies\n• Technical assessment of applications for operating materials according to ARPV\n• Technical assessment of applications for funding\n• Supervision of the tariff associations in the Canton of Graubünden Requirements\n• University or university of applied sciences degree in business administration or transport planning direction\n• Interest in interdisciplinary cooperation, negotiating skills and skill in dealing with transport companies, authorities and associations\n• Experience in the independent handling of conceptual issues\n• Several years of professional experience in the field of public transport of advantage\n• Style-confident command of the German language in words and writing\n• Good knowledge in several cantonal languages of advantage",
-        "de": "Das Amt für Energie und Verkehr ist das kantonale Kompetenzzentrum für Fragen in den Bereichen Energie und öffentlicher Verkehr. Im Bereich öffentlicher Verkehr sind wir zuständig für die strategische Planung und die gegenseitige Abstimmung des gesamten öffentlichen Verkehrs im Kanton Graubünden. Wir koordinieren den öffentlichen Verkehr von Bahn und Bus und sind federführend bei der Planung, Projektierung und Verwirklichung von Projekten für einen zukunftsgerichteten öffentlichen Verkehr. Gute Anbindungen an das nationale und internationale Schienennetz wie auch regelmässige und häufige Verbindungen im Regional- und im Agglomerationsverkehr sind für die Erhaltung und Weiterentwicklung des Lebens-, Tourismus- und Wirtschaftsraums Graubünden von zentraler Bedeutung\n\nWir suchen für das Amt für Energie und Verkehr per 1. September 2026 oder nach Vereinbarung eine/n Projektleiter/-in Bestellverfahren öffentlicher Verkehr.\n\nAufgaben\n• Durchführung des Bestellverfahrens für den regionalen öffentlichen Verkehr (RPV) für die Strassentransportdienste im Kanton Graubünden\n\n• Durchführung von Ausschreibungen und Verantwortung für den Abschluss von Zielvereinbarungen mit den Transportunternehmen\n\n• Fachliche Beurteilung von Betriebsmittelgesuchen nach ARPV\n\n• Fachliche Beurteilung von Fördergesuchen\n\n• Betreuung der Tarifverbünde im Kanton Graubünden\n\nAnforderungen\n• Hochschul- oder Fachhochschulabschluss in betriebswirtschaftlicher oder verkehrsplanerischer Richtung\n\n• Interesse an interdisziplinärer Zusammenarbeit, Verhandlungsgeschick und Gewandtheit im Umgang mit Transportunternehmen, Behörden und Verbänden\n\n• Erfahrung bei der selbstständigen Bearbeitung konzeptioneller Fragen\n\n• Mehrjährige Berufserfahrung im Bereich öffentlicher Verkehr von Vorteil\n\n• Stilsichere Beherrschung der deutschen Sprache in Wort und Schrift\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
-        "fr": "L'Office de l'énergie et des transports est le centre cantonal de compétence en matière d'énergie et de transports publics. Dans le domaine des transports publics, nous sommes responsables de la planification stratégique et de la coordination mutuelle de tous les transports publics dans le canton des Grisons. Nous coordonnons les transports publics de trains et d'autobus et sommes responsables de la planification, de la planification de projets et de la mise en œuvre de projets de transports publics orientés vers l'avenir. De bonnes liaisons avec le réseau ferroviaire national et international ainsi que des liaisons régulières et fréquentes dans le trafic régional et d'agglomération sont d'une importance capitale pour l'entretien et le développement de la vie, du tourisme et de la zone économique Graubünden Nous cherchons l'Office de l'énergie et des transports à 1. Septembre 2026 ou par accord un gestionnaire de projet/dans la procédure de commande des transports publics. Tâches\n• Mise en oeuvre de la procédure de commande des transports publics régionaux (RPV) pour les services de transport routier dans le canton des Grisons\n• Mise en oeuvre des appels d'offres et responsabilité de la conclusion d'accords cibles avec les entreprises de transport\n• Évaluation technique des demandes de matériaux d'exploitation selon ARPV\n• Évaluation technique des demandes de financement\n• Surveillance des associations tarifaires dans le canton des Grisons\n• Exigences de l'université ou de l'université des sciences appliquées en administration des entreprises ou direction de la planification des transports\n• Intérêt pour la coopération interdisciplinaire, les compétences de négociation et les compétences dans le traitement des entreprises, des autorités et des associations de transport\n• Expérience dans le traitement indépendant des questions conceptuelles\n• Plusieurs années d'expérience professionnelle dans le domaine des transports publics d'avantage\n• Style-confidentialité de la langue allemande en paroles et en écriture\n• Bonne connaissance dans plusieurs langues cantonales d'avantage"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2681/pub/10/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:46:49.782Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-19",
-      "applyUrl": "https://apply.refline.ch/514915/2681/pub/10/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Amt für Energie und Verkehr",
-      "applicationDeadline": "2026-08-02",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80-100%",
-      "previousSlugs": [
-        "projektleiter-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch",
-        "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "projektleiter-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch",
-          "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
-        ],
-        "en": [
-          "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
-        ],
-        "fr": [
-          "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
-        ]
-      },
-      "firstSeenAt": "2026-06-19T12:48:18.540Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "kanton-gr-1a4dadc055e0",
-      "slug": "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur",
-      "slugByLocale": {
-        "it": "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur",
-        "en": "become-a-police-officer-at-kapo-gr-kantonale-verwaltung-graubunden-chur",
-        "de": "werde-polizist-in-bei-der-kapo-gr-kantonale-verwaltung-graubunden-chur",
-        "fr": "devenez-policier-policiere-chez-kapo-gr-kantonale-verwaltung-graubunden-chur"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Werde Polizist/-in bei der Kapo GR",
-      "titleByLocale": {
-        "it": "Diventa agente di polizia a Kapo GR",
-        "en": "Become a police officer at Kapo GR",
-        "de": "Werde Polizist/-in bei der Kapo GR",
-        "fr": "Devenez policier à Kapo GR"
-      },
-      "description": "Die Kantonale Verwaltung – eine moderne Arbeitgeberin für motivierte Mitarbeitende wie dich. Nicht jeder Tag ist gleich, aber jeden Tag trägst du zur Sicherheit in Graubünden bei. Bewirb dich für die nächste 2-jährige Polizeiausbildung und werde Polizistin oder Polizist mit eidg. Fachausweis bei der Kantonspolizei Graubünden.\n\nAufgaben\nDu sorgst für Sicherheit im vielfältigsten Kanton, für Bewohnerinnen und Bewohner, für Feriengäste, Kongressteilnehmende und Durchreisende, Ruhe und Ordnung für alle. Bei uns steht immer der Mensch im Zentrum, ob Grundversorgung oder Spezialdienst – dir stehen Tür und Tor offen – www.kapo.gr.ch\n\nAnforderungen\n• Schweizer Bürgerrecht oder Niederlassungsbewilligung (C-Bewilligung ist mit der Bewerbung einzureichen)\n\n• Alter ab 20\n\n• Abgeschlossene Berufsausbildung mit eidgenössischem Fähigkeitszeugnis, gymnasiale Maturität, Fachmaturität oder gleichwertige Qualifikationen\n\n• Einwandfreier Leumund\n\n• Hohe Selbst- und Sozialkompetenz, bürgerfreundliche Einstellung\n\n• Führerausweis Kat. B\n\n• EDV-Anwenderkenntnisse (Microsoft Office)\n\n• Gute Gesundheit, psychische und physische Belastbarkeit\n\n• Erfolgreich absolvierter Eignungstest (www.werdepolizist.ch)\nDaten Eignungstest: 14. März 2026, 20. Juni 2026 und 10. Oktober 2026",
-      "descriptionByLocale": {
-        "it": "L'amministrazione cantonale – un datore di lavoro moderno per dipendenti motivati come te. Non ogni giorno è lo stesso, ma ogni giorno contribuisce alla sicurezza dei Grigioni. Applicare per il prossimo addestramento di polizia di 2 anni e diventare una poliziotta con un documento federale professionale presso la polizia cantonale Grigioni. Fornite sicurezza nel cantone più vario, per i residenti, per i turisti, i partecipanti al congresso e i passeggeri di transito, la pace e l'ordine per tutti. Con noi, il focus è sempre sulla persona, se la cura primaria o servizio speciale – la porta è aperta a voi – www.kapo.gr.ch Requisiti\n• permesso svizzero di soggiorno o di soggiorno (il permesso C deve essere presentato con la domanda)\n• Età da 20\n• Formazione professionale completata con un certificato federale di abilità, maturità scolastica, maturità specialistica o qualifiche equivalenti\n• Buona reputazione\n• Alta competenza mentale e social, atteggiamento cittadino-friendly\n• Patente di guida Cat. Test di attitudine dei dati: 14 marzo 2026, 20 giugno 2026 e 10 ottobre 2026",
-        "en": "The Cantonal Administration – a modern employer for motivated employees like you. Not every day is the same, but every day you contribute to the safety in Graubünden. Apply for the next 2-year police training and become a policewoman with a Federal Professional ID at the Cantonal Police Graubünden. You provide security in the most diverse canton, for residents, for holidaymakers, congress participants and transit passengers, peace and order for everyone. With us, the focus is always on the person, whether primary care or special service – the door is open to you – www.kapo.gr.ch Requirements\n• Swiss citizenship or settlement permit (C permit must be submitted with the application)\n• Age from 20\n• Completed vocational training with a federal certificate of ability, high school maturity, specialist maturity or equivalent qualifications\n• Good repute\n• High self- and social competence, citizen-friendly attitude\n• Driver’s license Cat. B\n• Computer user knowledge (Microsoft Office)\n• Good health, mental and physical resilience\n• Successfully completed aptitude test (www.werdepolizist.ch) Data aptitude test: 14. March 2026, 20. June 2026 and 10 October 2026",
-        "de": "Die Kantonale Verwaltung – eine moderne Arbeitgeberin für motivierte Mitarbeitende wie dich. Nicht jeder Tag ist gleich, aber jeden Tag trägst du zur Sicherheit in Graubünden bei. Bewirb dich für die nächste 2-jährige Polizeiausbildung und werde Polizistin oder Polizist mit eidg. Fachausweis bei der Kantonspolizei Graubünden.\n\nAufgaben\nDu sorgst für Sicherheit im vielfältigsten Kanton, für Bewohnerinnen und Bewohner, für Feriengäste, Kongressteilnehmende und Durchreisende, Ruhe und Ordnung für alle. Bei uns steht immer der Mensch im Zentrum, ob Grundversorgung oder Spezialdienst – dir stehen Tür und Tor offen – www.kapo.gr.ch\n\nAnforderungen\n• Schweizer Bürgerrecht oder Niederlassungsbewilligung (C-Bewilligung ist mit der Bewerbung einzureichen)\n\n• Alter ab 20\n\n• Abgeschlossene Berufsausbildung mit eidgenössischem Fähigkeitszeugnis, gymnasiale Maturität, Fachmaturität oder gleichwertige Qualifikationen\n\n• Einwandfreier Leumund\n\n• Hohe Selbst- und Sozialkompetenz, bürgerfreundliche Einstellung\n\n• Führerausweis Kat. B\n\n• EDV-Anwenderkenntnisse (Microsoft Office)\n\n• Gute Gesundheit, psychische und physische Belastbarkeit\n\n• Erfolgreich absolvierter Eignungstest (www.werdepolizist.ch)\nDaten Eignungstest: 14. März 2026, 20. Juni 2026 und 10. Oktober 2026",
-        "fr": "L'Administration cantonale – un employeur moderne pour les employés motivés comme vous. Pas tous les jours, mais tous les jours, vous contribuez à la sécurité à Graubünden. Postulez à la formation policière de 2 ans et devenez policier avec une carte d'identité professionnelle fédérale à la Police cantonale Graubünden. Vous assurez la sécurité dans le canton le plus diversifié, pour les résidents, pour les vacanciers, les participants au congrès et les passagers de transit, la paix et l'ordre pour tous. Avec nous, l'accent est toujours mis sur la personne, qu'il s'agisse de soins primaires ou de services spéciaux – la porte est ouverte à vous – www.kapo.gr.ch Exigences\n• Citoyenneté suisse ou permis d'établissement (le permis C doit être soumis avec la demande)\n• Âge à partir de 20 ans\n• Formation professionnelle complète avec un certificat fédéral d'aptitude, de maturité d'études secondaires, de maturité spécialisée ou de qualifications équivalentes\n• Bonne réputation\n• Haute compétence sociale et auto- compétente, attitude conviviale\n• Licence de conducteur Cat. B\n• Connaissance de l'utilisateur informatique (Microsoft Office)\n• Bonne santé, résilience mentale et physique\n• Test d'aptitude réussi (www.werdepolizist.ch) Test d'aptitude aux données : 14 mars 2026, 20 juin 2026 et 10 octobre 2026"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/0912/pub/41/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:46:49.146Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sicurezza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://apply.refline.ch/514915/0912/pub/41/index.html",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Cittadinanza svizzera o permesso di soggiorno",
-          "Età a partire da 20 anni",
-          "Formazione professionale completata con certificato di capacità federale",
-          "Reputazione immacolata",
-          "Alta competenza sociale e di sé",
-          "Possesso di patente di guida categoria B",
-          "Conoscenze di base di informatica (Microsoft Office)",
-          "Buona salute, resistenza psicologica e fisica"
-        ],
-        "en": [
-          "Swiss citizenship or residence permit",
-          "Age from 20 years",
-          "Completed professional training with federal capability certificate",
-          "Clean reputation",
-          "High self- and social competence",
-          "Driver's license category B",
-          "Basic computer skills (Microsoft Office)",
-          "Good health, psychological and physical endurance"
-        ],
-        "fr": [
-          "Citoyenneté suisse ou permis de séjour",
-          "Âge à partir de 20 ans",
-          "Formation professionnelle terminée avec certificat de capacité fédéral",
-          "Réputation irréprochable",
-          "Haute compétence sociale et personnelle",
-          "Permis de conduire catégorie B",
-          "Connaissances de base en informatique (Microsoft Office)",
-          "Bonne santé, résistance psychologique et physique"
-        ]
-      },
-      "department": "Kantonspolizei",
-      "applicationDeadline": "2026-12-31",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugsByLocale": {
-        "de": [
-          "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
-        ],
-        "it": [
-          "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
-        ]
-      },
-      "previousSlugs": [
-        "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
-      ],
-      "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "kanton-gr-7031f13d6959",
-      "slug": "fachfrau-fachmann-gesundheit-cfc-fage-kantonale-verwaltung-graubunden-cazis",
-      "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-cfc-fage-kantonale-verwaltung-graubunden-cazis",
-        "en": "professional-health-efz-fage-kantonale-verwaltung-graubunden-cazis",
-        "de": "fachfrau-fachmann-gesundheit-efz-fage-kanton-gr-ch",
-        "fr": "sante-professionnelle-efz-fage-kantonale-verwaltung-graubunden-cazis"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Fachfrau / Fachmann Gesundheit EFZ (FaGe)",
-      "titleByLocale": {
-        "it": "Fachfrau / Fachmann Gesundheit CFC (FaGe)",
-        "en": "Professional Health EFZ (FaGe)",
-        "de": "Fachfrau / Fachmann Gesundheit EFZ (FaGe)",
-        "fr": "Santé professionnelle EFZ (FaGe)"
-      },
-      "description": "Das Amt für Justizvollzug (AJV) Graubünden ist eine Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Das AJV ist für den Straf- und Massnahmenvollzug sowie die Durchführung der verschiedenen Haftarten verantwortlich. In Graubünden wird damit der Vollzug von Strafen und Massnahmen als einheitliches Themenfeld und ganzheitliche Aufgabe geregelt, in welchem verschiedene Berufsgattungen interdisziplinär mit straffällig gewordenen Menschen arbeiten, um weitere Delinquenz zu verhindern.\n\nAufgaben\n• Betreuung und Unterstützung von eingewiesenen Personen aus verschiedenen Kulturen im pflegerischen und gesundheitlichen Bereich\n\n• Erste Unterstützung bei gesundheitlichen Beschwerden sowie Weiterleitung an ärztliches Fachpersonal bei medizinischen Fragen und Notfällen\n\n• Durchführung von grundpflegerischen und betreuenden Massnahmen unter Berücksichtigung der rechtlichen, sicherheitstechnischen und betrieblichen Vorgaben\n\n• Mitwirkung bei der Bestellung, Bereitstellung, Kontrolle und Abgabe von Medikamenten unter Aufsicht des medizinischen Fachpersonals\n\n• Bereitstellung und Durchführung der heroingestützten Behandlung sowie weiteren Substitutionsbehandlungen\n\n• Erstellen von Pflegedokumentationen und Verfassen von Journaleinträgen\n\n• Interdisziplinäre Zusammenarbeit mit somatischen und psychiatrischen Fachärzten sowie internen Stellen\n\n• Leisten von Tagesdiensten zwischen 06.30 – 18.30 Uhr sowie Wochenenddiensten\n\nAnforderungen\n• Abgeschlossene Ausbildung als Fachfrau / Fachmann Gesundheit EFZ sowie erste Berufserfahrung, vorzugsweise in einem institutionellen oder sozialen Umfeld\n\n• Eine Weiterbildung im Bereich Psychiatrie, Gerontologie oder sozialer Betreuung ist von Vorteil\n\n• Den Umgang mit Menschen aus verschiedenen Kulturen, welche sich in schwierigen Lebenssituationen befinden, sehen Sie als positive Herausforderung\n\n• Belastbare, gefestigte, team- und kritikfähige Persönlichkeit mit hoher Sozialkompetenz, Einfühlungsvermögen und Abgrenzungsfähigkeit, die in fordernden Situationen einen kompetenten Umgang bewahren\n\n• Gute EDV-Kenntnisse sowie gute schriftliche und mündliche Ausdrucksweise in Deutsch; mündliche Fremdsprachenkenntnisse von Vorteil\n\n• Einen einwandfreien Leumund (keine Einträge im Strafregister und Betreibungsregister)",
-      "descriptionByLocale": {
-        "it": "L'Ufficio per l'Imprigionamento (AJV) Grigioni è un dipartimento del Dipartimento di Giustizia, Sicurezza e Salute del Cantone dei Grigioni. L'AJV è responsabile dell'esecuzione di sanzioni e misure, nonché dell'attuazione dei vari tipi di detenzione. In Grigioni, l'esecuzione delle sanzioni e delle misure è così regolata come argomento uniforme e compito olistico, in cui diverse professioni lavorano interdisciplinari con persone che sono diventate delinquenti per evitare ulteriori delinquenze. Compiti\n• Cura e sostegno del personale di cura e assistenza sanitaria di diverse culture\n• Sostegno iniziale per le denunce sanitarie, nonché l'inoltro ai medici per questioni mediche e emergenze\n• Attuazione delle misure di assistenza primaria e di vigilanza che tengano conto dei requisiti legali, di sicurezza e operativi\n• Partecipazione per ordinare, fornire, controllare e dispensare farmaci sotto la supervisione di medici professionisti\n• Disposizione e attuazione del trattamento assistita dall'eroina e ulteriori trattamenti di sostituzione\n• Creazione di documentazione di manutenzione e scrittura voci di giornale\n• Cooperazione interdisciplinare con specialisti somatici e psichiatrici e organismi interni\n• Servizi diurni tra le 06.30 e le 18.30 Requisiti\n• Formazione completa come specialista sanitario EFZ e prima esperienza professionale, preferibilmente in un ambiente istituzionale o sociale\n• Ulteriori formazione in psichiatria, gerontologia o assistenza sociale sono utili\n• Vedete trattare con persone di culture diverse che sono in situazioni di vita difficili come una sfida positiva.\n• Resiliente, solida, squadra- e personalità critica con un alto livello di competenza sociale, empatia e demarcazione, che mantiene un approccio competente in situazioni esigenti\n• Buone competenze informatiche e buona espressione scritta e orale in tedesco;\n• Un'impeccabile reputazione (nessuna voce nel registro penale e nell'esecuzione)",
-        "en": "The Office for Imprisonment (AJV) Graubünden is a department of the Department of Justice, Security and Health of the Canton of Graubünden. The AJV is responsible for the execution of penalties and measures as well as the implementation of the various types of detention. In Graubünden, the execution of penalties and measures is thus regulated as a uniform topic and holistic task, in which different professions work interdisciplinary with people who have become delinquent in order to prevent further delinquency. Tasks\n• Care and support of nursing and health care staff from different cultures\n• Initial support for health complaints as well as forwarding to medical professionals for medical issues and emergencies\n• Implementation of primary care and supervision measures taking into account legal, safety and operational requirements\n• Participation in ordering, supplying, controlling and dispensing medicines under the supervision of medical professionals\n• Provision and implementation of the heroin-assisted treatment and further substitution treatments\n• Creating maintenance documentation and writing journal entries\n• Interdisciplinary cooperation with somatic and psychiatric specialists as well as internal bodies\n• Day services between 06.30 – 18.30 and weekend services Requirements\n• Completed training as a specialist health EFZ and first professional experience, preferably in an institutional or social environment\n• Further training in psychiatry, gerontology or social care is beneficial\n• You see dealing with people from different cultures who are in difficult life situations as a positive challenge.\n• Resilient, solid, team- and critical personality with a high level of social competence, empathy and demarcation, who maintain a competent approach in demanding situations\n• Good computer skills as well as good written and oral expression in German; Advantageous oral foreign language skills\n• An impeccable reputation (no entries in the criminal record and enforcement record)",
-        "de": "Das Amt für Justizvollzug (AJV) Graubünden ist eine Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Das AJV ist für den Straf- und Massnahmenvollzug sowie die Durchführung der verschiedenen Haftarten verantwortlich. In Graubünden wird damit der Vollzug von Strafen und Massnahmen als einheitliches Themenfeld und ganzheitliche Aufgabe geregelt, in welchem verschiedene Berufsgattungen interdisziplinär mit straffällig gewordenen Menschen arbeiten, um weitere Delinquenz zu verhindern.\n\nAufgaben\n• Betreuung und Unterstützung von eingewiesenen Personen aus verschiedenen Kulturen im pflegerischen und gesundheitlichen Bereich\n\n• Erste Unterstützung bei gesundheitlichen Beschwerden sowie Weiterleitung an ärztliches Fachpersonal bei medizinischen Fragen und Notfällen\n\n• Durchführung von grundpflegerischen und betreuenden Massnahmen unter Berücksichtigung der rechtlichen, sicherheitstechnischen und betrieblichen Vorgaben\n\n• Mitwirkung bei der Bestellung, Bereitstellung, Kontrolle und Abgabe von Medikamenten unter Aufsicht des medizinischen Fachpersonals\n\n• Bereitstellung und Durchführung der heroingestützten Behandlung sowie weiteren Substitutionsbehandlungen\n\n• Erstellen von Pflegedokumentationen und Verfassen von Journaleinträgen\n\n• Interdisziplinäre Zusammenarbeit mit somatischen und psychiatrischen Fachärzten sowie internen Stellen\n\n• Leisten von Tagesdiensten zwischen 06.30 – 18.30 Uhr sowie Wochenenddiensten\n\nAnforderungen\n• Abgeschlossene Ausbildung als Fachfrau / Fachmann Gesundheit EFZ sowie erste Berufserfahrung, vorzugsweise in einem institutionellen oder sozialen Umfeld\n\n• Eine Weiterbildung im Bereich Psychiatrie, Gerontologie oder sozialer Betreuung ist von Vorteil\n\n• Den Umgang mit Menschen aus verschiedenen Kulturen, welche sich in schwierigen Lebenssituationen befinden, sehen Sie als positive Herausforderung\n\n• Belastbare, gefestigte, team- und kritikfähige Persönlichkeit mit hoher Sozialkompetenz, Einfühlungsvermögen und Abgrenzungsfähigkeit, die in fordernden Situationen einen kompetenten Umgang bewahren\n\n• Gute EDV-Kenntnisse sowie gute schriftliche und mündliche Ausdrucksweise in Deutsch; mündliche Fremdsprachenkenntnisse von Vorteil\n\n• Einen einwandfreien Leumund (keine Einträge im Strafregister und Betreibungsregister)",
-        "fr": "Le Bureau de l ' emprisonnement (AJV) Graubünden est un département du Département de la justice, de la sécurité et de la santé du canton de Graubünden. L'AJV est responsable de l'exécution des peines et des mesures ainsi que de l'exécution des différents types de détention. À Graubünden, l'exécution des peines et des mesures est donc réglementée comme un thème uniforme et une tâche globale, dans laquelle différentes professions travaillent interdisciplinairement avec des personnes devenues délinquantes afin de prévenir la délinquance. Tâche\n• Soins et soutien du personnel infirmier et de santé de différentes cultures\n• Soutien initial pour les plaintes relatives à la santé et transmission aux professionnels de la santé pour les questions médicales et les urgences\n• Mise en œuvre de mesures de soins primaires et de surveillance tenant compte des exigences juridiques, de sécurité et opérationnelles\n• Participation à la commande, à la fourniture, au contrôle et à la distribution de médicaments sous la supervision de professionnels de la santé\n• Fourniture et mise en œuvre du traitement assisté par l ' héroïne et autres traitements de substitution\n• Création de documents de maintenance et écriture d'entrées de journaux\n• Coopération interdisciplinaire avec des spécialistes somatiques et psychiatriques ainsi que des organismes internes\n• Services de jour entre 06.30 et 18.30 et services du week-end Exigences\n• Formation en tant que spécialiste de la santé EFZ et première expérience professionnelle, de préférence dans un environnement institutionnel ou social\n• La formation continue en psychiatrie, gérontologie ou soins sociaux est bénéfique\n• Vous voyez le fait de traiter avec des gens de différentes cultures qui sont dans des situations de vie difficiles comme un défi positif.\n• Personnalité résiliente, solide, d'équipe et critique avec un haut niveau de compétence sociale, d'empathie et de démarcation, qui maintiennent une approche compétente dans les situations exigeantes\n• Bonnes compétences en informatique ainsi qu'une bonne expression écrite et orale en allemand;\n• Une réputation impeccable (aucune inscription dans le casier judiciaire et le casier judiciaire)"
-      },
-      "location": "Cazis",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2756/pub/1/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:13:47.640Z",
-      "addressLocality": "Cazis",
-      "postalCode": "7408",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Infermieristica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "applyUrl": "https://apply.refline.ch/514915/2756/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Amt für Justizvollzug Graubünden",
-      "applicationDeadline": "2026-07-26",
-      "pensumMin": 50,
-      "pensumMax": 100,
-      "pensum": "50-100%",
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-fage-kanton-gr-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-fachmann-gesundheit-efz-fage-kanton-gr-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-02T11:34:15.179Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
       "addressRegion": "GR",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "kanton-gr-d99ea4308954",
-      "slug": "fachperson-per-den-abklarungsdienst-kindes-e-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
-      "slugByLocale": {
-        "it": "fachperson-per-den-abklarungsdienst-kindes-e-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
-        "en": "fachperson-fur-den-abklarungsdienst-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
-        "de": "fachperson-fur-den-abklarungsdienst-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch",
-        "fr": "fachperson-fur-den-abklarungsdienst-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Fachperson für den Abklärungsdienst Kindes- und Erwachsenenschutzbehörde",
-      "titleByLocale": {
-        "it": "Fachperson per den Abklärungsdienst Kindes- e Erwachsenenschutzbehörde",
-        "en": "Specialist for the Child and Adult Protection Service",
-        "de": "Fachperson für den Abklärungsdienst Kindes- und Erwachsenenschutzbehörde",
-        "fr": "Spécialiste du Service de protection de l ' enfance et des adultes"
-      },
-      "description": "Die Kindes- und Erwachsenenschutzbehörde KESB ist für Menschen in Not da. Wer Hilfe und Unterstützung braucht, kann auf die KESB zählen. Bei uns ist kein Tag wie der andere. Im interdisziplinären Team gestalten wir aktiv eine sichere Zukunft für schutzbedürftige Erwachsene, Familien, Kinder und Jugendliche.\n\nWir suchen für die KESB Graubünden, Zweigstelle Nordbünden per 1. Dezember 2026 oder nach Vereinbarung eine Fachperson für den Abklärungsdienst.\n\nAufgaben\n• Mit grosser Selbstständigkeit und Autonomie, unterstützt von einem Team mit sehr viel Fachwissen, sind Fallanalysen mit entsprechender Antragsstellung an die Behörde zu erstellen\n\n• Kontaktaufnahme und Gespräche mit direkt betroffenen Personen und Angehörigen, oft direkt in deren Lebensraum\n\n• Situative Anpassung der einzelnen Abklärungsschritte unter Wahrung der gesetzlichen Grundlagen und in Rücksprache mit der Verfahrensleitung\n\n• Einholen der relevanten Informationen bei involvierten Fachpersonen, Institutionen und &Auml;mtern\n\n• Abklärung subsidiärer und ergänzender Unterstützungsangebote\n\n• Durchführung von angepassten Kriseninterventionen\n\nAnforderungen\n• Abschluss in Sozialer Arbeit BSc/FH/HFS oder einer gleichwertigen Ausbildung\n\n• Erfahrung in den Fachgebieten des Kindes- und Erwachsenenschutzes oder Bereitschaft, sich entsprechend weiterzubilden\n\n• Sehr hohe kommunikative und soziale Kompetenzen mit einem breiten Methodenrepertoire\n\n• Empathie gegenüber Menschen in schwierigen Lebenssituationen\n\n• Analytische Fähigkeiten um komplexe soziale Situationen zu strukturieren, zu definieren und notwenige Interventionen einzuleiten\n\n• KLIB Kenntnisse erwünscht\n\n• Zuverlässig und belastbar, mit grossem Verantwortungsbewusstsein\n\n• Selbstständig und vernetzt denkende Persönlichkeit\n\n• Flexibel mit hoher Dienstleistungsorientierung und Teamfähigkeit im interdisziplinären Kontext",
-      "descriptionByLocale": {
-        "it": "L'autorità di protezione per bambini e adulti KESB è lì per le persone in difficoltà. Chi ha bisogno di aiuto e supporto può contare su KESB. Non c'è giorno come l'altro. Nel nostro team interdisciplinare, formiamo attivamente un futuro sicuro per adulti vulnerabili, famiglie, bambini e giovani. Stiamo cercando KESB Graubünden, ramo Nordbünden a 1. Conformemente all'articolo 4 del regolamento (UE) n. 182/2011, l'autorità competente: Compiti\n• Con grande indipendenza e autonomia, sostenuta da un team con una grande competenza, le analisi dei casi devono essere preparate con un'adeguata applicazione all'autorità\n• Contatti e conversazioni con persone e parenti direttamente interessati, spesso direttamente nel loro spazio vitale\n• Adeguamento delle singole fasi di chiarificazione nel rispetto della base giuridica e in consultazione con la gestione della procedura\n• Ottenere informazioni pertinenti da professionisti, istituzioni e aziende coinvolte\n• Chiarificazione delle offerte sussidiarie e complementari\n• Attuazione di interventi di crisi adeguati Requisiti\n• Laurea in Social Work BSc/FH/HFS o istruzione equivalente\n• Esperienza nei settori della protezione dei bambini e degli adulti o disponibilità a ricevere ulteriori corsi di formazione\n• Competenze comunicative e sociali molto elevate con un ampio repertorio di metodi\n• Empatia verso le persone in situazioni di vita difficili\n• Competenze analitiche per strutturare, definire situazioni sociali complesse e avviare interventi necessari\n• Conoscenza CLIB desiderata\n• Affidabile e resiliente, con un grande senso di responsabilità\n• Personalità di pensiero indipendente e in rete\n• Flessibile con alto orientamento di servizio e lavoro di squadra in un contesto interdisciplinare",
-        "en": "The child and adult protection authority KESB is there for people in need. Those who need help and support can count on KESB. There is no day like the other. In our interdisciplinary team, we actively shape a secure future for vulnerable adults, families, children and young people. We are looking for KESB Graubünden, Nordbünden branch as of 1. In accordance with Article 4 of Regulation (EU) No 182/2011, the competent authority shall: Tasks\n• With great independence and autonomy, supported by a team with a great deal of expertise, case analyses must be prepared with appropriate application to the authority\n• Contact and conversations with directly affected persons and relatives, often directly in their living space\n• Situational adjustment of the individual clarification steps while respecting the legal basis and in consultation with the procedure management\n• Obtaining the relevant information from involved professionals, institutions and companies\n• Clarification of subsidiary and supplementary support offers\n• Implementation of adapted crisis interventions Requirements\n• Degree in Social Work BSc/FH/HFS or equivalent education\n• Experience in the areas of child and adult protection or willingness to receive further training\n• Very high communicative and social skills with a broad repertoire of methods\n• Empathy towards people in difficult life situations\n• Analytical skills to structure, define complex social situations and initiate necessary interventions\n• CLIB knowledge desired\n• Reliable and resilient, with a great sense of responsibility\n• Independent and networked thinking personality\n• Flexible with high service orientation and teamwork in an interdisciplinary context",
-        "de": "Die Kindes- und Erwachsenenschutzbehörde KESB ist für Menschen in Not da. Wer Hilfe und Unterstützung braucht, kann auf die KESB zählen. Bei uns ist kein Tag wie der andere. Im interdisziplinären Team gestalten wir aktiv eine sichere Zukunft für schutzbedürftige Erwachsene, Familien, Kinder und Jugendliche.\n\nWir suchen für die KESB Graubünden, Zweigstelle Nordbünden per 1. Dezember 2026 oder nach Vereinbarung eine Fachperson für den Abklärungsdienst.\n\nAufgaben\n• Mit grosser Selbstständigkeit und Autonomie, unterstützt von einem Team mit sehr viel Fachwissen, sind Fallanalysen mit entsprechender Antragsstellung an die Behörde zu erstellen\n\n• Kontaktaufnahme und Gespräche mit direkt betroffenen Personen und Angehörigen, oft direkt in deren Lebensraum\n\n• Situative Anpassung der einzelnen Abklärungsschritte unter Wahrung der gesetzlichen Grundlagen und in Rücksprache mit der Verfahrensleitung\n\n• Einholen der relevanten Informationen bei involvierten Fachpersonen, Institutionen und &Auml;mtern\n\n• Abklärung subsidiärer und ergänzender Unterstützungsangebote\n\n• Durchführung von angepassten Kriseninterventionen\n\nAnforderungen\n• Abschluss in Sozialer Arbeit BSc/FH/HFS oder einer gleichwertigen Ausbildung\n\n• Erfahrung in den Fachgebieten des Kindes- und Erwachsenenschutzes oder Bereitschaft, sich entsprechend weiterzubilden\n\n• Sehr hohe kommunikative und soziale Kompetenzen mit einem breiten Methodenrepertoire\n\n• Empathie gegenüber Menschen in schwierigen Lebenssituationen\n\n• Analytische Fähigkeiten um komplexe soziale Situationen zu strukturieren, zu definieren und notwenige Interventionen einzuleiten\n\n• KLIB Kenntnisse erwünscht\n\n• Zuverlässig und belastbar, mit grossem Verantwortungsbewusstsein\n\n• Selbstständig und vernetzt denkende Persönlichkeit\n\n• Flexibel mit hoher Dienstleistungsorientierung und Teamfähigkeit im interdisziplinären Kontext",
-        "fr": "L'autorité de protection des enfants et des adultes KESB est là pour les personnes dans le besoin. Ceux qui ont besoin d'aide et de soutien peuvent compter sur KESB. Il n'y a pas de jour comme l'autre. Dans notre équipe interdisciplinaire, nous élaborons activement un avenir sûr pour les adultes, les familles, les enfants et les jeunes vulnérables. Nous recherchons KESB Graubünden, succursale Nordbünden à partir de 1. Conformément à l'article 4 du règlement (UE) no 182/2011, l'autorité compétente: Tâche\n• Avec une grande indépendance et autonomie, soutenue par une équipe très compétente, les analyses de cas doivent être préparées avec une application appropriée à l'autorité\n• Contact et conversations avec les personnes et les proches directement touchés, souvent directement dans leur espace de vie\n• Adaptation de la situation des différentes étapes de clarification tout en respectant la base juridique et en consultation avec la gestion de la procédure\n• Obtenir les informations pertinentes auprès des professionnels, des institutions et des entreprises concernés\n• Clarification des offres de soutien subsidiaire et complémentaire\n• Mise en œuvre d'interventions de crise adaptées Exigences\n• Diplôme en travail social BSc/FH/HFS ou équivalent\n• Expérience en matière de protection des enfants et des adultes ou volonté de suivre une formation complémentaire\n• Très hautes aptitudes communicatives et sociales avec un vaste répertoire de méthodes\n• Empathie envers les personnes en situation difficile\n• Compétences analytiques pour structurer, définir des situations sociales complexes et lancer les interventions nécessaires\n• Connaissances de l'IBC souhaitées\n• Fiabilité et résilience, avec un grand sens des responsabilités\n• Personnalité de pensée indépendante et en réseau\n• Flexible avec une orientation et un travail d'équipe de haut niveau dans un contexte interdisciplinaire"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2752/pub/1/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-26T11:13:46.273Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "applyUrl": "https://apply.refline.ch/514915/2752/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "KESB Zweigstelle Nordbünden",
-      "applicationDeadline": "2026-07-26",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80-100%",
-      "previousSlugs": [
-        "fachperson-fur-den-abklarungsdienst-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch",
-        "mitglied-kindes-e-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
-        "mitglied-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
-        "mitglied-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-fur-den-abklarungsdienst-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch",
-          "mitglied-kindes-e-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
-          "mitglied-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
-          "mitglied-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch"
-        ],
-        "de": [
-          "mitglied-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch"
-        ],
-        "fr": [
-          "mitglied-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur"
-        ]
-      },
-      "firstSeenAt": "2026-07-02T11:34:13.932Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     }
   ]
 }
