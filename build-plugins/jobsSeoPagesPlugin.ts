@@ -11,7 +11,7 @@ import path from 'path';
 import os from 'node:os';
 import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
-import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, ROBOTS_INDEX_ENHANCED, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT } from './constants';
+import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, ROBOTS_INDEX_ENHANCED, robotsMetaEnhancedForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT } from './constants';
 import { buildSimplePage, asyncCssHeadBlock, rootShell, esc as escHtml } from './htmlTemplate';
 import { railGutters } from './shared/railGutters';
 import { buildSeoPageHtml } from './shared/seoPageShell';
@@ -3162,6 +3162,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const __jobSeed = buildSlimSeed(job, locale);
  __jobSeed.slug = perLocaleSlug[locale];
  const seedScript = `<script>window.__JOB_SEED__=${inlineScriptJson(__jobSeed)};</script>`;
+ // Individual job descriptions vary widely in length (604/25,386 jobs have
+ // <50-word descriptions) -- unlike the fixed-prose hub/guide pages below
+ // that reuse ROBOTS_INDEX_ENHANCED unconditionally, this per-job page's
+ // indexability must be gated on the actual rendered summary/description/
+ // FAQ content, same pattern as jobRecencyPagesPlugin.ts's recencyRobotsTag.
+ const jobBodyHtml = `${summaryHtml}${timelineHtml || (hasCanonical ? sectionHtml(localeCopy[locale].descriptionLabel, bodyParagraphs, []) : '')}${jobFaqHtml}`;
+ const jobRobotsTag = robotsMetaEnhancedForContent(jobBodyHtml);
  const html = `<!doctype html>
 <html lang="${locale}">
  <head>
@@ -3169,7 +3176,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(title)}</title>
- <meta name="description" content="${esc(clampMetaDescription(description))}">${ROBOTS_INDEX_ENHANCED}
+ <meta name="description" content="${esc(clampMetaDescription(description))}">${jobRobotsTag}
  <meta property="og:type" content="article">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
