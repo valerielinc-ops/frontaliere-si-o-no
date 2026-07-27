@@ -9006,6 +9006,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-a-valsolda-da-frontaliere-pro-e-contro.title': 'umzug nach Valsolda als Grenzgänger für und gegen',
     'blog.article.trasferirsi-a-valsolda-da-frontaliere-pro-e-contro.excerpt': 'Entdecken Sie die Vor- und Nachteile eines Umzugs als Grenzgänger nach Valsolda.',
     'blog.article.trasferirsi-a-valsolda-da-frontaliere-pro-e-contro.imageAlt': 'Eine Panoramabild von Valsolda mit dem See im Vordergrund und den Bergen im Hintergrund.',
+    'blog.article.proposta-choc-ticino-frontalieri.title': 'Schockreform für Grenzgänger: Sie zahlen mehr Steuern',
+    'blog.article.proposta-choc-ticino-frontalieri.excerpt': 'Die Lega dei Ticinesi schlägt vor, die alten Grenzgänger in neue Grenzgänger umzuwandeln, um mehr Steuern zu zahlen.',
+    'blog.article.proposta-choc-ticino-frontalieri.imageAlt': 'Eine Szene aus Locarno, mit einem See im Vordergrund und einer belebten Straße im Hintergrund.',
 };
 
 export default blogMetaDe;
