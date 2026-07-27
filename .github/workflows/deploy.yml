@@ -680,273 +680,90 @@ jobs:
             fi
           done
           for pid in "${pids[@]}"; do wait "$pid"; done
-      - name: Upload ticino shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.TICINO_SHARD_LIVE == 'true'
+      - name: Upload shard batch 1 dist for post-deploy validation
+        if: matrix.locale == 'it'
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
-          name: ticino-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/ticino-dist-it.tar
+          name: shard-batch-1-dist-it-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/appenzello-dist-it.tar
+            ${{ runner.temp }}/argovia-dist-it.tar
+            ${{ runner.temp }}/articolifrontaliere-dist-it.tar
+            ${{ runner.temp }}/articolisvizzera-dist-it.tar
+            ${{ runner.temp }}/basilea-dist-it.tar
           compression-level: 1
           retention-days: 1
           if-no-files-found: ignore
-      - name: Upload svizzera shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.SVIZZERA_SHARD_LIVE == 'true'
+      - name: Upload shard batch 2 dist for post-deploy validation
+        if: matrix.locale == 'it'
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
-          name: svizzera-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/svizzera-dist-it.tar
+          name: shard-batch-2-dist-it-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/berna-dist-it.tar
+            ${{ runner.temp }}/friburgo-dist-it.tar
+            ${{ runner.temp }}/ginevra-dist-it.tar
+            ${{ runner.temp }}/giura-dist-it.tar
+            ${{ runner.temp }}/glarona-dist-it.tar
           compression-level: 1
           retention-days: 1
           if-no-files-found: ignore
-      - name: Upload zurigo shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.ZURIGO_SHARD_LIVE == 'true'
+      - name: Upload shard batch 3 dist for post-deploy validation
+        if: matrix.locale == 'it'
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
-          name: zurigo-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/zurigo-dist-it.tar
+          name: shard-batch-3-dist-it-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/grigioni-dist-it.tar
+            ${{ runner.temp }}/lucerna-dist-it.tar
+            ${{ runner.temp }}/neuchatel-dist-it.tar
+            ${{ runner.temp }}/nidvaldo-dist-it.tar
+            ${{ runner.temp }}/obvaldo-dist-it.tar
           compression-level: 1
           retention-days: 1
           if-no-files-found: ignore
-      - name: Upload argovia shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.ARGOVIA_SHARD_LIVE == 'true'
+      - name: Upload shard batch 4 dist for post-deploy validation
+        if: matrix.locale == 'it'
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
-          name: argovia-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/argovia-dist-it.tar
+          name: shard-batch-4-dist-it-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/sangallo-dist-it.tar
+            ${{ runner.temp }}/sciaffusa-dist-it.tar
+            ${{ runner.temp }}/soletta-dist-it.tar
+            ${{ runner.temp }}/svitto-dist-it.tar
+            ${{ runner.temp }}/svizzera-dist-it.tar
           compression-level: 1
           retention-days: 1
           if-no-files-found: ignore
-      - name: Upload appenzello shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.APPENZELLO_SHARD_LIVE == 'true'
+      - name: Upload shard batch 5 dist for post-deploy validation
+        if: matrix.locale == 'it'
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
-          name: appenzello-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/appenzello-dist-it.tar
+          name: shard-batch-5-dist-it-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/ticino-dist-it.tar
+            ${{ runner.temp }}/turgovia-dist-it.tar
+            ${{ runner.temp }}/uri-dist-it.tar
+            ${{ runner.temp }}/vallese-dist-it.tar
+            ${{ runner.temp }}/vaud-dist-it.tar
           compression-level: 1
           retention-days: 1
           if-no-files-found: ignore
-      - name: Upload basilea shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.BASILEA_SHARD_LIVE == 'true'
+      - name: Upload shard batch 6 dist for post-deploy validation
+        if: matrix.locale == 'it'
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
-          name: basilea-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/basilea-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload berna shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.BERNA_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: berna-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/berna-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload friburgo shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.FRIBURGO_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: friburgo-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/friburgo-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload ginevra shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.GINEVRA_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: ginevra-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/ginevra-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload glarona shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.GLARONA_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: glarona-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/glarona-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload grigioni shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.GRIGIONI_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: grigioni-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/grigioni-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload giura shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.GIURA_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: giura-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/giura-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload lucerna shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.LUCERNA_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: lucerna-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/lucerna-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload neuchatel shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.NEUCHATEL_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: neuchatel-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/neuchatel-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload nidvaldo shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.NIDVALDO_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: nidvaldo-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/nidvaldo-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload obvaldo shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.OBVALDO_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: obvaldo-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/obvaldo-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload sciaffusa shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.SCIAFFUSA_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: sciaffusa-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/sciaffusa-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload soletta shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.SOLETTA_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: soletta-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/soletta-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload svitto shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.SVITTO_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: svitto-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/svitto-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload turgovia shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.TURGOVIA_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: turgovia-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/turgovia-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload uri shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.URI_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: uri-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/uri-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload vaud shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.VAUD_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: vaud-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/vaud-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload vallese shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.VALLESE_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: vallese-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/vallese-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload zugo shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.ZUGO_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: zugo-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/zugo-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload sangallo shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.SANGALLO_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: sangallo-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/sangallo-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload articolifrontaliere shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.ARTICOLIFRONTALIERE_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: articolifrontaliere-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/articolifrontaliere-dist-it.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload articolisvizzera shard dist for post-deploy validation
-        if: matrix.locale == 'it' && vars.ARTICOLISVIZZERA_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: articolisvizzera-dist-it-${{ github.run_id }}
-          path: ${{ runner.temp }}/articolisvizzera-dist-it.tar
+          name: shard-batch-6-dist-it-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/zugo-dist-it.tar
+            ${{ runner.temp }}/zurigo-dist-it.tar
           compression-level: 1
           retention-days: 1
           if-no-files-found: ignore
@@ -1425,273 +1242,90 @@ jobs:
             fi
           done
           for pid in "${pids[@]}"; do wait "$pid"; done
-      - name: Upload ticino shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.TICINO_SHARD_LIVE == 'true'
+      - name: Upload shard batch 1 dist for post-deploy validation
+        if: matrix.locale != 'it'
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
-          name: ticino-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/ticino-dist-${{ matrix.locale }}.tar
+          name: shard-batch-1-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/appenzello-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/argovia-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/articolifrontaliere-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/articolisvizzera-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/basilea-dist-${{ matrix.locale }}.tar
           compression-level: 1
           retention-days: 1
           if-no-files-found: ignore
-      - name: Upload svizzera shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.SVIZZERA_SHARD_LIVE == 'true'
+      - name: Upload shard batch 2 dist for post-deploy validation
+        if: matrix.locale != 'it'
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
-          name: svizzera-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/svizzera-dist-${{ matrix.locale }}.tar
+          name: shard-batch-2-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/berna-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/friburgo-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/ginevra-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/giura-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/glarona-dist-${{ matrix.locale }}.tar
           compression-level: 1
           retention-days: 1
           if-no-files-found: ignore
-      - name: Upload zurigo shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.ZURIGO_SHARD_LIVE == 'true'
+      - name: Upload shard batch 3 dist for post-deploy validation
+        if: matrix.locale != 'it'
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
-          name: zurigo-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/zurigo-dist-${{ matrix.locale }}.tar
+          name: shard-batch-3-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/grigioni-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/lucerna-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/neuchatel-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/nidvaldo-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/obvaldo-dist-${{ matrix.locale }}.tar
           compression-level: 1
           retention-days: 1
           if-no-files-found: ignore
-      - name: Upload argovia shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.ARGOVIA_SHARD_LIVE == 'true'
+      - name: Upload shard batch 4 dist for post-deploy validation
+        if: matrix.locale != 'it'
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
-          name: argovia-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/argovia-dist-${{ matrix.locale }}.tar
+          name: shard-batch-4-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/sangallo-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/sciaffusa-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/soletta-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/svitto-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/svizzera-dist-${{ matrix.locale }}.tar
           compression-level: 1
           retention-days: 1
           if-no-files-found: ignore
-      - name: Upload appenzello shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.APPENZELLO_SHARD_LIVE == 'true'
+      - name: Upload shard batch 5 dist for post-deploy validation
+        if: matrix.locale != 'it'
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
-          name: appenzello-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/appenzello-dist-${{ matrix.locale }}.tar
+          name: shard-batch-5-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/ticino-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/turgovia-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/uri-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/vallese-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/vaud-dist-${{ matrix.locale }}.tar
           compression-level: 1
           retention-days: 1
           if-no-files-found: ignore
-      - name: Upload basilea shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.BASILEA_SHARD_LIVE == 'true'
+      - name: Upload shard batch 6 dist for post-deploy validation
+        if: matrix.locale != 'it'
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
-          name: basilea-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/basilea-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload berna shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.BERNA_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: berna-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/berna-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload friburgo shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.FRIBURGO_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: friburgo-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/friburgo-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload ginevra shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.GINEVRA_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: ginevra-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/ginevra-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload glarona shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.GLARONA_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: glarona-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/glarona-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload grigioni shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.GRIGIONI_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: grigioni-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/grigioni-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload giura shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.GIURA_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: giura-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/giura-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload lucerna shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.LUCERNA_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: lucerna-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/lucerna-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload neuchatel shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.NEUCHATEL_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: neuchatel-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/neuchatel-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload nidvaldo shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.NIDVALDO_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: nidvaldo-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/nidvaldo-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload obvaldo shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.OBVALDO_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: obvaldo-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/obvaldo-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload sciaffusa shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.SCIAFFUSA_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: sciaffusa-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/sciaffusa-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload soletta shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.SOLETTA_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: soletta-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/soletta-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload svitto shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.SVITTO_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: svitto-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/svitto-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload turgovia shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.TURGOVIA_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: turgovia-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/turgovia-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload uri shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.URI_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: uri-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/uri-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload vaud shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.VAUD_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: vaud-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/vaud-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload vallese shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.VALLESE_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: vallese-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/vallese-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload zugo shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.ZUGO_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: zugo-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/zugo-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload sangallo shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.SANGALLO_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: sangallo-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/sangallo-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload articolifrontaliere shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.ARTICOLIFRONTALIERE_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: articolifrontaliere-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/articolifrontaliere-dist-${{ matrix.locale }}.tar
-          compression-level: 1
-          retention-days: 1
-          if-no-files-found: ignore
-      - name: Upload articolisvizzera shard dist for post-deploy validation
-        if: matrix.locale != 'it' && vars.ARTICOLISVIZZERA_SHARD_LIVE == 'true'
-        continue-on-error: true
-        uses: actions/upload-artifact@v7
-        with:
-          name: articolisvizzera-dist-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/articolisvizzera-dist-${{ matrix.locale }}.tar
+          name: shard-batch-6-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/zugo-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/zurigo-dist-${{ matrix.locale }}.tar
           compression-level: 1
           retention-days: 1
           if-no-files-found: ignore
