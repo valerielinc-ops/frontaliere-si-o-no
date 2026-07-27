@@ -1588,6 +1588,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.canton-ticino-blocca-ristorni-lombardia.title': 'Der Kanton Tessin blockiert über 50 Millionen Rückzahlungen an die Lombardei',
     'blog.article.canton-ticino-blocca-ristorni-lombardia.excerpt': 'Der Staatsrat des Kantons Tessin hat beschlossen, vorsorglich die Hälfte des lombardischen Anteils an den Rückvergütungen auszusetzen',
     'blog.article.canton-ticino-blocca-ristorni-lombardia.imageAlt': 'Lugano-Seenblick',
+    'blog.article.cifre-nere-grigioni.title': 'Schwarze Zahlen für fast alle grossen Bündner Gemeinden',
+    'blog.article.cifre-nere-grigioni.excerpt': '19 von 20 Bündner Gemeinden mit den meisten Einwohnern verbuchten positive Konten',
+    'blog.article.cifre-nere-grigioni.imageAlt': 'Bild eines grisonischen Gemeinde mit einem roten Haushalt',
 };
 
 export default blogMetaChDe;

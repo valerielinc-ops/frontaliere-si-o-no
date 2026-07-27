@@ -552,6 +552,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'medici-di-base-carenza-svizzera': { it: 'medici-di-base-carenza-svizzera', en: 'medics-of-base-shortage-switzerland', de: 'arzte-mangel-schweiz', fr: 'medecins-manque-suisse' },
  'pompieri-svizzeri-gironda-francia': { it: 'pompieri-svizzeri-gironda-francia', en: 'swiss-firefighters-gironda-france', de: 'schweizer-feuerwehrleute-gironda-frankreich', fr: 'pompiers-suisses-gironda-france' },
  'canton-ticino-blocca-ristorni-lombardia': { it: 'canton-ticino-blocca-ristorni-lombardia', en: 'ticino-blocks-lombardy-refunds', de: 'tessin-blockiert-lombardische-ruckerstattungen', fr: 'tessin-empeche-le-recouvrement-de-lombardie' },
+ 'cifre-nere-grigioni': { it: 'cifre-nere-grigioni', en: 'black-figures-grisons', de: 'schwarze-zahlen-grisone', fr: 'chiffres-noirs-grisons' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

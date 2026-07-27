@@ -1588,6 +1588,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.canton-ticino-blocca-ristorni-lombardia.title': 'Le canton du Tessin bloque plus de 50 millions de restaurants en Lombardie',
     'blog.article.canton-ticino-blocca-ristorni-lombardia.excerpt': 'Le Conseil d\'État du canton du Tessin a décidé de suspendre par mesure de précaution la moitié de la part lombarde des restaurations',
     'blog.article.canton-ticino-blocca-ristorni-lombardia.imageAlt': 'Vue de Lugano sur le lac',
+    'blog.article.cifre-nere-grigioni.title': 'Chiffres noirs pour presque toutes les grandes communes grisonnes',
+    'blog.article.cifre-nere-grigioni.excerpt': '19 communes grisonnes sur 20 avec le plus grand nombre d\'habitants ont enregistré des comptes positifs',
+    'blog.article.cifre-nere-grigioni.imageAlt': 'Image d\'une commune grisonne avec un budget rouge',
 };
 
 export default blogMetaChFr;

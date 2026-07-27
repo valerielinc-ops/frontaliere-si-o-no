@@ -1588,6 +1588,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.canton-ticino-blocca-ristorni-lombardia.title': 'The Canton of Ticino blocks over 50 million restaurants in Lombardy',
     'blog.article.canton-ticino-blocca-ristorni-lombardia.excerpt': 'The State Council of the Canton of Ticino has decided to cautiously suspend half of the Lombard portion of the refreshments',
     'blog.article.canton-ticino-blocca-ristorni-lombardia.imageAlt': 'Lugano lake view',
+    'blog.article.cifre-nere-grigioni.title': 'Black figures for almost all the large Grison municipalities',
+    'blog.article.cifre-nere-grigioni.excerpt': '19 out of 20 Grison municipalities with the largest number of inhabitants recorded positive accounts',
+    'blog.article.cifre-nere-grigioni.imageAlt': 'Image of a Grisonian commune with a red budget',
 };
 
 export default blogMetaChEn;
