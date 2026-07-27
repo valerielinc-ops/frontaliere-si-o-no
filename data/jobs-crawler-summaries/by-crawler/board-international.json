@@ -1,16 +1,16 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-07-26T22:10:27.298Z",
+  "generatedAt": "2026-07-27T13:03:57.980Z",
   "total": 11,
   "newCount": 1,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 3458,
-  "avgDurationMs": 3458,
+  "durationMs": 2936,
+  "avgDurationMs": 2936,
   "durationHistory": [
-    3458
+    2936
   ],
   "newJobs": [
     {
@@ -63,10 +63,10 @@
       "sector": "Tecnologia & IT",
       "source": "board-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-26",
+      "postedDate": "2026-07-27",
       "employmentType": "full time",
       "contractType": "full-time",
-      "validThrough": "2026-07-26",
+      "validThrough": "2026-07-27",
       "id": "board-international-b7509e355f12",
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -299,6 +299,8 @@
       "streetAddress": "",
       "postalCode": "6830",
       "firstSeenAt": "2026-06-03T12:52:07.382Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
