@@ -17,6 +17,23 @@ describe('job title locale utils', () => {
     expect(detected.lang).toBe('fr');
     expect(detected.confidence).toBeGreaterThanOrEqual(0.55);
   });
+
+  // Regression (2026-07-27 live bug): "Fachperson Gesundheit Universitäre Klinik
+  // für Altersmedizin" (Stadtspital Zürich, DE-source) shipped completely
+  // untranslated into an IT-locale subscriber's job-alert email. None of
+  // fachperson/gesundheit/universitäre/klinik/altersmedizin had word-hint
+  // support in TITLE_HINTS.de, so detection fell through to the weak
+  // char-hint-only tier (0.45, driven solely by the "ä" diacritic) — under the
+  // 0.55 needsRetranslation threshold in dedicated-crawler-common.mjs. Health-
+  // sector vocabulary added to TITLE_HINTS.de now gives genuine word support.
+  it('detects the Stadtspital Zürich leftover-German title as German with word support', () => {
+    const detected = detectJobTitleLocaleDetails(
+      'Fachperson Gesundheit Universitäre Klinik per Altersmedizin', 'it'
+    );
+    expect(detected.lang).toBe('de');
+    expect(detected.confidence).toBeGreaterThanOrEqual(0.55);
+    expect(detected.method).not.toBe('char-hint-only');
+  });
 });
 
 describe('titleLooksUntranslatedFromSource (generic leftover-source-language check)', () => {

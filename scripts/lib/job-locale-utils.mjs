@@ -8,10 +8,29 @@ const TITLE_HINTS = {
     // Note: "jr"/"sr" removed from EN-only hints — they are used across IT/EN/DE/FR job titles
   ],
   de: [
-    /\b(mitarbeiter|fachspezialist|fachfrau|fachmann|oberarzt|arzt|pflege|leiter|logistik|spital|praktikant|qualitat|qualität|ingenieur|techniker|verantwortliche|verantwortlicher|diatkoch|diätkoch|apotheker|systemgastronomie|systemgastronomiefachfrau|systemgastronomiefachmann|sekretär|sekretärin|onkologie|hämatologie|rayonleiter|metzger|detailhandelsfachfrau|detailhandelsfachmann|medizinische|berufsbildner|assistenzarzt|pflegefach|chefarzt)\b/gi,
+    /\b(mitarbeiter|fachspezialist|fachfrau|fachmann|oberarzt|arzt|pflege|leiter|logistik|spital|praktikant|qualitat|qualität|ingenieur|techniker|verantwortliche|verantwortlicher|diatkoch|diätkoch|apotheker|systemgastronomie|systemgastronomiefachfrau|systemgastronomiefachmann|sekretär|sekretärin|onkologie|hämatologie|rayonleiter|metzger|detailhandelsfachfrau|detailhandelsfachmann|medizinische|berufsbildner|assistenzarzt|pflegefach|chefarzt|altersmedizin|kardiologie|herzchirurgie)\b/gi,
     /\b[a-zäöüß]+:in\b/gi,
     /\b[a-zäöüß]+:mann\b/gi,
     /\befz\b/gi,
+    // Swiss health/hospital vocational + institutional vocabulary: German builds
+    // these as single fused compound words (no space), so a bare word-boundary
+    // alternative in the group above can't reach the stem inside e.g.
+    // "Pflegefachperson" or "Poliklinik" (\b requires a non-word char right after
+    // the match). Each gets its own \w*-padded stem regex instead of enumerating
+    // every inflection/compound by hand. Bug: "Fachperson Gesundheit Universitäre
+    // Klinik für Altersmedizin" shipped untranslated into an IT-locale slot —
+    // none of fachperson/gesundheit/universitäre/klinik/altersmedizin had
+    // word-hint support, so detection fell through to the char-hint-only tier
+    // (0.45), under the 0.55 needsRetranslation threshold.
+    // universität/universitär require the literal "ä" (no plain-"a" fallback,
+    // unlike qualitat/qualität above) — "universit[aä][tr]" would also match
+    // Italian "universitario/universitari(a)", which has no umlaut.
+    /\b\w*fachperson\w*\b/gi,
+    /\bgesundheit\w*\b/gi,
+    /\b\w*klinik\w*\b/gi,
+    /\b(universität|universitär)\w*\b/gi,
+    /\b\w*geriatrie\w*\b/gi,
+    /\bhauswirtschaft\w*\b/gi,
   ],
   it: [
     /\b(responsabile|medico|infermiere|impiegato|tecnico|cuoco|apprendista|apprendiste|candidato|collaboratore|ingegnere|caporeparto|fisioterapista|servizio civile|radiologia|ginecologia|ostetricia|ristorazione|operatore|segretario|segretaria|assistente|ricercatrice|ricercatore|architetture|sistemi|cucina|dietista|educatore|educatrice)\b/gi,
