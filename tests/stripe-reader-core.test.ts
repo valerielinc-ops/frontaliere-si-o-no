@@ -531,6 +531,52 @@ describe('handleClaimReaderCheckout', () => {
     const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
     expect(res).toEqual({ status: 200, body: { ok: true, authToken: 'custom-token-for-raced-uid-1' } });
   });
+
+  it('refuses to mint a token when the resolved account has a malformed creationTime (Date.parse → NaN fail-closed guard)', async () => {
+    // NaN on either side of the subtraction must fail closed. Without an
+    // explicit Number.isFinite guard, NaN - sessionCreatedMs = NaN, and BOTH
+    // `< -GRACE` and `> WINDOW` evaluate to false for NaN — the guard would
+    // silently never trigger and a token would be minted instead.
+    usersByEmail['guest@example.com'] = { uid: 'malformed-uid-1', creationTime: 'not-a-date' };
+    const { handleClaimReaderCheckout } = await load();
+    const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
+    expect(createCustomToken).not.toHaveBeenCalled();
+    expect(res).toEqual({ status: 409, body: { ok: false, error: 'account_exists' } });
+  });
+
+  it('refuses to mint a token when session.created is missing (fails closed to Infinity, not open)', async () => {
+    stripeCheckoutSessionsRetrieve.mockImplementation(async () => ({
+      id: 'cs_guest_1',
+      payment_status: 'paid',
+      customer_details: { email: 'guest@example.com' },
+      metadata: { plan: 'reader_noads' },
+      created: undefined as unknown as number,
+    }));
+    const { handleClaimReaderCheckout } = await load();
+    const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
+    expect(createCustomToken).not.toHaveBeenCalled();
+    expect(res).toEqual({ status: 409, body: { ok: false, error: 'account_exists' } });
+  });
+
+  it('accepts an account created exactly at the lower grace-window boundary (inclusive)', async () => {
+    usersByEmail['guest@example.com'] = {
+      uid: 'boundary-lower-uid',
+      creationTime: new Date(SESSION_CREATED_UNIX * 1000 - 60_000).toISOString(),
+    };
+    const { handleClaimReaderCheckout } = await load();
+    const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
+    expect(res).toEqual({ status: 200, body: { ok: true, authToken: 'custom-token-for-boundary-lower-uid' } });
+  });
+
+  it('accepts an account created exactly at the upper claim-window boundary (inclusive)', async () => {
+    usersByEmail['guest@example.com'] = {
+      uid: 'boundary-upper-uid',
+      creationTime: new Date(SESSION_CREATED_UNIX * 1000 + 30 * 60 * 1000).toISOString(),
+    };
+    const { handleClaimReaderCheckout } = await load();
+    const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
+    expect(res).toEqual({ status: 200, body: { ok: true, authToken: 'custom-token-for-boundary-upper-uid' } });
+  });
 });
 
 describe('handleCreateReaderBillingPortal', () => {
