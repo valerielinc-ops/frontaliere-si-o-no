@@ -1,241 +1,1165 @@
 {
-  "updatedAt": "2026-07-20",
+  "updatedAt": "2026-07-27",
   "windowDays": 7,
-  "weekStart": "2026-07-13",
-  "weekEnd": "2026-07-19",
+  "weekStart": "2026-07-20",
+  "weekEnd": "2026-07-26",
   "ranking": [
     {
-      "slug": "biegno-indemini",
+      "slug": "anieres",
       "rank": 1,
       "avgMinutes": 0,
-      "totalSamples": 65,
-      "trend": "better",
-      "deltaMinutes": -0.5
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
     },
     {
-      "slug": "cremenaga-ponte-cremenaga",
+      "slug": "bargen-sh-tengen",
       "rank": 2,
       "avgMinutes": 0,
-      "totalSamples": 65,
-      "trend": "better",
-      "deltaMinutes": -0.5
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "biaufond",
+      "rank": 3,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "biegno-indemini",
+      "rank": 4,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": 0
+    },
+    {
+      "slug": "blumberg-beggingen",
+      "rank": 5,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "buchs-schaan",
+      "rank": 6,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "busingen-am-hochrhein-dorflingen-busingerstrasse",
+      "rank": 7,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "busingen-am-hochrhein-dorflingen-l202",
+      "rank": 8,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "busingen-am-hochrhein-schaffhausen-stemmer",
+      "rank": 9,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "chavannes-de-bogis-divonne",
+      "rank": 10,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "crassier-divonne",
+      "rank": 11,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "dettighofen-wil-zh",
+      "rank": 12,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "dorflingen-gailingen-am-hochrhein-hinterdorf",
+      "rank": 13,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
     },
     {
       "slug": "drezzo-pedrinate",
-      "rank": 3,
+      "rank": 14,
       "avgMinutes": 0,
-      "totalSamples": 65,
-      "trend": "better",
-      "deltaMinutes": -0.5
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": 0
     },
     {
       "slug": "dumenza-cassinone",
-      "rank": 4,
+      "rank": 15,
       "avgMinutes": 0,
-      "totalSamples": 65,
-      "trend": "better",
-      "deltaMinutes": -0.5
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": 0
     },
     {
-      "slug": "luino-fornasette",
-      "rank": 5,
+      "slug": "eggingen-hallau",
+      "rank": 16,
       "avgMinutes": 0,
-      "totalSamples": 65,
-      "trend": "better",
-      "deltaMinutes": -0.5
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "fahy-abbevillers",
+      "rank": 17,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "gailingen-am-hochrhein-ramsen-sh",
+      "rank": 18,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "hermance",
+      "rank": 19,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "hilzingen-thayngen-schlattergasse",
+      "rank": 20,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "hohentengen-am-hochrhein-wasterkingen",
+      "rank": 21,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "jestetten-rheinau",
+      "rank": 22,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "klettgau-wil-zh",
+      "rank": 23,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "klettgau-wilchingen",
+      "rank": 24,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "kriessern-mader",
+      "rank": 25,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "l-auberson-les-fourgs",
+      "rank": 26,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "le-brassus-bois-d-amont",
+      "rank": 27,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "les-verrieres",
+      "rank": 28,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "lottstetten-nack",
+      "rank": 29,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "lottstetten-rafz-landstrasse",
+      "rank": 30,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "lottstetten-rudlingen",
+      "rank": 31,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "merishausen-tengen",
+      "rank": 32,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "montlingen-koblach",
+      "rank": 33,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "ohningen-stein-am-rhein",
+      "rank": 34,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
     },
     {
       "slug": "piaggio-valmara",
-      "rank": 6,
+      "rank": 35,
       "avgMinutes": 0,
-      "totalSamples": 65,
-      "trend": "better",
-      "deltaMinutes": -0.5
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": 0
+    },
+    {
+      "slug": "rheineck-gai-au",
+      "rank": 36,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
     },
     {
       "slug": "ronago-novazzano",
-      "rank": 7,
+      "rank": 37,
       "avgMinutes": 0,
-      "totalSamples": 65,
-      "trend": "better",
-      "deltaMinutes": -0.5
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": 0
+    },
+    {
+      "slug": "salez-ruggell",
+      "rank": 38,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
     },
     {
       "slug": "sempione",
-      "rank": 8,
+      "rank": 39,
       "avgMinutes": 0,
-      "totalSamples": 65,
-      "trend": "better",
-      "deltaMinutes": -0.5
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": 0
     },
     {
-      "slug": "camedo",
-      "rank": 9,
+      "slug": "sevelen-vaduz",
+      "rank": 40,
       "avgMinutes": 0,
-      "totalSamples": 65,
-      "trend": "better",
-      "deltaMinutes": -0.5
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "st-luzisteig",
+      "rank": 41,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "tengen-thayngen-l188",
+      "rank": 42,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "tunnel-munt-la-schera",
+      "rank": 43,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "vallorbe-jougne",
+      "rank": 44,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "opfertshofen-tengen",
+      "rank": 45,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "busingen-am-hochrhein-schaffhausen-gennersbrunnerstrasse",
+      "rank": 46,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "dettighofen-rafz",
+      "rank": 47,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "dorflingen-gottmadingen-randegg",
+      "rank": 48,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "gottmadingen-thayngen-ebringerstrasse",
+      "rank": 49,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "goumois",
+      "rank": 50,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "hilzingen-thayngen-barzheimer-strasse",
+      "rank": 51,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "jestetten-wilchingen",
+      "rank": 52,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "luino-fornasette",
+      "rank": 53,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": 0
+    },
+    {
+      "slug": "ruthi-meiningen",
+      "rank": 54,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "sauverny",
+      "rank": 55,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "trubbach-balzers",
+      "rank": 56,
+      "avgMinutes": 0,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
     },
     {
       "slug": "crociale-dei-mulini",
-      "rank": 10,
+      "rank": 57,
       "avgMinutes": 0.1,
-      "totalSamples": 65,
+      "totalSamples": 55,
       "trend": "flat",
-      "deltaMinutes": -0.4
+      "deltaMinutes": -0.1
     },
     {
-      "slug": "clivio-ligornetto",
-      "rank": 11,
-      "avgMinutes": 0.2,
-      "totalSamples": 65,
+      "slug": "gottmadingen-buch-sh",
+      "rank": 58,
+      "avgMinutes": 0.1,
+      "totalSamples": 55,
       "trend": "flat",
-      "deltaMinutes": -0.4
+      "deltaMinutes": null
     },
     {
-      "slug": "zenna-dirinella",
-      "rank": 12,
-      "avgMinutes": 0.4,
-      "totalSamples": 65,
+      "slug": "giogo-di-santa-maria",
+      "rank": 59,
+      "avgMinutes": 0.1,
+      "totalSamples": 55,
       "trend": "flat",
-      "deltaMinutes": -0.3
+      "deltaMinutes": null
     },
     {
-      "slug": "saltrio-arzo",
-      "rank": 13,
-      "avgMinutes": 0.6,
-      "totalSamples": 65,
+      "slug": "martina-nauders",
+      "rank": 60,
+      "avgMinutes": 0.1,
+      "totalSamples": 55,
       "trend": "flat",
-      "deltaMinutes": -0.5
+      "deltaMinutes": null
     },
     {
-      "slug": "lanzo-d-intelvi-arogno",
-      "rank": 14,
-      "avgMinutes": 0.6,
-      "totalSamples": 65,
+      "slug": "blumberg-bargen-sh-alte-bargener-strasse",
+      "rank": 61,
+      "avgMinutes": 0.1,
+      "totalSamples": 55,
       "trend": "flat",
-      "deltaMinutes": -0.4
+      "deltaMinutes": null
     },
     {
-      "slug": "maslianico-pizzamiglio",
-      "rank": 15,
-      "avgMinutes": 0.7,
-      "totalSamples": 65,
+      "slug": "la-cure-les-rousses",
+      "rank": 62,
+      "avgMinutes": 0.1,
+      "totalSamples": 55,
       "trend": "flat",
-      "deltaMinutes": -0.3
+      "deltaMinutes": null
     },
     {
-      "slug": "oria-gandria",
-      "rank": 16,
-      "avgMinutes": 0.9,
-      "totalSamples": 65,
+      "slug": "morgins-chatel",
+      "rank": 63,
+      "avgMinutes": 0.1,
+      "totalSamples": 55,
       "trend": "flat",
-      "deltaMinutes": -0.4
+      "deltaMinutes": null
     },
     {
-      "slug": "bizzarone-novazzano",
-      "rank": 17,
-      "avgMinutes": 1.1,
-      "totalSamples": 65,
+      "slug": "cremenaga-ponte-cremenaga",
+      "rank": 64,
+      "avgMinutes": 0.1,
+      "totalSamples": 55,
       "trend": "flat",
       "deltaMinutes": 0.1
     },
     {
-      "slug": "campione-d-italia-bissone",
-      "rank": 18,
-      "avgMinutes": 1.6,
-      "totalSamples": 65,
+      "slug": "diessenhofen-gailingen-am-hochrhein",
+      "rank": 65,
+      "avgMinutes": 0.1,
+      "totalSamples": 55,
       "trend": "flat",
-      "deltaMinutes": -0.3
+      "deltaMinutes": null
     },
     {
-      "slug": "san-pietro",
-      "rank": 19,
-      "avgMinutes": 2.8,
-      "totalSamples": 65,
-      "trend": "better",
-      "deltaMinutes": -1.3
-    },
-    {
-      "slug": "chiasso-centro",
-      "rank": 20,
-      "avgMinutes": 2.9,
-      "totalSamples": 65,
-      "trend": "better",
-      "deltaMinutes": -3.1
-    },
-    {
-      "slug": "porto-ceresio-brusino",
-      "rank": 21,
-      "avgMinutes": 3.5,
-      "totalSamples": 65,
+      "slug": "jestetten-neuhausen-am-rheinfall-zollstrasse",
+      "rank": 66,
+      "avgMinutes": 0.1,
+      "totalSamples": 55,
       "trend": "flat",
-      "deltaMinutes": -0.3
+      "deltaMinutes": null
     },
     {
-      "slug": "gaggiolo",
-      "rank": 22,
-      "avgMinutes": 4,
-      "totalSamples": 65,
-      "trend": "better",
-      "deltaMinutes": -1.1
+      "slug": "blumberg-bargen-sh-autostrasse-h4",
+      "rank": 67,
+      "avgMinutes": 0.1,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
     },
     {
-      "slug": "ponte-tresa",
-      "rank": 23,
-      "avgMinutes": 6.8,
-      "totalSamples": 65,
+      "slug": "boncourt-delle",
+      "rank": 68,
+      "avgMinutes": 0.1,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "gottmadingen-buch-blindenhausen-sh",
+      "rank": 69,
+      "avgMinutes": 0.1,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "jestetten-laufen-uhwiesen-grenzstrasse",
+      "rank": 70,
+      "avgMinutes": 0.1,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "busingen-am-hochrhein-dorflingen-siedlerstrasse",
+      "rank": 71,
+      "avgMinutes": 0.1,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "jestetten-neuhausen-am-rheinfall-buchweg",
+      "rank": 72,
+      "avgMinutes": 0.1,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "tengen-thayngen-wiechserstrasse",
+      "rank": 73,
+      "avgMinutes": 0.1,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "klettgau-trasadingen",
+      "rank": 74,
+      "avgMinutes": 0.2,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "saint-gingolph",
+      "rank": 75,
+      "avgMinutes": 0.2,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "jestetten-laufen-uhwiesen-dorfstrasse",
+      "rank": 76,
+      "avgMinutes": 0.2,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "col-des-roches",
+      "rank": 77,
+      "avgMinutes": 0.2,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "kussaberg-bad-zurzach-ag",
+      "rank": 78,
+      "avgMinutes": 0.2,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "meyrin-cern",
+      "rank": 79,
+      "avgMinutes": 0.2,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "forcola-di-livigno",
+      "rank": 80,
+      "avgMinutes": 0.2,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "camedo",
+      "rank": 81,
+      "avgMinutes": 0.3,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": 0.2
+    },
+    {
+      "slug": "samnaun-spiss",
+      "rank": 82,
+      "avgMinutes": 0.3,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "widnau-lustenau",
+      "rank": 83,
+      "avgMinutes": 0.3,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "stuhlingen-hallau",
+      "rank": 84,
+      "avgMinutes": 0.3,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "zenna-dirinella",
+      "rank": 85,
+      "avgMinutes": 0.3,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": -0.1
+    },
+    {
+      "slug": "diepoldsau-hohenems",
+      "rank": 86,
+      "avgMinutes": 0.3,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "hohentengen-am-hochrhein-kaiserstuhl-ag",
+      "rank": 87,
+      "avgMinutes": 0.3,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "le-chatelard-vallorcine",
+      "rank": 88,
+      "avgMinutes": 0.3,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "ramsen-moskau-rielasingen-worblingen",
+      "rank": 89,
+      "avgMinutes": 0.4,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "landecy",
+      "rank": 90,
+      "avgMinutes": 0.4,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "clivio-ligornetto",
+      "rank": 91,
+      "avgMinutes": 0.5,
+      "totalSamples": 55,
       "trend": "flat",
       "deltaMinutes": 0.3
     },
     {
-      "slug": "chiasso-brogeda",
-      "rank": 24,
-      "avgMinutes": 9.7,
-      "totalSamples": 65,
+      "slug": "lottstetten-rafz-schaffhausener-strasse",
+      "rank": 92,
+      "avgMinutes": 0.5,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "campocologno-tirano",
+      "rank": 93,
+      "avgMinutes": 0.5,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "gottmadingen-ramsen-hofenacker",
+      "rank": 94,
+      "avgMinutes": 0.5,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "maslianico-pizzamiglio",
+      "rank": 95,
+      "avgMinutes": 0.5,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": -0.1
+    },
+    {
+      "slug": "castasegna-villa-di-chiavenna",
+      "rank": 96,
+      "avgMinutes": 0.6,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "gottmadingen-thayngen-autostrada-a81-a4",
+      "rank": 97,
+      "avgMinutes": 0.6,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "perly",
+      "rank": 98,
+      "avgMinutes": 0.6,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "lanzo-d-intelvi-arogno",
+      "rank": 99,
+      "avgMinutes": 0.7,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": 0.1
+    },
+    {
+      "slug": "bizzarone-novazzano",
+      "rank": 100,
+      "avgMinutes": 0.7,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": -0.4
+    },
+    {
+      "slug": "riehen-weil-am-rhein",
+      "rank": 101,
+      "avgMinutes": 0.7,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "traforo-del-gran-san-bernardo",
+      "rank": 102,
+      "avgMinutes": 0.7,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "gailingen-am-hochrhein-dorflingen",
+      "rank": 103,
+      "avgMinutes": 0.7,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "haag-bendern",
+      "rank": 104,
+      "avgMinutes": 0.7,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "oria-gandria",
+      "rank": 105,
+      "avgMinutes": 0.7,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": -0.2
+    },
+    {
+      "slug": "basel-weil-am-rhein-freiburgerstrasse",
+      "rank": 106,
+      "avgMinutes": 0.8,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "saltrio-arzo",
+      "rank": 107,
+      "avgMinutes": 0.8,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": 0.2
+    },
+    {
+      "slug": "konstanz-tagerwilen-autostrada-b33n-a7",
+      "rank": 108,
+      "avgMinutes": 0.9,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "inzlingen-riehen",
+      "rank": 109,
+      "avgMinutes": 0.9,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "busingen-am-hochrhein-schaffhausen-felsgasse",
+      "rank": 110,
+      "avgMinutes": 0.9,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "riehen-lorrach-stetten",
+      "rank": 111,
+      "avgMinutes": 0.9,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "bardonnex",
+      "rank": 112,
+      "avgMinutes": 1.1,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "rheinfelden-rheinfelden-ag-alte-rheinbrucke",
+      "rank": 113,
+      "avgMinutes": 1.1,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "laufenburg-laufenburg-ag",
+      "rank": 114,
+      "avgMinutes": 1.1,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "busingen-am-hochrhein-schaffhausen-rheinhaldenstrasse",
+      "rank": 115,
+      "avgMinutes": 1.2,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "busingen-am-hochrhein-schaffhausen-vogelingasschen",
+      "rank": 116,
+      "avgMinutes": 1.2,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "bad-sackingen-stein-ag",
+      "rank": 117,
+      "avgMinutes": 1.3,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "rielasingen-worblingen-ramsen-hofenacker",
+      "rank": 118,
+      "avgMinutes": 1.4,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "passo-dello-spluga",
+      "rank": 119,
+      "avgMinutes": 1.4,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "konstanz-kreuzlingen",
+      "rank": 120,
+      "avgMinutes": 1.6,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "ferney-voltaire-grand-saconnex",
+      "rank": 121,
+      "avgMinutes": 1.7,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "campione-d-italia-bissone",
+      "rank": 122,
+      "avgMinutes": 1.7,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": 0.1
+    },
+    {
+      "slug": "waldshut-tiengen-koblenz-ag",
+      "rank": 123,
+      "avgMinutes": 1.9,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "au-lustenau",
+      "rank": 124,
+      "avgMinutes": 1.9,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "basel-weil-am-rhein-autostrada-a2-a5",
+      "rank": 125,
+      "avgMinutes": 2,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "basel-weil-am-rhein-hiltalingerstrasse",
+      "rank": 126,
+      "avgMinutes": 2.1,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "konstanz-tagerwilen-gottlieber-strasse",
+      "rank": 127,
+      "avgMinutes": 2.5,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "moillesulaz",
+      "rank": 128,
+      "avgMinutes": 2.5,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "ponte-tresa",
+      "rank": 129,
+      "avgMinutes": 2.6,
+      "totalSamples": 55,
+      "trend": "better",
+      "deltaMinutes": -4.2
+    },
+    {
+      "slug": "st-margrethen-hochst",
+      "rank": 130,
+      "avgMinutes": 2.7,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "thonex-vallard",
+      "rank": 131,
+      "avgMinutes": 3.3,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "stuhlingen-schleitheim",
+      "rank": 132,
+      "avgMinutes": 3.4,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "porto-ceresio-brusino",
+      "rank": 133,
+      "avgMinutes": 3.5,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": 0.1
+    },
+    {
+      "slug": "chiasso-centro",
+      "rank": 134,
+      "avgMinutes": 3.8,
+      "totalSamples": 55,
       "trend": "worse",
-      "deltaMinutes": 3.5
+      "deltaMinutes": 1
+    },
+    {
+      "slug": "rheinfelden-rheinfelden-ag-autostrada-a861-a3",
+      "rank": 135,
+      "avgMinutes": 4.1,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "san-pietro",
+      "rank": 136,
+      "avgMinutes": 4.5,
+      "totalSamples": 55,
+      "trend": "worse",
+      "deltaMinutes": 1.7
+    },
+    {
+      "slug": "grenzach-wyhlen-riehen",
+      "rank": 137,
+      "avgMinutes": 4.7,
+      "totalSamples": 55,
+      "trend": "flat",
+      "deltaMinutes": null
+    },
+    {
+      "slug": "gaggiolo",
+      "rank": 138,
+      "avgMinutes": 5.6,
+      "totalSamples": 55,
+      "trend": "worse",
+      "deltaMinutes": 1.5
+    },
+    {
+      "slug": "chiasso-brogeda",
+      "rank": 139,
+      "avgMinutes": 9.1,
+      "totalSamples": 55,
+      "trend": "better",
+      "deltaMinutes": -0.6
     },
     {
       "slug": "chiasso-strada",
-      "rank": 25,
-      "avgMinutes": 19.2,
-      "totalSamples": 65,
-      "trend": "worse",
-      "deltaMinutes": 11.7
+      "rank": 140,
+      "avgMinutes": 11.6,
+      "totalSamples": 55,
+      "trend": "better",
+      "deltaMinutes": -7.6
     }
   ],
   "funFacts": {
-    "bestSlug": "biegno-indemini",
+    "bestSlug": "anieres",
     "worstSlug": "chiasso-strada",
-    "deltaMinutesPerCrossing": 19.2,
-    "minutesPerYear": 8818,
-    "hoursPerYear": 147,
-    "workingDaysLostPerYear": 6.1
+    "deltaMinutesPerCrossing": 11.6,
+    "minutesPerYear": 5319,
+    "hoursPerYear": 88.7,
+    "workingDaysLostPerYear": 3.7
   },
   "movers": {
     "improved": [
       {
-        "slug": "chiasso-centro",
-        "deltaMinutes": -3.108791208791209
+        "slug": "chiasso-strada",
+        "deltaMinutes": -7.605594405594404
       },
       {
-        "slug": "san-pietro",
-        "deltaMinutes": -1.26013986013986
+        "slug": "ponte-tresa",
+        "deltaMinutes": -4.181818181818182
       },
       {
-        "slug": "gaggiolo",
-        "deltaMinutes": -1.0993006993006995
+        "slug": "chiasso-brogeda",
+        "deltaMinutes": -0.567832167832167
       }
     ],
     "worsened": [
       {
-        "slug": "chiasso-strada",
-        "deltaMinutes": 11.714685314685315
+        "slug": "san-pietro",
+        "deltaMinutes": 1.714685314685315
       },
       {
-        "slug": "chiasso-brogeda",
-        "deltaMinutes": 3.4872679045092836
+        "slug": "gaggiolo",
+        "deltaMinutes": 1.535664335664336
+      },
+      {
+        "slug": "chiasso-centro",
+        "deltaMinutes": 0.9594405594405595
       }
     ]
   }
