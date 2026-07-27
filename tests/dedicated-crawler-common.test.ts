@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, normalizeContract, mergeLocaleTextMap, pickMergedPostedDate, pickMergedCrawledAt, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, hasCorrectLocaleCoverage, normalizeContract, mergeLocaleTextMap, pickMergedPostedDate, pickMergedCrawledAt, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { getEvents, clear as clearSlugHistoryJournal } from '../scripts/lib/slug-history-journal.mjs';
 
 describe('normalizeContract — workload percentage-range classification (#3482)', () => {
@@ -1416,6 +1416,110 @@ describe('hasFullLocaleCoverage — post-merge needsRetranslation guard (#3442)'
   it('returns false for an empty/undefined job (never crashes)', () => {
     expect(hasFullLocaleCoverage({})).toBe(false);
     expect(hasFullLocaleCoverage(undefined)).toBe(false);
+  });
+});
+
+describe('hasCorrectLocaleCoverage — rejects locale-mislabeled titles (#4788)', () => {
+  // hasFullLocaleCoverage only checks presence: a job with a DE title stuck
+  // in the IT slot still passes it (4/4 non-empty), which let the merge-time
+  // stability lock (and the Coop/Lastminute sibling guards) silently
+  // re-suppress needsRetranslation forever once the source title stopped
+  // changing. hasCorrectLocaleCoverage adds a per-locale correctness check
+  // on top of the same presence check.
+  const fullJob = {
+    titleByLocale: { it: 'Venditore', en: 'Salesperson', de: 'Verkaufer', fr: 'Vendeur' },
+    slugByLocale: { it: 'venditore-x', en: 'salesperson-x', de: 'verkaufer-x', fr: 'vendeur-x' },
+    descriptionByLocale: {
+      it: 'x'.repeat(150), en: 'x'.repeat(150), de: 'x'.repeat(150), fr: 'x'.repeat(150),
+    },
+  };
+
+  it('returns true for a fully and correctly translated job', () => {
+    expect(hasCorrectLocaleCoverage(fullJob, 'de')).toBe(true);
+  });
+
+  it('returns false when a non-source locale title still reads as the source language', () => {
+    // live case from #4788: DE source title dumped verbatim into the IT slot.
+    const mislabeled = {
+      ...fullJob,
+      titleByLocale: {
+        ...fullJob.titleByLocale,
+        it: 'Fachperson Gesundheit Universitäre Klinik für Altersmedizin',
+      },
+    };
+    expect(hasCorrectLocaleCoverage(mislabeled, 'de')).toBe(false);
+    // presence-only check still can't see it — this is exactly the gap.
+    expect(hasFullLocaleCoverage(mislabeled)).toBe(true);
+  });
+
+  it('falls back to presence-only when srcLang is unknown', () => {
+    expect(hasCorrectLocaleCoverage(fullJob, null)).toBe(true);
+    expect(hasCorrectLocaleCoverage(fullJob, undefined)).toBe(true);
+  });
+
+  it('returns false when presence itself is incomplete, regardless of srcLang', () => {
+    const partial = { ...fullJob, descriptionByLocale: { ...fullJob.descriptionByLocale, en: '' } };
+    expect(hasCorrectLocaleCoverage(partial, 'de')).toBe(false);
+  });
+});
+
+describe('mergePreserveLocaleData — translation stability lock respects locale correctness (#4788)', () => {
+  // Reproduces the live bug: a job already indexed with a wrong-locale title
+  // (DE stuck in the IT slot) gets correctly re-flagged needsRetranslation by
+  // the per-crawl locale-hardening step, but the merge-time stability lock
+  // (Fix 2) used to clear it right back to false whenever the source title
+  // was unchanged and hasFullLocaleCoverage(old) passed on presence alone.
+  const baseTitles = { it: 'Venditore', en: 'Salesperson', de: 'Verkaufer', fr: 'Vendeur' };
+  const baseSlugs = { it: 'venditore-x', en: 'salesperson-x', de: 'verkaufer-x', fr: 'vendeur-x' };
+  const baseDescriptions = {
+    it: 'x'.repeat(150), en: 'x'.repeat(150), de: 'x'.repeat(150), fr: 'x'.repeat(150),
+  };
+
+  it('keeps needsRetranslation=true when the previous record has a locale-mislabeled title', () => {
+    const old = {
+      url: 'https://example.com/job/1',
+      sourceLang: 'de',
+      title: 'Fachperson Gesundheit',
+      titleByLocale: {
+        ...baseTitles,
+        it: 'Fachperson Gesundheit Universitäre Klinik für Altersmedizin',
+      },
+      slugByLocale: baseSlugs,
+      descriptionByLocale: baseDescriptions,
+    };
+    const fresh = {
+      url: 'https://example.com/job/1',
+      sourceLang: 'de',
+      title: 'Fachperson Gesundheit',
+      needsRetranslation: true,
+      titleByLocale: { ...old.titleByLocale },
+      slugByLocale: { ...baseSlugs },
+      descriptionByLocale: { ...baseDescriptions },
+    };
+    const [merged] = mergePreserveLocaleData([old], [fresh]);
+    expect(merged.needsRetranslation).toBe(true);
+  });
+
+  it('still clears needsRetranslation when the previous record is genuinely correct in every locale', () => {
+    const old = {
+      url: 'https://example.com/job/2',
+      sourceLang: 'de',
+      title: 'Verkaufer',
+      titleByLocale: { ...baseTitles },
+      slugByLocale: { ...baseSlugs },
+      descriptionByLocale: { ...baseDescriptions },
+    };
+    const fresh = {
+      url: 'https://example.com/job/2',
+      sourceLang: 'de',
+      title: 'Verkaufer',
+      needsRetranslation: true,
+      titleByLocale: { ...baseTitles },
+      slugByLocale: { ...baseSlugs },
+      descriptionByLocale: { ...baseDescriptions },
+    };
+    const [merged] = mergePreserveLocaleData([old], [fresh]);
+    expect(merged.needsRetranslation).toBe(false);
   });
 });
 

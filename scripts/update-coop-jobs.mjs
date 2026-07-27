@@ -43,7 +43,7 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, hasFullLocaleCoverage, normalizeSpace, mergeLocaleTextMap } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, hasCorrectLocaleCoverage, normalizeSpace, mergeLocaleTextMap } from './lib/dedicated-crawler-common.mjs';
 import { runQualityGuards } from './lib/crawler-quality-guards.mjs';
 import {
   fetchCoopJsonLd,
@@ -561,7 +561,11 @@ async function postProcessCoopJobs() {
     // dedicated-crawler-common.mjs (runBaseCrawler already ran before this
     // post-processing step), forcing the AI pipeline to re-translate an
     // already fully-translated title every run and churn slugByLocale.
-    const wasFullyLocalized = hasFullLocaleCoverage(job);
+    // hasCorrectLocaleCoverage (not hasFullLocaleCoverage) is deliberate
+    // (issue #4788 sibling): presence-only coverage would call a job
+    // "already fully localized" even if a non-source title slot still holds
+    // source-language text, permanently suppressing the retranslation flag.
+    const wasFullyLocalized = hasCorrectLocaleCoverage(job, job.sourceLang);
     // Snapshot the prior assembled description too (review #3454): coverage
     // alone freezes the flag forever once a job reaches full 4-locale
     // coverage, even if the live Coop posting is later rewritten. The

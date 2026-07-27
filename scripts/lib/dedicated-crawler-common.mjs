@@ -6094,6 +6094,28 @@ export function hasFullLocaleCoverage(job, { minTitleChars = 3, minSlugChars = 3
 }
 
 /**
+ * Like hasFullLocaleCoverage, but also rejects locale-MISlabeled content:
+ * presence alone (all 4 slots non-empty) says nothing about whether a
+ * non-source slot still holds source-language text (issue #4788 — a DE
+ * title stuck in the IT slot passed hasFullLocaleCoverage and re-suppressed
+ * needsRetranslation on every re-crawl once the source title stopped
+ * changing). Reuses titleLooksUntranslatedFromSource (title-tuned, any
+ * locale pair) per non-source locale. Falls back to presence-only when
+ * srcLang is unknown — titleLooksUntranslatedFromSource itself returns
+ * false without a sourceLang, so this is equivalent to hasFullLocaleCoverage
+ * in that case, not a silent skip.
+ */
+export function hasCorrectLocaleCoverage(job, srcLang, opts = {}) {
+  if (!hasFullLocaleCoverage(job, opts)) return false;
+  if (!srcLang) return true;
+  for (const locale of LOCALES) {
+    if (locale === srcLang) continue;
+    if (titleLooksUntranslatedFromSource(job?.titleByLocale?.[locale], srcLang, locale)) return false;
+  }
+  return true;
+}
+
+/**
  * Whitespace normalizer for locale-map values that PRESERVES newlines.
  *
  * mergeLocaleTextMap used to run every value through `normalizeSpace`, which
@@ -6411,7 +6433,7 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
 
     // Translation stability lock (Fix 2): when the source-locale title is
     // bytewise unchanged from the previous crawl AND the previous record has
-    // full locale coverage for titles/descriptions/slugs, clear
+    // full, locale-CORRECT coverage for titles/descriptions/slugs, clear
     // `needsRetranslation`. Many dedicated parsers (KSBL, etc.) set
     // `needsRetranslation: true` unconditionally on every fetch, which forces
     // the AI pipeline to re-translate the same source title and produce
@@ -6421,12 +6443,19 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
     // page at the indexed URL pointing canonical at a fresh slug, splitting
     // SEO equity and confusing users (the address bar shows the old URL but
     // the page renders the new title).
+    // hasCorrectLocaleCoverage (not hasFullLocaleCoverage) is deliberate here
+    // (issue #4788): presence-only coverage let a job already indexed with a
+    // wrong-locale title (e.g. DE text stuck in the IT slot) re-lock this
+    // flag to false on every subsequent crawl, silently un-doing a same-run
+    // re-flag from the locale hardening step above, for as long as the
+    // stable source title never changed — which for stable listings can be
+    // forever.
     if (fresh.needsRetranslation && srcLang) {
       const oldSrcTitle = normalizeSpace(String(old?.titleByLocale?.[srcLang] || old?.title || ''));
       const newSrcTitle = normalizeSpace(String(fresh?.titleByLocale?.[srcLang] || fresh?.title || ''));
       const sourceTitleStable = oldSrcTitle.length >= 3 && oldSrcTitle === newSrcTitle;
       if (sourceTitleStable) {
-        if (hasFullLocaleCoverage(old)) {
+        if (hasCorrectLocaleCoverage(old, srcLang)) {
           fresh.needsRetranslation = false;
         }
       }
