@@ -1,18 +1,19 @@
 {
   "key": "crr-suva-sion",
   "label": "Clinique romande de réadaptation (CRR Suva)",
-  "generatedAt": "2026-07-27T13:07:13.846Z",
+  "generatedAt": "2026-07-27T22:31:42.902Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4509,
-  "avgDurationMs": 4509,
+  "durationMs": 4295,
+  "avgDurationMs": 4295,
   "durationHistory": [
-    4509
+    4295
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "crr-suva-sion-1ef627a9dcec",
       "slug": "assistant-e-qualite-et-processus-crr-suva-sion-sion",
@@ -20,13 +21,13 @@
       "companyKey": "crr-suva-sion",
       "companyDomain": "crr-suva.ch",
       "title": "Assistant/e qualité et processus",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Sion",
       "canton": "VS",
       "url": "https://www.crr-suva.ch/clinique-readaptation/assistant-qualite-processus-2396.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T13:07:10.384Z",
+      "crawledAt": "2026-07-27T22:31:39.558Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "featured": false,
       "postedDate": "2026-07-27",
       "applyUrl": "https://www.crr-suva.ch/clinique-readaptation/assistant-qualite-processus-2396.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-27T13:07:10.384Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "crr-suva-sion-9d9e50d545c8",
       "slug": "bottier-ere-orthopediste-crr-suva-sion-sion",
@@ -64,7 +64,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/bottier-ere-orthopediste-2413.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T13:07:10.882Z",
+      "crawledAt": "2026-07-27T22:31:40.055Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
