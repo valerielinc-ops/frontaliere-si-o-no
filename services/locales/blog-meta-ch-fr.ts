@@ -1591,6 +1591,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cifre-nere-grigioni.title': 'Chiffres noirs pour presque toutes les grandes communes grisonnes',
     'blog.article.cifre-nere-grigioni.excerpt': '19 communes grisonnes sur 20 avec le plus grand nombre d\'habitants ont enregistré des comptes positifs',
     'blog.article.cifre-nere-grigioni.imageAlt': 'Image d\'une commune grisonne avec un budget rouge',
+    'blog.article.ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.title': 'AI : les personnes réintégrées dans le monde du travail grandissent',
+    'blog.article.ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.excerpt': 'Environ 19\'200 personnes ont été embauchées grâce aux mesures de réadaptation professionnelle de l\'assurance-invalidité (AI).',
+    'blog.article.ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.imageAlt': 'Image d\'une personne travaillant dans un bureau avec un sourire sur son visage.',
 };
 
 export default blogMetaChFr;

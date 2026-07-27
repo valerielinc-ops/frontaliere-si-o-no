@@ -4930,6 +4930,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-canton-ticino-blocca-ristorni-lombardia': { name: 'Canton Ticino', path: '/articoli-svizzera/canton-ticino-blocca-ristorni-lombardia/', parent: 'blog' },
     'blog-trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro': { name: 'Trasferirsi a Brusimpiano da frontaliere', path: '/articoli-frontaliere/trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro', parent: 'blog' },
     'blog-cifre-nere-grigioni': { name: 'Cifre nere', path: '/articoli-svizzera/cifre-nere-grigioni/', parent: 'blog' },
+    'blog-ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro': { name: 'Breadcrumb 2-3 parole', path: '/articoli-svizzera/ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

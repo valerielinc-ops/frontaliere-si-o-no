@@ -1591,6 +1591,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cifre-nere-grigioni.title': 'Schwarze Zahlen für fast alle grossen Bündner Gemeinden',
     'blog.article.cifre-nere-grigioni.excerpt': '19 von 20 Bündner Gemeinden mit den meisten Einwohnern verbuchten positive Konten',
     'blog.article.cifre-nere-grigioni.imageAlt': 'Bild eines grisonischen Gemeinde mit einem roten Haushalt',
+    'blog.article.ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.title': 'AI: Wiedereingliederung in die Arbeitswelt nimmt zu',
+    'blog.article.ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.excerpt': 'Rund 19\'200 Personen wurden durch Eingliederungsmassnahmen der Invalidenversicherung (IV) eingestellt.',
+    'blog.article.ai-crescono-le-persone-reintegrate-nel-mondo-del-lavoro.imageAlt': 'Bild einer Person, die in einem Büro arbeitet und ein Lächeln auf dem Gesicht hat.',
 };
 
 export default blogMetaChDe;
