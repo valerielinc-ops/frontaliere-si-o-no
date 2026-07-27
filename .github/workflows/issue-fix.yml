@@ -112,9 +112,33 @@ jobs:
         #      only, no marker → proceeds, normal fixer runs unchanged).
         run: node scripts/ci/check-workflows-scope.mjs
 
+      - name: Pre-flight — in-progress claim gate (zero-Claude, mutex)
+        id: claim
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
+        # PROCEED-SAFE, same contract as `preflight`/`scope_guard` above: the script is
+        # total (catches its own throws → emits in_flight=false), continue-on-error is
+        # belt-and-suspenders so an infra fault never strands the issue.
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        # STRUCTURAL fix per #4788/#4793: due sessioni (una interattiva locale, una questo
+        # fixer autonomo) hanno lavorato la STESSA issue in parallelo → due PR competitive,
+        # merge in conflitto. L'unica difesa esistente era un controllo prompt-level DENTRO
+        # lo step Claude ("cerca una PR già aperta") — valutato dopo tier/checkout, e cieco a
+        # un lavoro iniziato ma non ancora aperto in PR (esattamente il caso #4793, creata
+        # prima che l'altra sessione, più lenta perché includeva root-cause+test, avesse
+        # nulla da mostrare). Questo step reclama deterministicamente la label
+        # `agent:in-progress` PRIMA di ogni lavoro (tier compreso): se è già presente, un'altra
+        # sessione l'ha presa per prima → skip totale, zero quota Max OAuth. Simmetrico alla
+        # convenzione lato locale (`/fix-issue`, ISSUES.md "Fix flow"): chi reclama prima
+        # vince, l'altro vede la label e si ferma prima di spendere turni.
+        run: node scripts/ci/claim-issue-in-flight.mjs
+
       - name: Determine fix tier
         id: tier
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
@@ -210,7 +234,7 @@ jobs:
 
       - name: Check for resumable WIP branch (zero-Claude)
         id: resume
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         # Problem A (#4337, confermato via GitHub API + run log): prima di questo
         # fix commit+push+PR accadevano SOLO alla fine del flusso (dopo il gate
         # test) — se `--max-turns` si esauriva PRIMA, il container CI moriva e
@@ -236,18 +260,18 @@ jobs:
           fi
 
       - name: Configure git identity
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         run: |
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"
 
       - name: Setup Headroom compression proxy
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         uses: ./.github/actions/setup-headroom
 
       - name: Run Claude fix
         id: claude_review
-        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         # Non far fallire il job sull'exit non-zero della CLI: lo step finale
         # `Classify outcome` decide il colore in base al LAVORO reale (PR aperta
         # per la issue), non al subtype della CLI. Un `error_max_turns` DOPO che
@@ -328,7 +352,7 @@ jobs:
 
       - name: Claude usage metrics
         # Skip when the pre-flight short-circuited (Claude never ran → no execution file).
-        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
+        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         # Exact token/cost for this run (replaces estimates). Writes a table to
         # the run Step Summary + a grep-able CLAUDE_USAGE line to the log.
         # Best-effort: never fails the job.
@@ -349,7 +373,7 @@ jobs:
         # NON ricevono il marker → restano ri-tentabili (nessuna falsa
         # escalation). Gira PRIMA del backstop così quest'ultimo trova il marker
         # e si salta. Best-effort, mai fa fallire il job.
-        if: always() && steps.claude_review.outcome == 'failure' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
+        if: always() && steps.claude_review.outcome == 'failure' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.number }}
@@ -382,13 +406,13 @@ jobs:
         # this coarse backstop would otherwise post `no-pr-unspecified` and poison the
         # lessons-harvester signal. (The step's own `HAS` check below is belt-and-
         # suspenders for the same reason — this `if:` avoids the extra `gh` round-trip.)
-        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
         # The agent SHOULD post a granular `<!-- FIX_OUTCOME: <code> -->` marker,
         # but prompt-emitted markers are unreliable (observed: #974 ran with the
         # marker prompt on main yet posted none). This backstop guarantees the
         # lessons-harvester always has a queryable marker: pr-created if this run
         # opened a PR on fix/issue-<N>, else a coarse no-pr-unspecified. It never
         # overwrites the agent's own granular marker. Best-effort: never fails.
+        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.number }}
@@ -421,7 +445,7 @@ jobs:
       # passa comunque dal reviewer (cfr. #2514 / #2288 — disambigua intenzionale
       # vs crash, colore != gate).
       - name: Classify outcome (work-done, not CLI exit)
-        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
+        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.number }}
@@ -441,3 +465,20 @@ jobs:
             exit 1
           fi
           echo "Nessuna PR ma la CLI e' uscita pulita ('$CLAUDE_OUTCOME') → terminale legittimo (blocked/already-fixed/no-root-cause). Job verde."
+
+      - name: Release in-progress claim (zero-Claude, mutex)
+        # Symmetric to the claim step above: runs on EVERY terminal path (success,
+        # blocked-workflows-scope, already-resolved, error_max_turns, infra fail) so a
+        # dead/failed run never leaves `agent:in-progress` stuck forever. Gated on
+        # `steps.claim.outcome != 'skipped'` (this run must have actually executed the
+        # claim step — i.e. wasn't itself short-circuited by an earlier gate) AND
+        # `in_flight != 'true'` (this run was the one that ADDED the label, not a run
+        # that saw it already there and deferred to someone else's claim). Never removes
+        # a claim this run didn't set.
+        if: always() && steps.claim.outcome != 'skipped' && steps.claim.outputs.in_flight != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          gh issue edit "$ISSUE" --remove-label agent:in-progress 2>/dev/null || true
+          echo "Released agent:in-progress claim on issue #$ISSUE (best-effort)."
