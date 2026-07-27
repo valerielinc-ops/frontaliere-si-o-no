@@ -22,13 +22,14 @@ import { ORGANIZATION_LD } from '@/services/seo/organizationLd';
  * Pairs with the AI disclosure box rendered on every blog article and the
  * public corrections log at /correzioni/.
  *
- * Inline JSON-LD WebPage schema with `lastReviewed` so crawlers see a
- * non-empty freshness signal even when the page isn't edited every day.
+ * Inline JSON-LD WebPage schema with `lastReviewed` set to the real last
+ * content-edit date (git blame on the prose below) — bump this literal by
+ * hand whenever the editorial copy on this page actually changes.
  */
 export const Metodologia: React.FC = () => {
   const nav = useNavigation();
 
-  const lastReviewed = new Date().toISOString().slice(0, 10);
+  const lastReviewed = '2026-05-27';
 
   const jsonLd = {
     '@context': 'https://schema.org',
