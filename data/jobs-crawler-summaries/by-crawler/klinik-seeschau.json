@@ -1,16 +1,57 @@
 {
   "key": "klinik-seeschau",
   "label": "Klinik Seeschau",
-  "generatedAt": "2026-07-26T22:26:39.467Z",
-  "total": 0,
+  "generatedAt": "2026-07-27T12:55:34.001Z",
+  "total": 7,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 3344,
+  "avgDurationMs": 3344,
+  "durationHistory": [
+    3344
+  ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "id": "klinik-seeschau-00cb0e8ba1bb",
+      "slug": "neu-ausbildung-zur-dipl-pflegefachperson-hf-bei-uns-klinik-seeschau-kreuzlingen",
+      "company": "Klinik Seeschau",
+      "companyKey": "klinik-seeschau",
+      "companyDomain": "klinik-seeschau.ch",
+      "title": "Neu: Ausbildung zur Dipl. Pflegefachperson HF bei uns!",
+      "needsRetranslation": false,
+      "location": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59#job-00cb0e8ba1bb",
+      "source": "Klinik Seeschau Dedicated Parser (Joomla SPB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-27T12:55:31.665Z",
+      "addressLocality": "Kreuzlingen",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8280",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-20",
+      "applyUrl": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59",
+      "firstSeenAt": "2026-05-20T06:05:18.214Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    }
+  ],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "unchangedJobs": []
 }
