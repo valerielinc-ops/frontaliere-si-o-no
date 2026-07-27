@@ -1585,6 +1585,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pompieri-svizzeri-gironda-francia.title': 'Swiss firefighters in Gironde: the contingent at work',
     'blog.article.pompieri-svizzeri-gironda-francia.excerpt': 'A contingent of Romanian firefighters has arrived in France to give strength to colleagues engaged in the fight against the vast fires in the Gironde region.',
     'blog.article.pompieri-svizzeri-gironda-francia.imageAlt': 'Swiss firefighters engaged in rescue operations',
+    'blog.article.canton-ticino-blocca-ristorni-lombardia.title': 'The Canton of Ticino blocks over 50 million restaurants in Lombardy',
+    'blog.article.canton-ticino-blocca-ristorni-lombardia.excerpt': 'The State Council of the Canton of Ticino has decided to cautiously suspend half of the Lombard portion of the refreshments',
+    'blog.article.canton-ticino-blocca-ristorni-lombardia.imageAlt': 'Lugano lake view',
 };
 
 export default blogMetaChEn;

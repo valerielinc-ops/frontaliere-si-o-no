@@ -551,6 +551,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'terzo-pilastro-3a-vantaggi-fiscali': { it: 'terzo-pilastro-3a-vantaggi-fiscali', en: 'third-pillar-3a-tax-benefits', de: 'dritte-saeule-3a-steuervorteile', fr: 'troisieme-pilastro-3a-avantages-fiscaux' },
  'medici-di-base-carenza-svizzera': { it: 'medici-di-base-carenza-svizzera', en: 'medics-of-base-shortage-switzerland', de: 'arzte-mangel-schweiz', fr: 'medecins-manque-suisse' },
  'pompieri-svizzeri-gironda-francia': { it: 'pompieri-svizzeri-gironda-francia', en: 'swiss-firefighters-gironda-france', de: 'schweizer-feuerwehrleute-gironda-frankreich', fr: 'pompiers-suisses-gironda-france' },
+ 'canton-ticino-blocca-ristorni-lombardia': { it: 'canton-ticino-blocca-ristorni-lombardia', en: 'ticino-blocks-lombardy-refunds', de: 'tessin-blockiert-lombardische-ruckerstattungen', fr: 'tessin-empeche-le-recouvrement-de-lombardie' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -1585,6 +1585,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pompieri-svizzeri-gironda-francia.title': 'Pompiers suisses en Gironde : le contingent à l\'œuvre',
     'blog.article.pompieri-svizzeri-gironda-francia.excerpt': 'Un contingent de pompiers romands est arrivé en France pour renforcer les collègues engagés contre les vastes incendies dans la région de la Gironde.',
     'blog.article.pompieri-svizzeri-gironda-francia.imageAlt': 'Pompiers suisses engagés dans des opérations de secours',
+    'blog.article.canton-ticino-blocca-ristorni-lombardia.title': 'Le canton du Tessin bloque plus de 50 millions de restaurants en Lombardie',
+    'blog.article.canton-ticino-blocca-ristorni-lombardia.excerpt': 'Le Conseil d\'État du canton du Tessin a décidé de suspendre par mesure de précaution la moitié de la part lombarde des restaurations',
+    'blog.article.canton-ticino-blocca-ristorni-lombardia.imageAlt': 'Vue de Lugano sur le lac',
 };
 
 export default blogMetaChFr;
