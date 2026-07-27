@@ -1582,6 +1582,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.medici-di-base-carenza-svizzera.title': 'I didn\'t study eleven years to work for free',
     'blog.article.medici-di-base-carenza-svizzera.excerpt': 'Switzerland is heading towards a shortage of primary care doctors. Linda Habib is already experiencing the consequences: full clinics and more and more work in addition to patients.',
     'blog.article.medici-di-base-carenza-svizzera.imageAlt': 'A scene of a Swiss family medicine clinic',
+    'blog.article.pompieri-svizzeri-gironda-francia.title': 'Swiss firefighters in Gironde: the contingent at work',
+    'blog.article.pompieri-svizzeri-gironda-francia.excerpt': 'A contingent of Romanian firefighters has arrived in France to give strength to colleagues engaged in the fight against the vast fires in the Gironde region.',
+    'blog.article.pompieri-svizzeri-gironda-francia.imageAlt': 'Swiss firefighters engaged in rescue operations',
 };
 
 export default blogMetaChEn;
