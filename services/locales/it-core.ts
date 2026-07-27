@@ -976,6 +976,9 @@ const translations: Record<string, string> = {
  'error.title': 'Ops, qualcosa è andato storto.',
  'error.message': 'Si è verificato un errore imprevisto nel calcolo. Abbiamo inviato una segnalazione automatica al team di sviluppo.',
  'error.reload': 'Ricarica Pagina',
+ 'error.copyDebugInfo': 'Copia info debug',
+ 'error.debugCopied': 'Copiato!',
+ 'error.debugCopyFailed': 'Copia non riuscita',
  // Calculator, Expenses & Border Crossing translations
  'border.tips.chiassoCentro': 'Principale, molto trafficato ore punta. Tipo: Residenziale',
  'border.tips.chiassoBrogeda': 'Turistico. Usa quando Chiasso Centro è bloccato',

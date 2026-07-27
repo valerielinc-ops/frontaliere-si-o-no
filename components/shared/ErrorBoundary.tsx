@@ -1,6 +1,6 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { Analytics, decodeReactError } from '../../services/analytics';
-import { AlertTriangle, RefreshCw } from 'lucide-react';
+import { AlertTriangle, RefreshCw, Copy, Check } from 'lucide-react';
 import { t } from '../../services/i18n';
 import {
   isVersionSkewError,
@@ -8,6 +8,19 @@ import {
   bustAssetHttpCache,
   isChunkLoadError,
 } from '../../services/resilientImport';
+import { fetchBuildId, fetchCommitHash } from '../../services/buildInfo';
+import { AD_SLOTS } from '../../services/adsenseSlots';
+
+// Lazy: this file sits in the critical entry chunk (top-level ErrorBoundary
+// wraps the whole app), so pulling GPT/AdSense code in eagerly would bloat
+// every page load — even the near-totality of loads that never error. Each
+// is wrapped in SilentErrorBoundary + Suspense below: if one of these chunks
+// itself fails to load (a second stale-deploy hit on top of the one that
+// brought the user here), the ad slot silently disappears instead of
+// re-throwing — nothing exists above this top-level boundary to catch that.
+const DesktopTopBanner = React.lazy(() => import('./DesktopTopBanner'));
+const ArticleRailAd = React.lazy(() => import('./ArticleRailAd'));
+const AdSenseBanner = React.lazy(() => import('./AdSenseBanner'));
 
 interface Props {
  children: ReactNode;
@@ -19,6 +32,10 @@ interface State {
  errorHint: string;
  errorName: string;
  errorMessage: string;
+ // Full stack — errorMessage above is capped to 300 chars for the one-line
+ // code block; this backs the "mostra stack trace" disclosure and the
+ // copy-debug-info bundle below.
+ errorStack: string;
  // Snapshot captured at the exact frame the error fired, BEFORE any
  // subsequent history.replaceState() / location.replace() can rewrite the
  // address bar (legacy redirect bridges, canonical normalisation). Without
@@ -27,6 +44,16 @@ interface State {
  snapshotUrl: string;
  snapshotReferrer: string;
  snapshotSessionRedirect: string;
+ // Captured alongside the URL/referrer snapshot for the same reason: a
+ // consistent point-in-time picture of what the user's browser saw.
+ crashTimestamp: string;
+ // Fetched async post-catch (services/buildInfo.ts) — empty until resolved.
+ // Lets a bug report identify WHICH deploy without the reporter needing
+ // devtools; useful for the cross-chunk version-skew class this page most
+ // commonly renders for.
+ buildId: string;
+ commitHash: string;
+ copyState: 'idle' | 'copied' | 'error';
 }
 
 export class ErrorBoundary extends Component<Props, State> {
@@ -39,9 +66,14 @@ export class ErrorBoundary extends Component<Props, State> {
  errorHint: '',
  errorName: '',
  errorMessage: '',
+ errorStack: '',
  snapshotUrl: '',
  snapshotReferrer: '',
  snapshotSessionRedirect: '',
+ crashTimestamp: '',
+ buildId: '',
+ commitHash: '',
+ copyState: 'idle',
  };
 
  /** Simple hash for error fingerprinting (correlation across events). */
@@ -55,8 +87,9 @@ export class ErrorBoundary extends Component<Props, State> {
  }
 
  private static snapshotEnv() {
+ const timestamp = new Date().toISOString();
  if (typeof window === 'undefined') {
- return { url: '(ssr)', referrer: '(ssr)', sessionRedirect: '(ssr)' };
+ return { url: '(ssr)', referrer: '(ssr)', sessionRedirect: '(ssr)', timestamp };
  }
  let sessionRedirect = '(none)';
  try {
@@ -66,6 +99,7 @@ export class ErrorBoundary extends Component<Props, State> {
  url: window.location.href,
  referrer: document.referrer || '(direct)',
  sessionRedirect,
+ timestamp,
  };
  }
 
@@ -92,9 +126,16 @@ export class ErrorBoundary extends Component<Props, State> {
  errorHint: hint,
  errorName: (error?.name || 'Error').slice(0, 50),
  errorMessage: (isDecoded ? decoded : msg).slice(0, 300),
+ errorStack: (error?.stack || '').slice(0, 2000),
  snapshotUrl: env.url,
  snapshotReferrer: env.referrer,
  snapshotSessionRedirect: env.sessionRedirect,
+ crashTimestamp: env.timestamp,
+ // Reset per new crash — componentDidCatch below re-fetches for THIS crash
+ // rather than reusing a stale value from a previous error on the same page.
+ buildId: '',
+ commitHash: '',
+ copyState: 'idle',
  };
  }
 
@@ -172,7 +213,61 @@ export class ErrorBoundary extends Component<Props, State> {
  referrer: snapReferrer,
  sessionRedirect: snapSessionRedirect,
  });
+
+ // Best-effort debug metadata for the details panel below — never blocks
+ // showing the error UI. A bug report copied via "Copia info debug" then
+ // identifies WHICH deploy without the reporter needing devtools.
+ const self = this as React.Component<Props, State>;
+ void fetchBuildId().then((buildId) => { if (buildId) self.setState({ buildId }); });
+ void fetchCommitHash().then((commitHash) => { if (commitHash) self.setState({ commitHash }); });
  }
+
+ private handleCopyDebugInfo = (): void => {
+ const self = this as React.Component<Props, State>;
+ const { state } = this;
+ const lines = [
+ `Errore: ${state.errorName}${state.errorMessage ? `: ${state.errorMessage}` : ''}`,
+ `REF: ${state.errorDigest}`,
+ `Timestamp: ${state.crashTimestamp}`,
+ `URL: ${state.snapshotUrl}`,
+ `Referrer: ${state.snapshotReferrer}`,
+ `Bridge sessionStorage: ${state.snapshotSessionRedirect}`,
+ `Build ID: ${state.buildId || '(sconosciuto)'}`,
+ `Commit: ${state.commitHash || '(sconosciuto)'}`,
+ `User agent: ${typeof navigator !== 'undefined' ? navigator.userAgent : '(n/a)'}`,
+ `Viewport: ${typeof window !== 'undefined' ? `${window.innerWidth}x${window.innerHeight}` : '(n/a)'}`,
+ `Stack:\n${state.errorStack || '(non disponibile)'}`,
+ ];
+ const text = lines.join('\n');
+
+ const onCopied = () => {
+ self.setState({ copyState: 'copied' });
+ setTimeout(() => self.setState({ copyState: 'idle' }), 2500);
+ };
+ const onFailed = () => {
+ self.setState({ copyState: 'error' });
+ setTimeout(() => self.setState({ copyState: 'idle' }), 2500);
+ };
+
+ if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
+ navigator.clipboard.writeText(text).then(onCopied, onFailed);
+ return;
+ }
+ // Fallback for browsers/contexts without the async Clipboard API.
+ try {
+ const ta = document.createElement('textarea');
+ ta.value = text;
+ ta.style.position = 'fixed';
+ ta.style.left = '-9999px';
+ document.body.appendChild(ta);
+ ta.select();
+ document.execCommand('copy');
+ document.body.removeChild(ta);
+ onCopied();
+ } catch {
+ onFailed();
+ }
+ };
 
  public render() {
  if (this.state.hasError) {
@@ -183,6 +278,31 @@ export class ErrorBoundary extends Component<Props, State> {
  Analytics.trackErrorPageView(this.state.errorDigest);
  }
  return (
+ <div className="space-y-5">
+ {/* Top banner — same self-contained DesktopTopBanner used across the site
+ (CalcolatoreTabContent, etc.). SilentErrorBoundary + Suspense: nothing
+ exists above this top-level boundary to catch a chunk failure in the
+ ad component itself, so it must fail silently rather than re-throw. */}
+ <SilentErrorBoundary boundary="error-page-top-banner">
+ <React.Suspense fallback={null}>
+ <DesktopTopBanner />
+ </React.Suspense>
+ </SilentErrorBoundary>
+
+ {/* 3-column rail grid — same ft-rail-grid-x/ft-rail-aside-x layout as
+ JobExpiredView/BlogArticles (180px rail at xl, 300px at xlw). Single
+ ArticleRailAd panel rather than ArticleRailAdStack: the crash card is
+ short and non-scrolling, so it doesn't need the Stack's sticky/
+ ResizeObserver machinery built for long scrollable content. */}
+ <div className="ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-4 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
+ <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ <SilentErrorBoundary boundary="error-page-rail-left">
+ <React.Suspense fallback={null}>
+ <ArticleRailAd side="left" />
+ </React.Suspense>
+ </SilentErrorBoundary>
+ </aside>
+
  <div className="min-h-[50vh] flex flex-col items-center justify-center p-4 sm:p-6 text-center">
  <div className="bg-danger-subtle p-4 rounded-full mb-4">
  <AlertTriangle size={48} className="text-danger" />
@@ -232,7 +352,26 @@ export class ErrorBoundary extends Component<Props, State> {
  {this.state.snapshotSessionRedirect || '(unknown)'}
  </code>
  </div>
+ <div>
+ <p className="text-[10px] uppercase tracking-wider text-muted font-semibold mb-1">
+ Build
+ </p>
+ <code className="block text-xs text-body font-mono break-all select-all">
+ {this.state.buildId || '(sconosciuto)'} — {this.state.commitHash || '(sconosciuto)'}
+ </code>
  </div>
+ {this.state.errorStack && (
+ <details>
+ <summary className="text-[10px] uppercase tracking-wider text-muted font-semibold cursor-pointer select-none">
+ Stack trace
+ </summary>
+ <code className="block mt-1 text-xs text-body font-mono whitespace-pre-wrap break-all select-all max-h-40 overflow-y-auto">
+ {this.state.errorStack}
+ </code>
+ </details>
+ )}
+ </div>
+ <div className="flex flex-wrap items-center justify-center gap-3">
  <button
  onClick={() => {
  Analytics.trackForceReload({
@@ -250,6 +389,41 @@ export class ErrorBoundary extends Component<Props, State> {
  >
  <RefreshCw size={18} /> {t('error.reload')}
  </button>
+ <button
+ onClick={this.handleCopyDebugInfo}
+ className="flex items-center gap-2 px-6 py-3 bg-surface-alt hover:bg-surface-raised border border-edge text-body rounded-xl font-bold transition-colors"
+ >
+ {this.state.copyState === 'copied' ? <Check size={18} /> : <Copy size={18} />}
+ {this.state.copyState === 'copied' ? t('error.debugCopied') : this.state.copyState === 'error' ? t('error.debugCopyFailed') : t('error.copyDebugInfo')}
+ </button>
+ </div>
+ </div>
+
+ <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ <SilentErrorBoundary boundary="error-page-rail-right">
+ <React.Suspense fallback={null}>
+ <ArticleRailAd side="right" />
+ </React.Suspense>
+ </SilentErrorBoundary>
+ </aside>
+ </div>
+
+ {/* Bottom banner — SSG_END_MULTIPLEX: the generic cross-family
+ end-of-content multiplex slot, since this fallback can replace
+ ANY page type. */}
+ <SilentErrorBoundary boundary="error-page-bottom-banner">
+ <React.Suspense fallback={null}>
+ {AD_SLOTS.SSG_END_MULTIPLEX.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.SSG_END_MULTIPLEX.slot}
+ adFormat={AD_SLOTS.SSG_END_MULTIPLEX.format}
+ fullWidthResponsive={AD_SLOTS.SSG_END_MULTIPLEX.fullWidthResponsive}
+ minHeight={AD_SLOTS.SSG_END_MULTIPLEX.placeholderMinHeight}
+ className="mt-4 mb-2"
+ />
+ )}
+ </React.Suspense>
+ </SilentErrorBoundary>
  </div>
  );
  }
