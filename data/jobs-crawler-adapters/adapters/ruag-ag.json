@@ -57,10 +57,11 @@
     "https://jobs.ruag.ch/offene-stellen/ict-business-analyst-senior/9df05669-a412-44ec-ae20-048dbc5030b0",
     "https://jobs.ruag.ch/offene-stellen/ict-business-analyst-professional/cfdb58d3-f24f-4942-b4aa-e0570fbdd251",
     "https://jobs.ruag.ch/offene-stellen/senior-network-engineer/7300565d-900a-402d-b0d0-9b76ede89d48",
-    "https://jobs.ruag.ch/offene-stellen/logistiker-in-efz/a67c362a-8012-4184-9217-20a78fe47c86"
+    "https://jobs.ruag.ch/offene-stellen/logistiker-in-efz/a67c362a-8012-4184-9217-20a78fe47c86",
+    "https://jobs.ruag.ch/offene-stellen/senior-business-development-strategy-manager-air/68447b2a-32dc-4bfc-a57e-a673f7ad4b39"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-07-26T22:22:08.743Z",
+  "updatedAt": "2026-07-27T12:44:27.025Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/facility-manager-technics-betriebselektrikerin/190b7508-d7e8-403d-b49f-7c2f57a59965": {
       "location": "Altdorf",
@@ -349,6 +350,12 @@
       "canton": "BE",
       "company": "RUAG AG",
       "postedDate": "2026-07-24"
+    },
+    "https://jobs.ruag.ch/offene-stellen/senior-business-development-strategy-manager-air/68447b2a-32dc-4bfc-a57e-a673f7ad4b39": {
+      "location": "Emmen",
+      "canton": "LU",
+      "company": "RUAG AG",
+      "postedDate": "2026-07-27"
     }
   }
 }
