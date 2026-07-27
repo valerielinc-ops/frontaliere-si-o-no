@@ -1,16 +1,41 @@
 /**
  * Agroscope — Prospective.ch JSON API job parser
  *
- * API: https://ohws.prospective.ch/public/v1/medium/1000626/jobs
- *   Query params: lang=it&offset=0&limit=100&f=verwaltungseinheit:1083812
+ * API: https://ohws.prospective.ch/public/v1/medium/1000624/jobs
+ *   Query params: lang=it&offset=0&limit=100 (NO server-side org-unit filter —
+ *   see below)
  *   Returns JSON: { medium_id, offset, total, jobs: [...], filtercount }
  *   Each job: { id, hk_id, viewkey, title, attributes, szas, links, start_date, end_date, language }
+ *
+ * ⚠️ medium_id drift (fix for #4799, 2026-07-27): the federal jobs.admin.ch
+ * portal migrated from medium `1000626` to `1000624` at some point after this
+ * crawler was first written — the old medium_id returns `{total: 0, jobs: []}`
+ * for EVERY query (not an error, so it silently looks like "genuinely zero
+ * openings"). Verified live via curl; the current medium_id was found in
+ * jobs.admin.ch's own bundled JS (`careercenter/1000624/...`).
+ *
+ * ⚠️ No stable numeric filter for Agroscope specifically. The old
+ * `f=verwaltungseinheit:1083812` scoped directly to Agroscope; that ID no
+ * longer resolves anything under the new medium. Top-level `verwaltungseinheit`
+ * IDs now only identify whole FEDERAL DEPARTMENTS (e.g. `1083373` = DEFR, the
+ * department Agroscope sits under, but also covers SECO/SEFRI/other unrelated
+ * offices). The actual office name is exposed per-job as a DYNAMIC sub-facet
+ * key `verwaltungseinheit_<departmentId>` → `["Agroscope"]` (or another office
+ * name) — there is no numeric ID for the office-level facet value, only free
+ * text. Server-side filtering is therefore unreliable the same way PostFinance/
+ * PostAuto's `job.post.ch` platform has no working server-side brand filter
+ * (#4759) — the fix here is the same shape: fetch the WHOLE unfiltered medium
+ * (372 jobs / ~4 pages today — cheap) and filter client-side on the
+ * `verwaltungseinheit_*` sub-facet text via {@link isAgroscopeApiRecord}. This
+ * is more future-proof than pinning to today's DEFR department ID, which is
+ * itself a numeric ID subject to the same kind of silent drift that broke
+ * `1083812`.
  *
  * No detail page fetching needed — the API returns full descriptions in `szas.*`.
  *   szas.sza_tasks, szas.sza_requirements, szas.sza_benefits, szas.sza_apply_link,
  *   szas.sza_company_profil, szas.sza_contact, szas.sza_location.city, szas.sza_location.region
  *
- * Direct links: jobs.admin.ch/posti-vacanti/{slug}/{viewkey}
+ * Direct links: jobs.admin.ch/posti-vacanti/{slug}/{viewkey} (from `links.directlink`)
  * Apply links: career74.sapsf.eu/career?company=bundesamtf&...
  */
 
@@ -95,13 +120,43 @@ export function resolveAgroscopeCanton({ city = '', region = '' } = {}) {
   return regionCanton || '';
 }
 
+const VERWALTUNGSEINHEIT_SUBFACET_RE = /^verwaltungseinheit_\d+$/;
+
 /**
- * Parse the Prospective API response and extract job items.
+ * Match a raw Prospective API job record to Agroscope. The medium (`1000624`)
+ * is the WHOLE federal jobs.admin.ch portal (~370 jobs across every
+ * department) — there is no numeric server-side filter that isolates
+ * Agroscope specifically (see module docblock). Agroscope is instead
+ * identified per-job by a dynamically-named sub-facet key
+ * (`verwaltungseinheit_<departmentId>`) whose text value is the office name,
+ * e.g. `attributes.verwaltungseinheit_1083373: ["Agroscope"]`. Scanning every
+ * `verwaltungseinheit_*` key (rather than hardcoding today's department id)
+ * keeps this resilient to the department itself being reorganised.
+ * @param {object} rawJob - one raw entry from the API's `jobs` array
+ * @returns {boolean}
+ */
+export function isAgroscopeApiRecord(rawJob = {}) {
+  const attrs = rawJob?.attributes || {};
+  for (const [key, values] of Object.entries(attrs)) {
+    if (!VERWALTUNGSEINHEIT_SUBFACET_RE.test(key)) continue;
+    if (!Array.isArray(values)) continue;
+    if (values.some((v) => String(v || '').trim().toLowerCase() === 'agroscope')) return true;
+  }
+  return false;
+}
+
+/**
+ * Parse the Prospective API response and extract job items belonging to
+ * Agroscope. Filters the raw (whole-portal) job list down to Agroscope
+ * records via {@link isAgroscopeApiRecord} BEFORE mapping — `total` reflects
+ * the Agroscope-filtered count, not the API's whole-medium `data.total`
+ * (which would silently overcount every other federal office).
  * @param {object} data - Parsed JSON from the API
  * @returns {{ items: Array, total: number }}
  */
 export function parseAgroscopeApiResponse(data = {}) {
-  const rawJobs = assertJsonListShape(data, { key: 'jobs', source: 'agroscope' });
+  const allRawJobs = assertJsonListShape(data, { key: 'jobs', source: 'agroscope' });
+  const rawJobs = allRawJobs.filter(isAgroscopeApiRecord);
   const items = rawJobs.map((j) => {
     const attrs = j.attributes || {};
     const szas = j.szas || {};
@@ -159,7 +214,10 @@ export function parseAgroscopeApiResponse(data = {}) {
     };
   });
 
-  return { items, total: data.total || items.length };
+  // `data.total` is the WHOLE portal's total (every federal department), not
+  // Agroscope's — using items.length (the post-filter count) is deliberate,
+  // see the docblock above `parseAgroscopeApiResponse`.
+  return { items, total: items.length };
 }
 
 /**
