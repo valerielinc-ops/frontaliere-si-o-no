@@ -10025,6 +10025,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ogTitle: 'Correzioni — Politica di rettifica e registro pubblico',
  ogDescription: 'Come segnaliamo e registriamo le correzioni: SLA 48 ore, tipologie accettate, registro pubblico cronologico.',
  canonicalPath: '/correzioni/',
+ // staticPagesPlugin.ts text-parses this literal at build time (regex +
+ // JSON.parse, not a real JS import) — cannot reference buildCorrezioniSeo()
+ // here. That builder (services/seo/seo-correzioni.ts) mirrors this exact
+ // shape for the client-rendered copy in Correzioni.tsx and additionally
+ // computes `lastReviewed` from the real corrections log, which this static
+ // literal deliberately omits (no safe way to keep it fresh without either
+ // a stale hand-bumped date or the BUILD_DATE_ISO false-freshness bug).
  structuredData: [
  {
  "@context": "https://schema.org",
