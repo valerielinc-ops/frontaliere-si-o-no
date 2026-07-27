@@ -132,12 +132,14 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { WORKFLOW_PATH_RE, hasNonWorkflowCodeRefs } from '../lib/workflow-scope-detect.mjs';
 
 const DRY_RUN = process.env.DRY_RUN === '1';
 const ISSUE = process.env.ISSUE_NUMBER;
 const OUTCOME_MARKER = '<!-- FIX_OUTCOME: blocked-workflows-scope -->';
 const OUTCOME_MARKER_RE = /<!--\s*FIX_OUTCOME:\s*blocked-workflows-scope\s*-->/i;
 const BLOCKED_LABEL = 'blocked-workflows-scope';
+const PARKED_LABEL = 'fu-parked';
 // Signature string scan-job-timeouts.mjs stamps into every issue it auto-files —
 // see that script's issue-body template. Used (Mode 2) to recognize the auto-filed
 // CI-timeout shape without depending on the `ci-timeout` label alone (label taxonomy
@@ -172,11 +174,11 @@ function setOutput(blocked) {
 // anchor (`\.ya?ml\b`) makes this precise even outside backticks/fences: no bare
 // `.yml` name matches without the literal `.github/workflows/` prefix, and no
 // generic prose ("the traffic-scheduler workflow") matches without the literal
-// path substring. Mirrors the equivalent, already-proven full-text scan in
-// followup-drainer.mjs's `detectWorkflowScoped` (WORKFLOW_PATH_RE) — see issue
-// #4518 module docstring below for why the previous backtick/fence-only version
-// under-detected.
-const WORKFLOW_PATH_RE = /\.github\/workflows\/[A-Za-z0-9._/-]+\.ya?ml\b/g;
+// path substring. Imported from ../lib/workflow-scope-detect.mjs, shared with
+// followup-drainer.mjs's `detectWorkflowScoped` — see issue #4518 module
+// docstring below for why the previous backtick/fence-only version under-detected,
+// and #4437 (module docstring "Mode 1 exclusivity gate") for why plain path
+// extraction alone is not sufficient to decide BLOCKED.
 
 /**
  * Extract explicit .github/workflows/** path references from an issue body.
@@ -193,6 +195,25 @@ const WORKFLOW_PATH_RE = /\.github\/workflows\/[A-Za-z0-9._/-]+\.ya?ml\b/g;
 export function extractWorkflowPaths(body) {
   const text = body || '';
   return [...new Set(text.match(WORKFLOW_PATH_RE) || [])];
+}
+
+/**
+ * Mode 1 exclusivity gate (issue #4437): a body citing a `.github/workflows/**` path is
+ * BLOCKED only if it does NOT also cite a non-workflow code path (scripts/build-plugins/
+ * services/components/hooks/build/src/...). A false positive was observed live on issue
+ * #4437: the body mentioned `.github/workflows/send-job-alerts.yml` only in passing (a
+ * "live-verification, manual post-deploy" checklist bullet pointing at where the cron
+ * runs), while the actual required fix lived entirely in `scripts/send-job-alerts.mjs` —
+ * a normal script file. Because `extractWorkflowPaths` alone had no exclusion,
+ * check-workflows-scope.mjs blocked the issue every time it got promoted, while
+ * followup-drainer.mjs's OWN pre-flight (`detectWorkflowScoped`, which DOES exclude on
+ * code refs) correctly judged it promotable — the asymmetry drove an infinite
+ * block→unroute→requeue→promote→block loop (~4h cadence, 51 comments over 9 days) and
+ * the real funnel-monetization bug never got a genuine fix attempt.
+ * CONSERVATIVE (bias to PROMOTE): mirrors followup-drainer.mjs's `detectWorkflowScoped`.
+ */
+export function isExclusivelyWorkflowScoped(body) {
+  return extractWorkflowPaths(body).length > 0 && !hasNonWorkflowCodeRefs(body);
 }
 
 /**
@@ -236,9 +257,14 @@ export function filterExactTitleRecurrences(candidates, title, currentIssueNumbe
 /**
  * Shared side-effects for a BLOCKED verdict (either mode): post the advisory comment
  * (body already includes the OUTCOME_MARKER), remove `agent:fix` (no re-dispatch),
- * ensure the `blocked-workflows-scope` label exists, and apply it. Best-effort
- * (`allowFail: true` throughout) — a comment/label API hiccup must never throw past
- * the `workflows_blocked=true` output already decided.
+ * ensure the `blocked-workflows-scope` label exists, apply it, and add `fu-parked`.
+ * Best-effort (`allowFail: true` throughout) — a comment/label API hiccup must never
+ * throw past the `workflows_blocked=true` output already decided.
+ *
+ * `fu-parked` is required (issue #4437): without a `ROUTING_LABELS` member on the
+ * issue, `issue-triage.yml`'s sweep treats a blocked issue as "unrouted" and re-queues
+ * it every ~4h, which the drainer then re-promotes and this script re-blocks — forever.
+ * Adding `fu-parked` here marks it terminal so the sweep leaves it alone.
  */
 function applyBlockedOutcome(comment) {
   gh(['issue', 'comment', ISSUE, ...repoArgs, '--body', comment], { allowFail: true });
@@ -257,6 +283,7 @@ function applyBlockedOutcome(comment) {
     { allowFail: true },
   );
   gh(['issue', 'edit', ISSUE, ...repoArgs, '--add-label', BLOCKED_LABEL], { allowFail: true });
+  gh(['issue', 'edit', ISSUE, ...repoArgs, '--add-label', PARKED_LABEL], { allowFail: true });
 }
 
 /**
@@ -352,10 +379,12 @@ function main() {
   // Extract explicit .github/workflows/** path references from the issue body.
   const workflowPaths = extractWorkflowPaths(body);
 
-  if (workflowPaths.length === 0) {
-    // Mode 1 (explicit body paths) found nothing. Mode 2: does a PRIOR issue with the
-    // exact same stable title already carry a blocked-workflows-scope marker? (issue
-    // #4227, broadened by #4749 — see module docstring "Mode 2" for the full
+  if (!isExclusivelyWorkflowScoped(body)) {
+    // Mode 1 found no *exclusive* workflow-scope signal — either no path at all, or a
+    // path co-cited with a non-workflow code path (issue #4437: the real fix may live in
+    // that code file — see `isExclusivelyWorkflowScoped` docstring). Mode 2: does a PRIOR
+    // issue with the exact same stable title already carry a blocked-workflows-scope
+    // marker? (issue #4227, broadened by #4749 — see module docstring "Mode 2" for the full
     // rationale/evidence.) Applied to EVERY issue with a title, not just
     // scan-job-timeouts.mjs ci-timeout auto-files: escalation #4749 found the same
     // exact-stable-title recurrence pattern in several other monitor-filed categories
@@ -401,11 +430,15 @@ function main() {
       );
     }
 
-    // No explicit workflow paths, no recurrence match → proceed. The pre-commit hook
+    // Not exclusively workflow-scoped, no recurrence match → proceed. The pre-commit hook
     // handles fixes discovered during agent diagnosis.
     console.log(
-      `Issue #${ISSUE}: no explicit .github/workflows/** paths in body — proceeding ` +
-        `(pre-commit hook guards diagnosis-time discoveries).`,
+      workflowPaths.length > 0
+        ? `Issue #${ISSUE}: workflow path(s) co-cited with non-workflow code path(s) — ` +
+            `proceeding (fix may live in code; pre-commit hook guards diagnosis-time ` +
+            `discoveries).`
+        : `Issue #${ISSUE}: no explicit .github/workflows/** paths in body — proceeding ` +
+            `(pre-commit hook guards diagnosis-time discoveries).`,
     );
     setOutput(false);
     return;
