@@ -2731,7 +2731,7 @@ const MODEL_MAX_OUTPUT_TOKENS = {
  * @param {object} opts — Merged options
  * @param {object} provider — { endpoint, apiKey, providerName, trackAs, extraHeaders }
  */
-async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKey, providerName, trackAs, extraHeaders, dispatcher, _suppressExhaustionMark = false }) {
+async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKey, providerName, trackAs, extraHeaders, extraBody, dispatcher, _suppressExhaustionMark = false }) {
   if (!apiKey) throw new Error(`${providerName} API key not set`);
   const modelForTracking = trackAs || apiModel;
   const displayModel = providerName === 'GitHub' ? apiModel : `${providerName}/${apiModel}`;
@@ -2779,6 +2779,7 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
     ...(supportsTemperature ? { temperature: opts.temperature } : {}),
     ...tokenParam,
     ...(responseFormat ? { response_format: responseFormat } : {}),
+    ...(extraBody || {}),
   };
 
   for (let attempt = 1; attempt <= opts.maxRetriesPerModel; attempt++) {
@@ -2798,6 +2799,22 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
         // a slow local model dies as `fetch failed` long before the AbortSignal.
         ...(dispatcher ? { dispatcher } : {}),
       });
+
+      // OmniRoute's "auto" combo resolves to one specific underlying provider
+      // per call and reports it back via response headers — otherwise
+      // invisible from this side (its own DB records it, but CI has no
+      // access to that). Surface it here so both local and CI logs show
+      // which provider actually served (or failed) each "auto" call.
+      if (providerName === 'OmniRoute') {
+        const routedProvider = res.headers.get('x-omniroute-provider');
+        const routedModel = res.headers.get('x-omniroute-model');
+        if (routedProvider || routedModel) {
+          console.log(
+            `🔀 [ai-models] OmniRoute routed auto → provider=${routedProvider || '?'} model=${routedModel || '?'} ` +
+            `status=${res.status} latency=${res.headers.get('x-omniroute-latency-ms') || '?'}ms cache=${res.headers.get('x-omniroute-cache-hit') || '?'}`
+          );
+        }
+      }
 
       const raw = await res.text().catch(() => '');
 
@@ -2917,7 +2934,15 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
       // The outer callLLM() cascade already marks the model exhausted after a
       // single failure and moves on, so bailing here just lets that happen sooner.
       const isTimeout = e.name === 'AbortError' || e.name === 'TimeoutError' || /timeout|aborted/i.test(e.message || '');
-      if (isTimeout) throw e;
+      if (isTimeout) {
+        // A client-side abort fires before OmniRoute's response (and its
+        // x-omniroute-provider/model headers) ever arrives, so which
+        // underlying provider it was attempting is not observable from here.
+        if (providerName === 'OmniRoute') {
+          console.warn(`⏱️  [ai-models] OmniRoute auto call timed out before a response arrived (no x-omniroute-* headers to log) — check local ~/.omniroute/storage.sqlite call_logs table or the OmniRoute dashboard for which provider it was routing to.`);
+        }
+        throw e;
+      }
       // Otherwise retry
       _stats.retries++;
       const waitMs = attempt * opts.backoffMs;
@@ -3266,6 +3291,12 @@ function _callOmniRoute(model, messages, opts) {
     apiKey: getOmniRouteApiKey(),
     providerName: 'OmniRoute',
     trackAs: model,
+    // OmniRoute's "auto" model defaults to SSE streaming when `stream` is
+    // omitted — unlike every other OpenAI-compat provider here, which default
+    // to a single JSON response. Confirmed via curl: omitting `stream` returns
+    // `data: {...}` chunks our non-streaming client never parses, so the call
+    // just times out. Force non-streaming explicitly.
+    extraBody: { stream: false },
   });
 }
 

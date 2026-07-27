@@ -56,4 +56,6 @@ jobs:
 
       - name: Dump OmniRoute logs on failure
         if: failure()
-        run: cat /tmp/omniroute.log || true
+        run: |
+          cat /tmp/omniroute.log || true
+          node scripts/omniroute-diagnose.mjs || true
