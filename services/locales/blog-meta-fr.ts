@@ -9009,6 +9009,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-a-valsolda-da-frontaliere-pro-e-contro.title': 'déménager à Valsolda en tant que frontalier pour et contre',
     'blog.article.trasferirsi-a-valsolda-da-frontaliere-pro-e-contro.excerpt': 'Découvrez les avantages et les inconvénients de déménager à Valsolda en tant que frontalier.',
     'blog.article.trasferirsi-a-valsolda-da-frontaliere-pro-e-contro.imageAlt': 'Vue panoramique de Valsolda avec le lac en premier plan et les montagnes en arrière-plan.',
+    'blog.article.proposta-choc-ticino-frontalieri.title': 'Réforme choc pour les frontaliers : ils paieront plus d\'impôts',
+    'blog.article.proposta-choc-ticino-frontalieri.excerpt': 'La Ligue des Tessinois propose de transformer les anciens frontaliers en nouveaux, afin de payer plus d\'impôts.',
+    'blog.article.proposta-choc-ticino-frontalieri.imageAlt': 'Une vue panoramique de Locarno, avec un lac en premier plan et une rue animée en arrière-plan.',
 };
 
 export default blogMetaFr;

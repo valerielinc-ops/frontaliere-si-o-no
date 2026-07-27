@@ -9007,6 +9007,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-valsolda-da-frontaliere-pro-e-contro.title': 'move to Valsolda from frontier pro and con',
     'blog.article.trasferirsi-a-valsolda-da-frontaliere-pro-e-contro.excerpt': 'Discover the advantages and disadvantages of moving to Valsolda as a border worker.',
     'blog.article.trasferirsi-a-valsolda-da-frontaliere-pro-e-contro.imageAlt': 'A panoramic view of Valsolda with the lake in the foreground and the mountains in the background.',
+    'blog.article.proposta-choc-ticino-frontalieri.title': 'Shock reform for border workers: they will pay more taxes',
+    'blog.article.proposta-choc-ticino-frontalieri.excerpt': 'The Ticinese League proposes to transform the old frontier workers into new ones, in order to pay more taxes.',
+    'blog.article.proposta-choc-ticino-frontalieri.imageAlt': 'A scenic view of Locarno, with a lake in the foreground and a busy street in the background.',
 };
 
 export default blogMetaEn;
