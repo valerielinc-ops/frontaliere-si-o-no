@@ -1,19 +1,21 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-07-27T12:36:26.473Z",
+  "generatedAt": "2026-07-27T22:14:27.223Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4742,
-  "avgDurationMs": 4742,
+  "unchangedCount": 2,
+  "durationMs": 5413,
+  "avgDurationMs": 5413,
   "durationHistory": [
-    4742
+    5413
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "bps-suisse-cf081dc653a5",
       "title": "Consulente Alla Clientela Commerciale Ipotecaria",
@@ -37,7 +39,7 @@
       "currency": "CHF",
       "postedDate": "2026-07-27",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-07-27T12:36:23.413Z",
+      "crawledAt": "2026-07-27T22:14:23.335Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -77,7 +79,7 @@
       "currency": "CHF",
       "postedDate": "2026-07-27",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-07-27T12:36:24.607Z",
+      "crawledAt": "2026-07-27T22:14:24.343Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -94,7 +96,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
