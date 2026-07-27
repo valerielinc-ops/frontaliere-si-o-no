@@ -23,6 +23,10 @@
 # 10 GB Pages cap itself — this keeps the IT apex AND every en/de/fr locale
 # shard under the cap.
 #
+# GitHub owner defaults to valerielinc-ops; scripts/lib/section-shard-owners.json
+# can override per-section (used when a section's Pages https_certificate got
+# permanently stuck on the default owner and was moved to a fallback account).
+#
 # Runs per build-locale matrix leg × section (one (section, locale) pair per
 # invocation, its own repo → no concurrent-push race, exactly like
 # push-locale-shard.sh). Stages the section's subtree for this locale, runs
@@ -80,7 +84,10 @@ esac
 
 SECTION_UPPER="$(echo "$section" | tr a-z A-Z)"
 ORIGIN_HOST="origin-$section-$loc.frontaliereticino.ch"
-SHARD_REPO="git@github.com:valerielinc-ops/frontaliere-$section-$loc.git"
+owners_json="$repo_root/scripts/lib/section-shard-owners.json"
+SHARD_OWNER="$(jq -r --arg s "$section" '.[$s] // "valerielinc-ops"' "$owners_json" 2>/dev/null || echo valerielinc-ops)"
+if [ -z "$SHARD_OWNER" ] || [ "$SHARD_OWNER" = "null" ]; then SHARD_OWNER="valerielinc-ops"; fi
+SHARD_REPO="git@github.com:$SHARD_OWNER/frontaliere-$section-$loc.git"
 CDN_BASE_FIXED="https://cdn.frontaliereticino.ch"
 
 if [ -z "${RUNNER_TEMP:-}" ]; then
@@ -116,7 +123,7 @@ push_section_shard() {
     || echo "::warning::offload on $loc $section subtree returned non-zero (offload is fail-safe/exit-0; continuing)"
 
   src_n="$(find "$stage_src/dist/$sub" -type f | wc -l)"
-  prev_n="$(curl -fsS "https://raw.githubusercontent.com/valerielinc-ops/frontaliere-$section-$loc/main/.shard-filecount" 2>/dev/null || echo 0)"
+  prev_n="$(curl -fsS "https://raw.githubusercontent.com/$SHARD_OWNER/frontaliere-$section-$loc/main/.shard-filecount" 2>/dev/null || echo 0)"
   [[ "$prev_n" =~ ^[0-9]+$ ]] || prev_n=0
 
   stage="$RUNNER_TEMP/shard-$section-$loc"
