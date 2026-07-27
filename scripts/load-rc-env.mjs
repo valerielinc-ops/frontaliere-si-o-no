@@ -200,6 +200,13 @@ const RC_TO_ENV = {
   // scripts/ci/omniroute-poc-register.mjs to register the full provider set
   // into a fresh CI OmniRoute instance instead of the small hardcoded list.
   OMNIROUTE_PROVIDERS_JSON:       ['OMNIROUTE_PROVIDERS_JSON'],
+
+  // Global kill-switch for .github/actions/setup-omniroute (default ON —
+  // set this RC flag to '0' to disable OmniRoute registration across every
+  // workflow that includes the composite action, without editing each one).
+  // Unset in RC by default (the action treats unset the same as any value
+  // other than '0': proceed).
+  ENABLE_OMNIROUTE_FALLBACK:      ['ENABLE_OMNIROUTE_FALLBACK'],
 };
 
 // ─── Helpers ─────────────────────────────────────────────────────────────
