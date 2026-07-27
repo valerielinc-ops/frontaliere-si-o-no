@@ -9020,6 +9020,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Brusimpiano da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro.excerpt': 'Cosa si deve considerare prima di trasferirsi a Brusimpiano lavorando in Ticino da frontaliere.',
     'blog.article.trasferirsi-a-brusimpiano-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere in autostrada A2, diretto verso il confine italo-svizzero.',
+    'blog.article.frontalieri-ristorni-da-record.title': 'Frontalieri, ristorni da record: all\'Italia ben 112 milioni',
+    'blog.article.frontalieri-ristorni-da-record.excerpt': 'La cifra dei ristorni versati dal Ticino all\'Italia è aumentata a 112 milioni di franchi, secondo la fonte.',
+    'blog.article.frontalieri-ristorni-da-record.imageAlt': 'Vista di Lugano, con i monti Ticini sullo sfondo.',
 };
 
 export default blogMetaIt;
