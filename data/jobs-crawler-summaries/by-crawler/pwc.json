@@ -1,18 +1,49 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-07-26T22:08:38.302Z",
-  "total": 125,
-  "newCount": 0,
+  "generatedAt": "2026-07-27T12:46:58.847Z",
+  "total": 126,
+  "newCount": 1,
   "updatedCount": 79,
   "removedCount": 0,
   "unchangedCount": 11,
-  "durationMs": 3101,
-  "avgDurationMs": 3101,
+  "durationMs": 2924,
+  "avgDurationMs": 2924,
   "durationHistory": [
-    3101
+    2924
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "(Senior) Manager - Employment and Reward Tax Services",
+      "slug": "senior-manager-employment-and-reward-tax-services-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/senior-manager-employment-and-reward-tax-services/c12e89f5-f999-4139-bd7a-98cadf0d9ebf",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/XMLNAME--Sr--Manager--Employment-and-Reward-Tax-Services-_746734WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "tax",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-07-27",
+      "validThrough": "2036-07-23",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "(Senior) Associate - U.S. Tax (Financial Services)",
