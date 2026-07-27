@@ -1,18 +1,56 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-07-26T22:04:57.903Z",
-  "total": 5,
-  "newCount": 0,
-  "updatedCount": 5,
+  "generatedAt": "2026-07-27T12:39:40.225Z",
+  "total": 4,
+  "newCount": 1,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2266,
-  "avgDurationMs": 2266,
+  "durationMs": 1520,
+  "avgDurationMs": 1520,
   "durationHistory": [
-    2266
+    1520
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Senior Test Engineer",
+      "slug": "senior-test-engineer-fincons-group-lugano-ticino-switzerland",
+      "url": "https://fincons.applytojob.com/apply/p8SZrdkyWF/Senior-Test-Engineer",
+      "applyUrl": "https://fincons.applytojob.com/apply/p8SZrdkyWF/Senior-Test-Engineer",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-07-27",
+      "validThrough": "2026-10-25",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Experienced",
+        "uniqueJobCode": "job_20260727075045_A8UYMUWFINAHHPME",
+        "listingLocation": "Lugano, Ticino, Switzerland",
+        "listingDepartment": ""
+      },
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Corporate PMO / Business Operations Expert",
@@ -140,91 +178,6 @@
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Senior DevOps Engineer (HashiCorp Vault)",
-      "slug": "senior-devops-engineer-hashicorp-vault-fincons-group-lugano-switzerland",
-      "url": "https://fincons.applytojob.com/apply/UzgDqa8ywx/Senior-DevOps-Engineer-HashiCorp-Vault",
-      "applyUrl": "https://fincons.applytojob.com/apply/UzgDqa8ywx/Senior-DevOps-Engineer-HashiCorp-Vault",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-07-08",
-      "validThrough": "2026-10-06",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Mid Level",
-        "uniqueJobCode": "job_20260708080124_OUTHSNCVEW1PJVLS",
-        "listingLocation": "Lugano, Switzerland",
-        "listingDepartment": ""
-      },
-      "id": "fincons-group-d827a730d90e",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-08T11:37:53.921Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Senior Test Automation Engineer",
-      "slug": "senior-test-automation-engineer-fincons-group-lugano-ticino-switzerland",
-      "url": "https://fincons.applytojob.com/apply/efLM5m39uG/Senior-Test-Automation-Engineer",
-      "applyUrl": "https://fincons.applytojob.com/apply/efLM5m39uG/Senior-Test-Automation-Engineer",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-05-27",
-      "validThrough": "2026-08-25",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Experienced",
-        "uniqueJobCode": "job_20260527072235_NHBTXSD2SJMRGXAT",
-        "listingLocation": "Lugano, Ticino, Switzerland",
-        "listingDepartment": ""
-      },
-      "id": "fincons-group-1ddef085bf06",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "firstSeenAt": "2026-05-29T12:22:56.132Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 23,
         "completeness": 22
       }
     }
