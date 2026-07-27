@@ -54,13 +54,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeur-kat-c-ce-m-w-d-planzer-villmergen",
-        "c-ce-m-f-d-planzer-villmergen"
+        "chauffeur-kat-c-ce-m-w-d-planzer-villmergen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-kat-c-ce-m-w-d-planzer-villmergen",
-          "c-ce-m-f-d-planzer-villmergen"
+          "chauffeur-kat-c-ce-m-w-d-planzer-villmergen"
         ],
         "en": [
           "chauffeur-kat-c-ce-m-w-d-planzer-villmergen"
@@ -135,13 +133,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "techniker-paket-sortieranlage-m-w-d-planzer-harkingen",
-        "impianto-di-smistamento-m-f-d-planzer-harkingen"
+        "techniker-paket-sortieranlage-m-w-d-planzer-harkingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "techniker-paket-sortieranlage-m-w-d-planzer-harkingen",
-          "impianto-di-smistamento-m-f-d-planzer-harkingen"
+          "techniker-paket-sortieranlage-m-w-d-planzer-harkingen"
         ],
         "en": [
           "techniker-paket-sortieranlage-m-w-d-planzer-harkingen"
@@ -216,13 +212,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "staplermechaniker-m-w-d-planzer-harkingen",
-        "meccanico-per-carrelli-elevatori-m-f-d-planzer-harkingen"
+        "staplermechaniker-m-w-d-planzer-harkingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "staplermechaniker-m-w-d-planzer-harkingen",
-          "meccanico-per-carrelli-elevatori-m-f-d-planzer-harkingen"
+          "staplermechaniker-m-w-d-planzer-harkingen"
         ],
         "en": [
           "staplermechaniker-m-w-d-planzer-harkingen"
@@ -297,13 +291,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-lager-m-w-d-planzer-zurich",
-        "collaboratore-trice-magazzino-m-w-d-planzer-zurich"
+        "mitarbeiter-lager-m-w-d-planzer-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-lager-m-w-d-planzer-zurich",
-          "collaboratore-trice-magazzino-m-w-d-planzer-zurich"
+          "mitarbeiter-lager-m-w-d-planzer-zurich"
         ],
         "en": [
           "mitarbeiter-lager-m-w-d-planzer-zurich"
@@ -378,13 +370,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "disponent-gdp-medikamententransport-m-w-d-planzer-kallnach",
-        "trasporto-della-medicina-del-pil-m-f-d-planzer-kallnach"
+        "disponent-gdp-medikamententransport-m-w-d-planzer-kallnach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "disponent-gdp-medikamententransport-m-w-d-planzer-kallnach",
-          "trasporto-della-medicina-del-pil-m-f-d-planzer-kallnach"
+          "disponent-gdp-medikamententransport-m-w-d-planzer-kallnach"
         ],
         "en": [
           "disponent-gdp-medikamententransport-m-w-d-planzer-kallnach"
@@ -409,12 +399,12 @@
     },
     {
       "id": "planzer-bd2beb85d1e2",
-      "slug": "verantwortlicher-berufsbildung-m-w-d-planzer-harkingen",
+      "slug": "formazione-professionale-responsabile-m-f-d-planzer-harkingen",
       "slugByLocale": {
         "de": "verantwortlicher-berufsbildung-m-w-d-planzer-harkingen",
-        "it": "verantwortlicher-berufsbildung-m-w-d-planzer-harkingen",
-        "en": "verantwortlicher-berufsbildung-m-w-d-planzer-harkingen",
-        "fr": "verantwortlicher-berufsbildung-m-w-d-planzer-harkingen"
+        "it": "formazione-professionale-responsabile-m-f-d-planzer-harkingen",
+        "en": "responsible-vocational-training-m-f-d-planzer-harkingen",
+        "fr": "formation-professionnelle-responsable-m-f-d-planzer-harkingen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -471,16 +461,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-27T12:31:34.038Z"
+      "firstSeenAt": "2026-07-27T12:31:34.038Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verantwortlicher-berufsbildung-m-w-d-planzer-harkingen"
+        ],
+        "en": [
+          "verantwortlicher-berufsbildung-m-w-d-planzer-harkingen"
+        ],
+        "fr": [
+          "verantwortlicher-berufsbildung-m-w-d-planzer-harkingen"
+        ]
+      },
+      "previousSlugs": [
+        "verantwortlicher-berufsbildung-m-w-d-planzer-harkingen"
+      ]
     },
     {
       "id": "planzer-d8e88d059e4e",
-      "slug": "teamleiter-it-application-service-m-w-d-planzer-dietikon",
+      "slug": "team-leader-it-application-service-m-f-d-planzer-dietikon",
       "slugByLocale": {
         "de": "teamleiter-it-application-service-m-w-d-planzer-dietikon",
-        "it": "teamleiter-it-application-service-m-w-d-planzer-dietikon",
+        "it": "team-leader-it-application-service-m-f-d-planzer-dietikon",
         "en": "teamleiter-it-application-service-m-w-d-planzer-dietikon",
-        "fr": "teamleiter-it-application-service-m-w-d-planzer-dietikon"
+        "fr": "chef-d-equipe-service-d-application-de-la-ti-m-f-d-planzer-dietikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -537,7 +541,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-27T12:31:33.356Z"
+      "firstSeenAt": "2026-07-27T12:31:33.356Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-it-application-service-m-w-d-planzer-dietikon"
+        ],
+        "fr": [
+          "teamleiter-it-application-service-m-w-d-planzer-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-it-application-service-m-w-d-planzer-dietikon"
+      ]
     },
     {
       "id": "planzer-8e87d9642cc0",
@@ -545,8 +560,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach",
         "it": "collaboratore-trice-umschlag-tagschicht-m-w-d-planzer-kallnach",
-        "en": "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach",
-        "fr": "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach"
+        "en": "employee-envelope-day-shift-m-f-d-planzer-kallnach",
+        "fr": "poste-de-jour-de-l-enveloppe-des-employes-m-f-d-planzer-kallnach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -594,6 +609,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach"
+        ],
+        "en": [
+          "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach"
+        ],
+        "fr": [
+          "mitarbeiter-umschlag-tagschicht-m-w-d-planzer-kallnach"
         ]
       },
       "previousSlugs": [
@@ -619,8 +640,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-kommissionierung-mo-di-tag-m-w-d-planzer-villmergen",
         "it": "collaboratore-trice-kommissionierung-mo-di-tag-m-w-d-planzer-villmergen",
-        "en": "mitarbeiter-kommissionierung-mo-di-tag-m-w-d-planzer-villmergen",
-        "fr": "mitarbeiter-kommissionierung-mo-di-tag-m-w-d-planzer-villmergen"
+        "en": "employee-picking-mo-di-day-m-f-d-planzer-villmergen",
+        "fr": "jour-du-mo-di-m-f-d-planzer-villmergen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -675,14 +696,16 @@
           "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen"
         ],
         "en": [
-          "employee-picking-pacovis-m-f-d-planzer-villmergen"
+          "employee-picking-pacovis-m-f-d-planzer-villmergen",
+          "mitarbeiter-kommissionierung-mo-di-tag-m-w-d-planzer-villmergen"
         ],
         "de": [
           "mitarbeiter-kommissionierung-pacovis-m-w-d-planzer-villmergen",
           "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen"
         ],
         "fr": [
-          "pacovis-m-f-d-planzer-villmergen"
+          "pacovis-m-f-d-planzer-villmergen",
+          "mitarbeiter-kommissionierung-mo-di-tag-m-w-d-planzer-villmergen"
         ]
       },
       "previousSlugs": [
@@ -709,12 +732,12 @@
     },
     {
       "id": "planzer-c8e7f955f22f",
-      "slug": "magasinier-depot-colis-m-f-d-planzer-grand-lancy",
+      "slug": "contenitore-di-stoccaggio-m-f-d-planzer-grand-lancy",
       "slugByLocale": {
         "fr": "magasinier-depot-colis-m-f-d-planzer-grand-lancy",
-        "it": "magasinier-depot-colis-m-f-d-planzer-grand-lancy",
-        "en": "magasinier-depot-colis-m-f-d-planzer-grand-lancy",
-        "de": "magasinier-depot-colis-m-f-d-planzer-grand-lancy"
+        "it": "contenitore-di-stoccaggio-m-f-d-planzer-grand-lancy",
+        "en": "storage-store-parcel-m-f-d-planzer-grand-lancy",
+        "de": "speicherpaket-m-w-d-planzer-grand-lancy"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -771,7 +794,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-27T12:31:31.231Z"
+      "firstSeenAt": "2026-07-27T12:31:31.231Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "magasinier-depot-colis-m-f-d-planzer-grand-lancy"
+        ],
+        "en": [
+          "magasinier-depot-colis-m-f-d-planzer-grand-lancy"
+        ],
+        "de": [
+          "magasinier-depot-colis-m-f-d-planzer-grand-lancy"
+        ]
+      },
+      "previousSlugs": [
+        "magasinier-depot-colis-m-f-d-planzer-grand-lancy"
+      ]
     },
     {
       "id": "planzer-d584a21cef52",
@@ -827,7 +864,6 @@
       "previousSlugs": [
         "adjoint-chef-de-parc-vehicules-m-f-d-planzer-penthalaz",
         "adjoint-chef-de-parc-vehicules-m-w-d-planzer-penthalaz",
-        "capo-della-flotta-aggiunto-m-f-d-planzer-penthalaz",
         "flotta-veicoli-a-motore-m-f-d-planzer-penthalaz",
         "head-vehicle-fleet-m-f-d-planzer-penthalaz",
         "fuhrpark-des-kopffahrzeugs-m-w-d-planzer-penthalaz",
@@ -837,7 +873,6 @@
         "it": [
           "adjoint-chef-de-parc-vehicules-m-f-d-planzer-penthalaz",
           "adjoint-chef-de-parc-vehicules-m-w-d-planzer-penthalaz",
-          "capo-della-flotta-aggiunto-m-f-d-planzer-penthalaz",
           "flotta-veicoli-a-motore-m-f-d-planzer-penthalaz",
           "head-vehicle-fleet-m-f-d-planzer-penthalaz",
           "fuhrpark-des-kopffahrzeugs-m-w-d-planzer-penthalaz",
@@ -921,13 +956,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-umschlag-fruhschicht-m-w-d-planzer-kallnach",
-        "squadra-leader-busta-primo-turno-m-f-d-planzer-kallnach"
+        "teamleiter-umschlag-fruhschicht-m-w-d-planzer-kallnach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-umschlag-fruhschicht-m-w-d-planzer-kallnach",
-          "squadra-leader-busta-primo-turno-m-f-d-planzer-kallnach"
+          "teamleiter-umschlag-fruhschicht-m-w-d-planzer-kallnach"
         ],
         "en": [
           "teamleiter-umschlag-fruhschicht-m-w-d-planzer-kallnach"
@@ -1003,13 +1036,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "paketsortierer-im-stundenlohn-m-w-d-planzer-schmerikon",
-        "ordinatori-di-pacchetti-nel-salario-orario-m-f-d-planzer-schmerikon"
+        "paketsortierer-im-stundenlohn-m-w-d-planzer-schmerikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "paketsortierer-im-stundenlohn-m-w-d-planzer-schmerikon",
-          "ordinatori-di-pacchetti-nel-salario-orario-m-f-d-planzer-schmerikon"
+          "paketsortierer-im-stundenlohn-m-w-d-planzer-schmerikon"
         ],
         "en": [
           "paketsortierer-im-stundenlohn-m-w-d-planzer-schmerikon"
@@ -1089,8 +1120,7 @@
         "cat-b-m-f-d-planzer-grand-lancy",
         "chauffeur-colis-cat-b-m-f-d-planzer-grand-lancy",
         "kategorie-b-m-w-d-planzer-grand-lancy",
-        "chauffeur-colis-cat-b-m-w-d-planzer-grand-lancy",
-        "small-package-transport-manager-m-f-d-planzer-grand-lancy"
+        "chauffeur-colis-cat-b-m-w-d-planzer-grand-lancy"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1099,8 +1129,7 @@
           "cat-b-m-f-d-planzer-grand-lancy",
           "chauffeur-colis-cat-b-m-f-d-planzer-grand-lancy",
           "kategorie-b-m-w-d-planzer-grand-lancy",
-          "chauffeur-colis-cat-b-m-w-d-planzer-grand-lancy",
-          "small-package-transport-manager-m-f-d-planzer-grand-lancy"
+          "chauffeur-colis-cat-b-m-w-d-planzer-grand-lancy"
         ],
         "en": [
           "gestionnaire-transports-petit-colis-m-f-d-planzer-grand-lancy"
@@ -1183,16 +1212,14 @@
         "chauffeur-cat-ce-regione-berna-mittelland-m-f-d-planzer-buchs",
         "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs",
         "chauffeur-cat-ce-region-berne-mittelland-m-f-d-planzer-buchs",
-        "chauffeur-kat-ce-m-w-d-planzer-buchs",
-        "gatto-di-chauffeur-ce-m-f-d-planzer-buchs"
+        "chauffeur-kat-ce-m-w-d-planzer-buchs"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-cat-ce-regione-berna-mittelland-m-f-d-planzer-buchs",
           "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs",
           "chauffeur-cat-ce-region-berne-mittelland-m-f-d-planzer-buchs",
-          "chauffeur-kat-ce-m-w-d-planzer-buchs",
-          "gatto-di-chauffeur-ce-m-f-d-planzer-buchs"
+          "chauffeur-kat-ce-m-w-d-planzer-buchs"
         ],
         "en": [
           "chauffeur-kat-ce-m-w-d-planzer-buchs"
