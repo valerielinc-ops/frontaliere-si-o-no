@@ -100,6 +100,7 @@ interface SubscribeCopy {
   errorGeneric: string;
   redirecting: string;
   claiming: string;
+  accountExists: string;
   back: string;
   ctaBannerTitle: string;
 }
@@ -138,6 +139,8 @@ const COPY: Record<PageLocale, SubscribeCopy> = {
     errorGeneric: 'Qualcosa è andato storto. Riprova tra poco.',
     redirecting: 'Reindirizzamento a Stripe…',
     claiming: 'Attivazione abbonamento in corso…',
+    accountExists:
+      'Hai già un account con questa email: il tuo abbonamento è stato attivato. Accedi qui sotto per vederlo.',
     back: 'Torna al sito',
     ctaBannerTitle: 'Pronto a navigare senza pubblicità?',
   },
@@ -174,6 +177,7 @@ const COPY: Record<PageLocale, SubscribeCopy> = {
     errorGeneric: 'Something went wrong. Please try again shortly.',
     redirecting: 'Redirecting to Stripe…',
     claiming: 'Activating your subscription…',
+    accountExists: 'You already have an account with this email — your subscription is active. Sign in below to see it.',
     back: 'Back to the site',
     ctaBannerTitle: 'Ready to browse ad-free?',
   },
@@ -210,6 +214,8 @@ const COPY: Record<PageLocale, SubscribeCopy> = {
     errorGeneric: 'Etwas ist schiefgelaufen. Bitte versuchen Sie es in Kürze erneut.',
     redirecting: 'Weiterleitung zu Stripe…',
     claiming: 'Abonnement wird aktiviert…',
+    accountExists:
+      'Für diese E-Mail existiert bereits ein Konto — dein Abonnement ist aktiv. Melde dich unten an, um es zu sehen.',
     back: 'Zurück zur Website',
     ctaBannerTitle: 'Bereit, werbefrei zu surfen?',
   },
@@ -246,6 +252,8 @@ const COPY: Record<PageLocale, SubscribeCopy> = {
     errorGeneric: 'Une erreur est survenue. Veuillez réessayer sous peu.',
     redirecting: 'Redirection vers Stripe…',
     claiming: 'Activation de l’abonnement en cours…',
+    accountExists:
+      'Un compte existe déjà avec cet e-mail — votre abonnement est actif. Connectez-vous ci-dessous pour le voir.',
     back: 'Retour au site',
     ctaBannerTitle: 'Prêt à naviguer sans publicité ?',
   },
@@ -334,8 +342,17 @@ const SubscribePage: React.FC = () => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ sessionId }),
         });
-        const data = (await res.json().catch(() => ({}))) as { ok?: boolean; authToken?: string };
+        const data = (await res.json().catch(() => ({}))) as { ok?: boolean; authToken?: string; error?: string };
         if (cancelled) return;
+        if (data.error === 'account_exists') {
+          // The email already belongs to an existing account — the webhook
+          // already attached the entitlement to it, but we deliberately
+          // never auto-sign-in to an account we didn't just create (see
+          // functions/src/stripeReaderCore.js:handleClaimReaderCheckout).
+          Analytics.trackUIInteraction('reader_subscription', 'subscribe_page', 'claim', 'account_exists');
+          setErrorMsg(copy.accountExists);
+          return;
+        }
         if (!data.ok || !data.authToken) throw new Error('reader_claim_failed');
         await signInWithCustomAuthToken(data.authToken);
         Analytics.trackUIInteraction('reader_subscription', 'subscribe_page', 'claim', 'success');
@@ -352,7 +369,7 @@ const SubscribePage: React.FC = () => {
     return () => {
       cancelled = true;
     };
-  }, [loading, user, copy.errorGeneric]);
+  }, [loading, user, copy.errorGeneric, copy.accountExists]);
 
   const handleSubscribe = async () => {
     if (checkoutBusy) return;

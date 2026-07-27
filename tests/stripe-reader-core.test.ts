@@ -443,12 +443,32 @@ describe('handleClaimReaderCheckout', () => {
     expect(res).toEqual({ status: 200, body: { ok: true, authToken: 'custom-token-for-guest-uid-1' } });
   });
 
-  it('mints a custom token for a returning guest email without creating a duplicate user', async () => {
+  it('refuses to mint a token when the email already belongs to an existing account (account takeover guard)', async () => {
     usersByEmail['guest@example.com'] = { uid: 'existing-uid-3' };
     const { handleClaimReaderCheckout } = await load();
     const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
     expect(createUser).not.toHaveBeenCalled();
-    expect(res).toEqual({ status: 200, body: { ok: true, authToken: 'custom-token-for-existing-uid-3' } });
+    expect(createCustomToken).not.toHaveBeenCalled();
+    expect(res).toEqual({ status: 409, body: { ok: false, error: 'account_exists' } });
+  });
+
+  it('falls back to re-resolving the uid when createUser loses a race to a concurrent create', async () => {
+    const notFoundErr = new Error('no user') as Error & { code: string };
+    notFoundErr.code = 'auth/user-not-found';
+    const existsErr = new Error('already exists') as Error & { code: string };
+    existsErr.code = 'auth/email-already-exists';
+
+    getUserByEmail.mockImplementationOnce(async () => {
+      throw notFoundErr;
+    });
+    createUser.mockImplementationOnce(async () => {
+      throw existsErr;
+    });
+    getUserByEmail.mockImplementationOnce(async () => ({ uid: 'raced-uid-1' }));
+
+    const { handleClaimReaderCheckout } = await load();
+    const res = await handleClaimReaderCheckout(req({ body: { sessionId: 'cs_guest_1' } }));
+    expect(res).toEqual({ status: 409, body: { ok: false, error: 'account_exists' } });
   });
 });
 

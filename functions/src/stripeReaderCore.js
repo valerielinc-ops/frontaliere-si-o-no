@@ -80,13 +80,27 @@ const POSTHOG_HOST = 'https://t.frontaliereticino.ch';
 // by the guest-checkout webhook branch and claimReaderCheckout below — same
 // "getUserByEmail → catch → createUser({email})" shape already used by
 // functions/src/newsletterSubscriptionManagement.js's autologin exchange.
+// Returns isNew so callers that mint sign-in tokens (claimReaderCheckout)
+// can refuse to do so for a pre-existing account: Stripe Checkout's guest
+// email field is payer-typed and unverified, so resolving straight to an
+// existing uid there would let anyone "claim" someone else's account by
+// entering their email at checkout — see handleClaimReaderCheckout.
 async function resolveOrCreateReaderUid(email) {
   try {
     const userRecord = await admin.auth().getUserByEmail(email);
-    return userRecord.uid;
-  } catch {
-    const newUser = await admin.auth().createUser({ email });
-    return newUser.uid;
+    return { uid: userRecord.uid, isNew: false };
+  } catch (err) {
+    if (err?.code !== 'auth/user-not-found') throw err;
+    try {
+      const newUser = await admin.auth().createUser({ email });
+      return { uid: newUser.uid, isNew: true };
+    } catch (createErr) {
+      // Lost a race with a concurrent create (e.g. duplicate webhook
+      // delivery) — the user now exists, re-resolve instead of failing.
+      if (createErr?.code !== 'auth/email-already-exists') throw createErr;
+      const userRecord = await admin.auth().getUserByEmail(email);
+      return { uid: userRecord.uid, isNew: false };
+    }
   }
 }
 
@@ -106,8 +120,12 @@ export async function handleCreateReaderCheckout(req) {
   // Carried through to session metadata so the checkout.session.completed
   // webhook can fire the conversion capture against the same PostHog Person
   // as the client-side ab_test/bucket_assigned + subscribe click events.
+  // Bounded well under Stripe's 500-char metadata value cap — a malformed
+  // or oversized client value must never fail checkout session creation.
   const posthogDistinctId =
-    typeof body.posthogDistinctId === 'string' && body.posthogDistinctId ? body.posthogDistinctId : null;
+    typeof body.posthogDistinctId === 'string' && body.posthogDistinctId && body.posthogDistinctId.length <= 200
+      ? body.posthogDistinctId
+      : null;
 
   const priceId = await getRemoteConfigValue('STRIPE_PRICE_READER_NOADS');
   if (!priceId) return { status: 500, body: { ok: false, error: 'reader_price_not_configured' } };
@@ -195,10 +213,18 @@ export async function handleCreateReaderCheckout(req) {
 // can sign the payer in without ever asking for a password — same
 // services/authService.ts signInWithCustomAuthToken() call already used for
 // the LinkedIn OAuth callback and the newsletter autologin exchange
-// (App.tsx). The Session id is the proof of payment: Stripe ids are
-// unguessable, and this endpoint only ever signs someone into the account
-// tied to an email that already completed that exact payment — never a
-// privilege escalation beyond what already happened at Stripe.
+// (App.tsx).
+//
+// SECURITY: the Stripe session id proves *payment*, not *email ownership* —
+// Stripe Checkout's guest email field is free text the payer typed, never
+// verified as an inbox they control. Only ever mint a sign-in token for a
+// BRAND NEW account (resolveOrCreateReaderUid's isNew): otherwise anyone
+// could pay a few francs with their own card, type an existing reader's /
+// publisher's / admin's email at checkout, and use the resulting session id
+// to sign in as that person. If the email already resolves to an existing
+// Firebase account, refuse — the webhook (handleReaderWebhookEvent) still
+// attaches the reader_noads entitlement to that existing account via the
+// same email match, so the payer only needs to sign in normally to see it.
 export async function handleClaimReaderCheckout(req) {
   if (req.method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
 
@@ -226,7 +252,8 @@ export async function handleClaimReaderCheckout(req) {
   const email = session.customer_details?.email;
   if (!email) return { status: 400, body: { ok: false, error: 'no_email_on_session' } };
 
-  const uid = await resolveOrCreateReaderUid(email);
+  const { uid, isNew } = await resolveOrCreateReaderUid(email);
+  if (!isNew) return { status: 409, body: { ok: false, error: 'account_exists' } };
   const authToken = await admin.auth().createCustomToken(uid);
   return { status: 200, body: { ok: true, authToken } };
 }
@@ -333,7 +360,7 @@ export async function handleReaderWebhookEvent(event, { db: dbFn, ts }) {
       if (!uid) {
         const email = obj.customer_details?.email;
         if (!email) return true; // unrecoverable without an email — nothing to reconcile against
-        uid = await resolveOrCreateReaderUid(email);
+        ({ uid } = await resolveOrCreateReaderUid(email));
       }
 
       await dbFn().collection(READER_SUBSCRIPTIONS_COLLECTION).doc(uid).set(
