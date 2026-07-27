@@ -1,6 +1,6 @@
 {
   "crawlerKey": "csvm-mustair",
-  "assembledAt": "2026-07-27T13:01:12.010Z",
+  "assembledAt": "2026-07-27T22:39:00.864Z",
   "jobs": [
     {
       "id": "csvm-mustair-00cba1f47deb",
@@ -34,7 +34,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T13:01:09.411Z",
+      "crawledAt": "2026-07-27T22:38:58.112Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -52,11 +52,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "rettungssanitater-in-auf-teilzeitbasis-csvm-mustair-mustair"
+        "rettungssanitater-in-auf-teilzeitbasis-csvm-mustair-mustair",
+        "soccorritore-a-a-tempo-parziale-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rettungssanitater-in-auf-teilzeitbasis-csvm-mustair-mustair"
+          "rettungssanitater-in-auf-teilzeitbasis-csvm-mustair-mustair",
+          "soccorritore-a-a-tempo-parziale-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair"
         ]
       },
       "firstSeenAt": "2026-05-19T10:23:25.014Z",
@@ -105,7 +107,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/pflegehelfer-in-srk-80-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T13:01:09.070Z",
+      "crawledAt": "2026-07-27T22:38:57.694Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -123,11 +125,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegehelfer-in-srk-80-100-csvm-mustair-mustair"
+        "pflegehelfer-in-srk-80-100-csvm-mustair-mustair",
+        "assistente-infermieristico-srk-80-100-center-da-sanda-val-mustair-csvm-sta"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegehelfer-in-srk-80-100-csvm-mustair-mustair"
+          "pflegehelfer-in-srk-80-100-csvm-mustair-mustair",
+          "assistente-infermieristico-srk-80-100-center-da-sanda-val-mustair-csvm-sta"
         ],
         "fr": [
           "pflegehelfer-in-srk-80-100-csvm-mustair-mustair"
@@ -179,7 +183,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/sommerpraktikum-im-pflegeheim.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T13:01:08.615Z",
+      "crawledAt": "2026-07-27T22:38:57.171Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -198,27 +202,29 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair",
-        "stage-estivo-nella-casa-di-cura-center-da-sanda-val-mustair-csvm-sta"
+        "stage-estivo-nella-casa-di-cura-center-da-sanda-val-mustair-csvm-sta",
+        "sommerpraktikum-im-pflegeheim-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair",
-          "stage-estivo-nella-casa-di-cura-center-da-sanda-val-mustair-csvm-sta"
+          "stage-estivo-nella-casa-di-cura-center-da-sanda-val-mustair-csvm-sta",
+          "sommerpraktikum-im-pflegeheim-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair"
         ],
         "fr": [
           "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair"
         ]
       },
       "firstSeenAt": "2026-05-21T22:13:17.730Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 48000,
+      "salaryMax": 73000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 48000,
+          "maxValue": 73000,
           "unitText": "YEAR"
         }
       }
@@ -255,7 +261,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex-80-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T13:01:08.089Z",
+      "crawledAt": "2026-07-27T22:38:56.648Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -273,11 +279,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "einsatzleitung-spitex-80-100-csvm-mustair-mustair"
+        "einsatzleitung-spitex-80-100-csvm-mustair-mustair",
+        "linea-operativa-spitex-80-100-center-da-sanda-val-mustair-csvm-sta"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "einsatzleitung-spitex-80-100-csvm-mustair-mustair"
+          "einsatzleitung-spitex-80-100-csvm-mustair-mustair",
+          "linea-operativa-spitex-80-100-center-da-sanda-val-mustair-csvm-sta"
         ],
         "en": [
           "einsatzleitung-spitex-80-100-csvm-mustair-mustair"
@@ -332,7 +340,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/lehrstellen-2027.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T13:01:08.088Z",
+      "crawledAt": "2026-07-27T22:38:56.647Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -354,7 +362,8 @@
         "apprendistato-2026-center-da-sanda-val-mustair-csvm-sta",
         "apprenticeships-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
         "lehrstellen-2026-csvm-mustair-mustair",
-        "apprentissages-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair"
+        "apprentissages-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
+        "applicazioni-2027-center-da-sanda-val-mustair-csvm-sta"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -362,7 +371,8 @@
           "apprendistato-2026-center-da-sanda-val-mustair-csvm-sta",
           "apprenticeships-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
           "lehrstellen-2026-csvm-mustair-mustair",
-          "apprentissages-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair"
+          "apprentissages-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
+          "applicazioni-2027-center-da-sanda-val-mustair-csvm-sta"
         ],
         "en": [
           "lehrstellen-2027-csvm-mustair-mustair",
@@ -395,7 +405,7 @@
       "slug": "dipl-professionista-hf-center-da-sanda-val-mustair-csvm-sta",
       "slugByLocale": {
         "it": "dipl-professionista-hf-center-da-sanda-val-mustair-csvm-sta",
-        "en": "dipl-care-professional-hf-center-da-sanda-val-mustair-csvm-sta",
+        "en": "dipl-pflegefachperson-hf-csvm-mustair-mustair",
         "de": "dipl-pflegefachperson-hf-csvm-mustair-mustair",
         "fr": "dipl-soins-professionnels-hf-center-da-sanda-val-mustair-csvm-sta"
       },
@@ -405,15 +415,15 @@
       "title": "Dipl. Pflegefachperson HF",
       "titleByLocale": {
         "it": "Dipl. Pflegefachpersona HF",
-        "en": "Dipl. Care professional HF",
+        "en": "Dipl. Pflegefachperson HF",
         "de": "Dipl. Pflegefachperson HF",
         "fr": "Infirmier Dipl. HF"
       },
       "description": "Dipl. Pflegefachperson HF — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nDas Center da sandà Val Müstair ist ein kleines Gesundheitszentrum im wunderschönen Bergtal Val Müstair. Unter einem Dach sind ein Akutspital mit Notfall- und Rettungsdienst, ein Pflegeheim, eine Arztpraxis und die Spitex integriert. Für die Spitex suchen wir per 1. Oktober oder nach Vereinbarung eine dipl. Pflegefachperson HF Arbeitspensum ab 60% \n• Ihr Profil  Diplom HF  Professionelle Pflege und Betreuung im persönlichen Pflegeumfeld  Ausgeprägtes Verantwortungsbewusstsein, grosse Flexibilität und Belastbarkeit  Diskretion  Führerausweis Kat. B  Romanischkenntnisse erwünscht Unser Angebot  Interessante und abwechslungsreiche Tätigkeit  Moderne Infrastruktur  Angenehmes Arbeitsklima in einem kompetenten, engagierten und kollegialen Team  Zeitgerechte Arbeitsbedingungen und Entlohnung  Möglichkeit an internen und externen Weiterbildungen teilzunehmen  Interdisziplinäre Zusammenarbeit Haben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständige Bewerbung bis 10. August 2026 an das Center da sandà Val Müstair, Frau Angela Giacomelli, Personaldienst, Via Val Müstair 186, 7536 Sta. Maria oder per E-Mail an angela.giacomelli@csvm.ch.\n\nStellenbeschrieb (PDF): https://www.csvm.ch/images/easyblog_articles/326/Spitex-dipl.-Fachperson_Juli-2026_d.pdf",
       "descriptionByLocale": {
         "it": "Descrizione\n\nDipl. Pflegefachperson HF — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nDettagli completi sul PDF allegato alla pagina https://www.csvm.ch/de/aktuelles/dipl-pflegefachperson-hf.html\n\nStellenbeschrieb (PDF): https://www.csvm.ch/images/easyblog_articles/326/Spitex-dipl.-Fachperson_Juli-2026_d.pdf",
-        "en": "Dipl. Nurse HF — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nThe Center da Sandà Val Müstair is a small health centre located in the beautiful Val Müstair mountain valley. Under one roof, an acute hospital with emergency and emergency service, a nursing home, a doctor's office and the Spitex are integrated. For Spitex we are looking for a dipl by 1 October or by agreement. Care professional HF workload from 60%\n• Her profile Ė Diplom HF Ė Professional care and support in the personal care environment Ė Strong sense of responsibility, great flexibility and resilience Ė Discretion Ė Driver’s ID Cat. B ♦ Knowledge of Romanesque desirable Our offer ♦ Interesting and varied activity ♦ Modern infrastructure ♦ Pleasant working environment in a competent, committed and collegial team ♦ Timely working conditions and remuneration ♦ Possibility to participate in internal and external further education Interdisciplinary cooperation Have we aroused your interest? Then we look forward to your full application by 10. August 2026 to the Center da sandà Val Müstair, Mrs. Angela Giacomelli, Personnel Service, Via Val Müstair 186, 7536 Sta. Maria or by email to angela.giacomelli@csvm.ch.\n\nJob description (PDF): https://www.csvm.ch/images/easyblog articles/326/Spitex-dipl.-Expert July-2026 d.pdf",
-        "de": "Dipl. Pflegefachperson HF — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nDas Center da sandà Val Müstair ist ein kleines Gesundheitszentrum im wunderschönen Bergtal Val Müstair. Unter einem Dach sind ein Akutspital mit Notfall- und Rettungsdienst, ein Pflegeheim, eine Arztpraxis und die Spitex integriert. Für die Spitex suchen wir per 1. Oktober oder nach Vereinbarung eine dipl. Pflegefachperson HF Arbeitspensum ab 60% \n• Ihr Profil  Diplom HF  Professionelle Pflege und Betreuung im persönlichen Pflegeumfeld  Ausgeprägtes Verantwortungsbewusstsein, grosse Flexibilität und Belastbarkeit  Diskretion  Führerausweis Kat. B  Romanischkenntnisse erwünscht Unser Angebot  Interessante und abwechslungsreiche Tätigkeit  Moderne Infrastruktur  Angenehmes Arbeitsklima in einem kompetenten, engagierten und kollegialen Team  Zeitgerechte Arbeitsbedingungen und Entlohnung  Möglichkeit an internen und externen Weiterbildungen teilzunehmen  Interdisziplinäre Zusammenarbeit Haben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständige Bewerbung bis 10. August 2026 an das Center da sandà Val Müstair, Frau Angela Giacomelli, Personaldienst, Via Val Müstair 186, 7536 Sta. Maria oder per E-Mail an angela.giacomelli@csvm.ch.\n\nStellenbeschrieb (PDF): https://www.csvm.ch/images/easyblog_articles/326/Spitex-dipl.-Fachperson_Juli-2026_d.pdf",
+        "en": "Dipl. Pflegefachperson HF — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nDas Center da sandà Val Müstair ist ein kleines Gesundheitszentrum im wunderschönen Bergtal Val Müstair. Unter einem Dach sind ein Akutspital mit Notfall- und Rettungsdienst, ein Pflegeheim, eine Arztpraxis und die Spitex integriert. Für die Spitex suchen wir per 1. Oktober oder nach Vereinbarung eine dipl. Pflegefachperson HF Arbeitspensum ab 60% \n• Ihr Profil  Diplom HF  Professionelle Pflege und Betreuung im persönlichen Pflegeumfeld  Ausgeprägtes Verantwortungsbewusstsein, grosse Flexibilität und Belastbarkeit  Diskretion  Führerausweis Kat. B  Romanischkenntnisse erwünscht Unser Angebot  Interessante und abwechslungsreiche Tätigkeit  Moderne Infrastruktur  Angenehmes Arbeitsklima in einem kompetenten, engagierten und kollegialen Team  Zeitgerechte Arbeitsbedingungen und Entlohnung  Möglichkeit an internen und externen Weiterbildungen teilzunehmen  Interdisziplinäre Zusammenarbeit Haben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständige Bewerbung bis 10. August 2026 an das Center da sandà Val Müstair, Frau Angela Giacomelli, Personaldienst, Via Val Müstair 186, 7536 Sta. Maria oder per E-Mail an angela.giacomelli@csvm.ch.\n\nStellenbeschrieb (PDF): https://www.csvm.ch/images/easyblog_articles/326/Spitex-dipl.-Fachperson_Juli-2026_d.pdf",
+        "de": "Dipl. Pflegefachperson HF — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nDas Center da sandà Val Müstair ist ein kleines Gesundheitszentrum im wunderschönen Bergtal Val Müstair. Unter einem Dach sind ein Akutspital mit Notfall- und Rettungsdienst, ein Pflegeheim, eine Arztpraxis und die Spitex integriert. Für die Spitex suchen wir per 1. Oktober oder nach Vereinbarung eine dipl. Pflegefachperson HF Arbeitspensum ab 60%\n• Ihr Profil  Diplom HF  Professionelle Pflege und Betreuung im persönlichen Pflegeumfeld  Ausgeprägtes Verantwortungsbewusstsein, grosse Flexibilität und Belastbarkeit  Diskretion  Führerausweis Kat. B  Romanischkenntnisse erwünscht Unser Angebot  Interessante und abwechslungsreiche Tätigkeit  Moderne Infrastruktur  Angenehmes Arbeitsklima in einem kompetenten, engagierten und kollegialen Team  Zeitgerechte Arbeitsbedingungen und Entlohnung  Möglichkeit an internen und externen Weiterbildungen teilzunehmen  Interdisziplinäre Zusammenarbeit Haben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständige Bewerbung bis 10. August 2026 an das Center da sandà Val Müstair, Frau Angela Giacomelli, Personaldienst, Via Val Müstair 186, 7536 Sta. Maria oder per E-Mail an angela.giacomelli@csvm.ch.\n\nStellenbeschrieb (PDF): https://www.csvm.ch/images/easyblog_articles/326/Spitex-dipl.-Fachperson_Juli-2026_d.pdf",
         "fr": "Description condotta -. Pflegefacherson HF. Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Renseignements complets sur le PDF joint à la page https://www.csvm.ch/de/aktuelles/dipl-pflegefacherson-hf.html Stellenbeschrieb (PDF): https://www.csvm.ch/image/easyblog_articles/326/Spitex-dipl.-Fachperson_Juli-2026_d.pdf"
       },
       "needsRetranslation": true,
@@ -422,7 +432,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/dipl-pflegefachperson-hf.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T13:01:06.974Z",
+      "crawledAt": "2026-07-27T22:38:55.505Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -439,20 +449,24 @@
       "applyUrl": "https://www.csvm.ch/de/aktuelles/dipl-pflegefachperson-hf.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-csvm-mustair-mustair"
-      ],
       "previousSlugsByLocale": {
-        "it": [
+        "en": [
+          "dipl-care-professional-hf-center-da-sanda-val-mustair-csvm-sta",
           "dipl-pflegefachperson-hf-csvm-mustair-mustair"
         ],
-        "en": [
-          "dipl-pflegefachperson-hf-csvm-mustair-mustair"
+        "it": [
+          "dipl-pflegefachperson-hf-csvm-mustair-mustair",
+          "dipl-professionista-hf-center-da-sanda-val-mustair-csvm-sta"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-csvm-mustair-mustair"
         ]
       },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-csvm-mustair-mustair",
+        "dipl-care-professional-hf-center-da-sanda-val-mustair-csvm-sta",
+        "dipl-professionista-hf-center-da-sanda-val-mustair-csvm-sta"
+      ],
       "firstSeenAt": "2026-07-16T23:27:37.126Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
