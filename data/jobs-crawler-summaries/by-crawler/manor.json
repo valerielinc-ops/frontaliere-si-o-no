@@ -1,18 +1,42 @@
 {
   "key": "manor",
   "label": "Manor",
-  "generatedAt": "2026-07-27T12:49:42.278Z",
-  "total": 179,
-  "newCount": 8,
-  "updatedCount": 171,
+  "generatedAt": "2026-07-27T22:28:32.698Z",
+  "total": 181,
+  "newCount": 10,
+  "updatedCount": 169,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 318441,
-  "avgDurationMs": 318441,
+  "unchangedCount": 2,
+  "durationMs": 326669,
+  "avgDurationMs": 326669,
   "durationHistory": [
-    318441
+    326669
   ],
   "newJobs": [
+    {
+      "title": "Mitarbeiter*in in Logistik (Montagsaushilfe eManor) 20%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-in-Logistik-%28Montagsaushilfe-eManor%29-20/1362225055/",
+      "location": "Hochdorf Mitarbeiterin in Logistik",
+      "canton": "LU",
+      "country": "CH",
+      "category": "logistics",
+      "descriptionIt": "Mitarbeiter*in in Logistik (Montagsaushilfe eManor) 20% presso Manor, con sede a Hochdorf Mitarbeiterin in Logistik, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-07-27",
+      "source": "company-website",
+      "slug": "manor-mitarbeiter-in-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-in-logistik",
+      "sourceLang": "it",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 16,
+        "completeness": 11
+      }
+    },
     {
       "title": "Assistant Product Manager 100%",
       "company": "Manor AG",
@@ -41,7 +65,7 @@
       "title": "Mitarbeiter*in Verkauf Herrenkonfektion 20%",
       "company": "Manor AG",
       "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Verkauf-Herrenkonfektion-20/1361596555/",
+      "url": "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Verkauf-Herrenkonfektion-20/1361596355/",
       "location": "Spreitenbach Mitarbeiterin Verkauf Herrenkonfektion",
       "canton": "AG",
       "country": "CH",
@@ -106,6 +130,30 @@
         "cleanliness": 25,
         "richness": 14,
         "translation": 14,
+        "completeness": 11
+      }
+    },
+    {
+      "title": "Mitarbeiter*in Verkauf 40%-60%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Aarau-Mitarbeiterin-Verkauf-40-60/1360624455/",
+      "location": "Aarau Mitarbeiterin Verkauf 40",
+      "canton": "AG",
+      "country": "CH",
+      "category": "sales",
+      "descriptionIt": "Mitarbeiter*in Verkauf 40%-60% presso Manor, con sede a Aarau Mitarbeiterin Verkauf 40, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-07-16",
+      "source": "company-website",
+      "slug": "manor-mitarbeiter-in-verkauf-40-60-aarau-mitarbeiterin-verkauf-40",
+      "sourceLang": "it",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 16,
         "completeness": 11
       }
     },
@@ -455,6 +503,7 @@
       "id": "manor-0111735dfaa3",
       "firstSeenAt": "2026-07-22T22:35:47.906Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -983,5 +1032,72 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Collaborateur/trice caisse (Confection Dames) 50%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Nyon-Collaborateurtrice-caisse-%28Confection-Dames%29-50/1359056355/",
+      "location": "Nyon Collaborateurtrice caisse (Confection",
+      "canton": "VD",
+      "country": "CH",
+      "category": "sales",
+      "descriptionIt": "Collaborateur/trice caisse (Confection Dames) 50% presso Manor, con sede a Nyon Collaborateurtrice caisse (Confection, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-07-01",
+      "source": "company-website",
+      "slug": "manor-collaborateur-trice-caisse-parfumerie-50-nyon-collaborateurtrice-caisse-parfumerie",
+      "sourceLang": "it",
+      "id": "manor-8d39a39704cb",
+      "firstSeenAt": "2026-07-07T12:11:24.549Z",
+      "crawledAt": "",
+      "salaryMin": 36000,
+      "salaryMax": 55500,
+      "currency": "CHF",
+      "addressLocality": "Nyon Collaborateurtrice caisse (Confection",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 25,
+        "completeness": 16
+      }
+    },
+    {
+      "title": "Mitarbeiter*in Verkauf Fashion & Kasse 5-10%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Langenthal-Mitarbeiterin-Verkauf-Fashion-&-Kasse-5-10/1351855455/",
+      "location": "Langenthal Mitarbeiterin Verkauf Fashion",
+      "canton": "BE",
+      "country": "CH",
+      "category": "sales",
+      "descriptionIt": "• Freundliches, gepflegtes und professionelles Auftreten\n• Verkaufserfahrung mit aktivem Kundenkontakt\n• Freude an Fashion, Trends und Warenpräsentation\n• Sauberes Zusammenlegen und Präsentieren von Kleidung\n• Bereitschaft, in verschiedenen Abteilungen flexibel eingesetzt zu werden",
+      "postedDate": "2026-06-09",
+      "source": "company-website",
+      "slug": "collaboratore-trice-in-vendita-fashion-kasse-5-10-manor-ag-langenthal-mitarbeiterin-verkauf-fashion",
+      "sourceLang": "de",
+      "id": "manor-c64b552e5e2d",
+      "firstSeenAt": "2026-07-07T12:11:24.549Z",
+      "crawledAt": "",
+      "salaryMin": 7800,
+      "salaryMax": 11900,
+      "currency": "CHF",
+      "addressLocality": "Langenthal Mitarbeiterin Verkauf Fashion",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 76,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 25,
+        "completeness": 16
+      }
+    }
+  ]
 }
