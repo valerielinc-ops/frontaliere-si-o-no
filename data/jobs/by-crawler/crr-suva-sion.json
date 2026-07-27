@@ -52,13 +52,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bottier-ere-orthopediste-crr-suva-sion-sion",
-        "stivali-e-ortopedia-clinique-romande-de-readaptation-crr-suva-sion"
+        "bottier-ere-orthopediste-crr-suva-sion-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bottier-ere-orthopediste-crr-suva-sion-sion",
-          "stivali-e-ortopedia-clinique-romande-de-readaptation-crr-suva-sion"
+          "bottier-ere-orthopediste-crr-suva-sion-sion"
         ],
         "en": [
           "bottier-ere-orthopediste-crr-suva-sion-sion"
@@ -83,11 +81,11 @@
     },
     {
       "id": "crr-suva-sion-1ef627a9dcec",
-      "slug": "assistant-e-qualite-et-processus-crr-suva-sion-sion",
+      "slug": "assistente-di-qualita-e-processo-clinique-romande-de-readaptation-crr-suva-sion",
       "slugByLocale": {
         "fr": "assistant-e-qualite-et-processus-crr-suva-sion-sion",
-        "it": "assistant-e-qualite-et-processus-crr-suva-sion-sion",
-        "en": "assistant-e-qualite-et-processus-crr-suva-sion-sion",
+        "it": "assistente-di-qualita-e-processo-clinique-romande-de-readaptation-crr-suva-sion",
+        "en": "quality-assistant-and-process-clinique-romande-de-readaptation-crr-suva-sion",
         "de": "assistant-e-qualite-et-processus-crr-suva-sion-sion"
       },
       "company": "Clinique romande de réadaptation (CRR Suva)",
@@ -143,7 +141,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-27T13:07:10.384Z"
+      "firstSeenAt": "2026-07-27T13:07:10.384Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-qualite-et-processus-crr-suva-sion-sion"
+        ],
+        "en": [
+          "assistant-e-qualite-et-processus-crr-suva-sion-sion"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-qualite-et-processus-crr-suva-sion-sion"
+      ]
     }
   ]
 }
