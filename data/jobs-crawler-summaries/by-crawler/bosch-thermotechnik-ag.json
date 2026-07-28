@@ -1,18 +1,19 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-07-27T22:09:17.077Z",
+  "generatedAt": "2026-07-28T11:51:03.230Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 7,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 8,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 17059,
-  "avgDurationMs": 17059,
+  "durationMs": 20645,
+  "avgDurationMs": 20645,
   "durationHistory": [
-    17059
+    20645
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Sachbearbeiter Disposition (w/m/div.) REF292710R",
       "slug": "sachbearbeiter-disposition-w-m-div-ref292710r-bosch-steinhausen",
@@ -35,16 +36,19 @@
       "sourceLang": "de",
       "postedDate": "2026-07-27",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "bosch-thermotechnik-ag-878ee5acb17e",
+      "salaryMin": 79000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-27T22:09:17.075Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Logistiker (w/m/div.) REF292485N",
       "slug": "logistiker-w-m-div-ref292485n-bosch-spreitenbach",
@@ -291,42 +295,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Instandhaltung (w/m/div.) - REF285547A",
-      "slug": "manutenzione-f-m-div-ref285547a-bosch-thermotechnik-ag-st",
-      "url": "https://jobs.bosch.com/en/job/REF285547A-instandhaltung-w-m-div-ref285547a",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000136446349-instandhaltung-w-m-div-ref285547a?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "St. Niklaus",
-      "addressLocality": "St. Niklaus",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-08",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-d1984318ab03",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-08T22:16:12.017Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
