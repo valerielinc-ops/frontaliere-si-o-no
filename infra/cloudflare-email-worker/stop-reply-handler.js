@@ -277,6 +277,17 @@ export default {
     let to = '';
     let subject = '';
     let auto = false;
+    // Whether the reads below ALL completed. A partial failure must fail
+    // CLOSED: if `headers.get('subject')` throws after `to` already resolved,
+    // `auto` keeps its `false` default, so isAutoReply never actually ran — and
+    // classifying anyway would send an unexamined message down the STOP path
+    // with `subject: ''`, where classifyStopIntent still reads the body. An
+    // out-of-office footer carrying the word "unsubscribe" would then suppress
+    // a company that never opted out: exactly the bug this filter exists to
+    // prevent, re-entered through a partial-read path. Unreadable headers mean
+    // we cannot know whether this is an automatic response, so we do not guess
+    // — forward only.
+    let readOk = false;
     try {
       from = message.from || '';
       // `message.to` is the SMTP envelope-to (RFC 5321 RCPT TO), not the `To:`
@@ -288,6 +299,7 @@ export default {
       to = extractSenderEmail(message.to);
       subject = (message.headers && message.headers.get && message.headers.get('subject')) || '';
       auto = isAutoReply(message.headers, subject);
+      readOk = true;
     } catch {
       // Unreadable envelope/headers: fall through with the empty defaults and
       // let the forward below still happen. Never classified, never dropped.
@@ -310,7 +322,9 @@ export default {
     const isOutreachAddress = outreachAddress ? to === outreachAddress : !isNewsletterAddress;
 
     try {
-      if (isNewsletterAddress) {
+      if (!readOk) {
+        // Fail closed — see readOk above. Forward untouched, classify nothing.
+      } else if (isNewsletterAddress) {
         await handleNewsletterUnsubscribe({ from, subject, message, env, ctx });
       } else if (isOutreachAddress) {
         await handleOutreachReply({ from, subject, message, env, ctx });
