@@ -262,6 +262,9 @@ export default defineConfig({
  ...sharedTest,
  name: 'node',
  environment: 'node',
+ // Override del `setupFiles` di sharedTest: qui si usa la variante senza i
+ // matcher jest-dom (~48ms per file × ~1240 file). Vedi tests/setup.tsx.
+ setupFiles: ['./tests/setup-node.ts'],
  include: ['tests/**/*.test.ts'],
  exclude: [...COMMON_EXCLUDE, ...JSDOM_TS_FILES, ...DATASET_SPLIT_EXCLUDE],
  },
