@@ -1630,6 +1630,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.opinioni-tram-treno-lugano.title': 'Avis sur le tramway de Lugano : analyse et impacts',
     'blog.article.opinioni-tram-treno-lugano.excerpt': 'Analysons les perspectives du projet de tramway à Lugano, en évaluant les implications pour la mobilité et l\'environnement économique national.',
     'blog.article.opinioni-tram-treno-lugano.imageAlt': 'Vue panoramique du front de lac de Lugano avec des éléments de mobilité urbaine.',
+    'blog.article.sulzer-primo-semestre-2026.title': 'Sulzer: moins d\'ordres, plus d\'utile',
+    'blog.article.sulzer-primo-semestre-2026.excerpt': 'Le groupe suisse enregistre une baisse des commandes au premier semestre 2026, mais le bénéfice d\'exploitation augmente de 9,7 %.',
+    'blog.article.sulzer-primo-semestre-2026.imageAlt': 'Une vue de Lugano avec le lac et le mont Bre.',
 };
 
 export default blogMetaChFr;

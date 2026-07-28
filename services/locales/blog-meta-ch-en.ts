@@ -1630,6 +1630,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.opinioni-tram-treno-lugano.title': 'Opinions on the train tram in Lugano: analysis and impacts',
     'blog.article.opinioni-tram-treno-lugano.excerpt': 'We analyse the prospects for the tram train project in Lugano, assessing the implications for mobility and the national economic context.',
     'blog.article.opinioni-tram-treno-lugano.imageAlt': 'Panoramic view of the Lugano lakefront with urban mobility elements.',
+    'blog.article.sulzer-primo-semestre-2026.title': 'Sulzer: fewer orders in the first half, but operating profit grows',
+    'blog.article.sulzer-primo-semestre-2026.excerpt': 'The Swiss group recorded a decline in orders in the first half of 2026, but operating profit increased by 9.7%.',
+    'blog.article.sulzer-primo-semestre-2026.imageAlt': 'A view of Lugano with the lake and Monte Bre.',
 };
 
 export default blogMetaChEn;

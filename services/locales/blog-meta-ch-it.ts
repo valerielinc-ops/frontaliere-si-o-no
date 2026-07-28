@@ -1630,6 +1630,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.opinioni-tram-treno-lugano.title': 'Opinioni sul tram treno di Lugano: analisi e impatti',
     'blog.article.opinioni-tram-treno-lugano.excerpt': 'Analizziamo le prospettive sul progetto del tram treno a Lugano, valutando le implicazioni per la mobilità e il contesto economico nazionale.',
     'blog.article.opinioni-tram-treno-lugano.imageAlt': 'Vista panoramica del lungolago di Lugano con elementi di mobilità urbana.',
+    'blog.article.sulzer-primo-semestre-2026.title': 'Sulzer: meno ordini nel primo semestre, ma cresce l\'utile operativo',
+    'blog.article.sulzer-primo-semestre-2026.excerpt': 'Il gruppo svizzero registra un calo degli ordini nel primo semestre del 2026, ma l\'utile operativo aumenta del 9,7%.',
+    'blog.article.sulzer-primo-semestre-2026.imageAlt': 'Una vista di Lugano con il lago e il monte Bre.',
 };
 
 export default blogMetaChIt;
