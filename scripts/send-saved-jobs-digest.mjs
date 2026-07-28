@@ -32,6 +32,7 @@ import { fileURLToPath } from 'node:url';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 import { isSavedJobsDigestExcluded } from '../services/emailSuppression.mjs';
 import { deriveSavedJobsAlertCriteria } from '../services/savedJobsAlertCriteria.ts';
+import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -276,7 +277,32 @@ function buildEmailText({ s, savedEntries, recommendations, manageUrl, unsubUrl 
 
 // ── Sending ───────────────────────────────────────────────────────────────
 
-async function sendDigest({ uid, email, locale, savedEntries, recommendations }) {
+// Delivery record (#4862): mirrors send-job-alerts.mjs's persistJobAlertDelivery
+// — this channel previously called sendEmailCascade with no onSent at all, so
+// its sends never left a campaign_deliveries doc anywhere and were invisible to
+// scripts/report-send-hour-impact.mjs's collectionGroup('campaign_deliveries')
+// query. Written under users/{uid}/campaign_deliveries/{deliveryDocId} since
+// uid (not email) is this channel's subscriber key (see makeUnsubscribeUrl).
+async function persistSavedJobsDigestDelivery({ uid, email, campaignId }, sendResult) {
+  if (!uid || !email || !campaignId) return;
+  try {
+    const db = await getFirestoreAdmin();
+    const deliveryDocId = buildDeliveryDocId(campaignId, email);
+    await db.collection('users').doc(uid)
+      .collection('campaign_deliveries').doc(deliveryDocId).set({
+      email: email.toLowerCase().trim(),
+      campaign_id: campaignId,
+      message_id: sendResult?.messageId || null,
+      provider: sendResult?.provider || null,
+      scheduled_for: sendResult?.scheduledFor ?? null,
+      sent_at: new Date(),
+    }, { merge: true });
+  } catch (e) {
+    console.warn('⚠️ Saved-jobs-digest delivery persist failed:', e?.message);
+  }
+}
+
+async function sendDigest({ uid, email, locale, savedEntries, recommendations, campaignId }) {
   const s = getStrings(locale);
   const manageUrl = `${BASE_URL}${localePathPrefix(locale)}/area-personale/`;
   const unsubUrl = makeUnsubscribeUrl(uid, email);
@@ -298,7 +324,10 @@ async function sendDigest({ uid, email, locale, savedEntries, recommendations })
         subject,
         html,
         text,
-        tags: [{ name: 'type', value: 'saved-jobs-digest' }],
+        tags: [
+          { name: 'type', value: 'saved-jobs-digest' },
+          { name: 'campaign_id', value: campaignId },
+        ],
         headers: {
           'Feedback-ID': `saved-jobs-digest:${uid}:frontaliere-ticino`,
           'List-Unsubscribe': `<${unsubUrl}>`,
@@ -306,9 +335,12 @@ async function sendDigest({ uid, email, locale, savedEntries, recommendations })
         },
       },
       recipient: { email },
-      meta: { type: 'saved-jobs-digest', uid },
+      meta: { type: 'saved-jobs-digest', uid, campaignId },
     },
-  ], { concurrency: 1 });
+  ], {
+    concurrency: 1,
+    onSent: (item, sendResult) => persistSavedJobsDigestDelivery({ uid, email, campaignId }, sendResult),
+  });
 
   return { sent: result.sent.length > 0, failed: result.failed };
 }
@@ -318,6 +350,9 @@ async function sendDigest({ uid, email, locale, savedEntries, recommendations })
 async function main() {
   const db = await getFirestoreAdmin();
   const jobsById = loadJobsById();
+  // One campaignId per run (#4862) — all recipients of a given weekly send
+  // share it, same convention as send-newsletter.mjs's weekly_{monday}.
+  const campaignId = `saved-jobs-digest-${new Date().toISOString().split('T')[0]}`;
 
   console.log('📌 Saved-jobs digest — querying collectionGroup(savedJobs)…');
   const snap = await db.collectionGroup('savedJobs').get();
@@ -417,7 +452,7 @@ async function main() {
     }
 
     console.log(`   ✉️  ${email} (${locale}) — ${savedEntries.length} saved, ${recommendations.length} recommended`);
-    const result = await sendDigest({ uid, email, locale, savedEntries, recommendations });
+    const result = await sendDigest({ uid, email, locale, savedEntries, recommendations, campaignId });
     if (result.sent) sentCount++;
     else skippedCount++;
   }
