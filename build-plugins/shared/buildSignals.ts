@@ -97,6 +97,7 @@ export interface EmittedEmployerProfile {
 
 const employerProfilesSignal = makeValueSignal<readonly EmittedEmployerProfile[]>();
 const fiscalMunicipalitiesSignal = makeValueSignal<readonly string[]>();
+const frenchBorderMunicipalitiesSignal = makeValueSignal<readonly string[]>();
 
 /** Resolves when {@link staticPagesPlugin} has flushed all its queued writes. */
 export const staticPagesFlushed: Promise<void> = staticPagesSignal.promise;
@@ -314,4 +315,19 @@ export const fiscalMunicipalitiesFlushed: Promise<readonly string[]> =
   fiscalMunicipalitiesSignal.promise;
 export function resolveFiscalMunicipalitiesFlushed(paths: readonly string[]): void {
   fiscalMunicipalitiesSignal.resolve(paths);
+}
+
+/**
+ * Resolves with every indexable French border-municipality page
+ * {@link frenchBorderMunicipalityPagesPlugin} wrote this build (below-floor
+ * bridges excluded). Same orphan-tier hazard as
+ * {@link fiscalMunicipalitiesFlushed} above (the hub already links every
+ * above-floor commune below it, but nothing links INTO the hub) — consumed
+ * by {@link frenchBorderMunicipalityLinksPlugin}, which injects a hub link
+ * into the per-locale HTML sitemap pages.
+ */
+export const frenchBorderMunicipalitiesFlushed: Promise<readonly string[]> =
+  frenchBorderMunicipalitiesSignal.promise;
+export function resolveFrenchBorderMunicipalitiesFlushed(paths: readonly string[]): void {
+  frenchBorderMunicipalitiesSignal.resolve(paths);
 }
