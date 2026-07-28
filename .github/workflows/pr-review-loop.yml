@@ -177,37 +177,23 @@ jobs:
           # → niente stallo. Se mai servisse la history per un caso futuro,
           # ripristinare depth:0.
           fetch-depth: 1
-          # Sparse: `fetch-depth: 1` da solo scaricava comunque OGNI blob
-          # dell'albero HEAD — misurato 87s di Checkout (75s di sola `Fetching
-          # the repository`) sul job review di run 30353920865, cioè ~1/4 di un
-          # job da 371s. L'albero pesa ~2.6GB e le voci grosse sono binari o
-          # dump dati che il reviewer non apre MAI: public/images/events
-          # (790MB), public/images/blog (361MB), data/jobs (627MB, slice
-          # crawler), data/translation-cache (182MB), data/seo-404-compat
-          # (164MB), docs/newsletter-qa (90MB) → ~2.1GB tagliati.
+          # NIENTE `sparse-checkout`, ed è una scelta MISURATA. Sarebbe stato
+          # allettante: l'albero pesa ~2.6GB e il reviewer non apre mai
+          # public/images/events (790MB), public/images/blog (361MB),
+          # data/jobs (627MB), data/translation-cache (182MB),
+          # data/seo-404-compat (164MB) né docs/newsletter-qa (90MB).
           #
-          # Perché è safe per il reviewer: il diff arriva da `gh pr diff`
-          # (GitHub API, non dal working tree) e il probing cross-file di
-          # REVIEW.md step 5 è scopato al CODE. `public/images/brands` (1.2MB)
-          # resta incluso perché è l'unica sottodir di images letta da codice.
+          # Ma impostarlo porta actions/checkout su `--filter=blob:none`, e su
+          # questo repo convertire il fetch bulk in lazy-fetch on-demand COSTA
+          # invece di risparmiare: provato su tests.yml (fetch bulk identico a
+          # questo, run 30361290650) il Checkout è passato da 75s a 169s, +125%.
+          # Lo sparse-checkout paga solo dove il partial clone è già in uso —
+          # in pr-body-contract.yml, che ha `filter: blob:none`, ha portato il
+          # Checkout da ~200s a 77s. Qui il fetch è bulk, quindi no.
           #
-          # Nota sul rischio noto: `sparse-checkout` fa passare actions/checkout
-          # a `--filter=blob:none` (partial clone) — lo stesso meccanismo che in
-          # passato ha stallato un Checkout per 11 MINUTI (run 27672265799, PR
-          # #2394) mangiando il budget della review. Qui il lazy-fetch non ha
-          # motivo di scattare, perché gli esclusi sono binari/dump che nessun
-          # `Read`/`rg` del reviewer tocca; se mai scattasse, `timeout-minutes`
-          # sotto trasforma uno stallo in un fallimento VISIBILE (job rosso)
-          # invece che in una review idle senza diagnosi.
-          sparse-checkout: |
-            /*
-            !/public/images/events
-            !/public/images/blog
-            !/data/jobs
-            !/data/translation-cache
-            !/data/seo-404-compat
-            !/docs/newsletter-qa
-          sparse-checkout-cone-mode: false
+          # (Il rischio non è solo di lentezza: è il partial clone ad aver
+          # stallato un Checkout per 11 MINUTI su questo stesso job — run
+          # 27672265799, PR #2394 — lasciando la review idle senza diagnosi.)
         timeout-minutes: 8
 
       # Headroom install (~63s misurati su run 30353920865) in BACKGROUND: è
