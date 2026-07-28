@@ -31,42 +31,54 @@
  *
  * Intentionally a .mjs Node script (not TypeScript) so CI can run it without
  * transpilation after `vite build`.
+ *
+ * Cost profile (why this file looks the way it does)
+ * --------------------------------------------------
+ * This was the single slowest gate in post-deploy-validate-dist's light pool
+ * — 2000 s on run 30376520728, i.e. the job's critical path — for two
+ * structural reasons, both fixed here:
+ *
+ *   1. It re-`statSync`'d every hreflang target even though it had ALREADY
+ *      walked the whole tree. At ~1.66 M pages carrying hreflang × 5
+ *      alternates that is ~8.3 M redundant `existsSync` syscalls. The walk
+ *      result is now kept as a Set and membership is answered in memory.
+ *   2. It read every file in full (`readFileSync`) to regex a handful of
+ *      `<link rel=alternate>` tags that are only ever valid inside `<head>`.
+ *      Reads now stop at the first `</head>` (scripts/lib/readHead.mjs).
+ *
+ * Both are pure I/O eliminations: the same files are inspected and the same
+ * verdicts are produced. On top of that the file walk and the per-file reads
+ * now run concurrently instead of sequentially.
+ *
+ * Sampling: this gate additionally honours `AUDIT_SAMPLE_RATE` /
+ * `AUDIT_SAMPLE_SALT` (the same rotating-bucket mechanism `audit:all` uses —
+ * see scripts/lib/audit-runner.mjs `sampleFiles`). Only the set of pages
+ * PARSED is sampled; the target-existence Set is always built from the full
+ * dist walk, so a sampled run still reports a broken alternate with exactly
+ * the same certainty as a full run — it just inspects a rotating quarter of
+ * the source pages per run. Sampling is never silent (AGENTS.md
+ * non-negotiable #1): the active bucket and coverage window are printed on
+ * every sampled run and recorded in the audit report.
  */
 
-import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
+import { existsSync } from 'node:fs';
+import { open } from 'node:fs/promises';
 import path from 'node:path';
 import { writeAuditReport } from './lib/auditReport.mjs';
+import { walkHtmlFiles, sampleFiles, resolveSamplingEnv } from './lib/audit-runner.mjs';
+import { readHeadOrAll } from './lib/readHead.mjs';
 
 const DIST = path.resolve('dist');
 const BASE_URL = 'https://frontaliereticino.ch';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const PREFIXED_LOCALES = ['en', 'de', 'fr'];
 
-/** Collect every *.html file under dist/. */
-function walkHtmlFiles(root) {
-  /** @type {string[]} */
-  const out = [];
-  if (!existsSync(root)) return out;
-  const stack = [root];
-  while (stack.length > 0) {
-    const dir = stack.pop();
-    let entries;
-    try {
-      entries = readdirSync(dir, { withFileTypes: true });
-    } catch {
-      continue;
-    }
-    for (const entry of entries) {
-      const full = path.join(dir, entry.name);
-      if (entry.isDirectory()) {
-        stack.push(full);
-      } else if (entry.isFile() && entry.name.endsWith('.html')) {
-        out.push(full);
-      }
-    }
-  }
-  return out;
-}
+// Bounded in-flight reads. Mirrors the 64-lane cap
+// relatedSearchClustersPlugin's `dropOverwrittenLocs` settled on for the same
+// shape of workload (pure I/O over dist/ on a 4-vCPU ubuntu-latest runner):
+// far below the 65535 fd ulimit, high enough that Linux readahead stays
+// saturated.
+const IN_FLIGHT = 64;
 
 /** Return a Map<hreflang, href> parsed from one HTML file's <head>.
  *  Quote-flexible — PR #478 baked removeAttributeQuotes upstream. */
@@ -123,16 +135,58 @@ function normaliseHref(href) {
   return href.replace(/\/$/, '');
 }
 
+/**
+ * Does `href` resolve to a file that exists in dist/?
+ *
+ * `distFiles` is the full walk result (absolute paths), so the common case is
+ * answered without touching the filesystem. Both serving shapes are accepted,
+ * exactly as before: `<path>/index.html` and the flat `<path>.html`.
+ *
+ * The walk only collects `.html`, so a target with any other extension (a PDF
+ * alternate, say) is not in the Set and still needs a real stat — otherwise
+ * we would invent a failure the previous implementation never reported.
+ */
+function targetExists(href, distFiles) {
+  const target = urlToDistFile(href);
+  if (!target) return true; // not on our host / unmappable — previously skipped
+  if (distFiles.has(target)) return true;
+  const alt = target.endsWith(`${path.sep}index.html`)
+    ? target.slice(0, -`${path.sep}index.html`.length) + '.html'
+    : path.join(path.dirname(target), path.basename(target, '.html'), 'index.html');
+  if (distFiles.has(alt)) return true;
+  if (!target.endsWith('.html')) return existsSync(target) || existsSync(alt);
+  return false;
+}
+
 async function main() {
   if (!existsSync(DIST)) {
     console.error(`audit-hreflang: dist/ does not exist at ${DIST}`);
     process.exit(1);
   }
 
-  const htmlFiles = walkHtmlFiles(DIST);
+  const htmlFiles = await walkHtmlFiles(DIST);
   if (htmlFiles.length === 0) {
     console.error('audit-hreflang: no HTML files found in dist/');
     process.exit(1);
+  }
+
+  // Target-existence index. Built from the FULL walk even on a sampled run —
+  // sampling decides which pages we parse, never which targets are allowed to
+  // resolve.
+  const distFiles = new Set(htmlFiles);
+
+  const { rate, salt } = resolveSamplingEnv();
+  const { sampled, totalBuckets, activeBucket } = sampleFiles(htmlFiles, DIST, rate, salt);
+  const sampling = totalBuckets > 1
+    ? { totalBuckets, activeBucket, filesOnDisk: htmlFiles.length, filesScanned: sampled.length }
+    : null;
+  if (sampling) {
+    console.log(
+      `audit-hreflang: SAMPLED run — bucket ${activeBucket + 1}/${totalBuckets}, parsing ` +
+      `${sampled.length}/${htmlFiles.length} pages (${((sampled.length / htmlFiles.length) * 100).toFixed(1)}%). ` +
+      `Target existence still checked against all ${htmlFiles.length} files. ` +
+      `Full source coverage requires ${totalBuckets} consecutive runs (rotates via AUDIT_SAMPLE_SALT).`,
+    );
   }
 
   const failures = {
@@ -148,61 +202,64 @@ async function main() {
   let scanned = 0;
   let withHreflang = 0;
 
-  for (const file of htmlFiles) {
-    scanned += 1;
-    let html;
-    try {
-      html = readFileSync(file, 'utf-8');
-    } catch {
-      continue;
-    }
-    const alternates = extractAlternates(html);
-    if (alternates.size === 0) continue;
-    withHreflang += 1;
+  // Bounded-concurrency scan. Each lane pulls the next file off a shared
+  // cursor; the per-file body below is byte-for-byte the previous sequential
+  // logic. Mutating the shared accumulators is safe — lanes interleave only
+  // at await points on a single-threaded event loop.
+  let cursor = 0;
+  const lane = async () => {
+    while (cursor < sampled.length) {
+      const file = sampled[cursor++];
+      scanned += 1;
+      const html = await readHeadOrAll(file);
+      if (html === null) continue;
+      const alternates = extractAlternates(html);
+      if (alternates.size === 0) continue;
+      withHreflang += 1;
 
-    const rel = path.relative(DIST, file);
+      const rel = path.relative(DIST, file);
 
-    if (alternates.size < 5) {
-      failures.tooFew.push(
-        `${rel}: has only ${alternates.size} hreflang entries (need 4 locales + x-default)`,
-      );
-    }
-
-    // Pair validation (host + locale/slug prefix).
-    for (const [hreflang, href] of alternates) {
-      const error = validateLocalePair(hreflang, href);
-      if (error) {
-        failures.invalidPair.push(`${rel}: ${error}`);
+      if (alternates.size < 5) {
+        failures.tooFew.push(
+          `${rel}: has only ${alternates.size} hreflang entries (need 4 locales + x-default)`,
+        );
       }
-    }
 
-    // x-default consistency.
-    const itHref = alternates.get('it');
-    const xDefault = alternates.get('x-default');
-    if (itHref && xDefault && normaliseHref(itHref) !== normaliseHref(xDefault)) {
-      failures.xDefaultMismatch.push(
-        `${rel}: x-default "${xDefault}" does not match IT hreflang "${itHref}"`,
-      );
-    }
+      // Pair validation (host + locale/slug prefix).
+      for (const [hreflang, href] of alternates) {
+        const error = validateLocalePair(hreflang, href);
+        if (error) {
+          failures.invalidPair.push(`${rel}: ${error}`);
+        }
+      }
 
-    // Target existence — only verify pages on our own host.
-    for (const [hreflang, href] of alternates) {
-      if (!href.startsWith(BASE_URL)) continue;
-      const target = urlToDistFile(href);
-      if (!target) continue;
-      // Tolerate a trailing / vs no / variant — check both forms.
-      if (!existsSync(target)) {
-        const alt = target.endsWith(`${path.sep}index.html`)
-          ? target.slice(0, -`${path.sep}index.html`.length) + '.html'
-          : path.join(path.dirname(target), path.basename(target, '.html'), 'index.html');
-        if (!existsSync(alt)) {
+      // x-default consistency.
+      const itHref = alternates.get('it');
+      const xDefault = alternates.get('x-default');
+      if (itHref && xDefault && normaliseHref(itHref) !== normaliseHref(xDefault)) {
+        failures.xDefaultMismatch.push(
+          `${rel}: x-default "${xDefault}" does not match IT hreflang "${itHref}"`,
+        );
+      }
+
+      // Target existence — only verify pages on our own host.
+      for (const [hreflang, href] of alternates) {
+        if (!href.startsWith(BASE_URL)) continue;
+        if (!targetExists(href, distFiles)) {
           failures.missingTarget.push(
             `${rel}: hreflang="${hreflang}" target not found in dist/ (${href})`,
           );
         }
       }
     }
-  }
+  };
+  await Promise.all(
+    Array.from({ length: Math.min(IN_FLIGHT, sampled.length) }, () => lane()),
+  );
+
+  // Lanes complete out of order, so sort each bucket to keep the CI log (and
+  // the audit report) stable between runs over identical input.
+  for (const list of Object.values(failures)) list.sort();
 
   const totalFailures =
     failures.tooFew.length +
@@ -229,9 +286,13 @@ async function main() {
     }
   }
 
+  const coverage = sampling
+    ? ` [sampled bucket ${activeBucket + 1}/${totalBuckets} of ${htmlFiles.length} files on disk]`
+    : '';
+
   if (totalFailures === 0) {
     console.log(
-      `audit-hreflang: OK — scanned ${scanned} HTML files (${withHreflang} with hreflang), no issues.`,
+      `audit-hreflang: OK — scanned ${scanned} HTML files (${withHreflang} with hreflang), no issues.${coverage}`,
     );
     await writeAuditReport({
       audit: 'hreflang',
@@ -239,12 +300,13 @@ async function main() {
       threshold: { metric: 'count', value: 0, comparator: '<=' },
       offenders: _structuredOffenders,
       byFeature: _byFeature,
+      extra: { sampling },
     });
     process.exit(0);
   }
 
   console.error(
-    `audit-hreflang: FAILED — ${totalFailures} issue(s) across ${withHreflang} pages with hreflang`,
+    `audit-hreflang: FAILED — ${totalFailures} issue(s) across ${withHreflang} pages with hreflang${coverage}`,
   );
   const MAX = 50;
   for (const [kind, list] of Object.entries(failures)) {
@@ -263,6 +325,7 @@ async function main() {
     threshold: { metric: 'count', value: 0, comparator: '<=' },
     offenders: _structuredOffenders,
     byFeature: _byFeature,
+    extra: { sampling },
   });
   process.exit(1);
 }

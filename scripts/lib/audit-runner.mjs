@@ -225,6 +225,28 @@ function fnv1a(str) {
  * @param {number} salt rotation position (e.g. run number); any integer
  * @returns {{ sampled: string[], totalBuckets: number, activeBucket: number }}
  */
+/**
+ * Read the rotating-sample configuration out of the environment.
+ *
+ * `AUDIT_SAMPLE_RATE` / `AUDIT_SAMPLE_SALT` are set once for the whole
+ * post-build step in post-deploy-validate-dist.yml, so every gate that opts
+ * into sampling must parse them identically — hence one definition here next
+ * to {@link sampleFiles} rather than a copy per script.
+ *
+ * Anything missing, unparseable or out of range degrades to "no sampling"
+ * (rate 1), never to a narrower scan: a malformed env var must not silently
+ * shrink a gate's coverage.
+ *
+ * @returns {{ rate: number, salt: number }}
+ */
+export function resolveSamplingEnv(env = process.env) {
+  const rawRate = Number(env.AUDIT_SAMPLE_RATE);
+  const rate = Number.isFinite(rawRate) && rawRate > 0 && rawRate <= 1 ? rawRate : 1;
+  const rawSalt = Number(env.AUDIT_SAMPLE_SALT);
+  const salt = Number.isFinite(rawSalt) ? Math.trunc(rawSalt) : 0;
+  return { rate, salt };
+}
+
 export function sampleFiles(files, distDir, rate, salt) {
   const totalBuckets = Math.max(1, Math.round(1 / rate));
   if (totalBuckets <= 1) return { sampled: files, totalBuckets: 1, activeBucket: 0 };
