@@ -67,6 +67,26 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
+        with:
+          # Sparse: il Checkout costava 75s misurati (run 30355205859) perché
+          # scaricava ogni blob dell'albero HEAD (~2.6GB). `public/images` da
+          # solo pesa 1153MB, di cui events 790MB + blog 361MB: immagini
+          # binarie che nessun test apre. Restano incluse `public/images/brands`
+          # (1.2MB) — fuel-station-redesign / job-alert-email / fuel-daily
+          # verificano la presenza-su-disco dei loghi brand — e TUTTO `data/`,
+          # che è l'input di assemble-jobs-dataset.mjs e dei test che ne
+          # leggono gli output.
+          #
+          # `sparse-checkout` porta actions/checkout su `--filter=blob:none`
+          # (partial clone). `timeout-minutes` sotto è la rete di sicurezza
+          # contro il lazy-fetch che in passato ha stallato un checkout per 11
+          # minuti su un altro workflow (run 27672265799).
+          sparse-checkout: |
+            /*
+            !/public/images/events
+            !/public/images/blog
+          sparse-checkout-cone-mode: false
+        timeout-minutes: 8
 
       - uses: actions/setup-node@v5
         with:
@@ -120,33 +140,65 @@ jobs:
           restore-keys: |
             assemble-jobs-${{ runner.os }}-
 
-      - name: Assemble data/jobs.json
-        # Several tests read data/jobs.json (job-locale-completeness,
-        # job-cross-locale-guard, sitemap-slug-integrity, search-console-compat,
-        # cathedral-expired-tracking-canton). The file is gitignored — generate
-        # it from committed per-slice files before running the suite. On a
-        # cache HIT (above) this restores the assembled outputs in ~0.3s.
-        # Note: this only exercises assembleJobsDataset() (read+aggregate the
-        # committed per-slice files) — it never calls writeJobsCrawlerSlice()
-        # or the shrink/boilerplate guards (those only run inside the
-        # dedicated update-<company>-jobs.mjs crawler scripts), so it does not
-        # need GH_TOKEN / issues:write.
+      - name: Assemble data/jobs.json (background)
+        # BACKGROUND: l'assemble è costato 133s e 155s nelle ultime due run
+        # verdi (30355205859 / 30357073975) e la sua cache sopra è di fatto
+        # sempre un miss — la key include hashFiles('data/jobs/by-crawler/**')
+        # e i crawler riscrivono le slice decine di volte al giorno, per cui la
+        # key non ricentra mai; la cascata restore-keys recupera un archivio con
+        # fingerprint diverso e lo script riassembla comunque. Ci si mette pure
+        # la quota cache del repo satura (9.54GB/10GB, 12 cache attive): la LRU
+        # evicta prima che una key si ripresenti. Erano ~140s in coda a vitest.
+        #
+        # Solo 586 dei 1358 file di test leggono i suoi output: gli altri 772
+        # girano nello step sotto MENTRE questo lavora, e il `wait-all` li
+        # rijoina prima degli step che il dataset lo richiedono davvero. Il
+        # gruppo indipendente dura molto più dei ~140s dell'assemble, quindi
+        # l'assemble sparisce interamente dal wall del job.
+        #
+        # DEVE restare uno step `run:` — `background:` su uno step `uses:` non
+        # è supportato e rompe l'intero file workflow (incidente PR #4777).
+        #
+        # Nota: esercita solo assembleJobsDataset() (legge+aggrega le slice
+        # committate), mai writeJobsCrawlerSlice() o le guard shrink/boilerplate
+        # (quelle girano solo dentro update-<company>-jobs.mjs), quindi non
+        # serve GH_TOKEN / issues:write.
+        id: assemble
+        background: true
         run: node scripts/assemble-jobs-dataset.mjs --stats
+
+      - name: vitest run (test che non leggono il dataset)
+        # VITEST_DATASET_GROUP=independent → vitest.config.ts esclude i file
+        # classificati da scripts/ci/dataset-dependent-tests.mjs. La partizione
+        # è calcolata dal sorgente a ogni run (mai una lista committata da
+        # tenere in sync) ed è verificata disgiunta e completa: 772 + 586 =
+        # 1358 = suite intera. La classificazione è volutamente conservativa,
+        # quindi un test nuovo che legge il dataset finisce in questo gruppo
+        # solo se NON tocca il filesystem — al più perde parallelismo.
+        #
+        # Il json reporter alimenta scripts/ci/generate-shard-weights.mjs via
+        # refresh-shard-weights.yml, che scarica `shard-timing-*` con una glob
+        # (progettata per i 4 shard di un tempo) → due file sono già supportati.
+        env:
+          VITEST_DATASET_GROUP: independent
+        run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-1.json
+
+      - name: Wait for background assemble
+        wait-all: true
 
       - name: Migrate canton-aware tracking
         # cathedral-expired-tracking-canton asserts non-TI tracking entries use
-        # canton-aware section paths. The migration is idempotent.
+        # canton-aware section paths. The migration is idempotent. Legge
+        # data/jobs.json (quindi sta dietro il wait-all) e RISCRIVE
+        # data/all-known-job-slugs.json — per questo quel file è fra gli output
+        # tracciati dal classificatore: chi lo legge deve girare qui sotto, non
+        # nel gruppo indipendente dove sarebbe ancora la versione committata.
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
-      - name: vitest run (full suite)
-        # Emit a per-file timing JSON alongside the default reporter. It feeds
-        # scripts/ci/generate-shard-weights.mjs / refresh-shard-weights.yml,
-        # which keep tests/shard-weights.json fresh (still consumed by the LPT
-        # BalancedSequencer in vitest.config.ts). A single full run is complete
-        # per-file timing data — a superset of the old per-shard files. The json
-        # reporter is additive (default reporter still prints), failures stay
-        # visible.
-        run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-1.json
+      - name: vitest run (test che leggono il dataset)
+        env:
+          VITEST_DATASET_GROUP: dependent
+        run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-2.json
 
       - name: Upload test timing
         # always() so we still collect timings when the run is red (a slow test
@@ -156,5 +208,14 @@ jobs:
         with:
           name: shard-timing-1
           path: shard-timing-1.json
+          retention-days: 7
+          if-no-files-found: ignore
+
+      - name: Upload test timing (dataset group)
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-timing-2
+          path: shard-timing-2.json
           retention-days: 7
           if-no-files-found: ignore
