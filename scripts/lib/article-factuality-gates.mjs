@@ -712,7 +712,22 @@ export function checkSourceFreshness(params = {}) {
 //
 // Measuring RECALL of the source's anchored facts makes that strategy lose.
 
-const STOP_TOKENS = new Set(['2026', '2025', '2024', '100', '000']);
+// All-caps tokens that are not institutions. Italian and Swiss news pages carry
+// all-caps subheads, bylines and currency codes, and counting those as "source
+// anchors" both dilutes genuine recall and can pad it past the threshold with
+// noise that happens to survive into the article.
+const STOP_TOKENS = new Set([
+  '2026', '2025', '2024', '2023', '2022', '100', '000',
+  // currencies and units
+  'CHF', 'EUR', 'USD', 'GBP', 'IVA', 'KM', 'KG', 'MQ', 'ORE',
+  // formats / tech / web furniture
+  'PDF', 'HTML', 'URL', 'JPG', 'PNG', 'GIF', 'API', 'RSS', 'WWW', 'HTTP', 'HTTPS', 'CSS', 'XML',
+  // company forms
+  'SRL', 'SPA', 'SAGL', 'SNC', 'SAS', 'GMBH',
+  // common all-caps editorial furniture
+  'NEWS', 'VIDEO', 'FOTO', 'LIVE', 'HOME', 'MENU', 'LEGGI', 'ANCHE', 'TUTTI',
+  'ANSA', 'ADN', 'REG', 'ART', 'CAP', 'TEL', 'FAX',
+]);
 
 /** Extracts the source's checkable anchors: percentages, amounts, dates, distances, acronyms. */
 export function extractSourceAnchors(sourceText) {
@@ -866,6 +881,20 @@ export function formatIssues(issues) {
       + `${i.fix ? `\n       🔧 ${i.fix}` : ''}`)
     .join('\n');
 }
+
+/**
+ * The fact-check prompt's category vocabulary — the single source of truth.
+ *
+ * create-article.mjs renders the prompt's "Categorie valide:" line from this
+ * list, and REMEDIATION_BY_CATEGORY below is keyed on it. Keeping the two in
+ * one place means a new category cannot silently ship without remediation text
+ * (which would drop the "CORREZIONE RICHIESTA" line for those issues and give
+ * the rewrite loop nothing to act on). A test asserts the two stay in sync.
+ */
+export const FACT_CHECK_CATEGORIES = [
+  'leggi', 'istituzioni', 'aliquote', 'statistiche', 'date', 'coerenza',
+  'fatti_inventati', 'persone', 'geografia', 'eu_svizzera', 'rilevanza_topica',
+];
 
 // Fallback remediation for LLM-verifier issues, which carry a free-text reason
 // but no structured fix. Keyed on the checker's own category vocabulary.

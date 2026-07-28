@@ -83,7 +83,7 @@ import {
   MAJOR_BLOCK_WEIGHT_THRESHOLD,
   dropSourceContradictedIssues,
 } from './lib/fact-check-consensus.mjs';
-import { runFactualityGates, formatIssues, formatRemediation } from './lib/article-factuality-gates.mjs';
+import { runFactualityGates, formatIssues, formatRemediation, FACT_CHECK_CATEGORIES } from './lib/article-factuality-gates.mjs';
 import {
   stripCompetitorPromotion,
   sanitizeNavLinkSemantics,
@@ -3408,7 +3408,7 @@ Rispondi SOLO in JSON valido:
   ]
 }
 
-Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fatti_inventati, persone, geografia, eu_svizzera, rilevanza_topica`;
+Categorie valide: ${FACT_CHECK_CATEGORIES.join(', ')}`;
 
   // ── Multi-model consensus: query 2 models, require agreement ──
   // Order matters: the consensus pair is `verificationModels.slice(0, 2)`, so the
@@ -4000,6 +4000,21 @@ async function buildStatsBfsPromptContent(quarter) {
 let lastSourcePublishedAt = '';
 
 async function fetchPageContent(url) {
+  // Clear FIRST, unconditionally, before any early return.
+  //
+  // main() calls generateAndValidateArticle() several times in one process:
+  // Fase 1 retries across real-URL headlines and, on exhaustion, falls through
+  // to the Fase 2 evergreen fallback. Without this reset a Fase-1 source date
+  // (the incident source was 184 days old) would still be set when the
+  // evergreen article — which has no source at all — reaches the freshness
+  // gate, where anything past 90 days is a blocking `stale-source`. That would
+  // spuriously reject innocent evergreen articles, the exact failure mode of
+  // issue #2947 ("the frontaliere evergreen path produced ~0 articles/run").
+  //
+  // Same reasoning as the `_localFallbackUsedThisHeadline` reset in
+  // generateAndValidateArticle(): per-headline state must not leak forward.
+  lastSourcePublishedAt = '';
+
   // Handle BFS stats-update articles — no web page to scrape, build the
   // prompt from Firestore numbers written by refresh-bfs-stats.
   if (url.startsWith('stats-bfs://')) {
@@ -9942,10 +9957,13 @@ async function generateAndValidateArticle(url, sourceContext = null) {
         }
         throw err;
       }
-      if (factResult.unverified) {
-        RUN_REPORT.factCheckUnverified = true;
-        RUN_REPORT.notes.push('fact-check-skipped: all verifier models failed (infra-outage)');
-      }
+      // NOTE: there is deliberately no `if (factResult.unverified)` branch here
+      // any more. Since the verifier fails CLOSED (2026-07-28), `unverified`
+      // only ever comes back paired with `passed: false`, which the branch above
+      // has already turned into a retry or a throw — so a published article can
+      // never be unverified, and a RUN_REPORT flag saying otherwise would be
+      // permanently false and misleading. The outage is recorded on the failure
+      // path instead (see the `🚫` log in llmFactCheck).
     } catch (fcErr) {
       // Both fact-check rejections AND all-models-failed errors retry
       if (attempt < maxAttempts) {

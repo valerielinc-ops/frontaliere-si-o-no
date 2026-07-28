@@ -15,6 +15,7 @@
  * Fixtures use the real strings that shipped, not paraphrases.
  */
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   parseItalianNumber,
   detectTruncation,
@@ -29,6 +30,7 @@ import {
   runFactualityGates,
   formatRemediation,
   formatItalianNumber,
+  FACT_CHECK_CATEGORIES,
 } from '../scripts/lib/article-factuality-gates.mjs';
 
 const codes = (issues: any[]) => issues.map((i) => i.code);
@@ -422,5 +424,50 @@ describe('stale source vs. undated source', () => {
     const stale = issues.find((i) => i.code === 'stale-source');
     expect(stale?.severity).toBe('major');
     expect(stale?.message).toContain('non fuorvia');
+  });
+});
+
+describe('reviewer follow-ups (PR #4900)', () => {
+  // 🔴 Regression the reviewer caught: lastSourcePublishedAt is module-level and
+  // was only set on the real-fetch branch, so a Fase-1 news source date could
+  // leak into the Fase-2 evergreen article in the same process and block it as
+  // stale. fetchPageContent() now clears it first, unconditionally. Asserted at
+  // the source level because the function is not exported.
+  it('fetchPageContent clears the source date before every early return', () => {
+    const src = readFileSync(
+      new URL('../scripts/create-article.mjs', import.meta.url),
+      'utf-8',
+    );
+    const fnStart = src.indexOf('async function fetchPageContent(url) {');
+    expect(fnStart).toBeGreaterThan(-1);
+    const head = src.slice(fnStart, fnStart + 1400);
+    const resetAt = head.indexOf("lastSourcePublishedAt = ''");
+    const firstEarlyReturn = head.indexOf("if (url.startsWith('stats-bfs://'))");
+    expect(resetAt).toBeGreaterThan(-1);
+    expect(resetAt).toBeLessThan(firstEarlyReturn);
+  });
+
+  // Adversarial check #2: a category present in the prompt but missing from
+  // REMEDIATION_BY_CATEGORY silently drops the "CORREZIONE RICHIESTA" line.
+  it('every fact-check category has remediation text', () => {
+    for (const category of FACT_CHECK_CATEGORIES) {
+      const out = formatRemediation([
+        { claim: 'un claim di prova sufficientemente lungo', reason: 'motivo', category, severity: 'critical' },
+      ]);
+      expect(out, `categoria senza remediation: ${category}`).toContain('CORREZIONE RICHIESTA');
+    }
+  });
+
+  // Adversarial check #1: all-caps furniture in a source must not count as an
+  // institution anchor, or recall is measured against noise.
+  it('ignores currency, format and editorial all-caps tokens as anchors', () => {
+    const anchors = extractSourceAnchors(
+      'LEGGI ANCHE: il prelievo in CHF sale al 25%. Scarica il PDF. Fonte ANSA. '
+      + "L'OCST conferma l'aliquota all'80%.",
+    );
+    expect(anchors).toContain('org:OCST');
+    for (const noise of ['org:CHF', 'org:PDF', 'org:ANSA', 'org:LEGGI', 'org:ANCHE']) {
+      expect(anchors, `token spurio conteggiato: ${noise}`).not.toContain(noise);
+    }
   });
 });
