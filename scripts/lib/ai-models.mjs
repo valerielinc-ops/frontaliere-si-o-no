@@ -588,25 +588,32 @@ export const DEFAULT_CHAIN = [
   // AI_MODELS.CF_QWEN_25_CODER_32B removed — wrapper crash "text.replace is not a function" (2026-05-27, run 26537033519).
   // AI_MODELS.GROQ_LLAMA_3_3_SPEC removed — Groq HTTP 400 "decommissioned" (2026-05-27, run 26537033519).
 
-  // Last-resort local model. Always sorted to the very bottom (sortChainByScore)
-  // and skipped entirely unless LOCAL_LLM_ENABLED — so when every remote provider
-  // above is daily-exhausted, generation still produces instead of deferring.
+  // Last-resort local model. Sorted below every real remote API but ABOVE
+  // claude-cli (sortChainByScore / _lastResortTier — see its doc comment for
+  // the 2026-07-28 reorder + the AI_LAST_RESORT_ORDER kill-switch) and skipped
+  // entirely unless LOCAL_LLM_ENABLED — so when every remote provider above is
+  // daily-exhausted, generation still produces instead of deferring.
   AI_MODELS.LOCAL_FALLBACK,
 
-  // Self-hosted local AI gateway (OmniRoute), opt-in pilot. Sorted below
-  // LOCAL_FALLBACK (sortChainByScore) — LOCAL is deterministic zero-network CPU
-  // inference with no failure mode worth deferring further; OmniRoute depends on
-  // its own registered upstream providers (same failure class as the main
-  // chain), so it sits below the guaranteed-available local model but above the
-  // reserved, Max-subscription-backed Claude CLI tier. Skipped entirely unless
-  // OMNIROUTE_ENABLED is set.
+  // Self-hosted local AI gateway (OmniRoute), opt-in pilot. Since 2026-07-28
+  // sorted ABOVE LOCAL_FALLBACK (sortChainByScore / _lastResortTier): run
+  // 30286278791 (omniroute-poc.yml) proved it reaches a frontier-class model
+  // over the network in seconds ("POC OK — model used:
+  // deepseek-ai/DeepSeek-V3.2", 2020 prompt tokens, real response), while run
+  // 28802314827 showed LOCAL_FALLBACK's Ollama qwen2.5:14b CPU inference on
+  // the CI runner costs ~12-17min PER generation — network beats CPU
+  // wall-clock when both are reachable. Still above the reserved,
+  // Max-subscription-backed Claude CLI tier. Skipped entirely unless
+  // OMNIROUTE_ENABLED is set. Order overridable via AI_LAST_RESORT_ORDER.
   AI_MODELS.OMNIROUTE_AUTO,
 
-  // Absolute last resort. Always sorted below LOCAL_FALLBACK and OMNIROUTE_AUTO
-  // (sortChainByScore) and skipped unless ENABLE_HAIKU_ARTICLE_FALLBACK (RC) +
-  // CLAUDE_CODE_OAUTH_TOKEN are both present — so a run only ever reaches it
-  // once every free-tier cloud model AND the local/OmniRoute fallbacks have
-  // already failed.
+  // Absolute last resort. By default sorted below LOCAL_FALLBACK and
+  // OMNIROUTE_AUTO (sortChainByScore / _lastResortTier — see that function's
+  // doc comment; AI_LAST_RESORT_ORDER can reorder it for an operator-driven
+  // rollback, but the code never promotes it by itself) and skipped unless
+  // ENABLE_HAIKU_ARTICLE_FALLBACK (RC) + CLAUDE_CODE_OAUTH_TOKEN are both
+  // present — so a run only ever reaches it once every free-tier cloud model
+  // AND the local/OmniRoute fallbacks have already failed.
   AI_MODELS.CLAUDE_CLI_HAIKU,
 ];
 
@@ -743,6 +750,38 @@ let _claudeCliBinaryMissing = false;
 let _claudeCliConsecutiveTimeouts = 0;
 let _claudeCliTimeoutStormDetected = false;
 const CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD = 8;
+
+// Dedicated in-process concurrency cap for claude-cli subprocesses — separate
+// from any caller's own concurrency (e.g. send-newsletter.mjs's
+// AI_CONCURRENCY=5 pMap, which this file never sees or gates). T2 diagnosis
+// (2026-07-28, run 30333856358/30243975255: 0/19 successes, always the hard
+// 60s timeout): a solo cold-start measured only ~6-12s wall time locally for
+// a matching small/large prompt with the exact production flags — so
+// per-call latency alone doesn't explain the timeouts. The pre-existing
+// comment above already nails the real cause: run 29824354962 hit 159/162
+// timeouts specifically under AI_CONCURRENCY=5 — N heavy `claude` Node
+// subprocesses fighting for CPU on a resource-constrained CI runner. Capping
+// in-process concurrency here (independent of the consumer) attacks that
+// root cause without touching send-newsletter.mjs. Extra callers queue FIFO
+// via _withClaudeCliSlot and never deadlock: the slot is always released in
+// a `finally`, including on throw/reject.
+const CLAUDE_CLI_MAX_CONCURRENCY = 2;
+let _claudeCliInFlight = 0;
+const _claudeCliWaiters = [];
+
+async function _withClaudeCliSlot(fn) {
+  if (_claudeCliInFlight >= CLAUDE_CLI_MAX_CONCURRENCY) {
+    await new Promise((resolve) => { _claudeCliWaiters.push(resolve); });
+  }
+  _claudeCliInFlight++;
+  try {
+    return await fn();
+  } finally {
+    _claudeCliInFlight--;
+    const next = _claudeCliWaiters.shift();
+    if (next) next();
+  }
+}
 
 // ── API keys (lazy-loaded from environment) ──────────────────
 function getGhModelsPat()       { return (process.env.GH_MODELS_PAT || '').trim(); }
@@ -1080,6 +1119,20 @@ const _exhaustReason = new Map();
 // line every time the fallback chain ticks past it.
 const _exhaustedLogged = new Set();
 
+// Same flood-avoidance discipline as _exhaustedLogged above, for the OTHER
+// pre-flight skip filters in callLLM's main loop (provider cooldown, missing
+// API key, max-output-token cap) — those used to be silent (errors.push only,
+// no console.warn), so a whole last-resort tier could vanish from a run's
+// output with zero trace unless the entire chain failed. Keyed `${model}:${cause}`
+// so distinct causes for the same model each still get their one log line.
+const _preflightSkipLogged = new Set();
+function _logPreflightSkipOnce(model, cause, message) {
+  const key = `${model}:${cause}`;
+  if (_preflightSkipLogged.has(key)) return;
+  _preflightSkipLogged.add(key);
+  console.warn(`⏭️  [${model}] Skipped — ${message}`);
+}
+
 // FRO-325: Track consecutive 429s per model — exhaust after 2
 /** @type {Map<string, number>} model → consecutive 429 count */
 const _consecutive429 = new Map();
@@ -1115,6 +1168,29 @@ function cooldownProvider(provider) {
   console.warn(`🧊 Provider ${provider} cooled down for ${PROVIDER_COOLDOWN_MS / 1000}s (rate-limited)`);
 }
 
+// Single source of truth for what counts a "last-resort" model and its
+// prefix (AGENTS.md #6 — do not re-declare 'local/'/'omniroute/'/'claude-cli/'
+// yet again below). Declared here, ahead of _freshLastResortStats, because
+// _stats (below) builds its lastResort bucket eagerly at module-load time —
+// a later declaration would TDZ-crash on first import.
+const LAST_RESORT_TIER_PREFIXES = Object.freeze({
+  omniroute: 'omniroute/',
+  local: 'local/',
+  'claude-cli': 'claude-cli/',
+});
+
+// Fresh last-resort-tier stats bucket. Factory (not an inline literal reused
+// two places) keeps the initial shape and resetState()'s reset in sync — one
+// source of truth, no drift between the two (AGENTS.md #6). Keys driven by
+// LAST_RESORT_TIER_PREFIXES instead of a separate hardcoded name list.
+function _freshLastResortStats() {
+  const stats = {};
+  for (const name of Object.keys(LAST_RESORT_TIER_PREFIXES)) {
+    stats[name] = { served: 0, failed: 0, skipped: 0, skipReasons: {} };
+  }
+  return stats;
+}
+
 const _stats = {
   calls: 0,
   successes: 0,
@@ -1124,6 +1200,17 @@ const _stats = {
   providerCooldowns: 0,
   cacheHits: 0,
   errors: [],
+  // Visibility into the 3 opt-in last-resort tiers (local/, omniroute/,
+  // claude-cli/): calls served, calls attempted-but-failed, calls skipped
+  // pre-flight with aggregated cause. See printRunSummary()'s compact
+  // "last-resort: ..." line and _recordLastResortSkip/_recordLastResortOutcome
+  // below. Added after run 30333856358 (2026-07-28) went 11× claude-cli
+  // timeout with omniroute/auto never even attempted and zero trace of why —
+  // root cause there turned out to be a chain-membership gap (fixed in PR
+  // #4836, unrelated to this file), but the run had NO signal to distinguish
+  // that from a skip-logic bug. These counters make that distinction visible
+  // without needing to grep raw logs / gh run download next time.
+  lastResort: _freshLastResortStats(),
 };
 
 // ── In-process response cache (opt-in via opts.cache === true) ────
@@ -2036,17 +2123,89 @@ export function getScoreBoard() {
  * Models with higher scores come first.
  * Within equal scores, the original chain order is preserved (stable sort).
  */
+// Identity of a model's last-resort tier — order-independent: which bucket
+// (local/omniroute/claude-cli) a model belongs to never changes, regardless
+// of AI_LAST_RESORT_ORDER below. Reuses LAST_RESORT_TIER_PREFIXES (declared
+// near _freshLastResortStats above) instead of re-testing the 3 prefixes here
+// a 3rd time (AGENTS.md #6). Returns null for a normal (non-last-resort) model.
+function _lastResortTierName(model) {
+  for (const [name, prefix] of Object.entries(LAST_RESORT_TIER_PREFIXES)) {
+    if (model.startsWith(prefix)) return name;
+  }
+  return null;
+}
+
+// Default priority order for the 3 last-resort tiers (changed 2026-07-28,
+// was local-first). Run 30286278791 (omniroute-poc.yml) proved OmniRoute
+// reaches a frontier-class model over the network in seconds ("POC OK —
+// model used: deepseek-ai/DeepSeek-V3.2", 2020 prompt tokens, real response),
+// while run 28802314827 showed LOCAL_FALLBACK's Ollama qwen2.5:14b CPU
+// inference on the CI runner costs ~12-17min PER generation — network beats
+// CPU wall-clock when both are reachable. claude-cli stays last: it's the
+// only subscription-gated tier and has 0 successes across ~20 attempts.
+const DEFAULT_LAST_RESORT_ORDER = ['omniroute', 'local', 'claude-cli'];
+
+// Set once a malformed AI_LAST_RESORT_ORDER has been warned about, so the
+// warning prints once per process rather than on every callLLM() — this path
+// runs unattended every 30min in prod; a noisy repeat warning is as useless
+// as a silent one. Reset by resetState() for test isolation.
+let _lastResortOrderWarned = false;
+
+/**
+ * AI_LAST_RESORT_ORDER — CSV kill-switch overriding the default priority
+ * order of the 3 last-resort tiers above, for an instant rollback without a
+ * code change/redeploy. Example: "local,omniroute,claude-cli" reproduces the
+ * pre-2026-07-28 order exactly (local first, like it always was before
+ * OmniRoute got promoted). Unset/empty → DEFAULT_LAST_RESORT_ORDER above.
+ * Malformed value (unknown tier name, wrong element count, duplicate entry,
+ * garbage string) → falls back to DEFAULT_LAST_RESORT_ORDER and warns ONCE
+ * per process (see _lastResortOrderWarned) instead of crashing or silently
+ * applying a partial/wrong order.
+ */
+function _getLastResortOrder() {
+  const raw = (process.env.AI_LAST_RESORT_ORDER || '').trim();
+  if (!raw) return DEFAULT_LAST_RESORT_ORDER;
+  const validNames = Object.keys(LAST_RESORT_TIER_PREFIXES);
+  const parsed = raw.split(',').map((s) => s.trim()).filter(Boolean);
+  const isValidPermutation = parsed.length === validNames.length
+    && new Set(parsed).size === validNames.length
+    && parsed.every((n) => validNames.includes(n));
+  if (isValidPermutation) return parsed;
+  if (!_lastResortOrderWarned) {
+    _lastResortOrderWarned = true;
+    console.warn(`⚠️ AI_LAST_RESORT_ORDER="${raw}" invalid (expected a permutation of ${validNames.join(',')}) — using default order ${DEFAULT_LAST_RESORT_ORDER.join(',')}.`);
+  }
+  return DEFAULT_LAST_RESORT_ORDER;
+}
+
 // Last-resort tiering for sortChainByScore: higher tier always sinks below
-// lower tier regardless of score. Local CPU fallback sinks below every real
-// remote API; OmniRoute sinks below Local (deterministic zero-network CPU
-// inference vs. OmniRoute's dependency on its own upstream providers); Claude
-// CLI Haiku sinks even below OmniRoute — it's the absolute last resort, only
-// reached once local AND OmniRoute have ALSO failed.
+// lower tier regardless of score, tier 0 = normal chain model (always ranked
+// above all 3 last-resort tiers). Rank among the 3 last-resort tiers follows
+// _getLastResortOrder() (default above, or the AI_LAST_RESORT_ORDER
+// override) — a model's tier IDENTITY (_lastResortTierName) never changes,
+// only its numeric RANK does.
 function _lastResortTier(model) {
-  if (model.startsWith('claude-cli/')) return 3;
-  if (model.startsWith('omniroute/')) return 2;
-  if (model.startsWith('local/')) return 1;
-  return 0;
+  const name = _lastResortTierName(model);
+  if (!name) return 0;
+  return _getLastResortOrder().indexOf(name) + 1; // 1-based; 0 reserved for "not last-resort"
+}
+
+// Bump the skip counter + aggregated cause for a last-resort model's bucket.
+// No-op for non-last-resort models (normal chain is ~180 models deep; we only
+// want tier-level visibility for the 3 opt-in tiers, not every skip ever).
+function _recordLastResortSkip(model, cause) {
+  const tier = _lastResortTierName(model);
+  if (!tier) return;
+  const bucket = _stats.lastResort[tier];
+  bucket.skipped++;
+  bucket.skipReasons[cause] = (bucket.skipReasons[cause] || 0) + 1;
+}
+
+// Bump served (success) / failed (attempted, threw) for a last-resort model's
+// bucket. No-op for non-last-resort models.
+function _recordLastResortOutcome(model, outcome) {
+  const tier = _lastResortTierName(model);
+  if (tier) _stats.lastResort[tier][outcome]++;
 }
 
 function sortChainByScore(chain) {
@@ -2169,6 +2328,22 @@ export function getStats() {
   };
 }
 
+// Formats one last-resort tier's bucket for printRunSummary()'s compact
+// line, e.g. "local 0 served/0 failed/3 skipped(no API key)". Omits the
+// "skipped(...)" segment when nothing was skipped — keeps the common
+// "reached and worked/failed normally" case from being cluttered.
+function _formatLastResortTier(name, t) {
+  const parts = [`${t.served} served`, `${t.failed} failed`];
+  if (t.skipped > 0) {
+    const reasons = Object.entries(t.skipReasons)
+      .sort((a, b) => b[1] - a[1])
+      .map(([reason]) => reason)
+      .join(', ');
+    parts.push(`${t.skipped} skipped(${reasons})`);
+  }
+  return `${name} ${parts.join('/')}`;
+}
+
 /**
  * FRO-325: Print a human-readable end-of-run summary to console.
  * Call this at the end of a crawler run for visibility into AI usage.
@@ -2184,6 +2359,16 @@ export function printRunSummary() {
   if (Object.keys(s.consecutive429s).length > 0) {
     lines.push(`   429 streak: ${Object.entries(s.consecutive429s).map(([m, c]) => `${m}=${c}`).join(', ')}`);
   }
+  const lr = s.lastResort;
+  // Names from LAST_RESORT_TIER_PREFIXES, not a 4th hardcoded copy (AGENTS.md
+  // #6). Display order fixed (not driven by AI_LAST_RESORT_ORDER) so the
+  // summary line's shape stays grep-able/diffable across runs regardless of
+  // which priority order was actually in effect.
+  const lrTiers = Object.keys(LAST_RESORT_TIER_PREFIXES);
+  const lrReached = lrTiers.some((t) => lr[t].served + lr[t].failed + lr[t].skipped > 0);
+  lines.push(lrReached
+    ? `   last-resort: ${lrTiers.map((t) => _formatLastResortTier(t, lr[t])).join(' · ')}`
+    : `   last-resort: ${lrTiers.join('/')} not reached this run`);
   if (s.errors.length > 0) {
     lines.push(`   Errors: ${s.errors.length}`);
   }
@@ -2196,6 +2381,7 @@ export function resetState() {
   _ghExhaustedPats.clear();
   _exhaustReason.clear();
   _exhaustedLogged.clear();
+  _preflightSkipLogged.clear();
   _providerCooldown.clear();
   _modelScores.clear();
   _modelDetails.clear();
@@ -2213,10 +2399,14 @@ export function resetState() {
   _stats.exhausted = 0;
   _stats.cacheHits = 0;
   _stats.errors = [];
+  _stats.lastResort = _freshLastResortStats();
+  _lastResortOrderWarned = false;
   _responseCache.clear();
   _claudeCliBinaryMissing = false;
   _claudeCliConsecutiveTimeouts = 0;
   _claudeCliTimeoutStormDetected = false;
+  _claudeCliInFlight = 0;
+  _claudeCliWaiters.length = 0;
 }
 
 /** Remove a specific model from the exhausted set so it can be retried */
@@ -3343,15 +3533,31 @@ async function _callClaudeCli(model, messages, opts) {
   if (systemPrompt) args.push('--system-prompt', systemPrompt);
   if (opts.jsonSchema) args.push('--json-schema', JSON.stringify(opts.jsonSchema.schema || opts.jsonSchema));
 
-  // Same deadline-capping rationale as _callLocal above — cap to the caller's
-  // remaining wall-clock budget so a last-resort call can't outlive the run.
-  let timeoutMs = Math.max(opts.timeout || 0, 60_000);
-  if (opts.deadlineMs) {
-    const remaining = opts.deadlineMs - Date.now();
-    timeoutMs = Math.max(15_000, Math.min(timeoutMs, remaining));
-  }
+  // Floor raised 60s -> 120s (T2 diagnosis, 2026-07-28: run 30333856358 /
+  // 30243975255, 0/19 production successes, always the hard 60s timeout). A
+  // solo cold-start locally measured only ~6-12s wall time for a matching
+  // small/large prompt with these exact flags — single-call latency was
+  // never the bottleneck by itself, so the floor alone isn't the fix, but it
+  // buys headroom against the CI-runner contention the semaphore below
+  // (CLAUDE_CLI_MAX_CONCURRENCY) reduces but may not fully absorb.
+  const baseTimeoutMs = Math.max(opts.timeout || 0, 120_000);
 
-  const { code, stdout, stderr } = await _runClaudeCliProcess(args, timeoutMs);
+  // Acquire the dedicated concurrency slot BEFORE computing the deadlineMs
+  // cap below, so time spent queued behind another in-flight claude-cli call
+  // counts against the caller's wall-clock budget (correct) while the actual
+  // per-process timeout still reflects the true remaining budget at the
+  // moment it starts (not at the moment it was queued).
+  const { code, stdout, stderr } = await _withClaudeCliSlot(async () => {
+    // Same deadline-capping rationale as _callLocal above — cap to the
+    // caller's remaining wall-clock budget so a last-resort call can't
+    // outlive the run.
+    let timeoutMs = baseTimeoutMs;
+    if (opts.deadlineMs) {
+      const remaining = opts.deadlineMs - Date.now();
+      timeoutMs = Math.max(15_000, Math.min(timeoutMs, remaining));
+    }
+    return _runClaudeCliProcess(args, timeoutMs);
+  });
 
   let parsed;
   try {
@@ -3365,13 +3571,33 @@ async function _callClaudeCli(model, messages, opts) {
   return parsed.result;
 }
 
+// Memoize the dynamic import itself (the in-flight promise, not just its
+// resolved value) so _runClaudeCliProcess never issues a second literal
+// `import('node:child_process')` call. Two callers can now run genuinely
+// concurrently (CLAUDE_CLI_MAX_CONCURRENCY above) and both `await` this same
+// promise instead of each triggering their own import(). Caught during T2
+// (2026-07-28): two truly-simultaneous `import()` calls for the same
+// specifier raced Vitest's node:child_process mock — the 2nd resolution fell
+// through to the real builtin instead of the mock, spawning a real `claude`
+// subprocess mid-test. Not a production hazard by itself (Node's builtin
+// module cache has no such race), but memoizing is strictly cheaper too — no
+// point re-resolving an already-loaded builtin on every call.
+let _childProcessModulePromise = null;
+function _getChildProcessModule() {
+  if (!_childProcessModulePromise) _childProcessModulePromise = import('node:child_process');
+  return _childProcessModulePromise;
+}
+
 /**
  * Spawn the `claude` CLI with stdin closed (its default stdin-wait-then-read
  * behavior adds ~3s latency when nothing is piped in — confirmed via live
  * test) and a hard kill-timeout so a hung subprocess can't outlive the run.
+ * On timeout, whatever stderr arrived before the kill is folded into the
+ * rejection message (truncated) so the next incident isn't diagnostically
+ * blind (T2, 2026-07-28).
  */
 async function _runClaudeCliProcess(args, timeoutMs) {
-  const { spawn } = await import('node:child_process');
+  const { spawn } = await _getChildProcessModule();
   return new Promise((resolve, reject) => {
     let child;
     try {
@@ -3387,7 +3613,12 @@ async function _runClaudeCliProcess(args, timeoutMs) {
       if (settled) return;
       settled = true;
       child.kill('SIGKILL');
-      const err = new Error(`claude CLI timed out after ${timeoutMs}ms`);
+      // Include whatever stderr arrived before the kill — previously
+      // discarded on timeout, which left every production incident
+      // (T2 diagnosis, 2026-07-28) blind to whether the subprocess was
+      // stuck on auth, context loading, or a genuine hang.
+      const stderrExcerpt = stderr ? ` — stderr: ${stderr.slice(0, 300)}` : '';
+      const err = new Error(`claude CLI timed out after ${timeoutMs}ms${stderrExcerpt}`);
       err.name = 'TimeoutError';
       reject(err);
     }, timeoutMs);
@@ -3739,32 +3970,44 @@ export async function callLLM(messages, opts = {}) {
       // a single-model chain whose only model is exhausted, as in the smoke
       // test). Without this the harness surfaces a blank cause — undiagnosable.
       errors.push(`${model}: skipped — exhausted (daily limit / consecutive 429s / timeout circuit-breaker)`);
+      _recordLastResortSkip(model, 'exhausted (daily limit)');
       continue;
     }
 
-    // Skip models whose provider is cooling down (recent 429)
+    // Skip models whose provider is cooling down (recent 429). Was silent
+    // (errors.push only) until run 30333856358's investigation — a whole
+    // last-resort tier stuck in cooldown left zero trace unless the entire
+    // chain also failed. Logged once per model+cause (see _logPreflightSkipOnce).
     const provider = getProvider(model);
     if (isProviderCoolingDown(provider)) {
+      _logPreflightSkipOnce(model, 'cooldown', `provider ${provider} cooling down (rate-limited)`);
       errors.push(`${model}: skipped — provider ${provider} cooling down (recent 429)`);
+      _recordLastResortSkip(model, 'provider cooling down');
       continue;
     }
 
     // Skip models without API keys. Distinguish the two reasons isModelAvailable
     // returns false (missing key vs already-exhausted) so the output is actionable.
+    // Also was silent pre-flight — see cooldown comment above.
     if (!isModelAvailable(model)) {
       const reason = getApiKeyForProvider(provider)
         ? 'exhausted'
         : `no API key for provider ${provider}`;
+      _logPreflightSkipOnce(model, 'availability', reason);
       errors.push(`${model}: skipped — ${reason}`);
+      _recordLastResortSkip(model, reason);
       continue;
     }
 
     // Skip models whose max output token limit is below the requested maxTokens.
     // This avoids wasting API calls that will fail with "max tokens must be less than" errors.
+    // Also was silent pre-flight — see cooldown comment above.
     const apiModelId = getApiModelId(model);
     const modelLimit = MODEL_MAX_OUTPUT_TOKENS[apiModelId];
     if (modelLimit && o.maxTokens > modelLimit) {
+      _logPreflightSkipOnce(model, 'maxOutput', `model max output ${modelLimit} < requested maxTokens ${o.maxTokens}`);
       errors.push(`${model}: skipped — model max output ${modelLimit} < requested maxTokens ${o.maxTokens}`);
+      _recordLastResortSkip(model, 'max output token limit');
       continue;
     }
 
@@ -3789,6 +4032,7 @@ export async function callLLM(messages, opts = {}) {
         // One-line log per skip so ops can see the cascade in the workflow output
         console.warn(`⏭️  [${model}] Skipped — request would exceed ${reqLimit}-token limit (estimated ${estTokens})`);
         errors.push(`${model}: skipped — request ~${estTokens} tokens exceeds ${reqLimit}-token input cap`);
+        _recordLastResortSkip(model, 'request token limit');
         continue;
       }
     }
@@ -3804,6 +4048,7 @@ export async function callLLM(messages, opts = {}) {
       // ✅ Success — boost this model's score so it stays near the top
       recordModelSuccess(model);
       _consecutive429.delete(model); // FRO-325: reset 429 counter on success
+      _recordLastResortOutcome(model, 'served');
       if (provider === PROVIDER.CLAUDE_CLI) _claudeCliConsecutiveTimeouts = 0;
 
       if (i > 0) {
@@ -3836,6 +4081,7 @@ export async function callLLM(messages, opts = {}) {
     } catch (e) {
       const msg = e?.message || String(e);
       errors.push(`${model}: ${msg.slice(0, 200)}`);
+      _recordLastResortOutcome(model, 'failed');
 
       // claude CLI binary missing (spawn ENOENT — install step failed/was
       // skipped). Unlike quota/timeout exhaustion this can't self-heal mid-run

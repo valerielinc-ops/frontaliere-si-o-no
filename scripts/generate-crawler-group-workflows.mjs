@@ -473,7 +473,9 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
   // OmniRoute (ON by default, RC kill-switch ENABLE_OMNIROUTE_FALLBACK='0')
   // — self-hosted local AI gateway, offered in ai-models.mjs's DEFAULT_CHAIN
   // as AI_MODELS.OMNIROUTE_AUTO, sorted below the direct free-tier providers
-  // and LOCAL_FALLBACK, above CLAUDE_CLI_HAIKU. Shared composite action: see
+  // but (since 2026-07-28, see ai-models.mjs's _lastResortTier doc comment)
+  // ABOVE LOCAL_FALLBACK, still above CLAUDE_CLI_HAIKU. Order overridable via
+  // AI_LAST_RESORT_ORDER. Shared composite action: see
   // .github/actions/setup-omniroute/action.yml for the full rationale +
   // incident history. Must run before the per-crawler steps below so
   // OMNIROUTE_ENABLED is set in $GITHUB_ENV in time for every background
