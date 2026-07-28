@@ -21155,6 +21155,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cerca-lavoro-svizzera-dal-estero': {
+    title: 'Guida completa per cercare lavoro in Svizzera dall\'estero',
+    description: 'Imposte, leggi, procedure: tutto ciò che devi sapere per cercare lavoro in Svizzera come frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, completa, cercare, lavoro, dall',
+    ogTitle: 'Guida completa per cercare lavoro in Svizzera dall\'estero',
+    ogDescription: 'Imposte, leggi, procedure: tutto ciò che devi sapere per cercare lavoro in Svizzera come frontaliere',
+    canonicalPath: '/articoli-svizzera/cerca-lavoro-svizzera-dal-estero/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guida completa per cercare lavoro in Svizzera dall'estero",
+      "description": "Imposte, leggi, procedure: tutto ciò che devi sapere per cercare lavoro in Svizzera come frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cerca-lavoro-svizzera-dal-estero.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere che cerca lavoro in Svizzera"
+      },
+      "datePublished": "2026-07-28T09:25:11+00:00",
+      "dateModified": "2026-07-28T09:25:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cerca-lavoro-svizzera-dal-estero/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
