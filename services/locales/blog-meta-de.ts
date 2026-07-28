@@ -9063,6 +9063,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-altre-tasse-2026.title': 'Neue Regeln für die "alten" Grenzgänger des Kantons Tessin: Gebühren steigen',
     'blog.article.frontalieri-altre-tasse-2026.excerpt': 'Der Kanton Tessin wird den "alten" Grenzgängern, die sich für das Omnibus-Dekret entscheiden, eine hundertprozentige Quellensteuer auferlegen.',
     'blog.article.frontalieri-altre-tasse-2026.imageAlt': 'Zwei Grenzgänger am See spazieren',
+    'blog.article.dogana-maggiore-snella.title': 'Der Zoll wird schlanker',
+    'blog.article.dogana-maggiore-snella.excerpt': 'Das Bundesamt für Zoll und Grenzsicherheit schneidet 25 Führungspositionen ab',
+    'blog.article.dogana-maggiore-snella.imageAlt': 'Das neue und verbesserte Zollamt in Lugano',
 };
 
 export default blogMetaDe;

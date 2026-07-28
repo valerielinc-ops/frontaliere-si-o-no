@@ -9064,6 +9064,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-altre-tasse-2026.title': 'New rules for the \'old\' border guards of the Canton of Ticino: increasing taxes',
     'blog.article.frontalieri-altre-tasse-2026.excerpt': 'The Canton of Ticino will impose a one hundred percent tax at source on \'old\' border workers who opt for the Omnibus Decree.',
     'blog.article.frontalieri-altre-tasse-2026.imageAlt': 'Two Ticino border workers walking along the lake',
+    'blog.article.dogana-maggiore-snella.title': 'Customs will be more streamlined',
+    'blog.article.dogana-maggiore-snella.excerpt': 'Federal Office of Customs and Border Security cuts 25 management positions',
+    'blog.article.dogana-maggiore-snella.imageAlt': 'The new and improved customs office at Lugano',
 };
 
 export default blogMetaEn;

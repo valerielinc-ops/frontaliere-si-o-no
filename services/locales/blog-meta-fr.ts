@@ -9066,6 +9066,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-altre-tasse-2026.title': 'Nuove regole per i frontalieri del Ticino: tasse in aumento',
     'blog.article.frontalieri-altre-tasse-2026.excerpt': 'Le canton du Tessin imposera une taxe à la source de cent pour cent aux « vieux » frontaliers qui opteront pour le décret Omnibus.',
     'blog.article.frontalieri-altre-tasse-2026.imageAlt': 'Deux frontaliers ticinois en promenade sur le lac',
+    'blog.article.dogana-maggiore-snella.title': 'La douane sera plus légère',
+    'blog.article.dogana-maggiore-snella.excerpt': 'L\'Office fédéral des douanes et de la sécurité des frontières coupe 25 postes de direction',
+    'blog.article.dogana-maggiore-snella.imageAlt': 'La nouvelle et améliorée douane de Lugano',
 };
 
 export default blogMetaFr;
