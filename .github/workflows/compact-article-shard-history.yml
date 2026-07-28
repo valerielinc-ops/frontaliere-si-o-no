@@ -48,7 +48,7 @@ jobs:
     timeout-minutes: 360
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Compact shard history (all sections x locales)
         # No continue-on-error here (unlike deploy.yml's analogous step):
