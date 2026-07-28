@@ -151,6 +151,19 @@ jobs:
           done
           exit "$fail"
 
+      # Issue #4881 Fase 3-bis — publishes the client-side data chunks
+      # (blog-articles-data.js / swiss-articles-data.js) plus a slim
+      # news-ticker payload OUTSIDE the full build, so the in-app article
+      # list, in-app search AND the homepage news ticker see this article
+      # without waiting for deploy.yml. Same best-effort posture as the CDN
+      # image upload step above: NEVER blocks the publish (see
+      # scripts/publish-article-chunks.mjs header comment for the full
+      # chunk-stability + CDN cache-freshness analysis).
+      - name: Publish client-side article data chunks
+        if: steps.render.outcome == 'success'
+        continue-on-error: true
+        run: npx -y tsx@4 scripts/publish-article-chunks.mjs
+
       # Mirrors the fault-tolerant parallel-push pattern at deploy.yml
       # (`push-section-shard.sh` loop, MAX_PARALLEL / `|| fail=1` / `wait`) —
       # incident 2026-07-24 (run 30057726623): one section's push failure
