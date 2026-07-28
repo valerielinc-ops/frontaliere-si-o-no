@@ -70,17 +70,21 @@ describe('ai-models OmniRoute opt-in pilot fallback', () => {
     }
   });
 
-  it('sinks below local/fallback but above Claude CLI Haiku when all three opt-ins are enabled', () => {
+  it('sinks below omniroute/auto but above Claude CLI Haiku when all three opt-ins are enabled (2026-07-28 reorder)', () => {
     process.env.OMNIROUTE_ENABLED = '1';
     process.env.LOCAL_LLM_ENABLED = '1';
     process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = '1';
     process.env.CLAUDE_CODE_OAUTH_TOKEN = process.env.CLAUDE_CODE_OAUTH_TOKEN || 'test-oauth-token';
     const chain = [AI_MODELS.CLAUDE_CLI_HAIKU, AI_MODELS.OMNIROUTE_AUTO, AI_MODELS.LOCAL_FALLBACK];
-    // LOCAL_FALLBACK has the lowest last-resort tier of the three, so it's
-    // preferred first when every last-resort option is otherwise tied on score.
-    expect(getPreferredModel({ chain })).toBe(AI_MODELS.LOCAL_FALLBACK);
-    // With local/fallback removed, OmniRoute is next.
-    expect(getPreferredModel({ chain: chain.filter((m) => m !== AI_MODELS.LOCAL_FALLBACK) })).toBe(AI_MODELS.OMNIROUTE_AUTO);
+    // OMNIROUTE_AUTO now has the lowest last-resort tier of the three (run
+    // 30286278791 proved it reaches a frontier-class model over the network in
+    // seconds; run 28802314827 showed local/fallback's CPU inference costs
+    // ~12-17min) — preferred first when every last-resort option is tied on score.
+    expect(getPreferredModel({ chain })).toBe(AI_MODELS.OMNIROUTE_AUTO);
+    // With omniroute/auto removed, local/fallback is next.
+    expect(getPreferredModel({ chain: chain.filter((m) => m !== AI_MODELS.OMNIROUTE_AUTO) })).toBe(AI_MODELS.LOCAL_FALLBACK);
+    // claude-cli/haiku stays absolute last resort either way.
+    expect(getPreferredModel({ chain: [AI_MODELS.CLAUDE_CLI_HAIKU, AI_MODELS.LOCAL_FALLBACK] })).toBe(AI_MODELS.LOCAL_FALLBACK);
     delete process.env.CLAUDE_CODE_OAUTH_TOKEN;
   });
 

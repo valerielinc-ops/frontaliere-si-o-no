@@ -123,3 +123,68 @@ describe('slugifyCrossingName — issue #4890 collision fix', () => {
     expect(findDuplicateSlugs(borderCrossings.map(c => c.name))).toEqual([]);
   });
 });
+
+/**
+ * The override table exists in two places: services/borderCrossingSlug.ts (app
+ * layer) and functions/src/borderCrossingsData.js (Firebase Functions, which
+ * writes the Firestore/snapshot keys). They cannot share a module — the
+ * Functions bundle lives outside the Vite tree — so they are kept identical by
+ * hand, exactly the fragility that produced #4890 in the first place.
+ *
+ * PR #4898's reviewer flagged this: an override added to only one side would
+ * silently reproduce the collision for that crossing's Firestore-side data,
+ * with no failing test. These cases close that gap by comparing the two
+ * implementations' OUTPUT over the whole dataset, so any divergence — a missing
+ * override, a reworded general rule, a stray character — fails here.
+ */
+describe('slug parity across the Functions bundler boundary (#4898 review)', () => {
+  it('both implementations agree on every crossing in the dataset', async () => {
+    const { slugifyCrossingName: functionsSlugify } = await import(
+      '../functions/src/borderCrossingsData.js'
+    );
+
+    const divergences = borderCrossings
+      .map((crossing) => ({
+        name: crossing.name,
+        app: slugifyCrossingName(crossing.name),
+        functions: functionsSlugify(crossing.name),
+      }))
+      .filter((row) => row.app !== row.functions);
+
+    expect(
+      divergences,
+      divergences.map((d) => `${d.name}: app="${d.app}" functions="${d.functions}"`).join('; '),
+    ).toEqual([]);
+  });
+
+  it('both implementations carry the same override for the disambiguated crossing', async () => {
+    const { slugifyCrossingName: functionsSlugify } = await import(
+      '../functions/src/borderCrossingsData.js'
+    );
+
+    // If either side loses the override, this drops back to the colliding slug.
+    expect(functionsSlugify('Widnau-Lustenau (Schmitterbrücke)')).toBe(
+      'widnau-lustenau-schmitterbrucke',
+    );
+    expect(functionsSlugify('Widnau-Lustenau (Schmitterbrücke)')).toBe(
+      slugifyCrossingName('Widnau-Lustenau (Schmitterbrücke)'),
+    );
+  });
+
+  it('agrees on names outside the dataset too, including override-free parentheticals', async () => {
+    const { slugifyCrossingName: functionsSlugify } = await import(
+      '../functions/src/borderCrossingsData.js'
+    );
+
+    // Covers the general rule itself, not just the override branch: accents,
+    // parentheses, punctuation runs and leading/trailing separators.
+    for (const probe of [
+      'Chiasso Centro (Ponte Chiasso)',
+      'Sankt Margrethen — Höchst (Alte Rheinbrücke)',
+      '  Zürich/Rafz -- Lottstetten  ',
+      'Col-des-Roches (Col France)',
+    ]) {
+      expect(functionsSlugify(probe), `probe: ${probe}`).toBe(slugifyCrossingName(probe));
+    }
+  });
+});

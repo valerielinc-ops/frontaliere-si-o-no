@@ -34,6 +34,7 @@
  */
 
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
+import { readHeadOrAllSync } from './lib/readHead.mjs';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeAuditReport } from './lib/auditReport.mjs';
@@ -257,7 +258,12 @@ async function main() {
       }
       let html;
       try {
-        html = readFileSync(htmlPath, 'utf8');
+        // Only the canonical tag is needed, and it lives in <head> — stop
+        // reading there instead of pulling whole pages off disk for the
+        // ~360k sitemap <loc>s this gate checks. Same antipattern that made
+        // audit:hreflang and audit:canonical-trailing-slash the post-build
+        // pool's critical path on run 30376520728; same shared helper.
+        html = readHeadOrAllSync(htmlPath);
       } catch (err) {
         offenders.push({ category: 'missing-html', sitemap, loc, canonical: null });
         continue;

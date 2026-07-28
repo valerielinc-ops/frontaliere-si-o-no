@@ -209,8 +209,9 @@ describe('ai-models Claude CLI Haiku fallback', () => {
       const THRESHOLD = 8; // keep in sync with CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD in ai-models.mjs
 
       for (let i = 0; i < THRESHOLD; i++) {
-        // deadlineMs shrinks _callClaudeCli's 60s floor down to its 15s floor
-        // so the fake-timer advance below doesn't need to simulate a full minute.
+        // deadlineMs shrinks _callClaudeCli's 120s floor down to its 15s
+        // floor so the fake-timer advance below doesn't need to simulate two
+        // full minutes per iteration.
         const deadlineMs = Date.now() + 15_000;
         const promise = callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain, deadlineMs });
         const assertion = expect(promise).rejects.toThrow();
@@ -227,6 +228,204 @@ describe('ai-models Claude CLI Haiku fallback', () => {
       // spawn (and wait out) yet another doomed subprocess.
       await expect(callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain })).rejects.toThrow();
       expect(spawnMock).toHaveBeenCalledTimes(THRESHOLD);
+    });
+  });
+
+  describe('timeout floor raise + stderr capture (T2 diagnosis, 2026-07-28)', () => {
+    beforeEach(() => {
+      vi.useFakeTimers();
+    });
+
+    afterEach(() => {
+      vi.useRealTimers();
+    });
+
+    it('raises the hard timeout floor to 120s (up from 60s) when no deadlineMs constrains it', async () => {
+      // Regression test for run 30333856358 / 30243975255 (send-newsletter):
+      // 0/19 production attempts ever succeeded, always the hard 60s
+      // timeout. A solo local cold-start measured only ~6-12s wall time for
+      // a matching small/large prompt with the exact production flags, so
+      // per-call latency alone never explained the timeouts — but the floor
+      // still buys headroom the dedicated semaphore below doesn't fully
+      // absorb under CI-runner contention.
+      process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = '1';
+      process.env.CLAUDE_CODE_OAUTH_TOKEN = 'test-oauth-token';
+
+      spawnMock.mockImplementation(() => ({
+        stdout: { on: () => {} },
+        stderr: { on: () => {} },
+        on: () => {}, // never fires 'close'/'error' — mirrors a hung subprocess
+        kill: vi.fn(),
+      }));
+
+      const msgs = [{ role: 'user', content: 'Write a briefing' }];
+      const promise = callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain: [AI_MODELS.CLAUDE_CLI_HAIKU] });
+      const assertion = expect(promise).rejects.toThrow(/timed out after 120000ms/);
+      await vi.advanceTimersByTimeAsync(120_000);
+      await assertion;
+    });
+
+    it('still caps the 120s floor to the caller\'s remaining deadlineMs budget', async () => {
+      process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = '1';
+      process.env.CLAUDE_CODE_OAUTH_TOKEN = 'test-oauth-token';
+
+      spawnMock.mockImplementation(() => ({
+        stdout: { on: () => {} },
+        stderr: { on: () => {} },
+        on: () => {},
+        kill: vi.fn(),
+      }));
+
+      const msgs = [{ role: 'user', content: 'Write a briefing' }];
+      const deadlineMs = Date.now() + 25_000; // well under the 120s floor
+      const promise = callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain: [AI_MODELS.CLAUDE_CLI_HAIKU], deadlineMs });
+      const assertion = expect(promise).rejects.toThrow(/timed out after \d+ms/);
+      await vi.advanceTimersByTimeAsync(25_000);
+      await assertion;
+    });
+
+    it('includes captured stderr in the timeout error message instead of discarding it', async () => {
+      // Before this fix, a timeout lost the subprocess's stderr entirely —
+      // no way to tell auth failure vs slow context load vs a genuine hang.
+      process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = '1';
+      process.env.CLAUDE_CODE_OAUTH_TOKEN = 'test-oauth-token';
+
+      spawnMock.mockImplementation(() => {
+        const stderrListeners: Record<string, ((...args: unknown[]) => void)[]> = {};
+        const child = {
+          stdout: { on: () => {} },
+          stderr: { on: (ev: string, cb: (...args: unknown[]) => void) => { (stderrListeners[ev] ||= []).push(cb); } },
+          on: () => {}, // never fires 'close'/'error' — mirrors a hung subprocess
+          kill: vi.fn(),
+        };
+        queueMicrotask(() => {
+          stderrListeners.data?.forEach((cb) => cb(Buffer.from('Invalid API key · Please run /login')));
+        });
+        return child;
+      });
+
+      const msgs = [{ role: 'user', content: 'Write a briefing' }];
+      const deadlineMs = Date.now() + 15_000; // shrink the 120s floor down to the 15s deadline floor
+      const promise = callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain: [AI_MODELS.CLAUDE_CLI_HAIKU], deadlineMs });
+      const assertion = expect(promise).rejects.toThrow(/Invalid API key/);
+      await vi.advanceTimersByTimeAsync(15_000);
+      await assertion;
+    });
+  });
+
+  describe('dedicated concurrency limiter (independent of a caller\'s own concurrency)', () => {
+    it('caps in-flight claude-cli subprocesses regardless of how many callers race in, and queues the rest FIFO', async () => {
+      // Regression coverage for the root cause behind the timeout storm
+      // above: run 29824354962 hit 159/162 timeouts specifically under
+      // send-newsletter.mjs's AI_CONCURRENCY=5 — N heavy `claude` Node
+      // subprocesses fighting for CPU on a resource-constrained CI runner.
+      // This dedicated limiter (CLAUDE_CLI_MAX_CONCURRENCY=2) caps how many
+      // of THIS process's own claude-cli calls run at once, independent of
+      // whatever concurrency the caller (e.g. send-newsletter.mjs's pMap)
+      // uses — no consumer-side change required.
+      process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = '1';
+      process.env.CLAUDE_CODE_OAUTH_TOKEN = 'test-oauth-token';
+
+      let spawnCount = 0;
+      const closeCallbacks: Array<() => void> = [];
+      spawnMock.mockImplementation(() => {
+        spawnCount++;
+        const n = spawnCount;
+        const stdoutListeners: Record<string, ((...args: unknown[]) => void)[]> = {};
+        const listeners: Record<string, ((...args: unknown[]) => void)[]> = {};
+        const child = {
+          stdout: { on: (ev: string, cb: (...args: unknown[]) => void) => { (stdoutListeners[ev] ||= []).push(cb); } },
+          stderr: { on: () => {} },
+          on: (ev: string, cb: (...args: unknown[]) => void) => { (listeners[ev] ||= []).push(cb); },
+          kill: vi.fn(),
+        };
+        closeCallbacks.push(() => {
+          const payload = JSON.stringify({ type: 'result', subtype: 'success', is_error: false, result: `RESULT-${n}` });
+          stdoutListeners.data?.forEach((cb) => cb(Buffer.from(payload)));
+          listeners.close?.forEach((cb) => cb(0));
+        });
+        return child;
+      });
+
+      const msgs = [{ role: 'user', content: 'Write a briefing' }];
+      const chain = [AI_MODELS.CLAUDE_CLI_HAIKU];
+      const p1 = callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain });
+      const p2 = callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain });
+      const p3 = callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain });
+
+      // Only 2 of the 3 simultaneous callers actually started a subprocess —
+      // the 3rd is queued waiting for a free slot, not competing for CPU.
+      // vi.waitFor polls rather than assuming a fixed microtask depth, since
+      // the real call chain crosses a genuine async boundary (the memoized
+      // `await import('node:child_process')` inside _runClaudeCliProcess —
+      // see _getChildProcessModule in ai-models.mjs for why it's memoized:
+      // two truly-simultaneous FIRST-EVER `import()` calls for the same
+      // specifier raced Vitest's node:child_process mock during T2 diagnosis
+      // (2026-07-28) and the 2nd resolution fell through to the real
+      // builtin, spawning a real `claude` subprocess mid-test).
+      await vi.waitFor(() => { expect(spawnCount).toBe(2); });
+
+      // Finishing the 1st in-flight call frees its slot for the queued 3rd.
+      closeCallbacks[0]();
+      await expect(p1).resolves.toBe('RESULT-1');
+      await vi.waitFor(() => { expect(spawnCount).toBe(3); });
+
+      closeCallbacks[1]();
+      closeCallbacks[2]();
+      await expect(p2).resolves.toBe('RESULT-2');
+      await expect(p3).resolves.toBe('RESULT-3');
+    });
+
+    it('releases the concurrency slot even when a call fails, so it never deadlocks queued callers', async () => {
+      process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = '1';
+      process.env.CLAUDE_CODE_OAUTH_TOKEN = 'test-oauth-token';
+
+      let spawnCount = 0;
+      const errorCallbacks: Array<() => void> = [];
+      const closeCallbacks: Array<() => void> = [];
+      spawnMock.mockImplementation(() => {
+        spawnCount++;
+        const n = spawnCount;
+        const stdoutListeners: Record<string, ((...args: unknown[]) => void)[]> = {};
+        const listeners: Record<string, ((...args: unknown[]) => void)[]> = {};
+        const child = {
+          stdout: { on: (ev: string, cb: (...args: unknown[]) => void) => { (stdoutListeners[ev] ||= []).push(cb); } },
+          stderr: { on: () => {} },
+          on: (ev: string, cb: (...args: unknown[]) => void) => { (listeners[ev] ||= []).push(cb); },
+          kill: vi.fn(),
+        };
+        if (n === 1) {
+          // Non-ENOENT failure — must NOT trip the binary-missing latch
+          // (that's covered by a separate test above) so p2/p3 still attempt.
+          errorCallbacks.push(() => listeners.error?.forEach((cb) => cb(new Error('boom'))));
+        } else {
+          closeCallbacks.push(() => {
+            const payload = JSON.stringify({ type: 'result', subtype: 'success', is_error: false, result: `RESULT-${n}` });
+            stdoutListeners.data?.forEach((cb) => cb(Buffer.from(payload)));
+            listeners.close?.forEach((cb) => cb(0));
+          });
+        }
+        return child;
+      });
+
+      const msgs = [{ role: 'user', content: 'Write a briefing' }];
+      const chain = [AI_MODELS.CLAUDE_CLI_HAIKU];
+      const p1 = callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain });
+      const p2 = callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain });
+      await vi.waitFor(() => { expect(spawnCount).toBe(2); }); // both fit under the concurrency=2 cap
+
+      const p3 = callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain });
+      await new Promise((resolve) => { setImmediate(resolve); });
+      expect(spawnCount).toBe(2); // 3rd queued — no free slot yet
+
+      errorCallbacks[0]();
+      await expect(p1).rejects.toThrow('boom');
+      await vi.waitFor(() => { expect(spawnCount).toBe(3); }); // slot freed despite the failure — 3rd now spawned
+
+      closeCallbacks[0]();
+      closeCallbacks[1]();
+      await expect(p2).resolves.toBe('RESULT-2');
+      await expect(p3).resolves.toBe('RESULT-3');
     });
   });
 });

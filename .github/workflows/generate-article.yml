@@ -150,14 +150,19 @@ jobs:
       # ── Local open-source LLM fallback (opt-in) ───────────────────────
       # When the repo variable ARTICLE_LOCAL_FALLBACK=1, set up a local ollama
       # server serving a small open-source model (default qwen2.5:7b). The model
-      # is the LAST entry in the cascade (scripts/lib/ai-models.mjs, pinned to the
-      # bottom by sortChainByScore) and is reached ONLY when every remote free-tier
-      # provider is daily-exhausted — the recurring "tutti i modelli esauriti"
+      # sits in the last-resort block of the cascade (scripts/lib/ai-models.mjs,
+      # sunk below every tier-0 cloud model by sortChainByScore) and is reached
+      # ONLY when every remote free-tier provider is daily-exhausted — the
+      # recurring "tutti i modelli esauriti"
       # defer that drops frontaliere production to 0 for that window. Public repo →
       # GitHub-hosted runner minutes are free, so this is $0; the only cost is
       # wall-clock (CPU inference is slow), which is fine for a last-resort path.
       # Entirely inert unless the variable is set: no env exported → LOCAL_LLM_ENABLED
       # stays unset → ai-models marks local/* unavailable → identical to today.
+      # Order INSIDE the last-resort block is omniroute → local → claude-cli
+      # (OmniRoute first: it fronts real network providers and answers in
+      # seconds, vs 12-17min of CPU inference here). Overridable at runtime via
+      # AI_LAST_RESORT_ORDER — see scripts/lib/ai-models.mjs.
       - name: Cache local LLM model
         if: vars.ARTICLE_LOCAL_FALLBACK == '1'
         uses: actions/cache@v5
@@ -173,6 +178,31 @@ jobs:
           set -e
           if ! command -v ollama >/dev/null 2>&1; then
             curl -fsSL https://ollama.com/install.sh | sh
+            # install.sh auto-detects systemd (present on GH-hosted full-VM
+            # ubuntu runners) and starts its OWN "ollama.service" — as a
+            # dedicated system user whose home is NOT $HOME — before this
+            # script continues. That auto-started server then races the
+            # manual "nohup ollama serve" below for port 11434; whichever
+            # wins the bind decides where `ollama pull` below writes the
+            # model. Root cause of "Cache local LLM model" above almost
+            # never producing a cache: when systemd's instance wins the
+            # race, the ~9GB model lands outside $HOME, so the cache step's
+            # `path: ~/.ollama/models` finds nothing to save at job end
+            # ("Path Validation Error: ... do(es) not exist", e.g. run
+            # 30375068235, step "Post Cache local LLM model", 2026-07-28
+            # 16:10:56Z). It is a race, not a hard failure, which is why
+            # `gh cache list` showed zero ollama-* entries historically but
+            # one DID appear from run 30381046429 (2026-07-28 17:41:50Z) —
+            # confirming both outcomes are live and it's timing, not a
+            # structural impossibility. Stopping the auto-started service
+            # here removes the race entirely: our own serve call below,
+            # running as this job's user, is then the only process that can
+            # bind 11434, so the model always lands under $HOME as the
+            # cache step already expects. No effect on the model itself or
+            # on generation output — same `ollama serve` binary, same
+            # model, just guaranteed to be the one process actually
+            # listening.
+            sudo systemctl stop ollama.service 2>/dev/null || true
           fi
           # Start the server in the background and wait for it to answer.
           # OLLAMA_KEEP_ALIVE keeps the model resident between cascade calls so
