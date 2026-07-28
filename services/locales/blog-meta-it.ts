@@ -9047,6 +9047,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tacito-musica-ticino-concerti.title': 'Ticino Musica si fa in quattro (concerti)',
     'blog.article.tacito-musica-ticino-concerti.excerpt': 'Il Festival Ticino Musica prosegue con una giornata ricca di appuntamenti che accompagneranno il pubblico dal pomeriggio alla sera.',
     'blog.article.tacito-musica-ticino-concerti.imageAlt': 'Il Lago Maggiore con Locarno in primo piano.',
+    'blog.article.trasferirsi-a-luino-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Luino da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-luino-da-frontaliere-pro-e-contro.excerpt': 'Impostazione alla fonte, doppia imposizione e franchigia per i frontalieri.',
+    'blog.article.trasferirsi-a-luino-da-frontaliere-pro-e-contro.imageAlt': 'Frontaliere in visita a Luino, con la valigia in mano, guardando il lago di Lugano.',
 };
 
 export default blogMetaIt;

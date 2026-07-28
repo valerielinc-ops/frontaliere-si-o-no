@@ -27179,6 +27179,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trasferirsi-a-luino-da-frontaliere-pro-e-contro',
+ category: 'pratico',
+ date: '2026-07-28T06:47:39.827Z',
+ image: '/images/blog/trasferirsi-a-luino-da-frontaliere-pro-e-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
