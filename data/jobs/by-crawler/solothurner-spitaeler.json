@@ -15314,10 +15314,10 @@
       "id": "solothurner-spitaeler-cceb688dd40c",
       "slug": "capo-della-radiologia-f-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
-        "it": "capo-della-radiologia-f-m-d-solothurner-spitaler-soh-olten",
-        "en": "head-of-radiology-f-m-d-solothurner-spitaler-soh-olten",
+        "it": "capo-della-radiologia-f-m-d-solothurner-spitaler-ag-soh-olten",
+        "en": "head-of-radiology-f-m-d-solothurner-spitaler-ag-soh-olten",
         "de": "fachleiterin-fachleiter-admin-radiologie-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "chef-de-la-radiologie-f-m-d-solothurner-spitaler-soh-olten"
+        "fr": "chef-de-la-radiologie-f-m-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -15369,14 +15369,18 @@
           "fachleiterin-fachleiter-admin-radiologie-w-m-d-soh-ch"
         ],
         "en": [
-          "fachleiterin-fachleiter-admin-radiologie-w-m-d-soh-ch"
+          "fachleiterin-fachleiter-admin-radiologie-w-m-d-soh-ch",
+          "head-of-radiology-f-m-d-solothurner-spitaler-soh-olten"
         ],
         "fr": [
-          "fachleiterin-fachleiter-admin-radiologie-w-m-d-soh-ch"
+          "fachleiterin-fachleiter-admin-radiologie-w-m-d-soh-ch",
+          "chef-de-la-radiologie-f-m-d-solothurner-spitaler-soh-olten"
         ]
       },
       "previousSlugs": [
-        "fachleiterin-fachleiter-admin-radiologie-w-m-d-soh-ch"
+        "fachleiterin-fachleiter-admin-radiologie-w-m-d-soh-ch",
+        "head-of-radiology-f-m-d-solothurner-spitaler-soh-olten",
+        "chef-de-la-radiologie-f-m-d-solothurner-spitaler-soh-olten"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -15396,9 +15400,9 @@
       "slug": "sozialpadagogin-sozialpadagoge-o-dipl-pflegefachfrau-pflegefachmann-m-w-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
         "it": "sozialpadagogin-sozialpadagoge-o-dipl-pflegefachfrau-pflegefachmann-m-w-d-solothurner-spitaler-ag-soh-solothurn",
-        "en": "social-pedagogue-social-pedagogue-or-dipl-nursing-professional-f-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "social-pedagogue-social-pedagogue-or-dipl-nursing-professional-f-m-d-solothurner-spitaler-ag-soh-solothurn",
         "de": "sozialpadagogin-sozialpadagoge-oder-dipl-pflegefachfrau-pflegefachmann-w-m-d-soh",
-        "fr": "pedagogue-sociale-pedagogue-sociale-ou-dipl-solothurner-spitaler-soh-solothurn"
+        "fr": "pedagogue-sociale-pedagogue-sociale-ou-dipl-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -15443,7 +15447,9 @@
       "workplace": "Psychiatrische Dienste",
       "previousSlugs": [
         "sozialpadagogin-sozialpadagoge-oder-dipl-pflegefachfrau-pflegefachmann-w-m-d-soh-ch",
-        "sozialpadagogin-sozialpadagoge-o-dipl-pflegefachfrau-pflegefachmann-m-w-d-solothurner-spitaler-soh-solothurn"
+        "sozialpadagogin-sozialpadagoge-o-dipl-pflegefachfrau-pflegefachmann-m-w-d-solothurner-spitaler-soh-solothurn",
+        "social-pedagogue-social-pedagogue-or-dipl-nursing-professional-f-m-d-solothurner-spitaler-soh-solothurn",
+        "pedagogue-sociale-pedagogue-sociale-ou-dipl-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15451,10 +15457,12 @@
           "sozialpadagogin-sozialpadagoge-o-dipl-pflegefachfrau-pflegefachmann-m-w-d-solothurner-spitaler-soh-solothurn"
         ],
         "en": [
-          "sozialpadagogin-sozialpadagoge-oder-dipl-pflegefachfrau-pflegefachmann-w-m-d-soh-ch"
+          "sozialpadagogin-sozialpadagoge-oder-dipl-pflegefachfrau-pflegefachmann-w-m-d-soh-ch",
+          "social-pedagogue-social-pedagogue-or-dipl-nursing-professional-f-m-d-solothurner-spitaler-soh-solothurn"
         ],
         "fr": [
-          "sozialpadagogin-sozialpadagoge-oder-dipl-pflegefachfrau-pflegefachmann-w-m-d-soh-ch"
+          "sozialpadagogin-sozialpadagoge-oder-dipl-pflegefachfrau-pflegefachmann-w-m-d-soh-ch",
+          "pedagogue-sociale-pedagogue-sociale-ou-dipl-solothurner-spitaler-soh-solothurn"
         ],
         "de": [
           "sozialpadagogin-sozialpadagoge-oder-dipl-pflegefachfrau-pflegefachmann-w-m-d-soh-ch"
@@ -15727,9 +15735,9 @@
       "slug": "fachfrau-fachmann-arealunterhalt-e-grunpflege-m-w-d-solothurner-spitaler-ag-soh-olten",
       "slugByLocale": {
         "it": "fachfrau-fachmann-arealunterhalt-e-grunpflege-m-w-d-solothurner-spitaler-ag-soh-olten",
-        "en": "professional-specialist-area-maintenance-and-green-care-f-m-d-solothurner-spitaler-soh-olten",
+        "en": "professional-specialist-area-maintenance-and-green-care-f-m-d-solothurner-spitaler-ag-soh-olten",
         "de": "fachfrau-fachmann-arealunterhalt-und-grunpflege-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "professionnel-specialiste-entretien-et-soins-verts-f-m-d-solothurner-spitaler-soh-olten"
+        "fr": "professionnel-specialiste-entretien-et-soins-verts-f-m-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -15774,7 +15782,9 @@
       "workplace": "Kantonsspital Olten",
       "previousSlugs": [
         "fachfrau-fachmann-arealunterhalt-und-grunpflege-w-m-d-soh-ch",
-        "fachfrau-fachmann-arealunterhalt-e-grunpflege-m-w-d-solothurner-spitaler-soh-olten"
+        "fachfrau-fachmann-arealunterhalt-e-grunpflege-m-w-d-solothurner-spitaler-soh-olten",
+        "professional-specialist-area-maintenance-and-green-care-f-m-d-solothurner-spitaler-soh-olten",
+        "professionnel-specialiste-entretien-et-soins-verts-f-m-d-solothurner-spitaler-soh-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15782,10 +15792,12 @@
           "fachfrau-fachmann-arealunterhalt-e-grunpflege-m-w-d-solothurner-spitaler-soh-olten"
         ],
         "en": [
-          "fachfrau-fachmann-arealunterhalt-und-grunpflege-w-m-d-soh-ch"
+          "fachfrau-fachmann-arealunterhalt-und-grunpflege-w-m-d-soh-ch",
+          "professional-specialist-area-maintenance-and-green-care-f-m-d-solothurner-spitaler-soh-olten"
         ],
         "fr": [
-          "fachfrau-fachmann-arealunterhalt-und-grunpflege-w-m-d-soh-ch"
+          "fachfrau-fachmann-arealunterhalt-und-grunpflege-w-m-d-soh-ch",
+          "professionnel-specialiste-entretien-et-soins-verts-f-m-d-solothurner-spitaler-soh-olten"
         ],
         "de": [
           "fachfrau-fachmann-arealunterhalt-und-grunpflege-w-m-d-soh-ch"
