@@ -24,6 +24,8 @@ import {
   totalMajorWeight,
   LOW_TRUST_MAJOR_CATEGORIES,
   MAJOR_BLOCK_WEIGHT_THRESHOLD,
+  isSourceContradictedIssue,
+  dropSourceContradictedIssues,
 } from '../scripts/lib/fact-check-consensus.mjs';
 
 describe('factCheckFingerprint — cross-model dedup', () => {
@@ -176,5 +178,100 @@ describe('totalMajorWeight — blocking threshold scenarios', () => {
     // critical, which still hard-blocks unchanged.
     expect(totalMajorWeight([inst, law, stat])).toBe(2.5);
     expect(totalMajorWeight([inst, law, stat]) < MAJOR_BLOCK_WEIGHT_THRESHOLD).toBe(true);
+  });
+});
+
+/**
+ * Anti-false-positive filter — added after the 2026-07-28 incident on
+ * `frontalieri-altre-tasse-2026` (run 30350429920).
+ *
+ * The first draft opened with the source's own opening sentence. BOTH
+ * verification models flagged it as "La fonte originale non menziona..." →
+ * consensus critical → blocked. Because blocking issues are reinjected as
+ * rewrite instructions, that false verdict told the writer to remove a TRUE
+ * fact. Six retries later the surviving draft had left the source behind
+ * entirely and passed, having invented an institution, a statistic and two
+ * contradictory decree dates.
+ *
+ * The claims and reasons below are the REAL ones from that run's logs.
+ */
+describe('dropSourceContradictedIssues', () => {
+  // Verbatim from the source page (ilgiorno.it/sondrio/cronaca/caso-frontalieri-altre-tasse).
+  const SOURCE = 'Il Canton Ticino alza il tiro e impone ai cosiddetti "vecchi frontalieri dei nuovi '
+    + 'Comuni" di pagare una imposta alla fonte del cento per cento. Tassa dovuta da chi opta per il '
+    + 'Decreto Omnibus. Da gennaio 2026 l\'ufficio imposte alla fonte del Ticino ha comunicato che i '
+    + 'frontalieri dei nuovi Comuni di confine che opteranno per il meccanismo del Decreto Omnibus '
+    + '(tassazione in Italia con imposta sostitutiva pari al 25% dell\'imposta alla fonte pagata in '
+    + 'Svizzera) dovranno essere tassati in Ticino al 100% (quindi secondo le tabelle A, B, C e H), e '
+    + 'non più all\'80% come nuovi frontalieri. I lavoratori e le lavoratrici che hanno lavorato in '
+    + 'Ticino tra il 31 dicembre 2018 e il 17 luglio 2023 con rientro giornaliero, con residenza '
+    + 'fiscale in un Comune ricompreso entro i 20 km dal confine, ma che non era presente nel vecchio '
+    + 'elenco dei Comuni di confine del Canton Ticino. L\'ufficio imposte alla fonte ha deciso di '
+    + 'estendere questa procedura anche ai "vecchi" frontalieri. Fino al 2025 questi ultimi venivano '
+    + 'considerati dal Ticino come "nuovi frontalieri". Per sanare la situazione c\'è tempo fino alla '
+    + 'fine del 2026, ma la soluzione è che lo stato italiano intervenga con Berna.';
+
+  it('drops a verdict the source itself refutes', () => {
+    // The exact false positive that blocked the faithful first draft.
+    const issue = {
+      claim: "Il Canton Ticino alza il tiro e impone ai cosiddetti 'vecchi frontalieri dei nuovi Comuni' "
+        + 'di pagare una imposta alla fonte del cento per cento',
+      reason: "La fonte originale non menziona l'aumento dell'aliquota a 100% per i 'vecchi frontalieri dei nuovi Comuni'",
+      severity: 'critical',
+      category: 'leggi',
+    };
+    expect(isSourceContradictedIssue(issue, SOURCE)).toBe(true);
+  });
+
+  it('keeps a genuine fabrication that the source really does not contain', () => {
+    const issue = {
+      claim: "Secondo i calcoli effettuati dall'Ufficio federale delle imposte circa 2.000 lavoratori "
+        + 'potrebbero essere interessati da questa nuova regola',
+      reason: 'La fonte originale non menziona alcun dato sul numero di lavoratori interessati',
+      severity: 'critical',
+      category: 'statistiche',
+    };
+    expect(isSourceContradictedIssue(issue, SOURCE)).toBe(false);
+  });
+
+  it('ignores issues that do not assert absence from the source', () => {
+    const issue = {
+      claim: 'La Svizzera è membro dell\'Unione Europea',
+      reason: 'Affermazione falsa: la Svizzera non è membro UE',
+      severity: 'critical',
+      category: 'eu_svizzera',
+    };
+    expect(isSourceContradictedIssue(issue, SOURCE)).toBe(false);
+  });
+
+  it('does not judge claims too short to be distinctive', () => {
+    expect(isSourceContradictedIssue(
+      { claim: 'il Ticino', reason: 'non presente nella fonte' },
+      SOURCE,
+    )).toBe(false);
+  });
+
+  it('partitions a real mixed batch into dropped and kept', () => {
+    const batch = [
+      { claim: "L'ufficio imposte alla fonte ha deciso di estendere questa procedura anche ai 'vecchi' frontalieri",
+        reason: "La fonte originale non menziona l'estensione della procedura ai 'vecchi' frontalieri",
+        severity: 'critical', category: 'leggi' },
+      { claim: "Fino al 2025 questi ultimi venivano considerati dal Ticino come 'nuovi frontalieri'",
+        reason: 'La fonte originale non menziona alcuna informazione su come i vecchi frontalieri sono stati considerati',
+        severity: 'major', category: 'coerenza' },
+      { claim: 'Il Ministero delle finanze italiano ha chiesto al governo svizzero di riconsiderare la normativa',
+        reason: 'La fonte originale non riporta questa dichiarazione del Ministero',
+        severity: 'critical', category: 'fatti_inventati' },
+    ];
+    const { kept, dropped } = dropSourceContradictedIssues(batch, SOURCE);
+    expect(dropped).toHaveLength(2);
+    expect(kept).toHaveLength(1);
+    expect(kept[0].claim).toContain('Ministero delle finanze');
+  });
+
+  it('never filters when there is no usable source (evergreen path)', () => {
+    const issue = { claim: 'un claim qualsiasi ben distintivo qui', reason: 'non presente nella fonte' };
+    expect(isSourceContradictedIssue(issue, '')).toBe(false);
+    expect(dropSourceContradictedIssues([issue], '').kept).toHaveLength(1);
   });
 });

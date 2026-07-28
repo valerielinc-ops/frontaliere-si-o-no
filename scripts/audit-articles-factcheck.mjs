@@ -8,6 +8,7 @@
  */
 
 import { readFileSync, readdirSync, writeFileSync } from 'fs';
+import { extractBodies } from './lib/blog-body-io.mjs';
 import { join } from 'path';
 import { execSync } from 'child_process';
 
@@ -50,17 +51,17 @@ function loadArticles() {
   for (const file of files) {
     const id = file.replace(/\.ts$/, '');
     const content = readFileSync(join(dir, file), 'utf8');
-    
-    // Extract body1, body2, body3 text from the TS file
-    const bodies = [];
-    for (const key of ['body1', 'body2', 'body3']) {
-      const pattern = new RegExp(`\\.${key}':\\s*'((?:[^'\\\\]|\\\\.)*)`, 's');
-      const match = content.match(pattern);
-      if (match) {
-        bodies.push(match[1].replace(/\\n/g, '\n').replace(/\\'/g, "'").slice(0, 1500));
-      }
-    }
-    
+
+    // Shared extractor (scripts/lib/blog-body-io.mjs). The local copy this
+    // replaced never anchored the closing quote and skipped the backslash
+    // unescape, so bodies came out subtly different from the two other scripts
+    // reading the same files — see that module's note (AGENTS.md #6).
+    const extracted = extractBodies(content, id);
+    const bodies = ['body1', 'body2', 'body3']
+      .map((key) => extracted[key])
+      .filter(Boolean)
+      .map((text) => text.slice(0, 1500));
+
     if (bodies.length > 0) {
       articles.push({ id, text: bodies.join('\n\n').slice(0, 3000) });
     }

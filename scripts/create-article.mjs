@@ -81,7 +81,9 @@ import {
   factCheckFingerprint,
   totalMajorWeight,
   MAJOR_BLOCK_WEIGHT_THRESHOLD,
+  dropSourceContradictedIssues,
 } from './lib/fact-check-consensus.mjs';
+import { runFactualityGates, formatIssues, formatRemediation, FACT_CHECK_CATEGORIES } from './lib/article-factuality-gates.mjs';
 import {
   stripCompetitorPromotion,
   sanitizeNavLinkSemantics,
@@ -3285,6 +3287,18 @@ export function buildFactCheckCallOptions(baseOpts, cacheEnabled = isFactCheckCa
  *
  * Returns { passed: boolean, issues: object[] }
  */
+// The article handed to the verifier used to be capped at 8000 chars. On the
+// 2026-07-28 article `frontalieri-altre-tasse-2026` the assembled text was
+// 10393 chars, so 2393 chars (23%) were never verified at all — and that blind
+// tail is exactly where "Il Decreto Omnibus è stato varato il 1° gennaio 2023",
+// "i frontalieri sono esentati dall'imposta alla fonte" and "un frontaliere
+// residente a Bellinzona" shipped from.
+//
+// 24000 covers roughly twice a full-length article. Anything beyond it is
+// logged rather than dropped in silence, and the deterministic gates always
+// run over the WHOLE text regardless of this cap.
+const MAX_FACTCHECK_ARTICLE_CHARS = 24000;
+
 async function llmFactCheck(contentIt, sourceContent = '', sourceUrl = '') {
   const articleText = [
     contentIt?.title || '',
@@ -3294,13 +3308,18 @@ async function llmFactCheck(contentIt, sourceContent = '', sourceUrl = '') {
 
   const isEvergreen = !sourceContent || sourceContent.length < 100 || sourceUrl.startsWith('evergreen://') || sourceUrl.startsWith('stats-bfs://');
 
+  if (articleText.length > MAX_FACTCHECK_ARTICLE_CHARS) {
+    console.error(`  ⚠️  Fact-check: articolo di ${articleText.length} chars > cap ${MAX_FACTCHECK_ARTICLE_CHARS} `
+      + `— la coda oltre il cap è verificata solo dai gate deterministici`);
+  }
+
   const prompt = `${IS_FRONTALIERE
     ? 'Sei un fact-checker senior specializzato in diritto fiscale svizzero e italiano, con focus specifico su frontalieri e Canton Ticino.'
     : 'Sei un fact-checker senior specializzato in affari svizzeri a livello nazionale (economia, fiscalità federale e cantonale, mercato del lavoro, diritto), per un pubblico di residenti in Svizzera.'}
 
 ARTICOLO DA VERIFICARE:
 """
-${articleText.slice(0, 8000)}
+${articleText.slice(0, MAX_FACTCHECK_ARTICLE_CHARS)}
 """
 
 ${isEvergreen ? 'NOTA: Articolo evergreen senza fonte specifica. Verifica basandoti sulle tue conoscenze del dominio e sui fatti di riferimento sotto. Per evergreen, NON segnalare come issue un fatto solo perché non compare in una fonte originale: segnala solo se è falso, contraddetto dai fatti verificati, troppo specifico senza attribuzione, o presentato come caso reale non verificato.' : `FONTE ORIGINALE (l'articolo doveva basarsi su questo testo):\n"""\n${sourceContent.slice(0, 6000)}\n"""`}
@@ -3369,7 +3388,14 @@ CRITERI DI GIUDIZIO:
 - FAIL = almeno 1 critical O almeno 3 major
 - PASS = nessun fatto verificabilmente falso, al massimo minor e fino a 2 major
 
-ATTENZIONE: se hai dubbi su un fatto, è MEGLIO segnalarlo come "major" che ignorarlo. Un falso positivo (segnalare un fatto vero come sospetto) è preferibile a un falso negativo (non segnalare un fatto falso).
+ATTENZIONE — ONERE DELLA PROVA. Le issue che segnali NON vengono solo lette: vengono reiniettate nel prompt di riscrittura come istruzioni correttive. Segnalare come "assente dalla fonte" un fatto che nella fonte C'È ordina all'autore di RIMUOVERE un fatto vero, e ripetuto su più tentativi produce un articolo che si allontana dalla fonte fino a inventare. Un falso positivo qui NON è prudenza: è la causa diretta di un articolo falso.
+
+Quindi, PRIMA di scrivere una issue del tipo "non presente / non menzionato nella fonte":
+1. RILEGGI la FONTE ORIGINALE qui sopra e cerca il fatto, anche riformulato o parafrasato.
+2. Se lo trovi, NON segnalarlo. Un fatto ripreso dalla fonte, anche alla lettera, è corretto per definizione.
+3. Se non lo trovi, compila "sourceQuote" con la porzione ESATTA di fonte più vicina al claim (o "" se la fonte non tratta affatto l'argomento). Le issue di questo tipo vengono verificate automaticamente contro il testo della fonte e SCARTATE se il claim risulta invece presente.
+
+Resta vero il contrario: un fatto specifico che nella fonte NON c'è e che non è nei fatti verificati (istituzioni, statistiche precise, dichiarazioni, importi, date) va segnalato come "critical" senza esitazione. La severità si misura sull'evidenza, non sul dubbio.
 
 ${JSON_QUOTE_SAFETY_RULE_IT}
 
@@ -3378,11 +3404,11 @@ Rispondi SOLO in JSON valido:
   "verdict": "PASS" | "FAIL",
   "confidence": 0.0-1.0,
   "issues": [
-    { "claim": "testo dell'affermazione", "reason": "perché è problematica", "severity": "critical|major|minor", "category": "categoria" }
+    { "claim": "testo dell'affermazione", "reason": "perché è problematica", "severity": "critical|major|minor", "category": "categoria", "sourceQuote": "porzione esatta di fonte a supporto, o \"\" se la fonte non tratta l'argomento" }
   ]
 }
 
-Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fatti_inventati, persone, geografia, eu_svizzera, rilevanza_topica`;
+Categorie valide: ${FACT_CHECK_CATEGORIES.join(', ')}`;
 
   // ── Multi-model consensus: query 2 models, require agreement ──
   // Order matters: the consensus pair is `verificationModels.slice(0, 2)`, so the
@@ -3467,17 +3493,58 @@ Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fat
   }
 
   if (modelResults.length === 0) {
-    // 2026-07-01 (#3138 follow-up): this used to throw → burn a full writer
-    // attempt (~60-90s, one of only 6 per headline) on pure verifier-infra
-    // unavailability (rate-limit/JSON-parse failures on BOTH providers, not a
-    // content problem — the article itself was never actually checked). Since
-    // FACTCHECK_INFRA_RETRIES already exhausted 3 rounds with 429-aware
-    // backoff up to 30s, a 4th failure means the outage outlasted the retry
-    // budget. Publish unverified rather than discard a possibly-good article;
-    // the prompt-level anti-hallucination rules (§2412-2470) still apply even
-    // without the LLM verification pass.
-    console.error('  ⚠️  LLM fact-check: TUTTI i modelli di verifica hanno fallito (rate-limit/infra) — articolo pubblicato NON VERIFICATO');
-    return { passed: true, issues: [], unverified: true };
+    // 2026-07-01 (#3138 follow-up) made this fail OPEN: on pure verifier-infra
+    // unavailability it returned `passed: true` so a possibly-good article was
+    // published rather than discarded, on the reasoning that prompt-level
+    // anti-hallucination rules still applied.
+    //
+    // 2026-07-28 reversed that. "Published unverified" is indistinguishable, to
+    // a reader, from "published verified" — and the article carries a named
+    // byline. A verifier outage is our problem, not the reader's. The failure
+    // mode we were avoiding (a discarded good article) costs one generation
+    // slot; the one we were accepting (an unverified false article, live, in
+    // four locales, under a journalist's name) costs the site's credibility.
+    //
+    // Fail CLOSED. The deterministic gates in article-factuality-gates.mjs
+    // still run — they need no model and cannot be taken down — so an outage
+    // degrades verification depth without ever publishing something unchecked.
+    console.error('  🚫 LLM fact-check: TUTTI i modelli di verifica hanno fallito (rate-limit/infra) — articolo SCARTATO, mai pubblicato non verificato');
+    return {
+      passed: false,
+      issues: [{
+        claim: '(verifica non eseguita)',
+        reason: 'Tutti i modelli di verifica non hanno prodotto un verdetto (rate-limit/infra) dopo '
+          + `${FACTCHECK_INFRA_RETRIES} tentativi con backoff — l'articolo non è stato verificato`,
+        severity: 'critical',
+        category: 'infra',
+      }],
+      unverified: true,
+    };
+  }
+
+  // ── Drop verdicts the source itself refutes ──
+  //
+  // Runs BEFORE consensus so a false "not in the source" cannot be promoted to
+  // a blocking consensus critical (which is exactly what happened on
+  // 2026-07-28: both models flagged the source's own opening sentence, the
+  // article was blocked, and the rewrite loop then walked the draft away from
+  // the source until it passed by inventing). See dropSourceContradictedIssues.
+  if (!isEvergreen && sourceContent) {
+    let droppedTotal = 0;
+    for (const r of modelResults) {
+      const { kept, dropped } = dropSourceContradictedIssues(r.issues, sourceContent);
+      if (dropped.length) {
+        droppedTotal += dropped.length;
+        for (const d of dropped) {
+          console.error(`  ✂️  Falso positivo scartato (${r.model}): "${(d.claim || '').slice(0, 70)}" `
+            + '— il claim È presente nella fonte');
+        }
+      }
+      r.issues = kept;
+    }
+    if (droppedTotal) {
+      console.error(`  ✂️  ${droppedTotal} verdetti "assente dalla fonte" scartati perché contraddetti dalla fonte stessa`);
+    }
   }
 
   // ── Consensus logic ──
@@ -3926,7 +3993,28 @@ async function buildStatsBfsPromptContent(quarter) {
 }
 
 // ── Step 1: Fetch web page content ──────────────────────────
+// Publication date of the source page most recently fetched, ISO or ''.
+// fetchPageContent() returns a bare string and has a single call site per
+// article, so a module-level handoff keeps the change local instead of
+// reshaping a return type threaded through the whole generation path.
+let lastSourcePublishedAt = '';
+
 async function fetchPageContent(url) {
+  // Clear FIRST, unconditionally, before any early return.
+  //
+  // main() calls generateAndValidateArticle() several times in one process:
+  // Fase 1 retries across real-URL headlines and, on exhaustion, falls through
+  // to the Fase 2 evergreen fallback. Without this reset a Fase-1 source date
+  // (the incident source was 184 days old) would still be set when the
+  // evergreen article — which has no source at all — reaches the freshness
+  // gate, where anything past 90 days is a blocking `stale-source`. That would
+  // spuriously reject innocent evergreen articles, the exact failure mode of
+  // issue #2947 ("the frontaliere evergreen path produced ~0 articles/run").
+  //
+  // Same reasoning as the `_localFallbackUsedThisHeadline` reset in
+  // generateAndValidateArticle(): per-headline state must not leak forward.
+  lastSourcePublishedAt = '';
+
   // Handle BFS stats-update articles — no web page to scrape, build the
   // prompt from Firestore numbers written by refresh-bfs-stats.
   if (url.startsWith('stats-bfs://')) {
@@ -3980,8 +4068,12 @@ async function fetchPageContent(url) {
     // Use structured extractor (JSON-LD → article → main → og + paragraphs → naive)
     // to feed the generator and fact-checker the actual article body instead of
     // 70%+ nav/footer/ads noise. See scripts/lib/extract-article-text.mjs.
-    const { text, method, paragraphCount } = extractArticleText(html, { maxChars: 8000 });
-    console.error(`   📄 Estratto via ${method}: ${text.length} chars, ${paragraphCount} blocchi`);
+    const { text, method, paragraphCount, publishedAt } = extractArticleText(html, { maxChars: 8000 });
+    lastSourcePublishedAt = publishedAt || '';
+    const ageNote = lastSourcePublishedAt
+      ? ` — fonte del ${lastSourcePublishedAt.slice(0, 10)}`
+      : ' — data fonte non rilevata';
+    console.error(`   📄 Estratto via ${method}: ${text.length} chars, ${paragraphCount} blocchi${ageNote}`);
     return text;
   } catch (e) {
     console.error(`⚠️  Impossibile scaricare la pagina: ${e.message}`);
@@ -9789,6 +9881,51 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       throw fabErr;
     }
 
+    // Step 3a.0b-bis: Deterministic factuality gates — BLOCKING, no model calls
+    //
+    // Runs BEFORE the LLM verifier on purpose: these checks are free, so a
+    // draft with broken arithmetic or an impossible tax is rejected without
+    // spending any of the shared quota. They also cover the whole article,
+    // not just the first MAX_FACTCHECK_ARTICLE_CHARS, and cannot fail open.
+    //
+    // Everything here is decidable from the text alone — see
+    // scripts/lib/article-factuality-gates.mjs for the incident that motivated
+    // each check.
+    {
+      const gateResult = runFactualityGates({
+        sections: {
+          body1: data.content.it?.body1 || '',
+          body2: data.content.it?.body2 || '',
+          body3: data.content.it?.body3 || '',
+        },
+        sourceText: pageContent,
+        sourceDate: lastSourcePublishedAt || undefined,
+        publishedAt: new Date().toISOString(),
+      });
+
+      if (gateResult.issues.length) {
+        console.error(`  🔎 Gate deterministici: ${gateResult.issues.length} problemi `
+          + `(${gateResult.blocking.length} bloccanti)`);
+        console.error(formatIssues(gateResult.issues));
+      }
+
+      if (!gateResult.passed) {
+        const summary = gateResult.blocking.map((i) => `[${i.code}] ${i.message}`).join('; ');
+        const gateErr = new Error(`Articolo rigettato dai gate deterministici: ${summary}`);
+        if (attempt < maxAttempts) {
+          // Feed back CORRECTIVE INSTRUCTIONS, not just complaints: every gate
+          // issue carries the concrete fix (and the corrected values, where we
+          // computed them), so the writer repairs the passage instead of
+          // deleting it. Unlike the LLM verifier's issues, each of these is a
+          // verified fact about the text, so the feedback cannot mislead.
+          lastFactCheckErrors = formatRemediation(gateResult.blocking);
+          console.error(`  🔄 Rigenero contenuto IT per gate deterministici (${attempt}/${maxAttempts})...`);
+          continue;
+        }
+        throw gateErr;
+      }
+    }
+
     // Step 3a.0c: LLM fact verification — PRIMARY BLOCKING GATE
     try {
       const factResult = await llmFactCheck(data.content.it, pageContent, url);
@@ -9797,33 +9934,36 @@ async function generateAndValidateArticle(url, sourceContext = null) {
         const err = new Error(`Articolo rigettato da fact-check: ${factResult.issues.length} problemi: ${issuesSummary}`);
         if (attempt < maxAttempts) {
           // Feed the flagged claims into the next attempt's prompt so the model
-          // fixes exactly what it invented instead of regenerating blind. Cap
-          // the injected list (issues are already the blocking subset, severity-
-          // ordered by llmFactCheck) so a long violation list can't bloat an
-          // already-large prompt past the input window of the degraded free
-          // models this fix targets (adversarial review PR #2615). Surface the
-          // truncation rather than silently dropping the tail. Per-issue claim/
-          // reason lengths tightened 2026-07-06 (90/110→70/90 chars) alongside
-          // the regen-attempt MAX_SOURCE_CHARS cut above — both compete for the
-          // same ~8000-token input ceiling once fix B's domainFactsBlock also
-          // rides along on organic-mode regen attempts.
+          // fixes exactly what it invented instead of regenerating blind.
+          //
+          // Rendered as corrective INSTRUCTIONS rather than a list of
+          // complaints (2026-07-28): each verifier category maps to what the
+          // writer should actually DO — see REMEDIATION_BY_CATEGORY. A bare
+          // "non presente nella fonte" invites deletion, which is how that
+          // day's article shed every real fact it had while keeping the
+          // invented ones. formatRemediation() also states the standing rule,
+          // "correggi, non cancellare".
+          //
+          // The cap is retained (issues are already the blocking subset,
+          // severity-ordered by llmFactCheck): a long violation list would
+          // bloat an already-large prompt past the input window of the degraded
+          // free models this path targets (adversarial review PR #2615).
+          // formatRemediation() reports the overflow instead of dropping the
+          // tail silently.
           const FACTCHECK_FEEDBACK_CAP = 8;
-          lastFactCheckErrors = factResult.issues
-            .slice(0, FACTCHECK_FEEDBACK_CAP)
-            .map(i => `- [${i.category || '?'}] "${(i.claim || '').slice(0, 70)}" — ${(i.reason || 'non nella fonte').slice(0, 90)}`)
-            .join('\n');
-          if (factResult.issues.length > FACTCHECK_FEEDBACK_CAP) {
-            lastFactCheckErrors += `\n(+${factResult.issues.length - FACTCHECK_FEEDBACK_CAP} altre violazioni: applica lo STESSO principio a tutto il testo, non solo a queste)`;
-          }
+          lastFactCheckErrors = formatRemediation(factResult.issues, { cap: FACTCHECK_FEEDBACK_CAP });
           console.error(`  🔄 Rigenero contenuto IT per fact-check fallito (${attempt}/${maxAttempts})...`);
           continue;
         }
         throw err;
       }
-      if (factResult.unverified) {
-        RUN_REPORT.factCheckUnverified = true;
-        RUN_REPORT.notes.push('fact-check-skipped: all verifier models failed (infra-outage)');
-      }
+      // NOTE: there is deliberately no `if (factResult.unverified)` branch here
+      // any more. Since the verifier fails CLOSED (2026-07-28), `unverified`
+      // only ever comes back paired with `passed: false`, which the branch above
+      // has already turned into a retry or a throw — so a published article can
+      // never be unverified, and a RUN_REPORT flag saying otherwise would be
+      // permanently false and misleading. The outage is recorded on the failure
+      // path instead (see the `🚫` log in llmFactCheck).
     } catch (fcErr) {
       // Both fact-check rejections AND all-models-failed errors retry
       if (attempt < maxAttempts) {
