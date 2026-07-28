@@ -115,7 +115,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-27T22:15:28.956Z"
+      "firstSeenAt": "2026-07-27T22:15:28.956Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Muratore",
@@ -142,9 +144,9 @@
       "description": "Vuoi la libertà di un lavoro a tempo determinato e la sicurezza di uno a tempo indeterminato? Da 30 anni assistiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, mettendo a loro disposizione i migliori talenti. Non ti nascondiamo che siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, unisciti al nostro team per la posizione di Muratore\n\n## Missione:\n• Lavoro tramite agenzia interinale\n• Assistenza al muratore nella preparazione dei materiali, quali malta e calcestruzzo\n• Lavori di demolizione, carico e scarico\n• Utilizzo di attrezzature edili\n\n## Profilo:\nIl tuo referente:\nIl tuo referente per questa posizione è Neri. Con oltre 15 anni di esperienza nel settore del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione. Questo lavoro non è esattamente quello che stai cercando, ma ti piacciono i nostri valori? Non esitare a inviarci la tua candidatura spontanea!",
       "titleByLocale": {
         "it": "Muratore",
-        "en": "Muratore",
-        "de": "Muratore",
-        "fr": "Muratore"
+        "en": "Wall",
+        "de": "Wand",
+        "fr": "Mur"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà di un lavoro a tempo determinato e la sicurezza di uno a tempo indeterminato? Da 30 anni assistiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, mettendo a loro disposizione i migliori talenti. Non ti nascondiamo che siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, unisciti al nostro team per la posizione di Muratore\n\n## Missione:\n• Lavoro tramite agenzia interinale\n• Assistenza al muratore nella preparazione dei materiali, quali malta e calcestruzzo\n• Lavori di demolizione, carico e scarico\n• Utilizzo di attrezzature edili\n\n## Profilo:\nIl tuo referente:\nIl tuo referente per questa posizione è Neri. Con oltre 15 anni di esperienza nel settore del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione. Questo lavoro non è esattamente quello che stai cercando, ma ti piacciono i nostri valori? Non esitare a inviarci la tua candidatura spontanea!",
@@ -258,9 +260,9 @@
       "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Autista Camion con Gru\n\n## Missione :\n• Incarico interinale tramite agenzia\n• Autista patente C di camion con gru , CQC\n• Abile nell’uso dei comandi della gru per il carico e scarico di materiali\n• Automunito\n\n## Profilo :\n• Pluriennale esperienza nei trasporti di materiale\n• Conoscenza del territorio Svizzero\n• Flessibilità negli spostamenti",
       "titleByLocale": {
         "it": "Autista Camion con Gru",
-        "en": "Autista Camion con Gru",
-        "de": "Autista Camion con Gru",
-        "fr": "Autista Camion con Gru"
+        "en": "Driver Truck with Gru",
+        "de": "Driver Truck mit Gru",
+        "fr": "Camion chauffeur avec Gru"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Autista Camion con Gru\n\n## Missione :\n• Incarico interinale tramite agenzia\n• Autista patente C di camion con gru , CQC\n• Abile nell’uso dei comandi della gru per il carico e scarico di materiali\n• Automunito\n\n## Profilo :\n• Pluriennale esperienza nei trasporti di materiale\n• Conoscenza del territorio Svizzero\n• Flessibilità negli spostamenti",
@@ -3823,8 +3825,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-21T11:23:36.348Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-07-21T11:23:36.348Z"
     },
     {
       "title": "INGEGNERE MECCANICO (PROGETTISTA)",
@@ -6727,8 +6728,7 @@
       },
       "previousSlugs": [
         "cnc-production-mechanic-operator-regulator-m-f-pemsa-biel-bienne"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Installatore elettricista AFC (M/F)",
@@ -8402,7 +8402,7 @@
       "slugByLocale": {
         "it": "installatore-di-quadri-elettrici-pemsa-estavayer-le-lac",
         "en": "installer-of-electric-paintings-pemsa-estavayer-le-lac",
-        "de": "elektrischer-panelinstallateur-pemsa-estavayer-le-lac",
+        "de": "installateur-von-elektrischen-gemalden-pemsa-estavayer-le-lac",
         "fr": "installateur-de-peintures-electriques-pemsa-estavayer-le-lac"
       },
       "id": "pemsa-c12b4ba3b3ab",
@@ -10673,8 +10673,7 @@
         }
       },
       "postalCode": "1700",
-      "firstSeenAt": "2026-07-07T12:06:02.036Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-07-07T12:06:02.036Z"
     },
     {
       "title": "Muratore e formatore di casseforme",
@@ -11204,7 +11203,7 @@
       "slugByLocale": {
         "it": "idraulico-pemsa-sigirino",
         "en": "hydraulic-pemsa-sigirino",
-        "de": "hydraulisch-pemsa-sigirino",
+        "de": "hydraulik-pemsa-sigirino",
         "fr": "hydraulique-pemsa-sigirino"
       },
       "id": "pemsa-83eb01c945e2",
@@ -11967,9 +11966,9 @@
       "description": "Vuoi la libertà di un lavoratore interinale e la sicurezza di un dipendente a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, dell’industria delle costruzioni e dell’industria in tutta la Svizzera, offrendo loro i migliori talenti. Ma non vogliamo mentirti: siamo esigenti. Se sei una persona motivata ed entusiasta, entra a far parte del nostro clan per la posizione di Elettricista montatore AFC (m/f/d)\n\n## Cosa offriamo?\n• Salari equi\n• Incarichi a lungo termine\n• Sostegno alla formazione continua\n• Eventi collettivi\n• Attivi in tutta la Svizzera\n• Consulenti del personale competenti ed esperti\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Fatima. Con oltre 15 anni di esperienza nel settore del reclutamento del personale, ti accompagnerà, ti fornirà consulenza e potrà rispondere a tutte le tue domande relative alla posizione. Questa posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti attraggono? Non esitare a inviarci la tua candidatura spontanea!",
       "titleByLocale": {
         "it": "Elettricista montatore AFC (m/f/d)",
-        "en": "Elettricista montatore AFC (m/f/d)",
-        "de": "Elettricista montatore AFC (m/f/d)",
-        "fr": "Elettricista montatore AFC (m/f/d)"
+        "en": "Electricizer AFC (m/f/d)",
+        "de": "Elektrische AFC (m/w/d)",
+        "fr": "Électrificateur AFC (m/f/d)"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà di un lavoratore interinale e la sicurezza di un dipendente a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, dell’industria delle costruzioni e dell’industria in tutta la Svizzera, offrendo loro i migliori talenti. Ma non vogliamo mentirti: siamo esigenti. Se sei una persona motivata ed entusiasta, entra a far parte del nostro clan per la posizione di Elettricista montatore AFC (m/f/d)\n\n## Cosa offriamo?\n• Salari equi\n• Incarichi a lungo termine\n• Sostegno alla formazione continua\n• Eventi collettivi\n• Attivi in tutta la Svizzera\n• Consulenti del personale competenti ed esperti\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Fatima. Con oltre 15 anni di esperienza nel settore del reclutamento del personale, ti accompagnerà, ti fornirà consulenza e potrà rispondere a tutte le tue domande relative alla posizione. Questa posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti attraggono? Non esitare a inviarci la tua candidatura spontanea!",
@@ -12467,9 +12466,9 @@
       },
       "slugByLocale": {
         "it": "stuccatore-cfc-afp-m-f-d-pemsa-basel",
-        "en": "tiler-efz-eba-m-f-d-pemsa-basel",
+        "en": "stuccatore-efz-eba-m-f-d-pemsa-basel",
         "de": "stuccatore-efz-eba-m-f-d-pemsa-basel",
-        "fr": "plaquiste-efz-eba-h-f-d-pemsa-basel"
+        "fr": "stuccatore-efz-eba-m-f-d-pemsa-basel"
       },
       "id": "pemsa-5254869b4e2e",
       "salaryMin": 62000,

@@ -252,8 +252,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "ubs-0614abb23b71",
@@ -336,8 +335,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "ubs-ec1f87ac894d",
@@ -506,8 +504,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "ubs-3b9dfc956fc6",
@@ -565,7 +562,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-14T22:32:24.834Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -824,7 +820,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.871Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -895,7 +890,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-17T21:59:53.752Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -966,7 +960,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-15T11:09:39.560Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -1053,7 +1046,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:05:53.306Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1137,7 +1129,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:05:53.306Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1208,7 +1199,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-23T11:24:45.152Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3149,7 +3139,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-03T12:37:47.777Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -3666,7 +3655,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.783Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3753,7 +3741,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.793Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -3840,7 +3827,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.791Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -3927,7 +3913,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.785Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -4014,7 +3999,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.795Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -4101,7 +4085,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.785Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -4188,7 +4171,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.787Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -4949,7 +4931,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.694Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -5110,7 +5091,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.477Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -5350,7 +5330,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.423Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5617,17 +5596,17 @@
       "companyDomain": "ubs.com",
       "title": "Speditionsfachfrau/mann",
       "titleByLocale": {
-        "en": "Speditionsfachfrau/mann",
-        "fr": "Speditionsfachfrau/mann",
+        "en": "Freight forwarding specialist",
+        "fr": "Spécialiste du transport de marchandises",
         "de": "Speditionsfachfrau/mann",
-        "it": "Speditionsfachfrau/mann"
+        "it": "Specialista di spedizione"
       },
       "description": "Arbeiten Sie gerne selbständig und sind Multitasking fähig? Möchten Sie uns helfen, unser Kundenerlebnis jetzt und in Zukunft zu verbessern? Sind Sie kundenorientiert und haben ein hohes Risikobewusstsein? Dann sind Sie in unserem Team genau richtig!\n\nIm Bereich Investment Bank Operations sind wir die Experten welche für einen reibungslosen Ablauf im Tagesgeschäft sorgen. Unsere Vision ist es, das Erlebnis für unsere Kunden jetzt und in Zukunft zu verbessern. Um erfolgreich zu sein, müssen unsere Mitarbeiter:\n• Höchstleistungen erbringen.\n• Wissen, was unsere Kunden benötigen und wollen.\n• Die Organisation voran bringen, indem Sie zielstrebig und leidenschaftlich arbeiten\n\nWir suchen eine neue Kollegin oder einen neuen Kollegen, welche(r) die folgenden Aufgaben übernehmen möchte:\n• Interaktion mit externen Partnern/Kunden sowie Zollbehörde\n• Mitarbeit in diversen Projekten und stetige Verbesserung der Arbeitsprozesse\n• Mithilfe im Tagesgeschäft, welche folgende Tätigkeiten beinhalten:\n korrekte und speditive Ausführung von Edelmetall Inlandsendungen, Importe & Exporte\n OZL Abwicklung (Ein- und Ausgänge)\n Offertanfrage und Transportkalkulationen\n Raffinations- & Produktionsbereich (Abstimmungen)\n Überwachen, analysieren und wenn notwendig, richtigstellen der MwSt. Statistiken\n Erstellen und versenden der monatlichen und quartalsmässigen MwSt. Reporte\n Rechnungskontrolle (Debitoren/Kreditoren)",
       "descriptionByLocale": {
-        "en": "Arbeiten Sie gerne selbständig und sind Multitasking fähig? Möchten Sie uns helfen, unser Kundenerlebnis jetzt und in Zukunft zu verbessern? Sind Sie kundenorientiert und haben ein hohes Risikobewusstsein? Dann sind Sie in unserem Team genau richtig!\n\nIm Bereich Investment Bank Operations sind wir die Experten welche für einen reibungslosen Ablauf im Tagesgeschäft sorgen. Unsere Vision ist es, das Erlebnis für unsere Kunden jetzt und in Zukunft zu verbessern. Um erfolgreich zu sein, müssen unsere Mitarbeiter:\n• Höchstleistungen erbringen.\n• Wissen, was unsere Kunden benötigen und wollen.\n• Die Organisation voran bringen, indem Sie zielstrebig und leidenschaftlich arbeiten\n\nWir suchen eine neue Kollegin oder einen neuen Kollegen, welche(r) die folgenden Aufgaben übernehmen möchte:\n• Interaktion mit externen Partnern/Kunden sowie Zollbehörde\n• Mitarbeit in diversen Projekten und stetige Verbesserung der Arbeitsprozesse\n• Mithilfe im Tagesgeschäft, welche folgende Tätigkeiten beinhalten:\n korrekte und speditive Ausführung von Edelmetall Inlandsendungen, Importe & Exporte\n OZL Abwicklung (Ein- und Ausgänge)\n Offertanfrage und Transportkalkulationen\n Raffinations- & Produktionsbereich (Abstimmungen)\n Überwachen, analysieren und wenn notwendig, richtigstellen der MwSt. Statistiken\n Erstellen und versenden der monatlichen und quartalsmässigen MwSt. Reporte\n Rechnungskontrolle (Debitoren/Kreditoren)",
+        "en": "Do you like working independently and are you capable of multitasking? Want to help us improve our customer experience now and in the future? Are you customer-oriented and have a high risk awareness? Then you are exactly right in our team!\n\nIn the area of investment bank operations, we are the experts who ensure a smooth flow in day-to-day business. Our vision is to improve the experience for our customers now and in the future. To be successful, our employees must:\n• Provide maximum performance.\n• Know what our customers need and want.\n• Moving the organization forward by working with determination and passion\n\nWe are looking for a new colleague who would like to take on the following tasks:\n• Interaction with external partners/customers and customs authority\n• Participation in various projects and continuous improvement of work processes\n• Assistance in day-to-day business, including the following activities:\n correct and forwarded execution of precious metal domestic consignments, imports & exports\n OZL settlement (entry and exit)\n Offer request and transport calculations\n Refining and production sector (vote)\n Monitor, analyse and, if necessary, correct VAT. Statistics\n Create and send monthly and quarterly VAT. Reports\n Invoice control (debitors/creditors)",
         "de": "Arbeiten Sie gerne selbständig und sind Multitasking fähig? Möchten Sie uns helfen, unser Kundenerlebnis jetzt und in Zukunft zu verbessern? Sind Sie kundenorientiert und haben ein hohes Risikobewusstsein? Dann sind Sie in unserem Team genau richtig!\n\nIm Bereich Investment Bank Operations sind wir die Experten welche für einen reibungslosen Ablauf im Tagesgeschäft sorgen. Unsere Vision ist es, das Erlebnis für unsere Kunden jetzt und in Zukunft zu verbessern. Um erfolgreich zu sein, müssen unsere Mitarbeiter:\n• Höchstleistungen erbringen.\n• Wissen, was unsere Kunden benötigen und wollen.\n• Die Organisation voran bringen, indem Sie zielstrebig und leidenschaftlich arbeiten\n\nWir suchen eine neue Kollegin oder einen neuen Kollegen, welche(r) die folgenden Aufgaben übernehmen möchte:\n• Interaktion mit externen Partnern/Kunden sowie Zollbehörde\n• Mitarbeit in diversen Projekten und stetige Verbesserung der Arbeitsprozesse\n• Mithilfe im Tagesgeschäft, welche folgende Tätigkeiten beinhalten:\n korrekte und speditive Ausführung von Edelmetall Inlandsendungen, Importe & Exporte\n OZL Abwicklung (Ein- und Ausgänge)\n Offertanfrage und Transportkalkulationen\n Raffinations- & Produktionsbereich (Abstimmungen)\n Überwachen, analysieren und wenn notwendig, richtigstellen der MwSt. Statistiken\n Erstellen und versenden der monatlichen und quartalsmässigen MwSt. Reporte\n Rechnungskontrolle (Debitoren/Kreditoren)",
-        "it": "Arbeiten Sie gerne selbständig und sind Multitasking fähig? Möchten Sie uns helfen, unser Kundenerlebnis jetzt und in Zukunft zu verbessern? Sind Sie kundenorientiert und haben ein hohes Risikobewusstsein? Dann sind Sie in unserem Team genau richtig!\n\nIm Bereich Investment Bank Operations sind wir die Experten welche für einen reibungslosen Ablauf im Tagesgeschäft sorgen. Unsere Vision ist es, das Erlebnis für unsere Kunden jetzt und in Zukunft zu verbessern. Um erfolgreich zu sein, müssen unsere Mitarbeiter:\n• Höchstleistungen erbringen.\n• Wissen, was unsere Kunden benötigen und wollen.\n• Die Organisation voran bringen, indem Sie zielstrebig und leidenschaftlich arbeiten\n\nWir suchen eine neue Kollegin oder einen neuen Kollegen, welche(r) die folgenden Aufgaben übernehmen möchte:\n• Interaktion mit externen Partnern/Kunden sowie Zollbehörde\n• Mitarbeit in diversen Projekten und stetige Verbesserung der Arbeitsprozesse\n• Mithilfe im Tagesgeschäft, welche folgende Tätigkeiten beinhalten:\n korrekte und speditive Ausführung von Edelmetall Inlandsendungen, Importe & Exporte\n OZL Abwicklung (Ein- und Ausgänge)\n Offertanfrage und Transportkalkulationen\n Raffinations- & Produktionsbereich (Abstimmungen)\n Überwachen, analysieren und wenn notwendig, richtigstellen der MwSt. Statistiken\n Erstellen und versenden der monatlichen und quartalsmässigen MwSt. Reporte\n Rechnungskontrolle (Debitoren/Kreditoren)",
-        "fr": "Arbeiten Sie gerne selbständig und sind Multitasking fähig? Möchten Sie uns helfen, unser Kundenerlebnis jetzt und in Zukunft zu verbessern? Sind Sie kundenorientiert und haben ein hohes Risikobewusstsein? Dann sind Sie in unserem Team genau richtig!\n\nIm Bereich Investment Bank Operations sind wir die Experten welche für einen reibungslosen Ablauf im Tagesgeschäft sorgen. Unsere Vision ist es, das Erlebnis für unsere Kunden jetzt und in Zukunft zu verbessern. Um erfolgreich zu sein, müssen unsere Mitarbeiter:\n• Höchstleistungen erbringen.\n• Wissen, was unsere Kunden benötigen und wollen.\n• Die Organisation voran bringen, indem Sie zielstrebig und leidenschaftlich arbeiten\n\nWir suchen eine neue Kollegin oder einen neuen Kollegen, welche(r) die folgenden Aufgaben übernehmen möchte:\n• Interaktion mit externen Partnern/Kunden sowie Zollbehörde\n• Mitarbeit in diversen Projekten und stetige Verbesserung der Arbeitsprozesse\n• Mithilfe im Tagesgeschäft, welche folgende Tätigkeiten beinhalten:\n korrekte und speditive Ausführung von Edelmetall Inlandsendungen, Importe & Exporte\n OZL Abwicklung (Ein- und Ausgänge)\n Offertanfrage und Transportkalkulationen\n Raffinations- & Produktionsbereich (Abstimmungen)\n Überwachen, analysieren und wenn notwendig, richtigstellen der MwSt. Statistiken\n Erstellen und versenden der monatlichen und quartalsmässigen MwSt. Reporte\n Rechnungskontrolle (Debitoren/Kreditoren)"
+        "it": "Ti piace lavorare in modo indipendente e sei capace di multitasking? Vuoi aiutarci a migliorare la nostra esperienza cliente ora e in futuro? Siete orientati al cliente e avete un'alta consapevolezza del rischio? Allora siete esattamente nella nostra squadra!\n\nNel settore delle operazioni bancarie di investimento, siamo gli esperti che garantiscono un flusso regolare nel business quotidiano. La nostra visione è di migliorare l'esperienza per i nostri clienti ora e in futuro. Per avere successo, i nostri dipendenti devono:\n• Fornire le massime prestazioni.\n• Sapere cosa i nostri clienti hanno bisogno e vogliono.\n• Promuovere l'organizzazione lavorando con determinazione e passione\n\nSiamo alla ricerca di un nuovo collega che voglia assumere i seguenti compiti:\n• Interazione con partner esterni/clienti e autorità doganale\n• Partecipazione a vari progetti e miglioramento continuo dei processi di lavoro\n• Assistenza nelle attività quotidiane, comprese le seguenti attività:\n esecuzione corretta e inoltrata delle spedizioni metalliche domestiche, delle importazioni e delle esportazioni\n insediamento OZL (ingresso e uscita)\n Offerta richiesta e calcoli di trasporto\n Settore di raffinazione e produzione (voto)\n Monitorare, analizzare e, se necessario, correggere l'IVA. Statistiche\n Creare e inviare IVA mensile e trimestrale. Relazioni\nControllo delle fatture (debitori/creditori)",
+        "fr": "Vous aimez travailler indépendamment et êtes-vous capable de multitâcher ? Vous voulez nous aider à améliorer notre expérience client maintenant et dans le futur? Êtes-vous orienté vers le client et avez-vous une sensibilisation au risque élevé? Alors vous êtes exactement dans notre équipe !\n\nDans le domaine des opérations bancaires d'investissement, nous sommes les experts qui assurent un flux fluide dans les affaires quotidiennes. Notre vision est d'améliorer l'expérience pour nos clients maintenant et à l'avenir. Pour réussir, nos employés doivent :\n• Fournir des performances maximales.\n• Sachez ce que nos clients ont besoin et veulent.\n• Faire avancer l'organisation en travaillant avec détermination et passion\n\nNous sommes à la recherche d'un nouveau collègue qui aimerait assumer les tâches suivantes :\n• Interaction avec les partenaires extérieurs/clients et les autorités douanières\n• Participation à divers projets et amélioration continue des processus de travail\n• Assistance dans les affaires courantes, y compris les activités suivantes:\n• corriger et transmettre l'exécution des envois, importations et exportations nationaux de métaux précieux\nRèglement OZL (entrée et sortie)\nDemande d'offre et calculs de transport\nSecteur du raffinage et de la production (vote)\nContrôler, analyser et, si nécessaire, corriger la TVA. Statistiques\nCréer et envoyer la TVA mensuelle et trimestrielle. Rapports\nContrôle des factures (débiteurs/créanciers)"
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -5658,7 +5637,6 @@
         "categoryRaw": "Operations",
         "jobType": ""
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "en": [
           "logistics-specialist-ubs-zurich",
@@ -5762,7 +5740,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.132Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -6002,7 +5979,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:47.999Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -6081,7 +6057,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:34:49.557Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -6172,7 +6147,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:34:49.548Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6258,7 +6232,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:34:49.539Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -6420,7 +6393,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:47.871Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -6682,7 +6654,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:34:49.546Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6924,7 +6895,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-09T22:23:01.790Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -7312,7 +7282,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-09T22:23:01.790Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -7383,7 +7352,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-14T11:04:55.875Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -7454,7 +7422,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-14T22:32:23.886Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -7535,7 +7502,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T11:04:55.876Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -7757,7 +7723,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-14T11:04:55.873Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "baseSalary": {
@@ -7844,7 +7809,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:26:25.170Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7914,7 +7878,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-14T11:04:55.905Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8082,7 +8045,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T21:59:52.646Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8167,7 +8129,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.362Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -8260,7 +8221,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:03:58.695Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -8331,7 +8291,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-21T11:19:29.685Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -8568,7 +8527,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:19:29.678Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -8655,7 +8613,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:34:49.523Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -8736,7 +8693,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.239Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -8892,7 +8848,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-21T22:05:28.281Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8976,7 +8931,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T22:05:28.551Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -9047,7 +9001,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-22T11:18:43.387Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -9118,7 +9071,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-22T11:18:43.425Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -9288,7 +9240,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-24T22:05:52.290Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -9713,7 +9664,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:05:28.266Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -9797,8 +9747,7 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "ubs-45b9c96f2769",
