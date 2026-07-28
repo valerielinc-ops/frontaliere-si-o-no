@@ -1,6 +1,6 @@
 {
   "crawlerKey": "engel-voelkers",
-  "assembledAt": "2026-07-27T22:21:21.876Z",
+  "assembledAt": "2026-07-28T11:45:18.267Z",
   "jobs": [
     {
       "title": "Büroleiter/in (100%)",
@@ -740,7 +740,7 @@
       "descriptionByLocale": {
         "it": "Descrizione\n\nEngel & Völkers Sciaffusa\n\nEngel & Völkers è un'azienda di servizi leader a livello mondiale nell'intermediazione di immobili di alta qualità. La nostra pluriennale esperienza unisce una forte rete regionale e mondiale. Da Engel & Völkers Svizzera orientale sperimenterai professionalità, competenza e vera passione. In qualità di marchio affermato, combiniamo una solida conoscenza del mercato con l'impegno e gli elevati standard di servizio e qualità. Le persone e gli immobili sono una questione che ci sta a cuore. Apprezzate una vita lavorativa quotidiana varia e desiderate progredire in modo mirato nella vostra carriera? Con il supporto del nostro team motivato, le tue possibilità di successo sono particolarmente buone.\n\nDettagli della posizione\n\n- Sede: Sciaffusa, Ticino\n- Datore di lavoro: buutiq Immobilien AG\n- Settore: Immobiliare di pregio (real estate luxury)\n- Cantone: SH\n- Candidatura: pagina carriere ufficiale di Engel & Völkers",
         "en": "Description\n\nEngel & Völkers Schaffhausen\n\nEngel & Völkers is a leading service provider in the world in the mediation of high-quality real estate. Our long-standing experience combines a strong regional and global network. At Engel & Völkers Eastern Switzerland you experience professionalism, competence and genuine passion. As an established brand we combine sound market knowledge with commitment and the high level of service and quality. People and real estate are a matter of heart for us. You value a varied work day and want to drive your career forward purposefully?\n\nWith the support of our motivated team, your chances of success are particularly good.\n\nDettagli della posizione\n\n- Sede: Schaffhausen, Telecommunications - Ditore di lavoro: buut Si real estate AG - Settore: Impmobiliare di pregio (real estate luxury) - Canton: SH - Candidature: paginaMihaie ufficiale di Engel & Völkers",
-        "de": "Beschreibung\n\nEngel & Völkers Schaffhausen\n\nEngel & Völkers ist ein weltweit führendes Dienstleistungsunternehmen in der Vermittlung von hochwertigen Immobilien. Unsere langjährige Erfahrung kombiniert ein starkes regionales und weltweites Netzwerk. Bei Engel & Völkers Ostschweiz erleben Sie Professionalität, Kompetenz und echte Leidenschaft. Als etablierte Marke verbinden wir fundierte Marktkenntnisse mit Engagement und dem hohen Anspruch an Service und Qualität. Menschen und Immobilien sind uns eine Herzensangelegenheit. Sie schätzen einen abwechslungsreichen Arbeitsalltag und möchten Ihre Karriere gezielt vorantreiben? Mit der Unterstützung unseres motivierten Teams stehen Ihre Erfolgschancen besonders gut.\n\nDettagli della posizione\n\n- Sede: Schaffhausen, Ticino\n- Datore di lavoro: buutiq Immobilien AG\n- Settore: Immobiliare di pregio (real estate luxury)\n- Canton: SH\n- Candidature: pagina carriere ufficiale di Engel & Völkers",
+        "de": "Engel & Völkers Schaffhausen\n\nEngel & Völkers ist ein weltweit führendes Dienstleistungsunternehmen in der Vermittlung von hochwertigen Immobilien. Unsere langjährige Erfahrung kombiniert ein starkes regionales und weltweites Netzwerk. Bei Engel & Völkers Ostschweiz erleben Sie Professionalität, Kompetenz und echte Leidenschaft. Als etablierte Marke verbinden wir fundierte Marktkenntnisse mit Engagement und dem hohen Anspruch an Service und Qualität. Menschen und Immobilien sind uns eine Herzensangelegenheit. Sie schätzen einen abwechslungsreichen Arbeitsalltag und möchten Ihre Karriere gezielt vorantreiben? Mit der Unterstützung unseres motivierten Teams stehen Ihre Erfolgschancen besonders gut.\n\nEckdaten der Stelle:\n• Standort: Schaffhausen, Tessin\n• Arbeitgeber: buutiq Immobilien AG\n• Branche: Premium-Immobilien (Real Estate Luxury)\n• Kanton: SH\n• Bewerbung über die offizielle Karriereseite von Engel & Völkers",
         "fr": "Description\n\nEngel & Völkers Schaffhouse\n\nEngel & Völkers est une entreprise de services leader dans le monde dans le courtage de biens immobiliers de haute qualité. Nos nombreuses années d'expérience combinent un solide réseau régional et mondial. Chez Engel & Völkers Suisse orientale, vous ferez l'expérience du professionnalisme, de la compétence et d'une véritable passion. En tant que marque établie, nous combinons une connaissance approfondie du marché avec un engagement et des exigences élevées en matière de service et de qualité. Les personnes et l'immobilier nous tiennent à cœur. Vous appréciez un travail quotidien varié et souhaitez faire progresser votre carrière de manière ciblée ? Avec le soutien de notre équipe motivée, vos chances de succès sont particulièrement bonnes.\n\nDétail de la position\n\n- Sede : Schaffhouse, Tessin\n- Datore di lavoro : buutiq Immobilien AG\n- Settore : Immobiliare di pregio (immobilier de luxe)\n- Canton : SH\n- Candidature : pagina carriere ufficiale di Engel & Völkers"
       },
       "slugByLocale": {
@@ -750,6 +750,20 @@
         "fr": "agent-immobilier-principal-dans-50-100-buutiq-immobilien-ag-schaffhausen"
       },
       "id": "engel-voelkers-68b69f5429f7",
+      "salaryMin": 96000,
+      "salaryMax": 147500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 147500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-27T12:41:12.434Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-immobilienmakler-in-50-100-engel-voelkers-schaffhausen"
@@ -766,21 +780,7 @@
       },
       "previousSlugs": [
         "senior-immobilienmakler-in-50-100-engel-voelkers-schaffhausen"
-      ],
-      "salaryMin": 96000,
-      "salaryMax": 147500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 147500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-27T12:41:12.434Z"
+      ]
     }
   ]
 }
