@@ -27215,6 +27215,15 @@ const RAW_ARTICLES = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+ {
+ id: 'trasferirsi-maccagno-pino-veddasca',
+ category: 'pratico',
+ date: '2026-07-28T09:57:47.692Z',
+ image: '/images/blog/trasferirsi-maccagno-pino-veddasca.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

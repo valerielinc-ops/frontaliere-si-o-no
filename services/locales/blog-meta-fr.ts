@@ -9060,6 +9060,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp.title': 'Italie, RW et hypothèse subjective : le nœud décisif',
     'blog.article.residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp.excerpt': 'La Cour de justice fiscale de première instance de Vicence annule l\'acte d\'imposition de sanctions pour omission de remplir le cadre RW, car la résidence',
     'blog.article.residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp.imageAlt': 'Image éditoriale relative à: Residenza fiscale accertata in Italia e caducazione delle sanzioni RW: il presupposto soggettivo come nodo decisivo',
+    'blog.article.trasferirsi-maccagno-pino-veddasca.title': 'Vivre à Maccagno avec Pino et Veddasca en tant que frontalier',
+    'blog.article.trasferirsi-maccagno-pino-veddasca.excerpt': 'Analyse pour et contre de la vie à Maccagno avec Pino et Veddasca travaillant au Tessin : fiscalité, accords et gestion des déplacements quotidiens.',
+    'blog.article.trasferirsi-maccagno-pino-veddasca.imageAlt': 'Vue panoramique d\'un village frontalier entre l\'Italie et la Suisse',
 };
 
 export default blogMetaFr;

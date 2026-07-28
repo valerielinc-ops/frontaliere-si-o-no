@@ -9057,6 +9057,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp.title': 'Festgestellter Steuerwohnsitz in Italien: das subjektive Voraussetzung',
     'blog.article.residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp.excerpt': 'Das Finanzgericht erster Instanz von Vicenza annulliert den Akt der Verhängung von Sanktionen für das Versäumnis, die Übersicht RW auszufüllen, da der Wohnsitz',
     'blog.article.residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp.imageAlt': 'Redaktionelles Bild zu: Residenza fiscale accertata in Italia e caducazione delle sanzioni RW: il presupposto soggettivo come nodo decisivo',
+    'blog.article.trasferirsi-maccagno-pino-veddasca.title': 'Leben in Maccagno mit Pino und Veddasca als Grenzgänger',
+    'blog.article.trasferirsi-maccagno-pino-veddasca.excerpt': 'Analyse der Vor- und Nachteile des Lebens in Maccagno mit Pino und Veddasca im Tessin: Steuern, Vereinbarungen und Verwaltung des täglichen Pendelns.',
+    'blog.article.trasferirsi-maccagno-pino-veddasca.imageAlt': 'Panoramablick auf ein Grenzdorf zwischen Italien und der Schweiz',
 };
 
 export default blogMetaDe;
