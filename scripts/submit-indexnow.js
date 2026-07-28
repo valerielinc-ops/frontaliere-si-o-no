@@ -24,10 +24,11 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { getBingUrlSubmissionQuota } from './lib/bing-webmaster.mjs';
 import { CORE_SITEMAPS } from './lib/sitemap-files.mjs';
+// Key/host/keyLocation live in the shared module so this sitemap-driven
+// submitter and the fast-publish direct-URL submitter can never drift on the
+// key or payload shape (issue #4837).
+import { INDEXNOW_KEY, HOST, KEY_LOCATION } from './lib/indexnow-submit.mjs';
 
-const INDEXNOW_KEY = '39093e02a74b4a2dbf867c74bc53a7d8';
-const HOST = 'frontaliereticino.ch';
-const KEY_LOCATION = `https://${HOST}/${INDEXNOW_KEY}.txt`;
 const MAX_RETRIES = 2;
 const BATCH_SIZE = 500; // conservative batch size
 // Runs after deploy (GitHub Actions). All channels are enabled by default.

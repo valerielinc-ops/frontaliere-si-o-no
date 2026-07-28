@@ -206,20 +206,19 @@ jobs:
         if: steps.render.outcome == 'success'
         run: node scripts/wait-for-live-article-shards.mjs /tmp/fast-publish/summary.json
 
-      - name: Notify Google Indexing API
+      # Google Indexing API AND IndexNow (Bing/Yandex), with the same verified
+      # URL list. IndexNow is included deliberately: its normal driver
+      # (scripts/submit-indexnow.js) discovers URLs from the DEPLOYED SITEMAPS,
+      # which are apex-only artifacts that do not change until the next full
+      # deploy — so without a direct submit here a fast-published article would
+      # reach Google in minutes and Bing/Yandex only hours later.
+      - name: Notify search engines (Google Indexing API + IndexNow)
         if: steps.verify.outcome == 'success'
         continue-on-error: true
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
-          node --input-type=module -e "
-            import fs from 'node:fs';
-            import { notifyGoogleIndexing } from './scripts/lib/indexing-api.mjs';
-            const summary = JSON.parse(fs.readFileSync('/tmp/fast-publish/summary.json', 'utf8'));
-            const urls = (summary.shards || []).map((s) => s.url).filter(Boolean);
-            if (urls.length === 0) { console.log('[fast-publish] no shard URLs to notify'); process.exit(0); }
-            await notifyGoogleIndexing(urls);
-          "
+          node scripts/notify-article-search-engines.mjs --summary /tmp/fast-publish/summary.json
 
       - name: Report failure to GitHub Issues
         if: failure()
