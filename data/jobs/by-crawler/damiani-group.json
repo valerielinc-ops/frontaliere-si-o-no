@@ -1,6 +1,6 @@
 {
   "crawlerKey": "damiani-group",
-  "assembledAt": "2026-07-28T11:39:26.149Z",
+  "assembledAt": "2026-07-28T22:13:08.099Z",
   "jobs": [
     {
       "title": "Specialista Customer Service - lingua araba o russa",
@@ -40,7 +40,7 @@
       "slugByLocale": {
         "it": "specialista-servizio-clienti-lingua-araba-o-russa-damiani-group-mendrisio",
         "en": "specialista-customer-service-lingua-araba-o-russa-damiani-group-mendrisio",
-        "de": "customer-service-specialist-arabisch-oder-russisch-damiani-group-mendrisio",
+        "de": "specialista-kundendienst-lingua-araba-o-russa-damiani-group-mendrisio",
         "fr": "specialiste-service-client-arabe-ou-russe-damiani-group-mendrisio"
       },
       "previousSlugs": [
@@ -49,6 +49,7 @@
         "specialista-kundendienst-lingua-araba-o-russa-damiani-group-mendrisio-fstjwv",
         "servizio-clienti-specialista-lingua-araba-o-russa-damiani-group-mendrisio",
         "specialista-customer-service-lingua-araba-o-russa-damiani-group-mendrisio",
+        "customer-service-specialist-arabisch-oder-russisch-damiani-group-mendrisio",
         "specialista-kundendienst-lingua-araba-o-russa-damiani-group-mendrisio"
       ],
       "salaryMin": 54000,
@@ -77,6 +78,7 @@
           "specialista-customer-service-lingua-araba-o-russa-damiani-group-mendrisio"
         ],
         "de": [
+          "customer-service-specialist-arabisch-oder-russisch-damiani-group-mendrisio",
           "specialista-kundendienst-lingua-araba-o-russa-damiani-group-mendrisio"
         ]
       },
@@ -198,7 +200,8 @@
       },
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
-      "firstSeenAt": "2026-07-24T11:12:56.301Z"
+      "firstSeenAt": "2026-07-24T11:12:56.301Z",
+      "needsRetranslation": true
     },
     {
       "title": "Customer Service Specialist - German Speaking",
