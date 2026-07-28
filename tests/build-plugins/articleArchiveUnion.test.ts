@@ -18,8 +18,9 @@ const rootDir = np.resolve(__dirname, '..', '..');
 /**
  * Issue #1497 (svizzera) + #1486 / reviewer follow-up (frontaliere/master): the
  * `/{hub}/tutti/page-N/` navigator (staticPagesPlugin.ts) and the page emitter
- * (seoHubsPlugin.ts — `emitHub` `articles` branch / `emitSvizzeraArticlesHub`)
- * must agree on the page count. Both now derive it from THIS shared, section-
+ * (seoHubsPlugin.ts — `renderArticleHubPagesCore`, one call per section since
+ * #4881 consolidated the former `emitHub` `articles` branch / standalone
+ * `emitSvizzeraArticlesHub`) must agree on the page count. Both now derive it from THIS shared, section-
  * parameterized union helper, so the two cannot drift — and neither can the two
  * sections drift from each other. These tests lock the union contract that the
  * helper reproduces from each section's emitter.
