@@ -4973,6 +4973,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dogana-maggiore-snella': { name: 'La dogana sarà più snella', path: '/articoli-frontaliere/dogana-maggiore-snella', parent: 'blog' },
     'blog-zurich-finma-licenziamenti-previdenza': { name: 'Zurich licenziamenti FINMA', path: '/articoli-svizzera/zurich-finma-licenziamenti-previdenza/', parent: 'blog' },
     'blog-trasferirsi-maccagno-frontaliere-pro-contro': { name: 'Maccagno Frontalieri', path: '/articoli-frontaliere/trasferirsi-maccagno-frontaliere-pro-contro', parent: 'blog' },
+    'blog-caldo-estremo-cantieri-ssic': { name: 'Caldo nei cantieri', path: '/articoli-svizzera/caldo-estremo-cantieri-ssic/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

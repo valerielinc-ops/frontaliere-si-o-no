@@ -21311,6 +21311,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-caldo-estremo-cantieri-ssic': {
+    title: 'Caldo nei cantieri: la SSIC chiede stop alle penali',
+    description: 'La SSIC chiede condizioni eque ed esenzioni dalle penali per i cantieri svizzeri bloccati dal caldo. Analisi della mozione e delle posizioni parlamentari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, caldo, cantieri, ssic, chiede',
+    ogTitle: 'Caldo nei cantieri: la SSIC chiede stop alle penali',
+    ogDescription: 'La SSIC chiede condizioni eque ed esenzioni dalle penali per i cantieri svizzeri bloccati dal caldo. Analisi della mozione e delle posizioni parlamentari.',
+    canonicalPath: '/articoli-svizzera/caldo-estremo-cantieri-ssic/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Caldo nei cantieri: la SSIC chiede stop alle penali",
+      "description": "La SSIC chiede condizioni eque ed esenzioni dalle penali per i cantieri svizzeri bloccati dal caldo. Analisi della mozione e delle posizioni parlamentari.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/caldo-estremo-cantieri-ssic.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantiere edile in Svizzera durante un'ondata di caldo e lavori di costruzione."
+      },
+      "datePublished": "2026-07-28T16:10:28+00:00",
+      "dateModified": "2026-07-28T16:10:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/caldo-estremo-cantieri-ssic/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
