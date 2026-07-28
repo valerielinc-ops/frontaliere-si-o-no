@@ -1446,7 +1446,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-27T22:15:28.956Z"
+      "firstSeenAt": "2026-07-27T22:15:28.956Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "technician-a-di-officina-elettronica-pemsa-vevey"
+        ],
+        "de": [
+          "techniker-a-di-officina-elettronica-pemsa-vevey"
+        ],
+        "fr": [
+          "technicien-a-di-officina-elettronica-pemsa-vevey"
+        ]
+      },
+      "previousSlugs": [
+        "technician-a-di-officina-elettronica-pemsa-vevey",
+        "techniker-a-di-officina-elettronica-pemsa-vevey",
+        "technicien-a-di-officina-elettronica-pemsa-vevey"
+      ]
     },
     {
       "title": "Muratore",
@@ -1560,7 +1576,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-27T22:15:28.956Z"
+      "firstSeenAt": "2026-07-27T22:15:28.956Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "camion-chauffeur-avec-gru-pemsa-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "camion-chauffeur-avec-gru-pemsa-lugano"
+      ]
     },
     {
       "title": "Tecnico dell’assistenza post-vendita – Box doccia",
