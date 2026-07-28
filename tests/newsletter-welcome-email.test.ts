@@ -231,6 +231,34 @@ describe('sendNewsletterWelcomeEmail', () => {
     expect(results.filter((r) => r.skipped === 'already_sent')).toHaveLength(1);
   });
 
+  it.each([
+    ['unsubscribed', 'suppressed'],
+    ['bounced', 'suppressed'],
+  ])(
+    'status flipping to "%s" between the pre-check and the transaction still stops the send',
+    async (status, expectedSkip) => {
+      // The eligibility guards run once as a cheap early exit and again inside
+      // the transaction. Without the in-transaction re-check, an unsubscribe
+      // landing in that window would still be emailed. Simulate it by flipping
+      // the doc just before the transaction body executes.
+      const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');
+      const db = createFakeDb({ newsletter_subscribers: { 'racer@example.com': recentDoc() } });
+
+      const realRunTransaction = db.runTransaction.bind(db);
+      db.runTransaction = ((fn: Parameters<typeof db.runTransaction>[0]) => {
+        db.docs['newsletter_subscribers/racer@example.com'].status = status;
+        return realRunTransaction(fn);
+      }) as typeof db.runTransaction;
+
+      const result = await sendNewsletterWelcomeEmail({ email: 'racer@example.com', locale: 'it', db, trigger: 'confirm' });
+
+      expect(result).toEqual({ success: false, skipped: expectedSkip });
+      expect(sendEmailCascadeMock).not.toHaveBeenCalled();
+      // The claim must not survive a rejected transaction.
+      expect(db.docs['newsletter_subscribers/racer@example.com'].welcome_sent_at).toBeUndefined();
+    },
+  );
+
   // ── Suppression ──────────────────────────────────────────────
   it.each(['bounced', 'complained', 'suppressed', 'unsubscribed', 'inactive'])(
     'skips suppressed status "%s", sends nothing',

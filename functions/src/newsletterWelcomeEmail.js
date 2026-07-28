@@ -62,6 +62,43 @@ function toDate(value) {
 // concurrent caller already won the claim — never leaks past this module.
 class WelcomeAlreadySentError extends Error {}
 
+/** Carries the skip reason out of the idempotency transaction. */
+class WelcomeNotEligibleError extends Error {
+  constructor(reason) {
+    super(reason);
+    this.reason = reason;
+  }
+}
+
+/**
+ * Eligibility for a welcome send, from a subscriber doc's data.
+ *
+ * Evaluated twice on purpose: once before the transaction as a cheap early
+ * exit, and again INSIDE it against the freshly-read snapshot. Reading the
+ * state outside and claiming inside would leave a window where an unsubscribe
+ * or a bounce landing between the two still gets a welcome email.
+ *
+ * @param {object} data subscriber doc data
+ * @param {boolean} isPreview preview sends skip the recency window
+ * @returns {{ ok: true } | { ok: false, skipped: string }}
+ */
+function evaluateWelcomeEligibility(data, isPreview) {
+  if (isNewsletterExcluded(data?.status)) {
+    return { ok: false, skipped: 'suppressed' };
+  }
+  const isConfirmed = data?.status === 'confirmed' || data?.isActive === true || data?.active === true;
+  if (!isConfirmed) {
+    return { ok: false, skipped: 'not_confirmed' };
+  }
+  if (!isPreview) {
+    const anchor = toDate(data?.confirmed_at) || toDate(data?.created_at) || toDate(data?.createdAt);
+    if (!anchor || Date.now() - anchor.getTime() > RECENCY_WINDOW_MS) {
+      return { ok: false, skipped: 'too_old' };
+    }
+  }
+  return { ok: true };
+}
+
 /**
  * @param {{email: string, locale?: string, db?: unknown, trigger: 'confirm'|'presigned'|'preview'}} params
  * @returns {Promise<{success: boolean, error?: string, skipped?: string, messageId?: string, segment?: string}>}
@@ -101,20 +138,11 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
   }
   const data = subscriberDoc.data() || {};
 
-  if (isNewsletterExcluded(data.status)) {
-    return { success: false, skipped: 'suppressed' };
-  }
-
-  const isConfirmed = data.status === 'confirmed' || data.isActive === true || data.active === true;
-  if (!isConfirmed) {
-    return { success: false, skipped: 'not_confirmed' };
-  }
-
-  if (!isPreview) {
-    const anchor = toDate(data.confirmed_at) || toDate(data.created_at) || toDate(data.createdAt);
-    if (!anchor || Date.now() - anchor.getTime() > RECENCY_WINDOW_MS) {
-      return { success: false, skipped: 'too_old' };
-    }
+  // Cheap early exit. The authoritative check runs again inside the
+  // transaction below, against the snapshot read there.
+  const preCheck = evaluateWelcomeEligibility(data, isPreview);
+  if (!preCheck.ok) {
+    return { success: false, skipped: preCheck.skipped };
   }
 
   // Unsubscribe/preferences links are HMAC-signed with this secret — a
@@ -146,8 +174,16 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
     try {
       await db.runTransaction(async (tx) => {
         const snap = await tx.get(subscriberRef);
-        if (snap.exists && snap.data()?.welcome_sent_at) {
+        const fresh = snap.exists ? (snap.data() || {}) : {};
+        if (fresh.welcome_sent_at) {
           throw new WelcomeAlreadySentError('already_sent');
+        }
+        // Re-verify against the snapshot read in THIS transaction: an
+        // unsubscribe, bounce or complaint landing between the pre-check and
+        // here must still stop the send.
+        const eligible = evaluateWelcomeEligibility(fresh, isPreview);
+        if (!eligible.ok) {
+          throw new WelcomeNotEligibleError(eligible.skipped);
         }
         tx.set(subscriberRef, {
           welcome_sent_at: admin.firestore.FieldValue.serverTimestamp(),
@@ -157,6 +193,9 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
     } catch (txErr) {
       if (txErr instanceof WelcomeAlreadySentError) {
         return { success: false, skipped: 'already_sent' };
+      }
+      if (txErr instanceof WelcomeNotEligibleError) {
+        return { success: false, skipped: txErr.reason };
       }
       throw txErr;
     }
