@@ -208,6 +208,69 @@ describe('worker email() — forward-only addresses', () => {
   });
 });
 
+describe('auto-reply subject patterns — worker/lib lockstep', () => {
+  it('keeps the Worker copy byte-identical to scripts/lib/stop-reply-detect.mjs', async () => {
+    // The Worker cannot import across the wrangler bundle boundary, so the
+    // subject rules exist twice (AGENTS.md #6). This assertion is what makes
+    // the duplication safe: any edit to one copy without the other fails CI
+    // instead of silently drifting the queue processor away from the inbound
+    // filter.
+    const { readFile } = await import('node:fs/promises');
+    const marker = /const AUTO_REPLY_SUBJECT_MARKER =\s*\n?\s*'([^']+)'/;
+    const [workerSrc, libSrc] = await Promise.all([
+      readFile(new URL('../infra/cloudflare-email-worker/stop-reply-handler.js', import.meta.url), 'utf-8'),
+      readFile(new URL('../scripts/lib/stop-reply-detect.mjs', import.meta.url), 'utf-8'),
+    ]);
+    const workerMarker = workerSrc.match(marker)?.[1];
+    const libMarker = libSrc.match(marker)?.[1];
+    expect(workerMarker).toBeTruthy();
+    expect(workerMarker).toBe(libMarker);
+  });
+
+  it('agrees with the lib implementation on the same subjects', async () => {
+    const { isAutoReplySubject } = await import('../scripts/lib/stop-reply-detect.mjs');
+    const subjects = [
+      'Out of office Re: 🔔 MaP Executive Director at ETH Zürich (+9 more)',
+      'Automatic reply: Frontaliere Weekly',
+      'Risposta automatica: offerte',
+      'Re: your email [Out of Office]',
+      'Re: our out of office policy for August',
+      'STOP',
+    ];
+    for (const s of subjects) {
+      expect(isAutoReplySubject({ subject: s })).toBe(isAutoReply({ get: () => undefined }, s));
+    }
+  });
+});
+
+describe('worker email() — unreadable message', () => {
+  it('still forwards when headers.get throws', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response('{}'));
+    vi.stubGlobal('fetch', fetchMock);
+
+    // A malformed/duplicated header must not cost us the message: a throw
+    // escaping the handler makes Email Routing bounce it back to the sender.
+    const message = fakeMessage({
+      from: 'Someone <someone@example.com>',
+      to: 'valerie@frontaliereticino.ch',
+      subject: 'hello',
+    });
+    message.headers = { get: () => { throw new Error('malformed header'); } };
+    const ctx = fakeCtx();
+
+    await worker.email(message, {
+      STOP_SECRET: SECRET,
+      REPLY_TRACK_FN_URL: 'https://fn.example/track',
+      NEWSLETTER_ADDRESS: 'newsletter@frontaliereticino.ch',
+      OUTREACH_ADDRESS: 'valerie@frontaliereticino.ch',
+      FORWARD_TO: 'human@example.com',
+    }, ctx);
+
+    await Promise.all(ctx.waited);
+    expect(message.forward).toHaveBeenCalledWith('human@example.com');
+  });
+});
+
 describe('hmacHex (Web Crypto)', () => {
   it('matches Node createHmac(sha256).digest(hex) byte-for-byte', async () => {
     const expected = createHmac('sha256', SECRET).update('someone@example.com').digest('hex');

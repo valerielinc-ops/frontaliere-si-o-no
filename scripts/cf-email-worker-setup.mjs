@@ -46,6 +46,13 @@ const NEWSLETTER_ADDRESS = 'newsletter@frontaliereticino.ch';
 // actually landed) and consulenza@, published in the site copy and the internal
 // lead notification target (functions/src/consultingCore.js).
 //
+// The first sweep only covered scripts/functions/services/workflows and so
+// missed the addresses published in the UI layer, added here after review:
+// stampa@ (press-kit mailto, components/pages/PressKit.tsx) and the two author
+// bylines (data/authors.ts, mailto in components/pages/AutorePage.tsx). The zone
+// catch-all forwards every address, so a published mailto is a live inbound
+// surface whether or not a dedicated mailbox exists behind it.
+//
 // Deliberately NOT bound: the *-bot@ addresses (git commit identities in
 // workflows, they never receive mail) and preview@/qa-preview@ (local
 // newsletter preview/QA placeholders, never a real recipient).
@@ -58,6 +65,9 @@ const AUTO_REPLY_SINK_ADDRESSES = [
   'info@frontaliereticino.ch',
   'report@frontaliereticino.ch',
   'consulenza@frontaliereticino.ch',
+  'stampa@frontaliereticino.ch',
+  'marco.ferrari@frontaliereticino.ch',
+  'laura.bianchi@frontaliereticino.ch',
 ];
 const ROUTING_RULES = [
   { address: OUTREACH_ADDRESS, name: 'cold-email reply → stop-reply-handler' },

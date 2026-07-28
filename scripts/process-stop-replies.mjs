@@ -43,7 +43,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { isStopReply, extractSenderEmail } from './lib/stop-reply-detect.mjs';
+import { isStopReply, isAutoReplySubject, extractSenderEmail } from './lib/stop-reply-detect.mjs';
 import {
   resolveCompanyKeyByEmail,
   writeSuppression,
@@ -122,6 +122,14 @@ export function classifyReplies(replies, contacts) {
   const seen = new Set();
   for (const r of replies || []) {
     const fromEmail = extractSenderEmail(r?.from);
+    // Same gate the Worker applies inbound (stop-reply-handler.js:isAutoReply):
+    // an out-of-office is not a STOP, and its footer routinely carries the word
+    // "unsubscribe". Checked BEFORE isStopReply so the auto-reply never reaches
+    // the intent patterns at all.
+    if (isAutoReplySubject({ subject: r?.subject })) {
+      skipped.push({ reason: 'auto-reply', fromEmail, subject: r?.subject || '' });
+      continue;
+    }
     if (!isStopReply({ subject: r?.subject, body: r?.body, text: r?.text })) {
       skipped.push({ reason: 'not-a-stop', fromEmail, subject: r?.subject || '' });
       continue;
