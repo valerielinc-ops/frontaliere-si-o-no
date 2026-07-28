@@ -4953,6 +4953,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dichiarazione-imposte-svizzera-guida': { name: 'Dichiarazione Imposte Svizzera', path: '/articoli-svizzera/dichiarazione-imposte-svizzera-guida/', parent: 'blog' },
     'blog-frontalieri-italiani-ticino-risorsa': { name: 'Frontalieri Ticino risorsa', path: '/articoli-frontaliere/frontalieri-italiani-ticino-risorsa', parent: 'blog' },
     'blog-permessi-soggiorno-svizzera-b-c-l': { name: 'Permessi di soggiorno Svizzera', path: '/articoli-svizzera/permessi-soggiorno-svizzera-b-c-l/', parent: 'blog' },
+    'blog-mercati-predittivi-business-trump': { name: 'Economia Trump', path: '/articoli-frontaliere/mercati-predittivi-business-trump', parent: 'blog' },
  };
 
  const info = sectionNames[section];

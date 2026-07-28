@@ -9038,6 +9038,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-italiani-ticino-risorsa.title': 'Ticino: scarseggiano i frontalieri italiani, ora sono una risorsa',
     'blog.article.frontalieri-italiani-ticino-risorsa.excerpt': 'Il calo dei frontalieri italiani nel Canton Ticino crea problemi alle imprese locali, ribaltando le vecchie accuse dei sovranisti.',
     'blog.article.frontalieri-italiani-ticino-risorsa.imageAlt': 'Panorama del confine tra Italia e Canton Ticino',
+    'blog.article.mercati-predittivi-business-trump.title': 'Mercati predittivi e nuova piattaforma: il business di Trump',
+    'blog.article.mercati-predittivi-business-trump.excerpt': 'La famiglia Trump amplia le proprie attività nei mercati predittivi con il lancio della nuova piattaforma Truth Api.',
+    'blog.article.mercati-predittivi-business-trump.imageAlt': 'Veduta panoramica del Lago di Lugano, simbolo dell\'economia ticinese.',
 };
 
 export default blogMetaIt;
