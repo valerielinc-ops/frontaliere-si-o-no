@@ -90,6 +90,11 @@ const NEWSLETTER_STOP_INTENT_PATTERNS = [
   /annull\w*\s+l\W?iscrizione/i,
 ];
 
+// MIRROR of scripts/lib/stop-reply-detect.mjs AUTO_REPLY_SUBJECT_MARKER /
+// AUTO_REPLY_SUBJECT_PATTERNS (the queue-side processor needs the same subject
+// rules). Kept byte-identical by an assertion in
+// tests/cf-email-worker-stop-reply-handler.test.ts — drift fails CI.
+//
 // Subject shapes autoresponders use when they omit the RFC 3834 headers below.
 // Anchored at the start (after any Re:/AW:/R: prefix chain) or bracketed at the
 // end — the two forms real out-of-office subjects take ("Out of office Re: …",
@@ -263,19 +268,34 @@ export default {
    * @param {ExecutionContext} ctx
    */
   async email(message, env, ctx) {
-    const from = message.from || '';
-    // `message.to` is the SMTP envelope-to (RFC 5321 RCPT TO), not the `To:`
-    // header (RFC 5322) — envelope addresses are bare per spec, so a
-    // display-name wrapper ("Frontaliere Newsletter" <newsletter@…>) should
-    // never reach here. Normalized defensively anyway via the same bare-address
-    // extraction used for `from` below, in case an upstream relay is
-    // non-conformant.
-    const to = extractSenderEmail(message.to);
-    const subject = (message.headers && message.headers.get && message.headers.get('subject')) || '';
+    // Everything that reads off `message` before the forward must be
+    // throw-proof: a throw here escapes the handler, Email Routing treats the
+    // message as failed and the sender gets a bounce — the exact opposite of
+    // the "no reply is ever lost" guarantee below. `headers.get` on a malformed
+    // or duplicated header is the realistic way that happens.
+    let from = '';
+    let to = '';
+    let subject = '';
+    let auto = false;
+    try {
+      from = message.from || '';
+      // `message.to` is the SMTP envelope-to (RFC 5321 RCPT TO), not the `To:`
+      // header (RFC 5322) — envelope addresses are bare per spec, so a
+      // display-name wrapper ("Frontaliere Newsletter" <newsletter@…>) should
+      // never reach here. Normalized defensively anyway via the same bare-address
+      // extraction used for `from` below, in case an upstream relay is
+      // non-conformant.
+      to = extractSenderEmail(message.to);
+      subject = (message.headers && message.headers.get && message.headers.get('subject')) || '';
+      auto = isAutoReply(message.headers, subject);
+    } catch {
+      // Unreadable envelope/headers: fall through with the empty defaults and
+      // let the forward below still happen. Never classified, never dropped.
+    }
 
     // An automatic response is not a reply: drop it before any classification,
     // tracking or forwarding happens (see isAutoReply for why all three).
-    if (isAutoReply(message.headers, subject)) return;
+    if (auto) return;
 
     const newsletterAddress = (env.NEWSLETTER_ADDRESS || '').trim().toLowerCase();
     const outreachAddress = (env.OUTREACH_ADDRESS || '').trim().toLowerCase();
