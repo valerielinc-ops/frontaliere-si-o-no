@@ -16,7 +16,7 @@
  *     LOCALE_PATH_MAP (superset of services/newsletter-template.mjs's map +
  *     the publisher-only routes from services/routeSlugs.data.ts, which the
  *     newsletter template never needed). This file keeps its OWN
- *     `directUrl`/`localizedUrl` (trailing-slash behavior, unlike the
+ *     `directUrlSlashed`/`localizedUrlSlashed` (trailing-slash behavior, unlike the
  *     newsletter template's bare-path version) and only imports the map.
  *   - the "Consigliato per te" card → functions/src/lib/recommendedBlock.js,
  *     which reads the live enable gate from
@@ -67,17 +67,17 @@ function ensureTrailingSlash(url) {
   return url.endsWith('/') ? url : `${url}/`;
 }
 
-function directUrl(path) {
+function directUrlSlashed(path) {
   if (/^https?:\/\//i.test(path)) return ensureTrailingSlash(path);
   const full = `${BASE_URL}${path.startsWith('/') ? path : '/' + path}`;
   return ensureTrailingSlash(full);
 }
 
-function localizedUrl(itPath, locale) {
+function localizedUrlSlashed(itPath, locale) {
   const lang = normLocale(locale);
   const variants = LOCALE_PATH_MAP[itPath];
   const path = variants ? (variants[lang] || variants.it) : itPath;
-  return directUrl(path);
+  return directUrlSlashed(path);
 }
 
 // ── Greeting ───────────────────────────────────────────────────────
@@ -352,12 +352,12 @@ function buildJobContent(locale, { company, sectorKey, locationLabel, jobBackPat
   const hook = JOB_HOOK_TEMPLATE[locale](descriptor);
   const quickLinks = [];
   if (jobBackPath) {
-    quickLinks.push({ label: LINKS.backToJob[locale], href: directUrl(jobBackPath) });
+    quickLinks.push({ label: LINKS.backToJob[locale], href: directUrlSlashed(jobBackPath) });
   } else {
-    quickLinks.push({ label: LINKS.allJobs[locale], href: localizedUrl('/cerca-lavoro-svizzera', locale) });
+    quickLinks.push({ label: LINKS.allJobs[locale], href: localizedUrlSlashed('/cerca-lavoro-svizzera', locale) });
   }
-  quickLinks.push({ label: LINKS.calcNet[locale], href: localizedUrl('/calcola-stipendio', locale) });
-  quickLinks.push({ label: LINKS.compareLamal[locale], href: localizedUrl('/compara-servizi/confronta-casse-malati', locale) });
+  quickLinks.push({ label: LINKS.calcNet[locale], href: localizedUrlSlashed('/calcola-stipendio', locale) });
+  quickLinks.push({ label: LINKS.compareLamal[locale], href: localizedUrlSlashed('/compara-servizi/confronta-casse-malati', locale) });
 
   return {
     subject: SUBJECT.job[locale],
@@ -365,7 +365,7 @@ function buildJobContent(locale, { company, sectorKey, locationLabel, jobBackPat
     heading: HEADING.job[locale],
     hook,
     ctaLabel: CTA_LABEL.job[locale],
-    ctaHref: localizedUrl('/cerca-lavoro-svizzera', locale),
+    ctaHref: localizedUrlSlashed('/cerca-lavoro-svizzera', locale),
     quickLinks,
   };
 }
@@ -377,11 +377,11 @@ function buildSalaryContent(locale) {
     heading: HEADING.salary[locale],
     hook: HOOK.salary[locale],
     ctaLabel: CTA_LABEL.salary[locale],
-    ctaHref: localizedUrl('/calcola-stipendio', locale),
+    ctaHref: localizedUrlSlashed('/calcola-stipendio', locale),
     quickLinks: [
-      { label: LINKS.compareLamal[locale], href: localizedUrl('/compara-servizi/confronta-casse-malati', locale) },
-      { label: LINKS.compareFx[locale], href: localizedUrl('/compara-servizi/cambio-franco-euro', locale) },
-      { label: LINKS.searchJobsCh[locale], href: localizedUrl('/cerca-lavoro-svizzera', locale) },
+      { label: LINKS.compareLamal[locale], href: localizedUrlSlashed('/compara-servizi/confronta-casse-malati', locale) },
+      { label: LINKS.compareFx[locale], href: localizedUrlSlashed('/compara-servizi/cambio-franco-euro', locale) },
+      { label: LINKS.searchJobsCh[locale], href: localizedUrlSlashed('/cerca-lavoro-svizzera', locale) },
     ],
   };
 }
@@ -392,8 +392,8 @@ function buildUtilityContent(locale, { toolKey }) {
   // Point at a DIFFERENT tool than the one they just used (lamal → fx
   // comparator; comparator/anything else → the LAMal comparator).
   const ctaHref = toolKey === 'lamal'
-    ? localizedUrl('/compara-servizi/cambio-franco-euro', locale)
-    : localizedUrl('/compara-servizi/confronta-casse-malati', locale);
+    ? localizedUrlSlashed('/compara-servizi/cambio-franco-euro', locale)
+    : localizedUrlSlashed('/compara-servizi/confronta-casse-malati', locale);
 
   return {
     subject: SUBJECT.utility[locale],
@@ -403,9 +403,9 @@ function buildUtilityContent(locale, { toolKey }) {
     ctaLabel: CTA_LABEL.utility[locale],
     ctaHref,
     quickLinks: [
-      { label: LINKS.calcNet[locale], href: localizedUrl('/calcola-stipendio', locale) },
-      { label: LINKS.compareLamal[locale], href: localizedUrl('/compara-servizi/confronta-casse-malati', locale) },
-      { label: LINKS.compareFx[locale], href: localizedUrl('/compara-servizi/cambio-franco-euro', locale) },
+      { label: LINKS.calcNet[locale], href: localizedUrlSlashed('/calcola-stipendio', locale) },
+      { label: LINKS.compareLamal[locale], href: localizedUrlSlashed('/compara-servizi/confronta-casse-malati', locale) },
+      { label: LINKS.compareFx[locale], href: localizedUrlSlashed('/compara-servizi/cambio-franco-euro', locale) },
     ],
   };
 }
@@ -417,11 +417,11 @@ function buildPublisherContent(locale) {
     heading: HEADING.publisher[locale],
     hook: HOOK.publisher[locale],
     ctaLabel: CTA_LABEL.publisher[locale],
-    ctaHref: localizedUrl('/pubblica-offerta', locale),
+    ctaHref: localizedUrlSlashed('/pubblica-offerta', locale),
     quickLinks: [
-      { label: LINKS.howPublishing[locale], href: localizedUrl('/per-le-aziende', locale) },
-      { label: LINKS.publishListing[locale], href: localizedUrl('/pubblica-offerta', locale) },
-      { label: LINKS.myListings[locale], href: localizedUrl('/i-miei-annunci', locale) },
+      { label: LINKS.howPublishing[locale], href: localizedUrlSlashed('/per-le-aziende', locale) },
+      { label: LINKS.publishListing[locale], href: localizedUrlSlashed('/pubblica-offerta', locale) },
+      { label: LINKS.myListings[locale], href: localizedUrlSlashed('/i-miei-annunci', locale) },
     ],
   };
 }
@@ -433,11 +433,11 @@ function buildGeneralContent(locale) {
     heading: HEADING.general[locale],
     hook: HOOK.general[locale],
     ctaLabel: CTA_LABEL.general[locale],
-    ctaHref: localizedUrl('/calcola-stipendio', locale),
+    ctaHref: localizedUrlSlashed('/calcola-stipendio', locale),
     quickLinks: [
-      { label: LINKS.calcNet[locale], href: localizedUrl('/calcola-stipendio', locale) },
-      { label: LINKS.searchJobsCh[locale], href: localizedUrl('/cerca-lavoro-svizzera', locale) },
-      { label: LINKS.compareLamal[locale], href: localizedUrl('/compara-servizi/confronta-casse-malati', locale) },
+      { label: LINKS.calcNet[locale], href: localizedUrlSlashed('/calcola-stipendio', locale) },
+      { label: LINKS.searchJobsCh[locale], href: localizedUrlSlashed('/cerca-lavoro-svizzera', locale) },
+      { label: LINKS.compareLamal[locale], href: localizedUrlSlashed('/compara-servizi/confronta-casse-malati', locale) },
     ],
   };
 }

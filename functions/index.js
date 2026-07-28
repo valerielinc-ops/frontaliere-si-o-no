@@ -560,10 +560,14 @@ export const newsletterSendConfirmation = onRequest(
  },
 );
 
-// Post-signup welcome email, presigned trigger (mirrors newsletterSendConfirmation).
-// The `confirm` action in newsletterSubscriptionManagement.js already fires this
-// within seconds of double opt-in — this endpoint exists for a resend/retry path
-// (e.g. a presigned link) that needs to trigger the same send independently.
+// Post-signup welcome email (mirrors newsletterSendConfirmation).
+// FUNNEL-CRITICAL: this is the ONLY welcome touchpoint for pre-confirmed
+// subscribers — Google One Tap, social sign-in and the job-unlock gates, which
+// together are ~82% of all signups. Those paths never reach double opt-in, so
+// the `confirm` action in newsletterSubscriptionManagement.js (which covers the
+// remaining minority) never fires for them. Called from
+// services/newsletterSubscribers.ts:upsertNewsletterSubscriber. If this endpoint
+// breaks, most new subscribers silently receive no welcome email at all.
 export const newsletterSendWelcome = onRequest(
  {
  region: 'europe-west6',
