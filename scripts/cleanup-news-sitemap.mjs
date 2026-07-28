@@ -2,8 +2,8 @@
 /**
  * News Sitemap Whitelist Cleanup (Google News C1).
  *
- * Filters `dist/sitemap-news.xml` (and the source `public/sitemap-news.xml`
- * when --apply is passed) to keep only articles that:
+ * Filters `dist/sitemap-news.xml` and the source `public/sitemap-news.xml`
+ * (unless --dry-run is passed) to keep only articles that:
  *   1. Were published in the last 48 hours (Google News window).
  *   2. Match the topic whitelist in `data/news-sitemap-whitelist.ts`
  *      (5 + 1 macro-themes: fisco, AVS/LPP, LAMal, dogana/lavoro, FX,
@@ -15,10 +15,16 @@
  * for legacy entries already in the sitemap.
  *
  * Usage:
- *   node scripts/cleanup-news-sitemap.mjs              # default: read dist/, dry-run
- *   node scripts/cleanup-news-sitemap.mjs --dry-run    # explicit dry-run, no writes
- *   node scripts/cleanup-news-sitemap.mjs --apply      # rewrite both public/ and dist/
+ *   node scripts/cleanup-news-sitemap.mjs              # default: rewrite both public/ and dist/
+ *   node scripts/cleanup-news-sitemap.mjs --dry-run    # explicit dry-run, no writes (report only)
+ *   node scripts/cleanup-news-sitemap.mjs --apply      # same as default, kept for explicit invocations
  *   node scripts/cleanup-news-sitemap.mjs --source=public   # operate on public/ only
+ *
+ * Default flipped to apply (was dry-run-by-default) because none of the 5 CI
+ * call sites ever passed --apply, so rewriteFile() was permanently dead code
+ * and sitemap-news.xml was never actually narrowed to the whitelist/48h
+ * window in production (issue #4848). --dry-run remains available for local
+ * inspection (`npm run audit:news-sitemap`).
  *
  * Per CLAUDE.md non-negotiable rule #5 + memory `feedback_never_noindex`:
  * filtered URLs stay in `sitemap-blog.xml` and remain reachable. We never
@@ -33,10 +39,13 @@ import { writeAuditReport } from './lib/auditReport.mjs';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(__dirname, '..');
 
-// CLI flags
+// CLI flags. Apply-by-default (see Usage above): only an explicit --dry-run
+// opts into the read-only report. --apply is accepted for backward
+// compatibility with existing explicit invocations (e.g. package.json
+// `sanitize:news-sitemap`) but is no longer required to trigger a rewrite.
 const args = new Set(process.argv.slice(2));
-const APPLY = args.has('--apply');
-const DRY_RUN = !APPLY || args.has('--dry-run');
+const DRY_RUN = args.has('--dry-run');
+const APPLY = !DRY_RUN;
 const SOURCE_FLAG = [...args].find((a) => a.startsWith('--source='))?.slice(9);
 
 const PUBLIC_PATH = resolve(REPO_ROOT, 'public', 'sitemap-news.xml');
@@ -248,8 +257,8 @@ async function main() {
 
   const summaryFile = writeSummary(report);
   console.log(`\nSummary written to ${summaryFile.replace(REPO_ROOT + '/', '')}`);
-  if (DRY_RUN && !APPLY) {
-    console.log('(dry-run — no files modified; use --apply to rewrite)');
+  if (DRY_RUN) {
+    console.log('(dry-run — no files modified; omit --dry-run to rewrite)');
   }
 
   // Structured report — informational. The audit always passes; the JSON
