@@ -45,7 +45,7 @@
  *   node scripts/ci/assert-dist-complete.mjs --json
  */
 
-import { readdir, readFile, access } from 'node:fs/promises';
+import { readdir, readFile, access, stat } from 'node:fs/promises';
 import { join, dirname, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -165,12 +165,26 @@ function urlToRelPath(url) {
   }
 }
 
-/** Mirrors `resolvePathToDistFile` in scripts/audit-bfs-depth.mjs. */
+/**
+ * Mirrors `resolvePathToDistFile` in scripts/audit-bfs-depth.mjs, plus a
+ * literal-path fallback so a sitemap that lists a non-HTML resource (an image
+ * or PDF sitemap — none today, all 81 children are page sitemaps) resolves on
+ * the file itself instead of counting as an absent page.
+ */
 async function hasDistFile(rel) {
-  const a = join(DIST, rel, 'index.html');
-  try { await access(a); return true; } catch { /* fall through */ }
-  const b = join(DIST, `${rel}.html`);
-  try { await access(b); return true; } catch { return false; }
+  for (const candidate of [join(DIST, rel, 'index.html'), join(DIST, `${rel}.html`)]) {
+    try { await access(candidate); return true; } catch { /* try next */ }
+  }
+  // Literal path last, and only when it is a FILE: `dist/<rel>` exists as a
+  // DIRECTORY for every stripped page too (the shard strip removes index.html
+  // but can leave the folder), so an access() check alone would report a
+  // missing page as present and defeat the whole check.
+  try {
+    const st = await stat(join(DIST, rel));
+    return st.isFile();
+  } catch {
+    return false;
+  }
 }
 
 async function main() {

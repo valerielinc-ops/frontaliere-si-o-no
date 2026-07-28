@@ -185,6 +185,14 @@ jobs:
           echo "Full dist/ after rehydrate: $(find dist -type f | wc -l) files; HTML: $(find dist -name '*.html' | wc -l)"
           df -h / | tail -1
 
+      # A baseline is worse than an audit to get wrong: the section rehydrate
+      # above is soft-fail by contract, and pages missing from dist/ drop out
+      # of the seeded title/H1 counts — locking in numbers the next comparison
+      # treats as the accepted norm. Refuse to seed from a partial dist
+      # (issue #4857).
+      - name: Assert dist/ is the complete logical site
+        run: node scripts/ci/assert-dist-complete.mjs
+
       - name: Generate title-length baseline
         run: |
           node scripts/audit-title-length.mjs \
