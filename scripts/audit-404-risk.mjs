@@ -177,17 +177,10 @@ const SECTION_SLUGS = JSON.parse(
 );
 // Per-section GitHub owner override (default valerielinc-ops) — see
 // scripts/lib/section-shard-owners.json header comment for why a section
-// moves owner (stuck Pages cert on the default account). An entry is either a
-// plain string (uniform owner for all 4 locales) or an object
-// {default, <locale>} for a mixed per-locale owner (issue #4846).
+// moves owner (stuck Pages cert on the default account).
 const SECTION_OWNERS = JSON.parse(
   readFileSync(join(ROOT, 'scripts/lib/section-shard-owners.json'), 'utf8')
 );
-function sectionShardOwner(section, loc) {
-  const entry = SECTION_OWNERS[section];
-  if (entry && typeof entry === 'object') return entry[loc] || entry.default || 'valerielinc-ops';
-  return entry || 'valerielinc-ops';
-}
 const SECTION_SHARD_REPOS = Object.fromEntries(
   Object.keys(SECTION_SLUGS)
     .filter((section) => !section.startsWith('_'))
@@ -196,7 +189,7 @@ const SECTION_SHARD_REPOS = Object.fromEntries(
       Object.fromEntries(
         Object.keys(SECTION_SLUGS[section]).map((loc) => [
           loc,
-          `${sectionShardOwner(section, loc)}/frontaliere-${section}-${loc}`,
+          `${SECTION_OWNERS[section] || 'valerielinc-ops'}/frontaliere-${section}-${loc}`,
         ])
       ),
     ])
