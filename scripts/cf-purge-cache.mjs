@@ -48,6 +48,11 @@
  *   eval "$(GOOGLE_APPLICATION_CREDENTIALS=mcp-gsc-main/service_account_credentials.json \
  *     node scripts/load-rc-env.mjs)" && node scripts/cf-purge-cache.mjs
  *
+ * Zone-id resolution itself delegates to scripts/lib/cf-analytics.mjs's
+ * resolveZoneId (AGENTS.md #6 — no inline copy of that fetch+parse construct);
+ * this file's own resolveZoneId() wrapper only adds this script's specific
+ * warnStaleEdge annotation on failure.
+ *
  * Exit: 0 = purged (or no-op when CF_API_TOKEN absent — non-fatal so a
  * missing secret never fails the deploy), 1 = API/auth error or >30 --files.
  *
@@ -65,6 +70,8 @@
  * deploy still fails after the settle — this only smooths over the purge's
  * own propagation window.
  */
+import { resolveZoneId as resolveZoneIdShared } from './lib/cf-analytics.mjs';
+
 const PURGE_SETTLE_MS = Number(process.env.CF_PURGE_SETTLE_MS) || 20_000;
 const MAX_TARGETED_FILES = 30; // Cloudflare free-plan `files` purge_cache cap.
 
@@ -123,14 +130,13 @@ async function cf(method, path, body) {
 }
 
 async function resolveZoneId() {
-  if (process.env.CF_ZONE_ID) return process.env.CF_ZONE_ID;
-  const { json } = await cf('GET', `/zones?name=${encodeURIComponent(ZONE_NAME)}`);
-  if (!json?.success || !json.result?.length) {
+  try {
+    return await resolveZoneIdShared(token, ZONE_NAME, process.env.CF_ZONE_ID);
+  } catch {
     console.error(`❌ Cannot resolve zone id for ${ZONE_NAME} (token scope?).`);
     warnStaleEdge(`could not resolve zone id for ${ZONE_NAME} (token scope?)`);
     process.exit(1);
   }
-  return json.result[0].id;
 }
 
 try {

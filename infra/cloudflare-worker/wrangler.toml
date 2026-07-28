@@ -165,6 +165,17 @@ routes = [
   # pushed path is a one-line addition here + one object-literal entry in
   # EDGE_PUSHED_FILES, no other code change.
   { pattern = "frontaliereticino.ch/sitemap-blog-ch.xml", zone_name = "frontaliereticino.ch" },
+  # Pushable-origin edge files, rollout step 2 (issue #4881 residual — llms.txt
+  # family, see locale-router.js EDGE_PUSHED_FILES). Same no-wildcard rationale
+  # as /sitemap-blog-ch.xml above: AI crawlers (GPTBot, ClaudeBot, PerplexityBot,
+  # Google-Extended, ...) fetch these bare paths with no query string, so there
+  # is no real traffic to miss. /en/llms.txt, /de/llms.txt, /fr/llms.txt need NO
+  # new route here — they already reach the Worker via the /en|/de|/fr routes
+  # above (LOCALE_RE) and are deliberately NOT in EDGE_PUSHED_FILES (see that
+  # table's comment for why).
+  { pattern = "frontaliereticino.ch/llms.txt", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/llms-full.txt", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/.well-known/llms.txt", zone_name = "frontaliereticino.ch" },
   # NOTE: the /assets/* /data/* /og/* CDN-proxy routes were removed (2026-06-10).
   # Since #1665 the shard locale HTML references those static paths CDN-absolute
   # (cdn.frontaliereticino.ch/...), so the browser fetches them straight from the
