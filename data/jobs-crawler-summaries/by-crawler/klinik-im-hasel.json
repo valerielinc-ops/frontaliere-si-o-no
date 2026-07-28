@@ -1,18 +1,19 @@
 {
   "key": "klinik-im-hasel",
   "label": "Klinik im Hasel",
-  "generatedAt": "2026-07-28T11:28:22.098Z",
+  "generatedAt": "2026-07-28T22:09:02.139Z",
   "total": 6,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 7152,
-  "avgDurationMs": 7152,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 7139,
+  "avgDurationMs": 7139,
   "durationHistory": [
-    7152
+    7139
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "klinik-im-hasel-1e3d2c9a94da",
       "slug": "direktionsassistent-in-w-m-d-50-klinik-im-hasel-gontenschwil",
@@ -20,13 +21,13 @@
       "companyKey": "klinik-im-hasel",
       "companyDomain": "klinikimhasel.ch",
       "title": "Direktionsassistent:in (w/m/d), 50%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Gontenschwil",
       "canton": "AG",
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/466/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:28:16.555Z",
+      "crawledAt": "2026-07-28T22:08:57.146Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "featured": false,
       "postedDate": "2026-07-28",
       "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/466/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-28T11:28:16.555Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "klinik-im-hasel-311f96709bc4",
       "slug": "arztsekretar-in-o-mpa-m-w-d-80-100-klinik-im-hasel-gontenschwil",
@@ -64,7 +64,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/464/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:28:17.229Z",
+      "crawledAt": "2026-07-28T22:08:57.874Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/465/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:28:17.915Z",
+      "crawledAt": "2026-07-28T22:08:58.555Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -126,43 +126,6 @@
       }
     },
     {
-      "id": "klinik-im-hasel-99ee502087f8",
-      "slug": "fach-psycholog-in-in-lenzburg-w-m-d-60-100-klinik-im-hasel-gontenschwil",
-      "company": "Klinik im Hasel",
-      "companyKey": "klinik-im-hasel",
-      "companyDomain": "klinikimhasel.ch",
-      "title": "(Fach-)Psycholog:in in Lenzburg (w/m/d), 60-100%",
-      "needsRetranslation": true,
-      "location": "Gontenschwil",
-      "canton": "AG",
-      "url": "https://recruitingapp-2912.umantis.com/Vacancies/462/Description/1",
-      "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:28:18.616Z",
-      "addressLocality": "Gontenschwil",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5728",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-02",
-      "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/462/Application/CheckLogin/1",
-      "firstSeenAt": "2026-06-02T13:36:43.823Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
       "id": "klinik-im-hasel-16739a894a4f",
       "slug": "praktikum-kunsttherapie-fachrichtung-gestaltungs-und-maltherapie-w-m-d-50-klinik-im-hasel",
       "company": "Klinik im Hasel",
@@ -175,7 +138,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/413/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:28:19.301Z",
+      "crawledAt": "2026-07-28T22:08:59.253Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -212,7 +175,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/330/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:28:19.975Z",
+      "crawledAt": "2026-07-28T22:08:59.854Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -237,20 +200,21 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "id": "klinik-im-hasel-23450d67b633",
-      "slug": "psicologo-a-specializzato-a-a-baden-m-f-d-60-klinik-im-hasel-gontenschwil",
+      "id": "klinik-im-hasel-99ee502087f8",
+      "slug": "fachpsycholog-in-in-lenzburg-w-m-d-60-100-klinik-im-hasel-gontenschwil",
       "company": "Klinik im Hasel",
       "companyKey": "klinik-im-hasel",
       "companyDomain": "klinikimhasel.ch",
-      "title": "(Fach-)Psycholog:in in Baden (w/m/d), 60%",
+      "title": "(Fach-)Psycholog:in in Lenzburg (w/m/d), 60-100%",
       "location": "Gontenschwil",
       "canton": "AG",
-      "url": "https://recruitingapp-2912.umantis.com/Vacancies/460/Description/1",
+      "url": "https://recruitingapp-2912.umantis.com/Vacancies/462/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T22:03:16.096Z",
+      "crawledAt": "2026-07-28T11:28:18.616Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -258,17 +222,17 @@
       "postalCode": "5728",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
-      "employmentType": "PART_TIME",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/460/Application/CheckLogin/1",
-      "firstSeenAt": "2026-05-19T16:17:56.835Z",
-      "salaryMin": 37200,
-      "salaryMax": 56400,
-      "crawlerMissStreak": 2,
+      "postedDate": "2026-06-02",
+      "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/462/Application/CheckLogin/1",
+      "firstSeenAt": "2026-06-02T13:36:43.823Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "crawlerMissStreak": 1,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -277,6 +241,5 @@
         "completeness": 22
       }
     }
-  ],
-  "unchangedJobs": []
+  ]
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-07-28T11:30:10.985Z",
+  "assembledAt": "2026-07-28T22:11:45.470Z",
   "jobs": [
     {
       "id": "kanton-gr-8ba2e44bad5e",
@@ -9,7 +9,7 @@
         "it": "addetto-a-specializzato-a-in-albergo-gestione-alberghiera-cfp-kantonale-verwaltung-graubunden-landquart",
         "en": "specialist-in-hotel-and-hospitality-management-efz-kantonale-verwaltung-graubunden-landquart",
         "de": "fachmann-frau-hotellerie-hauswirtschaft-efz-kantonale-verwaltung-graubunden-landquart",
-        "fr": "specialiste-en-hotellerie-gestion-hoteliere-cfc-kantonale-verwaltung-graubunden-landquart"
+        "fr": "apprentissage-professionnel-hotelier-efz-kantonale-verwaltung-graubunden-landquart"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/514915/2643/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:30:08.869Z",
+      "crawledAt": "2026-07-28T22:11:42.981Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -84,20 +84,27 @@
       "applicationDeadline": "2026-07-31",
       "previousSlugsByLocale": {
         "de": [
-          "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch"
+          "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch",
+          "fachmann-frau-hotellerie-hauswirtschaft-efz-kantonale-verwaltung-graubunden-landquart"
         ],
         "it": [
-          "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch"
+          "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch",
+          "addetto-a-specializzato-a-in-albergo-gestione-alberghiera-cfp-kantonale-verwaltung-graubunden-landquart"
         ],
         "fr": [
+          "specialiste-en-hotellerie-gestion-hoteliere-cfc-kantonale-verwaltung-graubunden-landquart",
           "apprentissage-professionnel-hotelier-efz-kantonale-verwaltung-graubunden-landquart"
         ]
       },
       "previousSlugs": [
         "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch",
+        "specialiste-en-hotellerie-gestion-hoteliere-cfc-kantonale-verwaltung-graubunden-landquart",
+        "fachmann-frau-hotellerie-hauswirtschaft-efz-kantonale-verwaltung-graubunden-landquart",
+        "addetto-a-specializzato-a-in-albergo-gestione-alberghiera-cfp-kantonale-verwaltung-graubunden-landquart",
         "apprentissage-professionnel-hotelier-efz-kantonale-verwaltung-graubunden-landquart"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -143,7 +150,7 @@
       "url": "https://apply.refline.ch/514915/2438/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:30:08.169Z",
+      "crawledAt": "2026-07-28T22:11:42.356Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -194,16 +201,21 @@
       "applicationDeadline": "2026-07-31",
       "previousSlugsByLocale": {
         "de": [
-          "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
+          "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch",
+          "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kantonale-verwaltung-graubunden-scuol"
         ],
         "it": [
-          "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
+          "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch",
+          "apprendista-meccanico-automobilistico-efz-automobili-kantonale-verwaltung-graubunden-scuol"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
+        "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch",
+        "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kantonale-verwaltung-graubunden-scuol",
+        "apprendista-meccanico-automobilistico-efz-automobili-kantonale-verwaltung-graubunden-scuol"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -249,7 +261,7 @@
       "url": "https://apply.refline.ch/514915/2437/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:30:07.468Z",
+      "crawledAt": "2026-07-28T22:11:41.731Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -300,16 +312,21 @@
       "applicationDeadline": "2026-07-31",
       "previousSlugsByLocale": {
         "de": [
-          "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
+          "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch",
+          "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kantonale-verwaltung-graubunden-scuol"
         ],
         "it": [
-          "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
+          "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch",
+          "apprendista-specializzato-in-automobili-efz-automobili-personali-kantonale-verwaltung-graubunden-scuol"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
+        "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch",
+        "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kantonale-verwaltung-graubunden-scuol",
+        "apprendista-specializzato-in-automobili-efz-automobili-personali-kantonale-verwaltung-graubunden-scuol"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -355,7 +372,7 @@
       "url": "https://apply.refline.ch/514915/2319/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:30:06.781Z",
+      "crawledAt": "2026-07-28T22:11:41.107Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -406,16 +423,21 @@
       "applicationDeadline": "2026-07-31",
       "previousSlugsByLocale": {
         "de": [
-          "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
+          "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch",
+          "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kantonale-verwaltung-graubunden-scuol"
         ],
         "it": [
-          "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
+          "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch",
+          "apprendista-specializzato-in-manutenzione-veicoli-efz-servizio-tecnico-scuol-kantonale-verwaltung-graubunden-scuol"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
+        "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch",
+        "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kantonale-verwaltung-graubunden-scuol",
+        "apprendista-specializzato-in-manutenzione-veicoli-efz-servizio-tecnico-scuol-kantonale-verwaltung-graubunden-scuol"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -461,7 +483,7 @@
       "url": "https://apply.refline.ch/514915/2593/pub/19/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:30:06.086Z",
+      "crawledAt": "2026-07-28T22:11:40.478Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -484,11 +506,13 @@
       "pensum": "100%",
       "previousSlugs": [
         "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kanton-gr-ch",
-        "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis"
+        "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis",
+        "collaboratore-trice-in-betreuungs-e-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kanton-gr-ch"
+          "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kanton-gr-ch",
+          "collaboratore-trice-in-betreuungs-e-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis"
         ],
         "en": [
           "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis"
@@ -543,7 +567,7 @@
       "url": "https://apply.refline.ch/514915/2787/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:30:05.399Z",
+      "crawledAt": "2026-07-28T22:11:39.853Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -565,11 +589,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch"
+        "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch",
+        "candidato-a-in-riqualificazione-in-come-bauleiter-in-im-bezirk-3-kantonale-verwaltung-graubunden-samedan"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch"
+          "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch",
+          "candidato-a-in-riqualificazione-in-come-bauleiter-in-im-bezirk-3-kantonale-verwaltung-graubunden-samedan"
         ],
         "en": [
           "quereinsteiger-in-als-bauleiter-in-im-bezirk-3-kanton-gr-ch"
@@ -624,7 +650,7 @@
       "url": "https://apply.refline.ch/514915/2790/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:30:04.707Z",
+      "crawledAt": "2026-07-28T22:11:39.228Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -647,12 +673,14 @@
       "pensum": "80%",
       "previousSlugs": [
         "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kanton-gr-ch",
-        "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur"
+        "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur",
+        "specialist-caregivers-riconoscimento-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kanton-gr-ch",
-          "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur"
+          "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur",
+          "specialist-caregivers-riconoscimento-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur"
@@ -662,6 +690,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T12:33:19.361Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -707,7 +736,7 @@
       "url": "https://apply.refline.ch/514915/2783/pub/2/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:30:04.023Z",
+      "crawledAt": "2026-07-28T22:11:38.603Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -730,11 +759,13 @@
       "pensum": "70-100%",
       "previousSlugs": [
         "mitarbeiter-in-forstliche-ausbildung-kanton-gr-ch",
-        "mitarbeiter-in-forstliche-ausbildung-kantonale-verwaltung-graubunden-chur"
+        "mitarbeiter-in-forstliche-ausbildung-kantonale-verwaltung-graubunden-chur",
+        "collaboratore-trice-in-forstliche-ausbildung-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-forstliche-ausbildung-kanton-gr-ch"
+          "mitarbeiter-in-forstliche-ausbildung-kanton-gr-ch",
+          "collaboratore-trice-in-forstliche-ausbildung-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "mitarbeiter-in-forstliche-ausbildung-kantonale-verwaltung-graubunden-chur"
@@ -744,6 +775,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T12:33:18.692Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -789,7 +821,7 @@
       "url": "https://apply.refline.ch/514915/2757/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:30:03.314Z",
+      "crawledAt": "2026-07-28T22:11:37.975Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -816,7 +848,8 @@
         "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
         "responsabile-amministrativo-kantonale-verwaltung-graubunden-chur",
         "administrative-officer-kantonale-verwaltung-graubunden-chur",
-        "responsable-administratif-kantonale-verwaltung-graubunden-chur"
+        "responsable-administratif-kantonale-verwaltung-graubunden-chur",
+        "persona-responsabile-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -825,7 +858,8 @@
           "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
           "responsabile-amministrativo-kantonale-verwaltung-graubunden-chur",
           "administrative-officer-kantonale-verwaltung-graubunden-chur",
-          "responsable-administratif-kantonale-verwaltung-graubunden-chur"
+          "responsable-administratif-kantonale-verwaltung-graubunden-chur",
+          "persona-responsabile-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
@@ -885,7 +919,7 @@
       "url": "https://apply.refline.ch/514915/2791/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:30:02.518Z",
+      "crawledAt": "2026-07-28T22:11:37.344Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -908,11 +942,13 @@
       "pensum": "60%",
       "previousSlugs": [
         "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch",
-        "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur"
+        "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur",
+        "wissenschaftliche-r-collaboratore-trice-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch"
+          "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch",
+          "wissenschaftliche-r-collaboratore-trice-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur"
@@ -967,7 +1003,7 @@
       "url": "https://apply.refline.ch/514915/2789/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:30:01.853Z",
+      "crawledAt": "2026-07-28T22:11:36.718Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -995,7 +1031,8 @@
         "ict-supporter-in-kanton-gr-ch",
         "soutien-aux-tic-kantonale-verwaltung-graubunden-chur-0b2e30",
         "supporto-delle-tic-in-kantonale-verwaltung-graubunden-chur-0b2e30",
-        "abteilungsleiter-in-ict-betrieb-kantonale-verwaltung-graubunden-chur"
+        "abteilungsleiter-in-ict-betrieb-kantonale-verwaltung-graubunden-chur",
+        "capo-reparto-in-operazioni-ict-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1005,7 +1042,8 @@
           "ict-supporter-in-kanton-gr-ch",
           "soutien-aux-tic-kantonale-verwaltung-graubunden-chur-0b2e30",
           "supporto-delle-tic-in-kantonale-verwaltung-graubunden-chur-0b2e30",
-          "abteilungsleiter-in-ict-betrieb-kantonale-verwaltung-graubunden-chur"
+          "abteilungsleiter-in-ict-betrieb-kantonale-verwaltung-graubunden-chur",
+          "capo-reparto-in-operazioni-ict-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "ict-supporter-in-kantonale-verwaltung-graubunden-chur",
@@ -1065,7 +1103,7 @@
       "url": "https://apply.refline.ch/514915/2792/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:30:01.184Z",
+      "crawledAt": "2026-07-28T22:11:36.094Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1088,11 +1126,13 @@
       "pensum": "50%",
       "previousSlugs": [
         "sachbearbeiter-in-beitragswesen-und-finanzen-kanton-gr-ch",
-        "sachbearbeiter-in-beitragswesen-und-finanzen-kantonale-verwaltung-graubunden-chur"
+        "sachbearbeiter-in-beitragswesen-und-finanzen-kantonale-verwaltung-graubunden-chur",
+        "sachbearbeiter-in-beitragswesen-e-finanzen-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-beitragswesen-und-finanzen-kanton-gr-ch"
+          "sachbearbeiter-in-beitragswesen-und-finanzen-kanton-gr-ch",
+          "sachbearbeiter-in-beitragswesen-e-finanzen-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "sachbearbeiter-in-beitragswesen-und-finanzen-kantonale-verwaltung-graubunden-chur"
@@ -1102,6 +1142,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T12:33:16.017Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1147,7 +1188,7 @@
       "url": "https://apply.refline.ch/514915/2760/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:30:00.511Z",
+      "crawledAt": "2026-07-28T22:11:35.467Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1170,11 +1211,13 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kanton-gr-ch",
-        "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kantonale-verwaltung-graubunden-chur"
+        "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kantonale-verwaltung-graubunden-chur",
+        "zeichner-konstrukteur-in-specializzazione-strassenprojektierung-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kanton-gr-ch"
+          "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kanton-gr-ch",
+          "zeichner-konstrukteur-in-specializzazione-strassenprojektierung-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kantonale-verwaltung-graubunden-chur"
@@ -1229,7 +1272,7 @@
       "url": "https://apply.refline.ch/514915/2759/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:29:59.845Z",
+      "crawledAt": "2026-07-28T22:11:34.835Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1252,12 +1295,14 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kanton-gr-ch",
-        "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur"
+        "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur",
+        "project-manager-in-esecuzione-sezione-direttore-in-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kanton-gr-ch",
-          "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur"
+          "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur",
+          "project-manager-in-esecuzione-sezione-direttore-in-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur"
@@ -1267,6 +1312,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T12:36:37.849Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1312,7 +1358,7 @@
       "url": "https://apply.refline.ch/514915/2780/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:29:59.181Z",
+      "crawledAt": "2026-07-28T22:11:34.209Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1334,11 +1380,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "sozialarbeiter-in-oder-sozialpadagoge-in-kanton-gr-ch"
+        "sozialarbeiter-in-oder-sozialpadagoge-in-kanton-gr-ch",
+        "sozialarbeiter-in-o-sozialpadagoge-in-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-oder-sozialpadagoge-in-kanton-gr-ch"
+          "sozialarbeiter-in-oder-sozialpadagoge-in-kanton-gr-ch",
+          "sozialarbeiter-in-o-sozialpadagoge-in-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "sozialarbeiter-in-oder-sozialpadagoge-in-kanton-gr-ch"
@@ -1348,6 +1396,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T12:36:37.170Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1393,7 +1442,7 @@
       "url": "https://apply.refline.ch/514915/2779/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:29:58.516Z",
+      "crawledAt": "2026-07-28T22:11:33.579Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1415,11 +1464,13 @@
       "pensumMax": 80,
       "pensum": "60-80%",
       "previousSlugs": [
-        "sekretar-in-kanton-gr-ch"
+        "sekretar-in-kanton-gr-ch",
+        "segretario-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sekretar-in-kanton-gr-ch"
+          "sekretar-in-kanton-gr-ch",
+          "segretario-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "sekretar-in-kanton-gr-ch"
@@ -1474,7 +1525,7 @@
       "url": "https://apply.refline.ch/514915/2736/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:29:57.851Z",
+      "crawledAt": "2026-07-28T22:11:32.951Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1497,12 +1548,14 @@
       "pensum": "60%",
       "previousSlugs": [
         "assistent-in-generalsekretar-kanton-gr-ch",
-        "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur"
+        "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur",
+        "segretario-aggiunto-generale-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-generalsekretar-kanton-gr-ch",
-          "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur"
+          "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur",
+          "segretario-aggiunto-generale-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "assistent-in-generalsekretar-kantonale-verwaltung-graubunden-chur"
@@ -1512,6 +1565,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T12:36:35.117Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1557,7 +1611,7 @@
       "url": "https://apply.refline.ch/514915/2784/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:29:57.187Z",
+      "crawledAt": "2026-07-28T22:11:32.325Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1579,11 +1633,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "werkmeister-in-arbeitsagogin-arbeitsagoge-kanton-gr-ch"
+        "werkmeister-in-arbeitsagogin-arbeitsagoge-kanton-gr-ch",
+        "maestro-operaio-attore-di-lavoro-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "werkmeister-in-arbeitsagogin-arbeitsagoge-kanton-gr-ch"
+          "werkmeister-in-arbeitsagogin-arbeitsagoge-kanton-gr-ch",
+          "maestro-operaio-attore-di-lavoro-kantonale-verwaltung-graubunden-cazis"
         ],
         "en": [
           "werkmeister-in-arbeitsagogin-arbeitsagoge-kanton-gr-ch"
@@ -1638,7 +1694,7 @@
       "url": "https://apply.refline.ch/514915/2782/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:29:56.521Z",
+      "crawledAt": "2026-07-28T22:11:31.700Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1660,11 +1716,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "teamleiter-in-sicherheit-kanton-gr-ch"
+        "teamleiter-in-sicherheit-kanton-gr-ch",
+        "team-leader-sicurezza-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-sicherheit-kanton-gr-ch"
+          "teamleiter-in-sicherheit-kanton-gr-ch",
+          "team-leader-sicurezza-kantonale-verwaltung-graubunden-cazis"
         ],
         "en": [
           "teamleiter-in-sicherheit-kanton-gr-ch"
@@ -1674,6 +1732,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T12:36:33.758Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1719,7 +1778,7 @@
       "url": "https://apply.refline.ch/514915/2785/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:29:55.856Z",
+      "crawledAt": "2026-07-28T22:11:31.073Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1743,13 +1802,15 @@
       "previousSlugs": [
         "assistente-sociale-kantonale-verwaltung-graubunden-cazis",
         "sozialarbeiter-in-kanton-gr-ch",
-        "sozialarbeiter-in-kanton-gr-ch-2"
+        "sozialarbeiter-in-kanton-gr-ch-2",
+        "lavoratore-sociale-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-sociale-kantonale-verwaltung-graubunden-cazis",
           "sozialarbeiter-in-kanton-gr-ch",
-          "sozialarbeiter-in-kanton-gr-ch-2"
+          "sozialarbeiter-in-kanton-gr-ch-2",
+          "lavoratore-sociale-kantonale-verwaltung-graubunden-cazis"
         ],
         "en": [
           "sozialarbeiter-in-kanton-gr-ch-2"
@@ -1804,7 +1865,7 @@
       "url": "https://apply.refline.ch/514915/2786/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:29:55.190Z",
+      "crawledAt": "2026-07-28T22:11:30.431Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1826,11 +1887,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "teamleiter-in-administration-kanton-gr-ch"
+        "teamleiter-in-administration-kanton-gr-ch",
+        "leader-in-amministrazione-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-administration-kanton-gr-ch"
+          "teamleiter-in-administration-kanton-gr-ch",
+          "leader-in-amministrazione-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "teamleiter-in-administration-kanton-gr-ch"
@@ -1885,7 +1948,7 @@
       "url": "https://apply.refline.ch/514915/2709/pub/11/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:29:54.525Z",
+      "crawledAt": "2026-07-28T22:11:29.796Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1908,12 +1971,14 @@
       "pensum": "50%",
       "previousSlugs": [
         "projektkoordinator-in-facility-management-kanton-gr-ch",
-        "projektkoordinator-in-facility-management-kantonale-verwaltung-graubunden-chur"
+        "projektkoordinator-in-facility-management-kantonale-verwaltung-graubunden-chur",
+        "coordinatore-del-progetto-in-gestione-delle-strutture-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektkoordinator-in-facility-management-kanton-gr-ch",
-          "projektkoordinator-in-facility-management-kantonale-verwaltung-graubunden-chur"
+          "projektkoordinator-in-facility-management-kantonale-verwaltung-graubunden-chur",
+          "coordinatore-del-progetto-in-gestione-delle-strutture-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "projektkoordinator-in-facility-management-kantonale-verwaltung-graubunden-chur"
@@ -1951,7 +2016,7 @@
       "companyDomain": "gr.ch",
       "title": "Strassenwart/-in",
       "titleByLocale": {
-        "it": "Streetkeeper/in",
+        "it": "Strassenwart/-in",
         "en": "Road Maintenance Worker",
         "de": "Strassenwart/-in",
         "fr": "Agent de Maintenance Routière"
@@ -1968,7 +2033,7 @@
       "url": "https://apply.refline.ch/514915/2754/pub/4/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:29:53.857Z",
+      "crawledAt": "2026-07-28T22:11:29.169Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1995,13 +2060,15 @@
         "streetkeeper-in-kantonale-verwaltung-graubunden-thusis",
         "gardien-de-rue-in-kantonale-verwaltung-graubunden-thusis",
         "road-maintenance-officer-kantonale-verwaltung-graubunden-thusis",
-        "road-maintenance-in-kantonale-verwaltung-graubunden-thusis"
+        "road-maintenance-in-kantonale-verwaltung-graubunden-thusis",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-thusis-f3e3c1"
       ],
       "previousSlugsByLocale": {
         "it": [
           "strassenwart-in-kanton-gr-ch",
           "strassenwart-in-kantonale-verwaltung-graubunden-thusis",
-          "road-maintenance-in-kantonale-verwaltung-graubunden-thusis"
+          "road-maintenance-in-kantonale-verwaltung-graubunden-thusis",
+          "streetkeeper-in-kantonale-verwaltung-graubunden-thusis-f3e3c1"
         ],
         "en": [
           "strassenwart-in-kanton-gr-ch",
@@ -2013,6 +2080,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:21:06.855Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2058,7 +2126,7 @@
       "url": "https://apply.refline.ch/514915/2758/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:29:53.190Z",
+      "crawledAt": "2026-07-28T22:11:28.539Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2081,11 +2149,13 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "projektleiter-in-biodiversitat-und-landschaftsqualitat-kanton-gr-ch",
-        "projektleiter-in-biodiversitat-und-landschaftsqualitat-kantonale-verwaltung-graubunden-chur"
+        "projektleiter-in-biodiversitat-und-landschaftsqualitat-kantonale-verwaltung-graubunden-chur",
+        "projektleiter-in-biodiversitat-e-landschaftsqualitat-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-biodiversitat-und-landschaftsqualitat-kanton-gr-ch"
+          "projektleiter-in-biodiversitat-und-landschaftsqualitat-kanton-gr-ch",
+          "projektleiter-in-biodiversitat-e-landschaftsqualitat-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "projektleiter-in-biodiversitat-und-landschaftsqualitat-kantonale-verwaltung-graubunden-chur"
@@ -2113,7 +2183,7 @@
       "id": "kanton-gr-69754a7e3212",
       "slug": "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart",
       "slugByLocale": {
-        "it": "stage-giuridico-presso-il-landgericht-kantonale-verwaltung-graubunden-landquart",
+        "it": "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart",
         "en": "legal-internship-at-the-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart",
         "de": "juristisches-praktikum-am-regionalgericht-landquart-kanton-gr-ch",
         "fr": "stage-juridique-au-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart"
@@ -2123,7 +2193,7 @@
       "companyDomain": "gr.ch",
       "title": "Juristisches Praktikum am Regionalgericht Landquart",
       "titleByLocale": {
-        "it": "Stage giuridico presso il Landgericht",
+        "it": "Juristisches Praktikum am Regionalgericht Landquart",
         "en": "Legal internship at the Regionalgericht Landquart",
         "de": "Juristisches Praktikum am Regionalgericht Landquart",
         "fr": "Stage juridique au Regionalgericht Landquart"
@@ -2140,7 +2210,7 @@
       "url": "https://apply.refline.ch/514915/2749/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:29:52.524Z",
+      "crawledAt": "2026-07-28T22:11:27.910Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -2163,15 +2233,20 @@
       "pensum": "100%",
       "previousSlugs": [
         "juristisches-praktikum-am-regionalgericht-landquart-kanton-gr-ch",
-        "tirocinio-legale-presso-il-tribunale-regionale-di-landquart-kantonale-verwaltung-graubunden-landquart"
+        "tirocinio-legale-presso-il-tribunale-regionale-di-landquart-kantonale-verwaltung-graubunden-landquart",
+        "stage-giuridico-presso-il-landgericht-kantonale-verwaltung-graubunden-landquart",
+        "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
           "juristisches-praktikum-am-regionalgericht-landquart-kanton-gr-ch",
-          "tirocinio-legale-presso-il-tribunale-regionale-di-landquart-kantonale-verwaltung-graubunden-landquart"
+          "tirocinio-legale-presso-il-tribunale-regionale-di-landquart-kantonale-verwaltung-graubunden-landquart",
+          "stage-giuridico-presso-il-landgericht-kantonale-verwaltung-graubunden-landquart",
+          "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart"
         ]
       },
       "firstSeenAt": "2026-07-02T11:34:12.050Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2217,7 +2292,7 @@
       "url": "https://apply.refline.ch/514915/2746/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:29:51.857Z",
+      "crawledAt": "2026-07-28T22:11:27.286Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2239,11 +2314,13 @@
       "pensumMax": 50,
       "pensum": "50%",
       "previousSlugs": [
-        "assistenz-digitale-transformation-kanton-gr-ch"
+        "assistenz-digitale-transformation-kanton-gr-ch",
+        "assistenza-trasformazione-digitale-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenz-digitale-transformation-kanton-gr-ch"
+          "assistenz-digitale-transformation-kanton-gr-ch",
+          "assistenza-trasformazione-digitale-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "assistenz-digitale-transformation-kanton-gr-ch"
@@ -2298,7 +2375,7 @@
       "url": "https://apply.refline.ch/514915/2681/pub/10/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:29:51.192Z",
+      "crawledAt": "2026-07-28T22:11:26.645Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2321,12 +2398,14 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "projektleiter-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch",
-        "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
+        "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur",
+        "procedura-di-ordinazione-del-project-manager-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch",
-          "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
+          "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur",
+          "procedura-di-ordinazione-del-project-manager-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
@@ -2336,6 +2415,7 @@
         ]
       },
       "firstSeenAt": "2026-06-19T12:48:18.540Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -2381,7 +2461,7 @@
       "url": "https://apply.refline.ch/514915/0912/pub/41/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:29:50.516Z",
+      "crawledAt": "2026-07-28T22:11:26.010Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2435,16 +2515,21 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "de": [
-          "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
+          "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
+          "werde-polizist-in-bei-der-kapo-gr-kantonale-verwaltung-graubunden-chur"
         ],
         "it": [
-          "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
+          "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
+          "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
+        "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
+        "werde-polizist-in-bei-der-kapo-gr-kantonale-verwaltung-graubunden-chur",
+        "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2458,94 +2543,6 @@
         }
       },
       "addressRegion": "GR"
-    },
-    {
-      "id": "kanton-gr-f6519b8646f7",
-      "slug": "collaboratore-trice-in-scancenter-kantonale-verwaltung-graubunden-chur",
-      "slugByLocale": {
-        "it": "collaboratore-trice-in-scancenter-kantonale-verwaltung-graubunden-chur",
-        "en": "mitarbeiter-in-scancenter-kantonale-verwaltung-graubunden-chur",
-        "de": "mitarbeiter-in-scancenter-kanton-gr-ch",
-        "fr": "mitarbeiter-in-scancenter-kantonale-verwaltung-graubunden-chur"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Mitarbeiter/-in Scancenter",
-      "titleByLocale": {
-        "it": "Collaboratore/trice/-in Scancenter",
-        "en": "Employees/in Scancenter",
-        "de": "Mitarbeiter/-in Scancenter",
-        "fr": "Employés/dans Scancenter"
-      },
-      "description": "Das Amt für Industrie, Gewerbe und Arbeit (KIGA) beschäftigt derzeit rund 135 Mitarbeitende in sechs Regionen im Kanton Graubünden. Neben der öffentlichen Arbeitsvermittlung (RAV) organisieren wir Arbeitsmarktliche Massnahmen für stellensuchende Personen und führen die kantonale Arbeitslosenkasse. Darüber hinaus vollziehen wir verschiedene Aufgaben im Bereich Arbeitsmarkt und Arbeitssicherheit.\n\nAufgaben\n• Erfassung der eingehenden Post\n\n• Vorbereitung der Dokumente zum Scannen\n\n• Überprüfung der gescannten Dokumente auf ihre Qualität\n\n• Indexierung der gescannten Unterlagen\n\n• Archivierung\n\n• Bearbeitung von Anträgen von Versicherungszeiten (PD U1)\n\n• Allgemeine administrative Arbeiten (Telefondienst, E-Mailbearbeitung, etc.)\n\nAnforderungen\n• Abgeschlossene kaufmännische Ausbildung oder gleichwertige Qualifikation\n\n• Selbstständige Arbeitsweise, Belastbarkeit und Gelassenheit auch in herausfordernden Situationen\n\n• Teamfähigkeit, Flexibilität und Diskretion\n\n• Gute mündliche und schriftliche Deutschkenntnisse sowie gute Italienischkenntnisse\n\n• Gute Kenntnisse in der Nutzung von MS Office",
-      "descriptionByLocale": {
-        "it": "L'Ufficio per l'Industria, il Commercio e il Lavoro (KIGA) attualmente impiega circa 135 persone in sei regioni del Cantone dei Grigioni. Oltre all'agenzia di lavoro pubblica (RAV), organizziamo misure di mercato del lavoro per i cercatori di lavoro e gestiamo il fondo di disoccupazione cantonale. Inoltre, eseguiamo vari compiti nel settore del mercato del lavoro e della sicurezza del lavoro. Compiti\n• Raccolta di posta in arrivo\n• Preparazione dei documenti per la scansione\n• Verifica dei documenti scansionati per la loro qualità\n• Indicizzazione dei documenti scansionati\n• Archiviazione\n• Elaborazione delle domande per periodi di assicurazione (PD U1)\n• Lavoro amministrativo generale (servizio telefonico, elaborazione e-mail, ecc.) Requisiti\n• Istruzione commerciale o qualifica equivalente completata\n• Lavoro indipendente, resilienza e serenità anche in situazioni difficili\n• Lavoro di squadra, flessibilità e discrezione\n• Buone competenze orali e scritte tedesche e buone competenze italiane\n• Buona conoscenza dell'utilizzo di MS Office",
-        "en": "The Office for Industry, Trade and Labour (KIGA) currently employs around 135 people in six regions in the canton of Graubünden. In addition to the public employment agency (RAV), we organize labour market measures for job seekers and run the cantonal unemployment fund. In addition, we perform various tasks in the field of labour market and occupational safety. Tasks\n• Collection of incoming mail\n• Preparation of documents for scanning\n• Verification of the scanned documents for their quality\n• Indexation of the scanned documents\n• Archiving\n• Processing of applications for periods of insurance (PD U1)\n• General administrative work (telephone service, e-mail processing, etc.) Requirements\n• Commercial education or equivalent qualification completed\n• Independent work, resilience and serenity even in challenging situations\n• Teamwork, flexibility and discretion\n• Good oral and written German skills and good Italian skills\n• Good knowledge of using MS Office",
-        "de": "Das Amt für Industrie, Gewerbe und Arbeit (KIGA) beschäftigt derzeit rund 135 Mitarbeitende in sechs Regionen im Kanton Graubünden. Neben der öffentlichen Arbeitsvermittlung (RAV) organisieren wir Arbeitsmarktliche Massnahmen für stellensuchende Personen und führen die kantonale Arbeitslosenkasse. Darüber hinaus vollziehen wir verschiedene Aufgaben im Bereich Arbeitsmarkt und Arbeitssicherheit.\n\nAufgaben\n• Erfassung der eingehenden Post\n\n• Vorbereitung der Dokumente zum Scannen\n\n• Überprüfung der gescannten Dokumente auf ihre Qualität\n\n• Indexierung der gescannten Unterlagen\n\n• Archivierung\n\n• Bearbeitung von Anträgen von Versicherungszeiten (PD U1)\n\n• Allgemeine administrative Arbeiten (Telefondienst, E-Mailbearbeitung, etc.)\n\nAnforderungen\n• Abgeschlossene kaufmännische Ausbildung oder gleichwertige Qualifikation\n\n• Selbstständige Arbeitsweise, Belastbarkeit und Gelassenheit auch in herausfordernden Situationen\n\n• Teamfähigkeit, Flexibilität und Diskretion\n\n• Gute mündliche und schriftliche Deutschkenntnisse sowie gute Italienischkenntnisse\n\n• Gute Kenntnisse in der Nutzung von MS Office",
-        "fr": "L'Office de l'industrie, du commerce et du travail (KIGA) emploie actuellement environ 135 personnes dans six régions du canton des Grisons. Outre l'agence publique pour l'emploi (RAV), nous organisons des mesures sur le marché du travail pour les demandeurs d'emploi et gérons le fonds cantonal pour le chômage. En outre, nous accomplissons diverses tâches dans le domaine du marché du travail et de la sécurité au travail. Tâche\n• Collecte du courrier entrant\n• Préparation des documents pour la numérisation\n• Vérification de la qualité des documents numérisés\n• Indexation des documents numérisés\n• Archivage\n• Traitement des demandes de périodes d'assurance (PD U1)\n• Travaux administratifs généraux (service téléphonique, traitement du courrier électronique, etc.) Exigences\n• Études commerciales ou qualifications équivalentes complétées\n• Travail indépendant, résilience et sérénité même dans des situations difficiles\n• Travail d'équipe, flexibilité et discrétion\n• Bonnes compétences orales et écrites en allemand et bonnes compétences en italien\n• Bonne connaissance de l'utilisation de MS Office"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2750/pub/1/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-27T12:46:51.902Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "applyUrl": "https://apply.refline.ch/514915/2750/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Amt für Industrie Gewerbe und Arbeit",
-      "applicationDeadline": "2026-07-27",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80-100%",
-      "previousSlugs": [
-        "mitarbeiter-in-scancenter-kanton-gr-ch",
-        "juristische-r-collaboratore-trice-in-kantonale-verwaltung-graubunden-chur",
-        "legal-r-employee-in-kantonale-verwaltung-graubunden-chur",
-        "avocat-r-employe-in-kantonale-verwaltung-graubunden-chur",
-        "juristische-r-mitarbeiter-in-kanton-gr-ch",
-        "juristische-r-mitarbeiter-in-kantonale-verwaltung-graubunden-chur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-scancenter-kanton-gr-ch",
-          "juristische-r-collaboratore-trice-in-kantonale-verwaltung-graubunden-chur",
-          "legal-r-employee-in-kantonale-verwaltung-graubunden-chur",
-          "avocat-r-employe-in-kantonale-verwaltung-graubunden-chur"
-        ],
-        "de": [
-          "juristische-r-mitarbeiter-in-kanton-gr-ch",
-          "juristische-r-mitarbeiter-in-kantonale-verwaltung-graubunden-chur"
-        ]
-      },
-      "firstSeenAt": "2026-07-02T11:34:13.310Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2
     }
   ]
 }

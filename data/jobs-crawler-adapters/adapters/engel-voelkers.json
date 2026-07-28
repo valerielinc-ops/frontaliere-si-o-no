@@ -11,18 +11,12 @@
     "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro"
   ],
   "notes": "Dedicated Engel & Völkers Switzerland crawler. Parses the Next.js SSR careers page HTML. Keeps TI + GR jobs from Ticino Premium Properties SA and other regional offices.",
-  "updatedAt": "2026-07-28T11:45:18.040Z",
+  "updatedAt": "2026-07-28T22:24:12.757Z",
   "seedMetaByUrl": {
     "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/8404a96b-99fb-4b03-9d13-f0e96f860e37": {
       "location": "Gstaad",
       "canton": "BE",
       "company": "E&V Gstaad Properties One AG",
-      "postedDate": "2026-07-28"
-    },
-    "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/db466ad6-4dc1-41fb-96be-de8fbe99484a": {
-      "location": "Aarau",
-      "canton": "AG",
-      "company": "EV Wasserschloss AG",
       "postedDate": "2026-07-28"
     },
     "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/31cf30e3-1cfb-4cfd-8a3f-ae78e4a028a4": {
@@ -70,6 +64,12 @@
     "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/3a5547d3-87bc-4ff8-92a2-6637e2b635c7": {
       "location": "Schaffhausen",
       "canton": "SH",
+      "company": "buutiq Immobilien AG",
+      "postedDate": "2026-07-28"
+    },
+    "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ae5d8cf-36be-489f-b24a-0f6bbec962d3": {
+      "location": "St. Gallen",
+      "canton": "SG",
       "company": "buutiq Immobilien AG",
       "postedDate": "2026-07-28"
     }

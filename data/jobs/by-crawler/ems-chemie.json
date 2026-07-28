@@ -1,7 +1,63 @@
 {
   "crawlerKey": "ems-chemie",
-  "assembledAt": "2026-07-28T11:39:47.690Z",
+  "assembledAt": "2026-07-28T22:25:19.615Z",
   "jobs": [
+    {
+      "title": "Raumpfleger (m/w/d) 20%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/raumpfleger-m-w-d/ce43cfb2-744a-4fad-a776-e6ecb6423392",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "description": "Raumpfleger (m/w/d) 20% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+      "postedDate": "2026-07-28",
+      "source": "company-website",
+      "slug": "raumpfleger-m-w-d-20-ems-chemie-domat-ems",
+      "slugByLocale": {
+        "it": "raumpfleger-m-w-d-20-ems-chemie-domat-ems",
+        "en": "raumpfleger-m-w-d-20-ems-chemie-domat-ems",
+        "de": "raumpfleger-m-w-d-20-ems-chemie-domat-ems",
+        "fr": "raumpfleger-m-w-d-20-ems-chemie-domat-ems"
+      },
+      "titleByLocale": {
+        "it": "Raumpfleger (m/w/d) 20%",
+        "en": "Raumpfleger (m/w/d) 20%",
+        "de": "Raumpfleger (m/w/d) 20%",
+        "fr": "Raumpfleger (m/w/d) 20%"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Raumpfleger (m/w/d) 20% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "en": "Raumpfleger (m/w/d) 20% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "de": "Raumpfleger (m/w/d) 20% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "fr": "Raumpfleger (m/w/d) 20% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems."
+      },
+      "needsRetranslation": true,
+      "id": "ems-chemie-9c8b40f18e5a",
+      "sourceLang": "it",
+      "salaryMin": 11500,
+      "salaryMax": 17400,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 11500,
+          "maxValue": 17400,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-28T22:25:19.610Z"
+    },
     {
       "title": "IT System Engineer (m/w/d) 100%",
       "company": "EMS-Chemie AG",
@@ -110,7 +166,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-22T11:19:28.952Z"
+      "firstSeenAt": "2026-07-22T11:19:28.952Z",
+      "needsRetranslation": true
     },
     {
       "title": "SAP Modulbetreuer SD/WM/EWM (m/w/d) 100%",
@@ -238,7 +295,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-20T22:03:49.347Z"
+      "firstSeenAt": "2026-07-20T22:03:49.347Z",
+      "needsRetranslation": true
     },
     {
       "title": "Leiter Produktion LFT (m/w/d) 100%",
@@ -301,7 +359,8 @@
       },
       "previousSlugs": [
         "leiter-produktion-lft-m-w-d-100-ems-chemie-domat-ems"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Sales Manager Verpackung (m/w/d) (100% Home-Office) 100%",
@@ -356,7 +415,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T12:18:34.509Z"
+      "firstSeenAt": "2026-07-10T12:18:34.509Z",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Financial Accountant / Fachspezialist Rechnungswesen (m/w/d) 100%",
@@ -421,7 +481,8 @@
       "previousSlugs": [
         "fachspezialist-finanz-und-rechnungswesen-m-w-d-100-ems-chemie-domat-ems",
         "senior-financial-accountant-fachspezialist-rechnungswesen-m-w-d-100-ems-chemie-domat-ems"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Produktentwickler / Entwicklungschemiker (m/w/d) 100%",
@@ -476,7 +537,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+      "firstSeenAt": "2026-07-10T10:23:20.075Z",
+      "needsRetranslation": true
     },
     {
       "title": "Automatiker / Elektriker/in im Schichtdienst (m/w/d) 100%",
@@ -531,7 +593,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+      "firstSeenAt": "2026-07-10T10:23:20.075Z",
+      "needsRetranslation": true
     },
     {
       "title": "Elektroinstallateur/ Automatiker/in (m/w/d) 100%",
@@ -641,7 +704,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+      "firstSeenAt": "2026-07-10T10:23:20.075Z",
+      "needsRetranslation": true
     },
     {
       "title": "Polymechaniker (m/w/d) 100%",
@@ -699,7 +763,8 @@
       "firstSeenAt": "2026-07-10T10:23:20.075Z",
       "previousSlugs": [
         "polymechaniker-w-m-d-100-ems-chemie-domat-ems"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100%",
@@ -722,14 +787,14 @@
       "slug": "projektleiter-kunststoffanwendungen-industrie-health-care-m-w-d-100-ems-chemie-ag-domat-ems",
       "slugByLocale": {
         "it": "projektleiter-kunststoffanwendungen-industrie-health-care-m-w-d-100-ems-chemie-ag-domat-ems",
-        "en": "projektleiter-kunststoffanwendungen-industrie-health-care-m-w-d-100-ems-chemie-domat-ems",
+        "en": "projektleiter-kunstoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-ag-domat-ems",
         "de": "projektleiter-kunststoffanwendungen-industrie-health-care-m-w-d-100-ems-chemie-domat-ems",
         "fr": "projektleiter-kunstoffanwendungen-industrie-et-soins-de-sante-m-m-j-100-ems-chemie-ag-domat-ems"
       },
       "titleByLocale": {
         "it": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100%",
         "en": "Projektleiter Kunstoffanwendungen Industrie & Consumer (m/w/d) 100%",
-        "de": "Projektleiter Kunstoffanwendungen Industrie & Consumer (m/w/d) 100%",
+        "de": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100%",
         "fr": "Projektleiter Kunstoffanwendungen Industrie & Consommateur (m/p/d) 100%"
       },
       "crawledAt": "",
@@ -757,6 +822,7 @@
       "firstSeenAt": "2026-07-10T10:23:20.075Z",
       "previousSlugsByLocale": {
         "en": [
+          "projektleiter-kunststoffanwendungen-industrie-health-care-m-w-d-100-ems-chemie-domat-ems",
           "projektleiter-kunstoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-ag-domat-ems"
         ],
         "it": [
@@ -765,8 +831,10 @@
       },
       "previousSlugs": [
         "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems",
+        "projektleiter-kunststoffanwendungen-industrie-health-care-m-w-d-100-ems-chemie-domat-ems",
         "projektleiter-kunstoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-ag-domat-ems"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
@@ -796,7 +864,7 @@
       "titleByLocale": {
         "it": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
         "en": "Projektleiter Kunstoffanwendungen Automobil (m/w/d) 100%",
-        "de": "Projektleiter Kunstoffanwendungen Automobil (m/w/d) 100%",
+        "de": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
         "fr": "Projektleiter Kunstoffanwendungen Automobile (m/m/j) 100%"
       },
       "crawledAt": "",
@@ -829,7 +897,8 @@
       },
       "previousSlugs": [
         "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
