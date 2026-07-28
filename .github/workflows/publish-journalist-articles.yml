@@ -73,6 +73,7 @@ jobs:
       - uses: ./.github/actions/setup-claude-haiku-fallback
 
       - name: Publish queued journalist articles
+        id: publish
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: node scripts/publish-journalist-article.mjs
@@ -118,6 +119,44 @@ jobs:
       - name: Trigger deploy workflow
         if: steps.commit.outputs.has_changes == 'true'
         run: bash scripts/lib/trigger-deploy.sh || true
+
+      # Issue #4837 stream C: this workflow can publish MULTIPLE articles per
+      # run (unlike generate-article.yml, one per run), so it dispatches
+      # fast-publish-article.yml once per published id instead of once per
+      # run. `steps.publish.outputs.published_ids` is a JSON array written by
+      # scripts/publish-journalist-article.mjs's main(). All journalist
+      # articles register into the `frontaliere` section — this pipeline
+      # never passes `--section` to create-article.mjs's config, so
+      # SECTION_NAME always resolves to its default. Best-effort: a failed
+      # fast-publish dispatch still leaves the article to go live via the
+      # normal deploy chain triggered above.
+      - name: Trigger fast-publish workflow(s)
+        if: steps.commit.outputs.has_changes == 'true'
+        env:
+          PUBLISHED_IDS_JSON: ${{ steps.publish.outputs.published_ids }}
+        run: |
+          FAST_PUBLISH_SHA="$(git rev-parse HEAD)"
+          ARTICLE_IDS="$(node -e '
+            let ids = [];
+            try { const parsed = JSON.parse(process.env.PUBLISHED_IDS_JSON || "[]"); if (Array.isArray(parsed)) ids = parsed; } catch {}
+            for (const id of ids) console.log(id);
+          ')"
+          if [ -z "$ARTICLE_IDS" ]; then
+            echo "No published article ids reported — nothing to fast-publish"
+            exit 0
+          fi
+          fail=0
+          while IFS= read -r article_id; do
+            [ -z "$article_id" ] && continue
+            echo "🚀 Dispatching fast-publish-article.yml for '$article_id'"
+            INPUTS_JSON="$(node -e "console.log(JSON.stringify({article_id: process.argv[1], section: 'frontaliere', sha: process.argv[2]}))" \
+              "$article_id" "$FAST_PUBLISH_SHA")"
+            TRIGGER_REF="main" \
+            TRIGGER_EXPECTED_SHA="$FAST_PUBLISH_SHA" \
+            bash scripts/lib/trigger-workflow.sh "fast-publish-article.yml" "$INPUTS_JSON" \
+              || { echo "::warning::fast-publish dispatch failed for '$article_id' — continuing"; fail=1; }
+          done <<< "$ARTICLE_IDS"
+          [ "$fail" -eq 0 ] || true
 
       - name: Report failure to GitHub Issues
         if: failure()
