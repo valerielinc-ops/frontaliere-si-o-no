@@ -561,6 +561,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'diritti-inquilino-affitti-svizzera': { it: 'diritti-inquilino-affitti-svizzera', en: 'tenant-rights-rent-switzerland', de: 'mieterrechte-schweiz-miete', fr: 'droits-locataire-loyer-suisse' },
  'tassa-salute-frontalieri-blocco-ristorni-ticino': { it: 'tassa-salute-frontalieri-blocco-ristorni-ticino', en: 'health-insurance-tax-frontaliers-suspension-of-returns', de: 'gesundheitsversicherungsabgabe-frontalier-sperre-von-ruckerstattungen', fr: 'taxe-de-securite-frontaliers-suspension-des-retraits' },
  'imposte-alla-fonte-svizzera-2024': { it: 'imposte-alla-fonte-svizzera-2024', en: 'withholding-taxes-switzerland-2024', de: 'quellensteuer-schweiz-2024', fr: 'impot-a-la-source-suisse-2024' },
+ 'dichiarazione-imposte-svizzera-guida': { it: 'dichiarazione-imposte-svizzera-guida', en: 'switzerland-tax-declaration-guide', de: 'schweiz-steuererklaerung-leitfaden', fr: 'guide-declaration-impots-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
