@@ -9069,6 +9069,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-maccagno-frontaliere-pro-contro.title': 'Umzug nach Maccagno als Grenzgänger: Fahren für und gegen',
     'blog.article.trasferirsi-maccagno-frontaliere-pro-contro.excerpt': 'Leben in Maccagno mit Pino und Veddasca im Tessin: Steueranalyse zwischen neuem Abkommen, Franchisen und Reisezeiten für den Grenzgänger.',
     'blog.article.trasferirsi-maccagno-frontaliere-pro-contro.imageAlt': 'Blick auf Maccagno con Pino e Veddasca in Richtung Schweizer Grenze',
+    'blog.article.non-c-e-assolutamente-nessun-errore-sistemico.title': 'Es liegt absolut kein systemischer Fehler vor',
+    'blog.article.non-c-e-assolutamente-nessun-errore-sistemico.excerpt': 'Das Ticinonline dementiert Gerüchte über systemische Fehler bei der Behandlung von Grenzgängern.',
+    'blog.article.non-c-e-assolutamente-nessun-errore-sistemico.imageAlt': 'Frontalier warten am Ticino Grenzübergang',
 };
 
 export default blogMetaDe;

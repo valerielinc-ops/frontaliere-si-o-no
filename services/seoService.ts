@@ -4974,6 +4974,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-zurich-finma-licenziamenti-previdenza': { name: 'Zurich licenziamenti FINMA', path: '/articoli-svizzera/zurich-finma-licenziamenti-previdenza/', parent: 'blog' },
     'blog-trasferirsi-maccagno-frontaliere-pro-contro': { name: 'Maccagno Frontalieri', path: '/articoli-frontaliere/trasferirsi-maccagno-frontaliere-pro-contro', parent: 'blog' },
     'blog-caldo-estremo-cantieri-ssic': { name: 'Caldo nei cantieri', path: '/articoli-svizzera/caldo-estremo-cantieri-ssic/', parent: 'blog' },
+    'blog-non-c-e-assolutamente-nessun-errore-sistemico': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/non-c-e-assolutamente-nessun-errore-sistemico', parent: 'blog' },
  };
 
  const info = sectionNames[section];

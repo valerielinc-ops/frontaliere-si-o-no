@@ -9071,6 +9071,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-maccagno-frontaliere-pro-contro.title': 'Trasferirsi a Maccagno da frontaliere: guida pro e contro',
     'blog.article.trasferirsi-maccagno-frontaliere-pro-contro.excerpt': 'Vivere a Maccagno con Pino e Veddasca lavorando in Ticino: analisi fiscale tra nuovo accordo, franchigie e tempi di percorrenza per il frontaliere.',
     'blog.article.trasferirsi-maccagno-frontaliere-pro-contro.imageAlt': 'Vista di Maccagno con Pino e Veddasca verso il confine svizzero',
+    'blog.article.non-c-e-assolutamente-nessun-errore-sistemico.title': 'Non c\'è assolutamente nessun errore sistemico',
+    'blog.article.non-c-e-assolutamente-nessun-errore-sistemico.excerpt': 'Il Ticinonline smentisce le voci su errori sistemici nel trattamento dei frontalieri.',
+    'blog.article.non-c-e-assolutamente-nessun-errore-sistemico.imageAlt': 'Frontaliere in attesa ai valichi in Ticino',
 };
 
 export default blogMetaIt;
