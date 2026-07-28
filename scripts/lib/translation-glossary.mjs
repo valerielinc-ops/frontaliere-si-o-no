@@ -112,6 +112,21 @@ export const TRANSLATION_GLOSSARY = [
       ],
     },
   },
+  {
+    // Regional IT "Levatrice"/"Levatrici" (midwife, from the verb "levare" = to
+    // lift/raise) gets etymology-read instead of profession-read: EN renders it
+    // as "Leverage" (a finance term), FR as "Serveur" (waiter), DE as
+    // "Hebelwirkung" (leverage/mechanical effect, from "Hebel" = lever) — three
+    // completely different professions, not just a wrong-language slip.
+    // Word-bounded + singular/plural so it never matches inside an unrelated
+    // longer token and still fires on "levatrici".
+    trigger: /\blevatric[ei]\b/i,
+    fixes: {
+      en: [[/\bleverage\b/gi, 'midwife', TITLE_ONLY]],
+      de: [[/\bhebelwirkung\b/gi, 'Hebamme', TITLE_ONLY]],
+      fr: [[/\bserveur\b/gi, 'sage-femme', TITLE_ONLY]],
+    },
+  },
 ];
 
 /**
