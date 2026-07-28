@@ -107,14 +107,23 @@ jobs:
         id: render
         run: |
           mkdir -p /tmp/fast-publish
-          npx -y tsx scripts/publish-article-fast.mjs \
+          # Pinned to the same major the repo depends on (package.json
+          # devDependencies: "tsx": "^4.21.0") so a future tsx major cannot
+          # silently change loader behaviour on this un-installed fast path.
+          npx -y tsx@4 scripts/publish-article-fast.mjs \
             --id "${{ inputs.article_id }}" \
             --section "${{ inputs.section }}" \
             --out /tmp/fast-publish/dist \
             --summary /tmp/fast-publish/summary.json
 
+      # NEVER blocks the publish. The hero image has a client-side
+      # raw.githubusercontent fallback (services/seo/blogImageCdn.ts:81-97) and
+      # the next full deploy re-syncs the whole CDN payload anyway, so a failed
+      # PUT must degrade to "image 404s for social crawlers until the next
+      # deploy", not to "the article never goes live at all".
       - name: Upload CDN assets (images)
         if: steps.render.outcome == 'success'
+        continue-on-error: true
         run: |
           set -uo pipefail
           SUMMARY_PATH=/tmp/fast-publish/summary.json
