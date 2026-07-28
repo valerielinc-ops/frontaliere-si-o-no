@@ -52,22 +52,29 @@ describe('llmsTxtPlugin seo lookup key normalization', () => {
   // so parseSeoEntries must key the map in the same slash-less form or every
   // hand-written entry (canonicalPath WITH slash) misses at lookup and the
   // llms.txt page index degrades to slug-derived labels.
+  //
+  // parseSeoEntries was extracted out of build-plugins/llmsTxtPlugin.ts into
+  // scripts/lib/llms-txt-generator.mjs (issue #4881 Fase 3) so the
+  // fast-publish pipeline can regenerate llms.txt outside a full Vite build;
+  // llmsTxtPlugin.ts is now a thin wrapper with no logic of its own. These
+  // assertions follow the code to its new location — the contract they
+  // guard is unchanged.
+  const llmsGeneratorSource = readFileSync(path.resolve(ROOT, 'scripts', 'lib', 'llms-txt-generator.mjs'), 'utf-8');
+
   it('parseSeoEntries keys the map in strip-slash form', () => {
-    const llmsSource = readFileSync(path.resolve(ROOT, 'build-plugins', 'llmsTxtPlugin.ts'), 'utf-8');
-    expect(llmsSource).toContain("map.set(cp.replace(/\\/+$/, '') || '/', { title, desc });");
-    expect(llmsSource).not.toMatch(/map\.set\(cp,/);
+    expect(llmsGeneratorSource).toContain("map.set(cp.replace(/\\/+$/, '') || '/', { title, desc });");
+    expect(llmsGeneratorSource).not.toMatch(/map\.set\(cp,/);
   });
 
   // #2996: seo-pages.ts mixes single- and double-quoted `description:`/`title:`
   // values; the parser must read BOTH or the 4 double-quoted entries
   // (metodologia + 3 author pages) ship an empty llms.txt description.
   it('parseSeoEntries reads double-quoted title/description values', () => {
-    const llmsSource = readFileSync(path.resolve(ROOT, 'build-plugins', 'llmsTxtPlugin.ts'), 'utf-8');
     // A shared helper now extracts title/description trying single- then
     // double-quoted values (was single-quote-only `descMatches`/`titleMatches`).
-    expect(llmsSource).toContain('lastQuoted');
-    expect(llmsSource).not.toContain('const descMatches');
-    expect(llmsSource).not.toContain('const titleMatches');
+    expect(llmsGeneratorSource).toContain('lastQuoted');
+    expect(llmsGeneratorSource).not.toContain('const descMatches');
+    expect(llmsGeneratorSource).not.toContain('const titleMatches');
   });
 });
 
