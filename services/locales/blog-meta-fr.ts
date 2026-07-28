@@ -9051,6 +9051,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-a-luino-da-frontaliere-pro-e-contro.title': 'Déménager à Luino en tant que frontalier : avantages et inconvénients',
     'blog.article.trasferirsi-a-luino-da-frontaliere-pro-e-contro.excerpt': 'Réglage à la source, double imposition et franchise pour les frontaliers.',
     'blog.article.trasferirsi-a-luino-da-frontaliere-pro-e-contro.imageAlt': 'Frontalier visitant Luino, avec sa valise, regardant le lac de Lugano.',
+    'blog.article.svizzera-vola-per-treni.title': 'Et si les trains étaient financés par ceux qui prennent l\'avion ?',
+    'blog.article.svizzera-vola-per-treni.excerpt': 'Une initiative populaire veut taxer chaque vol au départ de la Suisse et restituer la majeure partie des recettes sous forme de bons pour voyager en train.',
+    'blog.article.svizzera-vola-per-treni.imageAlt': 'Max 125 caratteri',
 };
 
 export default blogMetaFr;
