@@ -1,0 +1,231 @@
+name: Fast Publish Article (near-instant single-article shard push)
+
+# Issue #4837 stream C — "article committed to main" → "article live in all
+# 4 locales" today means waiting on the FULL deploy.yml build (npm ci +
+# whole-site SSG build + all locale/section shard pushes), 30min-2h04m37s in
+# the worst measured run (see scripts/notify-journalist-article-live.mjs's
+# ORPHAN_THRESHOLD_MS comment). This workflow renders + pushes ONLY the one
+# article's own locale shards (frontaliere-articolifrontaliere-<loc> /
+# frontaliere-articolisvizzera-<loc>), skipping the full build entirely. The
+# full deploy.yml/deploy-publish.yml chain still runs additively afterwards
+# (triggered separately by the caller) and remains the source of truth for
+# sitemap/RSS/search-index regeneration — this workflow is a fast PREVIEW
+# push, not a replacement.
+#
+# Depends on (stream A / stream B contracts):
+#   scripts/publish-article-fast.mjs        — renders one article's 4 locale
+#                                              HTML pages + a summary JSON
+#   scripts/lib/push-article-shard-incremental.sh — merge-only shard push
+#   scripts/lib/upload-cdn-file.sh          — single-file R2 PUT
+
+on:
+  workflow_dispatch:
+    inputs:
+      article_id:
+        description: 'Article id to fast-publish'
+        required: true
+        type: string
+      section:
+        description: 'Article section (determines which shard repos + registry file)'
+        required: true
+        type: choice
+        options:
+          - frontaliere
+          - svizzera
+      sha:
+        description: 'Commit SHA to check out (default: the SHA main was at when this run was dispatched)'
+        required: false
+        type: string
+
+# Serialize by SECTION, not globally: frontaliere and svizzera articles never
+# contend for the same shard repos, so they run fully in parallel. Two
+# articles in the SAME section dispatched close together (e.g. the stream-C
+# reconciler re-dispatching while a producer's own dispatch is still
+# in-flight, or two journalist articles published in the same 15-min cron
+# window) DO need to serialize: push-article-shard-incremental.sh's target
+# shard repos (frontaliere-articolifrontaliere-<loc> etc.) take a single SSH
+# deploy key each — two concurrent pushes to the same shard repo would race
+# each other's git push. `cancel-in-progress: false` is deliberate (mirrors
+# deploy.yml's pages-build-run group rationale): the shard push is
+# merge-only/additive, so a QUEUED second run must still complete and push
+# its own article rather than being cancelled and silently dropping that
+# article's fast-publish.
+concurrency:
+  group: fast-publish-${{ inputs.section }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  fast-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    # shard-secrets-overflow: same environment deploy.yml's build-locale job
+    # declares — repo-level Actions secrets already hit GitHub's 100/repo cap
+    # (89 section-shard deploy keys), so the SHARD_ARTICOLIFRONTALIERE_*/
+    # SHARD_ARTICOLISVIZZERA_* deploy keys live in this environment's
+    # separate 100-slot secrets pool instead. No new secrets needed — reuses
+    # the exact keys deploy.yml's own shard-push step already reads.
+    environment: shard-secrets-overflow
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.sha || github.sha }}
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Firebase secrets not set — R2/indexing credential load will be limited."
+          fi
+
+      # R2 (CDN) credentials + any other provider keys this render path needs
+      # are Remote-Config-sourced, same as every other workflow in this repo
+      # (scripts/load-rc-env.mjs RC_TO_ENV: R2_ACCOUNT_ID, R2_BUCKET,
+      # R2_S3_ENDPOINT, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY). Deliberately
+      # NO `npm ci` anywhere in this job — full dependency install is exactly
+      # the cost this workflow exists to avoid. publish-article-fast.mjs runs
+      # via `npx -y tsx` (on-demand, no repo install) and the shard-push /
+      # CDN-upload scripts are plain bash + Node built-ins.
+      - name: Load secrets from Remote Config (R2 + indexing)
+        run: node scripts/load-rc-env.mjs
+
+      - name: Render article (fast path)
+        id: render
+        run: |
+          mkdir -p /tmp/fast-publish
+          npx -y tsx scripts/publish-article-fast.mjs \
+            --id "${{ inputs.article_id }}" \
+            --section "${{ inputs.section }}" \
+            --out /tmp/fast-publish/dist \
+            --summary /tmp/fast-publish/summary.json
+
+      - name: Upload CDN assets (images)
+        if: steps.render.outcome == 'success'
+        run: |
+          set -uo pipefail
+          SUMMARY_PATH=/tmp/fast-publish/summary.json
+          UPLOAD_COUNT="$(jq '(.cdnUploads // []) | length' "$SUMMARY_PATH")"
+          if [ "$UPLOAD_COUNT" -eq 0 ]; then
+            echo "No CDN uploads listed in summary — skipping"
+            exit 0
+          fi
+          fail=0
+          for idx in $(seq 0 $((UPLOAD_COUNT - 1))); do
+            local_file="$(jq -r ".cdnUploads[$idx].local" "$SUMMARY_PATH")"
+            cdn_key="$(jq -r ".cdnUploads[$idx].key" "$SUMMARY_PATH")"
+            bash scripts/lib/upload-cdn-file.sh "$local_file" "$cdn_key" || {
+              echo "::warning::CDN upload failed for $cdn_key — continuing (asset may 404 until next full deploy)"
+              fail=1
+            }
+          done
+          exit "$fail"
+
+      # Mirrors the fault-tolerant parallel-push pattern at deploy.yml
+      # (`push-section-shard.sh` loop, MAX_PARALLEL / `|| fail=1` / `wait`) —
+      # incident 2026-07-24 (run 30057726623): one section's push failure
+      # silently aborted the rest of the loop before it. At most 4 locales
+      # here (never 27 sections), so no MAX_PARALLEL batching is needed — all
+      # 4 legs are simply backgrounded and waited on individually.
+      #
+      # `<section>` passed to push-article-shard-incremental.sh is the SHARD
+      # section token (articolifrontaliere / articolisvizzera — the
+      # scripts/lib/section-shard-slugs.json key), NOT the article-level
+      # `frontaliere` / `svizzera` input: this mirrors push-section-shard.sh's
+      # own convention of deriving SHARD_<SECTION>_<LOCALE>_DEPLOY_KEY by
+      # uppercasing that exact token, so the two scripts resolve the SAME
+      # deploy-key secret for the SAME shard repo.
+      - name: Push locale shards (parallel, fault-tolerant)
+        if: steps.render.outcome == 'success'
+        env:
+          SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_FR_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+        run: |
+          set -uo pipefail
+          SUMMARY_PATH=/tmp/fast-publish/summary.json
+          DIST_DIR=/tmp/fast-publish/dist
+          if [ "${{ inputs.section }}" = "svizzera" ]; then
+            SHARD_SECTION="articolisvizzera"
+          else
+            SHARD_SECTION="articolifrontaliere"
+          fi
+
+          fail=0
+          pids=(); names=()
+          while IFS= read -r shard_json; do
+            locale="$(jq -r '.locale' <<<"$shard_json")"
+            mapfile -t rel_paths < <(jq -r '.paths[]' <<<"$shard_json")
+            bash scripts/lib/push-article-shard-incremental.sh "$SHARD_SECTION" "$locale" "$DIST_DIR" "${rel_paths[@]}" &
+            pids+=("$!"); names+=("$locale")
+          done < <(jq -c '.shards[]' "$SUMMARY_PATH")
+
+          for idx in "${!pids[@]}"; do
+            wait "${pids[$idx]}" || { echo "::warning::${names[$idx]}-${SHARD_SECTION} shard push failed — continuing to the next locale"; fail=1; }
+          done
+          exit "$fail"
+
+      # Only pings search engines once the pages are CONFIRMED live — never
+      # before. This is the exact ordering bug fast-publish-article.yml fixes
+      # relative to generate-article.yml's old "Notify Google Indexing API"
+      # step (removed in the same change — see that workflow's comment),
+      # which pinged immediately after dispatching deploy.yml on the false
+      # assumption "deploy takes ~2-3 min" (worst measured deploy:
+      # 2h04m37s — Google was being sent to crawl a 404).
+      - name: Verify shard URLs are live
+        id: verify
+        if: steps.render.outcome == 'success'
+        run: node scripts/wait-for-live-article-shards.mjs /tmp/fast-publish/summary.json
+
+      - name: Notify Google Indexing API
+        if: steps.verify.outcome == 'success'
+        continue-on-error: true
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          node --input-type=module -e "
+            import fs from 'node:fs';
+            import { notifyGoogleIndexing } from './scripts/lib/indexing-api.mjs';
+            const summary = JSON.parse(fs.readFileSync('/tmp/fast-publish/summary.json', 'utf8'));
+            const urls = (summary.shards || []).map((s) => s.url).filter(Boolean);
+            if (urls.length === 0) { console.log('[fast-publish] no shard URLs to notify'); process.exit(0); }
+            await notifyGoogleIndexing(urls);
+          "
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: Fast Publish Article" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Article:** ${{ inputs.article_id }} (section=${{ inputs.section }})
+          **SHA:** ${{ inputs.sha || github.sha }}
+
+          Il fast-publish è fallito — l'articolo resta pubblicato SOLO tramite il deploy.yml completo (30min-2h)." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
