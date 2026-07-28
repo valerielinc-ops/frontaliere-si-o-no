@@ -68,6 +68,11 @@ import { parseChCantonEmployersPath } from '../build-plugins/weeklyEmployersChCa
 import { isSectionPagePath, parseSectionPagePath } from '../build-plugins/sectionPagesPathsData';
 import { isFiscalHubPath, parseFiscalHubPath, parseFiscalMunicipalityPath } from '../build-plugins/fiscalMunicipalityData';
 import {
+  isFrenchBorderMunicipalityHubPath,
+  parseFrenchBorderMunicipalityHubPath,
+  parseFrenchBorderMunicipalityPath,
+} from '../build-plugins/frenchBorderMunicipalityData';
+import {
   COST_OF_LIVING_LANDING_ROUTES,
   isCostOfLivingLandingPath,
   parseCostOfLivingLandingPath,
@@ -2165,6 +2170,26 @@ export function parsePath(pathname: string): ParseResult {
    const parsed = parseFiscalMunicipalityPath(pathname);
    if (parsed) {
      return { route: { activeTab: 'fisco', staticOverlay: true }, locale: parsed.locale as Locale };
+   }
+ }
+
+ // Per-municipality FRANCE border pages (issue #4545,
+ // frenchBorderMunicipalityPagesPlugin.ts) — hub index at
+ // /vivere-in-francia-lavorare-in-svizzera/ (+ locale variants) plus
+ // per-commune detail pages at /vivere-in-francia-lavorare-in-svizzera/{slug}/
+ // (above-floor page OR below-floor noindex bridge, same URL either way —
+ // self-mapping, per frenchBorderMunicipalityData.ts). Routed to the
+ // existing `vita` tab with NO sub-tab (same self-contained pattern as the
+ // fiscal branch above, mirroring frenchBorderMunicipalityData.ts's
+ // architectural note — no bespoke locale-rewrite needed here).
+ if (isFrenchBorderMunicipalityHubPath(pathname)) {
+   const parsed = parseFrenchBorderMunicipalityHubPath(pathname);
+   return { route: { activeTab: 'vita', staticOverlay: true }, locale: (parsed?.locale ?? locale) as Locale };
+ }
+ {
+   const parsed = parseFrenchBorderMunicipalityPath(pathname);
+   if (parsed) {
+     return { route: { activeTab: 'vita', staticOverlay: true }, locale: parsed.locale as Locale };
    }
  }
 

@@ -84,6 +84,8 @@ import { borderWaitMapPlugin } from './build-plugins/borderWaitMapPlugin';
 import { borderMunicipalityPagesPlugin } from './build-plugins/borderMunicipalityPagesPlugin';
 import { fiscalMunicipalityPagesPlugin } from './build-plugins/fiscalMunicipalityPagesPlugin';
 import { fiscalMunicipalityLinksPlugin } from './build-plugins/fiscalMunicipalityLinksPlugin';
+import { frenchBorderMunicipalityPagesPlugin } from './build-plugins/frenchBorderMunicipalityPagesPlugin';
+import { frenchBorderMunicipalityLinksPlugin } from './build-plugins/frenchBorderMunicipalityLinksPlugin';
 import { eventsSeoPagesPlugin } from './build-plugins/eventsSeoPagesPlugin';
 import { nursingLandingsPlugin } from './build-plugins/nursingLandingsPlugin';
 import { healthFacilitiesPlugin } from './build-plugins/healthFacilitiesPlugin';
@@ -281,6 +283,12 @@ export default defineConfig(({ mode }) => {
  // no hub patch), so ordering vs staticPagesPlugin is not load-bearing.
  // Default-on; escape hatch SKIP_FISCAL_MUNICIPALITY_PAGES=1.
  fiscalMunicipalityPagesPlugin(__dirname),
+ // Per-comune FRANCE border-municipality pages ("vivere a {commune} e
+ // lavorare in Svizzera", issue #4545 — Genève/Vaud/Neuchâtel/Jura/Valais
+ // corridor, first of the FR/DE/AT/LI rollout). Self-contained (own dist
+ // paths, no hub patch), same ordering rationale as fiscalMunicipalityPagesPlugin.
+ // Default-on; escape hatch SKIP_FRENCH_BORDER_MUNICIPALITY_PAGES=1.
+ frenchBorderMunicipalityPagesPlugin(__dirname),
  // Per-comune Ticino events pages (issue #2963). Same post-staticPages
  // ordering as borderMunicipalityPagesPlugin: it patches the
  // /vivere-in-ticino/ hubs after they are flushed and awaits
@@ -388,6 +396,15 @@ export default defineConfig(({ mode }) => {
  // staticPagesPlugin (sitemap-page HTML). Idempotent via
  // `data-fiscal-municipalities-links`.
  fiscalMunicipalityLinksPlugin(__dirname),
+ // France border-municipality hub orphan fix — inject a link to the France
+ // hub (FRENCH_HUB_PATH, which already links every above-floor commune
+ // below it) into each locale's HTML sitemap page (main-nav reachable) so
+ // the whole sitemap-comuni-francia.xml shard reaches BFS depth ≤ 3 instead
+ // of shipping fully unreachable (audit:max-bfs-depth hard-fail). Awaits
+ // explicit signals from frenchBorderMunicipalityPagesPlugin (hub paths) +
+ // staticPagesPlugin (sitemap-page HTML). Idempotent via
+ // `data-french-border-municipalities-links`.
+ frenchBorderMunicipalityLinksPlugin(__dirname),
  // Employer-profile pages orphan fix — inject an "Aziende in Svizzera" block
  // into each locale's HTML sitemap page (main-nav reachable) so the ~468
  // /aziende/{slug}/ pages reach BFS depth ≤ 3 instead of shipping fully
