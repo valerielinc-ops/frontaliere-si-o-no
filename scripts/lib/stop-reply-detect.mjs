@@ -47,6 +47,44 @@ export function isStopReply({ subject = '', body = '', text = '' } = {}) {
   return STOP_INTENT_PATTERNS.some((re) => re.test(haystack));
 }
 
+// Subject shapes an autoresponder uses. MIRRORED verbatim in
+// infra/cloudflare-email-worker/stop-reply-handler.js (the Worker keeps its own
+// copy rather than importing across the wrangler bundle boundary, same as
+// STOP_INTENT_PATTERNS above); tests/cf-email-worker-stop-reply-handler.test.ts
+// asserts the two sources are byte-identical, so drift fails CI instead of
+// relying on this comment.
+//
+// Anchored at the start (after any Re:/AW:/R: prefix chain) or bracketed at the
+// end — the two forms real out-of-office subjects take ("Out of office Re: …",
+// "Automatic reply: …", "… [Out of Office]"). Never a bare substring match, so
+// a human writing "Re: our out of office policy" is not dropped.
+export const AUTO_REPLY_SUBJECT_MARKER =
+  'out\\s+of\\s+(?:the\\s+)?office|automatic(?:al)?\\s+repl(?:y|ies)|auto[\\s-]?repl(?:y|ies)|automatische\\s+antwort|abwesenheits?notiz|risposta\\s+automatica|assente\\s+dall\\W?ufficio|fuori\\s+sede|r[ée]ponse\\s+automatique|absence\\s+du\\s+bureau|respuesta\\s+autom[áa]tica';
+export const AUTO_REPLY_SUBJECT_PATTERNS = [
+  new RegExp(`^\\s*(?:(?:re|r|aw|antw|rif|tr|fwd?)\\s*:\\s*)*(?:${AUTO_REPLY_SUBJECT_MARKER})`, 'i'),
+  new RegExp(`[[(]\\s*(?:${AUTO_REPLY_SUBJECT_MARKER})\\s*[\\])]\\s*$`, 'i'),
+];
+
+/**
+ * True when a queued reply looks like an automatic response rather than a human
+ * one, judged on the subject alone.
+ *
+ * The Worker (stop-reply-handler.js:isAutoReply) decides this from the RFC 3834
+ * headers first and only falls back to the subject. A queue entry is
+ * `{ from, subject, body }` with the headers already stripped, so the subject is
+ * all this side has — which is why the patterns stay conservative.
+ *
+ * Without this gate an out-of-office whose footer happens to carry the word
+ * "unsubscribe" is classified as a real STOP and suppresses a company that
+ * never asked to be removed.
+ *
+ * @param {{subject?: string}} parts
+ * @returns {boolean}
+ */
+export function isAutoReplySubject({ subject = '' } = {}) {
+  return AUTO_REPLY_SUBJECT_PATTERNS.some((re) => re.test(String(subject || '')));
+}
+
 /**
  * Extract a bare email address from a raw From/Sender header value, e.g.
  *   "Denise Rossi <denise@casale.ch>"  → "denise@casale.ch"

@@ -104,4 +104,25 @@ describe('classifyReplies (queue → suppression decisions)', () => {
     expect(toSuppress).toEqual([]);
     expect(skipped).toEqual([]);
   });
+
+  it('never suppresses a company from an out-of-office reply', () => {
+    // The queue entry carries no headers, so the subject is the only signal —
+    // and this body would otherwise match \bunsubscribe\b and suppress a
+    // company that never asked. Same gate the Worker applies inbound.
+    const replies = [
+      {
+        from: 'Denise <denise@casale.ch>',
+        subject: 'Out of office Re: candidati',
+        body: 'Sono assente. To unsubscribe from our updates click here.',
+      },
+      {
+        from: 'hr@aldi.ch',
+        subject: 'Automatic reply: candidati',
+        body: 'unsubscribe',
+      },
+    ];
+    const { toSuppress, skipped } = classifyReplies(replies, contacts);
+    expect(toSuppress).toEqual([]);
+    expect(skipped.map((s: any) => s.reason)).toEqual(['auto-reply', 'auto-reply']);
+  });
 });
