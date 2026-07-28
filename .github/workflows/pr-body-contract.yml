@@ -295,8 +295,23 @@ jobs:
         uses: actions/checkout@v5
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+          # `fetch-depth: 0` resta: check-sibling-patterns.mjs diffa contro
+          # BASE_REF e senza storia non ha nulla da confrontare.
           fetch-depth: 0
           filter: blob:none
+          # `filter: blob:none` evita di scaricare i blob nel fetch, ma il
+          # checkout dell'albero li materializza comunque uno per uno: su
+          # ~2.6GB di working tree questo job ha impiegato fino a 296s (run
+          # 30354558798). I guard leggono solo sorgente (scripts/**,
+          # build-plugins/**, components/**), quindi le due sottodirectory di
+          # immagini binarie più grosse — events 790MB e blog 361MB — non
+          # servono a nessuno dei quattro. `public/images/brands` resta.
+          sparse-checkout: |
+            /*
+            !/public/images/events
+            !/public/images/blog
+          sparse-checkout-cone-mode: false
+        timeout-minutes: 8
 
       # Sibling-class surfacer (zero-Claude, ADVISORY — never fails). Il finding
       # reviewer più ricorrente dopo il body-contract è il 🔴 "stesso antipattern
@@ -447,8 +462,16 @@ jobs:
       # services/adsenseSlots.ts so the reserved space matches the real ad unit →
       # zero CLS (the #1910 280-vs-400px regression). Zero-Claude, exits 1 on
       # violation. Also covered by tests/check-cls-ad-slots.test.ts in the vitest gate.
+      # Gli ultimi due gate sono script node indipendenti fra loro e da tutto il
+      # resto: non producono output consumati da altri step, leggono solo il
+      # working tree e il loro unico effetto è far fallire il job. Girano quindi
+      # in `background:` sovrapposti ai due "Post ... comment" sopra, che sono
+      # I/O verso l'API GitHub. Un gate rosso fa comunque fallire il job (stesso
+      # comportamento verificato live su post-deploy-validate-live, probe run
+      # 28352247167); il `wait-all` sotto li rijoina prima della fine del job.
       - name: Forbid hard-coded AdSense <ins> in build-plugins
         if: ${{ !cancelled() && github.event.action != 'edited' }}
+        background: true
         run: node scripts/ci/check-cls-ad-slots.mjs
 
       # Blocking gate (#1996 → #1999): forbid regex lookbehind ((?<=/(?<!) in
@@ -458,4 +481,8 @@ jobs:
       # Comment-aware; zero-Claude. Also covered by tests/check-client-lookbehind.test.ts.
       - name: Forbid regex lookbehind in client-bundled source
         if: ${{ !cancelled() && github.event.action != 'edited' }}
+        background: true
         run: node scripts/ci/check-client-lookbehind.mjs
+
+      - name: Wait for background source guards
+        wait-all: true

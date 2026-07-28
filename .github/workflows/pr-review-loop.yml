@@ -174,11 +174,57 @@ jobs:
           #
           # `fetch-depth: 1` elimina ENTRAMBI: niente commit-graph history (non
           # scarica gli ~11GB di .git), niente partial clone → niente lazy-fetch
-          # → niente stallo. Working tree HEAD interamente presente (Read di un
-          # campione `data/**` funziona ancora). Checkout atteso ~10-20s. Se mai
-          # servisse la history per un caso futuro, ripristinare depth:0 — ma
-          # allora SENZA `filter: blob:none` (è il partial clone a stallare).
+          # → niente stallo. Se mai servisse la history per un caso futuro,
+          # ripristinare depth:0.
           fetch-depth: 1
+          # Sparse: `fetch-depth: 1` da solo scaricava comunque OGNI blob
+          # dell'albero HEAD — misurato 87s di Checkout (75s di sola `Fetching
+          # the repository`) sul job review di run 30353920865, cioè ~1/4 di un
+          # job da 371s. L'albero pesa ~2.6GB e le voci grosse sono binari o
+          # dump dati che il reviewer non apre MAI: public/images/events
+          # (790MB), public/images/blog (361MB), data/jobs (627MB, slice
+          # crawler), data/translation-cache (182MB), data/seo-404-compat
+          # (164MB), docs/newsletter-qa (90MB) → ~2.1GB tagliati.
+          #
+          # Perché è safe per il reviewer: il diff arriva da `gh pr diff`
+          # (GitHub API, non dal working tree) e il probing cross-file di
+          # REVIEW.md step 5 è scopato al CODE. `public/images/brands` (1.2MB)
+          # resta incluso perché è l'unica sottodir di images letta da codice.
+          #
+          # Nota sul rischio noto: `sparse-checkout` fa passare actions/checkout
+          # a `--filter=blob:none` (partial clone) — lo stesso meccanismo che in
+          # passato ha stallato un Checkout per 11 MINUTI (run 27672265799, PR
+          # #2394) mangiando il budget della review. Qui il lazy-fetch non ha
+          # motivo di scattare, perché gli esclusi sono binari/dump che nessun
+          # `Read`/`rg` del reviewer tocca; se mai scattasse, `timeout-minutes`
+          # sotto trasforma uno stallo in un fallimento VISIBILE (job rosso)
+          # invece che in una review idle senza diagnosi.
+          sparse-checkout: |
+            /*
+            !/public/images/events
+            !/public/images/blog
+            !/data/jobs
+            !/data/translation-cache
+            !/data/seo-404-compat
+            !/docs/newsletter-qa
+          sparse-checkout-cone-mode: false
+        timeout-minutes: 8
+
+      # Headroom install (~63s misurati su run 30353920865) in BACKGROUND: è
+      # lavoro puramente I/O (pipx da PyPI) che non dipende da nulla degli step
+      # sotto, quindi resta in ombra dietro Setup Node + re-review guard + tier
+      # + debounce invece di aggiungersi in coda. `wait-all` più sotto lo
+      # rijoina prima che il proxy serva davvero.
+      #
+      # DEVE restare uno step `run:`: `background:` su uno step `uses:` non è
+      # supportato e rompe l'INTERO file workflow (zero job creati — incidente
+      # PR #4777/#4779 su deploy.yml). Per questo l'install sta in install.sh e
+      # non nella composite action, che resta `uses:` per gli altri 5 chiamanti.
+      - name: Install Headroom (background)
+        id: headroom-install
+        if: steps.resolve.outputs.should_review == 'true'
+        background: true
+        run: bash .github/actions/setup-headroom/install.sh "proxy,code"
 
       - name: Setup Node.js
         if: steps.resolve.outputs.should_review == 'true'
@@ -391,9 +437,20 @@ jobs:
             set_tier normal claude-sonnet-5 35
           fi
 
+      # Rijoina l'install lanciato in background sopra. `wait-all` invece di
+      # `wait: headroom-install` perché quando lo step bg è saltato (PR non
+      # reviewabile) non c'è nessun bg outstanding e `wait-all` è un no-op,
+      # mentre attendere per id uno step mai avviato non ha semantica definita.
+      - name: Wait for background Headroom install
+        wait-all: true
+
       - name: Setup Headroom compression proxy
         if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
         uses: ./.github/actions/setup-headroom
+        with:
+          # L'install è già girato in background sopra: qui serve solo far
+          # partire il proxy e scrivere ANTHROPIC_BASE_URL.
+          skip-install: 'true'
 
       - name: Prefetch review context (zero-Claude, saves turns)
         id: prefetch
