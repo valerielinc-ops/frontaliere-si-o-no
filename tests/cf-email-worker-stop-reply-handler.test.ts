@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
 import { createHmac } from 'node:crypto';
 // @ts-expect-error — Cloudflare Worker module, no types
-import worker, { isStopReply, extractSenderEmail, hmacHex } from '../infra/cloudflare-email-worker/stop-reply-handler.js';
+import worker, { isStopReply, isAutoReply, extractSenderEmail, hmacHex } from '../infra/cloudflare-email-worker/stop-reply-handler.js';
 
 // The worker binds TWO Email Routing addresses to the same script
 // (scripts/cf-email-worker-setup.mjs's ROUTING_RULES) and branches on
@@ -11,12 +11,13 @@ import worker, { isStopReply, extractSenderEmail, hmacHex } from '../infra/cloud
 
 const SECRET = 'shared-test-secret';
 
-function fakeMessage({ from, to, subject, rawText = '' }: { from: string; to: string; subject: string; rawText?: string }) {
+function fakeMessage({ from, to, subject, rawText = '', headers = {} }: { from: string; to: string; subject: string; rawText?: string; headers?: Record<string, string> }) {
   const bytes = new TextEncoder().encode(rawText);
+  const headerMap = new Map(Object.entries({ subject, ...headers }).map(([k, v]) => [k.toLowerCase(), v]));
   return {
     from,
     to,
-    headers: { get: (name: string) => (name.toLowerCase() === 'subject' ? subject : undefined) },
+    headers: { get: (name: string) => headerMap.get(name.toLowerCase()) },
     raw: {
       getReader() {
         let done = false;
@@ -41,6 +42,233 @@ function fakeCtx() {
 
 afterEach(() => {
   vi.unstubAllGlobals();
+});
+
+describe('isAutoReply', () => {
+  const headers = (h: Record<string, string>) => ({ get: (name: string) => h[name.toLowerCase()] });
+
+  it('detects RFC 3834 Auto-Submitted values other than "no"', () => {
+    expect(isAutoReply(headers({ 'auto-submitted': 'auto-replied' }))).toBe(true);
+    expect(isAutoReply(headers({ 'auto-submitted': 'auto-generated' }))).toBe(true);
+    expect(isAutoReply(headers({ 'auto-submitted': 'no' }))).toBe(false);
+  });
+
+  it('detects the de-facto vendor autoresponder headers', () => {
+    expect(isAutoReply(headers({ 'x-autoreply': 'yes' }))).toBe(true);
+    expect(isAutoReply(headers({ 'x-autorespond': 'vacation' }))).toBe(true);
+    expect(isAutoReply(headers({ precedence: 'auto_reply' }))).toBe(true);
+  });
+
+  it('treats Precedence: bulk as automated ONLY with a second signal', () => {
+    // Plenty of human-sent list mail carries Precedence: bulk — on its own it
+    // must not cost us the message.
+    expect(isAutoReply(headers({ precedence: 'bulk' }))).toBe(false);
+    expect(isAutoReply(headers({ precedence: 'bulk', 'x-auto-response-suppress': 'All' }))).toBe(true);
+  });
+
+  it('falls back to out-of-office subject shapes when the headers are absent', () => {
+    // The subject of the real incident (a vacation responder answering a job
+    // alert), plus the other forms autoresponders use.
+    expect(isAutoReply(headers({}), 'Out of office Re: 🔔 MaP Executive Director at ETH Zürich (+9 more)')).toBe(true);
+    expect(isAutoReply(headers({}), 'Automatic reply: Frontaliere Weekly')).toBe(true);
+    expect(isAutoReply(headers({}), 'Risposta automatica: offerte della settimana')).toBe(true);
+    expect(isAutoReply(headers({}), 'Re: Automatische Antwort')).toBe(true);
+    expect(isAutoReply(headers({}), 'Re: your email [Out of Office]')).toBe(true);
+  });
+
+  it('does not drop human mail that merely mentions the phrase', () => {
+    expect(isAutoReply(headers({}), 'Re: our out of office policy for August')).toBe(false);
+    expect(isAutoReply(headers({}), 'Re: 🔔 MaP Executive Director at ETH Zürich')).toBe(false);
+    expect(isAutoReply(headers({}), '')).toBe(false);
+  });
+
+  it('survives a missing/throwing headers object', () => {
+    expect(isAutoReply(undefined, 'hello')).toBe(false);
+    expect(isAutoReply({ get: () => { throw new Error('boom'); } }, 'hello')).toBe(false);
+  });
+});
+
+describe('worker email() — automatic responses', () => {
+  it('drops an out-of-office reply: no tracking, no suppression, no forward', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response('{}'));
+    vi.stubGlobal('fetch', fetchMock);
+
+    // Reproduces the incident headers verbatim: a Gmail vacation responder
+    // answering a job-alert send, landing on the abuse@ role address.
+    const message = fakeMessage({
+      from: '"Away Recipient" <away@example.com>',
+      to: 'abuse@frontaliereticino.ch',
+      subject: 'Out of office Re: 🔔 MaP Executive Director at ETH Zürich (+9 more)',
+      rawText: 'Thanks for your email. I am currently out of office.',
+      headers: { precedence: 'bulk', 'x-autoreply': 'yes', 'auto-submitted': 'auto-replied' },
+    });
+    const ctx = fakeCtx();
+
+    await worker.email(message, {
+      STOP_SECRET: SECRET,
+      REPLY_TRACK_FN_URL: 'https://fn.example/track',
+      STOP_REPLY_FN_URL: 'https://fn.example/stop',
+      NEWSLETTER_ADDRESS: 'newsletter@frontaliereticino.ch',
+      OUTREACH_ADDRESS: 'valerie@frontaliereticino.ch',
+      FORWARD_TO: 'human@example.com',
+    }, ctx);
+
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(message.forward).not.toHaveBeenCalled();
+  });
+
+  it('never unsubscribes a real subscriber from an auto-reply body', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response('{}'));
+    vi.stubGlobal('fetch', fetchMock);
+
+    // A corporate out-of-office footer routinely carries the word
+    // "unsubscribe" — without the auto-reply gate this wrote a real Firestore
+    // unsubscribe for someone who never asked.
+    const message = fakeMessage({
+      from: 'Jane Reader <jane.reader@example.com>',
+      to: 'newsletter@frontaliereticino.ch',
+      subject: 'Automatic reply: Frontaliere Weekly',
+      rawText: 'I am on leave until August. To unsubscribe from our own updates, click here.',
+      headers: { 'auto-submitted': 'auto-replied' },
+    });
+    const ctx = fakeCtx();
+
+    await worker.email(message, {
+      STOP_SECRET: SECRET,
+      NEWSLETTER_UNSUB_URL: 'https://frontaliereticino.ch/disiscrivi-newsletter/',
+      NEWSLETTER_ADDRESS: 'newsletter@frontaliereticino.ch',
+      OUTREACH_ADDRESS: 'valerie@frontaliereticino.ch',
+      FORWARD_TO: 'human@example.com',
+    }, ctx);
+
+    await Promise.all(ctx.waited);
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(message.forward).not.toHaveBeenCalled();
+  });
+});
+
+describe('worker email() — forward-only addresses', () => {
+  it('forwards a human message to a bound role address without outreach tracking', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response('{}'));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const message = fakeMessage({
+      from: 'Someone <someone@example.com>',
+      to: 'alerts@frontaliereticino.ch',
+      subject: 'question about a job alert',
+      rawText: 'Hi, can you stop sending these on weekends?',
+    });
+    const ctx = fakeCtx();
+
+    await worker.email(message, {
+      STOP_SECRET: SECRET,
+      REPLY_TRACK_FN_URL: 'https://fn.example/track',
+      STOP_REPLY_FN_URL: 'https://fn.example/stop',
+      NEWSLETTER_ADDRESS: 'newsletter@frontaliereticino.ch',
+      OUTREACH_ADDRESS: 'valerie@frontaliereticino.ch',
+      FORWARD_TO: 'human@example.com',
+    }, ctx);
+
+    await Promise.all(ctx.waited);
+    // alerts@ is not the outreach mailbox: the message must reach the human
+    // inbox, but it is not a company reply and must not be recorded as one —
+    // note the body would otherwise match the loose \bstop\b intent.
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(message.forward).toHaveBeenCalledWith('human@example.com');
+  });
+
+  it('still forwards the paid-consulting lead notification to consulenza@', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response('{}'));
+    vi.stubGlobal('fetch', fetchMock);
+
+    // functions/src/consultingCore.js mails this to consulenza@ on every paid
+    // booking. It IS machine-generated, so the auto-reply filter must not be
+    // greedy enough to swallow it — this is why `Precedence: bulk` alone never
+    // counts as an automatic response.
+    const message = fakeMessage({
+      from: 'Frontaliere Ticino <consulenza@frontaliereticino.ch>',
+      to: 'consulenza@frontaliereticino.ch',
+      subject: 'Nuova consulenza pagata — Pro',
+      rawText: 'Dettagli prenotazione.',
+      headers: { precedence: 'bulk' },
+    });
+    const ctx = fakeCtx();
+
+    await worker.email(message, {
+      STOP_SECRET: SECRET,
+      REPLY_TRACK_FN_URL: 'https://fn.example/track',
+      NEWSLETTER_ADDRESS: 'newsletter@frontaliereticino.ch',
+      OUTREACH_ADDRESS: 'valerie@frontaliereticino.ch',
+      FORWARD_TO: 'human@example.com',
+    }, ctx);
+
+    await Promise.all(ctx.waited);
+    expect(message.forward).toHaveBeenCalledWith('human@example.com');
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+});
+
+describe('auto-reply subject patterns — worker/lib lockstep', () => {
+  it('keeps the Worker copy byte-identical to scripts/lib/stop-reply-detect.mjs', async () => {
+    // The Worker cannot import across the wrangler bundle boundary, so the
+    // subject rules exist twice (AGENTS.md #6). This assertion is what makes
+    // the duplication safe: any edit to one copy without the other fails CI
+    // instead of silently drifting the queue processor away from the inbound
+    // filter.
+    const { readFile } = await import('node:fs/promises');
+    const marker = /const AUTO_REPLY_SUBJECT_MARKER =\s*\n?\s*'([^']+)'/;
+    const [workerSrc, libSrc] = await Promise.all([
+      readFile(new URL('../infra/cloudflare-email-worker/stop-reply-handler.js', import.meta.url), 'utf-8'),
+      readFile(new URL('../scripts/lib/stop-reply-detect.mjs', import.meta.url), 'utf-8'),
+    ]);
+    const workerMarker = workerSrc.match(marker)?.[1];
+    const libMarker = libSrc.match(marker)?.[1];
+    expect(workerMarker).toBeTruthy();
+    expect(workerMarker).toBe(libMarker);
+  });
+
+  it('agrees with the lib implementation on the same subjects', async () => {
+    const { isAutoReplySubject } = await import('../scripts/lib/stop-reply-detect.mjs');
+    const subjects = [
+      'Out of office Re: 🔔 MaP Executive Director at ETH Zürich (+9 more)',
+      'Automatic reply: Frontaliere Weekly',
+      'Risposta automatica: offerte',
+      'Re: your email [Out of Office]',
+      'Re: our out of office policy for August',
+      'STOP',
+    ];
+    for (const s of subjects) {
+      expect(isAutoReplySubject({ subject: s })).toBe(isAutoReply({ get: () => undefined }, s));
+    }
+  });
+});
+
+describe('worker email() — unreadable message', () => {
+  it('still forwards when headers.get throws', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response('{}'));
+    vi.stubGlobal('fetch', fetchMock);
+
+    // A malformed/duplicated header must not cost us the message: a throw
+    // escaping the handler makes Email Routing bounce it back to the sender.
+    const message = fakeMessage({
+      from: 'Someone <someone@example.com>',
+      to: 'valerie@frontaliereticino.ch',
+      subject: 'hello',
+    });
+    message.headers = { get: () => { throw new Error('malformed header'); } };
+    const ctx = fakeCtx();
+
+    await worker.email(message, {
+      STOP_SECRET: SECRET,
+      REPLY_TRACK_FN_URL: 'https://fn.example/track',
+      NEWSLETTER_ADDRESS: 'newsletter@frontaliereticino.ch',
+      OUTREACH_ADDRESS: 'valerie@frontaliereticino.ch',
+      FORWARD_TO: 'human@example.com',
+    }, ctx);
+
+    await Promise.all(ctx.waited);
+    expect(message.forward).toHaveBeenCalledWith('human@example.com');
+  });
 });
 
 describe('hmacHex (Web Crypto)', () => {

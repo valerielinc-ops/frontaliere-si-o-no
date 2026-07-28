@@ -20,6 +20,12 @@
  *     personal nor a global hour was available (immediate send, no
  *     scheduledAt at all). Reported as "immediate/pre-feature".
  *
+ * One-off transactional sends (calculator/LAMal PDF reports, see
+ * TRANSACTIONAL_CAMPAIGN_IDS below) are excluded entirely rather than
+ * counted as "immediate/pre-feature": they fire instantly on a tool
+ * request, never through send-newsletter.mjs/send-job-alerts.mjs, so
+ * they're not a comparable pre-feature newsletter/job-alert baseline.
+ *
  * Open/click detection mirrors scripts/lib/newsletter-ab-data.mjs (the
  * subject-line A/B report's loader): the canonical send-path delivery doc
  * (`campaign_deliveries/{campaignId}__{email}`, see
@@ -246,6 +252,20 @@ async function loadEvents(db, cutoffDate) {
 export const IMMEDIATE_LABEL = 'immediate/pre-feature';
 export const GROUP_ORDER = ['personal', 'global', IMMEDIATE_LABEL];
 
+/**
+ * One-off transactional sends (see functions/src/sendCalculatorReport.js
+ * ALLOWED_SOURCES) tag their Resend delivery with a real, non-colliding
+ * campaign_id — so they write a regular campaign_deliveries doc — but they
+ * fire instantly on a tool request, never through
+ * scripts/send-newsletter.mjs/send-job-alerts.mjs, so they structurally can
+ * never carry a send_time_source. Left alone they'd fall into
+ * IMMEDIATE_LABEL and dilute that baseline with traffic that isn't a
+ * pre-feature/opted-out newsletter or job-alert send (issue #4853). Kept in
+ * sync by hand — same read-only-report tradeoff as
+ * buildCanonicalDeliveryDocId above.
+ */
+export const TRANSACTIONAL_CAMPAIGN_IDS = new Set(['calculator_paywall', 'lamal_ssn_tool']);
+
 export function emptyCell() {
   return { deliveries: 0, opens: 0, clicks: 0 };
 }
@@ -287,6 +307,7 @@ export function aggregate(deliveryDocs, eventDocs, sinceDate) {
 
   const segments = sinceDate ? { before: newSegment(), after: newSegment() } : { combined: newSegment() };
   let droppedNonCanonical = 0;
+  let droppedTransactional = 0;
 
   for (const doc of deliveryDocs) {
     const d = doc.data();
@@ -294,6 +315,9 @@ export function aggregate(deliveryDocs, eventDocs, sinceDate) {
     const email = normalizeEmail(d.email || doc.ref.parent?.parent?.id || '');
     if (!email) continue;
     const campaignId = d.campaign_id || 'unknown';
+    // Exclude one-off transactional sends entirely — they can never carry a
+    // send_time_source and would otherwise dilute IMMEDIATE_LABEL (#4853).
+    if (TRANSACTIONAL_CAMPAIGN_IDS.has(campaignId)) { droppedTransactional++; continue; }
     // Keep ONLY the canonical send-path doc (same filter as the A/B report) —
     // non-Resend webhooks write a second doc with a different id; counting
     // both would double-count deliveries.
@@ -317,7 +341,7 @@ export function aggregate(deliveryDocs, eventDocs, sinceDate) {
     if (clicked) cell.clicks++;
   }
 
-  return { segments, droppedNonCanonical };
+  return { segments, droppedNonCanonical, droppedTransactional };
 }
 
 // ── Reporting ────────────────────────────────────────────────────────────
@@ -443,7 +467,7 @@ async function main() {
     process.exit(0);
   }
 
-  const { segments, droppedNonCanonical } = aggregate(deliveryDocs, eventDocs, SINCE_DATE);
+  const { segments, droppedNonCanonical, droppedTransactional } = aggregate(deliveryDocs, eventDocs, SINCE_DATE);
 
   if (JSON_OUT) {
     console.log(JSON.stringify({
@@ -452,6 +476,7 @@ async function main() {
       since: SINCE_DATE ? SINCE_DATE.toISOString() : null,
       usedFallbackQuery: usedFallback,
       droppedNonCanonicalDocs: droppedNonCanonical,
+      droppedTransactionalDocs: droppedTransactional,
       segments,
     }, null, 2));
     return;
@@ -464,7 +489,7 @@ async function main() {
     printSegment(`Last ${DAYS} day(s)`, segments.combined);
   }
 
-  console.log(`\n(Fallback per-subscriber query used: ${usedFallback ? 'yes' : 'no'}; ${droppedNonCanonical} non-canonical duplicate delivery doc(s) ignored.)\n`);
+  console.log(`\n(Fallback per-subscriber query used: ${usedFallback ? 'yes' : 'no'}; ${droppedNonCanonical} non-canonical duplicate delivery doc(s) ignored; ${droppedTransactional} transactional (calculator/LAMal) delivery doc(s) excluded.)\n`);
 }
 
 // Run only when invoked directly (node scripts/report-send-hour-impact.mjs);

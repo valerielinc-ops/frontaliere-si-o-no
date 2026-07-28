@@ -35,6 +35,12 @@ NEWSLETTER_UNSUB_URL = "https://frontaliereticino.ch/disiscrivi-newsletter/"
 # that's OUTREACH_ADDRESS in scripts/cf-email-worker-setup.mjs). Plain,
 # non-secret — already appears in DNS/MX and in outbound mail headers.
 NEWSLETTER_ADDRESS = "newsletter@frontaliereticino.ch"
+# Recipient address that selects the cold-email outreach path (reply tracking +
+# STOP suppression). MUST match OUTREACH_ADDRESS in
+# scripts/cf-email-worker-setup.mjs. Every other bound address (alerts@, abuse@,
+# …) is forward-only — without this var those would fall into the outreach
+# branch and be recorded as company replies.
+OUTREACH_ADDRESS = "valerie@frontaliereticino.ch"
 # NOTE: FORWARD_TO (the human inbox replies are forwarded to) is a worker SECRET
 # set by scripts/cf-email-worker-setup.mjs from the zone catch-all target — not a
 # committed var, so no personal address lands in the repo.

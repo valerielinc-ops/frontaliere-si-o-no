@@ -173,10 +173,16 @@ export function inlineTextToHtml(text: string): string {
     // too — same as computeJobDescriptionTextToHtml's structural-tag
     // branch above — or it leaks into <main> and trips
     // audit:no-literal-markdown (0-tolerance, CLAUDE.md rule #1).
+    let stripped = s.replace(/\*\*\s*[\s:;,.\-–—]*\s*\*\*/g, ' ');
+    // Odd `**` count (source truncated the closing marker) survives the
+    // pair-matching replace above untouched — same gap fixed in
+    // computeJobDescriptionTextToHtml (#4593), mirrored here (#4553).
+    const doubleStars = (stripped.match(/\*\*/g) || []).length;
+    if (doubleStars % 2 !== 0) {
+      stripped = stripped.replace(/\*\*/g, '');
+    }
     return stripExternalHtmlAttributes(
-      s
-        .replace(/\*\*\s*[\s:;,.\-–—]*\s*\*\*/g, ' ')
-        .replace(/\*\*([^*\n]{1,200}?)\*\*/g, '<strong>$1</strong>'),
+      stripped.replace(/\*\*([^*\n]{1,200}?)\*\*/g, '<strong>$1</strong>'),
     );
   }
   return inlinesToHtml(parseInline(s));

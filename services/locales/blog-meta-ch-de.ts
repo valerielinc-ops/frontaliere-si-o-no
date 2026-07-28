@@ -1639,6 +1639,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cerca-lavoro-svizzera-dal-estero.title': 'Vollständiger Leitfaden für die Stellensuche in der Schweiz aus dem Ausland',
     'blog.article.cerca-lavoro-svizzera-dal-estero.excerpt': 'Steuern, Gesetze, Verfahren: Alles, was Sie wissen müssen, um in der Schweiz als Grenzgänger Arbeit zu finden',
     'blog.article.cerca-lavoro-svizzera-dal-estero.imageAlt': 'Frontalier sucht Arbeit in der Schweiz',
+    'blog.article.zurich-procedimento-finma-licenziamenti.title': 'Zurich: Kündigungen nach Finma-Verfahren',
+    'blog.article.zurich-procedimento-finma-licenziamenti.excerpt': 'Der Zurich-Konzern hat nach einem von der Finma eröffneten Verfahren gegen bestimmte Unternehmenslebensversicherungen mehr als ein Dutzend Mitarbeiter entlassen.',
+    'blog.article.zurich-procedimento-finma-licenziamenti.imageAlt': 'Schweizer Versicherungshauptsitz mit städtischer Skyline',
 };
 
 export default blogMetaChDe;
