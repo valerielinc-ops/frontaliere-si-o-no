@@ -2,11 +2,11 @@
 /**
  * publish-edge-files.mjs — pushable-origin publish step (issue #4881 Fase 3).
  *
- * scripts/create-article.mjs already regenerates sitemap/RSS/llms.txt into
- * `public/` in the SAME commit as a fast-published article — the content is
- * correct the moment that commit lands. What is NOT fast is where those
- * apex paths are SERVED from: today they are pure Cloudflare passthrough to
- * the monolithic full-deploy origin, which can lag the fast-published commit
+ * scripts/create-article.mjs already regenerates sitemap/RSS into `public/`
+ * in the SAME commit as a fast-published article — the content is correct
+ * the moment that commit lands. What is NOT fast is where those apex paths
+ * are SERVED from: today they are pure Cloudflare passthrough to the
+ * monolithic full-deploy origin, which can lag the fast-published commit
  * by hours (see infra/cloudflare-worker/locale-router.js's file-header
  * comment). This script closes that gap for the handful of paths registered
  * in EDGE_PUSHED_FILES: it PUTs the checked-out repo's current copy of each
@@ -21,13 +21,26 @@
  * path/key table — adding a rollout path is then ONE object-literal entry
  * there (+ one wrangler.toml route), never two places that can drift apart.
  *
- * Local-file convention: a registered pathname `/foo.xml` is expected to
- * live at `public/foo.xml` in the checked-out repo — true for the current
- * (sitemap-blog-ch.xml) entry, which is a plain static file regenerated and
- * committed as-is. llms.txt is NOT static (see scripts/generate-llms-txt.mjs)
- * — it needs a render step before it can be PUT — so it deliberately is not
- * yet an EDGE_PUSHED_FILES entry; wiring that in is a separate, later step
- * of the same rollout, not something this script needs to special-case now.
+ * Local-file convention, two sources depending on the entry:
+ *   - default (no `source` field): a registered pathname `/foo.xml` is
+ *     expected to live at `public/foo.xml` in the checked-out repo — a plain
+ *     static file regenerated and committed as-is (sitemap-blog-ch.xml).
+ *   - `source: 'generated'`: NOT static — scripts/create-article.mjs never
+ *     touches llms.txt, and public/llms.txt itself is a stale placeholder
+ *     that must never be patched in place (see generate-llms-txt.mjs's own
+ *     header on why — its date/count substitutions are only idempotent
+ *     against the pristine seed). Before the main loop, runLlmsGenerator()
+ *     below renders the current llms.txt family into a scratch dir via
+ *     `npx -y tsx@4 scripts/generate-llms-txt.mjs` (needs tsx: the generator
+ *     transitively imports build-plugins/sitemapAliasPlugin.ts), and
+ *     'generated' entries resolve their local file from THAT scratch dir
+ *     instead of public/ — same relative path (pathname minus the leading
+ *     slash), since generateLlmsTxtFamily writes distDir/llms.txt,
+ *     distDir/llms-full.txt, distDir/.well-known/llms.txt, mirroring the
+ *     pathnames exactly. Fails open like everything else here: if the
+ *     generator subprocess errors, the scratch dir simply won't have that
+ *     file, and the existing existsSync check below skips it with the same
+ *     ::warning:: as any other missing local file — no special-casing needed.
  *
  * Fail-open, matching every other step in the fast-publish pipeline: a
  * missing local file, missing R2 credentials, or a failed upload/purge is
@@ -45,6 +58,7 @@
  * the CDN image-upload step).
  */
 import { existsSync } from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -53,6 +67,7 @@ import { EDGE_PUSHED_FILES, CDN_BASE, EDGE_PUSHED_CACHE_TTL } from '../infra/clo
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(SCRIPT_DIR, '..');
 const LIVE_ORIGIN = 'https://frontaliereticino.ch';
+const GENERATED_SCRATCH_DIR = path.join(os.tmpdir(), 'publish-edge-files-llms');
 
 /**
  * Runs upload-cdn-file.sh for one file and reports whether the PUT actually
@@ -74,14 +89,45 @@ function uploadFile(localFile, cdnKey, cacheControl) {
   return output.includes('✅ uploaded');
 }
 
+/**
+ * Renders the llms.txt family into GENERATED_SCRATCH_DIR so 'generated'-source
+ * EDGE_PUSHED_FILES entries have a fresh local file to PUT (see the header
+ * comment's "Local-file convention"). Fail-open: any subprocess error is
+ * logged (::warning::) and swallowed — the scratch dir then simply lacks the
+ * rendered files, which the main loop's existing existsSync check already
+ * treats as "nothing to publish this run" for each affected entry, same as a
+ * missing public/ file today.
+ */
+function runLlmsGenerator() {
+  const result = spawnSync(
+    'npx',
+    ['-y', 'tsx@4', path.join(REPO_ROOT, 'scripts/generate-llms-txt.mjs'), '--root', REPO_ROOT, '--out', GENERATED_SCRATCH_DIR],
+    { encoding: 'utf8' },
+  );
+  process.stdout.write(result.stdout ?? '');
+  process.stderr.write(result.stderr ?? '');
+  if (result.status !== 0) {
+    console.warn(
+      '::warning::[publish-edge-files] scripts/generate-llms-txt.mjs failed — generated EDGE_PUSHED_FILES entries will be skipped this run (edge just keeps serving the previous R2 copy or falls open to origin).',
+    );
+  }
+}
+
 function main() {
   const purgeUrls = [];
 
+  if (Object.values(EDGE_PUSHED_FILES).some((entry) => entry.source === 'generated')) {
+    runLlmsGenerator();
+  }
+
   for (const [pathname, entry] of Object.entries(EDGE_PUSHED_FILES)) {
-    const localFile = path.join(REPO_ROOT, 'public', pathname);
+    const localFile =
+      entry.source === 'generated'
+        ? path.join(GENERATED_SCRATCH_DIR, pathname.slice(1))
+        : path.join(REPO_ROOT, 'public', pathname);
     if (!existsSync(localFile)) {
       console.warn(
-        `::warning::[publish-edge-files] no local file at public${pathname} for registered path ${pathname} — skipping (edge just keeps serving the previous R2 copy or falls open to origin)`,
+        `::warning::[publish-edge-files] no local file at ${localFile} for registered path ${pathname} — skipping (edge just keeps serving the previous R2 copy or falls open to origin)`,
       );
       continue;
     }

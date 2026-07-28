@@ -698,9 +698,13 @@ async function recoverCantonDriftOrphan(url, locale) {
 
 // Pushable-origin edge files (issue #4881 Fase 3, fast-publish path).
 //
-// scripts/create-article.mjs already regenerates sitemap/RSS/llms.txt in the
-// SAME commit as a fast-published article — the content is correct the moment
-// that commit lands. What is NOT fast is where it's SERVED from: today these
+// scripts/create-article.mjs already regenerates sitemap/RSS in the SAME
+// commit as a fast-published article — the content is correct the moment
+// that commit lands. llms.txt is different: it is NOT touched by
+// create-article.mjs at all — it needs its own render step
+// (scripts/lib/llms-txt-generator.mjs), which publish-edge-files.mjs runs
+// into a scratch dir before PUTting the "generated"-source entries below.
+// Either way, what is NOT fast is where the file is SERVED from: today these
 // apex paths are pure Cloudflare passthrough straight to the monolithic
 // GitHub Pages deploy (see the file-header comment "/rss-en.xml, /sitemap-*
 // -> tiny root files kept in the main repo (passthrough)"), which can lag the
@@ -723,8 +727,40 @@ async function recoverCantonDriftOrphan(url, locale) {
 // SAME table instead of a second hardcoded path/key list — adding a path
 // here is then the ONLY code-side change needed for both read and write
 // (plus the matching wrangler.toml route), never two edits that can drift.
+//
+// llms.txt family, rollout step 2 (issue #4881 residual): llms.txt/
+// llms-full.txt/.well-known/llms.txt are rendered by
+// scripts/lib/llms-txt-generator.mjs (generateLlmsTxtFamily) rather than
+// copied as-is, so publish-edge-files.mjs runs that generator into a scratch
+// dir first — see its own header comment. "Needs a render step" is no longer
+// a reason to leave a member out; these three are apex, same passthrough
+// mechanism as sitemap-blog-ch.xml above (measured via a real run of
+// generate-llms-txt.mjs: llms.txt/.well-known/llms.txt ~32 KB each,
+// llms-full.txt ~1.07 MB — still a single per-publish PUT, same as any other
+// registered file here).
+//
+// Deliberately NOT registered here: /en/llms.txt, /de/llms.txt, /fr/llms.txt
+// (the other 3 members generateLlmsTxtFamily writes). The reason is the
+// mechanism, not the size (the measured ~485-505 KB per locale file is
+// actually SMALLER than llms-full.txt above, ruling out size as the
+// deciding factor either way): those paths are not apex passthrough today —
+// LOCALE_RE routes them to serveShard(SHARD_ORIGIN.{en,de,fr}), a wholly
+// different origin (each locale's own GitHub Pages shard repo, refreshed
+// only by that shard's own full deploy, untouched by fast-publish).
+// Special-casing just their llms.txt to the R2 edge would serve ONE file in
+// that shard from a different mechanism/cadence than every other file in it,
+// for a freshness gain of one incremental URL among thousands already
+// listed. The next full deploy refreshes them on its normal cadence, same
+// as before this table existed.
 export const EDGE_PUSHED_FILES = {
   '/sitemap-blog-ch.xml': { cdnKey: '/edge/sitemap-blog-ch.xml', contentType: 'application/xml; charset=utf-8' },
+  '/llms.txt': { cdnKey: '/edge/llms.txt', contentType: 'text/plain; charset=utf-8', source: 'generated' },
+  '/llms-full.txt': { cdnKey: '/edge/llms-full.txt', contentType: 'text/plain; charset=utf-8', source: 'generated' },
+  '/.well-known/llms.txt': {
+    cdnKey: '/edge/.well-known/llms.txt',
+    contentType: 'text/plain; charset=utf-8',
+    source: 'generated',
+  },
 };
 const EDGE_PUSHED_FETCH_TIMEOUT_MS = 2000;
 // Short TTL by design, and NOT a substitute for the purge below: the zone's

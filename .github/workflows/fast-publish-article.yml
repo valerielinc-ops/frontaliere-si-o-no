@@ -14,15 +14,17 @@ name: Fast Publish Article (near-instant single-article shard push)
 # registered in locale-router.js's EDGE_PUSHED_FILES (issue #4881 Fase 3):
 # for those, "Publish edge files" below pushes a live-serving R2 copy so the
 # Worker's pushable-origin dispatch serves it immediately, instead of waiting
-# for the next full deploy — narrowly scoped rollout (currently just
-# /sitemap-blog-ch.xml), not a change to how the rest of this workflow works.
+# for the next full deploy — narrowly scoped rollout (/sitemap-blog-ch.xml +
+# the llms.txt family, see that table's own comment for the full list), not a
+# change to how the rest of this workflow works.
 #
 # Depends on (stream A / stream B contracts):
 #   scripts/publish-article-fast.mjs        — renders one article's 4 locale
 #                                              HTML pages + a summary JSON
 #   scripts/lib/push-article-shard-incremental.sh — merge-only shard push
 #   scripts/lib/upload-cdn-file.sh          — single-file R2 PUT
-#   scripts/publish-edge-files.mjs          — pushable-origin sitemap/RSS PUT
+#   scripts/publish-edge-files.mjs          — pushable-origin PUT (sitemap/RSS
+#                                              + generated llms.txt family)
 #                                              + targeted edge-cache purge
 
 on:
@@ -172,16 +174,21 @@ jobs:
         run: npx -y tsx@4 scripts/publish-article-chunks.mjs
 
       # Issue #4881 Fase 3 (pushable-origin edge files). Independent of the
-      # per-article render above: public/sitemap-blog-ch.xml (currently the
-      # only EDGE_PUSHED_FILES entry) was already regenerated and committed by
-      # scripts/create-article.mjs in the SAME commit checked out at the top
-      # of this job, not produced by the render step — gated on render only
-      # to match this file's own convention of not running later steps once
-      # an earlier ungated step has failed the job. NEVER blocks the publish:
-      # a failed PUT/purge here just means that one apex path keeps serving
-      # its previous R2 copy (or falls open to the origin passthrough) until
-      # this step succeeds on a later run or the next full deploy.
-      - name: Publish edge files (sitemap/RSS pushable origin)
+      # per-article render above: public/sitemap-blog-ch.xml was already
+      # regenerated and committed by scripts/create-article.mjs in the SAME
+      # commit checked out at the top of this job. The llms.txt family
+      # (added as a residual — see EDGE_PUSHED_FILES's own comment in
+      # locale-router.js) is NOT committed by create-article.mjs at all;
+      # publish-edge-files.mjs renders it itself into a scratch dir (via
+      # `npx -y tsx@4 scripts/generate-llms-txt.mjs`, spawned internally —
+      # no separate step needed here) before PUTting it, same as the
+      # already-committed sitemap file. Gated on render only to match this
+      # file's own convention of not running later steps once an earlier
+      # ungated step has failed the job. NEVER blocks the publish: a failed
+      # render/PUT/purge here just means those apex paths keep serving their
+      # previous R2 copy (or fall open to the origin passthrough) until this
+      # step succeeds on a later run or the next full deploy.
+      - name: Publish edge files (sitemap/RSS + llms.txt pushable origin)
         if: steps.render.outcome == 'success'
         continue-on-error: true
         run: node scripts/publish-edge-files.mjs
