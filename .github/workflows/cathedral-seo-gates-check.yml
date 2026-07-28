@@ -126,48 +126,23 @@ jobs:
       - name: SEO build data-prep (shared with deploy.yml)
         uses: ./.github/actions/seo-build-data-prep
 
-      - name: Build dist (full SEO output)
-        env:
-          # Critical: this workflow MUST run with every SEO plugin enabled.
-          # Inheriting FAST_BUILD=1 from .claude/settings.json would silently
-          # skip half the SEO landings (see CLAUDE.md "FAST_BUILD trap").
-          FAST_BUILD: ''
-          # No NODE_OPTIONS override here: `build:ci` sets its own inline
-          # `--max-old-space-size=12288 --expose-gc`, which REPLACES any value
-          # exported from the workflow env (npm-script inline assignment wins).
-          # The previous `18432` here was dead config — silently overridden to
-          # 12288 — and 18 GB exceeds the 16 GB runner's RAM anyway.
-          #
-          # The three knobs below are deploy.yml's documented OOM controls
-          # (build OOM #1290) — they cap the DOMINANT memory term, not the
-          # dataset size. deploy fits the full SEO build at 12288 BECAUSE of
-          # these; the shared data-prep action above is a smaller,
-          # complementary reduction. These knobs stay inline (not in the
-          # shared action) because deploy.yml gates SEQUENTIAL_PROFILE on its
-          # `parallel_plugins` dispatch input, so the two are not
-          # byte-identical; this gate run is ALWAYS sequential.
-          #
-          # Cap the post-walk worker pool so it doesn't structured-clone the
-          # full ~247K-path list into cpus()-many workers at once (the #1290
-          # blowup). Output-identical — only fewer parallel workers.
-          POST_WALK_WORKERS: '2'
-          # Same worker pool as above: cap glibc malloc arenas so they don't
-          # outlive the worker_threads and pin RSS for the rest of the build
-          # (mirrors deploy.yml's build-locale mitigation, run 30274470672).
-          MALLOC_ARENA_MAX: '2'
-          # Force sequential plugin closeBundle: peak heap = max(single plugin)
-          # instead of Σ(overlap) → eliminates the parallel-build OOM. Always
-          # sequential here (scheduled/dispatch gate run, never parallel).
-          SEQUENTIAL_PROFILE: '1'
-        run: |
-          set -euo pipefail
-          npm run build:ci &
-          build_pid=$!
-          while kill -0 "$build_pid" 2>/dev/null; do
-            sleep 60
-            echo "[build keepalive] still running at $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-          done
-          wait "$build_pid"
+      # issue #4586 sibling fix: was a single monolithic `npm run build:ci`
+      # building all 4 locales in ONE Node process — same OOM pattern
+      # diagnosed on adsense-prereview.yml (heapUsed 3.6GB → 11.7GB across
+      # SSG phases, forced GC reclaims ~13MB of ~11.7GB = live retention from
+      # the "company hub v2" surface growth, not a leak/missing heap flag).
+      # Both workflows shared this exact monolith-build block (see the
+      # "Same monolith full SSG build as adsense-prereview.yml" comment this
+      # replaces) so AGENTS.md's sibling-pattern rule applies: fixed as one
+      # class via the shared composite action, not just on the reporting
+      # workflow. Structural fix: build each locale SEPARATELY (BUILD_LOCALE,
+      # same mechanism deploy.yml's build-locale matrix already uses in
+      # production) and merge into one dist/ tree — same code path, ~1/4 peak
+      # heap per process, zero change to build-plugins/**. See the composite
+      # action for the full diagnosis + revert trigger (unvalidated
+      # pre-merge — cannot exercise a 180min workflow locally).
+      - name: Build dist (per-locale, memory-bounded merge)
+        uses: ./.github/actions/build-dist-multi-locale-merged
 
       - name: Run gates check
         id: gates

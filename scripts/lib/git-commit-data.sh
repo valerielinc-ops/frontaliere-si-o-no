@@ -461,6 +461,27 @@ function detectArrayKey(arrays, forcedKey = '') {
   const nonEmptyArrays = arrays.filter((arr) => Array.isArray(arr) && arr.length > 0);
   if (nonEmptyArrays.length === 0) return '';
 
+  // Bug (issue #4433 investigation): when EVERY non-empty array holds only
+  // primitives (e.g. previousSlugs / previousSlugsByLocale.<locale>, plain
+  // string[]), the per-array coverage/uniqueness check below is skipped
+  // entirely for every array (`objectItems.length === 0` -> `continue`),
+  // so `allPass` never gets falsified and the FIRST candidate (forcedKey,
+  // usually 'url' inherited from the enclosing job-array merge) is accepted
+  // vacuously — with zero items actually keyed by it. mergeArray() then
+  // treats each string as keyed by `__fp:<value>#<index>` (value+position),
+  // so any base/remote/local length or ordering divergence (e.g. a
+  // concurrent writer appended/trimmed entries elsewhere in the SAME file
+  // between this job's checkout and commit) makes shifted-but-unchanged
+  // entries look deleted-then-readded, and array elements can be silently
+  // dropped with NO slug-history-journal attribution (this script never
+  // imports scripts/lib/slug-history-journal.mjs). Require at least one
+  // real object item somewhere before trusting a business key at all;
+  // otherwise there is no valid key and mergeArray() must fall back to
+  // mergeArrayByDelta()'s value-based multiset delta, which is the correct
+  // semantics for plain-value arrays like previousSlugs.
+  const hasAnyObjectItem = nonEmptyArrays.some((arr) => arr.some((item) => isPlainObject(item)));
+  if (!hasAnyObjectItem) return '';
+
   for (const candidate of candidates) {
     let allPass = true;
     for (const arr of nonEmptyArrays) {
@@ -595,7 +616,35 @@ function mergeArray(baseArr, remoteArr, localArr, warnings, pathLabel, forcedKey
       // re-added a job the same-day Cler crawl had already merged away).
       continue;
     }
-    mergedMap.set(key, localData.map.get(key));
+    if (!remoteData.map.has(key)) {
+      // New relative to both base and remote (local created it fresh) —
+      // nothing on the other side to reconcile against, take it as-is.
+      mergedMap.set(key, localData.map.get(key));
+      continue;
+    }
+    // Present on remote too: recursively merge the matched element instead
+    // of flatly replacing it with local's whole value (issue 4433: a
+    // long-running translate-pending run touches a job for an UNRELATED
+    // reason — e.g. a translation/status field — while its own snapshot of
+    // that same job is stale; meanwhile remote independently gained new
+    // previousSlugs entries for that job via a concurrent slug-rename on
+    // origin/main after this workspace's checkout. A flat `mergedMap.set`
+    // here took local's entire stale job object, silently discarding
+    // remote's newer previousSlugs entries even though neither side ever
+    // intended to remove them — a real 3-way merge must reconcile the two
+    // versions field-by-field, not let whichever side is "touched" win
+    // wholesale.
+    mergedMap.set(
+      key,
+      mergeValue(
+        baseData.map.get(key),
+        remoteData.map.get(key),
+        localData.map.get(key),
+        warnings,
+        `${pathLabel}[${keyHint}=${key}]`,
+        forcedKey
+      )
+    );
   }
 
   const remoteKeys = new Set(remoteData.order);

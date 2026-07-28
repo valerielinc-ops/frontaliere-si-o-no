@@ -10,6 +10,7 @@ import {
 } from '../../services/resilientImport';
 import { fetchBuildId, fetchCommitHash } from '../../services/buildInfo';
 import { AD_SLOTS } from '../../services/adsenseSlots';
+import { useRailGridCollapse, RAIL_GRID_CLASS_X, RAIL_ASIDE_CLASS_X } from './useRailGridCollapse';
 
 // Lazy: this file sits in the critical entry chunk (top-level ErrorBoundary
 // wraps the whole app), so pulling GPT/AdSense code in eagerly would bloat
@@ -55,6 +56,38 @@ interface State {
  commitHash: string;
  copyState: 'idle' | 'copied' | 'error';
 }
+
+/**
+ * Wraps the crash card in the same collapsing 2-tier rail grid as
+ * JobBoard/JobOrphanView/JobExpiredView/BlogArticles (issue 4830) — a small
+ * function component because `useRailGridCollapse` (a hook) can't be called
+ * inside `ErrorBoundary`'s class `render()`. Single `ArticleRailAd` panel per
+ * side (not the Stack): the crash card is short/non-scrolling, so no sticky/
+ * ResizeObserver machinery is needed — `ArticleRailAd`'s own `onEmptyChange`
+ * plugs directly into the shared hook's per-side handlers.
+ */
+const ErrorPageRailGrid: React.FC<{ children: ReactNode }> = ({ children }) => {
+ const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse();
+ return (
+ <div className={RAIL_GRID_CLASS_X} style={railStyle}>
+ <aside className={RAIL_ASIDE_CLASS_X}>
+ <SilentErrorBoundary boundary="error-page-rail-left">
+ <React.Suspense fallback={null}>
+ <ArticleRailAd side="left" onEmptyChange={onLeftEmptyResolved} />
+ </React.Suspense>
+ </SilentErrorBoundary>
+ </aside>
+ {children}
+ <aside className={RAIL_ASIDE_CLASS_X}>
+ <SilentErrorBoundary boundary="error-page-rail-right">
+ <React.Suspense fallback={null}>
+ <ArticleRailAd side="right" onEmptyChange={onRightEmptyResolved} />
+ </React.Suspense>
+ </SilentErrorBoundary>
+ </aside>
+ </div>
+ );
+};
 
 export class ErrorBoundary extends Component<Props, State> {
  /** Prevents duplicate error_page_view events on re-renders */
@@ -289,20 +322,13 @@ export class ErrorBoundary extends Component<Props, State> {
  </React.Suspense>
  </SilentErrorBoundary>
 
- {/* 3-column rail grid — same ft-rail-grid-x/ft-rail-aside-x layout as
- JobExpiredView/BlogArticles (180px rail at xl, 300px at xlw). Single
- ArticleRailAd panel rather than ArticleRailAdStack: the crash card is
- short and non-scrolling, so it doesn't need the Stack's sticky/
- ResizeObserver machinery built for long scrollable content. */}
- <div className="ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-4 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
- <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
- <SilentErrorBoundary boundary="error-page-rail-left">
- <React.Suspense fallback={null}>
- <ArticleRailAd side="left" />
- </React.Suspense>
- </SilentErrorBoundary>
- </aside>
-
+ {/* 3-column rail grid — collapses to 0 on an all-empty side (issue 4830),
+ same shared hook/classes as JobBoard/JobOrphanView/JobExpiredView/
+ BlogArticles. Single ArticleRailAd panel rather than ArticleRailAdStack:
+ the crash card is short and non-scrolling, so it doesn't need the
+ Stack's sticky/ResizeObserver machinery built for long scrollable
+ content. */}
+ <ErrorPageRailGrid>
  <div className="min-h-[50vh] flex flex-col items-center justify-center p-4 sm:p-6 text-center">
  <div className="bg-danger-subtle p-4 rounded-full mb-4">
  <AlertTriangle size={48} className="text-danger" />
@@ -398,15 +424,7 @@ export class ErrorBoundary extends Component<Props, State> {
  </button>
  </div>
  </div>
-
- <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
- <SilentErrorBoundary boundary="error-page-rail-right">
- <React.Suspense fallback={null}>
- <ArticleRailAd side="right" />
- </React.Suspense>
- </SilentErrorBoundary>
- </aside>
- </div>
+ </ErrorPageRailGrid>
 
  {/* Bottom banner — SSG_END_MULTIPLEX: the generic cross-family
  end-of-content multiplex slot, since this fallback can replace
