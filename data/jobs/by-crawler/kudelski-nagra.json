@@ -1,7 +1,70 @@
 {
   "crawlerKey": "kudelski-nagra",
-  "assembledAt": "2026-07-28T11:27:07.198Z",
+  "assembledAt": "2026-07-28T22:17:04.151Z",
   "jobs": [
+    {
+      "id": "kudelski-nagra-213b373baaf3",
+      "slug": "apprenti-e-employ-eacute-e-de-commerce-voie-2-kudelski-nagra-ch",
+      "slugByLocale": {
+        "it": "apprenti-e-employ-eacute-e-de-commerce-voie-2-kudelski-nagra-ch",
+        "en": "apprentices-s-employe-s-de-commerce-voie-2-kudelski-nagra-switzerland",
+        "de": "auszubildende-employe-s-de-commerce-voie-2-kudelski-nagra-switzerland",
+        "fr": "apprenti-e-employe-e-de-commerce-voie-2-kudelski-nagra-switzerland"
+      },
+      "company": "Kudelski NAGRA",
+      "companyKey": "kudelski-nagra",
+      "companyDomain": "nagra.com",
+      "title": "Apprenti(e) Employé(e) de Commerce - Voie 2",
+      "titleByLocale": {
+        "it": "Apprenti(e) Employé(e) de Commerce - Voie 2",
+        "en": "Apprentices(s) Employé(s) de Commerce - Voie 2",
+        "de": "Auszubildende Employé(s) de Commerce - Voie 2",
+        "fr": "Apprenti(e) Employé(e) de Commerce - Voie 2"
+      },
+      "description": "Fixed term CDD at Kudelski Group, part of the Kudelski Group — a global leader in digital security and content protection technology.",
+      "descriptionByLocale": {
+        "it": "Fixed term CDD at Kudelski Group, part of the Kudelski Group — a global leader in digital security and content protection technology.",
+        "en": "Description (544 term) DDS at Kudelski Group, part of the Kudelski Group. a Global leader in digital security and content protection technology.",
+        "de": "Beschreibung (544 Bezeichnung) DDS bei der Kudelski Group, Teil der K-Delderski Group. Globaler Marktführer in der digitalen Sicherheits- und Content-Schutztechnologie.",
+        "fr": "Description (544 termes) DDS au Kudelski Group, membre du Kudelski Group. un leader mondial de la technologie de sécurité numérique et de protection des contenus."
+      },
+      "location": "Switzerland",
+      "canton": "TI",
+      "url": "https://careers.nagra.com/?page=advertisement_display&id=15596",
+      "source": "Kudelski NAGRA Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-07-28T22:17:00.964Z",
+      "addressLocality": "Switzerland",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6900",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Sicurezza digitale / Media technology",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-22",
+      "applyUrl": "https://careers.nagra.com/?page=advertisement_display&id=15596",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-22T22:19:26.636Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "id": "kudelski-nagra-027fe8cc43fc",
       "slug": "security-operations-engineer-kudelski-nagra-ch",
@@ -78,69 +141,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "kudelski-nagra-213b373baaf3",
-      "slug": "apprenti-e-employ-eacute-e-de-commerce-voie-2-kudelski-nagra-ch",
-      "slugByLocale": {
-        "it": "apprenti-e-employ-eacute-e-de-commerce-voie-2-kudelski-nagra-ch",
-        "en": "apprentices-s-employe-s-de-commerce-voie-2-kudelski-nagra-switzerland",
-        "de": "auszubildende-employe-s-de-commerce-voie-2-kudelski-nagra-switzerland",
-        "fr": "apprenti-e-employe-e-de-commerce-voie-2-kudelski-nagra-switzerland"
       },
-      "company": "Kudelski NAGRA",
-      "companyKey": "kudelski-nagra",
-      "companyDomain": "nagra.com",
-      "title": "Apprenti(e) Employé(e) de Commerce - Voie 2",
-      "titleByLocale": {
-        "it": "Apprenti(e) Employé(e) de Commerce - Voie 2",
-        "en": "Apprentices(s) Employé(s) de Commerce - Voie 2",
-        "de": "Auszubildende Employé(s) de Commerce - Voie 2",
-        "fr": "Apprentis(s) Emploi(s) de Commerce - Voie 2"
-      },
-      "description": "Fixed term CDD at Kudelski Group, part of the Kudelski Group — a global leader in digital security and content protection technology.",
-      "descriptionByLocale": {
-        "it": "Fixed term CDD at Kudelski Group, part of the Kudelski Group — a global leader in digital security and content protection technology.",
-        "en": "Description (544 term) DDS at Kudelski Group, part of the Kudelski Group. a Global leader in digital security and content protection technology.",
-        "de": "Beschreibung (544 Bezeichnung) DDS bei der Kudelski Group, Teil der K-Delderski Group. Globaler Marktführer in der digitalen Sicherheits- und Content-Schutztechnologie.",
-        "fr": "Description (544 termes) DDS au Kudelski Group, membre du Kudelski Group. un leader mondial de la technologie de sécurité numérique et de protection des contenus."
-      },
-      "location": "Switzerland",
-      "canton": "TI",
-      "url": "https://careers.nagra.com/?page=advertisement_display&id=15596",
-      "source": "Kudelski NAGRA Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-07-28T11:27:04.348Z",
-      "addressLocality": "Switzerland",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Sicurezza digitale / Media technology",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-22",
-      "applyUrl": "https://careers.nagra.com/?page=advertisement_display&id=15596",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-22T22:19:26.636Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1
     }
   ]
 }
