@@ -4967,6 +4967,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp': { name: 'Residenza fiscale accertata in Italia e', path: '/articoli-frontaliere/residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp', parent: 'blog' },
     'blog-cerca-lavoro-svizzera-dal-estero': { name: 'Guida completa per cercare lavoro in', path: '/articoli-svizzera/cerca-lavoro-svizzera-dal-estero/', parent: 'blog' },
     'blog-trasferirsi-maccagno-pino-veddasca': { name: 'Trasferirsi a Maccagno', path: '/articoli-frontaliere/trasferirsi-maccagno-pino-veddasca', parent: 'blog' },
+    'blog-zurich-procedimento-finma-licenziamenti': { name: 'Economia Svizzera', path: '/articoli-svizzera/zurich-procedimento-finma-licenziamenti/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

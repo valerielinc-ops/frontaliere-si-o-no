@@ -1,0 +1,40 @@
+{
+  "id": "zurich-procedimento-finma-licenziamenti",
+  "slug": "zurich-procedimento-finma-licenziamenti",
+  "publishedAt": "2026-07-28T10:21:01.457Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 10.256969792626297,
+    "confidence": 0.8,
+    "finalScore": 8.205575834101039,
+    "topK": [
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8872539032539275
+      },
+      {
+        "slug": "swiss-300-uscite-volontarie-2026",
+        "cosine": 0.8679925760518902
+      },
+      {
+        "slug": "samarate-licenziamenti-2026",
+        "cosine": 0.865629405464516
+      },
+      {
+        "slug": "direttrice-unispital-zurigo-whistleblower",
+        "cosine": 0.8592145574550434
+      },
+      {
+        "slug": "whistleblower-zurigo-frontalieri-2026",
+        "cosine": 0.8577069312046162
+      }
+    ],
+    "score": 4.102787917050519,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

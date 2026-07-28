@@ -1639,6 +1639,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cerca-lavoro-svizzera-dal-estero.title': 'Complete guide to looking for a job in Switzerland from abroad',
     'blog.article.cerca-lavoro-svizzera-dal-estero.excerpt': 'Taxes, laws, procedures: everything you need to know to look for work in Switzerland as a border worker',
     'blog.article.cerca-lavoro-svizzera-dal-estero.imageAlt': 'Frontalier looking for job in Switzerland',
+    'blog.article.zurich-procedimento-finma-licenziamenti.title': 'Zurich: redundancies after Finma proceedings',
+    'blog.article.zurich-procedimento-finma-licenziamenti.excerpt': 'The Zurich group has dismissed more than a dozen employees following a procedure opened by Finma on some company life policies.',
+    'blog.article.zurich-procedimento-finma-licenziamenti.imageAlt': 'Swiss insurance headquarters with urban skyline',
 };
 
 export default blogMetaChEn;
