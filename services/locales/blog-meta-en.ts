@@ -9028,6 +9028,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-diminuzione.title': 'The tax agreement changes the rules in Ticino',
     'blog.article.frontalieri-ticino-diminuzione.excerpt': 'The number of frontier workers in Ticino is steadily decreasing, while the number of residents is increasing.',
     'blog.article.frontalieri-ticino-diminuzione.imageAlt': 'View of Lugano during the autumn season',
+    'blog.article.vivere-a-clivio-lavorare-ticino.title': 'Living in Clivio and working in Ticino as a border worker',
+    'blog.article.vivere-a-clivio-lavorare-ticino.excerpt': 'Complete guide for border crossers who choose Clivio as a residence for commuting to the Canton of Ticino, including connections and tax rules.',
+    'blog.article.vivere-a-clivio-lavorare-ticino.imageAlt': 'Landscape between Clivio and Canton Ticino for cross-border workers',
 };
 
 export default blogMetaEn;

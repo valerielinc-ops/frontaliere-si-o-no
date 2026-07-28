@@ -4947,6 +4947,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-diritti-inquilino-affitti-svizzera': { name: 'Affitti e Inquilini', path: '/articoli-svizzera/diritti-inquilino-affitti-svizzera/', parent: 'blog' },
     'blog-frontalieri-ticino-diminuzione': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/frontalieri-ticino-diminuzione', parent: 'blog' },
     'blog-tassa-salute-frontalieri-blocco-ristorni-ticino': { name: 'Tassa sulla salute ai frontalieri', path: '/articoli-svizzera/tassa-salute-frontalieri-blocco-ristorni-ticino/', parent: 'blog' },
+    'blog-vivere-a-clivio-lavorare-ticino': { name: 'Clivio Ticino', path: '/articoli-frontaliere/vivere-a-clivio-lavorare-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -9030,6 +9030,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-diminuzione.title': 'L\'accord fiscal change les règles au Tessin',
     'blog.article.frontalieri-ticino-diminuzione.excerpt': 'Le nombre de travailleurs frontaliers au Tessin diminue régulièrement, tandis que le nombre de résidents augmente.',
     'blog.article.frontalieri-ticino-diminuzione.imageAlt': 'Vue de Lugano pendant la saison automnale',
+    'blog.article.vivere-a-clivio-lavorare-ticino.title': 'Vivre à Clivio et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-a-clivio-lavorare-ticino.excerpt': 'Guide complet pour les frontaliers qui choisissent Clivio comme résidence pour se rendre dans le canton du Tessin, entre liaisons et règles fiscales.',
+    'blog.article.vivere-a-clivio-lavorare-ticino.imageAlt': 'Paysage entre Clivio et le Canton du Tessin pour les frontaliers',
 };
 
 export default blogMetaFr;
