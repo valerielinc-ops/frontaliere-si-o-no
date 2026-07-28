@@ -49,6 +49,27 @@ const reLeak = new RegExp(
   '(?:' + ESC_ORIGIN + '/images/blog/|(?<![\\w.@])/images/blog/)(?!thumbnails/)' + FILE,
 );
 
+/**
+ * Rewrite every same-origin reference to a FULL blog hero image
+ * (`/images/blog/<file>.<ext>`, origin-absolute or site-relative) to its CDN
+ * URL. Pure string transform, no filesystem I/O — extracted (#4837 stream A)
+ * so the standalone single-article fast-publish script
+ * (scripts/publish-article-fast.mjs) can apply the IDENTICAL rewrite to a
+ * freshly-rendered page without needing the physical dist/images/blog
+ * directory to exist (this plugin's closeBundle guards on that directory,
+ * which a scratch single-article render never has). Do not fork this — any
+ * fix here must benefit both the full build and the fast path.
+ */
+export function rewriteBlogImageRefs(html: string): string {
+  const repl = (_m: string, file: string): string => `${CDN_BLOG_BASE}/${file}`;
+  return html.replace(reAbs, repl).replace(reRel, repl);
+}
+
+/** True when `html` still references a full (non-thumbnail, non-CDN) blog image after rewriteBlogImageRefs. */
+export function hasBlogImageLeak(html: string): boolean {
+  return reLeak.test(html);
+}
+
 // Perf: the original finalize scanned every file TWICE (a rewrite pass + a
 // separate guard pass). The single pass in closeBundle below rewrites and
 // verifies each file in one read — halving the I/O — while the guard still
@@ -106,7 +127,6 @@ export function blogImageCdnFinalizePlugin(rootDir: string): Plugin {
         return;
       }
 
-      const repl = (_m: string, file: string): string => `${CDN_BLOG_BASE}/${file}`;
       let scanned = 0;
       let rewritten = 0;
       // Single pass: rewrite each file, then verify the RESULT in-memory (no
@@ -119,12 +139,12 @@ export function blogImageCdnFinalizePlugin(rootDir: string): Plugin {
       walk(distDir, (fp) => {
         scanned++;
         const orig = fs.readFileSync(fp, 'utf8');
-        const out = orig.replace(reAbs, repl).replace(reRel, repl);
+        const out = rewriteBlogImageRefs(orig);
         if (out !== orig) {
           fs.writeFileSync(fp, out);
           rewritten++;
         }
-        if (reLeak.test(out)) leaks.push(path.relative(distDir, fp));
+        if (hasBlogImageLeak(out)) leaks.push(path.relative(distDir, fp));
       });
       if (leaks.length > 0) {
         console.warn(

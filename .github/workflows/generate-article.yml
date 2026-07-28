@@ -543,46 +543,56 @@ jobs:
           EXPECTED_SHA="$(git rev-parse HEAD)" \
           bash scripts/lib/trigger-deploy.sh
 
-      # ── Notify Google Indexing API ────────────────────────────────────
-      # Notify Google immediately so it crawls the new article within minutes.
-      # This runs AFTER deploy is triggered — Google will find the page live
-      # by the time it attempts to crawl (deploy takes ~2-3 min).
-      # Errors here never block the workflow.
-      - name: Notify Google Indexing API
+      # ── Trigger fast-publish workflow (issue #4837 stream C) ───────────
+      # Fire-and-forget dispatch of fast-publish-article.yml: it renders +
+      # pushes ONLY this article's own locale shards (skipping the full
+      # site build) and pings Google Indexing API itself once it has
+      # VERIFIED the 4 URLs are actually live — see that workflow for the
+      # ordering rationale. This does not replace "Trigger deploy workflow"
+      # above: the full deploy.yml/deploy-publish.yml chain still runs and
+      # remains the source of truth for sitemap/RSS/search-index
+      # regeneration; fast-publish is an additive, best-effort fast path.
+      # Best-effort: `|| true` because a missed fast-publish still means the
+      # article goes live via the normal (slower) deploy chain.
+      - name: Trigger fast-publish workflow
+        id: trigger_fast_publish
         if: steps.commit.outputs.committed == 'true' && steps.verify_article.outputs.exists == 'true'
-        continue-on-error: true
         env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-          ARTICLE_ID: ${{ steps.generate.outputs.article_id }}
-          TARGET_SECTION: ${{ steps.generate.outputs.section }}
+          FAST_PUBLISH_ARTICLE_ID: ${{ steps.generate.outputs.article_id }}
+          FAST_PUBLISH_SECTION: ${{ steps.generate.outputs.section }}
         run: |
-          node --input-type=module -e "
-            import { notifyGoogleIndexing } from './scripts/lib/indexing-api.mjs';
-            import fs from 'fs';
-            const id = process.env.ARTICLE_ID;
-            if (!id) { console.log('[indexing-api] No article ID — skip'); process.exit(0); }
-            const BASE = 'https://frontaliereticino.ch'; // FRO-348: no www
-            const section = process.env.TARGET_SECTION === 'svizzera' ? 'svizzera' : 'frontaliere';
-            // Per-section slug-data file + localized hub slugs.
-            const cfg = section === 'svizzera'
-              ? { file: 'services/routerSwissData.ts', hub: { it: 'articoli-svizzera', en: 'swiss-articles', de: 'schweiz-artikel', fr: 'articles-suisse' } }
-              : { file: 'services/routerBlogData.ts', hub: { it: 'articoli-frontaliere', en: 'cross-border-articles', de: 'grenzgaenger-artikel', fr: 'articles-frontalier' } };
-            const slugs = { it: id, en: id, de: id, fr: id };
-            try {
-              const src = fs.readFileSync(cfg.file, 'utf8');
-              const match = src.match(new RegExp(\"'\" + id + \"':\\\\s*\\\\{([^}]+)\\\\}\"));
-              if (match) {
-                for (const [, k, v] of match[1].matchAll(/(it|en|de|fr):\\s*'([^']+)'/g)) slugs[k] = v;
-              }
-            } catch { /* fall back to id-as-slug */ }
-            const urls = [
-              \`\${BASE}/\${cfg.hub.it}/\${slugs.it}/\`,
-              \`\${BASE}/en/\${cfg.hub.en}/\${slugs.en}/\`,
-              \`\${BASE}/de/\${cfg.hub.de}/\${slugs.de}/\`,
-              \`\${BASE}/fr/\${cfg.hub.fr}/\${slugs.fr}/\`,
-            ];
-            await notifyGoogleIndexing(urls);
-          "
+          FAST_PUBLISH_SHA="$(git rev-parse HEAD)"
+          INPUTS_JSON="$(
+            FAST_PUBLISH_ARTICLE_ID_JSON="$FAST_PUBLISH_ARTICLE_ID" \
+            FAST_PUBLISH_SECTION_JSON="$FAST_PUBLISH_SECTION" \
+            FAST_PUBLISH_SHA_JSON="$FAST_PUBLISH_SHA" \
+            node -e '
+              const section = process.env.FAST_PUBLISH_SECTION_JSON === "svizzera" ? "svizzera" : "frontaliere";
+              process.stdout.write(JSON.stringify({
+                article_id: process.env.FAST_PUBLISH_ARTICLE_ID_JSON || "",
+                section,
+                sha: process.env.FAST_PUBLISH_SHA_JSON || "",
+              }));
+            '
+          )"
+          TRIGGER_REF="main" \
+          TRIGGER_EXPECTED_SHA="$FAST_PUBLISH_SHA" \
+          bash scripts/lib/trigger-workflow.sh "fast-publish-article.yml" "$INPUTS_JSON" \
+          || true
+
+      # ── Notify Google Indexing API ─────────────────────────────────────
+      # REMOVED (issue #4837 stream C): this step used to ping Google right
+      # after dispatching deploy.yml on the assumption "deploy takes ~2-3
+      # min" — false; the worst measured full deploy was 2h04m37s (see
+      # scripts/notify-journalist-article-live.mjs's ORPHAN_THRESHOLD_MS
+      # comment), so Google was routinely sent to crawl a 404. The ping is
+      # now owned by "Trigger fast-publish workflow" above, which only fires
+      # it AFTER fast-publish-article.yml has verified the 4 locale URLs are
+      # actually live. If fast-publish itself doesn't run/succeed, the full
+      # deploy chain's post-deploy-publish.yml "Post-deploy indexing
+      # (parallel)" step still submits every URL via
+      # scripts/submit-google-indexing.js as an unconditional safety net —
+      # no article is left permanently unpinged.
 
       # ── Final disposition report ──────────────────────────────────────
       # This step runs ALWAYS to give a clear summary of what happened
@@ -597,6 +607,7 @@ jobs:
           COMMITTED="${{ steps.commit.outputs.committed }}"
           VERIFIED="${{ steps.verify_article.outputs.exists }}"
           DEPLOY_DISPATCHED="${{ steps.trigger_deploy.outputs.dispatch_sent }}"
+          FAST_PUBLISH_DISPATCHED="${{ steps.trigger_fast_publish.outputs.dispatch_sent }}"
 
           # Determine final status
           if [ "$VERIFIED" == "true" ] && [ "$DEPLOY_DISPATCHED" == "true" ]; then
@@ -627,7 +638,7 @@ jobs:
           echo "   Article: $ARTICLE_ID"
           echo "   URL: $ARTICLE_URL"
           echo "   Source: $SOURCE_URL"
-          echo "   committed=$COMMITTED  verified=$VERIFIED  deploy_dispatched=$DEPLOY_DISPATCHED  has_changes=$HAS_CHANGES"
+          echo "   committed=$COMMITTED  verified=$VERIFIED  deploy_dispatched=$DEPLOY_DISPATCHED  fast_publish_dispatched=$FAST_PUBLISH_DISPATCHED  has_changes=$HAS_CHANGES"
           echo ""
 
           # Append to step summary for clear visibility
@@ -644,6 +655,7 @@ jobs:
             echo "| Committed to main | $COMMITTED |"
             echo "| Verified in source | $VERIFIED |"
             echo "| Deploy dispatched | $DEPLOY_DISPATCHED |"
+            echo "| Fast-publish dispatched | $FAST_PUBLISH_DISPATCHED |"
           } >> "$GITHUB_STEP_SUMMARY"
 
           # Emit warning annotation for lost articles (visible in PR / Actions UI)

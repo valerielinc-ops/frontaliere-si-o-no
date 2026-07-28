@@ -28,16 +28,70 @@ import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
 import { boostDescriptionForCtr } from './shared/ctrBoostDescription';
 import { SLUG_TABLES } from '../services/routeSlugs.data';
 
-export function ogPagesPlugin(rootDir: string): Plugin {
- return {
- name: 'og-pages',
- apply: 'build',
- enforce: 'post',
- async closeBundle() {
+export interface RenderedArticleEntry {
+ articleId: string;
+ /** Locale -> path relative to distDir for the directory `index.html` (e.g. `articoli-frontaliere/<slug>/index.html`). */
+ paths: Record<string, string>;
+ /** Locale -> path relative to distDir for the flat redirect-bridge sibling (e.g. `articoli-frontaliere/<slug>.html`). */
+ flatPaths: Record<string, string>;
+ /** Locale -> canonical absolute URL (trailing slash). */
+ urls: Record<string, string>;
+ /**
+  * Site-relative resolved hero image path (e.g. `/images/blog/<file>.webp`),
+  * same for every locale — the value `resolveImagePath` computed for this
+  * article, post existence-checking + extension fallback. Exposed (#4837
+  * stream A) so publish-article-fast.mjs can derive the CDN upload manifest
+  * from the renderer's own resolution instead of re-deriving/guessing it.
+  */
+ img: string;
+}
+
+export interface RenderArticlePagesOptions {
+ rootDir: string;
+ distDir: string;
+ section: 'frontaliere' | 'svizzera';
+ /**
+ * When set, render/write ONLY this article's 4 locale pages instead of the
+ * whole section (near-instant single-article publish, #4837 stream A).
+ * Section-wide metadata (title-collision map, category map, related-articles
+ * pool, slug maps) is still parsed in FULL first — those are cheap text
+ * parses over already-concatenated seo-blog*.ts/registry sources and are
+ * REQUIRED for byte-identical output (disambiguation/related-links depend on
+ * every other article's metadata). Only the per-article BODY file read
+ * (services/locales/<bodyDir>/<locale>/*.ts, ~3021 files x 4 locales) is
+ * skipped down to the single needed file — see parseBlogBodyLocale below.
+ */
+ onlyArticleId?: string;
+}
+
+export interface RenderArticlePagesResult {
+ /** Total files physically written (post content-hash-manifest skip), this call only. */
+ written: number;
+ /** One entry per article actually rendered (all of them in full-section mode, exactly one when onlyArticleId is set and found). */
+ entries: RenderedArticleEntry[];
+}
+
+/**
+ * Render+write static OG landing page(s) for blog article(s) in one section.
+ *
+ * Extracted from ogPagesPlugin's closeBundle (#4837 stream A) so a standalone
+ * script (scripts/publish-article-fast.mjs, via `npx tsx`) can render a
+ * single freshly-published article's 4 locale pages without running the full
+ * `vite build` (~25-34 min, OOM-prone). `ogPagesPlugin`'s closeBundle below is
+ * now a thin wrapper calling this same function once per section with no
+ * `onlyArticleId` — full-build output is unchanged (same code path).
+ *
+ * Do NOT fork this render logic (mirrors the precedent set by
+ * relatedSearchClustersPlugin's exported `renderClusterPage`) — any fix here
+ * benefits both the full build and the fast single-article path for free,
+ * and a fork would silently drift the two apart.
+ */
+export async function renderArticlePages(opts: RenderArticlePagesOptions): Promise<RenderArticlePagesResult> {
+ const rootDir = opts.rootDir;
  const fs = await import('node:fs');
  const np = await import('node:path');
 
- const distDir = np.resolve(rootDir, 'dist');
+ const distDir = opts.distDir;
  const collector = new WriteCollector({ distDir, pluginName: 'ogPagesPlugin' });
  const DEFAULT_IMG = '/og-image.png';
  const blogImageById: Record<string, string> = {};
@@ -102,8 +156,9 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  let count = 0;
  let faqCount = 0;
  let totalEntries = 0;
+ const writtenEntries: RenderedArticleEntry[] = [];
 
- for (const SECTION of SECTIONS) {
+ for (const SECTION of SECTIONS.filter((s) => s.name === opts.section)) {
 
  // Issue #3010 item 1: svizzera-section near-duplicate articles (PR #3000
  // de-collided their slugs, both are live now) declare a cross-URL
@@ -498,7 +553,23 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const out: Record<string, Record<string, string>> = {};
  const dir = np.resolve(rootDir, 'services', 'locales', SECTION.bodyDir, locale);
  let files: string[] = [];
+ // Fast path (#4837 stream A): body filenames are exactly `<articleId>.ts`
+ // (confirmed 1:1, e.g. services/locales/blog-body/it/<id>.ts). When only
+ // one article is being rendered there is no need to readdirSync + scan
+ // ~3021 files x 4 locales — read the single needed file directly. Falls
+ // through to the full directory scan (identical to pre-#4837 behaviour)
+ // whenever onlyArticleId is unset, so full-build output is unchanged.
+ if (opts.onlyArticleId) {
+ const single = `${opts.onlyArticleId}.ts`;
+ try {
+ fs.statSync(np.join(dir, single));
+ files = [single];
+ } catch {
+ files = [];
+ }
+ } else {
  try { files = fs.readdirSync(dir); } catch { return out; }
+ }
  const rx = /'blog\.article\.([^']+)\.(body\d+|faq)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
  for (const file of files) {
  if (!file.endsWith('.ts')) continue;
@@ -558,30 +629,42 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  de: ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'],
  fr: ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'],
  };
+ // Read the calendar parts straight out of the ISO string instead of routing
+ // them through `new Date(...)` accessors.
+ //
+ // Why (bug fixed 2026-07-28, #4837): normalizeDateTime stamps bare dates as
+ // `T00:00:00+01:00` — Swiss wall clock, which is the author's intent and is
+ // also exactly what `datetime="${pubIso.split('T')[0]}"` publishes. But
+ // `new Date(iso).getDate()` returns the day in the RUNNING PROCESS's zone, and
+ // CI builds in UTC, where 2026-02-26T00:00:00+01:00 is 23:00 on the 25th.
+ // Live evidence before this fix, on /articoli-frontaliere/confronto-assicurazioni-auto/:
+ //   <time datetime="2026-02-26" itemprop="datePublished">25 febbraio 2026</time>
+ // — machine-readable and human-visible dates disagreed by a day on ~142
+ // articles (138 stamped T00:xx+01:00, 4 date-only). Parsing the string's own
+ // fields makes byline, datetime attribute and JSON-LD agree by construction
+ // and makes the renderer timezone-independent.
+ const ISO_PARTS_RX = /^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2}))?/;
+ const isoParts = (isoStr: string) => {
+  const m = ISO_PARTS_RX.exec(isoStr || '');
+  if (!m) return null;
+  const monthIdx = Number(m[2]) - 1;
+  if (monthIdx < 0 || monthIdx > 11) return null;
+  return { year: Number(m[1]), monthIdx, day: Number(m[3]), hh: m[4] ?? '00', mm: m[5] ?? '00' };
+ };
  const formatHumanDateTime = (isoStr: string, locale: string): string => {
- try {
- const d = new Date(isoStr);
- if (isNaN(d.getTime())) return isoStr.split('T')[0];
- const day = d.getDate();
- const month = (MONTH_NAMES[locale] || MONTH_NAMES.it)[d.getMonth()];
- const year = d.getFullYear();
- const hh = String(d.getHours()).padStart(2, '0');
- const mm = String(d.getMinutes()).padStart(2, '0');
- return `${day} ${month} ${year}, ${hh}:${mm}`;
- } catch { return isoStr.split('T')[0]; }
+  const p = isoParts(isoStr);
+  if (!p) return isoStr.split('T')[0];
+  const month = (MONTH_NAMES[locale] || MONTH_NAMES.it)[p.monthIdx];
+  return `${p.day} ${month} ${p.year}, ${p.hh}:${p.mm}`;
  };
 
  // Date-only formatter for visible E-E-A-T byline (squirrelscan eeat/content-dates).
  // Crawlers want a human "Pubblicato il 18 maggio 2026" near the H1.
  const formatHumanDate = (isoStr: string, locale: string): string => {
- try {
- const d = new Date(isoStr);
- if (isNaN(d.getTime())) return isoStr.split('T')[0];
- const day = d.getDate();
- const month = (MONTH_NAMES[locale] || MONTH_NAMES.it)[d.getMonth()];
- const year = d.getFullYear();
- return `${day} ${month} ${year}`;
- } catch { return isoStr.split('T')[0]; }
+  const p = isoParts(isoStr);
+  if (!p) return isoStr.split('T')[0];
+  const month = (MONTH_NAMES[locale] || MONTH_NAMES.it)[p.monthIdx];
+  return `${p.day} ${month} ${p.year}`;
  };
  const DATE_LABELS: Record<string, { published: string; updated: string }> = {
  it: { published: 'Pubblicato il', updated: 'Aggiornato il' },
@@ -655,7 +738,16 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  };
 
  for (const en of entries) {
+ // Single-article fast path (#4837 stream A): the entries parse above MUST
+ // stay full/unfiltered (title-collision map + entriesByDate related-articles
+ // pool both need every other article's metadata to render THIS one
+ // correctly) — this is the only place that narrows down to one article.
+ if (opts.onlyArticleId && en.articleId !== opts.onlyArticleId) continue;
  const locSlugs = blogSlugs[en.articleId];
+
+ const writtenPaths: Record<string, string> = {};
+ const writtenFlatPaths: Record<string, string> = {};
+ const writtenUrls: Record<string, string> = {};
 
  const lp: Record<string, string | null> = { it: en.path, en: null, de: null, fr: null };
  if (locSlugs) {
@@ -1159,6 +1251,9 @@ ${headTags}
  collector.add(np.join(distDir, en.path, 'index.html'), itHtml);
  collector.add(np.join(distDir, itFlatPath + '.html'), flatItHtml);
  count++;
+ writtenPaths.it = np.join(en.path, 'index.html').replace(/^\/+/, '');
+ writtenFlatPaths.it = (itFlatPath + '.html').replace(/^\/+/, '');
+ writtenUrls.it = `${BASE_URL}${withTrailingSlash(en.path)}`;
 
  // EN / DE / FR
  for (const [loc, lPath] of Object.entries(lp)) {
@@ -1172,15 +1267,50 @@ ${headTags}
  collector.add(np.join(distDir, lPath, 'index.html'), locHtml);
  collector.add(np.join(distDir, locFlatPath + '.html'), flatLocHtml);
  count++;
+ writtenPaths[loc] = np.join(lPath, 'index.html').replace(/^\/+/, '');
+ writtenFlatPaths[loc] = (locFlatPath + '.html').replace(/^\/+/, '');
+ writtenUrls[loc] = `${BASE_URL}${withTrailingSlash(lPath)}`;
  }
+
+ writtenEntries.push({
+ articleId: en.articleId,
+ paths: writtenPaths,
+ flatPaths: writtenFlatPaths,
+ urls: writtenUrls,
+ img: en.img,
+ });
  }
 
  totalEntries += entries.length;
- } // end for (const SECTION of SECTIONS)
+ } // end for (const SECTION of SECTIONS.filter(...))
 
  const written = await collector.flush();
  const skippedHash = collector.skippedByHash;
- console.log(`\x1b[36m[og-pages]\x1b[0m Generated ${count} OG landing pages for ${totalEntries} articles (${faqCount} with FAQPage schema) — wrote ${written}, skipped ${skippedHash} unchanged`);
+ console.log(`\x1b[36m[og-pages]\x1b[0m [${opts.section}] Generated ${count} OG landing pages for ${totalEntries} articles (${faqCount} with FAQPage schema) — wrote ${written}, skipped ${skippedHash} unchanged`);
+ return { written, entries: writtenEntries };
+}
+
+/**
+ * Vite plugin wrapper — thin shell around {@link renderArticlePages}.
+ * Runs the SAME render logic once per section (frontaliere, svizzera) with
+ * no `onlyArticleId`, so full-build output is byte-identical to before this
+ * function was extracted (#4837 stream A). Do not add per-section logic
+ * here — it belongs in renderArticlePages so the fast single-article path
+ * (scripts/publish-article-fast.mjs) gets it for free.
+ */
+export function ogPagesPlugin(rootDir: string): Plugin {
+ return {
+ name: 'og-pages',
+ apply: 'build',
+ enforce: 'post',
+ async closeBundle() {
+ const np = await import('node:path');
+ const distDir = np.resolve(rootDir, 'dist');
+ const frontaliere = await renderArticlePages({ rootDir, distDir, section: 'frontaliere' });
+ const svizzera = await renderArticlePages({ rootDir, distDir, section: 'svizzera' });
+ const written = frontaliere.written + svizzera.written;
+ const totalArticles = frontaliere.entries.length + svizzera.entries.length;
+ console.log(`\x1b[36m[og-pages]\x1b[0m Done — wrote ${written} files across ${totalArticles} article(s) total (frontaliere + svizzera).`);
  },
  };
 }

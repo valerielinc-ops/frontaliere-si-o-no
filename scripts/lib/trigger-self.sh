@@ -7,8 +7,14 @@
 # generate-article.yml's 30-min cron). Concurrency groups already prevent
 # overlap, so it's safe to fire-and-forget.
 #
-# Modeled on scripts/lib/trigger-deploy.sh — same auth + payload + dispatch
-# + best-effort error handling pattern.
+# Delegates the actual ref-wait + dispatch-retry + output contract to
+# scripts/lib/trigger-workflow.sh (issue #4837). This file used to hand-roll a
+# byte-for-byte copy of trigger-deploy.sh's curl/retry loop; once
+# trigger-deploy.sh became a thin wrapper over the shared engine, keeping a
+# third copy here was exactly the drift AGENTS.md Non-Negotiable #6 forbids.
+# What legitimately stays here is self-trigger-specific: the pre-dispatch
+# DELAY_SECONDS sleep, the SELF_TRIGGER_REASON observability output, and the
+# input SHAPE (retry_count / no_changes_streak / section / url).
 #
 # Required env vars:
 #   GITHUB_PAT or GH_TOKEN  — Personal Access Token with workflow scope
@@ -37,7 +43,6 @@
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
-source "$(dirname "${BASH_SOURCE[0]}")/github-api-version.sh"
 
 write_output() {
   local key="$1"
@@ -66,7 +71,6 @@ if [ -z "$TOKEN" ]; then
   exit 0
 fi
 
-REPO="${GITHUB_REPOSITORY:-valerielinc-ops/frontaliere-si-o-no}"
 REF="${DISPATCH_REF:-main}"
 DELAY="${DELAY_SECONDS:-0}"
 RETRY_COUNT="${RETRY_COUNT:-}"
@@ -82,15 +86,13 @@ fi
 
 echo "🔁 trigger-self.sh: dispatching ${WORKFLOW_FILE} on ${REF} (reason=${REASON}, retry_count=${RETRY_COUNT:-0}, no_changes_streak=${NO_CHANGES_STREAK:-0}, section=${SECTION:-default}, url=${URL:-none})"
 
-PAYLOAD="$(
-  DISPATCH_REF_JSON="$REF" \
+INPUTS_JSON="$(
   RETRY_COUNT_JSON="$RETRY_COUNT" \
   NO_CHANGES_STREAK_JSON="$NO_CHANGES_STREAK" \
   SECTION_JSON="$SECTION" \
   URL_JSON="$URL" \
   node <<'NODE'
 const trim = (v) => String(v || '').trim();
-const payload = { ref: trim(process.env.DISPATCH_REF_JSON) || 'main' };
 const retry = trim(process.env.RETRY_COUNT_JSON);
 const streak = trim(process.env.NO_CHANGES_STREAK_JSON);
 const section = trim(process.env.SECTION_JSON);
@@ -100,45 +102,18 @@ if (retry && retry !== '0') inputs.retry_count = retry;
 if (streak && streak !== '0') inputs.no_changes_streak = streak;
 if (section) inputs.section = section;
 if (url) inputs.url = url;
-if (Object.keys(inputs).length > 0) payload.inputs = inputs;
-process.stdout.write(JSON.stringify(payload));
+process.stdout.write(JSON.stringify(inputs));
 NODE
 )"
 
-# Retry on transient errors (5xx / connection failure) — GitHub's API dispatch
-# endpoint occasionally 502s under load. Auth/permission errors (4xx) are not
-# transient and fail immediately without wasting the retry budget.
-MAX_DISPATCH_ATTEMPTS="${SELF_DISPATCH_ATTEMPTS:-3}"
-attempt=1
-while true; do
-  HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
-    -X POST \
-    "https://api.github.com/repos/${REPO}/actions/workflows/${WORKFLOW_FILE}/dispatches" \
-    -H "Accept: application/vnd.github+json" \
-    -H "Authorization: Bearer ${TOKEN}" \
-    -H "X-GitHub-Api-Version: ${GITHUB_API_VERSION}" \
-    -d "$PAYLOAD" || echo "000")
-
-  if [ "$HTTP_CODE" = "204" ]; then
-    break
-  fi
-  if [[ ! "$HTTP_CODE" =~ ^5[0-9][0-9]$ ]] && [ "$HTTP_CODE" != "000" ]; then
-    break
-  fi
-  if [ "$attempt" -ge "$MAX_DISPATCH_ATTEMPTS" ]; then
-    break
-  fi
-  echo "⚠️ trigger-self.sh: dispatch returned HTTP ${HTTP_CODE} (attempt ${attempt}/${MAX_DISPATCH_ATTEMPTS}) — retrying..."
-  sleep $((attempt * 2))
-  attempt=$((attempt + 1))
-done
-
-if [ "$HTTP_CODE" = "204" ]; then
-  echo "✅ trigger-self.sh: ${WORKFLOW_FILE} dispatched successfully (reason=${REASON})"
-  write_output "dispatch_sent" "true"
-  exit 0
+# Best-effort by contract: a dispatch failure must NEVER fail the parent job
+# (the cron schedule is the safety net), so the engine's exit 1 is swallowed
+# here. The engine already wrote dispatch_sent=true|false to GITHUB_OUTPUT.
+if TRIGGER_REF="$REF" \
+   TRIGGER_DISPATCH_ATTEMPTS="${SELF_DISPATCH_ATTEMPTS:-3}" \
+   bash "$(dirname "${BASH_SOURCE[0]}")/trigger-workflow.sh" "$WORKFLOW_FILE" "$INPUTS_JSON"; then
+  echo "✅ trigger-self.sh: ${WORKFLOW_FILE} dispatched (reason=${REASON})"
 else
-  echo "⚠️ trigger-self.sh: dispatch returned HTTP ${HTTP_CODE} (expected 204) — best-effort, not failing parent job"
-  write_output "dispatch_sent" "false"
-  exit 0
+  echo "⚠️ trigger-self.sh: dispatch of ${WORKFLOW_FILE} failed — best-effort, not failing parent job (reason=${REASON})"
 fi
+exit 0

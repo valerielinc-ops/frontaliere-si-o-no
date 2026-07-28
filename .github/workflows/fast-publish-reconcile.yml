@@ -1,0 +1,115 @@
+name: Fast Publish Reconcile (post-deploy article backfill)
+
+# Issue #4837 stream C — closes the "flicker race": a full deploy.yml build
+# can start BEFORE a new article's commit lands on main (generate-article.yml
+# / publish-journalist-article.mjs push while a scheduled/previous deploy is
+# already mid-flight). That build's own full-replace shard push
+# (scripts/lib/push-section-shard.sh) then overwrites whatever
+# fast-publish-article.yml had already pushed for that article — the build's
+# own dist/ doesn't contain the new article yet — leaving the article
+# missing from its shard until the NEXT full deploy happens to rebuild it.
+#
+# This workflow diffs the article registries (data/blog-articles-data.ts,
+# data/swiss-articles-data.ts) as they existed at the just-completed deploy's
+# build SHA vs. current main HEAD, and re-dispatches
+# fast-publish-article.yml for any article id that landed on main AFTER that
+# build started. Logic lives in scripts/reconcile-fast-publish-articles.mjs
+# (Contents-API diff, no git clone — this repo's .git object store is
+# large/slow, docs/AGENTS-HISTORY.md#git-repo-maintenance, and this job only
+# ever needs two small text files).
+#
+# Trigger choice: workflow_run on deploy-publish.yml ("Publish to GitHub Pages
+# (deploy + validate)"), NOT on deploy.yml ("Deploy to GitHub Pages") and NOT
+# on post-deploy-publish.yml / post-deploy-validate-live.yml /
+# post-deploy-validate-dist.yml. The latter three are workflow_call-only
+# (reusable workflows invoked BY deploy-publish.yml) — their `on:` blocks
+# have no `workflow_run`/`push`/`schedule` trigger, so GitHub can never fire
+# a `workflow_run` subscription against them; deploy-publish.yml is the only
+# workflow in the chain whose OWN completion is observable this way.
+# deploy-publish.yml's completion is also the semantically correct point:
+# it's the earliest moment after which the full shard push is BOTH done AND
+# validated (validate-dist + validate-live both passed as part of it) —
+# firing on deploy.yml directly would risk re-dispatching fast-publish
+# before the full-replace push it needs to race against has even happened,
+# or piling more shard pushes onto a build that's about to fail validation
+# anyway. (notify-journalist-article-live.yml, by contrast, deliberately
+# targets deploy.yml — it only needs "a deploy finished" for an email that
+# tolerates being early; this job is about to trigger MORE shard writes, so
+# it needs the later, validated point.)
+on:
+  workflow_run:
+    workflows: ["Publish to GitHub Pages (deploy + validate)"]
+    types: [completed]
+    branches: [main]
+
+# Global, not per-section: this job's own work (2 Contents-API reads + a
+# handful of workflow_dispatch calls) is cheap and rare (fires once per full
+# deploy, not per article) — no need for the per-section fan-out
+# fast-publish-article.yml itself uses. cancel-in-progress: false so a
+# reconciliation triggered by one deploy completion is never dropped in
+# favor of a later one — each deploy's build SHA is a distinct comparison
+# point and skipping one could miss an article that landed in between.
+concurrency:
+  group: fast-publish-reconcile
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  reconcile:
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Firebase secrets not set — GITHUB_PAT load from Remote Config will be limited."
+          fi
+
+      # GITHUB_PAT is Remote-Config-sourced everywhere in this repo that
+      # dispatches OTHER workflows (GITHUB_TOKEN cannot — GitHub
+      # anti-recursion rule) — same load-rc-env.mjs call every producer
+      # workflow already makes before using scripts/lib/trigger-*.sh.
+      - name: Load secrets from Remote Config (GITHUB_PAT)
+        run: node scripts/load-rc-env.mjs
+
+      - name: Diff article registries (build SHA vs current main) and re-dispatch new ids
+        env:
+          BUILD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: node scripts/reconcile-fast-publish-articles.mjs
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Deploy run:** ${{ github.event.workflow_run.html_url }}
+
+          Reconciliazione fast-publish fallita — eventuali articoli 'flicker-raced' via dal deploy completo restano da recuperare al prossimo deploy." \
+            --priority 3 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

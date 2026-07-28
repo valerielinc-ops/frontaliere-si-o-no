@@ -388,16 +388,32 @@ async function main() {
 
   let published = 0;
   let failed = 0;
+  const publishedIds = [];
   for (const docSnap of snap.docs) {
     // Sequential on purpose — registerArticleFiles() mutates shared source
     // files (router.ts/blog-articles-data.ts/sitemaps/...) in-process; running
     // two docs concurrently would race on the same file writes.
     const result = await processDoc(db, FieldValue, docSnap);
-    if (result.ok) published += 1;
-    else failed += 1;
+    if (result.ok) {
+      published += 1;
+      if (result.id) publishedIds.push(result.id);
+    } else {
+      failed += 1;
+    }
   }
 
   console.log(`[publish-journalist-article] done — published=${published} failed=${failed}`);
+
+  // Surface published article ids to the calling workflow (issue #4837
+  // stream C): publish-journalist-articles.yml dispatches
+  // fast-publish-article.yml once per id instead of waiting for the next
+  // full deploy.yml build. processDoc() already returned `id` on success —
+  // this loop was previously discarding it, only counting `published`.
+  // GITHUB_OUTPUT values must be single-line, so the array is JSON-encoded.
+  const githubOutput = process.env.GITHUB_OUTPUT;
+  if (githubOutput) {
+    fs.appendFileSync(githubOutput, `published_ids=${JSON.stringify(publishedIds)}\n`);
+  }
 }
 
 const invokedDirectly = (() => {

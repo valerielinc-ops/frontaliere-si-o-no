@@ -45,6 +45,7 @@
 
 import { writeFileSync } from 'node:fs';
 import { DEFAULT_LIVE_CHECK_USER_AGENT } from './lib/live-link-check.mjs';
+import { CORE_SITEMAPS } from './lib/sitemap-files.mjs';
 
 const HOST = process.env.HOST || 'frontaliereticino.ch';
 const OUTPUT = process.env.OUTPUT || '/tmp/pre-deploy-sitemap-urls.json';
@@ -53,14 +54,7 @@ const FETCH_TIMEOUT_MS = 10_000;
 // Fallback list when sitemap.xml is unreachable (e.g. very first
 // deploy). Match what older versions of this script used so the snapshot
 // shape stays compatible with downstream consumers in degraded mode.
-const FALLBACK_FILES = [
-  'sitemap-pages.xml',
-  'sitemap-blog.xml',
-  'sitemap-glossario.xml',
-  'sitemap-jobs.xml',
-  'sitemap-news.xml',
-  'sitemap-seo-hubs.xml',
-];
+const FALLBACK_FILES = [...CORE_SITEMAPS, 'sitemap-news.xml'];
 
 function parseSitemapBody(xml) {
   const urls = new Set();
