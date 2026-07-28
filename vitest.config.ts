@@ -5,6 +5,35 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import { shardItems } from './scripts/ci/lpt-shard.mjs';
 import shardWeights from './tests/shard-weights.json';
+import {
+  listDatasetDependentTests,
+  listDatasetIndependentTests,
+} from './scripts/ci/dataset-dependent-tests.mjs';
+
+// Partizione dataset (usata SOLO da tests.yml, via VITEST_DATASET_GROUP): il
+// job CI lancia `scripts/assemble-jobs-dataset.mjs` come step `background:` e
+// intanto esegue in foreground i test che non leggono i suoi output, poi
+// `wait-all` e i restanti. L'assemble costa 133-155s misurati e la sua cache è
+// di fatto sempre un miss (key su hashFiles delle slice, che i crawler
+// riscrivono di continuo; per giunta la quota cache repo è satura a
+// 9.54GB/10GB), quindi erano ~140s serialmente in coda a vitest.
+//
+// Si agisce SOLO su `exclude`, mai su `include`: gli include dei due project
+// (dom = .tsx + JSDOM_TS_FILES, node = il resto dei .ts) sono ciò che assegna
+// ogni file all'environment giusto, e sovrascriverli manderebbe file .ts nel
+// project jsdom. Escludendo il complemento, l'unione delle due run resta
+// esattamente la suite di oggi, ogni file nel suo project.
+//
+// Senza la env (ogni run locale, e ogni altro workflow) il valore è [] e la
+// configurazione è byte-identica a prima — inclusa la classificazione, che non
+// viene nemmeno calcolata.
+const DATASET_GROUP = process.env.VITEST_DATASET_GROUP ?? '';
+const DATASET_SPLIT_EXCLUDE: string[] =
+  DATASET_GROUP === 'independent'
+    ? listDatasetDependentTests()
+    : DATASET_GROUP === 'dependent'
+      ? listDatasetIndependentTests()
+      : [];
 
 // Custom shard distribution: balance `--shard=i/N` by estimated per-file
 // duration (tests/shard-weights.json) via LPT bin-packing instead of vitest's
@@ -224,7 +253,7 @@ export default defineConfig({
  name: 'dom',
  environment: 'jsdom',
  include: ['tests/**/*.test.tsx', ...JSDOM_TS_FILES],
- exclude: COMMON_EXCLUDE,
+ exclude: [...COMMON_EXCLUDE, ...DATASET_SPLIT_EXCLUDE],
  },
  },
  {
@@ -234,7 +263,7 @@ export default defineConfig({
  name: 'node',
  environment: 'node',
  include: ['tests/**/*.test.ts'],
- exclude: [...COMMON_EXCLUDE, ...JSDOM_TS_FILES],
+ exclude: [...COMMON_EXCLUDE, ...JSDOM_TS_FILES, ...DATASET_SPLIT_EXCLUDE],
  },
  },
  ],
