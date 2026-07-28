@@ -1633,6 +1633,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sulzer-primo-semestre-2026.title': 'Sulzer: meno ordini nel primo semestre, ma cresce l\'utile operativo',
     'blog.article.sulzer-primo-semestre-2026.excerpt': 'Il gruppo svizzero registra un calo degli ordini nel primo semestre del 2026, ma l\'utile operativo aumenta del 9,7%.',
     'blog.article.sulzer-primo-semestre-2026.imageAlt': 'Una vista di Lugano con il lago e il monte Bre.',
+    'blog.article.sika-crescita-semestre-bilancio.title': 'Sika: giro d\'affari a 5,59 miliardi nel primo semestre',
+    'blog.article.sika-crescita-semestre-bilancio.excerpt': 'Il gruppo zughese Sika chiude il semestre con un fatturato di 5,59 miliardi di franchi. Crescita organica positiva e previsioni rialzate per l\'anno in corso.',
+    'blog.article.sika-crescita-semestre-bilancio.imageAlt': 'Sede Sika a Baar, Zugo',
 };
 
 export default blogMetaChIt;

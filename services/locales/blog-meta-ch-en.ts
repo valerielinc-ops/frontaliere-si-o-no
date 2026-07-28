@@ -1633,6 +1633,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sulzer-primo-semestre-2026.title': 'Sulzer: fewer orders in the first half, but operating profit grows',
     'blog.article.sulzer-primo-semestre-2026.excerpt': 'The Swiss group recorded a decline in orders in the first half of 2026, but operating profit increased by 9.7%.',
     'blog.article.sulzer-primo-semestre-2026.imageAlt': 'A view of Lugano with the lake and Monte Bre.',
+    'blog.article.sika-crescita-semestre-bilancio.title': 'Sika: turnover at 5.59 billion in the first half',
+    'blog.article.sika-crescita-semestre-bilancio.excerpt': 'The Zughese group Sika closed the half-year with a turnover of CHF 5.59 billion. Positive organic growth and high forecasts for the current year.',
+    'blog.article.sika-crescita-semestre-bilancio.imageAlt': 'Sika headquarters in Baar, Zug',
 };
 
 export default blogMetaChEn;
