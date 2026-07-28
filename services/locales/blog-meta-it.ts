@@ -9050,6 +9050,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-luino-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Luino da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-luino-da-frontaliere-pro-e-contro.excerpt': 'Impostazione alla fonte, doppia imposizione e franchigia per i frontalieri.',
     'blog.article.trasferirsi-a-luino-da-frontaliere-pro-e-contro.imageAlt': 'Frontaliere in visita a Luino, con la valigia in mano, guardando il lago di Lugano.',
+    'blog.article.svizzera-vola-per-treni.title': 'Di più E se a finanziare i treni fossero coloro che prendono l\'aereo?',
+    'blog.article.svizzera-vola-per-treni.excerpt': 'Un\'iniziativa popolare vuole tassare ogni volo in partenza dalla Svizzera e restituire la maggior parte del gettito sotto forma di buoni per viaggiare in treno.',
+    'blog.article.svizzera-vola-per-treni.imageAlt': 'Max 125 caratteri',
 };
 
 export default blogMetaIt;

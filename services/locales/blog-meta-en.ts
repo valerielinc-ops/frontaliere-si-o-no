@@ -9049,6 +9049,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-luino-da-frontaliere-pro-e-contro.title': 'Moving to Luino by border crossing: pros and cons',
     'blog.article.trasferirsi-a-luino-da-frontaliere-pro-e-contro.excerpt': 'Setting at source, double taxation and exemption for frontier workers.',
     'blog.article.trasferirsi-a-luino-da-frontaliere-pro-e-contro.imageAlt': 'Frontalier visiting Luino, with luggage, looking at Lake Lugano.',
+    'blog.article.svizzera-vola-per-treni.title': 'More What if the trains were financed by those who take the plane?',
+    'blog.article.svizzera-vola-per-treni.excerpt': 'A popular initiative wants to tax every flight departing from Switzerland and return most of the proceeds in the form of train travel vouchers.',
+    'blog.article.svizzera-vola-per-treni.imageAlt': 'Max 125 caratteri',
 };
 
 export default blogMetaEn;

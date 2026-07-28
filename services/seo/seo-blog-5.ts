@@ -56504,6 +56504,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-vola-per-treni': {
+    title: 'Di più E se a finanziare i treni fossero coloro che prendono l\'aereo?',
+    description: 'Un\'iniziativa popolare vuole tassare ogni volo in partenza dalla Svizzera e restituire la maggior parte del gettito sotto forma di buoni per viaggiare in treno.',
+    keywords: 'frontalieri, ticino, svizzera, italia, finanziare, treni, fossero, coloro',
+    ogTitle: 'Di più E se a finanziare i treni fossero coloro che prendono l\'aereo?',
+    ogDescription: 'Un\'iniziativa popolare vuole tassare ogni volo in partenza dalla Svizzera e restituire la maggior parte del gettito sotto forma di buoni per viaggiare in treno.',
+    canonicalPath: '/articoli-frontaliere/svizzera-vola-per-treni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più E se a finanziare i treni fossero coloro che prendono l'aereo?",
+      "description": "Un'iniziativa popolare vuole tassare ogni volo in partenza dalla Svizzera e restituire la maggior parte del gettito sotto forma di buoni per viaggiare in treno.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-vola-per-treni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Max 125 caratteri"
+      },
+      "datePublished": "2026-07-28T07:33:15+00:00",
+      "dateModified": "2026-07-28T07:33:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-vola-per-treni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
