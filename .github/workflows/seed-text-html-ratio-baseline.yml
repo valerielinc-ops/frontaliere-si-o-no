@@ -72,6 +72,12 @@ jobs:
     # legs per post-deploy-validate-dist.yml's own measured worst case) when
     # the same-run tar artifacts are missing, so give it the same headroom.
     timeout-minutes: 60
+    # Same walker family as the audits in post-deploy-validate-dist.yml, which
+    # runs audit-text-html-ratio inside `npm run audit:all` at 4096. Mirror that
+    # here so a manual reseed on a complete dist can't die on the default heap
+    # (issue #4857).
+    env:
+      NODE_OPTIONS: '--max-old-space-size=4096'
     steps:
       - name: Checkout
         uses: actions/checkout@v5
