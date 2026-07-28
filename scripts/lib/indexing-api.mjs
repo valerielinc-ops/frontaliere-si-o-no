@@ -14,6 +14,7 @@
 
 import { createSign } from 'node:crypto';
 import fs from 'node:fs';
+import path from 'node:path';
 
 const INDEXING_API_URL = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
 const TOKEN_URL = 'https://oauth2.googleapis.com/token';
@@ -146,4 +147,92 @@ export async function notifyGoogleIndexing(urls, { type = 'URL_UPDATED' } = {}) 
   const succeeded = results.filter(r => r.ok).length;
   console.log(`[indexing-api] 📊 ${succeeded}/${urls.length} URLs notified successfully.`);
   return results;
+}
+
+// Per-section hub slug + router-data-file config, extracted from the inline
+// `node --input-type=module -e "..."` script that used to live ONLY in
+// generate-article.yml (issue #4837 stream D, defect 2). Kept here — not
+// inlined per-workflow — so publish-journalist-articles.yml, STREAM C's
+// fast-publish-article.yml, and any future producer workflow all resolve the
+// same 4 locale URLs the same way instead of re-implementing (and drifting
+// from) the same regex.
+const SECTION_CONFIG = {
+  frontaliere: {
+    file: 'services/routerBlogData.ts',
+    hub: { it: 'articoli-frontaliere', en: 'cross-border-articles', de: 'grenzgaenger-artikel', fr: 'articles-frontalier' },
+  },
+  svizzera: {
+    file: 'services/routerSwissData.ts',
+    hub: { it: 'articoli-svizzera', en: 'swiss-articles', de: 'schweiz-artikel', fr: 'articles-suisse' },
+  },
+};
+
+/**
+ * Resolve an article's 4 locale URLs (it/en/de/fr) and notify the Google
+ * Indexing API for all of them in one call.
+ *
+ * This is the REUSABLE ENTRY POINT for any workflow that just committed a new
+ * or updated article and wants Google notified: import it directly (ESM) or
+ * invoke this file's CLI mode (`node scripts/lib/indexing-api.mjs <articleId>
+ * [frontaliere|svizzera]`). Errors are best-effort (see notifyGoogleIndexing)
+ * — a caller must never let this block its own success/failure.
+ *
+ * @param {string} articleId - Article id key, as used in the section's
+ *   blog-articles-data.ts / swiss-articles-data.ts registry.
+ * @param {'frontaliere'|'svizzera'} [section='frontaliere']
+ * @param {object} [options]
+ * @param {string} [options.rootDir=process.cwd()] - Repo root, for locating
+ *   the router slug-data file. Defaults to cwd because every caller today
+ *   (generate-article.yml, publish-journalist-articles.yml) runs from the
+ *   checked-out repo root.
+ * @param {string} [options.baseUrl='https://frontaliereticino.ch'] - FRO-348: no www.
+ * @returns {Promise<Array<{url: string, ok: boolean, error?: string}>>}
+ */
+export async function notifyArticlePublished(articleId, section = 'frontaliere', { rootDir = process.cwd(), baseUrl = 'https://frontaliereticino.ch' } = {}) {
+  if (!articleId) {
+    console.log('[indexing-api] No article ID — skip');
+    return [];
+  }
+
+  const cfg = SECTION_CONFIG[section] || SECTION_CONFIG.frontaliere;
+  const slugs = { it: articleId, en: articleId, de: articleId, fr: articleId };
+  try {
+    const src = fs.readFileSync(path.resolve(rootDir, cfg.file), 'utf8');
+    const escapedId = articleId.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const match = src.match(new RegExp(`'${escapedId}':\\s*\\{([^}]+)\\}`));
+    if (match) {
+      for (const [, locale, slug] of match[1].matchAll(/(it|en|de|fr):\s*'([^']+)'/g)) {
+        slugs[locale] = slug;
+      }
+    }
+  } catch {
+    // File missing/unreadable — fall back to id-as-slug for every locale.
+  }
+
+  const urls = [
+    `${baseUrl}/${cfg.hub.it}/${slugs.it}/`,
+    `${baseUrl}/en/${cfg.hub.en}/${slugs.en}/`,
+    `${baseUrl}/de/${cfg.hub.de}/${slugs.de}/`,
+    `${baseUrl}/fr/${cfg.hub.fr}/${slugs.fr}/`,
+  ];
+
+  return notifyGoogleIndexing(urls);
+}
+
+// CLI mode: `node scripts/lib/indexing-api.mjs <articleId> [frontaliere|svizzera]`
+// Lets a workflow step ping Google with a plain `run:` line instead of an
+// inline `--input-type=module -e "..."` script — the shape STREAM C's
+// fast-publish-article.yml (issue #4837) and publish-journalist-articles.yml
+// are expected to call.
+if (process.argv[1]?.endsWith('indexing-api.mjs')) {
+  const [articleId, section] = process.argv.slice(2);
+  if (!articleId) {
+    console.error('Usage: node scripts/lib/indexing-api.mjs <articleId> [frontaliere|svizzera]');
+    process.exitCode = 1;
+  } else {
+    notifyArticlePublished(articleId, section).catch((err) => {
+      // Best-effort — never fail the caller's workflow over an indexing ping.
+      console.error(`[indexing-api] ❌ Unexpected error: ${err.message}`);
+    });
+  }
 }
