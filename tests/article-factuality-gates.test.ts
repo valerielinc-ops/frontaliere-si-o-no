@@ -27,6 +27,8 @@ import {
   extractSourceAnchors,
   checkSourceFidelity,
   runFactualityGates,
+  formatRemediation,
+  formatItalianNumber,
 } from '../scripts/lib/article-factuality-gates.mjs';
 
 const codes = (issues: any[]) => issues.map((i) => i.code);
@@ -336,5 +338,66 @@ describe('time-base guard', () => {
       'Un frontaliere con uno stipendio di 60.000 franchi all\'anno dovrà pagare 72.000 franchi all\'anno di imposte.',
     );
     expect(codes(issues)).toContain('tax-exceeds-income');
+  });
+});
+
+describe('formatItalianNumber', () => {
+  // toLocaleString('it-IT') degrades to "2700" on reduced-ICU Node builds, and
+  // these strings are copied into the article by the writer.
+  it('groups thousands with dots and keeps a decimal comma', () => {
+    expect(formatItalianNumber(2700)).toBe('2.700');
+    expect(formatItalianNumber(60000)).toBe('60.000');
+    expect(formatItalianNumber(1234567)).toBe('1.234.567');
+    expect(formatItalianNumber(0.045)).toBe('0,045');
+    expect(formatItalianNumber(900)).toBe('900');
+  });
+});
+
+describe('formatRemediation', () => {
+  // The regeneration loop gets instructions, not complaints: given only a
+  // diagnosis the writer's cheapest move is deletion, which is how the incident
+  // article shed its real facts and kept the invented ones.
+  const gateResult = () => runFactualityGates({
+    sections: {
+      body1: 'Un lavoratore che ha guadagnato 60.000 franchi svizzeri dovrà pagare un\'imposta '
+        + 'del 4,5% (0,45 x 60.000 = 27.000 franchi svizzeri).',
+      body2: 'Secondo l\'Ufficio federale delle imposte (UFI), con un reddito di 60.000 franchi '
+        + 'svizzeri la quota di imposta sale a 60.000 franchi svizzeri.',
+    },
+    publishedAt: '2026-07-28T00:00:00Z',
+  });
+
+  it('tells the writer to correct rather than delete', () => {
+    const out = formatRemediation(gateResult().blocking);
+    expect(out).toContain('correggi, non cancellare');
+    expect(out).toContain('CORREZIONE RICHIESTA');
+  });
+
+  it('supplies the corrected values, not just the diagnosis', () => {
+    const out = formatRemediation(gateResult().blocking);
+    // 4,5% of 60.000 is 2.700 — the writer should not have to work it out.
+    expect(out).toContain('0,045');
+    expect(out).toContain('2.700');
+  });
+
+  it('explains the misreading behind an impossible tax', () => {
+    const out = formatRemediation(gateResult().blocking);
+    expect(out).toContain('ALIQUOTA PIENA');
+  });
+
+  it('names the real institution when one was invented', () => {
+    const out = formatRemediation(gateResult().blocking);
+    expect(out).toMatch(/AFC|ESTV/);
+  });
+
+  it('falls back to per-category guidance for LLM issues without a fix', () => {
+    const out = formatRemediation([
+      { claim: 'La Svizzera è membro UE', reason: 'Affermazione falsa', category: 'eu_svizzera', severity: 'critical' },
+    ]);
+    expect(out).toContain('Accordi Bilaterali');
+  });
+
+  it('returns an empty string when there is nothing to fix', () => {
+    expect(formatRemediation([])).toBe('');
   });
 });

@@ -83,7 +83,7 @@ import {
   MAJOR_BLOCK_WEIGHT_THRESHOLD,
   dropSourceContradictedIssues,
 } from './lib/fact-check-consensus.mjs';
-import { runFactualityGates, formatIssues } from './lib/article-factuality-gates.mjs';
+import { runFactualityGates, formatIssues, formatRemediation } from './lib/article-factuality-gates.mjs';
 import {
   stripCompetitorPromotion,
   sanitizeNavLinkSemantics,
@@ -9898,13 +9898,12 @@ async function generateAndValidateArticle(url, sourceContext = null) {
         const summary = gateResult.blocking.map((i) => `[${i.code}] ${i.message}`).join('; ');
         const gateErr = new Error(`Articolo rigettato dai gate deterministici: ${summary}`);
         if (attempt < maxAttempts) {
-          // Feed the concrete defects back so the next attempt fixes exactly
-          // these — unlike the LLM verifier's issues, every one of these is a
+          // Feed back CORRECTIVE INSTRUCTIONS, not just complaints: every gate
+          // issue carries the concrete fix (and the corrected values, where we
+          // computed them), so the writer repairs the passage instead of
+          // deleting it. Unlike the LLM verifier's issues, each of these is a
           // verified fact about the text, so the feedback cannot mislead.
-          lastFactCheckErrors = gateResult.blocking
-            .slice(0, 8)
-            .map((i) => `- [${i.code}] ${i.message}`)
-            .join('\n');
+          lastFactCheckErrors = formatRemediation(gateResult.blocking);
           console.error(`  🔄 Rigenero contenuto IT per gate deterministici (${attempt}/${maxAttempts})...`);
           continue;
         }
@@ -9920,24 +9919,24 @@ async function generateAndValidateArticle(url, sourceContext = null) {
         const err = new Error(`Articolo rigettato da fact-check: ${factResult.issues.length} problemi: ${issuesSummary}`);
         if (attempt < maxAttempts) {
           // Feed the flagged claims into the next attempt's prompt so the model
-          // fixes exactly what it invented instead of regenerating blind. Cap
-          // the injected list (issues are already the blocking subset, severity-
-          // ordered by llmFactCheck) so a long violation list can't bloat an
-          // already-large prompt past the input window of the degraded free
-          // models this fix targets (adversarial review PR #2615). Surface the
-          // truncation rather than silently dropping the tail. Per-issue claim/
-          // reason lengths tightened 2026-07-06 (90/110→70/90 chars) alongside
-          // the regen-attempt MAX_SOURCE_CHARS cut above — both compete for the
-          // same ~8000-token input ceiling once fix B's domainFactsBlock also
-          // rides along on organic-mode regen attempts.
+          // fixes exactly what it invented instead of regenerating blind.
+          //
+          // Rendered as corrective INSTRUCTIONS rather than a list of
+          // complaints (2026-07-28): each verifier category maps to what the
+          // writer should actually DO — see REMEDIATION_BY_CATEGORY. A bare
+          // "non presente nella fonte" invites deletion, which is how that
+          // day's article shed every real fact it had while keeping the
+          // invented ones. formatRemediation() also states the standing rule,
+          // "correggi, non cancellare".
+          //
+          // The cap is retained (issues are already the blocking subset,
+          // severity-ordered by llmFactCheck): a long violation list would
+          // bloat an already-large prompt past the input window of the degraded
+          // free models this path targets (adversarial review PR #2615).
+          // formatRemediation() reports the overflow instead of dropping the
+          // tail silently.
           const FACTCHECK_FEEDBACK_CAP = 8;
-          lastFactCheckErrors = factResult.issues
-            .slice(0, FACTCHECK_FEEDBACK_CAP)
-            .map(i => `- [${i.category || '?'}] "${(i.claim || '').slice(0, 70)}" — ${(i.reason || 'non nella fonte').slice(0, 90)}`)
-            .join('\n');
-          if (factResult.issues.length > FACTCHECK_FEEDBACK_CAP) {
-            lastFactCheckErrors += `\n(+${factResult.issues.length - FACTCHECK_FEEDBACK_CAP} altre violazioni: applica lo STESSO principio a tutto il testo, non solo a queste)`;
-          }
+          lastFactCheckErrors = formatRemediation(factResult.issues, { cap: FACTCHECK_FEEDBACK_CAP });
           console.error(`  🔄 Rigenero contenuto IT per fact-check fallito (${attempt}/${maxAttempts})...`);
           continue;
         }

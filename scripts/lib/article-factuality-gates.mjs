@@ -12,10 +12,11 @@
  *   - "0,45 x 60.000 = 27.000" presented as "4,5%"     → factor-of-10 error
  *   - income 60.000 CHF → tax 60.000 CHF               → tax == gross income
  *   - the same scenario answered 28.920 / 60.000 / 6.000 in three sections
- *   - "= 27.000 operative**" — a sentence cut mid-word, bold never closed
  *   - "Ufficio federale delle imposte (UFI)" — an institution that does not exist
  *   - Decreto Omnibus dated "1° gennaio 2023" AND "1° gennaio 2024"
  *   - a 25 January 2026 source published as news on 28 July 2026, in future tense
+ *   - the 80% reduced rate and the Italian 25% substitute tax — the two figures
+ *     that make "100%" legible — dropped entirely
  *
  * WHY THE EXISTING GATE MISSED IT. Verification was delegated entirely to
  * llmFactCheck() — a probabilistic judge that (a) fails open when its models are
@@ -36,6 +37,21 @@
 
 /** Severity ranking used to sort and to decide what blocks publication. */
 export const SEVERITY = { critical: 3, major: 2, minor: 1 };
+
+/**
+ * Formats a number in Italian convention (1.234,5).
+ *
+ * Not toLocaleString('it-IT'): Node builds with a reduced ICU fall back to the
+ * C locale and silently emit "2700" where the article needs "2.700" — and
+ * these strings go into remediation text the writer copies from.
+ */
+export function formatItalianNumber(value) {
+  if (!Number.isFinite(value)) return String(value);
+  const [int, dec] = Math.abs(value).toString().split('.');
+  const grouped = int.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const sign = value < 0 ? '-' : '';
+  return dec ? `${sign}${grouped},${dec}` : `${sign}${grouped}`;
+}
 
 /**
  * Parses a number written in Italian convention.
@@ -76,15 +92,30 @@ export function parseItalianNumber(raw) {
   return Number.isFinite(value) ? value : NaN;
 }
 
-function issue(code, severity, message, evidence) {
-  return { code, severity, message, evidence: (evidence || '').slice(0, 200) };
+/**
+ * @param {string} code      stable identifier for the defect class
+ * @param {string} severity  critical | major | minor
+ * @param {string} message   what is wrong (diagnosis)
+ * @param {string} evidence  the offending text
+ * @param {string} fix       what to DO about it (remediation)
+ *
+ * `fix` is not decoration. Gate issues are reinjected into the regeneration
+ * prompt, and a diagnosis alone ("percentage and factor are inconsistent")
+ * leaves the writer to guess which of the two numbers to change — it often
+ * guessed wrong, or deleted the whole passage. Every fix below therefore
+ * carries the concrete corrected values, computed here where they are known.
+ */
+function issue(code, severity, message, evidence, fix = '') {
+  return { code, severity, message, evidence: (evidence || '').slice(0, 200), fix };
 }
 
 // ─── 1. Truncated / cut-off text ──────────────────────────────────────
 //
-// The shipped body1 ended a sentence mid-word inside an unclosed bold and an
-// unclosed parenthesis: "(0,45 x 60.000 = 27.000 operative**". Three
-// independent, cheap signals catch that class.
+// Not a defect of the incident article — but the retro-audit over the 3564
+// published bodies found 35 paragraphs with an unclosed parenthesis and 5 with
+// an unclosed bold marker, i.e. text a model stopped emitting mid-clause. The
+// generation pipeline has fought free-tier truncation before (see the cap
+// comments in create-article.mjs), so the class is worth a cheap standing check.
 
 const SENTENCE_END = /[.!?:;»"')\]}…]$/;
 
@@ -115,6 +146,9 @@ export function detectTruncation(text, opts = {}) {
         opens > closes ? 'critical' : 'major',
         `${label}Parentesi non bilanciate nel paragrafo (${opens} aperte, ${closes} chiuse) — testo troncato`,
         para.trim().slice(-140),
+        opens > closes
+          ? `Chiudi la parentesi rimasta aperta in ${label || 'questo paragrafo'} completando la frase interrotta, oppure rimuovi la parentesi di apertura se la precisazione non serve.`
+          : `Rimuovi la parentesi di chiusura in eccesso in ${label || 'questo paragrafo'}.`,
       ));
     }
     const paraBold = (para.match(/\*\*/g) || []).length;
@@ -124,6 +158,7 @@ export function detectTruncation(text, opts = {}) {
         'critical',
         `${label}Marker bold "**" non chiuso nel paragrafo — testo troncato`,
         para.trim().slice(-140),
+        'Chiudi il grassetto aggiungendo il "**" mancante alla fine del testo che deve risultare in grassetto, oppure rimuovi il "**" orfano.',
       ));
     }
   }
@@ -149,6 +184,7 @@ export function detectTruncation(text, opts = {}) {
       'major',
       `${label}Il testo non termina con punteggiatura di fine frase — possibile troncamento`,
       lastLine.slice(-100),
+      `Completa la frase finale di ${label || 'questa sezione'} e chiudila con un punto. Non lasciare il periodo sospeso.`,
     ));
   }
 
@@ -187,8 +223,10 @@ export function checkInlineArithmetic(text) {
       issues.push(issue(
         'arithmetic-error',
         'critical',
-        `Calcolo errato: ${aRaw} × ${bRaw} = ${(a * b).toLocaleString('it-IT')}, non ${cRaw}`,
+        `Calcolo errato: ${aRaw} × ${bRaw} = ${formatItalianNumber(a * b)}, non ${cRaw}`,
         full,
+        `Sostituisci "${full}" con "${aRaw} × ${bRaw} = ${formatItalianNumber(a * b)}". `
+        + `Poi aggiorna ogni totale o confronto che usava il valore errato ${cRaw}.`,
       ));
     }
 
@@ -206,6 +244,11 @@ export function checkInlineArithmetic(text) {
           `Percentuale e fattore incoerenti: dichiarato ${pctMatch[1]}% ma moltiplicato per ${aRaw} `
           + `(${Number.isFinite(ratio) ? `${ratio.toFixed(0)}× il valore corretto ${(pct / 100).toString().replace('.', ',')}` : 'valore incoerente'})`,
           `${pctMatch[0]} ... ${full}`,
+          `Decidi quale dei due numeri è giusto e allinea l'altro. `
+          + `Se la percentuale corretta è ${pctMatch[1]}%, il fattore deve essere `
+          + `${(pct / 100).toString().replace('.', ',')} e il risultato ${formatItalianNumber((pct / 100) * b)}. `
+          + `Se invece il risultato ${cRaw} è quello giusto, la percentuale da dichiarare è `
+          + `${(a * 100).toString().replace('.', ',')}%. Non lasciare i due valori incoerenti e non cancellare l'esempio.`,
         ));
       }
     }
@@ -320,6 +363,11 @@ export function checkTaxPlausibility(text, opts = {}) {
           'critical',
           `Imposta ${amt.raw} pari o superiore al reddito lordo ${income.raw} (${Math.round(ratio * 100)}%) — impossibile`,
           line.trim(),
+          `Un'imposta non può essere pari o superiore al reddito lordo. Errore tipico: leggere "aliquota al 100%" `
+          + `come "il 100% dello stipendio". Il 100% si riferisce all'ALIQUOTA PIENA della tabella d'imposta, non al reddito. `
+          + `Correggi indicando l'importo effettivo dell'imposta (per un frontaliere in Ticino, tipicamente il 5-15% del lordo, `
+          + `quindi nell'ordine di ${formatItalianNumber(Math.round(income.value * 0.1))} su ${income.raw}) `
+          + `oppure esprimi il passaggio in punti di aliquota invece che in franchi.`,
         ));
       } else if (ratio > implausibleRatio) {
         issues.push(issue(
@@ -327,6 +375,9 @@ export function checkTaxPlausibility(text, opts = {}) {
           'major',
           `Imposta ${amt.raw} = ${Math.round(ratio * 100)}% del reddito ${income.raw} — implausibile per un frontaliere`,
           line.trim(),
+          `Verifica l'aliquota: l'imposta alla fonte per un frontaliere in Ticino sta tipicamente tra il 5% e il 15% del lordo. `
+          + `Se ${amt.raw} include anche contributi o imposte italiane, dichiaralo esplicitamente e scomponi le voci; `
+          + `altrimenti correggi l'importo.`,
         ));
       }
     }
@@ -387,9 +438,12 @@ export function checkCrossSectionNumericConflicts(sections, opts = {}) {
       issues.push(issue(
         'contradictory-figures',
         'critical',
-        `Stesso scenario (reddito ${income.toLocaleString('it-IT')}) con esiti incompatibili: `
+        `Stesso scenario (reddito ${formatItalianNumber(income)}) con esiti incompatibili: `
         + `${min.raw} in ${min.section} vs ${max.raw} in ${max.section} (${(max.tax / min.tax).toFixed(1)}× di scarto)`,
         `${min.line} ⟷ ${max.line}`,
+        `Scegli UN solo valore corretto per lo scenario "reddito ${formatItalianNumber(income)}" e usalo identico in `
+        + `${min.section} e ${max.section}. Se le due cifre rispondono a domande diverse (imposta totale vs solo aumento, `
+        + `prima vs dopo), esplicita la differenza nel testo — non lasciare due risposte alla stessa domanda.`,
       ));
     }
   }
@@ -467,6 +521,10 @@ export function checkFabricatedInstitutionAcronyms(text) {
         'critical',
         `Ente inesistente: "${name.trim()} (${acronym})" — acronimo noto come inventato dal generatore`,
         full.trim(),
+        `Rimuovi "${acronym}": non esiste. In materia fiscale federale svizzera l'ente reale è l'Amministrazione federale `
+        + `delle contribuzioni (AFC/ESTV); l'imposta alla fonte è però amministrata a livello CANTONALE `
+        + `("ufficio imposte alla fonte" del Cantone). Se il dato non ha una fonte verificabile, elimina l'attribuzione `
+        + `e il dato insieme — non sostituire un ente inventato con un altro.`,
       ));
     } else {
       issues.push(issue(
@@ -474,6 +532,8 @@ export function checkFabricatedInstitutionAcronyms(text) {
         'major',
         `Ente non in allowlist: "${name.trim()} (${acronym})" — verificare che esista davvero`,
         full.trim(),
+        `Verifica che "${acronym}" sia un ente reale e che il nome per esteso sia quello ufficiale. `
+        + `Se non ne hai conferma nella fonte, togli l'acronimo e cita l'ente per esteso, o rimuovi l'attribuzione.`,
       ));
     }
   }
@@ -551,6 +611,9 @@ export function checkContradictoryNormDates(text) {
         'critical',
         `"${norm}" ha ${dateMap.size} date di ${predicate} incompatibili: ${entries.map((e) => e.raw).join(' / ')}`,
         entries.map((e) => e.sentence).join(' ⟷ '),
+        `Una norma ha UNA sola data di ${predicate}. Tieni solo quella confermata dalla fonte e correggi le altre. `
+        + `Se le date si riferiscono a passaggi diversi (firma, entrata in vigore, scadenza di un adempimento), `
+        + `scrivilo esplicitamente accanto a ciascuna invece di presentarle tutte come data della norma.`,
       ));
     }
   }
@@ -589,6 +652,10 @@ export function checkSourceFreshness(params = {}) {
         `Fonte del ${src.toISOString().slice(0, 10)} pubblicata come notizia il ${pub.toISOString().slice(0, 10)} `
         + `— ${ageDays} giorni di ritardo (max ${maxAgeDays})`,
         '',
+        `Non presentare la notizia come appena avvenuta. Colloca esplicitamente il fatto nel tempo `
+        + `("secondo quanto comunicato nel ${src.toLocaleDateString('it-IT', { month: 'long', year: 'numeric' })}"), `
+        + `usa i tempi al passato per ciò che è già accaduto, e metti in evidenza ciò che è ancora attuale per il lettore `
+        + `oggi (scadenze future, adempimenti ancora aperti). Se nulla è più attuale, l'articolo non va pubblicato.`,
       ));
     }
   } else if (publishedAt && !sourceDate) {
@@ -615,6 +682,9 @@ export function checkSourceFreshness(params = {}) {
         'major',
         `Data già passata (${m[0]}) presentata al futuro rispetto alla pubblicazione del ${pub.toISOString().slice(0, 10)}`,
         around.trim(),
+        `${m[0]} è già passata: riscrivi al passato ("è entrato in vigore", "andava presentata entro"). `
+        + `Se stai indicando una scadenza da rispettare, non può essere una data trascorsa — usa la scadenza `
+        + `realmente ancora aperta indicata dalla fonte, oppure togli l'indicazione.`,
       ));
     }
   }
@@ -712,6 +782,9 @@ export function checkSourceFidelity(articleText, sourceText, opts = {}) {
       `L'articolo ha perso ${missingPct.length}/${srcPct.length} delle percentuali della fonte `
       + `(${missingPct.map((p) => `${p.slice(4)}%`).join(', ')}) — senza queste il dato resta incomprensibile`,
       `percentuali fonte: ${srcPct.map((p) => `${p.slice(4)}%`).join(', ')}`,
+      `Reintegra nel testo le percentuali ${missingPct.map((p) => `${p.slice(4)}%`).join(' e ')} spiegando a cosa si riferiscono, `
+      + `come fa la fonte. NON rimuovere le altre cifre per "mettere a posto" l'articolo: il problema è che ne mancano, `
+      + `non che ce ne siano troppe. Un'aliquota citata senza il suo termine di paragone è incomprensibile per il lettore.`,
     ));
   }
 
@@ -724,6 +797,16 @@ export function checkSourceFidelity(articleText, sourceText, opts = {}) {
       `L'articolo conserva solo ${found.size}/${anchors.size} dei fatti verificabili della fonte `
       + `(recall ${(recall * 100).toFixed(0)}% < ${(minRecall * 100).toFixed(0)}%) — omissioni critiche`,
       `mancanti: ${missing.slice(0, 12).join(', ')}`,
+      `Riscrivi ATTENENDOTI alla fonte e reintegra i dati mancanti: `
+      + `${missing.slice(0, 10).map((a) => {
+        const [kind, v] = a.split(':');
+        if (kind === 'pct') return `${v}%`;
+        if (kind === 'km') return `${v} km`;
+        if (kind === 'date') return v;
+        return v;
+      }).join(', ')}. `
+      + `Ogni dato della fonte è verificato: riportarlo è sempre corretto. Se un fatto ti sembra dubbio, `
+      + `attribuiscilo alla fonte invece di ometterlo. Non sostituire i dati della fonte con formulazioni generiche.`,
     ));
   }
 
@@ -768,6 +851,74 @@ export function runFactualityGates(params = {}) {
 export function formatIssues(issues) {
   const icon = { critical: '🚨', major: '⚠️', minor: 'ℹ️' };
   return (issues || [])
-    .map((i) => `  ${icon[i.severity] || '•'} [${i.code}] ${i.message}${i.evidence ? `\n       ↳ ${i.evidence}` : ''}`)
+    .map((i) => `  ${icon[i.severity] || '•'} [${i.code}] ${i.message}`
+      + `${i.evidence ? `\n       ↳ ${i.evidence}` : ''}`
+      + `${i.fix ? `\n       🔧 ${i.fix}` : ''}`)
     .join('\n');
+}
+
+// Fallback remediation for LLM-verifier issues, which carry a free-text reason
+// but no structured fix. Keyed on the checker's own category vocabulary.
+const REMEDIATION_BY_CATEGORY = {
+  leggi: 'Verifica estremo per estremo il riferimento normativo (tipo di atto, numero, anno) contro la fonte. '
+    + 'Se la fonte non lo riporta, cita la norma solo come la nomina la fonte, senza aggiungere numeri o date che non ci sono.',
+  istituzioni: "Usa il nome ufficiale dell'ente così come compare nella fonte. Non introdurre acronimi che la fonte non usa "
+    + "e non attribuire un fatto a un ente diverso da quello citato (in particolare: non confondere un ufficio cantonale con uno federale).",
+  aliquote: "Riporta l'aliquota esattamente come nella fonte, con il termine di paragone che la rende leggibile "
+    + '(rispetto a cosa aumenta o diminuisce). Non arrotondare e non convertire una percentuale in un importo senza base esplicita.',
+  statistiche: 'Ogni statistica deve essere attribuita a chi l\'ha prodotta e presente nella fonte. '
+    + 'Se non lo è, rimuovi il numero e mantieni l\'affermazione qualitativa, senza inventare una cifra al suo posto.',
+  date: 'Allinea le date alla fonte. Se la fonte non dà una data, non dedurla: descrivi il momento come fa la fonte.',
+  coerenza: 'Riallinea il passaggio alla fonte. Se la fonte lo dice, riportalo (anche alla lettera); '
+    + 'se non lo dice, toglilo. Non sostituirlo con una formulazione più vaga che dice la stessa cosa senza appoggio.',
+  fatti_inventati: "Elimina l'episodio, la dichiarazione o il caso concreto: non risulta dalla fonte. "
+    + 'Non rimpiazzarlo con un altro esempio inventato — se serve un esempio, presentalo come scenario esplicitamente ipotetico.',
+  persone: 'Cita solo persone e ruoli presenti nella fonte, con il ruolo esatto che la fonte attribuisce loro.',
+  geografia: 'Correggi il riferimento geografico: verifica da che parte del confine si trova ogni località citata '
+    + "e che il ruolo (comune di residenza vs comune di lavoro) sia quello giusto.",
+  eu_svizzera: 'La Svizzera non è membro UE né SEE. Riformula in termini di Accordi Bilaterali.',
+  rilevanza_topica: 'Il nesso con il frontaliere Ticino-Italia deve essere reale e presente nella fonte. '
+    + 'Se non c\'è, non forzarlo con paragrafi di consigli generici: l\'articolo non va scritto.',
+  infra: 'La verifica non è stata eseguita: l\'articolo non può essere pubblicato in questo stato.',
+};
+
+/**
+ * Renders issues as CORRECTIVE INSTRUCTIONS for the regeneration prompt.
+ *
+ * The regeneration loop used to receive a bare list of complaints. Faced with
+ * "questo claim non è nella fonte" and no instruction, the writer's cheapest
+ * move is deletion — which is how the 2026-07-28 article lost every real fact
+ * it had and kept only the invented ones. Telling it exactly what to change,
+ * with the corrected values, makes repair cheaper than removal.
+ *
+ * @param {object[]} issues
+ * @param {{cap?: number}} [opts]
+ */
+export function formatRemediation(issues, opts = {}) {
+  const cap = opts.cap ?? 8;
+  const list = (issues || []).slice(0, cap);
+  if (!list.length) return '';
+
+  const lines = list.map((i, n) => {
+    const what = i.message || i.reason || '';
+    const how = i.fix || REMEDIATION_BY_CATEGORY[i.category] || '';
+    const where = i.evidence || i.claim || '';
+    return [
+      `${n + 1}. PROBLEMA: ${what}`,
+      where ? `   TESTO: "${String(where).slice(0, 180)}"` : '',
+      how ? `   CORREZIONE RICHIESTA: ${how}` : '',
+    ].filter(Boolean).join('\n');
+  });
+
+  const overflow = (issues || []).length > cap
+    ? `\n(+${issues.length - cap} altri problemi dello stesso tipo: applica la stessa correzione a tutto il testo.)`
+    : '';
+
+  return `Il testo precedente è stato RESPINTO. Correggi i punti seguenti e restituisci l'articolo completo.
+
+REGOLA GENERALE: correggi, non cancellare. Rimuovere un passaggio problematico invece di sistemarlo
+peggiora l'articolo: i fatti della fonte devono restare, con i numeri giusti. Non accorciare il testo
+per far passare i controlli, e non sostituire dati precisi con formule generiche.
+
+${lines.join('\n\n')}${overflow}`;
 }
