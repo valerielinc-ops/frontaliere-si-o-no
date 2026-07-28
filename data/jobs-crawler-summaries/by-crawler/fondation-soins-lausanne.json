@@ -1,16 +1,16 @@
 {
   "key": "fondation-soins-lausanne",
   "label": "Fondation Soins Lausanne",
-  "generatedAt": "2026-07-28T11:44:34.552Z",
-  "total": 2,
+  "generatedAt": "2026-07-28T22:23:25.649Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4154,
-  "avgDurationMs": 4154,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4041,
+  "avgDurationMs": 4041,
   "durationHistory": [
-    4154
+    4041
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/f06b6560-639a-40d7-a6a4-dfb395e25cf4/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-28T11:44:31.827Z",
+      "crawledAt": "2026-07-28T22:23:23.307Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -53,8 +53,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "fondation-soins-lausanne-11c797236f51",
       "slug": "capo-dell-ufficio-di-coordinamento-per-i-trasporti-delle-persone-con-mobilita-ridotta-tmrl-fondation-soins-lausanne",
@@ -96,5 +95,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
