@@ -9065,6 +9065,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-altre-tasse-2026.title': 'Nuove regole per i \'vecchi\' frontalieri del Canton Ticino: tasse in aumento',
     'blog.article.frontalieri-altre-tasse-2026.excerpt': 'Il Canton Ticino imporrà una imposta alla fonte del cento per cento ai \'vecchi\' frontalieri che opteranno per il Decreto Omnibus.',
     'blog.article.frontalieri-altre-tasse-2026.imageAlt': 'Due frontaliere ticinesi a passeggio lungo il lago',
+    'blog.article.dogana-maggiore-snella.title': 'La dogana sarà più snella',
+    'blog.article.dogana-maggiore-snella.excerpt': 'L\'Ufficio federale della dogana e della sicurezza dei confini taglia 25 posizioni dirigenziali',
+    'blog.article.dogana-maggiore-snella.imageAlt': 'La dogana più snella a Lugano',
 };
 
 export default blogMetaIt;

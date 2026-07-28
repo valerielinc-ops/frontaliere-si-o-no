@@ -1,0 +1,40 @@
+{
+  "id": "dogana-maggiore-snella",
+  "slug": "dogana-maggiore-snella",
+  "publishedAt": "2026-07-28T13:02:50.639Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 3.3822571216973594,
+    "confidence": 0.8,
+    "finalScore": 2.7058056973578877,
+    "topK": [
+      {
+        "slug": "droga-al-confine-ticino-2025",
+        "cosine": 0.8459014817295296
+      },
+      {
+        "slug": "dogana-chiasso-centro-tecnologico",
+        "cosine": 0.8342821662604408
+      },
+      {
+        "slug": "aumento-contingente-uova-svizzera",
+        "cosine": 0.8329857974978055
+      },
+      {
+        "slug": "avis-lombardia-dono-sangue-privati-2026",
+        "cosine": 0.8325154270214904
+      },
+      {
+        "slug": "dogana-chiasso-traffico-2026",
+        "cosine": 0.8316258457875643
+      }
+    ],
+    "score": 2.7058056973578877,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

@@ -4970,6 +4970,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-zurich-procedimento-finma-licenziamenti': { name: 'Economia Svizzera', path: '/articoli-svizzera/zurich-procedimento-finma-licenziamenti/', parent: 'blog' },
     'blog-frontalieri-altre-tasse-2026': { name: 'Nuove regole per i \'vecchi\' frontalieri', path: '/articoli-frontaliere/frontalieri-altre-tasse-2026', parent: 'blog' },
     'blog-canicola-cantieri-ssic': { name: 'Canicola e cantieri, la SSIC', path: '/articoli-svizzera/canicola-cantieri-ssic/', parent: 'blog' },
+    'blog-dogana-maggiore-snella': { name: 'La dogana sarà più snella', path: '/articoli-frontaliere/dogana-maggiore-snella', parent: 'blog' },
  };
 
  const info = sectionNames[section];
