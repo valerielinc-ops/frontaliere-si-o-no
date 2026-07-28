@@ -1648,6 +1648,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.zurich-finma-licenziamenti-previdenza.title': 'Zurich entlässt Mitarbeiter nach FINMA-Intervention',
     'blog.article.zurich-finma-licenziamenti-previdenza.excerpt': 'Die Zurich-Gruppe entlässt mehr als zwölf Mitarbeitende aufgrund von Preisunregelmässigkeiten bei den von der FINMA erfassten Lebens- und Vorsorgeversicherungen.',
     'blog.article.zurich-finma-licenziamenti-previdenza.imageAlt': 'Hauptsitz einer Schweizer Versicherungsgruppe in Zürich',
+    'blog.article.caldo-estremo-cantieri-ssic.title': 'Hitze auf Baustellen: SBV fordert Strafstopp',
+    'blog.article.caldo-estremo-cantieri-ssic.excerpt': 'Der Schweizerische Baumeisterverband fordert faire Konditionen und Freistellungen von Vertragsstrafen bei Baustopp für den Hitzkopf.',
+    'blog.article.caldo-estremo-cantieri-ssic.imageAlt': 'Baustelle in der Schweiz während einer Hitzewelle mit Gerüst.',
 };
 
 export default blogMetaChDe;

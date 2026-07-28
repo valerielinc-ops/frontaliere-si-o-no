@@ -1648,6 +1648,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.zurich-finma-licenziamenti-previdenza.title': 'Zurich licencie des salariés après intervention FINMA',
     'blog.article.zurich-finma-licenziamenti-previdenza.excerpt': 'Le groupe Zurich expulse plus de douze collaborateurs en raison d\'irrégularités dans les prix des polices d\'assurance-vie et de prévoyance relevées par la FINMA.',
     'blog.article.zurich-finma-licenziamenti-previdenza.imageAlt': 'Siège d\'un groupe d\'assurance suisse à Zurich',
+    'blog.article.caldo-estremo-cantieri-ssic.title': 'Chaud sur les chantiers : la SSIC demande l\'arrêt des pénalités',
+    'blog.article.caldo-estremo-cantieri-ssic.excerpt': 'La Société suisse des entrepreneurs constructeurs demande des conditions équitables et des exemptions des pénalités contractuelles en cas d\'arrêt des travaux pour la canicule.',
+    'blog.article.caldo-estremo-cantieri-ssic.imageAlt': 'Chantier de construction en Suisse pendant une vague de chaleur.',
 };
 
 export default blogMetaChFr;

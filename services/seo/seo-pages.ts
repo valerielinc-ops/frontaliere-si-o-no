@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3591,
+ "numberOfItems": 3592,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8351,7 +8351,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3588, "name": "Canicola e cantieri, la SSIC: 'Basta penalità p...", "url": `${BASE_URL}/articoli-frontaliere/canicola-cantieri-ssic` },
           { "@type": "ListItem", "position": 3589, "name": "La dogana sarà più snella", "url": `${BASE_URL}/articoli-frontaliere/dogana-maggiore-snella` },
           { "@type": "ListItem", "position": 3590, "name": "Zurich licenzia dipendenti dopo intervento FINMA", "url": `${BASE_URL}/articoli-frontaliere/zurich-finma-licenziamenti-previdenza` },
-          { "@type": "ListItem", "position": 3591, "name": "Trasferirsi a Maccagno da frontaliere: guida pr...", "url": `${BASE_URL}/articoli-frontaliere/trasferirsi-maccagno-frontaliere-pro-contro` }
+          { "@type": "ListItem", "position": 3591, "name": "Trasferirsi a Maccagno da frontaliere: guida pr...", "url": `${BASE_URL}/articoli-frontaliere/trasferirsi-maccagno-frontaliere-pro-contro` },
+          { "@type": "ListItem", "position": 3592, "name": "Caldo nei cantieri: la SSIC chiede stop alle pe...", "url": `${BASE_URL}/articoli-frontaliere/caldo-estremo-cantieri-ssic` }
  ]
  },
  {

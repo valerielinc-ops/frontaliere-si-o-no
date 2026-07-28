@@ -1648,6 +1648,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.zurich-finma-licenziamenti-previdenza.title': 'Zurich licenzia dipendenti dopo intervento FINMA',
     'blog.article.zurich-finma-licenziamenti-previdenza.excerpt': 'Il gruppo Zurich allontana oltre dodici collaboratori a causa di irregolarità nei prezzi delle polizze vita e previdenziali rilevate dalla FINMA.',
     'blog.article.zurich-finma-licenziamenti-previdenza.imageAlt': 'Sede di un gruppo assicurativo svizzero a Zurigo',
+    'blog.article.caldo-estremo-cantieri-ssic.title': 'Caldo nei cantieri: la SSIC chiede stop alle penali',
+    'blog.article.caldo-estremo-cantieri-ssic.excerpt': 'La Società svizzera degli impresari costruttori chiede condizioni eque ed esenzioni dalle penali contrattuali in caso di stop ai lavori per la canicola.',
+    'blog.article.caldo-estremo-cantieri-ssic.imageAlt': 'Cantiere edile in Svizzera durante un\'ondata di caldo e lavori di costruzione.',
 };
 
 export default blogMetaChIt;
