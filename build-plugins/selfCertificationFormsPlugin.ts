@@ -167,10 +167,34 @@ function drawField(doc: PDFKit.PDFDocument, label: string, width?: number): void
   const w = width ?? PDF_CONTENT_WIDTH;
   doc.fontSize(9).font('Helvetica').fillColor(PDF_COLORS.muted);
   doc.text(label, { continued: false });
-  const lineY = doc.y + 14;
+  const lineY = doc.y + 16;
   doc.strokeColor(PDF_COLORS.rule).lineWidth(1);
   doc.moveTo(doc.x, lineY).lineTo(doc.x + w, lineY).stroke();
-  doc.y = lineY + 8;
+  doc.y = lineY + 12;
+}
+
+/**
+ * Two fields side by side sharing one row, e.g. "Nato/a a" + "il (gg/mm/aaaa)".
+ * Replaces the previous pattern of two stacked drawField() calls glued back
+ * together with `doc.y -= 22` — that hack cancelled the vertical advance but
+ * never moved doc.x, so the second label rendered flush under the first
+ * instead of beside it, colliding label text with the line above.
+ */
+function drawFieldRow(doc: PDFKit.PDFDocument, fields: Array<{ label: string; width: number }>, gap = 20): void {
+  const startX = doc.x;
+  const startY = doc.y;
+  doc.fontSize(9).font('Helvetica').fillColor(PDF_COLORS.muted);
+  const labelHeight = Math.max(...fields.map((f) => doc.heightOfString(f.label, { width: f.width })));
+  const lineY = startY + labelHeight + 16;
+  let cursorX = startX;
+  for (const { label, width } of fields) {
+    doc.text(label, cursorX, startY, { width, lineBreak: false });
+    doc.strokeColor(PDF_COLORS.rule).lineWidth(1);
+    doc.moveTo(cursorX, lineY).lineTo(cursorX + width, lineY).stroke();
+    cursorX += width + gap;
+  }
+  doc.x = startX;
+  doc.y = lineY + 12;
 }
 
 /**
@@ -182,10 +206,14 @@ function drawYesNoQuestion(doc: PDFKit.PDFDocument, question: string): void {
   const boxSize = 11;
   const noBoxX = PDF_MARGIN.left + PDF_CONTENT_WIDTH - 40;
   const siBoxX = noBoxX - 62;
+  // Text column stops before the SI box, with a real gutter — the previous
+  // fixed `PDF_CONTENT_WIDTH - 90` budget over-estimated available width by
+  // ~28pt, so long questions ran their last word(s) under the SI checkbox.
+  const textWidth = siBoxX - PDF_MARGIN.left - 16;
   const startY = doc.y;
 
   doc.fontSize(10).font('Helvetica').fillColor(PDF_COLORS.body);
-  doc.text(question, PDF_MARGIN.left, startY, { width: PDF_CONTENT_WIDTH - 90 });
+  doc.text(question, PDF_MARGIN.left, startY, { width: textWidth });
   const textBottomY = doc.y;
 
   doc.strokeColor(PDF_COLORS.rule).lineWidth(1);
@@ -196,10 +224,33 @@ function drawYesNoQuestion(doc: PDFKit.PDFDocument, question: string): void {
   doc.text('NO', noBoxX + boxSize + 4, startY - 1, { width: 24, lineBreak: false });
 
   doc.x = PDF_MARGIN.left;
-  doc.y = Math.max(textBottomY, startY + boxSize) + 10;
+  doc.y = Math.max(textBottomY, startY + boxSize) + 14;
 }
 
-export async function generateSelfCertificationPdf(form: SelfCertFormMeta): Promise<Buffer> {
+/**
+ * Small, low-opacity site wordmark in the footer margin band — a discreet
+ * branding touch, not a header lockup. logo-rect-400.png has dark text on a
+ * transparent background, so it only reads on the page's white background,
+ * never the dark header band. Purely decorative: a missing/corrupt asset
+ * must never break PDF generation, hence the swallowed catch.
+ */
+function drawFooterLogo(doc: PDFKit.PDFDocument, logoPath: string | undefined): void {
+  if (!logoPath) return;
+  try {
+    const width = 84;
+    const height = width * (80 / 400);
+    const x = (PDF_PAGE.width - width) / 2;
+    const y = PDF_PAGE.height - 38;
+    doc.opacity(0.55);
+    doc.image(logoPath, x, y, { width, height });
+  } catch {
+    // Decorative — swallow and continue without the logo.
+  } finally {
+    doc.opacity(1);
+  }
+}
+
+export async function generateSelfCertificationPdf(form: SelfCertFormMeta, logoPath?: string): Promise<Buffer> {
   const PDFDocument = (await import('pdfkit')).default;
 
   const doc = new PDFDocument({
@@ -226,10 +277,10 @@ export async function generateSelfCertificationPdf(form: SelfCertFormMeta): Prom
   doc.text('Il/La sottoscritto/a', PDF_MARGIN.left, doc.y, { width: PDF_CONTENT_WIDTH });
   doc.moveDown(0.3);
   drawField(doc, 'Cognome e nome');
-  drawField(doc, 'Nato/a a', 260);
-  doc.y -= 22;
-  drawField(doc, 'il (gg/mm/aaaa)', 200);
-  doc.x = PDF_MARGIN.left;
+  drawFieldRow(doc, [
+    { label: 'Nato/a a', width: 260 },
+    { label: 'il (gg/mm/aaaa)', width: 200 },
+  ]);
   drawField(doc, 'Residente a (comune, via/piazza, n., CAP)');
   drawField(doc, 'Codice fiscale', 260);
 
@@ -277,12 +328,13 @@ export async function generateSelfCertificationPdf(form: SelfCertFormMeta): Prom
     `Documento generato da ${CANONICAL_URL} — non costituisce consulenza legale.`,
     PDF_MARGIN.left, doc.y + 6, { width: PDF_CONTENT_WIDTH },
   );
+  drawFooterLogo(doc, logoPath);
 
   doc.end();
   return bufferPromise;
 }
 
-export async function generateSwissSelfCertificationPdf(form: SwissSelfCertFormMeta): Promise<Buffer> {
+export async function generateSwissSelfCertificationPdf(form: SwissSelfCertFormMeta, logoPath?: string): Promise<Buffer> {
   const PDFDocument = (await import('pdfkit')).default;
 
   const doc = new PDFDocument({
@@ -309,10 +361,10 @@ export async function generateSwissSelfCertificationPdf(form: SwissSelfCertFormM
   doc.text('Candidato/a', PDF_MARGIN.left, doc.y, { width: PDF_CONTENT_WIDTH });
   doc.moveDown(0.3);
   drawField(doc, 'Cognome e nome');
-  drawField(doc, 'Posizione per cui presenta candidatura', 260);
-  doc.y -= 22;
-  drawField(doc, 'Datore di lavoro / azienda', 200);
-  doc.x = PDF_MARGIN.left;
+  drawFieldRow(doc, [
+    { label: 'Posizione per cui presenta candidatura', width: 260 },
+    { label: 'Datore di lavoro / azienda', width: 200 },
+  ]);
 
   doc.moveDown(0.4);
   doc.fontSize(9).font('Helvetica').fillColor(PDF_COLORS.muted);
@@ -346,6 +398,7 @@ export async function generateSwissSelfCertificationPdf(form: SwissSelfCertFormM
     `Riferimento normativo: ${form.legalBasis}. Documento generato da ${CANONICAL_URL} — non costituisce consulenza legale.`,
     PDF_MARGIN.left, PDF_PAGE.height - PDF_MARGIN.bottom - 40, { width: PDF_CONTENT_WIDTH },
   );
+  drawFooterLogo(doc, logoPath);
 
   doc.end();
   return bufferPromise;
@@ -586,11 +639,12 @@ export function selfCertificationFormsPlugin(rootDir: string): Plugin {
       collector.add(path.join(distDir, LANDING_URL_PATH, 'index.html'), html);
       collector.add(path.join(distDir, LANDING_URL_PATH.replace(/\/+$/, '') + '.html'), html);
 
+      const logoPath = path.resolve(rootDir, 'public', 'images', 'publisher', 'logo-rect-400.png');
       const [healthPdf, criminalRecordPdf, chHealthPdf, chCriminalRecordPdf] = await Promise.all([
-        generateSelfCertificationPdf(HEALTH_FORM),
-        generateSelfCertificationPdf(CRIMINAL_RECORD_FORM),
-        generateSwissSelfCertificationPdf(CH_HEALTH_FORM),
-        generateSwissSelfCertificationPdf(CH_CRIMINAL_RECORD_FORM),
+        generateSelfCertificationPdf(HEALTH_FORM, logoPath),
+        generateSelfCertificationPdf(CRIMINAL_RECORD_FORM, logoPath),
+        generateSwissSelfCertificationPdf(CH_HEALTH_FORM, logoPath),
+        generateSwissSelfCertificationPdf(CH_CRIMINAL_RECORD_FORM, logoPath),
       ]);
       fs.mkdirSync(path.join(distDir, 'moduli'), { recursive: true });
       fs.writeFileSync(path.join(distDir, HEALTH_PDF_PATH), healthPdf);
