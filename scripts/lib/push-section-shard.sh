@@ -66,6 +66,10 @@ fi
 
 repo_root="$(pwd)"  # captured before any cd — used to locate the offload script + slugs json
 slugs_json="$repo_root/scripts/lib/section-shard-slugs.json"
+# shard_read_counter / shard_orphan_init / shard_push_with_retry /
+# shard_orphan_flatten_and_push — shared with push-locale-shard.sh and
+# compact-article-shard-history.sh (issue #4881, AGENTS.md #6).
+source "$(dirname "${BASH_SOURCE[0]}")/shard-git-helpers.sh"
 
 # Canonical section path per locale, from the shared single source of truth.
 # Keep in lockstep with SECTION_ROUTES in infra/cloudflare-worker/locale-router.js
@@ -97,8 +101,9 @@ fi
 
 push_section_shard() {
   local key_var key_val stage stage_src keyfile src_n prev_n rc
+  LOC_UPPER="$(echo "$loc" | tr a-z A-Z)"
   # Per-section-per-locale deploy key via indirect expansion (mirrors push-locale-shard.sh).
-  key_var="SHARD_${SECTION_UPPER}_$(echo "$loc" | tr a-z A-Z)_DEPLOY_KEY"
+  key_var="SHARD_${SECTION_UPPER}_${LOC_UPPER}_DEPLOY_KEY"
   key_val="${!key_var:-}"
   if [ -z "$key_val" ]; then
     echo "no $key_var secret — skipping $loc $section shard push (split disabled)"; return 0
@@ -123,8 +128,6 @@ push_section_shard() {
     || echo "::warning::offload on $loc $section subtree returned non-zero (offload is fail-safe/exit-0; continuing)"
 
   src_n="$(find "$stage_src/dist/$sub" -type f | wc -l)"
-  prev_n="$(curl -fsS "https://raw.githubusercontent.com/$SHARD_OWNER/frontaliere-$section-$loc/main/.shard-filecount" 2>/dev/null || echo 0)"
-  [[ "$prev_n" =~ ^[0-9]+$ ]] || prev_n=0
 
   stage="$RUNNER_TEMP/shard-$section-$loc"
   keyfile="$RUNNER_TEMP/shard_${section}_${loc}_key"
@@ -141,16 +144,20 @@ push_section_shard() {
     SHARD_HISTORY_CAP="${SHARD_HISTORY_CAP:-50}"
     incremental=0
     dcount=0
+    prev_n=0
     if git clone -q --depth 1 --filter=blob:none --no-checkout \
          "$SHARD_REPO" "$stage" 2>/dev/null \
        && [ -d "$stage/.git" ]; then
-      [ -f "$stage/.shard-deploys" ] && dcount="$(cat "$stage/.shard-deploys" 2>/dev/null || echo 0)"
-      [[ "$dcount" =~ ^[0-9]+$ ]] || dcount=0
+      # git-plumbing reads (git show HEAD:<path>), NOT working-tree file
+      # checks — --no-checkout NEVER materializes a working-tree file, so a
+      # `[ -f "$stage/.shard-deploys" ]` check here was always false (see
+      # scripts/lib/shard-git-helpers.sh header for the full incident).
+      dcount="$(shard_read_counter "$stage" .shard-deploys)"
+      prev_n="$(shard_read_counter "$stage" .shard-filecount)"
       if [ "$dcount" -ge "$SHARD_HISTORY_CAP" ]; then
         echo "$section-$loc shard: history cap $SHARD_HISTORY_CAP reached (dcount=$dcount) — flattening with orphan force-push"
         rm -rf "$stage"; mkdir -p "$stage"
-        git -C "$stage" init -q
-        git -C "$stage" checkout -q -b main
+        shard_orphan_init "$stage"
         dcount=0
       else
         find "$stage" -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} + 2>/dev/null || true
@@ -158,8 +165,7 @@ push_section_shard() {
       fi
     else
       echo "$section-$loc shard: no prior clone (first push / transient) — full orphan push"
-      git -C "$stage" init -q
-      git -C "$stage" checkout -q -b main
+      shard_orphan_init "$stage"
     fi
 
     : > "$stage/.nojekyll"
@@ -173,9 +179,26 @@ push_section_shard() {
     n="$(find "$stage/$sub" -type f | wc -l)"
     test -s "$stage/$sub/index.html"
     [ "$n" -ge "$src_n" ]
-    if [ "$prev_n" -gt 0 ] && [ "$((n * 2))" -lt "$prev_n" ]; then
-      echo "::error::$section-$loc shard would shrink $prev_n -> $n files (>50%) — refusing push (suspected build regression)"
-      exit 1
+    # Shrink guard (defect A, issue #4881): refuse a push whose tree lost
+    # more than SHARD_SHRINK_GUARD_PCT% of its previous file count — the
+    # data-loss hazard this guards against is a future change that stops
+    # emitting this section into dist/ while the section still exists on its
+    # shard: this early-return ("$dist_dir/$sub absent") would otherwise let
+    # a caller reach here with a near-empty tree and force-push it, wiping
+    # the shard. Threshold is configurable (default 50, unchanged from the
+    # previous hardcoded behaviour); SHARD_SHRINK_GUARD_OVERRIDE_<SECTION>_
+    # <LOCALE>=true allows a verified INTENTIONAL shrink to proceed — still
+    # logged loudly (never silent), per AGENTS.md Non-Negotiable #2 (never
+    # downgrade a real regression to a silent pass).
+    SHARD_SHRINK_GUARD_PCT="${SHARD_SHRINK_GUARD_PCT:-50}"
+    shrink_override_var="SHARD_SHRINK_GUARD_OVERRIDE_${SECTION_UPPER}_${LOC_UPPER}"
+    if [ "$prev_n" -gt 0 ] && [ "$(( n * 100 ))" -lt "$(( prev_n * (100 - SHARD_SHRINK_GUARD_PCT) ))" ]; then
+      if [ "${!shrink_override_var:-}" = "true" ]; then
+        echo "::warning::$section-$loc shard would shrink $prev_n -> $n files (>${SHARD_SHRINK_GUARD_PCT}%) — $shrink_override_var=true set, proceeding with an INTENTIONAL shrink push (verify this was expected)"
+      else
+        echo "::error::$section-$loc shard would shrink $prev_n -> $n files (>${SHARD_SHRINK_GUARD_PCT}%) — refusing push (suspected build regression). If this shrink is verified intentional, set $shrink_override_var=true"
+        exit 1
+      fi
     fi
     printf '%s' "$n" > "$stage/.shard-filecount"
     printf '%s' "$((dcount + 1))" > "$stage/.shard-deploys"
@@ -191,16 +214,10 @@ push_section_shard() {
     else
       _sha="${GITHUB_SHA:-local}"; _sha="${_sha:0:8}"
       git commit -qm "$section-$loc shard ${_sha} (run ${GITHUB_RUN_ID:-local})"
-      _push_delay=5; _push_ok=0
-      for _try in 1 2 3; do
-        if git push -f "$SHARD_REPO" main; then
-          _push_ok=1; break
-        fi
-        if [ "$_try" -lt 3 ]; then
-          echo "::warning::push attempt $_try/3 failed — retrying in ${_push_delay}s"
-          sleep "$_push_delay"; _push_delay=$(( _push_delay * 2 ))
-        fi
-      done
+      _push_ok=0
+      if shard_push_with_retry "$stage" "$SHARD_REPO" "main" "$section-$loc shard"; then
+        _push_ok=1
+      fi
       # Self-heal: 3 retries on the SAME incremental base never recover from a
       # corrupted/diverged remote-tracking clone (the "not our ref" / "bad tree
       # object" / "early EOF" failure mode — incident 2026-07-24, run
@@ -212,24 +229,9 @@ push_section_shard() {
       # doesn't negotiate against the broken remote graph — before giving up.
       if [ "$_push_ok" != 1 ] && [ "$incremental" = 1 ]; then
         echo "::warning::$section-$loc shard: 3 incremental push attempts failed — flattening to a fresh orphan commit and retrying"
-        rm -rf .git
-        git init -q
-        git checkout -q -b main
-        git config user.email "valerielinc@gmail.com"
-        git config user.name "Valerie Linc"
-        printf '%s' "1" > .shard-deploys
-        git add -A
-        git commit -qm "$section-$loc shard ${_sha} (run ${GITHUB_RUN_ID:-local}) [self-heal flatten]"
-        _push_delay=5
-        for _try in 1 2 3; do
-          if git push -f "$SHARD_REPO" main; then
-            _push_ok=1; break
-          fi
-          if [ "$_try" -lt 3 ]; then
-            echo "::warning::flatten push attempt $_try/3 failed — retrying in ${_push_delay}s"
-            sleep "$_push_delay"; _push_delay=$(( _push_delay * 2 ))
-          fi
-        done
+        if shard_orphan_flatten_and_push "$stage" "$SHARD_REPO" "$section-$loc shard ${_sha} (run ${GITHUB_RUN_ID:-local}) [self-heal flatten]" "$section-$loc shard flatten"; then
+          _push_ok=1
+        fi
       fi
       [ "$_push_ok" = 1 ] || { echo "::error::$section-$loc shard push failed after 3 attempts (+ flatten self-heal retry)"; exit 1; }
     fi

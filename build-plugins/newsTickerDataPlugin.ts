@@ -30,7 +30,7 @@
  * Vite's config loader (see data/blog-articles-data.ts header comment).
  */
 import type { Plugin } from 'vite';
-import { ARTICLES } from '../data/blog-articles-data';
+import { ARTICLES, type Article } from '../data/blog-articles-data';
 import { readArticleSlugs, readBlogUrlSlugs } from './shared/articleReaders';
 import { HUB_LOCALES, type HubLocale } from './seoHubsData';
 
@@ -47,15 +47,23 @@ export interface GeneratedTickerArticle {
 /**
  * Compute the slim ticker payload. Pure given (fs, np, rootDir) — exported
  * separately so vitest can gate generation correctness without a Vite build.
+ *
+ * `articlesOverride` (issue #4881 Fase 3-bis): the build-time caller
+ * (generateNewsTickerModule below) omits it and gets the module-top-level
+ * `ARTICLES` import, unchanged. `scripts/publish-article-chunks.mjs` passes
+ * the FRESH esbuild-rebuilt registry here so the out-of-band CDN ticker
+ * payload reflects an article that was fast-published after this file's own
+ * `ARTICLES` import was last built — without re-running a full build.
  */
 export function computeTickerArticles(
   fs: typeof import('node:fs'),
   np: typeof import('node:path'),
   rootDir: string,
+  articlesOverride?: readonly Article[],
 ): GeneratedTickerArticle[] {
   // Same selection logic the runtime NewsFeed used: stable sort by date
   // desc over ARTICLES order, top 5. Keep byte-identical semantics.
-  const latest = [...ARTICLES]
+  const latest = [...(articlesOverride ?? ARTICLES)]
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, TICKER_COUNT);
 

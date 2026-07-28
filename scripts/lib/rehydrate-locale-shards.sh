@@ -85,6 +85,28 @@ rehydrate_locale() {
       echo "[rehydrate] $loc artifact absent after retry — falling back to git clone"
     fi
 
+    # Cross-job clone cache (issue #4881 defect C, extended from the sibling
+    # fix in rehydrate-section-shards.sh — same redundant-clone shape: the 3
+    # post-deploy-validate-dist.yml jobs run in PARALLEL with no `needs:`, so
+    # all 3 can independently reach this fallback for the same locale in the
+    # same run. SHARD_CLONE_CACHE_DIR is already exported into this script's
+    # env by the SAME workflow step that runs rehydrate-section-shards.sh
+    # (both share one `env:` block, see post-deploy-validate-dist.yml) — this
+    # was previously inert here since nothing read it. Best-effort/strictly
+    # additive: unset or a miss falls straight through to the unchanged
+    # clone-with-retry-and-timeout path below, so this is never worse than
+    # before it existed and does not touch the fail-hard posture on a miss
+    # (still `exit 1` on clone failure / missing subtree, unchanged).
+    if [ -n "${SHARD_CLONE_CACHE_DIR:-}" ] && [ -d "$SHARD_CLONE_CACHE_DIR/locale-$loc/$loc" ]; then
+      rm -rf "dist/$loc"
+      cp -r "$SHARD_CLONE_CACHE_DIR/locale-$loc/$loc" "dist/$loc"
+      if [ -f "$SHARD_CLONE_CACHE_DIR/locale-$loc/$loc.html" ]; then
+        cp "$SHARD_CLONE_CACHE_DIR/locale-$loc/$loc.html" "dist/$loc.html"
+      fi
+      echo "rehydrated $loc from cross-job clone cache: $(find "dist/$loc" -type f | wc -l) files"
+      continue
+    fi
+
     echo "[rehydrate] $loc pre-clone disk: $(df -h / | tail -1)"
     tmp="$RUNNER_TEMP/rehydrate-$loc"
     clone_ok=1
@@ -109,6 +131,13 @@ rehydrate_locale() {
     cp -r "$tmp/$loc" "dist/$loc"
     if [ -f "$tmp/$loc.html" ]; then cp "$tmp/$loc.html" "dist/$loc.html"; fi
     echo "rehydrated $loc: $(find "dist/$loc" -type f | wc -l) files"
+    if [ -n "${SHARD_CLONE_CACHE_DIR:-}" ]; then
+      mkdir -p "$SHARD_CLONE_CACHE_DIR/locale-$loc" 2>/dev/null \
+        && cp -r "dist/$loc" "$SHARD_CLONE_CACHE_DIR/locale-$loc/$loc" 2>/dev/null || true
+      if [ -f "dist/$loc.html" ]; then
+        cp "dist/$loc.html" "$SHARD_CLONE_CACHE_DIR/locale-$loc/$loc.html" 2>/dev/null || true
+      fi
+    fi
     rm -rf "$tmp"
   done
   # Cheap disk-pressure readout instead of `du -sh dist` (a ~70s full

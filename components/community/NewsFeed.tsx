@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { buildPath } from '@/services/router';
-import { TICKER_ARTICLES } from '@/data/news-ticker-data';
+import { TICKER_ARTICLES, type TickerArticle } from '@/data/news-ticker-data';
 import { ChevronRight, ChevronLeft, Newspaper } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
 
@@ -16,6 +16,29 @@ interface NewsFeedProps {
  onNavigate: (activeTab: string, blogArticle?: string, blogSlug?: string) => void;
 }
 
+// Issue #4881 Fase 3-bis: `scripts/publish-article-chunks.mjs` keeps this tiny
+// JSON CDN-fresh on every fast-publish (same {id,date,title,slug} shape as
+// TickerArticle, computed by the SAME computeTickerArticles() the build-time
+// plugin uses, just fed the freshly-published registry — no fallback-chain
+// drift). A few KB, not the ~385 KB blog-meta+registry cost #3528/#3532
+// removed: keep this fetch small and behind this one best-effort refresh.
+const NEWS_TICKER_LIVE_URL = 'https://cdn.frontaliereticino.ch/data/news-ticker-live.json';
+
+function isTickerArticleArray(value: unknown): value is TickerArticle[] {
+ return (
+ Array.isArray(value) &&
+ value.length > 0 &&
+ value.every(
+ (a) =>
+ a && typeof a === 'object' &&
+ typeof (a as TickerArticle).id === 'string' &&
+ typeof (a as TickerArticle).date === 'string' &&
+ typeof (a as TickerArticle).title === 'object' &&
+ typeof (a as TickerArticle).slug === 'object',
+ )
+ );
+}
+
 /**
  * Compact rotating news ticker — single-line marquee-style widget.
  * Auto-rotates every 6s, manual prev/next navigation.
@@ -25,16 +48,46 @@ interface NewsFeedProps {
  * per-locale titles + URL slugs). No runtime blog-meta / registry /
  * slug-map chunk loads — that used to cost ~385 KB tx and two long
  * main-thread parse tasks on every homepage view.
+ *
+ * Kept fresh between full deploys (issue #4881): after first paint, a single
+ * idle-deferred fetch of `news-ticker-live.json` (a few KB) checks for a
+ * fast-published article the build-time payload above doesn't know about yet
+ * and swaps it in. Failure of any kind (offline, 404, malformed JSON) is
+ * silently ignored — the component keeps rendering the known-good build-time
+ * payload, never a blank ticker.
  */
 const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
  const { t, locale } = useTranslation();
  const [idx, setIdx] = useState(0);
+ const [liveArticles, setLiveArticles] = useState<TickerArticle[] | null>(null);
 
- const latestArticles = TICKER_ARTICLES;
+ const latestArticles = liveArticles ?? TICKER_ARTICLES;
  const count = latestArticles.length;
 
  useEffect(() => {
  Analytics.trackUIInteraction('newsfeed', 'widget', 'ticker', 'view');
+ }, []);
+
+ useEffect(() => {
+ let cancelled = false;
+ const run = () => {
+ fetch(NEWS_TICKER_LIVE_URL, { cache: 'default' })
+ .then((res) => (res.ok ? res.json() : null))
+ .then((data) => {
+ if (cancelled || !isTickerArticleArray(data)) return;
+ setLiveArticles(data);
+ })
+ .catch(() => {
+ // Best-effort refresh — keep the build-time payload on any failure.
+ });
+ };
+ // Same requestIdleCallback-with-fallback pattern already used in App.tsx.
+ if ('requestIdleCallback' in window) {
+ (window as any).requestIdleCallback(run, { timeout: 4000 });
+ } else {
+ window.setTimeout(run, 2000);
+ }
+ return () => { cancelled = true; };
  }, []);
 
  // Auto-rotate every 6 seconds

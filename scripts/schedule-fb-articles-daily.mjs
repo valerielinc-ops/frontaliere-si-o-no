@@ -51,6 +51,7 @@ import {
   ARTICLE_PLACE_ID,
   isLandingPageLive,
 } from './lib/social-post-utils.mjs';
+import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore.mjs';
 
 export { buildArticleUrl, buildArticleCaption } from './lib/social-post-utils.mjs';
 
@@ -64,21 +65,23 @@ const DEFAULT_VOLUME = 4;
 const DEFAULT_MAX_AGE_DAYS = 2;
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
 
-// Per-section source files. Mirrors `services/articleSections.ts` config +
-// the inline hub map in generate-article.yml, kept here as plain data so this
+// Per-section source files. Sourced from ARTICLE_SECTION_CORE (issue #4881
+// Fase 6, AGENTS.md #6) — the same canonical tuple services/articleSections.ts
+// re-exports as ARTICLE_SECTIONS + the inline hub map in generate-article.yml
+// — kept here as plain data (via a plain-data .mjs import, not TS) so this
 // script needs no TS compilation.
-const SECTIONS = [
+export const SECTIONS = [
   {
     section: 'frontaliere',
-    registry: 'data/blog-articles-data.ts',
-    slugFile: 'services/routerBlogData.ts',
-    metaFile: 'services/locales/blog-meta-it.ts',
+    registry: ARTICLE_SECTION_CORE.frontaliere.registryFile,
+    slugFile: ARTICLE_SECTION_CORE.frontaliere.slugDataFile,
+    metaFile: `services/locales/${ARTICLE_SECTION_CORE.frontaliere.metaPrefix}-it.ts`,
   },
   {
     section: 'svizzera',
-    registry: 'data/swiss-articles-data.ts',
-    slugFile: 'services/routerSwissData.ts',
-    metaFile: 'services/locales/blog-meta-ch-it.ts',
+    registry: ARTICLE_SECTION_CORE.svizzera.registryFile,
+    slugFile: ARTICLE_SECTION_CORE.svizzera.slugDataFile,
+    metaFile: `services/locales/${ARTICLE_SECTION_CORE.svizzera.metaPrefix}-it.ts`,
   },
 ];
 

@@ -101,9 +101,15 @@
  *        (cache+firewall+redirect) · --cache-only · --firewall-only ·
  *        --redirect-only
  * Exit: 0 = converged (or already in shape), 1 = API/auth error.
+ *
+ * Zone-id resolution delegates to scripts/lib/cf-analytics.mjs's resolveZoneId
+ * (AGENTS.md #6 — no inline copy of that fetch+parse construct); this file's
+ * own resolveZoneId() wrapper only translates a failure into this script's
+ * bail() convention.
  */
 
 import { stableStringify } from './lib/stable-stringify.mjs';
+import { resolveZoneId as resolveZoneIdShared } from './lib/cf-analytics.mjs';
 
 const REST_BASE = 'https://api.cloudflare.com/client/v4';
 const ZONE_NAME = process.env.CF_ZONE_NAME || 'frontaliereticino.ch';
@@ -402,10 +408,11 @@ async function cf(method, path, body) {
 }
 
 async function resolveZoneId() {
-  if (process.env.CF_ZONE_ID) return process.env.CF_ZONE_ID;
-  const { json } = await cf('GET', `/zones?name=${encodeURIComponent(ZONE_NAME)}`);
-  if (!json?.success || !json.result?.length) bail(`Cannot resolve zone id for ${ZONE_NAME} (token scope?).`);
-  return json.result[0].id;
+  try {
+    return await resolveZoneIdShared(token, ZONE_NAME, process.env.CF_ZONE_ID);
+  } catch {
+    bail(`Cannot resolve zone id for ${ZONE_NAME} (token scope?).`);
+  }
 }
 
 async function assertFailOpenRoutes(zoneId) {

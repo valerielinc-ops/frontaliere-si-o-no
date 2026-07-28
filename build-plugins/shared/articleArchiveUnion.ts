@@ -11,8 +11,10 @@
  * how many paginated archive pages exist:
  *
  *  1. `seoHubsPlugin.ts` EMITS the pages, paginating the UNION of the section's
- *     meta title-keys and its slug-map keys (`emitHub`'s `articles` branch for
- *     frontaliere; `emitSvizzeraArticlesHub` for svizzera).
+ *     meta title-keys and its slug-map keys (`renderArticleHubPagesCore`, one
+ *     call per section — #4881 consolidated the former separate `emitHub`
+ *     `articles` branch for frontaliere and standalone `emitSvizzeraArticlesHub`
+ *     for svizzera into this single parameterized function).
  *  2. `staticPagesPlugin.ts` renders the deep-link NAVIGATOR that links
  *     page-1..page-N so crawlers reach every archive page at BFS depth ≤ 2
  *     (closes the Ahrefs "orphan page" report; CLAUDE.md SEO non-negotiable #5).

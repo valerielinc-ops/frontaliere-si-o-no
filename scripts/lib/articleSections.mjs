@@ -31,14 +31,21 @@
  *
  * Keeping the bucket correct.
  *   `BLOG_SECTION_RX` lists every CURRENT canonical hub slug for BOTH sections.
- *   It MUST stay in sync with `ARTICLE_SECTIONS[*].indexSlug` in
- *   services/articleSections.ts — a new section or locale hub slug shipped
- *   there must be added here in the same change.
+ *   As of issue #4881 Fase 6 it is BUILT from `ARTICLE_SECTION_CORE_LIST` in
+ *   `build-plugins/shared/articleSectionCore.mjs` — the same canonical tuple
+ *   `services/articleSections.ts` re-exports as `ARTICLE_SECTIONS` — instead of
+ *   a hand-written alternation, so a new section or locale hub slug shipped
+ *   there is picked up here automatically; it can no longer drift out of sync
+ *   by omission.
  *
  * Consumers: the audit feature-classifiers `audit-title-length` (re-exported to
  * `audit-h1-title-duplicates` + `audit-title-no-disambig-hash`),
  * `audit-text-html-ratio`, `audit-page-weight`, and `audit-dist-multi`.
  */
+import { ARTICLE_SECTION_CORE_LIST } from '../../build-plugins/shared/articleSectionCore.mjs';
+
+/** Every localized hub slug across both sections, in canonical (section, it/en/de/fr) order. */
+const HUB_SLUGS = ARTICLE_SECTION_CORE_LIST.flatMap((entry) => Object.values(entry.indexSlug));
 
 /**
  * Matches the leading editorial-article section segment of a normalised dist
@@ -47,8 +54,7 @@
  * classifies the SECTION segment — deeper, more specific buckets are checked
  * before this in every classifier and still win.
  */
-export const BLOG_SECTION_RX =
-  /(?:^|\/)(?:articoli-frontaliere|cross-border-articles|grenzgaenger-artikel|articles-frontalier|articoli-svizzera|swiss-articles|schweiz-artikel|articles-suisse)\//;
+export const BLOG_SECTION_RX = new RegExp(`(?:^|/)(?:${HUB_SLUGS.join('|')})/`);
 
 /**
  * @param {string} normalisedPath path that already starts with `/` and has had

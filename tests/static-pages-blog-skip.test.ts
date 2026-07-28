@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 import { describe, expect, it } from 'vitest';
+import { ARTICLE_SECTION_DESCRIPTORS } from '../build-plugins/shared/articleSectionDescriptors';
 
 describe('static pages blog detail rendering', () => {
   it('renders rich blog detail content instead of the generic editorial stub', () => {
@@ -31,15 +32,31 @@ describe('ogPagesPlugin skip-set covers every article section (no missingTarget 
   const staticSource = readFileSync(path.resolve(__dirname, '..', 'build-plugins', 'staticPagesPlugin.ts'), 'utf-8');
 
   it('staticPagesPlugin skip-set references the slugData of every ogPagesPlugin SECTION', () => {
-    const ogSlugData = [...ogSource.matchAll(/slugData:\s*'([^']+)'/g)].map((m) => m[1]);
-    // ogPagesPlugin owns ≥2 article sections (frontaliere + svizzera).
-    expect(ogSlugData).toContain('services/routerBlogData.ts');
-    expect(ogSlugData).toContain('services/routerSwissData.ts');
-    for (const slugData of ogSlugData) {
-      expect(
-        staticSource.includes(slugData),
-        `staticPagesPlugin skip-set must read ${slugData} (an ogPagesPlugin article section) or its pages race on fs.existsSync`,
-      ).toBe(true);
+    // Both ogPagesPlugin's `SECTIONS` and staticPagesPlugin's `ogSections`
+    // used to be independent inline literals — this test originally scraped
+    // the two source files and diffed the `slugData` string literals it found
+    // in each. As of issue #4881 Fase 6 both derive from the SAME shared
+    // `ARTICLE_SECTION_DESCRIPTORS` array (build-plugins/shared/articleSectionDescriptors.ts),
+    // so neither file contains a `slugData: '…'` literal to scrape anymore —
+    // the invariant this test guards (staticPagesPlugin's skip-set covers
+    // every section ogPagesPlugin owns) is now true BY CONSTRUCTION, not by
+    // convention: both read the exact same array reference, so a section
+    // omitted from one is omitted from both, never silently mismatched.
+    expect(ogSource).toMatch(/from ['"]\.\/shared\/articleSectionDescriptors['"]/);
+    expect(staticSource).toMatch(/from ['"]\.\/shared\/articleSectionDescriptors['"]/);
+    expect(ogSource).toMatch(/ARTICLE_SECTION_DESCRIPTORS/);
+    expect(staticSource).toMatch(/ARTICLE_SECTION_DESCRIPTORS\.map/);
+
+    // Runtime-level guard on the shared array itself: still ≥2 article
+    // sections (frontaliere + svizzera), each with a real slugData value —
+    // if this ever went empty or lost a section, BOTH plugins would silently
+    // lose skip-set coverage together (the exact failure mode this test
+    // exists to catch), so pin it directly against the live data.
+    const slugDataValues = ARTICLE_SECTION_DESCRIPTORS.map((sec) => sec.slugData);
+    expect(slugDataValues).toContain('services/routerBlogData.ts');
+    expect(slugDataValues).toContain('services/routerSwissData.ts');
+    for (const sec of ARTICLE_SECTION_DESCRIPTORS) {
+      expect(sec.slugData, `section "${sec.name}" must define a non-empty slugData`).toBeTruthy();
     }
   });
 

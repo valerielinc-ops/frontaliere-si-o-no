@@ -13,10 +13,17 @@
  * only in: localized URL hub slug, per-article body directory, meta-chunk
  * filename prefix, and the article registry / slug-data they read from.
  *
- * Keeping this config in one place means a new section is mostly data, and the
- * existing frontaliere behaviour stays byte-identical (it is the default).
+ * The actual field values (`indexSlug`/`bodyDir`/`metaPrefix`/`registryFile`/
+ * `slugDataFile`/`slugConst`) live in `build-plugins/shared/articleSectionCore.mjs`
+ * — the single canonical copy shared with the build-plugin graph and the raw
+ * Node CI scripts that need the same tuple (issue #4881 Fase 6). This module
+ * re-exports that core with the richer TS types the rest of the app graph
+ * expects, plus the derived helpers below (`allArticleHubSlugs`,
+ * `sectionForHubSlug`). Do not hand-edit `ARTICLE_SECTIONS` here — edit the
+ * `.mjs` core instead, this file just types and re-exports it.
  */
 import type { Locale } from './i18n';
+import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore.mjs';
 
 export type ArticleSection = 'frontaliere' | 'svizzera';
 
@@ -48,36 +55,8 @@ export interface ArticleSectionConfig {
   readonly slugConst: string;
 }
 
-export const ARTICLE_SECTIONS: Record<ArticleSection, ArticleSectionConfig> = {
-  frontaliere: {
-    section: 'frontaliere',
-    indexSlug: {
-      it: 'articoli-frontaliere',
-      en: 'cross-border-articles',
-      de: 'grenzgaenger-artikel',
-      fr: 'articles-frontalier',
-    },
-    bodyDir: 'blog-body',
-    metaPrefix: 'blog-meta',
-    registryFile: 'data/blog-articles-data.ts',
-    slugDataFile: 'services/routerBlogData.ts',
-    slugConst: 'BLOG_SLUGS',
-  },
-  svizzera: {
-    section: 'svizzera',
-    indexSlug: {
-      it: 'articoli-svizzera',
-      en: 'swiss-articles',
-      de: 'schweiz-artikel',
-      fr: 'articles-suisse',
-    },
-    bodyDir: 'blog-body-ch',
-    metaPrefix: 'blog-meta-ch',
-    registryFile: 'data/swiss-articles-data.ts',
-    slugDataFile: 'services/routerSwissData.ts',
-    slugConst: 'SWISS_SLUGS',
-  },
-};
+export const ARTICLE_SECTIONS: Record<ArticleSection, ArticleSectionConfig> =
+  ARTICLE_SECTION_CORE as unknown as Record<ArticleSection, ArticleSectionConfig>;
 
 export const ARTICLE_SECTION_LIST: readonly ArticleSectionConfig[] =
   Object.values(ARTICLE_SECTIONS);
