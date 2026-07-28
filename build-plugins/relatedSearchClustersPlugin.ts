@@ -2508,11 +2508,54 @@ export function dropUrlBlocksByLoc(
   return { xml: patched, dropped };
 }
 
-async function dropMirrorLocsFromSitemapJobs(
+/**
+ * Extract every `<loc>` value from a sitemap XML body, in document order.
+ * Exported for unit testing.
+ */
+export function extractSitemapLocs(xml: string): string[] {
+  const out: string[] = [];
+  const re = /<loc>([^<]+)<\/loc>/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(xml)) !== null) out.push(m[1]);
+  return out;
+}
+
+/**
+ * Reconcile `sitemap-jobs.xml` against what actually shipped in dist/.
+ *
+ * Why this is a dist-truth pass and not a membership test
+ * -------------------------------------------------------
+ * This used to drop exactly the URLs in `mirrorLocs` — the cross-section
+ * mirrors this plugin knowingly overwrites (issue #911). That closes one
+ * divergence and leaves every other one open, because sitemap-jobs.xml is
+ * written by ANOTHER plugin (jobsSeoPagesPlugin, `default` phase) which
+ * advertises keyword/search landings it does not itself emit. Whenever the
+ * advertised set and the emitted set drift for any reason this list does not
+ * enumerate — a candidate pruned upstream, a below-floor bridge, a partial
+ * shard — a dead or non-self-canonical URL survives into the published
+ * sitemap and four post-deploy gates go red at once.
+ *
+ * That is what happened on run 30376520728: 7 `<loc>`s with no HTML in dist/
+ * and 1 pointing at a `noindex` bridge whose canonical is `/cerca-lavoro-
+ * svizzera/`, failing validate:sitemap-links, validate:sitemap-pages,
+ * audit:sitemap-canonicals and validate:canonical. All 8 URLs 301 at the edge
+ * — they are genuinely dead, the gates were right.
+ *
+ * So instead of enumerating the ways the two can disagree, we assert the
+ * invariant directly: a `<loc>` stays only if dist/ actually serves it as a
+ * self-canonical, indexable page. `dropOverwrittenLocs` is exactly that
+ * predicate and already guards the cluster sitemap — including its
+ * cross-shard rule, which keeps locs owned by a locale THIS shard does not
+ * emit (their HTML lives on another shard by design). `mirrorLocs` is still
+ * unioned in as a guaranteed-drop seed so a transient read failure cannot
+ * resurrect a known mirror.
+ *
+ * Exported for unit testing (tests/sitemap-jobs-dist-truth.test.ts).
+ */
+export async function reconcileSitemapJobsWithDist(
   distDir: string,
   mirrorLocs: ReadonlyArray<string>,
 ): Promise<void> {
-  if (mirrorLocs.length === 0) return;
   const sitemapPath = path.join(distDir, 'sitemap-jobs.xml');
   let xml: string;
   try {
@@ -2520,11 +2563,23 @@ async function dropMirrorLocsFromSitemapJobs(
   } catch {
     return; // sitemap-jobs.xml not emitted this build — nothing to patch.
   }
-  const { xml: patched, dropped } = dropUrlBlocksByLoc(xml, mirrorLocs);
+
+  const locs = extractSitemapLocs(xml);
+  if (locs.length === 0 && mirrorLocs.length === 0) return;
+
+  const kept = new Set(
+    (await dropOverwrittenLocs(distDir, locs)).map(normalizeLocForCanonicalCmp),
+  );
+  const unserved = locs.filter((l) => !kept.has(normalizeLocForCanonicalCmp(l)));
+  const dropLocs = [...new Set([...unserved, ...mirrorLocs])];
+  if (dropLocs.length === 0) return;
+
+  const { xml: patched, dropped } = dropUrlBlocksByLoc(xml, dropLocs);
   if (dropped > 0) {
     await fs.promises.writeFile(sitemapPath, patched, 'utf-8');
     console.log(
-      `\x1b[33m[related-search-clusters]\x1b[0m dropped ${dropped} cross-section mirror URL(s) from sitemap-jobs.xml (canonical → Svizzera, issue #911)`,
+      `\x1b[33m[related-search-clusters]\x1b[0m sitemap-jobs.xml: dropped ${dropped} URL(s) not served self-canonical by dist/ ` +
+      `(${unserved.length} failed the dist-truth check, ${mirrorLocs.length} known cross-section mirror(s), issue #911)`,
     );
   }
 }
@@ -2706,12 +2761,12 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
               ).sort()
             : [];
           patchMasterSitemap(distDir, dateStamp, restoredShards);
-          // issue #911: also drop our cross-section mirror URLs from
-          // sitemap-jobs.xml on the cache-hit path. Await the jobs flush first
-          // (the emit path gets this barrier inside writeSitemap; here we must
-          // do it explicitly since we skip writeSitemap entirely).
+          // issue #911: also reconcile sitemap-jobs.xml against dist/ on the
+          // cache-hit path. Await the jobs flush first (the emit path gets this
+          // barrier inside writeSitemap; here we must do it explicitly since we
+          // skip writeSitemap entirely).
           await jobsSeoPagesFlushed;
-          await dropMirrorLocsFromSitemapJobs(distDir, restored.crossSectionMirrorLocs ?? []);
+          await reconcileSitemapJobsWithDist(distDir, restored.crossSectionMirrorLocs ?? []);
           profileRecord('cache-hit-patches', __tCacheHitPatch);
           console.log(
             `\x1b[36m[related-search-clusters]\x1b[0m cache HIT (key=${cacheKey}): ${restored.emittedCount} files restored in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`,
@@ -3251,10 +3306,10 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       profileRecord('sitemap-write', __tSitemap);
       for (const shard of sitemapShards) emittedFiles.push(shard);
 
-      // issue #911: drop our cross-section mirror URLs from sitemap-jobs.xml.
-      // writeSitemap already awaited jobsSeoPagesFlushed, so the file is final.
+      // issue #911: reconcile sitemap-jobs.xml against dist/. writeSitemap
+      // already awaited jobsSeoPagesFlushed, so the file is final.
       const __tDropJobsMirrors = profileStart();
-      await dropMirrorLocsFromSitemapJobs(distDir, crossSectionMirrorLocs);
+      await reconcileSitemapJobsWithDist(distDir, crossSectionMirrorLocs);
       profileRecord('drop-jobs-mirrors', __tDropJobsMirrors);
 
       // Capture stats before releasing the maps that hold them.
