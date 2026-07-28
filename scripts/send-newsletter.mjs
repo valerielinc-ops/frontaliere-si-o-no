@@ -1630,15 +1630,21 @@ async function persistDelivery(recipient, messageId, meta) {
     }
     // A/B exposure event (no-op unless POSTHOG_EMAIL_EXPERIMENT enabled). Ties to
     // the email_opened conversion in PostHog by distinct_id (email); carries the
-    // variant + provider for the funnel breakdown.
-    await captureEmailEvent(EMAIL_EXPERIMENT_EVENTS.SENT, {
-      email,
-      variant: meta.variant,
-      provider: meta.provider,
-      campaignId: meta.campaignId,
-      locale,
-      segment: meta.segment,
-    });
+    // variant + provider for the funnel breakdown. Skipped for operator QA
+    // sends (#3798 sibling-pattern sweep) — same reason is_operator_verification
+    // is excluded from the Firestore campaign_deliveries aggregates: a manual
+    // test send/open isn't real subscriber behavior and would enter the
+    // email_sent→email_opened funnel as a false exposure.
+    if (!meta.isOperatorVerification) {
+      await captureEmailEvent(EMAIL_EXPERIMENT_EVENTS.SENT, {
+        email,
+        variant: meta.variant,
+        provider: meta.provider,
+        campaignId: meta.campaignId,
+        locale,
+        segment: meta.segment,
+      });
+    }
   } catch (e) {
     console.warn('\u26a0\ufe0f Delivery persist failed:', e?.message);
   }
