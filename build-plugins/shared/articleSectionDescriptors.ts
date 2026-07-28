@@ -16,9 +16,28 @@
  * construction.
  *
  * Zero behavior change: this is a data-literal hoist. `ogPagesPlugin.ts`'s
- * `SECTIONS` local const is replaced by a reference to `ARTICLE_SECTIONS`;
+ * `SECTIONS` local const is replaced by a reference to `ARTICLE_SECTION_DESCRIPTORS`;
  * the two frontaliere/svizzera entries are unchanged.
+ *
+ * **Naming note.** Deliberately named `articleSectionDescriptors`, not
+ * `articleSections`, despite the obvious short name — `services/articleSections.ts`
+ * already exists and calls itself the section "single source truth" for a
+ * DIFFERENT, differently-shaped per-section config (`ArticleSectionConfig`:
+ * `registryFile`/`slugDataFile`, no `seoFiles`/`canonicalPrefix`/`sitemap`)
+ * consumed by `create-article.mjs`/`staticPagesPlugin.ts`/`router.ts`. That
+ * duplication (same bodyDir/metaPrefix/slugConst/indexSlug values, two
+ * independent shapes) PRE-DATES this module — `ogPagesPlugin.ts` already
+ * carried its own separate inline `SECTIONS` literal with this exact shape
+ * before issue #4881 Fase 4 touched it; this file only hoists that
+ * pre-existing literal out of local scope, it does not introduce a new copy.
+ * Reconciling the two registries is a separate, larger, cross-cutting
+ * cleanup (would touch every consumer of both shapes) intentionally left out
+ * of scope for the Fase 4 corpus re-render work this module was extracted
+ * for — see `scripts/ci/check-sibling-patterns.mjs`'s finding on this branch.
  */
+import fs from 'node:fs';
+import path from 'node:path';
+
 export interface OgSection {
  name: 'frontaliere' | 'svizzera';
  seoFiles: string[];
@@ -32,7 +51,7 @@ export interface OgSection {
  indexSlug: Record<'it' | 'en' | 'de' | 'fr', string>;
 }
 
-export const ARTICLE_SECTIONS: OgSection[] = [
+export const ARTICLE_SECTION_DESCRIPTORS: OgSection[] = [
  {
  name: 'frontaliere',
  seoFiles: ['services/seo/seo-blog.ts',
@@ -79,4 +98,48 @@ export function extractBlogEntryPositions(source: string): Array<{ key: string; 
 /** `'blog-<slug>'` -> `<slug>` (the `articleId` shape `renderArticlePages` uses everywhere: `onlyArticleId`, body filenames, write-loop filter). */
 export function blogKeyToArticleId(key: string): string {
  return key.replace(/^blog-/, '');
+}
+
+/**
+ * Superset-safe enumeration of every known article id in a section: union of
+ * (a) `'blog-<slug>'` keys found across the section's `seoFiles` and (b)
+ * every locale's body-directory file listing. Shared (issue #4881 Fase 4,
+ * AGENTS.md #6) between the corpus re-render driver
+ * (`scripts/rerender-article-corpus.mjs`, batching source) and the
+ * drift-audit script (`scripts/audit-article-corpus-drift.mjs`, sampling
+ * source) — both need "every article id in this section" and neither single
+ * source is guaranteed exhaustive on its own. A superset is always safe for
+ * both callers: extra ids are harmless no-ops (`renderArticlePages`'s
+ * `onlyArticleIds` silently skips anything that isn't a real entry — see
+ * `tests/render-article-pages-single-vs-full.test.ts`'s phantom-id case;
+ * the audit script would at worst log an early liveness failure from
+ * `check-article-byte-identity.mjs` for a phantom id, never crash).
+ */
+export function enumerateSectionArticleIds(section: OgSection, rootDir: string): string[] {
+ const ids = new Set<string>();
+
+ for (const seoFile of section.seoFiles) {
+  let src = '';
+  try {
+   src = fs.readFileSync(path.resolve(rootDir, seoFile), 'utf-8');
+  } catch {
+   continue; // matches renderArticlePages's own per-seoFile tolerance
+  }
+  for (const { key } of extractBlogEntryPositions(src)) ids.add(blogKeyToArticleId(key));
+ }
+
+ for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+  const dir = path.resolve(rootDir, 'services', 'locales', section.bodyDir, locale);
+  let files: string[] = [];
+  try {
+   files = fs.readdirSync(dir);
+  } catch {
+   continue;
+  }
+  for (const file of files) {
+   if (file.endsWith('.ts')) ids.add(file.slice(0, -3));
+  }
+ }
+
+ return [...ids];
 }

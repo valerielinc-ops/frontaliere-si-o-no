@@ -27,7 +27,7 @@ import { stripMarkdownPlain } from './shared/stripMarkdownPlain';
 import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
 import { boostDescriptionForCtr } from './shared/ctrBoostDescription';
 import { SLUG_TABLES } from '../services/routeSlugs.data';
-import { ARTICLE_SECTIONS, extractBlogEntryPositions, blogKeyToArticleId } from './shared/articleSections';
+import { ARTICLE_SECTION_DESCRIPTORS, extractBlogEntryPositions, blogKeyToArticleId } from './shared/articleSectionDescriptors';
 
 export interface RenderedArticleEntry {
  articleId: string;
@@ -135,13 +135,19 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // registry yields zero entries and is skipped (no warning, no early abort of
  // the whole plugin) — see the per-section `continue` below.
  //
- // Descriptor literal lives in shared/articleSections.ts (#4881 Fase 4): the
- // corpus re-render driver script needs the exact same seoFiles/bodyDir/
- // registry paths to enumerate article ids for batching, and a second literal
- // copy here would drift from that one the moment either changes (AGENTS.md
- // #6). Zero behavior change — same two entries, same field values.
- type OgSection = (typeof ARTICLE_SECTIONS)[number];
- const SECTIONS: OgSection[] = ARTICLE_SECTIONS;
+ // Descriptor literal lives in shared/articleSectionDescriptors.ts (#4881
+ // Fase 4): the corpus re-render driver script needs the exact same
+ // seoFiles/bodyDir/registry paths to enumerate article ids for batching, and
+ // a second literal copy here would drift from that one the moment either
+ // changes (AGENTS.md #6). Zero behavior change — same two entries, same
+ // field values. Named `articleSectionDescriptors`, not `articleSections`, to
+ // avoid colliding with the pre-existing `services/articleSections.ts`
+ // (a differently-shaped, already-canonical per-section config used by
+ // create-article.mjs/staticPagesPlugin.ts/router — reconciling the two is a
+ // separate, larger, pre-existing-duplication cleanup out of scope here; see
+ // this PR's description for the sibling-pattern-check finding).
+ type OgSection = (typeof ARTICLE_SECTION_DESCRIPTORS)[number];
+ const SECTIONS: OgSection[] = ARTICLE_SECTION_DESCRIPTORS;
 
  let count = 0;
  let faqCount = 0;
