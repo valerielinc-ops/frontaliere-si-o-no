@@ -20,18 +20,7 @@ const TRANSLATIONS = {
  confirmWeeklyGuides: '📖 Guide pratiche per frontalieri',
  confirmNotYou: '<strong>Non ti sei iscritto?</strong> Ignora questa email in tutta sicurezza. Il link è valido per 7 giorni.',
 
- // Welcome email (social sign-in)
- welcomeSubject: 'Benvenuto su Frontaliere Ticino! 🎉',
- welcomeTitle: 'Benvenuto! 🎉',
- welcomeGreetingName: 'Ciao {name},',
- welcomeGreetingDefault: 'Benvenuto su Frontaliere Ticino,',
- welcomeIntro: 'Grazie per esserti registrato su <strong>Frontaliere Ticino</strong>! Il tuo account è già attivo. Ecco cosa puoi fare subito:',
- welcomeFeature1: '📊 <strong>Simula il tuo stipendio netto</strong> con il calcolatore fiscale',
- welcomeFeature2: '💼 <strong>Cerca offerte di lavoro</strong> in Ticino aggiornate ogni giorno',
- welcomeFeature3: '🏥 <strong>Confronta le casse malati</strong> LAMal per la tua situazione',
- welcomeFeature4: '📰 <strong>Ricevi la newsletter settimanale</strong> con cambio, guide e offerte',
- welcomeCta: 'Inizia a esplorare',
- welcomeNewsletterNote: 'Sei iscritto anche alla newsletter settimanale. Ogni lunedì riceverai il cambio CHF/EUR, guide pratiche e le migliori offerte di lavoro.',
+ // Welcome email (social sign-in): moved to functions/src/lib/welcomeEmailTemplate.js (buildWelcomeEmail) — segment-aware, no longer key-based i18n.
 
  // Verification email (password sign-up)
  verifySubject: 'Conferma la tua email – Frontaliere Ticino',
@@ -75,17 +64,7 @@ const TRANSLATIONS = {
  confirmWeeklyGuides: '📖 Practical guides for cross-border workers',
  confirmNotYou: '<strong>Didn\'t subscribe?</strong> You can safely ignore this email. The link is valid for 7 days.',
 
- welcomeSubject: 'Welcome to Frontaliere Ticino! 🎉',
- welcomeTitle: 'Welcome! 🎉',
- welcomeGreetingName: 'Hi {name},',
- welcomeGreetingDefault: 'Welcome to Frontaliere Ticino,',
- welcomeIntro: 'Thanks for signing up to <strong>Frontaliere Ticino</strong>! Your account is already active. Here\'s what you can do:',
- welcomeFeature1: '📊 <strong>Simulate your net salary</strong> with the tax calculator',
- welcomeFeature2: '💼 <strong>Search job offers</strong> in Ticino updated daily',
- welcomeFeature3: '🏥 <strong>Compare health insurers</strong> LAMal for your situation',
- welcomeFeature4: '📰 <strong>Get the weekly newsletter</strong> with rates, guides and offers',
- welcomeCta: 'Start exploring',
- welcomeNewsletterNote: 'You\'re also subscribed to the weekly newsletter. Every Monday you\'ll receive the CHF/EUR rate, practical guides and the best job offers.',
+ // Welcome email (social sign-in): moved to functions/src/lib/welcomeEmailTemplate.js (buildWelcomeEmail) — segment-aware, no longer key-based i18n.
 
  verifySubject: 'Verify your email – Frontaliere Ticino',
  verifyTitle: 'Verify your email ✉️',
@@ -126,17 +105,7 @@ const TRANSLATIONS = {
  confirmWeeklyGuides: '📖 Praktische Ratgeber für Grenzgänger',
  confirmNotYou: '<strong>Nicht angemeldet?</strong> Sie können diese E-Mail ignorieren. Der Link ist 7 Tage gültig.',
 
- welcomeSubject: 'Willkommen bei Frontaliere Ticino! 🎉',
- welcomeTitle: 'Willkommen! 🎉',
- welcomeGreetingName: 'Hallo {name},',
- welcomeGreetingDefault: 'Willkommen bei Frontaliere Ticino,',
- welcomeIntro: 'Danke für Ihre Registrierung bei <strong>Frontaliere Ticino</strong>! Ihr Konto ist bereits aktiv. Folgendes können Sie sofort tun:',
- welcomeFeature1: '📊 <strong>Nettolohn simulieren</strong> mit dem Steuerrechner',
- welcomeFeature2: '💼 <strong>Stellenangebote suchen</strong> im Tessin, täglich aktualisiert',
- welcomeFeature3: '🏥 <strong>Krankenkassen vergleichen</strong> LAMal für Ihre Situation',
- welcomeFeature4: '📰 <strong>Wöchentlichen Newsletter erhalten</strong> mit Kursen, Ratgebern und Angeboten',
- welcomeCta: 'Jetzt entdecken',
- welcomeNewsletterNote: 'Sie haben auch den wöchentlichen Newsletter abonniert. Jeden Montag erhalten Sie den CHF/EUR-Kurs, praktische Ratgeber und die besten Stellenangebote.',
+ // Welcome email (social sign-in): moved to functions/src/lib/welcomeEmailTemplate.js (buildWelcomeEmail) — segment-aware, no longer key-based i18n.
 
  verifySubject: 'E-Mail bestätigen – Frontaliere Ticino',
  verifyTitle: 'E-Mail bestätigen ✉️',
@@ -177,17 +146,7 @@ const TRANSLATIONS = {
  confirmWeeklyGuides: '📖 Guides pratiques pour frontaliers',
  confirmNotYou: '<strong>Vous ne vous êtes pas inscrit ?</strong> Vous pouvez ignorer cet e-mail en toute sécurité. Le lien est valable 7 jours.',
 
- welcomeSubject: 'Bienvenue sur Frontaliere Ticino ! 🎉',
- welcomeTitle: 'Bienvenue ! 🎉',
- welcomeGreetingName: 'Bonjour {name},',
- welcomeGreetingDefault: 'Bienvenue sur Frontaliere Ticino,',
- welcomeIntro: 'Merci de vous être inscrit sur <strong>Frontaliere Ticino</strong> ! Votre compte est déjà actif. Voici ce que vous pouvez faire :',
- welcomeFeature1: '📊 <strong>Simulez votre salaire net</strong> avec le calculateur fiscal',
- welcomeFeature2: '💼 <strong>Recherchez des offres d\'emploi</strong> au Tessin, mises à jour quotidiennement',
- welcomeFeature3: '🏥 <strong>Comparez les caisses maladie</strong> LAMal pour votre situation',
- welcomeFeature4: '📰 <strong>Recevez la newsletter hebdomadaire</strong> avec taux, guides et offres',
- welcomeCta: 'Commencer à explorer',
- welcomeNewsletterNote: 'Vous êtes également abonné à la newsletter hebdomadaire. Chaque lundi vous recevrez le taux CHF/EUR, des guides pratiques et les meilleures offres d\'emploi.',
+ // Welcome email (social sign-in): moved to functions/src/lib/welcomeEmailTemplate.js (buildWelcomeEmail) — segment-aware, no longer key-based i18n.
 
  verifySubject: 'Vérifiez votre e-mail – Frontaliere Ticino',
  verifyTitle: 'Vérifiez votre e-mail ✉️',

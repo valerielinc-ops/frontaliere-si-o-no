@@ -8,6 +8,12 @@
  */
 
 import { renderRecommendedBlock } from './newsletter/recommendedBlock.mjs';
+// Shared with functions/src/lib/welcomeEmailTemplate.js (Cloud Functions
+// can't import services/*.mjs — see that file's header). Canonical home is
+// functions/src/lib/newsletterUrlPaths.js; re-exported below so this
+// module's own importers (nlNormLocale/directUrl/localizedUrl) are unaffected.
+import { nlNormLocale, directUrl, localizedUrl } from '../functions/src/lib/newsletterUrlPaths.js';
+export { nlNormLocale, directUrl, localizedUrl };
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
@@ -221,12 +227,6 @@ const NL_I18N = {
   },
 };
 
-export function nlNormLocale(raw) {
-  if (!raw) return 'it';
-  const lang = String(raw).toLowerCase().split(/[-_]/)[0];
-  return ['en', 'de', 'fr'].includes(lang) ? lang : 'it';
-}
-
 function nlT(locale, key) {
   const lang = nlNormLocale(locale);
   return NL_I18N[lang]?.[key] || NL_I18N.it[key] || key;
@@ -287,74 +287,6 @@ export function personalizeGreeting(locale, rawName) {
   if (!name) return nlT(loc, 'greeting');
   const tpl = nlT(loc, 'greetingNamed') || nlT(loc, 'greeting');
   return tpl.replace('{name}', escapeHtml(name));
-}
-
-export function directUrl(path) {
-  if (/^https?:\/\//i.test(path)) return path;
-  return `${BASE_URL}${path.startsWith('/') ? path : '/' + path}`;
-}
-
-// Locale-aware path map. IT is the canonical (no prefix); other locales get
-// the /{lang}/ prefix and translated slugs. Keys are the canonical IT paths.
-// Used to ensure newsletter links resolve to the correct localized page.
-const LOCALE_PATH_MAP = {
-  '/cerca-lavoro-ticino': {
-    it: '/cerca-lavoro-ticino',
-    en: '/en/find-jobs-ticino',
-    de: '/de/jobs-im-tessin',
-    fr: '/fr/trouver-emploi-tessin',
-  },
-  // Switzerland-wide aggregate job board (data/canton-url-slugs.json →
-  // aggregate). This newsletter has no per-subscriber canton context (the
-  // "total jobs" metric/CTA below counts jobs across every canton), so its
-  // "browse all jobs" links must resolve here, not to the TI-only board.
-  '/cerca-lavoro-svizzera': {
-    it: '/cerca-lavoro-svizzera',
-    en: '/en/find-jobs-switzerland',
-    de: '/de/jobs-in-schweiz',
-    fr: '/fr/trouver-emploi-suisse',
-  },
-  '/compara-servizi/cambio-franco-euro': {
-    it: '/compara-servizi/cambio-franco-euro',
-    en: '/en/service-comparison/chf-eur-exchange-rate',
-    de: '/de/service-vergleich/chf-eur-wechselkurs',
-    fr: '/fr/comparaison-services/taux-change-chf-eur',
-  },
-  '/compara-servizi/confronta-casse-malati': {
-    it: '/compara-servizi/confronta-casse-malati',
-    en: '/en/service-comparison/compare-health-insurance',
-    de: '/de/service-vergleich/krankenkassen-vergleichen',
-    fr: '/fr/comparaison-services/comparer-caisses-maladie',
-  },
-  '/statistiche': {
-    it: '/statistiche',
-    en: '/en/statistics',
-    de: '/de/statistiken',
-    fr: '/fr/statistiques',
-  },
-  '/calcola-stipendio': {
-    it: '/calcola-stipendio',
-    en: '/en/calculate-salary',
-    de: '/de/gehalt-berechnen',
-    fr: '/fr/calculer-salaire',
-  },
-  '/tasse-e-pensione/dichiarazione-redditi': {
-    it: '/tasse-e-pensione/dichiarazione-redditi',
-    en: '/en/taxes-and-pension/tax-return-guide',
-    de: '/de/steuern-und-vorsorge/steuererklaerung',
-    fr: '/fr/impots-et-retraite/declaration-revenus',
-  },
-};
-
-/**
- * Resolve a canonical IT path to its locale variant and return an absolute URL.
- * Falls back to the IT path if the path is unknown (still safe, just not localized).
- */
-export function localizedUrl(itPath, locale) {
-  const lang = nlNormLocale(locale);
-  const variants = LOCALE_PATH_MAP[itPath];
-  const path = variants ? (variants[lang] || variants.it) : itPath;
-  return directUrl(path);
 }
 
 function formatDate(locale) {

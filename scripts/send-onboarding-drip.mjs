@@ -38,6 +38,7 @@ import {
   DRIP_STEP_COUNT,
 } from '../services/newsletter/onboardingDrip.mjs';
 import { makeUnsubscribeUrl, makeOneClickUnsubscribeUrl } from '../services/newsletterUrls.mjs';
+import { buildLifecycleEmailHeaders } from '../functions/src/lib/lifecycleEmailHeaders.js';
 import {
   perUserSendTimeEnabled,
   resolveEffectivePreferredHour,
@@ -185,10 +186,11 @@ async function buildQueue(globalHour, now) {
         subject,
         html,
         ...(scheduledAt ? { scheduledAt } : {}),
-        headers: {
-          'List-Unsubscribe': `<${makeOneClickUnsubscribeUrl(subscriber.email)}>`,
-          'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
-        },
+        headers: buildLifecycleEmailHeaders({
+          email: subscriber.email,
+          campaignId: `onboarding_drip_step_${due.step}`,
+          oneClickUnsubscribeUrl: makeOneClickUnsubscribeUrl(subscriber.email),
+        }),
         tags: [
           { name: 'campaign_id', value: `onboarding_drip_step_${due.step}` },
           { name: 'type', value: 'lifecycle' },

@@ -740,6 +740,21 @@ export async function upsertNewsletterSubscriber(
  });
  }
 
+ // Welcome email for new PRE-CONFIRMED subscribers (Google One Tap,
+ // Google/Facebook/LinkedIn sign-in, job-unlock gates — ~82% of all
+ // signups). These are written client-side straight to Firestore with no
+ // double opt-in step, so unlike the 'pending' branch above they never hit
+ // a confirmation-link Cloud Function — this is their only welcome
+ // touchpoint. Symmetric to the branch above and equally non-blocking: the
+ // 17 existing upsertNewsletterSubscriber callers must observe
+ // byte-identical behavior for every other case.
+ if (result.status === 'confirmed' && !result.existed) {
+ requestWelcomeEmail(input.email).catch((err) => {
+ console.warn('[newsletter] Welcome email request failed (non-blocking):', err?.message || err);
+ reportCaughtError(err, 'newsletter.requestWelcomeEmail');
+ });
+ }
+
  return result;
 }
 
@@ -805,6 +820,35 @@ export async function requestConfirmationEmail(
  } catch (error: any) {
  console.warn('[newsletter] Failed to request confirmation email:', error?.message);
  reportCaughtError(error, 'newsletter.sendConfirmation');
+ return { success: false, error: error?.message || 'unknown_error' };
+ }
+}
+
+/**
+ * Request the post-signup welcome email for a PRE-CONFIRMED subscriber
+ * (Google One Tap, Google/Facebook/LinkedIn sign-in, job-unlock gates —
+ * written client-side straight to Firestore, no confirmation-link step).
+ * Mirrors requestConfirmationEmail's fetch style / error handling / non-
+ * throwing contract; called by upsertNewsletterSubscriber, never throws.
+ */
+export async function requestWelcomeEmail(
+ email: string,
+): Promise<{ success: boolean; error?: string }> {
+ try {
+ const { getLocale } = await import('@/services/i18n');
+ const resp = await fetch(`${FUNCTIONS_BASE}/newsletterSendWelcome`, {
+ method: 'POST',
+ headers: { 'Content-Type': 'application/json' },
+ body: JSON.stringify({
+ email: email.toLowerCase().trim(),
+ locale: getLocale(),
+ }),
+ });
+ const data = await resp.json();
+ return data as { success: boolean; error?: string };
+ } catch (error: any) {
+ console.warn('[newsletter] Failed to request welcome email:', error?.message);
+ reportCaughtError(error, 'newsletter.sendWelcome');
  return { success: false, error: error?.message || 'unknown_error' };
  }
 }
