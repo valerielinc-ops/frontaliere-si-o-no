@@ -1889,12 +1889,12 @@
     },
     {
       "id": "hess-carrosserie-f304163f401f",
-      "slug": "teamleiter-wareneingang-spedition-m-w-d-100-hess-bellach",
+      "slug": "team-leader-incoming-merci-forwarding-m-f-d-100-carrosserie-hess-ag-bellach",
       "slugByLocale": {
         "de": "teamleiter-wareneingang-spedition-m-w-d-100-hess-bellach",
-        "it": "teamleiter-wareneingang-spedition-m-w-d-100-hess-bellach",
-        "en": "teamleiter-wareneingang-spedition-m-w-d-100-hess-bellach",
-        "fr": "teamleiter-wareneingang-spedition-m-w-d-100-hess-bellach"
+        "it": "team-leader-incoming-merci-forwarding-m-f-d-100-carrosserie-hess-ag-bellach",
+        "en": "team-leader-incoming-goods-forwarding-m-f-d-100-carrosserie-hess-ag-bellach",
+        "fr": "chef-d-equipe-marchandises-entrantes-et-transitaires-m-f-d-100-carrosserie-hess-ag-bellach"
       },
       "company": "Carrosserie HESS AG",
       "companyKey": "hess-carrosserie",
@@ -1952,7 +1952,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-28T11:31:30.183Z"
+      "firstSeenAt": "2026-07-28T11:31:30.183Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-wareneingang-spedition-m-w-d-100-hess-bellach"
+        ],
+        "en": [
+          "teamleiter-wareneingang-spedition-m-w-d-100-hess-bellach"
+        ],
+        "fr": [
+          "teamleiter-wareneingang-spedition-m-w-d-100-hess-bellach"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-wareneingang-spedition-m-w-d-100-hess-bellach"
+      ]
     },
     {
       "id": "hess-carrosserie-141d3231a9b6",
