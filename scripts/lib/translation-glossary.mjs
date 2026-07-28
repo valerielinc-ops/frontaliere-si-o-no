@@ -112,6 +112,17 @@ export const TRANSLATION_GLOSSARY = [
       ],
     },
   },
+  {
+    // Regional IT "Levatrice" (midwife, from the verb "levare" = to lift/raise)
+    // gets etymology-read instead of profession-read: EN renders it as
+    // "Leverage" (a finance term) and FR as "Serveur" (waiter) — both a
+    // completely different profession, not just a wrong-language slip.
+    trigger: /levatrice/i,
+    fixes: {
+      en: [[/\bleverage\b/gi, 'midwife', TITLE_ONLY]],
+      fr: [[/\bserveur\b/gi, 'sage-femme', TITLE_ONLY]],
+    },
+  },
 ];
 
 /**
