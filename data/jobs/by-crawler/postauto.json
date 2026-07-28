@@ -1,6 +1,6 @@
 {
   "crawlerKey": "postauto",
-  "assembledAt": "2026-07-27T22:23:47.780Z",
+  "assembledAt": "2026-07-28T12:02:29.776Z",
   "jobs": [
     {
       "id": "postauto-318dbdb3c660",
@@ -33,7 +33,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74193-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:45.145Z",
+      "crawledAt": "2026-07-28T12:02:26.605Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -59,13 +59,15 @@
         "ticket-controller-in-and-customer-advice-postauto-ag-chur",
         "controleur-de-billetterie-in-et-conseil-client-postauto-ag-chur",
         "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
-        "ticketkontrolleur-in-und-kundenberatung-post-2"
+        "ticketkontrolleur-in-und-kundenberatung-post-2",
+        "ticketkontrolleur-in-und-kundenberatung-post"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
           "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
-          "ticketkontrolleur-in-und-kundenberatung-post-2"
+          "ticketkontrolleur-in-und-kundenberatung-post-2",
+          "ticketkontrolleur-in-und-kundenberatung-post"
         ],
         "en": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
@@ -77,6 +79,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:34.678Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -121,7 +124,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74207-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:43.957Z",
+      "crawledAt": "2026-07-28T12:02:25.431Z",
       "addressLocality": "Brugg AG",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -157,6 +160,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:33.292Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -175,7 +179,7 @@
       "slug": "postbus-driver-in-postauto-chur",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-chur",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-chur",
         "de": "postauto-fahrer-in-postauto-chur",
         "fr": "pilote-postbus-in-postauto-chur"
       },
@@ -201,7 +205,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74217-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:42.782Z",
+      "crawledAt": "2026-07-28T12:02:24.295Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -227,16 +231,20 @@
         "pilote-postbus-in-postauto-ag-chur",
         "autista-postbus-postauto-ag-chur",
         "postbus-driver-in-postauto-ag-chur-egmnfn",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-chur",
         "postbus-driver-in-postauto-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-chur",
-          "autista-postbus-postauto-ag-chur"
+          "autista-postbus-postauto-ag-chur",
+          "postbus-driver-in-postauto-chur"
         ],
         "en": [
           "postauto-fahrer-in-postauto-chur",
           "postbus-driver-in-postauto-ag-chur-egmnfn",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-chur"
         ],
         "fr": [
@@ -245,6 +253,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:31.889Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -289,7 +298,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/73577-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:41.577Z",
+      "crawledAt": "2026-07-28T12:02:23.092Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "streetAddress": "",
@@ -314,12 +323,14 @@
         "postauto-fahrer-in-postauto-sarnen",
         "postbus-driver-in-postauto-ag-sarnen",
         "pilote-postbus-in-postauto-ag-sarnen",
-        "autista-postbus-postauto-ag-sarnen"
+        "autista-postbus-postauto-ag-sarnen",
+        "autista-postbus-postauto-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-sarnen",
-          "autista-postbus-postauto-ag-sarnen"
+          "autista-postbus-postauto-ag-sarnen",
+          "autista-postbus-postauto-sarnen"
         ],
         "en": [
           "postauto-fahrer-in-postauto-sarnen",
@@ -331,6 +342,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:30.476Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -349,7 +361,7 @@
       "slug": "postbus-driver-in-postauto-stans",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-stans",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-stans",
         "de": "postauto-fahrer-in-postauto-stans",
         "fr": "pilote-postbus-in-postauto-stans"
       },
@@ -375,7 +387,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/73719-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:40.404Z",
+      "crawledAt": "2026-07-28T12:02:21.963Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "streetAddress": "",
@@ -398,17 +410,22 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postauto-fahrer-in-postauto-stans",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-stans",
         "postbus-driver-in-postauto-ag-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-stans"
+          "postauto-fahrer-in-postauto-stans",
+          "postbus-driver-in-postauto-stans"
         ],
         "en": [
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-stans"
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:29.067Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -453,7 +470,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74239-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:39.123Z",
+      "crawledAt": "2026-07-28T12:02:20.756Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -478,12 +495,14 @@
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
         "security-specialist-in-public-transport-postauto-ag-wallisellen",
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen",
-        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen"
+        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
+        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
-          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen"
+          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
+          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
@@ -539,7 +558,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74240-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:37.860Z",
+      "crawledAt": "2026-07-28T12:02:19.592Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -562,11 +581,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
         ],
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
-          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur"
+          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
+          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
@@ -581,7 +602,9 @@
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
         "security-specialist-in-public-transport-postauto-ag-winterthur",
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
-        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur"
+        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
+        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
       ],
       "firstSeenAt": "2026-07-04T11:33:25.279Z",
       "salaryMin": 73500,
@@ -628,7 +651,7 @@
       "url": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/73694-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:36.679Z",
+      "crawledAt": "2026-07-28T12:02:18.382Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "streetAddress": "",
@@ -653,12 +676,14 @@
         "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
         "lateral-entrant-in-as-postbus-driver-in-postauto-ag-stans",
         "entree-laterale-in-comme-pilote-postbus-in-postauto-ag-stans",
-        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans"
+        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans",
+        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
           "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
-          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans"
+          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans",
+          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-stans"
         ],
         "en": [
           "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
@@ -670,6 +695,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:41:08.629Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -714,7 +740,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74278-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:35.505Z",
+      "crawledAt": "2026-07-28T12:02:17.259Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -736,11 +762,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-chur"
+        "postauto-fahrer-in-postauto-chur",
+        "postbus-driver-in-postauto-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-chur"
+          "postauto-fahrer-in-postauto-chur",
+          "postbus-driver-in-postauto-ag-chur"
         ],
         "en": [
           "postauto-fahrer-in-postauto-chur"
@@ -750,6 +778,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:15:02.400Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -794,7 +823,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74268-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:34.302Z",
+      "crawledAt": "2026-07-28T12:02:16.072Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -830,6 +859,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:15:00.874Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -848,7 +878,7 @@
       "slug": "postbus-driver-in-postauto-trimmis",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-trimmis",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-trimmis",
         "de": "postauto-fahrer-in-postauto-trimmis",
         "fr": "pilote-postbus-in-postauto-trimmis"
       },
@@ -874,7 +904,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74276-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:33.120Z",
+      "crawledAt": "2026-07-28T12:02:14.851Z",
       "addressLocality": "Trimmis",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -898,15 +928,19 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-trimmis",
         "pilote-postbus-in-postauto-ag-trimmis",
-        "postbus-driver-in-postauto-ag-trimmis"
+        "postbus-driver-in-postauto-ag-trimmis",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-trimmis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-trimmis",
-          "postbus-driver-in-postauto-ag-trimmis"
+          "postbus-driver-in-postauto-ag-trimmis",
+          "postbus-driver-in-postauto-trimmis"
         ],
         "en": [
           "postauto-fahrer-in-postauto-trimmis",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-trimmis"
         ],
         "fr": [
@@ -915,6 +949,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:14:59.372Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -959,7 +994,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74275-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:31.931Z",
+      "crawledAt": "2026-07-28T12:02:13.675Z",
       "addressLocality": "Lenzerheide/Lai",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -981,11 +1016,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-lenzerheide-lai"
+        "postauto-fahrer-in-postauto-lenzerheide-lai",
+        "postbus-driver-in-postauto-ag-lenzerheide-lai"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-lenzerheide-lai"
+          "postauto-fahrer-in-postauto-lenzerheide-lai",
+          "postbus-driver-in-postauto-ag-lenzerheide-lai"
         ],
         "en": [
           "postauto-fahrer-in-postauto-lenzerheide-lai"
@@ -995,6 +1032,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:14:57.973Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1013,7 +1051,7 @@
       "slug": "postbus-driver-in-postauto-schiers",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-schiers",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-schiers",
         "de": "postauto-fahrer-in-postauto-schiers",
         "fr": "pilote-postbus-in-postauto-schiers"
       },
@@ -1039,7 +1077,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74280-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:30.740Z",
+      "crawledAt": "2026-07-28T12:02:12.512Z",
       "addressLocality": "Schiers",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1063,15 +1101,19 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-schiers",
         "pilote-postbus-in-postauto-ag-schiers",
-        "postbus-driver-in-postauto-ag-schiers"
+        "postbus-driver-in-postauto-ag-schiers",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-schiers",
-          "postbus-driver-in-postauto-ag-schiers"
+          "postbus-driver-in-postauto-ag-schiers",
+          "postbus-driver-in-postauto-schiers"
         ],
         "en": [
           "postauto-fahrer-in-postauto-schiers",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-schiers"
         ],
         "fr": [
@@ -1080,6 +1122,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:14:55.757Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1124,7 +1167,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74291-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:29.550Z",
+      "crawledAt": "2026-07-28T12:02:11.313Z",
       "addressLocality": "Laax GR",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1146,11 +1189,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-laax-gr"
+        "postauto-fahrer-in-postauto-laax-gr",
+        "postbus-driver-in-postauto-ag-laax-gr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-laax-gr"
+          "postauto-fahrer-in-postauto-laax-gr",
+          "postbus-driver-in-postauto-ag-laax-gr"
         ],
         "en": [
           "postauto-fahrer-in-postauto-laax-gr"
@@ -1160,6 +1205,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:23:45.073Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1178,7 +1224,7 @@
       "slug": "postbus-driver-in-postauto-endingen",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-endingen",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-endingen",
         "de": "postauto-fahrer-in-postauto-endingen",
         "fr": "pilote-postbus-in-postauto-endingen"
       },
@@ -1204,7 +1250,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74294-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:28.393Z",
+      "crawledAt": "2026-07-28T12:02:10.205Z",
       "addressLocality": "Endingen",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1228,15 +1274,19 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-endingen",
         "pilote-postbus-in-postauto-ag-endingen",
-        "postbus-driver-in-postauto-ag-endingen"
+        "postbus-driver-in-postauto-ag-endingen",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-endingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-endingen",
-          "postbus-driver-in-postauto-ag-endingen"
+          "postbus-driver-in-postauto-ag-endingen",
+          "postbus-driver-in-postauto-endingen"
         ],
         "en": [
           "postauto-fahrer-in-postauto-endingen",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-endingen"
         ],
         "fr": [
@@ -1245,6 +1295,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:23:43.698Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1289,7 +1340,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74295-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:27.206Z",
+      "crawledAt": "2026-07-28T12:02:08.988Z",
       "addressLocality": "Ilanz",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1311,11 +1362,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-ilanz"
+        "postauto-fahrer-in-postauto-ilanz",
+        "postbus-driver-in-postauto-ag-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-ilanz"
+          "postauto-fahrer-in-postauto-ilanz",
+          "postbus-driver-in-postauto-ag-ilanz"
         ],
         "en": [
           "postauto-fahrer-in-postauto-ilanz"
@@ -1325,6 +1378,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:19:18.739Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1343,7 +1397,7 @@
       "slug": "postbus-driver-in-postauto-wilderswil",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-wilderswil",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-postauto-ag-wilderswil",
         "de": "postauto-fahrer-in-postauto-wilderswil",
         "fr": "pilote-postbus-in-postauto-wilderswil"
       },
@@ -1369,7 +1423,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74075-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:25.221Z",
+      "crawledAt": "2026-07-28T12:02:07.732Z",
       "addressLocality": "Wilderswil",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1392,17 +1446,22 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postauto-fahrer-in-postauto-wilderswil",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-wilderswil",
         "postbus-driver-postauto-ag-wilderswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-wilderswil"
+          "postauto-fahrer-in-postauto-wilderswil",
+          "postbus-driver-in-postauto-wilderswil"
         ],
         "en": [
+          "postauto-fahrer-in-post",
           "postbus-driver-postauto-ag-wilderswil"
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:37.505Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1412,6 +1471,495 @@
           "@type": "QuantitativeValue",
           "minValue": 68500,
           "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "postauto-d2685274910e",
+      "slug": "driver-di-sicurezza-amigo-postauto-ag-altstatten-sg",
+      "slugByLocale": {
+        "it": "driver-di-sicurezza-amigo-postauto-ag-altstatten-sg",
+        "en": "safety-driver-amigo-postauto-altstatten-sg",
+        "de": "safety-driver-amigo-postauto-altstatten-sg",
+        "fr": "conducteur-de-securite-amigo-postauto-ag-altstatten-sg"
+      },
+      "company": "PostAuto AG",
+      "companyKey": "postauto",
+      "companyDomain": "postauto.ch",
+      "title": "Safety Driver AmiGo",
+      "titleByLocale": {
+        "it": "Driver di sicurezza AmiGo",
+        "en": "Safety Driver AmiGo",
+        "de": "Safety Driver AmiGo",
+        "fr": "Conducteur de sécurité AmiGo"
+      },
+      "description": "Du möchtest Teil eines europaweit einzigartigen Innovationsprojekts sein und Mobilitätsgeschichte mitschreiben sowie aktiv an der Zukunft des autonomen Fahrens mitwirken? Bei AmiGo begleitest du modernste Fahrzeugtechnologie im realen Testbetrieb und übernimmst dabei eine zentrale Sicherheitsrolle. Mit dir wird autonomes Fahren sicher, erlebbar und bereit für die Mobilität von morgen.\n\nDas kannst du bewirken\n\n- In dieser befristeten Anstellung begleitest du unsere autonom fahrenden 4-Rad-Fahrzeuge im Testbetrieb und überwachst jederzeit alle sicherheitsrelevanten Abläufe im Fahrzeug.\n\n- Potenziell auftretende Gefahren erkennst du frühzeitig und greifst bei Bedarf präventiv oder aktiv in die Fahrzeugsteuerung ein.\n\n- Du führst laufend Sicherheitsbeurteilungen durch und übernimmst im Notfall sofort die Kontrolle über das Fahrzeug.\n\n- Sämtliche Incidents, Auffälligkeiten und Beobachtungen dokumentierst du zeitnah und elektronisch zur kontinuierlichen Optimierung des Gesamtsystems.\n\n- Du stellst jederzeit die Sicherheit der Passagiere, anderen Verkehrsteilnehmenden sowie von Fussgängern und Tieren sicher.\n\n- Unseren mitfahrenden Kundinnen und Kunden stehst du als kompetente und professionelle Ansprechperson direkt im Fahrzeug zur Verfügung.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufslehre, ein abgeschlossenes Studium oder mehrjährige relevante Berufserfahrung.\n\n- Seit mindestens drei Jahren besitzt du einen gültigen Führerausweis der Kategorie B oder höher und bringst mindestens drei Jahre Fahrpraxis in der Schweiz mit. Vorzugsweise verfügst du zusätzlich über die Bewilligung zum berufsmässigen Personentransport (Ausbildung BPT 121), oder bist bereit, diese zu absolvieren.\n\n- Du besitzt ein ausgeprägtes Sicherheitsbewusstsein und hast einen einwandfreien Leumund vorzuweisen.\n\n- Du bist flexibel für Einsätze am Morgen, Nachmittag, Abend sowie an Wochenenden.\n\n- Es bereitet dir Freude, in einem innovativen, lernfreudigen und hochmotivierten Umfeld Pionierarbeit zu leisten.\n\n- Du verfügst über eine schnelle Auffassungsgabe, hohe Reaktionsfähigkeit sowie analytisch-technische Kompetenzen und überzeugst gleichzeitig durch Kundenorientierung, Verantwortungsbewusstsein, Teamfähigkeit und ein professionelles Auftreten.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und bringst gute Englischkenntnisse mit.\n\nDiese Position ist auf 12 Monate befristet.",
+      "descriptionByLocale": {
+        "it": "Vuoi partecipare a un progetto di innovazione unico in Europa e scrivere la storia della mobilità e partecipare attivamente al futuro della guida autonoma? A AmiGo, accompagni l'ultima tecnologia del veicolo nell'operazione di test di vita reale e assume un ruolo di sicurezza centrale. Con voi, la guida autonoma diventa sicura, tangibile e pronta per la mobilità di domani.\n\nPuoi farlo.\n\n- In questa posizione temporanea, accompagni i nostri veicoli autonomi a 4 ruote nel funzionamento della prova e monitori tutti i processi di sicurezza rilevanti nel veicolo in ogni momento.\n\n- I potenziali pericoli sono rilevati in anticipo e, se necessario, intervengono preventivamente o attivamente nel sistema di controllo del veicolo.\n\n- Si effettuano valutazioni di sicurezza in corso e prendere il controllo del veicolo immediatamente in un'emergenza.\n\n- Tutti gli incidenti, le anomalie e le osservazioni sono documentati prontamente ed elettronicamente per l'ottimizzazione continua del sistema generale.\n\n- Garantisci la sicurezza dei passeggeri, altri partecipanti al traffico, pedoni e animali in ogni momento.\n\n- Siete a disposizione dei nostri clienti come persona di contatto competente e professionale direttamente nel veicolo.\n\nLo porti con te.\n\n- Hai un apprendistato professionale completato, uno studio completato o diversi anni di esperienza professionale rilevante.\n\n- Per almeno tre anni avete avuto una patente di guida valida di categoria B o superiore e portare almeno tre anni di esperienza di guida in Svizzera. Preferibilmente, avete anche il permesso per il trasporto passeggeri professionale (formazione BPT 121), o sono pronti a completarlo.\n\n- Hai una forte consapevolezza della sicurezza e hai una reputazione impeccabile.\n\n- Siete flessibili per le operazioni di mattina, pomeriggio, sera e nei fine settimana.\n\n- Ti dà piacere al pioniere in un ambiente innovativo, apprendimento e altamente motivato.\n\n- Si dispone di una rapida comprensione, alta reattività e competenze analitiche-tecniche e convincere allo stesso tempo attraverso l'orientamento del cliente, la responsabilità, il lavoro di squadra e un aspetto professionale.\n\n- Si comunica verbalmente e per iscritto molto bene in tedesco e portare buone abilità inglesi.\n\nIl post è limitato in tempo fino a 28.02.2027.",
+        "en": "Do you want to be part of an innovation project that is unique in Europe and write the history of mobility and actively participate in the future of autonomous driving? At AmiGo, you accompany the latest vehicle technology in real-life test operation and take on a central safety role. With you, autonomous driving becomes safe, tangible and ready for the mobility of tomorrow.\n\nYou can do that.\n\n- In this temporary position, you accompany our autonomous 4-wheeled vehicles in test operation and monitor all safety-relevant processes in the vehicle at all times.\n\n- Potential hazards are detected at an early stage and, if necessary, intervene preventively or actively in the vehicle control system.\n\n- You carry out ongoing safety assessments and take control of the vehicle immediately in an emergency.\n\n- All incidents, anomalies and observations are documented promptly and electronically for continuous optimization of the overall system.\n\n- You ensure the safety of passengers, other traffic participants, pedestrians and animals at all times.\n\n- You are available to our customers as a competent and professional contact person directly in the vehicle.\n\nYou bring that with you\n\n- You have a completed vocational apprenticeship, a completed study or several years of relevant professional experience.\n\n- For at least three years you have had a valid driving licence of category B or higher and bring at least three years of driving experience in Switzerland. Preferably, you also have the permit for professional passenger transport (training BPT 121), or are ready to complete it.\n\n- You have a strong security awareness and have an impeccable reputation.\n\n- You are flexible for operations in the morning, afternoon, evening and on weekends.\n\n- It gives you pleasure to pioneer in an innovative, learning and highly motivated environment.\n\n- You have a quick comprehension, high responsiveness as well as analytical-technical skills and convince at the same time through customer orientation, responsibility, teamwork and a professional appearance.\n\n- You communicate verbally and in writing very well in German and bring good English skills.\n\nThe post is limited in time until 28.02.2027.",
+        "de": "Du möchtest Teil eines europaweit einzigartigen Innovationsprojekts sein und Mobilitätsgeschichte mitschreiben sowie aktiv an der Zukunft des autonomen Fahrens mitwirken? Bei AmiGo begleitest du modernste Fahrzeugtechnologie im realen Testbetrieb und übernimmst dabei eine zentrale Sicherheitsrolle. Mit dir wird autonomes Fahren sicher, erlebbar und bereit für die Mobilität von morgen.\n\nDas kannst du bewirken\n\n- In dieser befristeten Anstellung begleitest du unsere autonom fahrenden 4-Rad-Fahrzeuge im Testbetrieb und überwachst jederzeit alle sicherheitsrelevanten Abläufe im Fahrzeug.\n\n- Potenziell auftretende Gefahren erkennst du frühzeitig und greifst bei Bedarf präventiv oder aktiv in die Fahrzeugsteuerung ein.\n\n- Du führst laufend Sicherheitsbeurteilungen durch und übernimmst im Notfall sofort die Kontrolle über das Fahrzeug.\n\n- Sämtliche Incidents, Auffälligkeiten und Beobachtungen dokumentierst du zeitnah und elektronisch zur kontinuierlichen Optimierung des Gesamtsystems.\n\n- Du stellst jederzeit die Sicherheit der Passagiere, anderen Verkehrsteilnehmenden sowie von Fussgängern und Tieren sicher.\n\n- Unseren mitfahrenden Kundinnen und Kunden stehst du als kompetente und professionelle Ansprechperson direkt im Fahrzeug zur Verfügung.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufslehre, ein abgeschlossenes Studium oder mehrjährige relevante Berufserfahrung.\n\n- Seit mindestens drei Jahren besitzt du einen gültigen Führerausweis der Kategorie B oder höher und bringst mindestens drei Jahre Fahrpraxis in der Schweiz mit. Vorzugsweise verfügst du zusätzlich über die Bewilligung zum berufsmässigen Personentransport (Ausbildung BPT 121), oder bist bereit, diese zu absolvieren.\n\n- Du besitzt ein ausgeprägtes Sicherheitsbewusstsein und hast einen einwandfreien Leumund vorzuweisen.\n\n- Du bist flexibel für Einsätze am Morgen, Nachmittag, Abend sowie an Wochenenden.\n\n- Es bereitet dir Freude, in einem innovativen, lernfreudigen und hochmotivierten Umfeld Pionierarbeit zu leisten.\n\n- Du verfügst über eine schnelle Auffassungsgabe, hohe Reaktionsfähigkeit sowie analytisch-technische Kompetenzen und überzeugst gleichzeitig durch Kundenorientierung, Verantwortungsbewusstsein, Teamfähigkeit und ein professionelles Auftreten.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und bringst gute Englischkenntnisse mit.\n\nDiese Position ist auf 12 Monate befristet.",
+        "fr": "Voulez-vous faire partie d'un projet d'innovation unique en Europe, écrire l'histoire de la mobilité et participer activement à l'avenir de la conduite autonome ? Chez AmiGo, vous accompagnez la dernière technologie de véhicule dans l'opération de test réel et assumez un rôle central de sécurité. Avec vous, la conduite autonome devient sûre, tangible et prête pour la mobilité de demain.\n\nTu peux le faire.\n\n- Dans cette position temporaire, vous accompagnez nos véhicules autonomes à 4 roues en service d'essai et surveillez en tout temps tous les processus de sécurité du véhicule.\n\n- Les dangers potentiels sont détectés à un stade précoce et, si nécessaire, interviennent de manière préventive ou active dans le système de contrôle du véhicule.\n\n- Vous effectuez des évaluations de sécurité continues et prenez le contrôle du véhicule immédiatement en cas d'urgence.\n\n- Tous les incidents, anomalies et observations sont documentés rapidement et électroniquement pour une optimisation continue du système global.\n\n- Vous assurez la sécurité des passagers, des autres participants à la circulation, des piétons et des animaux en tout temps.\n\n- Vous êtes à la disposition de nos clients en tant que personne de contact compétente et professionnelle directement dans le véhicule.\n\nApporte ça avec toi.\n\n- Vous disposez d'un apprentissage professionnel terminé, d'une étude terminée ou de plusieurs années d'expérience professionnelle pertinente.\n\n- Depuis au moins trois ans, vous avez un permis de conduire valide de catégorie B ou plus et avez au moins trois ans d'expérience en Suisse. De préférence, vous avez également le permis de transport professionnel de passagers (formation BPT 121), ou êtes prêt à le compléter.\n\n- Vous avez une forte conscience de la sécurité et une réputation impeccable.\n\n- Vous êtes flexible pour les opérations le matin, l'après-midi, le soir et le week-end.\n\n- Il vous donne le plaisir de devenir pionnier dans un environnement innovant, apprenant et très motivé.\n\n- Vous avez une compréhension rapide, une grande réactivité ainsi que des compétences analytiques-techniques et convaincre en même temps par l'orientation du client, la responsabilité, le travail d'équipe et une apparence professionnelle.\n\n- Vous communiquez verbalement et par écrit très bien en allemand et apportez de bonnes compétences en anglais.\n\nLe poste est limité dans le temps jusqu'au 28.02.2027."
+      },
+      "location": "Altstätten SG",
+      "canton": "AR",
+      "url": "https://job.post.ch/default/job/Safety-Driver-AmiGo/74292-de_DE",
+      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-28T12:02:06.523Z",
+      "addressLocality": "Altstätten SG",
+      "addressRegion": "AR",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Autisti / Conducenti",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti pubblici / Autobus",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-20",
+      "validThrough": "2026-08-11",
+      "pensum": "50-100%",
+      "applyUrl": "https://job.post.ch/default/job/Safety-Driver-AmiGo/74292-de_DE",
+      "jobReqId": "74292",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "safety-driver-amigo-postauto-altstatten-sg",
+        "driver-di-sicurezza-amigo-postauto-ag-altstatten-sg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "safety-driver-amigo-postauto-altstatten-sg",
+          "driver-di-sicurezza-amigo-postauto-ag-altstatten-sg"
+        ]
+      },
+      "firstSeenAt": "2026-07-20T12:51:59.916Z",
+      "needsRetranslation": true,
+      "salaryMin": 65000,
+      "salaryMax": 98500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 65000,
+          "maxValue": 98500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "postauto-9f6345c5106a",
+      "slug": "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf",
+      "slugByLocale": {
+        "it": "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf",
+        "en": "customer-manager-in-fleet-management-business-customers-die-schweizerische-post-moosseedorf",
+        "de": "kundenbetreuer-in-flottenmanagement-geschaftskunden-post",
+        "fr": "client-manager-dans-la-gestion-du-parc-de-vehicules-die-schweizerische-post-moosseedorf"
+      },
+      "company": "PostAuto AG",
+      "companyKey": "postauto",
+      "companyDomain": "postauto.ch",
+      "title": "Kundenbetreuer:in Flottenmanagement Geschäftskunden",
+      "titleByLocale": {
+        "it": "Customer Manager: nella gestione della flotta",
+        "en": "Customer Manager: in fleet management Business customers",
+        "de": "Kundenbetreuer:in Flottenmanagement Geschäftskunden",
+        "fr": "Client Manager: dans la gestion du parc de véhicules"
+      },
+      "description": "Als Teil von Post Company Cars stellst du sicher, dass unser Flottenmanagement reibungslos funktioniert und Fahrzeuge, Prozesse und Daten zuverlässig zusammenlaufen.\n\nMit dir können unsere Geschäftskunden jederzeit auf einen professionellen Service zählen!\n\nDas kannst du bewirken\n\n- Du bist die erste Ansprechperson (First-Level-Support) für unsere Geschäftskunden (Post und/oder Drittfirmen) und stellst eine umfassende Betreuung sicher.\n\n- Telefonische und schriftliche Kundenanfragen beantwortest du in Deutsch, Französisch und Englisch kompetent und lösungsorientiert.\n\n- Du bist für die In- und Ausserverkehrssetzung der zugeteilten Geschäftsfahrzeuge sowie die Qualität der Fahrzeugdaten verantwortlich.\n\n- Transport-, Abliefer-, Fahrzeugwechsel- und Rücknahmeprozesse steuerst du mit Partnergaragen, koordinierst Mietfahrzeuge und stellst eine termingerechte Abwicklung sicher.\n\n- Du stellst sicher, dass alle erforderlichen Dokumente fristgerecht und vollständig vorliegen, und trägst dazu bei, dass unsere Daten und Flotteninformationen stets aktuell sind.\n\n- Mit Versicherungen und Strassenverkehrsämtern arbeitest du zusammen, bestellst Tankkarten und Versicherungsnachweise und kümmerst dich um die Fakturierungen.\n\nDas bringst du mit\n\n- Du verfügst über eine kaufmännische Ausbildung und bringst Erfahrung aus der Automobilbranche oder dem Mobilitätsumfeld mit.\n\n- Erfahrung in der Kundenbetreuung, in der Disposition oder in einer vergleichbaren Funktion erleichtert dir den Einstieg.\n\n- Du arbeitest selbstständig, bist verantwortungsbewusst und überzeugst durch deine organisatorischen und koordinativen Fähigkeiten.\n\n- Hohe Kundenorientierung, Belastbarkeit sowie eine lösungsorientierte Arbeitsweise zeichnen dich aus.\n\n- Du bist versiert im Umgang mit MS Office, hast eine hohe IT-Affinität und legst Wert auf Genauigkeit und Qualität.\n\n- Sehr gute mündliche und schriftliche Deutschkenntnisse sowie gute mündliche Französischkenntnisse (mindestens Niveau B2) runden dein Profil ab.",
+      "descriptionByLocale": {
+        "it": "Come parte di Post Company Cars, vi assicurerete che la nostra gestione della flotta funzioni senza problemi e veicoli, processi e dati convergono in modo affidabile.\n\nCon voi, i nostri clienti business possono sempre contare su un servizio professionale!\n\nPuoi farlo.\n\n- Sei la prima persona di contatto (supporto di primo livello) per i nostri clienti aziendali (società postali e/o terze parti) e garantire un supporto completo.\n\n- Le richieste dei clienti telefonici e scritte sono soddisfatte con competenza e orientate alla soluzione in tedesco, francese e inglese.\n\n- L'utente è responsabile dell'ingresso e dell'uscita dei veicoli commerciali assegnati e della qualità dei dati del veicolo.\n\n- Trasporti, consegna, cambio veicolo e processi di ritorno si controlla con i garage partner, coordinare veicoli a noleggio e garantire la lavorazione tempestiva.\n\n- Assicurarsi che tutti i documenti richiesti siano disponibili in tempo e in pieno, e contribuire a garantire che i nostri dati e le informazioni della flotta siano sempre aggiornati.\n\n- Lavora con compagnie di assicurazione e uffici di trasporto su strada, carte di carburante ordine e certificati di assicurazione e prendersi cura della fatturazione.\n\nLo porti con te.\n\n- Avete una formazione commerciale e portare esperienza dal settore automobilistico o l'ambiente di mobilità.\n\n- L'esperienza nell'assistenza clienti, nella pianificazione o in una funzione simile rende più facile per voi iniziare.\n\n- Si lavora indipendentemente, sono responsabili e convincere attraverso le vostre capacità organizzative e di coordinamento.\n\n- L'alto orientamento del cliente, la resilienza e un metodo di lavoro orientato alla soluzione vi caratterizzano.\n\n- Sei esperto nel trattare con MS Office, avere un'alta affinità IT e attribuire importanza alla precisione e alla qualità.\n\n- Molto buone capacità orali e scritte tedesche, così come buone abilità orale francese (almeno livello B2) arrotondare il vostro profilo.",
+        "en": "As part of Post Company Cars, you will ensure that our fleet management functions smoothly and vehicles, processes and data converge reliably.\n\nWith you, our business customers can always count on a professional service!\n\nYou can do that.\n\n- You are the first contact person (first-level support) for our business customers (postal and/or third-party companies) and ensure comprehensive support.\n\n- Telephone and written customer inquiries are answered competently and solution-oriented in German, French and English.\n\n- You are responsible for entering and leaving the assigned business vehicles as well as the quality of the vehicle data.\n\n- Transport, delivery, vehicle change and return processes you control with partner garages, coordinate rental vehicles and ensure timely processing.\n\n- Ensure that all required documents are available on time and in full, and help ensure that our data and fleet information is always up-to-date.\n\n- You work with insurance companies and road transport offices, order fuel cards and insurance certificates and take care of the billing.\n\nYou bring that with you\n\n- You have a commercial education and bring experience from the automotive industry or the mobility environment.\n\n- Experience in customer support, scheduling or in a comparable function makes it easier for you to get started.\n\n- You work independently, are responsible and convince through your organizational and coordination skills.\n\n- High customer orientation, resilience and a solution-oriented working method characterize you.\n\n- You are experienced in dealing with MS Office, have a high IT affinity and attach importance to accuracy and quality.\n\n- Very good oral and written German skills as well as good oral French skills (at least level B2) round off your profile.",
+        "de": "Als Teil von Post Company Cars stellst du sicher, dass unser Flottenmanagement reibungslos funktioniert und Fahrzeuge, Prozesse und Daten zuverlässig zusammenlaufen.\n\nMit dir können unsere Geschäftskunden jederzeit auf einen professionellen Service zählen!\n\nDas kannst du bewirken\n\n- Du bist die erste Ansprechperson (First-Level-Support) für unsere Geschäftskunden (Post und/oder Drittfirmen) und stellst eine umfassende Betreuung sicher.\n\n- Telefonische und schriftliche Kundenanfragen beantwortest du in Deutsch, Französisch und Englisch kompetent und lösungsorientiert.\n\n- Du bist für die In- und Ausserverkehrssetzung der zugeteilten Geschäftsfahrzeuge sowie die Qualität der Fahrzeugdaten verantwortlich.\n\n- Transport-, Abliefer-, Fahrzeugwechsel- und Rücknahmeprozesse steuerst du mit Partnergaragen, koordinierst Mietfahrzeuge und stellst eine termingerechte Abwicklung sicher.\n\n- Du stellst sicher, dass alle erforderlichen Dokumente fristgerecht und vollständig vorliegen, und trägst dazu bei, dass unsere Daten und Flotteninformationen stets aktuell sind.\n\n- Mit Versicherungen und Strassenverkehrsämtern arbeitest du zusammen, bestellst Tankkarten und Versicherungsnachweise und kümmerst dich um die Fakturierungen.\n\nDas bringst du mit\n\n- Du verfügst über eine kaufmännische Ausbildung und bringst Erfahrung aus der Automobilbranche oder dem Mobilitätsumfeld mit.\n\n- Erfahrung in der Kundenbetreuung, in der Disposition oder in einer vergleichbaren Funktion erleichtert dir den Einstieg.\n\n- Du arbeitest selbstständig, bist verantwortungsbewusst und überzeugst durch deine organisatorischen und koordinativen Fähigkeiten.\n\n- Hohe Kundenorientierung, Belastbarkeit sowie eine lösungsorientierte Arbeitsweise zeichnen dich aus.\n\n- Du bist versiert im Umgang mit MS Office, hast eine hohe IT-Affinität und legst Wert auf Genauigkeit und Qualität.\n\n- Sehr gute mündliche und schriftliche Deutschkenntnisse sowie gute mündliche Französischkenntnisse (mindestens Niveau B2) runden dein Profil ab.",
+        "fr": "Dans le cadre de Post Company Cars, vous vous assurerez que notre gestion de parc fonctionne en douceur et que les véhicules, les processus et les données convergent de manière fiable.\n\nAvec vous, nos clients professionnels peuvent toujours compter sur un service professionnel!\n\nTu peux le faire.\n\n- Vous êtes la première personne de contact (assistance de premier niveau) pour nos clients d'affaires (entreprises postales et/ou tierces) et assurer un soutien complet.\n\n- Les demandes téléphoniques et écrites des clients sont répondues de manière compétente et orientées vers la solution en allemand, en français et en anglais.\n\n- Vous êtes responsable de l'entrée et de la sortie des véhicules d'affaires ainsi que de la qualité des données du véhicule.\n\n- Les processus de transport, de livraison, de changement de véhicule et de retour que vous contrôlez avec les garages partenaires, coordonnent les véhicules de location et assurent le traitement en temps opportun.\n\n- S'assurer que tous les documents requis sont disponibles à temps et en totalité et contribuer à ce que nos données et nos renseignements sur le parc soient toujours à jour.\n\n- Vous travaillez avec les compagnies d'assurance et les bureaux de transport routier, commandez des cartes de carburant et des certificats d'assurance et prenez soin de la facturation.\n\nApporte ça avec toi.\n\n- Vous avez une formation commerciale et apportez de l'expérience de l'industrie automobile ou de l'environnement de mobilité.\n\n- L'expérience du support client, de la programmation ou d'une fonction comparable vous facilite le démarrage.\n\n- Vous travaillez de manière indépendante, êtes responsable et convainquez grâce à vos compétences organisationnelles et de coordination.\n\n- Une orientation client élevée, une résilience et une méthode de travail orientée vers la solution vous caractérisent.\n\n- Vous avez l'expérience de traiter avec MS Office, avez une grande affinité informatique et attachez de l'importance à la précision et à la qualité.\n\n- De très bonnes compétences orales et écrites en allemand ainsi que de bonnes compétences orales en français (au moins niveau B2) complètent votre profil."
+      },
+      "location": "Moosseedorf",
+      "canton": "BE",
+      "url": "https://job.post.ch/default/job/Kundenbetreuerin-Flottenmanagement-Gesch%C3%A4ftskunden/74191-de_DE",
+      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-28T12:02:05.331Z",
+      "addressLocality": "Moosseedorf",
+      "addressRegion": "BE",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Assistenza clienti",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti pubblici / Autobus",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-01",
+      "validThrough": "2026-08-11",
+      "pensum": "80-100%",
+      "applyUrl": "https://job.post.ch/default/job/Kundenbetreuerin-Flottenmanagement-Gesch%C3%A4ftskunden/74191-de_DE",
+      "jobReqId": "74191",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-post"
+        ],
+        "it": [
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
+          "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
+        "kundenbetreuer-in-flottenmanagement-geschaftskunden-post",
+        "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf"
+      ],
+      "firstSeenAt": "2026-07-14T22:07:15.144Z",
+      "needsRetranslation": true,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "postauto-db0b7fe4d307",
+      "slug": "team-leader-nel-personale-di-guida-postauto-ag-weinfelden",
+      "slugByLocale": {
+        "it": "team-leader-nel-personale-di-guida-postauto-ag-weinfelden",
+        "en": "team-leader-in-driving-personnel-postauto-ag-weinfelden",
+        "de": "teamleiter-in-fahrpersonal-postauto-weinfelden",
+        "fr": "chef-d-equipe-dans-le-personnel-de-conduite-postauto-ag-weinfelden"
+      },
+      "company": "PostAuto AG",
+      "companyKey": "postauto",
+      "companyDomain": "postauto.ch",
+      "title": "Teamleiter:in Fahrpersonal",
+      "titleByLocale": {
+        "it": "Team leader: nel personale di guida",
+        "en": "Team leader: in driving personnel",
+        "de": "Teamleiter:in Fahrpersonal",
+        "fr": "Chef d'équipe: dans le personnel de conduite"
+      },
+      "description": "Möchtest du die strategischen Führungsziele mitgestalten und die Weiterentwicklung von PostAuto aktiv vorantreiben? In dieser vielfältigen Rolle führst und entwickelst du dein Fahrpersonal, stellst einen reibungslosen Fahrdienst sicher und koordinierst Anpassungen im Haltestellen- und Baustellenmanagement. PostAuto stellt seine Flotte bis 2035 auf elektrische Antriebe um. Mit deinem Beitrag und deiner vollen Überzeugung trägst du entscheidend dazu bei, dass diese Transformation gelingt.\n\nDas kannst du bewirken\n\n- Du führst, motivierst und entwickelst dein Fahrpersonal, sorgst für ein positives Arbeitsumfeld und stärkst die Leistungsfähigkeit sowie Einsatzbereitschaft deines Teams durch regelmässige Einzelgespräche und Teambesprechungen.\n\n- Du stellst sicher, dass die Personalressourcen für den Fahrdienst termingerecht und in hoher Qualität bereitgestellt werden. Deine Mitarbeitenden begleitest du über den gesamten HR-Lifecycle hinweg – von der Rekrutierung und Einführung über die individuelle Weiterentwicklung bis hin zum Austritt. Auch in herausfordernden Situationen wie Krankheit oder Ausfällen stehst du ihnen unterstützend zur Seite. Relevante Kennzahlen wie Absenzen, Fluktuation und Zeitsaldi hast du stets im Blick und leitest daraus Optimierungsmassnahmen ab.\n\n- Du verantwortest das Funktionieren des Betriebs vor Ort und sorgst für einen reibungslosen Ablauf. Bei Bedarf intervenierst du bei der Leitstelle, deiner Ansprechperson in der Personaldisposition und Betriebsplanung sowie im operativen Flottenmanagement, um eine effiziente und koordinierte Betriebsführung sicherzustellen.\n\n- Du planst und koordinierst Massnahmen im Haltestellen- und Baustellenmanagement, berücksichtigst Umleitungen und Haltestellenänderungen, arbeitest mit internen und externen Partnerinnen und Partnern zusammen und führst das Haltestellenmanagementsystem. Neben deinen Führungsaufgaben übernimmst du selbst Fahrdienste, sei es fix eingeplant oder zur Überbrückung von Engpässen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufsausbildung (EFZ) und hast eine Weiterbildung als Führungsfachfrau oder Führungsfachmann mit eidg. Fachausweis oder eine vergleichbare Qualifikation abgeschlossen – oder bist bereit, diese in naher Zukunft zu absolvieren. Führungserfahrung ist ein Plus – aber kein Muss! Wichtig ist uns dein Engagement und deine Bereitschaft, dich in der Führung weiterzuentwickeln.\n\n- Du bringst Erfahrung in Infrastrukturaufgaben (baulich, betrieblich, prozessual) mit und hast ein gutes Verständnis für Sicherheitsaspekte im öffentlichen Raum. Mit deinen Kommunikationsfähigkeiten bringst du Menschen zusammen, führst Dialoge auf Augenhöhe und findest auch in schwierigen Situationen tragfähige Lösungen.\n\n- Du bist konfliktfähig und trittst in Verhandlungen sowie Gesprächen mit Mitarbeitenden, Vorgesetzten, Vertreter:innen der PEKO und/oder Sozialpartner:innen stets professionell und souverän auf.\n\n- Du verfügst über den Führerausweis der Kategorie D oder bist bereit, diesen zu erlangen.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
+      "descriptionByLocale": {
+        "it": "Vuoi contribuire a plasmare gli obiettivi strategici di leadership e promuovere attivamente l'ulteriore sviluppo di PostBus? In questo ruolo diverso, guiderai e svilupperai il tuo personale di guida, garantirai un servizio di guida fluido e coordina le regolazioni nella gestione dei siti di arresto e costruzione. PostBus commuta la sua flotta a unità elettriche entro il 2035. Con il vostro contributo e la vostra piena convinzione, apportate un contributo decisivo al successo di questa trasformazione.\n\nPuoi farlo.\n\n- Guidare, motivare e sviluppare il personale di guida, garantire un ambiente di lavoro positivo e rafforzare le prestazioni e l'impegno del vostro team attraverso regolari incontri one-on-one e riunioni di squadra.\n\n- Assicurarsi che le risorse del personale del servizio di guida sono fornite in tempo e in alta qualità. Accompagnate i vostri dipendenti in tutto il ciclo di vita delle risorse umane – dal reclutamento e dall'introduzione allo sviluppo individuale e all'uscita. Anche in situazioni difficili come malattie o guasti, li supporta. Hai sempre un occhio sulle cifre chiave rilevanti come assenze, fluttuazioni e bilanciamento del tempo e derivano misure di ottimizzazione da loro.\n\n- Sei responsabile del funzionamento dell'operazione sul sito e assicurarsi che funzioni senza problemi. Se necessario, interverrete con il centro di controllo, il vostro referente nella pianificazione del personale e nella gestione operativa della flotta per garantire una gestione operativa efficiente e coordinata.\n\n- Pianifichi e coordina le misure nella gestione dei siti di arresto e costruzione, consideri le diversificazioni e le modifiche di arresto, lavori con partner interni ed esterni e gestisci il sistema di gestione degli arresti. Oltre ai vostri compiti di gestione, si prende su servizi di guida da soli, se è pianificato o ponte colli di bottiglia.\n\nLo porti con te.\n\n- Ha una formazione professionale completa (EFZ) e ha un'ulteriore formazione come manager o manager con la legge federale. Completato un certificato professionale o una qualifica paragonabile – o sono pronti a completarlo nel prossimo futuro. L'esperienza di leadership è un plus – ma non un must! Ciò che è importante per noi è il vostro impegno e la vostra volontà di sviluppare ulteriormente nella leadership.\n\n- Porti esperienza nei compiti infrastrutturali (costruttivi, operativi, procedurali) e hai una buona comprensione degli aspetti di sicurezza negli spazi pubblici. Con le vostre capacità di comunicazione, riunite le persone, dialogate a livello degli occhi e trovate soluzioni valide anche in situazioni difficili.\n\n- Siete in grado di contrastare e agire sempre professionalmente e sovranamente nei negoziati e nelle discussioni con dipendenti, superiori, rappresentanti di PEKO e/o partner sociali.\n\n- Avete una patente di guida di categoria D o siete pronti ad ottenerla.\n\n- Si comunica molto bene per via orale e per iscritto in tedesco e avere buone conoscenze (orali) in una seconda lingua nazionale.",
+        "en": "Do you want to help shape the strategic leadership goals and actively promote the further development of PostBus? In this diverse role, you will lead and develop your driving staff, ensure a smooth driving service and coordinate adjustments in stop and construction site management. PostBus will switch its fleet to electric drives by 2035. With your contribution and your full conviction, you make a decisive contribution to the success of this transformation.\n\nYou can do that.\n\n- You lead, motivate and develop your driving staff, ensure a positive working environment and strengthen the performance and commitment of your team through regular one-on-one meetings and team meetings.\n\n- You ensure that the driving service personnel resources are provided on time and in high quality. You accompany your employees throughout the entire HR lifecycle – from recruitment and introduction to individual development and exit. Even in challenging situations such as illness or failures, you support them. You always have an eye on relevant key figures such as absences, fluctuations and time balance and derive optimization measures from them.\n\n- You are responsible for the functioning of the operation on site and ensure that it runs smoothly. If necessary, you will intervene with the control centre, your contact person in personnel planning and operational fleet management to ensure efficient and coordinated operational management.\n\n- You plan and coordinate measures in stop and construction site management, consider diversions and stop changes, work with internal and external partners and manage the stop management system. In addition to your management tasks, you take on driving services yourself, whether it is planned or to bridge bottlenecks.\n\nYou bring that with you\n\n- You have a completed vocational training (EFZ) and have a further education as a manager or manager with federal law. Completed a professional certificate or a comparable qualification – or are ready to complete it in the near future. Leadership experience is a plus – but not a must! What is important to us is your commitment and your willingness to develop further in leadership.\n\n- You bring experience in infrastructure tasks (constructional, operational, procedural) and have a good understanding of security aspects in public spaces. With your communication skills, you bring people together, engage in dialogue at eye level and find viable solutions even in difficult situations.\n\n- You are capable of conflict and always act professionally and sovereignly in negotiations and discussions with employees, superiors, representatives of PEKO and/or social partners.\n\n- You have a category D driving licence or are ready to obtain it.\n\n- You communicate very well orally and in writing in German and have good (oral) knowledge in a second national language.",
+        "de": "Möchtest du die strategischen Führungsziele mitgestalten und die Weiterentwicklung von PostAuto aktiv vorantreiben? In dieser vielfältigen Rolle führst und entwickelst du dein Fahrpersonal, stellst einen reibungslosen Fahrdienst sicher und koordinierst Anpassungen im Haltestellen- und Baustellenmanagement. PostAuto stellt seine Flotte bis 2035 auf elektrische Antriebe um. Mit deinem Beitrag und deiner vollen Überzeugung trägst du entscheidend dazu bei, dass diese Transformation gelingt.\n\nDas kannst du bewirken\n\n- Du führst, motivierst und entwickelst dein Fahrpersonal, sorgst für ein positives Arbeitsumfeld und stärkst die Leistungsfähigkeit sowie Einsatzbereitschaft deines Teams durch regelmässige Einzelgespräche und Teambesprechungen.\n\n- Du stellst sicher, dass die Personalressourcen für den Fahrdienst termingerecht und in hoher Qualität bereitgestellt werden. Deine Mitarbeitenden begleitest du über den gesamten HR-Lifecycle hinweg – von der Rekrutierung und Einführung über die individuelle Weiterentwicklung bis hin zum Austritt. Auch in herausfordernden Situationen wie Krankheit oder Ausfällen stehst du ihnen unterstützend zur Seite. Relevante Kennzahlen wie Absenzen, Fluktuation und Zeitsaldi hast du stets im Blick und leitest daraus Optimierungsmassnahmen ab.\n\n- Du verantwortest das Funktionieren des Betriebs vor Ort und sorgst für einen reibungslosen Ablauf. Bei Bedarf intervenierst du bei der Leitstelle, deiner Ansprechperson in der Personaldisposition und Betriebsplanung sowie im operativen Flottenmanagement, um eine effiziente und koordinierte Betriebsführung sicherzustellen.\n\n- Du planst und koordinierst Massnahmen im Haltestellen- und Baustellenmanagement, berücksichtigst Umleitungen und Haltestellenänderungen, arbeitest mit internen und externen Partnerinnen und Partnern zusammen und führst das Haltestellenmanagementsystem. Neben deinen Führungsaufgaben übernimmst du selbst Fahrdienste, sei es fix eingeplant oder zur Überbrückung von Engpässen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufsausbildung (EFZ) und hast eine Weiterbildung als Führungsfachfrau oder Führungsfachmann mit eidg. Fachausweis oder eine vergleichbare Qualifikation abgeschlossen – oder bist bereit, diese in naher Zukunft zu absolvieren. Führungserfahrung ist ein Plus – aber kein Muss! Wichtig ist uns dein Engagement und deine Bereitschaft, dich in der Führung weiterzuentwickeln.\n\n- Du bringst Erfahrung in Infrastrukturaufgaben (baulich, betrieblich, prozessual) mit und hast ein gutes Verständnis für Sicherheitsaspekte im öffentlichen Raum. Mit deinen Kommunikationsfähigkeiten bringst du Menschen zusammen, führst Dialoge auf Augenhöhe und findest auch in schwierigen Situationen tragfähige Lösungen.\n\n- Du bist konfliktfähig und trittst in Verhandlungen sowie Gesprächen mit Mitarbeitenden, Vorgesetzten, Vertreter:innen der PEKO und/oder Sozialpartner:innen stets professionell und souverän auf.\n\n- Du verfügst über den Führerausweis der Kategorie D oder bist bereit, diesen zu erlangen.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
+        "fr": "Voulez-vous aider à façonner les objectifs stratégiques de leadership et promouvoir activement le développement de PostBus? Dans ce rôle diversifié, vous dirigerez et développerez votre personnel de conduite, assurerez un service de conduite en douceur et coordonnerez les ajustements dans la gestion des arrêts et des chantiers de construction. PostBus changera sa flotte en entraînements électriques d'ici 2035. Avec votre contribution et votre conviction, vous contribuez de manière décisive au succès de cette transformation.\n\nTu peux le faire.\n\n- Vous dirigez, motivez et développez votre personnel de conduite, assurez un environnement de travail positif et renforcez le rendement et l'engagement de votre équipe au moyen de réunions individuelles et de réunions d'équipe régulières.\n\n- Vous assurez que les ressources en personnel du service de conduite sont fournies à temps et en haute qualité. Vous accompagnez vos employés tout au long du cycle de vie des RH – du recrutement et de l'introduction au développement individuel et à la sortie. Même dans des situations difficiles comme la maladie ou les échecs, vous les soutenez. Vous avez toujours un œil sur les chiffres clés pertinents tels que les absences, les fluctuations et l'équilibre du temps et de dériver des mesures d'optimisation d'eux.\n\n- Vous êtes responsable du fonctionnement de l'opération sur place et vous assurez qu'elle fonctionne bien. Si nécessaire, vous interviendrez avec le centre de contrôle, votre personne-ressource dans la planification du personnel et la gestion opérationnelle de la flotte pour assurer une gestion opérationnelle efficace et coordonnée.\n\n- Vous planifiez et coordonnez les mesures de gestion des arrêts et des chantiers, envisagez les détournements et arrêtez les changements, travaillez avec des partenaires internes et externes et gérez le système de gestion des arrêts. En plus de vos tâches de gestion, vous prenez vous-même les services de conduite, qu'il soit prévu ou de combler les goulets d'étranglement.\n\nApporte ça avec toi.\n\n- Vous avez une formation professionnelle terminée (EFZ) et avez une formation complémentaire en tant que gestionnaire ou gestionnaire en droit fédéral. A complété un certificat professionnel ou une qualification comparable – ou sont prêts à le compléter dans un proche avenir. L'expérience de leadership est un plus – mais pas un must! Ce qui est important pour nous, c'est votre engagement et votre volonté de développer davantage votre leadership.\n\n- Vous apportez de l'expérience dans les tâches d'infrastructure (construction, fonctionnement, procédure) et avez une bonne compréhension des aspects de sécurité dans les espaces publics. Avec vos compétences en communication, vous rassemblez les gens, vous engagez dans le dialogue au niveau des yeux et trouvez des solutions viables même dans des situations difficiles.\n\n- Vous êtes capable de conflit et agissez toujours de façon professionnelle et souveraine dans les négociations et les discussions avec les employés, les supérieurs, les représentants de PEKO et/ou les partenaires sociaux.\n\n- Vous avez un permis de conduire de catégorie D ou êtes prêt à l'obtenir.\n\n- Vous communiquez très bien oralement et par écrit en allemand et avez une bonne connaissance (orale) dans une deuxième langue nationale."
+      },
+      "location": "Weinfelden",
+      "canton": "TG",
+      "url": "https://job.post.ch/default/job/Teamleiterin-Fahrpersonal/74343-de_DE",
+      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-28T12:02:04.080Z",
+      "addressLocality": "Weinfelden",
+      "addressRegion": "TG",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti pubblici / Autobus",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-21",
+      "validThrough": "2026-08-20",
+      "pensum": "80-100%",
+      "applyUrl": "https://job.post.ch/default/job/Teamleiterin-Fahrpersonal/74343-de_DE",
+      "jobReqId": "74343",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "teamleiter-in-fahrpersonal-postauto-weinfelden",
+        "team-leader-nel-personale-di-guida-postauto-ag-weinfelden"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-fahrpersonal-postauto-weinfelden",
+          "team-leader-nel-personale-di-guida-postauto-ag-weinfelden"
+        ],
+        "en": [
+          "teamleiter-in-fahrpersonal-postauto-weinfelden"
+        ],
+        "fr": [
+          "teamleiter-in-fahrpersonal-postauto-weinfelden"
+        ]
+      },
+      "firstSeenAt": "2026-07-21T12:32:36.958Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "postauto-e542d1622bec",
+      "slug": "postbus-driver-in-postauto-ag-appenzell",
+      "slugByLocale": {
+        "it": "postbus-driver-in-postauto-ag-appenzell",
+        "en": "postbus-driver-in-postauto-ag-appenzell",
+        "de": "postauto-fahrer-in-postauto-appenzell",
+        "fr": "pilote-postbus-in-postauto-ag-appenzell"
+      },
+      "company": "PostAuto AG",
+      "companyKey": "postauto",
+      "companyDomain": "postauto.ch",
+      "title": "PostAuto-Fahrer:in",
+      "titleByLocale": {
+        "it": "PostBus driver:in",
+        "en": "PostBus driver:in",
+        "de": "PostAuto-Fahrer:in",
+        "fr": "Pilote PostBus:in"
+      },
+      "description": "Möchtest du ganz vorne links Platz nehmen und als PostAuto-Fahrer:in bei uns einsteigen? Bringst du eine Qualifikation zum Busfahren mit? Dann bist du genau richtig bei uns, denn mit dir am Steuer kommen unsere Fahrgäste pünktlich und sicher ans Ziel.\n\nDas kannst du bewirken\n\n- Auf unseren abwechslungsreichen regionalen Linien bringst du unsere Fahrgäste von Montag bis Sonntag an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Der tägliche Kontakt mit deinen Fahrgästen bereichert deinen Alltag mit spannenden Begegnungen und du schaffst positive Erlebnisse für unsere Kundschaft.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug auf der Strasse. Im direkten Kundenkontakt erlebst du jeden Tag neue und abwechslungsreiche Situationen.\n\nDas bringst du mit\n\n- Du verfügst über Fahrpraxis im Personentransport und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Für diese Stelle benötigst du einen Führerausweis der Kategorie D und einen gültigen Fahrerqualifizierungsnachweis.\n\n- Zuverlässigkeit und Freude am täglichen Kundenkontakt gehören zu deinen Stärken.\n\n- Du verfügst über gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
+      "descriptionByLocale": {
+        "it": "Vuoi sederti davanti a sinistra e unirti a noi come autista PostBus? Porti una qualifica per la guida degli autobus? Allora siete esattamente con noi, perché con voi al volante i nostri passeggeri arrivano in tempo e in modo sicuro alla loro destinazione.\n\nPuoi farlo.\n\n- Nelle nostre varie linee regionali porti i nostri passeggeri a destinazione da lunedì a domenica.\n\n- Lei è l'ospite: nei nostri autobus postali e consiglia i nostri clienti su questioni tariffarie e orari.\n\n- Il contatto quotidiano con i vostri passeggeri arricchisce la vostra vita quotidiana con incontri emozionanti e crei esperienze positive per i nostri clienti.\n\n- Come autista: ti muovi molto di più del tuo veicolo sulla strada. In contatto diretto con il cliente, si verificano situazioni nuove e varie ogni giorno.\n\nLo porti con te.\n\n- Avete pratica di guida nel trasporto passeggeri e godere della varietà che ore di lavoro irregolari (comprese le domeniche e le festività pubbliche) portare con loro.\n\n- Per questo lavoro, è necessario una licenza del driver di categoria D e un certificato di qualifica del conducente valido.\n\n- Affidabilità e godimento del contatto quotidiano del cliente sono tra i vostri punti di forza.\n\n- Hai una buona conoscenza del tedesco e sono ben versi nell'uso di dispositivi digitali.",
+        "en": "Would you like to sit at the front left and join us as a PostBus driver? Do you bring a qualification for bus driving? Then you are exactly right with us, because with you at the wheel our passengers arrive on time and safely to their destination.\n\nYou can do that.\n\n- On our varied regional lines you bring our passengers to their destination from Monday to Sunday.\n\n- You are the host: in our post buses and advise our customers on tariff and timetable issues.\n\n- The daily contact with your passengers enriches your everyday life with exciting encounters and you create positive experiences for our customers.\n\n- As a driver: you move much more than just your vehicle on the road. In direct customer contact, you experience new and varied situations every day.\n\nYou bring that with you\n\n- You have driving practice in passenger transport and enjoy the variety that irregular working hours (including Sundays and public holidays) bring with them.\n\n- For this job, you need a category D driver’s license and a valid driver qualification certificate.\n\n- Reliability and enjoyment of daily customer contact are among your strengths.\n\n- You have a good knowledge of German and are well versed in using digital devices.",
+        "de": "Möchtest du ganz vorne links Platz nehmen und als PostAuto-Fahrer:in bei uns einsteigen? Bringst du eine Qualifikation zum Busfahren mit? Dann bist du genau richtig bei uns, denn mit dir am Steuer kommen unsere Fahrgäste pünktlich und sicher ans Ziel.\n\nDas kannst du bewirken\n\n- Auf unseren abwechslungsreichen regionalen Linien bringst du unsere Fahrgäste von Montag bis Sonntag an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Der tägliche Kontakt mit deinen Fahrgästen bereichert deinen Alltag mit spannenden Begegnungen und du schaffst positive Erlebnisse für unsere Kundschaft.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug auf der Strasse. Im direkten Kundenkontakt erlebst du jeden Tag neue und abwechslungsreiche Situationen.\n\nDas bringst du mit\n\n- Du verfügst über Fahrpraxis im Personentransport und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Für diese Stelle benötigst du einen Führerausweis der Kategorie D und einen gültigen Fahrerqualifizierungsnachweis.\n\n- Zuverlässigkeit und Freude am täglichen Kundenkontakt gehören zu deinen Stärken.\n\n- Du verfügst über gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
+        "fr": "Voulez-vous vous asseoir à l'avant à gauche et nous rejoindre en tant que pilote PostBus ? Apportez-vous une qualification pour la conduite en autobus ? Ensuite, vous avez exactement raison avec nous, car avec vous au volant nos passagers arrivent à temps et en toute sécurité à leur destination.\n\nTu peux le faire.\n\n- Sur nos lignes régionales variées, vous apportez nos passagers à leur destination du lundi au dimanche.\n\n- Vous êtes l'hôte: dans nos bus postaux et conseillez nos clients sur les questions de tarif et d'horaire.\n\n- Le contact quotidien avec vos passagers enrichit votre vie quotidienne de rencontres passionnantes et vous créez des expériences positives pour nos clients.\n\n- En tant que conducteur, vous déplacez beaucoup plus que votre véhicule sur la route. En contact direct avec le client, vous ressentez des situations nouvelles et variées chaque jour.\n\nApporte ça avec toi.\n\n- Vous pratiquez la conduite dans le transport de passagers et profitez de la variété que les horaires de travail irréguliers (y compris le dimanche et les jours fériés) apportent avec eux.\n\n- Pour ce travail, vous avez besoin d'un permis de conduire de catégorie D et d'un certificat de qualification de conducteur valide.\n\n- Fiabilité et plaisir du contact quotidien avec le client sont parmi vos points forts.\n\n- Vous avez une bonne connaissance de l'allemand et vous connaissez bien l'utilisation des appareils numériques."
+      },
+      "location": "Appenzell",
+      "canton": "AI",
+      "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74357-de_DE",
+      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-28T12:02:02.921Z",
+      "addressLocality": "Appenzell",
+      "addressRegion": "AI",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Autisti / Conducenti",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti pubblici / Autobus",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-21",
+      "validThrough": "2026-08-20",
+      "pensum": "60-100%",
+      "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/74357-de_DE",
+      "jobReqId": "74357",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "postauto-fahrer-in-postauto-appenzell",
+        "postbus-driver-in-postauto-ag-appenzell"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "postauto-fahrer-in-postauto-appenzell",
+          "postbus-driver-in-postauto-ag-appenzell"
+        ],
+        "en": [
+          "postauto-fahrer-in-postauto-appenzell"
+        ],
+        "fr": [
+          "postauto-fahrer-in-postauto-appenzell"
+        ]
+      },
+      "firstSeenAt": "2026-07-21T12:32:34.703Z",
+      "needsRetranslation": true,
+      "salaryMin": 65000,
+      "salaryMax": 98500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 65000,
+          "maxValue": 98500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "postauto-e3f91bb1e72b",
+      "slug": "key-account-manager-in-business-clienti-svizzera-orientale-postauto-ag-st-gallen",
+      "slugByLocale": {
+        "it": "key-account-manager-in-business-clienti-svizzera-orientale-postauto-ag-st-gallen",
+        "en": "key-account-manager-in-business-customers-eastern-switzerland-postauto-ag-st-gallen",
+        "de": "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen",
+        "fr": "key-account-manager-dans-les-clients-d-affaires-de-suisse-orientale-postauto-ag-st-gallen"
+      },
+      "company": "PostAuto AG",
+      "companyKey": "postauto",
+      "companyDomain": "postauto.ch",
+      "title": "Key Account Manager:in Geschäftskunden Ostschweiz",
+      "titleByLocale": {
+        "it": "Key Account Manager: in Business Clienti Svizzera Orientale",
+        "en": "Key Account Manager: in Business Customers Eastern Switzerland",
+        "de": "Key Account Manager:in Geschäftskunden Ostschweiz",
+        "fr": "Key Account Manager: dans les clients d'affaires de Suisse orientale"
+      },
+      "description": "Interessierst du dich für Mobilität und den Aufbau sowie die Pflege von strategischen Kundenbeziehungen auf höchstem Niveau? Begeisterst du dich dafür, komplexe Kundenbedürfnisse zu verstehen und passende Lösungen zu entwickeln? In dieser Rolle verantwortest du die Weiterentwicklung unserer Kunden in der Region Ostschweiz und gestaltest aktiv nachhaltige Mobilitätslösungen. Mit dir stärken wir unsere Kundenbindung und erschliessen neue Potenziale.\n\nDas kannst du bewirken\n\n- Du verantwortest das Flotten-Portfolio der Geschäftskunden in der Ostschweiz und stellst durch einen regelmässigen, persönlichen Austausch eine enge und nachhaltige Kundenbeziehung sicher.\n\n- Du entwickelst unsere bestehenden Kundenbeziehungen strategisch weiter, betreibst eine aktive Bestandes-Kundenpflege und identifizierst zusätzliche Potenziale für den Ausbau unseres Dienstleistungs- und Lösungsangebots.\n\n- Die Bestandes Kunden berätst du zu nachhaltigen und wirtschaftlichen Mobilitätslösungen und unterstützt sie bei der Optimierung ihres Flottenmanagements.\n\n- Du führst sauber und zuverlässig die notwendigen Reportings z.H. der Kunden und dem Management von Post Company Cars AG.\n\n- In den Bereichen Offert Stellung, Vertragswesen und Auftragsabwicklung arbeitest du eng mit dem Sales Support zusammen und sorgst für einen reibungslosen Ablauf.\n\n- Durch deine Mitarbeit in Projektgruppen sowie dein Engagement bei internen Events unterstützt du aktiv die Marketingaktivitäten.\n\nDas bringst du mit\n\n- Du hast eine kaufmännische oder technische Grundausbildung und verfügst über eine Weiterbildung im Marketing/Verkauf oder in Betriebswirtschaft.\n\n- Du bringst fundierte Key-Account-Management-Erfahrung mit, idealerweise in Dienstleistungen (Flottenmanagement/Automotive) oder Finanzdienstleistungen (Leasing).\n\n- Ein hohes Mass an Abschlussorientierung sowie ausgeprägtes Verhandlungs- und Verkaufsgeschick gehören zu deinen Stärken.\n\n- Zudem bist du bist eine durchsetzungsstarke, kooperative und kompetente Verkaufs-Persönlichkeit mit einem Flair für betriebswirtschaftliche Zusammenhänge und einem grossen persönlichen Netzwerk.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch. Jede weitere Landessprache ist von Vorteil.\n\nWeitere Informationen zu Post Company Cars AG erhältst du hier;  www.post.ch/companycars",
+      "descriptionByLocale": {
+        "it": "Sei interessato alla mobilità e allo sviluppo e alla manutenzione di relazioni strategiche con i clienti al massimo livello? Sei entusiasta di comprendere complesse esigenze dei clienti e sviluppare soluzioni adeguate? In questo ruolo, si è responsabili per l'ulteriore sviluppo dei nostri clienti nella regione della Svizzera orientale e progettare attivamente soluzioni di mobilità sostenibile. Con voi, rafforziamo la nostra fidelizzazione del cliente e sbloccamo nuove potenzialità.\n\nPuoi farlo.\n\n- Sei responsabile del portafoglio di clienti aziendali della flotta nella Svizzera orientale e garantisci una stretta e sostenibile relazione con i clienti attraverso uno scambio regolare e personale.\n\n- Sviluppi strategicamente le nostre relazioni con i clienti esistenti, gestisci un servizio clienti attivo e identifichi il potenziale aggiuntivo per l'espansione della nostra offerta di servizi e soluzioni.\n\n- Si consiglia ai clienti esistenti di soluzioni di mobilità sostenibile ed economica e di sostenerli nell'ottimizzazione della gestione della flotta.\n\n- Gestisci in modo pulito e affidabile la segnalazione necessaria dei clienti e la gestione di Post Company Cars AG.\n\n- Nei settori della posizione dell'offerta, della gestione dei contratti e dell'elaborazione degli ordini, si lavora a stretto contatto con il supporto vendite e assicura un processo regolare.\n\n- Attraverso la vostra partecipazione a gruppi di progetto e il vostro impegno per gli eventi interni, sostenete attivamente le attività di marketing.\n\nLo porti con te.\n\n- Hai un'istruzione commerciale o tecnica di base e hai una formazione ulteriore nel marketing/vendita o nell'amministrazione aziendale.\n\n- Porti un'esperienza di gestione di account chiave approfondita, idealmente nei servizi (gestione di flotta/automotiva) o nei servizi finanziari (leasing).\n\n- Un alto grado di orientamento finale così come le forti competenze di negoziazione e di vendita sono tra i vostri punti di forza.\n\n- Inoltre, sei una personalità di vendita assertiva, cooperativa e competente con un tocco per i contesti aziendali e una grande rete personale.\n\n- Comunichi verbalmente e per iscritto molto bene in tedesco. Qualsiasi altra lingua nazionale è benefica.\n\nUlteriori informazioni su Post Company Cars AG sono disponibili qui; www.post.ch/companycars",
+        "en": "Are you interested in mobility and the development and maintenance of strategic customer relationships at the highest level? Are you enthusiastic about understanding complex customer needs and developing suitable solutions? In this role, you are responsible for the further development of our customers in the Eastern Switzerland region and actively design sustainable mobility solutions. With you, we strengthen our customer loyalty and unlock new potential.\n\nYou can do that.\n\n- You are responsible for the fleet portfolio of business customers in Eastern Switzerland and ensure a close and sustainable customer relationship through a regular, personal exchange.\n\n- You strategically develop our existing customer relationships, operate an active customer service and identify additional potential for the expansion of our service and solution offering.\n\n- You advise existing customers on sustainable and economic mobility solutions and support them in optimizing their fleet management.\n\n- You cleanly and reliably manage the necessary reporting of customers and the management of Post Company Cars AG.\n\n- In the areas of Offer Position, Contract Management and Order Processing, you work closely with Sales Support and ensure a smooth process.\n\n- Through your participation in project groups and your commitment to internal events, you actively support marketing activities.\n\nYou bring that with you\n\n- You have a basic commercial or technical education and have further training in marketing/sales or business administration.\n\n- You bring in-depth key account management experience, ideally in services (fleet management/automotive) or financial services (leasing).\n\n- A high degree of final orientation as well as strong negotiating and sales skills are among your strengths.\n\n- In addition, you are an assertive, cooperative and competent sales personality with a flair for business contexts and a large personal network.\n\n- You communicate verbally and in writing very well in German. Any other national language is beneficial.\n\nFurther information about Post Company Cars AG can be found here; www.post.ch/companycars",
+        "de": "Interessierst du dich für Mobilität und den Aufbau sowie die Pflege von strategischen Kundenbeziehungen auf höchstem Niveau? Begeisterst du dich dafür, komplexe Kundenbedürfnisse zu verstehen und passende Lösungen zu entwickeln? In dieser Rolle verantwortest du die Weiterentwicklung unserer Kunden in der Region Ostschweiz und gestaltest aktiv nachhaltige Mobilitätslösungen. Mit dir stärken wir unsere Kundenbindung und erschliessen neue Potenziale.\n\nDas kannst du bewirken\n\n- Du verantwortest das Flotten-Portfolio der Geschäftskunden in der Ostschweiz und stellst durch einen regelmässigen, persönlichen Austausch eine enge und nachhaltige Kundenbeziehung sicher.\n\n- Du entwickelst unsere bestehenden Kundenbeziehungen strategisch weiter, betreibst eine aktive Bestandes-Kundenpflege und identifizierst zusätzliche Potenziale für den Ausbau unseres Dienstleistungs- und Lösungsangebots.\n\n- Die Bestandes Kunden berätst du zu nachhaltigen und wirtschaftlichen Mobilitätslösungen und unterstützt sie bei der Optimierung ihres Flottenmanagements.\n\n- Du führst sauber und zuverlässig die notwendigen Reportings z.H. der Kunden und dem Management von Post Company Cars AG.\n\n- In den Bereichen Offert Stellung, Vertragswesen und Auftragsabwicklung arbeitest du eng mit dem Sales Support zusammen und sorgst für einen reibungslosen Ablauf.\n\n- Durch deine Mitarbeit in Projektgruppen sowie dein Engagement bei internen Events unterstützt du aktiv die Marketingaktivitäten.\n\nDas bringst du mit\n\n- Du hast eine kaufmännische oder technische Grundausbildung und verfügst über eine Weiterbildung im Marketing/Verkauf oder in Betriebswirtschaft.\n\n- Du bringst fundierte Key-Account-Management-Erfahrung mit, idealerweise in Dienstleistungen (Flottenmanagement/Automotive) oder Finanzdienstleistungen (Leasing).\n\n- Ein hohes Mass an Abschlussorientierung sowie ausgeprägtes Verhandlungs- und Verkaufsgeschick gehören zu deinen Stärken.\n\n- Zudem bist du bist eine durchsetzungsstarke, kooperative und kompetente Verkaufs-Persönlichkeit mit einem Flair für betriebswirtschaftliche Zusammenhänge und einem grossen persönlichen Netzwerk.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch. Jede weitere Landessprache ist von Vorteil.\n\nWeitere Informationen zu Post Company Cars AG erhältst du hier; www.post.ch/companycars",
+        "fr": "Êtes-vous intéressé par la mobilité et le développement et le maintien de relations client stratégiques au plus haut niveau? Êtes-vous enthousiaste à l'idée de comprendre les besoins complexes des clients et de développer des solutions appropriées? Dans ce rôle, vous êtes responsable du développement de nos clients dans la région de Suisse orientale et de concevoir activement des solutions de mobilité durable. Avec vous, nous renforçons notre fidélité à la clientèle et débloquons un nouveau potentiel.\n\nTu peux le faire.\n\n- Vous êtes responsable du portefeuille de la flotte de clients d'affaires en Suisse orientale et assurer une relation client étroite et durable grâce à un échange régulier et personnel.\n\n- Vous développez stratégiquement nos relations client existantes, exploitez un service client actif et identifiez un potentiel supplémentaire pour l'expansion de notre offre de service et de solution.\n\n- Vous conseillez les clients existants sur les solutions de mobilité durable et économique et les aidez à optimiser la gestion de leur flotte.\n\n- Vous gérez de manière propre et fiable les rapports nécessaires des clients et la gestion de Post Company Cars AG.\n\n- Dans les domaines de la position de l'offre, de la gestion des contrats et du traitement des commandes, vous travaillez en étroite collaboration avec le support commercial et vous assurez un processus en douceur.\n\n- Grâce à votre participation à des groupes de projet et à votre engagement envers des événements internes, vous soutenez activement les activités de marketing.\n\nApporte ça avec toi.\n\n- Vous disposez d'une formation commerciale ou technique de base et d'une formation continue en marketing/ventes ou en administration des affaires.\n\n- Vous apportez une expérience de gestion de compte clé approfondie, idéalement dans les services (gestion de flotte/automobile) ou les services financiers (leasing).\n\n- Un haut degré d'orientation finale ainsi que de fortes compétences en négociation et en vente sont parmi vos points forts.\n\n- En outre, vous êtes une personnalité de vente affirmée, coopérative et compétente avec un style pour les contextes d'affaires et un grand réseau personnel.\n\n- Vous communiquez très bien verbalement et par écrit en allemand. Toute autre langue nationale est bénéfique.\n\nDe plus amples informations sur Post Company Cars AG sont disponibles ici; www.post.ch/companycars"
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://job.post.ch/default/job/Key-Account-Managerin-Gesch%C3%A4ftskunden-Ostschweiz/74325-de_DE",
+      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-28T12:02:01.720Z",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti pubblici / Autobus",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-26",
+      "validThrough": "2026-08-18",
+      "pensum": "80-100%",
+      "applyUrl": "https://job.post.ch/default/job/Key-Account-Managerin-Gesch%C3%A4ftskunden-Ostschweiz/74325-de_DE",
+      "jobReqId": "74325",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen",
+        "key-account-manager-in-business-clienti-svizzera-orientale-postauto-ag-st-gallen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen",
+          "key-account-manager-in-business-clienti-svizzera-orientale-postauto-ag-st-gallen"
+        ],
+        "en": [
+          "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen"
+        ],
+        "fr": [
+          "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen"
+        ]
+      },
+      "firstSeenAt": "2026-07-26T22:15:58.727Z",
+      "needsRetranslation": true,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "postauto-83917ae29257",
+      "slug": "co-team-leader-nel-personale-di-guida-postauto-ag-ilanz",
+      "slugByLocale": {
+        "it": "co-team-leader-nel-personale-di-guida-postauto-ag-ilanz",
+        "en": "co-team-leader-in-driving-personnel-postauto-ag-ilanz",
+        "de": "co-teamleiter-in-fahrpersonal-postauto-ilanz",
+        "fr": "co-chef-d-equipe-dans-le-personnel-de-conduite-postauto-ag-ilanz"
+      },
+      "company": "PostAuto AG",
+      "companyKey": "postauto",
+      "companyDomain": "postauto.ch",
+      "title": "Co-Teamleiter:in Fahrpersonal",
+      "titleByLocale": {
+        "it": "Co-team leader: nel personale di guida",
+        "en": "Co-team leader: in driving personnel",
+        "de": "Co-Teamleiter:in Fahrpersonal",
+        "fr": "Co-chef d'équipe: dans le personnel de conduite"
+      },
+      "description": "Möchtest du aktiv zur Weiterentwicklung von PostAuto beitragen und Führungsverantwortung in einem modernen Co-Leitungsmodell übernehmen?\nAls Co-Teamleiter:in Fahrpersonal am Standort Ilanz gestaltest du gemeinsam mit deiner Co-Leitung die Führung und Entwicklung des Fahrpersonals. Ihr tragt gemeinsam die Verantwortung für einen stabilen und qualitativ hochwertigen Fahrdienst und teilt euch die Führungsaufgaben partnerschaftlich und auf Augenhöhe.\n\nDas kannst du bewirken\n\n- Gemeinsam mit deiner Co-Leitung führst, motivierst und entwickelst du das Fahrpersonal und sorgst für ein positives und wertschätzendes Arbeitsumfeld.\n\n- Du stellst gemeinsam mit deiner Co-Leitung sicher, dass die Personalressourcen für den Fahrdienst termingerecht und in hoher Qualität bereitgestellt werden.\n\n- Du begleitest die Mitarbeitenden über den gesamten HR-Lifecycle hinweg – von der Rekrutierung und Einführung bis zur individuellen Weiterentwicklung.\n\n- Du behältst relevante Kennzahlen wie Absenzen, Zeitsaldi und Fluktuation im Blick und leitest bei Bedarf Optimierungsmassnahmen ein.\n\n- Du gehst professionell mit Reklamationen, Unregelmässigkeiten und besonderen betrieblichen Situationen um.\n\n- Du unterstützt das Funktionieren des Betriebs vor Ort und arbeitest eng mit Leitstelle, Personaldisposition, Betriebsplanung und Flottenmanagement zusammen.\n\n- Neben deiner Führungsrolle 50% übernimmst du selbst Fahrdienste, sei es fix geplant oder zur Überbrückung von Engpässen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufsausbildung (EFZ) und hast eine Weiterbildung als Führungsfachfrau oder Führungsfachmann mit eidg. Fachausweis oder eine vergleichbare Qualifikation abgeschlossen – oder du bist bereit, diese in naher Zukunft zu absolvieren.\n\n- Erste Führungserfahrung sind von Vorteil, aber keine Voraussetzung – wichtiger ist deine Motivation, Verantwortung zu übernehmen und dich weiterzuentwickeln.\n\n- Du arbeitest gerne im Team und schätzt den Austausch sowie die partnerschaftliche Zusammenarbeit im Co-Leitungsmodell.\n\n- Mit deinen Kommunikationsfähigkeiten bringst du Menschen zusammen, führst Dialoge auf Augenhöhe und findest auch in schwierigen Situationen tragfähige Lösungen\n\n- Du bist konfliktfähig und trittst in Verhandlungen sowie Gesprächen mit Mitarbeitenden, Vorgesetzten, Vertreter:innen der PEKO und/oder Sozialpartner:innen stets professionell und souverän auf.\n\n- Du bist ein Organisationstalent und hast die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten.\n\n- Du verfügst über den Führerausweis der Kategorie D oder bist bereit, diesen zu erlangen.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
+      "descriptionByLocale": {
+        "it": "Vuoi contribuire attivamente all'ulteriore sviluppo di PostBus e assumersi la responsabilità di leadership in un moderno modello di cogestione?\nCome leader del team: nella guida del personale nella posizione di Ilanz, tu e la tua co-leader modellate la leadership e lo sviluppo del personale di guida. Condividi la responsabilità di un servizio di guida stabile e di alta qualità e condividi i compiti di gestione in partenariato e su un piano di parità.\n\nPuoi farlo.\n\n- Insieme alla vostra co-direzione, guidate, motivate e sviluppate il personale di guida e assicurate un ambiente di lavoro positivo e apprezzabile.\n\n- Insieme alla vostra cogestione, assicuratevi che le risorse del personale per il servizio di guida siano fornite in tempo e in alta qualità.\n\n- Si accompagnano i dipendenti in tutto il ciclo di vita delle risorse umane – dal reclutamento e dall'introduzione allo sviluppo individuale.\n\n- Tenere d'occhio i dati chiave rilevanti come assenze, bilanciamento del tempo e fluttuazione e avviare misure di ottimizzazione, se necessario.\n\n- Si tratta professionalmente di reclami, irregolarità e situazioni operative speciali.\n\n- Supporti il funzionamento dell'operazione in loco e lavori a stretto contatto con il centro di controllo, la gestione del personale, la pianificazione operativa e la gestione della flotta.\n\n- Oltre al vostro ruolo di leadership 50%, si prende su servizi di guida da soli, se è pianificato o ponte colli di bottiglia.\n\nLo porti con te.\n\n- Ha una formazione professionale completa (EFZ) e ha un'ulteriore formazione come manager o manager con la legge federale. Completato un certificato professionale o una qualifica paragonabile – o sei pronto a completarlo nel prossimo futuro.\n\n- L'esperienza di leadership iniziale è utile, ma non un prerequisito – più importante è la vostra motivazione a prendere responsabilità e sviluppare.\n\n- Ti piace lavorare in un team e apprezzare il partenariato di scambio e cooperazione nel modello di cogestione.\n\n- Con le vostre capacità di comunicazione, riunite le persone, dialogate a livello degli occhi e trovate soluzioni valide anche in situazioni difficili.\n\n- Siete in grado di contrastare e agire sempre professionalmente e sovranamente nei negoziati e nelle discussioni con dipendenti, superiori, rappresentanti di PEKO e/o partner sociali.\n\n- Sei un talento organizzativo e hai la capacità di tenere una panoramica anche in situazioni frenetiche.\n\n- Avete una patente di guida di categoria D o siete pronti per ottenerla.\n\n- Si comunica molto bene per via orale e per iscritto in tedesco e avere buone conoscenze (orali) in una seconda lingua nazionale.",
+        "en": "Do you want to actively contribute to the further development of PostBus and assume leadership responsibility in a modern co-management model?\nAs co-team leader: in driving personnel at the Ilanz location, you and your co-leader shape the leadership and development of the driving personnel. You share the responsibility for a stable and high-quality driving service and share the management tasks in partnership and on an equal footing.\n\nYou can do that.\n\n- Together with your co-direction, you lead, motivate and develop the driving staff and ensure a positive and appreciative working environment.\n\n- Together with your co-management, you ensure that the personnel resources for the driving service are provided on time and in high quality.\n\n- You accompany employees throughout the entire HR lifecycle – from recruitment and introduction to individual development.\n\n- You keep an eye on relevant key figures such as absences, time balance and fluctuation and initiate optimization measures if necessary.\n\n- You deal professionally with complaints, irregularities and special operational situations.\n\n- You support the functioning of the operation on site and work closely with control center, personnel management, operational planning and fleet management.\n\n- In addition to your leadership role 50%, you take on driving services yourself, whether it is planned or to bridge bottlenecks.\n\nYou bring that with you\n\n- You have a completed vocational training (EFZ) and have a further education as a manager or manager with federal law. Completed a professional certificate or a comparable qualification – or you are ready to complete it in the near future.\n\n- Initial leadership experience is beneficial, but not a prerequisite – more important is your motivation to take responsibility and develop.\n\n- You enjoy working in a team and appreciate the exchange and cooperative partnership in the co-management model.\n\n- With your communication skills, you bring people together, engage in dialogue at eye level and find viable solutions even in difficult situations.\n\n- You are capable of conflict and always act professionally and sovereignly in negotiations and discussions with employees, superiors, representatives of PEKO and/or social partners.\n\n- You are an organizational talent and have the ability to keep an overview even in hectic situations.\n\n- You have a category D driving licence or are ready to obtain it.\n\n- You communicate very well orally and in writing in German and have good (oral) knowledge in a second national language.",
+        "de": "Möchtest du aktiv zur Weiterentwicklung von PostAuto beitragen und Führungsverantwortung in einem modernen Co-Leitungsmodell übernehmen?\nAls Co-Teamleiter:in Fahrpersonal am Standort Ilanz gestaltest du gemeinsam mit deiner Co-Leitung die Führung und Entwicklung des Fahrpersonals. Ihr tragt gemeinsam die Verantwortung für einen stabilen und qualitativ hochwertigen Fahrdienst und teilt euch die Führungsaufgaben partnerschaftlich und auf Augenhöhe.\n\nDas kannst du bewirken\n\n- Gemeinsam mit deiner Co-Leitung führst, motivierst und entwickelst du das Fahrpersonal und sorgst für ein positives und wertschätzendes Arbeitsumfeld.\n\n- Du stellst gemeinsam mit deiner Co-Leitung sicher, dass die Personalressourcen für den Fahrdienst termingerecht und in hoher Qualität bereitgestellt werden.\n\n- Du begleitest die Mitarbeitenden über den gesamten HR-Lifecycle hinweg – von der Rekrutierung und Einführung bis zur individuellen Weiterentwicklung.\n\n- Du behältst relevante Kennzahlen wie Absenzen, Zeitsaldi und Fluktuation im Blick und leitest bei Bedarf Optimierungsmassnahmen ein.\n\n- Du gehst professionell mit Reklamationen, Unregelmässigkeiten und besonderen betrieblichen Situationen um.\n\n- Du unterstützt das Funktionieren des Betriebs vor Ort und arbeitest eng mit Leitstelle, Personaldisposition, Betriebsplanung und Flottenmanagement zusammen.\n\n- Neben deiner Führungsrolle 50% übernimmst du selbst Fahrdienste, sei es fix geplant oder zur Überbrückung von Engpässen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufsausbildung (EFZ) und hast eine Weiterbildung als Führungsfachfrau oder Führungsfachmann mit eidg. Fachausweis oder eine vergleichbare Qualifikation abgeschlossen – oder du bist bereit, diese in naher Zukunft zu absolvieren.\n\n- Erste Führungserfahrung sind von Vorteil, aber keine Voraussetzung – wichtiger ist deine Motivation, Verantwortung zu übernehmen und dich weiterzuentwickeln.\n\n- Du arbeitest gerne im Team und schätzt den Austausch sowie die partnerschaftliche Zusammenarbeit im Co-Leitungsmodell.\n\n- Mit deinen Kommunikationsfähigkeiten bringst du Menschen zusammen, führst Dialoge auf Augenhöhe und findest auch in schwierigen Situationen tragfähige Lösungen\n\n- Du bist konfliktfähig und trittst in Verhandlungen sowie Gesprächen mit Mitarbeitenden, Vorgesetzten, Vertreter:innen der PEKO und/oder Sozialpartner:innen stets professionell und souverän auf.\n\n- Du bist ein Organisationstalent und hast die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten.\n\n- Du verfügst über den Führerausweis der Kategorie D oder bist bereit, diesen zu erlangen.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
+        "fr": "Voulez-vous contribuer activement au développement de PostBus et assumer la responsabilité de leadership dans un modèle de cogestion moderne?\nEn tant que co-chef d'équipe : en tant que chauffeur à l'emplacement d'Ilanz, vous et votre co-chef façonnez le leadership et le développement du personnel de conduite. Vous partagez la responsabilité d'un service de conduite stable et de qualité et partagez les tâches de gestion en partenariat et sur un pied d'égalité.\n\nTu peux le faire.\n\n- Avec votre co-direction, vous dirigez, motivez et développez le personnel de conduite et assurez un environnement de travail positif et apprécié.\n\n- Avec votre cogestion, vous veillez à ce que les ressources humaines du service de conduite soient fournies à temps et en qualité.\n\n- Vous accompagnez les employés tout au long du cycle de vie des RH – du recrutement et de l'introduction au développement individuel.\n\n- Vous gardez un œil sur les chiffres clés pertinents tels que les absences, l'équilibre temporel et les fluctuations et initiez des mesures d'optimisation si nécessaire.\n\n- Vous traitez professionnellement les plaintes, les irrégularités et les situations opérationnelles spéciales.\n\n- Vous soutenez le fonctionnement de l'opération sur place et travaillez en étroite collaboration avec le centre de contrôle, la gestion du personnel, la planification opérationnelle et la gestion de la flotte.\n\n- En plus de votre rôle de leader 50 %, vous prenez vous-même les services de conduite, qu'il soit prévu ou de combler les goulets d'étranglement.\n\nApporte ça avec toi.\n\n- Vous avez une formation professionnelle terminée (EFZ) et avez une formation complémentaire en tant que gestionnaire ou gestionnaire en droit fédéral. A complété un certificat professionnel ou une qualification comparable – ou vous êtes prêt à le compléter dans un proche avenir.\n\n- L'expérience initiale en leadership est bénéfique, mais pas une condition préalable.\n\n- Vous aimez travailler en équipe et apprécier l'échange et le partenariat coopératif dans le modèle de cogestion.\n\n- Avec vos compétences en communication, vous rassemblez les gens, vous engagez dans le dialogue au niveau des yeux et trouvez des solutions viables même dans des situations difficiles.\n\n- Vous êtes capable de conflit et agissez toujours de manière professionnelle et souveraine dans les négociations et les discussions avec les employés, les supérieurs, les représentants de PEKO et/ou les partenaires sociaux.\n\n- Vous êtes un talent organisationnel et avez la capacité de garder un aperçu même dans des situations agitées.\n\n- Vous avez un permis de conduire de catégorie D ou êtes prêt à l'obtenir.\n\n- Vous communiquez très bien oralement et par écrit en allemand et avez une bonne (orale) connaissance dans une deuxième langue nationale."
+      },
+      "location": "Ilanz",
+      "canton": "GR",
+      "url": "https://job.post.ch/default/job/Co-Teamleiterin-Fahrpersonal/74379-de_DE",
+      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-28T12:02:00.568Z",
+      "addressLocality": "Ilanz",
+      "addressRegion": "GR",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti pubblici / Autobus",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-27",
+      "validThrough": "2026-08-26",
+      "pensum": "50%",
+      "applyUrl": "https://job.post.ch/default/job/Co-Teamleiterin-Fahrpersonal/74379-de_DE",
+      "jobReqId": "74379",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "co-teamleiter-in-fahrpersonal-postauto-ilanz",
+        "co-team-leader-nel-personale-di-guida-postauto-ag-ilanz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "co-teamleiter-in-fahrpersonal-postauto-ilanz",
+          "co-team-leader-nel-personale-di-guida-postauto-ag-ilanz"
+        ],
+        "en": [
+          "co-teamleiter-in-fahrpersonal-postauto-ilanz"
+        ],
+        "fr": [
+          "co-teamleiter-in-fahrpersonal-postauto-ilanz"
+        ]
+      },
+      "firstSeenAt": "2026-07-27T22:23:16.758Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       }
@@ -1494,480 +2042,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "postauto-d2685274910e",
-      "slug": "driver-di-sicurezza-amigo-postauto-ag-altstatten-sg",
-      "slugByLocale": {
-        "it": "driver-di-sicurezza-amigo-postauto-ag-altstatten-sg",
-        "en": "safety-driver-amigo-postauto-altstatten-sg",
-        "de": "safety-driver-amigo-postauto-altstatten-sg",
-        "fr": "conducteur-de-securite-amigo-postauto-ag-altstatten-sg"
       },
-      "company": "PostAuto AG",
-      "companyKey": "postauto",
-      "companyDomain": "postauto.ch",
-      "title": "Safety Driver AmiGo",
-      "titleByLocale": {
-        "it": "Driver di sicurezza AmiGo",
-        "en": "Safety Driver AmiGo",
-        "de": "Safety Driver AmiGo",
-        "fr": "Conducteur de sécurité AmiGo"
-      },
-      "description": "Du möchtest Teil eines europaweit einzigartigen Innovationsprojekts sein und Mobilitätsgeschichte mitschreiben sowie aktiv an der Zukunft des autonomen Fahrens mitwirken? Bei AmiGo begleitest du modernste Fahrzeugtechnologie im realen Testbetrieb und übernimmst dabei eine zentrale Sicherheitsrolle. Mit dir wird autonomes Fahren sicher, erlebbar und bereit für die Mobilität von morgen.\n\nDas kannst du bewirken\n\n- In dieser befristeten Anstellung begleitest du unsere autonom fahrenden 4-Rad-Fahrzeuge im Testbetrieb und überwachst jederzeit alle sicherheitsrelevanten Abläufe im Fahrzeug.\n\n- Potenziell auftretende Gefahren erkennst du frühzeitig und greifst bei Bedarf präventiv oder aktiv in die Fahrzeugsteuerung ein.\n\n- Du führst laufend Sicherheitsbeurteilungen durch und übernimmst im Notfall sofort die Kontrolle über das Fahrzeug.\n\n- Sämtliche Incidents, Auffälligkeiten und Beobachtungen dokumentierst du zeitnah und elektronisch zur kontinuierlichen Optimierung des Gesamtsystems.\n\n- Du stellst jederzeit die Sicherheit der Passagiere, anderen Verkehrsteilnehmenden sowie von Fussgängern und Tieren sicher.\n\n- Unseren mitfahrenden Kundinnen und Kunden stehst du als kompetente und professionelle Ansprechperson direkt im Fahrzeug zur Verfügung.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufslehre, ein abgeschlossenes Studium oder mehrjährige relevante Berufserfahrung.\n\n- Seit mindestens drei Jahren besitzt du einen gültigen Führerausweis der Kategorie B oder höher und bringst mindestens drei Jahre Fahrpraxis in der Schweiz mit. Vorzugsweise verfügst du zusätzlich über die Bewilligung zum berufsmässigen Personentransport (Ausbildung BPT 121), oder bist bereit, diese zu absolvieren.\n\n- Du besitzt ein ausgeprägtes Sicherheitsbewusstsein und hast einen einwandfreien Leumund vorzuweisen.\n\n- Du bist flexibel für Einsätze am Morgen, Nachmittag, Abend sowie an Wochenenden.\n\n- Es bereitet dir Freude, in einem innovativen, lernfreudigen und hochmotivierten Umfeld Pionierarbeit zu leisten.\n\n- Du verfügst über eine schnelle Auffassungsgabe, hohe Reaktionsfähigkeit sowie analytisch-technische Kompetenzen und überzeugst gleichzeitig durch Kundenorientierung, Verantwortungsbewusstsein, Teamfähigkeit und ein professionelles Auftreten.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und bringst gute Englischkenntnisse mit.\n\nDiese Position ist auf 12 Monate befristet.",
-      "descriptionByLocale": {
-        "it": "Vuoi partecipare a un progetto di innovazione unico in Europa e scrivere la storia della mobilità e partecipare attivamente al futuro della guida autonoma? A AmiGo, accompagni l'ultima tecnologia del veicolo nell'operazione di test di vita reale e assume un ruolo di sicurezza centrale. Con voi, la guida autonoma diventa sicura, tangibile e pronta per la mobilità di domani.\n\nPuoi farlo.\n\n- In questa posizione temporanea, accompagni i nostri veicoli autonomi a 4 ruote nel funzionamento della prova e monitori tutti i processi di sicurezza rilevanti nel veicolo in ogni momento.\n\n- I potenziali pericoli sono rilevati in anticipo e, se necessario, intervengono preventivamente o attivamente nel sistema di controllo del veicolo.\n\n- Si effettuano valutazioni di sicurezza in corso e prendere il controllo del veicolo immediatamente in un'emergenza.\n\n- Tutti gli incidenti, le anomalie e le osservazioni sono documentati prontamente ed elettronicamente per l'ottimizzazione continua del sistema generale.\n\n- Garantisci la sicurezza dei passeggeri, altri partecipanti al traffico, pedoni e animali in ogni momento.\n\n- Siete a disposizione dei nostri clienti come persona di contatto competente e professionale direttamente nel veicolo.\n\nLo porti con te.\n\n- Hai un apprendistato professionale completato, uno studio completato o diversi anni di esperienza professionale rilevante.\n\n- Per almeno tre anni avete avuto una patente di guida valida di categoria B o superiore e portare almeno tre anni di esperienza di guida in Svizzera. Preferibilmente, avete anche il permesso per il trasporto passeggeri professionale (formazione BPT 121), o sono pronti a completarlo.\n\n- Hai una forte consapevolezza della sicurezza e hai una reputazione impeccabile.\n\n- Siete flessibili per le operazioni di mattina, pomeriggio, sera e nei fine settimana.\n\n- Ti dà piacere al pioniere in un ambiente innovativo, apprendimento e altamente motivato.\n\n- Si dispone di una rapida comprensione, alta reattività e competenze analitiche-tecniche e convincere allo stesso tempo attraverso l'orientamento del cliente, la responsabilità, il lavoro di squadra e un aspetto professionale.\n\n- Si comunica verbalmente e per iscritto molto bene in tedesco e portare buone abilità inglesi.\n\nIl post è limitato in tempo fino a 28.02.2027.",
-        "en": "Do you want to be part of an innovation project that is unique in Europe and write the history of mobility and actively participate in the future of autonomous driving? At AmiGo, you accompany the latest vehicle technology in real-life test operation and take on a central safety role. With you, autonomous driving becomes safe, tangible and ready for the mobility of tomorrow.\n\nYou can do that.\n\n- In this temporary position, you accompany our autonomous 4-wheeled vehicles in test operation and monitor all safety-relevant processes in the vehicle at all times.\n\n- Potential hazards are detected at an early stage and, if necessary, intervene preventively or actively in the vehicle control system.\n\n- You carry out ongoing safety assessments and take control of the vehicle immediately in an emergency.\n\n- All incidents, anomalies and observations are documented promptly and electronically for continuous optimization of the overall system.\n\n- You ensure the safety of passengers, other traffic participants, pedestrians and animals at all times.\n\n- You are available to our customers as a competent and professional contact person directly in the vehicle.\n\nYou bring that with you\n\n- You have a completed vocational apprenticeship, a completed study or several years of relevant professional experience.\n\n- For at least three years you have had a valid driving licence of category B or higher and bring at least three years of driving experience in Switzerland. Preferably, you also have the permit for professional passenger transport (training BPT 121), or are ready to complete it.\n\n- You have a strong security awareness and have an impeccable reputation.\n\n- You are flexible for operations in the morning, afternoon, evening and on weekends.\n\n- It gives you pleasure to pioneer in an innovative, learning and highly motivated environment.\n\n- You have a quick comprehension, high responsiveness as well as analytical-technical skills and convince at the same time through customer orientation, responsibility, teamwork and a professional appearance.\n\n- You communicate verbally and in writing very well in German and bring good English skills.\n\nThe post is limited in time until 28.02.2027.",
-        "de": "Du möchtest Teil eines europaweit einzigartigen Innovationsprojekts sein und Mobilitätsgeschichte mitschreiben sowie aktiv an der Zukunft des autonomen Fahrens mitwirken? Bei AmiGo begleitest du modernste Fahrzeugtechnologie im realen Testbetrieb und übernimmst dabei eine zentrale Sicherheitsrolle. Mit dir wird autonomes Fahren sicher, erlebbar und bereit für die Mobilität von morgen.\n\nDas kannst du bewirken\n\n- In dieser befristeten Anstellung begleitest du unsere autonom fahrenden 4-Rad-Fahrzeuge im Testbetrieb und überwachst jederzeit alle sicherheitsrelevanten Abläufe im Fahrzeug.\n\n- Potenziell auftretende Gefahren erkennst du frühzeitig und greifst bei Bedarf präventiv oder aktiv in die Fahrzeugsteuerung ein.\n\n- Du führst laufend Sicherheitsbeurteilungen durch und übernimmst im Notfall sofort die Kontrolle über das Fahrzeug.\n\n- Sämtliche Incidents, Auffälligkeiten und Beobachtungen dokumentierst du zeitnah und elektronisch zur kontinuierlichen Optimierung des Gesamtsystems.\n\n- Du stellst jederzeit die Sicherheit der Passagiere, anderen Verkehrsteilnehmenden sowie von Fussgängern und Tieren sicher.\n\n- Unseren mitfahrenden Kundinnen und Kunden stehst du als kompetente und professionelle Ansprechperson direkt im Fahrzeug zur Verfügung.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufslehre, ein abgeschlossenes Studium oder mehrjährige relevante Berufserfahrung.\n\n- Seit mindestens drei Jahren besitzt du einen gültigen Führerausweis der Kategorie B oder höher und bringst mindestens drei Jahre Fahrpraxis in der Schweiz mit. Vorzugsweise verfügst du zusätzlich über die Bewilligung zum berufsmässigen Personentransport (Ausbildung BPT 121), oder bist bereit, diese zu absolvieren.\n\n- Du besitzt ein ausgeprägtes Sicherheitsbewusstsein und hast einen einwandfreien Leumund vorzuweisen.\n\n- Du bist flexibel für Einsätze am Morgen, Nachmittag, Abend sowie an Wochenenden.\n\n- Es bereitet dir Freude, in einem innovativen, lernfreudigen und hochmotivierten Umfeld Pionierarbeit zu leisten.\n\n- Du verfügst über eine schnelle Auffassungsgabe, hohe Reaktionsfähigkeit sowie analytisch-technische Kompetenzen und überzeugst gleichzeitig durch Kundenorientierung, Verantwortungsbewusstsein, Teamfähigkeit und ein professionelles Auftreten.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und bringst gute Englischkenntnisse mit.\n\nDiese Position ist auf 12 Monate befristet.",
-        "fr": "Voulez-vous faire partie d'un projet d'innovation unique en Europe, écrire l'histoire de la mobilité et participer activement à l'avenir de la conduite autonome ? Chez AmiGo, vous accompagnez la dernière technologie de véhicule dans l'opération de test réel et assumez un rôle central de sécurité. Avec vous, la conduite autonome devient sûre, tangible et prête pour la mobilité de demain.\n\nTu peux le faire.\n\n- Dans cette position temporaire, vous accompagnez nos véhicules autonomes à 4 roues en service d'essai et surveillez en tout temps tous les processus de sécurité du véhicule.\n\n- Les dangers potentiels sont détectés à un stade précoce et, si nécessaire, interviennent de manière préventive ou active dans le système de contrôle du véhicule.\n\n- Vous effectuez des évaluations de sécurité continues et prenez le contrôle du véhicule immédiatement en cas d'urgence.\n\n- Tous les incidents, anomalies et observations sont documentés rapidement et électroniquement pour une optimisation continue du système global.\n\n- Vous assurez la sécurité des passagers, des autres participants à la circulation, des piétons et des animaux en tout temps.\n\n- Vous êtes à la disposition de nos clients en tant que personne de contact compétente et professionnelle directement dans le véhicule.\n\nApporte ça avec toi.\n\n- Vous disposez d'un apprentissage professionnel terminé, d'une étude terminée ou de plusieurs années d'expérience professionnelle pertinente.\n\n- Depuis au moins trois ans, vous avez un permis de conduire valide de catégorie B ou plus et avez au moins trois ans d'expérience en Suisse. De préférence, vous avez également le permis de transport professionnel de passagers (formation BPT 121), ou êtes prêt à le compléter.\n\n- Vous avez une forte conscience de la sécurité et une réputation impeccable.\n\n- Vous êtes flexible pour les opérations le matin, l'après-midi, le soir et le week-end.\n\n- Il vous donne le plaisir de devenir pionnier dans un environnement innovant, apprenant et très motivé.\n\n- Vous avez une compréhension rapide, une grande réactivité ainsi que des compétences analytiques-techniques et convaincre en même temps par l'orientation du client, la responsabilité, le travail d'équipe et une apparence professionnelle.\n\n- Vous communiquez verbalement et par écrit très bien en allemand et apportez de bonnes compétences en anglais.\n\nLe poste est limité dans le temps jusqu'au 28.02.2027."
-      },
-      "location": "Altstätten SG",
-      "canton": "AR",
-      "url": "https://job.post.ch/default/job/Safety-Driver-AmiGo/74292-de_DE",
-      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:22.865Z",
-      "addressLocality": "Altstätten SG",
-      "addressRegion": "AR",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Autisti / Conducenti",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti pubblici / Autobus",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-20",
-      "validThrough": "2026-08-11",
-      "pensum": "50-100%",
-      "applyUrl": "https://job.post.ch/default/job/Safety-Driver-AmiGo/74292-de_DE",
-      "jobReqId": "74292",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "safety-driver-amigo-postauto-altstatten-sg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "safety-driver-amigo-postauto-altstatten-sg"
-        ]
-      },
-      "firstSeenAt": "2026-07-20T12:51:59.916Z",
-      "salaryMin": 65000,
-      "salaryMax": 98500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 65000,
-          "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "postauto-9f6345c5106a",
-      "slug": "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf",
-      "slugByLocale": {
-        "it": "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf",
-        "en": "customer-manager-in-fleet-management-business-customers-die-schweizerische-post-moosseedorf",
-        "de": "kundenbetreuer-in-flottenmanagement-geschaftskunden-post",
-        "fr": "client-manager-dans-la-gestion-du-parc-de-vehicules-die-schweizerische-post-moosseedorf"
-      },
-      "company": "PostAuto AG",
-      "companyKey": "postauto",
-      "companyDomain": "postauto.ch",
-      "title": "Kundenbetreuer:in Flottenmanagement Geschäftskunden",
-      "titleByLocale": {
-        "it": "Customer Manager: nella gestione della flotta",
-        "en": "Customer Manager: in fleet management Business customers",
-        "de": "Kundenbetreuer:in Flottenmanagement Geschäftskunden",
-        "fr": "Client Manager: dans la gestion du parc de véhicules"
-      },
-      "description": "Als Teil von Post Company Cars stellst du sicher, dass unser Flottenmanagement reibungslos funktioniert und Fahrzeuge, Prozesse und Daten zuverlässig zusammenlaufen.\n\nMit dir können unsere Geschäftskunden jederzeit auf einen professionellen Service zählen!\n\nDas kannst du bewirken\n\n- Du bist die erste Ansprechperson (First-Level-Support) für unsere Geschäftskunden (Post und/oder Drittfirmen) und stellst eine umfassende Betreuung sicher.\n\n- Telefonische und schriftliche Kundenanfragen beantwortest du in Deutsch, Französisch und Englisch kompetent und lösungsorientiert.\n\n- Du bist für die In- und Ausserverkehrssetzung der zugeteilten Geschäftsfahrzeuge sowie die Qualität der Fahrzeugdaten verantwortlich.\n\n- Transport-, Abliefer-, Fahrzeugwechsel- und Rücknahmeprozesse steuerst du mit Partnergaragen, koordinierst Mietfahrzeuge und stellst eine termingerechte Abwicklung sicher.\n\n- Du stellst sicher, dass alle erforderlichen Dokumente fristgerecht und vollständig vorliegen, und trägst dazu bei, dass unsere Daten und Flotteninformationen stets aktuell sind.\n\n- Mit Versicherungen und Strassenverkehrsämtern arbeitest du zusammen, bestellst Tankkarten und Versicherungsnachweise und kümmerst dich um die Fakturierungen.\n\nDas bringst du mit\n\n- Du verfügst über eine kaufmännische Ausbildung und bringst Erfahrung aus der Automobilbranche oder dem Mobilitätsumfeld mit.\n\n- Erfahrung in der Kundenbetreuung, in der Disposition oder in einer vergleichbaren Funktion erleichtert dir den Einstieg.\n\n- Du arbeitest selbstständig, bist verantwortungsbewusst und überzeugst durch deine organisatorischen und koordinativen Fähigkeiten.\n\n- Hohe Kundenorientierung, Belastbarkeit sowie eine lösungsorientierte Arbeitsweise zeichnen dich aus.\n\n- Du bist versiert im Umgang mit MS Office, hast eine hohe IT-Affinität und legst Wert auf Genauigkeit und Qualität.\n\n- Sehr gute mündliche und schriftliche Deutschkenntnisse sowie gute mündliche Französischkenntnisse (mindestens Niveau B2) runden dein Profil ab.",
-      "descriptionByLocale": {
-        "it": "Come parte di Post Company Cars, vi assicurerete che la nostra gestione della flotta funzioni senza problemi e veicoli, processi e dati convergono in modo affidabile.\n\nCon voi, i nostri clienti business possono sempre contare su un servizio professionale!\n\nPuoi farlo.\n\n- Sei la prima persona di contatto (supporto di primo livello) per i nostri clienti aziendali (società postali e/o terze parti) e garantire un supporto completo.\n\n- Le richieste dei clienti telefonici e scritte sono soddisfatte con competenza e orientate alla soluzione in tedesco, francese e inglese.\n\n- L'utente è responsabile dell'ingresso e dell'uscita dei veicoli commerciali assegnati e della qualità dei dati del veicolo.\n\n- Trasporti, consegna, cambio veicolo e processi di ritorno si controlla con i garage partner, coordinare veicoli a noleggio e garantire la lavorazione tempestiva.\n\n- Assicurarsi che tutti i documenti richiesti siano disponibili in tempo e in pieno, e contribuire a garantire che i nostri dati e le informazioni della flotta siano sempre aggiornati.\n\n- Lavora con compagnie di assicurazione e uffici di trasporto su strada, carte di carburante ordine e certificati di assicurazione e prendersi cura della fatturazione.\n\nLo porti con te.\n\n- Avete una formazione commerciale e portare esperienza dal settore automobilistico o l'ambiente di mobilità.\n\n- L'esperienza nell'assistenza clienti, nella pianificazione o in una funzione simile rende più facile per voi iniziare.\n\n- Si lavora indipendentemente, sono responsabili e convincere attraverso le vostre capacità organizzative e di coordinamento.\n\n- L'alto orientamento del cliente, la resilienza e un metodo di lavoro orientato alla soluzione vi caratterizzano.\n\n- Sei esperto nel trattare con MS Office, avere un'alta affinità IT e attribuire importanza alla precisione e alla qualità.\n\n- Molto buone capacità orali e scritte tedesche, così come buone abilità orale francese (almeno livello B2) arrotondare il vostro profilo.",
-        "en": "As part of Post Company Cars, you will ensure that our fleet management functions smoothly and vehicles, processes and data converge reliably.\n\nWith you, our business customers can always count on a professional service!\n\nYou can do that.\n\n- You are the first contact person (first-level support) for our business customers (postal and/or third-party companies) and ensure comprehensive support.\n\n- Telephone and written customer inquiries are answered competently and solution-oriented in German, French and English.\n\n- You are responsible for entering and leaving the assigned business vehicles as well as the quality of the vehicle data.\n\n- Transport, delivery, vehicle change and return processes you control with partner garages, coordinate rental vehicles and ensure timely processing.\n\n- Ensure that all required documents are available on time and in full, and help ensure that our data and fleet information is always up-to-date.\n\n- You work with insurance companies and road transport offices, order fuel cards and insurance certificates and take care of the billing.\n\nYou bring that with you\n\n- You have a commercial education and bring experience from the automotive industry or the mobility environment.\n\n- Experience in customer support, scheduling or in a comparable function makes it easier for you to get started.\n\n- You work independently, are responsible and convince through your organizational and coordination skills.\n\n- High customer orientation, resilience and a solution-oriented working method characterize you.\n\n- You are experienced in dealing with MS Office, have a high IT affinity and attach importance to accuracy and quality.\n\n- Very good oral and written German skills as well as good oral French skills (at least level B2) round off your profile.",
-        "de": "Als Teil von Post Company Cars stellst du sicher, dass unser Flottenmanagement reibungslos funktioniert und Fahrzeuge, Prozesse und Daten zuverlässig zusammenlaufen.\n\nMit dir können unsere Geschäftskunden jederzeit auf einen professionellen Service zählen!\n\nDas kannst du bewirken\n\n- Du bist die erste Ansprechperson (First-Level-Support) für unsere Geschäftskunden (Post und/oder Drittfirmen) und stellst eine umfassende Betreuung sicher.\n\n- Telefonische und schriftliche Kundenanfragen beantwortest du in Deutsch, Französisch und Englisch kompetent und lösungsorientiert.\n\n- Du bist für die In- und Ausserverkehrssetzung der zugeteilten Geschäftsfahrzeuge sowie die Qualität der Fahrzeugdaten verantwortlich.\n\n- Transport-, Abliefer-, Fahrzeugwechsel- und Rücknahmeprozesse steuerst du mit Partnergaragen, koordinierst Mietfahrzeuge und stellst eine termingerechte Abwicklung sicher.\n\n- Du stellst sicher, dass alle erforderlichen Dokumente fristgerecht und vollständig vorliegen, und trägst dazu bei, dass unsere Daten und Flotteninformationen stets aktuell sind.\n\n- Mit Versicherungen und Strassenverkehrsämtern arbeitest du zusammen, bestellst Tankkarten und Versicherungsnachweise und kümmerst dich um die Fakturierungen.\n\nDas bringst du mit\n\n- Du verfügst über eine kaufmännische Ausbildung und bringst Erfahrung aus der Automobilbranche oder dem Mobilitätsumfeld mit.\n\n- Erfahrung in der Kundenbetreuung, in der Disposition oder in einer vergleichbaren Funktion erleichtert dir den Einstieg.\n\n- Du arbeitest selbstständig, bist verantwortungsbewusst und überzeugst durch deine organisatorischen und koordinativen Fähigkeiten.\n\n- Hohe Kundenorientierung, Belastbarkeit sowie eine lösungsorientierte Arbeitsweise zeichnen dich aus.\n\n- Du bist versiert im Umgang mit MS Office, hast eine hohe IT-Affinität und legst Wert auf Genauigkeit und Qualität.\n\n- Sehr gute mündliche und schriftliche Deutschkenntnisse sowie gute mündliche Französischkenntnisse (mindestens Niveau B2) runden dein Profil ab.",
-        "fr": "Dans le cadre de Post Company Cars, vous vous assurerez que notre gestion de parc fonctionne en douceur et que les véhicules, les processus et les données convergent de manière fiable.\n\nAvec vous, nos clients professionnels peuvent toujours compter sur un service professionnel!\n\nTu peux le faire.\n\n- Vous êtes la première personne de contact (assistance de premier niveau) pour nos clients d'affaires (entreprises postales et/ou tierces) et assurer un soutien complet.\n\n- Les demandes téléphoniques et écrites des clients sont répondues de manière compétente et orientées vers la solution en allemand, en français et en anglais.\n\n- Vous êtes responsable de l'entrée et de la sortie des véhicules d'affaires ainsi que de la qualité des données du véhicule.\n\n- Les processus de transport, de livraison, de changement de véhicule et de retour que vous contrôlez avec les garages partenaires, coordonnent les véhicules de location et assurent le traitement en temps opportun.\n\n- S'assurer que tous les documents requis sont disponibles à temps et en totalité et contribuer à ce que nos données et nos renseignements sur le parc soient toujours à jour.\n\n- Vous travaillez avec les compagnies d'assurance et les bureaux de transport routier, commandez des cartes de carburant et des certificats d'assurance et prenez soin de la facturation.\n\nApporte ça avec toi.\n\n- Vous avez une formation commerciale et apportez de l'expérience de l'industrie automobile ou de l'environnement de mobilité.\n\n- L'expérience du support client, de la programmation ou d'une fonction comparable vous facilite le démarrage.\n\n- Vous travaillez de manière indépendante, êtes responsable et convainquez grâce à vos compétences organisationnelles et de coordination.\n\n- Une orientation client élevée, une résilience et une méthode de travail orientée vers la solution vous caractérisent.\n\n- Vous avez l'expérience de traiter avec MS Office, avez une grande affinité informatique et attachez de l'importance à la précision et à la qualité.\n\n- De très bonnes compétences orales et écrites en allemand ainsi que de bonnes compétences orales en français (au moins niveau B2) complètent votre profil."
-      },
-      "location": "Moosseedorf",
-      "canton": "BE",
-      "url": "https://job.post.ch/default/job/Kundenbetreuerin-Flottenmanagement-Gesch%C3%A4ftskunden/74191-de_DE",
-      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:21.668Z",
-      "addressLocality": "Moosseedorf",
-      "addressRegion": "BE",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Assistenza clienti",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti pubblici / Autobus",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-01",
-      "validThrough": "2026-08-11",
-      "pensum": "80-100%",
-      "applyUrl": "https://job.post.ch/default/job/Kundenbetreuerin-Flottenmanagement-Gesch%C3%A4ftskunden/74191-de_DE",
-      "jobReqId": "74191",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
-        ],
-        "it": [
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
-        ]
-      },
-      "previousSlugs": [
-        "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
-      ],
-      "firstSeenAt": "2026-07-14T22:07:15.144Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "postauto-db0b7fe4d307",
-      "slug": "team-leader-nel-personale-di-guida-postauto-ag-weinfelden",
-      "slugByLocale": {
-        "it": "team-leader-nel-personale-di-guida-postauto-ag-weinfelden",
-        "en": "team-leader-in-driving-personnel-postauto-ag-weinfelden",
-        "de": "teamleiter-in-fahrpersonal-postauto-weinfelden",
-        "fr": "chef-d-equipe-dans-le-personnel-de-conduite-postauto-ag-weinfelden"
-      },
-      "company": "PostAuto AG",
-      "companyKey": "postauto",
-      "companyDomain": "postauto.ch",
-      "title": "Teamleiter:in Fahrpersonal",
-      "titleByLocale": {
-        "it": "Team leader: nel personale di guida",
-        "en": "Team leader: in driving personnel",
-        "de": "Teamleiter:in Fahrpersonal",
-        "fr": "Chef d'équipe: dans le personnel de conduite"
-      },
-      "description": "Möchtest du die strategischen Führungsziele mitgestalten und die Weiterentwicklung von PostAuto aktiv vorantreiben? In dieser vielfältigen Rolle führst und entwickelst du dein Fahrpersonal, stellst einen reibungslosen Fahrdienst sicher und koordinierst Anpassungen im Haltestellen- und Baustellenmanagement. PostAuto stellt seine Flotte bis 2035 auf elektrische Antriebe um. Mit deinem Beitrag und deiner vollen Überzeugung trägst du entscheidend dazu bei, dass diese Transformation gelingt.\n\nDas kannst du bewirken\n\n- Du führst, motivierst und entwickelst dein Fahrpersonal, sorgst für ein positives Arbeitsumfeld und stärkst die Leistungsfähigkeit sowie Einsatzbereitschaft deines Teams durch regelmässige Einzelgespräche und Teambesprechungen.\n\n- Du stellst sicher, dass die Personalressourcen für den Fahrdienst termingerecht und in hoher Qualität bereitgestellt werden. Deine Mitarbeitenden begleitest du über den gesamten HR-Lifecycle hinweg – von der Rekrutierung und Einführung über die individuelle Weiterentwicklung bis hin zum Austritt. Auch in herausfordernden Situationen wie Krankheit oder Ausfällen stehst du ihnen unterstützend zur Seite. Relevante Kennzahlen wie Absenzen, Fluktuation und Zeitsaldi hast du stets im Blick und leitest daraus Optimierungsmassnahmen ab.\n\n- Du verantwortest das Funktionieren des Betriebs vor Ort und sorgst für einen reibungslosen Ablauf. Bei Bedarf intervenierst du bei der Leitstelle, deiner Ansprechperson in der Personaldisposition und Betriebsplanung sowie im operativen Flottenmanagement, um eine effiziente und koordinierte Betriebsführung sicherzustellen.\n\n- Du planst und koordinierst Massnahmen im Haltestellen- und Baustellenmanagement, berücksichtigst Umleitungen und Haltestellenänderungen, arbeitest mit internen und externen Partnerinnen und Partnern zusammen und führst das Haltestellenmanagementsystem. Neben deinen Führungsaufgaben übernimmst du selbst Fahrdienste, sei es fix eingeplant oder zur Überbrückung von Engpässen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufsausbildung (EFZ) und hast eine Weiterbildung als Führungsfachfrau oder Führungsfachmann mit eidg. Fachausweis oder eine vergleichbare Qualifikation abgeschlossen – oder bist bereit, diese in naher Zukunft zu absolvieren. Führungserfahrung ist ein Plus – aber kein Muss! Wichtig ist uns dein Engagement und deine Bereitschaft, dich in der Führung weiterzuentwickeln.\n\n- Du bringst Erfahrung in Infrastrukturaufgaben (baulich, betrieblich, prozessual) mit und hast ein gutes Verständnis für Sicherheitsaspekte im öffentlichen Raum. Mit deinen Kommunikationsfähigkeiten bringst du Menschen zusammen, führst Dialoge auf Augenhöhe und findest auch in schwierigen Situationen tragfähige Lösungen.\n\n- Du bist konfliktfähig und trittst in Verhandlungen sowie Gesprächen mit Mitarbeitenden, Vorgesetzten, Vertreter:innen der PEKO und/oder Sozialpartner:innen stets professionell und souverän auf.\n\n- Du verfügst über den Führerausweis der Kategorie D oder bist bereit, diesen zu erlangen.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
-      "descriptionByLocale": {
-        "it": "Vuoi contribuire a plasmare gli obiettivi strategici di leadership e promuovere attivamente l'ulteriore sviluppo di PostBus? In questo ruolo diverso, guiderai e svilupperai il tuo personale di guida, garantirai un servizio di guida fluido e coordina le regolazioni nella gestione dei siti di arresto e costruzione. PostBus commuta la sua flotta a unità elettriche entro il 2035. Con il vostro contributo e la vostra piena convinzione, apportate un contributo decisivo al successo di questa trasformazione.\n\nPuoi farlo.\n\n- Guidare, motivare e sviluppare il personale di guida, garantire un ambiente di lavoro positivo e rafforzare le prestazioni e l'impegno del vostro team attraverso regolari incontri one-on-one e riunioni di squadra.\n\n- Assicurarsi che le risorse del personale del servizio di guida sono fornite in tempo e in alta qualità. Accompagnate i vostri dipendenti in tutto il ciclo di vita delle risorse umane – dal reclutamento e dall'introduzione allo sviluppo individuale e all'uscita. Anche in situazioni difficili come malattie o guasti, li supporta. Hai sempre un occhio sulle cifre chiave rilevanti come assenze, fluttuazioni e bilanciamento del tempo e derivano misure di ottimizzazione da loro.\n\n- Sei responsabile del funzionamento dell'operazione sul sito e assicurarsi che funzioni senza problemi. Se necessario, interverrete con il centro di controllo, il vostro referente nella pianificazione del personale e nella gestione operativa della flotta per garantire una gestione operativa efficiente e coordinata.\n\n- Pianifichi e coordina le misure nella gestione dei siti di arresto e costruzione, consideri le diversificazioni e le modifiche di arresto, lavori con partner interni ed esterni e gestisci il sistema di gestione degli arresti. Oltre ai vostri compiti di gestione, si prende su servizi di guida da soli, se è pianificato o ponte colli di bottiglia.\n\nLo porti con te.\n\n- Ha una formazione professionale completa (EFZ) e ha un'ulteriore formazione come manager o manager con la legge federale. Completato un certificato professionale o una qualifica paragonabile – o sono pronti a completarlo nel prossimo futuro. L'esperienza di leadership è un plus – ma non un must! Ciò che è importante per noi è il vostro impegno e la vostra volontà di sviluppare ulteriormente nella leadership.\n\n- Porti esperienza nei compiti infrastrutturali (costruttivi, operativi, procedurali) e hai una buona comprensione degli aspetti di sicurezza negli spazi pubblici. Con le vostre capacità di comunicazione, riunite le persone, dialogate a livello degli occhi e trovate soluzioni valide anche in situazioni difficili.\n\n- Siete in grado di contrastare e agire sempre professionalmente e sovranamente nei negoziati e nelle discussioni con dipendenti, superiori, rappresentanti di PEKO e/o partner sociali.\n\n- Avete una patente di guida di categoria D o siete pronti ad ottenerla.\n\n- Si comunica molto bene per via orale e per iscritto in tedesco e avere buone conoscenze (orali) in una seconda lingua nazionale.",
-        "en": "Do you want to help shape the strategic leadership goals and actively promote the further development of PostBus? In this diverse role, you will lead and develop your driving staff, ensure a smooth driving service and coordinate adjustments in stop and construction site management. PostBus will switch its fleet to electric drives by 2035. With your contribution and your full conviction, you make a decisive contribution to the success of this transformation.\n\nYou can do that.\n\n- You lead, motivate and develop your driving staff, ensure a positive working environment and strengthen the performance and commitment of your team through regular one-on-one meetings and team meetings.\n\n- You ensure that the driving service personnel resources are provided on time and in high quality. You accompany your employees throughout the entire HR lifecycle – from recruitment and introduction to individual development and exit. Even in challenging situations such as illness or failures, you support them. You always have an eye on relevant key figures such as absences, fluctuations and time balance and derive optimization measures from them.\n\n- You are responsible for the functioning of the operation on site and ensure that it runs smoothly. If necessary, you will intervene with the control centre, your contact person in personnel planning and operational fleet management to ensure efficient and coordinated operational management.\n\n- You plan and coordinate measures in stop and construction site management, consider diversions and stop changes, work with internal and external partners and manage the stop management system. In addition to your management tasks, you take on driving services yourself, whether it is planned or to bridge bottlenecks.\n\nYou bring that with you\n\n- You have a completed vocational training (EFZ) and have a further education as a manager or manager with federal law. Completed a professional certificate or a comparable qualification – or are ready to complete it in the near future. Leadership experience is a plus – but not a must! What is important to us is your commitment and your willingness to develop further in leadership.\n\n- You bring experience in infrastructure tasks (constructional, operational, procedural) and have a good understanding of security aspects in public spaces. With your communication skills, you bring people together, engage in dialogue at eye level and find viable solutions even in difficult situations.\n\n- You are capable of conflict and always act professionally and sovereignly in negotiations and discussions with employees, superiors, representatives of PEKO and/or social partners.\n\n- You have a category D driving licence or are ready to obtain it.\n\n- You communicate very well orally and in writing in German and have good (oral) knowledge in a second national language.",
-        "de": "Möchtest du die strategischen Führungsziele mitgestalten und die Weiterentwicklung von PostAuto aktiv vorantreiben? In dieser vielfältigen Rolle führst und entwickelst du dein Fahrpersonal, stellst einen reibungslosen Fahrdienst sicher und koordinierst Anpassungen im Haltestellen- und Baustellenmanagement. PostAuto stellt seine Flotte bis 2035 auf elektrische Antriebe um. Mit deinem Beitrag und deiner vollen Überzeugung trägst du entscheidend dazu bei, dass diese Transformation gelingt.\n\nDas kannst du bewirken\n\n- Du führst, motivierst und entwickelst dein Fahrpersonal, sorgst für ein positives Arbeitsumfeld und stärkst die Leistungsfähigkeit sowie Einsatzbereitschaft deines Teams durch regelmässige Einzelgespräche und Teambesprechungen.\n\n- Du stellst sicher, dass die Personalressourcen für den Fahrdienst termingerecht und in hoher Qualität bereitgestellt werden. Deine Mitarbeitenden begleitest du über den gesamten HR-Lifecycle hinweg – von der Rekrutierung und Einführung über die individuelle Weiterentwicklung bis hin zum Austritt. Auch in herausfordernden Situationen wie Krankheit oder Ausfällen stehst du ihnen unterstützend zur Seite. Relevante Kennzahlen wie Absenzen, Fluktuation und Zeitsaldi hast du stets im Blick und leitest daraus Optimierungsmassnahmen ab.\n\n- Du verantwortest das Funktionieren des Betriebs vor Ort und sorgst für einen reibungslosen Ablauf. Bei Bedarf intervenierst du bei der Leitstelle, deiner Ansprechperson in der Personaldisposition und Betriebsplanung sowie im operativen Flottenmanagement, um eine effiziente und koordinierte Betriebsführung sicherzustellen.\n\n- Du planst und koordinierst Massnahmen im Haltestellen- und Baustellenmanagement, berücksichtigst Umleitungen und Haltestellenänderungen, arbeitest mit internen und externen Partnerinnen und Partnern zusammen und führst das Haltestellenmanagementsystem. Neben deinen Führungsaufgaben übernimmst du selbst Fahrdienste, sei es fix eingeplant oder zur Überbrückung von Engpässen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufsausbildung (EFZ) und hast eine Weiterbildung als Führungsfachfrau oder Führungsfachmann mit eidg. Fachausweis oder eine vergleichbare Qualifikation abgeschlossen – oder bist bereit, diese in naher Zukunft zu absolvieren. Führungserfahrung ist ein Plus – aber kein Muss! Wichtig ist uns dein Engagement und deine Bereitschaft, dich in der Führung weiterzuentwickeln.\n\n- Du bringst Erfahrung in Infrastrukturaufgaben (baulich, betrieblich, prozessual) mit und hast ein gutes Verständnis für Sicherheitsaspekte im öffentlichen Raum. Mit deinen Kommunikationsfähigkeiten bringst du Menschen zusammen, führst Dialoge auf Augenhöhe und findest auch in schwierigen Situationen tragfähige Lösungen.\n\n- Du bist konfliktfähig und trittst in Verhandlungen sowie Gesprächen mit Mitarbeitenden, Vorgesetzten, Vertreter:innen der PEKO und/oder Sozialpartner:innen stets professionell und souverän auf.\n\n- Du verfügst über den Führerausweis der Kategorie D oder bist bereit, diesen zu erlangen.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
-        "fr": "Voulez-vous aider à façonner les objectifs stratégiques de leadership et promouvoir activement le développement de PostBus? Dans ce rôle diversifié, vous dirigerez et développerez votre personnel de conduite, assurerez un service de conduite en douceur et coordonnerez les ajustements dans la gestion des arrêts et des chantiers de construction. PostBus changera sa flotte en entraînements électriques d'ici 2035. Avec votre contribution et votre conviction, vous contribuez de manière décisive au succès de cette transformation.\n\nTu peux le faire.\n\n- Vous dirigez, motivez et développez votre personnel de conduite, assurez un environnement de travail positif et renforcez le rendement et l'engagement de votre équipe au moyen de réunions individuelles et de réunions d'équipe régulières.\n\n- Vous assurez que les ressources en personnel du service de conduite sont fournies à temps et en haute qualité. Vous accompagnez vos employés tout au long du cycle de vie des RH – du recrutement et de l'introduction au développement individuel et à la sortie. Même dans des situations difficiles comme la maladie ou les échecs, vous les soutenez. Vous avez toujours un œil sur les chiffres clés pertinents tels que les absences, les fluctuations et l'équilibre du temps et de dériver des mesures d'optimisation d'eux.\n\n- Vous êtes responsable du fonctionnement de l'opération sur place et vous assurez qu'elle fonctionne bien. Si nécessaire, vous interviendrez avec le centre de contrôle, votre personne-ressource dans la planification du personnel et la gestion opérationnelle de la flotte pour assurer une gestion opérationnelle efficace et coordonnée.\n\n- Vous planifiez et coordonnez les mesures de gestion des arrêts et des chantiers, envisagez les détournements et arrêtez les changements, travaillez avec des partenaires internes et externes et gérez le système de gestion des arrêts. En plus de vos tâches de gestion, vous prenez vous-même les services de conduite, qu'il soit prévu ou de combler les goulets d'étranglement.\n\nApporte ça avec toi.\n\n- Vous avez une formation professionnelle terminée (EFZ) et avez une formation complémentaire en tant que gestionnaire ou gestionnaire en droit fédéral. A complété un certificat professionnel ou une qualification comparable – ou sont prêts à le compléter dans un proche avenir. L'expérience de leadership est un plus – mais pas un must! Ce qui est important pour nous, c'est votre engagement et votre volonté de développer davantage votre leadership.\n\n- Vous apportez de l'expérience dans les tâches d'infrastructure (construction, fonctionnement, procédure) et avez une bonne compréhension des aspects de sécurité dans les espaces publics. Avec vos compétences en communication, vous rassemblez les gens, vous engagez dans le dialogue au niveau des yeux et trouvez des solutions viables même dans des situations difficiles.\n\n- Vous êtes capable de conflit et agissez toujours de façon professionnelle et souveraine dans les négociations et les discussions avec les employés, les supérieurs, les représentants de PEKO et/ou les partenaires sociaux.\n\n- Vous avez un permis de conduire de catégorie D ou êtes prêt à l'obtenir.\n\n- Vous communiquez très bien oralement et par écrit en allemand et avez une bonne connaissance (orale) dans une deuxième langue nationale."
-      },
-      "location": "Weinfelden",
-      "canton": "TG",
-      "url": "https://job.post.ch/default/job/Teamleiterin-Fahrpersonal/74343-de_DE",
-      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:20.498Z",
-      "addressLocality": "Weinfelden",
-      "addressRegion": "TG",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti pubblici / Autobus",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-21",
-      "validThrough": "2026-08-20",
-      "pensum": "80-100%",
-      "applyUrl": "https://job.post.ch/default/job/Teamleiterin-Fahrpersonal/74343-de_DE",
-      "jobReqId": "74343",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "teamleiter-in-fahrpersonal-postauto-weinfelden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiter-in-fahrpersonal-postauto-weinfelden"
-        ],
-        "en": [
-          "teamleiter-in-fahrpersonal-postauto-weinfelden"
-        ],
-        "fr": [
-          "teamleiter-in-fahrpersonal-postauto-weinfelden"
-        ]
-      },
-      "firstSeenAt": "2026-07-21T12:32:36.958Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "postauto-e542d1622bec",
-      "slug": "postbus-driver-in-postauto-ag-appenzell",
-      "slugByLocale": {
-        "it": "postbus-driver-in-postauto-ag-appenzell",
-        "en": "postbus-driver-in-postauto-ag-appenzell",
-        "de": "postauto-fahrer-in-postauto-appenzell",
-        "fr": "pilote-postbus-in-postauto-ag-appenzell"
-      },
-      "company": "PostAuto AG",
-      "companyKey": "postauto",
-      "companyDomain": "postauto.ch",
-      "title": "PostAuto-Fahrer:in",
-      "titleByLocale": {
-        "it": "PostBus driver:in",
-        "en": "PostBus driver:in",
-        "de": "PostAuto-Fahrer:in",
-        "fr": "Pilote PostBus:in"
-      },
-      "description": "Möchtest du ganz vorne links Platz nehmen und als PostAuto-Fahrer:in bei uns einsteigen? Bringst du eine Qualifikation zum Busfahren mit? Dann bist du genau richtig bei uns, denn mit dir am Steuer kommen unsere Fahrgäste pünktlich und sicher ans Ziel.\n\nDas kannst du bewirken\n\n- Auf unseren abwechslungsreichen regionalen Linien bringst du unsere Fahrgäste von Montag bis Sonntag an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Der tägliche Kontakt mit deinen Fahrgästen bereichert deinen Alltag mit spannenden Begegnungen und du schaffst positive Erlebnisse für unsere Kundschaft.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug auf der Strasse. Im direkten Kundenkontakt erlebst du jeden Tag neue und abwechslungsreiche Situationen.\n\nDas bringst du mit\n\n- Du verfügst über Fahrpraxis im Personentransport und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Für diese Stelle benötigst du einen Führerausweis der Kategorie D und einen gültigen Fahrerqualifizierungsnachweis.\n\n- Zuverlässigkeit und Freude am täglichen Kundenkontakt gehören zu deinen Stärken.\n\n- Du verfügst über gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
-      "descriptionByLocale": {
-        "it": "Vuoi sederti davanti a sinistra e unirti a noi come autista PostBus? Porti una qualifica per la guida degli autobus? Allora siete esattamente con noi, perché con voi al volante i nostri passeggeri arrivano in tempo e in modo sicuro alla loro destinazione.\n\nPuoi farlo.\n\n- Nelle nostre varie linee regionali porti i nostri passeggeri a destinazione da lunedì a domenica.\n\n- Lei è l'ospite: nei nostri autobus postali e consiglia i nostri clienti su questioni tariffarie e orari.\n\n- Il contatto quotidiano con i vostri passeggeri arricchisce la vostra vita quotidiana con incontri emozionanti e crei esperienze positive per i nostri clienti.\n\n- Come autista: ti muovi molto di più del tuo veicolo sulla strada. In contatto diretto con il cliente, si verificano situazioni nuove e varie ogni giorno.\n\nLo porti con te.\n\n- Avete pratica di guida nel trasporto passeggeri e godere della varietà che ore di lavoro irregolari (comprese le domeniche e le festività pubbliche) portare con loro.\n\n- Per questo lavoro, è necessario una licenza del driver di categoria D e un certificato di qualifica del conducente valido.\n\n- Affidabilità e godimento del contatto quotidiano del cliente sono tra i vostri punti di forza.\n\n- Hai una buona conoscenza del tedesco e sono ben versi nell'uso di dispositivi digitali.",
-        "en": "Would you like to sit at the front left and join us as a PostBus driver? Do you bring a qualification for bus driving? Then you are exactly right with us, because with you at the wheel our passengers arrive on time and safely to their destination.\n\nYou can do that.\n\n- On our varied regional lines you bring our passengers to their destination from Monday to Sunday.\n\n- You are the host: in our post buses and advise our customers on tariff and timetable issues.\n\n- The daily contact with your passengers enriches your everyday life with exciting encounters and you create positive experiences for our customers.\n\n- As a driver: you move much more than just your vehicle on the road. In direct customer contact, you experience new and varied situations every day.\n\nYou bring that with you\n\n- You have driving practice in passenger transport and enjoy the variety that irregular working hours (including Sundays and public holidays) bring with them.\n\n- For this job, you need a category D driver’s license and a valid driver qualification certificate.\n\n- Reliability and enjoyment of daily customer contact are among your strengths.\n\n- You have a good knowledge of German and are well versed in using digital devices.",
-        "de": "Möchtest du ganz vorne links Platz nehmen und als PostAuto-Fahrer:in bei uns einsteigen? Bringst du eine Qualifikation zum Busfahren mit? Dann bist du genau richtig bei uns, denn mit dir am Steuer kommen unsere Fahrgäste pünktlich und sicher ans Ziel.\n\nDas kannst du bewirken\n\n- Auf unseren abwechslungsreichen regionalen Linien bringst du unsere Fahrgäste von Montag bis Sonntag an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Der tägliche Kontakt mit deinen Fahrgästen bereichert deinen Alltag mit spannenden Begegnungen und du schaffst positive Erlebnisse für unsere Kundschaft.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug auf der Strasse. Im direkten Kundenkontakt erlebst du jeden Tag neue und abwechslungsreiche Situationen.\n\nDas bringst du mit\n\n- Du verfügst über Fahrpraxis im Personentransport und geniesst die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Für diese Stelle benötigst du einen Führerausweis der Kategorie D und einen gültigen Fahrerqualifizierungsnachweis.\n\n- Zuverlässigkeit und Freude am täglichen Kundenkontakt gehören zu deinen Stärken.\n\n- Du verfügst über gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.",
-        "fr": "Voulez-vous vous asseoir à l'avant à gauche et nous rejoindre en tant que pilote PostBus ? Apportez-vous une qualification pour la conduite en autobus ? Ensuite, vous avez exactement raison avec nous, car avec vous au volant nos passagers arrivent à temps et en toute sécurité à leur destination.\n\nTu peux le faire.\n\n- Sur nos lignes régionales variées, vous apportez nos passagers à leur destination du lundi au dimanche.\n\n- Vous êtes l'hôte: dans nos bus postaux et conseillez nos clients sur les questions de tarif et d'horaire.\n\n- Le contact quotidien avec vos passagers enrichit votre vie quotidienne de rencontres passionnantes et vous créez des expériences positives pour nos clients.\n\n- En tant que conducteur, vous déplacez beaucoup plus que votre véhicule sur la route. En contact direct avec le client, vous ressentez des situations nouvelles et variées chaque jour.\n\nApporte ça avec toi.\n\n- Vous pratiquez la conduite dans le transport de passagers et profitez de la variété que les horaires de travail irréguliers (y compris le dimanche et les jours fériés) apportent avec eux.\n\n- Pour ce travail, vous avez besoin d'un permis de conduire de catégorie D et d'un certificat de qualification de conducteur valide.\n\n- Fiabilité et plaisir du contact quotidien avec le client sont parmi vos points forts.\n\n- Vous avez une bonne connaissance de l'allemand et vous connaissez bien l'utilisation des appareils numériques."
-      },
-      "location": "Appenzell",
-      "canton": "AI",
-      "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74357-de_DE",
-      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:19.329Z",
-      "addressLocality": "Appenzell",
-      "addressRegion": "AI",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Autisti / Conducenti",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti pubblici / Autobus",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-21",
-      "validThrough": "2026-08-20",
-      "pensum": "60-100%",
-      "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/74357-de_DE",
-      "jobReqId": "74357",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "postauto-fahrer-in-postauto-appenzell"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "postauto-fahrer-in-postauto-appenzell"
-        ],
-        "en": [
-          "postauto-fahrer-in-postauto-appenzell"
-        ],
-        "fr": [
-          "postauto-fahrer-in-postauto-appenzell"
-        ]
-      },
-      "firstSeenAt": "2026-07-21T12:32:34.703Z",
-      "salaryMin": 65000,
-      "salaryMax": 98500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 65000,
-          "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "postauto-e3f91bb1e72b",
-      "slug": "key-account-manager-in-business-clienti-svizzera-orientale-postauto-ag-st-gallen",
-      "slugByLocale": {
-        "it": "key-account-manager-in-business-clienti-svizzera-orientale-postauto-ag-st-gallen",
-        "en": "key-account-manager-in-business-customers-eastern-switzerland-postauto-ag-st-gallen",
-        "de": "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen",
-        "fr": "key-account-manager-dans-les-clients-d-affaires-de-suisse-orientale-postauto-ag-st-gallen"
-      },
-      "company": "PostAuto AG",
-      "companyKey": "postauto",
-      "companyDomain": "postauto.ch",
-      "title": "Key Account Manager:in Geschäftskunden Ostschweiz",
-      "titleByLocale": {
-        "it": "Key Account Manager: in Business Clienti Svizzera Orientale",
-        "en": "Key Account Manager: in Business Customers Eastern Switzerland",
-        "de": "Key Account Manager:in Geschäftskunden Ostschweiz",
-        "fr": "Key Account Manager: dans les clients d'affaires de Suisse orientale"
-      },
-      "description": "Interessierst du dich für Mobilität und den Aufbau sowie die Pflege von strategischen Kundenbeziehungen auf höchstem Niveau? Begeisterst du dich dafür, komplexe Kundenbedürfnisse zu verstehen und passende Lösungen zu entwickeln? In dieser Rolle verantwortest du die Weiterentwicklung unserer Kunden in der Region Ostschweiz und gestaltest aktiv nachhaltige Mobilitätslösungen. Mit dir stärken wir unsere Kundenbindung und erschliessen neue Potenziale.\n\nDas kannst du bewirken\n\n- Du verantwortest das Flotten-Portfolio der Geschäftskunden in der Ostschweiz und stellst durch einen regelmässigen, persönlichen Austausch eine enge und nachhaltige Kundenbeziehung sicher.\n\n- Du entwickelst unsere bestehenden Kundenbeziehungen strategisch weiter, betreibst eine aktive Bestandes-Kundenpflege und identifizierst zusätzliche Potenziale für den Ausbau unseres Dienstleistungs- und Lösungsangebots.\n\n- Die Bestandes Kunden berätst du zu nachhaltigen und wirtschaftlichen Mobilitätslösungen und unterstützt sie bei der Optimierung ihres Flottenmanagements.\n\n- Du führst sauber und zuverlässig die notwendigen Reportings z.H. der Kunden und dem Management von Post Company Cars AG.\n\n- In den Bereichen Offert Stellung, Vertragswesen und Auftragsabwicklung arbeitest du eng mit dem Sales Support zusammen und sorgst für einen reibungslosen Ablauf.\n\n- Durch deine Mitarbeit in Projektgruppen sowie dein Engagement bei internen Events unterstützt du aktiv die Marketingaktivitäten.\n\nDas bringst du mit\n\n- Du hast eine kaufmännische oder technische Grundausbildung und verfügst über eine Weiterbildung im Marketing/Verkauf oder in Betriebswirtschaft.\n\n- Du bringst fundierte Key-Account-Management-Erfahrung mit, idealerweise in Dienstleistungen (Flottenmanagement/Automotive) oder Finanzdienstleistungen (Leasing).\n\n- Ein hohes Mass an Abschlussorientierung sowie ausgeprägtes Verhandlungs- und Verkaufsgeschick gehören zu deinen Stärken.\n\n- Zudem bist du bist eine durchsetzungsstarke, kooperative und kompetente Verkaufs-Persönlichkeit mit einem Flair für betriebswirtschaftliche Zusammenhänge und einem grossen persönlichen Netzwerk.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch. Jede weitere Landessprache ist von Vorteil.\n\nWeitere Informationen zu Post Company Cars AG erhältst du hier;  www.post.ch/companycars",
-      "descriptionByLocale": {
-        "it": "Sei interessato alla mobilità e allo sviluppo e alla manutenzione di relazioni strategiche con i clienti al massimo livello? Sei entusiasta di comprendere complesse esigenze dei clienti e sviluppare soluzioni adeguate? In questo ruolo, si è responsabili per l'ulteriore sviluppo dei nostri clienti nella regione della Svizzera orientale e progettare attivamente soluzioni di mobilità sostenibile. Con voi, rafforziamo la nostra fidelizzazione del cliente e sbloccamo nuove potenzialità.\n\nPuoi farlo.\n\n- Sei responsabile del portafoglio di clienti aziendali della flotta nella Svizzera orientale e garantisci una stretta e sostenibile relazione con i clienti attraverso uno scambio regolare e personale.\n\n- Sviluppi strategicamente le nostre relazioni con i clienti esistenti, gestisci un servizio clienti attivo e identifichi il potenziale aggiuntivo per l'espansione della nostra offerta di servizi e soluzioni.\n\n- Si consiglia ai clienti esistenti di soluzioni di mobilità sostenibile ed economica e di sostenerli nell'ottimizzazione della gestione della flotta.\n\n- Gestisci in modo pulito e affidabile la segnalazione necessaria dei clienti e la gestione di Post Company Cars AG.\n\n- Nei settori della posizione dell'offerta, della gestione dei contratti e dell'elaborazione degli ordini, si lavora a stretto contatto con il supporto vendite e assicura un processo regolare.\n\n- Attraverso la vostra partecipazione a gruppi di progetto e il vostro impegno per gli eventi interni, sostenete attivamente le attività di marketing.\n\nLo porti con te.\n\n- Hai un'istruzione commerciale o tecnica di base e hai una formazione ulteriore nel marketing/vendita o nell'amministrazione aziendale.\n\n- Porti un'esperienza di gestione di account chiave approfondita, idealmente nei servizi (gestione di flotta/automotiva) o nei servizi finanziari (leasing).\n\n- Un alto grado di orientamento finale così come le forti competenze di negoziazione e di vendita sono tra i vostri punti di forza.\n\n- Inoltre, sei una personalità di vendita assertiva, cooperativa e competente con un tocco per i contesti aziendali e una grande rete personale.\n\n- Comunichi verbalmente e per iscritto molto bene in tedesco. Qualsiasi altra lingua nazionale è benefica.\n\nUlteriori informazioni su Post Company Cars AG sono disponibili qui; www.post.ch/companycars",
-        "en": "Are you interested in mobility and the development and maintenance of strategic customer relationships at the highest level? Are you enthusiastic about understanding complex customer needs and developing suitable solutions? In this role, you are responsible for the further development of our customers in the Eastern Switzerland region and actively design sustainable mobility solutions. With you, we strengthen our customer loyalty and unlock new potential.\n\nYou can do that.\n\n- You are responsible for the fleet portfolio of business customers in Eastern Switzerland and ensure a close and sustainable customer relationship through a regular, personal exchange.\n\n- You strategically develop our existing customer relationships, operate an active customer service and identify additional potential for the expansion of our service and solution offering.\n\n- You advise existing customers on sustainable and economic mobility solutions and support them in optimizing their fleet management.\n\n- You cleanly and reliably manage the necessary reporting of customers and the management of Post Company Cars AG.\n\n- In the areas of Offer Position, Contract Management and Order Processing, you work closely with Sales Support and ensure a smooth process.\n\n- Through your participation in project groups and your commitment to internal events, you actively support marketing activities.\n\nYou bring that with you\n\n- You have a basic commercial or technical education and have further training in marketing/sales or business administration.\n\n- You bring in-depth key account management experience, ideally in services (fleet management/automotive) or financial services (leasing).\n\n- A high degree of final orientation as well as strong negotiating and sales skills are among your strengths.\n\n- In addition, you are an assertive, cooperative and competent sales personality with a flair for business contexts and a large personal network.\n\n- You communicate verbally and in writing very well in German. Any other national language is beneficial.\n\nFurther information about Post Company Cars AG can be found here; www.post.ch/companycars",
-        "de": "Interessierst du dich für Mobilität und den Aufbau sowie die Pflege von strategischen Kundenbeziehungen auf höchstem Niveau? Begeisterst du dich dafür, komplexe Kundenbedürfnisse zu verstehen und passende Lösungen zu entwickeln? In dieser Rolle verantwortest du die Weiterentwicklung unserer Kunden in der Region Ostschweiz und gestaltest aktiv nachhaltige Mobilitätslösungen. Mit dir stärken wir unsere Kundenbindung und erschliessen neue Potenziale.\n\nDas kannst du bewirken\n\n- Du verantwortest das Flotten-Portfolio der Geschäftskunden in der Ostschweiz und stellst durch einen regelmässigen, persönlichen Austausch eine enge und nachhaltige Kundenbeziehung sicher.\n\n- Du entwickelst unsere bestehenden Kundenbeziehungen strategisch weiter, betreibst eine aktive Bestandes-Kundenpflege und identifizierst zusätzliche Potenziale für den Ausbau unseres Dienstleistungs- und Lösungsangebots.\n\n- Die Bestandes Kunden berätst du zu nachhaltigen und wirtschaftlichen Mobilitätslösungen und unterstützt sie bei der Optimierung ihres Flottenmanagements.\n\n- Du führst sauber und zuverlässig die notwendigen Reportings z.H. der Kunden und dem Management von Post Company Cars AG.\n\n- In den Bereichen Offert Stellung, Vertragswesen und Auftragsabwicklung arbeitest du eng mit dem Sales Support zusammen und sorgst für einen reibungslosen Ablauf.\n\n- Durch deine Mitarbeit in Projektgruppen sowie dein Engagement bei internen Events unterstützt du aktiv die Marketingaktivitäten.\n\nDas bringst du mit\n\n- Du hast eine kaufmännische oder technische Grundausbildung und verfügst über eine Weiterbildung im Marketing/Verkauf oder in Betriebswirtschaft.\n\n- Du bringst fundierte Key-Account-Management-Erfahrung mit, idealerweise in Dienstleistungen (Flottenmanagement/Automotive) oder Finanzdienstleistungen (Leasing).\n\n- Ein hohes Mass an Abschlussorientierung sowie ausgeprägtes Verhandlungs- und Verkaufsgeschick gehören zu deinen Stärken.\n\n- Zudem bist du bist eine durchsetzungsstarke, kooperative und kompetente Verkaufs-Persönlichkeit mit einem Flair für betriebswirtschaftliche Zusammenhänge und einem grossen persönlichen Netzwerk.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch. Jede weitere Landessprache ist von Vorteil.\n\nWeitere Informationen zu Post Company Cars AG erhältst du hier; www.post.ch/companycars",
-        "fr": "Êtes-vous intéressé par la mobilité et le développement et le maintien de relations client stratégiques au plus haut niveau? Êtes-vous enthousiaste à l'idée de comprendre les besoins complexes des clients et de développer des solutions appropriées? Dans ce rôle, vous êtes responsable du développement de nos clients dans la région de Suisse orientale et de concevoir activement des solutions de mobilité durable. Avec vous, nous renforçons notre fidélité à la clientèle et débloquons un nouveau potentiel.\n\nTu peux le faire.\n\n- Vous êtes responsable du portefeuille de la flotte de clients d'affaires en Suisse orientale et assurer une relation client étroite et durable grâce à un échange régulier et personnel.\n\n- Vous développez stratégiquement nos relations client existantes, exploitez un service client actif et identifiez un potentiel supplémentaire pour l'expansion de notre offre de service et de solution.\n\n- Vous conseillez les clients existants sur les solutions de mobilité durable et économique et les aidez à optimiser la gestion de leur flotte.\n\n- Vous gérez de manière propre et fiable les rapports nécessaires des clients et la gestion de Post Company Cars AG.\n\n- Dans les domaines de la position de l'offre, de la gestion des contrats et du traitement des commandes, vous travaillez en étroite collaboration avec le support commercial et vous assurez un processus en douceur.\n\n- Grâce à votre participation à des groupes de projet et à votre engagement envers des événements internes, vous soutenez activement les activités de marketing.\n\nApporte ça avec toi.\n\n- Vous disposez d'une formation commerciale ou technique de base et d'une formation continue en marketing/ventes ou en administration des affaires.\n\n- Vous apportez une expérience de gestion de compte clé approfondie, idéalement dans les services (gestion de flotte/automobile) ou les services financiers (leasing).\n\n- Un haut degré d'orientation finale ainsi que de fortes compétences en négociation et en vente sont parmi vos points forts.\n\n- En outre, vous êtes une personnalité de vente affirmée, coopérative et compétente avec un style pour les contextes d'affaires et un grand réseau personnel.\n\n- Vous communiquez très bien verbalement et par écrit en allemand. Toute autre langue nationale est bénéfique.\n\nDe plus amples informations sur Post Company Cars AG sont disponibles ici; www.post.ch/companycars"
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://job.post.ch/default/job/Key-Account-Managerin-Gesch%C3%A4ftskunden-Ostschweiz/74325-de_DE",
-      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:17.947Z",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti pubblici / Autobus",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-26",
-      "validThrough": "2026-08-18",
-      "pensum": "80-100%",
-      "applyUrl": "https://job.post.ch/default/job/Key-Account-Managerin-Gesch%C3%A4ftskunden-Ostschweiz/74325-de_DE",
-      "jobReqId": "74325",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen"
-        ],
-        "en": [
-          "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen"
-        ],
-        "fr": [
-          "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen"
-        ]
-      },
-      "firstSeenAt": "2026-07-26T22:15:58.727Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "postauto-83917ae29257",
-      "slug": "co-team-leader-nel-personale-di-guida-postauto-ag-ilanz",
-      "slugByLocale": {
-        "de": "co-teamleiter-in-fahrpersonal-postauto-ilanz",
-        "it": "co-team-leader-nel-personale-di-guida-postauto-ag-ilanz",
-        "en": "co-team-leader-in-driving-personnel-postauto-ag-ilanz",
-        "fr": "co-chef-d-equipe-dans-le-personnel-de-conduite-postauto-ag-ilanz"
-      },
-      "company": "PostAuto AG",
-      "companyKey": "postauto",
-      "companyDomain": "postauto.ch",
-      "title": "Co-Teamleiter:in Fahrpersonal",
-      "titleByLocale": {
-        "de": "Co-Teamleiter:in Fahrpersonal",
-        "it": "Co-team leader: nel personale di guida",
-        "en": "Co-team leader: in driving personnel",
-        "fr": "Co-chef d'équipe: dans le personnel de conduite"
-      },
-      "description": "Möchtest du aktiv zur Weiterentwicklung von PostAuto beitragen und Führungsverantwortung in einem modernen Co-Leitungsmodell übernehmen?\nAls Co-Teamleiter:in Fahrpersonal am Standort Ilanz gestaltest du gemeinsam mit deiner Co-Leitung die Führung und Entwicklung des Fahrpersonals. Ihr tragt gemeinsam die Verantwortung für einen stabilen und qualitativ hochwertigen Fahrdienst und teilt euch die Führungsaufgaben partnerschaftlich und auf Augenhöhe.\n\nDas kannst du bewirken\n\n- Gemeinsam mit deiner Co-Leitung führst, motivierst und entwickelst du das Fahrpersonal und sorgst für ein positives und wertschätzendes Arbeitsumfeld.\n\n- Du stellst gemeinsam mit deiner Co-Leitung sicher, dass die Personalressourcen für den Fahrdienst termingerecht und in hoher Qualität bereitgestellt werden.\n\n- Du begleitest die Mitarbeitenden über den gesamten HR-Lifecycle hinweg – von der Rekrutierung und Einführung bis zur individuellen Weiterentwicklung.\n\n- Du behältst relevante Kennzahlen wie Absenzen, Zeitsaldi und Fluktuation im Blick und leitest bei Bedarf Optimierungsmassnahmen ein.\n\n- Du gehst professionell mit Reklamationen, Unregelmässigkeiten und besonderen betrieblichen Situationen um.\n\n- Du unterstützt das Funktionieren des Betriebs vor Ort und arbeitest eng mit Leitstelle, Personaldisposition, Betriebsplanung und Flottenmanagement zusammen.\n\n- Neben deiner Führungsrolle 50% übernimmst du selbst Fahrdienste, sei es fix geplant oder zur Überbrückung von Engpässen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufsausbildung (EFZ) und hast eine Weiterbildung als Führungsfachfrau oder Führungsfachmann mit eidg. Fachausweis oder eine vergleichbare Qualifikation abgeschlossen – oder du bist bereit, diese in naher Zukunft zu absolvieren.\n\n- Erste Führungserfahrung sind von Vorteil, aber keine Voraussetzung – wichtiger ist deine Motivation, Verantwortung zu übernehmen und dich weiterzuentwickeln.\n\n- Du arbeitest gerne im Team und schätzt den Austausch sowie die partnerschaftliche Zusammenarbeit im Co-Leitungsmodell.\n\n- Mit deinen Kommunikationsfähigkeiten bringst du Menschen zusammen, führst Dialoge auf Augenhöhe und findest auch in schwierigen Situationen tragfähige Lösungen\n\n- Du bist konfliktfähig und trittst in Verhandlungen sowie Gesprächen mit Mitarbeitenden, Vorgesetzten, Vertreter:innen der PEKO und/oder Sozialpartner:innen stets professionell und souverän auf.\n\n- Du bist ein Organisationstalent und hast die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten.\n\n- Du verfügst über den Führerausweis der Kategorie D oder bist bereit, diesen zu erlangen.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
-      "descriptionByLocale": {
-        "de": "Möchtest du aktiv zur Weiterentwicklung von PostAuto beitragen und Führungsverantwortung in einem modernen Co-Leitungsmodell übernehmen?\nAls Co-Teamleiter:in Fahrpersonal am Standort Ilanz gestaltest du gemeinsam mit deiner Co-Leitung die Führung und Entwicklung des Fahrpersonals. Ihr tragt gemeinsam die Verantwortung für einen stabilen und qualitativ hochwertigen Fahrdienst und teilt euch die Führungsaufgaben partnerschaftlich und auf Augenhöhe.\n\nDas kannst du bewirken\n\n- Gemeinsam mit deiner Co-Leitung führst, motivierst und entwickelst du das Fahrpersonal und sorgst für ein positives und wertschätzendes Arbeitsumfeld.\n\n- Du stellst gemeinsam mit deiner Co-Leitung sicher, dass die Personalressourcen für den Fahrdienst termingerecht und in hoher Qualität bereitgestellt werden.\n\n- Du begleitest die Mitarbeitenden über den gesamten HR-Lifecycle hinweg – von der Rekrutierung und Einführung bis zur individuellen Weiterentwicklung.\n\n- Du behältst relevante Kennzahlen wie Absenzen, Zeitsaldi und Fluktuation im Blick und leitest bei Bedarf Optimierungsmassnahmen ein.\n\n- Du gehst professionell mit Reklamationen, Unregelmässigkeiten und besonderen betrieblichen Situationen um.\n\n- Du unterstützt das Funktionieren des Betriebs vor Ort und arbeitest eng mit Leitstelle, Personaldisposition, Betriebsplanung und Flottenmanagement zusammen.\n\n- Neben deiner Führungsrolle 50% übernimmst du selbst Fahrdienste, sei es fix geplant oder zur Überbrückung von Engpässen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufsausbildung (EFZ) und hast eine Weiterbildung als Führungsfachfrau oder Führungsfachmann mit eidg. Fachausweis oder eine vergleichbare Qualifikation abgeschlossen – oder du bist bereit, diese in naher Zukunft zu absolvieren.\n\n- Erste Führungserfahrung sind von Vorteil, aber keine Voraussetzung – wichtiger ist deine Motivation, Verantwortung zu übernehmen und dich weiterzuentwickeln.\n\n- Du arbeitest gerne im Team und schätzt den Austausch sowie die partnerschaftliche Zusammenarbeit im Co-Leitungsmodell.\n\n- Mit deinen Kommunikationsfähigkeiten bringst du Menschen zusammen, führst Dialoge auf Augenhöhe und findest auch in schwierigen Situationen tragfähige Lösungen\n\n- Du bist konfliktfähig und trittst in Verhandlungen sowie Gesprächen mit Mitarbeitenden, Vorgesetzten, Vertreter:innen der PEKO und/oder Sozialpartner:innen stets professionell und souverän auf.\n\n- Du bist ein Organisationstalent und hast die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten.\n\n- Du verfügst über den Führerausweis der Kategorie D oder bist bereit, diesen zu erlangen.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
-        "it": "Vuoi contribuire attivamente all'ulteriore sviluppo di PostBus e assumersi la responsabilità di leadership in un moderno modello di cogestione?\nCome leader del team: nella guida del personale nella posizione di Ilanz, tu e la tua co-leader modellate la leadership e lo sviluppo del personale di guida. Condividi la responsabilità di un servizio di guida stabile e di alta qualità e condividi i compiti di gestione in partenariato e su un piano di parità.\n\nPuoi farlo.\n\n- Insieme alla vostra co-direzione, guidate, motivate e sviluppate il personale di guida e assicurate un ambiente di lavoro positivo e apprezzabile.\n\n- Insieme alla vostra cogestione, assicuratevi che le risorse del personale per il servizio di guida siano fornite in tempo e in alta qualità.\n\n- Si accompagnano i dipendenti in tutto il ciclo di vita delle risorse umane – dal reclutamento e dall'introduzione allo sviluppo individuale.\n\n- Tenere d'occhio i dati chiave rilevanti come assenze, bilanciamento del tempo e fluttuazione e avviare misure di ottimizzazione, se necessario.\n\n- Si tratta professionalmente di reclami, irregolarità e situazioni operative speciali.\n\n- Supporti il funzionamento dell'operazione in loco e lavori a stretto contatto con il centro di controllo, la gestione del personale, la pianificazione operativa e la gestione della flotta.\n\n- Oltre al vostro ruolo di leadership 50%, si prende su servizi di guida da soli, se è pianificato o ponte colli di bottiglia.\n\nLo porti con te.\n\n- Ha una formazione professionale completa (EFZ) e ha un'ulteriore formazione come manager o manager con la legge federale. Completato un certificato professionale o una qualifica paragonabile – o sei pronto a completarlo nel prossimo futuro.\n\n- L'esperienza di leadership iniziale è utile, ma non un prerequisito – più importante è la vostra motivazione a prendere responsabilità e sviluppare.\n\n- Ti piace lavorare in un team e apprezzare il partenariato di scambio e cooperazione nel modello di cogestione.\n\n- Con le vostre capacità di comunicazione, riunite le persone, dialogate a livello degli occhi e trovate soluzioni valide anche in situazioni difficili.\n\n- Siete in grado di contrastare e agire sempre professionalmente e sovranamente nei negoziati e nelle discussioni con dipendenti, superiori, rappresentanti di PEKO e/o partner sociali.\n\n- Sei un talento organizzativo e hai la capacità di tenere una panoramica anche in situazioni frenetiche.\n\n- Avete una patente di guida di categoria D o siete pronti per ottenerla.\n\n- Si comunica molto bene per via orale e per iscritto in tedesco e avere buone conoscenze (orali) in una seconda lingua nazionale.",
-        "en": "Do you want to actively contribute to the further development of PostBus and assume leadership responsibility in a modern co-management model?\nAs co-team leader: in driving personnel at the Ilanz location, you and your co-leader shape the leadership and development of the driving personnel. You share the responsibility for a stable and high-quality driving service and share the management tasks in partnership and on an equal footing.\n\nYou can do that.\n\n- Together with your co-direction, you lead, motivate and develop the driving staff and ensure a positive and appreciative working environment.\n\n- Together with your co-management, you ensure that the personnel resources for the driving service are provided on time and in high quality.\n\n- You accompany employees throughout the entire HR lifecycle – from recruitment and introduction to individual development.\n\n- You keep an eye on relevant key figures such as absences, time balance and fluctuation and initiate optimization measures if necessary.\n\n- You deal professionally with complaints, irregularities and special operational situations.\n\n- You support the functioning of the operation on site and work closely with control center, personnel management, operational planning and fleet management.\n\n- In addition to your leadership role 50%, you take on driving services yourself, whether it is planned or to bridge bottlenecks.\n\nYou bring that with you\n\n- You have a completed vocational training (EFZ) and have a further education as a manager or manager with federal law. Completed a professional certificate or a comparable qualification – or you are ready to complete it in the near future.\n\n- Initial leadership experience is beneficial, but not a prerequisite – more important is your motivation to take responsibility and develop.\n\n- You enjoy working in a team and appreciate the exchange and cooperative partnership in the co-management model.\n\n- With your communication skills, you bring people together, engage in dialogue at eye level and find viable solutions even in difficult situations.\n\n- You are capable of conflict and always act professionally and sovereignly in negotiations and discussions with employees, superiors, representatives of PEKO and/or social partners.\n\n- You are an organizational talent and have the ability to keep an overview even in hectic situations.\n\n- You have a category D driving licence or are ready to obtain it.\n\n- You communicate very well orally and in writing in German and have good (oral) knowledge in a second national language.",
-        "fr": "Voulez-vous contribuer activement au développement de PostBus et assumer la responsabilité de leadership dans un modèle de cogestion moderne?\nEn tant que co-chef d'équipe : en tant que chauffeur à l'emplacement d'Ilanz, vous et votre co-chef façonnez le leadership et le développement du personnel de conduite. Vous partagez la responsabilité d'un service de conduite stable et de qualité et partagez les tâches de gestion en partenariat et sur un pied d'égalité.\n\nTu peux le faire.\n\n- Avec votre co-direction, vous dirigez, motivez et développez le personnel de conduite et assurez un environnement de travail positif et apprécié.\n\n- Avec votre cogestion, vous veillez à ce que les ressources humaines du service de conduite soient fournies à temps et en qualité.\n\n- Vous accompagnez les employés tout au long du cycle de vie des RH – du recrutement et de l'introduction au développement individuel.\n\n- Vous gardez un œil sur les chiffres clés pertinents tels que les absences, l'équilibre temporel et les fluctuations et initiez des mesures d'optimisation si nécessaire.\n\n- Vous traitez professionnellement les plaintes, les irrégularités et les situations opérationnelles spéciales.\n\n- Vous soutenez le fonctionnement de l'opération sur place et travaillez en étroite collaboration avec le centre de contrôle, la gestion du personnel, la planification opérationnelle et la gestion de la flotte.\n\n- En plus de votre rôle de leader 50 %, vous prenez vous-même les services de conduite, qu'il soit prévu ou de combler les goulets d'étranglement.\n\nApporte ça avec toi.\n\n- Vous avez une formation professionnelle terminée (EFZ) et avez une formation complémentaire en tant que gestionnaire ou gestionnaire en droit fédéral. A complété un certificat professionnel ou une qualification comparable – ou vous êtes prêt à le compléter dans un proche avenir.\n\n- L'expérience initiale en leadership est bénéfique, mais pas une condition préalable.\n\n- Vous aimez travailler en équipe et apprécier l'échange et le partenariat coopératif dans le modèle de cogestion.\n\n- Avec vos compétences en communication, vous rassemblez les gens, vous engagez dans le dialogue au niveau des yeux et trouvez des solutions viables même dans des situations difficiles.\n\n- Vous êtes capable de conflit et agissez toujours de manière professionnelle et souveraine dans les négociations et les discussions avec les employés, les supérieurs, les représentants de PEKO et/ou les partenaires sociaux.\n\n- Vous êtes un talent organisationnel et avez la capacité de garder un aperçu même dans des situations agitées.\n\n- Vous avez un permis de conduire de catégorie D ou êtes prêt à l'obtenir.\n\n- Vous communiquez très bien oralement et par écrit en allemand et avez une bonne (orale) connaissance dans une deuxième langue nationale."
-      },
-      "location": "Ilanz",
-      "canton": "GR",
-      "url": "https://job.post.ch/default/job/Co-Teamleiterin-Fahrpersonal/74379-de_DE",
-      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:16.758Z",
-      "addressLocality": "Ilanz",
-      "addressRegion": "GR",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti pubblici / Autobus",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-27",
-      "validThrough": "2026-08-26",
-      "pensum": "50%",
-      "applyUrl": "https://job.post.ch/default/job/Co-Teamleiterin-Fahrpersonal/74379-de_DE",
-      "jobReqId": "74379",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-27T22:23:16.758Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "co-teamleiter-in-fahrpersonal-postauto-ilanz"
-        ],
-        "en": [
-          "co-teamleiter-in-fahrpersonal-postauto-ilanz"
-        ],
-        "fr": [
-          "co-teamleiter-in-fahrpersonal-postauto-ilanz"
-        ]
-      },
-      "previousSlugs": [
-        "co-teamleiter-in-fahrpersonal-postauto-ilanz"
-      ]
+      "crawlerMissStreak": 1
     }
   ]
 }
