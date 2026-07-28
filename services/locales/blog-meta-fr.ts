@@ -9069,6 +9069,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dogana-maggiore-snella.title': 'La douane sera plus légère',
     'blog.article.dogana-maggiore-snella.excerpt': 'L\'Office fédéral des douanes et de la sécurité des frontières coupe 25 postes de direction',
     'blog.article.dogana-maggiore-snella.imageAlt': 'La nouvelle et améliorée douane de Lugano',
+    'blog.article.trasferirsi-maccagno-frontaliere-pro-contro.title': 'Déménager à Maccagno en tant que frontalier : guide pour et contre',
+    'blog.article.trasferirsi-maccagno-frontaliere-pro-contro.excerpt': 'Vivre à Maccagno avec Pino et Veddasca en travaillant au Tessin : analyse fiscale entre nouvel accord, franchises et temps de trajet pour le frontalier.',
+    'blog.article.trasferirsi-maccagno-frontaliere-pro-contro.imageAlt': 'Vue de Maccagno con Pino e Veddasca vers la frontière suisse',
 };
 
 export default blogMetaFr;

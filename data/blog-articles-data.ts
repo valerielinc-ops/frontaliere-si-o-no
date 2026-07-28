@@ -27242,6 +27242,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trasferirsi-maccagno-frontaliere-pro-contro',
+ category: 'pratico',
+ date: '2026-07-28T15:46:43.463Z',
+ image: '/images/blog/trasferirsi-maccagno-frontaliere-pro-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

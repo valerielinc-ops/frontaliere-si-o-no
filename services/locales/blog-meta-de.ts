@@ -9066,6 +9066,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dogana-maggiore-snella.title': 'Der Zoll wird schlanker',
     'blog.article.dogana-maggiore-snella.excerpt': 'Das Bundesamt für Zoll und Grenzsicherheit schneidet 25 Führungspositionen ab',
     'blog.article.dogana-maggiore-snella.imageAlt': 'Das neue und verbesserte Zollamt in Lugano',
+    'blog.article.trasferirsi-maccagno-frontaliere-pro-contro.title': 'Umzug nach Maccagno als Grenzgänger: Fahren für und gegen',
+    'blog.article.trasferirsi-maccagno-frontaliere-pro-contro.excerpt': 'Leben in Maccagno mit Pino und Veddasca im Tessin: Steueranalyse zwischen neuem Abkommen, Franchisen und Reisezeiten für den Grenzgänger.',
+    'blog.article.trasferirsi-maccagno-frontaliere-pro-contro.imageAlt': 'Blick auf Maccagno con Pino e Veddasca in Richtung Schweizer Grenze',
 };
 
 export default blogMetaDe;

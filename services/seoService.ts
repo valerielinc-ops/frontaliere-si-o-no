@@ -4972,6 +4972,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-canicola-cantieri-ssic': { name: 'Canicola e cantieri, la SSIC', path: '/articoli-svizzera/canicola-cantieri-ssic/', parent: 'blog' },
     'blog-dogana-maggiore-snella': { name: 'La dogana sarà più snella', path: '/articoli-frontaliere/dogana-maggiore-snella', parent: 'blog' },
     'blog-zurich-finma-licenziamenti-previdenza': { name: 'Zurich licenziamenti FINMA', path: '/articoli-svizzera/zurich-finma-licenziamenti-previdenza/', parent: 'blog' },
+    'blog-trasferirsi-maccagno-frontaliere-pro-contro': { name: 'Maccagno Frontalieri', path: '/articoli-frontaliere/trasferirsi-maccagno-frontaliere-pro-contro', parent: 'blog' },
  };
 
  const info = sectionNames[section];

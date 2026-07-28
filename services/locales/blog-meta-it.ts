@@ -9068,6 +9068,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dogana-maggiore-snella.title': 'La dogana sarà più snella',
     'blog.article.dogana-maggiore-snella.excerpt': 'L\'Ufficio federale della dogana e della sicurezza dei confini taglia 25 posizioni dirigenziali',
     'blog.article.dogana-maggiore-snella.imageAlt': 'La dogana più snella a Lugano',
+    'blog.article.trasferirsi-maccagno-frontaliere-pro-contro.title': 'Trasferirsi a Maccagno da frontaliere: guida pro e contro',
+    'blog.article.trasferirsi-maccagno-frontaliere-pro-contro.excerpt': 'Vivere a Maccagno con Pino e Veddasca lavorando in Ticino: analisi fiscale tra nuovo accordo, franchigie e tempi di percorrenza per il frontaliere.',
+    'blog.article.trasferirsi-maccagno-frontaliere-pro-contro.imageAlt': 'Vista di Maccagno con Pino e Veddasca verso il confine svizzero',
 };
 
 export default blogMetaIt;
