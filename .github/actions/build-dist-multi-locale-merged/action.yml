@@ -1,0 +1,109 @@
+name: 'Build dist (multi-locale, memory-bounded merge)'
+description: >-
+  Replaces the single monolithic `npm run build:ci` (which builds all four
+  locales — it/en/de/fr — inside ONE Node process) with 4 sequential
+  `BUILD_LOCALE=<loc>` builds, each covering only ~1/4 of the SEO page
+  surface, merged afterwards into one `dist/` tree that is byte-equivalent
+  in COVERAGE to the monolith build (same pages, same content) but never
+  holds more than one locale's SSG output live in the same process.
+
+  Root cause this fixes (issue #4586 / #4586-sibling cathedral-seo-gates-check):
+  the monolith `npm run build:ci` in adsense-prereview.yml and
+  cathedral-seo-gates-check.yml OOMs (FatalProcessOutOfMemory, exit 134)
+  because heapUsed grows monotonically across SSG phases (measured 3.6GB →
+  11.7GB across company/city/sector hub phases on run 29732063285) and a
+  forced GC at each phase checkpoint (`logBuildMem()`,
+  build-plugins/jobsSeoPagesPlugin.ts) reclaims only ~13MB out of ~11.7GB —
+  i.e. the retention is live data for the ~22k pages the "company hub v2"
+  bundle (#4306/#4323) generates, not a leak. deploy.yml's build-locale
+  MATRIX job never hits this because each locale is a SEPARATE GitHub
+  Actions runner/process — this action reproduces that same per-locale
+  memory bound inside a SINGLE job (these audit workflows are single-job by
+  design: they need every locale's output in one `dist/` tree to sample
+  across all locales, unlike deploy.yml which ships each locale to its own
+  Pages shard and never merges them back together).
+
+  Uses the SAME build-plugin code path as production (BUILD_LOCALE env +
+  build-plugins/shared/localeEmitFilter.ts's shouldEmitLocale gates, already
+  battle-tested by deploy.yml's build-locale matrix) — zero changes to
+  build-plugins/**, zero risk to deploy.yml's own build.
+
+  UNVALIDATED PRE-MERGE: this cannot be exercised locally (FAST_BUILD=1
+  local builds skip most SEO landings, and a full local SEO build OOMs per
+  CLAUDE.md — remote CI only). Revert trigger: if a scheduled run of either
+  caller workflow still OOMs at/above the previous ~11.7GB ceiling after
+  this lands, per-locale filtering is not shedding the memory this diagnosis
+  assumes — pursue reducing the SEO page surface itself instead of retrying
+  this knob. If the merged dist is missing pages a single-locale shard would
+  legitimately have (compare `find dist -name index.html | wc -l` against a
+  prior monolith run's count in the workflow log), the merge step below has
+  a bug — do not silently accept a smaller page count.
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Build each locale separately, merge into one dist/
+      shell: bash
+      env:
+        # Same knobs the monolith step used to set inline — kept here (not
+        # duplicated per-caller) so both callers stay byte-identical by
+        # construction (AGENTS.md non-negotiable #6).
+        FAST_BUILD: ''
+        POST_WALK_WORKERS: '2'
+        MALLOC_ARENA_MAX: '2'
+        SEQUENTIAL_PROFILE: '1'
+      run: |
+        set -euo pipefail
+        # One shared build id across all 4 sub-builds so content-hashed
+        # asset filenames (assets/*.js, assets/*.css) agree between the
+        # locale that keeps them (it, root) and the locales that reference
+        # them (en/de/fr HTML emitted by their own separate Vite process) —
+        # mirrors deploy.yml's matrix (needs.matrix-setup.outputs.build_id
+        # shared via DEPLOY_BUILD_ID, see build-plugins/constants.ts).
+        export DEPLOY_BUILD_ID="${DEPLOY_BUILD_ID:-$(date +%s%3N)}"
+        echo "[build-dist-multi-locale-merged] DEPLOY_BUILD_ID=$DEPLOY_BUILD_ID"
+
+        MERGE_DIR="${RUNNER_TEMP:-/tmp}/merged-dist-$$"
+        rm -rf "$MERGE_DIR"
+        mkdir -p "$MERGE_DIR"
+
+        for LOC in it en de fr; do
+          echo "::group::Build locale=$LOC"
+          rm -rf dist
+          BUILD_LOCALE="$LOC" npm run build:ci &
+          build_pid=$!
+          while kill -0 "$build_pid" 2>/dev/null; do
+            sleep 60
+            echo "[build keepalive locale=$LOC] still running at $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          done
+          wait "$build_pid"
+
+          # Defensive prune (mirrors deploy.yml's build-locale matrix step
+          # "Prune to locale shard"): direct fs.writeFileSync emitters that
+          # bypass the WriteCollector chokepoint still write every locale,
+          # so strip anything this locale doesn't own before merging.
+          BUILD_LOCALE="$LOC" node scripts/ci/prune-locale-shard.mjs dist
+
+          if [ "$LOC" = "it" ]; then
+            # Main shard: root pages + every shared file (sitemap, robots,
+            # data/, assets/, og/, homepage, blog). en/de/fr subtrees were
+            # already pruned above, so a full copy seeds the merge cleanly.
+            cp -a dist/. "$MERGE_DIR"/
+          else
+            # Pure locale shard: merge ONLY its own subtree — never let a
+            # later locale's leftover root-level SPA shell/assets clobber
+            # the IT-authoritative copy already in the merge dir.
+            rm -rf "${MERGE_DIR:?}/$LOC"
+            cp -a "dist/$LOC" "$MERGE_DIR/$LOC"
+          fi
+          echo "::endgroup::"
+        done
+
+        rm -rf dist
+        mv "$MERGE_DIR" dist
+        page_count=$(find dist -name '*.html' | wc -l | tr -d ' ')
+        echo "[build-dist-multi-locale-merged] merged dist ready: $page_count HTML pages across it/en/de/fr"
+        if [ "$page_count" -lt 1000 ]; then
+          echo "::error::merged dist has suspiciously few pages ($page_count) — merge step likely broken, not a real build result"
+          exit 1
+        fi

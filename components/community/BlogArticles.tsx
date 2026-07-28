@@ -27,6 +27,7 @@ import { PARTNERS, buildGoPath, partnerRelAttr, type AffiliatePartner, type Comp
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 const GptPocSlot = lazyRetry(() => import('@/components/shared/GptPocSlot'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
+import { useRailGridCollapse, RAIL_GRID_CLASS_X, RAIL_ASIDE_CLASS_X } from '@/components/shared/useRailGridCollapse';
 import { AD_SLOTS, isPlaceholderAdSlot } from '@/services/adsenseSlots';
 import Callout from '@/components/shared/Callout';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
@@ -1129,6 +1130,10 @@ function BlogArticles({
  const nav = useNavigation();
  const { t } = useTranslation();
  const [locale] = useLocale();
+ // Collapses the 300px xlw rail gutter when ArticleRailAdStack resolves an
+ // all-empty verdict per side — shared with JobBoard/JobOrphanView/
+ // JobExpiredView (issue 4830).
+ const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse();
  const [blogReady, setBlogReady] = useState(false);
  const [bodyReady, setBodyReady] = useState(false);
  // FRO-314: Articles data loaded dynamically to reduce TBT on mobile
@@ -1943,10 +1948,10 @@ function BlogArticles({
      letting `xl:` and `xlw:` both match ≥1400: in v4 the `xl:` rule emits
      after `xlw:` and would win the cascade, pinning the rails at 180px and
      making a 300px creative overflow the article (see index.css @theme). */}
- <div className="ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-4 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
+ <div className={RAIL_GRID_CLASS_X} style={railStyle}>
 
  {/* ── Left Rail (desktop only) ── */}
- <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ <aside className={RAIL_ASIDE_CLASS_X}>
  {/* Top content rides the gutter top: sticky at the narrow xl tier, static at
      xlw so the ad chain below can claim the full column height. */}
  <div className="space-y-3 xl:max-xlw:sticky xl:max-xlw:top-6 xlw:flex-none">
@@ -1957,7 +1962,7 @@ function BlogArticles({
  </div>
  {/* Full-length half-page rail-ad chain (≥1400px) — covers the gutter
      top-to-bottom instead of one ad leaving the lower gutter empty. */}
- <Suspense fallback={null}><ArticleRailAdStack side="left" enabled={adEligible} count={railAdCount} /></Suspense>
+ <Suspense fallback={null}><ArticleRailAdStack side="left" enabled={adEligible} count={railAdCount} onEmptyResolved={onLeftEmptyResolved} /></Suspense>
  </aside>
 
  <article ref={articleRef} className="bg-surface rounded-2xl border border-edge overflow-hidden shadow-lg">
@@ -2512,7 +2517,7 @@ function BlogArticles({
  </article>
 
  {/* ── Right Rail (desktop only) ── */}
- <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ <aside className={RAIL_ASIDE_CLASS_X}>
  {/* Top content (TOC + resources) rides the gutter top: sticky at the narrow
      xl tier, static at xlw so the ad chain below claims the full column. */}
  <div className="space-y-3 xl:max-xlw:sticky xl:max-xlw:top-6 xlw:flex-none">
@@ -2570,7 +2575,7 @@ function BlogArticles({
  </p>
  </div>
  {/* Full-length half-page rail-ad chain (≥1400px) — covers the gutter top-to-bottom. */}
- <Suspense fallback={null}><ArticleRailAdStack side="right" enabled={adEligible} count={railAdCount} /></Suspense>
+ <Suspense fallback={null}><ArticleRailAdStack side="right" enabled={adEligible} count={railAdCount} onEmptyResolved={onRightEmptyResolved} /></Suspense>
  </aside>
 
  </div>
