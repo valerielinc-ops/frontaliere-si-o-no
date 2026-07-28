@@ -9041,6 +9041,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mercati-predittivi-business-trump.title': 'Mercati predittivi e nuova piattaforma: il business di Trump',
     'blog.article.mercati-predittivi-business-trump.excerpt': 'La famiglia Trump amplia le proprie attività nei mercati predittivi con il lancio della nuova piattaforma Truth Api.',
     'blog.article.mercati-predittivi-business-trump.imageAlt': 'Veduta panoramica del Lago di Lugano, simbolo dell\'economia ticinese.',
+    'blog.article.trasferirsi-clivio-frontaliere-pro-contro.title': 'Vivere a Clivio lavorando in Ticino da frontaliere: vantaggi e svantaggi',
+    'blog.article.trasferirsi-clivio-frontaliere-pro-contro.excerpt': 'Imposte, dazi, permessi, tempi di spostamento: cosa considerare prima di trasferirsi a Clivio.',
+    'blog.article.trasferirsi-clivio-frontaliere-pro-contro.imageAlt': 'Un frontaliere che guarda il lago di Lugano dalla riva ticinese.',
 };
 
 export default blogMetaIt;

@@ -9040,6 +9040,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mercati-predittivi-business-trump.title': 'Predictive markets and new platform: Trump\'s business',
     'blog.article.mercati-predittivi-business-trump.excerpt': 'The Trump family expands its activities in predictive markets with the launch of the new Truth Api platform.',
     'blog.article.mercati-predittivi-business-trump.imageAlt': 'Panoramic view of Lake Lugano, a symbol of the Ticino economy.',
+    'blog.article.trasferirsi-clivio-frontaliere-pro-contro.title': 'Living in Clivio, Ticino border worker: pros and cons',
+    'blog.article.trasferirsi-clivio-frontaliere-pro-contro.excerpt': 'Taxes, duties, permits, travel times: what to consider before moving to Clivio.',
+    'blog.article.trasferirsi-clivio-frontaliere-pro-contro.imageAlt': 'A border worker looking at Lake Lugano from the Ticinese shore.',
 };
 
 export default blogMetaEn;
