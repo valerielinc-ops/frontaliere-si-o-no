@@ -50,7 +50,10 @@ WORKFLOW_FILE="${1:-}"
 # `}`, so the default is `{` and the trailing `}` is appended literally to the
 # result — a caller-supplied `{"article_id":"x"}` came out as
 # `{"article_id":"x"}}`, which JSON.parse rejects, and the catch below then
-# silently dispatched with no inputs at all. Caught by tests/lib/trigger-self.test.ts.
+# silently dispatched with no inputs at all. Surfaced by
+# tests/lib/trigger-self.test.ts (it asserts the payload shape and went red the
+# moment trigger-self.sh started routing through this engine); the regression is
+# pinned directly by tests/lib/trigger-workflow.test.ts.
 INPUTS_JSON="${2:-}"
 if [ -z "$INPUTS_JSON" ]; then
   INPUTS_JSON='{}'

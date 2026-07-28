@@ -152,6 +152,17 @@ _attempt() {
     return 1
   fi
 
+  # Canonical identity, mirroring push-section-shard.sh:193-194 and
+  # push-locale-shard.sh:214-215. NOT optional: `git commit-tree` below fails
+  # with `fatal: empty ident name ... not allowed` when no identity is
+  # configured, and an Actions runner has none. Without this every fast-publish
+  # would die at commit-tree on all three retries — the feature would be inert
+  # on merge while the workflow's `|| fail=1` fault-tolerance kept CI from
+  # failing loudly. Local runs hide it because developer machines have a global
+  # git identity.
+  git -C "$stage" config user.email "valerielinc@gmail.com" || return 1
+  git -C "$stage" config user.name "Valerie Linc" || return 1
+
   git -C "$stage" read-tree HEAD || return 1
 
   local rel src sha new_count=0
