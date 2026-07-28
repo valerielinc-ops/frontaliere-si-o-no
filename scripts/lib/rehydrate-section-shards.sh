@@ -101,10 +101,53 @@ rehydrate_section() {
       echo "[rehydrate] $section-$loc artifact absent — falling back to git clone"
     fi
 
+    # Cross-job clone cache (issue #4881 defect C). The 3 post-deploy-
+    # validate-dist.yml jobs (validate-dist-source/-postbuild/-postbuild-bfs)
+    # run in PARALLEL with no `needs:` between them, so all 3 reach this same
+    # fallback for the same section+locale whenever the tar artifact is
+    # missing/corrupt (the same condition trips identically for all 3 — e.g.
+    # a shard push failure). SHARD_CLONE_CACHE_DIR is populated by
+    # `actions/cache/restore` in the caller BEFORE this script runs and saved
+    # by `actions/cache/save` right after — a job that starts this fallback
+    # after an earlier job in the SAME run already finished it can reuse that
+    # result instead of re-cloning. Best-effort/probabilistic (job start
+    # order isn't guaranteed, so a hit isn't guaranteed either) and strictly
+    # additive: unset (default) or a miss falls straight through to the
+    # unchanged clone path below, so this is never worse than before it
+    # existed. Not wired to any (section, locale) content invariant — a
+    # missing/stale cache entry just costs the clone it would have cost
+    # anyway, it never serves wrong content (each entry is this exact
+    # section+locale's own $sub, copied verbatim from a clone made moments
+    # earlier in the same run).
+    if [ -n "${SHARD_CLONE_CACHE_DIR:-}" ] && [ -d "$SHARD_CLONE_CACHE_DIR/$section-$loc/$sub" ]; then
+      mkdir -p "dist/$(dirname "$sub")"
+      rm -rf "dist/$sub"
+      cp -r "$SHARD_CLONE_CACHE_DIR/$section-$loc/$sub" "dist/$sub"
+      echo "rehydrated $section $loc from cross-job clone cache: $(find "dist/$sub" -type f | wc -l) files"
+      continue
+    fi
+
     tmp="$RUNNER_TEMP/rehydrate-$section-$loc"
     rm -rf "$tmp"
     owner="$(jq -r --arg s "$section" '.[$s] // "valerielinc-ops"' scripts/lib/section-shard-owners.json 2>/dev/null || echo valerielinc-ops)"
     if [ -z "$owner" ] || [ "$owner" = "null" ]; then owner="valerielinc-ops"; fi
+    # NOTE on partial-clone + sparse-checkout, tried and DELIBERATELY dropped
+    # (issue #4881 defect C — documented instead of silently omitted, since
+    # it's the first thing anyone re-reading this will reach for): git's cone
+    # sparse-checkout mode ALWAYS materializes every root-level file
+    # regardless of the configured directory pattern (this is cone mode's
+    # documented shape, not a bug) — verified empirically against a local
+    # fixture in tests/rehydrate-section-shards.test.ts. Every
+    # frontaliere-<section>-<loc> repo's non-$sub content IS exactly those
+    # root-level scaffold files (.nojekyll/CNAME/index.html/.shard-deploys/
+    # .shard-filecount written by push-section-shard.sh) — there is no OTHER
+    # sibling directory to exclude — so `sparse-checkout set --cone "$sub"`
+    # here fetches byte-for-byte the same tree a plain clone does. Adding it
+    # would be pure risk (new git subcommand, `--filter=blob:none` splitting
+    # one negotiation into clone + a second on-demand blob fetch during
+    # checkout) for a verified ZERO reduction in transferred bytes on TODAY's
+    # repo layout. Left as a plain clone; the real fix for this defect is the
+    # cross-job cache above, which needs no change to this command at all.
     if ! git clone --depth 1 --single-branch --branch main \
          "https://github.com/$owner/frontaliere-$section-$loc.git" "$tmp" 2>/dev/null; then
       echo "::warning::$section-$loc shard clone failed — validators may flag $loc $section pages missing"
@@ -115,6 +158,10 @@ rehydrate_section() {
       rm -rf "dist/$sub"
       cp -r "$tmp/$sub" "dist/$sub"
       echo "rehydrated $section $loc from frontaliere-$section-$loc: $(find "dist/$sub" -type f | wc -l) files"
+      if [ -n "${SHARD_CLONE_CACHE_DIR:-}" ]; then
+        mkdir -p "$SHARD_CLONE_CACHE_DIR/$section-$loc/$(dirname "$sub")" 2>/dev/null \
+          && cp -r "dist/$sub" "$SHARD_CLONE_CACHE_DIR/$section-$loc/$sub" 2>/dev/null || true
+      fi
     else
       echo "::warning::frontaliere-$section-$loc has no $sub subtree — $loc $section left missing"
     fi
