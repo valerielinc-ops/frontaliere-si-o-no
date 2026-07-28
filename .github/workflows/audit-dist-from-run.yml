@@ -19,10 +19,31 @@ permissions:
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # The audits now walk the COMPLETE rehydrated site instead of the trunk
+    # artifact alone, so they take as long as they do in
+    # post-deploy-validate-dist.yml (that file measures audit:all at ~75 min and
+    # audit:max-bfs-depth at ~28 min, and gives them separate runners). The old
+    # 30 min only ever fit because the dist under audit was a fraction of the
+    # site — see the rehydrate step below.
+    timeout-minutes: 240
     steps:
       - name: Checkout repo (for audit scripts only)
         uses: actions/checkout@v5
+
+      # Rehydrating both shard families onto the extracted tarball needs room
+      # the 14 GB default partition doesn't have. Mirrors the identical step in
+      # post-deploy-validate-dist.yml (added there after run 26287421188 ran the
+      # runner out of disk mid-extract). Best-effort: `|| true` so a future
+      # image refresh that already dropped a path can't fail the job.
+      - name: Free disk space on runner
+        run: |
+          df -h /
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
+            /opt/hostedtoolcache/CodeQL /usr/local/share/powershell \
+            /usr/local/share/chromium /usr/local/lib/node_modules \
+            /usr/local/share/boost /usr/share/swift 2>/dev/null || true
+          sudo docker image prune -af 2>/dev/null || true
+          df -h /
 
       - uses: actions/setup-node@v5
         with:
@@ -66,8 +87,73 @@ jobs:
             exit 1
           fi
 
+      # The `github-pages` artifact is the TRUNK only. With LOCALE_SHARDS_LIVE /
+      # <SECTION>_SHARD_LIVE on, deploy.yml strips the en/de/fr subtrees and the
+      # per-section subtrees (cerca-lavoro-ticino, cerca-lavoro-svizzera, …) out
+      # of it — they are served from their own shard repos through the
+      # Cloudflare Worker at the same URLs. Auditing the tarball as-is walks a
+      # fraction of the site and every dist-walking audit reports the absent
+      # subtrees as a defect OF THE SITE: replay run 30346794790 restored 224,032
+      # files, visited 41,837 paths, and declared ~68k cluster URLs an entire
+      # content tier below crawl depth (issue #4857) — while flagging shards
+      # 001-005 too, which data/bfs-depth-baseline.json records as 100% reachable
+      # at depth ≤4. Every cluster canonicalizes under /cerca-lavoro-svizzera/,
+      # one of the stripped section subtrees. post-deploy-validate-dist.yml has
+      # always rehydrated before auditing; this replay did not.
+      #
+      # NOTE on replaying an OLD run: the rehydrate scripts prefer that run's
+      # shard artifacts and fall back to a `git clone` of the shard repo (whose
+      # main branch holds the LATEST push) when they have expired. They log the
+      # fallback — a replay of an expired run therefore mixes trunk-of-then with
+      # shards-of-now.
+      - name: Rehydrate locale then section shards into dist/ (when sharding active)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          # Every `*_SHARD_LIVE` / `LOCALE_SHARDS_LIVE` repo variable at once,
+          # exported below, instead of the hand-listed 27-line `env:` block
+          # post-deploy-validate-dist.yml carries. Sections keep being added
+          # (scripts/lib/section-shard-slugs.json) and a hand-copied list
+          # silently misses the new ones; this form cannot drift (AGENTS.md #6).
+          REPO_VARS_JSON: ${{ toJSON(vars) }}
+        run: |
+          set -uo pipefail
+          eval "$(jq -r 'to_entries[]
+                         | select(.key | test("_SHARDS?_LIVE$"))
+                         | "export \(.key)=\(.value | @sh)"' <<< "$REPO_VARS_JSON")"
+
+          # Same order and same failure contract as post-deploy-validate-dist.yml:
+          # locale first and hard-fail (an incomplete locale shard is a real
+          # gate), sections strictly AFTER it and soft-fail (they warn and
+          # degrade coverage). Sections must not run concurrently with the locale
+          # pass: rehydrate_section writes into dist/$loc/<section>, nested inside
+          # the subtree rehydrate_locale wipes and repopulates.
+          LOCALE_RC=0
+          bash scripts/lib/rehydrate-locale-shards.sh || LOCALE_RC=$?
+          bash scripts/lib/rehydrate-section-shards.sh
+          echo "dist/ now holds $(find dist -type f | wc -l) files"
+          if [ "$LOCALE_RC" -ne 0 ]; then exit "$LOCALE_RC"; fi
+
+      # Precondition, not a gate: abort BEFORE any audit runs (and before a
+      # misleading report is uploaded) if dist/ is still missing whole subtrees.
+      # Without this, a rehydrate that silently degrades turns straight back into
+      # a fabricated structural verdict about the site.
+      - name: Assert dist/ is the complete logical site
+        run: node scripts/ci/assert-dist-complete.mjs
+
       - name: Run requested audits
         id: audits
+        env:
+          # The dist under audit is now the COMPLETE site, not the trunk, and a
+          # full-tree BFS walk holds a Map entry per discovered path. On the
+          # default heap that OOMs: run 30383007845 (the first replay after the
+          # rehydrate fix) died with `FATAL ERROR: Reached heap limit`, rc=134,
+          # before producing any verdict. post-deploy-validate-dist.yml has
+          # always run these walkers with an explicit heap — 8192 for
+          # audit:max-bfs-depth / audit:orphan-sitemap-pages, 4096 for
+          # audit:all. Same runner class here, and the loop below runs them one
+          # at a time, so take the larger of the two for the whole step.
+          NODE_OPTIONS: '--max-old-space-size=8192'
         run: |
           set +e
           IFS=',' read -ra AUDITS <<< "${{ inputs.audits }}"

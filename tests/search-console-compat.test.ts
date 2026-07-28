@@ -281,9 +281,22 @@ describe('Search Console 404 compatibility resolver', () => {
     // failure during the sync-gsc-orphans append) is caught. The old floor of
     // 603 stayed green even if the export were truncated to a few hundred rows.
     expect(compatPaths.paths.length).toBeGreaterThanOrEqual(150000);
+    // Si accumulano i path non risolti e si asserisce UNA volta, invece di
+    // chiamare expect() dentro il loop. Non è stile: l'accumulatore è a
+    // 1.775.351 path e ogni expect() costruisce il proprio matcher, quindi il
+    // loop costava ~21.8s di cui solo ~8.3s nel resolver — 13.6s erano puro
+    // overhead di asserzione (misurato in locale su questo dataset). La
+    // copertura è identica: si valuta OGNI path, nessun campionamento. La
+    // diagnostica migliora, perché prima il primo path rotto interrompeva il
+    // test e ora se ne vedono fino a 20 insieme, con il totale.
+    const unresolved: string[] = [];
     for (const value of compatPaths.paths) {
-      expect(resolveSearchConsoleCompatTarget(value), value).not.toBeNull();
+      if (resolveSearchConsoleCompatTarget(value) === null) unresolved.push(value);
     }
+    expect(
+      unresolved.slice(0, 20),
+      `${unresolved.length} path del compat store non risolvono (primi 20)`,
+    ).toEqual([]);
   }, 60000);
 
   it('resolves non-job section 404s to their landing pages', () => {
@@ -599,9 +612,16 @@ describe('Search Console 404 compatibility resolver', () => {
     );
     expect(Array.isArray(coverage.paths)).toBe(true);
     expect(coverage.paths.length).toBeGreaterThan(0);
+    // Stesso motivo del loop sul compat store sopra: accumula e asserisci una
+    // volta sola, copertura invariata (ogni path valutato).
+    const unresolvedCoverage: string[] = [];
     for (const value of coverage.paths) {
-      expect(resolveSearchConsoleCompatTarget(value), value).not.toBeNull();
+      if (resolveSearchConsoleCompatTarget(value) === null) unresolvedCoverage.push(value);
     }
+    expect(
+      unresolvedCoverage.slice(0, 20),
+      `${unresolvedCoverage.length} path del GSC Coverage export non risolvono (primi 20)`,
+    ).toEqual([]);
 
     // Section-preservation guard (not just non-null): every coverage URL under a
     // per-canton job-board section must canonicalize to the SAME section — no
@@ -633,6 +653,9 @@ describe('Search Console 404 compatibility resolver', () => {
       de: 'jobs-in-schweiz',
       fr: 'trouver-emploi-suisse',
     };
+    // Accumula-e-asserisci come sopra: stessa condizione per-path, valutata su
+    // ogni elemento, ma una sola expect() alla fine.
+    const sectionDrift: string[] = [];
     for (const value of coverage.paths) {
       const m = value.match(SECTION_RE);
       if (!m || COMPANY_SLUG_RE.test(value)) continue;
@@ -643,8 +666,12 @@ describe('Search Console 404 compatibility resolver', () => {
       const isClusterConsolidation =
         CLUSTER_SLUG_RE.test(value) &&
         !!res?.canonicalPath?.includes(`/${AGGREGATE_SECTION_BY_LOCALE[locale]}/`);
-      expect(preservesSection || isClusterConsolidation, value).toBe(true);
+      if (!(preservesSection || isClusterConsolidation)) sectionDrift.push(value);
     }
+    expect(
+      sectionDrift.slice(0, 20),
+      `${sectionDrift.length} path perdono la sezione di origine (wrong-canton drift, primi 20)`,
+    ).toEqual([]);
   });
 
   it('strips an accidental leading duplicate of the site hostname before resolving', () => {
