@@ -81,6 +81,69 @@ describe('renderArticlePages — single-article render equals full-section rende
   }, 300_000);
 });
 
+// Byte-equivalence gate for the batched narrowing added in #4881 Fase 4
+// (`onlyArticleIds`), which the corpus re-render driver uses to chunk a whole
+// section into memory-bounded batches. Same risk as the `onlyArticleId`
+// gate above, generalized to a Set: the body-file read and the write loop
+// both switch from a single id to `onlyArticleIdSet.has(...)`, and a batch of
+// several ids exercises the Set-iteration path that a lone id cannot.
+describe('renderArticlePages — batched onlyArticleIds render equals full-section render', () => {
+  it('emits byte-identical HTML, for every requested id, matching the full-section render', async () => {
+    const fullDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ogpages-full-batch-'));
+    const batchDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ogpages-batch-'));
+
+    try {
+      const full = await renderArticlePages({ rootDir, distDir: fullDir, section: 'svizzera' });
+      expect(full.entries.length).toBeGreaterThan(5);
+
+      // Oldest, newest and one from the middle: spans the entriesByDate
+      // ordering most likely to expose a batching-specific regression.
+      const targets = [
+        full.entries[0],
+        full.entries[Math.floor(full.entries.length / 2)],
+        full.entries[full.entries.length - 1],
+      ];
+      const targetIds = targets.map((t) => t.articleId);
+
+      // Superset-safe: a phantom id belonging to no article in this section
+      // must be a silent no-op, never an error and never a phantom entry.
+      const idsWithPhantom = [...targetIds, '__nonexistent-article-id-4881__'];
+
+      const batch = await renderArticlePages({
+        rootDir,
+        distDir: batchDir,
+        section: 'svizzera',
+        onlyArticleIds: idsWithPhantom,
+      });
+
+      expect(batch.entries).toHaveLength(targetIds.length);
+      expect(new Set(batch.entries.map((e) => e.articleId))).toEqual(new Set(targetIds));
+
+      for (const target of targets) {
+        const fromBatch = batch.entries.find((e) => e.articleId === target.articleId)!;
+        expect(fromBatch.img).toBe(target.img);
+        expect(fromBatch.urls).toEqual(target.urls);
+        expect(fromBatch.paths).toEqual(target.paths);
+        expect(fromBatch.flatPaths).toEqual(target.flatPaths);
+
+        const rels = [...Object.values(target.paths), ...Object.values(target.flatPaths)];
+        expect(rels.length).toBeGreaterThanOrEqual(8); // 4 locales x 2 file forms
+
+        for (const rel of rels) {
+          const fromFull = readIfPresent(fullDir, rel);
+          const fromBatchDisk = readIfPresent(batchDir, rel);
+          expect(fromFull, `full-section render missing ${rel}`).not.toBeNull();
+          expect(fromBatchDisk, `batch render missing ${rel}`).not.toBeNull();
+          expect(fromBatchDisk === fromFull, `byte mismatch in ${rel}`).toBe(true);
+        }
+      }
+    } finally {
+      fs.rmSync(fullDir, { recursive: true, force: true });
+      fs.rmSync(batchDir, { recursive: true, force: true });
+    }
+  }, 300_000);
+});
+
 // Regression gate for the byline date bug fixed in #4837.
 //
 // normalizeDateTime stamps bare dates as `T00:00:00+01:00` (Swiss wall clock),
