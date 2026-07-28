@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3582,
+ "numberOfItems": 3583,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8342,7 +8342,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3579, "name": "Sulzer: meno ordini nel primo semestre, ma cres...", "url": `${BASE_URL}/articoli-frontaliere/sulzer-primo-semestre-2026` },
           { "@type": "ListItem", "position": 3580, "name": "Di più E se a finanziare i treni fossero coloro...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-vola-per-treni` },
           { "@type": "ListItem", "position": 3581, "name": "Sika: giro d'affari a 5,59 miliardi nel primo s...", "url": `${BASE_URL}/articoli-frontaliere/sika-crescita-semestre-bilancio` },
-          { "@type": "ListItem", "position": 3582, "name": "Vivere a Maccagno con Pino e Veddasca e lavorar...", "url": `${BASE_URL}/articoli-frontaliere/vivere-maccagno-lavorare-ticino` }
+          { "@type": "ListItem", "position": 3582, "name": "Vivere a Maccagno con Pino e Veddasca e lavorar...", "url": `${BASE_URL}/articoli-frontaliere/vivere-maccagno-lavorare-ticino` },
+          { "@type": "ListItem", "position": 3583, "name": "Residenza fiscale accertata in Italia e caducaz...", "url": `${BASE_URL}/articoli-frontaliere/residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp` }
  ]
  },
  {

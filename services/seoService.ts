@@ -4964,6 +4964,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzera-vola-per-treni': { name: 'Di più E se a finanziare i treni fossero', path: '/articoli-frontaliere/svizzera-vola-per-treni', parent: 'blog' },
     'blog-sika-crescita-semestre-bilancio': { name: 'Economia Sika', path: '/articoli-svizzera/sika-crescita-semestre-bilancio/', parent: 'blog' },
     'blog-vivere-maccagno-lavorare-ticino': { name: 'Vivere Maccagno Ticino', path: '/articoli-frontaliere/vivere-maccagno-lavorare-ticino', parent: 'blog' },
+    'blog-residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp': { name: 'Residenza fiscale accertata in Italia e', path: '/articoli-frontaliere/residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp', parent: 'blog' },
  };
 
  const info = sectionNames[section];
