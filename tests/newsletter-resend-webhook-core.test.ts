@@ -482,3 +482,48 @@ describe('newsletterResendWebhookCore — malformed "Name <email>" recipient (ro
     expect(db.__sets.some((entry) => entry.docId.includes('<'))).toBe(false);
   });
 });
+
+describe('newsletterResendWebhookCore — untagged sends do not collide on literal "unknown" (#4847)', () => {
+  it('gives two untagged newsletter sends to the same recipient distinct campaign_deliveries docs', async () => {
+    const db = createFakeDb();
+
+    await applyResendWebhookEvent({
+      type: 'email.sent',
+      data: { email: 'untagged@example.com', email_id: 'msg_first' },
+    }, { db: db as any });
+
+    await applyResendWebhookEvent({
+      type: 'email.sent',
+      data: { email: 'untagged@example.com', email_id: 'msg_second' },
+    }, { db: db as any });
+
+    const deliveryDocIds = db.__sets
+      .filter((entry) => entry.collection.endsWith('/campaign_deliveries'))
+      .map((entry) => entry.docId);
+
+    expect(deliveryDocIds.length).toBe(2);
+    expect(new Set(deliveryDocIds).size).toBe(2);
+    expect(deliveryDocIds.every((id) => id.includes('unknown'))).toBe(true);
+  });
+
+  it('gives two untagged job-alert sends to the same recipient distinct alert_deliveries docs', async () => {
+    const db = createFakeDb();
+
+    await applyResendWebhookEvent({
+      type: 'email.sent',
+      data: { email: 'alert@example.com', email_id: 'msg_alert_first', tags: [{ name: 'type', value: 'job-alert' }] },
+    }, { db: db as any });
+
+    await applyResendWebhookEvent({
+      type: 'email.sent',
+      data: { email: 'alert@example.com', email_id: 'msg_alert_second', tags: [{ name: 'type', value: 'job-alert' }] },
+    }, { db: db as any });
+
+    const deliveryDocIds = db.__sets
+      .filter((entry) => entry.collection.endsWith('/alert_deliveries'))
+      .map((entry) => entry.docId);
+
+    expect(deliveryDocIds.length).toBe(2);
+    expect(new Set(deliveryDocIds).size).toBe(2);
+  });
+});
