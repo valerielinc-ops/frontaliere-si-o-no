@@ -53,7 +53,13 @@
         // Paths that are real static files — do NOT redirect (let 404 show)
         var staticExts = /\.(js|css|png|jpg|jpeg|gif|svg|ico|woff2?|ttf|json|xml|txt|map|webmanifest)$/i;
         var pathname = location.pathname;
-        if (staticExts.test(pathname)) return;
+        // A static-asset path is the ONLY branch below that does NOT attempt a
+        // redirect (every other branch — pagination compat, job-detail canon
+        // lookup, generic SPA fallthrough — is guaranteed to call location.replace()
+        // eventually, sync or via the fetch/timeout race further down). Flag it so
+        // the tracking script below can tell a genuine dead-end apart from a URL
+        // that is about to resolve correctly a moment later.
+        if (staticExts.test(pathname)) { window.__page404NoRedirect = true; return; }
         function spaRedirect() {
           // Save full URL (path + search + hash) so index.html can restore it.
           sessionStorage.redirect = location.href.replace('://www.frontaliereticino.ch', '://frontaliereticino.ch');
@@ -161,25 +167,34 @@
       function gtag(){ dataLayer.push(arguments); }
       gtag('js', new Date());
       gtag('config', 'G-LGJ9LE360F', { send_page_view: false });
-      // Track 404 as app_error event with full context
-      gtag('event', 'app_error', {
-        error_type: 'page_404',
-        error_message: 'Page not found: ' + location.pathname,
-        page_path: location.pathname + location.search,
-        page_title: '404 — Pagina non trovata',
-        is_fatal: false,
-        resource_url: location.href,
-        referrer: document.referrer || 'direct',
-        user_agent: navigator.userAgent.substring(0, 150),
-        screen_width: window.innerWidth || 0,
-        screen_height: window.innerHeight || 0,
-        timestamp: new Date().toISOString()
-      });
-      // Also send as GA4 recommended exception event
-      gtag('event', 'exception', {
-        description: '[page_404] ' + location.pathname,
-        fatal: false
-      });
+      // Track 404 as app_error event — ONLY when the canton-drift/redirect
+      // script above did NOT attempt a redirect (window.__page404NoRedirect,
+      // set only for the genuine static-asset dead-end branch). That script
+      // runs earlier in document order but resolves its redirect target
+      // ASYNCHRONOUSLY (fetch + setTimeout race); firing this unconditionally
+      // right after used to race the redirect and report false-positive
+      // page_404 errors for job/pagination/SPA URLs that resolve correctly a
+      // moment later (issue 4802, issue 4803).
+      if (window.__page404NoRedirect) {
+        gtag('event', 'app_error', {
+          error_type: 'page_404',
+          error_message: 'Page not found: ' + location.pathname,
+          page_path: location.pathname + location.search,
+          page_title: '404 — Pagina non trovata',
+          is_fatal: false,
+          resource_url: location.href,
+          referrer: document.referrer || 'direct',
+          user_agent: navigator.userAgent.substring(0, 150),
+          screen_width: window.innerWidth || 0,
+          screen_height: window.innerHeight || 0,
+          timestamp: new Date().toISOString()
+        });
+        // Also send as GA4 recommended exception event
+        gtag('event', 'exception', {
+          description: '[page_404] ' + location.pathname,
+          fatal: false
+        });
+      }
     </script>
     <style>
       * { box-sizing: border-box; margin: 0; padding: 0; }

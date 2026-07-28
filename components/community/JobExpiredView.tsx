@@ -30,6 +30,7 @@ import ArticleRailAdStack from '@/components/shared/ArticleRailAdStack';
 import Callout from '@/components/shared/Callout';
 import JobAlertSection from '@/components/community/JobAlertSection';
 import type { ExpiredJob } from '@/hooks/useExpiredJob';
+import { useRailGridCollapse, RAIL_GRID_CLASS_X, RAIL_ASIDE_CLASS_X } from '@/components/shared/useRailGridCollapse';
 
 interface RelatedJob {
  slug: string;
@@ -167,6 +168,10 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const [emailBusy, setEmailBusy] = useState(false);
  const [emailError, setEmailError] = useState<string | null>(null);
  const [linkedInBusy, setLinkedInBusy] = useState(false);
+ // Collapses the 300px xlw rail gutter when ArticleRailAdStack resolves an
+ // all-empty verdict per side — shared with JobBoard/JobOrphanView/
+ // BlogArticles (issue 4830).
+ const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse();
 
  // Hide login block if user is already authenticated (prop) or has email access (localStorage)
  const alreadySignedIn = hasAccessProp || !!localStorage.getItem(JOB_EMAIL_ACCESS_KEY);
@@ -553,11 +558,11 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  {/* 3-column rail grid: left rail | content | right rail — same full-height
      side-rail layout as the active job detail. Rails 180px at xl (1280–1399),
      300px at xlw (≥1400) to host ArticleRailAd half-page creatives. */}
- <div className="ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-4 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
+ <div className={RAIL_GRID_CLASS_X} style={railStyle}>
 
  {/* ── Left Rail (desktop xl only) ── */}
- <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
- <ArticleRailAdStack side="left" />
+ <aside className={RAIL_ASIDE_CLASS_X}>
+ <ArticleRailAdStack side="left" onEmptyResolved={onLeftEmptyResolved} />
  </aside>
 
  {/* ── Center content (12-col job-detail grid) ── */}
@@ -730,8 +735,8 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </div>
 
  {/* ── Right Rail (desktop xl only) ── */}
- <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
- <ArticleRailAdStack side="right" />
+ <aside className={RAIL_ASIDE_CLASS_X}>
+ <ArticleRailAdStack side="right" onEmptyResolved={onRightEmptyResolved} />
  </aside>
  </div>
 
@@ -757,11 +762,11 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
 
  {/* 3-column grid: left rail | content | right rail. 180px at xl (1280–1399),
      300px at xlw (≥1400) to host ArticleRailAd half-page creatives. */}
- <div className="ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-4 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
+ <div className={RAIL_GRID_CLASS_X} style={railStyle}>
 
  {/* ── Left Rail (desktop xl only) ── */}
- <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
- <ArticleRailAdStack side="left" />
+ <aside className={RAIL_ASIDE_CLASS_X}>
+ <ArticleRailAdStack side="left" onEmptyResolved={onLeftEmptyResolved} />
  </aside>
 
  {/* ── Center content ── */}
@@ -889,8 +894,8 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </div>
 
  {/* ── Right Rail (desktop xl only) ── */}
- <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
- <ArticleRailAdStack side="right" />
+ <aside className={RAIL_ASIDE_CLASS_X}>
+ <ArticleRailAdStack side="right" onEmptyResolved={onRightEmptyResolved} />
  </aside>
 
  </div>

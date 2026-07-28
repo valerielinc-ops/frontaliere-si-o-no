@@ -4257,6 +4257,21 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
   return { prunedExisting, removed };
 }
 
+// Job URLs known from a prior run, used by main() to skip re-fetching detail
+// pages we already have data for (see knownJobUrls usage below). A job with
+// an active crawlerMissStreak was NOT seen in a recent run and must be
+// re-verified rather than trusted as still-known — otherwise its fingerprint
+// never reappears in incomingJobs, the miss streak climbs every run
+// regardless of whether the job is still live, and pruneStaleCrawlerJobs
+// eventually evicts a job that may still genuinely be online (issue 4826).
+function buildKnownJobUrlsSet(preloadedJobs) {
+  return new Set(
+    (Array.isArray(preloadedJobs) ? preloadedJobs : [])
+      .filter((j) => !(Number(j?.crawlerMissStreak) > 0))
+      .map((j) => canonicalizeJobUrl(j.url))
+      .filter(Boolean)
+  );
+}
 
 async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls = new Set()) {
   const result = {
@@ -5229,11 +5244,7 @@ async function main() {
         console.log(`📂 data/jobs.json absent — loaded ${_preloadedJobs.length} jobs from per-crawler slices for URL skip-optimization`);
       }
     }
-    const knownJobUrls = new Set(
-      (Array.isArray(_preloadedJobs) ? _preloadedJobs : [])
-        .map((j) => canonicalizeJobUrl(j.url))
-        .filter(Boolean)
-    );
+    const knownJobUrls = buildKnownJobUrlsSet(_preloadedJobs);
     if (knownJobUrls.size > 0) {
       console.log(`⏩ Known job URLs loaded for skip-optimization: ${knownJobUrls.size}`);
     }
@@ -5844,6 +5855,7 @@ export { main as runSharedCrawlerPipeline };
 export const __testables = {
   aiValidateJobDetailPage,
   fetchWithTimeout,
+  buildKnownJobUrlsSet,
   setCrawlerConfigForTests(cfg) { crawlerConfigGlobal = cfg; },
   clearAiResponseCacheForTests() { aiResponseCache.clear(); },
   persistAiCacheToDisk,

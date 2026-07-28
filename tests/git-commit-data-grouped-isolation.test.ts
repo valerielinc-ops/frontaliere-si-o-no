@@ -215,6 +215,89 @@ describe('git-commit-data.sh grouped-isolated commit path (shared workspace)', (
     }
   });
 
+  // Regression coverage for issue 4433: a job's array-merge must not let a
+  // "touched" local job wholesale-replace a matched remote job and silently
+  // discard the remote side's OWN independent field-level gains. Concretely:
+  // a long-running translate-pending run holds a stale checkout of a job and
+  // touches only an UNRELATED field (e.g. crawledAt); meanwhile a separate,
+  // faster writer independently appends a new previousSlugs entry to the
+  // SAME job on origin/main (e.g. a concurrent slug-rename). Both edits are
+  // legitimate and target different fields of the same record, so the 3-way
+  // merge must reconcile them field-by-field — not let whichever side is
+  // "touched" win the whole record and drop the other side's addition.
+  it('reconciles independent field-level edits to the SAME matched job instead of one side clobbering the other', () => {
+    const { originDir, repoDir } = initClonePair();
+    const otherDir = mkdtempSync(join(tmpdir(), 'gcd-grouped-other-'));
+
+    try {
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      const base = [
+        {
+          id: 'j1',
+          url: 'https://x.example/job',
+          crawledAt: '2026-06-01',
+          previousSlugs: ['old-slug-a', 'old-slug-b'],
+        },
+      ];
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), `${JSON.stringify(base)}\n`);
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      // A separate writer (e.g. a concurrent slug-rename) independently
+      // appends a NEW previousSlugs entry to the same job on the remote.
+      execFileSync('git', ['clone', '-q', originDir, join(otherDir, 'clone')]);
+      const otherClone = join(otherDir, 'clone');
+      execFileSync('git', ['config', 'user.email', 'other@example.com'], { cwd: otherClone });
+      execFileSync('git', ['config', 'user.name', 'Other'], { cwd: otherClone });
+      const remote = [
+        {
+          id: 'j1',
+          url: 'https://x.example/job',
+          crawledAt: '2026-06-01',
+          previousSlugs: ['old-slug-a', 'old-slug-b', 'concurrent-rename-slug'],
+        },
+      ];
+      writeFileSync(join(otherClone, 'data/jobs/by-crawler/a.json'), `${JSON.stringify(remote)}\n`);
+      execFileSync('git', ['add', '.'], { cwd: otherClone });
+      execFileSync('git', ['commit', '-q', '-m', 'crawler: rename slug'], { cwd: otherClone });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: otherClone });
+
+      // Meanwhile this workspace (simulating translate-pending, started from
+      // the pre-rename snapshot) touches only an UNRELATED field — it never
+      // re-fetched, so its own previousSlugs copy is still the stale 2-entry
+      // array.
+      const staleLocal = [
+        {
+          id: 'j1',
+          url: 'https://x.example/job',
+          crawledAt: '2026-07-01',
+          previousSlugs: ['old-slug-a', 'old-slug-b'],
+        },
+      ];
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), `${JSON.stringify(staleLocal)}\n`);
+
+      runScript(repoDir, 'data/jobs/by-crawler/a.json');
+
+      execFileSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: repoDir });
+      const merged = JSON.parse(
+        execFileSync('git', ['show', 'origin/main:data/jobs/by-crawler/a.json'], { cwd: repoDir, encoding: 'utf-8' }),
+      );
+      expect(merged).toHaveLength(1);
+      // Local's unrelated field edit must survive...
+      expect(merged[0].crawledAt).toBe('2026-07-01');
+      // ...AND remote's independently-added previousSlugs entry must not be
+      // silently dropped just because local also touched the same record.
+      expect(merged[0].previousSlugs).toEqual(
+        expect.arrayContaining(['old-slug-a', 'old-slug-b', 'concurrent-rename-slug']),
+      );
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(otherDir, { recursive: true, force: true });
+    }
+  });
+
   it('commits a brand-new untracked slice file (first-ever run of a crawler in a group)', () => {
     const { originDir, repoDir } = initClonePair();
     try {

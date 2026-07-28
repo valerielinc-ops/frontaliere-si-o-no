@@ -27,6 +27,7 @@ import { trackJobView } from '@/services/jobViewsService';
 import { trackPublisherJobView, trackPublisherApplyClick } from '@/services/publisherAnalyticsService';
 import PublisherApplyForm from '@/components/community/PublisherApplyForm';
 import { renderPublisherMarkdown } from '@/services/publisherMarkdown';
+import { useRailGridCollapse, RAIL_GRID_CLASS_X, RAIL_ASIDE_CLASS_X } from '@/components/shared/useRailGridCollapse';
 import {
  fetchAggregatedJobs,
  fetchAllJobs,
@@ -2008,7 +2009,9 @@ JobCard.displayName = 'JobCard';
  * so existing listing/editorial spacing is unchanged; the shell only adds the
  * banner above and the rail gutters beside it.
  */
-const JobBoardRailShell: React.FC<{ isDesktopLg: boolean; children: React.ReactNode }> = ({ isDesktopLg, children }) => (
+const JobBoardRailShell: React.FC<{ isDesktopLg: boolean; children: React.ReactNode }> = ({ isDesktopLg, children }) => {
+ const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse();
+ return (
  <div className="space-y-6">
  {isDesktopLg && (
  <AdSenseBanner
@@ -2018,17 +2021,18 @@ const JobBoardRailShell: React.FC<{ isDesktopLg: boolean; children: React.ReactN
  minHeight={AD_SLOTS.JOBDETAIL_TOP_BANNER.placeholderMinHeight}
  />
  )}
- <div className="ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-4 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
- <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
- <Suspense fallback={null}><ArticleRailAdStack side="left" /></Suspense>
+ <div className={RAIL_GRID_CLASS_X} style={railStyle}>
+ <aside className={RAIL_ASIDE_CLASS_X}>
+ <Suspense fallback={null}><ArticleRailAdStack side="left" onEmptyResolved={onLeftEmptyResolved} /></Suspense>
  </aside>
  <div className="min-w-0">{children}</div>
- <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
- <Suspense fallback={null}><ArticleRailAdStack side="right" /></Suspense>
+ <aside className={RAIL_ASIDE_CLASS_X}>
+ <Suspense fallback={null}><ArticleRailAdStack side="right" onEmptyResolved={onRightEmptyResolved} /></Suspense>
  </aside>
  </div>
  </div>
-);
+ );
+};
 JobBoardRailShell.displayName = 'JobBoardRailShell';
 
 const JobBoard: React.FC<JobBoardProps> = ({
@@ -2058,6 +2062,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Runtime kill-switches for the "Strumenti correlati" sidebar cross-links.
  // Toggle via Firebase Remote Config — each `<li>` respects its own flag.
  const killSwitches = useKillSwitches();
+ // Collapses the 300px xlw rail gutter (both auth-gate and job-detail views
+ // below) when ArticleRailAdStack resolves an all-empty verdict per side —
+ // shared with JobOrphanView/JobExpiredView/BlogArticles (issue 4830).
+ const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse();
 
  // Canton-aware {canton}/{cantonPrep} interpolation params for the H1,
  // subtitle and CTAs. Derived from the URL-driven `initialFilterCanton`
@@ -7385,11 +7393,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
      at xlw (≥1400) and only serve there; below xl it's a single column.
      NOTE: overrides the FRO-2026-04-26 prune (rails earned €0.06–0.10 RPM on
      the gate) per explicit owner request. */}
- <div className="ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-4 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
+ <div className={RAIL_GRID_CLASS_X} style={railStyle}>
 
  {/* ── Left Rail (desktop xl only) ── */}
- <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
- <Suspense fallback={null}><ArticleRailAdStack side="left" /></Suspense>
+ <aside className={RAIL_ASIDE_CLASS_X}>
+ <Suspense fallback={null}><ArticleRailAdStack side="left" onEmptyResolved={onLeftEmptyResolved} /></Suspense>
  </aside>
 
  {/* ── Center gate content ── */}
@@ -7618,8 +7626,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
 
  {/* ── Right Rail (desktop xl only) ── */}
- <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
- <Suspense fallback={null}><ArticleRailAdStack side="right" /></Suspense>
+ <aside className={RAIL_ASIDE_CLASS_X}>
+ <Suspense fallback={null}><ArticleRailAdStack side="right" onEmptyResolved={onRightEmptyResolved} /></Suspense>
  </aside>
 
  </div>
@@ -8192,11 +8200,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
      half-page creatives — same full-height side-rail layout as the article
      detail (BlogArticles) and expired-job views. Rail creatives only
      materialise at xlw; the narrow xl tier shows empty gutters. */}
- <div className="ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-4 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
+ <div className={RAIL_GRID_CLASS_X} style={railStyle}>
 
  {/* ── Left Rail (desktop xl only) ── */}
- <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
- <Suspense fallback={null}><ArticleRailAdStack side="left" /></Suspense>
+ <aside className={RAIL_ASIDE_CLASS_X}>
+ <Suspense fallback={null}><ArticleRailAdStack side="left" onEmptyResolved={onLeftEmptyResolved} /></Suspense>
  </aside>
 
  {/* ── Center content (existing 12-col job-detail grid) ── */}
@@ -8536,7 +8544,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </section>
  )}
- </article> <aside className="hidden lg:block lg:col-span-4"> <div className="sticky top-20 space-y-4"> <Callout status="accent" icon={<Briefcase size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.snapshotTitle')} </div> <div className="mt-3 space-y-2 text-xs text-subtle"> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.location')}</span> <div className="text-right"> <div className="font-semibold font-display text-strong"> {locationSnapshot?.locality || selectedJob.location} </div> {locationSnapshot?.postalCode && ( <div className="text-[11px] text-muted leading-tight mt-0.5"> {t('jobBoard.snapshot.postalCode')}: {locationSnapshot.postalCode} </div> )} </div> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.contract')}</span> <span className="font-semibold font-display text-strong"> {t(contractTranslationKey(selectedJob))} </span> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.published')}</span> <span className="font-semibold font-display text-strong">{daysSincePosted(selectedJob.postedDate)}</span> </div> {locationSnapshot?.crossings && locationSnapshot.crossings.length > 0 && ( <div className="pt-2 border-t border-edge/60"> <div className="mb-1.5 text-xs font-semibold font-display uppercase tracking-wide text-muted"> {t('jobBoard.snapshot.borderCrossings')} </div> <div className="space-y-1"> {locationSnapshot.crossings.map((crossing) => ( <a key={crossing.id} href={buildPath({ activeTab: 'guida', guidaSubTab: 'border', borderCrossing: crossing.id, }, locale)} className="flex items-center justify-between gap-2 rounded-lg px-2 py-2.5 min-h-[44px] lg:min-h-0 lg:py-1.5 bg-surface-alt hover:bg-surface-raised/50 text-body transition-colors" > <span className="font-medium font-display leading-tight">{crossing.name}</span> <ArrowUpRight className="w-3 h-3 text-muted" /> </a> ))} </div> </div> )} </div> </Callout> {canonicalContent.process.length > 0 && timelineSections.length === 0 && ( <Callout status="info" icon={<Calendar size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {canonicalCopy.process} </div> <ul className="mt-2 space-y-1.5 pl-4 list-disc marker:text-info "> {canonicalContent.process.map((item, i) => ( <li key={i} className="text-sm leading-relaxed text-subtle">{item}</li> ))} </ul> </Callout> )} <Callout status="success" icon={<Users size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.adviceTitle')} </div> <p className="mt-2 text-sm leading-relaxed text-subtle"> {t('jobBoard.adviceDescription')} </p> <button onClick={() => handleApply(selectedJob)} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-sm font-semibold font-display bg-success-strong hover:bg-success-strong-hover text-on-accent rounded-lg" > {t('jobBoard.adviceCta')} </button> </Callout> {relatedSearches.length > 0 && ( <Callout status="accent" icon={<Search size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {canonicalCopy.keywords} </div> <div className="mt-2 flex flex-wrap gap-2"> {relatedSearches.map((keyword, i) => { const searchHref = buildPath({ activeTab: 'job-board' as any, jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: buildSearchSlug(keyword, locale) }, locale); return ( <a key={i} href={searchHref} onClick={(e) => { e.preventDefault(); navigateToRelatedSearch(keyword); }} className="text-xs px-2.5 py-1.5 min-h-[44px] inline-flex items-center rounded-full bg-accent-subtle text-accent border border-accent-border" > {keyword} </a> ); })} </div> </Callout> )} {salaryEstimateWidget} {sectorContextWidget} <Suspense fallback={null}><PartnerRecommendations context="jobs" maxCards={1} /></Suspense> {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR.format} fullWidthResponsive className="mt-2" /> )}<Callout status="accent" icon={<Mail size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.publishTitle')} </div> <p className="mt-2 text-sm leading-relaxed text-subtle"> {t('jobBoard.publishDescription', cantonI18n)} </p> <button onClick={onPostJob} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-sm font-semibold font-display border border-accent-border text-accent rounded-lg hover:bg-accent-subtle" > {t('jobBoard.publishCta')} </button> </Callout> </div> </aside> </div> {/* ── Right Rail (desktop xl only) ── */} <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col"> <Suspense fallback={null}><ArticleRailAdStack side="right" /></Suspense> </aside> </div> {/* AdSense — job detail end multiplex */} <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot} adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format} className="mt-6 mb-4" /> {relatedJobs.length > 0 && ( <section className="rounded-2xl border border-edge bg-surface p-5"> <h2 className="text-lg font-bold font-display text-heading mb-4">{t('jobBoard.relatedTitle')}</h2> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"> {relatedJobs.flatMap((job, relIdx) => { const jobLogo = companyLogoUrl(job); const card = ( <button key={buildListingDedupKey(job)} onClick={() => { if (selectedJob) { Analytics.trackJobMatchSimilarClick(selectedJob.slug || '', job.slug || '', describeSimilarJobMatchReason(selectedJob, job), relIdx); } openDetail(job); }} className="text-left rounded-xl border border-edge p-3 hover:border-accent-border hover:bg-surface-raised/40 transition-colors" > <div className="flex items-start gap-3"> <div className="w-12 h-12 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0"> {jobLogo ? ( <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" onError={handleCompanyLogoError} />
+ </article> <aside className="hidden lg:block lg:col-span-4"> <div className="sticky top-20 space-y-4"> <Callout status="accent" icon={<Briefcase size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.snapshotTitle')} </div> <div className="mt-3 space-y-2 text-xs text-subtle"> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.location')}</span> <div className="text-right"> <div className="font-semibold font-display text-strong"> {locationSnapshot?.locality || selectedJob.location} </div> {locationSnapshot?.postalCode && ( <div className="text-[11px] text-muted leading-tight mt-0.5"> {t('jobBoard.snapshot.postalCode')}: {locationSnapshot.postalCode} </div> )} </div> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.contract')}</span> <span className="font-semibold font-display text-strong"> {t(contractTranslationKey(selectedJob))} </span> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.published')}</span> <span className="font-semibold font-display text-strong">{daysSincePosted(selectedJob.postedDate)}</span> </div> {locationSnapshot?.crossings && locationSnapshot.crossings.length > 0 && ( <div className="pt-2 border-t border-edge/60"> <div className="mb-1.5 text-xs font-semibold font-display uppercase tracking-wide text-muted"> {t('jobBoard.snapshot.borderCrossings')} </div> <div className="space-y-1"> {locationSnapshot.crossings.map((crossing) => ( <a key={crossing.id} href={buildPath({ activeTab: 'guida', guidaSubTab: 'border', borderCrossing: crossing.id, }, locale)} className="flex items-center justify-between gap-2 rounded-lg px-2 py-2.5 min-h-[44px] lg:min-h-0 lg:py-1.5 bg-surface-alt hover:bg-surface-raised/50 text-body transition-colors" > <span className="font-medium font-display leading-tight">{crossing.name}</span> <ArrowUpRight className="w-3 h-3 text-muted" /> </a> ))} </div> </div> )} </div> </Callout> {canonicalContent.process.length > 0 && timelineSections.length === 0 && ( <Callout status="info" icon={<Calendar size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {canonicalCopy.process} </div> <ul className="mt-2 space-y-1.5 pl-4 list-disc marker:text-info "> {canonicalContent.process.map((item, i) => ( <li key={i} className="text-sm leading-relaxed text-subtle">{item}</li> ))} </ul> </Callout> )} <Callout status="success" icon={<Users size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.adviceTitle')} </div> <p className="mt-2 text-sm leading-relaxed text-subtle"> {t('jobBoard.adviceDescription')} </p> <button onClick={() => handleApply(selectedJob)} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-sm font-semibold font-display bg-success-strong hover:bg-success-strong-hover text-on-accent rounded-lg" > {t('jobBoard.adviceCta')} </button> </Callout> {relatedSearches.length > 0 && ( <Callout status="accent" icon={<Search size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {canonicalCopy.keywords} </div> <div className="mt-2 flex flex-wrap gap-2"> {relatedSearches.map((keyword, i) => { const searchHref = buildPath({ activeTab: 'job-board' as any, jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: buildSearchSlug(keyword, locale) }, locale); return ( <a key={i} href={searchHref} onClick={(e) => { e.preventDefault(); navigateToRelatedSearch(keyword); }} className="text-xs px-2.5 py-1.5 min-h-[44px] inline-flex items-center rounded-full bg-accent-subtle text-accent border border-accent-border" > {keyword} </a> ); })} </div> </Callout> )} {salaryEstimateWidget} {sectorContextWidget} <Suspense fallback={null}><PartnerRecommendations context="jobs" maxCards={1} /></Suspense> {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR.format} fullWidthResponsive className="mt-2" /> )}<Callout status="accent" icon={<Mail size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.publishTitle')} </div> <p className="mt-2 text-sm leading-relaxed text-subtle"> {t('jobBoard.publishDescription', cantonI18n)} </p> <button onClick={onPostJob} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-sm font-semibold font-display border border-accent-border text-accent rounded-lg hover:bg-accent-subtle" > {t('jobBoard.publishCta')} </button> </Callout> </div> </aside> </div> {/* ── Right Rail (desktop xl only) ── */} <aside className={RAIL_ASIDE_CLASS_X}> <Suspense fallback={null}><ArticleRailAdStack side="right" onEmptyResolved={onRightEmptyResolved} /></Suspense> </aside> </div> {/* AdSense — job detail end multiplex */} <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot} adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format} className="mt-6 mb-4" /> {relatedJobs.length > 0 && ( <section className="rounded-2xl border border-edge bg-surface p-5"> <h2 className="text-lg font-bold font-display text-heading mb-4">{t('jobBoard.relatedTitle')}</h2> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"> {relatedJobs.flatMap((job, relIdx) => { const jobLogo = companyLogoUrl(job); const card = ( <button key={buildListingDedupKey(job)} onClick={() => { if (selectedJob) { Analytics.trackJobMatchSimilarClick(selectedJob.slug || '', job.slug || '', describeSimilarJobMatchReason(selectedJob, job), relIdx); } openDetail(job); }} className="text-left rounded-xl border border-edge p-3 hover:border-accent-border hover:bg-surface-raised/40 transition-colors" > <div className="flex items-start gap-3"> <div className="w-12 h-12 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0"> {jobLogo ? ( <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" onError={handleCompanyLogoError} />
  ) : (
  <Building2 className="w-5 h-5 text-muted" />
  )}

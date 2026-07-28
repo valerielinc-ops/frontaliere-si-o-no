@@ -51,11 +51,13 @@ export interface ArticleRailAdStackProps {
    * Reports the rail's aggregate fill verdict so the caller can collapse the
    * reserved gutter when nothing fills. Fires `true` only once EVERY mounted
    * panel reports empty (no creative, no AdSense backfill); fires `false` as
-   * soon as any panel fills. Lets the SPA grid (and, on staticOverlay pages,
-   * the build-time `.ft-rail-grid` gutter, collapsed via direct DOM mutation
-   * in App.tsx) drop the reserved track to zero on an all-empty rail instead
-   * of leaving a tall blank column. Still omitted on the blog portal
-   * (BlogArticles.tsx), which keeps its build-time gutter.
+   * soon as any panel fills. Lets the SPA grid drop the reserved gutter
+   * (160px on App.tsx's narrow rail; 300px `xlw` tier via
+   * `useRailGridCollapse` on JobBoard / JobOrphanView / JobExpiredView /
+   * BlogArticles, issue 4830) to zero on an all-empty rail instead of leaving
+   * a tall blank column. The static/blog SSG portals collapse their
+   * build-time `.ft-rail-grid` gutter separately (App.tsx `useEffect` +
+   * direct DOM mutation, PR #4829) and don't wire this callback.
    */
   onEmptyResolved?: (allEmpty: boolean) => void;
   /**
