@@ -151,7 +151,7 @@ export function computePreferredSendHour(events, now = new Date()) {
  *
  * @param {FirebaseFirestore.DocumentReference} subscriberRef
  * @param {*} FieldValue admin.firestore.FieldValue
- * @returns {Promise<{ updated: boolean, hourUtc?: number|null, sampleCount?: number, strength?: number|null }>}
+ * @returns {Promise<{ updated: boolean, hourUtc?: number|null, sampleCount?: number, strength?: number|null, churned?: boolean }>}
  */
 export async function refreshPreferredSendHour(subscriberRef, FieldValue) {
  try {
@@ -193,19 +193,30 @@ export async function refreshPreferredSendHour(subscriberRef, FieldValue) {
 
   const { hourUtc, sampleCount, strength } = computePreferredSendHour(events);
 
+  // Churn instrumentation (#3798 Fix MEDIO-BASSO #6 — prep for calibrating the
+  // 6h staleness gate above): only counts an actual change between two known
+  // hours, not the first assignment (null → hour) a cold-start subscriber
+  // gets once they clear PREFERRED_SEND_MIN_EVENTS. Feeds a future decision on
+  // whether PREFERRED_SEND_REFRESH_INTERVAL_MS is too short (high churn = the
+  // "preference" is still noisy) or safely longer (low churn = stable).
+  const previousHourUtc = current?.preferred_send_hour_utc ?? null;
+  const churned = previousHourUtc !== null && hourUtc !== null && hourUtc !== previousHourUtc;
+
   // Always write, even if the derived values are identical to what's already
   // stored: preferred_send_updated_at is what resets the staleness-gate
   // window above, so skipping the write on "unchanged" would mean the gate
   // never re-engages and this subscriber keeps paying the full events-query
   // cost on every future event forever.
-  await subscriberRef.set({
+  const update = {
    preferred_send_hour_utc: hourUtc,
    preferred_send_sample_count: sampleCount,
    preferred_send_strength: strength,
    preferred_send_updated_at: FieldValue.serverTimestamp(),
-  }, { merge: true });
+  };
+  if (churned) update.preferred_send_hour_churn_count = FieldValue.increment(1);
+  await subscriberRef.set(update, { merge: true });
 
-  return { updated: true, hourUtc, sampleCount, strength };
+  return { updated: true, hourUtc, sampleCount, strength, churned };
  } catch (err) {
   // Non-critical: webhook delivery should not fail because of this scoring.
   console.warn('[preferredSendHour] refresh failed:', err?.message);

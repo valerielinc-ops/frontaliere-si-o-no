@@ -75,6 +75,11 @@ export async function loadCampaignVariantTotals(db, campaignId) {
   for (const doc of sendSnap.docs) {
     const d = doc.data();
     if (!d.sent_at) continue; // only count real sends
+    // Operator QA sends (send-newsletter.mjs --test, #3798) aren't real
+    // subscriber traffic — same exclusion as report-send-hour-impact.mjs's
+    // aggregate(), since this loader feeds BOTH the A/B report and the send
+    // pipeline's auto-promotion resolver (see module docblock).
+    if (d.is_operator_verification) continue;
     const email = (d.email || doc.ref.parent?.parent?.id || '').toLowerCase();
     if (!email) continue;
     // Count ONLY the canonical send-path doc. Non-Resend webhooks write their
@@ -271,6 +276,9 @@ export async function loadCampaignSegmentReport(db, campaignId, opts = {}) {
   for (const doc of sendSnap.docs) {
     const d = doc.data();
     if (!d.sent_at) continue;
+    // Operator QA sends (#3798) aren't real subscriber traffic — same
+    // exclusion as loadCampaignVariantTotals above.
+    if (d.is_operator_verification) continue;
     const email = (d.email || doc.ref.parent?.parent?.id || '').toLowerCase();
     if (!email) continue;
     // Same canonical-doc dedup as loadCampaignVariantTotals — webhook docs for

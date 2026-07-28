@@ -2,7 +2,7 @@ import admin from 'firebase-admin';
 import { Resend } from 'resend';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
-import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from './lib/emailExperimentPostHog.js';
+import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS, lookupSentVariant } from './lib/emailExperimentPostHog.js';
 import { buildDeliveryDocId as buildCanonicalDeliveryDocId, uniqueUnknownFallback } from './lib/deliveryDocId.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
 import { instantReactivationFields } from './lib/subscriberReactivation.js';
@@ -358,7 +358,10 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  }
 
  if (type === 'open') {
+ const { isOperatorVerification } = await lookupSentVariant(subscriberRef, campaignId, email);
+ if (!isOperatorVerification) {
  await captureEmailEvent(EMAIL_EXPERIMENT_EVENTS.OPENED, { email, provider: 'resend', campaignId, variant, locale });
+ }
  }
  return { handled: true, email, type, campaignId };
 }

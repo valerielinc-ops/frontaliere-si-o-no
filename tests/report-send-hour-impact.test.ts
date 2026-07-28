@@ -10,6 +10,7 @@ import {
   normalizeEmail,
   parseDaysArg,
   parseSinceArg,
+  computeQueryFloor,
   argValue,
   GROUP_ORDER,
   IMMEDIATE_LABEL,
@@ -23,9 +24,10 @@ import {
 // with those two members is a faithful stand-in for a Firestore
 // QueryDocumentSnapshot here. No Firestore mocking needed.
 
-function deliveryDoc({ campaignId, email, sentAt, sendTimeSource = null, opened = false, clicked = false, messageId = null, canonicalId = true }: {
+function deliveryDoc({ campaignId, email, sentAt, sendTimeSource = null, opened = false, clicked = false, messageId = null, canonicalId = true, isOperatorVerification = false }: {
   campaignId: string; email: string; sentAt: Date; sendTimeSource?: string | null;
   opened?: boolean; clicked?: boolean; messageId?: string | null; canonicalId?: boolean;
+  isOperatorVerification?: boolean;
 }) {
   const id = canonicalId
     ? buildCanonicalDeliveryDocId(campaignId, email)
@@ -40,20 +42,29 @@ function deliveryDoc({ campaignId, email, sentAt, sendTimeSource = null, opened 
       message_id: messageId,
       opened_at: opened ? sentAt : null,
       clicked_at: clicked ? sentAt : null,
+      is_operator_verification: isOperatorVerification,
     }),
   };
 }
 
-function eventDoc({ campaignId, email, type, messageId = null }: {
-  campaignId?: string; email: string; type: 'open' | 'click'; messageId?: string | null;
+// `timestamp` defaults far in the future so tests that don't care about the
+// chronological guard (#3798) — most of them — don't need to specify one
+// explicitly and still credit against whatever `sentAt` the delivery doc uses.
+const FAR_FUTURE = new Date('2099-01-01T00:00:00.000Z');
+
+function eventDoc({ campaignId, alertId, email, type, messageId = null, timestamp = FAR_FUTURE }: {
+  campaignId?: string; alertId?: string; email: string; type: 'open' | 'click';
+  messageId?: string | null; timestamp?: Date;
 }) {
   return {
     id: `evt-${Math.random()}`,
     data: () => ({
       email: normalizeEmail(email),
       campaign_id: campaignId ?? null,
+      alert_id: alertId ?? null,
       event_type: type,
       message_id: messageId,
+      timestamp,
     }),
   };
 }
@@ -168,13 +179,23 @@ describe('aggregate — transactional sends excluded from the immediate/pre-feat
 });
 
 describe('aggregate — events filtering (job-alert cross-collection leakage)', () => {
-  it('ignores events with no campaign_id (job_alert_subscribers events use alert_id, not campaign_id)', () => {
+  it('ignores events with no campaign_id AND no alert_id (no send-side identifier to match against)', () => {
     const deliveries = [
       deliveryDoc({ campaignId: CAMPAIGN, email: 'a@x.com', sentAt: new Date('2026-07-05T10:00:00Z'), sendTimeSource: 'personal' }),
     ];
-    const jobAlertEvent = { id: 'evt-1', data: () => ({ email: 'a@x.com', event_type: 'open' /* no campaign_id */ }) };
-    const { segments } = aggregate(deliveries, [jobAlertEvent], null);
+    const noIdEvent = { id: 'evt-1', data: () => ({ email: 'a@x.com', event_type: 'open' /* no campaign_id, no alert_id */ }) };
+    const { segments } = aggregate(deliveries, [noIdEvent], null);
     expect(segments.combined.personal.opens).toBe(0);
+  });
+
+  it('credits job-alert events via alert_id fallback (#3798 ALTO #3 — job alerts now write campaign_deliveries keyed the same way)', () => {
+    const ALERT_ID = 'alert-123';
+    const deliveries = [
+      deliveryDoc({ campaignId: ALERT_ID, email: 'a@x.com', sentAt: new Date('2026-07-05T10:00:00Z'), sendTimeSource: 'personal' }),
+    ];
+    const jobAlertOpen = eventDoc({ alertId: ALERT_ID, email: 'a@x.com', type: 'open' });
+    const { segments } = aggregate(deliveries, [jobAlertOpen], null);
+    expect(segments.combined.personal.opens).toBe(1);
   });
 
   it('ignores non open/click event types (delivered/bounce/etc.)', () => {
@@ -184,6 +205,95 @@ describe('aggregate — events filtering (job-alert cross-collection leakage)', 
     const bounceEvent = eventDoc({ campaignId: CAMPAIGN, email: 'a@x.com', type: 'bounce' as unknown as 'open' });
     const { segments } = aggregate(deliveries, [bounceEvent], null);
     expect(segments.combined.personal.opens).toBe(0);
+  });
+});
+
+describe('aggregate — operator-verification exclusion (#3798 ALTO #2)', () => {
+  it('drops is_operator_verification deliveries and reports the count instead of counting them', () => {
+    const deliveries = [
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'op@x.com', sentAt: new Date('2026-07-05T10:00:00Z'), isOperatorVerification: true }),
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'real@x.com', sentAt: new Date('2026-07-05T10:00:00Z'), sendTimeSource: 'personal' }),
+    ];
+    const { segments, droppedOperatorVerification } = aggregate(deliveries, [], null);
+    expect(droppedOperatorVerification).toBe(1);
+    expect(segments.combined[IMMEDIATE_LABEL].deliveries).toBe(0);
+    expect(segments.combined.personal.deliveries).toBe(1);
+  });
+});
+
+describe('aggregate — chronological guard (#3798 edge case: event before sent_at)', () => {
+  const SENT_AT = new Date('2026-07-16T10:08:21.275Z');
+
+  it('does not credit an open/click whose timestamp precedes this delivery\'s sent_at', () => {
+    const deliveries = [
+      deliveryDoc({ campaignId: 'unknown', email: 'a@x.com', sentAt: SENT_AT, sendTimeSource: 'personal' }),
+    ];
+    // Simulates the real root cause: an earlier send to the same untagged
+    // ('unknown') address left behind an open event, then a later untagged
+    // send overwrote sent_at on the shared canonical doc — orphaning it.
+    const staleOpen = eventDoc({ campaignId: 'unknown', email: 'a@x.com', type: 'open', timestamp: new Date(SENT_AT.getTime() - 1000) });
+    const { segments } = aggregate(deliveries, [staleOpen], null);
+    expect(segments.combined.personal.opens).toBe(0);
+  });
+
+  it('still credits an open/click whose timestamp is at or after sent_at', () => {
+    const deliveries = [
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'a@x.com', sentAt: SENT_AT, sendTimeSource: 'personal' }),
+    ];
+    const freshOpen = eventDoc({ campaignId: CAMPAIGN, email: 'a@x.com', type: 'open', timestamp: new Date(SENT_AT.getTime() + 1000) });
+    const { segments } = aggregate(deliveries, [freshOpen], null);
+    expect(segments.combined.personal.opens).toBe(1);
+  });
+
+  it('does not credit the delivery doc\'s own opened_at/clicked_at when they precede sent_at (stale merge)', () => {
+    const doc = {
+      id: buildCanonicalDeliveryDocId('unknown', 'stale@x.com'),
+      data: () => ({
+        email: 'stale@x.com',
+        campaign_id: 'unknown',
+        sent_at: SENT_AT,
+        send_time_source: 'personal',
+        opened_at: new Date(SENT_AT.getTime() - 60_000), // stale — from a prior send, never cleared
+      }),
+    };
+    const { segments } = aggregate([doc], [], null);
+    expect(segments.combined.personal.opens).toBe(0);
+  });
+});
+
+describe('computeQueryFloor — "before" baseline anchoring (#3798 ALTO #1)', () => {
+  const SINCE = new Date('2026-07-12T00:00:00.000Z');
+  const DAYS = 20;
+
+  it('with no --since, floors at now - days (unchanged rolling-window behavior)', () => {
+    const now = new Date('2026-07-28T00:00:00.000Z');
+    const floor = computeQueryFloor(now, DAYS, null);
+    expect(floor.toISOString()).toBe(new Date(now.getTime() - DAYS * 86_400_000).toISOString());
+  });
+
+  it('regression: once now - days drifts past --since, the floor stays anchored before --since instead of AT it (the Aug-1 vanishing-baseline bug)', () => {
+    // now - 20d == SINCE exactly: the day the old `sinceDate < cutoffDate ?
+    // sinceDate : cutoffDate` ternary first floors the query AT sinceDate,
+    // permanently emptying the "before" segment from this point forward.
+    const now = new Date('2026-08-01T00:00:00.000Z');
+    const floor = computeQueryFloor(now, DAYS, SINCE);
+    expect(floor.getTime()).toBeLessThan(SINCE.getTime());
+    expect(floor.toISOString()).toBe(new Date(SINCE.getTime() - DAYS * 86_400_000).toISOString());
+  });
+
+  it('keeps anchoring to (since - days) indefinitely as now advances further', () => {
+    const now = new Date('2026-09-15T00:00:00.000Z'); // weeks past the drift-over point
+    const floor = computeQueryFloor(now, DAYS, SINCE);
+    expect(floor.toISOString()).toBe(new Date(SINCE.getTime() - DAYS * 86_400_000).toISOString());
+  });
+
+  it('anchors to (since - days) even before the drift-over point, whenever that is the wider (earlier) floor', () => {
+    // now - 20d (2026-06-25) is well before SINCE (07-12), but (since - days)
+    // (06-22) is wider still — always take the earlier floor so the baseline
+    // window is stable from day one, not just once drift sets in.
+    const now = new Date('2026-07-15T00:00:00.000Z');
+    const floor = computeQueryFloor(now, DAYS, SINCE);
+    expect(floor.toISOString()).toBe(new Date(SINCE.getTime() - DAYS * 86_400_000).toISOString());
   });
 });
 
@@ -215,28 +325,42 @@ describe('aggregate — since-date boundary (before/after split)', () => {
   });
 });
 
-describe('n<100 small-sample flagging (SMALL_SAMPLE_THRESHOLD)', () => {
-  it('formatSegmentTable annotates a group with fewer than 100 deliveries as not significant', () => {
+describe('significance testing — real two-proportion z-test, not a fixed n<100 threshold (#3798 Fix MEDIO #4)', () => {
+  it('formatSegmentTable prints raw counts with no per-row significance claim', () => {
+    // A single group has no "significant/not significant" verdict in isolation
+    // — that requires a comparison. The old n<100 annotation made a claim the
+    // data couldn't support; the table now just reports numbers.
     const cells = newSegment();
     cells.personal = { deliveries: 42, opens: 10, clicks: 2 };
     const table = formatSegmentTable('title', cells);
-    expect(table).toContain('n<100, not significant');
+    expect(table).not.toContain('significant');
   });
 
-  it('does NOT flag a group with >= 100 deliveries', () => {
-    const cells = newSegment();
-    cells.personal = { deliveries: 150, opens: 30, clicks: 5 };
-    const table = formatSegmentTable('title', cells);
-    const personalLine = table.split('\n').find((l) => l.trim().startsWith('personal'));
-    expect(personalLine).toBeDefined();
-    expect(personalLine).not.toContain('not significant');
+  it('comparisonLine flags two LARGE (n=500) groups with near-identical rates as not significant', () => {
+    // Both groups clear the old n>=100 threshold, so the old heuristic would
+    // never have flagged this — but a 50.0% vs 49.6% gap on n=500 is
+    // genuinely indistinguishable from noise. Real test: p ~ 0.9.
+    const a = { deliveries: 500, opens: 250, clicks: 50 };
+    const b = { deliveries: 500, opens: 248, clicks: 50 };
+    const line = comparisonLine('x', a, b, 'a', 'b');
+    expect(line).toContain('not significant');
   });
 
-  it('comparisonLine flags [not significant] when either side is below the threshold', () => {
-    const small = { deliveries: 10, opens: 5, clicks: 1 };
-    const big = { deliveries: 500, opens: 250, clicks: 50 };
-    expect(comparisonLine('x', small, big, 'a', 'b')).toContain('not significant');
-    expect(comparisonLine('x', big, big, 'a', 'b')).not.toContain('not significant');
+  it('comparisonLine flags two SMALL (n=60) groups with a decisive rate gap as significant', () => {
+    // Both groups are below the old n<100 threshold, so the old heuristic
+    // would always have flagged this as "not significant" — but an 83% vs 8%
+    // gap on n=60 is an enormous, real effect (z ~ 8). Real test: p << 0.05.
+    const a = { deliveries: 60, opens: 50, clicks: 10 };
+    const b = { deliveries: 60, opens: 5, clicks: 1 };
+    const line = comparisonLine('x', a, b, 'a', 'b');
+    expect(line).toContain('[significant');
+    expect(line).not.toContain('not significant');
+  });
+
+  it('comparisonLine reports the p-value inline', () => {
+    const a = { deliveries: 500, opens: 250, clicks: 50 };
+    const b = { deliveries: 500, opens: 248, clicks: 50 };
+    expect(comparisonLine('x', a, b, 'a', 'b')).toMatch(/p=\d\.\d{3}/);
   });
 });
 

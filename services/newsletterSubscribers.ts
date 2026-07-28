@@ -414,17 +414,6 @@ function buildDeliveryDocId(email: string, campaignId: string): string {
  return `${campaignId}__${normalizeNewsletterEmail(email)}`.replace(/[^a-z0-9@._-]+/gi, '-');
 }
 
-// Events without a campaignId (untagged links, ad-hoc newsletter clicks) must
-// not collapse onto the shared literal 'unknown' — two distinct untagged
-// events for different subscribers would then write the same
-// campaign_deliveries doc, clobbering each other's timestamp fields (#4847
-// class fix, see functions/src/newsletterResendWebhookCore.js). Key the
-// fallback on messageId, unique per send, falling back to the current time
-// only if even that is missing.
-function uniqueUnknownFallback(messageId?: string | null): string {
- return `unknown:${sanitizeString(messageId) || nowIso()}`;
-}
-
 export async function upsertNewsletterDelivery(
  db: Firestore,
  input: NewsletterDeliveryInput,
@@ -645,9 +634,15 @@ export async function recordNewsletterClick(
  },
  { merge: true },
  );
+ if (input.campaignId) {
+ // No fallback id here — a shared 'unknown' doc across unrelated
+ // campaigns would collide clicks onto the same canonical delivery
+ // doc (#3798 sibling sweep, same collision class already fixed on
+ // the send path). Skip the attribution write; upsertNewsletterDelivery
+ // requires a real campaignId anyway.
  await upsertNewsletterDelivery(db, {
  email,
- campaignId: input.campaignId || uniqueUnknownFallback(input.messageId),
+ campaignId: input.campaignId,
  messageId: input.messageId || null,
  variant: input.variant || null,
  locale: input.sourceLocale || null,
@@ -656,6 +651,7 @@ export async function recordNewsletterClick(
  clickedLink: input.targetUrl || input.linkUrl || null,
  clickedLabel: input.linkLabel || null,
  });
+ }
  await recordNewsletterEvent(db, input);
 }
 
@@ -704,9 +700,13 @@ export async function applyNewsletterDeliveryEvent(
  }
 
  await setDoc(doc(collection(db, 'newsletter_subscribers'), email), update, { merge: true });
+ if (input.campaignId) {
+ // Same collision class as recordNewsletterClick above — no 'unknown'
+ // fallback, skip the attribution write instead of colliding on a
+ // shared canonical doc.
  await upsertNewsletterDelivery(db, {
  email,
- campaignId: input.campaignId || uniqueUnknownFallback(input.messageId),
+ campaignId: input.campaignId,
  messageId: input.messageId || null,
  variant: input.variant || null,
  locale: input.sourceLocale || null,
@@ -715,6 +715,7 @@ export async function applyNewsletterDeliveryEvent(
  clickedLink: input.targetUrl || input.linkUrl || null,
  clickedLabel: input.linkLabel || null,
  });
+ }
  await recordNewsletterEvent(db, input);
 }
 

@@ -55,8 +55,14 @@
 
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { twoProportionTest } from '../services/newsletter-ab-stats.mjs';
 
-const SMALL_SAMPLE_THRESHOLD = 100;
+// #3798 Fix MEDIO #4: a fixed n<100 threshold flags plenty of large-but-close
+// comparisons as "significant" and plenty of small-but-decisive ones as noise.
+// Reuse the same two-proportion z-test the subject-line A/B report already
+// relies on (services/newsletter-ab-stats.mjs) — single source of truth for
+// "is this rate difference real" across both reports.
+const SIGNIFICANCE_ALPHA = 0.05;
 const BATCH_PAGE_SIZE = 200;
 const SUBCOLLECTION_CONCURRENCY = 20;
 const DEFAULT_DAYS = 30;
@@ -111,6 +117,28 @@ export function parseSinceArg(raw) {
     && parsed.getUTCDate() === Number(d);
   if (!roundTrips) return { date: null, warning: invalidWarning };
   return { date: parsed, warning: null };
+}
+
+/**
+ * Firestore query floor (sent_at/timestamp >= this). Exported/pure so the
+ * "vanishing baseline" regression (#3798, ALTO #1) has a test: a naive
+ * `sinceDate < cutoffDate ? sinceDate : cutoffDate` floors the query AT
+ * sinceDate once `now - days` drifts past it, which can never fetch anything
+ * the aggregator buckets as "before" sinceDate — the before-segment goes
+ * permanently empty from that day forward. The "before" segment is a fixed
+ * historical baseline, not a rolling window, so anchor its floor to
+ * (sinceDate - days) instead, giving it a stable days-day sample no matter how
+ * far "now" advances.
+ * @param {Date} now
+ * @param {number} days
+ * @param {Date|null} sinceDate
+ * @returns {Date}
+ */
+export function computeQueryFloor(now, days, sinceDate) {
+  const cutoffDate = new Date(now.getTime() - days * 24 * 60 * 60 * 1000);
+  if (!sinceDate) return cutoffDate;
+  const baselineFloor = new Date(sinceDate.getTime() - days * 24 * 60 * 60 * 1000);
+  return baselineFloor < cutoffDate ? baselineFloor : cutoffDate;
 }
 
 /** Thrown when a collectionGroup query needs a Firestore index that doesn't exist. */
@@ -283,35 +311,62 @@ export const pct = (n, d) => (d > 0 ? (100 * n) / d : 0);
  * @param {FirebaseFirestore.QueryDocumentSnapshot[]} eventDocs
  * @param {Date|null} sinceDate - when set, returns { before, after } segments; else { combined }
  */
+function toDateSafe(v) {
+  return typeof v?.toDate === 'function' ? v.toDate() : new Date(v);
+}
+
+// Map<string, Date[]> instead of Set<string> (#3798 edge case): a key only
+// tells us an open/click ever happened for that campaign/alert::email or
+// message_id — crediting a delivery also needs to know WHEN, so it can require
+// occurred >= sent (see hasEventAtOrAfter below).
+function addEventTime(map, key, time) {
+  if (!key) return;
+  if (!map.has(key)) map.set(key, []);
+  map.get(key).push(time);
+}
+
+function hasEventAtOrAfter(map, keys, sentAt) {
+  for (const k of keys) {
+    const times = k && map.get(k);
+    if (times && times.some((t) => t >= sentAt)) return true;
+  }
+  return false;
+}
+
 export function aggregate(deliveryDocs, eventDocs, sinceDate) {
-  // Only newsletter events carry campaign_id (job_alert_subscribers events use
-  // alert_id instead) — collectionGroup('events') pulls from BOTH collections
-  // since they share the subcollection name, so filter to newsletter ones.
-  const openedKeys = new Set();
-  const clickedKeys = new Set();
+  // Newsletter events carry campaign_id; job-alert events (job_alert_subscribers
+  // .../events) carry alert_id instead — collectionGroup('events') pulls from
+  // BOTH collections since they share the subcollection name, so accept either
+  // as the send-side identifier.
+  const openedTimes = new Map();
+  const clickedTimes = new Map();
   for (const doc of eventDocs) {
     const d = doc.data();
-    if (!d || !d.campaign_id) continue; // drops job-alert events (no campaign_id)
+    const groupId = d?.campaign_id || d?.alert_id;
+    if (!d || !groupId) continue;
     if (d.event_type !== 'open' && d.event_type !== 'click') continue;
     const email = normalizeEmail(d.email || doc.ref.parent?.parent?.id || '');
-    const key = `${d.campaign_id}::${email}`;
+    const time = toDateSafe(d.timestamp);
+    const key = `${groupId}::${email}`;
     const msgKey = d.message_id ? `msg::${String(d.message_id)}` : null;
-    if (d.event_type === 'open') {
-      if (email) openedKeys.add(key);
-      if (msgKey) openedKeys.add(msgKey);
-    } else {
-      if (email) clickedKeys.add(key);
-      if (msgKey) clickedKeys.add(msgKey);
-    }
+    const map = d.event_type === 'open' ? openedTimes : clickedTimes;
+    if (email) addEventTime(map, key, time);
+    if (msgKey) addEventTime(map, msgKey, time);
   }
 
   const segments = sinceDate ? { before: newSegment(), after: newSegment() } : { combined: newSegment() };
   let droppedNonCanonical = 0;
   let droppedTransactional = 0;
+  let droppedOperatorVerification = 0;
 
   for (const doc of deliveryDocs) {
     const d = doc.data();
     if (!d || !d.sent_at) continue; // only count real sends, not webhook-only stub docs
+    // Operator QA sends (send-newsletter.mjs --test / send-job-alerts.mjs
+    // ALLOWED_EMAILS, #3798) aren't real subscriber traffic and typically lack a
+    // real campaign/alert id — counting them would contaminate the
+    // immediate/pre-feature bucket with artificial deliveries+engagement.
+    if (d.is_operator_verification) { droppedOperatorVerification++; continue; }
     const email = normalizeEmail(d.email || doc.ref.parent?.parent?.id || '');
     if (!email) continue;
     const campaignId = d.campaign_id || 'unknown';
@@ -327,7 +382,7 @@ export function aggregate(deliveryDocs, eventDocs, sinceDate) {
       ? d.send_time_source
       : IMMEDIATE_LABEL;
 
-    const sentAt = typeof d.sent_at?.toDate === 'function' ? d.sent_at.toDate() : new Date(d.sent_at);
+    const sentAt = toDateSafe(d.sent_at);
     const segmentKey = sinceDate ? (sentAt < sinceDate ? 'before' : 'after') : 'combined';
     const cell = segments[segmentKey][groupKey];
 
@@ -335,13 +390,24 @@ export function aggregate(deliveryDocs, eventDocs, sinceDate) {
 
     const key = `${campaignId}::${email}`;
     const msgKey = d.message_id ? `msg::${String(d.message_id)}` : null;
-    const opened = !!d.opened_at || openedKeys.has(key) || (msgKey && openedKeys.has(msgKey));
-    const clicked = !!d.clicked_at || clickedKeys.has(key) || (msgKey && clickedKeys.has(msgKey));
+    // Edge case (#3798): an open/click can carry a timestamp before this
+    // delivery's sent_at when a send lacking a real campaign/alert id (tag
+    // 'unknown' — confirmation emails, ad-hoc sends) collides with an earlier
+    // send to the same address on the shared 'unknown'-keyed canonical doc, so
+    // sent_at gets overwritten and orphans the older event. Require the event
+    // (own-doc field or events-collection match) to have occurred at or after
+    // sent_at before crediting it to this delivery — strict, no tolerance
+    // window, since the corrected canonical-doc-only data shows zero genuine
+    // sub-10-second cases (see docs/AGENTS-HISTORY.md's #3798 investigation).
+    const openedAtDate = d.opened_at ? toDateSafe(d.opened_at) : null;
+    const clickedAtDate = d.clicked_at ? toDateSafe(d.clicked_at) : null;
+    const opened = (openedAtDate && openedAtDate >= sentAt) || hasEventAtOrAfter(openedTimes, [key, msgKey], sentAt);
+    const clicked = (clickedAtDate && clickedAtDate >= sentAt) || hasEventAtOrAfter(clickedTimes, [key, msgKey], sentAt);
     if (opened) cell.opens++;
     if (clicked) cell.clicks++;
   }
 
-  return { segments, droppedNonCanonical, droppedTransactional };
+  return { segments, droppedNonCanonical, droppedTransactional, droppedOperatorVerification };
 }
 
 // ── Reporting ────────────────────────────────────────────────────────────
@@ -355,9 +421,11 @@ export function formatSegmentTable(title, cells) {
     const c = cells[g];
     const openRate = pct(c.opens, c.deliveries);
     const clickRate = pct(c.clicks, c.deliveries);
-    const smallNote = c.deliveries > 0 && c.deliveries < SMALL_SAMPLE_THRESHOLD ? '  (n<100, not significant)' : '';
+    // No per-row significance note: "significant" is a property of a
+    // COMPARISON between two groups, not of a single group's sample size —
+    // see comparisonLine below, which runs the real test against a baseline.
     lines.push(
-      `  ${g.padEnd(24)} ${String(c.deliveries).padStart(10)}  ${String(c.opens).padStart(7)}  ${openRate.toFixed(1).padStart(8)}%  ${String(c.clicks).padStart(8)}  ${clickRate.toFixed(1).padStart(9)}%${smallNote}`,
+      `  ${g.padEnd(24)} ${String(c.deliveries).padStart(10)}  ${String(c.opens).padStart(7)}  ${openRate.toFixed(1).padStart(8)}%  ${String(c.clicks).padStart(8)}  ${clickRate.toFixed(1).padStart(9)}%`,
     );
   }
   return lines.join('\n');
@@ -373,11 +441,17 @@ export function comparisonLine(label, cellA, cellB, nameA, nameB) {
   const clickRateA = pct(cellA.clicks, cellA.deliveries);
   const clickRateB = pct(cellB.clicks, cellB.deliveries);
   const clickDelta = clickRateA - clickRateB;
-  const smallSampleFlag = (cellA.deliveries < SMALL_SAMPLE_THRESHOLD || cellB.deliveries < SMALL_SAMPLE_THRESHOLD)
-    ? ' [not significant — n<100 in at least one group]'
-    : '';
+  // Real two-proportion z-test on the open rate (primary metric) instead of a
+  // fixed n<100 threshold: a 500-vs-500 comparison with near-identical rates
+  // is genuinely not significant, while a 60-vs-60 comparison with a huge gap
+  // can be — sample size alone answers neither question.
+  const test = twoProportionTest(
+    { sends: cellA.deliveries, opens: cellA.opens },
+    { sends: cellB.deliveries, opens: cellB.opens },
+  );
+  const sigFlag = test ? ` [${test.pValue < SIGNIFICANCE_ALPHA ? 'significant' : 'not significant'}, p=${test.pValue.toFixed(3)}]` : '';
   const sign = (n) => (n >= 0 ? '+' : '');
-  return `${label}: open rate ${sign(openDelta)}${openDelta.toFixed(1)}pp (${rateA.toFixed(1)}% vs ${rateB.toFixed(1)}%), click rate ${sign(clickDelta)}${clickDelta.toFixed(1)}pp (${clickRateA.toFixed(1)}% vs ${clickRateB.toFixed(1)}%)${smallSampleFlag}`;
+  return `${label}: open rate ${sign(openDelta)}${openDelta.toFixed(1)}pp (${rateA.toFixed(1)}% vs ${rateB.toFixed(1)}%), click rate ${sign(clickDelta)}${clickDelta.toFixed(1)}pp (${clickRateA.toFixed(1)}% vs ${clickRateB.toFixed(1)}%)${sigFlag}`;
 }
 
 function printSegment(name, cells) {
@@ -401,8 +475,15 @@ Usage:
   node scripts/report-send-hour-impact.mjs --json
 
 Options:
-  --days <N>       Lookback window in days. Default: 30. Must be > 0.
+  --days <N>       Lookback window in days. Default: 30. Must be > 0. When
+                    --since is set, also sizes the "before" baseline: it
+                    covers the N days immediately preceding --since, anchored
+                    to --since rather than to "now" (see --since).
   --since <DATE>   YYYY-MM-DD. Splits the window into before/on-after this date.
+                    The "before" segment is a FIXED historical baseline (--days
+                    before --since) — it does not slide forward with "now", so
+                    it stays populated indefinitely instead of emptying out
+                    once "now - days" runs past --since (#3798, ALTO #1).
   --json           Emit a single JSON object on stdout instead of the table.
   --help, -h       Show this help.
 
@@ -432,13 +513,13 @@ async function main() {
   }
 
   const now = new Date();
-  const cutoffDate = new Date(now.getTime() - DAYS * 24 * 60 * 60 * 1000);
-  const queryFloor = SINCE_DATE && SINCE_DATE < cutoffDate ? SINCE_DATE : cutoffDate;
+  const queryFloor = computeQueryFloor(now, DAYS, SINCE_DATE);
+  const baselineFloor = SINCE_DATE ? new Date(SINCE_DATE.getTime() - DAYS * 24 * 60 * 60 * 1000) : null;
 
   if (!JSON_OUT) {
     console.log(`\n📬 Send-hour personalization impact report (feature #3798)`);
     console.log(`   Window: last ${DAYS} day(s) — since ${queryFloor.toISOString()}`);
-    if (SINCE_DATE) console.log(`   Pre/post split at: ${SINCE_DATE.toISOString()}`);
+    if (SINCE_DATE) console.log(`   Pre/post split at: ${SINCE_DATE.toISOString()} (before-baseline anchored to ${baselineFloor.toISOString()})`);
     console.log('   Read-only — no Firestore writes, no emails sent.\n');
   }
 
@@ -467,7 +548,7 @@ async function main() {
     process.exit(0);
   }
 
-  const { segments, droppedNonCanonical, droppedTransactional } = aggregate(deliveryDocs, eventDocs, SINCE_DATE);
+  const { segments, droppedNonCanonical, droppedTransactional, droppedOperatorVerification } = aggregate(deliveryDocs, eventDocs, SINCE_DATE);
 
   if (JSON_OUT) {
     console.log(JSON.stringify({
@@ -477,6 +558,7 @@ async function main() {
       usedFallbackQuery: usedFallback,
       droppedNonCanonicalDocs: droppedNonCanonical,
       droppedTransactionalDocs: droppedTransactional,
+      droppedOperatorVerificationDocs: droppedOperatorVerification,
       segments,
     }, null, 2));
     return;
@@ -489,7 +571,7 @@ async function main() {
     printSegment(`Last ${DAYS} day(s)`, segments.combined);
   }
 
-  console.log(`\n(Fallback per-subscriber query used: ${usedFallback ? 'yes' : 'no'}; ${droppedNonCanonical} non-canonical duplicate delivery doc(s) ignored; ${droppedTransactional} transactional (calculator/LAMal) delivery doc(s) excluded.)\n`);
+  console.log(`\n(Fallback per-subscriber query used: ${usedFallback ? 'yes' : 'no'}; ${droppedNonCanonical} non-canonical duplicate delivery doc(s) ignored; ${droppedTransactional} transactional (calculator/LAMal) delivery doc(s) excluded; ${droppedOperatorVerification} operator-verification delivery doc(s) excluded.)\n`);
 }
 
 // Run only when invoked directly (node scripts/report-send-hour-impact.mjs);

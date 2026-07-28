@@ -1591,6 +1591,9 @@ async function persistDelivery(recipient, messageId, meta) {
       // stays the moment the API call was made, unchanged.
       scheduled_for: meta.scheduledFor ?? null,
       send_time_source: meta.sendTimeSource ?? null,
+      // Operator QA send (mode==='test', single --target-email) — not real
+      // subscriber traffic; report-send-hour-impact.mjs excludes these.
+      is_operator_verification: meta.isOperatorVerification ?? false,
       sent_at: new Date(),
     }, { merge: true });
     // Maileroo's open/click webhooks carry only message_reference_id (no recipient,
@@ -1627,15 +1630,21 @@ async function persistDelivery(recipient, messageId, meta) {
     }
     // A/B exposure event (no-op unless POSTHOG_EMAIL_EXPERIMENT enabled). Ties to
     // the email_opened conversion in PostHog by distinct_id (email); carries the
-    // variant + provider for the funnel breakdown.
-    await captureEmailEvent(EMAIL_EXPERIMENT_EVENTS.SENT, {
-      email,
-      variant: meta.variant,
-      provider: meta.provider,
-      campaignId: meta.campaignId,
-      locale,
-      segment: meta.segment,
-    });
+    // variant + provider for the funnel breakdown. Skipped for operator QA
+    // sends (#3798 sibling-pattern sweep) — same reason is_operator_verification
+    // is excluded from the Firestore campaign_deliveries aggregates: a manual
+    // test send/open isn't real subscriber behavior and would enter the
+    // email_sent→email_opened funnel as a false exposure.
+    if (!meta.isOperatorVerification) {
+      await captureEmailEvent(EMAIL_EXPERIMENT_EVENTS.SENT, {
+        email,
+        variant: meta.variant,
+        provider: meta.provider,
+        campaignId: meta.campaignId,
+        locale,
+        segment: meta.segment,
+      });
+    }
   } catch (e) {
     console.warn('\u26a0\ufe0f Delivery persist failed:', e?.message);
   }
@@ -2364,7 +2373,11 @@ async function main() {
 
     emails.push({
       recipient: subscriber,
-      meta: { campaignId, subject, variant, sendTimeSource, segment: articleContent.segment },
+      // is_operator_verification (#3798 report accuracy): mode==='test' sends go to a
+      // single --target-email for manual QA, not real subscriber traffic — flagged so
+      // report-send-hour-impact.mjs can exclude them instead of miscounting them as
+      // "immediate/pre-feature" sends.
+      meta: { campaignId, subject, variant, sendTimeSource, segment: articleContent.segment, isOperatorVerification: mode === 'test' },
       payload: {
         from: FROM_EMAIL,
         to: [subscriber.email],
