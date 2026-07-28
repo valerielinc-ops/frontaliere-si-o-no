@@ -1624,6 +1624,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-tensione-fiscale-ticino-governo.title': 'Grenzgänger: Fiskalische Spannungen mit dem Tessin',
     'blog.article.frontalieri-tensione-fiscale-ticino-governo.excerpt': 'Die Gewerkschaften fordern das Eingreifen der Regierung, um die Situation der Grenzgänger mit dem Tessin zu lösen.',
     'blog.article.frontalieri-tensione-fiscale-ticino-governo.imageAlt': 'Frontalier in der Schweiz',
+    'blog.article.vecchi-frontalieri-precompilata-2026.title': 'Alte Grenzgänger: Schweizer Einkommen vorausgefüllt, was zu tun ist',
+    'blog.article.vecchi-frontalieri-precompilata-2026.excerpt': 'Alte Grenzgänger finden ihre Lohndaten im vorausgefüllten 2026. Was passiert und was zu tun ist.',
+    'blog.article.vecchi-frontalieri-precompilata-2026.imageAlt': 'Altfrontalier mit ihren Gehaltsdaten in der 2026 Vorverarbeitung',
 };
 
 export default blogMetaChDe;

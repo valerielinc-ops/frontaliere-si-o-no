@@ -1624,6 +1624,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-tensione-fiscale-ticino-governo.title': 'Frontier workers, fiscal tension with Ticino: trade unions call for intervention',
     'blog.article.frontalieri-tensione-fiscale-ticino-governo.excerpt': 'The trade unions are calling for the Government to intervene to resolve the situation of border workers with Ticino.',
     'blog.article.frontalieri-tensione-fiscale-ticino-governo.imageAlt': 'Frontaliers in Switzerland',
+    'blog.article.vecchi-frontalieri-precompilata-2026.title': 'Old frontier workers: pre-filled Swiss income, what to do',
+    'blog.article.vecchi-frontalieri-precompilata-2026.excerpt': 'Old frontier workers find their salary data in the pre-filled 2026. What happens and what to do.',
+    'blog.article.vecchi-frontalieri-precompilata-2026.imageAlt': 'Vecchi frontalieri with their salary data in the 2026 precompiled',
 };
 
 export default blogMetaChEn;

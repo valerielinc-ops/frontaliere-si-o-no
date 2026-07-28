@@ -1624,6 +1624,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-tensione-fiscale-ticino-governo.title': 'Frontalieri, tensione fiscale con il Ticino: i sindacati chiedono intervento',
     'blog.article.frontalieri-tensione-fiscale-ticino-governo.excerpt': 'I sindacati chiedono l\'intervento del Governo per risolvere la situazione dei frontalieri con il Ticino.',
     'blog.article.frontalieri-tensione-fiscale-ticino-governo.imageAlt': 'Frontalieri in Svizzera',
+    'blog.article.vecchi-frontalieri-precompilata-2026.title': 'Vecchi frontalieri: reddito svizzero in precompilata, cosa fare',
+    'blog.article.vecchi-frontalieri-precompilata-2026.excerpt': 'I vecchi frontalieri trovano i propri dati salariali nella precompilata 2026. Cosa succede e cosa fare.',
+    'blog.article.vecchi-frontalieri-precompilata-2026.imageAlt': 'Vecchi frontalieri con i propri dati salariali nella precompilata 2026',
 };
 
 export default blogMetaChIt;
