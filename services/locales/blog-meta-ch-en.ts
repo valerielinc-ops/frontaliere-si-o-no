@@ -1645,6 +1645,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.canicola-cantieri-ssic.title': 'Canicola and construction sites, the SSIC: \'Enough penalty for delays\'',
     'blog.article.canicola-cantieri-ssic.excerpt': 'The Swiss Society of Borrowed Manufacturers (SSIC) calls for fairer contractual conditions to protect workers\' health during heatwaves.',
     'blog.article.canicola-cantieri-ssic.imageAlt': 'Frontalier workers on construction sites during canicola.',
+    'blog.article.zurich-finma-licenziamenti-previdenza.title': 'Zurich dismisses employees after FINMA intervention',
+    'blog.article.zurich-finma-licenziamenti-previdenza.excerpt': 'The Zurich group dismisses more than twelve employees due to irregularities in the prices of life and social security policies taken over by FINMA.',
+    'blog.article.zurich-finma-licenziamenti-previdenza.imageAlt': 'Headquarters of a Swiss insurance group in Zurich',
 };
 
 export default blogMetaChEn;

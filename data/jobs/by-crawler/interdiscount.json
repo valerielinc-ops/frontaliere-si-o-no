@@ -1461,10 +1461,10 @@
       "id": "interdiscount-6347c514-71c",
       "slug": "consulente-commerciale-in-interdiscount-dietlikon",
       "slugByLocale": {
-        "it": "consulente-commerciale-in-interdiscount-dietlikon",
-        "en": "sales-consultant-in-interdiscount-dietlikon",
+        "it": "consulente-commerciale-in-interdiscount-dietlikon-zurich",
+        "en": "sales-consultant-in-interdiscount-dietlikon-zurich",
         "de": "verkaufsberater-in-interdiscount-dietlikon-zurich-fkolit",
-        "fr": "consultant-en-ventes-interdiscount-dietlikon"
+        "fr": "consultant-en-ventes-interdiscount-dietlikon-zurich"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -1521,27 +1521,30 @@
           "• Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil"
         ]
       },
-      "firstSeenAt": "2026-07-27T12:33:20.187Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "verkaufsberater-in-interdiscount-dietlikon",
+        "consulente-commerciale-in-interdiscount-dietlikon",
+        "sales-consultant-in-interdiscount-dietlikon",
+        "consultant-en-ventes-interdiscount-dietlikon"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-interdiscount-dietlikon",
           "consulente-commerciale-in-interdiscount-dietlikon"
         ],
-        "de": [
-          "verkaufsberater-in-interdiscount-dietlikon"
-        ],
         "en": [
-          "verkaufsberater-in-interdiscount-dietlikon"
+          "verkaufsberater-in-interdiscount-dietlikon",
+          "sales-consultant-in-interdiscount-dietlikon"
         ],
         "fr": [
+          "verkaufsberater-in-interdiscount-dietlikon",
+          "consultant-en-ventes-interdiscount-dietlikon"
+        ],
+        "de": [
           "verkaufsberater-in-interdiscount-dietlikon"
         ]
       },
-      "previousSlugs": [
-        "verkaufsberater-in-interdiscount-dietlikon",
-        "consulente-commerciale-in-interdiscount-dietlikon"
-      ],
+      "firstSeenAt": "2026-07-27T12:33:20.187Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1553,7 +1556,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "interdiscount-f2822627-dc1",
