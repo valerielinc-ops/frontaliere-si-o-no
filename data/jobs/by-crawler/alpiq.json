@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-07-27T22:27:11.629Z",
+  "assembledAt": "2026-07-28T11:57:23.923Z",
   "jobs": [
     {
       "id": "alpiq-de0001564a5d",
@@ -26,9 +26,7 @@
         "fr": "Gestionnaire de S et A (tous) 100%\n\nType de rôle: Permanent.Emplacement: Olten.Modèle: HybrideNotre sociétéAlpiq est l'un des principaux producteurs d'électricité de Suisse et un fournisseur clé de services énergétiques en Europe. Basé à Lausanne et alimenté par un solide portefeuille de sources d'énergie hydroélectrique, nucléaire et renouvelable, nous sommes tous et tous;\n\nOlten - 100%\nPermanent"
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "location": "Olten",
       "canton": "",
       "postalCode": "4600",
@@ -46,7 +44,9 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9604&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-27T22:27:08.962Z",
+      "crawledAt": "2026-07-28T11:57:21.536Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-27T22:27:08.962Z",
       "country": "CH",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -59,10 +59,7 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-27T22:27:08.962Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      }
     },
     {
       "id": "alpiq-4d715dc319cd",
@@ -109,7 +106,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9599&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-27T22:27:08.962Z",
+      "crawledAt": "2026-07-28T11:57:21.536Z",
       "firstSeenAt": "2026-07-22T23:28:45.496Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -170,7 +167,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-27T22:27:08.961Z",
+      "crawledAt": "2026-07-28T11:57:21.537Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -231,7 +228,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9598&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-26T22:23:01.718Z",
+      "crawledAt": "2026-07-28T11:57:21.536Z",
       "firstSeenAt": "2026-07-16T23:01:54.449Z",
       "country": "CH",
       "salaryMin": 68000,
@@ -292,7 +289,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9601&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T22:23:01.719Z",
+      "crawledAt": "2026-07-28T11:57:21.536Z",
       "firstSeenAt": "2026-07-06T12:57:17.444Z",
       "country": "CH",
       "salaryMin": 68000,
@@ -353,7 +350,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-26T22:23:01.717Z",
+      "crawledAt": "2026-07-28T11:57:21.536Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -411,7 +408,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-26T22:23:01.716Z",
+      "crawledAt": "2026-07-28T11:57:21.535Z",
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 61,
       "retranslationAttempts": 3,
