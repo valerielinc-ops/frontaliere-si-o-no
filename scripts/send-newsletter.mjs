@@ -216,6 +216,13 @@ const NEWSLETTER_AI_CHAIN = [
   'gemma-4-26b-a4b-it',         // Google — 14,400 req/day free (Gemma 4 MoE — exact API id)
   'mistral/mistral-small-latest', // Mistral — 1B tokens/month free
   'gemini-2.5-pro',             // Google — 500 req/day free, highest quality fallback
+  // Self-hosted local AI gateway (OmniRoute), same AI_MODELS.OMNIROUTE_AUTO
+  // used by create-article.mjs's DEFAULT_CHAIN. Sits below every free-tier
+  // cloud model above (sortChainByScore) but above the reserved, Max-plan
+  // Claude CLI tier below — mirrors DEFAULT_CHAIN's priority order. Skipped
+  // entirely unless OMNIROUTE_ENABLED is set (see "Setup OmniRoute" step in
+  // send-newsletter.yml) — inert no-op otherwise, so it's safe to always list.
+  'omniroute/auto',
   // Absolute last resort — same AI_MODELS.CLAUDE_CLI_HAIKU used by
   // create-article.mjs's DEFAULT_CHAIN. Routed through the local `claude` CLI
   // using CLAUDE_CODE_OAUTH_TOKEN (Max-plan subscription, $0 marginal cost),
