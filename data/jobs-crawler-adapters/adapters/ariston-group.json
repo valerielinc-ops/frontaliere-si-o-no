@@ -13,7 +13,7 @@
     "https://careers.aristongroup.com/sitemap_index.xml"
   ],
   "notes": "Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only Ticino/Grigioni jobs via shared Swiss target-location matching.",
-  "updatedAt": "2026-07-28T11:28:48.858Z",
+  "updatedAt": "2026-07-28T22:17:33.636Z",
   "seedMetaByUrl": {
     "https://careers.aristongroup.com/job/Hechingen-SERVICETECHNIKER-%28MWD%29-FREIBURG-UND-UMGEBUNG-Hech-72379/1281305901/": {
       "location": "Hechingen, DE, 72379",
@@ -74,12 +74,6 @@
       "canton": "BE",
       "company": "Ariston Group",
       "postedDate": "2026-07-23"
-    },
-    "https://careers.aristongroup.com/job/Aigle-TECHNICIENNE-DE-SERVICE-%C3%89NERGIES-RENOUVELABLES-AIGLE-Aigl-1860/1414879033/": {
-      "location": "Aigle, CH, 1860",
-      "canton": "VD",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-14"
     },
     "https://careers.aristongroup.com/job/Geneve-TECHNICIENNE-DE-SERVICE-GAZ-REGION-GEN%C3%88VE-Gen%C3%A8-1202/1413874733/": {
       "location": "Genève, CH, 1202",
@@ -146,6 +140,12 @@
       "canton": "VS",
       "company": "Ariston Group",
       "postedDate": "2026-06-24"
+    },
+    "https://careers.aristongroup.com/job/Aigle-TECHNICIENNE-DE-SERVICE-%C3%89NERGIES-RENOUVELABLES-AIGLE-Aigl-1860/1414879033/": {
+      "location": "Aigle, CH, 1860",
+      "canton": "VD",
+      "company": "Ariston Group",
+      "postedDate": "2026-07-14"
     }
   }
 }
