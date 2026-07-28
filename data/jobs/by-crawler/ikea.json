@@ -71,7 +71,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T22:20:16.453Z",
-      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600,
       "baseSalary": {
@@ -144,7 +143,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T22:23:34.003Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -303,7 +301,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T22:23:34.008Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -392,7 +389,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T22:23:34.001Z",
-      "needsRetranslation": true,
       "salaryMin": 23000,
       "salaryMax": 34800,
       "baseSalary": {
@@ -465,7 +461,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:27:11.613Z",
-      "needsRetranslation": true,
       "salaryMin": 28800,
       "salaryMax": 43500,
       "baseSalary": {
@@ -555,8 +550,7 @@
           "maxValue": 75200,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ikea-376184193cc2",
@@ -623,7 +617,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:18:13.980Z",
-      "needsRetranslation": true,
       "salaryMin": 44100,
       "salaryMax": 66900,
       "baseSalary": {
@@ -696,7 +689,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:13:32.661Z",
-      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600,
       "baseSalary": {
@@ -789,7 +781,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:13:32.658Z",
-      "needsRetranslation": true,
       "salaryMin": 14700,
       "salaryMax": 22300,
       "baseSalary": {
@@ -890,7 +881,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:13:32.659Z",
-      "needsRetranslation": true,
       "salaryMin": 37200,
       "salaryMax": 56400,
       "baseSalary": {
@@ -986,7 +976,7 @@
       "id": "ikea-7a66eddf61cd",
       "slug": "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
       "slugByLocale": {
-        "it": "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
+        "it": "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
         "en": "cuisine-ikea-40-team-member-ikea-aubonne",
         "de": "ikea-kuchenmitarbeiter-40-ikea-aubonne",
         "fr": "collaborateur-trice-cuisine-ikea-40-ikea-ch"
@@ -996,7 +986,7 @@
       "companyDomain": "ikea.ch",
       "title": "Collaborateur*trice Cuisine IKEA 40%",
       "titleByLocale": {
-        "it": "Collaborateur*trice Cuisine IKEA 40%",
+        "it": "Contributatore da cucina IKEA 40%",
         "en": "IKEA Kitchen Collaborator 40%",
         "de": "IKEA Küchenmitarbeiter 40%",
         "fr": "Collaborateur*trice Cuisine IKEA 40%"
@@ -1038,9 +1028,8 @@
         "mitarbeiter-in-restaurant-kuche-ikea-20-ikea-vernier-geneve-switzerland",
         "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
         "ikea-cuisine-collaborateur-40-ikea-aubonne",
-        "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
         "koch-kellnerin-ikea-40-ikea-aubonne",
-        "ikea-kuchenmitarbeiter-40-ikea-aubonne"
+        "collaborateur-trice-cuisine-ikea-40-ikea-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1051,18 +1040,16 @@
           "mitarbeiter-in-restaurant-kuche-ikea-20-ikea-vernier-geneve-switzerland",
           "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
           "ikea-cuisine-collaborateur-40-ikea-aubonne",
-          "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland"
+          "collaborateur-trice-cuisine-ikea-40-ikea-aubonne"
         ],
         "de": [
-          "koch-kellnerin-ikea-40-ikea-aubonne",
-          "ikea-kuchenmitarbeiter-40-ikea-aubonne"
+          "koch-kellnerin-ikea-40-ikea-aubonne"
         ],
         "fr": [
           "ikea-cuisine-collaborateur-40-ikea-aubonne"
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:31.696Z",
-      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600,
       "baseSalary": {
@@ -1226,7 +1213,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:31.695Z",
-      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600,
       "baseSalary": {
@@ -1310,8 +1296,7 @@
           "maxValue": 60900,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ikea-67467dc30a44",
@@ -1382,7 +1367,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:31.692Z",
-      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600,
       "baseSalary": {
@@ -1687,7 +1671,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:31.679Z",
-      "needsRetranslation": true,
       "salaryMin": 57200,
       "salaryMax": 101200,
       "baseSalary": {
@@ -1762,7 +1745,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:20:01.883Z",
-      "needsRetranslation": true,
       "salaryMin": 12100,
       "salaryMax": 18300,
       "baseSalary": {
@@ -1841,7 +1823,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:07:43.910Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1914,7 +1895,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:32:54.405Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1995,7 +1975,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:14:15.996Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2493,7 +2472,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:20:01.884Z",
-      "needsRetranslation": true,
       "salaryMin": 31000,
       "salaryMax": 47000,
       "baseSalary": {
@@ -2572,7 +2550,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:15:51.547Z",
-      "needsRetranslation": true,
       "salaryMin": 11500,
       "salaryMax": 17400,
       "baseSalary": {
@@ -2651,7 +2628,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:07:27.082Z",
-      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "baseSalary": {
@@ -2758,16 +2734,16 @@
       "title": "Collaborateur*trice en Communication Graphique-100%",
       "titleByLocale": {
         "fr": "Collaborateur*trice en Communication Graphique-100%",
-        "it": "Collaborateur*trice en Communication Graphique-100%",
-        "en": "Collaborateur*trice en Communication Graphique-100%",
-        "de": "Collaborateur*trice en Communication Graphique-100%"
+        "it": "Collaboratore di comunicazione grafica-100%",
+        "en": "Graphic Communication Collaborator-100%",
+        "de": "Grafik-Kommunikations-Mitarbeiter -100%"
       },
       "description": "Qui tu es\n\nDans ce rôle, tu veilleras à ce que la communication dans le magasin amplifie l'expérience d'achat et la présentation du produit grâce à l'identité visuelle et verbale IKEA. De cette manière, tu influenceras la perception qu'ont les clients de la marque IKEA en tant que marque unique et cohérente.\n\n• Tu as une formation en design de communication graphique, en médias ou en typographie.\n• Tu as de solides compétences visuelles et un sens aigu de l'esthétique.\n• Tu es capable d'expliquer des concepts verbalement et par le biais d'une interprétation visuelle.\n• Tu peux facilement établir des priorités et organiser ton propre travail afin d'utiliser au mieux le temps disponible et de respecter les délais convenus.\n• Tu as de solides compétences de communication en anglais et d'excellentes aptitudes verbales et écrites dans la langue locale.\n• Tu es experimenté/e dans l'utilisation de logiciels de conception graphique (Adobe Creative Suite) et d'outils de production, par exemple d'imprimantes, de production pré-presse et de techniques d'impression.\n\nTes responsabilités\n\n• Utiliser tes compétences en communication graphique pour renforcer le caractère unique et la cohérence de l'identité IKEA dans la communication en magasin.\n• Contribuer activement au plan d'action du département avec des initiatives qui feront croître l'entreprise et favoriseront sa rentabilité à long terme.\n• Exécuter les plans convenus en étroite collaboration avec les autres fonctions.\n• Planifier, mettre en œuvre et évaluer les stratégies de communication des magasins afin de s'assurer qu'elles transmettent les avantages du concept IKEA, améliorent la présentation des gammes et favorisent une expérience d'achat pratique.\n• Collaborer avec l'équipe Communication & Design d'intérieur et les autres fonctions du magasin, agir rapidement pour exploiter les opportunités commerciales et comprendre l'impact de tes actions sur les résultats financiers.\n• Se tenir au courant des tendances en matière d'ameublement, de communication et de design commercial pour suivre des orientations créatives qui inspirent et surprennent les visiteurs du magasin grâce à l'identité visuelle et verbale IKEA.\n\nA propos de ce secteur d'activité\n\nLà où les autres voient des articles d'ameublement, nous voyons des solutions astucieuses permettant d'améliorer la vie quotidienne. Avec beaucoup de passion, d'imagination et de brainstorming, nous transformons les couleurs, les textiles et les meubles en ambiances inspirantes qui enthousiasment, attirent et convainquent les visiteurs des magasins IKEA qu'ils peuvent reproduire la même chose chez eux.\n\nTu penses que ça pourrait marcher pour toi ?\n\nComme nous l’avons déjà indiqué, nous tenons au bien-être de nos collaborateur-trice-s.\n\nAussi nous tenons à leur dire «merci»!\n\nNous offrons à ce titre:\n\n• 28 jours de vacances (sur la base d’un poste à 100 %)\n• 8 semaines de congé parental rémunéré pour les pères ; 20 semaines de congé parental rémunéré pour les mères\n• Des prestations sociales très attractives\n• Remise de 15 % sur vos achats - dans chaque magasin IKEA en Suisse.\n• Tu préfères venir au travail en transports publics? Nous prenons en charge entre 85 % et 100 % du prix d’un abonnement à l’année.\n• Des possibilités de stationnement gratuit\n• Accès illimité à la plateforme d'apprentissage LinkedIn\n• Des repas à prix avantageux et équilibrés dans notre cantine (4,50 CHF pour les plats à base de viande et 3,50 CHF pour les plats végétariens).\n• Des primes versées à l'ensemble des collaborateurs\n\nIl existe de nombreuses possibilités d'évolution chez IKEA. Nous encourageons et soutenons nos employés à essayer différents rôles, à passer d'une fonction à l'autre ou même de partir à l'étranger. Merci de soumettre le dossier de candidature complet en ligne, via notre site. A noter toutefois que nous ne pouvons pas prendre en compte les candidatures et les documents envoyés par e-mail ou par la poste.\n\nEt voilà, c'est tout de notre côté !\n\nC'était pas mal d'infos, non? On aimerait en savoir plus sur toi. Il suffit de cliquer sur 'Postuler maintenant' et c'est parti!\n\nOn examine les candidatures au fur et à mesure et on peut mettre fin au processus dès qu'on trouve la bonne personne. Alors, n'hésite pas à postuler au plus vite.",
       "descriptionByLocale": {
         "fr": "Qui tu es\n\nDans ce rôle, tu veilleras à ce que la communication dans le magasin amplifie l'expérience d'achat et la présentation du produit grâce à l'identité visuelle et verbale IKEA. De cette manière, tu influenceras la perception qu'ont les clients de la marque IKEA en tant que marque unique et cohérente.\n\n• Tu as une formation en design de communication graphique, en médias ou en typographie.\n• Tu as de solides compétences visuelles et un sens aigu de l'esthétique.\n• Tu es capable d'expliquer des concepts verbalement et par le biais d'une interprétation visuelle.\n• Tu peux facilement établir des priorités et organiser ton propre travail afin d'utiliser au mieux le temps disponible et de respecter les délais convenus.\n• Tu as de solides compétences de communication en anglais et d'excellentes aptitudes verbales et écrites dans la langue locale.\n• Tu es experimenté/e dans l'utilisation de logiciels de conception graphique (Adobe Creative Suite) et d'outils de production, par exemple d'imprimantes, de production pré-presse et de techniques d'impression.\n\nTes responsabilités\n\n• Utiliser tes compétences en communication graphique pour renforcer le caractère unique et la cohérence de l'identité IKEA dans la communication en magasin.\n• Contribuer activement au plan d'action du département avec des initiatives qui feront croître l'entreprise et favoriseront sa rentabilité à long terme.\n• Exécuter les plans convenus en étroite collaboration avec les autres fonctions.\n• Planifier, mettre en œuvre et évaluer les stratégies de communication des magasins afin de s'assurer qu'elles transmettent les avantages du concept IKEA, améliorent la présentation des gammes et favorisent une expérience d'achat pratique.\n• Collaborer avec l'équipe Communication & Design d'intérieur et les autres fonctions du magasin, agir rapidement pour exploiter les opportunités commerciales et comprendre l'impact de tes actions sur les résultats financiers.\n• Se tenir au courant des tendances en matière d'ameublement, de communication et de design commercial pour suivre des orientations créatives qui inspirent et surprennent les visiteurs du magasin grâce à l'identité visuelle et verbale IKEA.\n\nA propos de ce secteur d'activité\n\nLà où les autres voient des articles d'ameublement, nous voyons des solutions astucieuses permettant d'améliorer la vie quotidienne. Avec beaucoup de passion, d'imagination et de brainstorming, nous transformons les couleurs, les textiles et les meubles en ambiances inspirantes qui enthousiasment, attirent et convainquent les visiteurs des magasins IKEA qu'ils peuvent reproduire la même chose chez eux.\n\nTu penses que ça pourrait marcher pour toi ?\n\nComme nous l’avons déjà indiqué, nous tenons au bien-être de nos collaborateur-trice-s.\n\nAussi nous tenons à leur dire «merci»!\n\nNous offrons à ce titre:\n\n• 28 jours de vacances (sur la base d’un poste à 100 %)\n• 8 semaines de congé parental rémunéré pour les pères ; 20 semaines de congé parental rémunéré pour les mères\n• Des prestations sociales très attractives\n• Remise de 15 % sur vos achats - dans chaque magasin IKEA en Suisse.\n• Tu préfères venir au travail en transports publics? Nous prenons en charge entre 85 % et 100 % du prix d’un abonnement à l’année.\n• Des possibilités de stationnement gratuit\n• Accès illimité à la plateforme d'apprentissage LinkedIn\n• Des repas à prix avantageux et équilibrés dans notre cantine (4,50 CHF pour les plats à base de viande et 3,50 CHF pour les plats végétariens).\n• Des primes versées à l'ensemble des collaborateurs\n\nIl existe de nombreuses possibilités d'évolution chez IKEA. Nous encourageons et soutenons nos employés à essayer différents rôles, à passer d'une fonction à l'autre ou même de partir à l'étranger. Merci de soumettre le dossier de candidature complet en ligne, via notre site. A noter toutefois que nous ne pouvons pas prendre en compte les candidatures et les documents envoyés par e-mail ou par la poste.\n\nEt voilà, c'est tout de notre côté !\n\nC'était pas mal d'infos, non? On aimerait en savoir plus sur toi. Il suffit de cliquer sur 'Postuler maintenant' et c'est parti!\n\nOn examine les candidatures au fur et à mesure et on peut mettre fin au processus dès qu'on trouve la bonne personne. Alors, n'hésite pas à postuler au plus vite.",
-        "it": "Qui tu es\n\nDans ce rôle, tu veilleras à ce que la communication dans le magasin amplifie l'expérience d'achat et la présentation du produit grâce à l'identité visuelle et verbale IKEA. De cette manière, tu influenceras la perception qu'ont les clients de la marque IKEA en tant que marque unique et cohérente.\n\n• Tu as une formation en design de communication graphique, en médias ou en typographie.\n• Tu as de solides compétences visuelles et un sens aigu de l'esthétique.\n• Tu es capable d'expliquer des concepts verbalement et par le biais d'une interprétation visuelle.\n• Tu peux facilement établir des priorités et organiser ton propre travail afin d'utiliser au mieux le temps disponible et de respecter les délais convenus.\n• Tu as de solides compétences de communication en anglais et d'excellentes aptitudes verbales et écrites dans la langue locale.\n• Tu es experimenté/e dans l'utilisation de logiciels de conception graphique (Adobe Creative Suite) et d'outils de production, par exemple d'imprimantes, de production pré-presse et de techniques d'impression.\n\nTes responsabilités\n\n• Utiliser tes compétences en communication graphique pour renforcer le caractère unique et la cohérence de l'identité IKEA dans la communication en magasin.\n• Contribuer activement au plan d'action du département avec des initiatives qui feront croître l'entreprise et favoriseront sa rentabilité à long terme.\n• Exécuter les plans convenus en étroite collaboration avec les autres fonctions.\n• Planifier, mettre en œuvre et évaluer les stratégies de communication des magasins afin de s'assurer qu'elles transmettent les avantages du concept IKEA, améliorent la présentation des gammes et favorisent une expérience d'achat pratique.\n• Collaborer avec l'équipe Communication & Design d'intérieur et les autres fonctions du magasin, agir rapidement pour exploiter les opportunités commerciales et comprendre l'impact de tes actions sur les résultats financiers.\n• Se tenir au courant des tendances en matière d'ameublement, de communication et de design commercial pour suivre des orientations créatives qui inspirent et surprennent les visiteurs du magasin grâce à l'identité visuelle et verbale IKEA.\n\nA propos de ce secteur d'activité\n\nLà où les autres voient des articles d'ameublement, nous voyons des solutions astucieuses permettant d'améliorer la vie quotidienne. Avec beaucoup de passion, d'imagination et de brainstorming, nous transformons les couleurs, les textiles et les meubles en ambiances inspirantes qui enthousiasment, attirent et convainquent les visiteurs des magasins IKEA qu'ils peuvent reproduire la même chose chez eux.\n\nTu penses que ça pourrait marcher pour toi ?\n\nComme nous l’avons déjà indiqué, nous tenons au bien-être de nos collaborateur-trice-s.\n\nAussi nous tenons à leur dire «merci»!\n\nNous offrons à ce titre:\n\n• 28 jours de vacances (sur la base d’un poste à 100 %)\n• 8 semaines de congé parental rémunéré pour les pères ; 20 semaines de congé parental rémunéré pour les mères\n• Des prestations sociales très attractives\n• Remise de 15 % sur vos achats - dans chaque magasin IKEA en Suisse.\n• Tu préfères venir au travail en transports publics? Nous prenons en charge entre 85 % et 100 % du prix d’un abonnement à l’année.\n• Des possibilités de stationnement gratuit\n• Accès illimité à la plateforme d'apprentissage LinkedIn\n• Des repas à prix avantageux et équilibrés dans notre cantine (4,50 CHF pour les plats à base de viande et 3,50 CHF pour les plats végétariens).\n• Des primes versées à l'ensemble des collaborateurs\n\nIl existe de nombreuses possibilités d'évolution chez IKEA. Nous encourageons et soutenons nos employés à essayer différents rôles, à passer d'une fonction à l'autre ou même de partir à l'étranger. Merci de soumettre le dossier de candidature complet en ligne, via notre site. A noter toutefois que nous ne pouvons pas prendre en compte les candidatures et les documents envoyés par e-mail ou par la poste.\n\nEt voilà, c'est tout de notre côté !\n\nC'était pas mal d'infos, non? On aimerait en savoir plus sur toi. Il suffit de cliquer sur 'Postuler maintenant' et c'est parti!\n\nOn examine les candidatures au fur et à mesure et on peut mettre fin au processus dès qu'on trouve la bonne personne. Alors, n'hésite pas à postuler au plus vite.",
-        "en": "Qui tu es\n\nDans ce rôle, tu veilleras à ce que la communication dans le magasin amplifie l'expérience d'achat et la présentation du produit grâce à l'identité visuelle et verbale IKEA. De cette manière, tu influenceras la perception qu'ont les clients de la marque IKEA en tant que marque unique et cohérente.\n\n• Tu as une formation en design de communication graphique, en médias ou en typographie.\n• Tu as de solides compétences visuelles et un sens aigu de l'esthétique.\n• Tu es capable d'expliquer des concepts verbalement et par le biais d'une interprétation visuelle.\n• Tu peux facilement établir des priorités et organiser ton propre travail afin d'utiliser au mieux le temps disponible et de respecter les délais convenus.\n• Tu as de solides compétences de communication en anglais et d'excellentes aptitudes verbales et écrites dans la langue locale.\n• Tu es experimenté/e dans l'utilisation de logiciels de conception graphique (Adobe Creative Suite) et d'outils de production, par exemple d'imprimantes, de production pré-presse et de techniques d'impression.\n\nTes responsabilités\n\n• Utiliser tes compétences en communication graphique pour renforcer le caractère unique et la cohérence de l'identité IKEA dans la communication en magasin.\n• Contribuer activement au plan d'action du département avec des initiatives qui feront croître l'entreprise et favoriseront sa rentabilité à long terme.\n• Exécuter les plans convenus en étroite collaboration avec les autres fonctions.\n• Planifier, mettre en œuvre et évaluer les stratégies de communication des magasins afin de s'assurer qu'elles transmettent les avantages du concept IKEA, améliorent la présentation des gammes et favorisent une expérience d'achat pratique.\n• Collaborer avec l'équipe Communication & Design d'intérieur et les autres fonctions du magasin, agir rapidement pour exploiter les opportunités commerciales et comprendre l'impact de tes actions sur les résultats financiers.\n• Se tenir au courant des tendances en matière d'ameublement, de communication et de design commercial pour suivre des orientations créatives qui inspirent et surprennent les visiteurs du magasin grâce à l'identité visuelle et verbale IKEA.\n\nA propos de ce secteur d'activité\n\nLà où les autres voient des articles d'ameublement, nous voyons des solutions astucieuses permettant d'améliorer la vie quotidienne. Avec beaucoup de passion, d'imagination et de brainstorming, nous transformons les couleurs, les textiles et les meubles en ambiances inspirantes qui enthousiasment, attirent et convainquent les visiteurs des magasins IKEA qu'ils peuvent reproduire la même chose chez eux.\n\nTu penses que ça pourrait marcher pour toi ?\n\nComme nous l’avons déjà indiqué, nous tenons au bien-être de nos collaborateur-trice-s.\n\nAussi nous tenons à leur dire «merci»!\n\nNous offrons à ce titre:\n\n• 28 jours de vacances (sur la base d’un poste à 100 %)\n• 8 semaines de congé parental rémunéré pour les pères ; 20 semaines de congé parental rémunéré pour les mères\n• Des prestations sociales très attractives\n• Remise de 15 % sur vos achats - dans chaque magasin IKEA en Suisse.\n• Tu préfères venir au travail en transports publics? Nous prenons en charge entre 85 % et 100 % du prix d’un abonnement à l’année.\n• Des possibilités de stationnement gratuit\n• Accès illimité à la plateforme d'apprentissage LinkedIn\n• Des repas à prix avantageux et équilibrés dans notre cantine (4,50 CHF pour les plats à base de viande et 3,50 CHF pour les plats végétariens).\n• Des primes versées à l'ensemble des collaborateurs\n\nIl existe de nombreuses possibilités d'évolution chez IKEA. Nous encourageons et soutenons nos employés à essayer différents rôles, à passer d'une fonction à l'autre ou même de partir à l'étranger. Merci de soumettre le dossier de candidature complet en ligne, via notre site. A noter toutefois que nous ne pouvons pas prendre en compte les candidatures et les documents envoyés par e-mail ou par la poste.\n\nEt voilà, c'est tout de notre côté !\n\nC'était pas mal d'infos, non? On aimerait en savoir plus sur toi. Il suffit de cliquer sur 'Postuler maintenant' et c'est parti!\n\nOn examine les candidatures au fur et à mesure et on peut mettre fin au processus dès qu'on trouve la bonne personne. Alors, n'hésite pas à postuler au plus vite.",
-        "de": "Qui tu es\n\nDans ce rôle, tu veilleras à ce que la communication dans le magasin amplifie l'expérience d'achat et la présentation du produit grâce à l'identité visuelle et verbale IKEA. De cette manière, tu influenceras la perception qu'ont les clients de la marque IKEA en tant que marque unique et cohérente.\n\n• Tu as une formation en design de communication graphique, en médias ou en typographie.\n• Tu as de solides compétences visuelles et un sens aigu de l'esthétique.\n• Tu es capable d'expliquer des concepts verbalement et par le biais d'une interprétation visuelle.\n• Tu peux facilement établir des priorités et organiser ton propre travail afin d'utiliser au mieux le temps disponible et de respecter les délais convenus.\n• Tu as de solides compétences de communication en anglais et d'excellentes aptitudes verbales et écrites dans la langue locale.\n• Tu es experimenté/e dans l'utilisation de logiciels de conception graphique (Adobe Creative Suite) et d'outils de production, par exemple d'imprimantes, de production pré-presse et de techniques d'impression.\n\nTes responsabilités\n\n• Utiliser tes compétences en communication graphique pour renforcer le caractère unique et la cohérence de l'identité IKEA dans la communication en magasin.\n• Contribuer activement au plan d'action du département avec des initiatives qui feront croître l'entreprise et favoriseront sa rentabilité à long terme.\n• Exécuter les plans convenus en étroite collaboration avec les autres fonctions.\n• Planifier, mettre en œuvre et évaluer les stratégies de communication des magasins afin de s'assurer qu'elles transmettent les avantages du concept IKEA, améliorent la présentation des gammes et favorisent une expérience d'achat pratique.\n• Collaborer avec l'équipe Communication & Design d'intérieur et les autres fonctions du magasin, agir rapidement pour exploiter les opportunités commerciales et comprendre l'impact de tes actions sur les résultats financiers.\n• Se tenir au courant des tendances en matière d'ameublement, de communication et de design commercial pour suivre des orientations créatives qui inspirent et surprennent les visiteurs du magasin grâce à l'identité visuelle et verbale IKEA.\n\nA propos de ce secteur d'activité\n\nLà où les autres voient des articles d'ameublement, nous voyons des solutions astucieuses permettant d'améliorer la vie quotidienne. Avec beaucoup de passion, d'imagination et de brainstorming, nous transformons les couleurs, les textiles et les meubles en ambiances inspirantes qui enthousiasment, attirent et convainquent les visiteurs des magasins IKEA qu'ils peuvent reproduire la même chose chez eux.\n\nTu penses que ça pourrait marcher pour toi ?\n\nComme nous l’avons déjà indiqué, nous tenons au bien-être de nos collaborateur-trice-s.\n\nAussi nous tenons à leur dire «merci»!\n\nNous offrons à ce titre:\n\n• 28 jours de vacances (sur la base d’un poste à 100 %)\n• 8 semaines de congé parental rémunéré pour les pères ; 20 semaines de congé parental rémunéré pour les mères\n• Des prestations sociales très attractives\n• Remise de 15 % sur vos achats - dans chaque magasin IKEA en Suisse.\n• Tu préfères venir au travail en transports publics? Nous prenons en charge entre 85 % et 100 % du prix d’un abonnement à l’année.\n• Des possibilités de stationnement gratuit\n• Accès illimité à la plateforme d'apprentissage LinkedIn\n• Des repas à prix avantageux et équilibrés dans notre cantine (4,50 CHF pour les plats à base de viande et 3,50 CHF pour les plats végétariens).\n• Des primes versées à l'ensemble des collaborateurs\n\nIl existe de nombreuses possibilités d'évolution chez IKEA. Nous encourageons et soutenons nos employés à essayer différents rôles, à passer d'une fonction à l'autre ou même de partir à l'étranger. Merci de soumettre le dossier de candidature complet en ligne, via notre site. A noter toutefois que nous ne pouvons pas prendre en compte les candidatures et les documents envoyés par e-mail ou par la poste.\n\nEt voilà, c'est tout de notre côté !\n\nC'était pas mal d'infos, non? On aimerait en savoir plus sur toi. Il suffit de cliquer sur 'Postuler maintenant' et c'est parti!\n\nOn examine les candidatures au fur et à mesure et on peut mettre fin au processus dès qu'on trouve la bonne personne. Alors, n'hésite pas à postuler au plus vite."
+        "it": "Chi sei\n\nIn questo ruolo, si assicurerà che la comunicazione nel negozio migliora l'esperienza di shopping e la presentazione del prodotto attraverso identità visiva e verbale IKEA. In questo modo, influenzerà la percezione dei clienti del marchio IKEA come un marchio unico e coerente.\n\n• Hai una formazione nel design della comunicazione grafica, nei media o nella tipografia.\n• Hai forti capacità visive e un forte senso estetico.\n• È possibile spiegare concetti verbalmente e attraverso l'interpretazione visiva.\n• È possibile impostare facilmente le priorità e organizzare il proprio lavoro per rendere il miglior uso del tempo disponibile e rispettare le scadenze concordate.\n• Hai forti capacità di comunicazione in inglese e eccellenti capacità verbali e scritte nella lingua locale.\n• Sei esperto nell'uso di software di progettazione grafica (Adobe Creative Suite) e strumenti di produzione come stampanti, pre-stampa di produzione e tecniche di stampa.\n\nLe tue responsabilità\n\n• Utilizza le tue capacità di comunicazione grafica per migliorare l'unicità e la coerenza dell'identità IKEA nella comunicazione in-store.\n• Contribuire attivamente al piano d'azione del dipartimento con iniziative che cresceranno l'azienda e promuoveranno la sua redditività a lungo termine.\n• Implementare piani concordati in stretta collaborazione con altre funzioni.\n• Pianificare, implementare e valutare strategie di comunicazione negozio per garantire che essi trasmettere i vantaggi del concetto IKEA, migliorare la presentazione di intervalli e promuovere l'esperienza di acquisto pratica.\n• Collaborare con il team di Communications & Interior Design e altre funzioni di negozio, agire rapidamente per sfruttare le opportunità di business e comprendere l'impatto delle tue azioni sui risultati finanziari.\n• Tenere il passo delle tendenze in mobili, comunicazione e design commerciale per seguire le indicazioni creative che ispirano e sorprendeno i visitatori negozio attraverso IKEA identità visiva e verbale.\n\nInformazioni su questo settore\n\nDove altri vedono l'arredamento, vediamo soluzioni intelligenti per migliorare la vita quotidiana. Con molta passione, immaginazione e brainstorming, trasformiamo colori, tessuti e mobili in atmosfere ispiranti che incantano, attirano e convincono i visitatori nei negozi IKEA che possono riprodurre la stessa cosa a casa.\n\nPensi che possa funzionare per te?\n\nCome abbiamo già indicato, apprezziamo il benessere dei nostri collaboratori.\n\nQuindi vogliamo dire \"grazie\"!\n\nOffriamo come tali:\n\n• 28 giorni di vacanza (basato sul 100% turno)\n• 8 settimane di congedo parentale pagato per i padri; 20 settimane di congedo parentale pagato per le madri\n• Prestazioni sociali molto interessanti\n• 15% di sconto sugli acquisti - in ogni negozio IKEA in Svizzera.\n• Preferiresti venire a lavorare sui trasporti pubblici? Copriamo tra l'85% e il 100% del prezzo di un abbonamento annuale.\n• Parcheggio gratuito\n• Accesso illimitato alla piattaforma di apprendimento LinkedIn\n• Pasti gustosi ed equilibrati nella nostra mensa (4,50 CHF per piatti di carne e 3,50 CHF per piatti vegetariani).\n• Premium pagati a tutti i dipendenti\n\nCi sono molte possibilità di evoluzione in IKEA. Incoraggiamo e sosteniamo i nostri dipendenti per provare ruoli diversi, passare da un lavoro all'altro o anche andare all'estero. Si prega di inviare l'applicazione completa online tramite il nostro sito web. Tuttavia, non possiamo prendere in considerazione le domande e i documenti inviati per e-mail o per posta.\n\nE' tutto dalla nostra parte!\n\nSono state un sacco di informazioni, vero? Vorremmo saperne di più su di te. Basta cliccare su 'Post Now' E ci siamo!\n\nLe domande vengono esaminate come e quando la persona giusta viene trovata, il processo può essere terminato. Quindi non esitate ad applicare il prima possibile.",
+        "en": "Who you are\n\nIn this role, you will ensure that communication in the store enhances the shopping experience and presentation of the product through visual and verbal identity IKEA. In this way, you will influence the customers' perception of the IKEA brand as a unique and consistent brand.\n\n• You have training in graphic communication design, media or typography.\n• You have strong visual skills and a strong sense of aesthetics.\n• You can explain concepts verbally and through visual interpretation.\n• You can easily set priorities and organize your own work to make the best use of the time available and meet the agreed deadlines.\n• You have strong communication skills in English and excellent verbal and written skills in the local language.\n• You are experienced in the use of graphic design software (Adobe Creative Suite) and production tools such as printers, pre-press production and printing techniques.\n\nYour responsibilities\n\n• Use your graphic communication skills to enhance the uniqueness and consistency of IKEA identity in in-store communication.\n• Actively contribute to the department's action plan with initiatives that will grow the company and promote its long-term profitability.\n• Implement agreed plans in close collaboration with other functions.\n• Plan, implement, and evaluate store communication strategies to ensure that they convey the benefits of the IKEA concept, improve the presentation of ranges, and promote practical purchasing experience.\n• Collaborate with the Communications & Interior Design team and other store functions, act quickly to exploit business opportunities and understand the impact of your actions on financial results.\n• Keep abreast of trends in furniture, communication and commercial design to follow creative directions that inspire and surprise shop visitors through IKEA visual and verbal identity.\n\nAbout this industry\n\nWhere others see furnishings, we see clever solutions to improve daily life. With a lot of passion, imagination and brainstorming, we transform colours, textiles and furniture into inspiring atmospheres that enthralle, attract and convince visitors to IKEA stores that they can reproduce the same thing at home.\n\nYou think this could work for you?\n\nAs we have already indicated, we value the well-being of our collaborators.\n\nSo we want to say 'thank you'!\n\nWe offer as such:\n\n• 28 days of vacation (based on 100 % shift)\n• 8 weeks paid parental leave for fathers; 20 weeks paid parental leave for mothers\n• Very attractive social benefits\n• 15% discount on your purchases - in each IKEA store in Switzerland.\n• Would you rather come to work on public transport? We cover between 85% and 100% of the price of an annual subscription.\n• Free parking\n• Unlimited access to the LinkedIn learning platform\n• Favourable and balanced meals in our canteen (4.50 CHF for meat dishes and 3.50 CHF for vegetarian dishes).\n• Premiums paid to all employees\n\nThere are many possibilities of evolution in IKEA. We encourage and support our employees to try different roles, move from one job to another or even go abroad. Please submit the complete application online via our website. However, we cannot take into account applications and documents sent by e-mail or mail.\n\nThat's all on our side!\n\nThat was a lot of information, wasn't it? We'd like to know more about you. Just click on 'Post Now' And here we go!\n\nApplications are reviewed as and when the right person is found, the process can be terminated. So don't hesitate to apply as soon as possible.",
+        "de": "Wer du bist\n\nIn dieser Rolle stellen Sie sicher, dass die Kommunikation im Laden das Einkaufserlebnis und die Präsentation des Produkts durch visuelle und verbale Identität IKEA verbessert. Auf diese Weise beeinflussen Sie die Wahrnehmung der Marke IKEA als einzigartige und konsistente Marke durch die Kunden.\n\n• Sie haben eine Ausbildung in grafischem Kommunikationsdesign, Medien oder Typografie.\n• Sie haben starke visuelle Fähigkeiten und einen starken Sinn für Ästhetik.\n• Sie können Konzepte verbal und durch visuelle Interpretation erklären.\n• Sie können einfach Prioritäten setzen und Ihre eigene Arbeit organisieren, um die verfügbare Zeit optimal zu nutzen und die vereinbarten Fristen einzuhalten.\n• Sie haben starke Kommunikationsfähigkeiten in Englisch und ausgezeichnete verbale und schriftliche Fähigkeiten in der lokalen Sprache.\n• Sie sind erfahren in der Verwendung von Grafik-Design-Software (Adobe Creative Suite) und Produktions-Tools wie Drucker, Pre-Press-Produktion und Drucktechniken.\n\nIhre Verantwortung\n\n• Nutzen Sie Ihre grafischen Kommunikationsfähigkeiten, um die Einzigartigkeit und Konsistenz der IKEA-Identität in der In-Store-Kommunikation zu verbessern.\n• Tragen Sie aktiv zum Aktionsplan der Abteilung mit Initiativen bei, die das Unternehmen wachsen lassen und seine langfristige Rentabilität fördern.\n• Umsetzung vereinbarter Pläne in enger Zusammenarbeit mit anderen Funktionen.\n• Planen, implementieren und bewerten Sie Store-Kommunikationsstrategien, um sicherzustellen, dass sie die Vorteile des IKEA-Konzepts vermitteln, die Präsentation von Sortimenten verbessern und die praktische Einkaufserfahrung fördern.\n• Arbeiten Sie mit dem Communications & Interior Design-Team und anderen Filialfunktionen zusammen, handeln Sie schnell, um Geschäftsmöglichkeiten zu nutzen und die Auswirkungen Ihrer Maßnahmen auf die Finanzergebnisse zu verstehen.\n• Halten Sie sich über Trends in den Bereichen Möbel, Kommunikation und kommerzielles Design auf dem Laufenden, um kreativen Richtungen zu folgen, die die Besucher durch die visuelle und verbale Identität von IKEA inspirieren und überraschen.\n\nÜber diese Industrie\n\nWo andere Möbel sehen, sehen wir clevere Lösungen, um das tägliche Leben zu verbessern. Mit viel Leidenschaft, Fantasie und Brainstorming verwandeln wir Farben, Textilien und Möbel in inspirierende Atmosphären, die Besucher von IKEA-Läden begeistern, anziehen und davon überzeugen, dass sie dasselbe zu Hause reproduzieren können.\n\nDenkst du, das könnte für dich funktionieren?\n\nWie wir bereits angedeutet haben, schätzen wir das Wohlergehen unserer Mitarbeiter.\n\nAlso wollen wir \"Danke\" sagen!\n\nWir bieten als solche an:\n\n• 28 Urlaubstage (basierend auf 100 % Schicht)\n• 8 Wochen bezahlter Elternurlaub für Väter; 20 Wochen bezahlter Elternurlaub für Mütter\n• Sehr attraktive Sozialleistungen\n• 15% Rabatt auf Ihre Einkäufe - in jedem IKEA-Shop in der Schweiz.\n• Möchten Sie lieber im öffentlichen Verkehr arbeiten? Wir decken zwischen 85% und 100% des Preises eines jährlichen Abonnements ab.\n• Freie Parkplätze\n• Unbegrenzter Zugang zur LinkedIn Lernplattform\n• Günstige und ausgewogene Mahlzeiten in unserer Kantine (4,50 CHF für Fleischgerichte und 3,50 CHF für vegetarische Gerichte).\n• Prämien für alle Arbeitnehmer\n\nEs gibt viele Möglichkeiten der Evolution in IKEA. Wir ermutigen und unterstützen unsere Mitarbeiter, verschiedene Rollen auszuprobieren, von einem Job zum anderen zu wechseln oder sogar ins Ausland zu gehen. Bitte reichen Sie den vollständigen Antrag online über unsere Website ein. Wir können jedoch Anträge und Dokumente, die per E-Mail oder Post verschickt werden, nicht berücksichtigen.\n\nDas ist alles auf unserer Seite!\n\nDas war eine Menge Informationen, nicht wahr? Wir würden gerne mehr über Sie erfahren. Klicken Sie einfach auf \"Post Now\" Und los geht's!\n\nAnwendungen werden überprüft, sobald die richtige Person gefunden wird, kann der Prozess beendet werden. Zögern Sie also nicht, sich so schnell wie möglich zu bewerben."
       },
       "location": "Aubonne, Vaud, Switzerland",
       "canton": "VD",
@@ -2804,7 +2780,6 @@
       "previousSlugs": [
         "collaborateur-trice-en-communication-graphique-100-ikea-ch"
       ],
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2976,14 +2951,14 @@
         "it": "Responsabile commerciale del ristorante 80-100%",
         "en": "Commercial Restaurant Manager 80-100%",
         "de": "Kommerzieller Restaurantmanager 80-100%",
-        "fr": "Commercial Restaurant Manager 80-100%"
+        "fr": "Directeur du restaurant commercial 80-100%"
       },
       "description": "Who you are\n\nYour responsibilities\n\nDenkst du, das würde passen?\n\nWe want our employees to be happy and healthy.\n\nIt also means saying 'thank you'!\n\nOur way of saying thank you:\n\n• 28 vacation days (based on a 100% workload)\n• 8 weeks paid parental leave for fathers; 20 weeks paid parental leave for mothers\n• Very attractive social benefits\n• 15% staff discount on your purchase - in every Swiss IKEA store\n• You would rather travel to work by public transport? We pay between 85% and 100% of your yearly travel ticket\n• Free parking facilities\n• Unlimited access to the LinkedIn learning platform\n• Affordable and healthy meals in our staff canteen (CHF 4.50 for meat dishes and CHF 3.50 for veggie dishes)\n• Bonus payments for all employees\n\nThere are many opportunities for career development at IKEA. We encourage and support our employees to try out different roles, move between functions or even go abroad. Please submit your full application online via our website, please note however that we cannot consider applications and documents sent by email or post.\n\nThat's it from us.\n\nThat was a lot of information. We'd love to find out more about you. Just click on 'Apply now' and off you go.\n\nWe review applications on an ongoing basis and may stop the application process as soon as we have found the right person. So please apply as soon as possible",
       "descriptionByLocale": {
         "it": "Chi sei\n\nLe tue responsabilità\n\nDenkst du, das würde passen?\n\nVogliamo che i nostri dipendenti siano felici e sani.\n\nSignifica anche dire \"grazie\"!\n\nIl nostro modo di dire grazie:\n\n• 28 giorni di vacanza (basato su un carico di lavoro al 100%)\n• 8 settimane di congedo parentale pagato per i padri; 20 settimane di congedo parentale pagato per le madri\n• Prestazioni sociali molto interessanti\n• 15% sconto personale sul vostro acquisto - in ogni negozio Swiss IKEA\n• Preferisci viaggiare al lavoro con i mezzi pubblici? Paghiamo tra l'85% e il 100% del tuo biglietto annuale di viaggio\n• Parcheggio gratuito\n• Accesso illimitato alla piattaforma di apprendimento LinkedIn\n• Pasti convenienti e salutari nella nostra mensa (CHF 4.50 per piatti di carne e CHF 3.50 per piatti vegetariani)\n• Bonus per tutti i dipendenti\n\nCi sono molte opportunità per lo sviluppo di carriera a IKEA. Incoraggiamo e sosteniamo i nostri dipendenti per provare ruoli diversi, muoversi tra funzioni o anche andare all'estero. Si prega di inviare la vostra domanda completa online tramite il nostro sito web, si prega di notare tuttavia che non possiamo considerare le applicazioni e i documenti inviati via e-mail o posta.\n\nE' tutto da noi.\n\nSono state un sacco di informazioni. Ci piacerebbe scoprire di più su di te. Basta cliccare su 'Applica ora' e fuori si va.\n\nRivediamo le applicazioni su base continuativa e possiamo fermare il processo di applicazione non appena abbiamo trovato la persona giusta. Quindi si prega di applicare il più presto possibile",
         "en": "Who you are\n\nYour responsibilities\n\nDenkst du, das würde passen?\n\nWe want our employees to be happy and healthy.\n\nIt also means saying 'thank you'!\n\nOur way of saying thank you:\n\n• 28 vacation days (based on a 100% workload)\n• 8 weeks paid parental leave for fathers; 20 weeks paid parental leave for mothers\n• Very attractive social benefits\n• 15% staff discount on your purchase - in every Swiss IKEA store\n• You would rather travel to work by public transport? We pay between 85% and 100% of your yearly travel ticket\n• Free parking facilities\n• Unlimited access to the LinkedIn learning platform\n• Affordable and healthy meals in our staff canteen (CHF 4.50 for meat dishes and CHF 3.50 for veggie dishes)\n• Bonus payments for all employees\n\nThere are many opportunities for career development at IKEA. We encourage and support our employees to try out different roles, move between functions or even go abroad. Please submit your full application online via our website, please note however that we cannot consider applications and documents sent by email or post.\n\nThat's it from us.\n\nThat was a lot of information. We'd love to find out more about you. Just click on 'Apply now' and off you go.\n\nWe review applications on an ongoing basis and may stop the application process as soon as we have found the right person. So please apply as soon as possible",
         "de": "Wer du bist\n\nIhre Verantwortung\n\nDenkst du, das war passen?\n\nWir wollen, dass unsere Mitarbeiter glücklich und gesund sind.\n\nEs bedeutet auch, \"Danke\" zu sagen!\n\nUnsere Art, Danke zu sagen:\n\n• 28 Urlaubstage (basierend auf einem 100% Workload)\n• 8 Wochen bezahlter Elternurlaub für Väter; 20 Wochen bezahlter Elternurlaub für Mütter\n• Sehr attraktive Sozialleistungen\n• 15% Personalrabatt auf Ihren Einkauf - in jedem Schweizer IKEA Store\n• Sie möchten lieber mit öffentlichen Verkehrsmitteln zur Arbeit fahren? Wir zahlen zwischen 85% und 100% Ihres jährlichen Reisetickets\n• Kostenlose Parkplätze\n• Unbegrenzter Zugang zur LinkedIn Lernplattform\n• Erschwingliche und gesunde Mahlzeiten in unserer Mitarbeiterkantine (CHF 4,50 für Fleischgerichte und CHF 3,50 für Gemüsegerichte)\n• Bonuszahlungen für alle Mitarbeiter\n\nEs gibt viele Möglichkeiten für die berufliche Entwicklung bei IKEA. Wir ermutigen und unterstützen unsere Mitarbeiter, verschiedene Rollen auszuprobieren, zwischen Funktionen zu wechseln oder sogar ins Ausland zu gehen. Bitte senden Sie Ihre vollständige Bewerbung online über unsere Website, bitte beachten Sie jedoch, dass wir Bewerbungen und Dokumente, die per E-Mail oder Post gesendet werden, nicht berücksichtigen können.\n\nDas ist es von uns.\n\nDas waren viele Informationen. Wir würden gerne mehr über dich erfahren. Klicken Sie einfach auf \"Jetzt bewerben\" und gehen Sie los.\n\nWir prüfen Bewerbungen laufend und können den Bewerbungsprozess unterbrechen, sobald wir die richtige Person gefunden haben. Bitte bewerben Sie sich so bald wie möglich",
-        "fr": "Commercial Restaurant Manager 80-100% — IKEA"
+        "fr": "Qui vous êtes\n\nVos responsabilités\n\nDenkst du, das würde passen ?\n\nNous voulons que nos employés soient heureux et en bonne santé.\n\nCela signifie aussi dire 'merci'!\n\nNotre façon de dire merci :\n\n• 28 jours de vacances (sur la base d'une charge de travail de 100 %)\n• 8 semaines de congé parental payé pour les pères; 20 semaines de congé parental payé pour les mères\n• Prestations sociales très attractives\n• 15% de réduction du personnel sur votre achat - dans chaque magasin suisse IKEA\n• Vous préférez voyager au travail en transports publics ? Nous payons entre 85% et 100% de votre billet de voyage annuel\n• Parking gratuit\n• Accès illimité à la plateforme d'apprentissage LinkedIn\n• Repas abordables et sains dans notre cantine du personnel (CHF 4,50 pour les plats de viande et CHF 3,50 pour les plats végétariens)\n• Primes versées à tous les employés\n\nIl existe de nombreuses possibilités de perfectionnement professionnel à IKEA. Nous encourageons et soutenons nos employés à essayer différents rôles, à passer d'une fonction à l'autre ou même à l'étranger. Veuillez soumettre votre candidature en ligne via notre site Web, mais nous ne pouvons pas considérer les demandes et documents envoyés par courriel ou par la poste.\n\nÇa vient de nous.\n\nC'était beaucoup d'informations. Nous aimerions en savoir plus sur vous. Cliquez sur \"Appliquer maintenant\" et quittez-vous.\n\nNous examinons les demandes de façon continue et pouvons arrêter le processus de demande dès que nous avons trouvé la bonne personne. Veuillez donc postuler dès que possible"
       },
       "location": "Dietlikon, Zürich, Switzerland",
       "canton": "ZH",
@@ -3020,7 +2995,6 @@
           "commercial-restaurant-manager-80-100-ikea-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-22T11:20:41.889Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
