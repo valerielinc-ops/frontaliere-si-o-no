@@ -3,7 +3,7 @@ import { Resend } from 'resend';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from './lib/emailExperimentPostHog.js';
-import { buildDeliveryDocId as buildCanonicalDeliveryDocId } from './lib/deliveryDocId.js';
+import { buildDeliveryDocId as buildCanonicalDeliveryDocId, uniqueUnknownFallback } from './lib/deliveryDocId.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
 import { instantReactivationFields } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
@@ -11,17 +11,6 @@ import { normalizeEmailAddress } from './lib/parseEmailField.js';
 function sanitizeString(value) {
  const normalized = String(value || '').trim();
  return normalized || null;
-}
-
-// Events without a campaign_id/alert_id tag (ad-hoc sends, confirmations,
-// untracked emails) must not collapse onto the shared literal 'unknown' —
-// two distinct untagged sends to the same recipient would then write the
-// same campaign_deliveries/alert_deliveries doc, and the second send's
-// sent_at would clobber the first's, corrupting event↔delivery timestamp
-// ordering (#4847). Key the fallback on messageId, which Resend assigns
-// uniquely per send, so unrelated untagged sends never collide.
-function uniqueUnknownFallback(messageId, occurredAt) {
- return `unknown:${messageId || occurredAt}`;
 }
 
 export function ensureAdminApp() {
