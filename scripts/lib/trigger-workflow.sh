@@ -46,7 +46,15 @@ set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/github-api-version.sh"
 
 WORKFLOW_FILE="${1:-}"
-INPUTS_JSON="${2:-{}}"
+# NOT `${2:-{}}`: in that form bash ends the parameter expansion at the FIRST
+# `}`, so the default is `{` and the trailing `}` is appended literally to the
+# result — a caller-supplied `{"article_id":"x"}` came out as
+# `{"article_id":"x"}}`, which JSON.parse rejects, and the catch below then
+# silently dispatched with no inputs at all. Caught by tests/lib/trigger-self.test.ts.
+INPUTS_JSON="${2:-}"
+if [ -z "$INPUTS_JSON" ]; then
+  INPUTS_JSON='{}'
+fi
 
 if [ -z "$WORKFLOW_FILE" ]; then
   echo "::error::trigger-workflow.sh requires <workflow-file> as \$1" >&2
@@ -121,7 +129,15 @@ let inputs = {};
 try {
   const parsed = JSON.parse(process.env.TRIGGER_INPUTS_JSON || '{}');
   if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) inputs = parsed;
-} catch { /* malformed inputs JSON from caller — dispatch with ref only */ }
+} catch (err) {
+  // Loud, not silent. Swallowing this is what hid the `${2:-{}}` expansion bug:
+  // every dispatch quietly lost its inputs while still returning HTTP 204, so
+  // the caller saw a "successful" trigger of a run that never got its article
+  // id. A caller passing malformed JSON is a bug worth failing on.
+  console.error(`[trigger-workflow] malformed inputs JSON: ${err.message}`);
+  console.error(`[trigger-workflow] received: ${process.env.TRIGGER_INPUTS_JSON}`);
+  process.exit(1);
+}
 if (Object.keys(inputs).length > 0) {
   payload.inputs = inputs;
 }
