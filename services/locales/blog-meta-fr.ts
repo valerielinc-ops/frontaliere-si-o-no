@@ -9057,6 +9057,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-maccagno-lavorare-ticino.title': 'Vivre à Maccagno avec Pino et Veddasca et travailler au Tessin',
     'blog.article.vivere-maccagno-lavorare-ticino.excerpt': 'Guide pratique pour les frontaliers : liaisons, fiscalité et vie quotidienne entre Maccagno et le Tessin dans le respect des réglementations en vigueur.',
     'blog.article.vivere-maccagno-lavorare-ticino.imageAlt': 'Vue panoramique du lac de Lugano, lieu idéal pour ceux qui vivent entre l\'Italie et le Tessin.',
+    'blog.article.residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp.title': 'Italie, RW et hypothèse subjective : le nœud décisif',
+    'blog.article.residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp.excerpt': 'La Cour de justice fiscale de première instance de Vicence annule l\'acte d\'imposition de sanctions pour omission de remplir le cadre RW, car la résidence',
+    'blog.article.residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp.imageAlt': 'Image éditoriale relative à: Residenza fiscale accertata in Italia e caducazione delle sanzioni RW: il presupposto soggettivo come nodo decisivo',
 };
 
 export default blogMetaFr;

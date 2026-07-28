@@ -9056,6 +9056,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-maccagno-lavorare-ticino.title': 'Vivere a Maccagno con Pino e Veddasca e lavorare in Ticino',
     'blog.article.vivere-maccagno-lavorare-ticino.excerpt': 'Guida pratica per frontalieri: collegamenti, fisco e vita quotidiana tra Maccagno e il Ticino nel rispetto delle normative vigenti.',
     'blog.article.vivere-maccagno-lavorare-ticino.imageAlt': 'Vista panoramica del Lago di Lugano, luogo ideale per chi vive tra Italia e Ticino.',
+    'blog.article.residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp.title': 'Residenza fiscale accertata in Italia e caducazione delle sanzioni RW: il presupposto soggettivo come nodo decisivo',
+    'blog.article.residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp.excerpt': 'La Corte di Giustizia Tributaria di primo grado di Vicenza annulla l\'atto di irrogazione sanzioni per omessa compilazione del quadro RW, in quanto la residenza',
+    'blog.article.residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp.imageAlt': 'Immagine editoriale relativa a: Residenza fiscale accertata in Italia e caducazione delle sanzioni RW: il presupposto soggettivo come nodo decisivo',
 };
 
 export default blogMetaIt;

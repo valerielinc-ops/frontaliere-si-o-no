@@ -56582,6 +56582,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp': {
+    title: 'Residenza fiscale accertata in Italia e caducazione delle sanzioni RW: il presupposto soggettivo come nodo decisivo',
+    description: 'La Corte di Giustizia Tributaria di primo grado di Vicenza annulla l\'atto di irrogazione sanzioni per omessa compilazione del quadro RW, in quanto la residenza',
+    keywords: 'frontalieri, ticino, svizzera, italia, residenza, fiscale, accertata, caducazione',
+    ogTitle: 'Residenza fiscale accertata in Italia e caducazione delle sanzioni RW: il presupposto soggettivo come nodo decisivo',
+    ogDescription: 'La Corte di Giustizia Tributaria di primo grado di Vicenza annulla l\'atto di irrogazione sanzioni per omessa compilazione del quadro RW, in quanto la residenza',
+    canonicalPath: '/articoli-frontaliere/residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Residenza fiscale accertata in Italia e caducazione delle sanzioni RW: il presupposto soggettivo come nodo decisivo",
+      "description": "La Corte di Giustizia Tributaria di primo grado di Vicenza annulla l'atto di irrogazione sanzioni per omessa compilazione del quadro RW, in quanto la residenza",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/places/lago-lugano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Residenza fiscale accertata in Italia e caducazione delle sanzioni RW: il presupposto soggettivo come nodo decisivo"
+      },
+      "datePublished": "2026-07-28T08:43:46+00:00",
+      "dateModified": "2026-07-28T08:43:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/samuele-valente/#person",
+        "name": "Samuele Valente",
+        "url": "https://frontaliereticino.ch/autori/samuele-valente/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

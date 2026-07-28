@@ -27206,6 +27206,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp',
+ category: 'fiscale',
+ date: '2026-07-28T08:43:46.783Z',
+ image: '/images/places/lago-lugano.webp',
+ hasCalculator: false,
+ authorSlug: 'samuele-valente',
+ authorName: 'Samuele Valente',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
