@@ -2325,6 +2325,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  },
  surface,
  });
+      // AUTH_GATE priority preempts the (lower-priority) newsletter
+      // popup — without a queue slot, NewsletterPopup's own timer/
+      // exit-intent trigger can claim the empty queue and render its
+      // full-screen overlay on top of this modal.
+      requestSlot('save-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
  setSaveAuthPromptOpen(true);
  Analytics.trackEvent('save_signin_prompt_shown', { job_id: job.id, surface });
  return;
@@ -2348,6 +2353,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  useEffect(() => {
  const uid = authUser?.uid;
  if (!uid) return;
+      releaseSlot('save-auth-prompt');
  setSaveAuthPromptOpen(false);
  const intent = consumePendingSaveJobIntent();
  if (!intent) return;
@@ -2379,6 +2385,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  'save_signin_prompt_dismissed',
  intent?.kind === 'save_job' ? { job_id: intent.entry.id, surface: intent.surface } : { surface: 'saved_filter_pill' },
  );
+      releaseSlot('save-auth-prompt');
  setSaveAuthPromptOpen(false);
  }, []);
 
@@ -8916,6 +8923,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const next = !showSavedOnly;
  if (next && !authUser?.uid) {
  savePendingSaveJobIntent({ kind: 'show_saved_only' });
+      requestSlot('save-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
  setSaveAuthPromptOpen(true);
  Analytics.trackEvent('save_signin_prompt_shown', { surface: 'saved_filter_pill' });
  return;

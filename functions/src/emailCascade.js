@@ -230,6 +230,15 @@ function remainingQuota(providerId) {
 
 // ── Real quota sync via provider APIs ────────────────────────
 
+// Bounds every quota-check fetch below — all run concurrently inside
+// syncQuotasFromAPIs()'s Promise.all, on a cold start, under the 30s Cloud
+// Run timeout of interactive callers like newsletterSendConfirmation. An
+// unbounded fetch stalling past that ceiling produces a raw platform 504
+// (bypasses the app's cors:true wrapper entirely, so no CORS header — not a
+// clean error response). Same convention as PROVIDER_TIMEOUT_MS in
+// chatbotInference.js/geminiGenerate.js.
+const QUOTA_FETCH_TIMEOUT_MS = 8000;
+
 async function fetchMailgunDailyUsage() {
   const apiKey = process.env.MAILGUN_API_KEY;
   const domain = process.env.MAILGUN_DOMAIN || 'frontaliereticino.ch';
@@ -237,7 +246,10 @@ async function fetchMailgunDailyUsage() {
   try {
     const res = await fetch(
       `https://api.eu.mailgun.net/v3/${domain}/stats/total?event=accepted&duration=1d`,
-      { headers: { Authorization: 'Basic ' + Buffer.from('api:' + apiKey).toString('base64') } }
+      {
+        headers: { Authorization: 'Basic ' + Buffer.from('api:' + apiKey).toString('base64') },
+        signal: AbortSignal.timeout(QUOTA_FETCH_TIMEOUT_MS),
+      }
     );
     if (!res.ok) return 0;
     const data = await res.json();
@@ -259,7 +271,7 @@ async function fetchMailjetDailyUsage() {
     const auth = Buffer.from(apiKey + ':' + secretKey).toString('base64');
     const res = await fetch(
       `https://api.mailjet.com/v3/REST/statcounters?CounterSource=APIKey&CounterTiming=Message&CounterResolution=Day&FromTS=${today}T00:00:00Z&ToTS=${today}T23:59:59Z`,
-      { headers: { Authorization: 'Basic ' + auth } }
+      { headers: { Authorization: 'Basic ' + auth }, signal: AbortSignal.timeout(QUOTA_FETCH_TIMEOUT_MS) }
     );
     if (!res.ok) return 0;
     const data = await res.json();
@@ -277,6 +289,7 @@ async function fetchMailjetDailyUsage() {
 async function fetchMailtrapAccountId(token) {
   const accRes = await fetch('https://mailtrap.io/api/accounts', {
     headers: { 'Api-Token': token },
+    signal: AbortSignal.timeout(QUOTA_FETCH_TIMEOUT_MS),
   });
   if (!accRes.ok) return null;
   const accounts = await accRes.json();
@@ -294,7 +307,7 @@ export async function fetchMailtrapDailyUsage() {
     const today = getTodayUTC();
     const statsRes = await fetch(
       `https://mailtrap.io/api/accounts/${accountId}/stats?start_date=${today}&end_date=${today}`,
-      { headers: { 'Api-Token': token } },
+      { headers: { 'Api-Token': token }, signal: AbortSignal.timeout(QUOTA_FETCH_TIMEOUT_MS) },
     );
     if (!statsRes.ok) return 0;
     const stats = await statsRes.json();
@@ -336,6 +349,7 @@ export async function fetchMailtrapCycleUsage() {
     if (!accountId) return { count: 0, verified: false };
     const res = await fetch(`https://mailtrap.io/api/accounts/${accountId}/billing/usage`, {
       headers: { 'Api-Token': token },
+      signal: AbortSignal.timeout(QUOTA_FETCH_TIMEOUT_MS),
     });
     if (!res.ok) return { count: 0, verified: false };
     const data = await res.json().catch(() => null);
@@ -397,17 +411,33 @@ async function computeMailtrapDynamicDailyLimit(nowMs = Date.now()) {
 //
 // truncated:true means the page cap was hit before reaching `sinceMs` — the
 // returned count is a LOWER BOUND only, never safe to send against as-is.
+//
+// Wall-clock ceiling for the whole loop, on top of maxPages — maxPages alone
+// (up to ~2900 for the cycle-usage caller) still lets a slow-but-not-failing
+// per-page fetch blow well past the 30s Cloud Run timeout of interactive
+// callers. Both fetchResendDailyUsage and fetchResendCycleUsage run this
+// loop concurrently (separate Promise.all branches in syncQuotasFromAPIs),
+// so this bounds each independently, not additively. Hitting the deadline
+// mid-loop degrades the same safe way as hitting maxPages: truncated:true,
+// lower-bound count.
+const RESEND_PAGING_DEADLINE_MS = 12000;
+
 async function fetchResendEntriesSince(sinceMs, maxPages) {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) return { count: 0, truncated: false };
+  const deadline = Date.now() + RESEND_PAGING_DEADLINE_MS;
   try {
     let count = 0;
     let after;
     for (let page = 0; page < maxPages; page++) {
+      if (Date.now() >= deadline) return { count, truncated: true };
       const url = new URL('https://api.resend.com/emails');
       url.searchParams.set('limit', '100');
       if (after) url.searchParams.set('after', after);
-      const res = await fetch(url, { headers: { Authorization: 'Bearer ' + apiKey } });
+      const res = await fetch(url, {
+        headers: { Authorization: 'Bearer ' + apiKey },
+        signal: AbortSignal.timeout(QUOTA_FETCH_TIMEOUT_MS),
+      });
       if (!res.ok) return { count, truncated: true };
       const data = await res.json();
       const entries = data.data || [];
@@ -539,6 +569,7 @@ export async function fetchMailerooCycleUsage(nowMs = Date.now()) {
   try {
     const res = await fetch('https://api.maileroo.com/v1/statistics/summary', {
       headers: { Authorization: `Bearer ${apiKey}` },
+      signal: AbortSignal.timeout(QUOTA_FETCH_TIMEOUT_MS),
     });
     if (!res.ok) return { count: 0, verified: false };
     const data = await res.json().catch(() => null);
@@ -620,7 +651,7 @@ async function resolveCloudflareZoneId() {
   try {
     const res = await fetch(
       `https://api.cloudflare.com/client/v4/zones?name=${encodeURIComponent(CLOUDFLARE_EMAIL_DOMAIN)}&status=active`,
-      { headers: { Authorization: `Bearer ${token}` } },
+      { headers: { Authorization: `Bearer ${token}` }, signal: AbortSignal.timeout(QUOTA_FETCH_TIMEOUT_MS) },
     );
     if (!res.ok) { _cfZoneIdCache = null; return null; }
     const data = await res.json().catch(() => null);
@@ -649,6 +680,7 @@ async function queryCloudflareEmailGroups(startDate, endDate, dimensions = []) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
       body: JSON.stringify({ query, variables: { zone: zoneId, start: startDate, end: endDate } }),
+      signal: AbortSignal.timeout(QUOTA_FETCH_TIMEOUT_MS),
     });
     if (!res.ok) return null;
     const data = await res.json().catch(() => null);
