@@ -3718,6 +3718,16 @@ async function _runSingleFactCheck(model, prompt, opts = {}) {
   // local/fallback — the same model that may have generated the content.
   // Self-verification (local grading local) produces circular self-consensus
   // and cannot catch fabricated facts. Defer rather than publish (Non-Negotiable #1).
+  //
+  // NOT extended to omniroute/auto (2026-07-28 tier-reorder review, T1): local
+  // is a single fixed deterministic model, so "checker fell back to local" is
+  // a provable guaranteed-same-model risk. omniroute/auto fans out across its
+  // own ~78-100+ registered upstream providers per-call under one "auto" id —
+  // there's no confirmed evidence it would repeat the exact same underlying
+  // model for a generation call and a same-run fact-check call, so treating it
+  // as an equivalent self-consensus risk would itself be an unverified
+  // assumption. Left as-is deliberately; revisit if OmniRoute's routing
+  // behavior is ever characterized (e.g. sticky-provider-per-window).
   if (modelUsedRef.model === AI_MODELS.LOCAL_FALLBACK) {
     throw new Error(`fact-check deferred: all remote verifiers exhausted — local/fallback cannot self-verify (requested: ${model})`);
   }
@@ -8608,6 +8618,18 @@ function wallBudgetExceeded() {
  * evergreen pre-scan: that one only sees model scoring/cooldown state and
  * misses per-request cascades caused by prompt token-size alone. Read by
  * generateAndValidateArticle's own retry-loop wall-clock guard below.
+ *
+ * Deliberately LOCAL-ONLY, not "any last-resort tier" (2026-07-28, OmniRoute
+ * promoted above local in ai-models.mjs's _lastResortTier — see that file):
+ * this flag exists purely to pace CPU-bound Ollama inference, which the flag
+ * name and LOCAL_MIN_VIABLE_MS below assume throughout. omniroute/auto is
+ * network-bound and responds in seconds (no analogous timeout-truncation risk
+ * to guard against), and claude-cli/haiku already has its own separate
+ * circuit breaker in ai-models.mjs (_claudeCliConsecutiveTimeouts /
+ * _claudeCliTimeoutStormDetected). Generalizing this flag to "any last-resort
+ * tier used" would wrongly throttle omniroute retries using a CPU-inference
+ * threshold it doesn't need — see MIN_VIABLE_ATTEMPT_MS below for the actual
+ * provider-agnostic floor that already covers it.
  */
 let _localFallbackUsedThisHeadline = false;
 /**
@@ -8619,6 +8641,10 @@ let _localFallbackUsedThisHeadline = false;
  * instead of completing — zero output, wasted GH Actions minutes. Set below
  * the faster observed completion (~12.5min) with a small margin so an
  * average-length attempt still gets a chance.
+ *
+ * Scoped to local/fallback specifically, same reasoning as the flag above —
+ * do not reuse this floor for omniroute/auto (network round-trip, seconds not
+ * minutes; this 11min reserve would starve it of retries it doesn't need).
  */
 const LOCAL_MIN_VIABLE_MS = 11 * 60_000;
 
@@ -8726,16 +8752,29 @@ async function main() {
     // future-soft-preference) but no longer skips the news scan. Manual
     // override via FORCE_EVERGREEN=1 still works for admin/testing.
     const evergreenCounterState = _loadEvergreenCounter();
-    // Local-only cascade detection: when every cloud model is exhausted/
-    // cooling-down and only local/fallback remains, organic/news generation
-    // forces the (weak, CPU-only) local model to closely follow a specific
-    // news article — the failure mode that actually blocks runs is source-
-    // fidelity ("coerenza") drift, not hallucination. Evergreen mode is
+    // Local-only cascade detection: when every OTHER option — the free-tier
+    // cloud pool, AND omniroute/auto, AND claude-cli/haiku — is exhausted/
+    // cooling-down/disabled and only local/fallback remains, organic/news
+    // generation forces the (weak, CPU-only) local model to closely follow a
+    // specific news article — the failure mode that actually blocks runs is
+    // source-fidelity ("coerenza") drift, not hallucination. Evergreen mode is
     // grounded on EVERGREEN_FACTS_BRIEF and exempt from that check (see
     // llmFactCheck's isEvergreen branch), so route local-only runs there
     // instead of burning the wall-clock budget on organic retries unlikely
-    // to pass. No-op when local/fallback is disabled or cloud has capacity.
+    // to pass. No-op when local/fallback is disabled or ANY non-local option
+    // has capacity — omniroute/claude-cli are NOT local's weak-model failure
+    // mode (network-routed, not CPU-bound), so their availability alone is
+    // enough to skip this route just like an ordinary free-tier model would.
     await initScoreStore();
+    // NB "cloudOnlyChain" is a misnomer left over from before omniroute/
+    // claude-cli existed — it excludes ONLY LOCAL_FALLBACK by identity, so it
+    // still contains omniroute/auto and claude-cli/haiku. That's intentional,
+    // not a bug: this check's purpose is "is local/fallback literally the
+    // only thing left", and both of those ARE viable non-local alternatives
+    // for that purpose (see comment above) even though they're themselves
+    // last-resort/opt-in tiers. Renaming would be a pure identifier change
+    // with no behavior difference; left as-is as a comment-only fix (2026-07-28)
+    // to keep this edit surgical.
     const cloudOnlyChain = DEFAULT_CHAIN.filter((m) => m !== AI_MODELS.LOCAL_FALLBACK);
     const cloudCascadeExhausted = isLocalLlmEnabled() && !getPreferredModel({ chain: cloudOnlyChain });
     if (cloudCascadeExhausted) {
@@ -9669,6 +9708,9 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     // fresh full budget. Same qualityReject disposition as the other
     // "survived retry budget" throws (see isQualityRejectError above) — this
     // is a clean per-headline deferral, not an infrastructure crash.
+    // Local-specific by design, not "any last-resort tier" — see
+    // _localFallbackUsedThisHeadline's doc comment above for why omniroute
+    // (network-bound) and claude-cli (own circuit breaker) don't need this.
     if (_localFallbackUsedThisHeadline) {
       const remainingMs = RUN_WALL_BUDGET_MS - (Date.now() - RUN_START_MS);
       if (remainingMs < LOCAL_MIN_VIABLE_MS) {
