@@ -1609,6 +1609,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.diritti-inquilino-affitti-svizzera.title': 'Mieten in der Schweiz: Mieterrechte und Kündigung',
     'blog.article.diritti-inquilino-affitti-svizzera.excerpt': 'Vollständiger Leitfaden zu Mieterrechten in der Schweiz, Kaution, Kündigungsverfahren und Mietwiderspruch.',
     'blog.article.diritti-inquilino-affitti-svizzera.imageAlt': 'Wohngebäude in der Schweiz für Mieterrechte',
+    'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.title': 'Tessin blockiert Rückvergütungen Gesundheitssteuer Grenzgänger',
+    'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.excerpt': 'Der Kanton Tessin ist bereit, die Rückvergütungen für Grenzgemeinden aufgrund der von der Lombardei erhobenen Gesundheitsabgabe zu reduzieren oder auszusetzen.',
+    'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.imageAlt': 'Lugano mit Blick auf den See',
 };
 
 export default blogMetaChDe;

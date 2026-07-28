@@ -4946,6 +4946,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incontro-sbt-finanze-clima-colpo-freno-svizzera': { name: 'Iniziativa SBTi finanza e clima', path: '/articoli-svizzera/incontro-sbt-finanze-clima-colpo-freno-svizzera/', parent: 'blog' },
     'blog-diritti-inquilino-affitti-svizzera': { name: 'Affitti e Inquilini', path: '/articoli-svizzera/diritti-inquilino-affitti-svizzera/', parent: 'blog' },
     'blog-frontalieri-ticino-diminuzione': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/frontalieri-ticino-diminuzione', parent: 'blog' },
+    'blog-tassa-salute-frontalieri-blocco-ristorni-ticino': { name: 'Tassa sulla salute ai frontalieri', path: '/articoli-svizzera/tassa-salute-frontalieri-blocco-ristorni-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -1609,6 +1609,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.diritti-inquilino-affitti-svizzera.title': 'Swiss Rentals: Tenant Rights and Cancellation',
     'blog.article.diritti-inquilino-affitti-svizzera.excerpt': 'Complete guide to tenant\'s rights in Switzerland, security deposit, cancellation procedure and rental dispute.',
     'blog.article.diritti-inquilino-affitti-svizzera.imageAlt': 'Residential building in Switzerland representing tenant rights',
+    'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.title': 'Ticino blocks border health tax restaurants',
+    'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.excerpt': 'The Canton of Ticino is ready to reduce or suspend refills for border municipalities due to the health tax imposed by Lombardy.',
+    'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.imageAlt': 'View of Lugano with the lake in the foreground',
 };
 
 export default blogMetaChEn;
