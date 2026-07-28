@@ -239,6 +239,21 @@ function calculationSpans(text) {
   return spans;
 }
 
+/**
+ * Time base an amount is expressed in, read from the words right after it.
+ * Comparing a monthly salary against an annual tax is not a contradiction, and
+ * treating it as one produced most of the residual noise ("4.000 CHF al mese"
+ * vs a yearly figure). Amounts with different, known periods are never paired.
+ */
+function periodOf(text, afterIndex) {
+  const tail = text.slice(afterIndex, afterIndex + 40).toLowerCase();
+  if (/\b(al|a|ogni|per)\s+mese|mensil|\/mese/.test(tail)) return 'month';
+  if (/\b(all'anno|annu|ogni\s+anno|\/anno)/.test(tail)) return 'year';
+  if (/\b(a|alla|per)\s+settimana|settimanal/.test(tail)) return 'week';
+  if (/\b(al|all'|per)\s*ora|orari/.test(tail)) return 'hour';
+  return '';
+}
+
 /** Extracts every "<amount> <currency>" occurrence with its position. */
 function extractAmounts(text) {
   const re = new RegExp(String.raw`(\d[\d.,]*)\s*${CURRENCY}`, 'gi');
@@ -247,9 +262,20 @@ function extractAmounts(text) {
   for (const m of text.matchAll(re)) {
     if (skip.some(([s, e]) => m.index >= s && m.index < e)) continue;
     const value = parseItalianNumber(m[1]);
-    if (Number.isFinite(value) && value > 0) out.push({ value, raw: m[0], index: m.index });
+    if (!Number.isFinite(value) || value <= 0) continue;
+    out.push({
+      value,
+      raw: m[0],
+      index: m.index,
+      period: periodOf(text, m.index + m[0].length),
+    });
   }
   return out;
+}
+
+/** True when two amounts are stated over different, known time bases. */
+function periodsConflict(a, b) {
+  return Boolean(a.period) && Boolean(b.period) && a.period !== b.period;
 }
 
 /**
@@ -277,6 +303,7 @@ export function checkTaxPlausibility(text, opts = {}) {
 
     for (const amt of amounts) {
       if (amt === income) continue;
+      if (periodsConflict(income, amt)) continue;
       const between = line.slice(income.index, amt.index);
       const preceding = line.slice(Math.max(0, amt.index - 80), amt.index);
       // Only compare amounts that are actually presented as a tax.
@@ -337,6 +364,7 @@ export function checkCrossSectionNumericConflicts(sections, opts = {}) {
 
       for (const amt of amounts) {
         if (amt === income) continue;
+        if (periodsConflict(income, amt)) continue;
         const between = line.slice(income.index, amt.index);
         const preceding = line.slice(Math.max(0, amt.index - 80), amt.index);
         if (!TAX_CUE.test(between) && !TAX_CUE.test(preceding)) continue;

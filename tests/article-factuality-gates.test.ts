@@ -320,3 +320,21 @@ describe('runFactualityGates', () => {
     expect(result.passed).toBe(true);
   });
 });
+
+describe('time-base guard', () => {
+  // Most of the residual corpus noise came from pairing a monthly salary with
+  // an annual tax figure. Different, known periods are never compared.
+  it('does not pair a monthly income with an annual tax', () => {
+    const issues = checkTaxPlausibility(
+      'Un operaio che guadagna 4.000 CHF al mese dovrà pagare 7.000 CHF all\'anno di imposte.',
+    );
+    expect(issues).toEqual([]);
+  });
+
+  it('still flags an impossible tax when both are stated over the same period', () => {
+    const issues = checkTaxPlausibility(
+      'Un frontaliere con uno stipendio di 60.000 franchi all\'anno dovrà pagare 72.000 franchi all\'anno di imposte.',
+    );
+    expect(codes(issues)).toContain('tax-exceeds-income');
+  });
+});
