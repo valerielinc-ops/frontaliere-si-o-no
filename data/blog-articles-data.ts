@@ -27170,6 +27170,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'tacito-musica-ticino-concerti',
+ category: 'novita',
+ date: '2026-07-28T05:51:38.011Z',
+ image: '/images/blog/tacito-musica-ticino-concerti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

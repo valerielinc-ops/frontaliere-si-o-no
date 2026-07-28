@@ -9043,6 +9043,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-clivio-frontaliere-pro-contro.title': 'Living in Clivio, Ticino border worker: pros and cons',
     'blog.article.trasferirsi-clivio-frontaliere-pro-contro.excerpt': 'Taxes, duties, permits, travel times: what to consider before moving to Clivio.',
     'blog.article.trasferirsi-clivio-frontaliere-pro-contro.imageAlt': 'A border worker looking at Lake Lugano from the Ticinese shore.',
+    'blog.article.tacito-musica-ticino-concerti.title': 'Ticino Music is done in four (concerts)',
+    'blog.article.tacito-musica-ticino-concerti.excerpt': 'The Ticino Music Festival continues with a day full of events that will accompany the public from afternoon to evening.',
+    'blog.article.tacito-musica-ticino-concerti.imageAlt': 'The Lake Maggiore with Locarno in the foreground.',
 };
 
 export default blogMetaEn;

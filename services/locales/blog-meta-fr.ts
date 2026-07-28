@@ -9045,6 +9045,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-clivio-frontaliere-pro-contro.title': 'Vivre à Clivio en tant que frontalier : avantages et inconvénients',
     'blog.article.trasferirsi-clivio-frontaliere-pro-contro.excerpt': 'Taxes, droits, permis, temps de déplacement : ce qu\'il faut considérer avant de déménager à Clivio.',
     'blog.article.trasferirsi-clivio-frontaliere-pro-contro.imageAlt': 'Un travailleur frontalier qui regarde le lac de Lugano depuis la rive ticinoise.',
+    'blog.article.tacito-musica-ticino-concerti.title': 'Tessin Musique se fait en quatre (concerts)',
+    'blog.article.tacito-musica-ticino-concerti.excerpt': 'Le Festival Ticino Musica se poursuit avec une journée riche en événements qui accompagneront le public de l\'après-midi au soir.',
+    'blog.article.tacito-musica-ticino-concerti.imageAlt': 'Le Lago Maggiore avec Locarno en premier plan.',
 };
 
 export default blogMetaFr;

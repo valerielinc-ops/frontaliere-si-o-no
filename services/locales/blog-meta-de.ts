@@ -9042,6 +9042,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-clivio-frontaliere-pro-contro.title': 'In Clivio leben und als Grenzgänger im Tessin arbeiten: Vor- und Nachteile',
     'blog.article.trasferirsi-clivio-frontaliere-pro-contro.excerpt': 'Steuern, Zölle, Genehmigungen, Reisezeiten: Was Sie vor dem Umzug nach Clivio beachten sollten.',
     'blog.article.trasferirsi-clivio-frontaliere-pro-contro.imageAlt': 'Ein Grenzgänger sieht den Luganer See von der ticinensischen Seite.',
+    'blog.article.tacito-musica-ticino-concerti.title': 'Tessin-Musik macht man zu viert (Konzerte)',
+    'blog.article.tacito-musica-ticino-concerti.excerpt': 'Das Tessiner Musikfestival wird mit einem Tag voller Veranstaltungen fortgesetzt, die das Publikum von Nachmittag bis Abend begleiten werden.',
+    'blog.article.tacito-musica-ticino-concerti.imageAlt': 'Der Lago Maggiore mit Locarno im Vordergrund.',
 };
 
 export default blogMetaDe;
