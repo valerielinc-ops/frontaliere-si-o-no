@@ -9039,6 +9039,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mercati-predittivi-business-trump.title': 'Prognosemärkte und neue Plattform: Trumps Geschäft',
     'blog.article.mercati-predittivi-business-trump.excerpt': 'Die Trump-Familie erweitert ihre Aktivitäten in prädiktiven Märkten mit der Einführung der neuen Truth-API-Plattform.',
     'blog.article.mercati-predittivi-business-trump.imageAlt': 'Panoramablick auf den Luganersee, ein Symbol der Tessiner Wirtschaft.',
+    'blog.article.trasferirsi-clivio-frontaliere-pro-contro.title': 'In Clivio leben und als Grenzgänger im Tessin arbeiten: Vor- und Nachteile',
+    'blog.article.trasferirsi-clivio-frontaliere-pro-contro.excerpt': 'Steuern, Zölle, Genehmigungen, Reisezeiten: Was Sie vor dem Umzug nach Clivio beachten sollten.',
+    'blog.article.trasferirsi-clivio-frontaliere-pro-contro.imageAlt': 'Ein Grenzgänger sieht den Luganer See von der ticinensischen Seite.',
 };
 
 export default blogMetaDe;

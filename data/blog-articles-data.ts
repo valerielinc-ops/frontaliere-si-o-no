@@ -27161,6 +27161,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trasferirsi-clivio-frontaliere-pro-contro',
+ category: 'fiscale',
+ date: '2026-07-28T05:07:58.966Z',
+ image: '/images/blog/trasferirsi-clivio-frontaliere-pro-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
