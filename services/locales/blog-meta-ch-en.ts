@@ -1618,6 +1618,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dichiarazione-imposte-svizzera-guida.title': 'Tax declaration in Switzerland: Practical guide',
     'blog.article.dichiarazione-imposte-svizzera-guida.excerpt': 'Complete guide to tax reporting in Switzerland with cantonal deadlines, allowable deductions and online procedure administered by AFC/ESTV.',
     'blog.article.dichiarazione-imposte-svizzera-guida.imageAlt': 'Guide to tax declaration in Switzerland with deadlines and procedures',
+    'blog.article.permessi-soggiorno-svizzera-b-c-l.title': 'Residence permits in Switzerland: guide to B, C and L',
+    'blog.article.permessi-soggiorno-svizzera-b-c-l.excerpt': 'Comprehensive analysis of the types of residence permit in Switzerland B, C and L, with requirements, duration and renewal procedures managed by the federal and cantonal authorities.',
+    'blog.article.permessi-soggiorno-svizzera-b-c-l.imageAlt': 'Swiss residence permits guide types B, C and L',
 };
 
 export default blogMetaChEn;

@@ -1618,6 +1618,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dichiarazione-imposte-svizzera-guida.title': 'Steuererklärung Schweiz: Praktischer Leitfaden',
     'blog.article.dichiarazione-imposte-svizzera-guida.excerpt': 'Vollständiger Leitfaden zur Steuererklärung in der Schweiz mit kantonalen Fälligkeiten, zulässigen Abzügen und von ESTV/ESFC verwaltetem Online-Verfahren.',
     'blog.article.dichiarazione-imposte-svizzera-guida.imageAlt': 'Leitfaden zur Steuereinreichung in der Schweiz mit Fristen',
+    'blog.article.permessi-soggiorno-svizzera-b-c-l.title': 'Aufenthaltsbewilligungen in der Schweiz: Fahren in B, C und L',
+    'blog.article.permessi-soggiorno-svizzera-b-c-l.excerpt': 'Umfassende Analyse der Aufenthaltsbewilligungsarten in der Schweiz B, C und L, mit Anforderungen, Dauer und Erneuerungsverfahren, die von den eidgenössischen und kantonalen Behörden durchgeführt werden.',
+    'blog.article.permessi-soggiorno-svizzera-b-c-l.imageAlt': 'Schweizer Aufenthaltsbewilligungen Leitfaden Typen B, C und L',
 };
 
 export default blogMetaChDe;

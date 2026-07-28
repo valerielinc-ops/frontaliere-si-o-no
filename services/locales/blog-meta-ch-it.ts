@@ -1618,6 +1618,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dichiarazione-imposte-svizzera-guida.title': 'Dichiarazione delle imposte in Svizzera: Guida pratica',
     'blog.article.dichiarazione-imposte-svizzera-guida.excerpt': 'Guida completa alla dichiarazione delle imposte in Svizzera con scadenze cantonali, deduzioni ammesse e procedura online amministrata da AFC/ESTV.',
     'blog.article.dichiarazione-imposte-svizzera-guida.imageAlt': 'Guida alla dichiarazione delle imposte in Svizzera con scadenze e procedure',
+    'blog.article.permessi-soggiorno-svizzera-b-c-l.title': 'Permessi di soggiorno in Svizzera: guida a B, C e L',
+    'blog.article.permessi-soggiorno-svizzera-b-c-l.excerpt': 'Analisi completa delle tipologie di permesso di soggiorno in Svizzera B, C e L, con requisiti, durata e procedure di rinnovo gestite dalle autorità federali e cantonali.',
+    'blog.article.permessi-soggiorno-svizzera-b-c-l.imageAlt': 'Permessi di soggiorno in Svizzera: guida alle tipologie B, C e L',
 };
 
 export default blogMetaChIt;

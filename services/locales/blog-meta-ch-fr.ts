@@ -1618,6 +1618,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dichiarazione-imposte-svizzera-guida.title': 'Déclaration d\'impôts en Suisse : Guide pratique',
     'blog.article.dichiarazione-imposte-svizzera-guida.excerpt': 'Guide complet de la déclaration des impôts en Suisse avec échéances cantonales, déductions admises et procédure en ligne gérée par l\'AFC/ESTV.',
     'blog.article.dichiarazione-imposte-svizzera-guida.imageAlt': 'Guide de declaration d\'impot en Suisse avec echeances',
+    'blog.article.permessi-soggiorno-svizzera-b-c-l.title': 'Permis de séjour en Suisse : guide à B, C et L',
+    'blog.article.permessi-soggiorno-svizzera-b-c-l.excerpt': 'Analyse complète des types de permis de séjour en Suisse B, C et L, avec les exigences, la durée et les procédures de renouvellement gérées par les autorités fédérales et cantonales.',
+    'blog.article.permessi-soggiorno-svizzera-b-c-l.imageAlt': 'Permis de séjour en Suisse guide des types B, C et L',
 };
 
 export default blogMetaChFr;

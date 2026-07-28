@@ -4850,6 +4850,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'permessi-soggiorno-svizzera-b-c-l',
+    category: 'pratico',
+    date: '2026-07-28T03:33:48.981Z',
+    image: '/images/blog/permessi-soggiorno-svizzera-b-c-l.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

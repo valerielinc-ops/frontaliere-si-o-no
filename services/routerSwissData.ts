@@ -562,6 +562,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'tassa-salute-frontalieri-blocco-ristorni-ticino': { it: 'tassa-salute-frontalieri-blocco-ristorni-ticino', en: 'health-insurance-tax-frontaliers-suspension-of-returns', de: 'gesundheitsversicherungsabgabe-frontalier-sperre-von-ruckerstattungen', fr: 'taxe-de-securite-frontaliers-suspension-des-retraits' },
  'imposte-alla-fonte-svizzera-2024': { it: 'imposte-alla-fonte-svizzera-2024', en: 'withholding-taxes-switzerland-2024', de: 'quellensteuer-schweiz-2024', fr: 'impot-a-la-source-suisse-2024' },
  'dichiarazione-imposte-svizzera-guida': { it: 'dichiarazione-imposte-svizzera-guida', en: 'switzerland-tax-declaration-guide', de: 'schweiz-steuererklaerung-leitfaden', fr: 'guide-declaration-impots-suisse' },
+ 'permessi-soggiorno-svizzera-b-c-l': { it: 'permessi-soggiorno-svizzera-b-c-l', en: 'switzerland-residence-permits-types-b-c-l', de: 'schweiz-aufenthaltsbewilligung-typen-b-c-l', fr: 'permis-sejour-suisse-types-b-c-l' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

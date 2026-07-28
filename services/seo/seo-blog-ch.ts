@@ -20921,6 +20921,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permessi-soggiorno-svizzera-b-c-l': {
+    title: 'Permessi di soggiorno in Svizzera: guida a B, C e L',
+    description: 'Guida completa ai permessi di soggiorno in Svizzera: differenze tra permesso B, C e L, requisiti, durata, procedure di rinnovo e competenza cantonale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permessi, soggiorno, analisi, completa',
+    ogTitle: 'Permessi di soggiorno in Svizzera: guida a B, C e L',
+    ogDescription: 'Scopri le differenze tra permesso B, C e L in Svizzera, i requisiti di rilascio, la durata e le procedure di rinnovo presso le autorità cantonali.',
+    canonicalPath: '/articoli-svizzera/permessi-soggiorno-svizzera-b-c-l/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permessi di soggiorno in Svizzera: guida a B, C e L",
+      "description": "Guida completa ai permessi di soggiorno in Svizzera: differenze tra permesso B, C e L, requisiti, durata, procedure di rinnovo e competenza cantonale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permessi-soggiorno-svizzera-b-c-l.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Permessi di soggiorno in Svizzera: guida alle tipologie B, C e L"
+      },
+      "datePublished": "2026-07-28T03:33:48+00:00",
+      "dateModified": "2026-07-28T03:33:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permessi-soggiorno-svizzera-b-c-l/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
