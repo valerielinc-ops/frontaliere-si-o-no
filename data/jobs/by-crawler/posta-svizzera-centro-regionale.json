@@ -177,8 +177,8 @@
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-ehrendingen",
         "de": "zusteller-in-briefe-und-pakete-post-2",
-        "en": "zusteller-in-briefe-und-pakete-die-schweizerische-post-ehrendingen",
-        "fr": "zusteller-in-briefe-und-pakete-die-schweizerische-post-ehrendingen"
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-ehrendingen",
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-ehrendingen"
       },
       "sourceLang": "de",
       "department": "",
@@ -200,16 +200,15 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "delivery-in-letters-and-packages-die-schweizerische-post-ehrendingen"
+          "zusteller-in-briefe-und-pakete-die-schweizerische-post-ehrendingen"
         ],
         "fr": [
-          "livraison-en-lettres-et-en-colis-die-schweizerische-post-ehrendingen"
+          "zusteller-in-briefe-und-pakete-die-schweizerische-post-ehrendingen"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
-        "delivery-in-letters-and-packages-die-schweizerische-post-ehrendingen",
-        "livraison-en-lettres-et-en-colis-die-schweizerische-post-ehrendingen"
+        "zusteller-in-briefe-und-pakete-die-schweizerische-post-ehrendingen"
       ],
       "id": "posta-svizzera-centro-regionale-7deddf12aeb4",
       "salaryMin": 62000,
@@ -252,12 +251,12 @@
         "en": "Associate HelpDesk",
         "fr": "Collaborateur/trice HelpDesk"
       },
-      "slug": "mitarbeiter-in-helpdesk-post",
+      "slug": "collaboratore-trice-helpdesk-die-schweizerische-post-olten",
       "slugByLocale": {
-        "it": "mitarbeiter-in-helpdesk-post",
-        "en": "mitarbeiter-in-helpdesk-die-schweizerische-post-olten",
+        "it": "collaboratore-trice-helpdesk-die-schweizerische-post-olten",
+        "en": "associate-helpdesk-die-schweizerische-post-olten",
         "de": "mitarbeiter-in-helpdesk-die-schweizerische-post-olten",
-        "fr": "mitarbeiter-in-helpdesk-die-schweizerische-post-olten"
+        "fr": "collaborateur-trice-helpdesk-die-schweizerische-post-olten"
       },
       "sourceLang": "de",
       "department": "",
@@ -291,7 +290,22 @@
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-28T11:33:26.735Z"
+      "firstSeenAt": "2026-07-28T11:33:26.735Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-helpdesk-post"
+        ],
+        "en": [
+          "mitarbeiter-in-helpdesk-die-schweizerische-post-olten"
+        ],
+        "fr": [
+          "mitarbeiter-in-helpdesk-die-schweizerische-post-olten"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-helpdesk-post",
+        "mitarbeiter-in-helpdesk-die-schweizerische-post-olten"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Pakete/74244-de_DE",
@@ -318,9 +332,9 @@
       "slug": "consegna-in-pacchetti-die-schweizerische-post-sirnach",
       "slugByLocale": {
         "it": "consegna-in-pacchetti-die-schweizerische-post-sirnach",
-        "en": "zusteller-in-pakete-die-schweizerische-post-sirnach",
+        "en": "delivery-in-packages-die-schweizerische-post-sirnach",
         "de": "zusteller-in-pakete-die-schweizerische-post-sirnach",
-        "fr": "zusteller-in-pakete-die-schweizerische-post-sirnach"
+        "fr": "livraison-en-paquets-die-schweizerische-post-sirnach"
       },
       "sourceLang": "de",
       "department": "",
@@ -342,16 +356,15 @@
           "zusteller-in-pakete-post"
         ],
         "en": [
-          "delivery-in-packages-die-schweizerische-post-sirnach"
+          "zusteller-in-pakete-die-schweizerische-post-sirnach"
         ],
         "fr": [
-          "livraison-en-paquets-die-schweizerische-post-sirnach"
+          "zusteller-in-pakete-die-schweizerische-post-sirnach"
         ]
       },
       "previousSlugs": [
         "zusteller-in-pakete-post",
-        "delivery-in-packages-die-schweizerische-post-sirnach",
-        "livraison-en-paquets-die-schweizerische-post-sirnach"
+        "zusteller-in-pakete-die-schweizerische-post-sirnach"
       ],
       "id": "posta-svizzera-centro-regionale-2aaaa1e81204",
       "salaryMin": 57500,
@@ -394,12 +407,12 @@
         "en": "Delivery:in letters and packages",
         "fr": "Livraison:en lettres et en colis"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-domat-ems",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-domat-ems",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-domat-ems",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-domat-ems"
       },
       "sourceLang": "de",
       "department": "",
@@ -433,7 +446,21 @@
       "addressLocality": "Domat/Ems",
       "addressRegion": "GR",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-28T11:33:26.735Z"
+      "firstSeenAt": "2026-07-28T11:33:26.735Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74385-de_DE",
@@ -3084,7 +3111,7 @@
       "slug": "postbus-driver-in-postauto-wilderswil",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-wilderswil",
-        "en": "postbus-driver-postauto-wilderswil",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-wilderswil",
         "fr": "pilote-postbus-in-postauto-wilderswil"
       },
@@ -3131,7 +3158,6 @@
           "postauto-fahrer-in-post"
         ],
         "en": [
-          "postauto-fahrer-in-post",
           "postbus-driver-postauto-wilderswil"
         ]
       },
@@ -3907,7 +3933,7 @@
       "slug": "housekeeper-in-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "housekeeper-in-die-schweizerische-post-bern",
-        "en": "housekeeper-in-die-schweizerische-post-bern",
+        "en": "hauswart-in-post",
         "de": "hauswart-in-die-schweizerische-post-bern",
         "fr": "femme-de-menage-die-schweizerische-post-bern"
       },
@@ -3949,9 +3975,6 @@
           "hauswart-in-post"
         ],
         "fr": [
-          "hauswart-in-post"
-        ],
-        "en": [
           "hauswart-in-post"
         ]
       },
@@ -4061,7 +4084,7 @@
       "slug": "postbus-driver-in-postauto-endingen",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-endingen",
-        "en": "postbus-driver-in-postauto-endingen",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-endingen",
         "fr": "pilote-postbus-in-postauto-endingen"
       },
@@ -4103,9 +4126,6 @@
           "postauto-fahrer-in-post"
         ],
         "fr": [
-          "postauto-fahrer-in-post"
-        ],
-        "en": [
           "postauto-fahrer-in-post"
         ]
       },
@@ -4371,7 +4391,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-langnau-im-emmental",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-langnau-im-emmental",
-        "en": "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
         "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-langnau-im-emmental"
       },
@@ -4397,7 +4417,6 @@
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-post",
-          "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
           "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental"
         ],
         "fr": [
@@ -4411,7 +4430,6 @@
         "zusteller-in-briefe-und-pakete-post-2",
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-post-u3qamb",
-        "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
         "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental"
       ],
       "id": "posta-svizzera-centro-regionale-b70af024254b",
@@ -4754,7 +4772,7 @@
       "slug": "postbus-driver-in-postauto-schiers",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-schiers",
-        "en": "postbus-driver-in-postauto-schiers",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-schiers",
         "fr": "pilote-postbus-in-postauto-schiers"
       },
@@ -4796,9 +4814,6 @@
           "postauto-fahrer-in-post"
         ],
         "fr": [
-          "postauto-fahrer-in-post"
-        ],
-        "en": [
           "postauto-fahrer-in-post"
         ]
       },
@@ -4908,7 +4923,7 @@
       "slug": "postbus-driver-in-postauto-trimmis",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-trimmis",
-        "en": "postbus-driver-in-postauto-trimmis",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-trimmis",
         "fr": "pilote-postbus-in-postauto-trimmis"
       },
@@ -4950,9 +4965,6 @@
           "postauto-fahrer-in-post"
         ],
         "fr": [
-          "postauto-fahrer-in-post"
-        ],
-        "en": [
           "postauto-fahrer-in-post"
         ]
       },
@@ -5780,7 +5792,7 @@
       "slug": "postbus-driver-in-postauto-stans",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-stans",
-        "en": "postbus-driver-in-postauto-stans",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-stans",
         "fr": "pilote-postbus-in-postauto-stans"
       },
@@ -5801,9 +5813,6 @@
       "crawledAt": "",
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-post"
-        ],
-        "en": [
           "postauto-fahrer-in-post"
         ]
       },
@@ -5931,7 +5940,7 @@
       "slug": "postbus-driver-in-postauto-chur",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-chur",
-        "en": "postbus-driver-in-postauto-chur",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-chur",
         "fr": "pilote-postbus-in-postauto-chur"
       },
@@ -5974,9 +5983,6 @@
           "postauto-fahrer-in-post"
         ],
         "fr": [
-          "postauto-fahrer-in-post"
-        ],
-        "en": [
           "postauto-fahrer-in-post"
         ]
       },
@@ -6224,7 +6230,7 @@
       "slugByLocale": {
         "it": "assistente-per-la-gestione-della-proprieta-la-poste-suisse-renens-vd",
         "en": "assistant-property-management-assistant-la-poste-suisse-renens-vd",
-        "de": "assistenz-der-immobilienverwaltung-la-poste-suisse-renens-vd",
+        "de": "assistante-assistant-gerance-immobiliere-post",
         "fr": "assistante-assistant-gerance-immobiliere-la-poste-suisse-renens-vd"
       },
       "sourceLang": "fr",
@@ -6268,7 +6274,6 @@
           "assistante-assistant-gerance-immobiliere-post"
         ],
         "de": [
-          "assistante-assistant-gerance-immobiliere-post",
           "assistenz-der-immobilienverwaltung-la-poste-suisse-renens-vd"
         ]
       },

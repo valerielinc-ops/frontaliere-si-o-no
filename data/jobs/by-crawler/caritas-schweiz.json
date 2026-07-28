@@ -55,13 +55,11 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "sachbearbeiter-in-asylsozialhilfe-60-caritas-schweiz-aarau",
-        "personale-nell-assistenza-sociale-60-caritas-schweiz-aarau"
+        "sachbearbeiter-in-asylsozialhilfe-60-caritas-schweiz-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-asylsozialhilfe-60-caritas-schweiz-aarau",
-          "personale-nell-assistenza-sociale-60-caritas-schweiz-aarau"
+          "sachbearbeiter-in-asylsozialhilfe-60-caritas-schweiz-aarau"
         ],
         "en": [
           "sachbearbeiter-in-asylsozialhilfe-60-caritas-schweiz-aarau"
@@ -165,12 +163,12 @@
     },
     {
       "id": "caritas-schweiz-ad03bc0e40c8",
-      "slug": "leiter-in-fachstelle-fluchtlinge-caritas-schweiz-zurich",
+      "slug": "capo-dipartimento-dei-rifugiati-caritas-schweiz-zurich",
       "slugByLocale": {
         "de": "leiter-in-fachstelle-fluchtlinge-caritas-schweiz-zurich",
-        "it": "leiter-in-fachstelle-fluchtlinge-caritas-schweiz-zurich",
-        "en": "leiter-in-fachstelle-fluchtlinge-caritas-schweiz-zurich",
-        "fr": "leiter-in-fachstelle-fluchtlinge-caritas-schweiz-zurich"
+        "it": "capo-dipartimento-dei-rifugiati-caritas-schweiz-zurich",
+        "en": "head-of-refugee-department-caritas-schweiz-zurich",
+        "fr": "chef-du-departement-des-refugies-caritas-schweiz-zurich"
       },
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -228,7 +226,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-28T11:38:37.429Z"
+      "firstSeenAt": "2026-07-28T11:38:37.429Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-fachstelle-fluchtlinge-caritas-schweiz-zurich"
+        ],
+        "en": [
+          "leiter-in-fachstelle-fluchtlinge-caritas-schweiz-zurich"
+        ],
+        "fr": [
+          "leiter-in-fachstelle-fluchtlinge-caritas-schweiz-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-in-fachstelle-fluchtlinge-caritas-schweiz-zurich"
+      ]
     },
     {
       "id": "caritas-schweiz-5fbea4c241de",
@@ -288,16 +300,14 @@
         "project-management-u00abwohnfit-u2013-contact-point-housing-search-u00bb-80-caritas-schweiz-gulu-uganda",
         "gestion-de-projet-u00abwohnfit-u2013-point-de-contact-recherche-de-logements-u00bb-80-caritas-schweiz-gulu-uganda",
         "projektleitung-wohnfit-anlaufstelle-wohnungssuche-80-caritas-schweiz-gulu-uganda",
-        "projektleitung-wohnfit-anlaufstelle-wohnungssuche-80-caritas-schweiz-zurich",
-        "gestione-del-progetto-wohnfit-ricerca-dell-alloggio-del-punto-di-contatto-80-caritas-schweiz-gulu-uganda"
+        "projektleitung-wohnfit-anlaufstelle-wohnungssuche-80-caritas-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleitung-u00abwohnfit-u2013-anlaufstelle-wohnungssuche-u00bb-80-caritas-schweiz-gulu",
           "gestione-del-progetto-u00abwohnfit-u2013-ricerca-dell-alloggio-del-punto-di-contatto-u00bb-80-caritas-schweiz-gulu",
           "projektleitung-wohnfit-anlaufstelle-wohnungssuche-80-caritas-schweiz-gulu-uganda",
-          "projektleitung-wohnfit-anlaufstelle-wohnungssuche-80-caritas-schweiz-zurich",
-          "gestione-del-progetto-wohnfit-ricerca-dell-alloggio-del-punto-di-contatto-80-caritas-schweiz-gulu-uganda"
+          "projektleitung-wohnfit-anlaufstelle-wohnungssuche-80-caritas-schweiz-zurich"
         ],
         "en": [
           "projektleitung-u00abwohnfit-u2013-anlaufstelle-wohnungssuche-u00bb-80-caritas-schweiz-gulu",
@@ -328,12 +338,12 @@
     },
     {
       "id": "caritas-schweiz-789408943235",
-      "slug": "sozialpadagogische-bezugsperson-mna-80-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
+      "slug": "persona-di-riferimento-pedagogico-sociale-mna-80-a-zurigo-uster-m-f-d-caritas-schweiz-zurich",
       "slugByLocale": {
         "de": "sozialpadagogische-bezugsperson-mna-80-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
-        "it": "sozialpadagogische-bezugsperson-mna-80-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
-        "en": "sozialpadagogische-bezugsperson-mna-80-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
-        "fr": "sozialpadagogische-bezugsperson-mna-80-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
+        "it": "persona-di-riferimento-pedagogico-sociale-mna-80-a-zurigo-uster-m-f-d-caritas-schweiz-zurich",
+        "en": "social-pedagogical-reference-person-mna-80-in-zurich-uster-m-f-d-caritas-schweiz-zurich",
+        "fr": "personne-de-reference-sociopedagogique-mna-80-a-zurich-uster-m-f-d-caritas-schweiz-zurich"
       },
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -401,16 +411,29 @@
           "sozialp-u00e4dagogische-bezugsperson-mna-100-in-z-u00fcrich-uster-m-w-d-caritas-schweiz",
           "social-p-u00e4dagogic-persona-di-riferimento-mna-100-in-z-u00fcrich-uster-m-f-d-caritas-schweiz-zurich",
           "social-p-u00e4dagogic-reference-person-mna-100-in-z-u00fcrich-uster-m-f-d-caritas-schweiz-zurich",
-          "personne-de-reference-socio-dagogique-mna-100-en-z-u00fcrich-uster-m-f-d-caritas-schweiz-zurich"
+          "personne-de-reference-socio-dagogique-mna-100-en-z-u00fcrich-uster-m-f-d-caritas-schweiz-zurich",
+          "social-padagogic-persona-di-riferimento-mna-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich",
+          "social-padagogic-reference-person-mna-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich",
+          "sozialpadagogische-bezugsperson-mna-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
+          "personne-de-reference-socio-dagogique-mna-100-en-zurich-uster-m-f-d-caritas-schweiz-zurich",
+          "sozialp-u00e4dagogische-bezugsperson-mna-100-in-z-u00fcrich-uster-m-w-d-caritas-schweiz",
+          "social-p-u00e4dagogic-persona-di-riferimento-mna-100-in-z-u00fcrich-uster-m-f-d-caritas-schweiz-zurich",
+          "social-p-u00e4dagogic-reference-person-mna-100-in-z-u00fcrich-uster-m-f-d-caritas-schweiz-zurich",
+          "personne-de-reference-socio-dagogique-mna-100-en-z-u00fcrich-uster-m-f-d-caritas-schweiz-zurich",
+          "sozialpadagogische-bezugsperson-mna-80-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
         ],
         "en": [
-          "social-padagogic-reference-person-mna-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich"
+          "social-padagogic-reference-person-mna-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich",
+          "social-padagogic-reference-person-mna-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich",
+          "sozialpadagogische-bezugsperson-mna-80-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
         ],
         "de": [
           "sozialpadagogische-bezugsperson-mna-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
         ],
         "fr": [
-          "personne-de-reference-socio-dagogique-mna-100-en-zurich-uster-m-f-d-caritas-schweiz-zurich"
+          "personne-de-reference-socio-dagogique-mna-100-en-zurich-uster-m-f-d-caritas-schweiz-zurich",
+          "personne-de-reference-socio-dagogique-mna-100-en-zurich-uster-m-f-d-caritas-schweiz-zurich",
+          "sozialpadagogische-bezugsperson-mna-80-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
         ]
       },
       "previousSlugs": [
@@ -421,7 +444,16 @@
         "sozialp-u00e4dagogische-bezugsperson-mna-100-in-z-u00fcrich-uster-m-w-d-caritas-schweiz",
         "social-p-u00e4dagogic-persona-di-riferimento-mna-100-in-z-u00fcrich-uster-m-f-d-caritas-schweiz-zurich",
         "social-p-u00e4dagogic-reference-person-mna-100-in-z-u00fcrich-uster-m-f-d-caritas-schweiz-zurich",
-        "personne-de-reference-socio-dagogique-mna-100-en-z-u00fcrich-uster-m-f-d-caritas-schweiz-zurich"
+        "personne-de-reference-socio-dagogique-mna-100-en-z-u00fcrich-uster-m-f-d-caritas-schweiz-zurich",
+        "social-padagogic-persona-di-riferimento-mna-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich",
+        "social-padagogic-reference-person-mna-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich",
+        "sozialpadagogische-bezugsperson-mna-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
+        "personne-de-reference-socio-dagogique-mna-100-en-zurich-uster-m-f-d-caritas-schweiz-zurich",
+        "sozialp-u00e4dagogische-bezugsperson-mna-100-in-z-u00fcrich-uster-m-w-d-caritas-schweiz",
+        "social-p-u00e4dagogic-persona-di-riferimento-mna-100-in-z-u00fcrich-uster-m-f-d-caritas-schweiz-zurich",
+        "social-p-u00e4dagogic-reference-person-mna-100-in-z-u00fcrich-uster-m-f-d-caritas-schweiz-zurich",
+        "personne-de-reference-socio-dagogique-mna-100-en-z-u00fcrich-uster-m-f-d-caritas-schweiz-zurich",
+        "sozialpadagogische-bezugsperson-mna-80-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
       ]
     },
     {
@@ -478,14 +510,12 @@
       "pensum": "80%",
       "previousSlugs": [
         "responsable-d-u2019-u00e9quipe-du-service-aide-sociale-80-h-f-x-caritas-schweiz-fribourg",
-        "responsable-d-equipe-du-service-aide-sociale-80-h-f-x-caritas-schweiz-fribourg",
-        "responsabile-del-servizio-assistenza-sociale-80-h-f-x-caritas-schweiz-fribourg"
+        "responsable-d-equipe-du-service-aide-sociale-80-h-f-x-caritas-schweiz-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-d-u2019-u00e9quipe-du-service-aide-sociale-80-h-f-x-caritas-schweiz-fribourg",
-          "responsable-d-equipe-du-service-aide-sociale-80-h-f-x-caritas-schweiz-fribourg",
-          "responsabile-del-servizio-assistenza-sociale-80-h-f-x-caritas-schweiz-fribourg"
+          "responsable-d-equipe-du-service-aide-sociale-80-h-f-x-caritas-schweiz-fribourg"
         ],
         "en": [
           "responsable-d-u2019-u00e9quipe-du-service-aide-sociale-80-h-f-x-caritas-schweiz-fribourg"

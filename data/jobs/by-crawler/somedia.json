@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "somedia-95b276249a90",
-      "slug": "fachperson-personalentwicklung-kultur-100-somedia-ch",
+      "slug": "personale-sviluppo-cultura-specialista-100-somedia-ag-chur",
       "slugByLocale": {
         "de": "fachperson-personalentwicklung-kultur-100-somedia-ch",
-        "it": "fachperson-personalentwicklung-kultur-100-somedia-ch",
-        "en": "fachperson-personalentwicklung-kultur-100-somedia-ch",
-        "fr": "fachperson-personalentwicklung-kultur-100-somedia-ch"
+        "it": "personale-sviluppo-cultura-specialista-100-somedia-ag-chur",
+        "en": "personnel-development-culture-specialist-100-somedia-ag-chur",
+        "fr": "specialiste-du-developpement-du-personnel-et-de-la-culture-100-somedia-ag-chur"
       },
       "company": "Somedia AG",
       "companyKey": "somedia",
@@ -83,7 +83,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-28T11:44:33.146Z"
+      "firstSeenAt": "2026-07-28T11:44:33.146Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-personalentwicklung-kultur-100-somedia-ch"
+        ],
+        "en": [
+          "fachperson-personalentwicklung-kultur-100-somedia-ch"
+        ],
+        "fr": [
+          "fachperson-personalentwicklung-kultur-100-somedia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-personalentwicklung-kultur-100-somedia-ch"
+      ]
     },
     {
       "id": "somedia-9a0ca8ab845a",
@@ -158,13 +172,11 @@
         "hiringOrganization": "communicaziun.ch ag"
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch",
-        "amministratore-delegato-a-communicaziun-ch-100-somedia-ag-ilanz"
+        "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch",
-          "amministratore-delegato-a-communicaziun-ch-100-somedia-ag-ilanz"
+          "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch"
         ],
         "en": [
           "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch"
@@ -259,13 +271,11 @@
       },
       "previousSlugs": [
         "lehrstelle-als-kaufmann-frau-efz-marketing-kommunikation-2027-somedia-ch",
-        "lehrstelle-als-kaufmann-frau-efz-marketing-kommunikation-2027-somedia-ag-ilanz",
-        "apprendistato-come-kaufmann-frau-cfc-marketing-kommunikation-2027-somedia-ag-ilanz"
+        "lehrstelle-als-kaufmann-frau-efz-marketing-kommunikation-2027-somedia-ag-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kaufmann-frau-efz-marketing-kommunikation-2027-somedia-ch",
-          "apprendistato-come-kaufmann-frau-cfc-marketing-kommunikation-2027-somedia-ag-ilanz"
+          "lehrstelle-als-kaufmann-frau-efz-marketing-kommunikation-2027-somedia-ch"
         ],
         "en": [
           "lehrstelle-als-kaufmann-frau-efz-marketing-kommunikation-2027-somedia-ch",
@@ -359,13 +369,11 @@
         "hiringOrganization": "Somedia Press AG"
       },
       "previousSlugs": [
-        "leiter-in-digital-product-projects-80-100-somedia-ch",
-        "responsabile-digital-product-projects-80-100-somedia-ag-chur"
+        "leiter-in-digital-product-projects-80-100-somedia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-digital-product-projects-80-100-somedia-ch",
-          "responsabile-digital-product-projects-80-100-somedia-ag-chur"
+          "leiter-in-digital-product-projects-80-100-somedia-ch"
         ],
         "fr": [
           "leiter-in-digital-product-projects-80-100-somedia-ch"

@@ -69,14 +69,12 @@
       },
       "previousSlugs": [
         "cuisinier-h-f-temporaire-omega-biel-bienne",
-        "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne",
-        "kitchen-h-f-temporario-omega-sa-biel-bienne"
+        "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cuisinier-h-f-temporaire-omega-biel-bienne",
-          "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne",
-          "kitchen-h-f-temporario-omega-sa-biel-bienne"
+          "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne"
         ],
         "en": [
           "cuisinier-h-f-temporaire-omega-biel-bienne"
@@ -104,7 +102,7 @@
       "slug": "designato-h-f-omega-sa-biel-bienne",
       "slugByLocale": {
         "it": "designato-h-f-omega-sa-biel-bienne",
-        "en": "designer-m-w-d-omega-sa-biel-bienne",
+        "en": "designate-h-f-omega-sa-biel-bienne",
         "de": "bezeichnung-h-f-omega-sa-biel-bienne",
         "fr": "designer-h-f-omega-biel-bienne"
       },
@@ -175,8 +173,6 @@
         "spare-parts-stock-employee-h-f-omega-biel-bienne",
         "employed-stock-parts-h-f-omega-sa-biel-bienne",
         "arbeitsparteien-h-f-omega-sa-biel-bienne",
-        "designate-h-f-omega-sa-biel-bienne",
-        "designato-h-f-omega-sa-biel-bienne",
         "designer-m-w-d-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
@@ -184,14 +180,12 @@
           "designer-h-f-omega-biel-bienne",
           "spare-parts-stock-employee-h-f-omega-biel-bienne",
           "employed-stock-parts-h-f-omega-sa-biel-bienne",
-          "arbeitsparteien-h-f-omega-sa-biel-bienne",
-          "designato-h-f-omega-sa-biel-bienne"
+          "arbeitsparteien-h-f-omega-sa-biel-bienne"
         ],
         "en": [
           "designer-h-f-omega-biel-bienne",
           "designer-h-f-omega-sa-biel-bienne",
           "employed-stock-parts-h-f-omega-sa-biel-bienne",
-          "designate-h-f-omega-sa-biel-bienne",
           "designer-m-w-d-omega-sa-biel-bienne"
         ],
         "de": [
@@ -389,13 +383,11 @@
         ]
       },
       "previousSlugs": [
-        "international-sales-trainer-m-w-omega-biel-bienne",
-        "trainer-internazionale-m-w-omega-sa-biel-bienne"
+        "international-sales-trainer-m-w-omega-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "international-sales-trainer-m-w-omega-biel-bienne",
-          "trainer-internazionale-m-w-omega-sa-biel-bienne"
+          "international-sales-trainer-m-w-omega-biel-bienne"
         ],
         "de": [
           "international-sales-trainer-m-w-omega-biel-bienne"
@@ -417,12 +409,12 @@
     },
     {
       "id": "omega-32650",
-      "slug": "apprentissage-horloger-ere-cfc-omega-sa-biel-bienne",
+      "slug": "avvertenza-omega-sa-biel-bienne",
       "slugByLocale": {
         "fr": "apprentissage-horloger-ere-cfc-omega-biel-bienne",
-        "it": "apprentissage-horloger-ere-cfc-omega-sa-biel-bienne",
-        "en": "apprentissage-horloger-ere-cfc-omega-biel-bienne",
-        "de": "apprentissage-horloger-ere-cfc-omega-biel-bienne"
+        "it": "avvertenza-omega-sa-biel-bienne",
+        "en": "learning-horloging-cfc-omega-sa-biel-bienne",
+        "de": "cfc-lernhorloging-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -490,11 +482,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-horloger-ere-cfc-omega-biel-bienne",
+          "apprentissage-horloger-ere-cfc-omega-sa-biel-bienne"
+        ],
+        "en": [
+          "apprentissage-horloger-ere-cfc-omega-biel-bienne"
+        ],
+        "de": [
           "apprentissage-horloger-ere-cfc-omega-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "apprentissage-horloger-ere-cfc-omega-biel-bienne"
+        "apprentissage-horloger-ere-cfc-omega-biel-bienne",
+        "apprentissage-horloger-ere-cfc-omega-sa-biel-bienne"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -512,12 +512,12 @@
     },
     {
       "id": "omega-32651",
-      "slug": "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne",
+      "slug": "avvertenza-dell-ira-della-produzione-di-cfc-omega-sa-biel-bienne",
       "slugByLocale": {
         "fr": "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne",
-        "it": "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne",
-        "en": "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne",
-        "de": "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne"
+        "it": "avvertenza-dell-ira-della-produzione-di-cfc-omega-sa-biel-bienne",
+        "en": "learning-horloging-the-era-of-cfc-production-omega-sa-biel-bienne",
+        "de": "lernverfahren-im-zeitraum-der-fckw-produktion-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -585,11 +585,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne",
+          "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne"
+        ],
+        "en": [
+          "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne"
+        ],
+        "de": [
           "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne"
+        "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne",
+        "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -607,12 +615,12 @@
     },
     {
       "id": "omega-32654",
-      "slug": "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne",
+      "slug": "avviso-occupato-del-trade-swc-omega-sa-biel-bienne",
       "slugByLocale": {
         "fr": "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne",
-        "it": "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne",
-        "en": "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne",
-        "de": "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne"
+        "it": "avviso-occupato-del-trade-swc-omega-sa-biel-bienne",
+        "en": "employed-learning-of-swc-trade-omega-sa-biel-bienne",
+        "de": "beschaftigtes-lernen-des-swc-handels-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -670,11 +678,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne",
+          "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne"
+        ],
+        "en": [
+          "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne"
+        ],
+        "de": [
           "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne"
+        "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne",
+        "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -692,12 +708,12 @@
     },
     {
       "id": "omega-32653",
-      "slug": "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
+      "slug": "attenzione-operazione-omega-sa-biel-bienne",
       "slugByLocale": {
         "fr": "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
-        "it": "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
-        "en": "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
-        "de": "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
+        "it": "attenzione-operazione-omega-sa-biel-bienne",
+        "en": "operational-learning-omega-sa-biel-bienne",
+        "de": "betriebliches-lernen-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -761,11 +777,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
+          "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne"
+        ],
+        "en": [
+          "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
+        ],
+        "de": [
           "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
+        "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
+        "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -787,8 +811,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne",
         "it": "apprendistato-come-urhmacher-in-cfc-omega-sa-biel-bienne",
-        "en": "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne",
-        "fr": "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne"
+        "en": "urhmacher-efz-template-omega-sa-biel-bienne",
+        "fr": "template-d-urmacher-efz-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -857,6 +881,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne"
+        ],
+        "en": [
+          "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne"
+        ],
+        "fr": [
+          "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne"
         ]
       },
       "previousSlugs": [
@@ -878,12 +908,12 @@
     },
     {
       "id": "omega-32655",
-      "slug": "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne",
+      "slug": "logistician-learning-cfc-omega-sa-biel-bienne",
       "slugByLocale": {
         "fr": "apprentissage-logisticien-ne-cfc-omega-biel-bienne",
-        "it": "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne",
+        "it": "logistician-learning-cfc-omega-sa-biel-bienne",
         "en": "apprentissage-logisticien-ne-cfc-omega-biel-bienne",
-        "de": "apprentissage-logisticien-ne-cfc-omega-biel-bienne"
+        "de": "logistisches-lernen-cfc-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -947,11 +977,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-logisticien-ne-cfc-omega-biel-bienne",
+          "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne"
+        ],
+        "de": [
           "apprentissage-logisticien-ne-cfc-omega-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "apprentissage-logisticien-ne-cfc-omega-biel-bienne"
+        "apprentissage-logisticien-ne-cfc-omega-biel-bienne",
+        "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -973,7 +1008,7 @@
       "slugByLocale": {
         "de": "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne",
         "it": "apprendistato-come-urhmacher-in-produktion-cfc-omega-sa-biel-bienne",
-        "en": "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne",
+        "en": "urhmacher-in-production-efz-omega-sa-biel-bienne",
         "fr": "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne"
       },
       "company": "OMEGA SA",
@@ -1042,6 +1077,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne"
+        ],
+        "en": [
           "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne"
         ]
       },

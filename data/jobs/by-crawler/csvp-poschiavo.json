@@ -69,9 +69,9 @@
       "slug": "ausiliario-servizi-alberghieri-csvp-poschiavo-poschiavo",
       "slugByLocale": {
         "it": "ausiliario-servizi-alberghieri-csvp-poschiavo-poschiavo",
-        "en": "ausiliario-servizi-alberghieri-centro-sanitario-valposchiavo-csvp-poschiavo",
-        "de": "ausiliario-servizi-alberghieri-csvp-poschiavo-poschiavo",
-        "fr": "ausiliario-servizi-alberghieri-centro-sanitario-valposchiavo-csvp-poschiavo"
+        "en": "auxiliary-services-centro-sanitario-valposchiavo-csvp-poschiavo",
+        "de": "hilfsdienste-centro-sanitario-valposchiavo-csvp-poschiavo",
+        "fr": "services-auxiliaires-centro-sanitario-valposchiavo-csvp-poschiavo"
       },
       "company": "Centro Sanitario Valposchiavo (CSVP)",
       "companyKey": "csvp-poschiavo",
@@ -113,22 +113,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "de": [
-          "hilfsdienste-centro-sanitario-valposchiavo-csvp-poschiavo"
-        ],
         "en": [
-          "auxiliary-services-centro-sanitario-valposchiavo-csvp-poschiavo",
           "ausiliario-servizi-alberghieri-centro-sanitario-valposchiavo-csvp-poschiavo"
         ],
         "fr": [
-          "services-auxiliaires-centro-sanitario-valposchiavo-csvp-poschiavo",
           "ausiliario-servizi-alberghieri-centro-sanitario-valposchiavo-csvp-poschiavo"
         ]
       },
       "previousSlugs": [
-        "hilfsdienste-centro-sanitario-valposchiavo-csvp-poschiavo",
-        "auxiliary-services-centro-sanitario-valposchiavo-csvp-poschiavo",
-        "services-auxiliaires-centro-sanitario-valposchiavo-csvp-poschiavo",
         "ausiliario-servizi-alberghieri-centro-sanitario-valposchiavo-csvp-poschiavo"
       ],
       "firstSeenAt": "2026-07-14T12:34:46.683Z",
