@@ -20765,6 +20765,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-diritti-inquilino-affitti-svizzera': {
+    title: 'Affitti in Svizzera: diritti dell\'inquilino e disdetta',
+    description: 'Guida completa sui diritti dell\'inquilino in Svizzera: deposito cauzionale, procedure di disdetta, contestazione dell\'affitto e regole cantonali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, diritti, dell, inquilino',
+    ogTitle: 'Diritti inquilino in Svizzera: affitto e disdetta',
+    ogDescription: 'Scopri le regole su affitti, deposito cauzionale, disdetta e contestazione della pigione in Svizzera.',
+    canonicalPath: '/articoli-svizzera/diritti-inquilino-affitti-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti in Svizzera: diritti dell'inquilino e disdetta",
+      "description": "Guida completa sui diritti dell'inquilino in Svizzera: deposito cauzionale, procedure di disdetta, contestazione dell'affitto e regole cantonali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/diritti-inquilino-affitti-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzina residenziale in Svizzera con affitti e diritti degli inquilini"
+      },
+      "datePublished": "2026-07-28T00:23:58+00:00",
+      "dateModified": "2026-07-28T00:23:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/diritti-inquilino-affitti-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
