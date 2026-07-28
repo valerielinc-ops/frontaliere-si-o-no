@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jumbo",
-  "assembledAt": "2026-07-28T11:39:48.696Z",
+  "assembledAt": "2026-07-28T10:26:20.760Z",
   "jobs": [
     {
       "id": "jumbo-f550a7fd-558",
@@ -1764,14 +1764,19 @@
       "previousSlugsByLocale": {
         "de": [
           "verkaufsberater-in-jumbo-huntwangen",
-          "verkaufsberater-in-jumbo-division-der-coop-genossenschaft-huntwangen"
+          "verkaufsberater-in-jumbo-division-der-coop-genossenschaft-huntwangen",
+          "verkaufsberater-in-jumbo-jumbo-division-der-coop-genossenschaft-laupen"
         ],
         "it": [
           "verkaufsberater-in-jumbo-huntwangen",
           "consulente-commerciale-in-jumbo-huntwangen",
           "consulente-di-vendita-jumbo-huntwangen",
           "verkaufsberater-in-jumbo-huntwangen-zurich",
-          "verkaufsberater-in-jumbo-huntwangen-zurich-4xatab"
+          "verkaufsberater-in-jumbo-huntwangen-zurich-4xatab",
+          "verkaufsberater-in-jumbo-laupen-bern-5vx1yr",
+          "verkaufsberater-in-jumbo-jumbo-division-der-coop-genossenschaft-laupen",
+          "verkaufsberater-in-jumbo-jumbo-laupen",
+          "verkaufsberater-in-jumbo-laupen-bern"
         ],
         "en": [
           "verkaufsberater-in-jumbo-huntwangen",
@@ -1779,7 +1784,8 @@
         ],
         "fr": [
           "verkaufsberater-in-jumbo-huntwangen",
-          "consultant-en-ventes-jumbo-huntwangen"
+          "consultant-en-ventes-jumbo-huntwangen",
+          "verkaufsberater-in-jumbo-laupen-bern-5vx1yr"
         ]
       },
       "previousSlugs": [
@@ -1794,10 +1800,13 @@
         "verkaufsberater-in-jumbo-schattdorf-uri-hetyhl",
         "verkaufsberater-in-jumbo-schattdorf-uri",
         "verkaufsberater-in-jumbo-division-der-coop-genossenschaft-huntwangen",
-        "verkaufsberater-in-jumbo-huntwangen-zurich-4xatab"
+        "verkaufsberater-in-jumbo-huntwangen-zurich-4xatab",
+        "verkaufsberater-in-jumbo-laupen-bern-5vx1yr",
+        "verkaufsberater-in-jumbo-jumbo-division-der-coop-genossenschaft-laupen",
+        "verkaufsberater-in-jumbo-jumbo-laupen",
+        "verkaufsberater-in-jumbo-laupen-bern"
       ],
       "firstSeenAt": "2026-07-03T11:59:55.192Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1809,7 +1818,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-945003fd-cfc",

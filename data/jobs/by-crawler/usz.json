@@ -1,6 +1,6 @@
 {
   "crawlerKey": "usz",
-  "assembledAt": "2026-07-28T11:43:49.228Z",
+  "assembledAt": "2026-07-28T11:08:34.148Z",
   "jobs": [
     {
       "id": "usz-1855ccae124c",
@@ -1010,21 +1010,31 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "spontanbewerbung-als-dipl-orthoptist-in-hf-40-100-usz-ch"
+        "spontanbewerbung-als-dipl-orthoptist-in-hf-40-100-usz-ch",
+        "dipl-orthoptist-in-hf-40-100-usz-ch-2",
+        "dipl-orthoptist-in-hf-40-100-usz-ch",
+        "orthoptiste-en-hf-40-100-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbung-als-dipl-orthoptist-in-hf-40-100-usz-ch"
+          "spontanbewerbung-als-dipl-orthoptist-in-hf-40-100-usz-ch",
+          "dipl-orthoptist-in-hf-40-100-usz-ch-2",
+          "dipl-orthoptist-in-hf-40-100-usz-ch",
+          "orthoptiste-en-hf-40-100-universitatsspital-zurich-usz-campus"
         ],
         "en": [
-          "spontanbewerbung-als-dipl-orthoptist-in-hf-40-100-usz-ch"
+          "spontanbewerbung-als-dipl-orthoptist-in-hf-40-100-usz-ch",
+          "dipl-orthoptist-in-hf-40-100-usz-ch-2"
         ],
         "fr": [
-          "spontanbewerbung-als-dipl-orthoptist-in-hf-40-100-usz-ch"
+          "spontanbewerbung-als-dipl-orthoptist-in-hf-40-100-usz-ch",
+          "orthoptiste-en-hf-40-100-universitatsspital-zurich-usz-campus"
+        ],
+        "de": [
+          "dipl-orthoptist-in-hf-40-100-usz-ch"
         ]
       },
       "firstSeenAt": "2026-05-17T11:18:26.512Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1036,7 +1046,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "usz-e4ff77476116",
@@ -11672,7 +11683,11 @@
         "directorate-assistant-in-for-the-clinic-for-thoracic-surgery-80-100-universitatsspital-zurich-usz-campus",
         "direktionsassistent-in-fur-die-klinik-fur-thoraxchirurgie-80-100-usz-ch",
         "assistant-de-direction-pour-la-clinique-de-chirurgie-thoracique-80-100-universitatsspital-zurich-usz-campus",
-        "assistenzarztin-assistenzarzt-m-w-d-per-la-klinik-per-gefasschirurgie-80-100-universitatsspital-zurich-usz-campus"
+        "assistenzarztin-assistenzarzt-m-w-d-per-la-klinik-per-gefasschirurgie-80-100-universitatsspital-zurich-usz-campus",
+        "oberarztin-oberarzt-m-w-d-klinik-per-gefasschirurgie-80-100-universitatsspital-zurich-usz-campus",
+        "senior-physician-f-m-d-clinic-for-vascular-surgery-80-100-universitatsspital-zurich-usz-campus",
+        "oberarztin-oberarzt-w-m-d-klinik-fur-gefasschirurgie-80-100-usz-ch",
+        "medecin-principal-f-m-j-clinique-de-chirurgie-vasculaire-80-100-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11685,25 +11700,31 @@
           "directorate-assistant-in-for-the-clinic-for-thoracic-surgery-80-100-universitatsspital-zurich-usz-campus",
           "direktionsassistent-in-fur-die-klinik-fur-thoraxchirurgie-80-100-usz-ch",
           "assistant-de-direction-pour-la-clinique-de-chirurgie-thoracique-80-100-universitatsspital-zurich-usz-campus",
-          "assistenzarztin-assistenzarzt-m-w-d-per-la-klinik-per-gefasschirurgie-80-100-universitatsspital-zurich-usz-campus"
+          "assistenzarztin-assistenzarzt-m-w-d-per-la-klinik-per-gefasschirurgie-80-100-universitatsspital-zurich-usz-campus",
+          "oberarztin-oberarzt-m-w-d-klinik-per-gefasschirurgie-80-100-universitatsspital-zurich-usz-campus",
+          "senior-physician-f-m-d-clinic-for-vascular-surgery-80-100-universitatsspital-zurich-usz-campus",
+          "oberarztin-oberarzt-w-m-d-klinik-fur-gefasschirurgie-80-100-usz-ch",
+          "medecin-principal-f-m-j-clinique-de-chirurgie-vasculaire-80-100-universitatsspital-zurich-usz-campus"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-w-m-d-fur-die-klinik-fur-gefasschirurgie-80-100-usz-ch",
           "assistant-doctor-f-m-d-clinic-for-vascular-surgery-80-100-universitatsspital-zurich-usz-campus",
-          "directorate-assistant-in-for-the-clinic-for-thoracic-surgery-80-100-universitatsspital-zurich-usz-campus"
+          "directorate-assistant-in-for-the-clinic-for-thoracic-surgery-80-100-universitatsspital-zurich-usz-campus",
+          "senior-physician-f-m-d-clinic-for-vascular-surgery-80-100-universitatsspital-zurich-usz-campus"
         ],
         "de": [
           "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-gefasschirurgie-80-100-usz-ch",
-          "direktionsassistent-in-fur-die-klinik-fur-thoraxchirurgie-80-100-usz-ch"
+          "direktionsassistent-in-fur-die-klinik-fur-thoraxchirurgie-80-100-usz-ch",
+          "oberarztin-oberarzt-w-m-d-klinik-fur-gefasschirurgie-80-100-usz-ch"
         ],
         "fr": [
           "assistenzarztin-assistenzarzt-w-m-d-fur-die-klinik-fur-gefasschirurgie-80-100-usz-ch",
           "medecin-adjoint-f-m-j-clinique-de-chirurgie-vasculaire-80-100-universitatsspital-zurich-usz-campus",
-          "assistant-de-direction-pour-la-clinique-de-chirurgie-thoracique-80-100-universitatsspital-zurich-usz-campus"
+          "assistant-de-direction-pour-la-clinique-de-chirurgie-thoracique-80-100-universitatsspital-zurich-usz-campus",
+          "medecin-principal-f-m-j-clinique-de-chirurgie-vasculaire-80-100-universitatsspital-zurich-usz-campus"
         ]
       },
       "firstSeenAt": "2026-07-17T11:33:29.278Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -11715,7 +11736,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "usz-1126c4d12a5e",

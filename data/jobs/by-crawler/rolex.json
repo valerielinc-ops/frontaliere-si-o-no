@@ -2446,7 +2446,8 @@
         "abscheider-h-f-rolex-bienne",
         "tornitore-di-barra-m-f-rolex-bienne",
         "colletter-m-w-d-rolex-bienne",
-        "entferner-m-w-d-rolex-bienne"
+        "entferner-m-w-d-rolex-bienne",
+        "decoller-h-f-rolex-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2457,7 +2458,8 @@
           "roller-m-w-d-rolex-bienne",
           "decoller-h-f-rolex-bienne-1wfg7i",
           "decoller-h-f-rolex-bienne",
-          "colletter-m-w-d-rolex-bienne"
+          "colletter-m-w-d-rolex-bienne",
+          "decoller-h-f-rolex-bienne"
         ],
         "de": [
           "rolle-m-w-d-rolex-bienne",
@@ -7446,7 +7448,8 @@
         "charge-de-projets-h-f-rolex-ch-2",
         "charge-de-projets-h-f-rolex-ch-x7bon0",
         "projektleiter-h-f-rolex-bienne",
-        "project-manager-m-f-rolex-bienne"
+        "project-manager-m-f-rolex-bienne",
+        "project-manager-h-f-rolex-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7465,7 +7468,8 @@
         "en": [
           "charge-de-projets-h-f-rolex-ch",
           "pmo-project-manager-rolex-bienne",
-          "project-manager-h-f-rolex-bienne-mla6bv"
+          "project-manager-h-f-rolex-bienne-mla6bv",
+          "project-manager-h-f-rolex-bienne"
         ],
         "de": [
           "charge-de-projets-h-f-rolex-ch",
@@ -7479,7 +7483,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:09:02.823Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -7491,7 +7494,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-cc56ff16d64b",

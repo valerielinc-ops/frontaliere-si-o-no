@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-re",
-  "assembledAt": "2026-07-28T11:48:20.778Z",
+  "assembledAt": "2026-07-28T11:04:01.070Z",
   "jobs": [
     {
       "id": "swiss-re-eb683c9f7002",
@@ -278,18 +278,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "operations-manager-swiss-re-ch",
-        "gestione-delle-operazioni-swiss-re-bratislava-sk"
+        "gestione-delle-operazioni-swiss-re-bratislava-sk",
+        "gestione-delle-operazioni-legali-e-di-conformita-swiss-re-bratislava-sk",
+        "legal-compliance-operations-manager-swiss-re-ch",
+        "gestionnaire-des-operations-juridiques-et-de-conformite-swiss-re-bratislava-sk"
       ],
       "previousSlugsByLocale": {
         "it": [
           "operations-manager-swiss-re-ch",
-          "gestione-delle-operazioni-swiss-re-bratislava-sk"
+          "gestione-delle-operazioni-swiss-re-bratislava-sk",
+          "gestione-delle-operazioni-legali-e-di-conformita-swiss-re-bratislava-sk",
+          "legal-compliance-operations-manager-swiss-re-ch",
+          "gestionnaire-des-operations-juridiques-et-de-conformite-swiss-re-bratislava-sk"
         ],
         "de": [
-          "operations-manager-swiss-re-ch"
+          "operations-manager-swiss-re-ch",
+          "legal-compliance-operations-manager-swiss-re-ch"
         ],
         "fr": [
-          "operations-manager-swiss-re-ch"
+          "operations-manager-swiss-re-ch",
+          "gestionnaire-des-operations-juridiques-et-de-conformite-swiss-re-bratislava-sk"
         ]
       },
       "firstSeenAt": "2026-07-10T13:03:03.200Z",
@@ -3764,16 +3772,38 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "solutions-architect-hybrid-m-f-x-d-80-100-swiss-re-ch",
-        "solutions-architetto-hybrid-m-f-x-d-80-100-swiss-re-zurich-ch"
+        "solutions-architetto-hybrid-m-f-x-d-80-100-swiss-re-zurich-ch",
+        "l-h-hybrid-m-f-x-d-80-100-swiss-re-zurich-ch",
+        "turkish-speaking-underwriter-l-h-hybrid-m-f-x-d-80-100-swiss-re-ch",
+        "operating-model-architetto-hybrid-m-f-x-d-80-100-swiss-re-zurich-ch",
+        "operating-model-architect-hybrid-m-f-x-d-80-100-swiss-re-ch",
+        "betriebsmodell-architekt-hybrid-m-f-x-d-80-100-swiss-re-zurich-ch",
+        "operating-model-architecte-hybrid-m-f-x-d-80-100-swiss-re-zurich-ch",
+        "turco-underwriter-l-h-m-f-x-d-swiss-re-munich-de",
+        "turkish-speaking-underwriter-l-h-m-f-x-d-swiss-re-ch",
+        "un-souscripteur-turc-l-h-m-f-x-d-swiss-re-munich-de",
+        "turkischsprachiger-underwriter-l-h-m-w-x-d-swiss-re-munich-de"
       ],
       "previousSlugsByLocale": {
         "it": [
           "solutions-architect-hybrid-m-f-x-d-80-100-swiss-re-ch",
-          "solutions-architetto-hybrid-m-f-x-d-80-100-swiss-re-zurich-ch"
+          "solutions-architetto-hybrid-m-f-x-d-80-100-swiss-re-zurich-ch",
+          "l-h-hybrid-m-f-x-d-80-100-swiss-re-zurich-ch",
+          "turkish-speaking-underwriter-l-h-hybrid-m-f-x-d-80-100-swiss-re-ch",
+          "operating-model-architetto-hybrid-m-f-x-d-80-100-swiss-re-zurich-ch",
+          "operating-model-architect-hybrid-m-f-x-d-80-100-swiss-re-ch",
+          "betriebsmodell-architekt-hybrid-m-f-x-d-80-100-swiss-re-zurich-ch",
+          "operating-model-architecte-hybrid-m-f-x-d-80-100-swiss-re-zurich-ch",
+          "turco-underwriter-l-h-m-f-x-d-swiss-re-munich-de",
+          "turkish-speaking-underwriter-l-h-m-f-x-d-swiss-re-ch",
+          "un-souscripteur-turc-l-h-m-f-x-d-swiss-re-munich-de",
+          "turkischsprachiger-underwriter-l-h-m-w-x-d-swiss-re-munich-de"
+        ],
+        "fr": [
+          "turkish-speaking-underwriter-l-h-hybrid-m-f-x-d-80-100-swiss-re-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T11:22:55.415Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3786,7 +3816,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-re-bfb5ba23e70a",
@@ -16960,18 +16991,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "claims-specialist-finpro-corso-swiss-re-ch",
-        "claims-specialista-finpro-corso-swiss-re-zurich"
+        "claims-specialista-finpro-corso-swiss-re-zurich",
+        "casualty-and-financial-lines-specialista-d-o-finpro-claims-corso-swiss-re-zurich",
+        "casualty-and-financial-lines-specialist-d-o-finpro-claims-corso-swiss-re-ch",
+        "casualty-and-financial-lines-spezialist-d-o-finpro-claims-corso-swiss-re-zurich",
+        "casualty-and-financial-lines-specialiste-d-o-finpro-claims-corso-swiss-re-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "claims-specialist-finpro-corso-swiss-re-ch",
-          "claims-specialista-finpro-corso-swiss-re-zurich"
+          "claims-specialista-finpro-corso-swiss-re-zurich",
+          "casualty-and-financial-lines-specialista-d-o-finpro-claims-corso-swiss-re-zurich",
+          "casualty-and-financial-lines-specialist-d-o-finpro-claims-corso-swiss-re-ch",
+          "casualty-and-financial-lines-spezialist-d-o-finpro-claims-corso-swiss-re-zurich",
+          "casualty-and-financial-lines-specialiste-d-o-finpro-claims-corso-swiss-re-zurich"
         ],
         "de": [
-          "claims-specialist-finpro-corso-swiss-re-ch"
+          "claims-specialist-finpro-corso-swiss-re-ch",
+          "casualty-and-financial-lines-spezialist-d-o-finpro-claims-corso-swiss-re-zurich"
         ],
         "fr": [
-          "claims-specialist-finpro-corso-swiss-re-ch"
+          "claims-specialist-finpro-corso-swiss-re-ch",
+          "casualty-and-financial-lines-specialiste-d-o-finpro-claims-corso-swiss-re-zurich"
+        ],
+        "en": [
+          "casualty-and-financial-lines-specialist-d-o-finpro-claims-corso-swiss-re-ch"
         ]
       },
       "firstSeenAt": "2026-07-22T22:09:09.260Z",

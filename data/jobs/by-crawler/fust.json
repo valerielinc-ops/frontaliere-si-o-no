@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-07-28T11:32:42.675Z",
+  "assembledAt": "2026-07-28T10:20:33.867Z",
   "jobs": [
     {
       "id": "company-eirkl2",
@@ -545,21 +545,28 @@
           "installer-in-kitchens-bathrooms-fust-swiss-household-services-ag-oberburen",
           "schreinermonteur-in-kuchen-bader-fust-oberburen-sankt-gallen-dpu5yl",
           "installateur-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-oberburen",
-          "schreinermonteur-in-kuchen-bader-fust-oberburen-sankt-gallen"
+          "schreinermonteur-in-kuchen-bader-fust-oberburen-sankt-gallen",
+          "montatore-di-cucine-e-bagni-fust-swiss-household-services-ag-oberburen",
+          "schreinermonteur-in-kuchen-bader-fust-oberburen-sankt-gallen-depljj",
+          "kitchen-bathroom-installer-fust-swiss-household-services-ag-oberburen-depljj",
+          "monteur-de-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-oberburen-depljj"
         ],
         "en": [
           "schreinermonteur-in-kuchen-bader-fust-swiss-household-services-ag-oberburen-sankt-gallen-x1cr3h",
           "schreinermonteur-in-kuchen-bader-fust-oberburen-sankt-gallen-x1cr3h",
-          "installer-in-kitchens-bathrooms-fust-swiss-household-services-ag-oberburen"
-        ],
-        "de": [
-          "schreinermonteur-in-kuchen-bader-fust-swiss-household-services-ag-oberburen-sankt-gallen-x1cr3h",
-          "schreinermonteur-in-kuchen-bader-fust-oberburen-sankt-gallen-dpu5yl"
+          "installer-in-kitchens-bathrooms-fust-swiss-household-services-ag-oberburen",
+          "kitchen-bathroom-installer-fust-swiss-household-services-ag-oberburen-depljj"
         ],
         "fr": [
           "schreinermonteur-in-kuchen-bader-fust-swiss-household-services-ag-oberburen-sankt-gallen-x1cr3h",
           "schreinermonteur-in-kuchen-bader-fust-oberburen-sankt-gallen-x1cr3h",
-          "installateur-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-oberburen"
+          "installateur-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-oberburen",
+          "monteur-de-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-oberburen-depljj"
+        ],
+        "de": [
+          "schreinermonteur-in-kuchen-bader-fust-swiss-household-services-ag-oberburen-sankt-gallen-x1cr3h",
+          "schreinermonteur-in-kuchen-bader-fust-oberburen-sankt-gallen-dpu5yl",
+          "schreinermonteur-in-kuchen-bader-fust-oberburen-sankt-gallen-depljj"
         ]
       },
       "previousSlugs": [
@@ -570,8 +577,14 @@
         "installer-in-kitchens-bathrooms-fust-swiss-household-services-ag-oberburen",
         "schreinermonteur-in-kuchen-bader-fust-oberburen-sankt-gallen-dpu5yl",
         "installateur-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-oberburen",
-        "schreinermonteur-in-kuchen-bader-fust-oberburen-sankt-gallen"
+        "schreinermonteur-in-kuchen-bader-fust-oberburen-sankt-gallen",
+        "montatore-di-cucine-e-bagni-fust-swiss-household-services-ag-oberburen",
+        "schreinermonteur-in-kuchen-bader-fust-oberburen-sankt-gallen-depljj",
+        "kitchen-bathroom-installer-fust-swiss-household-services-ag-oberburen-depljj",
+        "monteur-de-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-oberburen-depljj"
       ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -591,9 +604,7 @@
         "type": "adapter_seed_meta",
         "location": "San Gallo",
         "canton": "SG"
-      },
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      }
     },
     {
       "id": "company-n6qwpl",
@@ -639,25 +650,41 @@
         "it": [
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg-aargau",
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg-aargau-n6qwpl",
-          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-n6qwpl"
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-n6qwpl",
+          "montatore-a-domicilio-di-elettrodomestici-fust-swiss-household-services-ag-lenzburg",
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-ic0syv",
+          "home-delivery-technician-for-household-appliances-fust-swiss-household-services-ag-lenzburg-ic0syv",
+          "technicien-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-lenzburg-ic0syv",
+          "technicien-de-livraison-a-domicile-d-appareils-electromenagers-electriques-fust-swiss-household-services-ag-lenzburg"
         ],
         "en": [
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg-aargau-n6qwpl",
-          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-n6qwpl"
-        ],
-        "de": [
-          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg-aargau-n6qwpl"
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-n6qwpl",
+          "home-delivery-technician-for-household-appliances-fust-swiss-household-services-ag-lenzburg-ic0syv"
         ],
         "fr": [
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg-aargau-n6qwpl",
-          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-n6qwpl"
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-n6qwpl",
+          "technicien-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-lenzburg-ic0syv",
+          "technicien-de-livraison-a-domicile-d-appareils-electromenagers-electriques-fust-swiss-household-services-ag-lenzburg"
+        ],
+        "de": [
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg-aargau-n6qwpl",
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-ic0syv"
         ]
       },
       "previousSlugs": [
         "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg-aargau",
         "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-lenzburg-aargau-n6qwpl",
-        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-n6qwpl"
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-n6qwpl",
+        "montatore-a-domicilio-di-elettrodomestici-fust-swiss-household-services-ag-lenzburg",
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-ic0syv",
+        "home-delivery-technician-for-household-appliances-fust-swiss-household-services-ag-lenzburg-ic0syv",
+        "technicien-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-lenzburg-ic0syv",
+        "technicien-de-livraison-a-domicile-d-appareils-electromenagers-electriques-fust-swiss-household-services-ag-lenzburg"
       ],
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -677,9 +704,7 @@
         "type": "adapter_seed_meta",
         "location": "Argovia",
         "canton": "AG"
-      },
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      }
     },
     {
       "id": "company-d3bmkh",
@@ -725,25 +750,72 @@
         "it": [
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-basel-landschaft",
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-basel-landschaft-d3bmkh",
-          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-d3bmkh"
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-d3bmkh",
+          "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-pratteln-576dn5",
+          "home-delivery-technician-for-household-appliances-fust-pratteln-basel-landschaft-576dn5",
+          "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-pratteln-basel-landschaft-576dn5",
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-dubendorf",
+          "technicien-de-livraison-et-d-installation-d-appareils-electromenagers-fust-swiss-household-services-ag-dubendorf",
+          "home-delivery-installer-negli-elettrodomestici-fust-pratteln-basel-landschaft",
+          "home-delivery-installer-in-electrical-household-appliances-fust-pratteln-basel-landschaft",
+          "home-delivery-installer-in-electrical-household-appliances-fust-pratteln-basel-landschaft-576dn5",
+          "installateur-de-livraison-a-domicile-dans-les-appareils-electromenagers-fust-pratteln-basel-landschaft",
+          "installateur-de-livraison-a-domicile-dans-les-appareils-electromenagers-fust-pratteln-basel-landschaft-576dn5",
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft",
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-vqgt0x",
+          "home-delivery-technician-for-electrical-household-appliances-fust-swiss-household-services-ag-pratteln",
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-vqgt0x",
+          "home-delivery-technician-for-household-appliances-fust-swiss-household-services-ag-pratteln",
+          "home-delivery-technician-for-household-appliances-fust-swiss-household-services-ag-pratteln-576dn5",
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln"
         ],
         "en": [
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-basel-landschaft-d3bmkh",
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-d3bmkh"
         ],
-        "de": [
-          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-basel-landschaft-d3bmkh"
-        ],
         "fr": [
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-basel-landschaft-d3bmkh",
-          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-d3bmkh"
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-d3bmkh",
+          "technicien-de-livraison-et-d-installation-d-appareils-electromenagers-fust-swiss-household-services-ag-dubendorf",
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-576dn5",
+          "technicien-de-livraison-a-domicile-d-appareils-electromenagers-fust-swiss-household-services-ag-pratteln",
+          "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-pratteln",
+          "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-pratteln-576dn5",
+          "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-pratteln-basel-landschaft-576dn5"
+        ],
+        "de": [
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-basel-landschaft-d3bmkh",
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-d6fb1e"
         ]
       },
       "previousSlugs": [
         "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-basel-landschaft",
         "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-basel-landschaft-d3bmkh",
-        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-d3bmkh"
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-d3bmkh",
+        "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-pratteln-576dn5",
+        "home-delivery-technician-for-household-appliances-fust-pratteln-basel-landschaft-576dn5",
+        "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-pratteln-basel-landschaft-576dn5",
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-dubendorf",
+        "technicien-de-livraison-et-d-installation-d-appareils-electromenagers-fust-swiss-household-services-ag-dubendorf",
+        "home-delivery-installer-negli-elettrodomestici-fust-pratteln-basel-landschaft",
+        "home-delivery-installer-in-electrical-household-appliances-fust-pratteln-basel-landschaft",
+        "home-delivery-installer-in-electrical-household-appliances-fust-pratteln-basel-landschaft-576dn5",
+        "installateur-de-livraison-a-domicile-dans-les-appareils-electromenagers-fust-pratteln-basel-landschaft",
+        "installateur-de-livraison-a-domicile-dans-les-appareils-electromenagers-fust-pratteln-basel-landschaft-576dn5",
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft",
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-vqgt0x",
+        "home-delivery-technician-for-electrical-household-appliances-fust-swiss-household-services-ag-pratteln",
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-vqgt0x",
+        "home-delivery-technician-for-household-appliances-fust-swiss-household-services-ag-pratteln",
+        "home-delivery-technician-for-household-appliances-fust-swiss-household-services-ag-pratteln-576dn5",
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln",
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-d6fb1e",
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-576dn5",
+        "technicien-de-livraison-a-domicile-d-appareils-electromenagers-fust-swiss-household-services-ag-pratteln",
+        "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-pratteln"
       ],
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -763,9 +835,7 @@
         "type": "adapter_seed_meta",
         "location": "Regione di Basilea",
         "canton": "BS"
-      },
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      }
     },
     {
       "id": "company-xbsgq",
@@ -817,19 +887,27 @@
           "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-swiss-household-services-ag-oftringen",
           "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-swiss-household-services-ag-heimberg",
           "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-heimberg-bern",
-          "verkaufsberater-in-per-elektrohaushalt-80-100-fust-swiss-household-services-ag-heimberg-bern-0xbsgq"
+          "verkaufsberater-in-per-elektrohaushalt-80-100-fust-swiss-household-services-ag-heimberg-bern-0xbsgq",
+          "sales-consultant-in-for-electrical-household-80-100-fust-swiss-household-services-ag-heimberg",
+          "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-heimberg-bern-s7i8wy",
+          "consultant-en-ventes-pour-les-menages-electriques-80-100-fust-swiss-household-services-ag-heimberg",
+          "verkaufsberater-in-per-elektrohaushalt-80-100-fust-heimberg-bern-s7i8wy",
+          "sales-consultant-for-household-appliances-80-100-fust-swiss-household-services-ag-heimberg"
         ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-swiss-household-services-ag-heimberg-bern-0xbsgq",
-          "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-heimberg-bern-0xbsgq"
-        ],
-        "de": [
-          "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-swiss-household-services-ag-heimberg-bern-0xbsgq"
+          "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-heimberg-bern-0xbsgq",
+          "sales-consultant-in-for-electrical-household-80-100-fust-swiss-household-services-ag-heimberg"
         ],
         "fr": [
           "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-swiss-household-services-ag-heimberg-bern-0xbsgq",
           "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-heimberg-bern-0xbsgq",
-          "consultant-en-ventes-pour-le-menage-electrique-80-100-fust-swiss-household-services-ag-heimberg-bern"
+          "consultant-en-ventes-pour-le-menage-electrique-80-100-fust-swiss-household-services-ag-heimberg-bern",
+          "consultant-en-ventes-pour-les-menages-electriques-80-100-fust-swiss-household-services-ag-heimberg"
+        ],
+        "de": [
+          "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-swiss-household-services-ag-heimberg-bern-0xbsgq",
+          "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-heimberg-bern-s7i8wy"
         ]
       },
       "previousSlugs": [
@@ -844,8 +922,15 @@
         "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-heimberg-bern",
         "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-heimberg-bern-0xbsgq",
         "consultant-en-ventes-pour-le-menage-electrique-80-100-fust-swiss-household-services-ag-heimberg-bern",
-        "verkaufsberater-in-per-elektrohaushalt-80-100-fust-swiss-household-services-ag-heimberg-bern-0xbsgq"
+        "verkaufsberater-in-per-elektrohaushalt-80-100-fust-swiss-household-services-ag-heimberg-bern-0xbsgq",
+        "sales-consultant-in-for-electrical-household-80-100-fust-swiss-household-services-ag-heimberg",
+        "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-heimberg-bern-s7i8wy",
+        "consultant-en-ventes-pour-les-menages-electriques-80-100-fust-swiss-household-services-ag-heimberg",
+        "verkaufsberater-in-per-elektrohaushalt-80-100-fust-heimberg-bern-s7i8wy",
+        "sales-consultant-for-household-appliances-80-100-fust-swiss-household-services-ag-heimberg"
       ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -865,9 +950,7 @@
         "type": "adapter_seed_meta",
         "location": "Berna",
         "canton": "BE"
-      },
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      }
     },
     {
       "id": "company-e49k7p",
@@ -916,7 +999,9 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-bern"
+          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-bern",
+          "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-bern-w1zgcb",
+          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-bern-w1zgcb"
         ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-bern-e49k7p"
@@ -924,13 +1009,20 @@
         "fr": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-bern-e49k7p",
           "consultant-commercial-en-electromenager-multimedia-80-100-fust-bern"
+        ],
+        "de": [
+          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-bern-w1zgcb"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-bern",
         "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-bern-e49k7p",
-        "consultant-commercial-en-electromenager-multimedia-80-100-fust-bern"
+        "consultant-commercial-en-electromenager-multimedia-80-100-fust-bern",
+        "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-bern-w1zgcb",
+        "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-bern-w1zgcb"
       ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -945,9 +1037,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      "country": "CH"
     },
     {
       "id": "company-u2afby",
@@ -1421,19 +1511,49 @@
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-professional-solutions-fust-oberburen-0ttisz",
-          "servicetechniker-in-professional-solutions-fust-oberburen"
+          "servicetechniker-in-professional-solutions-fust-oberburen",
+          "servicetechniker-in-professional-solutions-fust-oberburen-tdw5z7",
+          "servicetechniker-in-professional-solutions-fust-oberburen-2",
+          "tecnico-di-servizio-in-soluzioni-professionali-fust-luzern-d19b20",
+          "servicetechniker-in-professional-solutions-fust-luzern",
+          "service-technician-professional-solutions-fust-swiss-household-services-ag-luzern",
+          "service-technician-professional-solutions-fust-swiss-household-services-ag-luzern-8ywp4l",
+          "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-luzern-8ywp4l",
+          "servicetechniker-dans-solutions-professionnelles-fust-swiss-household-services-ag-luzern",
+          "technicien-de-service-solutions-professionnelles-fust-swiss-household-services-ag-luzern",
+          "technicien-de-service-solutions-professionnelles-fust-swiss-household-services-ag-luzern-8ywp4l"
         ],
         "en": [
-          "servicetechniker-in-professional-solutions-fust-oberburen-0ttisz"
+          "servicetechniker-in-professional-solutions-fust-oberburen-0ttisz",
+          "service-technician-in-professional-solutions-fust-luzern"
         ],
         "fr": [
-          "servicetechniker-in-professional-solutions-fust-oberburen-0ttisz"
+          "servicetechniker-in-professional-solutions-fust-oberburen-0ttisz",
+          "technicien-de-service-en-solutions-professionnelles-fust-luzern"
+        ],
+        "de": [
+          "servicetechniker-in-professional-solutions-fust-luzern-8ywp4l"
         ]
       },
       "previousSlugs": [
         "servicetechniker-in-professional-solutions-fust-oberburen-0ttisz",
-        "servicetechniker-in-professional-solutions-fust-oberburen"
+        "servicetechniker-in-professional-solutions-fust-oberburen",
+        "servicetechniker-in-professional-solutions-fust-oberburen-tdw5z7",
+        "servicetechniker-in-professional-solutions-fust-oberburen-2",
+        "tecnico-di-servizio-in-soluzioni-professionali-fust-luzern-d19b20",
+        "servicetechniker-in-professional-solutions-fust-luzern",
+        "service-technician-professional-solutions-fust-swiss-household-services-ag-luzern",
+        "service-technician-professional-solutions-fust-swiss-household-services-ag-luzern-8ywp4l",
+        "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-luzern-8ywp4l",
+        "servicetechniker-dans-solutions-professionnelles-fust-swiss-household-services-ag-luzern",
+        "technicien-de-service-solutions-professionnelles-fust-swiss-household-services-ag-luzern",
+        "technicien-de-service-solutions-professionnelles-fust-swiss-household-services-ag-luzern-8ywp4l",
+        "service-technician-in-professional-solutions-fust-luzern",
+        "servicetechniker-in-professional-solutions-fust-luzern-8ywp4l",
+        "technicien-de-service-en-solutions-professionnelles-fust-luzern"
       ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1448,9 +1568,7 @@
       "addressRegion": "SG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      "country": "CH"
     },
     {
       "id": "company-jwmke3",
@@ -1500,19 +1618,42 @@
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-heimservice-fust-oberburen-jwmke3",
-          "servicetechniker-in-heimservice-fust-oberburen"
+          "servicetechniker-in-heimservice-fust-oberburen",
+          "tecnico-di-servizio-in-servizio-domestico-fust-oberburen-225b5a",
+          "servicetechniker-in-heimservice-fust-oberburen-cemvaa",
+          "home-service-technician-fust-swiss-household-services-ag-oberburen",
+          "service-technician-for-home-service-fust-swiss-household-services-ag-oberburen",
+          "home-service-technician-fust-swiss-household-services-ag-oberburen-cemvaa",
+          "servicetechniker-in-heimservice-fust-swiss-household-services-ag-oberburen-cemvaa",
+          "technicien-ne-de-service-a-domicile-fust-swiss-household-services-ag-oberburen",
+          "technicien-de-service-pour-le-service-a-domicile-fust-swiss-household-services-ag-oberburen",
+          "technicien-ne-de-service-a-domicile-fust-swiss-household-services-ag-oberburen-cemvaa"
         ],
         "en": [
           "servicetechniker-in-heimservice-fust-oberburen-jwmke3"
         ],
         "fr": [
           "servicetechniker-in-heimservice-fust-oberburen-jwmke3"
+        ],
+        "de": [
+          "servicetechniker-in-heimservice-fust-oberburen-cemvaa"
         ]
       },
       "previousSlugs": [
         "servicetechniker-in-heimservice-fust-oberburen-jwmke3",
-        "servicetechniker-in-heimservice-fust-oberburen"
+        "servicetechniker-in-heimservice-fust-oberburen",
+        "tecnico-di-servizio-in-servizio-domestico-fust-oberburen-225b5a",
+        "servicetechniker-in-heimservice-fust-oberburen-cemvaa",
+        "home-service-technician-fust-swiss-household-services-ag-oberburen",
+        "service-technician-for-home-service-fust-swiss-household-services-ag-oberburen",
+        "home-service-technician-fust-swiss-household-services-ag-oberburen-cemvaa",
+        "servicetechniker-in-heimservice-fust-swiss-household-services-ag-oberburen-cemvaa",
+        "technicien-ne-de-service-a-domicile-fust-swiss-household-services-ag-oberburen",
+        "technicien-de-service-pour-le-service-a-domicile-fust-swiss-household-services-ag-oberburen",
+        "technicien-ne-de-service-a-domicile-fust-swiss-household-services-ag-oberburen-cemvaa"
       ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1527,9 +1668,7 @@
       "addressRegion": "SG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      "country": "CH"
     },
     {
       "id": "company-gvadix",
@@ -1580,7 +1719,16 @@
         "it": [
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen",
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen-gvadix",
-          "home-delivery-installer-negli-elettrodomestici-fust-oberburen"
+          "home-delivery-installer-negli-elettrodomestici-fust-oberburen",
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen-85hgqi",
+          "home-appliance-delivery-and-installation-technician-fust-swiss-household-services-ag-oberburen",
+          "home-delivery-technician-for-electrical-appliances-fust-swiss-household-services-ag-oberburen",
+          "home-appliance-delivery-and-installation-technician-fust-swiss-household-services-ag-oberburen-85hgqi",
+          "heimliefermonteur-von-elektrohaushaltsgeraten-fust-swiss-household-services-ag-oberburen",
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-oberburen-85hgqi",
+          "technicien-de-livraison-et-installation-d-appareils-electromenagers-fust-swiss-household-services-ag-oberburen",
+          "technicien-de-livraison-a-domicile-d-appareils-electromenagers-fust-swiss-household-services-ag-oberburen",
+          "technicien-de-livraison-et-installation-d-appareils-electromenagers-fust-swiss-household-services-ag-oberburen-85hgqi"
         ],
         "en": [
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen-gvadix",
@@ -1589,6 +1737,9 @@
         "fr": [
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen-gvadix",
           "installateur-de-livraison-a-domicile-dans-les-appareils-electromenagers-fust-oberburen"
+        ],
+        "de": [
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen-85hgqi"
         ]
       },
       "previousSlugs": [
@@ -1596,8 +1747,19 @@
         "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen-gvadix",
         "home-delivery-installer-negli-elettrodomestici-fust-oberburen",
         "home-delivery-installer-in-electrical-household-appliances-fust-oberburen",
-        "installateur-de-livraison-a-domicile-dans-les-appareils-electromenagers-fust-oberburen"
+        "installateur-de-livraison-a-domicile-dans-les-appareils-electromenagers-fust-oberburen",
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen-85hgqi",
+        "home-appliance-delivery-and-installation-technician-fust-swiss-household-services-ag-oberburen",
+        "home-delivery-technician-for-electrical-appliances-fust-swiss-household-services-ag-oberburen",
+        "home-appliance-delivery-and-installation-technician-fust-swiss-household-services-ag-oberburen-85hgqi",
+        "heimliefermonteur-von-elektrohaushaltsgeraten-fust-swiss-household-services-ag-oberburen",
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-oberburen-85hgqi",
+        "technicien-de-livraison-et-installation-d-appareils-electromenagers-fust-swiss-household-services-ag-oberburen",
+        "technicien-de-livraison-a-domicile-d-appareils-electromenagers-fust-swiss-household-services-ag-oberburen",
+        "technicien-de-livraison-et-installation-d-appareils-electromenagers-fust-swiss-household-services-ag-oberburen-85hgqi"
       ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1612,9 +1774,7 @@
       "addressRegion": "SG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      "country": "CH"
     },
     {
       "id": "company-tdw5z7",
