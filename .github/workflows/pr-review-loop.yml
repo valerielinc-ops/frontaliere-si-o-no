@@ -112,28 +112,14 @@ jobs:
             { echo "pr_number=$PRN"; echo "should_review=false"; } >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          # Debounce (#3153): un burst di push rapidi sullo stesso branch (agent
-          # che itera fix in <1min) può produrre PIÙ eventi `tests`-success in
-          # sequenza prima che il precedente abbia esaurito il suo `tests` run —
-          # il `cancel-in-progress` di `tests` (keyed sul ref) elimina già gran
-          # parte, ma una corsa dove ogni push arriva DOPO che il precedente ha
-          # già completato con successo (non cancellato) fa comunque partire una
-          # review Claude per uno SHA che sta per essere superato. Fix: dormi una
-          # finestra breve, poi ricontrolla la head LIVE della PR. Se è già
-          # avanzata oltre lo SHA di questo evento, un push più recente è già
-          # arrivato → il SUO `tests` (gira su OGNI push, niente paths-ignore,
-          # vedi header) farà scattare il proprio resolve/review — bail out qui
-          # non lascia MAI la PR senza review. Se invece la head non è cambiata
-          # (caso normale, non-burst) si prosegue subito dopo i ~25s: costo fisso
-          # di latenza, non un giro di Claude sprecato.
-          echo "Debounce: attesa 25s per assorbire push rapidi in burst prima di invocare Claude..."
-          sleep 25
-          LIVE_SHA=$(gh pr view "$PRN" --repo "$REPO" --json headRefOid --jq '.headRefOid // empty' 2>/dev/null || true)
-          if [ -n "${LIVE_SHA:-}" ] && [ "$LIVE_SHA" != "$RUN_HEAD_SHA" ]; then
-            echo "Debounce: PR #$PRN è avanzata a $LIVE_SHA (questo evento era per $RUN_HEAD_SHA) — un push più recente è già arrivato, la sua run di tests/review se ne occuperà. Skip."
-            { echo "pr_number=$PRN"; echo "should_review=false"; } >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
+          # NB: il debounce anti-burst NON è più qui — vive nello step
+          # "Debounce burst pushes" più sotto, dopo l'avvio dell'install di
+          # Headroom in background. Restava in questo step per ragioni storiche
+          # e la sua `sleep 25` era puro tempo aggiunto: misurata a 26s di
+          # "Resolve PR" (run 30372284779) PRIMA del checkout, quindi non
+          # copriva nulla. Spostata dopo l'install bg, gli stessi 25s mascherano
+          # l'install invece di sommarsi — e la finestra di ricontrollo della
+          # head diventa più larga, quindi il debounce assorbe più burst.
           {
             echo "pr_number=$PRN"
             echo "should_review=true"
@@ -427,11 +413,51 @@ jobs:
       # `wait: headroom-install` perché quando lo step bg è saltato (PR non
       # reviewabile) non c'è nessun bg outstanding e `wait-all` è un no-op,
       # mentre attendere per id uno step mai avviato non ha semantica definita.
+      # Debounce anti-burst (#3153), spostato qui da "Resolve PR from tests run".
+      #
+      # Cosa protegge: un burst di push ravvicinati sullo stesso branch (agent
+      # che itera fix in <1min) può produrre PIÙ eventi `tests`-success in
+      # sequenza. Il `cancel-in-progress` di `tests` (keyed sul ref) ne elimina
+      # gran parte, ma una corsa in cui ogni push arriva DOPO che il precedente
+      # ha già concluso con successo fa comunque partire una review Claude per
+      # uno SHA che sta per essere superato. Si dorme una finestra breve e si
+      # ricontrolla la head LIVE: se è avanzata, il `tests` del push più recente
+      # farà scattare la propria review (gira su OGNI push, niente
+      # paths-ignore), quindi uscire qui non lascia MAI la PR senza review.
+      #
+      # Perché QUI e non più nel resolve: identica semantica, ma questi 25s ora
+      # cadono mentre l'install di Headroom lavora in background, invece che da
+      # soli prima del checkout. Misura che ha motivato lo spostamento (run
+      # 30372284779): "Resolve PR" 26s + "Install Headroom (background)" 32s di
+      # cui 30s riassorbiti dal wait — gli step fra install e wait (Setup Node,
+      # re-review guard, tier) durano <2s in totale, quindi non mascheravano
+      # niente. Con il debounce qui la finestra di copertura passa da ~2s a ~27s
+      # e il ricontrollo della head diventa pure più tardivo, cioè più efficace.
+      - name: Debounce burst pushes (recheck PR head)
+        id: debounce
+        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PRN: ${{ steps.resolve.outputs.pr_number }}
+          RUN_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -uo pipefail
+          echo "Debounce: attesa 25s per assorbire push rapidi in burst prima di invocare Claude..."
+          sleep 25
+          LIVE_SHA=$(gh pr view "$PRN" --repo "$REPO" --json headRefOid --jq '.headRefOid // empty' 2>/dev/null || true)
+          if [ -n "${LIVE_SHA:-}" ] && [ "$LIVE_SHA" != "$RUN_HEAD_SHA" ]; then
+            echo "Debounce: PR #$PRN è avanzata a $LIVE_SHA (questo evento era per $RUN_HEAD_SHA) — un push più recente è già arrivato, la sua run di tests/review se ne occuperà. Skip."
+            echo "superseded=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "superseded=false" >> "$GITHUB_OUTPUT"
+
       - name: Wait for background Headroom install
         wait-all: true
 
       - name: Setup Headroom compression proxy
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
         uses: ./.github/actions/setup-headroom
         with:
           # L'install è già girato in background sopra: qui serve solo far
@@ -443,7 +469,7 @@ jobs:
         # tier `minimal` ha il suo percorso corto (≤6 turni, gh pr view diretto
         # nel prompt) e non legge mai $CTX_DIR — skip per non sprecare 3 gh call
         # a vuoto su ogni PR data/docs-only.
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.tier.outputs.tier != 'minimal'
+        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.tier.outputs.tier != 'minimal' && steps.debounce.outputs.superseded != 'true'
         # Fetch una volta sola, PRIMA che Claude parta, ciò che il prompt gli
         # farebbe rifare turno-per-turno (osservato in 3/3 transcript morti
         # error_max_turns analizzati 2026-07-17: `gh pr view`, `gh pr diff`, il
@@ -482,7 +508,7 @@ jobs:
 
       - name: Run Claude review
         id: claude_review
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
         # Don't let a hard action failure abort the job before the guard below
         # can classify it — the guard decides whether to fail loudly.
         continue-on-error: true
@@ -581,7 +607,7 @@ jobs:
         #    has no `## LGTM` so it won't auto-merge, and it gets re-reviewed on
         #    the next push / by the rescuer once quota recovers. No false-green.
         # `set -uo pipefail` (NOT -e): grep in conditionals must not abort.
-        if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -633,7 +659,7 @@ jobs:
       - name: Claude usage metrics
         # Solo se la review Claude è effettivamente girata (guard non-skip): a
         # review skippata non c'è execution_file da riassumere.
-        if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
         # Exact token/cost for this run (replaces estimates). Writes a table to
         # the run Step Summary + a grep-able CLAUDE_USAGE line to the log.
         # Best-effort: never fails the job.
