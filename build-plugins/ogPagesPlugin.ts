@@ -36,6 +36,14 @@ export interface RenderedArticleEntry {
  flatPaths: Record<string, string>;
  /** Locale -> canonical absolute URL (trailing slash). */
  urls: Record<string, string>;
+ /**
+  * Site-relative resolved hero image path (e.g. `/images/blog/<file>.webp`),
+  * same for every locale — the value `resolveImagePath` computed for this
+  * article, post existence-checking + extension fallback. Exposed (#4837
+  * stream A) so publish-article-fast.mjs can derive the CDN upload manifest
+  * from the renderer's own resolution instead of re-deriving/guessing it.
+  */
+ img: string;
 }
 
 export interface RenderArticlePagesOptions {
@@ -1257,6 +1265,7 @@ ${headTags}
  paths: writtenPaths,
  flatPaths: writtenFlatPaths,
  urls: writtenUrls,
+ img: en.img,
  });
  }
 
