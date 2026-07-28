@@ -35,10 +35,16 @@
  * Pure Node, no deps.
  */
 
-import { readdirSync, readFileSync, statSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
-import { join, dirname, relative } from 'node:path';
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { join, dirname, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeAuditReport } from './lib/auditReport.mjs';
+import { walkHtmlFiles, sampleFiles, resolveSamplingEnv } from './lib/audit-runner.mjs';
+import { readHeadOrAll } from './lib/readHead.mjs';
+
+// Bounded in-flight reads — same cap audit-hreflang and dropOverwrittenLocs
+// use for this workload (pure I/O over dist/ on a 4-vCPU runner).
+const IN_FLIGHT = 64;
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -78,36 +84,6 @@ const LIMIT = RAW_LIMIT === undefined || RAW_LIMIT === true ? Infinity : Number(
 const PRINT_LIMIT = 50;
 
 // ── Helpers ─────────────────────────────────────────────────────────────────
-
-/**
- * Walk a directory recursively, yielding absolute paths for every regular file
- * matching `predicate`. Pure synchronous walk — dist/ is local and small enough
- * that an async stream would add complexity for no win.
- *
- * @param {string} dir
- * @param {(absPath: string) => boolean} predicate
- * @param {string[]} acc
- * @returns {string[]}
- */
-function walk(dir, predicate, acc = []) {
-  let entries;
-  try {
-    entries = readdirSync(dir, { withFileTypes: true });
-  } catch {
-    return acc;
-  }
-  for (const ent of entries) {
-    const full = join(dir, ent.name);
-    if (ent.isDirectory()) {
-      // Skip the audit-reports dir itself — it holds prior runs, never source HTML.
-      if (ent.name === 'audit-reports' || ent.name === '.audits') continue;
-      walk(full, predicate, acc);
-    } else if (ent.isFile() && predicate(full)) {
-      acc.push(full);
-    }
-  }
-  return acc;
-}
 
 /**
  * @param {string} s
@@ -179,34 +155,76 @@ async function main() {
     process.exit(2);
   }
 
-  const allHtml = walk(DIST, (p) => p.toLowerCase().endsWith('.html'));
-  const htmlFiles = Number.isFinite(LIMIT) ? allHtml.slice(0, LIMIT) : allHtml;
+  // Shared concurrent walker (scripts/lib/audit-runner.mjs) replaces this
+  // file's own synchronous copy. Two deliberate differences, both safe here:
+  // it skips dot-prefixed entries — dist/ dotfile HTML is already a
+  // 0-tolerance failure in audit:no-dotfile-html, so nothing can hide behind
+  // it — and it matches `.html` case-sensitively, which is the only casing
+  // this build emits. The old walker's audit-reports/.audits exclusions are
+  // reapplied below so prior report output can never be mistaken for source.
+  const walked = await walkHtmlFiles(DIST);
+  const allHtml = walked.filter(
+    (p) => !p.includes(`${sep}audit-reports${sep}`) && !p.includes(`${sep}.audits${sep}`)
+  );
+  const limited = Number.isFinite(LIMIT) ? allHtml.slice(0, LIMIT) : allHtml;
+
+  // Rotating sample — same mechanism as `audit:all` (scripts/lib/audit-runner
+  // .mjs `sampleFiles`), driven by AUDIT_SAMPLE_RATE / AUDIT_SAMPLE_SALT. This
+  // gate is 0-tolerance on a per-page property with no baseline to ratchet, so
+  // sampling costs only the run in which an isolated offender first appears:
+  // a systemic canonical-shape regression lands in every bucket. Never silent
+  // (AGENTS.md non-negotiable #1) — the banner below prints on every sampled
+  // run and the metadata goes into the audit report.
+  const { rate, salt } = resolveSamplingEnv();
+  const { sampled: htmlFiles, totalBuckets, activeBucket } = sampleFiles(limited, DIST, rate, salt);
+  const sampling = totalBuckets > 1
+    ? { totalBuckets, activeBucket, filesOnDisk: limited.length, filesScanned: htmlFiles.length }
+    : null;
+  if (sampling) {
+    process.stdout.write(
+      `audit-canonical-trailing-slash: SAMPLED run — bucket ${activeBucket + 1}/${totalBuckets}, ` +
+        `scanning ${htmlFiles.length}/${limited.length} files ` +
+        `(${((htmlFiles.length / limited.length) * 100).toFixed(1)}%). ` +
+        `Full corpus coverage requires ${totalBuckets} consecutive runs (rotates via AUDIT_SAMPLE_SALT).\n`
+    );
+  }
 
   /** @type {{ category: 'fail-no-slash'|'missing-canonical', file: string, canonical: string|null }[]} */
   const offenders = [];
   let okCount = 0;
   let scanned = 0;
 
-  for (const file of htmlFiles) {
-    let html;
-    try {
-      html = readFileSync(file, 'utf8');
-    } catch {
-      continue;
+  // Bounded-concurrency scan. The per-file body is the previous sequential
+  // logic verbatim; only the read is now head-limited and overlapped. Shared
+  // accumulators are safe — lanes interleave solely at await points on a
+  // single-threaded event loop.
+  let cursor = 0;
+  const lane = async () => {
+    while (cursor < htmlFiles.length) {
+      const file = htmlFiles[cursor++];
+      const html = await readHeadOrAll(file);
+      if (html === null) continue;
+      scanned++;
+      const canonical = extractCanonical(html);
+      if (!canonical) {
+        offenders.push({ category: 'missing-canonical', file, canonical: null });
+        continue;
+      }
+      const verdict = classifyCanonical(canonical);
+      if (verdict === 'fail-no-slash') {
+        offenders.push({ category: 'fail-no-slash', file, canonical });
+      } else {
+        okCount++;
+      }
     }
-    scanned++;
-    const canonical = extractCanonical(html);
-    if (!canonical) {
-      offenders.push({ category: 'missing-canonical', file, canonical: null });
-      continue;
-    }
-    const verdict = classifyCanonical(canonical);
-    if (verdict === 'fail-no-slash') {
-      offenders.push({ category: 'fail-no-slash', file, canonical });
-    } else {
-      okCount++;
-    }
-  }
+  };
+  await Promise.all(
+    Array.from({ length: Math.min(IN_FLIGHT, htmlFiles.length) }, () => lane())
+  );
+
+  // Lanes finish out of order — sort so the report and CI log stay stable
+  // between runs over identical input.
+  offenders.sort((a, b) => (a.file < b.file ? -1 : a.file > b.file ? 1 : 0));
 
   const counts = {
     'fail-no-slash': 0,

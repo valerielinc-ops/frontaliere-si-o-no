@@ -44,7 +44,7 @@
  *      result is now kept as a Set and membership is answered in memory.
  *   2. It read every file in full (`readFileSync`) to regex a handful of
  *      `<link rel=alternate>` tags that are only ever valid inside `<head>`.
- *      Reads now stop at the first `</head>` (see `readHeadOrAll`).
+ *      Reads now stop at the first `</head>` (scripts/lib/readHead.mjs).
  *
  * Both are pure I/O eliminations: the same files are inspected and the same
  * verdicts are produced. On top of that the file walk and the per-file reads
@@ -65,7 +65,8 @@ import { existsSync } from 'node:fs';
 import { open } from 'node:fs/promises';
 import path from 'node:path';
 import { writeAuditReport } from './lib/auditReport.mjs';
-import { walkHtmlFiles, sampleFiles } from './lib/audit-runner.mjs';
+import { walkHtmlFiles, sampleFiles, resolveSamplingEnv } from './lib/audit-runner.mjs';
+import { readHeadOrAll } from './lib/readHead.mjs';
 
 const DIST = path.resolve('dist');
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -78,46 +79,6 @@ const PREFIXED_LOCALES = ['en', 'de', 'fr'];
 // far below the 65535 fd ulimit, high enough that Linux readahead stays
 // saturated.
 const IN_FLIGHT = 64;
-
-// Read window for the `<head>` fast path. Comfortably larger than any head
-// this build emits (critical CSS included), so the whole-file fallback below
-// is effectively never taken.
-const HEAD_CHUNK_BYTES = 64 * 1024;
-
-/**
- * Read just enough of `file` to contain its `<head>`.
- *
- * Returns the complete file when it is smaller than one chunk, the head slice
- * when `</head>` is found inside the first chunk, and — only if the head is
- * somehow longer than `HEAD_CHUNK_BYTES` — the entire file. `<link
- * rel="alternate" hreflang>` is only valid inside `<head>`, so slicing there
- * cannot hide a real alternate; a stray one in `<body>` (invalid HTML this
- * build never emits) would no longer be seen.
- *
- * Returns null on any read error — same "skip this file" contract as the
- * previous `try { readFileSync } catch { continue }`.
- */
-async function readHeadOrAll(file) {
-  let fh;
-  try {
-    fh = await open(file, 'r');
-  } catch {
-    return null;
-  }
-  try {
-    const buf = Buffer.allocUnsafe(HEAD_CHUNK_BYTES);
-    const { bytesRead } = await fh.read(buf, 0, HEAD_CHUNK_BYTES, 0);
-    const chunk = buf.toString('utf-8', 0, bytesRead);
-    if (bytesRead < HEAD_CHUNK_BYTES) return chunk;
-    const headEnd = chunk.indexOf('</head>');
-    if (headEnd !== -1) return chunk.slice(0, headEnd);
-    return await fh.readFile('utf-8');
-  } catch {
-    return null;
-  } finally {
-    await fh.close().catch(() => {});
-  }
-}
 
 /** Return a Map<hreflang, href> parsed from one HTML file's <head>.
  *  Quote-flexible — PR #478 baked removeAttributeQuotes upstream. */
@@ -197,15 +158,6 @@ function targetExists(href, distFiles) {
   return false;
 }
 
-/** Resolve the rotating-sample configuration from the environment. */
-function resolveSampling() {
-  const raw = Number(process.env.AUDIT_SAMPLE_RATE);
-  const rate = Number.isFinite(raw) && raw > 0 && raw <= 1 ? raw : 1;
-  const saltRaw = Number(process.env.AUDIT_SAMPLE_SALT);
-  const salt = Number.isFinite(saltRaw) ? Math.trunc(saltRaw) : 0;
-  return { rate, salt };
-}
-
 async function main() {
   if (!existsSync(DIST)) {
     console.error(`audit-hreflang: dist/ does not exist at ${DIST}`);
@@ -223,7 +175,7 @@ async function main() {
   // resolve.
   const distFiles = new Set(htmlFiles);
 
-  const { rate, salt } = resolveSampling();
+  const { rate, salt } = resolveSamplingEnv();
   const { sampled, totalBuckets, activeBucket } = sampleFiles(htmlFiles, DIST, rate, salt);
   const sampling = totalBuckets > 1
     ? { totalBuckets, activeBucket, filesOnDisk: htmlFiles.length, filesScanned: sampled.length }
