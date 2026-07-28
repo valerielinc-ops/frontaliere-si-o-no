@@ -87,3 +87,40 @@ shard_orphan_flatten_and_push() {
   git -C "$dir" commit -qm "$msg"
   shard_push_with_retry "$dir" "$repo" "main" "$label"
 }
+
+# shard_history_needs_compaction <clone_dir> <cap>
+# Issue #4881 defect B: push-section-shard.sh bounds `.git` growth via its
+# `.shard-deploys` proxy counter, but push-article-shard-incremental.sh
+# deliberately never increments it (see that script's header) — once a
+# section's full-replace push stops running, the counter freezes and that
+# cap check never fires again. This measures the ACTUAL commit count instead
+# of relying on the frozen proxy: `git rev-list --count HEAD` is tree-graph
+# only (same reasoning as shard_read_counter — never fetches blob content),
+# so <clone_dir> only needs a `--filter=blob:none --no-checkout` clone.
+#
+# Prints the commit count at HEAD in <clone_dir> to stdout (or "0" if HEAD
+# does not resolve). Return code:
+#   0 — commit count >= <cap>: caller should flatten.
+#   1 — commit count <  <cap>: below the threshold, no action needed.
+#   2 — HEAD does not resolve (no commits yet on this clone/branch): nothing
+#       to compact. Distinct from 1 so callers can treat an otherwise-live
+#       shard with zero commits as the real error it is, not a quiet no-op.
+#
+# Caller note: `n=$(shard_history_needs_compaction ...)` under `set -e` MUST
+# be guarded (e.g. `n="$(... )" || rc=$?`) — an unguarded plain assignment
+# aborts the subshell on the very return codes (1, 2) this function uses to
+# signal "no compaction needed" / "no commits yet", before the caller ever
+# gets to inspect them. Exactly the same class of latent bug shard_read_counter
+# and the shrink guard in push-section-shard.sh/push-locale-shard.sh fix
+# elsewhere in this file — a plumbing helper whose non-zero return is a
+# normal, expected outcome, not a hard failure.
+shard_history_needs_compaction() {
+  local dir="$1" cap="$2" n
+  if ! git -C "$dir" rev-parse -q --verify HEAD >/dev/null 2>&1; then
+    printf '%s' "0"
+    return 2
+  fi
+  n="$(git -C "$dir" rev-list --count HEAD)"
+  printf '%s' "$n"
+  [ "$n" -ge "$cap" ]
+}
