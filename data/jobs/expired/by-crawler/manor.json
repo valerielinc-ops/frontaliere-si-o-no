@@ -25,7 +25,7 @@
       "fr": "manor-retail-media-coordinator-100-basel-retail-media-coordinator-d1aegm"
     },
     "sector": "",
-    "expiredAt": "2026-07-28T12:07:52.107Z",
+    "expiredAt": "2026-07-28T22:20:07.433Z",
     "previousSlugs": [
       "manor-retail-media-coordinator-100-basel-retail-media-coordinator-3",
       "manor-retail-media-coordinator-100-basel-retail-media-coordinator"
@@ -67,7 +67,7 @@
       "fr": "manor-retail-media-coordinator-100-basel-retail-media-coordinator-d1af7b"
     },
     "sector": "",
-    "expiredAt": "2026-07-28T12:07:52.107Z",
+    "expiredAt": "2026-07-28T22:20:07.433Z",
     "previousSlugs": [
       "manor-retail-media-coordinator-100-basel-retail-media-coordinator-2",
       "manor-retail-media-coordinator-100-basel-retail-media-coordinator"
@@ -109,7 +109,7 @@
       "fr": "manor-head-of-retail-media-100-basel-head-of-retail-0r202q"
     },
     "sector": "",
-    "expiredAt": "2026-07-28T12:07:52.107Z",
+    "expiredAt": "2026-07-28T22:20:07.433Z",
     "previousSlugs": [
       "manor-head-of-retail-media-100-basel-head-of-retail-2",
       "manor-head-of-retail-media-100-basel-head-of-retail"
@@ -151,7 +151,7 @@
       "fr": "manor-head-of-retail-media-100-basel-head-of-retail-0r20tf"
     },
     "sector": "",
-    "expiredAt": "2026-07-28T12:07:52.107Z",
+    "expiredAt": "2026-07-28T22:20:07.433Z",
     "previousSlugs": [
       "manor-head-of-retail-media-100-basel-head-of-retail-3",
       "manor-head-of-retail-media-100-basel-head-of-retail"
@@ -193,7 +193,7 @@
       "fr": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100-2os6pa"
     },
     "sector": "",
-    "expiredAt": "2026-07-28T12:07:52.107Z",
+    "expiredAt": "2026-07-28T22:20:07.433Z",
     "previousSlugs": [
       "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100"
     ],
@@ -229,7 +229,7 @@
       "en": "manor-collaborateur-trice-cuisine-manora-60-vevey-collaborateurtrice-cuisine-manora-tmi19d"
     },
     "sector": "",
-    "expiredAt": "2026-07-28T12:07:52.107Z",
+    "expiredAt": "2026-07-28T22:20:07.433Z",
     "previousSlugs": [
       "kollaborateur-trike-kuche-manora-60-manor-ag-vevey-collaborateurtrice-cuisine-manora",
       "manor-collaborateur-trice-cuisine-manora-60-vevey-collaborateurtrice-cuisine-manora"
@@ -271,7 +271,7 @@
       "fr": "manor-assistant-product-manager-100-basel-assistant-product-manager-fvy7t2"
     },
     "sector": "",
-    "expiredAt": "2026-07-28T12:07:52.107Z",
+    "expiredAt": "2026-07-28T22:20:07.433Z",
     "previousSlugs": [
       "manor-assistant-product-manager-100-basel-assistant-product-manager-2",
       "manor-assistant-product-manager-100-basel-assistant-product-manager"
@@ -292,8 +292,8 @@
     "title": "Mitarbeiter*in Verkauf Herrenkonfektion 20%",
     "titleByLocale": {
       "it": "Collaboratore/trice*in vendita Herrenkonfektion 20%",
-      "en": "Mitarbeiter*in Sales Herrenkonfektion 20%",
       "de": "Mitarbeiter*in Verkauf Herrenkonfektion 20%",
+      "en": "Mitarbeiter*in Sales Herrenkonfektion 20%",
       "fr": "Mitarbeiter*in Vente Herrenkonfektion 20%"
     },
     "company": "Manor AG",
@@ -313,7 +313,7 @@
       "fr": "manor-mitarbeiter-in-verkauf-herrenkonfektion-20-spreitenbach-mitarbeiterin-verkauf-t3969n"
     },
     "sector": "",
-    "expiredAt": "2026-07-28T12:07:52.107Z",
+    "expiredAt": "2026-07-28T22:20:07.433Z",
     "previousSlugs": [
       "manor-mitarbeiter-in-verkauf-herrenkonfektion-20-spreitenbach-mitarbeiterin-verkauf-herrenkonfektion"
     ],
@@ -349,7 +349,7 @@
       "fr": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-fu2bx0"
     },
     "sector": "",
-    "expiredAt": "2026-07-28T12:07:52.107Z",
+    "expiredAt": "2026-07-28T22:20:07.433Z",
     "previousSlugs": [
       "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-kommissionierung-2",
       "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-kommissionierung"
@@ -361,6 +361,42 @@
     },
     "salaryMin": 69500,
     "salaryMax": 106000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "dedupArchive": true
+  },
+  {
+    "slug": "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logi-9pzn7e",
+    "title": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20%",
+    "titleByLocale": {
+      "it": "Collaboratore/trice*in Logistik (Montagsaushilfe eManor) 20%",
+      "de": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20%",
+      "en": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20%",
+      "fr": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20%"
+    },
+    "company": "Manor AG",
+    "companyKey": "manor",
+    "location": "Hochdorf Mitarbeiterin Logistik (Montagsaushilfe",
+    "addressLocality": "Hochdorf Mitarbeiterin Logistik (Montagsaushilfe",
+    "descriptionByLocale": {
+      "it": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik (Montagsaushilfe, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "en": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20% at Manor, located in Hochdorf Mitarbeiterin Logistik (Montagsaushilfe, Canton of Lucerne, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
+      "de": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20% bei Manor, gelegen in Hochdorf Mitarbeiterin Logistik (Montagsaushilfe, Kanton Luzern, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+      "fr": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20% chez Manor, situé à Hochdorf Mitarbeiterin Logistik (Montagsaushilfe, Canton de Lucerne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+    },
+    "slugByLocale": {
+      "it": "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logi-9pzn7e",
+      "en": "logistics-employee-monday-temporary-help-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
+      "fr": "employe-e-logistique-support-du-lundi-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
+      "de": "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logi-9pzn7e"
+    },
+    "sector": "",
+    "expiredAt": "2026-07-28T22:20:07.433Z",
+    "previousSlugs": [
+      "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
+    ],
+    "salaryMin": 13900,
+    "salaryMax": 21200,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "dedupArchive": true
@@ -401,52 +437,6 @@
       "it": [
         "manor-mitarbeiter-in-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-in-logistik",
         "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe-2"
-      ]
-    },
-    "salaryMin": 13900,
-    "salaryMax": 21200,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "dedupArchive": true
-  },
-  {
-    "slug": "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logi-9pzn7e",
-    "title": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20%",
-    "titleByLocale": {
-      "it": "Collaboratore/trice*in Logistik (Montagsaushilfe eManor) 20%",
-      "en": "Logistics Assistant (Montagsaushilfe eManor) 20%",
-      "de": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20%",
-      "fr": "Assistant Logistique (Montagsaushilfe eManor) 20%"
-    },
-    "company": "Manor AG",
-    "companyKey": "manor",
-    "location": "Hochdorf Mitarbeiterin Logistik (Montagsaushilfe",
-    "addressLocality": "Hochdorf Mitarbeiterin Logistik (Montagsaushilfe",
-    "descriptionByLocale": {
-      "it": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik (Montagsaushilfe, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "en": "Description Mitarbeiter*in Logistic (Montagsaus Ilffe eManor) 20% at Manor, based in Hochdorf Mitarbeiterin Logistick (Montagsaus Ilffe, Canton Lucerne, Switzerland. Manor is one of the leading chains of Swiss department stores, with a wide range of products including fashion, beauty, home, grocery and Manor restaurants. This location offers the opportunity to work in a dynamic and customer-oriented environment.",
-      "de": "BeschreibungHendin*in Logistik (Montagsaus Ilffe eManor) 20% im Herrenhaus mit Sitz in HochdorfHendin Logistik (Montagsaus Ilffe, Kanton Luzern, Schweiz. Das Herrenhaus ist eine der führenden Ketten Schweizer Kaufhäuser mit einer breiten Palette von Produkten, darunter Mode, Schönheit, Wohnen, Lebensmittel- und Manorrestaurants. Dieser Standort bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-      "fr": "Description Mitarbeiter*in Logistic (Montagsaus Ilffe eManor) 20% at Manor, based in Hochdorf Mitarbeiterin Logistick (Montagsaus Ilffe, Canton Lucerne, Suisse. Manor est l'une des principales chaînes de grands magasins suisses, avec une large gamme de produits, y compris la mode, la beauté, la maison, l'épicerie et les restaurants Manor."
-    },
-    "slugByLocale": {
-      "it": "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logi-9pzn7e",
-      "en": "logistics-employee-monday-temporary-help-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
-      "de": "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logi-9pzn7e",
-      "fr": "employe-e-logistique-support-du-lundi-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
-    },
-    "sector": "",
-    "expiredAt": "2026-07-28T12:07:52.107Z",
-    "previousSlugs": [
-      "collaboratore-trice-in-logistik-montagsaushilfe-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
-      "assistant-logistique-montagsaushilfe-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
-      "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "collaboratore-trice-in-logistik-montagsaushilfe-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
-      ],
-      "fr": [
-        "assistant-logistique-montagsaushilfe-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
       ]
     },
     "salaryMin": 13900,
