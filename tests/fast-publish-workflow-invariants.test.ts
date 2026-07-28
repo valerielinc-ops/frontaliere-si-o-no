@@ -98,3 +98,35 @@ describe('wait-for-live-article-shards.mjs invariants', () => {
     expect(script).toMatch(/createHash\(['"]sha256['"]\)/);
   });
 });
+
+describe('producer wiring stays connected', () => {
+  // Removing a dispatch step breaks nothing loudly: the article simply falls
+  // back to the 30min-2h deploy and the fast path quietly stops applying to
+  // that producer. Same silent-inert class as everything else in this file.
+  const producers = [
+    '.github/workflows/generate-article.yml',
+    '.github/workflows/publish-journalist-articles.yml',
+  ];
+
+  for (const producer of producers) {
+    it(`${producer} dispatches fast-publish-article.yml`, () => {
+      const yml = read(producer);
+      expect(yml).toContain('fast-publish-article.yml');
+      // Must go through the shared dispatch engine, which is what waits for the
+      // pushed SHA to be visible on main before firing.
+      expect(yml).toMatch(/trigger-workflow\.sh"?\s+"fast-publish-article\.yml"/);
+    });
+  }
+
+  it('the reconciler re-dispatches articles the deploy raced past', () => {
+    const yml = read('.github/workflows/fast-publish-reconcile.yml');
+    // Must key off the deploy build SHA, otherwise it cannot tell which
+    // articles the completed build predates.
+    expect(yml).toContain('workflow_run.head_sha');
+    expect(yml).toContain('reconcile-fast-publish-articles.mjs');
+    // It runs without npm ci, so Remote Config must be reachable without
+    // firebase-admin or it silently loads no GITHUB_PAT and dispatches nothing.
+    expect(yml).not.toMatch(/^\s*run:\s*npm ci\b/m);
+    expect(read('scripts/load-rc-env.mjs')).toContain('fetchTemplateViaRest');
+  });
+});
