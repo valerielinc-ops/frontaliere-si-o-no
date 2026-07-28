@@ -9,21 +9,37 @@ description: >-
   subscription token already used by pr-review-loop.yml/issue-fix.yml), never
   ANTHROPIC_API_KEY.
   Caller MUST run "node scripts/load-rc-env.mjs" before this action so
-  env.ENABLE_HAIKU_ARTICLE_FALLBACK reflects Remote Config (the `if:` below
-  reads ONLY env.*, never vars.* — an unset `vars` context coerces to
-  null->0 in GitHub Actions' comparison, which silently desyncs the install
-  step from the runtime gate; see generate-article.yml git history, run
-  29676088799). Caller MUST also pass CLAUDE_CODE_OAUTH_TOKEN (sourced from
-  secrets.CLAUDE_CODE_OAUTH_TOKEN) via env: on any step that actually invokes
-  callLLM — ai-models.mjs only offers the
-  model when both the flag AND the token are present
+  env.ENABLE_HAIKU_ARTICLE_FALLBACK reflects Remote Config. Caller MUST also
+  pass CLAUDE_CODE_OAUTH_TOKEN (sourced from secrets.CLAUDE_CODE_OAUTH_TOKEN)
+  via env: on any step that actually invokes callLLM — ai-models.mjs only
+  offers the model when both the flag AND the token are present
   (isClaudeCliFallbackEnabled/hasClaudeCodeOauthToken). Passing the token
   here is harmless even on steps that never reach the fallback tier.
+  CORRECTED CLAIM (was wrong in this file since generate-article.yml run
+  29676088799, propagated into setup-omniroute/action.yml via PR #4816):
+  env.* is NOT immune to the null/unset->0 coercion previously blamed only
+  on vars.* — `if: env.X != '0'` also evaluates FALSE when env.X was never
+  set anywhere (confirmed live: this repo's RC value for
+  ENABLE_HAIKU_ARTICLE_FALLBACK happens to be the explicit string 'true',
+  so this action's gate has never actually exercised the true-unset path in
+  production). Fixed below by resolving the default in bash — where
+  `${ENABLE_HAIKU_ARTICLE_FALLBACK:-1}` unambiguously treats unset as
+  `1` — before the `if:` expression ever sees it, same pattern as
+  setup-omniroute/action.yml and translate-pending.yml's
+  TRANSLATE_ARGOS_FIRST_DISABLE (`!= '1'`) gate.
 runs:
   using: "composite"
   steps:
+    # Unconditional: resolves the RC flag's actual default (proceed) in
+    # bash instead of GitHub Actions' `if:` expression language, which
+    # evaluates a true-unset env.X as equal to '0' rather than as ''. See
+    # the CORRECTED CLAIM note above.
+    - name: Resolve Claude CLI Haiku fallback gate
+      shell: bash
+      run: echo "HAIKU_FALLBACK_GATE=${ENABLE_HAIKU_ARTICLE_FALLBACK:-1}" >> "$GITHUB_ENV"
+
     - name: Setup Claude CLI Haiku fallback
-      if: env.ENABLE_HAIKU_ARTICLE_FALLBACK != '0'
+      if: env.HAIKU_FALLBACK_GATE != '0'
       shell: bash
       run: |
         npm install -g @anthropic-ai/claude-code
@@ -35,7 +51,8 @@ runs:
     - name: Diagnose Claude CLI Haiku fallback state
       shell: bash
       run: |
-        echo "ENABLE_HAIKU_ARTICLE_FALLBACK=${ENABLE_HAIKU_ARTICLE_FALLBACK:-<unset>}"
+        echo "ENABLE_HAIKU_ARTICLE_FALLBACK=${ENABLE_HAIKU_ARTICLE_FALLBACK:-<unset>} (raw RC value)"
+        echo "HAIKU_FALLBACK_GATE=${HAIKU_FALLBACK_GATE:-<unset>} (resolved gate)"
         if command -v claude >/dev/null 2>&1; then
           echo "claude CLI: present ($(claude --version 2>&1 | head -1))"
         else
