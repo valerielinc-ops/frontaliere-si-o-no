@@ -250,40 +250,16 @@ export function isTrivialSecret(value) {
  * back to plain env vars, exactly as before.
  */
 async function fetchTemplateViaRest() {
-  const { createSign } = await import('node:crypto');
   const { readFileSync } = await import('node:fs');
+  const { getServiceAccountAccessToken } = await import('./lib/google-service-account-token.mjs');
 
   const creds = JSON.parse(readFileSync(process.env.GOOGLE_APPLICATION_CREDENTIALS, 'utf8'));
-  if (!creds.client_email || !creds.private_key || !creds.project_id) {
-    throw new Error('service account JSON missing client_email/private_key/project_id');
-  }
+  if (!creds.project_id) throw new Error('service account JSON missing project_id');
 
-  const TOKEN_URL = 'https://oauth2.googleapis.com/token';
-  const now = Math.floor(Date.now() / 1000);
-  const encode = (obj) => Buffer.from(JSON.stringify(obj)).toString('base64url');
-  const unsigned = [
-    encode({ alg: 'RS256', typ: 'JWT' }),
-    encode({
-      iss: creds.client_email,
-      scope: 'https://www.googleapis.com/auth/firebase.remoteconfig',
-      aud: TOKEN_URL,
-      iat: now,
-      exp: now + 3600,
-    }),
-  ].join('.');
-
-  const sign = createSign('RSA-SHA256');
-  sign.update(unsigned);
-  const assertion = `${unsigned}.${sign.sign(creds.private_key, 'base64url')}`;
-
-  const tokenRes = await fetch(TOKEN_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({ grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer', assertion }),
-  });
-  if (!tokenRes.ok) throw new Error(`OAuth token exchange failed: ${tokenRes.status}`);
-  const { access_token: accessToken } = await tokenRes.json();
-  if (!accessToken) throw new Error('OAuth response missing access_token');
+  const accessToken = await getServiceAccountAccessToken(
+    creds,
+    'https://www.googleapis.com/auth/firebase.remoteconfig',
+  );
 
   const rcRes = await fetch(
     `https://firebaseremoteconfig.googleapis.com/v1/projects/${encodeURIComponent(creds.project_id)}/remoteConfig`,
