@@ -1645,6 +1645,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.canicola-cantieri-ssic.title': 'Hitze und Baustellen, der SBV: \'Genug Strafen für Verspätungen\'',
     'blog.article.canicola-cantieri-ssic.excerpt': 'Der Schweizerische Baudarlehensverband (SBV) fordert gerechtere Vertragsbedingungen, um die Gesundheit der Arbeitnehmer bei Hitzewellen zu schützen.',
     'blog.article.canicola-cantieri-ssic.imageAlt': 'Frontalier-Arbeiter auf Baustellen während der Canicola.',
+    'blog.article.zurich-finma-licenziamenti-previdenza.title': 'Zurich entlässt Mitarbeiter nach FINMA-Intervention',
+    'blog.article.zurich-finma-licenziamenti-previdenza.excerpt': 'Die Zurich-Gruppe entlässt mehr als zwölf Mitarbeitende aufgrund von Preisunregelmässigkeiten bei den von der FINMA erfassten Lebens- und Vorsorgeversicherungen.',
+    'blog.article.zurich-finma-licenziamenti-previdenza.imageAlt': 'Hauptsitz einer Schweizer Versicherungsgruppe in Zürich',
 };
 
 export default blogMetaChDe;

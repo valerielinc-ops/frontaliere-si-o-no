@@ -21272,6 +21272,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-zurich-finma-licenziamenti-previdenza': {
+    title: 'Zurich licenzia dipendenti dopo intervento FINMA',
+    description: 'Zurich licenzia oltre 12 dipendenti dopo l\'intervento della FINMA sulle polizze vita aziendali. Scopri le implicazioni per la previdenza professionale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, zurich, licenzia, dipendenti, dopo',
+    ogTitle: 'Zurich: licenziamenti e blocco FINMA su polizze vita',
+    ogDescription: 'Il gruppo Zurich allontana dipendenti dopo irregolarità nei prezzi rilevate dalla FINMA. Cosa cambia per le assicurazioni vita e le pensioni.',
+    canonicalPath: '/articoli-svizzera/zurich-finma-licenziamenti-previdenza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Zurich licenzia dipendenti dopo intervento FINMA",
+      "description": "Zurich licenzia oltre 12 dipendenti dopo l'intervento della FINMA sulle polizze vita aziendali. Scopri le implicazioni per la previdenza professionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/zurich-finma-licenziamenti-previdenza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede di un gruppo assicurativo svizzero a Zurigo"
+      },
+      "datePublished": "2026-07-28T15:07:48+00:00",
+      "dateModified": "2026-07-28T15:07:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/zurich-finma-licenziamenti-previdenza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

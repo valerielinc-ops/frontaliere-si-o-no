@@ -1645,6 +1645,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.canicola-cantieri-ssic.title': 'Canicola e cantieri, la SSIC: \'Basta penalità per ritardi\'',
     'blog.article.canicola-cantieri-ssic.excerpt': 'La Società svizzera degli imprestiti costruttori (SSIC) chiede condizioni contrattuali più eque per tutelare la salute dei lavoratori durante le ondate di caldo.',
     'blog.article.canicola-cantieri-ssic.imageAlt': 'Lavoratori frontalieri in cantieri durante l\'epoca di canicola.',
+    'blog.article.zurich-finma-licenziamenti-previdenza.title': 'Zurich licenzia dipendenti dopo intervento FINMA',
+    'blog.article.zurich-finma-licenziamenti-previdenza.excerpt': 'Il gruppo Zurich allontana oltre dodici collaboratori a causa di irregolarità nei prezzi delle polizze vita e previdenziali rilevate dalla FINMA.',
+    'blog.article.zurich-finma-licenziamenti-previdenza.imageAlt': 'Sede di un gruppo assicurativo svizzero a Zurigo',
 };
 
 export default blogMetaChIt;
