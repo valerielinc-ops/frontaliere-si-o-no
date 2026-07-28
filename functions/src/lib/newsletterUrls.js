@@ -13,9 +13,10 @@
  * boundary documented in functions/src/lib/welcomeEmailTemplate.js and
  * functions/src/lib/newsletterUrlPaths.js). services/newsletterUrls.mjs
  * re-exports the builders below so every scripts/ and services/ importer
- * (send-newsletter.mjs, send-onboarding-drip.mjs, blast-publisher-ads.mjs,
- * preview-welcome-email.mjs, winbackEmail.mjs, dormantWinbackStage1Email.mjs,
- * ...) keeps resolving to the exact same module, zero edits required.
+ * (send-newsletter.mjs, send-job-alerts.mjs, send-onboarding-drip.mjs,
+ * blast-publisher-ads.mjs, preview-welcome-email.mjs, winbackEmail.mjs,
+ * dormantWinbackStage1Email.mjs, ...) keeps resolving to the exact same
+ * module, zero edits required.
  *
  * The token is HMAC-SHA256 over the lowercased email keyed by
  * NEWSLETTER_SECRET; when the secret is absent the link degrades gracefully
@@ -148,16 +149,28 @@ const localePathPrefix = (locale) => (locale === 'it' ? '' : `/${locale}`);
 /**
  * @param {string} email
  * @param {string} locale
- * @param {{secret?: string}} [opts] see makeUnsubscribeUrl.
- * @returns {string|null} newsletter-preferences URL, or null (caller should
- * omit the link entirely) when there's no secret to sign a valid token with —
- * never ships an unverifiable link.
+ * @param {{secret?: string, fallbackUnsigned?: boolean}} [opts] `secret` as
+ * in makeUnsubscribeUrl. `fallbackUnsigned` (default false, matching the
+ * welcome-email Cloud Function's "never ship an unverifiable link" posture)
+ * — set true to instead return the unsigned base URL when there's no secret,
+ * matching the historical inline behavior of the weekly newsletter and job
+ * alert senders (scripts/send-newsletter.mjs, scripts/send-job-alerts.mjs),
+ * one of which string-concatenates this return value unguarded.
+ * @returns {string|null} newsletter-preferences URL; null when there's no
+ * secret and `fallbackUnsigned` is false.
  */
-export function makePreferencesUrl(email, locale, { secret } = {}) {
-  const token = signedEmailToken(email, secret);
-  if (!token) return null;
+export function makePreferencesUrl(email, locale, { secret, fallbackUnsigned = false } = {}) {
+  // The `email` param must carry the SAME normalized form the token is signed
+  // over, otherwise the handler verifies an HMAC of the lowercased address
+  // against a differently-cased param. Both pre-consolidation implementations
+  // (scripts/send-newsletter.mjs, scripts/send-job-alerts.mjs) normalized here;
+  // dropping it would have silently broken the link for any stored address
+  // that is not already lowercase.
+  const normalized = String(email || '').toLowerCase().trim();
+  const token = signedEmailToken(normalized, secret);
   const slug = PREFERENCES_SLUG[locale] || PREFERENCES_SLUG.it;
   const prefix = localePathPrefix(locale);
-  const base = `${BASE_URL}${prefix}/${slug}?email=${encodeURIComponent(email)}`;
+  const base = `${BASE_URL}${prefix}/${slug}?email=${encodeURIComponent(normalized)}`;
+  if (!token) return fallbackUnsigned ? base : null;
   return `${base}&token=${token}`;
 }

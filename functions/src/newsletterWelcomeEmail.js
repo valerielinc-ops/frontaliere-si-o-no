@@ -24,42 +24,30 @@ import { resolveWelcomeContext } from './lib/welcomeSegment.js';
 import { buildWelcomeEmail } from './lib/welcomeEmailTemplate.js';
 import { buildLifecycleEmailHeaders } from './lib/lifecycleEmailHeaders.js';
 import { makeOneClickUnsubscribeUrl, makePreferencesUrl } from './lib/newsletterUrls.js';
+import { inferInterest, resolveDripSegment } from './lib/newsletterSegments.js';
 
 const FROM_EMAIL = 'Frontaliere Ticino <newsletter@frontaliereticino.ch>';
 const RECENCY_WINDOW_MS = 48 * 60 * 60 * 1000; // 48h
 const KILL_SWITCH_DISABLED_VALUES = new Set(['0', 'false', 'off']);
 
-// ── Drip handoff — interest → segment. Duplicated from
-// services/newsletter-segments.mjs's inferInterest (same rule set, reading
-// the RAW Firestore doc fields — source_component / source_route_family /
-// job_slug / job_search_query / job_company — directly instead of the
-// sourceComponent/sourceRouteFamily camelCase projection
-// scripts/lib/subscriberFromFirestoreRow.mjs produces for the scripts/ side)
-// and services/newsletter/onboardingDrip.mjs's resolveDripSegment (trivial
-// 2-value collapse). functions/ can't import services/ — keep both in sync
-// if either rule set changes.
-const JOB_COMPONENTS = new Set(['JobBoard', 'JobExpiredView', 'JobBridgeView', 'JobOrphanView']);
-const UTILITY_COMPONENTS = new Set(['TaxCalendar']);
-const JOB_ROUTE_FAMILIES = new Set(['jobs_index', 'jobs_company', 'jobs_search', 'job_detail']);
-const ARTICLE_ROUTE_FAMILIES = new Set(['article_detail', 'article_index']);
-const UTILITY_ROUTE_FAMILIES = new Set([
-  'calculator', 'comparison', 'guide', 'tax', 'life', 'glossary', 'stats_detail', 'stats_index',
-]);
-
-function inferWelcomeInterest(doc) {
-  const component = doc?.source_component || null;
-  const routeFamily = doc?.source_route_family || null;
-  if (component && JOB_COMPONENTS.has(component)) return 'jobs';
-  if (component && UTILITY_COMPONENTS.has(component)) return 'utility';
-  if (routeFamily && JOB_ROUTE_FAMILIES.has(routeFamily)) return 'jobs';
-  if (routeFamily && ARTICLE_ROUTE_FAMILIES.has(routeFamily)) return 'articles';
-  if (routeFamily && UTILITY_ROUTE_FAMILIES.has(routeFamily)) return 'utility';
-  if (doc?.job_slug || doc?.job_search_query || doc?.job_company) return 'jobs';
-  return 'general';
-}
-
-function resolveWelcomeDripSegment(interest) {
-  return interest === 'jobs' ? 'jobs-first' : 'utility-first';
+/**
+ * inferInterest (./lib/newsletterSegments.js) expects a subscriber projected
+ * the way scripts/lib/subscriberFromFirestoreRow.mjs shapes it for the
+ * scripts/ side — camelCase `sourceComponent`/`sourceRouteFamily`, but
+ * snake_case `job_slug`/`job_search_query`/`job_company` passed straight
+ * through. This function's `data` is instead the RAW Firestore doc
+ * (snake_case throughout) — adapt just the two renamed fields.
+ * @param {Record<string, any>} doc
+ * @returns {{sourceComponent: string|null, sourceRouteFamily: string|null, job_slug: string|null, job_search_query: string|null, job_company: string|null}}
+ */
+function toInterestSubscriber(doc) {
+  return {
+    sourceComponent: doc?.source_component || null,
+    sourceRouteFamily: doc?.source_route_family || null,
+    job_slug: doc?.job_slug || null,
+    job_search_query: doc?.job_search_query || null,
+    job_company: doc?.job_company || null,
+  };
 }
 
 function toDate(value) {
@@ -231,8 +219,8 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
   const messageId = sent[0]?.messageId || null;
 
   if (!isPreview) {
-    const interest = inferWelcomeInterest(data);
-    const dripSegment = resolveWelcomeDripSegment(interest);
+    const interest = inferInterest(toInterestSubscriber(data));
+    const dripSegment = resolveDripSegment(interest);
     try {
       await subscriberRef.set({
         welcome_message_id: messageId,

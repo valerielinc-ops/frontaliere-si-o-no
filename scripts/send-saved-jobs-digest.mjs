@@ -33,6 +33,10 @@ import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.m
 import { isSavedJobsDigestExcluded } from '../services/emailSuppression.mjs';
 import { deriveSavedJobsAlertCriteria } from '../services/savedJobsAlertCriteria.ts';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
+// localePathPrefix aliased to the local name this script has always used —
+// the implementation is the canonical shared helper (also used by
+// send-newsletter.mjs, send-job-alerts.mjs, AGENTS.md #6).
+import { localePathPrefix } from './lib/articleContent.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -54,8 +58,6 @@ if (TARGET_EMAIL_RAW) {
 // mismatch trips spam filters. Proxied to the savedJobsDigestUnsubscribe Cloud
 // Function by the Cloudflare Worker (infra/cloudflare-worker/locale-router.js).
 const UNSUB_URL = `${BASE_URL}/disiscrivi-promemoria-salvati/`;
-
-const localePathPrefix = (locale) => (locale === 'it' ? '' : `/${locale}`);
 
 const cantonSlugFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-url-slugs.json'), 'utf8'));
 const municipalitiesFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-municipalities.json'), 'utf8'));

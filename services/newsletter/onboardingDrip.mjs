@@ -187,10 +187,11 @@ export function resolveDripCards(interest) {
   return ['guide', middle[0], middle[1], 'comparators'];
 }
 
-/** Snapshot segment label persisted on the subscriber for reporting/idempotency. */
-export function resolveDripSegment(interest) {
-  return interest === 'jobs' ? 'jobs-first' : 'utility-first';
-}
+// resolveDripSegment lives in ../newsletter-segments.mjs (functions/src/lib/
+// newsletterSegments.js) — shared with functions/src/newsletterWelcomeEmail.js
+// so the welcome email and this drip runner's `drip_segment` snapshot can
+// never disagree (AGENTS.md #6).
+export { resolveDripSegment } from '../newsletter-segments.mjs';
 
 /** Absolute ms timestamp at which `step` becomes due, given enrollment time. */
 export function dripStepDueAtMs(startedAtMs, step) {
