@@ -241,10 +241,12 @@ function drawFooterLogo(doc: PDFKit.PDFDocument, logoPath: string | undefined): 
     const height = width * (80 / 400);
     const x = (PDF_PAGE.width - width) / 2;
     const y = PDF_PAGE.height - 38;
-    doc.opacity(0.55).image(logoPath, x, y, { width, height });
-    doc.opacity(1);
+    doc.opacity(0.55);
+    doc.image(logoPath, x, y, { width, height });
   } catch {
     // Decorative — swallow and continue without the logo.
+  } finally {
+    doc.opacity(1);
   }
 }
 
