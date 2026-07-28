@@ -313,3 +313,27 @@ Some AI providers return extreme `Retry-After` values (e.g. Cerebras: `Retry-Aft
 2. **Hard kill (chain off)**: comment out the `Self-trigger next run` step in `.github/workflows/generate-article.yml` and push. Cron continues at 30-min intervals.
 
 Source: `scripts/lib/trigger-self.sh`, tests at `tests/lib/trigger-self.test.ts`.
+
+## Near-instant single-article publish (`fast-publish-article.yml`, #4837)
+
+**Why.** A newly registered article was 100% dependent on the next full `deploy.yml` landing. Measured on a real article (`vivere-maccagno-lavorare-ticino`, commit `6c293bc2`): committed 08:38:14 UTC, still 404 in all 4 locales **~2h later**. It is not only slow — it can **starve**: `deploy.yml`'s `concurrency: pages-build-run` keeps a single pending slot, so under frequent pushes to `main` the queued run is dropped when another queues behind it. That article's own deploy (run `30343578622`) sat pending 30 min and was cancelled without starting a single job; the two runs after it were cancelled the same way. Worst deploy-to-live latency asserted in-repo: 2h04m37s (`scripts/notify-journalist-article-live.mjs`).
+
+**What makes it possible** (all verified in production, not assumed):
+
+| Fact | Evidence |
+|---|---|
+| `articolifrontaliere` / `articolisvizzera` are already live section shards | `ARTICOLIFRONTALIERE_SHARD_LIVE` / `ARTICOLISVIZZERA_SHARD_LIVE` repo vars |
+| Shard GitHub Pages publish is ~30s | push `09:14:01Z` → `last-modified: 09:14:31 GMT` on `frontaliere-articolifrontaliere-it` |
+| Shard HTML references assets CDN-absolute with **stable** (non-hashed) filenames | `https://cdn.frontaliereticino.ch/assets/index-entry.js`; `vite.config.ts` stable-name rationale |
+| `CDN_TARGET=r2` | single S3 PUT for hero + thumbnail, no Pages publish lag |
+| `ogPagesPlugin.ts` has zero runtime npm deps (only `import type { Plugin }`) | renderer runs under `npx -y tsx` with **no `npm ci`** |
+
+**Flow.** Producer (`generate-article.yml` / `publish-journalist-articles.yml`) commits to `main`, dispatches `deploy.yml` as before, and additionally dispatches `fast-publish-article.yml` with `article_id` / `section` / `sha`. That workflow: renders the article's 4 locale pages via `scripts/publish-article-fast.mjs` (`renderArticlePages()` exported from `ogPagesPlugin.ts` — the *same* function the full build calls, never a fork) → applies the real post-walk chain (flat-redirect → contextual links on `index.html` only → hreflang → hero CDN rewrite → asset offload) → uploads hero + thumbnail to R2 → merge-pushes the 4 shard repos → verifies all 4 URLs live → only then notifies Google Indexing API + IndexNow.
+
+**Merge, never replace.** `scripts/lib/push-article-shard-incremental.sh` is a sibling of `push-section-shard.sh`, not a variant of it: the latter is full-replace by construction (it `rm -rf`s the working tree even in "incremental" mode), so pointing it at a one-article dist would wipe the shard. The new script builds a commit with git plumbing on top of the remote tree (`read-tree` → `hash-object` → `update-index` → `write-tree --missing-ok` → `commit-tree` → non-force push), so no existing file can be lost. `--missing-ok` is load-bearing: plain `write-tree` eagerly fetches a blob for **every** index entry, which on an 86 MB shard means re-downloading the whole repo per article.
+
+**Flicker race.** The next full deploy full-replaces each shard from a `dist/` built at some commit; if that build started before the article landed, the replace removes the fast-published page. Rather than an advisory lock across workflows (which would mean editing the incident-scarred `push-section-shard.sh`), `fast-publish-reconcile.yml` runs on `deploy-publish.yml` completion, diffs the article registries between the deploy's build SHA and current `main`, and re-dispatches the fast publish for anything newer. Deterministic, zero-Claude, no-op in the common case.
+
+**What the fast path deliberately does NOT update.** Sitemaps, RSS, `robots.txt` and `llms.txt` are apex-only artifacts (`infra/cloudflare-worker/locale-router.js`) and whole-corpus-derived — no shard push can refresh them; they ride the next full deploy, and discovery does not depend on them because Indexing API and IndexNow take URLs directly. Same for the article archive hub, sibling related-article blocks and the homepage news ticker. The per-article SPA body chunk is absent until the full deploy but degrades soft (`services/blogBodyLoader.ts` catches and returns `null`; the body is already inlined in the served static HTML).
+
+Source: `scripts/publish-article-fast.mjs`, `scripts/lib/push-article-shard-incremental.sh`, `scripts/lib/upload-cdn-file.sh`, `scripts/wait-for-live-article-shards.mjs`, `scripts/notify-article-search-engines.mjs`, `scripts/reconcile-fast-publish-articles.mjs`. Byte-identity gate: `scripts/check-article-byte-identity.mjs`.
