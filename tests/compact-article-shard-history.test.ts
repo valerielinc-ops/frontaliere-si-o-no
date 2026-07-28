@@ -43,7 +43,7 @@ function gitIdentity(dir: string) {
 
 function seedRepoWithCommits(root: string, name: string, nCommits: number): string {
   const bare = join(root, `${name}-remote.git`);
-  sh(`git init -q --bare "${bare}"`);
+  sh(`git init -q --bare -b main "${bare}"`);
   const seed = join(root, `${name}-seed`);
   sh(`mkdir -p "${seed}"`);
   sh('git init -q -b main', seed);
@@ -98,7 +98,7 @@ describe('shard_history_needs_compaction (runtime, temp git fixtures)', () => {
 
   it('prints "0" and returns 2 (nothing to compact) when HEAD has no commits', () => {
     const emptyBare = join(root, 'empty-remote.git');
-    sh(`git init -q --bare "${emptyBare}"`);
+    sh(`git init -q --bare -b main "${emptyBare}"`);
     const clone = join(root, 'empty-clone');
     // An empty bare remote has no `main` ref to clone — mirror the shape
     // shard_history_needs_compaction actually guards against (HEAD unborn),

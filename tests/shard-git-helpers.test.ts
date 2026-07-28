@@ -54,7 +54,7 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
 
     beforeAll(() => {
       bare = join(root, 'counter-remote.git');
-      sh(`git init -q --bare "${bare}"`);
+      sh(`git init -q --bare -b main "${bare}"`);
 
       const seed = join(root, 'counter-seed');
       sh(`mkdir -p "${seed}"`);
@@ -95,7 +95,7 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
 
     it('defaults to 0 for a clone with no commits yet (first push)', () => {
       const emptyBare = join(root, 'counter-empty-remote.git');
-      sh(`git init -q --bare "${emptyBare}"`);
+      sh(`git init -q --bare -b main "${emptyBare}"`);
       const emptyClone = join(root, 'counter-empty-clone');
       // No prior commit exists — this mirrors push-section-shard.sh's
       // "no prior clone (first push / transient)" branch, where the clone
@@ -125,7 +125,7 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
 
     beforeAll(() => {
       bare = join(root, 'flatten-remote.git');
-      sh(`git init -q --bare "${bare}"`);
+      sh(`git init -q --bare -b main "${bare}"`);
 
       // Seed the remote with 3 separate commits so the test can prove the
       // flatten genuinely collapses history to 1, not merely that a push
@@ -167,7 +167,7 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
   describe('shard_push_with_retry', () => {
     it('succeeds immediately against a reachable repo (no retry needed)', () => {
       const bare = join(root, 'retry-ok-remote.git');
-      sh(`git init -q --bare "${bare}"`);
+      sh(`git init -q --bare -b main "${bare}"`);
       const stage = join(root, 'retry-ok-stage');
       sh(`mkdir -p "${stage}"`);
       sh('git init -q -b main', stage);

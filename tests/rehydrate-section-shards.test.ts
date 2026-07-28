@@ -35,7 +35,7 @@ describe('cone sparse-checkout vs a shard repo shape (why the fix does NOT use i
   beforeAll(() => {
     root = mkdtempSync(join(tmpdir(), 'rehydrate-section-'));
     bare = join(root, 'shard-remote.git');
-    sh(`git init -q --bare "${bare}"`);
+    sh(`git init -q --bare -b main "${bare}"`);
 
     // Seed a repo shaped exactly like a real frontaliere-<section>-<loc>
     // shard: scaffold files at root + the section's content at a nested
