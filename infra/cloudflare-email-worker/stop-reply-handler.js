@@ -6,14 +6,19 @@
  * Weekly").
  *
  * Cloudflare Email Routing forwards every @frontaliereticino.ch message; this
- * Worker is bound (Email Routing → custom address → "Send to a Worker") to TWO
- * addresses, both routed to the SAME worker, branched on the recipient
- * (`message.to`):
- *   - the cold-email outreach reply address (e.g.
- *     valerie@frontaliereticino.ch — anything not matching NEWSLETTER_ADDRESS
- *     below) → handleOutreachReply
+ * Worker is bound (Email Routing → custom address → "Send to a Worker") to the
+ * addresses in scripts/cf-email-worker-setup.mjs's ROUTING_RULES, all routed to
+ * the SAME worker and branched on the recipient (`message.to`):
+ *   - the cold-email outreach reply address (env.OUTREACH_ADDRESS,
+ *     valerie@…) → handleOutreachReply
  *   - the newsletter mailbox (env.NEWSLETTER_ADDRESS, newsletter@…) →
  *     handleNewsletterUnsubscribe
+ *   - every other bound address (alerts@, abuse@, …, i.e. the addresses our
+ *     outbound mail is sent FROM, where autoresponders reply) → no
+ *     classification at all, forward only
+ *
+ * Before ANY of that, an inbound message that is an automatic response
+ * (out-of-office, autoresponder — RFC 3834) is dropped: see isAutoReply.
  *
  * handleOutreachReply, on a STOP/UNSUBSCRIBE intent, POSTs { from, subject,
  * body } to the outreachStopReply Cloud Function (secret-gated via
@@ -34,7 +39,8 @@
  *
  * Either way the Worker ALWAYS forwards the original message to the human
  * inbox (FORWARD_TO) so no reply is ever swallowed — STOP handling is
- * additive, not a replacement for reading replies.
+ * additive, not a replacement for reading replies. The ONE exception is an
+ * automatic response (isAutoReply), which is accepted and discarded.
  *
  * STOP-intent detection MIRRORS scripts/lib/stop-reply-detect.mjs (single
  * source) — kept in lockstep (AGENTS.md Non-Negotiable #6); both are
@@ -43,7 +49,8 @@
  * Deploy + config are AUTOMATED by .github/workflows/deploy-email-worker.yml
  * (wrangler deploy + scripts/cf-email-worker-setup.mjs). Bindings:
  *   vars (wrangler.toml): STOP_REPLY_FN_URL, REPLY_TRACK_FN_URL,
- *                          NEWSLETTER_UNSUB_URL, NEWSLETTER_ADDRESS
+ *                          NEWSLETTER_UNSUB_URL, NEWSLETTER_ADDRESS,
+ *                          OUTREACH_ADDRESS
  *   secrets (CF API, set by the setup script): STOP_SECRET (== NEWSLETTER_SECRET),
  *            FORWARD_TO (the human inbox; resolved from the zone catch-all target)
  *
@@ -82,6 +89,68 @@ const NEWSLETTER_STOP_INTENT_PATTERNS = [
   /\bopt[\s-]?out\b/i,
   /annull\w*\s+l\W?iscrizione/i,
 ];
+
+// Subject shapes autoresponders use when they omit the RFC 3834 headers below.
+// Anchored at the start (after any Re:/AW:/R: prefix chain) or bracketed at the
+// end — the two forms real out-of-office subjects take ("Out of office Re: …",
+// "Automatic reply: …", "… [Out of Office]"). Never a bare substring match, so
+// a human writing "Re: our out of office policy" is not dropped.
+const AUTO_REPLY_SUBJECT_MARKER =
+  'out\\s+of\\s+(?:the\\s+)?office|automatic(?:al)?\\s+repl(?:y|ies)|auto[\\s-]?repl(?:y|ies)|automatische\\s+antwort|abwesenheits?notiz|risposta\\s+automatica|assente\\s+dall\\W?ufficio|fuori\\s+sede|r[ée]ponse\\s+automatique|absence\\s+du\\s+bureau|respuesta\\s+autom[áa]tica';
+const AUTO_REPLY_SUBJECT_PATTERNS = [
+  new RegExp(`^\\s*(?:(?:re|r|aw|antw|rif|tr|fwd?)\\s*:\\s*)*(?:${AUTO_REPLY_SUBJECT_MARKER})`, 'i'),
+  new RegExp(`[[(]\\s*(?:${AUTO_REPLY_SUBJECT_MARKER})\\s*[\\])]\\s*$`, 'i'),
+];
+
+/**
+ * RFC 3834 (+ de-facto vendor headers) automatic-response detection.
+ *
+ * An out-of-office / autoresponder is NOT a human reply, and treating it as one
+ * is wrong three separate ways:
+ *   1. it is forwarded to the human inbox as pure noise (the incident that
+ *      started this: a vacation responder answering a job-alert send landed in
+ *      the owner's inbox via the zone catch-all);
+ *   2. handleOutreachReply records it through outreachReplyTrack, so the admin
+ *      dashboard shows "this company replied" when nobody did;
+ *   3. the STOP/unsubscribe intent patterns run over its body — and a corporate
+ *      auto-reply footer routinely carries the word "unsubscribe", which on the
+ *      newsletter path writes a REAL Firestore unsubscribe for a subscriber who
+ *      never asked for one.
+ *
+ * So a detected auto-reply is accepted and discarded: not classified, not
+ * tracked, not forwarded.
+ *
+ * @param {{ get?: (name: string) => string | null | undefined } | null | undefined} headers
+ * @param {string} [subject]
+ * @returns {boolean}
+ */
+export function isAutoReply(headers, subject = '') {
+  const header = (name) => {
+    try { return String(headers?.get?.(name) ?? '').trim().toLowerCase(); }
+    catch { return ''; }
+  };
+
+  // RFC 3834 §5: any value other than the explicit "no" marks an automatically
+  // generated message (auto-replied / auto-generated / auto-notified).
+  const autoSubmitted = header('auto-submitted');
+  if (autoSubmitted && autoSubmitted !== 'no') return true;
+
+  // De-facto vendor markers (Gmail vacation responder, Exchange, cPanel,
+  // Zimbra, older Sendmail-era autoresponders).
+  if (['yes', 'true', '1'].includes(header('x-autoreply'))) return true;
+  if (header('x-autorespond')) return true;
+  if (header('x-autoreply-from')) return true;
+
+  const precedence = header('precedence');
+  if (precedence === 'auto_reply' || precedence === 'auto-reply') return true;
+  // `Precedence: bulk|list|junk` alone is ambiguous — plenty of human-sent mail
+  // from mailing lists carries it — so it only counts alongside a second
+  // automated signal (Exchange stamps X-Auto-Response-Suppress on its own
+  // generated mail).
+  if (['bulk', 'list', 'junk'].includes(precedence) && header('x-auto-response-suppress')) return true;
+
+  return AUTO_REPLY_SUBJECT_PATTERNS.some((re) => re.test(String(subject || '')));
+}
 
 export function isStopReply(subject, body, patterns = STOP_INTENT_PATTERNS) {
   const haystack = `${subject || ''}\n${body || ''}`;
@@ -204,11 +273,31 @@ export default {
     const to = extractSenderEmail(message.to);
     const subject = (message.headers && message.headers.get && message.headers.get('subject')) || '';
 
-    const isNewsletterAddress = !!env.NEWSLETTER_ADDRESS && to === env.NEWSLETTER_ADDRESS.toLowerCase();
-    if (isNewsletterAddress) {
-      await handleNewsletterUnsubscribe({ from, subject, message, env, ctx });
-    } else {
-      await handleOutreachReply({ from, subject, message, env, ctx });
+    // An automatic response is not a reply: drop it before any classification,
+    // tracking or forwarding happens (see isAutoReply for why all three).
+    if (isAutoReply(message.headers, subject)) return;
+
+    const newsletterAddress = (env.NEWSLETTER_ADDRESS || '').trim().toLowerCase();
+    const outreachAddress = (env.OUTREACH_ADDRESS || '').trim().toLowerCase();
+    const isNewsletterAddress = !!newsletterAddress && to === newsletterAddress;
+    // Only valerie@ + newsletter@ used to be bound here, so "not the newsletter
+    // mailbox" was a safe proxy for "the outreach mailbox". Now that the
+    // addresses our outbound mail is sent FROM (alerts@, abuse@, …) are bound
+    // too, the outreach paths must fire ONLY for the outreach mailbox —
+    // otherwise a message to alerts@ would be logged as a company reply and run
+    // through STOP suppression. The fallback keeps the pre-OUTREACH_ADDRESS
+    // behavior if the var is not deployed yet.
+    const isOutreachAddress = outreachAddress ? to === outreachAddress : !isNewsletterAddress;
+
+    try {
+      if (isNewsletterAddress) {
+        await handleNewsletterUnsubscribe({ from, subject, message, env, ctx });
+      } else if (isOutreachAddress) {
+        await handleOutreachReply({ from, subject, message, env, ctx });
+      }
+    } catch {
+      // Classification is best-effort: a throw here must never cost us the
+      // forward below (a rejected message would bounce back to the sender).
     }
 
     // ALWAYS forward to the human inbox so no reply is ever lost.
