@@ -27,7 +27,7 @@
  *   NEWSLETTER_EXPERIMENTAL_MODE=false, NEWSLETTER_ENABLE_SEND=true
  */
 
-import { createHash, createHmac } from 'node:crypto';
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -45,7 +45,7 @@ import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from '../functions/src/lib
 import { refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
 import { NEWSLETTER_EXCLUDED_STATUSES } from '../services/emailSuppression.mjs';
-import { makeUnsubscribeUrl, makeResubscribeUrl, makeOneClickUnsubscribeUrl, generateAutologinCode } from '../services/newsletterUrls.mjs';
+import { makeUnsubscribeUrl, makeResubscribeUrl, makeOneClickUnsubscribeUrl, generateAutologinCode, makePreferencesUrl } from '../services/newsletterUrls.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { getCascadeDailyCapacity, finiteDailyLimit, PROVIDERS as EMAIL_PROVIDERS } from './lib/email-cascade.mjs';
@@ -53,7 +53,6 @@ import { normalizeEmailAddress } from './lib/parseEmailField.mjs';
 import { subscriberFromFirestoreRow } from './lib/subscriberFromFirestoreRow.mjs';
 import { JOB_BOARD_SECTION_RX, JOB_BOARD_SECTION_PREFIX_SOURCE } from './lib/jobBoardSections.mjs';
 import { computeScheduledSendAt, resolveEffectivePreferredHour, computeGlobalPreferredHour, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
-import { SLUG_TABLES } from '../services/routeSlugs.data.ts';
 // localePathPrefix aliased to the `localePrefix` name this script has always
 // used for its locale-aware URL construction (tests/newsletter-locale-urls.test.ts
 // guards its presence here) — the implementation is the canonical shared helper.
@@ -654,18 +653,9 @@ async function generateAISubject(ctx) {
 
 // ─── Unsubscribe / Auth URLs ────────────────────────────────
 
-// makeUnsubscribeUrl / makeResubscribeUrl live in services/newsletterUrls.mjs
-// (shared with the sunset/win-back runner so the HMAC token scheme can't drift).
-
-function makePreferencesUrl(email, locale = 'it') {
-  const secret = process.env.NEWSLETTER_SECRET;
-  const slug = PREFERENCES_SLUG[locale] || PREFERENCES_SLUG.it;
-  const prefix = localePrefix(locale);
-  const base = `${BASE_URL}${prefix}/${slug}?email=${encodeURIComponent(email.toLowerCase())}`;
-  if (!secret) return base;
-  const token = createHmac('sha256', secret).update(email.toLowerCase()).digest('hex');
-  return `${base}&token=${token}`;
-}
+// makeUnsubscribeUrl / makeResubscribeUrl / makePreferencesUrl live in
+// services/newsletterUrls.mjs (shared with send-job-alerts.mjs and the
+// sunset/win-back runner so the HMAC token scheme can't drift, AGENTS.md #6).
 
 // generateAutologinCode lives in services/newsletterUrls.mjs (shared with the
 // win-back/sunset runner so the autologin HMAC scheme can't drift). Deterministic,
@@ -952,14 +942,6 @@ function buildPublishedAtLookup() {
 // loadArticlePerformanceWinners live in ./lib/articleContent.mjs (shared with
 // the dormant-tier win-back runner, scripts/newsletter-winback-campaign.mjs,
 // so the slug/meta-file parsing logic can't drift between the two senders).
-
-/** Newsletter preferences slug per locale — derived from shared SLUG_TABLES (#4315) */
-const PREFERENCES_SLUG = {
-  it: SLUG_TABLES.it.newsletterPreferences,
-  en: SLUG_TABLES.en.newsletterPreferences,
-  de: SLUG_TABLES.de.newsletterPreferences,
-  fr: SLUG_TABLES.fr.newsletterPreferences,
-};
 
 const DEFAULT_ARTICLE_ID = 'comuni-migliori-frontalieri';
 
@@ -2338,7 +2320,14 @@ async function main() {
       recommendationCampaign: campaignId,
       unsubscribeUrl: makeUnsubscribeUrl(subscriber.email),
       resubscribeUrl: makeResubscribeUrl(subscriber.email),
-      preferencesUrl: makePreferencesUrl(subscriber.email, locale),
+      // fallbackUnsigned: true reproduces this script's pre-consolidation
+      // behavior (an unsigned link instead of a dropped one when
+      // NEWSLETTER_SECRET is unset) — see functions/src/lib/newsletterUrls.js.
+      // email.toLowerCase() reproduces the old local implementation's exact
+      // query-param + token casing (subscriber.email is already lowercased
+      // by subscriberFromFirestoreRow.mjs, so this is a no-op today, kept
+      // explicit so behavior doesn't depend on that upstream invariant).
+      preferencesUrl: makePreferencesUrl(subscriber.email.toLowerCase(), locale, { fallbackUnsigned: true }),
     });
 
     // Personalize links with pre-generated HMAC autologin code (never expires)

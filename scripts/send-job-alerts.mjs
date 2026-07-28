@@ -44,8 +44,12 @@ import { extractSlugFromSourcePage } from './backfill-newsletter-job-context.mjs
 import { runWithConcurrency, checkPageBodyLive } from './lib/live-link-check.mjs';
 import { computeScheduledSendAt, resolveEffectivePreferredHour, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
 import { resolveEffectiveJobAlertTier, JOB_ALERT_ENGAGEMENT_TIERS } from './lib/jobAlertEngagementTier.mjs';
-import { SLUG_TABLES } from '../services/routeSlugs.data.ts';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
+import { makePreferencesUrl, generateAutologinCode } from '../services/newsletterUrls.mjs';
+// localePathPrefix aliased to the local name this script has always used for
+// its locale-aware URL construction — the implementation is the canonical
+// shared helper (also used by send-newsletter.mjs, send-saved-jobs-digest.mjs).
+import { localePathPrefix } from './lib/articleContent.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -112,16 +116,11 @@ if (TARGET_EMAIL_RAW) {
 // slash is canonical (site convention) and dodges a no-slash→slash 301 on POST.
 const UNSUB_URL = `${BASE_URL}/disiscrivi-alert/`;
 
-// Locale-aware newsletter preferences slugs — derived from shared SLUG_TABLES (#4315)
-const PREFERENCES_SLUGS = {
-  it: SLUG_TABLES.it.newsletterPreferences,
-  en: SLUG_TABLES.en.newsletterPreferences,
-  de: SLUG_TABLES.de.newsletterPreferences,
-  fr: SLUG_TABLES.fr.newsletterPreferences,
-};
-
-// IT is canonical (no prefix); other locales get /{locale}/ prefix.
-const localePathPrefix = (locale) => (locale === 'it' ? '' : `/${locale}`);
+// makePreferencesUrl (and its per-locale slug table) lives in
+// services/newsletterUrls.mjs — shared with send-newsletter.mjs and the
+// welcome-email Cloud Function so the HMAC token scheme can't drift
+// (AGENTS.md #6). localePathPrefix lives in ./lib/articleContent.mjs
+// (shared with send-newsletter.mjs / send-saved-jobs-digest.mjs).
 
 // Canton-aware job-board section resolver (mirrors
 // migrate-all-known-job-slugs-canton-aware.mjs). Every canton has its own
@@ -481,15 +480,8 @@ function makeAllAlertsUnsubscribeUrl(email) {
   return `${UNSUB_URL}?email=${encodeURIComponent(email)}&token=${token}&action=unsubscribe_all`;
 }
 
-// ── Autologin (reuse newsletter pattern) ────────────────────
-
-function generateAutologinCode(email) {
-  const secret = process.env.NEWSLETTER_SECRET;
-  if (!secret) return null;
-  return createHmac('sha256', secret)
-    .update('autologin:' + email.toLowerCase().trim())
-    .digest('hex');
-}
+// generateAutologinCode lives in services/newsletterUrls.mjs (shared with
+// send-newsletter.mjs and the win-back/sunset runner, AGENTS.md #6).
 
 function makeAuthenticatedUrl(targetUrl, email, autologinCode, utmMedium = 'email') {
   const url = new URL(targetUrl, BASE_URL);
@@ -500,17 +492,6 @@ function makeAuthenticatedUrl(targetUrl, email, autologinCode, utmMedium = 'emai
   // — analytics convention is utm_medium=channel, utm_source=identifier.
   if (!url.searchParams.has('utm_medium')) url.searchParams.set('utm_medium', utmMedium);
   return url.toString();
-}
-
-function makePreferencesUrl(email, locale = 'it') {
-  const secret = process.env.NEWSLETTER_SECRET;
-  const normalized = email.toLowerCase().trim();
-  const slug = PREFERENCES_SLUGS[locale] || PREFERENCES_SLUGS.it;
-  const prefix = localePathPrefix(locale);
-  const base = `${BASE_URL}${prefix}/${slug}?email=${encodeURIComponent(normalized)}`;
-  if (!secret) return base;
-  const token = createHmac('sha256', secret).update(normalized).digest('hex');
-  return `${base}&token=${token}`;
 }
 
 // ── Firebase Admin SDK (lazy init) ───────────────────────────
@@ -720,7 +701,14 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
   const jobBoardPath = resolveCantonSection(locale, AGGREGATE_KEY);
   const localizedJobBoardPath = `${localePathPrefix(locale)}/${jobBoardPath}`;
   const autologinCode = autologinEnabled ? generateAutologinCode(alert.email) : null;
-  const preferencesUrl = makePreferencesUrl(alert.email, locale);
+  // fallbackUnsigned: true reproduces this script's pre-consolidation behavior
+  // (an unsigned link instead of a dropped one when NEWSLETTER_SECRET is
+  // unset) — line ~830 below string-concatenates this value unguarded, so it
+  // must never be null. email.toLowerCase().trim() reproduces the old local
+  // implementation's exact query-param + token normalization (alert.email is
+  // a raw Firestore field, not pre-normalized like send-newsletter.mjs's
+  // subscriber.email).
+  const preferencesUrl = makePreferencesUrl(alert.email.toLowerCase().trim(), locale, { fallbackUnsigned: true });
 
   const keyword = alert.keywords?.join(', ') || '';
   const locationLabel = alert.locations?.length > 0 ? alert.locations.join(', ') : '';

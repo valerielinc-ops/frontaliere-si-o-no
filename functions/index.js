@@ -9,6 +9,7 @@ import { handleMailtrapWebhookRequest } from './src/newsletterMailtrapWebhookCor
 import { handleMailerooWebhookRequest } from './src/newsletterMailerooWebhookCore.js';
 import { handleSubscriptionManagement } from './src/newsletterSubscriptionManagement.js';
 import { sendNewsletterConfirmationEmail } from './src/newsletterConfirmationEmail.js';
+import { sendNewsletterWelcomeEmail } from './src/newsletterWelcomeEmail.js';
 import { handleSendCalculatorReport } from './src/sendCalculatorReport.js';
 import { getNewsletterSecrets, getRemoteConfigValue } from './src/remoteConfigSecrets.js';
 import { handleChatbotInference } from './src/chatbotInference.js';
@@ -554,6 +555,49 @@ export const newsletterSendConfirmation = onRequest(
  res.status(result.success ? 200 : 400).json(result);
  } catch (error) {
  console.error('[newsletterSendConfirmation] Error:', error);
+ res.status(500).json({ success: false, error: 'internal_error' });
+ }
+ },
+);
+
+// Post-signup welcome email, presigned trigger (mirrors newsletterSendConfirmation).
+// The `confirm` action in newsletterSubscriptionManagement.js already fires this
+// within seconds of double opt-in — this endpoint exists for a resend/retry path
+// (e.g. a presigned link) that needs to trigger the same send independently.
+export const newsletterSendWelcome = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: true,
+ },
+ async (req, res) => {
+ if (req.method !== 'POST') {
+ res.status(405).json({ success: false, error: 'method_not_allowed' });
+ return;
+ }
+
+ const email = String(req.body?.email || '').trim().toLowerCase();
+ const locale = String(req.body?.locale || 'it').trim();
+
+ if (!email || !email.includes('@')) {
+ res.status(400).json({ success: false, error: 'invalid_email' });
+ return;
+ }
+
+ try {
+ const result = await sendNewsletterWelcomeEmail({ email, locale, trigger: 'presigned' });
+ // Response is intentionally opaque: sent / skipped (already_sent,
+ // not_confirmed, too_old, suppressed, disabled, ...) / subscriber not
+ // found / missing secret all return the SAME 200 body, so this public
+ // endpoint can't be used to probe an arbitrary address and learn
+ // whether it's a recently-confirmed subscriber. Detailed outcome is
+ // server-log only; sendNewsletterWelcomeEmail's own richer return
+ // value is unchanged for the confirm-handler caller.
+ console.log('[newsletterSendWelcome] outcome:', result.success ? 'sent' : (result.skipped || result.error || 'unknown'));
+ res.status(200).json({ success: true });
+ } catch (error) {
+ console.error('[newsletterSendWelcome] Error:', error);
  res.status(500).json({ success: false, error: 'internal_error' });
  }
  },
