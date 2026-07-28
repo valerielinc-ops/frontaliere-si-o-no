@@ -28,16 +28,62 @@ import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
 import { boostDescriptionForCtr } from './shared/ctrBoostDescription';
 import { SLUG_TABLES } from '../services/routeSlugs.data';
 
-export function ogPagesPlugin(rootDir: string): Plugin {
- return {
- name: 'og-pages',
- apply: 'build',
- enforce: 'post',
- async closeBundle() {
+export interface RenderedArticleEntry {
+ articleId: string;
+ /** Locale -> path relative to distDir for the directory `index.html` (e.g. `articoli-frontaliere/<slug>/index.html`). */
+ paths: Record<string, string>;
+ /** Locale -> path relative to distDir for the flat redirect-bridge sibling (e.g. `articoli-frontaliere/<slug>.html`). */
+ flatPaths: Record<string, string>;
+ /** Locale -> canonical absolute URL (trailing slash). */
+ urls: Record<string, string>;
+}
+
+export interface RenderArticlePagesOptions {
+ rootDir: string;
+ distDir: string;
+ section: 'frontaliere' | 'svizzera';
+ /**
+ * When set, render/write ONLY this article's 4 locale pages instead of the
+ * whole section (near-instant single-article publish, #4837 stream A).
+ * Section-wide metadata (title-collision map, category map, related-articles
+ * pool, slug maps) is still parsed in FULL first — those are cheap text
+ * parses over already-concatenated seo-blog*.ts/registry sources and are
+ * REQUIRED for byte-identical output (disambiguation/related-links depend on
+ * every other article's metadata). Only the per-article BODY file read
+ * (services/locales/<bodyDir>/<locale>/*.ts, ~3021 files x 4 locales) is
+ * skipped down to the single needed file — see parseBlogBodyLocale below.
+ */
+ onlyArticleId?: string;
+}
+
+export interface RenderArticlePagesResult {
+ /** Total files physically written (post content-hash-manifest skip), this call only. */
+ written: number;
+ /** One entry per article actually rendered (all of them in full-section mode, exactly one when onlyArticleId is set and found). */
+ entries: RenderedArticleEntry[];
+}
+
+/**
+ * Render+write static OG landing page(s) for blog article(s) in one section.
+ *
+ * Extracted from ogPagesPlugin's closeBundle (#4837 stream A) so a standalone
+ * script (scripts/publish-article-fast.mjs, via `npx tsx`) can render a
+ * single freshly-published article's 4 locale pages without running the full
+ * `vite build` (~25-34 min, OOM-prone). `ogPagesPlugin`'s closeBundle below is
+ * now a thin wrapper calling this same function once per section with no
+ * `onlyArticleId` — full-build output is unchanged (same code path).
+ *
+ * Do NOT fork this render logic (mirrors the precedent set by
+ * relatedSearchClustersPlugin's exported `renderClusterPage`) — any fix here
+ * benefits both the full build and the fast single-article path for free,
+ * and a fork would silently drift the two apart.
+ */
+export async function renderArticlePages(opts: RenderArticlePagesOptions): Promise<RenderArticlePagesResult> {
+ const rootDir = opts.rootDir;
  const fs = await import('node:fs');
  const np = await import('node:path');
 
- const distDir = np.resolve(rootDir, 'dist');
+ const distDir = opts.distDir;
  const collector = new WriteCollector({ distDir, pluginName: 'ogPagesPlugin' });
  const DEFAULT_IMG = '/og-image.png';
  const blogImageById: Record<string, string> = {};
@@ -102,8 +148,9 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  let count = 0;
  let faqCount = 0;
  let totalEntries = 0;
+ const writtenEntries: RenderedArticleEntry[] = [];
 
- for (const SECTION of SECTIONS) {
+ for (const SECTION of SECTIONS.filter((s) => s.name === opts.section)) {
 
  // Issue #3010 item 1: svizzera-section near-duplicate articles (PR #3000
  // de-collided their slugs, both are live now) declare a cross-URL
@@ -498,7 +545,23 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const out: Record<string, Record<string, string>> = {};
  const dir = np.resolve(rootDir, 'services', 'locales', SECTION.bodyDir, locale);
  let files: string[] = [];
+ // Fast path (#4837 stream A): body filenames are exactly `<articleId>.ts`
+ // (confirmed 1:1, e.g. services/locales/blog-body/it/<id>.ts). When only
+ // one article is being rendered there is no need to readdirSync + scan
+ // ~3021 files x 4 locales — read the single needed file directly. Falls
+ // through to the full directory scan (identical to pre-#4837 behaviour)
+ // whenever onlyArticleId is unset, so full-build output is unchanged.
+ if (opts.onlyArticleId) {
+ const single = `${opts.onlyArticleId}.ts`;
+ try {
+ fs.statSync(np.join(dir, single));
+ files = [single];
+ } catch {
+ files = [];
+ }
+ } else {
  try { files = fs.readdirSync(dir); } catch { return out; }
+ }
  const rx = /'blog\.article\.([^']+)\.(body\d+|faq)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
  for (const file of files) {
  if (!file.endsWith('.ts')) continue;
@@ -655,7 +718,16 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  };
 
  for (const en of entries) {
+ // Single-article fast path (#4837 stream A): the entries parse above MUST
+ // stay full/unfiltered (title-collision map + entriesByDate related-articles
+ // pool both need every other article's metadata to render THIS one
+ // correctly) — this is the only place that narrows down to one article.
+ if (opts.onlyArticleId && en.articleId !== opts.onlyArticleId) continue;
  const locSlugs = blogSlugs[en.articleId];
+
+ const writtenPaths: Record<string, string> = {};
+ const writtenFlatPaths: Record<string, string> = {};
+ const writtenUrls: Record<string, string> = {};
 
  const lp: Record<string, string | null> = { it: en.path, en: null, de: null, fr: null };
  if (locSlugs) {
@@ -1159,6 +1231,9 @@ ${headTags}
  collector.add(np.join(distDir, en.path, 'index.html'), itHtml);
  collector.add(np.join(distDir, itFlatPath + '.html'), flatItHtml);
  count++;
+ writtenPaths.it = np.join(en.path, 'index.html').replace(/^\/+/, '');
+ writtenFlatPaths.it = (itFlatPath + '.html').replace(/^\/+/, '');
+ writtenUrls.it = `${BASE_URL}${withTrailingSlash(en.path)}`;
 
  // EN / DE / FR
  for (const [loc, lPath] of Object.entries(lp)) {
@@ -1172,15 +1247,49 @@ ${headTags}
  collector.add(np.join(distDir, lPath, 'index.html'), locHtml);
  collector.add(np.join(distDir, locFlatPath + '.html'), flatLocHtml);
  count++;
+ writtenPaths[loc] = np.join(lPath, 'index.html').replace(/^\/+/, '');
+ writtenFlatPaths[loc] = (locFlatPath + '.html').replace(/^\/+/, '');
+ writtenUrls[loc] = `${BASE_URL}${withTrailingSlash(lPath)}`;
  }
+
+ writtenEntries.push({
+ articleId: en.articleId,
+ paths: writtenPaths,
+ flatPaths: writtenFlatPaths,
+ urls: writtenUrls,
+ });
  }
 
  totalEntries += entries.length;
- } // end for (const SECTION of SECTIONS)
+ } // end for (const SECTION of SECTIONS.filter(...))
 
  const written = await collector.flush();
  const skippedHash = collector.skippedByHash;
- console.log(`\x1b[36m[og-pages]\x1b[0m Generated ${count} OG landing pages for ${totalEntries} articles (${faqCount} with FAQPage schema) — wrote ${written}, skipped ${skippedHash} unchanged`);
+ console.log(`\x1b[36m[og-pages]\x1b[0m [${opts.section}] Generated ${count} OG landing pages for ${totalEntries} articles (${faqCount} with FAQPage schema) — wrote ${written}, skipped ${skippedHash} unchanged`);
+ return { written, entries: writtenEntries };
+}
+
+/**
+ * Vite plugin wrapper — thin shell around {@link renderArticlePages}.
+ * Runs the SAME render logic once per section (frontaliere, svizzera) with
+ * no `onlyArticleId`, so full-build output is byte-identical to before this
+ * function was extracted (#4837 stream A). Do not add per-section logic
+ * here — it belongs in renderArticlePages so the fast single-article path
+ * (scripts/publish-article-fast.mjs) gets it for free.
+ */
+export function ogPagesPlugin(rootDir: string): Plugin {
+ return {
+ name: 'og-pages',
+ apply: 'build',
+ enforce: 'post',
+ async closeBundle() {
+ const np = await import('node:path');
+ const distDir = np.resolve(rootDir, 'dist');
+ const frontaliere = await renderArticlePages({ rootDir, distDir, section: 'frontaliere' });
+ const svizzera = await renderArticlePages({ rootDir, distDir, section: 'svizzera' });
+ const written = frontaliere.written + svizzera.written;
+ const totalArticles = frontaliere.entries.length + svizzera.entries.length;
+ console.log(`\x1b[36m[og-pages]\x1b[0m Done — wrote ${written} files across ${totalArticles} article(s) total (frontaliere + svizzera).`);
  },
  };
 }
