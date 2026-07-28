@@ -1,18 +1,19 @@
 {
   "key": "novelis",
   "label": "Novelis",
-  "generatedAt": "2026-07-27T22:11:14.611Z",
+  "generatedAt": "2026-07-28T11:41:04.681Z",
   "total": 7,
-  "newCount": 2,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8606,
-  "avgDurationMs": 8606,
+  "durationMs": 7227,
+  "avgDurationMs": 7227,
   "durationHistory": [
-    8606
+    7227
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "novelis-afad27588e25",
       "slug": "stagiaire-communication-visuelle-novelis-ch",
@@ -39,12 +40,13 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52701/stagiaire-communication-visuelle/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T22:11:08.633Z",
-      "_qualityScore": 66,
+      "crawledAt": "2026-07-28T11:41:00.128Z",
+      "firstSeenAt": "2026-07-27T22:11:08.633Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -74,17 +76,16 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52694/stagiaire/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T22:11:10.828Z",
-      "_qualityScore": 66,
+      "crawledAt": "2026-07-28T11:41:01.946Z",
+      "firstSeenAt": "2026-07-27T22:11:10.828Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "novelis-13ee0aed98ff",
       "slug": "it-solutions-lead-m-w-d-novelis-ch",
@@ -111,7 +112,7 @@
       "applyUrl": "https://de-careers-novelis.icims.com/jobs/52802/it-solutions-lead-%28m-w-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-27T22:11:07.215Z",
+      "crawledAt": "2026-07-28T11:40:58.702Z",
       "firstSeenAt": "2026-07-23T11:46:56.934Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -147,7 +148,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52764/m%c3%a9canicien-de-maintenance/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T22:11:07.944Z",
+      "crawledAt": "2026-07-28T11:40:59.476Z",
       "firstSeenAt": "2026-07-15T22:17:22.223Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -183,7 +184,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52696/finance-lead-%28m-f-d%29-%e2%80%93-digital-transformation-%26-business-projects/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-27T22:11:09.451Z",
+      "crawledAt": "2026-07-28T11:41:00.810Z",
       "firstSeenAt": "2026-07-09T22:26:43.200Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -219,7 +220,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52695/internship-%28m-f-d%29-human-resources-%2860%25-80%26%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-27T22:11:10.225Z",
+      "crawledAt": "2026-07-28T11:41:01.375Z",
       "firstSeenAt": "2026-07-08T11:23:10.202Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -255,7 +256,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52599/plant-hr-manager-%28f-m-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-27T22:11:11.642Z",
+      "crawledAt": "2026-07-28T11:41:02.611Z",
       "firstSeenAt": "2026-07-08T11:23:11.600Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
