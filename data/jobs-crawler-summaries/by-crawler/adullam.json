@@ -1,16 +1,16 @@
 {
   "key": "adullam",
   "label": "Adullam-Stiftung",
-  "generatedAt": "2026-07-27T22:39:15.644Z",
-  "total": 12,
+  "generatedAt": "2026-07-28T12:00:06.869Z",
+  "total": 10,
   "newCount": 0,
   "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 9881,
-  "avgDurationMs": 9881,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 8701,
+  "avgDurationMs": 8701,
   "durationHistory": [
-    9881
+    8701
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4044764",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:39:07.682Z",
+      "crawledAt": "2026-07-28T11:59:59.964Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -69,7 +69,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4044685",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:39:08.302Z",
+      "crawledAt": "2026-07-28T12:00:00.585Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4029955",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:39:08.932Z",
+      "crawledAt": "2026-07-28T12:00:01.206Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -153,7 +153,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4029980",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:39:10.765Z",
+      "crawledAt": "2026-07-28T12:00:03.085Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -195,7 +195,7 @@
       "url": "https://live.solique.ch/adullam/job/details/3905084",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:39:12.593Z",
+      "crawledAt": "2026-07-28T12:00:04.921Z",
       "addressLocality": "Basel und Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -237,7 +237,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4019248",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:39:10.153Z",
+      "crawledAt": "2026-07-28T12:00:02.439Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -279,7 +279,7 @@
       "url": "https://live.solique.ch/adullam/job/details/3868124",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:39:07.057Z",
+      "crawledAt": "2026-07-28T11:59:59.346Z",
       "addressLocality": "Basel und Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -321,7 +321,7 @@
       "url": "https://live.solique.ch/adullam/job/details/3997539",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:39:09.542Z",
+      "crawledAt": "2026-07-28T12:00:01.820Z",
       "addressLocality": "Basel und Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -363,7 +363,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4009855",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:39:11.380Z",
+      "crawledAt": "2026-07-28T12:00:03.700Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -405,7 +405,7 @@
       "url": "https://live.solique.ch/adullam/job/details/3973999",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:39:11.988Z",
+      "crawledAt": "2026-07-28T12:00:04.305Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -435,8 +435,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "adullam-d461a1c98a9e",
       "slug": "fage-efz-im-pflegezentrum-kurzfristig-einsteigen-viel-bewirken-adullam-basel",
@@ -525,5 +524,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
