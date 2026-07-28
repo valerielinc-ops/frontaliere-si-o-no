@@ -5,6 +5,7 @@ import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS, lookupSentVariant } from '.
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
 import { instantReactivationFields } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
+import { uniqueUnknownFallback } from './lib/deliveryDocId.js';
 
 /**
  * Mailjet webhook handler — receives delivery events and stores them in Firestore.
@@ -54,7 +55,11 @@ function extractCampaignId(eventData) {
  // mj_campaign_id is Mailjet's internal numeric campaign id (last-resort fallback
  // only — the A/B report cannot match opens carrying this instead of weekly_*).
  if (eventData.mj_campaign_id) return String(eventData.mj_campaign_id);
- return 'unknown';
+ // No tag survived — key the fallback on the per-event messageId instead of
+ // the shared literal 'unknown', so two distinct untagged sends to the same
+ // recipient don't collapse onto the same campaign_deliveries/events doc
+ // (#4847 class fix, see functions/src/newsletterResendWebhookCore.js).
+ return uniqueUnknownFallback(extractMessageId(eventData), eventData.time ? String(eventData.time) : null);
 }
 
 function extractMessageId(eventData) {

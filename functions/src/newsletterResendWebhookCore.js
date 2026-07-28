@@ -3,7 +3,7 @@ import { Resend } from 'resend';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from './lib/emailExperimentPostHog.js';
-import { buildDeliveryDocId as buildCanonicalDeliveryDocId } from './lib/deliveryDocId.js';
+import { buildDeliveryDocId as buildCanonicalDeliveryDocId, uniqueUnknownFallback } from './lib/deliveryDocId.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
 import { instantReactivationFields } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
@@ -215,13 +215,13 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
 
  // ── Route job-alert emails to job_alert_subscribers/{email} ──
  if (emailType === 'job-alert' || emailType === 'job-alert-retry') {
- const alertId = sanitizeString(tags.alert_id) || 'unknown';
+ const alertId = sanitizeString(tags.alert_id) || uniqueUnknownFallback(messageId, occurredAt);
  await applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl, linkLabel, occurredAt, rawEvent });
  return { handled: true, email, type, collection: 'job_alert_subscribers', alertId };
  }
 
  // ── Newsletter events (existing behavior) ────────────────────
- const campaignId = sanitizeString(tags.campaign_id || data.campaign_id) || 'unknown';
+ const campaignId = sanitizeString(tags.campaign_id || data.campaign_id) || uniqueUnknownFallback(messageId, occurredAt);
  const variant = sanitizeString(tags.variant || data.variant) || 'general';
  const locale = sanitizeString(tags.subscriber_locale || data.locale) || 'it-IT';
  const sourceChannel = sanitizeString(tags.source_channel || data.source_channel);
