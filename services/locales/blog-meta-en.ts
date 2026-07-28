@@ -9067,6 +9067,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dogana-maggiore-snella.title': 'Customs will be more streamlined',
     'blog.article.dogana-maggiore-snella.excerpt': 'Federal Office of Customs and Border Security cuts 25 management positions',
     'blog.article.dogana-maggiore-snella.imageAlt': 'The new and improved customs office at Lugano',
+    'blog.article.trasferirsi-maccagno-frontaliere-pro-contro.title': 'Moving to Maccagno from border crossings: driving for and against',
+    'blog.article.trasferirsi-maccagno-frontaliere-pro-contro.excerpt': 'Living in Maccagno with Pino and Veddasca working in Ticino: tax analysis between the new agreement, deductibles and journey times for the border crossing.',
+    'blog.article.trasferirsi-maccagno-frontaliere-pro-contro.imageAlt': 'View of Maccagno con Pino e Veddasca towards the Swiss border',
 };
 
 export default blogMetaEn;
