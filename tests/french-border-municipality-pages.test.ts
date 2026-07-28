@@ -18,7 +18,11 @@
 import { describe, it, expect } from 'vitest';
 
 import { renderAboveFloorPage } from '@/build-plugins/frenchBorderMunicipalityPagesPlugin';
-import { FRENCH_ABOVE_FLOOR, type FrenchBorderMunicipality } from '@/build-plugins/frenchBorderMunicipalityData';
+import {
+  FRENCH_ABOVE_FLOOR,
+  FRENCH_LOCALES,
+  type FrenchBorderMunicipality,
+} from '@/build-plugins/frenchBorderMunicipalityData';
 import { TITLE_MAX_CHARS } from '@/build-plugins/shared/titleSuffix';
 import {
   assertPlausibleMunicipality,
@@ -48,6 +52,78 @@ describe('French border municipality title cascade holds for an implausibly long
     expect(titleMatch).not.toBeNull();
     expect(titleMatch![1].length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
   });
+});
+
+/**
+ * The cap-only assertion above cannot fail: `composePlaceTitle` already
+ * truncates the shortest candidate as a last resort, so the 66-char budget
+ * always holds. The defect it was meant to catch is different — with a
+ * 2-rung cascade `[c.title(n), n]`, a name that pushes the rich candidate
+ * over budget degrades to the BARE COMMUNE NAME, which fits the cap but
+ * carries no query intent at all (`<title>Hohentengen am Hochrhein</title>`).
+ *
+ * These tests assert the property that actually matters: every emitted title
+ * keeps a keyword, in every locale, and never falls back to the naked name.
+ * Length is measured AFTER HTML escaping, because that is the string that
+ * ships and the string `audit:title-length` reads.
+ */
+describe('title cascade never degrades to a keyword-free bare name (#4886 Item 1)', () => {
+  const escapeHtml = (value: string): string =>
+    value
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+
+  const dateStamp = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+
+  for (const municipality of FRENCH_ABOVE_FLOOR) {
+    for (const locale of FRENCH_LOCALES) {
+      it(`${municipality.name} [${locale}] keeps a keyword and fits the escaped cap`, () => {
+        const { html } = renderAboveFloorPage({ municipality, locale, dateStamp, distDir: DIST });
+        const match = html.match(/<title>([^<]*)<\/title>/);
+        expect(match).not.toBeNull();
+
+        const title = match![1];
+        expect(title.length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+
+        // Never the naked commune name — that is the SEO-dead fallback.
+        expect(title).not.toBe(escapeHtml(municipality.name));
+
+        // Never a mid-headline ellipsis: the SERP policy in titleSuffix.ts
+        // forbids it (CTR fell 4.8% -> 0.99% when it last shipped).
+        expect(title).not.toContain('…');
+
+        // The commune name must survive: it is the local-SEO token.
+        expect(title).toContain(escapeHtml(municipality.name));
+      });
+    }
+  }
+});
+
+/**
+ * A name long enough to blow every rung must still degrade gracefully: the
+ * shortest rung is keyword-bearing by construction, so even the truncated
+ * result keeps the page's intent rather than collapsing to a naked toponym.
+ */
+describe('longest-rung fallback stays keyword-bearing (#4886 Item 1)', () => {
+  const dateStamp = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+  const overlongName = 'Saint-Jean-de-la-Vallee-du-Mont-Blanc-sur-Genevois-les-Deux-Rives';
+
+  for (const locale of FRENCH_LOCALES) {
+    it(`[${locale}] does not emit the bare overlong name as the whole title`, () => {
+      const municipality: FrenchBorderMunicipality = {
+        ...FRENCH_ABOVE_FLOOR[0],
+        name: overlongName,
+      };
+      const { html } = renderAboveFloorPage({ municipality, locale, dateStamp, distDir: DIST });
+      const title = html.match(/<title>([^<]*)<\/title>/)![1];
+
+      expect(title.length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+      expect(title).not.toBe(overlongName);
+      expect(title.trim()).not.toBe('');
+    });
+  }
 });
 
 describe('municipality plausibility guard (#4886)', () => {

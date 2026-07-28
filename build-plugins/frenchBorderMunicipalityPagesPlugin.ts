@@ -109,6 +109,18 @@ interface Copy {
   hubLabel: string;
   h1: (name: string, regime: string) => string;
   title: (name: string) => string;
+  /**
+   * Second cascade rung for <title> (composePlaceTitle) — shorter than
+   * `title` but still keyword-bearing (issue #4886: a bare-name last
+   * candidate is CTR-dead, no query-intent signal).
+   */
+  titleMid: (name: string) => string;
+  /**
+   * Shortest cascade rung for <title> — never the bare commune name.
+   * Reuses this locale's core "living in X" phrase so even the minimal
+   * form still carries the page's local-SEO keyword.
+   */
+  titleShort: (name: string) => string;
   desc: (name: string, regime: string) => string;
   lede: (name: string, regime: string, tax: string) => string;
   tilePop: string;
@@ -147,6 +159,8 @@ const COPY: Record<FrenchLocale, Copy> = {
     hubLabel: 'Vivere in Francia e lavorare in Svizzera',
     h1: (n, r) => `Vivere a ${n} e lavorare in Svizzera: regime ${r}`,
     title: (n) => `Vivere a ${n} e lavorare in Svizzera`,
+    titleMid: (n) => `${n}: Guida frontalieri`,
+    titleShort: (n) => `Vivere a ${n}`,
     desc: (n, r) => `Affitti, distanza dal valico e tassazione per chi vive a ${n} e lavora in Svizzera. Regime ${r}.`,
     lede: (n, r, t) =>
       `${n} rientra nel regime ${r}: per un profilo tipo frontaliere significa circa ${t} di imposta annua sul reddito svizzero.`,
@@ -191,6 +205,8 @@ const COPY: Record<FrenchLocale, Copy> = {
     hubLabel: 'Living in France, working in Switzerland',
     h1: (n, r) => `Living in ${n} and working in Switzerland: ${r} regime`,
     title: (n) => `Living in ${n}, working in Switzerland`,
+    titleMid: (n) => `${n}: Cross-border guide`,
+    titleShort: (n) => `Living in ${n}`,
     desc: (n, r) => `Rent, distance to the border crossing and taxation for residents of ${n} working in Switzerland. ${r} regime.`,
     lede: (n, r, t) =>
       `${n} falls under the ${r} regime: for a typical cross-border profile that means about ${t} of annual tax on Swiss income.`,
@@ -235,6 +251,8 @@ const COPY: Record<FrenchLocale, Copy> = {
     hubLabel: 'In Frankreich leben, in der Schweiz arbeiten',
     h1: (n, r) => `Leben in ${n} und Arbeiten in der Schweiz: Regime ${r}`,
     title: (n) => `Leben in ${n}, Arbeiten in der Schweiz`,
+    titleMid: (n) => `${n}: Grenzgänger-Ratgeber`,
+    titleShort: (n) => `Leben in ${n}`,
     desc: (n, r) => `Miete, Distanz zum Grenzübergang und Besteuerung für Einwohner von ${n}, die in der Schweiz arbeiten. Regime ${r}.`,
     lede: (n, r, t) =>
       `${n} fällt unter das Regime ${r}: für ein typisches Grenzgänger-Profil bedeutet das rund ${t} Jahressteuer auf das Schweizer Einkommen.`,
@@ -279,6 +297,8 @@ const COPY: Record<FrenchLocale, Copy> = {
     hubLabel: 'Vivre en France, travailler en Suisse',
     h1: (n, r) => `Vivre à ${n} et travailler en Suisse : régime ${r}`,
     title: (n) => `Vivre à ${n}, travailler en Suisse`,
+    titleMid: (n) => `${n} : Guide frontalier`,
+    titleShort: (n) => `Vivre à ${n}`,
     desc: (n, r) => `Loyers, distance à la frontière et fiscalité pour les habitants de ${n} qui travaillent en Suisse. Régime ${r}.`,
     lede: (n, r, t) =>
       `${n} relève du régime ${r} : pour un profil frontalier type, cela représente environ ${t} d'impôt annuel sur le revenu suisse.`,
@@ -454,13 +474,18 @@ export function renderAboveFloorPage(params: {
     ],
   });
 
-  // Budget-aware cascade — same fix applied across the SSG family
-  // (audit:title-length regression #4593): `c.title(n)` has no fallback, so a
-  // commune name longer than today's dataset's longest (24 chars,
-  // "Saint-Julien-en-Genevois") would overflow with no recovery. Not
-  // currently overflowing (verified against the live dataset) but the SAME
-  // unguarded single-candidate shape as the pages that DID regress.
-  const titleCandidates = [c.title(n), n];
+  // Budget-aware, keyword-preserving cascade (composePlaceTitle) — three
+  // rungs, longest-first (issue #4886): `title` (full sentence) →
+  // `titleMid` (name + role, e.g. "{name}: Guida frontalieri") → `titleShort`
+  // (the shortest form that still carries this locale's core "living in
+  // {name}" keyword). The bare commune name is NEVER a candidate: it stays
+  // under the char cap but carries zero query-intent signal, so it would be
+  // SEO-dead if ever selected. `title` alone (34 fixed chars) already fits
+  // every commune in today's dataset (longest name: 24 chars,
+  // "Saint-Julien-en-Genevois") — the extra rungs only matter for
+  // hypothetical future entries with much longer names, same regression
+  // class as audit:title-length #4593.
+  const titleCandidates = [c.title(n), c.titleMid(n), c.titleShort(n)];
   const html = buildSeoPageHtml({
     locale,
     title: composePlaceTitle(titleCandidates, TITLE_MAX_CHARS, (s) => esc(s).length),

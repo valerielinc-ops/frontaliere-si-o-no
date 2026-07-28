@@ -36,6 +36,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import sharp from 'sharp';
 import { buildCookieHeader, updateCookieJar } from './lib/tiChCookieJar.mjs';
+import { slugifyCrossingName as slugifyName } from '../services/borderCrossingSlug.ts';
 
 // ── Config ────────────────────────────────────────────────────
 const DEFAULT_OUT_SUBDIR = path.join('og', 'border-wait');
@@ -60,18 +61,6 @@ const MAX_BYTES = 200 * 1024; // 200 KB per file
 // (scripts/lib/tiChCookieJar.mjs) re-uses cookies across feeds, exactly as
 // `analyze-webcam-frame.mjs` does for the runtime traffic-monitor fetcher
 // (commit d8d71dbd1e).
-
-// Mirror of borderWaitPagesPlugin.ts#slugifyName — MUST stay in sync.
-function slugifyName(name) {
-  return name
-    .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/\([^)]*\)/g, '')
-    .replace(/[^a-zA-Z0-9]+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '')
-    .toLowerCase();
-}
 
 /**
  * Fetch a URL with a User-Agent header and a timeout. Returns a Buffer or

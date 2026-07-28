@@ -60,6 +60,23 @@ const OG_LOCALE: Record<FiscalLocale, string> = {
   fr: 'fr_CH',
 };
 
+// <title> cascade fallback tiers (issue #4886) — literal substrings of each
+// locale's `title` template above, reused so the cascade never has to
+// invent wording. See the `titleCandidates` comment near composePlaceTitle
+// below for why the bare comune name is never an acceptable last resort.
+const TITLE_KEYWORD_TAIL: Record<FiscalLocale, string> = {
+  it: 'tasse frontaliere',
+  en: 'cross-border tax',
+  de: 'Grenzgänger-Steuern',
+  fr: 'impôts frontaliers',
+};
+const TITLE_COLON: Record<FiscalLocale, string> = {
+  it: ': ',
+  en: ': ',
+  de: ': ',
+  fr: ' : ',
+};
+
 const SITEMAP_NAME = 'sitemap-comuni-fiscale.xml';
 const FISCAL_YEAR_LABEL = '2024';
 
@@ -598,15 +615,23 @@ export function renderAboveFloorPage(params: {
   });
 
   // Budget-aware cascade — sibling of the same fix in employerProfilePagesPlugin.ts
-  // / professionCityLandings.ts / professionCantonLandings.ts (audit:title-length
-  // regression #4593): `c.title(n)` has no fallback, so a comune name longer than
-  // today's corridor dataset's longest (19 chars, "Casnate con Bernate", already
-  // 62/66 for IT) would overflow with no recovery. Not currently overflowing
-  // (verified against the live dataset) but the SAME unguarded single-candidate
-  // shape as the pages that DID regress — fixed defensively while already
-  // touching this file, per CLAUDE.md non-negotiable #6. Never truncates the
-  // comune name itself (composePlaceTitle policy) — falls back to the bare name.
-  const titleCandidates = [c.title(n), n];
+  // / professionCityLandings.ts / professionCantonLandings.ts / the FR border
+  // municipality plugin (audit:title-length regression #4593, issue #4886):
+  // `c.title(n)` has no fallback, so a comune name longer than today's corridor
+  // dataset's longest (19 chars, "Casnate con Bernate", already 62/66 for IT)
+  // would overflow with no recovery. Not currently overflowing (verified
+  // against the live dataset). Three rungs, longest-first: `c.title(n)` (full
+  // sentence) -> keyword-tail (still names the topic) -> role label
+  // (shortest, still keyword-bearing). The bare comune name is NEVER a
+  // candidate (issue #4886): it stays under the char cap but carries zero
+  // query-intent signal, so falling back to it is SEO-dead, not a safe
+  // degradation — never truncates the comune name itself either
+  // (composePlaceTitle policy).
+  const titleCandidates = [
+    c.title(n),
+    `${n}${TITLE_COLON[locale]}${TITLE_KEYWORD_TAIL[locale]}`,
+    `${n}${TITLE_COLON[locale]}${c.role}`,
+  ];
   const html = buildSeoPageHtml({
     locale,
     title: composePlaceTitle(titleCandidates, TITLE_MAX_CHARS, (s) => esc(s).length),
