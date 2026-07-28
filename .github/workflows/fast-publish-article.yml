@@ -37,21 +37,29 @@ on:
         required: false
         type: string
 
-# Serialize by SECTION, not globally: frontaliere and svizzera articles never
-# contend for the same shard repos, so they run fully in parallel. Two
-# articles in the SAME section dispatched close together (e.g. the stream-C
-# reconciler re-dispatching while a producer's own dispatch is still
-# in-flight, or two journalist articles published in the same 15-min cron
-# window) DO need to serialize: push-article-shard-incremental.sh's target
-# shard repos (frontaliere-articolifrontaliere-<loc> etc.) take a single SSH
-# deploy key each — two concurrent pushes to the same shard repo would race
-# each other's git push. `cancel-in-progress: false` is deliberate (mirrors
-# deploy.yml's pages-build-run group rationale): the shard push is
-# merge-only/additive, so a QUEUED second run must still complete and push
-# its own article rather than being cancelled and silently dropping that
-# article's fast-publish.
+# Serialize per ARTICLE, not per section.
+#
+# This group was originally `fast-publish-${{ inputs.section }}` with the stated
+# intent that "a QUEUED second run must still complete and push its own article
+# rather than being cancelled". A per-section group cannot deliver that: GitHub
+# holds exactly ONE pending run per concurrency group, so when a third run is
+# queued the pending one is CANCELLED. Any producer that dispatches several
+# articles at once therefore loses the middle ones silently:
+#   - publish-journalist-articles.yml dispatches one run per id in
+#     `published_ids`, and a single 15-min cron window can publish several;
+#   - scripts/reconcile-fast-publish-articles.mjs dispatches one run per article
+#     registered since the deploy's build SHA — by construction a backlog.
+# Both are exactly the paths that exist to guarantee completeness. This is the
+# same starvation that motivated the whole feature: deploy.yml's own
+# `pages-build-run` group dropped 12 consecutive queued runs on 2026-07-28.
+#
+# Concurrent runs for DIFFERENT articles are safe against the same shard repo:
+# push-article-shard-incremental.sh never force-pushes and builds its commit on
+# the remote tip, so a loser gets a non-fast-forward, re-clones onto the new tip
+# and rebuilds (exercised by its concurrent-writer test). Two runs for the SAME
+# article still serialize here, which is the only race worth preventing.
 concurrency:
-  group: fast-publish-${{ inputs.section }}
+  group: fast-publish-${{ inputs.section }}-${{ inputs.article_id }}
   cancel-in-progress: false
 
 permissions:
