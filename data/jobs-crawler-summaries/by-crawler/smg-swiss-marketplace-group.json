@@ -1,16 +1,16 @@
 {
   "key": "smg-swiss-marketplace-group",
   "label": "SMG Swiss Marketplace Group",
-  "generatedAt": "2026-07-27T22:08:47.792Z",
-  "total": 5,
+  "generatedAt": "2026-07-28T11:27:55.190Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4935,
-  "avgDurationMs": 4935,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6247,
+  "avgDurationMs": 6247,
   "durationHistory": [
-    4935
+    6247
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000139925279-key-account-manager-banken-finanzinstitute-f-m-d-80-100-hybrid-working-model-zurich?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:08:44.113Z",
+      "crawledAt": "2026-07-28T11:27:51.387Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -63,7 +63,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000138090167-senior-backend-engineer-golang-f-m-d-80-100-hybrid-working-model-zurich-switzerland?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-27T22:08:44.122Z",
+      "crawledAt": "2026-07-28T11:27:51.400Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -99,7 +99,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000136750750-staff-frontend-engineer-f-m-d-80-100-hybrid-working-model-zurich?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-27T22:08:44.130Z",
+      "crawledAt": "2026-07-28T11:27:51.396Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -135,7 +135,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000126318225-head-of-product-consumer-private-customer-f-m-d-100-hybrid-working-model-zurich-switzerland?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-27T22:08:44.132Z",
+      "crawledAt": "2026-07-28T11:27:51.399Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -159,8 +159,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "smg-swiss-marketplace-group-4477f61b3a64",
       "slug": "account-manager-immobiliare-f-m-d-smg-swiss-marketplace-group-fribourg",
@@ -200,5 +199,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
