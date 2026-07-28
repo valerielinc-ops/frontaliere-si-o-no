@@ -367,6 +367,18 @@ jobs:
             exit "$LOCALE_RC"
           fi
 
+      # Precondition for every dist-walking audit/validator in this job. The
+      # section rehydrate above is soft-fail BY CONTRACT (it warns and degrades
+      # rather than aborting), so a shard repo that clones empty leaves dist/
+      # missing an entire subtree — and from there every audit reports the
+      # absent pages as unreachable / thin / orphan content OF THE SITE, not as
+      # a hole in its own input. Issue #4857 is that verdict in its purest form:
+      # an audit replay that never rehydrated at all called ~68k reachable
+      # cluster URLs an entire content tier below crawl depth. Stop here, with
+      # the reason named, instead of shipping a fabricated structural finding.
+      - name: Assert dist/ is the complete logical site
+        run: node scripts/ci/assert-dist-complete.mjs
+
       - name: Migrate all-known-job-slugs to canton-aware paths
         # Phase 8c: the committed `data/all-known-job-slugs.json` accumulates
         # tracking entries from previous builds. The builder
@@ -702,6 +714,18 @@ jobs:
           if [ "$LOCALE_RC" -ne 0 ]; then
             exit "$LOCALE_RC"
           fi
+
+      # Precondition for every dist-walking audit/validator in this job. The
+      # section rehydrate above is soft-fail BY CONTRACT (it warns and degrades
+      # rather than aborting), so a shard repo that clones empty leaves dist/
+      # missing an entire subtree — and from there every audit reports the
+      # absent pages as unreachable / thin / orphan content OF THE SITE, not as
+      # a hole in its own input. Issue #4857 is that verdict in its purest form:
+      # an audit replay that never rehydrated at all called ~68k reachable
+      # cluster URLs an entire content tier below crawl depth. Stop here, with
+      # the reason named, instead of shipping a fabricated structural finding.
+      - name: Assert dist/ is the complete logical site
+        run: node scripts/ci/assert-dist-complete.mjs
 
       - name: Migrate all-known-job-slugs to canton-aware paths
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
@@ -1207,6 +1231,18 @@ jobs:
           if [ "$LOCALE_RC" -ne 0 ]; then
             exit "$LOCALE_RC"
           fi
+
+      # Precondition for every dist-walking audit/validator in this job. The
+      # section rehydrate above is soft-fail BY CONTRACT (it warns and degrades
+      # rather than aborting), so a shard repo that clones empty leaves dist/
+      # missing an entire subtree — and from there every audit reports the
+      # absent pages as unreachable / thin / orphan content OF THE SITE, not as
+      # a hole in its own input. Issue #4857 is that verdict in its purest form:
+      # an audit replay that never rehydrated at all called ~68k reachable
+      # cluster URLs an entire content tier below crawl depth. Stop here, with
+      # the reason named, instead of shipping a fabricated structural finding.
+      - name: Assert dist/ is the complete logical site
+        run: node scripts/ci/assert-dist-complete.mjs
 
       - name: Migrate all-known-job-slugs to canton-aware paths
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
