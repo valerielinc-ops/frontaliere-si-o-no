@@ -86,6 +86,51 @@ function extractFromJsonLd(document) {
   return best;
 }
 
+/**
+ * Publication date of the SOURCE article, ISO string or ''.
+ *
+ * Added 2026-07-28: a 25 January 2026 source was republished as fresh news on
+ * 28 July 2026, in the future tense, because nothing in the pipeline ever
+ * looked at when the source was written. Reads JSON-LD `datePublished` first
+ * (the same node the body comes from), then the standard meta tags.
+ */
+export function extractPublishedDate(document) {
+  const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+  for (const script of scripts) {
+    let parsed;
+    try {
+      parsed = JSON.parse(script.textContent);
+    } catch {
+      continue;
+    }
+    const candidates = Array.isArray(parsed) ? parsed : [parsed];
+    for (const obj of candidates) {
+      if (!obj || typeof obj !== 'object') continue;
+      const graph = Array.isArray(obj['@graph']) ? obj['@graph'] : [obj];
+      for (const node of graph) {
+        if (!node || typeof node !== 'object') continue;
+        const raw = node.datePublished || node.dateCreated || node.dateModified;
+        if (typeof raw === 'string' && !Number.isNaN(new Date(raw).getTime())) {
+          return new Date(raw).toISOString();
+        }
+      }
+    }
+  }
+
+  for (const sel of ['meta[property="article:published_time"]', 'meta[name="date"]',
+                     'meta[itemprop="datePublished"]', 'meta[name="pubdate"]']) {
+    const el = document.querySelector(sel);
+    const raw = el ? (el.getAttribute('content') || '').trim() : '';
+    if (raw && !Number.isNaN(new Date(raw).getTime())) return new Date(raw).toISOString();
+  }
+
+  const timeEl = document.querySelector('time[datetime]');
+  const timeRaw = timeEl ? (timeEl.getAttribute('datetime') || '').trim() : '';
+  if (timeRaw && !Number.isNaN(new Date(timeRaw).getTime())) return new Date(timeRaw).toISOString();
+
+  return '';
+}
+
 function extractFromMeta(document, selector) {
   const el = document.querySelector(selector);
   return el ? (el.getAttribute('content') || '').trim() : '';
@@ -131,6 +176,7 @@ export function extractArticleText(html, opts = {}) {
     return naiveFallback(html, maxChars);
   }
   const document = dom.window.document;
+  const publishedAt = extractPublishedDate(document);
 
   // Strip noise nodes up-front. NOTE: JSON-LD `<script type="application/ld+json">`
   // MUST survive this pass — the JSON-LD extractor reads it next. We only purge
@@ -147,21 +193,21 @@ export function extractArticleText(html, opts = {}) {
   const jsonLdBody = extractFromJsonLd(document);
   if (jsonLdBody && jsonLdBody.length > 200) {
     const text = cleanText(jsonLdBody).slice(0, maxChars);
-    return { text, method: 'jsonld', paragraphCount: text.split(/[.!?]\s+/).length };
+    return { text, method: 'jsonld', paragraphCount: text.split(/[.!?]\s+/).length, publishedAt };
   }
 
   // 2/3. Article-tag with paragraph extraction
   const articleParagraphs = extractParagraphs(document.querySelector('article'));
   if (articleParagraphs.length >= 2) {
     const text = articleParagraphs.join('\n\n').slice(0, maxChars);
-    return { text, method: 'article-tag', paragraphCount: articleParagraphs.length };
+    return { text, method: 'article-tag', paragraphCount: articleParagraphs.length, publishedAt };
   }
 
   // 4. Main-tag with paragraph extraction
   const mainParagraphs = extractParagraphs(document.querySelector('main'));
   if (mainParagraphs.length >= 2) {
     const text = mainParagraphs.join('\n\n').slice(0, maxChars);
-    return { text, method: 'main-tag', paragraphCount: mainParagraphs.length };
+    return { text, method: 'main-tag', paragraphCount: mainParagraphs.length, publishedAt };
   }
 
   // 5. OG description + first paragraphs anywhere
@@ -177,7 +223,7 @@ export function extractArticleText(html, opts = {}) {
     parts.push(...bodyParagraphs.slice(0, 12));
     if (parts.join(' ').length >= 200) {
       const text = parts.join('\n\n').slice(0, maxChars);
-      return { text, method: 'og-fallback', paragraphCount: parts.length };
+      return { text, method: 'og-fallback', paragraphCount: parts.length, publishedAt };
     }
   }
 
