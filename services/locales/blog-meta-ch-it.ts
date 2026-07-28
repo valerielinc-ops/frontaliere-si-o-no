@@ -1606,6 +1606,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.incontro-sbt-finanze-clima-colpo-freno-svizzera.title': 'Di più Iniziativa SBTi finanza e clima, colpo di freno in Svizzera',
     'blog.article.incontro-sbt-finanze-clima-colpo-freno-svizzera.excerpt': 'La Science Based Targets initiative (SBTi) perde colpi in Svizzera, dove il numero di aziende che aderiscono al progetto aumenta a rilento.',
     'blog.article.incontro-sbt-finanze-clima-colpo-freno-svizzera.imageAlt': 'Immagine di una conferenza ambientale con rappresentanti delle aziende',
+    'blog.article.diritti-inquilino-affitti-svizzera.title': 'Affitti in Svizzera: diritti dell\'inquilino e disdetta',
+    'blog.article.diritti-inquilino-affitti-svizzera.excerpt': 'Guida completa ai diritti dell\'inquilino in Svizzera, deposito cauzionale, procedura di disdetta e contestazione dell\'affitto.',
+    'blog.article.diritti-inquilino-affitti-svizzera.imageAlt': 'Palazzina residenziale in Svizzera con affitti e diritti degli inquilini',
 };
 
 export default blogMetaChIt;

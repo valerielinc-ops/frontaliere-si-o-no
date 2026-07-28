@@ -1606,6 +1606,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.incontro-sbt-finanze-clima-colpo-freno-svizzera.title': 'Mehr SBTi-Initiative Finanzen und Klima, Bremsklotz in der Schweiz',
     'blog.article.incontro-sbt-finanze-clima-colpo-freno-svizzera.excerpt': 'Die Science Based Targets Initiative (SBTi) verliert in der Schweiz an Bedeutung, wo die Zahl der teilnehmenden Unternehmen nur langsam zunimmt.',
     'blog.article.incontro-sbt-finanze-clima-colpo-freno-svizzera.imageAlt': 'Bild einer Umweltkonferenz mit Unternehmensvertretern',
+    'blog.article.diritti-inquilino-affitti-svizzera.title': 'Mieten in der Schweiz: Mieterrechte und Kündigung',
+    'blog.article.diritti-inquilino-affitti-svizzera.excerpt': 'Vollständiger Leitfaden zu Mieterrechten in der Schweiz, Kaution, Kündigungsverfahren und Mietwiderspruch.',
+    'blog.article.diritti-inquilino-affitti-svizzera.imageAlt': 'Wohngebäude in der Schweiz für Mieterrechte',
 };
 
 export default blogMetaChDe;

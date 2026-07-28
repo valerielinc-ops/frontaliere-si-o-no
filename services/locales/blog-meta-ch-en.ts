@@ -1606,6 +1606,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.incontro-sbt-finanze-clima-colpo-freno-svizzera.title': 'More SBTi Finance and Climate Initiative, a brake in Switzerland',
     'blog.article.incontro-sbt-finanze-clima-colpo-freno-svizzera.excerpt': 'The Science Based Targets initiative (SBTi) is losing ground in Switzerland, where the number of companies joining the project is slowly increasing.',
     'blog.article.incontro-sbt-finanze-clima-colpo-freno-svizzera.imageAlt': 'Image of an environmental conference with company representatives',
+    'blog.article.diritti-inquilino-affitti-svizzera.title': 'Swiss Rentals: Tenant Rights and Cancellation',
+    'blog.article.diritti-inquilino-affitti-svizzera.excerpt': 'Complete guide to tenant\'s rights in Switzerland, security deposit, cancellation procedure and rental dispute.',
+    'blog.article.diritti-inquilino-affitti-svizzera.imageAlt': 'Residential building in Switzerland representing tenant rights',
 };
 
 export default blogMetaChEn;
