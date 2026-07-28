@@ -20,6 +20,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { createSign } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
+import { CORE_SITEMAPS } from './lib/sitemap-files.mjs';
 
 const SITE_URL = 'https://frontaliereticino.ch';
 const MAX_INSPECT_URLS = 20; // API quota: 2000/day — we use 20 per deploy
@@ -216,7 +217,7 @@ function getUrlsFromSitemap() {
     : resolve(rootDir, 'public');
 
   // sitemap.xml is now a sitemap index — read all sub-sitemaps
-  const subSitemaps = ['sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-glossario.xml', 'sitemap-jobs.xml', 'sitemap-seo-hubs.xml'];
+  const subSitemaps = CORE_SITEMAPS;
   for (const file of subSitemaps) {
     try {
       const xml = readFileSync(resolve(sitemapDir, file), 'utf-8');
@@ -239,12 +240,8 @@ async function pingSitemaps(accessToken) {
 
   const sitemaps = [
     `${SITE_URL}/sitemap.xml`,
-    `${SITE_URL}/sitemap-pages.xml`,
-    `${SITE_URL}/sitemap-blog.xml`,
-    `${SITE_URL}/sitemap-glossario.xml`,
-    `${SITE_URL}/sitemap-jobs.xml`,
+    ...CORE_SITEMAPS.map((file) => `${SITE_URL}/${file}`),
     `${SITE_URL}/sitemap-news.xml`,
-    `${SITE_URL}/sitemap-seo-hubs.xml`,
   ];
 
   const headers = { Authorization: `Bearer ${accessToken}` };

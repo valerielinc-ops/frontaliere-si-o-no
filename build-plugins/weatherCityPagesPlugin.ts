@@ -334,7 +334,7 @@ function attributionBlock(locale: Locale, generatedAt?: string): string {
     try {
       const d = new Date(generatedAt);
       if (!Number.isNaN(d.getTime())) {
-        const human = `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+        const human = `${String(d.getUTCDate()).padStart(2, '0')}/${String(d.getUTCMonth() + 1).padStart(2, '0')} ${String(d.getUTCHours()).padStart(2, '0')}:${String(d.getUTCMinutes()).padStart(2, '0')}`;
         stamp = `<time datetime="${escapeHtml(generatedAt)}" class="text-sm font-medium text-body">${updatedLabel} ${human}</time>`;
       }
     } catch { /* ignore */ }
@@ -596,7 +596,13 @@ function attributionInline(locale: Locale, generatedAt?: string): string {
     try {
       const d = new Date(generatedAt);
       if (!Number.isNaN(d.getTime())) {
-        stamp = ` · <time datetime="${escapeHtml(generatedAt)}">${updatedLabel} ${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}</time>`;
+        // UTC accessors, not local: the sibling `datetime` attribute publishes
+        // generatedAt verbatim (a ...Z instant), so the visible text must be read
+        // in the same zone or the two disagree off a UTC runner. Same bug class as
+        // the article byline fixed in #4837 — there it was already live-visible
+        // because normalizeDateTime stamps +01:00; here the Z source kept it
+        // latent, but the construct was identical.
+        stamp = ` · <time datetime="${escapeHtml(generatedAt)}">${updatedLabel} ${String(d.getUTCDate()).padStart(2, '0')}/${String(d.getUTCMonth() + 1).padStart(2, '0')} ${String(d.getUTCHours()).padStart(2, '0')}:${String(d.getUTCMinutes()).padStart(2, '0')}</time>`;
       }
     } catch { /* ignore */ }
   }
@@ -616,7 +622,7 @@ function formatHm(iso: string): string | null {
   try {
     const d = new Date(iso);
     if (Number.isNaN(d.getTime())) return null;
-    return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+    return `${String(d.getUTCHours()).padStart(2, '0')}:${String(d.getUTCMinutes()).padStart(2, '0')}`;
   } catch {
     return null;
   }

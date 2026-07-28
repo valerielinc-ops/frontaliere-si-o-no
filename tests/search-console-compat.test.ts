@@ -307,6 +307,26 @@ describe('Search Console 404 compatibility resolver', () => {
       kind: 'legacy',
       locale: 'fr',
     });
+    expect(resolveSearchConsoleCompatTarget('/articoli-svizzera/some-old-article')).toEqual({
+      canonicalPath: '/articoli-svizzera/',
+      kind: 'legacy',
+      locale: 'it',
+    });
+    expect(resolveSearchConsoleCompatTarget('/en/swiss-articles/some-old-article')).toEqual({
+      canonicalPath: '/en/swiss-articles/',
+      kind: 'legacy',
+      locale: 'en',
+    });
+    expect(resolveSearchConsoleCompatTarget('/de/schweiz-artikel/some-old-article')).toEqual({
+      canonicalPath: '/de/schweiz-artikel/',
+      kind: 'legacy',
+      locale: 'de',
+    });
+    expect(resolveSearchConsoleCompatTarget('/fr/articles-suisse/some-old-article')).toEqual({
+      canonicalPath: '/fr/articles-suisse/',
+      kind: 'legacy',
+      locale: 'fr',
+    });
     expect(resolveSearchConsoleCompatTarget('/compara-servizi/something')).toEqual({
       canonicalPath: '/compara-servizi/',
       kind: 'legacy',

@@ -12,13 +12,11 @@
  * @see https://developers.google.com/search/apis/indexing-api/v3/quickstart
  */
 
-import { createSign } from 'node:crypto';
+import { createJwtAssertion, exchangeAssertionForToken } from './google-service-account-token.mjs';
 import fs from 'node:fs';
 
 const INDEXING_API_URL = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
-const TOKEN_URL = 'https://oauth2.googleapis.com/token';
 const SCOPE = 'https://www.googleapis.com/auth/indexing';
-const TOKEN_LIFETIME_SECONDS = 3600;
 
 /**
  * Load service account credentials from env or file.
@@ -36,54 +34,6 @@ function loadCredentials() {
     try { return JSON.parse(fs.readFileSync(filePath, 'utf-8')); } catch { /* fall through */ }
   }
   return null;
-}
-
-/**
- * Create a signed JWT for Google OAuth2 service account auth.
- * @param {object} creds - Service account credentials with client_email and private_key
- * @returns {string} Signed JWT assertion
- */
-function createJwtAssertion(creds) {
-  const now = Math.floor(Date.now() / 1000);
-  const header = { alg: 'RS256', typ: 'JWT' };
-  const payload = {
-    iss: creds.client_email,
-    scope: SCOPE,
-    aud: TOKEN_URL,
-    iat: now,
-    exp: now + TOKEN_LIFETIME_SECONDS,
-  };
-
-  const encode = (obj) => Buffer.from(JSON.stringify(obj)).toString('base64url');
-  const unsigned = `${encode(header)}.${encode(payload)}`;
-
-  const sign = createSign('RSA-SHA256');
-  sign.update(unsigned);
-  const signature = sign.sign(creds.private_key, 'base64url');
-
-  return `${unsigned}.${signature}`;
-}
-
-/**
- * Exchange a JWT assertion for an access token.
- * @param {string} assertion - Signed JWT
- * @returns {Promise<string>} Access token
- */
-async function getAccessToken(assertion) {
-  const res = await fetch(TOKEN_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({
-      grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
-      assertion,
-    }),
-  });
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`OAuth token exchange failed: ${res.status} ${text}`);
-  }
-  const data = await res.json();
-  return data.access_token;
 }
 
 /**
@@ -106,8 +56,8 @@ export async function notifyGoogleIndexing(urls, { type = 'URL_UPDATED' } = {}) 
 
   let accessToken;
   try {
-    const jwt = createJwtAssertion(creds);
-    accessToken = await getAccessToken(jwt);
+    const jwt = createJwtAssertion(creds, SCOPE);
+    accessToken = await exchangeAssertionForToken(jwt);
   } catch (err) {
     console.error(`[indexing-api] ❌ Auth failed: ${err.message}`);
     return urls.map(url => ({ url, ok: false, error: err.message }));

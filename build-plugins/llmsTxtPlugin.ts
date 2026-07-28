@@ -20,7 +20,7 @@ const BASE_URL = 'https://frontaliereticino.ch';
 // missing dozens of newer template families' sub-sitemaps from the
 // llms.txt page index).
 const SITEMAP_FILES = [
- 'sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-glossario.xml',
+ 'sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-blog-ch.xml', 'sitemap-glossario.xml',
  'sitemap-news.xml', 'sitemap-jobs.xml',
  // AE-5 — 100-Q&A FAQ hub (emitted by faqHubPlugin; lives in dist/ only,
  // parser falls back silently if the file is absent in publicDir).

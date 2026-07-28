@@ -230,6 +230,45 @@ export function isTrivialSecret(value) {
 
 
 
+/**
+ * Fetch the Remote Config template WITHOUT firebase-admin, using the REST API
+ * and a service-account-signed JWT (same technique as scripts/lib/indexing-api.mjs,
+ * which is likewise dependency-free by design).
+ *
+ * Why this exists (issue #4837): `await import('firebase-admin')` needs an
+ * installed node_modules. The fast-publish path deliberately runs with NO
+ * `npm ci` — a full dependency install is precisely the cost that workflow
+ * exists to avoid — so on that path the admin import throws and, before this
+ * fallback, the script gave up and silently loaded no secrets at all. The
+ * visible symptom would have been R2 credentials never reaching
+ * upload-cdn-file.sh, which then skips (by design, exit 0), leaving every
+ * fast-published article with an og:image that 404s for social crawlers until
+ * the next full deploy.
+ *
+ * Returns a template shaped like the admin SDK's ({ parameters }), so
+ * getRcValue() works unchanged. Returns null on any failure — callers fall
+ * back to plain env vars, exactly as before.
+ */
+async function fetchTemplateViaRest() {
+  const { readFileSync } = await import('node:fs');
+  const { getServiceAccountAccessToken } = await import('./lib/google-service-account-token.mjs');
+
+  const creds = JSON.parse(readFileSync(process.env.GOOGLE_APPLICATION_CREDENTIALS, 'utf8'));
+  if (!creds.project_id) throw new Error('service account JSON missing project_id');
+
+  const accessToken = await getServiceAccountAccessToken(
+    creds,
+    'https://www.googleapis.com/auth/firebase.remoteconfig',
+  );
+
+  const rcRes = await fetch(
+    `https://firebaseremoteconfig.googleapis.com/v1/projects/${encodeURIComponent(creds.project_id)}/remoteConfig`,
+    { headers: { Authorization: `Bearer ${accessToken}`, 'Accept-Encoding': 'gzip' } },
+  );
+  if (!rcRes.ok) throw new Error(`Remote Config REST fetch failed: ${rcRes.status}`);
+  return rcRes.json();
+}
+
 // ─── Main ────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -242,8 +281,8 @@ async function main() {
     process.exit(0);
   }
 
-  // 2. Init Firebase Admin
-  let admin;
+  // 2. Init Firebase Admin (absent on no-install fast paths — see step 3)
+  let admin = null;
   try {
     const adminMod = await import('firebase-admin');
     admin = adminMod.default || adminMod;
@@ -251,20 +290,34 @@ async function main() {
       admin.initializeApp({ credential: admin.credential.applicationDefault() });
     }
   } catch (err) {
-    console.warn(`⚠️  Firebase Admin init failed: ${err.message}`);
-    console.warn('   Falling back to environment variables / GH Secrets.');
-    process.exit(0);
+    console.warn(`ℹ️  Firebase Admin unavailable (${err.message}) — using the dependency-free REST path.`);
+    admin = null;
   }
 
-  // 3. Fetch Remote Config template
+  // 3. Fetch the Remote Config template: admin SDK when installed, REST
+  //    otherwise. The REST path keeps this script working on workflows that
+  //    deliberately skip `npm ci` (issue #4837) instead of silently loading
+  //    zero secrets there.
   let template;
   try {
-    const rc = admin.remoteConfig();
-    template = await rc.getTemplate();
+    template = admin ? await admin.remoteConfig().getTemplate() : await fetchTemplateViaRest();
   } catch (err) {
-    console.warn(`⚠️  Failed to fetch Remote Config: ${err.message}`);
-    console.warn('   Falling back to environment variables / GH Secrets.');
-    process.exit(0);
+    console.warn(`⚠️  Failed to fetch Remote Config via ${admin ? 'admin SDK' : 'REST'}: ${err.message}`);
+    if (admin) {
+      // Admin was installed but failed (expired ADC, transient 5xx). REST uses a
+      // freshly-signed JWT and a different code path, so it is worth one try.
+      try {
+        template = await fetchTemplateViaRest();
+        console.warn('   Recovered via the REST fallback.');
+      } catch (restErr) {
+        console.warn(`   REST fallback also failed: ${restErr.message}`);
+        console.warn('   Falling back to environment variables / GH Secrets.');
+        process.exit(0);
+      }
+    } else {
+      console.warn('   Falling back to environment variables / GH Secrets.');
+      process.exit(0);
+    }
   }
 
   const paramCount = Object.keys(template.parameters || {}).length;

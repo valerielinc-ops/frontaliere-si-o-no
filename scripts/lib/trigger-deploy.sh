@@ -6,6 +6,15 @@
 # This script uses the GitHub API + a PAT to fire a workflow_dispatch event
 # on deploy.yml, ensuring the site is rebuilt & redeployed with new data.
 #
+# Thin wrapper: builds the deploy.yml-specific inputs JSON (article metadata)
+# and delegates the ref-wait + dispatch-retry engine to
+# scripts/lib/trigger-workflow.sh (issue #4837 stream C — extracted so a
+# second caller needing the same "wait for SHA, dispatch with 5xx retry"
+# machinery, e.g. fast-publish-article.yml, doesn't hand-roll a literal
+# duplicate of this file's curl/retry loop; AGENTS.md Non-Negotiable #6).
+# All env var names, the `dispatch_sent` output key, and exit codes 0/1 are
+# unchanged from before this refactor — existing callers need no changes.
+#
 # Required env vars:
 #   GITHUB_PAT or GH_TOKEN  — Personal Access Token with workflow scope
 #   GITHUB_REPOSITORY       — owner/repo (set automatically in Actions)
@@ -20,6 +29,7 @@
 #   DEPLOY_ARTICLE_OG_DESCRIPTION — optional OG description for Facebook copy
 #   DEPLOY_ARTICLE_OG_IMAGE  — optional expected OG image for the live page
 #   DEPLOY_ARTICLE_CATEGORY  — optional article category for Facebook hashtags
+#   DEPLOY_DISPATCH_ATTEMPTS — max dispatch retry attempts (default: 3)
 #
 # Exit codes:
 #   0  — dispatch sent (or skipped when no token available)
@@ -27,30 +37,8 @@
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
-source "$(dirname "${BASH_SOURCE[0]}")/github-api-version.sh"
+SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
 
-write_output() {
-  local key="$1"
-  local value="$2"
-  if [ -n "${GITHUB_OUTPUT:-}" ]; then
-    printf '%s=%s\n' "$key" "$value" >> "$GITHUB_OUTPUT"
-  fi
-}
-
-# Resolve a token — prefer GITHUB_PAT, fall back to GH_TOKEN
-TOKEN="${GITHUB_PAT:-${GH_TOKEN:-}}"
-
-if [ -z "$TOKEN" ]; then
-  echo "ℹ️ No GITHUB_PAT or GH_TOKEN — skipping deploy trigger (deploy.yml will not fire)"
-  write_output "dispatch_sent" "false"
-  exit 0
-fi
-
-REPO="${GITHUB_REPOSITORY:-valerielinc-ops/frontaliere-si-o-no}"
-REF="${DEPLOY_REF:-main}"
-EXPECTED_SHA="${EXPECTED_SHA:-}"
-WAIT_ATTEMPTS="${DEPLOY_REF_WAIT_ATTEMPTS:-20}"
-WAIT_SECONDS="${DEPLOY_REF_WAIT_SECONDS:-2}"
 ARTICLE_ID="${DEPLOY_ARTICLE_ID:-}"
 ARTICLE_URL="${DEPLOY_ARTICLE_URL:-}"
 ARTICLE_OG_TITLE="${DEPLOY_ARTICLE_OG_TITLE:-}"
@@ -58,45 +46,11 @@ ARTICLE_OG_DESCRIPTION="${DEPLOY_ARTICLE_OG_DESCRIPTION:-}"
 ARTICLE_OG_IMAGE="${DEPLOY_ARTICLE_OG_IMAGE:-}"
 ARTICLE_CATEGORY="${DEPLOY_ARTICLE_CATEGORY:-}"
 
-read_ref_sha() {
-  local ref="$1"
-  curl -sS \
-    "https://api.github.com/repos/${REPO}/commits/${ref}" \
-    -H "Accept: application/vnd.github+json" \
-    -H "Authorization: Bearer ${TOKEN}" \
-    -H "X-GitHub-Api-Version: ${GITHUB_API_VERSION}" \
-    | node -e 'let d="";process.stdin.on("data",c=>d+=c);process.stdin.on("end",()=>{try{const j=JSON.parse(d);if(j&&typeof j.sha==="string")process.stdout.write(j.sha);}catch{}});'
-}
-
-if [ -n "$EXPECTED_SHA" ]; then
-  echo "⏳ Waiting for ${REF} to reach pushed SHA ${EXPECTED_SHA}..."
-  REACHED=0
-  for attempt in $(seq 1 "$WAIT_ATTEMPTS"); do
-    CURRENT_SHA="$(read_ref_sha "$REF" || true)"
-    if [ -n "$CURRENT_SHA" ] && [ "$CURRENT_SHA" = "$EXPECTED_SHA" ]; then
-      echo "✅ ${REF} now points to ${EXPECTED_SHA}"
-      REACHED=1
-      break
-    fi
-    if [ -n "$CURRENT_SHA" ]; then
-      echo "… ${REF} still at ${CURRENT_SHA} (attempt ${attempt}/${WAIT_ATTEMPTS})"
-    else
-      echo "… unable to read ${REF} head SHA (attempt ${attempt}/${WAIT_ATTEMPTS})"
-    fi
-    sleep "$WAIT_SECONDS"
-  done
-  if [ "$REACHED" != "1" ]; then
-    echo "⚠️ ${REF} did not reach ${EXPECTED_SHA} in time — dispatching anyway"
-  fi
-fi
-
-echo "🚀 Triggering deploy workflow via workflow_dispatch..."
 if [ -n "$ARTICLE_ID" ] || [ -n "$ARTICLE_URL" ] || [ -n "$ARTICLE_OG_TITLE" ] || [ -n "$ARTICLE_OG_DESCRIPTION" ] || [ -n "$ARTICLE_OG_IMAGE" ]; then
   echo "📰 Passing article metadata to deploy workflow for post-deploy live checks"
 fi
 
-PAYLOAD="$(
-  DEPLOY_REF_JSON="$REF" \
+INPUTS_JSON="$(
   DEPLOY_ARTICLE_ID_JSON="$ARTICLE_ID" \
   DEPLOY_ARTICLE_URL_JSON="$ARTICLE_URL" \
   DEPLOY_ARTICLE_OG_TITLE_JSON="$ARTICLE_OG_TITLE" \
@@ -105,7 +59,6 @@ PAYLOAD="$(
   DEPLOY_ARTICLE_CATEGORY_JSON="$ARTICLE_CATEGORY" \
   node <<'NODE'
 const trim = (value) => String(value || '').trim();
-const payload = { ref: trim(process.env.DEPLOY_REF_JSON) || 'main' };
 const inputs = {
   article_id: trim(process.env.DEPLOY_ARTICLE_ID_JSON),
   article_url: trim(process.env.DEPLOY_ARTICLE_URL_JSON),
@@ -117,46 +70,13 @@ const inputs = {
 const nonEmptyInputs = Object.fromEntries(
   Object.entries(inputs).filter(([, value]) => value.length > 0),
 );
-if (Object.keys(nonEmptyInputs).length > 0) {
-  payload.inputs = nonEmptyInputs;
-}
-process.stdout.write(JSON.stringify(payload));
+process.stdout.write(JSON.stringify(nonEmptyInputs));
 NODE
 )"
-# Retry on transient errors (5xx / connection failure) — GitHub's API dispatch
-# endpoint occasionally 502s under load. Auth/permission errors (4xx) are not
-# transient and fail immediately without wasting the retry budget.
-MAX_DISPATCH_ATTEMPTS="${DEPLOY_DISPATCH_ATTEMPTS:-3}"
-attempt=1
-while true; do
-  HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
-    -X POST \
-    "https://api.github.com/repos/${REPO}/actions/workflows/deploy.yml/dispatches" \
-    -H "Accept: application/vnd.github+json" \
-    -H "Authorization: Bearer ${TOKEN}" \
-    -H "X-GitHub-Api-Version: ${GITHUB_API_VERSION}" \
-    -d "$PAYLOAD" || echo "000")
 
-  if [ "$HTTP_CODE" = "204" ]; then
-    break
-  fi
-  if [[ ! "$HTTP_CODE" =~ ^5[0-9][0-9]$ ]] && [ "$HTTP_CODE" != "000" ]; then
-    break
-  fi
-  if [ "$attempt" -ge "$MAX_DISPATCH_ATTEMPTS" ]; then
-    break
-  fi
-  echo "⚠️ Deploy trigger returned HTTP $HTTP_CODE (attempt ${attempt}/${MAX_DISPATCH_ATTEMPTS}) — retrying..."
-  sleep $((attempt * 2))
-  attempt=$((attempt + 1))
-done
-
-if [ "$HTTP_CODE" = "204" ]; then
-  echo "✅ Deploy workflow triggered successfully"
-  write_output "dispatch_sent" "true"
-  exit 0
-else
-  echo "⚠️ Deploy trigger returned HTTP $HTTP_CODE (expected 204)"
-  write_output "dispatch_sent" "false"
-  exit 1
-fi
+TRIGGER_REF="${DEPLOY_REF:-main}" \
+TRIGGER_EXPECTED_SHA="${EXPECTED_SHA:-}" \
+TRIGGER_REF_WAIT_ATTEMPTS="${DEPLOY_REF_WAIT_ATTEMPTS:-20}" \
+TRIGGER_REF_WAIT_SECONDS="${DEPLOY_REF_WAIT_SECONDS:-2}" \
+TRIGGER_DISPATCH_ATTEMPTS="${DEPLOY_DISPATCH_ATTEMPTS:-3}" \
+  bash "${SCRIPT_DIR}/trigger-workflow.sh" "deploy.yml" "$INPUTS_JSON"
