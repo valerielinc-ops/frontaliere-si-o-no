@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3572,
+ "numberOfItems": 3573,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8332,7 +8332,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3569, "name": "Dichiarazione delle imposte in Svizzera: Guida ...", "url": `${BASE_URL}/articoli-frontaliere/dichiarazione-imposte-svizzera-guida` },
           { "@type": "ListItem", "position": 3570, "name": "Ticino: scarseggiano i frontalieri italiani, or...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-italiani-ticino-risorsa` },
           { "@type": "ListItem", "position": 3571, "name": "Permessi di soggiorno in Svizzera: guida a B, C...", "url": `${BASE_URL}/articoli-frontaliere/permessi-soggiorno-svizzera-b-c-l` },
-          { "@type": "ListItem", "position": 3572, "name": "Mercati predittivi e nuova piattaforma: il busi...", "url": `${BASE_URL}/articoli-frontaliere/mercati-predittivi-business-trump` }
+          { "@type": "ListItem", "position": 3572, "name": "Mercati predittivi e nuova piattaforma: il busi...", "url": `${BASE_URL}/articoli-frontaliere/mercati-predittivi-business-trump` },
+          { "@type": "ListItem", "position": 3573, "name": "Frontalieri, tensione fiscale con il Ticino: i ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-tensione-fiscale-ticino-governo` }
  ]
  },
  {

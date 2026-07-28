@@ -20960,6 +20960,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-tensione-fiscale-ticino-governo': {
+    title: 'Frontalieri, tensione fiscale con il Ticino: i sindacati chiedono intervento',
+    description: 'I sindacati chiedono l\'intervento del Governo per risolvere la situazione dei frontalieri con il Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tensione, fiscale, sindacati, chiedono',
+    ogTitle: 'Frontalieri, nuova tensione fiscale con il Ticino: i sindacati chiedono l\'intervento del Governo',
+    ogDescription: 'I sindacati chiedono l\'intervento del Governo per risolvere la situazione dei frontalieri con il Ticino.',
+    canonicalPath: '/articoli-svizzera/frontalieri-tensione-fiscale-ticino-governo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri, tensione fiscale con il Ticino: i sindacati chiedono intervento",
+      "description": "I sindacati chiedono l'intervento del Governo per risolvere la situazione dei frontalieri con il Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-tensione-fiscale-ticino-governo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in Svizzera"
+      },
+      "datePublished": "2026-07-28T04:31:12+00:00",
+      "dateModified": "2026-07-28T04:31:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-tensione-fiscale-ticino-governo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

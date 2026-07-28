@@ -1621,6 +1621,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permessi-soggiorno-svizzera-b-c-l.title': 'Permessi di soggiorno in Svizzera: guida a B, C e L',
     'blog.article.permessi-soggiorno-svizzera-b-c-l.excerpt': 'Analisi completa delle tipologie di permesso di soggiorno in Svizzera B, C e L, con requisiti, durata e procedure di rinnovo gestite dalle autorità federali e cantonali.',
     'blog.article.permessi-soggiorno-svizzera-b-c-l.imageAlt': 'Permessi di soggiorno in Svizzera: guida alle tipologie B, C e L',
+    'blog.article.frontalieri-tensione-fiscale-ticino-governo.title': 'Frontalieri, tensione fiscale con il Ticino: i sindacati chiedono intervento',
+    'blog.article.frontalieri-tensione-fiscale-ticino-governo.excerpt': 'I sindacati chiedono l\'intervento del Governo per risolvere la situazione dei frontalieri con il Ticino.',
+    'blog.article.frontalieri-tensione-fiscale-ticino-governo.imageAlt': 'Frontalieri in Svizzera',
 };
 
 export default blogMetaChIt;

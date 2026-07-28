@@ -1621,6 +1621,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permessi-soggiorno-svizzera-b-c-l.title': 'Residence permits in Switzerland: guide to B, C and L',
     'blog.article.permessi-soggiorno-svizzera-b-c-l.excerpt': 'Comprehensive analysis of the types of residence permit in Switzerland B, C and L, with requirements, duration and renewal procedures managed by the federal and cantonal authorities.',
     'blog.article.permessi-soggiorno-svizzera-b-c-l.imageAlt': 'Swiss residence permits guide types B, C and L',
+    'blog.article.frontalieri-tensione-fiscale-ticino-governo.title': 'Frontier workers, fiscal tension with Ticino: trade unions call for intervention',
+    'blog.article.frontalieri-tensione-fiscale-ticino-governo.excerpt': 'The trade unions are calling for the Government to intervene to resolve the situation of border workers with Ticino.',
+    'blog.article.frontalieri-tensione-fiscale-ticino-governo.imageAlt': 'Frontaliers in Switzerland',
 };
 
 export default blogMetaChEn;
