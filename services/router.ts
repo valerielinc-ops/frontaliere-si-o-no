@@ -225,7 +225,8 @@ export type StatsSubTab = 'overview' | 'livability' | 'jobs-observatory' | 'sala
  * than imported, to avoid a cycle: that file imports from this one).
  *
  * New crossing → add its slug (must equal `slugifyCrossingName(name)` from
- * `data/borderCrossings.ts`) to this array AND to
+ * `services/borderCrossingSlug.ts`, the single implementation every caller
+ * imports) to this array AND to
  * `build-plugins/borderWaitData.ts` (see the "Adding a new crossing"
  * checklist above `BorderCrossingRegion` there for the full list of maps
  * that need an entry too). Missing it here just means the SPA deep-link

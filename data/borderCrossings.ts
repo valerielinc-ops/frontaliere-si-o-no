@@ -2513,21 +2513,11 @@ export const borderCrossings: BorderCrossing[] = [
 // yet, and as a sane baseline before the first compute run lands in
 // `data/`.
 import computedAverages from './border-wait-averages.json' with { type: 'json' };
-
-function slugifyName(name: string): string {
- return name
- .normalize('NFKD')
- .replace(/[̀-ͯ]/g, '')
- .replace(/\([^)]*\)/g, '')
- .replace(/[^a-zA-Z0-9]+/g, '-')
- .replace(/-+/g, '-')
- .replace(/^-|-$/g, '')
- .toLowerCase();
-}
+import { slugifyCrossingName } from '../services/borderCrossingSlug';
 
 const computed = computedAverages as Record<string, { morning?: string; evening?: string }>;
 for (const c of borderCrossings) {
- const slug = slugifyName(c.name);
+ const slug = slugifyCrossingName(c.name);
  const entry = computed[slug];
  if (!entry) continue;
  if (entry.morning) c.avgWaitMorning = entry.morning;
