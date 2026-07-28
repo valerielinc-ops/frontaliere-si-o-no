@@ -75,6 +75,7 @@ import {
   BORDER_WAIT_HYDRATION_SCRIPT_TAG,
 } from './borderWaitHydrationScript';
 import { borderCrossings, type BorderCrossing, type WebcamRef } from '../data/borderCrossings';
+import { slugifyCrossingName } from '../services/borderCrossingSlug';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { imageObjectLdDocument } from '../services/seo/imageObjectLd';
@@ -344,27 +345,8 @@ export function renderTrafficFluidBanner(
 /** Look up crossing static metadata from the registry (matches on slug). */
 function crossingRegistry(slug: BorderCrossingSlug): BorderCrossing | undefined {
   return borderCrossings.find(
-    (c) => slugifyName(c.name) === slug,
+    (c) => slugifyCrossingName(c.name) === slug,
   );
-}
-
-/**
- * Mirror of functions/src/borderCrossingsData.js#slugifyCrossingName.
- * Must stay in sync with that implementation — the Firestore document IDs
- * depend on it.
- * - Strips parentheses + their content (so "Gaggiolo (Cantello-Stabio)" → "gaggiolo")
- * - Removes combining diacritics
- * - Collapses non-alphanumerics into dashes
- */
-function slugifyName(name: string): string {
-  return name
-    .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/\([^)]*\)/g, '')
-    .replace(/[^a-zA-Z0-9]+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '')
-    .toLowerCase();
 }
 
 // Color tokens — CSS custom properties so dark mode works automatically.
