@@ -1636,6 +1636,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sika-crescita-semestre-bilancio.title': 'Sika: giro d\'affari a 5,59 miliardi nel primo semestre',
     'blog.article.sika-crescita-semestre-bilancio.excerpt': 'Il gruppo zughese Sika chiude il semestre con un fatturato di 5,59 miliardi di franchi. Crescita organica positiva e previsioni rialzate per l\'anno in corso.',
     'blog.article.sika-crescita-semestre-bilancio.imageAlt': 'Sede Sika a Baar, Zugo',
+    'blog.article.cerca-lavoro-svizzera-dal-estero.title': 'Guida completa per cercare lavoro in Svizzera dall\'estero',
+    'blog.article.cerca-lavoro-svizzera-dal-estero.excerpt': 'Imposte, leggi, procedure: tutto ciò che devi sapere per cercare lavoro in Svizzera come frontaliere',
+    'blog.article.cerca-lavoro-svizzera-dal-estero.imageAlt': 'Frontaliere che cerca lavoro in Svizzera',
 };
 
 export default blogMetaChIt;

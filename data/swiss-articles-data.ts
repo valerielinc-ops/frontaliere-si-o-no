@@ -4904,6 +4904,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'cerca-lavoro-svizzera-dal-estero',
+    category: 'pratico',
+    date: '2026-07-28T09:25:11.064Z',
+    image: '/images/blog/cerca-lavoro-svizzera-dal-estero.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
