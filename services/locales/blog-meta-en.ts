@@ -9025,6 +9025,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.title': 'Refurbishments for border workers: cantons that receive money',
     'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.excerpt': 'Swiss cantons that receive money from the countries of origin of border workers. Data for September 2025.',
     'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.imageAlt': 'Ticino-Italian border workers',
+    'blog.article.frontalieri-ticino-diminuzione.title': 'The tax agreement changes the rules in Ticino',
+    'blog.article.frontalieri-ticino-diminuzione.excerpt': 'The number of frontier workers in Ticino is steadily decreasing, while the number of residents is increasing.',
+    'blog.article.frontalieri-ticino-diminuzione.imageAlt': 'View of Lugano during the autumn season',
 };
 
 export default blogMetaEn;

@@ -9024,6 +9024,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.title': 'Restaurants für Grenzgänger: Die Kantone, die Geld erhalten',
     'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.excerpt': 'Die Schweizer Kantone, die Geld aus den Herkunftsländern der Grenzgänger erhalten. Die Daten vom September 2025.',
     'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.imageAlt': 'Frontalier in Ticino, die in Italien arbeiten',
+    'blog.article.frontalieri-ticino-diminuzione.title': 'Das Steuerabkommen ändert die Regeln im Tessin',
+    'blog.article.frontalieri-ticino-diminuzione.excerpt': 'Die Zahl der Grenzgänger im Tessin sinkt stetig, während die Zahl der Einwohner steigt.',
+    'blog.article.frontalieri-ticino-diminuzione.imageAlt': 'Blick auf Lugano während der Herbstsaison',
 };
 
 export default blogMetaDe;

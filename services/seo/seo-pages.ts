@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3563,
+ "numberOfItems": 3564,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8323,7 +8323,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3560, "name": "Ristorni per frontalieri: i cantoni che ricevon...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri` },
           { "@type": "ListItem", "position": 3561, "name": "Perché tanti svizzeri ignorano il Tutor in Italia?", "url": `${BASE_URL}/articoli-frontaliere/perche-tanti-svizzeri-ignorano-tutor-italia` },
           { "@type": "ListItem", "position": 3562, "name": "Di più Iniziativa SBTi finanza e clima, colpo d...", "url": `${BASE_URL}/articoli-frontaliere/incontro-sbt-finanze-clima-colpo-freno-svizzera` },
-          { "@type": "ListItem", "position": 3563, "name": "Affitti in Svizzera: diritti dell'inquilino e d...", "url": `${BASE_URL}/articoli-frontaliere/diritti-inquilino-affitti-svizzera` }
+          { "@type": "ListItem", "position": 3563, "name": "Affitti in Svizzera: diritti dell'inquilino e d...", "url": `${BASE_URL}/articoli-frontaliere/diritti-inquilino-affitti-svizzera` },
+          { "@type": "ListItem", "position": 3564, "name": "L'accordo fiscale cambia le regole in Ticino", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-diminuzione` }
  ]
  },
  {
