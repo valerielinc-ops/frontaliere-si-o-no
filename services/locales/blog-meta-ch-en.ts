@@ -1627,6 +1627,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.vecchi-frontalieri-precompilata-2026.title': 'Old frontier workers: pre-filled Swiss income, what to do',
     'blog.article.vecchi-frontalieri-precompilata-2026.excerpt': 'Old frontier workers find their salary data in the pre-filled 2026. What happens and what to do.',
     'blog.article.vecchi-frontalieri-precompilata-2026.imageAlt': 'Vecchi frontalieri with their salary data in the 2026 precompiled',
+    'blog.article.opinioni-tram-treno-lugano.title': 'Opinions on the train tram in Lugano: analysis and impacts',
+    'blog.article.opinioni-tram-treno-lugano.excerpt': 'We analyse the prospects for the tram train project in Lugano, assessing the implications for mobility and the national economic context.',
+    'blog.article.opinioni-tram-treno-lugano.imageAlt': 'Panoramic view of the Lugano lakefront with urban mobility elements.',
 };
 
 export default blogMetaChEn;

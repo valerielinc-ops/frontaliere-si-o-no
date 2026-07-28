@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3575,
+ "numberOfItems": 3577,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8335,7 +8335,9 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3572, "name": "Mercati predittivi e nuova piattaforma: il busi...", "url": `${BASE_URL}/articoli-frontaliere/mercati-predittivi-business-trump` },
           { "@type": "ListItem", "position": 3573, "name": "Frontalieri, tensione fiscale con il Ticino: i ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-tensione-fiscale-ticino-governo` },
           { "@type": "ListItem", "position": 3574, "name": "Vivere a Clivio lavorando in Ticino da frontali...", "url": `${BASE_URL}/articoli-frontaliere/trasferirsi-clivio-frontaliere-pro-contro` },
-          { "@type": "ListItem", "position": 3575, "name": "Vecchi frontalieri: reddito svizzero in precomp...", "url": `${BASE_URL}/articoli-frontaliere/vecchi-frontalieri-precompilata-2026` }
+          { "@type": "ListItem", "position": 3575, "name": "Vecchi frontalieri: reddito svizzero in precomp...", "url": `${BASE_URL}/articoli-frontaliere/vecchi-frontalieri-precompilata-2026` },
+          { "@type": "ListItem", "position": 3576, "name": "Ticino Musica si fa in quattro (concerti)", "url": `${BASE_URL}/articoli-frontaliere/tacito-musica-ticino-concerti` },
+          { "@type": "ListItem", "position": 3577, "name": "Opinioni sul tram treno di Lugano: analisi e im...", "url": `${BASE_URL}/articoli-frontaliere/opinioni-tram-treno-lugano` }
  ]
  },
  {

@@ -56426,6 +56426,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tacito-musica-ticino-concerti': {
+    title: 'Ticino Musica si fa in quattro (concerti) | Frontaliere Ticino',
+    description: 'Il Festival Ticino Musica prosegue con una giornata ricca di appuntamenti che accompagneranno il pubblico dal pomeriggio alla sera. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, musica, quattro, concerti, festival',
+    ogTitle: 'Ticino Musica si fa in quattro (concerti)',
+    ogDescription: 'Il Festival Ticino Musica prosegue con una giornata ricca di appuntamenti che accompagneranno il pubblico dal pomeriggio alla sera.',
+    canonicalPath: '/articoli-frontaliere/tacito-musica-ticino-concerti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino Musica si fa in quattro (concerti)",
+      "description": "Il Festival Ticino Musica prosegue con una giornata ricca di appuntamenti che accompagneranno il pubblico dal pomeriggio alla sera. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tacito-musica-ticino-concerti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Lago Maggiore con Locarno in primo piano."
+      },
+      "datePublished": "2026-07-28T05:51:38+00:00",
+      "dateModified": "2026-07-28T05:51:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tacito-musica-ticino-concerti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
