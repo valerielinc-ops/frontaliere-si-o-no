@@ -21116,6 +21116,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sika-crescita-semestre-bilancio': {
+    title: 'Sika: giro d\'affari a 5,59 miliardi nel primo semestre',
+    description: 'Sika chiude il primo semestre con un fatturato di 5,59 miliardi di franchi. Crescita organica positiva e previsioni rialzate per l\'esercizio in corso.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sika, giro, affari, miliardi',
+    ogTitle: 'Sika: giro d\'affari a 5,59 miliardi nel primo semestre',
+    ogDescription: 'Il gruppo zughese Sika annuncia i risultati semestrali: fatturato a 5,59 miliardi e previsioni di crescita riviste al rialzo per l\'anno.',
+    canonicalPath: '/articoli-svizzera/sika-crescita-semestre-bilancio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sika: giro d'affari a 5,59 miliardi nel primo semestre",
+      "description": "Sika chiude il primo semestre con un fatturato di 5,59 miliardi di franchi. Crescita organica positiva e previsioni rialzate per l'esercizio in corso.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sika-crescita-semestre-bilancio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede Sika a Baar, Zugo"
+      },
+      "datePublished": "2026-07-28T07:56:12+00:00",
+      "dateModified": "2026-07-28T07:56:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sika-crescita-semestre-bilancio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
