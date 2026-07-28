@@ -1612,6 +1612,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.title': 'Ticino blocca ristorni tassa salute frontalieri',
     'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.excerpt': 'Il Canton Ticino è pronto a ridurre o sospendere i ristorni destinati ai Comuni di confine a causa della tassa sulla salute imposta dalla Lombardia.',
     'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.imageAlt': 'Vista di Lugano con il lago in primo piano',
+    'blog.article.imposte-alla-fonte-svizzera-2024.title': 'Imposte alla fonte: ecco chi pagherà di più in Svizzera nel 2024',
+    'blog.article.imposte-alla-fonte-svizzera-2024.excerpt': 'Analisi dettagliata delle novità relative alle imposte alla fonte in Svizzera e chi subirà un incremento nel corso del periodo di riferimento.',
+    'blog.article.imposte-alla-fonte-svizzera-2024.imageAlt': 'Imposte alla fonte in Svizzera',
 };
 
 export default blogMetaChIt;

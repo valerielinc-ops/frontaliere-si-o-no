@@ -1612,6 +1612,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.title': 'Tessin bloque les restaurations taxe de santé frontalière',
     'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.excerpt': 'Le canton du Tessin est prêt à réduire ou à suspendre les restaurations destinées aux communes frontalières en raison de la taxe de santé imposée par la Lombardie.',
     'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.imageAlt': 'Vue de Lugano avec le lac en arrière-plan',
+    'blog.article.imposte-alla-fonte-svizzera-2024.title': 'Impôts à la source : voici qui paiera le plus en Suisse en 2024',
+    'blog.article.imposte-alla-fonte-svizzera-2024.excerpt': 'Analyse détaillée des nouveautés relatives aux impôts à la source en Suisse et qui subiront une augmentation au cours de la période de référence.',
+    'blog.article.imposte-alla-fonte-svizzera-2024.imageAlt': 'Impôt à la source en Suisse',
 };
 
 export default blogMetaChFr;

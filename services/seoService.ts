@@ -4948,6 +4948,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-ticino-diminuzione': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/frontalieri-ticino-diminuzione', parent: 'blog' },
     'blog-tassa-salute-frontalieri-blocco-ristorni-ticino': { name: 'Tassa sulla salute ai frontalieri', path: '/articoli-svizzera/tassa-salute-frontalieri-blocco-ristorni-ticino/', parent: 'blog' },
     'blog-vivere-a-clivio-lavorare-ticino': { name: 'Clivio Ticino', path: '/articoli-frontaliere/vivere-a-clivio-lavorare-ticino', parent: 'blog' },
+    'blog-imposte-alla-fonte-svizzera-2024': { name: 'Imposte alla fonte 2024', path: '/articoli-svizzera/imposte-alla-fonte-svizzera-2024/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
