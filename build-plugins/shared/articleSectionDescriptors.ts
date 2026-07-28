@@ -30,13 +30,20 @@
  * carried its own separate inline `SECTIONS` literal with this exact shape
  * before issue #4881 Fase 4 touched it; this file only hoists that
  * pre-existing literal out of local scope, it does not introduce a new copy.
- * Reconciling the two registries is a separate, larger, cross-cutting
- * cleanup (would touch every consumer of both shapes) intentionally left out
- * of scope for the Fase 4 corpus re-render work this module was extracted
- * for — see `scripts/ci/check-sibling-patterns.mjs`'s finding on this branch.
+ *
+ * **Reconciled (issue #4881 Fase 6).** The overlapping fields
+ * (`bodyDir`/`metaPrefix`/`registry`/`slugData`/`slugConst`/`indexSlug`) now
+ * come from `build-plugins/shared/articleSectionCore.mjs`'s `ARTICLE_SECTION_CORE`
+ * — the same canonical tuple `services/articleSections.ts` re-exports as
+ * `ARTICLE_SECTIONS`. Only the fields that are genuinely local to THIS shape
+ * (`seoFiles`, `canonicalPrefix`, `sitemap` — none of which exist on the
+ * `services/articleSections.ts` side) stay hand-authored below. The two
+ * registries keep their distinct shapes/names (still serving different
+ * consumers with different needs) but no longer duplicate any value.
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { ARTICLE_SECTION_CORE } from './articleSectionCore.mjs';
 
 export interface OgSection {
  name: 'frontaliere' | 'svizzera';
@@ -51,31 +58,34 @@ export interface OgSection {
  indexSlug: Record<'it' | 'en' | 'de' | 'fr', string>;
 }
 
+/** Project a core entry onto the field names/shape this module's consumers expect. */
+function coreFields(id: 'frontaliere' | 'svizzera') {
+ const core = ARTICLE_SECTION_CORE[id];
+ return {
+ bodyDir: core.bodyDir,
+ metaPrefix: core.metaPrefix,
+ registry: core.registryFile,
+ slugData: core.slugDataFile,
+ slugConst: core.slugConst,
+ indexSlug: core.indexSlug,
+ };
+}
+
 export const ARTICLE_SECTION_DESCRIPTORS: OgSection[] = [
  {
  name: 'frontaliere',
  seoFiles: ['services/seo/seo-blog.ts',
  ...Array.from({ length: 9 }, (_, i) => `services/seo/seo-blog-${i + 2}.ts`)],
  canonicalPrefix: '/articoli-frontaliere/',
- bodyDir: 'blog-body',
- metaPrefix: 'blog-meta',
- registry: 'data/blog-articles-data.ts',
  sitemap: 'public/sitemap-blog.xml',
- slugData: 'services/routerBlogData.ts',
- slugConst: 'BLOG_SLUGS',
- indexSlug: { it: 'articoli-frontaliere', en: 'cross-border-articles', de: 'grenzgaenger-artikel', fr: 'articles-frontalier' },
+ ...coreFields('frontaliere'),
  },
  {
  name: 'svizzera',
  seoFiles: ['services/seo/seo-blog-ch.ts'],
  canonicalPrefix: '/articoli-svizzera/',
- bodyDir: 'blog-body-ch',
- metaPrefix: 'blog-meta-ch',
- registry: 'data/swiss-articles-data.ts',
  sitemap: 'public/sitemap-blog-ch.xml',
- slugData: 'services/routerSwissData.ts',
- slugConst: 'SWISS_SLUGS',
- indexSlug: { it: 'articoli-svizzera', en: 'swiss-articles', de: 'schweiz-artikel', fr: 'articles-suisse' },
+ ...coreFields('svizzera'),
  },
 ];
 
