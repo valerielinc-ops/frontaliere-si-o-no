@@ -9063,6 +9063,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-maccagno-pino-veddasca.title': 'Vivre à Maccagno avec Pino et Veddasca en tant que frontalier',
     'blog.article.trasferirsi-maccagno-pino-veddasca.excerpt': 'Analyse pour et contre de la vie à Maccagno avec Pino et Veddasca travaillant au Tessin : fiscalité, accords et gestion des déplacements quotidiens.',
     'blog.article.trasferirsi-maccagno-pino-veddasca.imageAlt': 'Vue panoramique d\'un village frontalier entre l\'Italie et la Suisse',
+    'blog.article.frontalieri-altre-tasse-2026.title': 'Nuove regole per i frontalieri del Ticino: tasse in aumento',
+    'blog.article.frontalieri-altre-tasse-2026.excerpt': 'Le canton du Tessin imposera une taxe à la source de cent pour cent aux « vieux » frontaliers qui opteront pour le décret Omnibus.',
+    'blog.article.frontalieri-altre-tasse-2026.imageAlt': 'Deux frontaliers ticinois en promenade sur le lac',
 };
 
 export default blogMetaFr;

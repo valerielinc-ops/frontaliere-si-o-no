@@ -9062,6 +9062,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-maccagno-pino-veddasca.title': 'Vivere a Maccagno con Pino e Veddasca da frontaliere',
     'blog.article.trasferirsi-maccagno-pino-veddasca.excerpt': 'Analisi pro e contro del vivere a Maccagno con Pino e Veddasca lavorando in Ticino: fiscalità, accordi e gestione del pendolarismo quotidiano.',
     'blog.article.trasferirsi-maccagno-pino-veddasca.imageAlt': 'Vista panoramica di un borgo frontaliero tra Italia e Svizzera',
+    'blog.article.frontalieri-altre-tasse-2026.title': 'Nuove regole per i \'vecchi\' frontalieri del Canton Ticino: tasse in aumento',
+    'blog.article.frontalieri-altre-tasse-2026.excerpt': 'Il Canton Ticino imporrà una imposta alla fonte del cento per cento ai \'vecchi\' frontalieri che opteranno per il Decreto Omnibus.',
+    'blog.article.frontalieri-altre-tasse-2026.imageAlt': 'Due frontaliere ticinesi a passeggio lungo il lago',
 };
 
 export default blogMetaIt;

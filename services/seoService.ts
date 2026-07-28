@@ -4968,6 +4968,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cerca-lavoro-svizzera-dal-estero': { name: 'Guida completa per cercare lavoro in', path: '/articoli-svizzera/cerca-lavoro-svizzera-dal-estero/', parent: 'blog' },
     'blog-trasferirsi-maccagno-pino-veddasca': { name: 'Trasferirsi a Maccagno', path: '/articoli-frontaliere/trasferirsi-maccagno-pino-veddasca', parent: 'blog' },
     'blog-zurich-procedimento-finma-licenziamenti': { name: 'Economia Svizzera', path: '/articoli-svizzera/zurich-procedimento-finma-licenziamenti/', parent: 'blog' },
+    'blog-frontalieri-altre-tasse-2026': { name: 'Nuove regole per i \'vecchi\' frontalieri', path: '/articoli-frontaliere/frontalieri-altre-tasse-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

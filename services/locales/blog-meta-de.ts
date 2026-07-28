@@ -9060,6 +9060,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-maccagno-pino-veddasca.title': 'Leben in Maccagno mit Pino und Veddasca als Grenzgänger',
     'blog.article.trasferirsi-maccagno-pino-veddasca.excerpt': 'Analyse der Vor- und Nachteile des Lebens in Maccagno mit Pino und Veddasca im Tessin: Steuern, Vereinbarungen und Verwaltung des täglichen Pendelns.',
     'blog.article.trasferirsi-maccagno-pino-veddasca.imageAlt': 'Panoramablick auf ein Grenzdorf zwischen Italien und der Schweiz',
+    'blog.article.frontalieri-altre-tasse-2026.title': 'Neue Regeln für die "alten" Grenzgänger des Kantons Tessin: Gebühren steigen',
+    'blog.article.frontalieri-altre-tasse-2026.excerpt': 'Der Kanton Tessin wird den "alten" Grenzgängern, die sich für das Omnibus-Dekret entscheiden, eine hundertprozentige Quellensteuer auferlegen.',
+    'blog.article.frontalieri-altre-tasse-2026.imageAlt': 'Zwei Grenzgänger am See spazieren',
 };
 
 export default blogMetaDe;

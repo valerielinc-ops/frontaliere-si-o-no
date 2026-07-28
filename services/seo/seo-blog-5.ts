@@ -56660,6 +56660,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-altre-tasse-2026': {
+    title: 'Nuove regole per i \'vecchi\' frontalieri del Canton Ticino: tasse in aumento',
+    description: 'Il Canton Ticino imporrà una imposta alla fonte del cento per cento ai \'vecchi\' frontalieri che opteranno per il Decreto Omnibus. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuove, regole, vecchi, canton',
+    ogTitle: 'Nuove regole per i \'vecchi\' frontalieri del Canton Ticino: tasse in aumento',
+    ogDescription: 'Il Canton Ticino imporrà una imposta alla fonte del cento per cento ai \'vecchi\' frontalieri che opteranno per il Decreto Omnibus.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-altre-tasse-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuove regole per i 'vecchi' frontalieri del Canton Ticino: tasse in aumento",
+      "description": "Il Canton Ticino imporrà una imposta alla fonte del cento per cento ai 'vecchi' frontalieri che opteranno per il Decreto Omnibus. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-altre-tasse-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Due frontaliere ticinesi a passeggio lungo il lago"
+      },
+      "datePublished": "2026-07-28T10:44:56+00:00",
+      "dateModified": "2026-07-28T10:44:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-altre-tasse-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

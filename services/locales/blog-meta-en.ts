@@ -9061,6 +9061,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-maccagno-pino-veddasca.title': 'Living in Maccagno with Pine and Veddasca as a border worker',
     'blog.article.trasferirsi-maccagno-pino-veddasca.excerpt': 'Pros and cons of living in Maccagno with Pine and Veddasca working in Ticino: taxation, agreements and management of daily commuting.',
     'blog.article.trasferirsi-maccagno-pino-veddasca.imageAlt': 'Panoramic view of a border village between Italy and Switzerland',
+    'blog.article.frontalieri-altre-tasse-2026.title': 'New rules for the \'old\' border guards of the Canton of Ticino: increasing taxes',
+    'blog.article.frontalieri-altre-tasse-2026.excerpt': 'The Canton of Ticino will impose a one hundred percent tax at source on \'old\' border workers who opt for the Omnibus Decree.',
+    'blog.article.frontalieri-altre-tasse-2026.imageAlt': 'Two Ticino border workers walking along the lake',
 };
 
 export default blogMetaEn;
