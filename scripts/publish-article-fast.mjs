@@ -109,6 +109,47 @@ async function main() {
   const distDir = path.resolve(args.out);
   fs.mkdirSync(distDir, { recursive: true });
 
+  // build-plugins/constants.ts reads process.env.ASSET_CDN ONCE, at module
+  // top-level evaluation (an IIFE, not a function call re-read per use), to
+  // derive CDN_PRECONNECT_HINT (consumed by ogPagesPlugin.ts). deploy.yml's
+  // build-locale job hardcodes ASSET_CDN: 'https://cdn.frontaliereticino.ch'
+  // for every real deploy build (including the `it` shard whose vite build
+  // renders this exact article HTML) — matching that here is required for
+  // byte-identity, not optional config. Must be set BEFORE the first import
+  // of ogPagesPlugin.ts/constants.ts below (module evaluation is cached —
+  // setting it later would be a no-op on a second call in the same process,
+  // and this script only ever does ONE render per invocation anyway).
+  // Without this, CDN_PRECONNECT_HINT is empty at render time, ogPagesPlugin
+  // never emits its own preconnect (normally placed right before the
+  // blog-chunk preload links), and step 6's offload script — which DOES get
+  // CDN_BASE below — then finds no existing same-origin preconnect to dedup
+  // against and injects a redundant preconnect+dns-prefetch pair of its own
+  // at the very top of <head> instead: a real, confirmed byte-identity
+  // divergence from production (see scripts/check-article-byte-identity.mjs),
+  // not a live-staleness artifact — verified by tracing both code paths and
+  // reproducing the exact live vs. fast-path <head> diff.
+  process.env.ASSET_CDN = CDN_BASE;
+
+  // ogPagesPlugin.ts's formatHumanDate/formatHumanDateTime (the visible
+  // "Pubblicato il ..." byline + article:published_time meta) parse an
+  // explicit-offset ISO string (normalizeDateTime appends "+01:00" to a
+  // bare YYYY-MM-DD) with `new Date(...)`, then read the calendar day via
+  // LOCAL accessors (`d.getDate()`/`getMonth()`/`getFullYear()`) — not
+  // `getUTC*()`. For a midnight-CET date this instant is 23:00 the PRIOR day
+  // in UTC, so the displayed day depends on the executing process's system
+  // timezone: a UTC-TZ process (GitHub Actions runners — confirmed via
+  // production still showing the pre-fix day for this exact article) prints
+  // one calendar day EARLIER than a CET/CEST-TZ process (e.g. this
+  // developer machine). This is a genuine PRE-EXISTING latent bug in the
+  // shared renderer (present in the full build too, dormant only because CI
+  // always runs in UTC) — out of scope to fix here (it is shared code used
+  // by every SSG plugin's date formatting, not something owned by this
+  // stream). Pinning TZ=UTC makes THIS script's output match what the real
+  // deploy build produces regardless of the invoking machine's timezone,
+  // without touching ogPagesPlugin.ts. Must be set before the dynamic
+  // import below (Node reads TZ once, at startup/first Date use).
+  process.env.TZ = 'UTC';
+
   // ── Step 0: make public/images visible to resolveImagePath's existence
   // checks (see the "Known gap" note in the file header). Symlink, not copy
   // — ~3.5k files, no need to duplicate them per invocation. Torn down again
