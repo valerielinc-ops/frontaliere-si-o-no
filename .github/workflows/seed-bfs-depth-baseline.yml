@@ -56,6 +56,13 @@ jobs:
     # the same-run tar artifacts are missing, so give it the same headroom
     # (mirrors seed-text-html-ratio-baseline.yml's fix for issue #3104).
     timeout-minutes: 60
+    # audit-bfs-depth.mjs walks the whole rehydrated tree and holds a Map entry
+    # per discovered path; on the default heap that OOMs (`FATAL ERROR: Reached
+    # heap limit`, rc=134 — observed in replay run 30383007845 on a complete
+    # dist). post-deploy-validate-dist.yml runs this same walker at 8192; mirror
+    # it here rather than let a manual reseed die mid-walk (issue #4857).
+    env:
+      NODE_OPTIONS: '--max-old-space-size=8192'
     steps:
       - name: Checkout
         uses: actions/checkout@v5
