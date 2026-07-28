@@ -1,87 +1,18 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-07-28T11:34:30.059Z",
+  "generatedAt": "2026-07-28T22:17:36.494Z",
   "total": 379,
-  "newCount": 2,
+  "newCount": 0,
   "updatedCount": 61,
-  "removedCount": 2,
-  "unchangedCount": 316,
-  "durationMs": 497815,
-  "avgDurationMs": 497815,
+  "removedCount": 0,
+  "unchangedCount": 318,
+  "durationMs": 665994,
+  "avgDurationMs": 665994,
   "durationHistory": [
-    497815
+    665994
   ],
-  "newJobs": [
-    {
-      "id": "company-zdpsyo",
-      "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-arbedo-castione-zdpsyo",
-      "company": "Lidl Svizzera",
-      "title": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Arbedo-Castione",
-      "location": "Arbedo-Castione",
-      "canton": "TI",
-      "category": "other",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-05",
-      "url": "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-arbedo-castione-588228",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Arbedo-Castione",
-        "canton": "TI"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-28T11:34:21.379Z",
-      "firstSeenAt": "2026-07-28T11:34:21.379Z",
-      "needsRetranslation": true,
-      "country": "CH",
-      "sourceLang": "it",
-      "_qualityScore": 65,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 4,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "company-kp8dxh",
-      "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-sant-antonino-kp8dxh",
-      "company": "Lidl Svizzera",
-      "title": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Sant'Antonino",
-      "location": "Sant'Antonino",
-      "canton": "TI",
-      "category": "other",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-05",
-      "url": "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-sant-antonino-588231",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Sant'Antonino",
-        "canton": "TI"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-28T11:34:21.379Z",
-      "firstSeenAt": "2026-07-28T11:34:21.379Z",
-      "needsRetranslation": true,
-      "country": "CH",
-      "sourceLang": "it",
-      "_qualityScore": 65,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 4,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "company-ac7hip",
@@ -1305,20 +1236,21 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "id": "company-4olb0q",
-      "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-arbedo-castione-4olb0q",
+      "id": "company-zdpsyo",
+      "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-arbedo-castione-zdpsyo",
       "company": "Lidl Svizzera",
       "title": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Arbedo-Castione",
       "location": "Arbedo-Castione",
       "canton": "TI",
-      "category": "admin",
+      "category": "other",
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2025-08-05",
-      "url": "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-arbedo-castione-588228",
+      "url": "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-arbedo-castione-588228",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -1327,38 +1259,37 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-27T12:31:53.616Z",
-      "firstSeenAt": "2026-07-06T22:40:50.002Z",
+      "crawledAt": "2026-07-28T11:34:21.379Z",
+      "firstSeenAt": "2026-07-28T11:34:21.379Z",
       "country": "CH",
-      "sourceLang": "de",
+      "sourceLang": "it",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
       "addressLocality": "Arbedo-Castione",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "6517",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "_qualityScore": 94,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 19
       }
     },
     {
-      "id": "company-a6863z",
-      "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-sant-antonino-a6863z",
+      "id": "company-kp8dxh",
+      "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-sant-antonino-kp8dxh",
       "company": "Lidl Svizzera",
       "title": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Sant'Antonino",
       "location": "Sant'Antonino",
       "canton": "TI",
-      "category": "admin",
+      "category": "other",
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2025-08-05",
-      "url": "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-sant-antonino-588231",
+      "url": "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-sant-antonino-588231",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -1367,27 +1298,24 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-27T12:31:53.616Z",
-      "firstSeenAt": "2026-07-06T22:40:50.002Z",
+      "crawledAt": "2026-07-28T11:34:21.379Z",
+      "firstSeenAt": "2026-07-28T11:34:21.379Z",
       "country": "CH",
-      "sourceLang": "de",
+      "sourceLang": "it",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
       "addressLocality": "Sant'Antonino",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "6592",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "_qualityScore": 94,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 19
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "id": "company-6ojiv4",
       "slug": "personale-personale-amministrazione-costi-m-f-d-60-80-lidl-svizzera-weinfelden",
@@ -2484,85 +2412,6 @@
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-184pn7",
-      "slug": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-romanshorn-184pn7",
-      "company": "Lidl Svizzera",
-      "title": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% — Romanshorn",
-      "location": "Romanshorn",
-      "canton": "TG",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "url": "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-romanshorn-716857",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Romanshorn",
-        "canton": "TG"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-27T12:31:53.616Z",
-      "firstSeenAt": "2026-07-10T22:17:19.398Z",
-      "country": "CH",
-      "sourceLang": "de",
-      "addressLocality": "Romanshorn",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 46000,
-      "salaryMax": 69600,
-      "needsRetranslation": true,
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-ahbeb1",
-      "slug": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-sursee-ahbeb1",
-      "company": "Lidl Svizzera",
-      "title": "Stv. Filialleiter / Stv. Filialleiterin (m/w/d) 80-100% — Sursee",
-      "location": "Sursee",
-      "canton": "LU",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-09",
-      "url": "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-sursee-716555",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Sursee",
-        "canton": "LU"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-07-27T12:31:53.616Z",
-      "firstSeenAt": "2026-07-10T22:17:19.398Z",
-      "country": "CH",
-      "sourceLang": "de",
-      "addressLocality": "Sursee",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 23,
         "completeness": 19
       }
     }
