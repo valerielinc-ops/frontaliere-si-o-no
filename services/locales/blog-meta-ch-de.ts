@@ -1630,6 +1630,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.opinioni-tram-treno-lugano.title': 'Meinungen zur Tram Lugano: Analysen und Auswirkungen',
     'blog.article.opinioni-tram-treno-lugano.excerpt': 'Wir analysieren die Aussichten für das Projekt der Straßenbahn in Lugano und bewerten die Auswirkungen auf die Mobilität und das nationale wirtschaftliche Umfeld.',
     'blog.article.opinioni-tram-treno-lugano.imageAlt': 'Panoramablick auf die Seepromenade von Lugano mit städtischen Mobilitätselementen.',
+    'blog.article.sulzer-primo-semestre-2026.title': 'Sulzer: Weniger Aufträge im ersten Halbjahr, aber höheres operatives Ergebnis',
+    'blog.article.sulzer-primo-semestre-2026.excerpt': 'Der Schweizer Konzern verzeichnet im ersten Halbjahr 2026 einen Auftragsrückgang, das operative Ergebnis steigt jedoch um 9,7 Prozent.',
+    'blog.article.sulzer-primo-semestre-2026.imageAlt': 'Ein Panorama von Lugano mit dem See und dem Monte Bre.',
 };
 
 export default blogMetaChDe;

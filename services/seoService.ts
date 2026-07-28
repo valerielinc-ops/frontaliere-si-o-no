@@ -4960,6 +4960,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tacito-musica-ticino-concerti': { name: 'Festival Ticino Musica', path: '/articoli-frontaliere/tacito-musica-ticino-concerti', parent: 'blog' },
     'blog-opinioni-tram-treno-lugano': { name: 'Tram treno Lugano', path: '/articoli-svizzera/opinioni-tram-treno-lugano/', parent: 'blog' },
     'blog-trasferirsi-a-luino-da-frontaliere-pro-e-contro': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/trasferirsi-a-luino-da-frontaliere-pro-e-contro', parent: 'blog' },
+    'blog-sulzer-primo-semestre-2026': { name: 'Sulzer: meno ordini nel primo semestre, ma', path: '/articoli-svizzera/sulzer-primo-semestre-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -566,6 +566,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontalieri-tensione-fiscale-ticino-governo': { it: 'frontalieri-tensione-fiscale-ticino-governo', en: 'frontaliers-ticino-fiscal-tension', de: 'frontalier-schweiz-fiskal-spannung', fr: 'frontalier-suisse-fiscal-tension' },
  'vecchi-frontalieri-precompilata-2026': { it: 'vecchi-frontalieri-precompilata-2026', en: 'old-frontaliers-precompiled-2026', de: 'altfrontalier-vorverarbeitung-2026', fr: 'frontaliers-anciens-precompil-2026' },
  'opinioni-tram-treno-lugano': { it: 'opinioni-tram-treno-lugano', en: 'opinions-lugano-tram-train', de: 'meinungen-tram-zug-lugano', fr: 'opinions-tram-train-lugano' },
+ 'sulzer-primo-semestre-2026': { it: 'sulzer-primo-semestre-2026', en: 'sulzer-first-semester-2026', de: 'sulzer-erster-halbjahr-2026', fr: 'sulzer-premier-semestre-2026' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

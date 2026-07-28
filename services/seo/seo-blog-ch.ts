@@ -21077,6 +21077,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sulzer-primo-semestre-2026': {
+    title: 'Sulzer: meno ordini nel primo semestre, ma cresce l\'utile operativo',
+    description: 'Il gruppo svizzero registra un calo degli ordini nel primo semestre del 2026, ma l\'utile operativo aumenta del 9,7%. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, sulzer, meno, ordini, primo',
+    ogTitle: 'Sulzer: meno ordini nel primo semestre, ma cresce l\'utile operativo',
+    ogDescription: 'Il gruppo svizzero registra un calo degli ordini nel primo semestre del 2026, ma l\'utile operativo aumenta del 9,7%.',
+    canonicalPath: '/articoli-svizzera/sulzer-primo-semestre-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sulzer: meno ordini nel primo semestre, ma cresce l'utile operativo",
+      "description": "Il gruppo svizzero registra un calo degli ordini nel primo semestre del 2026, ma l'utile operativo aumenta del 9,7%. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sulzer-primo-semestre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una vista di Lugano con il lago e il monte Bre."
+      },
+      "datePublished": "2026-07-28T07:13:19+00:00",
+      "dateModified": "2026-07-28T07:13:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sulzer-primo-semestre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

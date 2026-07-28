@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3578,
+ "numberOfItems": 3579,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8338,7 +8338,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3575, "name": "Vecchi frontalieri: reddito svizzero in precomp...", "url": `${BASE_URL}/articoli-frontaliere/vecchi-frontalieri-precompilata-2026` },
           { "@type": "ListItem", "position": 3576, "name": "Ticino Musica si fa in quattro (concerti)", "url": `${BASE_URL}/articoli-frontaliere/tacito-musica-ticino-concerti` },
           { "@type": "ListItem", "position": 3577, "name": "Opinioni sul tram treno di Lugano: analisi e im...", "url": `${BASE_URL}/articoli-frontaliere/opinioni-tram-treno-lugano` },
-          { "@type": "ListItem", "position": 3578, "name": "Trasferirsi a Luino da frontaliere: pro e contro", "url": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-luino-da-frontaliere-pro-e-contro` }
+          { "@type": "ListItem", "position": 3578, "name": "Trasferirsi a Luino da frontaliere: pro e contro", "url": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-luino-da-frontaliere-pro-e-contro` },
+          { "@type": "ListItem", "position": 3579, "name": "Sulzer: meno ordini nel primo semestre, ma cres...", "url": `${BASE_URL}/articoli-frontaliere/sulzer-primo-semestre-2026` }
  ]
  },
  {
