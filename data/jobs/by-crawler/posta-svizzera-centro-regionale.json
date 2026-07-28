@@ -24,12 +24,12 @@
         "en": "Delivery:in letters and packages",
         "fr": "Livraison:en lettres et en colis"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-plaffeien",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-plaffeien",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-plaffeien",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-plaffeien"
       },
       "sourceLang": "de",
       "department": "",
@@ -63,7 +63,21 @@
       "addressLocality": "Plaffeien",
       "addressRegion": "FR",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-27T22:14:12.674Z"
+      "firstSeenAt": "2026-07-27T22:14:12.674Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Co-Teamleiterin-Fahrpersonal/74379-de_DE",
@@ -87,12 +101,12 @@
         "en": "Co-team leader: in driving personnel",
         "fr": "Co-chef d'équipe: dans le personnel de conduite"
       },
-      "slug": "co-teamleiter-in-fahrpersonal-post",
+      "slug": "co-team-leader-nel-personale-di-guida-postauto-ilanz",
       "slugByLocale": {
-        "it": "co-teamleiter-in-fahrpersonal-post",
-        "en": "co-teamleiter-in-fahrpersonal-post",
+        "it": "co-team-leader-nel-personale-di-guida-postauto-ilanz",
+        "en": "co-team-leader-in-driving-personnel-postauto-ilanz",
         "de": "co-teamleiter-in-fahrpersonal-postauto-ilanz",
-        "fr": "co-teamleiter-in-fahrpersonal-post"
+        "fr": "co-chef-d-equipe-dans-le-personnel-de-conduite-postauto-ilanz"
       },
       "sourceLang": "de",
       "department": "",
@@ -126,7 +140,21 @@
       "addressLocality": "Ilanz",
       "addressRegion": "GR",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-27T22:14:12.674Z"
+      "firstSeenAt": "2026-07-27T22:14:12.674Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "co-teamleiter-in-fahrpersonal-post"
+        ],
+        "en": [
+          "co-teamleiter-in-fahrpersonal-post"
+        ],
+        "fr": [
+          "co-teamleiter-in-fahrpersonal-post"
+        ]
+      },
+      "previousSlugs": [
+        "co-teamleiter-in-fahrpersonal-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Kundenberaterin/74383-de_DE",
@@ -228,12 +256,12 @@
         "en": "Customer Advisor:in",
         "fr": "Conseiller client:in"
       },
-      "slug": "kundenberater-in-post",
+      "slug": "consulente-clienti-in-die-schweizerische-post-emmenbrucke",
       "slugByLocale": {
-        "it": "kundenberater-in-post",
-        "en": "kundenberater-in-die-schweizerische-post-emmenbrucke",
+        "it": "consulente-clienti-in-die-schweizerische-post-emmenbrucke",
+        "en": "customer-advisor-in-die-schweizerische-post-emmenbrucke",
         "de": "kundenberater-in-die-schweizerische-post-emmenbrucke",
-        "fr": "kundenberater-in-die-schweizerische-post-emmenbrucke"
+        "fr": "conseiller-client-in-die-schweizerische-post-emmenbrucke"
       },
       "sourceLang": "de",
       "department": "",
@@ -267,7 +295,22 @@
       "addressLocality": "Emmenbrücke",
       "addressRegion": "LU",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-27T22:14:12.674Z"
+      "firstSeenAt": "2026-07-27T22:14:12.674Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-post"
+        ],
+        "en": [
+          "kundenberater-in-die-schweizerische-post-emmenbrucke"
+        ],
+        "fr": [
+          "kundenberater-in-die-schweizerische-post-emmenbrucke"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-post",
+        "kundenberater-in-die-schweizerische-post-emmenbrucke"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74246-de_DE",
@@ -2827,7 +2870,7 @@
       "slug": "postbus-driver-in-postauto-wilderswil",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-wilderswil",
-        "en": "postbus-driver-postauto-wilderswil",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-wilderswil",
         "fr": "pilote-postbus-in-postauto-wilderswil"
       },
@@ -2874,7 +2917,6 @@
           "postauto-fahrer-in-post"
         ],
         "en": [
-          "postauto-fahrer-in-post",
           "postbus-driver-postauto-wilderswil"
         ]
       },
@@ -3650,7 +3692,7 @@
       "slug": "housekeeper-in-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "housekeeper-in-die-schweizerische-post-bern",
-        "en": "housekeeper-in-die-schweizerische-post-bern",
+        "en": "hauswart-in-post",
         "de": "hauswart-in-die-schweizerische-post-bern",
         "fr": "femme-de-menage-die-schweizerische-post-bern"
       },
@@ -3692,9 +3734,6 @@
           "hauswart-in-post"
         ],
         "fr": [
-          "hauswart-in-post"
-        ],
-        "en": [
           "hauswart-in-post"
         ]
       },
@@ -3804,7 +3843,7 @@
       "slug": "postbus-driver-in-postauto-endingen",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-endingen",
-        "en": "postbus-driver-in-postauto-endingen",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-endingen",
         "fr": "pilote-postbus-in-postauto-endingen"
       },
@@ -3846,9 +3885,6 @@
           "postauto-fahrer-in-post"
         ],
         "fr": [
-          "postauto-fahrer-in-post"
-        ],
-        "en": [
           "postauto-fahrer-in-post"
         ]
       },
@@ -4114,7 +4150,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-langnau-im-emmental",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-langnau-im-emmental",
-        "en": "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
         "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-langnau-im-emmental"
       },
@@ -4140,7 +4176,6 @@
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-post",
-          "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
           "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental"
         ],
         "fr": [
@@ -4154,7 +4189,6 @@
         "zusteller-in-briefe-und-pakete-post-2",
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-post-u3qamb",
-        "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
         "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental"
       ],
       "id": "posta-svizzera-centro-regionale-b70af024254b",
@@ -4497,7 +4531,7 @@
       "slug": "postbus-driver-in-postauto-schiers",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-schiers",
-        "en": "postbus-driver-in-postauto-schiers",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-schiers",
         "fr": "pilote-postbus-in-postauto-schiers"
       },
@@ -4539,9 +4573,6 @@
           "postauto-fahrer-in-post"
         ],
         "fr": [
-          "postauto-fahrer-in-post"
-        ],
-        "en": [
           "postauto-fahrer-in-post"
         ]
       },
@@ -4651,7 +4682,7 @@
       "slug": "postbus-driver-in-postauto-trimmis",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-trimmis",
-        "en": "postbus-driver-in-postauto-trimmis",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-trimmis",
         "fr": "pilote-postbus-in-postauto-trimmis"
       },
@@ -4693,9 +4724,6 @@
           "postauto-fahrer-in-post"
         ],
         "fr": [
-          "postauto-fahrer-in-post"
-        ],
-        "en": [
           "postauto-fahrer-in-post"
         ]
       },
@@ -5520,7 +5548,7 @@
       "slug": "postbus-driver-in-postauto-stans",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-stans",
-        "en": "postbus-driver-in-postauto-stans",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-stans",
         "fr": "pilote-postbus-in-postauto-stans"
       },
@@ -5541,9 +5569,6 @@
       "crawledAt": "",
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-post"
-        ],
-        "en": [
           "postauto-fahrer-in-post"
         ]
       },
@@ -5671,7 +5696,7 @@
       "slug": "postbus-driver-in-postauto-chur",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-chur",
-        "en": "postbus-driver-in-postauto-chur",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-chur",
         "fr": "pilote-postbus-in-postauto-chur"
       },
@@ -5714,9 +5739,6 @@
           "postauto-fahrer-in-post"
         ],
         "fr": [
-          "postauto-fahrer-in-post"
-        ],
-        "en": [
           "postauto-fahrer-in-post"
         ]
       },
@@ -5964,7 +5986,7 @@
       "slugByLocale": {
         "it": "assistente-per-la-gestione-della-proprieta-la-poste-suisse-renens-vd",
         "en": "assistant-property-management-assistant-la-poste-suisse-renens-vd",
-        "de": "assistenz-der-immobilienverwaltung-la-poste-suisse-renens-vd",
+        "de": "assistante-assistant-gerance-immobiliere-post",
         "fr": "assistante-assistant-gerance-immobiliere-la-poste-suisse-renens-vd"
       },
       "sourceLang": "fr",
@@ -6008,7 +6030,6 @@
           "assistante-assistant-gerance-immobiliere-post"
         ],
         "de": [
-          "assistante-assistant-gerance-immobiliere-post",
           "assistenz-der-immobilienverwaltung-la-poste-suisse-renens-vd"
         ]
       },
