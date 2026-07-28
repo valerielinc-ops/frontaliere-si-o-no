@@ -180,7 +180,13 @@ async function checkAllCantonProfessions(stagingRoot) {
   const belowFloorByProfession = new Map();
 
   for (const id of ALL_CANTON_PROFESSION_IDS) {
-    let nationalTotal = tiSnapshots[id]?.liveCount ?? 0;
+    // tiSnapshots only covers the 24 legacy PROFESSION_IDS — for the 5
+    // CANTON_ONLY_PROFESSION_IDS (#3657) tiSnapshots[id] is always
+    // undefined even when TI has real matches. byCanton['TI'][id] (from
+    // aggregateProfessionJobsByCanton, which groups ALL cantons incl. TI)
+    // always has the real count, so fall back to it rather than silently
+    // dropping TI's contribution to the national total.
+    let nationalTotal = tiSnapshots[id]?.liveCount ?? byCanton['TI']?.[id]?.liveCount ?? 0;
     const belowFloor = [];
     for (const cantonKey of PROFESSION_CANTON_KEYS) {
       const liveCount = byCanton[cantonKey]?.[id]?.liveCount ?? 0;
