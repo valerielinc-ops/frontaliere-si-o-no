@@ -9027,6 +9027,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-ticino-diminuzione.title': 'Das Steuerabkommen ändert die Regeln im Tessin',
     'blog.article.frontalieri-ticino-diminuzione.excerpt': 'Die Zahl der Grenzgänger im Tessin sinkt stetig, während die Zahl der Einwohner steigt.',
     'blog.article.frontalieri-ticino-diminuzione.imageAlt': 'Blick auf Lugano während der Herbstsaison',
+    'blog.article.vivere-a-clivio-lavorare-ticino.title': 'Wohnen in Clivio und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-a-clivio-lavorare-ticino.excerpt': 'Vollständiger Leitfaden für Grenzgänger, die Clivio als Wohnsitz wählen, um zwischen Verbindungen und Steuervorschriften in den Kanton Tessin zu pendeln.',
+    'blog.article.vivere-a-clivio-lavorare-ticino.imageAlt': 'Landschaft zwischen Clivio und dem Tessin für Grenzgänger',
 };
 
 export default blogMetaDe;

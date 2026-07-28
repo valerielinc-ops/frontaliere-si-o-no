@@ -9029,6 +9029,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-diminuzione.title': 'L\'accordo fiscale cambia le regole in Ticino',
     'blog.article.frontalieri-ticino-diminuzione.excerpt': 'Il numero dei lavoratori frontalieri in Ticino sta diminuendo in modo costante, mentre il numero di residenti aumenta.',
     'blog.article.frontalieri-ticino-diminuzione.imageAlt': 'Vista della città di Lugano durante la stagione autunnale',
+    'blog.article.vivere-a-clivio-lavorare-ticino.title': 'Vivere a Clivio e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-a-clivio-lavorare-ticino.excerpt': 'Guida completa per i frontalieri che scelgono Clivio come residenza per pendolare verso il Canton Ticino, tra collegamenti e regole fiscali.',
+    'blog.article.vivere-a-clivio-lavorare-ticino.imageAlt': 'Panorama tra Clivio e il Canton Ticino per i lavoratori frontalieri',
 };
 
 export default blogMetaIt;
