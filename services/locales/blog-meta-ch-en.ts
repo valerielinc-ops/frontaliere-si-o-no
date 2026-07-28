@@ -1642,6 +1642,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.zurich-procedimento-finma-licenziamenti.title': 'Zurich: redundancies after Finma proceedings',
     'blog.article.zurich-procedimento-finma-licenziamenti.excerpt': 'The Zurich group has dismissed more than a dozen employees following a procedure opened by Finma on some company life policies.',
     'blog.article.zurich-procedimento-finma-licenziamenti.imageAlt': 'Swiss insurance headquarters with urban skyline',
+    'blog.article.canicola-cantieri-ssic.title': 'Canicola and construction sites, the SSIC: \'Enough penalty for delays\'',
+    'blog.article.canicola-cantieri-ssic.excerpt': 'The Swiss Society of Borrowed Manufacturers (SSIC) calls for fairer contractual conditions to protect workers\' health during heatwaves.',
+    'blog.article.canicola-cantieri-ssic.imageAlt': 'Frontalier workers on construction sites during canicola.',
 };
 
 export default blogMetaChEn;

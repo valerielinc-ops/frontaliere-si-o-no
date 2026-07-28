@@ -570,6 +570,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'sika-crescita-semestre-bilancio': { it: 'sika-crescita-semestre-bilancio', en: 'sika-growth-half-year-results', de: 'sika-wachstum-halbjahresergebnisse', fr: 'sika-croissance-resultats-semestriels' },
  'cerca-lavoro-svizzera-dal-estero': { it: 'cerca-lavoro-svizzera-dal-estero', en: 'looking-for-job-in-switzerland-from-abroad', de: 'arbeit-in-schweiz-suchen', fr: 'recherche-d-emploi-en-suisse-pour-etrangers' },
  'zurich-procedimento-finma-licenziamenti': { it: 'zurich-procedimento-finma-licenziamenti', en: 'zurich-finma-enforcement-proceedings', de: 'zurich-finma-verfahren-entlassungen', fr: 'zurich-procedure-finma-licenciements' },
+ 'canicola-cantieri-ssic': { it: 'canicola-cantieri-ssic', en: 'canicola-cantieri-ssic', de: 'canicola-cantieri-ssic', fr: 'canicola-cantieri-ssic' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

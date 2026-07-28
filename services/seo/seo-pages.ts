@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3587,
+ "numberOfItems": 3588,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8347,7 +8347,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3584, "name": "Guida completa per cercare lavoro in Svizzera d...", "url": `${BASE_URL}/articoli-frontaliere/cerca-lavoro-svizzera-dal-estero` },
           { "@type": "ListItem", "position": 3585, "name": "Vivere a Maccagno con Pino e Veddasca da fronta...", "url": `${BASE_URL}/articoli-frontaliere/trasferirsi-maccagno-pino-veddasca` },
           { "@type": "ListItem", "position": 3586, "name": "Zurich: licenziamenti dopo il procedimento Finma", "url": `${BASE_URL}/articoli-frontaliere/zurich-procedimento-finma-licenziamenti` },
-          { "@type": "ListItem", "position": 3587, "name": "Nuove regole per i 'vecchi' frontalieri del Can...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-altre-tasse-2026` }
+          { "@type": "ListItem", "position": 3587, "name": "Nuove regole per i 'vecchi' frontalieri del Can...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-altre-tasse-2026` },
+          { "@type": "ListItem", "position": 3588, "name": "Canicola e cantieri, la SSIC: 'Basta penalità p...", "url": `${BASE_URL}/articoli-frontaliere/canicola-cantieri-ssic` }
  ]
  },
  {
