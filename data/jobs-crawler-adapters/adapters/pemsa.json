@@ -11,8 +11,26 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-07-28T11:34:27.351Z",
+  "updatedAt": "2026-07-28T22:15:07.438Z",
   "seedMetaByUrl": {
+    "https://www.pemsa.ch/it/job/tecnico-di-officina-elettronica-tecnico-elettronico-2685119/": {
+      "location": "Vevey",
+      "canton": "VD",
+      "company": "PEMSA",
+      "postedDate": "2026-07-28"
+    },
+    "https://www.pemsa.ch/it/job/selvicoltore-afc-2685112/": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-07-28"
+    },
+    "https://www.pemsa.ch/it/job/gessatore-2685105/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-07-28"
+    },
     "https://www.pemsa.ch/it/job/lattoniere-afc-2685096/": {
       "location": "Bellinzona",
       "canton": "TI",
@@ -1117,12 +1135,6 @@
       "company": "PEMSA",
       "postedDate": "2026-07-03"
     },
-    "https://www.pemsa.ch/it/job/caposquadra-edile-2681685/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-03"
-    },
     "https://www.pemsa.ch/it/job/costruttore-di-strade-afc-m-f-d-2681680/": {
       "location": "Basel",
       "canton": "BS",
@@ -1216,18 +1228,6 @@
     "https://www.pemsa.ch/it/job/giardiniere-paesaggista-afc-aep-m-f-d-2681630/": {
       "location": "Basel",
       "canton": "BS",
-      "company": "PEMSA",
-      "postedDate": "2026-07-03"
-    },
-    "https://www.pemsa.ch/it/job/installatore-elettrico-2681595/": {
-      "location": "Romont FR",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-03"
-    },
-    "https://www.pemsa.ch/it/job/operatore-di-gru-a-terra-2681592/": {
-      "location": "Fribourg",
-      "canton": "FR",
       "company": "PEMSA",
       "postedDate": "2026-07-03"
     },
