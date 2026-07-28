@@ -4956,6 +4956,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mercati-predittivi-business-trump': { name: 'Economia Trump', path: '/articoli-frontaliere/mercati-predittivi-business-trump', parent: 'blog' },
     'blog-frontalieri-tensione-fiscale-ticino-governo': { name: 'Frontalieri in Svizzera', path: '/articoli-svizzera/frontalieri-tensione-fiscale-ticino-governo/', parent: 'blog' },
     'blog-trasferirsi-clivio-frontaliere-pro-contro': { name: 'Trasferirsi a Clivio', path: '/articoli-frontaliere/trasferirsi-clivio-frontaliere-pro-contro', parent: 'blog' },
+    'blog-vecchi-frontalieri-precompilata-2026': { name: 'Vecchi frontalieri', path: '/articoli-svizzera/vecchi-frontalieri-precompilata-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -564,6 +564,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'dichiarazione-imposte-svizzera-guida': { it: 'dichiarazione-imposte-svizzera-guida', en: 'switzerland-tax-declaration-guide', de: 'schweiz-steuererklaerung-leitfaden', fr: 'guide-declaration-impots-suisse' },
  'permessi-soggiorno-svizzera-b-c-l': { it: 'permessi-soggiorno-svizzera-b-c-l', en: 'switzerland-residence-permits-types-b-c-l', de: 'schweiz-aufenthaltsbewilligung-typen-b-c-l', fr: 'permis-sejour-suisse-types-b-c-l' },
  'frontalieri-tensione-fiscale-ticino-governo': { it: 'frontalieri-tensione-fiscale-ticino-governo', en: 'frontaliers-ticino-fiscal-tension', de: 'frontalier-schweiz-fiskal-spannung', fr: 'frontalier-suisse-fiscal-tension' },
+ 'vecchi-frontalieri-precompilata-2026': { it: 'vecchi-frontalieri-precompilata-2026', en: 'old-frontaliers-precompiled-2026', de: 'altfrontalier-vorverarbeitung-2026', fr: 'frontaliers-anciens-precompil-2026' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
