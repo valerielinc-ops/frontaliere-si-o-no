@@ -27251,6 +27251,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'non-c-e-assolutamente-nessun-errore-sistemico',
+ category: 'fiscale',
+ date: '2026-07-28T16:22:36.677Z',
+ image: '/images/blog/non-c-e-assolutamente-nessun-errore-sistemico.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

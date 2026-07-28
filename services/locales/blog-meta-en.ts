@@ -9070,6 +9070,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-maccagno-frontaliere-pro-contro.title': 'Moving to Maccagno from border crossings: driving for and against',
     'blog.article.trasferirsi-maccagno-frontaliere-pro-contro.excerpt': 'Living in Maccagno with Pino and Veddasca working in Ticino: tax analysis between the new agreement, deductibles and journey times for the border crossing.',
     'blog.article.trasferirsi-maccagno-frontaliere-pro-contro.imageAlt': 'View of Maccagno con Pino e Veddasca towards the Swiss border',
+    'blog.article.non-c-e-assolutamente-nessun-errore-sistemico.title': 'There is absolutely no systemic error',
+    'blog.article.non-c-e-assolutamente-nessun-errore-sistemico.excerpt': 'Ticinonline denies the rumours about systemic errors in the treatment of border workers.',
+    'blog.article.non-c-e-assolutamente-nessun-errore-sistemico.imageAlt': 'Frontaliere waiting at the Ticino border crossing',
 };
 
 export default blogMetaEn;
