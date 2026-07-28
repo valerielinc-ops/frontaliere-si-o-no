@@ -1849,6 +1849,20 @@ const App: React.FC = () => {
  setRailsCollapsed((s) => (s.right === allEmpty ? s : { ...s, right: allEmpty }));
  }, []);
 
+ // Same collapse-on-empty behaviour as the SPA rail above, applied to the
+ // staticOverlay 300px rail gutter. `.ft-rail-grid` is build-time HTML
+ // outside #root (build-plugins/shared/railGutters.ts), not a React element,
+ // so the width is driven by direct DOM mutation instead of a style prop.
+ // Scoped out as a follow-up when the SPA rails were fixed — #2830: "300px
+ // blog/job/static reading rails ... left as follow-up" — this closes the
+ // static half of it.
+ useEffect(() => {
+ if (!staticOverlay) return;
+ const grid = document.querySelector<HTMLElement>('.ft-rail-grid');
+ if (!grid) return;
+ grid.style.gridTemplateColumns = `${railsCollapsed.left ? '0px' : '300px'} minmax(0,1fr) ${railsCollapsed.right ? '0px' : '300px'}`;
+ }, [staticOverlay, railsCollapsed]);
+
  return (
  <ErrorBoundary>
  <TabContentContext.Provider value={tabContentValue}>
@@ -2810,8 +2824,8 @@ const App: React.FC = () => {
    if (!leftTarget && !rightTarget) return null;
    return (
  <SafeLazy boundary="rail-ad-static">
- {leftTarget && createPortal(<ArticleRailAdStack side="left" />, leftTarget)}
- {rightTarget && createPortal(<ArticleRailAdStack side="right" />, rightTarget)}
+ {leftTarget && createPortal(<ArticleRailAdStack side="left" onEmptyResolved={handleLeftRailEmpty} />, leftTarget)}
+ {rightTarget && createPortal(<ArticleRailAdStack side="right" onEmptyResolved={handleRightRailEmpty} />, rightTarget)}
  </SafeLazy>
    );
  })()}
