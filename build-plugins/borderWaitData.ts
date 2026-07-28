@@ -31,7 +31,8 @@ export type BorderWaitLocale = 'it' | 'en' | 'de' | 'fr';
  * itself imports from this module.
  *
  * New crossing → add its slug here (must equal
- * `slugifyCrossingName(crossing.name)` from `data/borderCrossings.ts`). See
+ * `slugifyCrossingName(crossing.name)` from `services/borderCrossingSlug.ts`,
+ * the single source of truth every caller now imports). See
  * the full "Adding a new crossing" checklist above `BorderCrossingRegion`
  * below for every other map that also needs an entry.
  */
@@ -79,8 +80,8 @@ export type BorderCrossingSlug =
  *  3. Add the region to BORDER_WAIT_REGIONS (below) — only if new.
  *  4. Add the crossing's slug to BorderCrossingSlug (below this block) —
  *     must equal `slugifyCrossingName(crossing.name)` from
- *     `data/borderCrossings.ts` (same slugify implementation, see
- *     `services/borderCrossingSlug.ts`).
+ *     `services/borderCrossingSlug.ts` — the one implementation every
+ *     caller imports (no per-file copies remain).
  *  5. Add the slug to BORDER_WAIT_CROSSINGS (below).
  *  6. Add a display-name entry to BORDER_CROSSING_DISPLAY.
  *  7. Add a region entry to CROSSING_TO_REGION.
