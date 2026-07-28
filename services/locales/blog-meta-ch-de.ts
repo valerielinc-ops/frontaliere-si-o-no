@@ -1621,6 +1621,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permessi-soggiorno-svizzera-b-c-l.title': 'Aufenthaltsbewilligungen in der Schweiz: Fahren in B, C und L',
     'blog.article.permessi-soggiorno-svizzera-b-c-l.excerpt': 'Umfassende Analyse der Aufenthaltsbewilligungsarten in der Schweiz B, C und L, mit Anforderungen, Dauer und Erneuerungsverfahren, die von den eidgenössischen und kantonalen Behörden durchgeführt werden.',
     'blog.article.permessi-soggiorno-svizzera-b-c-l.imageAlt': 'Schweizer Aufenthaltsbewilligungen Leitfaden Typen B, C und L',
+    'blog.article.frontalieri-tensione-fiscale-ticino-governo.title': 'Grenzgänger: Fiskalische Spannungen mit dem Tessin',
+    'blog.article.frontalieri-tensione-fiscale-ticino-governo.excerpt': 'Die Gewerkschaften fordern das Eingreifen der Regierung, um die Situation der Grenzgänger mit dem Tessin zu lösen.',
+    'blog.article.frontalieri-tensione-fiscale-ticino-governo.imageAlt': 'Frontalier in der Schweiz',
 };
 
 export default blogMetaChDe;

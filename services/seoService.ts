@@ -4954,6 +4954,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-italiani-ticino-risorsa': { name: 'Frontalieri Ticino risorsa', path: '/articoli-frontaliere/frontalieri-italiani-ticino-risorsa', parent: 'blog' },
     'blog-permessi-soggiorno-svizzera-b-c-l': { name: 'Permessi di soggiorno Svizzera', path: '/articoli-svizzera/permessi-soggiorno-svizzera-b-c-l/', parent: 'blog' },
     'blog-mercati-predittivi-business-trump': { name: 'Economia Trump', path: '/articoli-frontaliere/mercati-predittivi-business-trump', parent: 'blog' },
+    'blog-frontalieri-tensione-fiscale-ticino-governo': { name: 'Frontalieri in Svizzera', path: '/articoli-svizzera/frontalieri-tensione-fiscale-ticino-governo/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

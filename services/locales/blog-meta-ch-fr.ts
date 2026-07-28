@@ -1621,6 +1621,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permessi-soggiorno-svizzera-b-c-l.title': 'Permis de séjour en Suisse : guide à B, C et L',
     'blog.article.permessi-soggiorno-svizzera-b-c-l.excerpt': 'Analyse complète des types de permis de séjour en Suisse B, C et L, avec les exigences, la durée et les procédures de renouvellement gérées par les autorités fédérales et cantonales.',
     'blog.article.permessi-soggiorno-svizzera-b-c-l.imageAlt': 'Permis de séjour en Suisse guide des types B, C et L',
+    'blog.article.frontalieri-tensione-fiscale-ticino-governo.title': 'Tension fiscale avec le Tessin : les syndicats demandent une intervention',
+    'blog.article.frontalieri-tensione-fiscale-ticino-governo.excerpt': 'Les syndicats demandent l\'intervention du gouvernement pour résoudre la situation des frontaliers avec le Tessin.',
+    'blog.article.frontalieri-tensione-fiscale-ticino-governo.imageAlt': 'Frontalier en Suisse',
 };
 
 export default blogMetaChFr;
