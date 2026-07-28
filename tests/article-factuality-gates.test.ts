@@ -401,3 +401,26 @@ describe('formatRemediation', () => {
     expect(formatRemediation([])).toBe('');
   });
 });
+
+describe('stale source vs. undated source', () => {
+  // Covering an older fact is fine; passing it off as breaking news is not.
+  const OLD = { sourceDate: '2026-01-25', publishedAt: '2026-07-28T00:00:00Z' };
+
+  it('blocks when the article never says when the fact happened', () => {
+    const issues = checkSourceFreshness({
+      ...OLD,
+      text: 'Il Canton Ticino applica ora l\'aliquota piena ai frontalieri interessati.',
+    });
+    expect(issues.find((i) => i.code === 'stale-source')?.severity).toBe('critical');
+  });
+
+  it('reports but does not block when the article dates the fact explicitly', () => {
+    const issues = checkSourceFreshness({
+      ...OLD,
+      text: 'Da gennaio 2026 l\'ufficio imposte alla fonte del Canton Ticino applica l\'aliquota piena.',
+    });
+    const stale = issues.find((i) => i.code === 'stale-source');
+    expect(stale?.severity).toBe('major');
+    expect(stale?.message).toContain('non fuorvia');
+  });
+});

@@ -646,11 +646,21 @@ export function checkSourceFreshness(params = {}) {
   if (src && !Number.isNaN(src.getTime()) && pub && !Number.isNaN(pub.getTime())) {
     const ageDays = Math.floor((pub.getTime() - src.getTime()) / 86_400_000);
     if (ageDays > maxAgeDays) {
+      // The defect is presenting an old fact as breaking news, not covering an
+      // old fact at all. An article that explicitly dates the event ("da gennaio
+      // 2026 l'ufficio ha comunicato…") does not mislead the reader, so it is
+      // reported but does not block. One that never names the period does.
+      const srcMonth = Object.keys(MONTHS_IT).find((k) => MONTHS_IT[k] === src.getUTCMonth() + 1);
+      const srcYear = src.getUTCFullYear();
+      const datesTheFact = typeof text === 'string'
+        && new RegExp(String.raw`${srcMonth}\s+${srcYear}`, 'i').test(text);
+
       issues.push(issue(
         'stale-source',
-        ageDays > maxAgeDays * 3 ? 'critical' : 'major',
+        datesTheFact ? 'major' : (ageDays > maxAgeDays * 3 ? 'critical' : 'major'),
         `Fonte del ${src.toISOString().slice(0, 10)} pubblicata come notizia il ${pub.toISOString().slice(0, 10)} `
-        + `— ${ageDays} giorni di ritardo (max ${maxAgeDays})`,
+        + `— ${ageDays} giorni di ritardo (max ${maxAgeDays})`
+        + `${datesTheFact ? ' — il testo però data esplicitamente il fatto, quindi non fuorvia' : ''}`,
         '',
         `Non presentare la notizia come appena avvenuta. Colloca esplicitamente il fatto nel tempo `
         + `("secondo quanto comunicato nel ${src.toLocaleDateString('it-IT', { month: 'long', year: 'numeric' })}"), `
