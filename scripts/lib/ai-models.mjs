@@ -751,6 +751,38 @@ let _claudeCliConsecutiveTimeouts = 0;
 let _claudeCliTimeoutStormDetected = false;
 const CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD = 8;
 
+// Dedicated in-process concurrency cap for claude-cli subprocesses — separate
+// from any caller's own concurrency (e.g. send-newsletter.mjs's
+// AI_CONCURRENCY=5 pMap, which this file never sees or gates). T2 diagnosis
+// (2026-07-28, run 30333856358/30243975255: 0/19 successes, always the hard
+// 60s timeout): a solo cold-start measured only ~6-12s wall time locally for
+// a matching small/large prompt with the exact production flags — so
+// per-call latency alone doesn't explain the timeouts. The pre-existing
+// comment above already nails the real cause: run 29824354962 hit 159/162
+// timeouts specifically under AI_CONCURRENCY=5 — N heavy `claude` Node
+// subprocesses fighting for CPU on a resource-constrained CI runner. Capping
+// in-process concurrency here (independent of the consumer) attacks that
+// root cause without touching send-newsletter.mjs. Extra callers queue FIFO
+// via _withClaudeCliSlot and never deadlock: the slot is always released in
+// a `finally`, including on throw/reject.
+const CLAUDE_CLI_MAX_CONCURRENCY = 2;
+let _claudeCliInFlight = 0;
+const _claudeCliWaiters = [];
+
+async function _withClaudeCliSlot(fn) {
+  if (_claudeCliInFlight >= CLAUDE_CLI_MAX_CONCURRENCY) {
+    await new Promise((resolve) => { _claudeCliWaiters.push(resolve); });
+  }
+  _claudeCliInFlight++;
+  try {
+    return await fn();
+  } finally {
+    _claudeCliInFlight--;
+    const next = _claudeCliWaiters.shift();
+    if (next) next();
+  }
+}
+
 // ── API keys (lazy-loaded from environment) ──────────────────
 function getGhModelsPat()       { return (process.env.GH_MODELS_PAT || '').trim(); }
 // GitHub Models free-tier rate limits are PER-ACCOUNT (per PAT), not per-model,
@@ -2373,6 +2405,8 @@ export function resetState() {
   _claudeCliBinaryMissing = false;
   _claudeCliConsecutiveTimeouts = 0;
   _claudeCliTimeoutStormDetected = false;
+  _claudeCliInFlight = 0;
+  _claudeCliWaiters.length = 0;
 }
 
 /** Remove a specific model from the exhausted set so it can be retried */
@@ -3499,15 +3533,31 @@ async function _callClaudeCli(model, messages, opts) {
   if (systemPrompt) args.push('--system-prompt', systemPrompt);
   if (opts.jsonSchema) args.push('--json-schema', JSON.stringify(opts.jsonSchema.schema || opts.jsonSchema));
 
-  // Same deadline-capping rationale as _callLocal above — cap to the caller's
-  // remaining wall-clock budget so a last-resort call can't outlive the run.
-  let timeoutMs = Math.max(opts.timeout || 0, 60_000);
-  if (opts.deadlineMs) {
-    const remaining = opts.deadlineMs - Date.now();
-    timeoutMs = Math.max(15_000, Math.min(timeoutMs, remaining));
-  }
+  // Floor raised 60s -> 120s (T2 diagnosis, 2026-07-28: run 30333856358 /
+  // 30243975255, 0/19 production successes, always the hard 60s timeout). A
+  // solo cold-start locally measured only ~6-12s wall time for a matching
+  // small/large prompt with these exact flags — single-call latency was
+  // never the bottleneck by itself, so the floor alone isn't the fix, but it
+  // buys headroom against the CI-runner contention the semaphore below
+  // (CLAUDE_CLI_MAX_CONCURRENCY) reduces but may not fully absorb.
+  const baseTimeoutMs = Math.max(opts.timeout || 0, 120_000);
 
-  const { code, stdout, stderr } = await _runClaudeCliProcess(args, timeoutMs);
+  // Acquire the dedicated concurrency slot BEFORE computing the deadlineMs
+  // cap below, so time spent queued behind another in-flight claude-cli call
+  // counts against the caller's wall-clock budget (correct) while the actual
+  // per-process timeout still reflects the true remaining budget at the
+  // moment it starts (not at the moment it was queued).
+  const { code, stdout, stderr } = await _withClaudeCliSlot(async () => {
+    // Same deadline-capping rationale as _callLocal above — cap to the
+    // caller's remaining wall-clock budget so a last-resort call can't
+    // outlive the run.
+    let timeoutMs = baseTimeoutMs;
+    if (opts.deadlineMs) {
+      const remaining = opts.deadlineMs - Date.now();
+      timeoutMs = Math.max(15_000, Math.min(timeoutMs, remaining));
+    }
+    return _runClaudeCliProcess(args, timeoutMs);
+  });
 
   let parsed;
   try {
@@ -3521,13 +3571,33 @@ async function _callClaudeCli(model, messages, opts) {
   return parsed.result;
 }
 
+// Memoize the dynamic import itself (the in-flight promise, not just its
+// resolved value) so _runClaudeCliProcess never issues a second literal
+// `import('node:child_process')` call. Two callers can now run genuinely
+// concurrently (CLAUDE_CLI_MAX_CONCURRENCY above) and both `await` this same
+// promise instead of each triggering their own import(). Caught during T2
+// (2026-07-28): two truly-simultaneous `import()` calls for the same
+// specifier raced Vitest's node:child_process mock — the 2nd resolution fell
+// through to the real builtin instead of the mock, spawning a real `claude`
+// subprocess mid-test. Not a production hazard by itself (Node's builtin
+// module cache has no such race), but memoizing is strictly cheaper too — no
+// point re-resolving an already-loaded builtin on every call.
+let _childProcessModulePromise = null;
+function _getChildProcessModule() {
+  if (!_childProcessModulePromise) _childProcessModulePromise = import('node:child_process');
+  return _childProcessModulePromise;
+}
+
 /**
  * Spawn the `claude` CLI with stdin closed (its default stdin-wait-then-read
  * behavior adds ~3s latency when nothing is piped in — confirmed via live
  * test) and a hard kill-timeout so a hung subprocess can't outlive the run.
+ * On timeout, whatever stderr arrived before the kill is folded into the
+ * rejection message (truncated) so the next incident isn't diagnostically
+ * blind (T2, 2026-07-28).
  */
 async function _runClaudeCliProcess(args, timeoutMs) {
-  const { spawn } = await import('node:child_process');
+  const { spawn } = await _getChildProcessModule();
   return new Promise((resolve, reject) => {
     let child;
     try {
@@ -3543,7 +3613,12 @@ async function _runClaudeCliProcess(args, timeoutMs) {
       if (settled) return;
       settled = true;
       child.kill('SIGKILL');
-      const err = new Error(`claude CLI timed out after ${timeoutMs}ms`);
+      // Include whatever stderr arrived before the kill — previously
+      // discarded on timeout, which left every production incident
+      // (T2 diagnosis, 2026-07-28) blind to whether the subprocess was
+      // stuck on auth, context loading, or a genuine hang.
+      const stderrExcerpt = stderr ? ` — stderr: ${stderr.slice(0, 300)}` : '';
+      const err = new Error(`claude CLI timed out after ${timeoutMs}ms${stderrExcerpt}`);
       err.name = 'TimeoutError';
       reject(err);
     }, timeoutMs);
