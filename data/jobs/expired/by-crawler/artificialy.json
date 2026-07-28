@@ -25,9 +25,41 @@
       "fr": "business-development-sales-operations-artificialy-lugano"
     },
     "sector": "Intelligenza Artificiale",
-    "expiredAt": "2026-07-28T12:06:31.001Z",
+    "expiredAt": "2026-07-28T22:18:15.875Z",
     "salaryMin": 59000,
     "salaryMax": 90500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "ai-scientist-quantitative-forecasting-artificialy-zurich",
+    "title": "AI Scientist - Quantitative Forecasting",
+    "titleByLocale": {
+      "it": "AI Scientist - Quantitative Forecasting",
+      "en": "AI Scientist - Quantitative Forecasting",
+      "de": "AI Scientist - Quantitative Forecasting",
+      "fr": "Scientifique AI - Prévisions quantitatives"
+    },
+    "company": "Artificialy",
+    "companyKey": "artificialy",
+    "location": "Zurich",
+    "addressLocality": "Zurich",
+    "descriptionByLocale": {
+      "it": "Artificialy cerca AI Scientist - Quantitative Forecasting con sede a Zurich. Azienda svizzera specializzata in intelligenza artificiale con sedi a Lugano e Zurigo. Candidati online su artificialy.com.",
+      "en": "Artificialy cerca AI Scientist - Quantitative Forecasting con sede a Zurich. Azienda svizzera specializzata in intelligenza artificiale con sedi a Lugano e Zurigo. Candidati online su artificialy.com.",
+      "de": "Artificialy sucht AI Scientist - Quantitative Forecasting mit Sitz in Zürich. Schweizer Unternehmen spezialisiert auf Künstliche Intelligenz mit Büros in Lugano und Zürich. Bewerben Sie sich online auf künstlich. com.",
+      "fr": "Recherche artificielle pour les scientifiques de l'IA - Prévisions quantitatives basées à Zurich. Société suisse spécialisée dans l'intelligence artificielle avec des bureaux à Lugano et Zurich. Appliquer en ligne sur artificiel. Voir"
+    },
+    "slugByLocale": {
+      "it": "ai-scientist-quantitative-forecasting-artificialy-zurich",
+      "en": "ai-scientist-quantitative-forecasting-artificialy-zurich",
+      "de": "ai-scientist-quantitative-forecasting-artificialy-zurich",
+      "fr": "scientifique-ai-previsions-quantitatives-artificialy-zurich"
+    },
+    "sector": "Intelligenza Artificiale",
+    "expiredAt": "2026-07-28T22:18:15.875Z",
+    "salaryMin": 79000,
+    "salaryMax": 134500,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   }
