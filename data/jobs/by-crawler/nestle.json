@@ -3902,12 +3902,12 @@
     },
     {
       "id": "nestle-1386110633",
-      "slug": "anlagenfuhrer-in-produktion-100-nestle-ch",
+      "slug": "operatore-trice-di-linea-di-produzione-100-nestle-konolfingen-ch",
       "slugByLocale": {
-        "it": "anlagenfuhrer-in-produktion-100-nestle-ch",
+        "it": "operatore-trice-di-linea-di-produzione-100-nestle-konolfingen-ch",
         "en": "anlagenfuhrer-in-produktion-100-nestle-ch",
         "de": "anlagenfuhrer-in-produktion-100-nestle-ch",
-        "fr": "anlagenfuhrer-in-produktion-100-nestle-ch"
+        "fr": "operateur-trice-de-production-100-nestle-konolfingen-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -3959,7 +3959,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-produktion-100-nestle-ch"
+        ],
+        "fr": [
+          "anlagenfuhrer-in-produktion-100-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-in-produktion-100-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1388870033",
