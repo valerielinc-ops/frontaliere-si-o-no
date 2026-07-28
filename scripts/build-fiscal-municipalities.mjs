@@ -115,6 +115,9 @@ export function buildDataset(all) {
       Number.isFinite(m.distanceKm) &&
       Number.isFinite(m.population),
   );
+  for (const m of corridor) {
+    assertPlausibleMunicipality(m, { sourceLabel: 'fiscal-municipalities' });
+  }
 
   const toRecord = (m) => ({
     name: m.name,
