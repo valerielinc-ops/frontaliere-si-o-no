@@ -22,7 +22,6 @@ describe('route-slugs anti-drift guard (#4315)', () => {
   it.each([
     ['build-plugins/shared/hubChrome.ts', /from '..\/..\/services\/routeSlugs\.data'/, "jobBoard: 'cerca-lavoro-ticino'"],
     ['services/newsletter-seasonal.mjs', /from '\.\/routeSlugs\.data\.ts'/, "calcolatore: 'calcola-stipendio'"],
-    ['scripts/send-newsletter.mjs', /from '\.\.\/services\/routeSlugs\.data\.ts'/, "it: 'preferenze-newsletter'"],
     ['scripts/lib/articleContent.mjs', /from '\.\.\/\.\.\/services\/routeSlugs\.data\.ts'/, "it: 'articoli-frontaliere'"],
     ['build-plugins/eventsSeoPagesPlugin.ts', /from '\.\.\/services\/routeSlugs\.data'/, "it: '/cerca-lavoro-ticino/'"],
     ['build-plugins/exchangeRatePagesPlugin.ts', /from '\.\.\/services\/routeSlugs\.data'/, "it: '/calcola-stipendio/',"],
@@ -32,13 +31,32 @@ describe('route-slugs anti-drift guard (#4315)', () => {
     ['components/vita/TicineseDialect.tsx', /from '@\/services\/routeSlugs\.data'/, "'/dialetto-ticinese/'"],
     ['scripts/validate-critical-dist-pages.mjs', /from '\.\.\/services\/routeSlugs\.data\.ts'/, "'calcola-stipendio/index.html'"],
     ['build-plugins/seoHubsData.ts', /from '\.\.\/services\/routeSlugs\.data'/, "articlesAll: '/articoli-frontaliere/tutti/'"],
-    ['scripts/send-job-alerts.mjs', /from '\.\.\/services\/routeSlugs\.data\.ts'/, "it: 'preferenze-newsletter'"],
     ['tests/regression/recency-router-guards.test.ts', /from '\.\.\/\.\.\/services\/routeSlugs\.data'/, "it: 'cerca-lavoro-ticino'"],
   ])('%s derives from shared SLUG_TABLES instead of hand-copying literals', (file, importPattern, oldLiteral) => {
     const src = read(file as string);
     expect(src).toMatch(importPattern as RegExp);
     expect(src).not.toContain(oldLiteral as string);
   });
+
+  // scripts/send-newsletter.mjs and scripts/send-job-alerts.mjs used to each
+  // hand-copy their own PREFERENCES_SLUG(S) table derived from SLUG_TABLES
+  // (the pattern the block above guards). That was itself a sibling-pattern
+  // duplication (AGENTS.md #6, docs/AGENTS-HISTORY.md#sibling-pattern-fix):
+  // both scripts, plus the welcome-email Cloud Function, need the exact same
+  // makePreferencesUrl(email, locale) URL builder, so the slug table AND the
+  // builder now live once in functions/src/lib/newsletterUrls.js (guarded
+  // against SLUG_TABLES drift by the test below) and are imported here via
+  // services/newsletterUrls.mjs instead of hand-copied.
+  it.each(['scripts/send-newsletter.mjs', 'scripts/send-job-alerts.mjs'])(
+    '%s imports makePreferencesUrl from the shared builder instead of hand-copying a slug table',
+    (file) => {
+      const src = read(file);
+      expect(src).toMatch(/makePreferencesUrl/);
+      expect(src).toMatch(/from '\.\.\/services\/newsletterUrls\.mjs'/);
+      expect(src).not.toMatch(/^const PREFERENCES_SLUGS?\s*=/m);
+      expect(src).not.toMatch(/^function makePreferencesUrl/m);
+    },
+  );
 
   // services/seoService.ts, services/seo/seo-pages.ts and build-plugins/editorialContent.ts
   // keep a hand-written IT-only literal on purpose: the first two are read as raw
@@ -62,5 +80,21 @@ describe('route-slugs anti-drift guard (#4315)', () => {
   it('publisherRenewalCore.js DASHBOARD_URL stays in sync with SLUG_TABLES.it.publisherDashboard', () => {
     const src = read('functions/src/publisherRenewalCore.js');
     expect(src).toContain(`https://frontaliereticino.ch/${SLUG_TABLES.it.publisherDashboard}`);
+  });
+
+  // functions/src/lib/newsletterUrls.js's PREFERENCES_SLUG is the same kind of
+  // forced runtime copy as publisherRenewalCore.js's DASHBOARD_URL above — the
+  // welcome-email Cloud Function (functions/src/newsletterWelcomeEmail.js)
+  // needs the newsletter-preferences slug per locale, and can't cross the
+  // functions/ deploy boundary to import this (TypeScript) file. Unlike the
+  // HMAC token / URL-shape builders in that module (made impossible-by-
+  // construction via a services/newsletterUrls.mjs re-export shim), the slug
+  // table itself has no shared-module escape hatch, so it is guarded here
+  // instead: import both tables and assert they agree for all 4 locales.
+  it('functions/src/lib/newsletterUrls.js PREFERENCES_SLUG stays in sync with SLUG_TABLES.*.newsletterPreferences', async () => {
+    const { PREFERENCES_SLUG } = await import('../functions/src/lib/newsletterUrls.js');
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      expect(PREFERENCES_SLUG[locale]).toBe(SLUG_TABLES[locale].newsletterPreferences);
+    }
   });
 });

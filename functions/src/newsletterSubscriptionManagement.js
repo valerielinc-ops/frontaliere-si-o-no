@@ -580,6 +580,20 @@ export async function handleSubscriptionManagement({ action, email, token, local
  timestamp: admin.firestore.FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
  });
+
+ // Fire the welcome email within seconds of confirmation instead of
+ // waiting for the nightly cron fallback (up to 24h late). Best-effort and
+ // non-blocking: this action's HTTP status/HTML response must never change
+ // because of a welcome-email failure — the subscriber is confirmed either
+ // way, and the nightly cron / presigned-link endpoint remain as fallback
+ // sends. Lazy import to keep this action's cold-start path unchanged when
+ // the subscriber was already confirmed (the common re-click case).
+ try {
+ const { sendNewsletterWelcomeEmail } = await import('./newsletterWelcomeEmail.js');
+ await sendNewsletterWelcomeEmail({ email: normalizedEmail, locale: lang, db, trigger: 'confirm' });
+ } catch (welcomeErr) {
+ console.warn('[newsletterManage] Welcome email dispatch failed (non-fatal):', welcomeErr?.message || welcomeErr);
+ }
  }
 
  // Generate a custom auth token for auto-login after confirmation
