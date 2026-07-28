@@ -8,7 +8,9 @@
  * 1. Gemini (gemini-2.0-flash-lite → gemini-1.5-flash-8b) — primary
  * 2. Groq llama-3.3-70b-versatile — first OpenAI-compatible fallback
  * 3. NVIDIA meta/llama-3.1-70b-instruct — second OpenAI-compatible fallback
- * 4. Groq llama-3.1-8b-instant — last-resort fallback
+ * 4. Groq llama-3.1-8b-instant — last-resort free fallback
+ * 5. Claude Haiku via direct Anthropic API — paid, last-resort of last resort
+ *    (see claudeHaikuFallback.js — scoped ANTHROPIC_API_KEY exception, #4495)
  *
  * Tools (searchJobs) are embedded as text in the system prompt; no native
  * function-calling API is used, so OpenAI-compatible providers work identically.
@@ -18,6 +20,7 @@
  */
 
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { tryClaudeHaikuFallback, CLAUDE_HAIKU_MODEL } from './claudeHaikuFallback.js';
 
 // ── Model chain (free-first, non-deprecated) ────────────────────────────────
 
@@ -212,7 +215,7 @@ async function callOpenAiCompatibleMultiTurn({ base, apiKey, model, messages, sy
  * Tries Gemini first, then falls through to free OpenAI-compatible providers.
  *
  * @param {{ messages: Array<{role:string,content:string}>, systemPrompt: string }} params
- * @returns {{ text: string, model: string, source: 'cache'|'gemini'|'openai-compat' }}
+ * @returns {{ text: string, model: string, source: 'cache'|'gemini'|'openai-compat'|'claude-haiku' }}
  */
 export async function handleChatbotInference({ messages, systemPrompt }) {
  if (!Array.isArray(messages) || messages.length === 0) {
@@ -268,6 +271,22 @@ export async function handleChatbotInference({ messages, systemPrompt }) {
  failures.push(`${fb.label}: ${err instanceof Error ? err.message : String(err)}`);
  }
  }
+
+ // 4. Last resort: Claude/Haiku via direct Anthropic API — scoped exception
+ // to AGENTS.md's ANTHROPIC_API_KEY prohibition (owner-approved 2026-07-28,
+ // issue #4495). Paid, only reached once every free provider above has failed.
+ const claudeResult = await tryClaudeHaikuFallback({
+ systemPrompt: augmentedPrompt,
+ messages,
+ maxTokens: 1024,
+ temperature: 0.7,
+ });
+ if (claudeResult.ok) {
+ console.log('[chatbot] served by fallback claude-haiku');
+ if (key) cacheSet(key, claudeResult.text);
+ return { text: claudeResult.text, model: CLAUDE_HAIKU_MODEL, source: 'claude-haiku' };
+ }
+ failures.push(claudeResult.notConfigured ? 'claude-haiku: not_configured' : `claude-haiku: ${claudeResult.error}`);
 
  // Every provider failed.
  console.error('[chatbot] all providers failed —', failures.join(' | '));
