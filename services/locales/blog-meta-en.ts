@@ -9052,6 +9052,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-vola-per-treni.title': 'More What if the trains were financed by those who take the plane?',
     'blog.article.svizzera-vola-per-treni.excerpt': 'A popular initiative wants to tax every flight departing from Switzerland and return most of the proceeds in the form of train travel vouchers.',
     'blog.article.svizzera-vola-per-treni.imageAlt': 'Max 125 caratteri',
+    'blog.article.vivere-maccagno-lavorare-ticino.title': 'Living in Maccagno with Pine and Veddasca and working in Ticino',
+    'blog.article.vivere-maccagno-lavorare-ticino.excerpt': 'Practical guide for border workers: connections, taxation and daily life between Maccagno and Ticino in compliance with current regulations.',
+    'blog.article.vivere-maccagno-lavorare-ticino.imageAlt': 'Panoramic view of Lake Lugano, ideal location for those living between Italy and Ticino.',
 };
 
 export default blogMetaEn;

@@ -4963,6 +4963,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sulzer-primo-semestre-2026': { name: 'Sulzer: meno ordini nel primo semestre, ma', path: '/articoli-svizzera/sulzer-primo-semestre-2026/', parent: 'blog' },
     'blog-svizzera-vola-per-treni': { name: 'Di più E se a finanziare i treni fossero', path: '/articoli-frontaliere/svizzera-vola-per-treni', parent: 'blog' },
     'blog-sika-crescita-semestre-bilancio': { name: 'Economia Sika', path: '/articoli-svizzera/sika-crescita-semestre-bilancio/', parent: 'blog' },
+    'blog-vivere-maccagno-lavorare-ticino': { name: 'Vivere Maccagno Ticino', path: '/articoli-frontaliere/vivere-maccagno-lavorare-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];
