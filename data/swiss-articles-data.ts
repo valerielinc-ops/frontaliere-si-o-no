@@ -4832,6 +4832,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'imposte-alla-fonte-svizzera-2024',
+    category: 'fiscale',
+    date: '2026-07-28T01:43:18.998Z',
+    image: '/images/blog/imposte-alla-fonte-svizzera-2024.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

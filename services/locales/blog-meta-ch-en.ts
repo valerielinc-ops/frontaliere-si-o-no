@@ -1612,6 +1612,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.title': 'Ticino blocks border health tax restaurants',
     'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.excerpt': 'The Canton of Ticino is ready to reduce or suspend refills for border municipalities due to the health tax imposed by Lombardy.',
     'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.imageAlt': 'View of Lugano with the lake in the foreground',
+    'blog.article.imposte-alla-fonte-svizzera-2024.title': 'Taxes at source: here\'s who will pay the most in Switzerland in 2024',
+    'blog.article.imposte-alla-fonte-svizzera-2024.excerpt': 'Detailed analysis of the changes related to taxes at source in Switzerland and who will suffer an increase during the reference period.',
+    'blog.article.imposte-alla-fonte-svizzera-2024.imageAlt': 'Withholding taxes in Switzerland',
 };
 
 export default blogMetaChEn;

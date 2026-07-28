@@ -1612,6 +1612,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.title': 'Tessin blockiert Rückvergütungen Gesundheitssteuer Grenzgänger',
     'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.excerpt': 'Der Kanton Tessin ist bereit, die Rückvergütungen für Grenzgemeinden aufgrund der von der Lombardei erhobenen Gesundheitsabgabe zu reduzieren oder auszusetzen.',
     'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.imageAlt': 'Lugano mit Blick auf den See',
+    'blog.article.imposte-alla-fonte-svizzera-2024.title': 'Quellensteuer: Wer 2024 in der Schweiz am meisten zahlt',
+    'blog.article.imposte-alla-fonte-svizzera-2024.excerpt': 'Detaillierte Analyse der Neuigkeiten in Bezug auf die Quellensteuern in der Schweiz und wer im Berichtszeitraum eine Erhöhung erleiden wird.',
+    'blog.article.imposte-alla-fonte-svizzera-2024.imageAlt': 'Quellensteuer in der Schweiz',
 };
 
 export default blogMetaChDe;
