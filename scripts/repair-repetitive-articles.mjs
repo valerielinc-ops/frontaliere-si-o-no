@@ -13,32 +13,15 @@
 import { readFileSync, writeFileSync, readdirSync } from 'fs';
 import { join } from 'path';
 import { detectBodyRepetition, dedupeRepeatedParagraphs } from './lib/article-body-repetition.mjs';
+import { BODY_DIRS, LOCALES, extractBodies, escapeForTS } from './lib/blog-body-io.mjs';
 
-const LOCALES = ['it', 'en', 'de', 'fr'];
 // Both body dirs share the same {id}.ts-per-locale layout (create-article.mjs
 // bodyDir: 'blog-body' for frontaliere articles, 'blog-body-ch' for svizzera
 // articles) — this script originally only scanned the former, so the two
 // live repetition bugs that motivated PR #4650 (both blog-body-ch) survived
 // the fix's own repair pass. Scan both.
-const BODY_DIRS = ['services/locales/blog-body', 'services/locales/blog-body-ch'];
 const FIX = process.argv.includes('--fix');
 
-function extractBodies(content, id) {
-  const bodies = {};
-  for (let i = 1; i <= 3; i++) {
-    const key = `blog.article.${id}.body${i}`;
-    const pattern = new RegExp(`'${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}':\\s*'((?:[^'\\\\]|\\\\.)*)'`, 's');
-    const m = content.match(pattern);
-    if (m) {
-      bodies[`body${i}`] = m[1].replace(/\\'/g, "'").replace(/\\n/g, '\n').replace(/\\\\/g, '\\');
-    }
-  }
-  return bodies;
-}
-
-function escapeForTS(s) {
-  return String(s || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, '\\n').replace(/\r/g, '');
-}
 
 // Thin adapters over the shared detection/cleanup module (2026-07-21): this
 // script used to carry its own copy of both, which had already drifted

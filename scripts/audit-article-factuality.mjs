@@ -31,10 +31,10 @@
  */
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { join, basename } from 'node:path';
+import { join } from 'node:path';
 import { runFactualityGates, SEVERITY, formatIssues } from './lib/article-factuality-gates.mjs';
+import { BODY_DIRS, extractBodies } from './lib/blog-body-io.mjs';
 
-const BODY_DIRS = ['services/locales/blog-body', 'services/locales/blog-body-ch'];
 const AS_JSON = process.argv.includes('--json');
 const CRITICAL_ONLY = process.argv.includes('--critical');
 const LIMIT = (() => {
@@ -80,20 +80,6 @@ const changedIdsRaw = CHANGED_BASE ? changedArticleIds(CHANGED_BASE) : null;
 const diffUnavailable = changedIdsRaw === 'unavailable';
 // An empty Set means "diff computed, no article touched" → scan nothing.
 const changedIds = diffUnavailable ? new Set() : changedIdsRaw;
-
-/** Same extraction the repair scripts use (scripts/repair-repetitive-articles.mjs). */
-function extractBodies(content, id) {
-  const bodies = {};
-  for (let i = 1; i <= 3; i++) {
-    const key = `blog.article.${id}.body${i}`;
-    const pattern = new RegExp(`'${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}':\\s*'((?:[^'\\\\]|\\\\.)*)'`, 's');
-    const m = content.match(pattern);
-    if (m) {
-      bodies[`body${i}`] = m[1].replace(/\\'/g, "'").replace(/\\n/g, '\n').replace(/\\\\/g, '\\');
-    }
-  }
-  return bodies;
-}
 
 const findings = [];
 let scanned = 0;
