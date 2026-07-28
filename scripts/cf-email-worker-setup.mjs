@@ -28,14 +28,36 @@
 const ZONE_NAME = 'frontaliereticino.ch';
 const WORKER_NAME = 'frontaliere-stop-reply-handler';
 // Recipient addresses that must route to the worker, and the routing-rule name
-// for each. stop-reply-handler.js branches on `message.to` (NEWSLETTER_ADDRESS
-// var in wrangler.toml) — anything not matching that falls through to the
-// outreach-reply path, so OUTREACH_ADDRESS below stays first/default in intent.
+// for each. stop-reply-handler.js branches on `message.to` against the
+// OUTREACH_ADDRESS / NEWSLETTER_ADDRESS vars in wrangler.toml (keep the two
+// lists in lockstep); every other address below is forward-only and is bound
+// purely so the worker's isAutoReply filter can drop out-of-office replies
+// before they reach the human inbox.
 const OUTREACH_ADDRESS = 'valerie@frontaliereticino.ch';
 const NEWSLETTER_ADDRESS = 'newsletter@frontaliereticino.ch';
+// The addresses our outbound mail is sent FROM — an autoresponder answers to
+// one of these, so this is the whole surface an out-of-office can land on.
+// Sources: scripts/send-job-alerts.mjs + scripts/send-saved-jobs-digest.mjs +
+// scripts/monitor-gsc-job-indexation.mjs (alerts@), blast-publisher-ads.mjs
+// (confirmation@), notify-journalist-article-live.mjs (redazione@),
+// probe-mailgun-scheduled.mjs (notifiche@), lib/mymemory-translate.mjs (info@).
+// abuse@ is not a From address but is the RFC 2142 role address receiving
+// mailers' automatic responses (the incident that motivated this).
+const AUTO_REPLY_SINK_ADDRESSES = [
+  'alerts@frontaliereticino.ch',
+  'abuse@frontaliereticino.ch',
+  'confirmation@frontaliereticino.ch',
+  'redazione@frontaliereticino.ch',
+  'notifiche@frontaliereticino.ch',
+  'info@frontaliereticino.ch',
+];
 const ROUTING_RULES = [
   { address: OUTREACH_ADDRESS, name: 'cold-email reply → stop-reply-handler' },
   { address: NEWSLETTER_ADDRESS, name: 'newsletter unsubscribe reply → stop-reply-handler' },
+  ...AUTO_REPLY_SINK_ADDRESSES.map((address) => ({
+    address,
+    name: `${address.split('@')[0]} auto-reply filter → stop-reply-handler`,
+  })),
 ];
 
 const API = 'https://api.cloudflare.com/client/v4';
