@@ -1615,6 +1615,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposte-alla-fonte-svizzera-2024.title': 'Quellensteuer: Wer 2024 in der Schweiz am meisten zahlt',
     'blog.article.imposte-alla-fonte-svizzera-2024.excerpt': 'Detaillierte Analyse der Neuigkeiten in Bezug auf die Quellensteuern in der Schweiz und wer im Berichtszeitraum eine Erhöhung erleiden wird.',
     'blog.article.imposte-alla-fonte-svizzera-2024.imageAlt': 'Quellensteuer in der Schweiz',
+    'blog.article.dichiarazione-imposte-svizzera-guida.title': 'Steuererklärung Schweiz: Praktischer Leitfaden',
+    'blog.article.dichiarazione-imposte-svizzera-guida.excerpt': 'Vollständiger Leitfaden zur Steuererklärung in der Schweiz mit kantonalen Fälligkeiten, zulässigen Abzügen und von ESTV/ESFC verwaltetem Online-Verfahren.',
+    'blog.article.dichiarazione-imposte-svizzera-guida.imageAlt': 'Leitfaden zur Steuereinreichung in der Schweiz mit Fristen',
 };
 
 export default blogMetaChDe;

@@ -1615,6 +1615,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposte-alla-fonte-svizzera-2024.title': 'Taxes at source: here\'s who will pay the most in Switzerland in 2024',
     'blog.article.imposte-alla-fonte-svizzera-2024.excerpt': 'Detailed analysis of the changes related to taxes at source in Switzerland and who will suffer an increase during the reference period.',
     'blog.article.imposte-alla-fonte-svizzera-2024.imageAlt': 'Withholding taxes in Switzerland',
+    'blog.article.dichiarazione-imposte-svizzera-guida.title': 'Tax declaration in Switzerland: Practical guide',
+    'blog.article.dichiarazione-imposte-svizzera-guida.excerpt': 'Complete guide to tax reporting in Switzerland with cantonal deadlines, allowable deductions and online procedure administered by AFC/ESTV.',
+    'blog.article.dichiarazione-imposte-svizzera-guida.imageAlt': 'Guide to tax declaration in Switzerland with deadlines and procedures',
 };
 
 export default blogMetaChEn;

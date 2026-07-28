@@ -4841,6 +4841,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'dichiarazione-imposte-svizzera-guida',
+    category: 'fiscale',
+    date: '2026-07-28T02:41:29.199Z',
+    image: '/images/blog/dichiarazione-imposte-svizzera-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

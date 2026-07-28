@@ -1615,6 +1615,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposte-alla-fonte-svizzera-2024.title': 'Imposte alla fonte: ecco chi pagherà di più in Svizzera nel 2024',
     'blog.article.imposte-alla-fonte-svizzera-2024.excerpt': 'Analisi dettagliata delle novità relative alle imposte alla fonte in Svizzera e chi subirà un incremento nel corso del periodo di riferimento.',
     'blog.article.imposte-alla-fonte-svizzera-2024.imageAlt': 'Imposte alla fonte in Svizzera',
+    'blog.article.dichiarazione-imposte-svizzera-guida.title': 'Dichiarazione delle imposte in Svizzera: Guida pratica',
+    'blog.article.dichiarazione-imposte-svizzera-guida.excerpt': 'Guida completa alla dichiarazione delle imposte in Svizzera con scadenze cantonali, deduzioni ammesse e procedura online amministrata da AFC/ESTV.',
+    'blog.article.dichiarazione-imposte-svizzera-guida.imageAlt': 'Guida alla dichiarazione delle imposte in Svizzera con scadenze e procedure',
 };
 
 export default blogMetaChIt;
