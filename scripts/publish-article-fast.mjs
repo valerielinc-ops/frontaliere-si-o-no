@@ -130,24 +130,19 @@ async function main() {
   // reproducing the exact live vs. fast-path <head> diff.
   process.env.ASSET_CDN = CDN_BASE;
 
-  // ogPagesPlugin.ts's formatHumanDate/formatHumanDateTime (the visible
-  // "Pubblicato il ..." byline + article:published_time meta) parse an
-  // explicit-offset ISO string (normalizeDateTime appends "+01:00" to a
-  // bare YYYY-MM-DD) with `new Date(...)`, then read the calendar day via
-  // LOCAL accessors (`d.getDate()`/`getMonth()`/`getFullYear()`) — not
-  // `getUTC*()`. For a midnight-CET date this instant is 23:00 the PRIOR day
-  // in UTC, so the displayed day depends on the executing process's system
-  // timezone: a UTC-TZ process (GitHub Actions runners — confirmed via
-  // production still showing the pre-fix day for this exact article) prints
-  // one calendar day EARLIER than a CET/CEST-TZ process (e.g. this
-  // developer machine). This is a genuine PRE-EXISTING latent bug in the
-  // shared renderer (present in the full build too, dormant only because CI
-  // always runs in UTC) — out of scope to fix here (it is shared code used
-  // by every SSG plugin's date formatting, not something owned by this
-  // stream). Pinning TZ=UTC makes THIS script's output match what the real
-  // deploy build produces regardless of the invoking machine's timezone,
-  // without touching ogPagesPlugin.ts. Must be set before the dynamic
-  // import below (Node reads TZ once, at startup/first Date use).
+  // Pin the process timezone to match the CI runner.
+  //
+  // No longer load-bearing: ogPagesPlugin's byline formatters used to read the
+  // calendar day through local `new Date(...)` accessors, so a CET developer
+  // machine and a UTC runner disagreed by a day for midnight-CET stamps. That
+  // was a real bug shipping on ~142 live articles (machine-readable `datetime`
+  // vs visible text off by one) and is fixed at the source in the same PR —
+  // both formatters now parse the ISO string's own fields, and the rendered
+  // bytes are identical under TZ=UTC and TZ=America/New_York.
+  //
+  // The pin stays as defence in depth: it keeps this script's environment
+  // identical to the deploy build's for any date handling added later, at zero
+  // cost. Must be set before the dynamic import below (Node reads TZ once).
   process.env.TZ = 'UTC';
 
   // ── Step 0: make public/images visible to resolveImagePath's existence
