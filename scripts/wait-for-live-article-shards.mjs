@@ -46,7 +46,13 @@ if (urls.length === 0) {
   process.exit(1);
 }
 
-const timeoutMs = Number(process.env.FAST_PUBLISH_WAIT_TIMEOUT_MS || 3 * 60 * 1000);
+// 5 min, matching wait-for-live-article-meta.mjs's established default rather
+// than inventing a second number. Measured shard Pages publish is ~30s (push
+// 09:14:01Z -> last-modified 09:14:31Z on frontaliere-articolifrontaliere-it),
+// so this is ~10x margin. Deliberately generous: a timeout here opens a
+// dedup'd GitHub issue, and a false alarm feeds the issue-fix loop and burns
+// shared Claude quota (AGENTS.md "Auth automazioni & frugalità quota").
+const timeoutMs = Number(process.env.FAST_PUBLISH_WAIT_TIMEOUT_MS || 5 * 60 * 1000);
 const intervalMs = Number(process.env.FAST_PUBLISH_WAIT_INTERVAL_MS || 5 * 1000);
 const deadline = Date.now() + timeoutMs;
 
