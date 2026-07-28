@@ -2513,7 +2513,7 @@ export const borderCrossings: BorderCrossing[] = [
 // yet, and as a sane baseline before the first compute run lands in
 // `data/`.
 import computedAverages from './border-wait-averages.json' with { type: 'json' };
-import { slugifyCrossingName } from '../services/borderCrossingSlug';
+import { slugifyCrossingName } from '../services/borderCrossingSlug.ts';
 
 const computed = computedAverages as Record<string, { morning?: string; evening?: string }>;
 for (const c of borderCrossings) {
