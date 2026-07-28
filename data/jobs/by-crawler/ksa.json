@@ -1480,7 +1480,7 @@
       "descriptionByLocale": {
         "it": "Descrizione\n\nGiornata di pratica - Uno sguardo dietro le quinte delle cure di emergenza e di terapia intensiva Pediatria — Ospedale cantonale di Aarau (KSA), Aarau",
         "en": "Description Day of Practice - A glimpse behind the scenes of emergency and intensive care Pediatrics — Kantonsspital Aarau (KSA), Aarau",
-        "de": "Praxistag - Ein Blick hinter die Kulissen der Notfall- und Intensivpflege Pädiatrie — Kantonsspital Aarau (KSA), Aarau",
+        "de": "## Beschreibung\n\nPraxistag - Ein Blick hinter die Kulissen der Notfall- und Intensivpflege Pädiatrie — Kantonsspital Aarau (KSA), Aarau",
         "fr": "Description Jour de pratique - Un aperçu dans les coulisses de la pédiatrie en cas d'urgence et de soins intensifs — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
@@ -1488,7 +1488,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/4589/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:16:17.979Z",
+      "crawledAt": "2026-07-27T12:54:11.995Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5001",
@@ -1507,16 +1507,13 @@
       "requirementsByLocale": {},
       "department": "Praktikum FA Berufsbildung",
       "previousSlugs": [
-        "praxistag-ein-blick-hinter-die-kulissen-der-notfall-und-intensivpflege-padiatrie-ksa-ch",
-        "praxistag-ein-blick-hinter-la-kulissen-der-notfall-e-intensivpflege-padiatrie-kantonsspital-aarau-ksa-aarau"
+        "praxistag-ein-blick-hinter-die-kulissen-der-notfall-und-intensivpflege-padiatrie-ksa-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praxistag-ein-blick-hinter-die-kulissen-der-notfall-und-intensivpflege-padiatrie-ksa-ch",
-          "praxistag-ein-blick-hinter-la-kulissen-der-notfall-e-intensivpflege-padiatrie-kantonsspital-aarau-ksa-aarau"
+          "praxistag-ein-blick-hinter-die-kulissen-der-notfall-und-intensivpflege-padiatrie-ksa-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T12:11:07.794Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1538,7 +1535,7 @@
         "it": "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau",
         "en": "care-internship-independent-of-training-medicine-kantonsspital-aarau-ksa-aarau",
         "de": "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch",
-        "fr": "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau"
+        "fr": "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -1552,9 +1549,9 @@
       },
       "description": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "it": "Stage di assistenza senza vincoli di formazione (Medicina) — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Stage di assistenza indipendente dal percorso formativo (Medicina) — Kantonsspital Aarau (KSA), Aarau",
         "en": "Pflegepraktikum aus bldungsunabhängig (Medizin) — Kantonspital Aarau (KSA), Aarau",
-        "de": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
+        "de": "Die in den Erwägungsgründen 215 bis 316 genannten Maßnahmen sind in den Erwägungsgründen 215 bis 316 der vorläufigen Verordnung aufgeführt.",
         "fr": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
@@ -1562,7 +1559,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/2730/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T22:16:17.979Z",
+      "crawledAt": "2026-07-27T12:54:11.995Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5001",
@@ -1582,21 +1579,19 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch",
-        "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau"
+        "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch",
-          "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau"
+          "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch"
         ],
         "fr": [
-          "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch"
+          "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 82,
-      "retranslationAttempts": 18,
+      "retranslationAttempts": 19,
       "firstSeenAt": "2026-07-10T12:11:07.794Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -6040,7 +6035,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/3601/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:16:17.978Z",
+      "crawledAt": "2026-07-26T11:08:13.765Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5001",
@@ -6067,8 +6062,8 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch"
         ],
         "de": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch-9zut0b",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-ndk-uberwachungspflege-ksa-ch-9zut0b"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",

@@ -3891,7 +3891,7 @@
       "title": "Monitoring & Alerting Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Zabbix Ingegnere (m/w/d)",
-        "en": "Monitoring & Alerting Engineer (m/w/d)",
+        "en": "Monitoring & Alerting Engineer (m/f/d)",
         "de": "Monitoring & Alerting Ingenieur (m/w/d)",
         "fr": "Zabbix Ingénieur (m/w/d)"
       },
@@ -3907,7 +3907,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C05OD2",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-27T22:23:48.387Z",
+      "crawledAt": "2026-07-27T12:45:28.483Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3943,30 +3943,27 @@
           "Full Time"
         ]
       },
-      "previousSlugs": [
-        "zabbix-engineer-m-w-d-coopers-bern",
-        "monitoring-alerting-engineer-m-w-d-coopers-bern",
-        "zabbix-ingegnere-m-w-d-coopers-group-ag-bern"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "zabbix-engineer-m-w-d-coopers-bern",
+          "monitoring-alerting-engineer-m-w-d-coopers-bern"
+        ],
         "it": [
           "zabbix-engineer-m-w-d-coopers-bern",
-          "monitoring-alerting-engineer-m-w-d-coopers-bern",
-          "zabbix-ingegnere-m-w-d-coopers-group-ag-bern"
-        ],
-        "en": [
-          "zabbix-engineer-m-w-d-coopers-bern"
-        ],
-        "de": [
-          "monitoring-alerting-engineer-m-w-d-coopers-bern",
-          "zabbix-engineer-m-w-d-coopers-bern"
+          "monitoring-alerting-engineer-m-w-d-coopers-bern"
         ],
         "fr": [
           "zabbix-engineer-m-w-d-coopers-bern"
+        ],
+        "en": [
+          "zabbix-engineer-m-w-d-coopers-bern"
         ]
       },
+      "previousSlugs": [
+        "zabbix-engineer-m-w-d-coopers-bern",
+        "monitoring-alerting-engineer-m-w-d-coopers-bern"
+      ],
       "firstSeenAt": "2026-07-10T10:28:37.373Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
