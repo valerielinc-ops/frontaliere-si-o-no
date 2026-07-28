@@ -186,7 +186,7 @@ const FUEL_BRIDGE_COPY: Record<FuelDailyLocale, { title: string; description: st
   },
 };
 
-function renderFuelBelowFloorBridge(path: string): string {
+export function renderFuelBelowFloorBridge(path: string): string {
   const locale = localeOfFuelPath(path);
   const targetPath = FUEL_STATS_HUB_PATH[locale];
   const targetUrl = `${BASE_URL}${targetPath}`;

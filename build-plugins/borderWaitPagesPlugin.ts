@@ -44,6 +44,7 @@ import {
   DRIVEBY_AD_SNIPPET,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { renderGuideHubBridge } from './shared/guideHubBridge';
 import { renderHreflangTags } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
 import {
@@ -2718,6 +2719,7 @@ interface PluginResult {
   pagesWritten: number;
   archivesWritten: number;
   skippedForWordCount: number;
+  bridgesWritten: number;
 }
 
 export function borderWaitPagesPlugin(rootDir: string): Plugin {
@@ -2777,6 +2779,7 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
       let pagesWritten = 0;
       let archivesWritten = 0;
       let skipped = 0;
+      let bridgesWritten = 0;
       const sitemapPaths: string[] = [];
 
       for (const [path, html] of Object.entries(pages)) {
@@ -2784,6 +2787,9 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
         if (words < MIN_INDEXABLE_WORDS) {
           skipped++;
           console.warn(`[border-wait-pages] thin content (${words} words) for ${path} — skipping`);
+          const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+          collector.add(np.join(outDir, 'index.html'), renderGuideHubBridge(path));
+          bridgesWritten++;
           continue;
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
@@ -2796,6 +2802,9 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
         const words = countHtmlBodyWords(html);
         if (words < MIN_INDEXABLE_WORDS) {
           skipped++;
+          const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+          collector.add(np.join(outDir, 'index.html'), renderGuideHubBridge(path));
+          bridgesWritten++;
           continue;
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
@@ -2865,9 +2874,10 @@ ${urlEntries}
         pagesWritten,
         archivesWritten,
         skippedForWordCount: skipped,
+        bridgesWritten,
       };
       console.log(
-        `\x1b[36m[border-wait-pages]\x1b[0m Generated ${result.pagesWritten} pages + ${result.archivesWritten} archives (skipped ${result.skippedForWordCount})`,
+        `\x1b[36m[border-wait-pages]\x1b[0m Generated ${result.pagesWritten} pages + ${result.archivesWritten} archives (skipped ${result.skippedForWordCount}, bridged ${result.bridgesWritten})`,
       );
     },
   };
