@@ -13,6 +13,17 @@ function sanitizeString(value) {
  return normalized || null;
 }
 
+// Events without a campaign_id/alert_id tag (ad-hoc sends, confirmations,
+// untracked emails) must not collapse onto the shared literal 'unknown' —
+// two distinct untagged sends to the same recipient would then write the
+// same campaign_deliveries/alert_deliveries doc, and the second send's
+// sent_at would clobber the first's, corrupting event↔delivery timestamp
+// ordering (#4847). Key the fallback on messageId, which Resend assigns
+// uniquely per send, so unrelated untagged sends never collide.
+function uniqueUnknownFallback(messageId, occurredAt) {
+ return `unknown:${messageId || occurredAt}`;
+}
+
 export function ensureAdminApp() {
  if (!admin.apps.length) {
  admin.initializeApp({ credential: admin.credential.applicationDefault() });
@@ -215,13 +226,13 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
 
  // ── Route job-alert emails to job_alert_subscribers/{email} ──
  if (emailType === 'job-alert' || emailType === 'job-alert-retry') {
- const alertId = sanitizeString(tags.alert_id) || 'unknown';
+ const alertId = sanitizeString(tags.alert_id) || uniqueUnknownFallback(messageId, occurredAt);
  await applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl, linkLabel, occurredAt, rawEvent });
  return { handled: true, email, type, collection: 'job_alert_subscribers', alertId };
  }
 
  // ── Newsletter events (existing behavior) ────────────────────
- const campaignId = sanitizeString(tags.campaign_id || data.campaign_id) || 'unknown';
+ const campaignId = sanitizeString(tags.campaign_id || data.campaign_id) || uniqueUnknownFallback(messageId, occurredAt);
  const variant = sanitizeString(tags.variant || data.variant) || 'general';
  const locale = sanitizeString(tags.subscriber_locale || data.locale) || 'it-IT';
  const sourceChannel = sanitizeString(tags.source_channel || data.source_channel);
