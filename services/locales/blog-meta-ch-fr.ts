@@ -1636,6 +1636,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sika-crescita-semestre-bilancio.title': 'Sika : chiffre d\'affaires à 5,59 milliards au premier semestre',
     'blog.article.sika-crescita-semestre-bilancio.excerpt': 'Le groupe zugais Sika clôture le semestre avec un chiffre d\'affaires de 5,59 milliards de francs. Croissance organique positive et prévisions revues à la hausse pour l\'année en cours.',
     'blog.article.sika-crescita-semestre-bilancio.imageAlt': 'Siège social de Sika à Baar, Zoug',
+    'blog.article.cerca-lavoro-svizzera-dal-estero.title': 'Guide complet pour chercher un emploi en Suisse depuis l\'étranger',
+    'blog.article.cerca-lavoro-svizzera-dal-estero.excerpt': 'Taxes, lois, procédures : tout ce que vous devez savoir pour chercher un emploi en Suisse en tant que frontalier',
+    'blog.article.cerca-lavoro-svizzera-dal-estero.imageAlt': 'Frontalier cherchant un emploi en Suisse',
 };
 
 export default blogMetaChFr;

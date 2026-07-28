@@ -1636,6 +1636,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sika-crescita-semestre-bilancio.title': 'Sika: Umsatz im ersten Halbjahr auf 5,59 Milliarden',
     'blog.article.sika-crescita-semestre-bilancio.excerpt': 'Die Zuger Sika-Gruppe schliesst das Halbjahr mit einem Umsatz von 5,59 Milliarden Franken ab. Positives organisches Wachstum und erhöhte Prognosen für das laufende Jahr.',
     'blog.article.sika-crescita-semestre-bilancio.imageAlt': 'Sika Hauptsitz in Baar, Zug',
+    'blog.article.cerca-lavoro-svizzera-dal-estero.title': 'Vollständiger Leitfaden für die Stellensuche in der Schweiz aus dem Ausland',
+    'blog.article.cerca-lavoro-svizzera-dal-estero.excerpt': 'Steuern, Gesetze, Verfahren: Alles, was Sie wissen müssen, um in der Schweiz als Grenzgänger Arbeit zu finden',
+    'blog.article.cerca-lavoro-svizzera-dal-estero.imageAlt': 'Frontalier sucht Arbeit in der Schweiz',
 };
 
 export default blogMetaChDe;

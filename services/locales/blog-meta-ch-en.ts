@@ -1636,6 +1636,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sika-crescita-semestre-bilancio.title': 'Sika: turnover at 5.59 billion in the first half',
     'blog.article.sika-crescita-semestre-bilancio.excerpt': 'The Zughese group Sika closed the half-year with a turnover of CHF 5.59 billion. Positive organic growth and high forecasts for the current year.',
     'blog.article.sika-crescita-semestre-bilancio.imageAlt': 'Sika headquarters in Baar, Zug',
+    'blog.article.cerca-lavoro-svizzera-dal-estero.title': 'Complete guide to looking for a job in Switzerland from abroad',
+    'blog.article.cerca-lavoro-svizzera-dal-estero.excerpt': 'Taxes, laws, procedures: everything you need to know to look for work in Switzerland as a border worker',
+    'blog.article.cerca-lavoro-svizzera-dal-estero.imageAlt': 'Frontalier looking for job in Switzerland',
 };
 
 export default blogMetaChEn;

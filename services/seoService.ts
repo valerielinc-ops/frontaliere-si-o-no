@@ -4965,6 +4965,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sika-crescita-semestre-bilancio': { name: 'Economia Sika', path: '/articoli-svizzera/sika-crescita-semestre-bilancio/', parent: 'blog' },
     'blog-vivere-maccagno-lavorare-ticino': { name: 'Vivere Maccagno Ticino', path: '/articoli-frontaliere/vivere-maccagno-lavorare-ticino', parent: 'blog' },
     'blog-residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp': { name: 'Residenza fiscale accertata in Italia e', path: '/articoli-frontaliere/residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp', parent: 'blog' },
+    'blog-cerca-lavoro-svizzera-dal-estero': { name: 'Guida completa per cercare lavoro in', path: '/articoli-svizzera/cerca-lavoro-svizzera-dal-estero/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
