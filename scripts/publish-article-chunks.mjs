@@ -76,16 +76,25 @@
 // client to heal from. It remains an unchanged safety net for a genuinely
 // malformed/partial upload.
 //
-// SIBLING (NOT extracted into a shared module — see upload-cdn-file.sh's own
-// header comment for this repo's established convention for this script
-// family): cf-purge-cache.mjs. `purgeCdnFiles()` below duplicates the same
-// zone-id-resolve + `POST /purge_cache` shape but for a DIFFERENT call
-// (`{files:[...]}`, targeted, fast-publish-triggered, best-effort per PUT) vs
-// cf-purge-cache.mjs's `{purge_everything:true}` (deploy-time, zone-name
-// lookup only). Kept as a small self-contained sibling, matching how
-// push-section-shard.sh / push-article-shard-incremental.sh /
-// upload-cdn-file.sh are siblings of deploy-it-pages-prep.sh's
-// _publish_cdn_r2 rather than extractions of it.
+// ZONE RESOLUTION: `resolveZoneId`/`REST_BASE`/`DEFAULT_ZONE_NAME` are
+// imported from scripts/lib/cf-analytics.mjs — the module 8 of 11 sibling CF
+// scripts already share (cf-otto-route-monitor.mjs, dmarc-monitor.mjs,
+// build-cf-hot-404s.mjs, audit-ai-crawlers.mjs, cf-status-report.mjs,
+// ensure-cdn-fonts-redirect.mjs, discover-404s-via-cloudflare.mjs,
+// ensure-image-cdn-redirect.mjs), NOT redeclared inline here. cf-purge-cache.mjs
+// / cf-email-worker-setup.mjs / cf-locale-failover-setup.mjs still carry their
+// own pre-extraction inline copy — legacy outliers, not the pattern to follow
+// for new code (AGENTS.md #6: this construct is already extracted; copying it
+// again would be exactly the drift the extraction exists to prevent).
+//
+// `purgeCdnFiles()` below (targeted `{files:[...]}` purge) has no shared
+// helper to import: cf-analytics.mjs is read-only (GraphQL analytics), and
+// cf-purge-cache.mjs's own purge call is a private, non-exported statement
+// inside a standalone script (`process.exit()` on failure — unsafe to import
+// into this script's non-fatal, best-effort control flow) doing
+// `{purge_everything:true}`, a different call shape than the targeted
+// `{files:[...]}` this script needs. Kept local — a genuinely new construct,
+// not a copy of an existing shared one.
 //
 // CLI (no npm ci in this job — see fast-publish-article.yml's own comment;
 // esbuild is invoked via `npx -y` on demand, exactly like tsx@4 already is):
@@ -107,14 +116,13 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { computeTickerArticles } from '../build-plugins/newsTickerDataPlugin.ts';
+import { REST_BASE, DEFAULT_ZONE_NAME, resolveZoneId } from './lib/cf-analytics.mjs';
 
 export const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const CDN_BASE = 'https://cdn.frontaliereticino.ch';
 // Pinned to package.json's devDependencies "esbuild": "^0.25.12" — same
 // determinism rationale as publish-article-fast.mjs pinning `tsx@4`.
 const ESBUILD_VERSION = '0.25.12';
-const REST_BASE = 'https://api.cloudflare.com/client/v4';
-const ZONE_NAME = process.env.CF_ZONE_NAME || 'frontaliereticino.ch';
 
 /** The two client-loaded article registries this script keeps CDN-fresh. */
 export const REGISTRIES = [
@@ -215,16 +223,6 @@ async function cf(token, method, apiPath, body) {
   return { status: res.status, json };
 }
 
-/** Resolve the zone id, preferring CF_ZONE_ID (already loaded by load-rc-env.mjs elsewhere) over a name lookup. */
-export async function resolveZoneId(token, zoneId, zoneName = ZONE_NAME) {
-  if (zoneId) return zoneId;
-  const { json } = await cf(token, 'GET', `/zones?name=${encodeURIComponent(zoneName)}`);
-  if (!json?.success || !json.result?.length) {
-    throw new Error(`[publish-article-chunks] cannot resolve zone id for ${zoneName} (token scope?)`);
-  }
-  return json.result[0].id;
-}
-
 /** Targeted purge — `files` list, never `purge_everything` (see header comment). */
 export async function purgeCdnFiles(token, resolvedZoneId, urls) {
   const { json } = await cf(token, 'POST', `/zones/${resolvedZoneId}/purge_cache`, { files: urls });
@@ -304,7 +302,7 @@ async function main() {
     return;
   }
   try {
-    const zoneId = await resolveZoneId(token, process.env.CF_ZONE_ID);
+    const zoneId = await resolveZoneId(token, process.env.CF_ZONE_NAME || DEFAULT_ZONE_NAME, process.env.CF_ZONE_ID);
     const urls = uploadedKeys.map((key) => `${CDN_BASE}/${key}`);
     await purgeCdnFiles(token, zoneId, urls);
     console.log(`[publish-article-chunks] purged ${urls.length} CDN url(s): ${urls.join(', ')}`);
