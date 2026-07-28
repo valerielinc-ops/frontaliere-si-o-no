@@ -752,18 +752,8 @@ jobs:
           # catches accidental side-effects during future audit migrations.
           AUDIT_STRICT: '1'
           # Rotating sample (scripts/lib/audit-runner.mjs's sampleFiles(),
-          # read via resolveSamplingEnv() by `npm run audit:all` below plus
-          # audit:hreflang and audit:canonical-trailing-slash — the two
-          # full-dist walkers that were the pool's critical path on run
-          # 30376520728, at 2000s and 1711s of a 58m55s job. Every other gate
-          # in this step still ignores these two vars and scans 100%.
-          # audit:hreflang samples only which pages it PARSES: its
-          # target-existence index is always built from the full walk, so a
-          # sampled run reports a broken alternate with the same certainty as
-          # a full one. audit:canonical-trailing-slash is 0-tolerance with no
-          # baseline to ratchet, so sampling costs at most a one-run delay on
-          # an isolated offender — a systemic regression lands in every
-          # bucket. audit:all's
+          # only read by `npm run audit:all` below — every other gate in this
+          # step ignores these two vars and keeps scanning 100%). audit:all's
           # walk+collect over the full dist/ corpus (~3.3M pages) is this
           # job's dominant cost (~54min of the ~71min job wall time, run
           # 29883145419) — the walk itself (~3.5min) is cheap; the per-file
