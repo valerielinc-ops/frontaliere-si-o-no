@@ -23,6 +23,10 @@ const DEPLOY_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), '
 // post-deploy-validate-dist.yml's 3 inline copies + the 4 seed-baseline
 // workflows' copies into one shared script (AGENTS.md #6 dedupe).
 const REHYDRATE_SECTION_SCRIPT = readFileSync(resolve(ROOT, 'scripts/lib/rehydrate-section-shards.sh'), 'utf-8');
+// Locale rehydrate loop (rehydrate_locale) — same dedupe, extracted out of
+// post-deploy-validate-dist.yml's 3 byte-identical inline copies (issue
+// #4828) into one shared script.
+const REHYDRATE_LOCALE_SCRIPT = readFileSync(resolve(ROOT, 'scripts/lib/rehydrate-locale-shards.sh'), 'utf-8');
 const PACKAGE_JSON = JSON.parse(readFileSync(resolve(ROOT, 'package.json'), 'utf-8'));
 const BATCH_WRITE = readFileSync(resolve(ROOT, 'build-plugins/batchWrite.ts'), 'utf-8');
 const AUDIT_ALL_REGISTRY_SRC = readFileSync(resolve(ROOT, 'scripts/audit-all.mjs'), 'utf-8');
@@ -179,12 +183,12 @@ describe('deploy.yml + post-deploy-validate-dist.yml — tar-pack rehydrate fast
     // The section loop's tar filename is `$section-dist-$loc.tar` (a shell
     // variable, not a literal per-section name) since rehydrate_section()
     // covers ticino/svizzera/zurigo through the same code path.
-    // locale rehydrate stays inline in post-deploy-validate-dist.yml; section
-    // rehydrate was extracted into scripts/lib/rehydrate-section-shards.sh
-    // (shared with the 4 seed-baseline workflows, AGENTS.md #6 dedupe) — the
-    // guarded invariant is unchanged, only its file moved.
+    // locale rehydrate was extracted into scripts/lib/rehydrate-locale-shards.sh
+    // and section rehydrate into scripts/lib/rehydrate-section-shards.sh
+    // (section shared with the 4 seed-baseline workflows too, AGENTS.md #6
+    // dedupe) — the guarded invariant is unchanged, only its file moved.
     const sources = [
-      { label: 'locale-dist-\\$loc', text: VALIDATION_YML },
+      { label: 'locale-dist-\\$loc', text: REHYDRATE_LOCALE_SCRIPT },
       { label: '\\$section-dist-\\$loc', text: REHYDRATE_SECTION_SCRIPT },
     ];
     for (const { label, text } of sources) {
@@ -199,7 +203,7 @@ describe('deploy.yml + post-deploy-validate-dist.yml — tar-pack rehydrate fast
     // pattern from before the fix must not remain anywhere in the tar
     // extraction branches, in either file.
     for (const { text, name } of [
-      { text: VALIDATION_YML, name: 'post-deploy-validate-dist.yml' },
+      { text: REHYDRATE_LOCALE_SCRIPT, name: 'rehydrate-locale-shards.sh' },
       { text: REHYDRATE_SECTION_SCRIPT, name: 'rehydrate-section-shards.sh' },
     ]) {
       expect(
