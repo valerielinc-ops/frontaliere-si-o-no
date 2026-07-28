@@ -4931,6 +4931,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'zurich-finma-licenziamenti-previdenza',
+    category: 'novita',
+    date: '2026-07-28T15:07:48.339Z',
+    image: '/images/blog/zurich-finma-licenziamenti-previdenza.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

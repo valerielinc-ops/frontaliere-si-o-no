@@ -4971,6 +4971,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-altre-tasse-2026': { name: 'Nuove regole per i \'vecchi\' frontalieri', path: '/articoli-frontaliere/frontalieri-altre-tasse-2026', parent: 'blog' },
     'blog-canicola-cantieri-ssic': { name: 'Canicola e cantieri, la SSIC', path: '/articoli-svizzera/canicola-cantieri-ssic/', parent: 'blog' },
     'blog-dogana-maggiore-snella': { name: 'La dogana sarà più snella', path: '/articoli-frontaliere/dogana-maggiore-snella', parent: 'blog' },
+    'blog-zurich-finma-licenziamenti-previdenza': { name: 'Zurich licenziamenti FINMA', path: '/articoli-svizzera/zurich-finma-licenziamenti-previdenza/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

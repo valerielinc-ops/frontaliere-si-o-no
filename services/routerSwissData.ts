@@ -571,6 +571,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'cerca-lavoro-svizzera-dal-estero': { it: 'cerca-lavoro-svizzera-dal-estero', en: 'looking-for-job-in-switzerland-from-abroad', de: 'arbeit-in-schweiz-suchen', fr: 'recherche-d-emploi-en-suisse-pour-etrangers' },
  'zurich-procedimento-finma-licenziamenti': { it: 'zurich-procedimento-finma-licenziamenti', en: 'zurich-finma-enforcement-proceedings', de: 'zurich-finma-verfahren-entlassungen', fr: 'zurich-procedure-finma-licenciements' },
  'canicola-cantieri-ssic': { it: 'canicola-cantieri-ssic', en: 'canicola-cantieri-ssic', de: 'canicola-cantieri-ssic', fr: 'canicola-cantieri-ssic' },
+ 'zurich-finma-licenziamenti-previdenza': { it: 'zurich-finma-licenziamenti-previdenza', en: 'zurich-layoffs-finma-pension', de: 'zurich-entlassungen-finma-vorsorge', fr: 'zurich-licenciements-finma-prevoyance' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

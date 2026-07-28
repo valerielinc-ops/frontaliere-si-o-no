@@ -1645,6 +1645,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.canicola-cantieri-ssic.title': 'Canicule et chantiers, la SSIC : \'Assez de pénalités pour retards\'',
     'blog.article.canicola-cantieri-ssic.excerpt': 'La Société suisse des emprunts constructeurs (SSE) demande des conditions contractuelles plus équitables pour protéger la santé des travailleurs pendant les vagues de chaleur.',
     'blog.article.canicola-cantieri-ssic.imageAlt': 'Travailleurs frontaliers sur chantiers de construction pendant la canicola.',
+    'blog.article.zurich-finma-licenziamenti-previdenza.title': 'Zurich licencie des salariés après intervention FINMA',
+    'blog.article.zurich-finma-licenziamenti-previdenza.excerpt': 'Le groupe Zurich expulse plus de douze collaborateurs en raison d\'irrégularités dans les prix des polices d\'assurance-vie et de prévoyance relevées par la FINMA.',
+    'blog.article.zurich-finma-licenziamenti-previdenza.imageAlt': 'Siège d\'un groupe d\'assurance suisse à Zurich',
 };
 
 export default blogMetaChFr;
