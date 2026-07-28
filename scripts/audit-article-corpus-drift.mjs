@@ -203,7 +203,7 @@ function parseLocaleVerdicts(combinedOutput) {
 // 'fetch-or-liveness' are recorded and printed but do NOT fail the run: they
 // are operational/timing noise (a slow deploy propagation, a transient
 // network blip), not template drift — the thing this audit exists to catch.
-const DIVERGENT_CATEGORIES = new Set(['content-mismatch', 'no-locale-verdicts']);
+const DIVERGENT_CATEGORIES = new Set(['content-mismatch', 'no-locale-verdicts', 'unrecognized-verdicts']);
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
@@ -244,6 +244,13 @@ async function main() {
         else if (values.includes('cf-bot-script-only')) category = 'ok-cf-bot-script-only';
         else if (values.includes('render-failure')) category = 'render-failure';
         else if (values.includes('fetch-or-liveness')) category = 'fetch-or-liveness';
+        // Every locale line parsed to 'unknown': none of the four known
+        // stdout shapes matched. Unreachable today, but if the render
+        // script's wording ever drifts this is the branch that would fire —
+        // and falling through to 'ok' here would turn this audit into a
+        // blind spot that reports success while checking nothing, the exact
+        // opposite of its fail-loud contract (post-merge review #4908).
+        else if (values.every((v) => v === 'unknown')) category = 'unrecognized-verdicts';
         else category = 'ok';
       }
 
