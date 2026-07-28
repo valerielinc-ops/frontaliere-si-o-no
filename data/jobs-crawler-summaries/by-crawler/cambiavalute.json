@@ -1,16 +1,16 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-07-28T11:29:01.541Z",
-  "total": 4,
+  "generatedAt": "2026-07-28T22:06:59.912Z",
+  "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 68763,
-  "avgDurationMs": 68763,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 59545,
+  "avgDurationMs": 59545,
   "durationHistory": [
-    68763
+    59545
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-07-28T11:29:00.961Z",
+      "crawledAt": "2026-07-28T22:06:59.348Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "country": "CH",
       "sourceLang": "it",
@@ -75,7 +75,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-07-28T11:29:00.961Z",
+      "crawledAt": "2026-07-28T22:06:59.348Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "country": "CH",
       "sourceLang": "it",
@@ -115,7 +115,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-07-28T11:29:00.961Z",
+      "crawledAt": "2026-07-28T22:06:59.348Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "country": "CH",
       "sourceLang": "it",
@@ -135,8 +135,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "company-kbhp6",
       "slug": "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute-0kbhp6",
@@ -169,7 +168,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -178,5 +176,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
