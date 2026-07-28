@@ -9035,6 +9035,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.clivio-frontaliere-pro-contro.title': 'Trasferirsi a Clivio da frontaliere: pro e contro pratici',
     'blog.article.clivio-frontaliere-pro-contro.excerpt': 'Guida completa per chi lavora in Ticino e valuta di vivere a Clivio: vantaggi fiscali, tempi di spostamento e considerazioni pratiche.',
     'blog.article.clivio-frontaliere-pro-contro.imageAlt': 'Panorama di Clivio vicino al confine con la Svizzera per frontalieri',
+    'blog.article.frontalieri-italiani-ticino-risorsa.title': 'Ticino: scarseggiano i frontalieri italiani, ora sono una risorsa',
+    'blog.article.frontalieri-italiani-ticino-risorsa.excerpt': 'Il calo dei frontalieri italiani nel Canton Ticino crea problemi alle imprese locali, ribaltando le vecchie accuse dei sovranisti.',
+    'blog.article.frontalieri-italiani-ticino-risorsa.imageAlt': 'Panorama del confine tra Italia e Canton Ticino',
 };
 
 export default blogMetaIt;

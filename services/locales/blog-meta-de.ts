@@ -9033,6 +9033,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.clivio-frontaliere-pro-contro.title': 'Umzug nach Clivio als Grenzgänger: Vor- und Nachteile praktisch',
     'blog.article.clivio-frontaliere-pro-contro.excerpt': 'Vollständiger Leitfaden für diejenigen, die im Tessin arbeiten und in Clivio leben möchten: Steuervorteile, Reisezeiten und praktische Überlegungen.',
     'blog.article.clivio-frontaliere-pro-contro.imageAlt': 'Ansicht von Clivio nahe der Schweizer Grenze für Grenzgänger',
+    'blog.article.frontalieri-italiani-ticino-risorsa.title': 'Tessin: Italienische Grenzgänger fehlen, jetzt sind sie eine Ressource',
+    'blog.article.frontalieri-italiani-ticino-risorsa.excerpt': 'Der Rückgang der italienischen Grenzgänger im Kanton Tessin schafft Probleme für die lokalen Unternehmen und kehrt die alten Vorwürfe der Souveränisten um.',
+    'blog.article.frontalieri-italiani-ticino-risorsa.imageAlt': 'Ansicht des Grenzgebiets zwischen Italien und dem Kanton Tessin',
 };
 
 export default blogMetaDe;

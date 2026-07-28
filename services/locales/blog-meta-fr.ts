@@ -9036,6 +9036,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.clivio-frontaliere-pro-contro.title': 'Déménager à Clivio en tant que frontalier : avantages et inconvénients pratiques',
     'blog.article.clivio-frontaliere-pro-contro.excerpt': 'Guide complet pour ceux qui travaillent au Tessin et envisagent de vivre à Clivio : avantages fiscaux, temps de déplacement et considérations pratiques.',
     'blog.article.clivio-frontaliere-pro-contro.imageAlt': 'Vue de Clivio près de la frontière suisse pour les frontaliers',
+    'blog.article.frontalieri-italiani-ticino-risorsa.title': 'Tessin : les frontaliers italiens manquent, ils sont maintenant une ressource',
+    'blog.article.frontalieri-italiani-ticino-risorsa.excerpt': 'La baisse des frontaliers italiens dans le canton du Tessin crée des problèmes pour les entreprises locales, renversant les vieilles accusations des souverainistes.',
+    'blog.article.frontalieri-italiani-ticino-risorsa.imageAlt': 'Vue de la zone frontalière entre l\'Italie et le Canton du Tessin',
 };
 
 export default blogMetaFr;
