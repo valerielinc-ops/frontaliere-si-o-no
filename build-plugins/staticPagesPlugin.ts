@@ -1127,8 +1127,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
   * later pages. Closes the Ahrefs "orphan page (no incoming internal
   * links)" report for the blog bucket — see CLAUDE.md SEO content gate.
   *
-  * Page count is derived from the SAME union the `articles` hub emitter
-  * (`seoHubsPlugin.ts` `emitHub`) paginates — meta `blog-meta-it.ts` slugs
+  * Page count is derived from the SAME union the frontaliere hub emitter
+  * (`seoHubsPlugin.ts` `renderArticleHubPagesCore`, since #4881) paginates
+  * — meta `blog-meta-it.ts` slugs
   * ∪ `BLOG_SLUGS` keys (`routerBlogData.ts`), via the shared
   * `countFrontaliereArticleArchivePages` helper — NOT the meta-only count.
   * The two DIVERGE today: `BLOG_SLUGS` carries entries with no meta title
@@ -1148,8 +1149,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
   * shard that buries an entire tier — no `noindex`, no baseline flooring;
   * the fix is internal links per CLAUDE.md non-negotiable #5).
   *
-  * Page count is derived from the SAME union source `emitSvizzeraArticlesHub`
-  * paginates (meta `blog-meta-ch-it.ts` slugs ∪ `SWISS_SLUGS` keys), via the
+  * Page count is derived from the SAME union source `renderArticleHubPagesCore`
+  * (`seoHubsPlugin.ts`, svizzera call since #4881) paginates (meta
+  * `blog-meta-ch-it.ts` slugs ∪ `SWISS_SLUGS` keys), via the
   * shared `countSvizzeraArticleArchivePages` helper — NOT the meta-only count.
   * The two sources coincide today (both → 1 page, navigator not emitted) but
   * the meta-only count silently under-counts the emitter once the registries

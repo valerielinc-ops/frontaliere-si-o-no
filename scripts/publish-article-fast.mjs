@@ -49,10 +49,22 @@
 //      guarded *delete* step is gated on a target dir physically existing —
 //      the rewrite regexes run unconditionally, exactly the shard-dist case
 //      the script's own comments already document).
+//   7. renderArticleHubPages({section}) (issue #4881 Fase 1) — re-renders the
+//      section's `/tutti/` archive + pagination for all 4 locales so the
+//      just-published article is immediately LISTED, not merely reachable by
+//      direct URL. Calls the SAME renderArticleHubPagesCore the full build's
+//      emitSeoHubs uses (build-plugins/seoHubsPlugin.ts) — byte-identical by
+//      construction, proven in
+//      tests/render-article-hub-pages-narrow-vs-full.test.ts. Not run through
+//      steps 2-6: those are article-body specific (flat bridge, this
+//      article's own related-picks, hero image) and don't apply to an
+//      archive listing page.
 //
 // Writes a summary JSON describing what was rendered, for stream B
 // (incremental shard push) and stream C (fast-publish workflow) to consume:
 //   { id, section, shards: [{locale, subtree, paths, url}, ...], cdnUploads: [{local, key}, ...] }
+//   `paths` per shard = [article index.html, article flat bridge, ...that
+//   locale's hub-archive pages from step 7].
 //
 // Known gap fixed here, not in the shared renderer: ogPagesPlugin's
 // resolveImagePath() verifies a candidate hero image exists by checking
@@ -242,6 +254,28 @@ async function main() {
     fs.rmSync(tmpDir, { recursive: true, force: true });
   }
 
+  // ── Step 7: article-hub archive pages (issue #4881 Fase 1) ──
+  // Re-renders each section's `/tutti/` archive + pagination into the SAME
+  // scratch distDir so the newly-published article is immediately LISTED,
+  // not just reachable by direct URL — otherwise it stays orphaned (no
+  // internal link points at it) until the next full deploy. Uses the SAME
+  // renderArticleHubPagesCore the full build's emitSeoHubs calls (see
+  // build-plugins/seoHubsPlugin.ts, #4881), so hub-page bytes are provably
+  // identical to what a full build emits for this section (see
+  // tests/render-article-hub-pages-narrow-vs-full.test.ts) — no second
+  // implementation, no copy-pasted rendering chrome.
+  //
+  // Not postprocessed through steps 2-6 above: those are article-body
+  // specific (flat-redirect bridge, contextual links keyed off THIS
+  // article's own related-articles picks, hero-image CDN rewrite) and do
+  // not apply to an archive listing page (no hero image, no flat bridge).
+  const { renderArticleHubPages } = await import('../build-plugins/seoHubsPlugin.ts');
+  const hubResult = await renderArticleHubPages({
+    rootDir: ROOT_DIR,
+    distDir,
+    section: args.section,
+  });
+
   // ── Summary JSON for stream B (shard push) / stream C (workflow) ──
   const sectionShardKey = args.section === 'frontaliere' ? 'articolifrontaliere' : 'articolisvizzera';
   const shardSlugs = JSON.parse(
@@ -251,10 +285,15 @@ async function main() {
 
   // subtree convention matches scripts/lib/section-shard-slugs.json's own
   // documented formula: it -> <slug>, en/de/fr -> <loc>/<slug>.
+  // Hub-archive relpaths for this locale are appended after the article's
+  // own 2 paths — push-article-shard-incremental.sh takes an arbitrary list
+  // of relpaths per locale/section invocation, so no separate push call or
+  // workflow change is needed (.github/workflows/fast-publish-article.yml
+  // already forwards every entry in `paths[]`).
   const shards = locales.map((locale) => ({
     locale,
     subtree: locale === 'it' ? slugMap.it : `${locale}/${slugMap[locale]}`,
-    paths: [entry.paths[locale], entry.flatPaths[locale]],
+    paths: [entry.paths[locale], entry.flatPaths[locale], ...hubResult.pathsByLocale[locale]],
     url: entry.urls[locale],
   }));
 
@@ -298,7 +337,7 @@ async function main() {
 
   const wallMs = Date.now() - t0;
   console.log(
-    `[publish-article-fast] done — id=${args.id} section=${args.section} wrote=${written} files, wall=${(wallMs / 1000).toFixed(1)}s`,
+    `[publish-article-fast] done — id=${args.id} section=${args.section} wrote=${written} article files + ${hubResult.written} hub pages, wall=${(wallMs / 1000).toFixed(1)}s`,
   );
   console.log(`[publish-article-fast] summary written to ${summaryPath}`);
 }
