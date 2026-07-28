@@ -103,7 +103,15 @@ rehydrate_section() {
 
     tmp="$RUNNER_TEMP/rehydrate-$section-$loc"
     rm -rf "$tmp"
-    owner="$(jq -r --arg s "$section" '.[$s] // "valerielinc-ops"' scripts/lib/section-shard-owners.json 2>/dev/null || echo valerielinc-ops)"
+    # Owner entry can be a plain string (uniform owner for all 4 locales) or an
+    # object {"default": "<owner>", "<locale>": "<override>"} for a mixed
+    # per-locale owner (see section-shard-owners.json header comment, issue #4846).
+    owner="$(jq -r --arg s "$section" --arg l "$loc" '
+      .[$s] as $v
+      | if ($v | type) == "object" then ($v[$l] // $v.default // "valerielinc-ops")
+        elif ($v | type) == "string" then $v
+        else "valerielinc-ops" end
+    ' scripts/lib/section-shard-owners.json 2>/dev/null || echo valerielinc-ops)"
     if [ -z "$owner" ] || [ "$owner" = "null" ]; then owner="valerielinc-ops"; fi
     if ! git clone --depth 1 --single-branch --branch main \
          "https://github.com/$owner/frontaliere-$section-$loc.git" "$tmp" 2>/dev/null; then

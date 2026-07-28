@@ -85,7 +85,15 @@ esac
 SECTION_UPPER="$(echo "$section" | tr a-z A-Z)"
 ORIGIN_HOST="origin-$section-$loc.frontaliereticino.ch"
 owners_json="$repo_root/scripts/lib/section-shard-owners.json"
-SHARD_OWNER="$(jq -r --arg s "$section" '.[$s] // "valerielinc-ops"' "$owners_json" 2>/dev/null || echo valerielinc-ops)"
+# Owner entry can be a plain string (uniform owner for all 4 locales) or an
+# object {"default": "<owner>", "<locale>": "<override>"} for a mixed
+# per-locale owner (see section-shard-owners.json header comment, issue #4846).
+SHARD_OWNER="$(jq -r --arg s "$section" --arg l "$loc" '
+  .[$s] as $v
+  | if ($v | type) == "object" then ($v[$l] // $v.default // "valerielinc-ops")
+    elif ($v | type) == "string" then $v
+    else "valerielinc-ops" end
+' "$owners_json" 2>/dev/null || echo valerielinc-ops)"
 if [ -z "$SHARD_OWNER" ] || [ "$SHARD_OWNER" = "null" ]; then SHARD_OWNER="valerielinc-ops"; fi
 SHARD_REPO="git@github.com:$SHARD_OWNER/frontaliere-$section-$loc.git"
 CDN_BASE_FIXED="https://cdn.frontaliereticino.ch"

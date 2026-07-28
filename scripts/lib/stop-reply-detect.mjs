@@ -78,6 +78,15 @@ export const AUTO_REPLY_SUBJECT_PATTERNS = [
  * "unsubscribe" is classified as a real STOP and suppresses a company that
  * never asked to be removed.
  *
+ * Deliberately SUBJECT-ONLY, and not extended to the body: the two sides fail
+ * in opposite directions. Dropping a real auto-reply costs nothing, but
+ * skipping a genuine STOP means we keep emailing someone who asked us to stop —
+ * a CAN-SPAM/nDSG problem, not a nuisance. A body mention of "out of office" is
+ * ambiguous ("I'll be out of office next week, but unsubscribe me anyway"),
+ * while an "Out of office Re: …" SUBJECT is unambiguously machine-generated. So
+ * the queue side stays narrow on purpose; the Worker, which has the RFC 3834
+ * headers, is where broad detection belongs.
+ *
  * @param {{subject?: string}} parts
  * @returns {boolean}
  */

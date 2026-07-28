@@ -26,3 +26,22 @@ function normalizeEmail(raw) {
 export function buildDeliveryDocId(campaignId, email) {
   return `${campaignId}__${normalizeEmail(email)}`.replace(/[^a-z0-9@._-]+/gi, '-');
 }
+
+/**
+ * ESP webhook events without a campaign_id/alert_id tag (ad-hoc sends,
+ * confirmations, untracked emails) must not collapse onto the shared literal
+ * 'unknown' — two distinct untagged sends to the same recipient would then
+ * write the same campaign_deliveries/alert_deliveries doc, and the second
+ * send's sent_at would clobber the first's, corrupting event↔delivery
+ * timestamp ordering (#4847). Key the fallback on messageId, which every ESP
+ * assigns uniquely per send, so unrelated untagged sends never collide.
+ * `fallbackSeed` (e.g. the event timestamp) covers the rare case messageId
+ * itself is also missing.
+ *
+ * @param {string} [messageId]
+ * @param {string} [fallbackSeed]
+ * @returns {string}
+ */
+export function uniqueUnknownFallback(messageId, fallbackSeed) {
+  return `unknown:${messageId || fallbackSeed || ''}`;
+}
