@@ -9054,6 +9054,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-vola-per-treni.title': 'Et si les trains étaient financés par ceux qui prennent l\'avion ?',
     'blog.article.svizzera-vola-per-treni.excerpt': 'Une initiative populaire veut taxer chaque vol au départ de la Suisse et restituer la majeure partie des recettes sous forme de bons pour voyager en train.',
     'blog.article.svizzera-vola-per-treni.imageAlt': 'Max 125 caratteri',
+    'blog.article.vivere-maccagno-lavorare-ticino.title': 'Vivre à Maccagno avec Pino et Veddasca et travailler au Tessin',
+    'blog.article.vivere-maccagno-lavorare-ticino.excerpt': 'Guide pratique pour les frontaliers : liaisons, fiscalité et vie quotidienne entre Maccagno et le Tessin dans le respect des réglementations en vigueur.',
+    'blog.article.vivere-maccagno-lavorare-ticino.imageAlt': 'Vue panoramique du lac de Lugano, lieu idéal pour ceux qui vivent entre l\'Italie et le Tessin.',
 };
 
 export default blogMetaFr;
