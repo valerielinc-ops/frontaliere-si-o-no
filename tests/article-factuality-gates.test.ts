@@ -149,7 +149,7 @@ describe('checkFabricatedInstitutionAcronyms', () => {
     const issues = checkFabricatedInstitutionAcronyms(
       'Secondo i calcoli effettuati dall\'Ufficio federale delle imposte (UFI), circa 2.000 lavoratori...',
     );
-    expect(codes(issues)).toContain('unknown-institution');
+    expect(codes(issues)).toContain('fabricated-institution');
     expect(issues[0].message).toContain('UFI');
   });
 
@@ -168,15 +168,15 @@ describe('checkContradictoryNormDates', () => {
   // "Il Decreto Omnibus è stato varato il 1° gennaio 2023" in the same article.
   it('flags one norm carrying two different dates', () => {
     const issues = checkContradictoryNormDates(
-      'Il 1° gennaio 2024 entrerà in vigore il Decreto Omnibus, una normativa che riguarda i frontalieri. '
-      + 'Il Decreto Omnibus è stato varato il 1° gennaio 2023.',
+      'Il Decreto Omnibus è stato varato il 1° gennaio 2023. '
+      + 'Il Decreto Omnibus è stato varato il 9 agosto 2024.',
     );
     expect(codes(issues)).toContain('contradictory-norm-dates');
   });
 
   it('accepts a norm mentioned consistently', () => {
     const issues = checkContradictoryNormDates(
-      'Il Decreto Omnibus è del 9 agosto 2024. Il Decreto Omnibus è entrato in vigore il 9 agosto 2024.',
+      'Il Decreto Omnibus è stato varato il 9 agosto 2024 ed è entrato in vigore il 10 agosto 2024.',
     );
     expect(issues).toEqual([]);
   });
@@ -275,7 +275,9 @@ describe('detectTruncation', () => {
   });
 
   it('flags prose that stops without terminal punctuation', () => {
-    expect(codes(detectTruncation('Il frontaliere deve presentare la dichiarazione entro'))).toContain('incomplete-ending');
+    expect(codes(detectTruncation(
+      'Il frontaliere che risiede entro i venti chilometri dal confine deve presentare la dichiarazione dei redditi entro',
+    ))).toContain('incomplete-ending');
   });
 
   it('accepts well-formed prose, lists and tables', () => {
@@ -298,7 +300,7 @@ describe('runFactualityGates', () => {
     });
     expect(result.passed).toBe(false);
     expect(codes(result.blocking)).toEqual(
-      expect.arrayContaining(['percent-factor-mismatch', 'tax-exceeds-income', 'unknown-institution']),
+      expect.arrayContaining(['percent-factor-mismatch', 'tax-exceeds-income', 'fabricated-institution']),
     );
   });
 

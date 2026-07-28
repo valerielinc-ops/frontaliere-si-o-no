@@ -128,16 +128,26 @@ export function detectTruncation(text, opts = {}) {
     }
   }
 
-  // (c) The text as a whole must end on a sentence boundary. Tables, lists and
-  // headings are legitimate endings, so only flag prose endings.
+  // (b) The text should end on a sentence boundary. Several endings are
+  // legitimate and must not be flagged (they produced 117 false positives on
+  // the first corpus pass): tables, lists, headings, "Fonte: …" attribution
+  // lines, footnote markers, and a trailing emoji after real punctuation.
   const trimmed = text.trimEnd();
   const lastLine = trimmed.split('\n').filter((l) => l.trim()).pop() || '';
   const isStructural = /^\s*([|#\-*>]|\d+\.)/.test(lastLine);
-  if (!isStructural && !SENTENCE_END.test(trimmed)) {
+  const isAttribution = /^\s*\*?\s*(fonte|source|quelle)\s*:/i.test(lastLine);
+  // Strip trailing emoji / footnote glyphs before judging the punctuation.
+  const withoutTrailingGlyphs = trimmed
+    .replace(/[\p{Extended_Pictographic}\p{Emoji_Presentation}️‍↩*_\s]+$/gu, '');
+  const endsCleanly = SENTENCE_END.test(withoutTrailingGlyphs);
+  // A short tail is usually a heading, not a cut-off sentence.
+  const looksLikeHeading = lastLine.trim().length < 60 && !/[,;]$/.test(lastLine.trim());
+
+  if (!isStructural && !isAttribution && !endsCleanly && !looksLikeHeading) {
     issues.push(issue(
       'incomplete-ending',
-      'critical',
-      `${label}Il testo non termina con punteggiatura di fine frase — troncamento`,
+      'major',
+      `${label}Il testo non termina con punteggiatura di fine frase — possibile troncamento`,
       lastLine.slice(-100),
     ));
   }
@@ -215,11 +225,27 @@ const CURRENCY = String.raw`(?:franchi\s+svizzeri|franchi|CHF|euro|EUR|€)`;
 const INCOME_CUE = /(?:reddito|guadagn\w*|stipendio|salario|retribuzione|percep\w*)[^.\n]{0,40}?$/i;
 const TAX_CUE = /(?:impost\w*|tass\w*|pag\w*|trattenut\w*|prelievo|carico\s+fiscale|quota\s+di\s+imposta)/i;
 
+/**
+ * Ranges of the text that restate a base figure rather than assert a new one:
+ * a parenthetical containing a percentage, e.g. "24.000 CHF (30% di 80.000)".
+ * Without this, the 80.000 inside the parenthesis was read as a tax equal to
+ * the 80.000 income — 96 false positives on the first corpus pass.
+ */
+function calculationSpans(text) {
+  const spans = [];
+  for (const m of text.matchAll(/\([^)]*%[^)]*\)/g)) {
+    spans.push([m.index, m.index + m[0].length]);
+  }
+  return spans;
+}
+
 /** Extracts every "<amount> <currency>" occurrence with its position. */
 function extractAmounts(text) {
   const re = new RegExp(String.raw`(\d[\d.,]*)\s*${CURRENCY}`, 'gi');
+  const skip = calculationSpans(text);
   const out = [];
   for (const m of text.matchAll(re)) {
+    if (skip.some(([s, e]) => m.index >= s && m.index < e)) continue;
     const value = parseItalianNumber(m[1]);
     if (Number.isFinite(value) && value > 0) out.push({ value, raw: m[0], index: m.index });
   }
@@ -235,6 +261,9 @@ export function checkTaxPlausibility(text, opts = {}) {
   const issues = [];
   if (typeof text !== 'string') return issues;
   const implausibleRatio = opts.implausibleRatio ?? 0.6;
+  // One report per (income, tax) pair — the same example restated across
+  // paragraphs otherwise emitted the identical issue a dozen times.
+  const reported = new Set();
 
   // Work line by line (and table rows are lines) so an income and a tax are
   // only paired when they genuinely sit in the same statement.
@@ -252,6 +281,10 @@ export function checkTaxPlausibility(text, opts = {}) {
       const preceding = line.slice(Math.max(0, amt.index - 80), amt.index);
       // Only compare amounts that are actually presented as a tax.
       if (!TAX_CUE.test(between) && !TAX_CUE.test(preceding)) continue;
+
+      const dedupKey = `${income.value}|${amt.value}`;
+      if (reported.has(dedupKey)) continue;
+      reported.add(dedupKey);
 
       const ratio = amt.value / income.value;
       if (ratio >= 1) {
@@ -343,18 +376,46 @@ export function checkCrossSectionNumericConflicts(sections, opts = {}) {
 // fonte. Only acronyms introduced in parentheses after an institution noun are
 // checked: high signal, and a name alone is too noisy to gate on.
 
+// An allowlist can never be complete, and treating "unknown" as "invented"
+// produced 560 false positives across the corpus on the first pass — USTRA,
+// EOC, DECS, URC, DEFR, DFI, DFGP, UFAM, UFT, UFE, IPI, OFS are all real. So
+// the gate is split in two: a denylist of acronyms observed being hallucinated
+// (blocking), and the allowlist below (silences the known-real). Anything in
+// neither is reported as `major` — surfaced for a human, never auto-blocking.
 export const KNOWN_INSTITUTION_ACRONYMS = new Set([
-  // Swiss federal
-  'AFC', 'ESTV', 'UST', 'BFS', 'SECO', 'UFSP', 'BAG', 'UFAS', 'BSV', 'SEM', 'UDSC', 'BAZG',
-  'USTAT', 'FINMA', 'BNS', 'SNB', 'COMCO', 'WEKO', 'IFD', 'DFF', 'DFAE', 'SUVA',
+  // Swiss federal — administration
+  'AFC', 'ESTV', 'UST', 'BFS', 'OFS', 'SECO', 'UFSP', 'BAG', 'UFAS', 'BSV', 'SEM', 'UDSC', 'BAZG',
+  'USTRA', 'ASTRA', 'UFT', 'BAV', 'UFAM', 'BAFU', 'UFE', 'BFE', 'UFAG', 'BLW', 'UFC', 'BAK',
+  'UFCOM', 'BAKOM', 'UFSC', 'UFAB', 'UFPP', 'BABS', 'UFG', 'BJ', 'UFM', 'IPI', 'METAS', 'SEFRI',
+  'UFU', 'ARE', 'UFRI', 'SER', 'USTI', 'UFS', 'UFF', 'UFD', 'UFAE', 'UJP', 'UIDP', 'UDI', 'OSF',
+  // Swiss federal — departments
+  'DFI', 'DFGP', 'DFF', 'DFAE', 'DDPS', 'DATEC', 'DEFR', 'DFE', 'EDI', 'EJPD', 'EFD', 'EDA',
+  // Swiss institutions / oversight
+  'FINMA', 'BNS', 'SNB', 'COMCO', 'WEKO', 'IFD', 'SUVA', 'CDF', 'EFK', 'PFPDT', 'IFPDT',
+  'ETHZ', 'EPFL', 'PSI', 'EMPA', 'WSL', 'AGROSCOPE', 'IUFFP', 'SUPSI', 'USI', 'SUP', 'SUFFP',
   // Swiss social insurance / schemes
   'AVS', 'AHV', 'AI', 'IV', 'LPP', 'BVG', 'LAMal', 'KVG', 'LAINF', 'UVG', 'AD', 'ALV', 'CMI',
+  'LADI', 'AVIG', 'APG', 'EO', 'PC', 'EL',
+  // Ticino cantonal
+  'DECS', 'DSS', 'DT', 'DI', 'DFE', 'EOC', 'ORL', 'CSI', 'URC', 'USTAT', 'SPAAS', 'IOSI',
+  'IRB', 'CRS', 'ATT', 'ETL', 'OTR', 'ACR',
   // Italian
-  'INPS', 'INAIL', 'MEF', 'ADE', 'AE', 'ISTAT', 'CGIL', 'CISL', 'UIL', 'IRPEF', 'IVA', 'IMU',
-  // Ticino / cross-border
-  'OCST', 'UNIA', 'SYNA', 'VPOD', 'SYNDICOM', 'IUFFP', 'SUPSI', 'USI', 'DSS', 'DFE',
+  'INPS', 'INAIL', 'MEF', 'ADE', 'AE', 'ISTAT', 'IRPEF', 'IVA', 'IMU', 'ASL', 'ATS', 'ARPA',
+  'CGIL', 'CISL', 'UIL', 'UGL', 'ANPAL', 'MIUR', 'MIT',
+  // Unions / associations
+  'OCST', 'UNIA', 'SYNA', 'VPOD', 'SYNDICOM', 'AITI', 'CC-TI', 'USS', 'SSIC', 'ASTAG',
   // EU / international
-  'UE', 'EU', 'SEE', 'EEA', 'OCSE', 'OECD', 'AELS', 'EFTA', 'ONU', 'OIL', 'ILO',
+  'UE', 'EU', 'SEE', 'EEA', 'OCSE', 'OECD', 'AELS', 'EFTA', 'ONU', 'OIL', 'ILO', 'OMS', 'WHO',
+  'FMI', 'IMF', 'BCE', 'ECB', 'NATO', 'CEDU', 'CGUE',
+]);
+
+/**
+ * Acronyms caught being invented by the generator. These block.
+ * `UFI` ("Ufficio federale delle imposte") shipped in 4 articles — the federal
+ * body is the AFC/ESTV, and withholding tax is administered CANTONALLY.
+ */
+export const FABRICATED_INSTITUTION_ACRONYMS = new Set([
+  'UFI', 'UFOL', 'UWL', 'UFIS', 'CFL', 'DEMAS', 'LCFL', 'UFLAV', 'CNFL', 'UFIF',
 ]);
 
 const INSTITUTION_NOUN = String.raw`(?:Ufficio|Uffici|Istituto|Agenzia|Commissione|Osservatorio|Autorit[àa]|Dipartimento|Segreteria|Direzione|Ente|Amministrazione)`;
@@ -364,16 +425,29 @@ export function checkFabricatedInstitutionAcronyms(text) {
   const issues = [];
   if (typeof text !== 'string') return issues;
 
+  const seen = new Set();
   const re = new RegExp(String.raw`(${INSTITUTION_NOUN}[^().\n]{0,80}?)\(([A-Z]{2,8})\)`, 'g');
   for (const m of text.matchAll(re)) {
     const [full, name, acronym] = m;
     if (KNOWN_INSTITUTION_ACRONYMS.has(acronym)) continue;
-    issues.push(issue(
-      'unknown-institution',
-      'critical',
-      `Ente non riconosciuto: "${name.trim()} (${acronym})" — acronimo assente dalla allowlist di istituzioni reali`,
-      full.trim(),
-    ));
+    if (seen.has(acronym)) continue;
+    seen.add(acronym);
+
+    if (FABRICATED_INSTITUTION_ACRONYMS.has(acronym)) {
+      issues.push(issue(
+        'fabricated-institution',
+        'critical',
+        `Ente inesistente: "${name.trim()} (${acronym})" — acronimo noto come inventato dal generatore`,
+        full.trim(),
+      ));
+    } else {
+      issues.push(issue(
+        'unknown-institution',
+        'major',
+        `Ente non in allowlist: "${name.trim()} (${acronym})" — verificare che esista davvero`,
+        full.trim(),
+      ));
+    }
   }
 
   return issues;
@@ -389,40 +463,68 @@ const MONTHS_IT = {
   luglio: 7, agosto: 8, settembre: 9, ottobre: 10, novembre: 11, dicembre: 12,
 };
 const DATE_IT_RE = /(\d{1,2})\s*°?\s+(gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|settembre|ottobre|novembre|dicembre)\s+(\d{4})/gi;
-const NORM_RE = /((?:Decreto|Legge|Accordo|Convenzione|Regolamento|Direttiva)\s+[A-ZÀ-Ü][\wÀ-ü'-]*(?:\s+[A-ZÀ-Ü][\wÀ-ü'-]*)?)/g;
+// Deliberately excludes Accordo / Convenzione / Trattato. An international
+// instrument legitimately carries a signature date, a ratification date and an
+// entry-into-force date, all of which read as "promulgation" — that alone
+// accounted for 116 of the 116 remaining false positives on the corpus
+// ("Accordo Frontalieri" signed 23/12/2020, in force 1/1/2024, Bilaterali
+// 1999 and 2001). Domestic decrees and laws have a single enactment date.
+const NORM_RE = /((?:Decreto|Legge|Regolamento|Direttiva|Ordinanza)\s+[A-ZÀ-Ü][\wÀ-ü'-]*(?:\s+[A-ZÀ-Ü][\wÀ-ü'-]*)?)/g;
 
-/** Flags a named norm associated with more than one distinct date. */
+// A norm legitimately carries several dates — signature, entry into force,
+// transposition, deadlines. Grouping any date near a norm name flagged the
+// "Accordo Frontalieri" in 120 articles for correctly stating that it was
+// signed in 2020 and took effect in 2024. So dates are grouped by PREDICATE:
+// two different "was enacted on" dates for one norm is a contradiction, an
+// enactment date plus an entry-into-force date is not.
+const NORM_PREDICATES = [
+  { key: 'promulgazione', re: /\b(?:varat\w+|approvat\w+|emanat\w+|promulgat\w+|firmat\w+|siglat\w+|adottat\w+)\b/i },
+  { key: 'vigore', re: /\b(?:entrat\w+\s+in\s+vigore|in\s+vigore\s+dal?|vigenza|entrer[àa]\s+in\s+vigore|efficace\s+dal?)\b/i },
+  { key: 'abrogazione', re: /\b(?:abrogat\w+|soppress\w+|decadut\w+)\b/i },
+];
+
+/** Flags one norm given two different dates for the SAME predicate. */
 export function checkContradictoryNormDates(text) {
   const issues = [];
   if (typeof text !== 'string') return issues;
 
+  // norm → predicate → Map(dateKey → context)
   const byNorm = new Map();
   for (const sentence of text.split(/(?<=[.!?])\s+|\n+/)) {
     const norms = [...sentence.matchAll(NORM_RE)].map((m) => m[1].trim());
     if (!norms.length) continue;
-    const dates = [...sentence.matchAll(DATE_IT_RE)].map((m) => {
-      const day = Number(m[1]);
-      const month = MONTHS_IT[m[2].toLowerCase()];
-      const year = Number(m[3]);
-      return { key: `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`, raw: m[0] };
-    });
+    // A sentence carrying more than one predicate ("varato il X ed entrato in
+    // vigore il Y") cannot have its dates attributed without parsing clause
+    // structure, and guessing produces false contradictions. Skip it.
+    const matching = NORM_PREDICATES.filter((p) => p.re.test(sentence));
+    if (matching.length !== 1) continue;
+    const predicate = matching[0];
+
+    const dates = [...sentence.matchAll(DATE_IT_RE)].map((m) => ({
+      key: `${m[3]}-${String(MONTHS_IT[m[2].toLowerCase()]).padStart(2, '0')}-${String(Number(m[1])).padStart(2, '0')}`,
+      raw: m[0],
+    }));
     if (!dates.length) continue;
 
     for (const norm of new Set(norms)) {
       if (!byNorm.has(norm)) byNorm.set(norm, new Map());
-      for (const d of dates) byNorm.get(norm).set(d.key, { raw: d.raw, sentence: sentence.trim() });
+      const byPredicate = byNorm.get(norm);
+      if (!byPredicate.has(predicate.key)) byPredicate.set(predicate.key, new Map());
+      for (const d of dates) byPredicate.get(predicate.key).set(d.key, { raw: d.raw, sentence: sentence.trim() });
     }
   }
 
-  for (const [norm, dateMap] of byNorm) {
-    if (dateMap.size < 2) continue;
-    const entries = [...dateMap.values()];
-    issues.push(issue(
-      'contradictory-norm-dates',
-      'critical',
-      `"${norm}" associato a ${dateMap.size} date diverse nello stesso articolo: ${entries.map((e) => e.raw).join(' / ')}`,
-      entries.map((e) => e.sentence).join(' ⟷ '),
-    ));
+  for (const [norm, byPredicate] of byNorm) {
+    for (const [predicate, dateMap] of byPredicate) {
+      if (dateMap.size < 2) continue;
+      const entries = [...dateMap.values()];
+      issues.push(issue(
+        'contradictory-norm-dates',
+        'critical',
+        `"${norm}" ha ${dateMap.size} date di ${predicate} incompatibili: ${entries.map((e) => e.raw).join(' / ')}`,
+        entries.map((e) => e.sentence).join(' ⟷ '),
+      ));
+    }
   }
 
   return issues;
