@@ -73,6 +73,7 @@
     "https://team.lidl.ch/it/jobs/filialleiter-filialleiterin-m-w-d-80-100-chur-704426",
     "https://team.lidl.ch/it/jobs/filialleiter-filialleiterin-m-w-d-80-100-einsiedeln-672999",
     "https://team.lidl.ch/it/jobs/filialleiter-filialleiterin-m-w-d-80-100-luzern-706777",
+    "https://team.lidl.ch/it/jobs/filialleiter-filialleiterin-m-w-d-80-100-sarnen-666226",
     "https://team.lidl.ch/it/jobs/filialleiter-filialleiterin-m-w-d-80-100-solothurn-629947",
     "https://team.lidl.ch/it/jobs/filialleiter-filialleiterin-m-w-d-80-100-st-gallen-704427",
     "https://team.lidl.ch/it/jobs/filialleiter-filialleiterin-m-w-d-80-100-st-moritz-697523",
@@ -100,13 +101,13 @@
     "https://team.lidl.ch/it/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-1-regensdorf-705728",
     "https://team.lidl.ch/it/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-bern-704655",
     "https://team.lidl.ch/it/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-sarnen-681605",
+    "https://team.lidl.ch/it/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-bellach-706891",
     "https://team.lidl.ch/it/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-rothrist-712369",
     "https://team.lidl.ch/it/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-seewen-685896",
     "https://team.lidl.ch/it/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-1-winterthur-705230",
     "https://team.lidl.ch/it/jobs/mitarbeiter-mitarbeiterin-self-checkout-20-40-1-spreitenbach-691869",
     "https://team.lidl.ch/it/jobs/mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-20-60-buchs-716906",
     "https://team.lidl.ch/it/jobs/mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-20-60-widnau-716907",
-    "https://team.lidl.ch/it/jobs/mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-40-80-spiez-693663",
     "https://team.lidl.ch/it/jobs/mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-altendorf-723270",
     "https://team.lidl.ch/it/jobs/mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-wadenswil-689554",
     "https://team.lidl.ch/it/jobs/mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-zurich-701463",
@@ -174,7 +175,6 @@
     "https://team.lidl.ch/it/jobs/verkaufer-as-80-oensingen-710902",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-20-40-altendorf-702396",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-20-40-einsiedeln-702393",
-    "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-20-40-matten-bei-interlaken-684263",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-20-40-sankt-gallen-711223",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-20-40-schanis-684540",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-20-40-schluein-710971",
@@ -240,10 +240,12 @@
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-40-60-rothrist-689818",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-40-60-spiez-697163",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-40-60-uster-726334",
+    "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-40-80-kehrsatz-727582",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-40-bellach-702326",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-40-biel-bienne-697951",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-40-burgdorf-690164",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-40-reiden-714284",
+    "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-40-sursee-727275",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-40-willisau-716099",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-60-80-fluelen-685897",
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-60-lyss-698560",
@@ -303,7 +305,7 @@
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-springerfunktion-m-w-d-80-100-muri-ag-695103"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-07-27T22:07:18.525Z",
+  "updatedAt": "2026-07-28T11:26:20.910Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-40-60-1-schaffhausen-705269": {
       "location": "Schaffhausen",
@@ -1952,6 +1954,15 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
+    "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-40-sursee-727275": {
+      "location": "Sursee",
+      "addressLocality": "Sursee",
+      "canton": "LU",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-solothurn-698009": {
       "location": "Solothurn",
       "addressLocality": "Solothurn",
@@ -1962,6 +1973,15 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-40-bellach-702326": {
+      "location": "Bellach",
+      "addressLocality": "Bellach",
+      "canton": "SO",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/it/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-bellach-706891": {
       "location": "Bellach",
       "addressLocality": "Bellach",
       "canton": "SO",
@@ -2411,6 +2431,15 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
+    "https://team.lidl.ch/it/jobs/filialleiter-filialleiterin-m-w-d-80-100-sarnen-666226": {
+      "location": "Sarnen",
+      "addressLocality": "Sarnen",
+      "canton": "OW",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
+    },
     "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-20-40-thusis-710972": {
       "location": "Thusis",
       "addressLocality": "Thusis",
@@ -2591,6 +2620,15 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
+    "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-40-80-kehrsatz-727582": {
+      "location": "Kehrsatz",
+      "addressLocality": "Kehrsatz",
+      "canton": "BE",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/it/jobs/vendeur-vendeuse-h-f-d-60-courgevaux-705947": {
       "location": "Courgevaux",
       "addressLocality": "Courgevaux",
@@ -2712,24 +2750,6 @@
       "location": "Matran",
       "addressLocality": "Matran",
       "canton": "FR",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/it/jobs/verkaufer-verkauferin-m-w-d-20-40-matten-bei-interlaken-684263": {
-      "location": "Matten bei Interlaken",
-      "addressLocality": "Matten bei Interlaken",
-      "canton": "BE",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/it/jobs/mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-40-80-spiez-693663": {
-      "location": "Spiez",
-      "addressLocality": "Spiez",
-      "canton": "BE",
       "country": "CH",
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
