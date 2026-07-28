@@ -27143,6 +27143,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-italiani-ticino-risorsa',
+ category: 'novita',
+ date: '2026-07-28T03:02:12.750Z',
+ image: '/images/blog/frontalieri-italiani-ticino-risorsa.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

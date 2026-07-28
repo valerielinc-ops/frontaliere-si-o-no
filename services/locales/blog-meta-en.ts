@@ -9034,6 +9034,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.clivio-frontaliere-pro-contro.title': 'Moving to Clivio as a border crosser: practical pros and cons',
     'blog.article.clivio-frontaliere-pro-contro.excerpt': 'Complete guide for those who work in Ticino and consider living in Clivio: tax advantages, travel times and practical considerations.',
     'blog.article.clivio-frontaliere-pro-contro.imageAlt': 'View of Clivio near the Swiss border for cross-border workers',
+    'blog.article.frontalieri-italiani-ticino-risorsa.title': 'Ticino: Italian border workers are scarce, now they are a resource',
+    'blog.article.frontalieri-italiani-ticino-risorsa.excerpt': 'The drop in Italian border workers in the Canton of Ticino creates problems for local businesses, overturning the old accusations of the sovereignists.',
+    'blog.article.frontalieri-italiani-ticino-risorsa.imageAlt': 'View of the border area between Italy and Canton Ticino',
 };
 
 export default blogMetaEn;

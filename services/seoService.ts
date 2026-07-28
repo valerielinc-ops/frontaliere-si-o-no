@@ -4951,6 +4951,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-imposte-alla-fonte-svizzera-2024': { name: 'Imposte alla fonte 2024', path: '/articoli-svizzera/imposte-alla-fonte-svizzera-2024/', parent: 'blog' },
     'blog-clivio-frontaliere-pro-contro': { name: 'Clivio Frontaliere', path: '/articoli-frontaliere/clivio-frontaliere-pro-contro', parent: 'blog' },
     'blog-dichiarazione-imposte-svizzera-guida': { name: 'Dichiarazione Imposte Svizzera', path: '/articoli-svizzera/dichiarazione-imposte-svizzera-guida/', parent: 'blog' },
+    'blog-frontalieri-italiani-ticino-risorsa': { name: 'Frontalieri Ticino risorsa', path: '/articoli-frontaliere/frontalieri-italiani-ticino-risorsa', parent: 'blog' },
  };
 
  const info = sectionNames[section];

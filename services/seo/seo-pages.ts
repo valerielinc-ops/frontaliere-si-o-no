@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3569,
+ "numberOfItems": 3570,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8329,7 +8329,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3566, "name": "Vivere a Clivio e lavorare in Ticino da frontal...", "url": `${BASE_URL}/articoli-frontaliere/vivere-a-clivio-lavorare-ticino` },
           { "@type": "ListItem", "position": 3567, "name": "Imposte alla fonte: ecco chi pagherà di più in ...", "url": `${BASE_URL}/articoli-frontaliere/imposte-alla-fonte-svizzera-2024` },
           { "@type": "ListItem", "position": 3568, "name": "Trasferirsi a Clivio da frontaliere: pro e cont...", "url": `${BASE_URL}/articoli-frontaliere/clivio-frontaliere-pro-contro` },
-          { "@type": "ListItem", "position": 3569, "name": "Dichiarazione delle imposte in Svizzera: Guida ...", "url": `${BASE_URL}/articoli-frontaliere/dichiarazione-imposte-svizzera-guida` }
+          { "@type": "ListItem", "position": 3569, "name": "Dichiarazione delle imposte in Svizzera: Guida ...", "url": `${BASE_URL}/articoli-frontaliere/dichiarazione-imposte-svizzera-guida` },
+          { "@type": "ListItem", "position": 3570, "name": "Ticino: scarseggiano i frontalieri italiani, or...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-italiani-ticino-risorsa` }
  ]
  },
  {
