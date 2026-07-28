@@ -119,53 +119,17 @@ jobs:
       # Rehydrate stripped en/de/fr locale subtrees so dist/ is the COMPLETE
       # logical site before the audit runs — otherwise the baseline below
       # would silently drop ratchet coverage for 3 of 4 locales (issue
-      # #3104, same sibling fix as seed-text-html-ratio-baseline.yml). Copied
-      # verbatim from post-deploy-validate-dist.yml's "Rehydrate locale
-      # shards into dist/ (when sharding active)" step — same artifact names
-      # (`locale-dist-<loc>-<run>`), same git-clone fallback — so both
-      # workflows reconstruct byte-identical dist/ trees from the same
-      # deploy run.
+      # #3104). Body now shared via scripts/lib/rehydrate-locale-shards.sh
+      # (extracted issue #4828, AGENTS.md #6 — this step, the other 3
+      # seed-*-baseline.yml siblings, and post-deploy-validate-dist.yml's
+      # 3 jobs all inlined this exact loop before the extraction).
       - name: Rehydrate locale shards into dist/ (when sharding active)
         if: ${{ vars.LOCALE_SHARDS_LIVE == 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
           DEPLOY_RUN_ID: ${{ steps.latest.outputs.run_id }}
-        run: |
-          set -euo pipefail
-          for loc in en de fr; do
-            if [ -d "dist/$loc" ] && [ -f "dist/$loc.html" ]; then
-              echo "$loc present in artifact (dir + homepage, not stripped this build) — skip rehydrate"
-              continue
-            fi
-
-            dl="$RUNNER_TEMP/locale-dist-$loc"
-            rm -rf "$dl"; mkdir -p "$dl"
-            if gh run download "$DEPLOY_RUN_ID" --name "locale-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/locale-dist-$loc.tar" ]; then
-              rm -rf "dist/$loc" "dist/$loc.html"
-              tar -C dist -xf "$dl/locale-dist-$loc.tar" || true
-              rm -rf "$dl"
-              if [ -d "dist/$loc" ]; then
-                echo "rehydrated $loc from tar artifact: $(find "dist/$loc" -type f | wc -l) files"
-                continue
-              fi
-              echo "[rehydrate] $loc tar present but no $loc/ subtree after extract — falling back to git clone"
-            else
-              rm -rf "$dl"
-              echo "[rehydrate] $loc artifact absent — falling back to git clone"
-            fi
-
-            tmp="$RUNNER_TEMP/rehydrate-$loc"
-            rm -rf "$tmp"
-            git clone --depth 1 --single-branch --branch main \
-              "https://github.com/valerielinc-ops/frontaliere-$loc.git" "$tmp"
-            [ -d "$tmp/$loc" ] || { echo "::error::shard $loc has no $loc/ subtree"; exit 1; }
-            rm -rf "dist/$loc"
-            cp -r "$tmp/$loc" "dist/$loc"
-            if [ -f "$tmp/$loc.html" ]; then cp "$tmp/$loc.html" "dist/$loc.html"; fi
-            echo "rehydrated $loc: $(find "dist/$loc" -type f | wc -l) files"
-            rm -rf "$tmp"
-          done
-          df -h / | tail -1
+          LOCALE_SHARDS_LIVE: ${{ vars.LOCALE_SHARDS_LIVE }}
+        run: bash scripts/lib/rehydrate-locale-shards.sh
 
       # Mirrors the locale rehydrate above for the carved-out canton-section
       # shards (all 27 sections — 22 cantons + ticino/svizzera/zurigo + the 2

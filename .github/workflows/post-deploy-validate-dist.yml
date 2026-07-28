@@ -251,9 +251,16 @@ jobs:
             cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
           fi
 
-      # Locale-shard and section-shard rehydrate merged into ONE step (still
-      # background-shell functions rather than one-step-per-section), but
-      # each rehydrate_section call is deliberately started only AFTER
+      # Locale-shard and section-shard rehydrate merged into ONE step, with
+      # both functions living in shared scripts (scripts/lib/rehydrate-
+      # locale-shards.sh, scripts/lib/rehydrate-section-shards.sh) instead of
+      # inline here — this step used to duplicate the ~90-line rehydrate_locale
+      # bash function byte-for-byte across all 3 jobs in this file, which is
+      # exactly the drift risk AGENTS.md #6 flags; extracted after issues
+      # #3772..#4828 (~20+ recurrences over two months) needed the same
+      # resilience hardening applied in 3 places by hand. See that script for
+      # the retry/timeout hardening added to the git-clone fallback there.
+      # rehydrate_section is deliberately started only AFTER
       # rehydrate_locale has fully finished — NOT concurrently with it. For
       # en/de/fr, rehydrate_section writes into `dist/$loc/<section-subpath>`
       # (e.g. `dist/en/find-jobs-ticino`), a path nested INSIDE `dist/$loc`.
@@ -348,104 +355,13 @@ jobs:
           ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
           ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
         run: |
-          rehydrate_locale() {
-            set -euo pipefail
-            for loc in en de fr; do
-              # Skip rehydrate only when BOTH the locale dir AND its homepage
-              # `dist/$loc.html` (= `/{loc}`) are present. Checking just the dir
-              # couples this guard to the implicit assumption that the strip in
-              # deploy.yml always removes dir + homepage together (true today). If
-              # a future strip refactor decoupled them, a dir-only check would skip
-              # rehydrate while `/{loc}` stayed missing → locale homepage 404 = SEO
-              # loss. Verifying both decouples the guard from that assumption (#1607).
-              if [ -d "dist/$loc" ] && [ -f "dist/$loc.html" ]; then
-                echo "$loc present in artifact (dir + homepage, not stripped this build) — skip rehydrate"
-                continue
-              fi
-
-              # PRIMARY: the same-run per-locale shard-dist artifact the en/de/fr
-              # build-locale shard uploaded from its already-pruned, CDN-offloaded
-              # dist (byte-identical to what push-locale-shard.sh force-pushed).
-              # Fetched with `gh run download` (same-run, no API propagation lag) so
-              # the ~14min git clone collapses to a small artifact download. `gh` in
-              # the `if` condition is exempt from `set -e`, so a missing/failed
-              # download simply falls through to the git-clone FALLBACK below — a
-              # locale is NEVER silently un-validated.
-              #
-              # The artifact is a SINGLE tar (`locale-dist-<loc>.tar`, packed
-              # `-C dist`, members `<loc>/` + `<loc>.html`) — see deploy.yml "Pack
-              # locale shard dist (tar)". It used to be the raw ~410k-file tree, but
-              # upload-artifact@v7 stack-overflowed enumerating that many files so
-              # the artifact was never produced and this fast path was dead (every
-              # deploy paid the git-clone fallback). We untar straight into dist/ —
-              # no intermediate `cp -r` (the git-clone path's extra full-tree copy).
-              dl="$RUNNER_TEMP/locale-dist-$loc"
-              rm -rf "$dl"; mkdir -p "$dl"
-              if gh run download "$DEPLOY_RUN_ID" --name "locale-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/locale-dist-$loc.tar" ]; then
-                rm -rf "dist/$loc" "dist/$loc.html"
-                # Completeness, not just existence (#2761 item 2): `[ -d dist/$loc ]`
-                # alone only proves SOME files landed, not that extraction finished —
-                # a truncated/corrupted tar can still leave a partially-populated
-                # dist/$loc/ that passes a bare directory check with no fallback.
-                # `tar -tf` lists what the archive itself claims to contain (empty
-                # on a corrupt header); comparing that count to what actually landed
-                # on disk after extraction catches a short read the old check missed.
-                # `|| true` throughout: any anomaly here must fall through to the
-                # git-clone fallback below, not abort the rehydrate step under `set -e`.
-                expected_n=$(tar -tf "$dl/locale-dist-$loc.tar" 2>/dev/null | { grep -vc '/$' || true; })
-                tar -C dist -xf "$dl/locale-dist-$loc.tar" || true
-                rm -rf "$dl"
-                actual_n=0
-                if [ -d "dist/$loc" ]; then
-                  actual_n=$(find "dist/$loc" -type f | wc -l)
-                  [ -f "dist/$loc.html" ] && actual_n=$((actual_n + 1))
-                fi
-                if [ -d "dist/$loc" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -ge "$expected_n" ]; then
-                  echo "rehydrated $loc from tar artifact: $actual_n files (tar listed $expected_n)"
-                  continue
-                fi
-                rm -rf "dist/$loc" "dist/$loc.html"
-                echo "[rehydrate] $loc tar extraction incomplete (expected $expected_n files, got $actual_n) — falling back to git clone"
-              else
-                rm -rf "$dl"
-                echo "[rehydrate] $loc artifact absent — falling back to git clone"
-              fi
-
-              tmp="$RUNNER_TEMP/rehydrate-$loc"
-              rm -rf "$tmp"
-              git clone --depth 1 --single-branch --branch main \
-                "https://github.com/valerielinc-ops/frontaliere-$loc.git" "$tmp"
-              [ -d "$tmp/$loc" ] || { echo "::error::shard $loc has no $loc/ subtree"; exit 1; }
-              # Remove any partial pre-existing dir first: with the dir+homepage
-              # guard above, we can reach here with `dist/$loc` already present
-              # (dir kept, homepage stripped). `cp -r src existing-dir` would nest
-              # as `dist/$loc/$loc` instead of replacing — so clear it for a clean
-              # rehydrate. No-op in the common case (dir was fully stripped).
-              rm -rf "dist/$loc"
-              cp -r "$tmp/$loc" "dist/$loc"
-              if [ -f "$tmp/$loc.html" ]; then cp "$tmp/$loc.html" "dist/$loc.html"; fi
-              echo "rehydrated $loc: $(find "dist/$loc" -type f | wc -l) files"
-              rm -rf "$tmp"
-            done
-            # Cheap disk-pressure readout instead of `du -sh dist` (a ~70s full
-            # stat-walk of ~1.27M files just for a log line). df is instant and is
-            # the metric that actually matters after rehydrating ~27G into dist/.
-            df -h / | tail -1
-          }
-
-          LOCALE_PID=""
-
-          if [ "$LOCALE_SHARDS_LIVE" = "true" ]; then
-            rehydrate_locale &
-            LOCALE_PID=$!
-          fi
+          bash scripts/lib/rehydrate-locale-shards.sh &
+          LOCALE_PID=$!
 
           LOCALE_RC=0
-          if [ -n "$LOCALE_PID" ]; then
-            wait "$LOCALE_PID" || LOCALE_RC=$?
-          fi
-          bash scripts/lib/rehydrate-section-shards.sh
+          wait "$LOCALE_PID" || LOCALE_RC=$?
 
+          bash scripts/lib/rehydrate-section-shards.sh
 
           if [ "$LOCALE_RC" -ne 0 ]; then
             exit "$LOCALE_RC"
@@ -737,11 +653,11 @@ jobs:
           fi
 
       # Same merged locale+section rehydrate as validate-dist-source (see that
-      # job's step for the full rationale). Duplicated rather than factored
-      # out into a composite action so this PR stays a surgical CI-speed
-      # change — each of the two jobs runs on its own fresh runner and needs
-      # its own copy of dist/ rehydrated identically, since the post-build
-      # audits below walk the same logical site as the source validators do.
+      # job's step for the full rationale + the shared scripts). Each of the
+      # jobs still runs its own copy of this step on its own fresh runner —
+      # it's the bash body that's shared now, not the step itself — since
+      # the post-build audits below walk the same logical site as the source
+      # validators do and each job needs its own dist/ rehydrated.
       - name: Rehydrate locale then section shards into dist/ (when sharding active)
         env:
           GH_TOKEN: ${{ github.token }}
@@ -775,64 +691,13 @@ jobs:
           ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
           ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
         run: |
-          rehydrate_locale() {
-            set -euo pipefail
-            for loc in en de fr; do
-              if [ -d "dist/$loc" ] && [ -f "dist/$loc.html" ]; then
-                echo "$loc present in artifact (dir + homepage, not stripped this build) — skip rehydrate"
-                continue
-              fi
-
-              dl="$RUNNER_TEMP/locale-dist-$loc"
-              rm -rf "$dl"; mkdir -p "$dl"
-              if gh run download "$DEPLOY_RUN_ID" --name "locale-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/locale-dist-$loc.tar" ]; then
-                rm -rf "dist/$loc" "dist/$loc.html"
-                expected_n=$(tar -tf "$dl/locale-dist-$loc.tar" 2>/dev/null | { grep -vc '/$' || true; })
-                tar -C dist -xf "$dl/locale-dist-$loc.tar" || true
-                rm -rf "$dl"
-                actual_n=0
-                if [ -d "dist/$loc" ]; then
-                  actual_n=$(find "dist/$loc" -type f | wc -l)
-                  [ -f "dist/$loc.html" ] && actual_n=$((actual_n + 1))
-                fi
-                if [ -d "dist/$loc" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -ge "$expected_n" ]; then
-                  echo "rehydrated $loc from tar artifact: $actual_n files (tar listed $expected_n)"
-                  continue
-                fi
-                rm -rf "dist/$loc" "dist/$loc.html"
-                echo "[rehydrate] $loc tar extraction incomplete (expected $expected_n files, got $actual_n) — falling back to git clone"
-              else
-                rm -rf "$dl"
-                echo "[rehydrate] $loc artifact absent — falling back to git clone"
-              fi
-
-              tmp="$RUNNER_TEMP/rehydrate-$loc"
-              rm -rf "$tmp"
-              git clone --depth 1 --single-branch --branch main \
-                "https://github.com/valerielinc-ops/frontaliere-$loc.git" "$tmp"
-              [ -d "$tmp/$loc" ] || { echo "::error::shard $loc has no $loc/ subtree"; exit 1; }
-              rm -rf "dist/$loc"
-              cp -r "$tmp/$loc" "dist/$loc"
-              if [ -f "$tmp/$loc.html" ]; then cp "$tmp/$loc.html" "dist/$loc.html"; fi
-              echo "rehydrated $loc: $(find "dist/$loc" -type f | wc -l) files"
-              rm -rf "$tmp"
-            done
-            df -h / | tail -1
-          }
-
-          LOCALE_PID=""
-
-          if [ "$LOCALE_SHARDS_LIVE" = "true" ]; then
-            rehydrate_locale &
-            LOCALE_PID=$!
-          fi
+          bash scripts/lib/rehydrate-locale-shards.sh &
+          LOCALE_PID=$!
 
           LOCALE_RC=0
-          if [ -n "$LOCALE_PID" ]; then
-            wait "$LOCALE_PID" || LOCALE_RC=$?
-          fi
-          bash scripts/lib/rehydrate-section-shards.sh
+          wait "$LOCALE_PID" || LOCALE_RC=$?
 
+          bash scripts/lib/rehydrate-section-shards.sh
 
           if [ "$LOCALE_RC" -ne 0 ]; then
             exit "$LOCALE_RC"
@@ -1293,11 +1158,11 @@ jobs:
           fi
 
       # Same merged locale+section rehydrate as validate-dist-source (see that
-      # job's step for the full rationale). Duplicated rather than factored
-      # out into a composite action so this PR stays a surgical CI-speed
-      # change — each of the two jobs runs on its own fresh runner and needs
-      # its own copy of dist/ rehydrated identically, since the post-build
-      # audits below walk the same logical site as the source validators do.
+      # job's step for the full rationale + the shared scripts). Each of the
+      # jobs still runs its own copy of this step on its own fresh runner —
+      # it's the bash body that's shared now, not the step itself — since
+      # the post-build audits below walk the same logical site as the source
+      # validators do and each job needs its own dist/ rehydrated.
       - name: Rehydrate locale then section shards into dist/ (when sharding active)
         env:
           GH_TOKEN: ${{ github.token }}
@@ -1331,64 +1196,13 @@ jobs:
           ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
           ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
         run: |
-          rehydrate_locale() {
-            set -euo pipefail
-            for loc in en de fr; do
-              if [ -d "dist/$loc" ] && [ -f "dist/$loc.html" ]; then
-                echo "$loc present in artifact (dir + homepage, not stripped this build) — skip rehydrate"
-                continue
-              fi
-
-              dl="$RUNNER_TEMP/locale-dist-$loc"
-              rm -rf "$dl"; mkdir -p "$dl"
-              if gh run download "$DEPLOY_RUN_ID" --name "locale-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/locale-dist-$loc.tar" ]; then
-                rm -rf "dist/$loc" "dist/$loc.html"
-                expected_n=$(tar -tf "$dl/locale-dist-$loc.tar" 2>/dev/null | { grep -vc '/$' || true; })
-                tar -C dist -xf "$dl/locale-dist-$loc.tar" || true
-                rm -rf "$dl"
-                actual_n=0
-                if [ -d "dist/$loc" ]; then
-                  actual_n=$(find "dist/$loc" -type f | wc -l)
-                  [ -f "dist/$loc.html" ] && actual_n=$((actual_n + 1))
-                fi
-                if [ -d "dist/$loc" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -ge "$expected_n" ]; then
-                  echo "rehydrated $loc from tar artifact: $actual_n files (tar listed $expected_n)"
-                  continue
-                fi
-                rm -rf "dist/$loc" "dist/$loc.html"
-                echo "[rehydrate] $loc tar extraction incomplete (expected $expected_n files, got $actual_n) — falling back to git clone"
-              else
-                rm -rf "$dl"
-                echo "[rehydrate] $loc artifact absent — falling back to git clone"
-              fi
-
-              tmp="$RUNNER_TEMP/rehydrate-$loc"
-              rm -rf "$tmp"
-              git clone --depth 1 --single-branch --branch main \
-                "https://github.com/valerielinc-ops/frontaliere-$loc.git" "$tmp"
-              [ -d "$tmp/$loc" ] || { echo "::error::shard $loc has no $loc/ subtree"; exit 1; }
-              rm -rf "dist/$loc"
-              cp -r "$tmp/$loc" "dist/$loc"
-              if [ -f "$tmp/$loc.html" ]; then cp "$tmp/$loc.html" "dist/$loc.html"; fi
-              echo "rehydrated $loc: $(find "dist/$loc" -type f | wc -l) files"
-              rm -rf "$tmp"
-            done
-            df -h / | tail -1
-          }
-
-          LOCALE_PID=""
-
-          if [ "$LOCALE_SHARDS_LIVE" = "true" ]; then
-            rehydrate_locale &
-            LOCALE_PID=$!
-          fi
+          bash scripts/lib/rehydrate-locale-shards.sh &
+          LOCALE_PID=$!
 
           LOCALE_RC=0
-          if [ -n "$LOCALE_PID" ]; then
-            wait "$LOCALE_PID" || LOCALE_RC=$?
-          fi
-          bash scripts/lib/rehydrate-section-shards.sh
+          wait "$LOCALE_PID" || LOCALE_RC=$?
 
+          bash scripts/lib/rehydrate-section-shards.sh
 
           if [ "$LOCALE_RC" -ne 0 ]; then
             exit "$LOCALE_RC"
