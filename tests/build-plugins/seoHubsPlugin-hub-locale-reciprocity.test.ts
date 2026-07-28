@@ -1,6 +1,9 @@
 /**
- * Regression test for issue #3499: `emitHub`/`emitSvizzeraArticlesHub`
- * (build-plugins/seoHubsPlugin.ts) used to push a `sitemap-seo-hubs.xml`
+ * Regression test for issue #3499: `emitHub` (jobs/sectors/companies) and the
+ * article-archive emitter (frontaliere/svizzera, `renderArticleHubPagesCore`
+ * since #4881 — formerly `emitHub`'s `articles` branch and standalone
+ * `emitSvizzeraArticlesHub`), both in build-plugins/seoHubsPlugin.ts, used to
+ * push a `sitemap-seo-hubs.xml`
  * `<url>` entry ONLY for the `it` locale, even though EN/DE/FR page-1 HTML is
  * genuinely built and live. That made the EN/DE/FR alternates in the page-1
  * `xhtml:link` group one-sided (referenced but never listed as their own

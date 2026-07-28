@@ -39,6 +39,11 @@
 # ─────────────────────────────────────────────────────────────────────────────
 set -uo pipefail
 
+# shard_read_counter / shard_orphan_init / shard_push_with_retry /
+# shard_orphan_flatten_and_push — shared with push-section-shard.sh and
+# compact-article-shard-history.sh (issue #4881, AGENTS.md #6).
+source "$(dirname "${BASH_SOURCE[0]}")/shard-git-helpers.sh"
+
 loc="${1:-}"
 dist_dir="${2:-}"
 
@@ -86,8 +91,11 @@ push_shard() {
   # smaller locale (n << last-good) is caught EXACTLY, not just the
   # near-empty case.
   src_n="$(find "$dist_dir/$loc" -type f | wc -l)"
-  prev_n="$(curl -fsS "https://raw.githubusercontent.com/valerielinc-ops/frontaliere-$loc/main/.shard-filecount" 2>/dev/null || echo 0)"
-  [[ "$prev_n" =~ ^[0-9]+$ ]] || prev_n=0
+  # prev_n is read from the blobless clone itself further below (via
+  # shard_read_counter, git-plumbing HEAD:.shard-filecount) instead of a
+  # separate raw.githubusercontent.com fetch — see shard-git-helpers.sh
+  # header for why the old `[ -f ... ]`-style read was unreliable and why
+  # git-plumbing is strictly more robust than the unauthenticated CDN route.
   # Files removed from THIS locale's dist subtree by the "Strip section
   # subtrees" step that ran BEFORE this push — section shards (svizzera /
   # zurigo / ticino) that are now LIVE in their own repos. strip-section-
@@ -145,6 +153,7 @@ push_shard() {
     SHARD_HISTORY_CAP="${SHARD_HISTORY_CAP:-50}"
     incremental=0
     dcount=0
+    prev_n=0
     # --no-checkout is LOAD-BEARING: without it `git clone` materializes
     # HEAD's working tree, which under --filter=blob:none lazily fetches
     # ALL ~2.5 GB of blobs (defeating the bandwidth win — it would just
@@ -153,19 +162,22 @@ push_shard() {
     # is still populated from HEAD, so the `git add -A` over the
     # re-materialized build below produces a DELTA (not a from-scratch
     # tree) and stages deletions of removed pages. The working tree starts
-    # EMPTY, so the find-wipe below is a harmless no-op on this path.
+    # EMPTY, so the find-wipe below is a harmless no-op on this path. Note
+    # --no-checkout ALSO means no working-tree file is ever materialized,
+    # so bookkeeping counters (.shard-deploys / .shard-filecount) must be
+    # read via git-plumbing (shard_read_counter), not `[ -f ... ]` — see
+    # shard-git-helpers.sh header for the incident this fixes.
     if git clone -q --depth 1 --filter=blob:none --no-checkout \
          "git@github.com:valerielinc-ops/frontaliere-$loc.git" "$stage" 2>/dev/null \
        && [ -d "$stage/.git" ]; then
-      [ -f "$stage/.shard-deploys" ] && dcount="$(cat "$stage/.shard-deploys" 2>/dev/null || echo 0)"
-      [[ "$dcount" =~ ^[0-9]+$ ]] || dcount=0
+      dcount="$(shard_read_counter "$stage" .shard-deploys)"
+      prev_n="$(shard_read_counter "$stage" .shard-filecount)"
       if [ "$dcount" -ge "$SHARD_HISTORY_CAP" ]; then
         # History cap reached → flatten: drop the cloned .git and start a
         # fresh orphan commit (full push), resetting the deploy counter.
         echo "$loc shard: history cap $SHARD_HISTORY_CAP reached (dcount=$dcount) — flattening with orphan force-push"
         rm -rf "$stage"; mkdir -p "$stage"
-        git -C "$stage" init -q
-        git -C "$stage" checkout -q -b main
+        shard_orphan_init "$stage"
         dcount=0
       else
         # Wipe the checked-out working tree (keep .git) — we re-materialize
@@ -176,8 +188,7 @@ push_shard() {
       fi
     else
       echo "$loc shard: no prior clone (first push / transient) — full orphan push"
-      git -C "$stage" init -q
-      git -C "$stage" checkout -q -b main
+      shard_orphan_init "$stage"
     fi
     : > "$stage/.nojekyll"                                  # serve every path verbatim
     printf 'origin-%s.frontaliereticino.ch' "$loc" > "$stage/CNAME"  # shard custom domain
@@ -203,9 +214,19 @@ push_shard() {
     #     high-water below is likewise the BUILT size, keeping the comparison
     #     consistent across the seed → split transition. First seed → prev_n 0
     #     → skip.
-    if [ "$prev_n" -gt 0 ] && [ "$((built_n * 2))" -lt "$prev_n" ]; then
-      echo "::error::$loc shard would shrink $prev_n -> $built_n built files ($n served + $stripped_n section-stripped) (>50%) — refusing push (suspected build regression)"
-      exit 1
+    # Threshold configurable (default 50, unchanged from the previous
+    # hardcoded behaviour) + a per-locale override for a VERIFIED intentional
+    # shrink — still logged loudly, never silent (AGENTS.md Non-Negotiable
+    # #2; mirrors push-section-shard.sh's identical guard, issue #4881).
+    SHARD_SHRINK_GUARD_PCT="${SHARD_SHRINK_GUARD_PCT:-50}"
+    shrink_override_var="SHARD_SHRINK_GUARD_OVERRIDE_$(echo "$loc" | tr a-z A-Z)"
+    if [ "$prev_n" -gt 0 ] && [ "$(( built_n * 100 ))" -lt "$(( prev_n * (100 - SHARD_SHRINK_GUARD_PCT) ))" ]; then
+      if [ "${!shrink_override_var:-}" = "true" ]; then
+        echo "::warning::$loc shard would shrink $prev_n -> $built_n built files ($n served + $stripped_n section-stripped) (>${SHARD_SHRINK_GUARD_PCT}%) — $shrink_override_var=true set, proceeding with an INTENTIONAL shrink push (verify this was expected)"
+      else
+        echo "::error::$loc shard would shrink $prev_n -> $built_n built files ($n served + $stripped_n section-stripped) (>${SHARD_SHRINK_GUARD_PCT}%) — refusing push (suspected build regression). If this shrink is verified intentional, set $shrink_override_var=true"
+        exit 1
+      fi
     fi
     printf '%s' "$built_n" > "$stage/.shard-filecount"   # high-water-mark (BUILT size) for the next run's gate (b)
     printf '%s' "$((dcount + 1))" > "$stage/.shard-deploys"  # commits since last flatten (history-cap counter)
@@ -231,16 +252,10 @@ push_shard() {
       # Orphan fallback: force-push the single fresh commit (full tree) as
       # before. `-f` is harmless on the incremental ff-path and required on
       # the orphan path, so use it for both.
-      _push_delay=5; _push_ok=0
-      for _try in 1 2 3; do
-        if git push -f "git@github.com:valerielinc-ops/frontaliere-$loc.git" main; then
-          _push_ok=1; break
-        fi
-        if [ "$_try" -lt 3 ]; then
-          echo "::warning::push attempt $_try/3 failed — retrying in ${_push_delay}s"
-          sleep "$_push_delay"; _push_delay=$(( _push_delay * 2 ))
-        fi
-      done
+      _push_ok=0
+      if shard_push_with_retry "$stage" "git@github.com:valerielinc-ops/frontaliere-$loc.git" "main" "$loc shard"; then
+        _push_ok=1
+      fi
       # Self-heal: 3 retries on the SAME incremental base never recover from a
       # corrupted/diverged remote-tracking clone (the "not our ref" / "bad tree
       # object" / "early EOF" failure mode — see scripts/lib/push-section-shard.sh
@@ -251,24 +266,9 @@ push_shard() {
       # before giving up.
       if [ "$_push_ok" != 1 ] && [ "$incremental" = 1 ]; then
         echo "::warning::$loc shard: 3 incremental push attempts failed — flattening to a fresh orphan commit and retrying"
-        rm -rf .git
-        git init -q
-        git checkout -q -b main
-        git config user.email "valerielinc@gmail.com"
-        git config user.name "Valerie Linc"
-        printf '%s' "1" > .shard-deploys
-        git add -A
-        git commit -qm "locale shard $loc ${_sha} (run ${GITHUB_RUN_ID:-local}) [self-heal flatten]"
-        _push_delay=5
-        for _try in 1 2 3; do
-          if git push -f "git@github.com:valerielinc-ops/frontaliere-$loc.git" main; then
-            _push_ok=1; break
-          fi
-          if [ "$_try" -lt 3 ]; then
-            echo "::warning::flatten push attempt $_try/3 failed — retrying in ${_push_delay}s"
-            sleep "$_push_delay"; _push_delay=$(( _push_delay * 2 ))
-          fi
-        done
+        if shard_orphan_flatten_and_push "$stage" "git@github.com:valerielinc-ops/frontaliere-$loc.git" "locale shard $loc ${_sha} (run ${GITHUB_RUN_ID:-local}) [self-heal flatten]" "$loc shard flatten"; then
+          _push_ok=1
+        fi
       fi
       [ "$_push_ok" = 1 ] || { echo "::error::$loc shard push failed after 3 attempts (+ flatten self-heal retry)"; exit 1; }
     fi

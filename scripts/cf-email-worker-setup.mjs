@@ -23,7 +23,14 @@
  * Each Email Routing rule is best-effort → on error (e.g. token missing the
  * Email Routing:Edit scope) it warns and exits 0, so the worker still deploys
  * and the rule can be bound once.
+ *
+ * Zone-id resolution delegates to scripts/lib/cf-analytics.mjs's resolveZoneId
+ * (AGENTS.md #6 — no inline copy of that fetch+parse construct); this file's
+ * own resolveZoneId() wrapper only translates a failure into this script's
+ * fail() convention.
  */
+
+import { resolveZoneId as resolveZoneIdShared } from './lib/cf-analytics.mjs';
 
 const ZONE_NAME = 'frontaliereticino.ch';
 const WORKER_NAME = 'frontaliere-stop-reply-handler';
@@ -105,10 +112,11 @@ function fail(msg) {
 }
 
 async function resolveZoneId() {
-  const r = await cf(`/zones?name=${encodeURIComponent(ZONE_NAME)}`);
-  const id = r.ok ? (r.json.result?.[0]?.id || '') : '';
-  if (!id) fail(`zone ${ZONE_NAME} not found (token Zone:Read scope?)`);
-  return id;
+  try {
+    return await resolveZoneIdShared(TOKEN, ZONE_NAME, process.env.CF_ZONE_ID);
+  } catch {
+    fail(`zone ${ZONE_NAME} not found (token Zone:Read scope?)`);
+  }
 }
 
 async function resolveForwardTarget(zoneId) {

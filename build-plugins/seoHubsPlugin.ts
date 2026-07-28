@@ -35,10 +35,11 @@ import {
   svizzeraArticlesArchiveBasePaths,
   type HubLocale,
 } from './seoHubsData';
-import { ARTICLE_SECTIONS } from '../services/articleSections';
+import { ARTICLE_SECTIONS, type ArticleSection } from '../services/articleSections';
 import { finalizeMeta } from '../services/seo/meta-descriptions';
-import { readSvizzeraArticleUnionSlugs } from './shared/articleArchiveUnion';
+import { readArticleArchiveUnionSlugs } from './shared/articleArchiveUnion';
 import { readArticleSlugs, readBlogUrlSlugs } from './shared/articleReaders';
+import { WriteCollector } from './batchWrite';
 import { SECTOR_HUB_KEYS, SECTOR_HUB_SLUG, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { LOGO_IMG_ONERROR } from './shared/companyLogoResolver';
@@ -999,7 +1000,8 @@ interface BuildHtmlArgs {
    * Optional overrides for a SECOND article section (svizzera) that reuses the
    * `articles` hub chrome but with its own slugs/titles. When omitted (every
    * frontaliere/jobs/sectors/companies call), behaviour is byte-identical to
-   * the original. Only set by {@link emitSvizzeraArticlesHub}.
+   * the original. Only set by {@link renderArticleHubPagesCore} for the
+   * svizzera section.
    */
   sectionOverride?: ArticleSectionOverride;
 }
@@ -2236,64 +2238,99 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
   }
 }
 
-interface EmitSvizzeraArgs {
+interface RenderArticleHubCoreArgs {
   readonly fs: typeof fsT;
   readonly np: typeof npT;
   readonly rootDir: string;
   readonly distDir: string;
+  readonly section: ArticleSection;
   readonly qw: (filePath: string, content: string) => void;
   readonly sitemapEntries: string[];
   readonly dateStamp: string;
   readonly entryJs: string;
   readonly entryCss: string;
   readonly hasSpaBundle: boolean;
-  readonly onPageEmitted: () => void;
+  /**
+   * Called once per page physically queued via `qw`, with the locale it
+   * belongs to and its dist-relative path (no leading slash, e.g.
+   * `articoli-frontaliere/tutti/page-2/index.html`). `emitSeoHubs` uses this
+   * only to bump its own page counter; {@link renderArticleHubPages} uses it
+   * to group the returned paths by locale (what its caller needs to hand to
+   * `scripts/lib/push-article-shard-incremental.sh`, which pushes one locale
+   * at a time).
+   */
+  readonly onPageEmitted: (locale: HubLocale, relPath: string) => void;
+  /**
+   * Narrow which locales render (default: all {@link HUB_LOCALES}).
+   * Cross-locale hreflang alternates always reference the full 4-locale set
+   * regardless — narrowing only skips writing that locale's own HTML, it
+   * never drops it from another locale's alternate group.
+   */
+  readonly locales?: readonly HubLocale[];
 }
 
 /**
- * Emits the svizzera (Switzerland-wide) article archive — the second article
- * section mirroring the frontaliere `articles` hub. Reuses {@link buildHtml}
- * via `sectionOverride` so the chrome/templating is shared; only the slugs,
- * registry (`blog-meta-ch-*` + `routerSwissData.ts`/`SWISS_SLUGS`), output
- * path (`/{loc}/articoli-svizzera/tutti/`) and copy differ.
+ * Emits ONE article section's (`frontaliere` or `svizzera`) `/tutti/`
+ * archive and its pagination, across the requested locales.
  *
- * Empty-svizzera safety: with an empty registry `masterSlugs` is empty →
+ * Extracted (#4881 Fase 1) from what used to be two near-identical copies:
+ * the `articles` branch inline in `emitHub` below (frontaliere) and the
+ * now-removed `emitSvizzeraArticlesHub` (svizzera) — same chrome via
+ * {@link buildHtml}, same pagination/sitemap tail, differing only in
+ * slugs/registry/copy, which {@link ARTICLE_SECTIONS} plus `sectionOverride`
+ * already model as data. Consolidating removes the drift risk the two
+ * copies had (AGENTS.md #6) and lets the fast-publish path
+ * (`scripts/publish-article-fast.mjs`, via the exported async
+ * {@link renderArticleHubPages} below) reuse this exact rendering instead of
+ * a third copy.
+ *
+ * Frontaliere renders through `buildHtml`'s DEFAULT (no `sectionOverride`)
+ * codepath — byte-identical to the pre-#4881 inline branch, which never set
+ * one either. Svizzera builds the same `ArticleSectionOverride` the old
+ * `emitSvizzeraArticlesHub` built.
+ *
+ * Stays fully SYNCHRONOUS — no `await` anywhere in its call chain — because
+ * it is called directly both from the full-build `emitSeoHubs` dispatch
+ * below AND from the async `renderArticleHubPages` wrapper, and `emitSeoHubs`
+ * itself must remain sync for
+ * `tests/build-plugins/seoHubsPlugin-hub-locale-reciprocity.test.ts`, which
+ * calls it inside a non-async `beforeAll`.
+ *
+ * Empty-registry safety unchanged: an empty registry → `masterSlugs` empty →
  * `total = 0` → `totalPages = Math.max(1, 0) = 1`, so a single zero-article
- * archive page is emitted per locale (with the polite empty-state list),
- * matching the frontaliere `articles` hub behaviour (it EMITS-EMPTY, never
- * skips). No crash, no warning spam (the readers return `[]`/empty maps when
- * the seed files are present-but-empty).
+ * archive page is emitted per locale (with a polite empty-state list),
+ * never skipped. No crash, no warning spam (the readers return `[]`/empty
+ * maps when the seed files are present-but-empty).
  */
-function emitSvizzeraArticlesHub(args: EmitSvizzeraArgs): void {
-  const { fs, np, rootDir, distDir, qw, sitemapEntries, dateStamp, entryJs, entryCss, hasSpaBundle, onPageEmitted } = args;
-  const cfg = ARTICLE_SECTIONS.svizzera;
-  const archiveBases = svizzeraArticlesArchiveBasePaths();
+function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
+  const { fs, np, rootDir, distDir, section, qw, sitemapEntries, dateStamp, entryJs, entryCss, hasSpaBundle, onPageEmitted, locales } = args;
+  const cfg = ARTICLE_SECTIONS[section];
+  const isSvizzera = section === 'svizzera';
+  const archiveBases: Record<HubLocale, string> = isSvizzera
+    ? svizzeraArticlesArchiveBasePaths()
+    : { it: HUB_SLUGS.it.articlesAll, en: HUB_SLUGS.en.articlesAll, de: HUB_SLUGS.de.articlesAll, fr: HUB_SLUGS.fr.articlesAll };
   const pageSize = ARTICLES_PAGE_SIZE;
-  // Canonical union slug set (meta `blog-meta-ch-it.ts` ∪ `SWISS_SLUGS`),
-  // computed once via the SHARED helper that `staticPagesPlugin.ts`'s
-  // page-N navigator also uses — so the emitted page count and the navigator
-  // link count can never drift (single source of truth; issue #1497).
-  const unionSlugs = readSvizzeraArticleUnionSlugs(fs, np, rootDir);
+  // Canonical union slug set, computed once via the SHARED helper that
+  // `staticPagesPlugin.ts`'s page-N navigator also uses — so the emitted
+  // page count and the navigator link count can never drift (single source
+  // of truth; issue #1486/#1497).
+  const unionSlugs = readArticleArchiveUnionSlugs(fs, np, rootDir, section);
 
-  for (const locale of HUB_LOCALES) {
+  for (const locale of locales ?? HUB_LOCALES) {
     const basePath = archiveBases[locale];
     const prefix = locale === 'it' ? '' : `/${locale}`;
     const blogSection = cfg.indexSlug[locale];
 
-    // Master list = UNION of `blog-meta-ch-it.ts` slugs and `SWISS_SLUGS`
-    // keys (same orphan-avoidance contract as the frontaliere articles hub).
+    // Master list = UNION of `{metaPrefix}-it.ts` slugs and `{slugConst}`
+    // keys — same orphan-avoidance contract for both sections.
     const itArticles = readArticleSlugs(fs, np, rootDir, 'it', cfg.metaPrefix);
     const localeArticles = locale === 'it' ? itArticles : readArticleSlugs(fs, np, rootDir, locale, cfg.metaPrefix);
     const localeBySlug = new Map(localeArticles.map((a) => [a.slug, a.title]));
     const itBySlug = new Map(itArticles.map((a) => [a.slug, a.title]));
     const localeExcerpts = readArticleExcerpts(fs, np, rootDir, locale, cfg.metaPrefix);
     const itExcerpts = readArticleExcerpts(fs, np, rootDir, 'it', cfg.metaPrefix);
-    const blogUrlSlugs = readBlogUrlSlugs(fs, np, rootDir, cfg.slugDataFile, 'SWISS_SLUGS');
+    const blogUrlSlugs = readBlogUrlSlugs(fs, np, rootDir, cfg.slugDataFile, cfg.slugConst);
 
-    // Same union the shared helper reproduces: meta `itArticles` slugs ∪
-    // `SWISS_SLUGS` keys. Kept as a local rebuild because the per-slug render
-    // below needs the titles/excerpts/url-slugs (which the count-only helper
-    // doesn't carry); `unionSlugs.size` above is the parity anchor.
     const masterSlugs = new Set<string>(itArticles.map((a) => a.slug));
     for (const slug of Object.keys(blogUrlSlugs)) masterSlugs.add(slug);
 
@@ -2313,17 +2350,21 @@ function emitSvizzeraArticlesHub(args: EmitSvizzeraArgs): void {
     // two reads agree, but routing through one source of truth means the
     // navigator (staticPagesPlugin.ts) and this emitter cannot disagree on N.
     const totalPages = Math.max(1, Math.ceil(unionSlugs.size / pageSize));
-    const copy = SVIZZERA_ARTICLES_COPY[locale];
-    const sectionOverride: ArticleSectionOverride = {
-      title: copy.title,
-      description: copy.description,
-      sectionLabel: copy.sectionLabel,
-      h1: copy.h1,
-      hreflangBases: archiveBases,
-    };
+    const sectionOverride: ArticleSectionOverride | undefined = isSvizzera
+      ? (() => {
+          const copy = SVIZZERA_ARTICLES_COPY[locale];
+          return {
+            title: copy.title,
+            description: copy.description,
+            sectionLabel: copy.sectionLabel,
+            h1: copy.h1,
+            hreflangBases: archiveBases,
+          };
+        })()
+      : undefined;
 
-    // Mirror the master-articles emission gate: IT keeps every page-N as
-    // static HTML; non-IT locales emit only page-1 (page-N routes via SPA).
+    // Mirror the master-hubs emission gate: IT keeps every page-N as static
+    // HTML; non-IT locales emit only page-1 (page-N routes via the SPA).
     const emitNonItPageN = false;
     for (let page = 1; page <= totalPages; page++) {
       if (page > 1 && locale !== 'it' && !emitNonItPageN) continue;
@@ -2334,8 +2375,9 @@ function emitSvizzeraArticlesHub(args: EmitSvizzeraArgs): void {
         sectionOverride,
       });
       const canonicalPath = paginatedPath(basePath, page);
-      qw(np.join(distDir, canonicalPath.slice(1), 'index.html'), html);
-      onPageEmitted();
+      const relPath = np.join(canonicalPath.slice(1), 'index.html');
+      qw(np.join(distDir, relPath), html);
+      onPageEmitted(locale, relPath);
 
       // One sitemap entry per locale at page 1 (non-IT locales only ever
       // reach page 1 here — see the `continue` above); each carries the
@@ -2352,6 +2394,73 @@ function emitSvizzeraArticlesHub(args: EmitSvizzeraArgs): void {
       );
     }
   }
+}
+
+export interface RenderArticleHubPagesOptions {
+  readonly rootDir: string;
+  readonly distDir: string;
+  readonly section: ArticleSection;
+  /** Narrow which locales render (default: all 4 {@link HUB_LOCALES}). */
+  readonly locales?: readonly HubLocale[];
+}
+
+export interface RenderArticleHubPagesResult {
+  /** Files physically written (post content-hash-manifest skip), this call only. */
+  readonly written: number;
+  /**
+   * Dist-relative path (no leading slash) of every page this call rendered,
+   * regardless of hash-skip, grouped by the locale it belongs to — e.g.
+   * `{ it: ['articoli-svizzera/tutti/index.html', ...], en: [...], ... }`.
+   * Grouped (rather than a flat list) because the caller hands each locale's
+   * paths to `scripts/lib/push-article-shard-incremental.sh` separately —
+   * that script pushes into one locale's shard repo per invocation.
+   */
+  readonly pathsByLocale: Record<HubLocale, string[]>;
+}
+
+/**
+ * Standalone async entry point for the fast-publish path (issue #4881 Fase
+ * 1): renders one article section's `/tutti/` archive + pagination into a
+ * scratch `distDir`, without a full `vite build`. Mirrors the precedent set
+ * by `ogPagesPlugin.ts`'s exported `renderArticlePages` (#4837) — resolves
+ * its own fs/np/SPA-bundle info and writes through its own `WriteCollector`,
+ * then delegates to the SAME synchronous {@link renderArticleHubPagesCore}
+ * that the full build's `emitSeoHubs` calls, so a fix to one path benefits
+ * both and a fork can't silently drift them apart.
+ */
+export async function renderArticleHubPages(
+  opts: RenderArticleHubPagesOptions,
+): Promise<RenderArticleHubPagesResult> {
+  const { rootDir, distDir, section, locales } = opts;
+  const fs = await import('node:fs');
+  const np = await import('node:path');
+  const { resolveSpaBundle } = await import('./spaBundleResolver');
+  const { entryJs, entryCss, hasSpaBundle } = resolveSpaBundle(distDir);
+
+  const collector = new WriteCollector({ distDir, pluginName: 'seoHubsPlugin' });
+  const qw = (filePath: string, content: string) => {
+    collector.add(filePath, content);
+  };
+  const pathsByLocale: Record<HubLocale, string[]> = { it: [], en: [], de: [], fr: [] };
+
+  renderArticleHubPagesCore({
+    fs: fs as unknown as typeof fsT,
+    np: np as unknown as typeof npT,
+    rootDir,
+    distDir,
+    section,
+    qw,
+    sitemapEntries: [],
+    dateStamp: new Date().toISOString().slice(0, 10),
+    entryJs,
+    entryCss,
+    hasSpaBundle,
+    onPageEmitted: (locale, relPath) => { pathsByLocale[locale].push(relPath); },
+    locales,
+  });
+
+  const written = await collector.flush();
+  return { written, pathsByLocale };
 }
 
 /**
@@ -2382,12 +2491,11 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
     pagesEmitted++;
   }
 
-  function emitHub(hubKey: 'jobs' | 'sectors' | 'companies' | 'articles', locale: HubLocale): void {
+  function emitHub(hubKey: 'jobs' | 'sectors' | 'companies', locale: HubLocale): void {
     const basePath = (
       hubKey === 'jobs' ? HUB_SLUGS[locale].jobsAll
       : hubKey === 'sectors' ? HUB_SLUGS[locale].sectorsAll
-      : hubKey === 'companies' ? HUB_SLUGS[locale].companiesAll
-      : HUB_SLUGS[locale].articlesAll
+      : HUB_SLUGS[locale].companiesAll
     );
 
     let items: Array<{ href: string; label: string; logo?: string | null; jobCount?: number; emoji?: string; excerpt?: string }> = [];
@@ -2422,7 +2530,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
           : `${sectionRoot}/`;
         items.push({ href, label: sector[locale], emoji: sectorEmojiFor(sector.key) });
       }
-    } else if (hubKey === 'companies') {
+    } else {
       pageSize = COMPANIES_PAGE_SIZE;
       const sectionRoot = legacyTiSectionRoot(locale);
       for (const slug of companySlugs) {
@@ -2443,58 +2551,6 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
           logo: logoUrl,
           jobCount: jobCountBySlug.get(key) ?? jobCountBySlug.get(slug),
         });
-      }
-    } else {
-      pageSize = ARTICLES_PAGE_SIZE;
-      // Use IT BlogArticleId list as master across all locales so totalPages is
-      // identical. For non-IT locales, prefer the locale-specific title when
-      // translated; fall back to the IT title when the translation is missing.
-      //
-      // CRITICAL — `a.slug` here is the `BlogArticleId` (e.g. `stipendio-netto-2026`),
-      // not the canonical URL slug. The sitemap URL uses the per-locale slug from
-      // `BLOG_SLUGS` (e.g. IT: `stipendio-netto-frontaliere-2026`). We MUST resolve
-      // the URL via `BLOG_SLUGS` — otherwise hub anchors point to non-existent
-      // BlogArticleId paths and the BFS audit flags every remapped article as
-      // an orphan-in-sitemap (Apr-2026 regression: ~174 IT articles, ~700 cross-locale).
-      const itArticles = readArticleSlugs(fs, np, rootDir, 'it');
-      const localeArticles = locale === 'it' ? itArticles : readArticleSlugs(fs, np, rootDir, locale);
-      const localeBySlug = new Map(localeArticles.map((a) => [a.slug, a.title]));
-      const itBySlug = new Map(itArticles.map((a) => [a.slug, a.title]));
-      const localeExcerpts = readArticleExcerpts(fs, np, rootDir, locale);
-      const itExcerpts = readArticleExcerpts(fs, np, rootDir, 'it');
-      const blogUrlSlugs = readBlogUrlSlugs(fs, np, rootDir);
-      const blogSection = locale === 'it' ? 'articoli-frontaliere'
-        : locale === 'en' ? 'cross-border-articles'
-        : locale === 'de' ? 'grenzgaenger-artikel'
-        : 'articles-frontalier';
-      const prefix = locale === 'it' ? '' : `/${locale}`;
-
-      // Master list = UNION of `blog-meta-it.ts` slugs and `BLOG_SLUGS` keys
-      // from `routerBlogData.ts`. The sitemap is built off `BLOG_SLUGS`, so any
-      // article registered there MUST appear in the archive — otherwise it
-      // ends up listed in `sitemap-blog.xml` but unreachable via internal `<a>`
-      // BFS, tripping the orphan-pages-in-sitemaps audit.
-      // (May 2026 regression: `iniziativa-salari-ticino` and
-      //  `cantieri-traffico-a9-ticino` had BLOG_SLUGS entries but no
-      //  blog-meta-it title — sitemap +2 orphan.)
-      const masterSlugs = new Set<string>(itArticles.map((a) => a.slug));
-      for (const slug of Object.keys(blogUrlSlugs)) masterSlugs.add(slug);
-
-      for (const slug of masterSlugs) {
-        // Label preference: locale title → IT title → humanized slug.
-        const label = localeBySlug.get(slug) ?? itBySlug.get(slug) ?? humanizeSlug(slug);
-        // Resolve URL slug for this locale via BLOG_SLUGS; fall back to the
-        // BlogArticleId itself when the article is missing from BLOG_SLUGS
-        // (older articles or auto-generated entries can lag the slug map).
-        const urlSlug = blogUrlSlugs[slug]?.[locale] ?? slug;
-        // Excerpt: 1-line preview surfaced as the card subtitle. Locale
-        // → IT fallback so non-IT cards aren't blank when the translation
-        // is missing the excerpt key.
-        const rawExcerpt = localeExcerpts.get(slug) ?? itExcerpts.get(slug);
-        const excerpt = rawExcerpt && rawExcerpt.length > 140
-          ? rawExcerpt.slice(0, 137).trimEnd() + '…'
-          : rawExcerpt;
-        items.push({ href: `${prefix}/${blogSection}/${urlSlug}/`, label, excerpt });
       }
     }
 
@@ -2536,9 +2592,9 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       const altLinks = page === 1
         ? HUB_LOCALES.map((alt) => {
             const altBase = alt === 'it' ? HUB_SLUGS.it[
-              hubKey === 'jobs' ? 'jobsAll' : hubKey === 'sectors' ? 'sectorsAll' : hubKey === 'companies' ? 'companiesAll' : 'articlesAll'
+              hubKey === 'jobs' ? 'jobsAll' : hubKey === 'sectors' ? 'sectorsAll' : 'companiesAll'
             ] : HUB_SLUGS[alt][
-              hubKey === 'jobs' ? 'jobsAll' : hubKey === 'sectors' ? 'sectorsAll' : hubKey === 'companies' ? 'companiesAll' : 'articlesAll'
+              hubKey === 'jobs' ? 'jobsAll' : hubKey === 'sectors' ? 'sectorsAll' : 'companiesAll'
             ];
             return `    <xhtml:link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altBase}" />`;
           }).join('\n')
@@ -2555,27 +2611,33 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
     emitHub('jobs', locale);
     emitHub('sectors', locale);
     emitHub('companies', locale);
-    emitHub('articles', locale);
   }
 
-  // ── Second article section: svizzera (Switzerland-wide) archive ──
-  // Mirrors the frontaliere `articles` hub above, reading the `blog-meta-ch-*`
-  // meta chunks + `routerSwissData.ts`/`SWISS_SLUGS`, output under
-  // `/{loc}/articoli-svizzera/tutti/{page-N}`. Emits a single empty archive
-  // page per locale while the svizzera registry is empty (see fn doc).
-  emitSvizzeraArticlesHub({
-    fs,
-    np,
-    rootDir,
-    distDir,
-    qw,
-    sitemapEntries,
-    dateStamp,
-    entryJs,
-    entryCss,
-    hasSpaBundle,
-    onPageEmitted: () => { pagesEmitted++; },
-  });
+  // ── Article archives: both sections through the shared core (#4881) ──
+  // frontaliere (the original `articles` hub) and svizzera (the
+  // Switzerland-wide mirror, reading `blog-meta-ch-*` +
+  // `routerSwissData.ts`/`SWISS_SLUGS`, output under
+  // `/{loc}/articoli-svizzera/tutti/{page-N}`) both go through
+  // renderArticleHubPagesCore — one call per section, each looping all 4
+  // locales internally (NOT one call per locale like emitHub above; see the
+  // function doc). Emits a single empty archive page per locale while a
+  // registry is empty (see the core's fn doc).
+  for (const section of ['frontaliere', 'svizzera'] as const) {
+    renderArticleHubPagesCore({
+      fs,
+      np,
+      rootDir,
+      distDir,
+      section,
+      qw,
+      sitemapEntries,
+      dateStamp,
+      entryJs,
+      entryCss,
+      hasSpaBundle,
+      onPageEmitted: () => { pagesEmitted++; },
+    });
+  }
 
   // ── Phase 7.2 — Canton-aware THIN hub pages ──
   // For every non-TI canton with ≥ MIN_JOBS_FOR_CANTON_PAGE jobs, emit a

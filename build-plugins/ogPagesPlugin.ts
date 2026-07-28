@@ -27,6 +27,7 @@ import { stripMarkdownPlain } from './shared/stripMarkdownPlain';
 import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
 import { boostDescriptionForCtr } from './shared/ctrBoostDescription';
 import { SLUG_TABLES } from '../services/routeSlugs.data';
+import { ARTICLE_SECTION_DESCRIPTORS, extractBlogEntryPositions, blogKeyToArticleId } from './shared/articleSectionDescriptors';
 
 export interface RenderedArticleEntry {
  articleId: string;
@@ -62,6 +63,18 @@ export interface RenderArticlePagesOptions {
  * skipped down to the single needed file — see parseBlogBodyLocale below.
  */
  onlyArticleId?: string;
+ /**
+ * When set, render/write ONLY these articles' locale pages instead of the
+ * whole section (bounded-memory batch mode, #4881 Fase 4 corpus re-render).
+ * Same section-wide metadata parse as `onlyArticleId` (full, cheap, required
+ * for byte-identical disambiguation/related-links output); the per-article
+ * body-file read and the write-loop are narrowed to this id set instead of a
+ * single id. Ignored when `onlyArticleId` is also set (that field wins — see
+ * parseBlogBodyLocale below for the merge). Superset-safe: an id in this list
+ * that has no matching entry in this section is a silent no-op, never an
+ * error, so callers may safely pass ids belonging to other sections.
+ */
+ onlyArticleIds?: string[];
 }
 
 export interface RenderArticlePagesResult {
@@ -95,6 +108,14 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const collector = new WriteCollector({ distDir, pluginName: 'ogPagesPlugin' });
  const DEFAULT_IMG = '/og-image.png';
  const blogImageById: Record<string, string> = {};
+ // Single-article and batch narrowing collapse to the same Set<string> so
+ // both the body-file read (parseBlogBodyLocale) and the write-loop filter
+ // below share one code path. `onlyArticleId` wins when both are set (only
+ // publish-article-fast.mjs sets it; the corpus driver sets onlyArticleIds).
+ // undefined => full-section render, unchanged from pre-#4881 behaviour.
+ const onlyArticleIdSet: Set<string> | undefined = opts.onlyArticleId
+ ? new Set([opts.onlyArticleId])
+ : (opts.onlyArticleIds && opts.onlyArticleIds.length ? new Set(opts.onlyArticleIds) : undefined);
 
  // Source of truth fallback for article images (kept in BlogArticles list)
  try {
@@ -113,45 +134,20 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // svizzera section mirrors it against the *-ch sources. An empty svizzera
  // registry yields zero entries and is skipped (no warning, no early abort of
  // the whole plugin) — see the per-section `continue` below.
- interface OgSection {
- name: 'frontaliere' | 'svizzera';
- seoFiles: string[];
- canonicalPrefix: string;
- bodyDir: string;
- metaPrefix: string;
- registry: string;
- sitemap: string;
- slugData: string;
- slugConst: string;
- indexSlug: Record<'it' | 'en' | 'de' | 'fr', string>;
- }
- const SECTIONS: OgSection[] = [
- {
- name: 'frontaliere',
- seoFiles: ['services/seo/seo-blog.ts',
- ...Array.from({ length: 9 }, (_, i) => `services/seo/seo-blog-${i + 2}.ts`)],
- canonicalPrefix: '/articoli-frontaliere/',
- bodyDir: 'blog-body',
- metaPrefix: 'blog-meta',
- registry: 'data/blog-articles-data.ts',
- sitemap: 'public/sitemap-blog.xml',
- slugData: 'services/routerBlogData.ts',
- slugConst: 'BLOG_SLUGS',
- indexSlug: { it: 'articoli-frontaliere', en: 'cross-border-articles', de: 'grenzgaenger-artikel', fr: 'articles-frontalier' },
- },
- {
- name: 'svizzera',
- seoFiles: ['services/seo/seo-blog-ch.ts'],
- canonicalPrefix: '/articoli-svizzera/',
- bodyDir: 'blog-body-ch',
- metaPrefix: 'blog-meta-ch',
- registry: 'data/swiss-articles-data.ts',
- sitemap: 'public/sitemap-blog-ch.xml',
- slugData: 'services/routerSwissData.ts',
- slugConst: 'SWISS_SLUGS',
- indexSlug: { it: 'articoli-svizzera', en: 'swiss-articles', de: 'schweiz-artikel', fr: 'articles-suisse' },
- },
- ];
+ //
+ // Descriptor literal lives in shared/articleSectionDescriptors.ts (#4881
+ // Fase 4): the corpus re-render driver script needs the exact same
+ // seoFiles/bodyDir/registry paths to enumerate article ids for batching, and
+ // a second literal copy here would drift from that one the moment either
+ // changes (AGENTS.md #6). Zero behavior change — same two entries, same
+ // field values. Named `articleSectionDescriptors`, not `articleSections`, to
+ // avoid colliding with the pre-existing `services/articleSections.ts`
+ // (a differently-shaped, already-canonical per-section config used by
+ // create-article.mjs/staticPagesPlugin.ts/router — reconciling the two is a
+ // separate, larger, pre-existing-duplication cleanup out of scope here; see
+ // this PR's description for the sibling-pattern-check finding).
+ type OgSection = (typeof ARTICLE_SECTION_DESCRIPTORS)[number];
+ const SECTIONS: OgSection[] = ARTICLE_SECTION_DESCRIPTORS;
 
  let count = 0;
  let faqCount = 0;
@@ -330,15 +326,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  }
  const entries: Entry[] = [];
 
- const keyRx = /'(blog-[^']+)':\s*\{/g;
- let km: RegExpExecArray | null;
- const pos: { key: string; start: number }[] = [];
- while ((km = keyRx.exec(seoSrc)) !== null) pos.push({ key: km[1], start: km.index });
+ const pos = extractBlogEntryPositions(seoSrc);
 
  for (let i = 0; i < pos.length; i++) {
  const s = pos[i].start;
  const key = pos[i].key;
- const articleId = key.replace(/^blog-/, '');
+ const articleId = blogKeyToArticleId(key);
  const e = i + 1 < pos.length ? pos[i + 1].start : Math.min(s + 3000, seoSrc.length);
  const b = seoSrc.substring(s, e);
 
@@ -553,19 +546,21 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const out: Record<string, Record<string, string>> = {};
  const dir = np.resolve(rootDir, 'services', 'locales', SECTION.bodyDir, locale);
  let files: string[] = [];
- // Fast path (#4837 stream A): body filenames are exactly `<articleId>.ts`
- // (confirmed 1:1, e.g. services/locales/blog-body/it/<id>.ts). When only
- // one article is being rendered there is no need to readdirSync + scan
- // ~3021 files x 4 locales — read the single needed file directly. Falls
- // through to the full directory scan (identical to pre-#4837 behaviour)
- // whenever onlyArticleId is unset, so full-build output is unchanged.
- if (opts.onlyArticleId) {
- const single = `${opts.onlyArticleId}.ts`;
+ // Fast path (#4837 stream A, batched #4881 Fase 4): body filenames are
+ // exactly `<articleId>.ts` (confirmed 1:1, e.g.
+ // services/locales/blog-body/it/<id>.ts). When only a bounded id set is
+ // being rendered there is no need to readdirSync + scan ~3021 files x 4
+ // locales — stat just the needed files directly. Falls through to the full
+ // directory scan (identical to pre-#4837 behaviour) whenever
+ // onlyArticleIdSet is unset, so full-build output is unchanged.
+ if (onlyArticleIdSet) {
+ files = [];
+ for (const id of onlyArticleIdSet) {
+ const single = `${id}.ts`;
  try {
  fs.statSync(np.join(dir, single));
- files = [single];
- } catch {
- files = [];
+ files.push(single);
+ } catch { /* id not in this section/locale — superset-safe no-op */ }
  }
  } else {
  try { files = fs.readdirSync(dir); } catch { return out; }
@@ -738,11 +733,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  };
 
  for (const en of entries) {
- // Single-article fast path (#4837 stream A): the entries parse above MUST
- // stay full/unfiltered (title-collision map + entriesByDate related-articles
- // pool both need every other article's metadata to render THIS one
- // correctly) — this is the only place that narrows down to one article.
- if (opts.onlyArticleId && en.articleId !== opts.onlyArticleId) continue;
+ // Single-article / batch fast path (#4837 stream A, batched #4881 Fase 4):
+ // the entries parse above MUST stay full/unfiltered (title-collision map +
+ // entriesByDate related-articles pool both need every other article's
+ // metadata to render THIS one correctly) — this is the only place that
+ // narrows down to the requested id set.
+ if (onlyArticleIdSet && !onlyArticleIdSet.has(en.articleId)) continue;
  const locSlugs = blogSlugs[en.articleId];
 
  const writtenPaths: Record<string, string> = {};

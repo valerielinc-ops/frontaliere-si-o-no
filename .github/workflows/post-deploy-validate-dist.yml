@@ -322,6 +322,15 @@ jobs:
       # un-validated. Before the tar artifact existed (Ticino era), all 4
       # legs paid the git-clone path unconditionally: ~12min combined wall on
       # run 28564001685 (~250k files/clone × 4, sequential).
+      - name: Restore cross-job shard clone cache
+        continue-on-error: true
+        uses: actions/cache/restore@v5
+        with:
+          path: ${{ runner.temp }}/shard-clone-cache
+          key: shard-clone-cache-${{ github.run_id }}-${{ github.job }}-restore
+          restore-keys: |
+            shard-clone-cache-${{ github.run_id }}-
+
       - name: Rehydrate locale then section shards into dist/ (when sharding active)
         env:
           GH_TOKEN: ${{ github.token }}
@@ -354,6 +363,7 @@ jobs:
           SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
           ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
           ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
+          SHARD_CLONE_CACHE_DIR: ${{ runner.temp }}/shard-clone-cache
         run: |
           bash scripts/lib/rehydrate-locale-shards.sh &
           LOCALE_PID=$!
@@ -378,6 +388,13 @@ jobs:
       # the reason named, instead of shipping a fabricated structural finding.
       - name: Assert dist/ is the complete logical site
         run: node scripts/ci/assert-dist-complete.mjs
+      - name: Save cross-job shard clone cache
+        if: always()
+        continue-on-error: true
+        uses: actions/cache/save@v5
+        with:
+          path: ${{ runner.temp }}/shard-clone-cache
+          key: shard-clone-cache-${{ github.run_id }}-${{ github.job }}-${{ github.run_attempt }}
 
       - name: Migrate all-known-job-slugs to canton-aware paths
         # Phase 8c: the committed `data/all-known-job-slugs.json` accumulates
@@ -670,6 +687,15 @@ jobs:
       # it's the bash body that's shared now, not the step itself — since
       # the post-build audits below walk the same logical site as the source
       # validators do and each job needs its own dist/ rehydrated.
+      - name: Restore cross-job shard clone cache
+        continue-on-error: true
+        uses: actions/cache/restore@v5
+        with:
+          path: ${{ runner.temp }}/shard-clone-cache
+          key: shard-clone-cache-${{ github.run_id }}-${{ github.job }}-restore
+          restore-keys: |
+            shard-clone-cache-${{ github.run_id }}-
+
       - name: Rehydrate locale then section shards into dist/ (when sharding active)
         env:
           GH_TOKEN: ${{ github.token }}
@@ -702,6 +728,7 @@ jobs:
           SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
           ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
           ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
+          SHARD_CLONE_CACHE_DIR: ${{ runner.temp }}/shard-clone-cache
         run: |
           bash scripts/lib/rehydrate-locale-shards.sh &
           LOCALE_PID=$!
@@ -726,6 +753,13 @@ jobs:
       # the reason named, instead of shipping a fabricated structural finding.
       - name: Assert dist/ is the complete logical site
         run: node scripts/ci/assert-dist-complete.mjs
+      - name: Save cross-job shard clone cache
+        if: always()
+        continue-on-error: true
+        uses: actions/cache/save@v5
+        with:
+          path: ${{ runner.temp }}/shard-clone-cache
+          key: shard-clone-cache-${{ github.run_id }}-${{ github.job }}-${{ github.run_attempt }}
 
       - name: Migrate all-known-job-slugs to canton-aware paths
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
@@ -1187,6 +1221,15 @@ jobs:
       # it's the bash body that's shared now, not the step itself — since
       # the post-build audits below walk the same logical site as the source
       # validators do and each job needs its own dist/ rehydrated.
+      - name: Restore cross-job shard clone cache
+        continue-on-error: true
+        uses: actions/cache/restore@v5
+        with:
+          path: ${{ runner.temp }}/shard-clone-cache
+          key: shard-clone-cache-${{ github.run_id }}-${{ github.job }}-restore
+          restore-keys: |
+            shard-clone-cache-${{ github.run_id }}-
+
       - name: Rehydrate locale then section shards into dist/ (when sharding active)
         env:
           GH_TOKEN: ${{ github.token }}
@@ -1219,6 +1262,7 @@ jobs:
           SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
           ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
           ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
+          SHARD_CLONE_CACHE_DIR: ${{ runner.temp }}/shard-clone-cache
         run: |
           bash scripts/lib/rehydrate-locale-shards.sh &
           LOCALE_PID=$!
@@ -1243,6 +1287,13 @@ jobs:
       # the reason named, instead of shipping a fabricated structural finding.
       - name: Assert dist/ is the complete logical site
         run: node scripts/ci/assert-dist-complete.mjs
+      - name: Save cross-job shard clone cache
+        if: always()
+        continue-on-error: true
+        uses: actions/cache/save@v5
+        with:
+          path: ${{ runner.temp }}/shard-clone-cache
+          key: shard-clone-cache-${{ github.run_id }}-${{ github.job }}-${{ github.run_attempt }}
 
       - name: Migrate all-known-job-slugs to canton-aware paths
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs

@@ -56,6 +56,9 @@ const NODE_RUNTIME_BY_ACTION = {
   'actions/checkout': { 1: 12, 2: 12, 3: 16, 4: 20, 5: 24 },
   'actions/setup-node': { 1: 12, 2: 12, 3: 16, 4: 20, 5: 24 },
   'actions/cache': { 1: 12, 2: 16, 3: 16, 4: 20, 5: 24 },
+  // Sub-actions of actions/cache; same repo, same major → same runtime.
+  'actions/cache/restore': { 1: 12, 2: 16, 3: 16, 4: 20, 5: 24 },
+  'actions/cache/save': { 1: 12, 2: 16, 3: 16, 4: 20, 5: 24 },
   'actions/upload-artifact': { 1: 12, 2: 16, 3: 16, 4: 20, 5: 20, 6: 24, 7: 24 },
   'actions/download-artifact': { 1: 12, 2: 16, 3: 16, 4: 20, 5: 20, 6: 24, 7: 24 },
   'actions/github-script': { 1: 12, 2: 12, 3: 12, 4: 12, 5: 16, 6: 16, 7: 20, 8: 24 },

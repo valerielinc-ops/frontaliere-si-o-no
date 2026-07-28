@@ -1,0 +1,209 @@
+name: Rerender Article Corpus
+
+# Issue #4881 Fase 4 — corpus-wide article re-render, off the site's critical
+# path. Two things are inherently corpus-wide and cannot be done incrementally
+# per-article (measured — see scripts/rerender-article-corpus.mjs's own header
+# comment for the full rationale):
+#   1. Related-articles blocks: publishing ONE article changes the related
+#      block of 100% of the section's OTHER articles (buildRelatedArticlesHtml
+#      always slots the newest article into every sibling's candidate list —
+#      confirmed 548/548 svizzera, 3023/3023 frontaliere at measurement time).
+#      The per-article fast-publish path (scripts/publish-article-fast.mjs,
+#      #4837) deliberately does NOT re-render siblings for this reason.
+#   2. Template drift safety net: once articles skip the full `vite build`
+#      (fast-publish path), that build's whole-corpus re-render stops acting
+#      as a safety net against template regressions. This workflow (reactive
+#      on template-file changes below, plus operator-dispatched) is the
+#      replacement — the periodic drift-audit script
+#      (scripts/audit-article-corpus-drift.mjs) is the read-only detection
+#      half of the same replacement.
+#
+# Renders via scripts/rerender-article-corpus.mjs, which calls the EXACT
+# renderArticlePages() export build-plugins/ogPagesPlugin.ts's `vite build`
+# path and the single-article fast-publish path both use, plus the same
+# post-render plugin functions (flatHtmlRedirectPlugin,
+# blogContextualLinksPlugin, hreflangPostprocessPlugin,
+# blogImageCdnFinalizePlugin) in the same order — one implementation, never a
+# fork. Pushes via the existing merge-aware, never-force
+# scripts/lib/push-article-shard-incremental.sh (no separate push step needed
+# here — the driver script does render + push in one invocation).
+#
+# Memory: renderArticlePages() is NEVER called unbounded here. The driver
+# chunks each section's article ids into batches and renders every batch in a
+# FRESH `npx tsx` subprocess — see the driver's header comment for why a fresh
+# process (not in-process sequential batching) is the actual memory-safety
+# mechanism, and why the batch size is a REASONED target, not a measured one
+# (no full local build is available to profile against).
+#
+# Wiring point (do not block on this): if a sibling effort
+# (feat/4881-hub-incremental) extracts an article-hub renderer to
+# build-plugins/shared/articleHubRenderer.ts, add that path to the `push:`
+# filter below alongside the other template files — a hub-renderer change is
+# exactly the class of change this workflow exists to catch corpus-wide.
+on:
+  workflow_dispatch:
+    inputs:
+      section:
+        description: 'Section to rerender (all = both frontaliere+svizzera, matches the push-trigger scope)'
+        type: choice
+        options:
+          - all
+          - frontaliere
+          - svizzera
+        default: all
+      locale:
+        description: 'Which locale shard(s) to PUSH (render always covers all 4 locales per article — see driver script)'
+        type: choice
+        options:
+          - all
+          - it
+          - en
+          - de
+          - fr
+        default: all
+      dry_run:
+        description: 'Render only, skip the shard push'
+        type: boolean
+        default: false
+      limit:
+        description: 'Max article ids per section (testing only — blank = full section)'
+        type: string
+        default: ''
+      batch_size:
+        description: 'Article ids per render subprocess batch (memory-bounded — see scripts/rerender-article-corpus.mjs header comment)'
+        type: string
+        default: '300'
+  push:
+    branches: [main]
+    paths:
+      - 'build-plugins/ogPagesPlugin.ts'
+      - 'build-plugins/shared/seoPageShell.ts'
+      - 'build-plugins/shared/articleSectionDescriptors.ts'
+      - 'build-plugins/blogContextualLinksPlugin.ts'
+      - 'build-plugins/flatHtmlRedirectPlugin.ts'
+      - 'build-plugins/hreflangPostprocessPlugin.ts'
+      - 'build-plugins/blogImageCdnFinalizePlugin.ts'
+      - 'scripts/rerender-article-corpus.mjs'
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  plan:
+    # Computes which section(s) run as separate matrix jobs below. A push
+    # trigger (template file changed on main) always means "rerender both —
+    # a shared template affects both sections identically". workflow_dispatch
+    # honors the operator's --section choice, defaulting to both.
+    runs-on: ubuntu-latest
+    outputs:
+      sections: ${{ steps.compute.outputs.sections }}
+    steps:
+      - id: compute
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.section }}" != "all" ]; then
+            echo 'sections=["${{ inputs.section }}"]' >> "$GITHUB_OUTPUT"
+          else
+            echo 'sections=["frontaliere","svizzera"]' >> "$GITHUB_OUTPUT"
+          fi
+
+  rerender:
+    needs: plan
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        section: ${{ fromJson(needs.plan.outputs.sections) }}
+    runs-on: ubuntu-latest
+    # Bounded per SECTION, not per whole corpus (~3023 frontaliere /
+    # ~548 svizzera articles) — see the driver script's header comment for
+    # the batching design this timeout budgets around. Generous ceiling;
+    # actual wall-time is expected to be dominated by `npx tsx` cold-start
+    # per batch + shard-push clone/push round trips, not render compute
+    # (see driver script's header comment — reasoned, not fully measured).
+    timeout-minutes: 180
+    # Serialize per SECTION: two runs targeting the SAME section could push
+    # overlapping article-id batches to the same 4 shard repos concurrently
+    # (unlike fast-publish-article.yml's per-ARTICLE concurrency, where
+    # concurrent runs on DIFFERENT articles are safe by construction — see
+    # that workflow's own concurrency-group comment). A queued run for a
+    # DIFFERENT section is a separate group and proceeds independently.
+    concurrency:
+      group: rerender-corpus-${{ matrix.section }}
+      cancel-in-progress: false
+    environment: shard-secrets-overflow
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "Firebase secrets not set — proceeding without (mirrors fast-publish-article.yml's own tolerant fallback)."
+          fi
+
+      # Same provider keys (R2/CDN etc.) the single-article fast-publish path
+      # loads before calling the identical post-render plugin functions this
+      # driver reuses — see scripts/load-rc-env.mjs's RC_TO_ENV mapping.
+      # Deliberately NO `npm ci`: the driver runs via `npx -y tsx@4`
+      # (on-demand, no repo install), same as publish-article-fast.mjs —
+      # this workflow exists precisely to stay off the full-install/full-build
+      # critical path.
+      - name: Load secrets from Remote Config (R2 + indexing)
+        run: node scripts/load-rc-env.mjs
+
+      - name: Rerender and push ${{ matrix.section }} corpus
+        id: render
+        env:
+          SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_FR_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/rerender-corpus
+          ARGS=(--section "${{ matrix.section }}" \
+                --locale "${{ inputs.locale || 'all' }}" \
+                --batch-size "${{ inputs.batch_size || '300' }}" \
+                --out /tmp/rerender-corpus/dist \
+                --manifest /tmp/rerender-corpus/manifest.json)
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            ARGS+=(--dry-run)
+          fi
+          if [ -n "${{ inputs.limit }}" ]; then
+            ARGS+=(--limit "${{ inputs.limit }}")
+          fi
+          # Pinned to the same tsx major package.json's devDependencies
+          # declares ("tsx": "^4.21.0"), matching publish-article-fast.mjs's
+          # own invocation — a future tsx major cannot silently change loader
+          # behaviour on this un-installed path.
+          npx -y tsx@4 scripts/rerender-article-corpus.mjs "${ARGS[@]}"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "rerender-article-corpus (${{ matrix.section }}) failed" \
+            --description "Corpus re-render for section '${{ matrix.section }}' failed (run ${{ github.run_id }}). Check https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --priority 2 \
+            --label rerender-corpus \
+            --workflow "Rerender Article Corpus"

@@ -1,0 +1,217 @@
+name: Compact article shard history
+
+# Issue #4881 defect B: push-section-shard.sh bounds `.git` growth on every
+# full-replace push by incrementing `.shard-deploys` and orphan-flattening
+# once SHARD_HISTORY_CAP (default 50) is reached. push-article-shard-
+# incremental.sh (the fast single-article publish path, issue #4837)
+# deliberately never increments that counter — correct in isolation (a fast
+# publish runs far more often than a full deploy and must not accelerate
+# that flatten cycle), but once a section's full-replace push stops running
+# entirely in favor of fast-publish-only, `.shard-deploys` freezes and
+# push-section-shard.sh's cap check never runs again for that shard: every
+# subsequent fast-publish appends one more commit forever, unbounded `.git`
+# growth (rehydrate clones, actions/checkout on any future maintenance,
+# GitHub's own repo-size UX all degrade with it).
+#
+# This workflow periodically invokes scripts/lib/compact-article-shard-
+# history.sh for EVERY (section, locale) shard — not just today's article
+# sections — because the fix measures REAL commit count via
+# shard_history_needs_compaction() (scripts/lib/shard-git-helpers.sh)
+# instead of relying on the `.shard-deploys` proxy: a shard still on the
+# full-replace path self-flattens via SHARD_HISTORY_CAP long before
+# ARTICLE_SHARD_HISTORY_CAP (500) real commits, so this is a cheap no-op for
+# it. No workflow change is needed the next time another section migrates
+# to incremental-only publishing.
+#
+# Runs on a weekly schedule (this is bookkeeping, not per-deploy hygiene —
+# a section publishing normally sits far below the cap between runs) plus
+# workflow_dispatch for on-demand runs. Mirrors deploy.yml's existing
+# bounded-parallel section-loop idiom (MAX_PARALLEL, pids/names arrays,
+# `|| fail=1`, final flush, `exit "$fail"`) so one shard's clone/push
+# failure never blocks the rest.
+
+on:
+  schedule:
+    - cron: '0 3 * * 0' # weekly, Sunday 03:00 UTC — quiet slot, mirrors worktree-branch-janitor.yml's off-peak convention
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: compact-article-shard-history
+  cancel-in-progress: false
+
+jobs:
+  compact:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Compact shard history (all sections x locales)
+        # No continue-on-error here (unlike deploy.yml's analogous step):
+        # that step protects the apex publish from an optional shard push
+        # failure; this workflow's ONLY job is the compaction itself, so a
+        # failure must surface as a real run failure, not a silently-green
+        # scheduled run. Per-section resilience (one shard's failure must
+        # not skip the rest) is handled INSIDE the loop below via `|| fail=1`
+        # + `::warning::`, same as deploy.yml — that is section-level
+        # fault-tolerance, not error-to-warning downgrade of the run itself.
+        env:
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          # One SHARD_<SECTION>_<LOCALE>_DEPLOY_KEY per (section, locale) —
+          # GitHub Actions cannot loop/inherit secrets in a top-level
+          # schedule/workflow_dispatch trigger (unlike workflow_call +
+          # secrets: inherit), so every key is declared individually here.
+          # Verbatim copy of deploy.yml's "Push section shards" step env
+          # block (same 27 sections x 4 locales = 108 keys) — duplicating
+          # the secret DECLARATIONS is the accepted, pre-existing pattern
+          # (already present twice in deploy.yml); the logic itself is not
+          # duplicated (compact-article-shard-history.sh + the shared
+          # shard-git-helpers.sh functions, sourced not copy-pasted).
+          SHARD_TICINO_IT_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_IT_DEPLOY_KEY }}
+          SHARD_TICINO_EN_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_EN_DEPLOY_KEY }}
+          SHARD_TICINO_DE_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_DE_DEPLOY_KEY }}
+          SHARD_TICINO_FR_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_FR_DEPLOY_KEY }}
+          SHARD_SVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_IT_DEPLOY_KEY }}
+          SHARD_SVIZZERA_EN_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_EN_DEPLOY_KEY }}
+          SHARD_SVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_DE_DEPLOY_KEY }}
+          SHARD_SVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_FR_DEPLOY_KEY }}
+          SHARD_ZURIGO_IT_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_IT_DEPLOY_KEY }}
+          SHARD_ZURIGO_EN_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_EN_DEPLOY_KEY }}
+          SHARD_ZURIGO_DE_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_DE_DEPLOY_KEY }}
+          SHARD_ZURIGO_FR_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_FR_DEPLOY_KEY }}
+          SHARD_ARGOVIA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_IT_DEPLOY_KEY }}
+          SHARD_ARGOVIA_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_EN_DEPLOY_KEY }}
+          SHARD_ARGOVIA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_DE_DEPLOY_KEY }}
+          SHARD_ARGOVIA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_FR_DEPLOY_KEY }}
+          SHARD_APPENZELLO_IT_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_IT_DEPLOY_KEY }}
+          SHARD_APPENZELLO_EN_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_EN_DEPLOY_KEY }}
+          SHARD_APPENZELLO_DE_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_DE_DEPLOY_KEY }}
+          SHARD_APPENZELLO_FR_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_FR_DEPLOY_KEY }}
+          SHARD_BASILEA_IT_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_IT_DEPLOY_KEY }}
+          SHARD_BASILEA_EN_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_EN_DEPLOY_KEY }}
+          SHARD_BASILEA_DE_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_DE_DEPLOY_KEY }}
+          SHARD_BASILEA_FR_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_FR_DEPLOY_KEY }}
+          SHARD_BERNA_IT_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_IT_DEPLOY_KEY }}
+          SHARD_BERNA_EN_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_EN_DEPLOY_KEY }}
+          SHARD_BERNA_DE_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_DE_DEPLOY_KEY }}
+          SHARD_BERNA_FR_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_FR_DEPLOY_KEY }}
+          SHARD_FRIBURGO_IT_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_IT_DEPLOY_KEY }}
+          SHARD_FRIBURGO_EN_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_EN_DEPLOY_KEY }}
+          SHARD_FRIBURGO_DE_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_DE_DEPLOY_KEY }}
+          SHARD_FRIBURGO_FR_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_FR_DEPLOY_KEY }}
+          SHARD_GINEVRA_IT_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_IT_DEPLOY_KEY }}
+          SHARD_GINEVRA_EN_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_EN_DEPLOY_KEY }}
+          SHARD_GINEVRA_DE_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_DE_DEPLOY_KEY }}
+          SHARD_GINEVRA_FR_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_FR_DEPLOY_KEY }}
+          SHARD_GLARONA_IT_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_IT_DEPLOY_KEY }}
+          SHARD_GLARONA_EN_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_EN_DEPLOY_KEY }}
+          SHARD_GLARONA_DE_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_DE_DEPLOY_KEY }}
+          SHARD_GLARONA_FR_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_FR_DEPLOY_KEY }}
+          SHARD_GRIGIONI_IT_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_IT_DEPLOY_KEY }}
+          SHARD_GRIGIONI_EN_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_EN_DEPLOY_KEY }}
+          SHARD_GRIGIONI_DE_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_DE_DEPLOY_KEY }}
+          SHARD_GRIGIONI_FR_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_FR_DEPLOY_KEY }}
+          SHARD_GIURA_IT_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_IT_DEPLOY_KEY }}
+          SHARD_GIURA_EN_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_EN_DEPLOY_KEY }}
+          SHARD_GIURA_DE_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_DE_DEPLOY_KEY }}
+          SHARD_GIURA_FR_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_FR_DEPLOY_KEY }}
+          SHARD_LUCERNA_IT_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_IT_DEPLOY_KEY }}
+          SHARD_LUCERNA_EN_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_EN_DEPLOY_KEY }}
+          SHARD_LUCERNA_DE_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_DE_DEPLOY_KEY }}
+          SHARD_LUCERNA_FR_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_FR_DEPLOY_KEY }}
+          SHARD_NEUCHATEL_IT_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_IT_DEPLOY_KEY }}
+          SHARD_NEUCHATEL_EN_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_EN_DEPLOY_KEY }}
+          SHARD_NEUCHATEL_DE_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_DE_DEPLOY_KEY }}
+          SHARD_NEUCHATEL_FR_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_FR_DEPLOY_KEY }}
+          SHARD_NIDVALDO_IT_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_IT_DEPLOY_KEY }}
+          SHARD_NIDVALDO_EN_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_EN_DEPLOY_KEY }}
+          SHARD_NIDVALDO_DE_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_DE_DEPLOY_KEY }}
+          SHARD_NIDVALDO_FR_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_FR_DEPLOY_KEY }}
+          SHARD_OBVALDO_IT_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_IT_DEPLOY_KEY }}
+          SHARD_OBVALDO_EN_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_EN_DEPLOY_KEY }}
+          SHARD_OBVALDO_DE_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_DE_DEPLOY_KEY }}
+          SHARD_OBVALDO_FR_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_FR_DEPLOY_KEY }}
+          SHARD_SCIAFFUSA_IT_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_IT_DEPLOY_KEY }}
+          SHARD_SCIAFFUSA_EN_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_EN_DEPLOY_KEY }}
+          SHARD_SCIAFFUSA_DE_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_DE_DEPLOY_KEY }}
+          SHARD_SCIAFFUSA_FR_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_FR_DEPLOY_KEY }}
+          SHARD_SOLETTA_IT_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_IT_DEPLOY_KEY }}
+          SHARD_SOLETTA_EN_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_EN_DEPLOY_KEY }}
+          SHARD_SOLETTA_DE_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_DE_DEPLOY_KEY }}
+          SHARD_SOLETTA_FR_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_FR_DEPLOY_KEY }}
+          SHARD_SVITTO_IT_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_IT_DEPLOY_KEY }}
+          SHARD_SVITTO_EN_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_EN_DEPLOY_KEY }}
+          SHARD_SVITTO_DE_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_DE_DEPLOY_KEY }}
+          SHARD_SVITTO_FR_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_FR_DEPLOY_KEY }}
+          SHARD_TURGOVIA_IT_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_IT_DEPLOY_KEY }}
+          SHARD_TURGOVIA_EN_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_EN_DEPLOY_KEY }}
+          SHARD_TURGOVIA_DE_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_DE_DEPLOY_KEY }}
+          SHARD_TURGOVIA_FR_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_FR_DEPLOY_KEY }}
+          SHARD_URI_IT_DEPLOY_KEY: ${{ secrets.SHARD_URI_IT_DEPLOY_KEY }}
+          SHARD_URI_EN_DEPLOY_KEY: ${{ secrets.SHARD_URI_EN_DEPLOY_KEY }}
+          SHARD_URI_DE_DEPLOY_KEY: ${{ secrets.SHARD_URI_DE_DEPLOY_KEY }}
+          SHARD_URI_FR_DEPLOY_KEY: ${{ secrets.SHARD_URI_FR_DEPLOY_KEY }}
+          SHARD_VAUD_IT_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_IT_DEPLOY_KEY }}
+          SHARD_VAUD_EN_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_EN_DEPLOY_KEY }}
+          SHARD_VAUD_DE_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_DE_DEPLOY_KEY }}
+          SHARD_VAUD_FR_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_FR_DEPLOY_KEY }}
+          SHARD_VALLESE_IT_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_IT_DEPLOY_KEY }}
+          SHARD_VALLESE_EN_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_EN_DEPLOY_KEY }}
+          SHARD_VALLESE_DE_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_DE_DEPLOY_KEY }}
+          SHARD_VALLESE_FR_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_FR_DEPLOY_KEY }}
+          SHARD_ZUGO_IT_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_IT_DEPLOY_KEY }}
+          SHARD_ZUGO_EN_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_EN_DEPLOY_KEY }}
+          SHARD_ZUGO_DE_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_DE_DEPLOY_KEY }}
+          SHARD_ZUGO_FR_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_FR_DEPLOY_KEY }}
+          SHARD_SANGALLO_IT_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_IT_DEPLOY_KEY }}
+          SHARD_SANGALLO_EN_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_EN_DEPLOY_KEY }}
+          SHARD_SANGALLO_DE_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_DE_DEPLOY_KEY }}
+          SHARD_SANGALLO_FR_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_FR_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_FR_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
+        run: |
+          set -uo pipefail
+          # Bounded-parallel driver over every (section, locale) shard —
+          # SAME idiom as deploy.yml's "Push section shards" step
+          # (MAX_PARALLEL, pids/names arrays, full-batch wait-on-fill, final
+          # flush, per-failure `::warning::` + `fail=1`, `exit "$fail"`),
+          # mirrored verbatim rather than approximated: deploy.yml batches
+          # ALL in-flight pids together and waits for the whole batch before
+          # launching the next MAX_PARALLEL, it does not use a `wait -n`
+          # rolling window. One shard's clone/push failure must never block
+          # the rest; compact-article-shard-history.sh itself already no-ops
+          # (exit 0) when a section+locale has no provisioned deploy key or
+          # is below the cap — a `fail=1` here means a REAL clone/push error.
+          MAX_PARALLEL=4
+          fail=0
+          pids=(); names=()
+          for section in $(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json); do
+            for loc in it en de fr; do
+              bash scripts/lib/compact-article-shard-history.sh "$section" "$loc" &
+              pids+=("$!"); names+=("$section-$loc")
+              if [ "${#pids[@]}" -ge "$MAX_PARALLEL" ]; then
+                for idx in "${!pids[@]}"; do
+                  wait "${pids[$idx]}" || { echo "::warning::${names[$idx]} shard history compaction failed — continuing to the next section"; fail=1; }
+                done
+                pids=(); names=()
+              fi
+            done
+          done
+          for idx in "${!pids[@]}"; do
+            wait "${pids[$idx]}" || { echo "::warning::${names[$idx]} shard history compaction failed — continuing to the next section"; fail=1; }
+          done
+
+          if [ "$fail" -ne 0 ]; then
+            echo "::error::one or more shard history compactions failed — see per-section warnings above"
+          fi
+          exit "$fail"
