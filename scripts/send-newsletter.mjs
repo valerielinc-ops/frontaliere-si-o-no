@@ -1591,6 +1591,9 @@ async function persistDelivery(recipient, messageId, meta) {
       // stays the moment the API call was made, unchanged.
       scheduled_for: meta.scheduledFor ?? null,
       send_time_source: meta.sendTimeSource ?? null,
+      // Operator QA send (mode==='test', single --target-email) — not real
+      // subscriber traffic; report-send-hour-impact.mjs excludes these.
+      is_operator_verification: meta.isOperatorVerification ?? false,
       sent_at: new Date(),
     }, { merge: true });
     // Maileroo's open/click webhooks carry only message_reference_id (no recipient,
@@ -2364,7 +2367,11 @@ async function main() {
 
     emails.push({
       recipient: subscriber,
-      meta: { campaignId, subject, variant, sendTimeSource, segment: articleContent.segment },
+      // is_operator_verification (#3798 report accuracy): mode==='test' sends go to a
+      // single --target-email for manual QA, not real subscriber traffic — flagged so
+      // report-send-hour-impact.mjs can exclude them instead of miscounting them as
+      // "immediate/pre-feature" sends.
+      meta: { campaignId, subject, variant, sendTimeSource, segment: articleContent.segment, isOperatorVerification: mode === 'test' },
       payload: {
         from: FROM_EMAIL,
         to: [subscriber.email],

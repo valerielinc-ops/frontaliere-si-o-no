@@ -807,11 +807,23 @@ describe('job alert maileroo meta — open/click attribution writer (#1140)', ()
       path.resolve(__dirname, '../scripts/send-job-alerts.mjs'),
       'utf8',
     );
-    // Both the first-send and retry sendEmailCascade calls must wire mailerooMetaOnSent.
-    const onSentWirings = src.match(/onSent:\s*mailerooMetaOnSent/g) || [];
+    // Both the first-send and retry sendEmailCascade calls must wire the same
+    // composed callback (sendEmailCascade only accepts one onSent).
+    const onSentWirings = src.match(/onSent:\s*onSentComposed/g) || [];
     expect(onSentWirings.length).toBeGreaterThanOrEqual(2);
     // Guard the retry call specifically.
-    expect(src).toMatch(/sendEmailCascade\(retryEmails,\s*\{[^}]*onSent:\s*mailerooMetaOnSent/s);
+    expect(src).toMatch(/sendEmailCascade\(retryEmails,\s*\{[^}]*onSent:\s*onSentComposed/s);
+  });
+
+  it('onSentComposed wires both maileroo meta persist and #3798 delivery persist', () => {
+    const src = fs.readFileSync(
+      path.resolve(__dirname, '../scripts/send-job-alerts.mjs'),
+      'utf8',
+    );
+    const fnMatch = src.match(/async function onSentComposed\(item, sendResult\) \{([\s\S]*?)\n\}/);
+    expect(fnMatch).not.toBeNull();
+    expect(fnMatch[1]).toMatch(/mailerooMetaOnSent\(item, sendResult\)/);
+    expect(fnMatch[1]).toMatch(/persistJobAlertDelivery\(item, sendResult\)/);
   });
 });
 

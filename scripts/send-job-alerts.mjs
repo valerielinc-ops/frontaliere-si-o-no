@@ -45,6 +45,7 @@ import { runWithConcurrency, checkPageBodyLive } from './lib/live-link-check.mjs
 import { computeScheduledSendAt, resolveEffectivePreferredHour, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
 import { resolveEffectiveJobAlertTier, JOB_ALERT_ENGAGEMENT_TIERS } from './lib/jobAlertEngagementTier.mjs';
 import { SLUG_TABLES } from '../services/routeSlugs.data.ts';
+import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1093,6 +1094,49 @@ export async function mailerooMetaOnSent(item, sendResult) {
   }
 }
 
+// Job-alert delivery record (#3798 report accuracy): mirrors send-newsletter.mjs's
+// persistDelivery, but keyed by alertId instead of campaignId — writes under
+// job_alert_subscribers/{email}/campaign_deliveries/{buildDeliveryDocId(alertId,
+// email)} so scripts/report-send-hour-impact.mjs's collectionGroup('campaign_deliveries')
+// query (previously job-alert-blind — job alerts only wrote alert_deliveries, a
+// differently-named/shaped subcollection) sees per-user send-time outcomes for
+// job alerts too. Used by both the first-send (sendBatch) and retry
+// (processRetryQueue) paths, same as mailerooMetaOnSent above.
+async function persistJobAlertDelivery(item, sendResult) {
+  const email = item.recipient?.email?.toLowerCase().trim();
+  const alertId = item.meta?.alertId;
+  if (!email || !alertId) return;
+  try {
+    const db = await getFirestoreAdmin();
+    const deliveryDocId = buildDeliveryDocId(alertId, email);
+    await db.collection('job_alert_subscribers').doc(email)
+      .collection('campaign_deliveries').doc(deliveryDocId).set({
+      email,
+      campaign_id: alertId,
+      message_id: sendResult?.messageId || null,
+      provider: sendResult?.provider || null,
+      // Per-user send-time (#3798): scheduledFor is the cascade's authoritative
+      // outcome (null when provider didn't honor/support scheduling), not just
+      // what was requested. sendTimeSource carries WHY it was requested
+      // (personal/global) — absent entirely for retries, which never resolve one.
+      scheduled_for: sendResult?.scheduledFor ?? null,
+      send_time_source: item.meta?.sendTimeSource ?? null,
+      is_operator_verification: !!item.meta?.isOperatorVerification,
+      sent_at: new Date(),
+    }, { merge: true });
+  } catch (e) {
+    console.warn('⚠️ Job-alert delivery persist failed:', e?.message);
+  }
+}
+
+// sendEmailCascade accepts a single onSent callback — compose both post-send
+// side effects here so both call sites (sendBatch, processRetryQueue) wire the
+// same behavior via one named reference.
+async function onSentComposed(item, sendResult) {
+  await mailerooMetaOnSent(item, sendResult);
+  await persistJobAlertDelivery(item, sendResult);
+}
+
 async function sendBatch(emails) {
   // Use cascade for bulk sending
   const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
@@ -1124,11 +1168,23 @@ async function sendBatch(emails) {
         ...(e.scheduledAt ? { scheduledAt: e.scheduledAt } : {}),
       },
       recipient: { email: e.to },
-      meta: { type: 'job-alert', alertId: e.alertId, sendTimeSource: e.sendTimeSource || null },
+      meta: {
+        type: 'job-alert',
+        alertId: e.alertId,
+        sendTimeSource: e.sendTimeSource || null,
+        // is_operator_verification (#3798 report accuracy): ALLOWED_EMAILS set means
+        // an operator verification run (parallel send-newsletter.mjs's mode==='test')
+        // targeting specific recipient(s), not real subscriber traffic — flagged so
+        // report-send-hour-impact.mjs can exclude it.
+        isOperatorVerification: !!ALLOWED_EMAILS,
+      },
     };
   });
 
-  const result = await sendEmailCascade(cascadeEmails, { concurrency: 3, onSent: mailerooMetaOnSent });
+  const result = await sendEmailCascade(cascadeEmails, {
+    concurrency: 3,
+    onSent: onSentComposed,
+  });
   logProviderSummary();
 
   // Per-user send-time observability (#3798 follow-up): the cascade returns
@@ -1239,7 +1295,10 @@ async function processRetryQueue(db) {
   // Pass the same onSent so retried emails also write a maileroo_message_meta
   // record — otherwise their open/click webhooks fall back to `skipped` (the exact
   // attribution bug fixed for the first-send path in #1135).
-  const result = await sendEmailCascade(retryEmails, { concurrency: 3, onSent: mailerooMetaOnSent });
+  const result = await sendEmailCascade(retryEmails, {
+    concurrency: 3,
+    onSent: onSentComposed,
+  });
   logProviderSummary();
 
   // Build a set of successfully sent recipient emails for lookup
