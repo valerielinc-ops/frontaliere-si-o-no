@@ -1639,6 +1639,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cerca-lavoro-svizzera-dal-estero.title': 'Guida completa per cercare lavoro in Svizzera dall\'estero',
     'blog.article.cerca-lavoro-svizzera-dal-estero.excerpt': 'Imposte, leggi, procedure: tutto ciò che devi sapere per cercare lavoro in Svizzera come frontaliere',
     'blog.article.cerca-lavoro-svizzera-dal-estero.imageAlt': 'Frontaliere che cerca lavoro in Svizzera',
+    'blog.article.zurich-procedimento-finma-licenziamenti.title': 'Zurich: licenziamenti dopo il procedimento Finma',
+    'blog.article.zurich-procedimento-finma-licenziamenti.excerpt': 'Il gruppo Zurich ha licenziato oltre una dozzina di dipendenti a seguito di un procedimento aperto dalla Finma su alcune polizze vita aziendali.',
+    'blog.article.zurich-procedimento-finma-licenziamenti.imageAlt': 'Sede assicurativa svizzera con skyline urbano',
 };
 
 export default blogMetaChIt;
