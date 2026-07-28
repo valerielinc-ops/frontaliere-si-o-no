@@ -4895,6 +4895,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'sika-crescita-semestre-bilancio',
+    category: 'novita',
+    date: '2026-07-28T07:56:12.318Z',
+    image: '/images/blog/sika-crescita-semestre-bilancio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

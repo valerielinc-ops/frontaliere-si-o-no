@@ -1,0 +1,40 @@
+{
+  "id": "sika-crescita-semestre-bilancio",
+  "slug": "sika-crescita-semestre-bilancio",
+  "publishedAt": "2026-07-28T07:56:16.438Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 2.5469436915043087,
+    "confidence": 0.8,
+    "finalScore": 2.037554953203447,
+    "topK": [
+      {
+        "slug": "svizzeri-scelgono-capitale-pensione",
+        "cosine": 0.8489812305014361
+      },
+      {
+        "slug": "mense-scolastiche-ticino-prezzi-2026",
+        "cosine": 0.8445824752247186
+      },
+      {
+        "slug": "chiasso-valore-economico-aggregazione",
+        "cosine": 0.838520934557745
+      },
+      {
+        "slug": "calo-frontalieri-non-tassa-salute",
+        "cosine": 0.8352740533467138
+      },
+      {
+        "slug": "franco-svizzero-a-valori-record-2026",
+        "cosine": 0.8346674371869743
+      }
+    ],
+    "score": 0.5093887383008617,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

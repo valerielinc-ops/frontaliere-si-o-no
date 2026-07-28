@@ -1633,6 +1633,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sulzer-primo-semestre-2026.title': 'Sulzer: moins d\'ordres, plus d\'utile',
     'blog.article.sulzer-primo-semestre-2026.excerpt': 'Le groupe suisse enregistre une baisse des commandes au premier semestre 2026, mais le bénéfice d\'exploitation augmente de 9,7 %.',
     'blog.article.sulzer-primo-semestre-2026.imageAlt': 'Une vue de Lugano avec le lac et le mont Bre.',
+    'blog.article.sika-crescita-semestre-bilancio.title': 'Sika : chiffre d\'affaires à 5,59 milliards au premier semestre',
+    'blog.article.sika-crescita-semestre-bilancio.excerpt': 'Le groupe zugais Sika clôture le semestre avec un chiffre d\'affaires de 5,59 milliards de francs. Croissance organique positive et prévisions revues à la hausse pour l\'année en cours.',
+    'blog.article.sika-crescita-semestre-bilancio.imageAlt': 'Siège social de Sika à Baar, Zoug',
 };
 
 export default blogMetaChFr;

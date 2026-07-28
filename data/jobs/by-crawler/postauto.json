@@ -59,15 +59,13 @@
         "ticket-controller-in-and-customer-advice-postauto-ag-chur",
         "controleur-de-billetterie-in-et-conseil-client-postauto-ag-chur",
         "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
-        "ticketkontrolleur-in-und-kundenberatung-post-2",
-        "ticketkontrolleur-in-und-kundenberatung-post"
+        "ticketkontrolleur-in-und-kundenberatung-post-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
           "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
-          "ticketkontrolleur-in-und-kundenberatung-post-2",
-          "ticketkontrolleur-in-und-kundenberatung-post"
+          "ticketkontrolleur-in-und-kundenberatung-post-2"
         ],
         "en": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
@@ -79,7 +77,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:34.678Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -160,7 +157,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:33.292Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -179,7 +175,7 @@
       "slug": "postbus-driver-in-postauto-chur",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-chur",
-        "en": "postbus-driver-in-postauto-ag-chur",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-chur",
         "fr": "pilote-postbus-in-postauto-chur"
       },
@@ -231,20 +227,16 @@
         "pilote-postbus-in-postauto-ag-chur",
         "autista-postbus-postauto-ag-chur",
         "postbus-driver-in-postauto-ag-chur-egmnfn",
-        "postauto-fahrer-in-post",
-        "postbus-driver-in-postauto-chur",
         "postbus-driver-in-postauto-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-chur",
-          "autista-postbus-postauto-ag-chur",
-          "postbus-driver-in-postauto-chur"
+          "autista-postbus-postauto-ag-chur"
         ],
         "en": [
           "postauto-fahrer-in-postauto-chur",
           "postbus-driver-in-postauto-ag-chur-egmnfn",
-          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-chur"
         ],
         "fr": [
@@ -253,7 +245,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:31.889Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -323,14 +314,12 @@
         "postauto-fahrer-in-postauto-sarnen",
         "postbus-driver-in-postauto-ag-sarnen",
         "pilote-postbus-in-postauto-ag-sarnen",
-        "autista-postbus-postauto-ag-sarnen",
-        "autista-postbus-postauto-sarnen"
+        "autista-postbus-postauto-ag-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-sarnen",
-          "autista-postbus-postauto-ag-sarnen",
-          "autista-postbus-postauto-sarnen"
+          "autista-postbus-postauto-ag-sarnen"
         ],
         "en": [
           "postauto-fahrer-in-postauto-sarnen",
@@ -342,7 +331,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:30.476Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -361,7 +349,7 @@
       "slug": "postbus-driver-in-postauto-stans",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-stans",
-        "en": "postbus-driver-in-postauto-ag-stans",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-stans",
         "fr": "pilote-postbus-in-postauto-stans"
       },
@@ -410,22 +398,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postauto-fahrer-in-postauto-stans",
-        "postauto-fahrer-in-post",
-        "postbus-driver-in-postauto-stans",
         "postbus-driver-in-postauto-ag-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-stans",
-          "postbus-driver-in-postauto-stans"
+          "postauto-fahrer-in-postauto-stans"
         ],
         "en": [
-          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-stans"
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:29.067Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -495,14 +478,12 @@
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
         "security-specialist-in-public-transport-postauto-ag-wallisellen",
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen",
-        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
-        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
+        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
-          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
-          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
+          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
@@ -581,13 +562,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur"
         ],
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
-          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
-          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
+          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
@@ -602,9 +581,7 @@
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
         "security-specialist-in-public-transport-postauto-ag-winterthur",
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
-        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
-        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
-        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
+        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur"
       ],
       "firstSeenAt": "2026-07-04T11:33:25.279Z",
       "salaryMin": 73500,
@@ -676,14 +653,12 @@
         "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
         "lateral-entrant-in-as-postbus-driver-in-postauto-ag-stans",
         "entree-laterale-in-comme-pilote-postbus-in-postauto-ag-stans",
-        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans",
-        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-stans"
+        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
           "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
-          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans",
-          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-stans"
+          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans"
         ],
         "en": [
           "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
@@ -695,7 +670,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:41:08.629Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -762,13 +736,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-chur",
-        "postbus-driver-in-postauto-ag-chur"
+        "postauto-fahrer-in-postauto-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-chur",
-          "postbus-driver-in-postauto-ag-chur"
+          "postauto-fahrer-in-postauto-chur"
         ],
         "en": [
           "postauto-fahrer-in-postauto-chur"
@@ -778,7 +750,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:15:02.400Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -859,7 +830,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:15:00.874Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -878,7 +848,7 @@
       "slug": "postbus-driver-in-postauto-trimmis",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-trimmis",
-        "en": "postbus-driver-in-postauto-ag-trimmis",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-trimmis",
         "fr": "pilote-postbus-in-postauto-trimmis"
       },
@@ -928,19 +898,15 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-trimmis",
         "pilote-postbus-in-postauto-ag-trimmis",
-        "postbus-driver-in-postauto-ag-trimmis",
-        "postauto-fahrer-in-post",
-        "postbus-driver-in-postauto-trimmis"
+        "postbus-driver-in-postauto-ag-trimmis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-trimmis",
-          "postbus-driver-in-postauto-ag-trimmis",
-          "postbus-driver-in-postauto-trimmis"
+          "postbus-driver-in-postauto-ag-trimmis"
         ],
         "en": [
           "postauto-fahrer-in-postauto-trimmis",
-          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-trimmis"
         ],
         "fr": [
@@ -949,7 +915,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:14:59.372Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1016,13 +981,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-lenzerheide-lai",
-        "postbus-driver-in-postauto-ag-lenzerheide-lai"
+        "postauto-fahrer-in-postauto-lenzerheide-lai"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-lenzerheide-lai",
-          "postbus-driver-in-postauto-ag-lenzerheide-lai"
+          "postauto-fahrer-in-postauto-lenzerheide-lai"
         ],
         "en": [
           "postauto-fahrer-in-postauto-lenzerheide-lai"
@@ -1032,7 +995,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:14:57.973Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1051,7 +1013,7 @@
       "slug": "postbus-driver-in-postauto-schiers",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-schiers",
-        "en": "postbus-driver-in-postauto-ag-schiers",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-schiers",
         "fr": "pilote-postbus-in-postauto-schiers"
       },
@@ -1101,19 +1063,15 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-schiers",
         "pilote-postbus-in-postauto-ag-schiers",
-        "postbus-driver-in-postauto-ag-schiers",
-        "postauto-fahrer-in-post",
-        "postbus-driver-in-postauto-schiers"
+        "postbus-driver-in-postauto-ag-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-schiers",
-          "postbus-driver-in-postauto-ag-schiers",
-          "postbus-driver-in-postauto-schiers"
+          "postbus-driver-in-postauto-ag-schiers"
         ],
         "en": [
           "postauto-fahrer-in-postauto-schiers",
-          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-schiers"
         ],
         "fr": [
@@ -1122,7 +1080,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:14:55.757Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1189,13 +1146,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-laax-gr",
-        "postbus-driver-in-postauto-ag-laax-gr"
+        "postauto-fahrer-in-postauto-laax-gr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-laax-gr",
-          "postbus-driver-in-postauto-ag-laax-gr"
+          "postauto-fahrer-in-postauto-laax-gr"
         ],
         "en": [
           "postauto-fahrer-in-postauto-laax-gr"
@@ -1205,7 +1160,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:23:45.073Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1224,7 +1178,7 @@
       "slug": "postbus-driver-in-postauto-endingen",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-endingen",
-        "en": "postbus-driver-in-postauto-ag-endingen",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-endingen",
         "fr": "pilote-postbus-in-postauto-endingen"
       },
@@ -1274,19 +1228,15 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-endingen",
         "pilote-postbus-in-postauto-ag-endingen",
-        "postbus-driver-in-postauto-ag-endingen",
-        "postauto-fahrer-in-post",
-        "postbus-driver-in-postauto-endingen"
+        "postbus-driver-in-postauto-ag-endingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-endingen",
-          "postbus-driver-in-postauto-ag-endingen",
-          "postbus-driver-in-postauto-endingen"
+          "postbus-driver-in-postauto-ag-endingen"
         ],
         "en": [
           "postauto-fahrer-in-postauto-endingen",
-          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-endingen"
         ],
         "fr": [
@@ -1295,7 +1245,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:23:43.698Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1362,13 +1311,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-ilanz",
-        "postbus-driver-in-postauto-ag-ilanz"
+        "postauto-fahrer-in-postauto-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-ilanz",
-          "postbus-driver-in-postauto-ag-ilanz"
+          "postauto-fahrer-in-postauto-ilanz"
         ],
         "en": [
           "postauto-fahrer-in-postauto-ilanz"
@@ -1378,7 +1325,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:19:18.739Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1397,7 +1343,7 @@
       "slug": "postbus-driver-in-postauto-wilderswil",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-wilderswil",
-        "en": "postbus-driver-postauto-ag-wilderswil",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-wilderswil",
         "fr": "pilote-postbus-in-postauto-wilderswil"
       },
@@ -1446,22 +1392,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postauto-fahrer-in-postauto-wilderswil",
-        "postauto-fahrer-in-post",
-        "postbus-driver-in-postauto-wilderswil",
         "postbus-driver-postauto-ag-wilderswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-wilderswil",
-          "postbus-driver-in-postauto-wilderswil"
+          "postauto-fahrer-in-postauto-wilderswil"
         ],
         "en": [
-          "postauto-fahrer-in-post",
           "postbus-driver-postauto-ag-wilderswil"
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:37.505Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1528,13 +1469,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-manager-in-geschaftskunden-arc-jurassien-postauto-basel",
-        "responsabile-vendite-nei-clienti-aziendali-arc-jurassien-postauto-ag-basel"
+        "sales-manager-in-geschaftskunden-arc-jurassien-postauto-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-manager-in-geschaftskunden-arc-jurassien-postauto-basel",
-          "responsabile-vendite-nei-clienti-aziendali-arc-jurassien-postauto-ag-basel"
+          "sales-manager-in-geschaftskunden-arc-jurassien-postauto-basel"
         ],
         "en": [
           "sales-manager-in-geschaftskunden-arc-jurassien-postauto-basel"
@@ -1610,17 +1549,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "safety-driver-amigo-postauto-altstatten-sg",
-        "driver-di-sicurezza-amigo-postauto-ag-altstatten-sg"
+        "safety-driver-amigo-postauto-altstatten-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "safety-driver-amigo-postauto-altstatten-sg",
-          "driver-di-sicurezza-amigo-postauto-ag-altstatten-sg"
+          "safety-driver-amigo-postauto-altstatten-sg"
         ]
       },
       "firstSeenAt": "2026-07-20T12:51:59.916Z",
-      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 98500,
       "baseSalary": {
@@ -1688,21 +1624,16 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-post"
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
         ],
         "it": [
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
-          "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf"
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
         ]
       },
       "previousSlugs": [
-        "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
-        "kundenbetreuer-in-flottenmanagement-geschaftskunden-post",
-        "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf"
+        "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
       ],
       "firstSeenAt": "2026-07-14T22:07:15.144Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1769,13 +1700,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-fahrpersonal-postauto-weinfelden",
-        "team-leader-nel-personale-di-guida-postauto-ag-weinfelden"
+        "teamleiter-in-fahrpersonal-postauto-weinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-fahrpersonal-postauto-weinfelden",
-          "team-leader-nel-personale-di-guida-postauto-ag-weinfelden"
+          "teamleiter-in-fahrpersonal-postauto-weinfelden"
         ],
         "en": [
           "teamleiter-in-fahrpersonal-postauto-weinfelden"
@@ -1851,13 +1780,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-appenzell",
-        "postbus-driver-in-postauto-ag-appenzell"
+        "postauto-fahrer-in-postauto-appenzell"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-appenzell",
-          "postbus-driver-in-postauto-ag-appenzell"
+          "postauto-fahrer-in-postauto-appenzell"
         ],
         "en": [
           "postauto-fahrer-in-postauto-appenzell"
@@ -1867,7 +1794,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T12:32:34.703Z",
-      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 98500,
       "baseSalary": {
@@ -1934,13 +1860,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen",
-        "key-account-manager-in-business-clienti-svizzera-orientale-postauto-ag-st-gallen"
+        "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen",
-          "key-account-manager-in-business-clienti-svizzera-orientale-postauto-ag-st-gallen"
+          "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen"
         ],
         "en": [
           "key-account-manager-in-geschaftskunden-ostschweiz-postauto-st-gallen"
@@ -1950,7 +1874,6 @@
         ]
       },
       "firstSeenAt": "2026-07-26T22:15:58.727Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1966,12 +1889,12 @@
     },
     {
       "id": "postauto-83917ae29257",
-      "slug": "co-teamleiter-in-fahrpersonal-postauto-ilanz",
+      "slug": "co-team-leader-nel-personale-di-guida-postauto-ag-ilanz",
       "slugByLocale": {
         "de": "co-teamleiter-in-fahrpersonal-postauto-ilanz",
-        "it": "co-teamleiter-in-fahrpersonal-postauto-ilanz",
-        "en": "co-teamleiter-in-fahrpersonal-postauto-ilanz",
-        "fr": "co-teamleiter-in-fahrpersonal-postauto-ilanz"
+        "it": "co-team-leader-nel-personale-di-guida-postauto-ag-ilanz",
+        "en": "co-team-leader-in-driving-personnel-postauto-ag-ilanz",
+        "fr": "co-chef-d-equipe-dans-le-personnel-de-conduite-postauto-ag-ilanz"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -1979,16 +1902,16 @@
       "title": "Co-Teamleiter:in Fahrpersonal",
       "titleByLocale": {
         "de": "Co-Teamleiter:in Fahrpersonal",
-        "it": "Co-Teamleiter:in Fahrpersonal",
-        "en": "Co-Teamleiter:in Fahrpersonal",
-        "fr": "Co-Teamleiter:in Fahrpersonal"
+        "it": "Co-team leader: nel personale di guida",
+        "en": "Co-team leader: in driving personnel",
+        "fr": "Co-chef d'équipe: dans le personnel de conduite"
       },
       "description": "Möchtest du aktiv zur Weiterentwicklung von PostAuto beitragen und Führungsverantwortung in einem modernen Co-Leitungsmodell übernehmen?\nAls Co-Teamleiter:in Fahrpersonal am Standort Ilanz gestaltest du gemeinsam mit deiner Co-Leitung die Führung und Entwicklung des Fahrpersonals. Ihr tragt gemeinsam die Verantwortung für einen stabilen und qualitativ hochwertigen Fahrdienst und teilt euch die Führungsaufgaben partnerschaftlich und auf Augenhöhe.\n\nDas kannst du bewirken\n\n- Gemeinsam mit deiner Co-Leitung führst, motivierst und entwickelst du das Fahrpersonal und sorgst für ein positives und wertschätzendes Arbeitsumfeld.\n\n- Du stellst gemeinsam mit deiner Co-Leitung sicher, dass die Personalressourcen für den Fahrdienst termingerecht und in hoher Qualität bereitgestellt werden.\n\n- Du begleitest die Mitarbeitenden über den gesamten HR-Lifecycle hinweg – von der Rekrutierung und Einführung bis zur individuellen Weiterentwicklung.\n\n- Du behältst relevante Kennzahlen wie Absenzen, Zeitsaldi und Fluktuation im Blick und leitest bei Bedarf Optimierungsmassnahmen ein.\n\n- Du gehst professionell mit Reklamationen, Unregelmässigkeiten und besonderen betrieblichen Situationen um.\n\n- Du unterstützt das Funktionieren des Betriebs vor Ort und arbeitest eng mit Leitstelle, Personaldisposition, Betriebsplanung und Flottenmanagement zusammen.\n\n- Neben deiner Führungsrolle 50% übernimmst du selbst Fahrdienste, sei es fix geplant oder zur Überbrückung von Engpässen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufsausbildung (EFZ) und hast eine Weiterbildung als Führungsfachfrau oder Führungsfachmann mit eidg. Fachausweis oder eine vergleichbare Qualifikation abgeschlossen – oder du bist bereit, diese in naher Zukunft zu absolvieren.\n\n- Erste Führungserfahrung sind von Vorteil, aber keine Voraussetzung – wichtiger ist deine Motivation, Verantwortung zu übernehmen und dich weiterzuentwickeln.\n\n- Du arbeitest gerne im Team und schätzt den Austausch sowie die partnerschaftliche Zusammenarbeit im Co-Leitungsmodell.\n\n- Mit deinen Kommunikationsfähigkeiten bringst du Menschen zusammen, führst Dialoge auf Augenhöhe und findest auch in schwierigen Situationen tragfähige Lösungen\n\n- Du bist konfliktfähig und trittst in Verhandlungen sowie Gesprächen mit Mitarbeitenden, Vorgesetzten, Vertreter:innen der PEKO und/oder Sozialpartner:innen stets professionell und souverän auf.\n\n- Du bist ein Organisationstalent und hast die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten.\n\n- Du verfügst über den Führerausweis der Kategorie D oder bist bereit, diesen zu erlangen.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
       "descriptionByLocale": {
         "de": "Möchtest du aktiv zur Weiterentwicklung von PostAuto beitragen und Führungsverantwortung in einem modernen Co-Leitungsmodell übernehmen?\nAls Co-Teamleiter:in Fahrpersonal am Standort Ilanz gestaltest du gemeinsam mit deiner Co-Leitung die Führung und Entwicklung des Fahrpersonals. Ihr tragt gemeinsam die Verantwortung für einen stabilen und qualitativ hochwertigen Fahrdienst und teilt euch die Führungsaufgaben partnerschaftlich und auf Augenhöhe.\n\nDas kannst du bewirken\n\n- Gemeinsam mit deiner Co-Leitung führst, motivierst und entwickelst du das Fahrpersonal und sorgst für ein positives und wertschätzendes Arbeitsumfeld.\n\n- Du stellst gemeinsam mit deiner Co-Leitung sicher, dass die Personalressourcen für den Fahrdienst termingerecht und in hoher Qualität bereitgestellt werden.\n\n- Du begleitest die Mitarbeitenden über den gesamten HR-Lifecycle hinweg – von der Rekrutierung und Einführung bis zur individuellen Weiterentwicklung.\n\n- Du behältst relevante Kennzahlen wie Absenzen, Zeitsaldi und Fluktuation im Blick und leitest bei Bedarf Optimierungsmassnahmen ein.\n\n- Du gehst professionell mit Reklamationen, Unregelmässigkeiten und besonderen betrieblichen Situationen um.\n\n- Du unterstützt das Funktionieren des Betriebs vor Ort und arbeitest eng mit Leitstelle, Personaldisposition, Betriebsplanung und Flottenmanagement zusammen.\n\n- Neben deiner Führungsrolle 50% übernimmst du selbst Fahrdienste, sei es fix geplant oder zur Überbrückung von Engpässen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufsausbildung (EFZ) und hast eine Weiterbildung als Führungsfachfrau oder Führungsfachmann mit eidg. Fachausweis oder eine vergleichbare Qualifikation abgeschlossen – oder du bist bereit, diese in naher Zukunft zu absolvieren.\n\n- Erste Führungserfahrung sind von Vorteil, aber keine Voraussetzung – wichtiger ist deine Motivation, Verantwortung zu übernehmen und dich weiterzuentwickeln.\n\n- Du arbeitest gerne im Team und schätzt den Austausch sowie die partnerschaftliche Zusammenarbeit im Co-Leitungsmodell.\n\n- Mit deinen Kommunikationsfähigkeiten bringst du Menschen zusammen, führst Dialoge auf Augenhöhe und findest auch in schwierigen Situationen tragfähige Lösungen\n\n- Du bist konfliktfähig und trittst in Verhandlungen sowie Gesprächen mit Mitarbeitenden, Vorgesetzten, Vertreter:innen der PEKO und/oder Sozialpartner:innen stets professionell und souverän auf.\n\n- Du bist ein Organisationstalent und hast die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten.\n\n- Du verfügst über den Führerausweis der Kategorie D oder bist bereit, diesen zu erlangen.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
-        "it": "Möchtest du aktiv zur Weiterentwicklung von PostAuto beitragen und Führungsverantwortung in einem modernen Co-Leitungsmodell übernehmen?\nAls Co-Teamleiter:in Fahrpersonal am Standort Ilanz gestaltest du gemeinsam mit deiner Co-Leitung die Führung und Entwicklung des Fahrpersonals. Ihr tragt gemeinsam die Verantwortung für einen stabilen und qualitativ hochwertigen Fahrdienst und teilt euch die Führungsaufgaben partnerschaftlich und auf Augenhöhe.\n\nDas kannst du bewirken\n\n- Gemeinsam mit deiner Co-Leitung führst, motivierst und entwickelst du das Fahrpersonal und sorgst für ein positives und wertschätzendes Arbeitsumfeld.\n\n- Du stellst gemeinsam mit deiner Co-Leitung sicher, dass die Personalressourcen für den Fahrdienst termingerecht und in hoher Qualität bereitgestellt werden.\n\n- Du begleitest die Mitarbeitenden über den gesamten HR-Lifecycle hinweg – von der Rekrutierung und Einführung bis zur individuellen Weiterentwicklung.\n\n- Du behältst relevante Kennzahlen wie Absenzen, Zeitsaldi und Fluktuation im Blick und leitest bei Bedarf Optimierungsmassnahmen ein.\n\n- Du gehst professionell mit Reklamationen, Unregelmässigkeiten und besonderen betrieblichen Situationen um.\n\n- Du unterstützt das Funktionieren des Betriebs vor Ort und arbeitest eng mit Leitstelle, Personaldisposition, Betriebsplanung und Flottenmanagement zusammen.\n\n- Neben deiner Führungsrolle 50% übernimmst du selbst Fahrdienste, sei es fix geplant oder zur Überbrückung von Engpässen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufsausbildung (EFZ) und hast eine Weiterbildung als Führungsfachfrau oder Führungsfachmann mit eidg. Fachausweis oder eine vergleichbare Qualifikation abgeschlossen – oder du bist bereit, diese in naher Zukunft zu absolvieren.\n\n- Erste Führungserfahrung sind von Vorteil, aber keine Voraussetzung – wichtiger ist deine Motivation, Verantwortung zu übernehmen und dich weiterzuentwickeln.\n\n- Du arbeitest gerne im Team und schätzt den Austausch sowie die partnerschaftliche Zusammenarbeit im Co-Leitungsmodell.\n\n- Mit deinen Kommunikationsfähigkeiten bringst du Menschen zusammen, führst Dialoge auf Augenhöhe und findest auch in schwierigen Situationen tragfähige Lösungen\n\n- Du bist konfliktfähig und trittst in Verhandlungen sowie Gesprächen mit Mitarbeitenden, Vorgesetzten, Vertreter:innen der PEKO und/oder Sozialpartner:innen stets professionell und souverän auf.\n\n- Du bist ein Organisationstalent und hast die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten.\n\n- Du verfügst über den Führerausweis der Kategorie D oder bist bereit, diesen zu erlangen.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
-        "en": "Möchtest du aktiv zur Weiterentwicklung von PostAuto beitragen und Führungsverantwortung in einem modernen Co-Leitungsmodell übernehmen?\nAls Co-Teamleiter:in Fahrpersonal am Standort Ilanz gestaltest du gemeinsam mit deiner Co-Leitung die Führung und Entwicklung des Fahrpersonals. Ihr tragt gemeinsam die Verantwortung für einen stabilen und qualitativ hochwertigen Fahrdienst und teilt euch die Führungsaufgaben partnerschaftlich und auf Augenhöhe.\n\nDas kannst du bewirken\n\n- Gemeinsam mit deiner Co-Leitung führst, motivierst und entwickelst du das Fahrpersonal und sorgst für ein positives und wertschätzendes Arbeitsumfeld.\n\n- Du stellst gemeinsam mit deiner Co-Leitung sicher, dass die Personalressourcen für den Fahrdienst termingerecht und in hoher Qualität bereitgestellt werden.\n\n- Du begleitest die Mitarbeitenden über den gesamten HR-Lifecycle hinweg – von der Rekrutierung und Einführung bis zur individuellen Weiterentwicklung.\n\n- Du behältst relevante Kennzahlen wie Absenzen, Zeitsaldi und Fluktuation im Blick und leitest bei Bedarf Optimierungsmassnahmen ein.\n\n- Du gehst professionell mit Reklamationen, Unregelmässigkeiten und besonderen betrieblichen Situationen um.\n\n- Du unterstützt das Funktionieren des Betriebs vor Ort und arbeitest eng mit Leitstelle, Personaldisposition, Betriebsplanung und Flottenmanagement zusammen.\n\n- Neben deiner Führungsrolle 50% übernimmst du selbst Fahrdienste, sei es fix geplant oder zur Überbrückung von Engpässen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufsausbildung (EFZ) und hast eine Weiterbildung als Führungsfachfrau oder Führungsfachmann mit eidg. Fachausweis oder eine vergleichbare Qualifikation abgeschlossen – oder du bist bereit, diese in naher Zukunft zu absolvieren.\n\n- Erste Führungserfahrung sind von Vorteil, aber keine Voraussetzung – wichtiger ist deine Motivation, Verantwortung zu übernehmen und dich weiterzuentwickeln.\n\n- Du arbeitest gerne im Team und schätzt den Austausch sowie die partnerschaftliche Zusammenarbeit im Co-Leitungsmodell.\n\n- Mit deinen Kommunikationsfähigkeiten bringst du Menschen zusammen, führst Dialoge auf Augenhöhe und findest auch in schwierigen Situationen tragfähige Lösungen\n\n- Du bist konfliktfähig und trittst in Verhandlungen sowie Gesprächen mit Mitarbeitenden, Vorgesetzten, Vertreter:innen der PEKO und/oder Sozialpartner:innen stets professionell und souverän auf.\n\n- Du bist ein Organisationstalent und hast die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten.\n\n- Du verfügst über den Führerausweis der Kategorie D oder bist bereit, diesen zu erlangen.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache.",
-        "fr": "Möchtest du aktiv zur Weiterentwicklung von PostAuto beitragen und Führungsverantwortung in einem modernen Co-Leitungsmodell übernehmen?\nAls Co-Teamleiter:in Fahrpersonal am Standort Ilanz gestaltest du gemeinsam mit deiner Co-Leitung die Führung und Entwicklung des Fahrpersonals. Ihr tragt gemeinsam die Verantwortung für einen stabilen und qualitativ hochwertigen Fahrdienst und teilt euch die Führungsaufgaben partnerschaftlich und auf Augenhöhe.\n\nDas kannst du bewirken\n\n- Gemeinsam mit deiner Co-Leitung führst, motivierst und entwickelst du das Fahrpersonal und sorgst für ein positives und wertschätzendes Arbeitsumfeld.\n\n- Du stellst gemeinsam mit deiner Co-Leitung sicher, dass die Personalressourcen für den Fahrdienst termingerecht und in hoher Qualität bereitgestellt werden.\n\n- Du begleitest die Mitarbeitenden über den gesamten HR-Lifecycle hinweg – von der Rekrutierung und Einführung bis zur individuellen Weiterentwicklung.\n\n- Du behältst relevante Kennzahlen wie Absenzen, Zeitsaldi und Fluktuation im Blick und leitest bei Bedarf Optimierungsmassnahmen ein.\n\n- Du gehst professionell mit Reklamationen, Unregelmässigkeiten und besonderen betrieblichen Situationen um.\n\n- Du unterstützt das Funktionieren des Betriebs vor Ort und arbeitest eng mit Leitstelle, Personaldisposition, Betriebsplanung und Flottenmanagement zusammen.\n\n- Neben deiner Führungsrolle 50% übernimmst du selbst Fahrdienste, sei es fix geplant oder zur Überbrückung von Engpässen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufsausbildung (EFZ) und hast eine Weiterbildung als Führungsfachfrau oder Führungsfachmann mit eidg. Fachausweis oder eine vergleichbare Qualifikation abgeschlossen – oder du bist bereit, diese in naher Zukunft zu absolvieren.\n\n- Erste Führungserfahrung sind von Vorteil, aber keine Voraussetzung – wichtiger ist deine Motivation, Verantwortung zu übernehmen und dich weiterzuentwickeln.\n\n- Du arbeitest gerne im Team und schätzt den Austausch sowie die partnerschaftliche Zusammenarbeit im Co-Leitungsmodell.\n\n- Mit deinen Kommunikationsfähigkeiten bringst du Menschen zusammen, führst Dialoge auf Augenhöhe und findest auch in schwierigen Situationen tragfähige Lösungen\n\n- Du bist konfliktfähig und trittst in Verhandlungen sowie Gesprächen mit Mitarbeitenden, Vorgesetzten, Vertreter:innen der PEKO und/oder Sozialpartner:innen stets professionell und souverän auf.\n\n- Du bist ein Organisationstalent und hast die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten.\n\n- Du verfügst über den Führerausweis der Kategorie D oder bist bereit, diesen zu erlangen.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und verfügst über gute (mündliche) Kenntnisse in einer zweiten Landessprache."
+        "it": "Vuoi contribuire attivamente all'ulteriore sviluppo di PostBus e assumersi la responsabilità di leadership in un moderno modello di cogestione?\nCome leader del team: nella guida del personale nella posizione di Ilanz, tu e la tua co-leader modellate la leadership e lo sviluppo del personale di guida. Condividi la responsabilità di un servizio di guida stabile e di alta qualità e condividi i compiti di gestione in partenariato e su un piano di parità.\n\nPuoi farlo.\n\n- Insieme alla vostra co-direzione, guidate, motivate e sviluppate il personale di guida e assicurate un ambiente di lavoro positivo e apprezzabile.\n\n- Insieme alla vostra cogestione, assicuratevi che le risorse del personale per il servizio di guida siano fornite in tempo e in alta qualità.\n\n- Si accompagnano i dipendenti in tutto il ciclo di vita delle risorse umane – dal reclutamento e dall'introduzione allo sviluppo individuale.\n\n- Tenere d'occhio i dati chiave rilevanti come assenze, bilanciamento del tempo e fluttuazione e avviare misure di ottimizzazione, se necessario.\n\n- Si tratta professionalmente di reclami, irregolarità e situazioni operative speciali.\n\n- Supporti il funzionamento dell'operazione in loco e lavori a stretto contatto con il centro di controllo, la gestione del personale, la pianificazione operativa e la gestione della flotta.\n\n- Oltre al vostro ruolo di leadership 50%, si prende su servizi di guida da soli, se è pianificato o ponte colli di bottiglia.\n\nLo porti con te.\n\n- Ha una formazione professionale completa (EFZ) e ha un'ulteriore formazione come manager o manager con la legge federale. Completato un certificato professionale o una qualifica paragonabile – o sei pronto a completarlo nel prossimo futuro.\n\n- L'esperienza di leadership iniziale è utile, ma non un prerequisito – più importante è la vostra motivazione a prendere responsabilità e sviluppare.\n\n- Ti piace lavorare in un team e apprezzare il partenariato di scambio e cooperazione nel modello di cogestione.\n\n- Con le vostre capacità di comunicazione, riunite le persone, dialogate a livello degli occhi e trovate soluzioni valide anche in situazioni difficili.\n\n- Siete in grado di contrastare e agire sempre professionalmente e sovranamente nei negoziati e nelle discussioni con dipendenti, superiori, rappresentanti di PEKO e/o partner sociali.\n\n- Sei un talento organizzativo e hai la capacità di tenere una panoramica anche in situazioni frenetiche.\n\n- Avete una patente di guida di categoria D o siete pronti per ottenerla.\n\n- Si comunica molto bene per via orale e per iscritto in tedesco e avere buone conoscenze (orali) in una seconda lingua nazionale.",
+        "en": "Do you want to actively contribute to the further development of PostBus and assume leadership responsibility in a modern co-management model?\nAs co-team leader: in driving personnel at the Ilanz location, you and your co-leader shape the leadership and development of the driving personnel. You share the responsibility for a stable and high-quality driving service and share the management tasks in partnership and on an equal footing.\n\nYou can do that.\n\n- Together with your co-direction, you lead, motivate and develop the driving staff and ensure a positive and appreciative working environment.\n\n- Together with your co-management, you ensure that the personnel resources for the driving service are provided on time and in high quality.\n\n- You accompany employees throughout the entire HR lifecycle – from recruitment and introduction to individual development.\n\n- You keep an eye on relevant key figures such as absences, time balance and fluctuation and initiate optimization measures if necessary.\n\n- You deal professionally with complaints, irregularities and special operational situations.\n\n- You support the functioning of the operation on site and work closely with control center, personnel management, operational planning and fleet management.\n\n- In addition to your leadership role 50%, you take on driving services yourself, whether it is planned or to bridge bottlenecks.\n\nYou bring that with you\n\n- You have a completed vocational training (EFZ) and have a further education as a manager or manager with federal law. Completed a professional certificate or a comparable qualification – or you are ready to complete it in the near future.\n\n- Initial leadership experience is beneficial, but not a prerequisite – more important is your motivation to take responsibility and develop.\n\n- You enjoy working in a team and appreciate the exchange and cooperative partnership in the co-management model.\n\n- With your communication skills, you bring people together, engage in dialogue at eye level and find viable solutions even in difficult situations.\n\n- You are capable of conflict and always act professionally and sovereignly in negotiations and discussions with employees, superiors, representatives of PEKO and/or social partners.\n\n- You are an organizational talent and have the ability to keep an overview even in hectic situations.\n\n- You have a category D driving licence or are ready to obtain it.\n\n- You communicate very well orally and in writing in German and have good (oral) knowledge in a second national language.",
+        "fr": "Voulez-vous contribuer activement au développement de PostBus et assumer la responsabilité de leadership dans un modèle de cogestion moderne?\nEn tant que co-chef d'équipe : en tant que chauffeur à l'emplacement d'Ilanz, vous et votre co-chef façonnez le leadership et le développement du personnel de conduite. Vous partagez la responsabilité d'un service de conduite stable et de qualité et partagez les tâches de gestion en partenariat et sur un pied d'égalité.\n\nTu peux le faire.\n\n- Avec votre co-direction, vous dirigez, motivez et développez le personnel de conduite et assurez un environnement de travail positif et apprécié.\n\n- Avec votre cogestion, vous veillez à ce que les ressources humaines du service de conduite soient fournies à temps et en qualité.\n\n- Vous accompagnez les employés tout au long du cycle de vie des RH – du recrutement et de l'introduction au développement individuel.\n\n- Vous gardez un œil sur les chiffres clés pertinents tels que les absences, l'équilibre temporel et les fluctuations et initiez des mesures d'optimisation si nécessaire.\n\n- Vous traitez professionnellement les plaintes, les irrégularités et les situations opérationnelles spéciales.\n\n- Vous soutenez le fonctionnement de l'opération sur place et travaillez en étroite collaboration avec le centre de contrôle, la gestion du personnel, la planification opérationnelle et la gestion de la flotte.\n\n- En plus de votre rôle de leader 50 %, vous prenez vous-même les services de conduite, qu'il soit prévu ou de combler les goulets d'étranglement.\n\nApporte ça avec toi.\n\n- Vous avez une formation professionnelle terminée (EFZ) et avez une formation complémentaire en tant que gestionnaire ou gestionnaire en droit fédéral. A complété un certificat professionnel ou une qualification comparable – ou vous êtes prêt à le compléter dans un proche avenir.\n\n- L'expérience initiale en leadership est bénéfique, mais pas une condition préalable.\n\n- Vous aimez travailler en équipe et apprécier l'échange et le partenariat coopératif dans le modèle de cogestion.\n\n- Avec vos compétences en communication, vous rassemblez les gens, vous engagez dans le dialogue au niveau des yeux et trouvez des solutions viables même dans des situations difficiles.\n\n- Vous êtes capable de conflit et agissez toujours de manière professionnelle et souveraine dans les négociations et les discussions avec les employés, les supérieurs, les représentants de PEKO et/ou les partenaires sociaux.\n\n- Vous êtes un talent organisationnel et avez la capacité de garder un aperçu même dans des situations agitées.\n\n- Vous avez un permis de conduire de catégorie D ou êtes prêt à l'obtenir.\n\n- Vous communiquez très bien oralement et par écrit en allemand et avez une bonne (orale) connaissance dans une deuxième langue nationale."
       },
       "location": "Ilanz",
       "canton": "GR",
@@ -2018,7 +1941,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2031,7 +1953,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-27T22:23:16.758Z"
+      "firstSeenAt": "2026-07-27T22:23:16.758Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "co-teamleiter-in-fahrpersonal-postauto-ilanz"
+        ],
+        "en": [
+          "co-teamleiter-in-fahrpersonal-postauto-ilanz"
+        ],
+        "fr": [
+          "co-teamleiter-in-fahrpersonal-postauto-ilanz"
+        ]
+      },
+      "previousSlugs": [
+        "co-teamleiter-in-fahrpersonal-postauto-ilanz"
+      ]
     }
   ]
 }

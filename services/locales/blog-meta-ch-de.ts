@@ -1633,6 +1633,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sulzer-primo-semestre-2026.title': 'Sulzer: Weniger Aufträge im ersten Halbjahr, aber höheres operatives Ergebnis',
     'blog.article.sulzer-primo-semestre-2026.excerpt': 'Der Schweizer Konzern verzeichnet im ersten Halbjahr 2026 einen Auftragsrückgang, das operative Ergebnis steigt jedoch um 9,7 Prozent.',
     'blog.article.sulzer-primo-semestre-2026.imageAlt': 'Ein Panorama von Lugano mit dem See und dem Monte Bre.',
+    'blog.article.sika-crescita-semestre-bilancio.title': 'Sika: Umsatz im ersten Halbjahr auf 5,59 Milliarden',
+    'blog.article.sika-crescita-semestre-bilancio.excerpt': 'Die Zuger Sika-Gruppe schliesst das Halbjahr mit einem Umsatz von 5,59 Milliarden Franken ab. Positives organisches Wachstum und erhöhte Prognosen für das laufende Jahr.',
+    'blog.article.sika-crescita-semestre-bilancio.imageAlt': 'Sika Hauptsitz in Baar, Zug',
 };
 
 export default blogMetaChDe;
