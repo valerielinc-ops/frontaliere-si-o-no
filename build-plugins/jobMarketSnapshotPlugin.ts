@@ -48,6 +48,7 @@ import {
   DRIVEBY_AD_SNIPPET,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { renderGuideHubBridge } from './shared/guideHubBridge';
 import { renderHreflangTags } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
 import {
@@ -3318,6 +3319,7 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
       const sitemapEntries: string[] = [];
       let pagesWritten = 0;
       let skippedForWordCount = 0;
+      let bridgesWritten = 0;
 
       for (const [path, html] of Object.entries(pages)) {
         const isHub = JOB_MARKET_SNAPSHOT_LOCALES.some((loc) => buildHubPath(loc) === path);
@@ -3325,7 +3327,10 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
         const words = countHtmlBodyWords(html);
         if (words < Math.max(MIN_INDEXABLE_WORDS, minWords)) {
           skippedForWordCount++;
-          console.warn(`[job-market-snapshot] thin content (${words} words) for ${path} — skipping`);
+          console.warn(`[job-market-snapshot] thin content (${words} words) for ${path} — bridging`);
+          const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+          collector.add(np.join(outDir, 'index.html'), renderGuideHubBridge(path));
+          bridgesWritten++;
           continue;
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
@@ -3377,7 +3382,7 @@ ${sitemapEntries.join('\n')}
 
       const sectorPagesCount = Object.keys(sectorOutput.pages).length;
       console.log(
-        `\x1b[36m[job-market-snapshot]\x1b[0m Generated ${pagesWritten} pages (skipped ${skippedForWordCount}, degraded=${degraded}, sector=${sectorPagesCount})`,
+        `\x1b[36m[job-market-snapshot]\x1b[0m Generated ${pagesWritten} pages (skipped ${skippedForWordCount}, bridged ${bridgesWritten}, degraded=${degraded}, sector=${sectorPagesCount})`,
       );
 
       // Always-run: patch sitemap.xml index `<lastmod>` for the

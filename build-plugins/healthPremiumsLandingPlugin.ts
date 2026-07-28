@@ -33,6 +33,7 @@ import {
   DRIVEBY_AD_SNIPPET,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { renderGuideHubBridge } from './shared/guideHubBridge';
 import { buildDayStampIso } from './shared/buildDayStamp';
 import { renderHreflangTags } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
@@ -3405,6 +3406,7 @@ export function healthPremiumsLandingPlugin(rootDir: string): Plugin {
       });
       let pagesWritten = 0;
       let skippedForWordCount = 0;
+      let bridgesWritten = 0;
       const writtenPaths: string[] = [];
 
       for (const [pageRel, html] of Object.entries(pages)) {
@@ -3414,6 +3416,9 @@ export function healthPremiumsLandingPlugin(rootDir: string): Plugin {
           console.warn(
             `[health-premiums] thin content (${words} words) for ${pageRel} — skipping`,
           );
+          const outDir = np.join(distDir, pageRel.replace(/^\/+/, ''));
+          collector.add(np.join(outDir, 'index.html'), renderGuideHubBridge(pageRel));
+          bridgesWritten++;
           continue;
         }
         const outDir = np.join(distDir, pageRel.replace(/^\/+/, ''));
@@ -3452,7 +3457,7 @@ export function healthPremiumsLandingPlugin(rootDir: string): Plugin {
       }
 
       console.log(
-        `\x1b[36m[health-premiums]\x1b[0m Generated ${pagesWritten} pages (skipped ${skippedForWordCount} thin; missing cantons: ${skippedCantons.length > 0 ? skippedCantons.join(',') : 'none'}; YoY active on ${yoyActive}/${HEALTH_PREMIUM_CANTONS.length} cantons; tri-year trend active on ${triYearActive}/${HEALTH_PREMIUM_CANTONS.length} cantons)`,
+        `\x1b[36m[health-premiums]\x1b[0m Generated ${pagesWritten} pages (skipped ${skippedForWordCount} thin, bridged ${bridgesWritten}; missing cantons: ${skippedCantons.length > 0 ? skippedCantons.join(',') : 'none'}; YoY active on ${yoyActive}/${HEALTH_PREMIUM_CANTONS.length} cantons; tri-year trend active on ${triYearActive}/${HEALTH_PREMIUM_CANTONS.length} cantons)`,
       );
 
       // Always-run: patch sitemap.xml index `<lastmod>` for the

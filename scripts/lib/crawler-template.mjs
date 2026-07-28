@@ -364,6 +364,15 @@ export function cleanCrawlerArtifacts(text) {
 
   // 1. Drop empty / whitespace-only bolds (e.g. "** **", "**  **", "** : **")
   s = s.replace(/\*\*\s*[\s:;,.\-–—]*\s*\*\*/g, ' ');
+  // 1a. Odd `**` count (source truncated the closing marker) survives the
+  // pair-matching replace above untouched — same gap guarded in the runtime
+  // parser (build-plugins/shared/jobDescription/parser.ts) and
+  // free-translate.mjs; mirrored here so a stray marker can't reach
+  // data/jobs.json even before any renderer runs (#4553).
+  const doubleStars = (s.match(/\*\*/g) || []).length;
+  if (doubleStars % 2 !== 0) {
+    s = s.replace(/\*\*/g, '');
+  }
 
   // 1b. Convert mid-line separator runs (3+ `_`/`=`/`~`) to paragraph breaks.
   // AI-translation flattening occasionally collapses paragraph boundaries

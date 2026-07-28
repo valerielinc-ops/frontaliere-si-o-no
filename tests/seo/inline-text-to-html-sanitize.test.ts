@@ -105,6 +105,24 @@ describe('inlineTextToHtml — passthrough HTML attribute sanitization', () => {
     });
   });
 
+  // Regression (#4553): odd `**` count in a structural-tag string (source
+  // truncated the closing marker) must be stripped, not left literal —
+  // computeJobDescriptionTextToHtml already guards this; inlineTextToHtml's
+  // own structural-tag branch was missing the same guard.
+  describe('odd ** count scrub (audit:no-literal-markdown 0-tol)', () => {
+    it('strips an unbalanced ** when a structural tag is present', () => {
+      const input = '<br>Salary is **CHF 90000 per year';
+      const out = inlineTextToHtml(input);
+      expect(out).not.toMatch(/\*\*/);
+      expect(out).toContain('CHF 90000 per year');
+    });
+    it('still converts balanced **bold** pairs alongside a stray **', () => {
+      const input = '<br>**Bold** text then a stray ** marker';
+      const out = inlineTextToHtml(input);
+      expect(out).not.toMatch(/\*\*/);
+    });
+  });
+
   it('Bachem real-world fixture', () => {
     const input =
       'Ihre Aufgaben:\n\n<span style="font-size:12.0pt;line-height:107%;font-family:"Times New Roman", serif;">' +
