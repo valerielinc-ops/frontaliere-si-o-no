@@ -13,19 +13,7 @@
 
 import { describe, it, expect } from 'vitest';
 import { borderCrossings } from '../../data/borderCrossings';
-
-// Mirror of FrontierGuide.tsx#slugifyCrossingName — kept in sync manually.
-// If this test breaks, update the component function to match.
-function slugifyCrossingName(name: string): string {
-  return name
-    .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/\([^)]*\)/g, '')
-    .replace(/[^a-zA-Z0-9]+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '')
-    .toLowerCase();
-}
+import { slugifyCrossingName } from '../../services/borderCrossingSlug';
 
 function buildDetailHref(slug: string): string {
   return `/traffico-dogane/${slug}/oggi/`;

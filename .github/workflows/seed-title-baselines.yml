@@ -67,6 +67,13 @@ jobs:
     # title-length scan alone before the step-2 scan got cut off mid-run.
     # 280 assumes ~47min setup + ~75min/scan × 3 ≈ 272min, with headroom.
     timeout-minutes: 280
+    # Same walker family as the audits in post-deploy-validate-dist.yml, which
+    # runs audit-title-length / audit-title-no-disambig-hash /
+    # audit-h1-title-duplicates inside `npm run audit:all` at 4096. Mirror that
+    # here so a manual reseed on a complete dist can't die on the default heap
+    # (issue #4857).
+    env:
+      NODE_OPTIONS: '--max-old-space-size=4096'
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -184,6 +191,14 @@ jobs:
         run: |
           echo "Full dist/ after rehydrate: $(find dist -type f | wc -l) files; HTML: $(find dist -name '*.html' | wc -l)"
           df -h / | tail -1
+
+      # A baseline is worse than an audit to get wrong: the section rehydrate
+      # above is soft-fail by contract, and pages missing from dist/ drop out
+      # of the seeded title/H1 counts — locking in numbers the next comparison
+      # treats as the accepted norm. Refuse to seed from a partial dist
+      # (issue #4857).
+      - name: Assert dist/ is the complete logical site
+        run: node scripts/ci/assert-dist-complete.mjs
 
       - name: Generate title-length baseline
         run: |

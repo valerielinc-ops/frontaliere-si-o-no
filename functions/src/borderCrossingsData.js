@@ -6,13 +6,40 @@
  */
 
 /**
+ * Explicit per-name overrides for crossings whose display name collides with
+ * another crossing's slug under the general rule below (issue #4890): the
+ * general rule strips parenthetical content, and 'Widnau-Lustenau
+ * (Wiesenrain)' / 'Widnau-Lustenau (Schmitterbrücke)' both reduce to
+ * "widnau-lustenau". 'Wiesenrain' keeps the unchanged slug (it is the first
+ * of the two in this file / data/borderCrossings.ts); 'Schmitterbrücke' gets
+ * this override instead. Neither crossing has a public /traffico-dogane/
+ * page, so no redirect is needed — do NOT change the general rule itself, 5
+ * other crossings (incl. the primary Chiasso Centro one) have indexed URLs
+ * that depend on parens being stripped.
+ *
+ * Mirror of the override in services/borderCrossingSlug.ts — keep both in
+ * sync by hand (see file header). Anti-collision regression coverage lives
+ * in tests/border-crossing-slug-collision.test.ts.
+ *
+ * @type {Record<string, string>}
+ */
+const CROSSING_SLUG_OVERRIDES = {
+ 'Widnau-Lustenau (Schmitterbrücke)': 'widnau-lustenau-schmitterbrucke',
+};
+
+/**
  * Converts a crossing name to a URL-safe slug.
- * Must stay in sync with slugifyCrossingName() in TrafficAlerts.tsx.
+ * Must stay in sync with slugifyCrossingName() in services/borderCrossingSlug.ts
+ * (the app-layer copy — cannot share a module across the bundler boundary).
  *
  * @param {string} name
  * @returns {string}
  */
 export function slugifyCrossingName(name) {
+ const override = CROSSING_SLUG_OVERRIDES[name];
+ if (override) {
+ return override;
+ }
  return name
  .normalize('NFKD')
  .replace(/[\u0300-\u036f]/g, '')

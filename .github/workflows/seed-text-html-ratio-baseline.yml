@@ -72,6 +72,12 @@ jobs:
     # legs per post-deploy-validate-dist.yml's own measured worst case) when
     # the same-run tar artifacts are missing, so give it the same headroom.
     timeout-minutes: 60
+    # Same walker family as the audits in post-deploy-validate-dist.yml, which
+    # runs audit-text-html-ratio inside `npm run audit:all` at 4096. Mirror that
+    # here so a manual reseed on a complete dist can't die on the default heap
+    # (issue #4857).
+    env:
+      NODE_OPTIONS: '--max-old-space-size=4096'
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -188,6 +194,14 @@ jobs:
         run: |
           echo "Full dist/ after rehydrate: $(find dist -type f | wc -l) files; HTML: $(find dist -name '*.html' | wc -l)"
           df -h / | tail -1
+
+      # A baseline is worse than an audit to get wrong: the section rehydrate
+      # above is soft-fail by contract, and pages missing from dist/ simply
+      # drop out of the seeded rate — locking in a ratio the next comparison
+      # then treats as the accepted norm. Refuse to seed from a partial dist
+      # (issue #4857).
+      - name: Assert dist/ is the complete logical site
+        run: node scripts/ci/assert-dist-complete.mjs
 
       - name: Generate text-html-ratio baseline
         run: |
