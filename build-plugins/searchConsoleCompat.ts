@@ -29,6 +29,7 @@ import {
 import { EVENTS_INDEX_PATH } from '../scripts/lib/events-utils.mjs';
 import { isExchangeSsgPath } from './exchangeRateSsgData';
 import { isFiscalMunicipalityPath } from './fiscalMunicipalityData';
+import { isFrenchBorderMunicipalityPath } from './frenchBorderMunicipalityData';
 
 type SupportedLocale = CantonLocale;
 
@@ -581,6 +582,21 @@ export function resolveSearchConsoleCompatTarget(
  // isFiscalMunicipalityPath checks a module-load-precomputed Set, so this
  // stays O(1) per call inside the 150k+-path compat loop.
  if (isFiscalMunicipalityPath(path)) {
+ return {
+ canonicalPath: ensureTrailingSlash(path),
+ kind: 'legacy',
+ locale,
+ };
+ }
+
+ // Per-municipality FRANCE border pages (frenchBorderMunicipalityPagesPlugin.ts,
+ // issue #4545): every commune in data/french-border-municipalities.json is
+ // emitted at its enumerated path on EVERY build — above-floor communes as an
+ // indexable page, below-floor communes as a noindex,follow bridge — always
+ // at the SAME URL. Same self-map rationale as the fiscal branch above.
+ // isFrenchBorderMunicipalityPath checks a module-load-precomputed Set, so
+ // this stays O(1) per call inside the 150k+-path compat loop.
+ if (isFrenchBorderMunicipalityPath(path)) {
  return {
  canonicalPath: ensureTrailingSlash(path),
  kind: 'legacy',

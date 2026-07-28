@@ -4,6 +4,11 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 import { resolveSearchConsoleCompatTarget } from '@/build-plugins/searchConsoleCompat';
+import {
+  FRENCH_ABOVE_FLOOR,
+  FRENCH_BELOW_FLOOR,
+  frenchMunicipalityPathFor,
+} from '@/build-plugins/frenchBorderMunicipalityData';
 import { readCompatPaths } from '@/scripts/lib/compat-paths-store.mjs';
 import searchClusterMapFile from '@/data/search-cluster-301-map.json';
 
@@ -536,6 +541,42 @@ describe('Search Console 404 compatibility resolver', () => {
     // A profession/canton slug NOT in the enumeration must not false-positive.
     expect(resolveSearchConsoleCompatTarget('/de/arbeit-aargau-not-a-real-profession')).not.toEqual(
       expect.objectContaining({ canonicalPath: '/de/arbeit-aargau-not-a-real-profession/' }),
+    );
+  });
+
+  it('self-maps a FR border-municipality URL to its own live page (issue #4545, above-floor page or below-floor bridge)', () => {
+    // frenchBorderMunicipalityPagesPlugin.ts emits EVERY commune in
+    // data/french-border-municipalities.json unconditionally (above-floor as
+    // a full page, below-floor as a noindex,follow bridge) at the SAME path
+    // every build — same self-map rationale as the fiscal/profession-canton
+    // branches above. Data-driven off the live dataset so this survives
+    // dataset regeneration without hard-coding a commune slug.
+    const above = FRENCH_ABOVE_FLOOR[0];
+    const below = FRENCH_BELOW_FLOOR[0];
+    expect(above, 'dataset must have at least one above-floor commune').toBeTruthy();
+    expect(below, 'dataset must have at least one below-floor commune').toBeTruthy();
+
+    const aboveItPath = frenchMunicipalityPathFor('it', above.slug);
+    expect(resolveSearchConsoleCompatTarget(aboveItPath.slice(0, -1))).toEqual({
+      canonicalPath: aboveItPath,
+      kind: 'legacy',
+      locale: 'it',
+    });
+
+    const belowFrPath = frenchMunicipalityPathFor('fr', below.slug);
+    expect(resolveSearchConsoleCompatTarget(belowFrPath.slice(0, -1))).toEqual({
+      canonicalPath: belowFrPath,
+      kind: 'legacy',
+      locale: 'fr',
+    });
+
+    // A slug NOT in the enumeration must not false-positive.
+    expect(
+      resolveSearchConsoleCompatTarget('/vivere-in-francia-lavorare-in-svizzera/not-a-real-commune'),
+    ).not.toEqual(
+      expect.objectContaining({
+        canonicalPath: '/vivere-in-francia-lavorare-in-svizzera/not-a-real-commune/',
+      }),
     );
   });
 
