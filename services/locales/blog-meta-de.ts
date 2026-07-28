@@ -9045,6 +9045,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tacito-musica-ticino-concerti.title': 'Tessin-Musik macht man zu viert (Konzerte)',
     'blog.article.tacito-musica-ticino-concerti.excerpt': 'Das Tessiner Musikfestival wird mit einem Tag voller Veranstaltungen fortgesetzt, die das Publikum von Nachmittag bis Abend begleiten werden.',
     'blog.article.tacito-musica-ticino-concerti.imageAlt': 'Der Lago Maggiore mit Locarno im Vordergrund.',
+    'blog.article.trasferirsi-a-luino-da-frontaliere-pro-e-contro.title': 'Umzug nach Luino als Grenzgänger: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-luino-da-frontaliere-pro-e-contro.excerpt': 'Quellenbesteuerung, Doppelbesteuerung und Franchise für Grenzgänger.',
+    'blog.article.trasferirsi-a-luino-da-frontaliere-pro-e-contro.imageAlt': 'Frontalier besucht Luino, mit Reisetasche, schaut auf den Luganersee.',
 };
 
 export default blogMetaDe;

@@ -9046,6 +9046,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tacito-musica-ticino-concerti.title': 'Ticino Music is done in four (concerts)',
     'blog.article.tacito-musica-ticino-concerti.excerpt': 'The Ticino Music Festival continues with a day full of events that will accompany the public from afternoon to evening.',
     'blog.article.tacito-musica-ticino-concerti.imageAlt': 'The Lake Maggiore with Locarno in the foreground.',
+    'blog.article.trasferirsi-a-luino-da-frontaliere-pro-e-contro.title': 'Moving to Luino by border crossing: pros and cons',
+    'blog.article.trasferirsi-a-luino-da-frontaliere-pro-e-contro.excerpt': 'Setting at source, double taxation and exemption for frontier workers.',
+    'blog.article.trasferirsi-a-luino-da-frontaliere-pro-e-contro.imageAlt': 'Frontalier visiting Luino, with luggage, looking at Lake Lugano.',
 };
 
 export default blogMetaEn;
