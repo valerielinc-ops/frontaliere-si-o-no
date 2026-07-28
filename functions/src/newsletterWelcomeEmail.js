@@ -15,7 +15,6 @@
  * silently stop welcome emails from going out).
  */
 
-import { createHmac } from 'node:crypto';
 import admin from 'firebase-admin';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
@@ -24,55 +23,11 @@ import { isNewsletterExcluded } from './lib/emailSuppression.js';
 import { resolveWelcomeContext } from './lib/welcomeSegment.js';
 import { buildWelcomeEmail } from './lib/welcomeEmailTemplate.js';
 import { buildLifecycleEmailHeaders } from './lib/lifecycleEmailHeaders.js';
+import { makeOneClickUnsubscribeUrl, makePreferencesUrl } from './lib/newsletterUrls.js';
 
-const BASE_URL = 'https://frontaliereticino.ch';
 const FROM_EMAIL = 'Frontaliere Ticino <newsletter@frontaliereticino.ch>';
 const RECENCY_WINDOW_MS = 48 * 60 * 60 * 1000; // 48h
 const KILL_SWITCH_DISABLED_VALUES = new Set(['0', 'false', 'off']);
-
-// ── Unsubscribe / preferences URL — must byte-match the scheme services/
-// newsletterUrls.mjs and scripts/send-newsletter.mjs's makePreferencesUrl
-// use, or the link this function signs won't verify via
-// newsletterSubscriptionManagement.js's verifyHmacToken. functions/ can't
-// import services/ (Cloud Functions deploy boundary — firebase.json's
-// `source: "functions"` uploads only that directory; see
-// docs/AGENTS-HISTORY.md shared-module pattern), so the HMAC scheme and the
-// per-locale preferences slug table are duplicated here. Keep both in sync
-// with services/newsletterUrls.mjs / services/routeSlugs.data.ts.
-
-// Duplicated from services/routeSlugs.data.ts's `newsletterPreferences` slug
-// per locale.
-const PREFERENCES_SLUG = {
-  it: 'preferenze-newsletter',
-  en: 'newsletter-preferences',
-  de: 'newsletter-einstellungen',
-  fr: 'preferences-newsletter',
-};
-const localePathPrefix = (locale) => (locale === 'it' ? '' : `/${locale}`);
-
-function signEmailToken(email, secret) {
-  if (!secret) return null;
-  return createHmac('sha256', secret).update(String(email).toLowerCase()).digest('hex');
-}
-
-// Duplicated from services/newsletterUrls.mjs's makeOneClickUnsubscribeUrl.
-function buildOneClickUnsubscribeUrl(email, secret) {
-  const token = signEmailToken(email, secret);
-  const base = `${BASE_URL}/disiscrivi-newsletter/?action=unsubscribe&email=${encodeURIComponent(email)}`;
-  return token ? `${base}&token=${token}` : base;
-}
-
-// Duplicated from scripts/send-newsletter.mjs's makePreferencesUrl. Returns
-// null (template omits the preferences link entirely) when there's no
-// secret to sign a valid token with, instead of shipping an unverifiable link.
-function buildPreferencesUrl(email, secret, locale) {
-  const token = signEmailToken(email, secret);
-  if (!token) return null;
-  const slug = PREFERENCES_SLUG[locale] || PREFERENCES_SLUG.it;
-  const prefix = localePathPrefix(locale);
-  const base = `${BASE_URL}${prefix}/${slug}?email=${encodeURIComponent(email)}`;
-  return `${base}&token=${token}`;
-}
 
 // ── Drip handoff — interest → segment. Duplicated from
 // services/newsletter-segments.mjs's inferInterest (same rule set, reading
@@ -174,6 +129,27 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
     }
   }
 
+  // Unsubscribe/preferences links are HMAC-signed with this secret — a
+  // missing secret makes makeOneClickUnsubscribeUrl/makePreferencesUrl
+  // degrade to a token-LESS link, which verifyHmacToken()
+  // (newsletterSubscriptionManagement.js) then REJECTS. A bulk lifecycle
+  // email must never go out with a dead unsubscribe link, so resolve AND
+  // validate the secret BEFORE the idempotency transaction below claims
+  // welcome_sent_at — a transient Remote Config outage then just delays the
+  // welcome email instead of permanently burning the subscriber's one shot
+  // at it (a later run, once the secret is available, can still deliver).
+  let newsletterSecret = '';
+  try {
+    const secrets = await getNewsletterSecrets();
+    newsletterSecret = secrets?.newsletterSecret || '';
+  } catch (secretErr) {
+    console.warn('[newsletterWelcomeEmail] Failed to read NEWSLETTER_SECRET:', secretErr?.message || secretErr);
+  }
+  if (!newsletterSecret) {
+    console.error('[newsletterWelcomeEmail] Aborting send: NEWSLETTER_SECRET unavailable — would produce an unsubscribe link verifyHmacToken rejects.');
+    return { success: false, error: 'missing_newsletter_secret' };
+  }
+
   // Idempotency claim — re-read inside the transaction and stamp
   // welcome_sent_at/welcome_trigger BEFORE calling the provider, so a
   // concurrent caller loses the race instead of double-sending.
@@ -201,16 +177,8 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
   const ctx = resolveWelcomeContext(data);
   const resolvedLocale = locale || data.preferred_locale || data.signup_locale || data.locale || 'it';
 
-  let newsletterSecret = '';
-  try {
-    const secrets = await getNewsletterSecrets();
-    newsletterSecret = secrets?.newsletterSecret || '';
-  } catch (secretErr) {
-    console.warn('[newsletterWelcomeEmail] Failed to read NEWSLETTER_SECRET:', secretErr?.message || secretErr);
-  }
-
-  const unsubscribeUrl = buildOneClickUnsubscribeUrl(normalizedEmail, newsletterSecret);
-  const preferencesUrl = buildPreferencesUrl(normalizedEmail, newsletterSecret, resolvedLocale);
+  const unsubscribeUrl = makeOneClickUnsubscribeUrl(normalizedEmail, { secret: newsletterSecret });
+  const preferencesUrl = makePreferencesUrl(normalizedEmail, resolvedLocale, { secret: newsletterSecret });
 
   const { subject, html } = buildWelcomeEmail({
     ...ctx,

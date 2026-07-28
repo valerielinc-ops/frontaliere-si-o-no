@@ -41,13 +41,49 @@ describe('sanitizeCompany — real corrupted production values are rejected', ()
 describe('sanitizeCompany — real good production values survive unchanged', () => {
   it.each([
     'EOC – Ente Ospedaliero Cantonale',
-    'A++ Group',
+    'LIS – Lugano Istituti Sociali',
     'Città di Mendrisio',
-    'IKEA',
-    'Bell Schweiz AG',
+    'A++ Group',
     'SUPSI / DTI',
+    'Bell Schweiz AG',
+    'IKEA',
+    "McDonald's Switzerland",
+    'Ferrovia Retica (RhB)',
+    'Casale SA',
+    'Amministrazione Cantonale Ticino',
+    'ALDI SUISSE',
+    'Cornèr Banca',
+    'Città di Lugano',
   ])('accepts %s unchanged', (value) => {
     expect(sanitizeCompany(value)).toBe(value);
+  });
+});
+
+describe('sanitizeCompany — prose bypass regression (adversarial review)', () => {
+  // Confirmed live: these ordinary marketing sentences were returned
+  // UNCHANGED by the pre-fix validators — the old >7-word rule alone never
+  // caught them ("Unisciti al nostro team dinamico" is only 5 words), and
+  // none of them trip the punctuation/connector-word guards, which only
+  // fire on truncated-prose shapes, not clean marketing copy. The fix adds
+  // a prose-token count (lowercase, non-connector words) and a
+  // marketing-verb stoplist as two independent nets.
+  it('rejects "Scopri subito tutte le nostre posizioni aperte" (IT marketing sentence)', () => {
+    expect(sanitizeCompany('Scopri subito tutte le nostre posizioni aperte')).toBeNull();
+  });
+
+  it('rejects "Jetzt bewerben bei uns heute noch" (DE marketing sentence)', () => {
+    expect(sanitizeCompany('Jetzt bewerben bei uns heute noch')).toBeNull();
+  });
+
+  it('rejects "Unisciti al nostro team dinamico" (IT marketing sentence, only 5 words)', () => {
+    expect(sanitizeCompany('Unisciti al nostro team dinamico')).toBeNull();
+  });
+
+  // Confirmed live: sanitizeCompany('Acme Corp‮gnp.exe') returned unchanged
+  // pre-fix. Contains U+202E RIGHT-TO-LEFT OVERRIDE — a text-spoofing vector
+  // (e.g. making a trailing ".exe" render reversed) once rendered into HTML.
+  it('rejects a value containing a bidi-override character (RTLO text-spoofing)', () => {
+    expect(sanitizeCompany('Acme Corp‮gnp.exe')).toBeNull();
   });
 });
 
@@ -147,6 +183,19 @@ describe('sanitizeLocation — canton codes and casing', () => {
     expect(sanitizeLocation('')).toBeNull();
     expect(sanitizeLocation('X'.repeat(41))).toBeNull();
     expect(sanitizeLocation('<script>x</script>')).toBeNull();
+  });
+});
+
+describe('sanitizeLocation — prose bypass regression (adversarial review)', () => {
+  // Confirmed live: sanitizeLocation('Grosse Nachfrage aktuell') returned
+  // unchanged pre-fix — 3 words, under the old >4-word bar, and none of the
+  // German nouns (capitalized, as German nouns always are) trip the
+  // lowercase-prose punctuation/connector checks. "aktuell" is the only
+  // genuinely lowercase, non-connector token — one is enough to reject a
+  // location (stricter than the company 2-token bar), and it's also on the
+  // marketing stoplist as a second, independent net.
+  it('rejects "Grosse Nachfrage aktuell" (DE marketing sentence)', () => {
+    expect(sanitizeLocation('Grosse Nachfrage aktuell')).toBeNull();
   });
 });
 

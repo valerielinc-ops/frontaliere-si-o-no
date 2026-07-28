@@ -382,6 +382,59 @@ describe('sendNewsletterWelcomeEmail', () => {
       expect(verifyHmacToken('prefs@example.com', token!, TEST_SECRET)).toBe(true);
     }
   });
+
+  // ── Missing secret aborts the send — adversarial review found the
+  // pre-fix code degraded to a token-LESS unsubscribe link when
+  // NEWSLETTER_SECRET was unavailable; the live verifyHmacToken()
+  // (newsletterSubscriptionManagement.js) REJECTS a token-less link, so
+  // that degraded email shipped with a dead unsubscribe link to ~100% of
+  // signups whenever the secret read failed. The fix aborts the send
+  // entirely instead of degrading, and — critically — does so BEFORE the
+  // idempotency transaction claims welcome_sent_at, so no Firestore state
+  // is written and a later run (once the secret is available again) can
+  // still deliver the welcome email.
+  it('aborts with missing_newsletter_secret when NEWSLETTER_SECRET is unavailable — never sends a dead-unsubscribe-link email', async () => {
+    getNewsletterSecretsMock.mockResolvedValue({ newsletterSecret: '', resendApiKey: '', resendWebhookSecret: '' });
+    const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');
+    const db = createFakeDb({ newsletter_subscribers: { 'nosecret@example.com': recentDoc() } });
+
+    const result = await sendNewsletterWelcomeEmail({ email: 'nosecret@example.com', locale: 'it', db, trigger: 'confirm' });
+
+    expect(result).toEqual({ success: false, error: 'missing_newsletter_secret' });
+    expect(sendEmailCascadeMock).not.toHaveBeenCalled();
+
+    // No Firestore state written at all — no claim, no bookkeeping, no
+    // event log — so a later retry with a working secret is unaffected.
+    const doc = db.docs['newsletter_subscribers/nosecret@example.com'];
+    expect(doc.welcome_sent_at).toBeUndefined();
+    expect(doc.welcome_trigger).toBeUndefined();
+    expect(doc.welcome_message_id).toBeUndefined();
+    expect(doc.drip_last_step).toBeUndefined();
+    expect(doc.drip_started_at).toBeUndefined();
+    expect(db.events).toHaveLength(0);
+  });
+
+  it('an empty-string secret (not just a throw) also aborts the send', async () => {
+    getNewsletterSecretsMock.mockResolvedValue({ newsletterSecret: '', resendApiKey: '', resendWebhookSecret: '' });
+    const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');
+    const db = createFakeDb({ newsletter_subscribers: { 'blanksecret@example.com': recentDoc() } });
+
+    const result = await sendNewsletterWelcomeEmail({ email: 'blanksecret@example.com', locale: 'it', db, trigger: 'confirm' });
+    expect(result).toEqual({ success: false, error: 'missing_newsletter_secret' });
+    expect(sendEmailCascadeMock).not.toHaveBeenCalled();
+  });
+
+  it('getNewsletterSecrets throwing is treated the same as a missing secret — aborts, does not send', async () => {
+    getNewsletterSecretsMock.mockRejectedValue(new Error('Remote Config unavailable'));
+    const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');
+    const db = createFakeDb({ newsletter_subscribers: { 'secretthrows@example.com': recentDoc() } });
+
+    const result = await sendNewsletterWelcomeEmail({ email: 'secretthrows@example.com', locale: 'it', db, trigger: 'confirm' });
+    expect(result).toEqual({ success: false, error: 'missing_newsletter_secret' });
+    expect(sendEmailCascadeMock).not.toHaveBeenCalled();
+    const doc = db.docs['newsletter_subscribers/secretthrows@example.com'];
+    expect(doc.welcome_sent_at).toBeUndefined();
+  });
 });
 
 // ── Confirm handler integration ───────────────────────────────

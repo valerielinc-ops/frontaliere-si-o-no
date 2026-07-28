@@ -587,7 +587,15 @@ export const newsletterSendWelcome = onRequest(
 
  try {
  const result = await sendNewsletterWelcomeEmail({ email, locale, trigger: 'presigned' });
- res.status(result.success || result.skipped ? 200 : 400).json(result);
+ // Response is intentionally opaque: sent / skipped (already_sent,
+ // not_confirmed, too_old, suppressed, disabled, ...) / subscriber not
+ // found / missing secret all return the SAME 200 body, so this public
+ // endpoint can't be used to probe an arbitrary address and learn
+ // whether it's a recently-confirmed subscriber. Detailed outcome is
+ // server-log only; sendNewsletterWelcomeEmail's own richer return
+ // value is unchanged for the confirm-handler caller.
+ console.log('[newsletterSendWelcome] outcome:', result.success ? 'sent' : (result.skipped || result.error || 'unknown'));
+ res.status(200).json({ success: true });
  } catch (error) {
  console.error('[newsletterSendWelcome] Error:', error);
  res.status(500).json({ success: false, error: 'internal_error' });

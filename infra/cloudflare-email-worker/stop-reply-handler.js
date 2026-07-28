@@ -175,8 +175,9 @@ export function extractSenderEmail(fromHeader) {
 
 // Web Crypto HMAC-SHA256 hex digest — byte-identical to Node's
 // createHmac('sha256', secret).update(message).digest('hex')
-// (services/newsletterUrls.mjs:signedEmailToken), which the Worker runtime
-// cannot call directly (no node:crypto).
+// (functions/src/lib/newsletterUrls.js:signedEmailToken, re-exported for
+// scripts/ callers via services/newsletterUrls.mjs), which the Worker
+// runtime cannot call directly (no node:crypto).
 export async function hmacHex(secret, message) {
   const enc = new TextEncoder();
   const key = await crypto.subtle.importKey('raw', enc.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);

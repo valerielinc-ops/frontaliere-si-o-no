@@ -63,4 +63,20 @@ describe('route-slugs anti-drift guard (#4315)', () => {
     const src = read('functions/src/publisherRenewalCore.js');
     expect(src).toContain(`https://frontaliereticino.ch/${SLUG_TABLES.it.publisherDashboard}`);
   });
+
+  // functions/src/lib/newsletterUrls.js's PREFERENCES_SLUG is the same kind of
+  // forced runtime copy as publisherRenewalCore.js's DASHBOARD_URL above — the
+  // welcome-email Cloud Function (functions/src/newsletterWelcomeEmail.js)
+  // needs the newsletter-preferences slug per locale, and can't cross the
+  // functions/ deploy boundary to import this (TypeScript) file. Unlike the
+  // HMAC token / URL-shape builders in that module (made impossible-by-
+  // construction via a services/newsletterUrls.mjs re-export shim), the slug
+  // table itself has no shared-module escape hatch, so it is guarded here
+  // instead: import both tables and assert they agree for all 4 locales.
+  it('functions/src/lib/newsletterUrls.js PREFERENCES_SLUG stays in sync with SLUG_TABLES.*.newsletterPreferences', async () => {
+    const { PREFERENCES_SLUG } = await import('../functions/src/lib/newsletterUrls.js');
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      expect(PREFERENCES_SLUG[locale]).toBe(SLUG_TABLES[locale].newsletterPreferences);
+    }
+  });
 });

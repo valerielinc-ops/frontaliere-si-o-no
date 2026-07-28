@@ -66,10 +66,14 @@ export const TOOL_KEYS = ['lamal', 'wizard', 'leadmagnet', 'selfcert', 'calculat
 // fragments truncated mid-sentence ("). Vorab erhältst du…", ", Planung…").
 const STARTS_WITH_INVALID_RE = /^[^\p{L}\p{N}]/u;
 
-// Control chars / markup / links / email addresses — never belong in a
-// company or location label, and are an HTML-injection hazard if a raw value
-// ever reaches the email template.
-const FORBIDDEN_CHARS_RE = /[\n\t<>@]|https?:\/\//i;
+// Unicode control chars (incl. \r \v \f, not just \n\t), bidi-override and
+// zero-width/BOM characters, plus markup / links / email addresses — never
+// belong in a company or location label. The hidden-character ranges are a
+// text-spoofing hazard on top of the existing HTML-injection one: a
+// RIGHT-TO-LEFT OVERRIDE (U+202E) can make "Acme Corp" + reversed filename
+// render as something else entirely once the raw value reaches the email
+// template.
+const FORBIDDEN_CHARS_RE = /[\u0000-\u001F\u007F\u200B-\u200F\u202A-\u202E\u2060-\u2064\uFEFF<>@]|https?:\/\//i;
 
 // Sentence punctuation followed by a lowercase word — real company/location
 // labels don't look like this ("St. Moritz" survives: capital after the
@@ -79,6 +83,63 @@ const PROSE_PUNCT_RE = /[.,]\s+\p{Ll}/u;
 // Common connector words that only show up mid-sentence, never inside a
 // company/location label.
 const PROSE_WORD_RE = /\b(du|dich|che|with|and|und)\b/i;
+
+// Marketing/verb words that never appear in a Swiss company or place name —
+// a second net for prose that IS grammatically Title-Cased ("Scopri Subito
+// Le Nostre Posizioni Aperte") or short enough to slip past the word-count /
+// prose-token checks below. Matched case-insensitively as whole words,
+// it/de/en/fr.
+const MARKETING_STOPWORDS = [
+  'scopri', 'unisciti', 'candidati', 'invia', 'clicca', 'iscriviti', 'subito',
+  'adesso', 'oggi', 'aperte', 'aperta', 'offerta', 'offerte', 'posizioni',
+  'opportunità', 'cerchiamo', 'cercasi', 'entra', 'lavora', 'bewerben',
+  'jetzt', 'heute', 'aktuell', 'unsere', 'deine', 'stelle', 'stellen',
+  'nachfrage', 'apply', 'join', 'now', 'today', 'discover', 'hiring',
+  'careers', 'postule', 'rejoins', 'découvrez', 'aujourd', 'nos', 'notre',
+];
+// Lookaround (not \b) on purpose: \b is ASCII-\w-only in JS, so it fails to
+// anchor right after an accented final letter like the "à" in
+// "opportunità" — a plain /\bopportunità\b/ never matches. \p{L}/\p{N}-aware
+// lookaround handles every stopword above, accented or not. Tested against
+// the already-lowercased input (see call sites) so no 'i' flag/case-folding
+// reliance on accented casing either.
+const MARKETING_STOPWORD_RE = new RegExp(
+  `(?<![\\p{L}\\p{N}_])(?:${MARKETING_STOPWORDS.join('|')})(?![\\p{L}\\p{N}_])`,
+  'u',
+);
+
+// Connector/particle words that legitimately appear lowercase INSIDE a real
+// name ("Città di Lugano", "La Chaux-de-Fonds") — excluded from the
+// prose-token count below so a real name isn't penalized for containing one.
+const CONNECTOR_WORDS = new Set([
+  'di', 'de', 'del', 'della', 'dei', 'degli', 'da', 'du', 'des', 'van', 'von',
+  'der', 'den', 'das', 'e', 'ed', 'et', 'and', 'und', 'y', 'la', 'le', 'il',
+  'lo', 'gli', 'al', 'à', 'of', 'for', 'the', 'a',
+]);
+
+// Counts whitespace-split tokens that are entirely lowercase (contain at
+// least one letter and none of them uppercase) and are not a connector word
+// above — i.e. "prose tokens". A real company/location name is Capitalized
+// or an acronym; ordinary marketing prose is written in lowercase apart from
+// (at most) its very first word. This is the signal that tells a NAME apart
+// from a SENTENCE, and is why "Unisciti al nostro team dinamico" (5 words,
+// under the old >7-word bar) is still prose: "nostro", "team", "dinamico"
+// are lowercase, non-connector tokens.
+function countProseTokens(trimmed) {
+  const tokens = trimmed.split(/\s+/).filter(Boolean);
+  let count = 0;
+  for (const token of tokens) {
+    // Strip leading/trailing punctuation ("aperte." / "(subito") so the bare
+    // word form is what gets checked — internal punctuation (apostrophes,
+    // hyphens) is left alone.
+    const bare = token.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '');
+    if (!bare || !/\p{L}/u.test(bare)) continue; // punctuation/digits-only token
+    if (/\p{Lu}/u.test(bare)) continue; // has an uppercase letter — not prose
+    if (CONNECTOR_WORDS.has(bare.toLowerCase())) continue;
+    count += 1;
+  }
+  return count;
+}
 
 /**
  * @param {unknown} raw
@@ -94,8 +155,10 @@ export function sanitizeCompany(raw) {
     if (FORBIDDEN_CHARS_RE.test(trimmed)) return null;
     if (PROSE_PUNCT_RE.test(trimmed)) return null;
     if (PROSE_WORD_RE.test(trimmed)) return null;
+    if (MARKETING_STOPWORD_RE.test(trimmed.toLowerCase())) return null;
     const wordCount = trimmed.split(/\s+/).filter(Boolean).length;
-    if (wordCount > 7) return null;
+    if (wordCount > 6) return null;
+    if (countProseTokens(trimmed) >= 2) return null;
     return trimmed;
   } catch {
     return null;
@@ -145,8 +208,9 @@ export function sanitizeLocation(raw) {
     if (FORBIDDEN_CHARS_RE.test(trimmed)) return null;
     if (PROSE_PUNCT_RE.test(trimmed)) return null;
     if (PROSE_WORD_RE.test(trimmed)) return null;
+    if (MARKETING_STOPWORD_RE.test(trimmed.toLowerCase())) return null;
     const words = trimmed.split(/\s+/).filter(Boolean);
-    if (words.length > 4) return null;
+    if (words.length > 3) return null;
     if (words.length === 1) {
       const lower = trimmed.toLowerCase();
       const canton = CANTON_CODE_MAP[lower];
@@ -156,6 +220,11 @@ export function sanitizeLocation(raw) {
       if (trimmed === lower) {
         return trimmed.charAt(0).toUpperCase() + trimmed.slice(1);
       }
+    } else if (countProseTokens(trimmed) >= 1) {
+      // Multi-word values only — a lone lowercase word is handled (and
+      // legitimately capitalized) above, it can't exhibit the "mostly
+      // lowercase sentence" shape this guard targets.
+      return null;
     }
     return trimmed;
   } catch {
