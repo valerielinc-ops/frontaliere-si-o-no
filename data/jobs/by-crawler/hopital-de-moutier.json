@@ -130,19 +130,29 @@
       "previousSlugs": [
         "medecin-dermatologue-hopital-de-moutier",
         "doctor-dermatologist-hopital-de-moutier-moutier-875d87",
-        "arzt-dermatologe-hopital-de-moutier-moutier-875d87"
+        "arzt-dermatologe-hopital-de-moutier-moutier-875d87",
+        "dottore-dermatologo-hopital-de-moutier-moutier",
+        "doctor-dermatologist-hopital-de-moutier-moutier",
+        "arzt-dermatologe-hopital-de-moutier-moutier",
+        "medico-dermatologo-swiss-medical-network-moutier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-dermatologue-hopital-de-moutier"
+          "medecin-dermatologue-hopital-de-moutier",
+          "dottore-dermatologo-hopital-de-moutier-moutier",
+          "doctor-dermatologist-hopital-de-moutier-moutier",
+          "arzt-dermatologe-hopital-de-moutier-moutier",
+          "medico-dermatologo-swiss-medical-network-moutier"
         ],
         "en": [
           "medecin-dermatologue-hopital-de-moutier",
-          "doctor-dermatologist-hopital-de-moutier-moutier-875d87"
+          "doctor-dermatologist-hopital-de-moutier-moutier-875d87",
+          "doctor-dermatologist-hopital-de-moutier-moutier"
         ],
         "de": [
           "medecin-dermatologue-hopital-de-moutier",
-          "arzt-dermatologe-hopital-de-moutier-moutier-875d87"
+          "arzt-dermatologe-hopital-de-moutier-moutier-875d87",
+          "arzt-dermatologe-hopital-de-moutier-moutier"
         ]
       },
       "firstSeenAt": "2026-07-27T12:33:25.319Z",
@@ -234,8 +244,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hopital-de-moutier-56e1dd06c497",
@@ -318,8 +327,7 @@
           "maxValue": 62400,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hopital-de-moutier-2bb6176358d6",
@@ -479,8 +487,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     }
   ]
 }
