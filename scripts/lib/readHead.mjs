@@ -15,6 +15,7 @@
  */
 
 import { open } from 'node:fs/promises';
+import { openSync, readSync, readFileSync, closeSync } from 'node:fs';
 
 /**
  * Read window for the `<head>` fast path. Comfortably larger than any head
@@ -58,4 +59,34 @@ export async function readHeadOrAll(file) {
   } finally {
     await fh.close().catch(() => {});
   }
+}
+
+/**
+ * Synchronous twin of {@link readHeadOrAll}, for callers whose scan loop is
+ * still sequential and would need restructuring to go async (currently
+ * audit-sitemap-canonicals.mjs, which walks sitemap `<loc>`s rather than
+ * dist/ and only ever needs the canonical tag).
+ *
+ * Same three cases and the same guarantee: whole file when it fits in one
+ * chunk, head slice when `</head>` is inside the chunk, whole file otherwise.
+ * Throws exactly like `readFileSync` so existing try/catch offender handling
+ * keeps working unchanged.
+ *
+ * @param {string} file absolute path to an HTML file
+ * @returns {string}
+ */
+export function readHeadOrAllSync(file) {
+  const fd = openSync(file, 'r');
+  try {
+    const buf = Buffer.allocUnsafe(HEAD_CHUNK_BYTES);
+    const bytesRead = readSync(fd, buf, 0, HEAD_CHUNK_BYTES, 0);
+    const chunk = buf.toString('utf-8', 0, bytesRead);
+    if (bytesRead < HEAD_CHUNK_BYTES) return chunk;
+    const headEnd = chunk.indexOf('</head>');
+    if (headEnd !== -1) return chunk.slice(0, headEnd);
+  } finally {
+    closeSync(fd);
+  }
+  // Head larger than the window — pay for the whole document.
+  return readFileSync(file, 'utf-8');
 }

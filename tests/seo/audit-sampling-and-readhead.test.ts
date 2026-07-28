@@ -19,7 +19,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
-import { readHeadOrAll, HEAD_CHUNK_BYTES } from '../../scripts/lib/readHead.mjs';
+import { readHeadOrAll, readHeadOrAllSync, HEAD_CHUNK_BYTES } from '../../scripts/lib/readHead.mjs';
 import { resolveSamplingEnv, sampleFiles } from '../../scripts/lib/audit-runner.mjs';
 
 let dir: string;
@@ -63,6 +63,27 @@ describe('readHeadOrAll', () => {
 
   it('returns null for an unreadable path instead of throwing', async () => {
     expect(await readHeadOrAll(path.join(dir, 'does-not-exist.html'))).toBeNull();
+  });
+});
+
+describe('readHeadOrAllSync', () => {
+  it('agrees with the async twin on every case', async () => {
+    const cases = {
+      'small.html': '<html><head><link rel="canonical" href="https://x/"></head><body>hi</body></html>',
+      'big-body.html':
+        `<html><head><link rel="canonical" href="https://x/"></head><body>${'z'.repeat(HEAD_CHUNK_BYTES * 2)}</body></html>`,
+      'big-head.html':
+        `<html><head><meta name="pad" content="${'y'.repeat(HEAD_CHUNK_BYTES + 1000)}">` +
+        `<link rel="canonical" href="https://late/"></head><body>b</body></html>`,
+    };
+    for (const [name, body] of Object.entries(cases)) {
+      const p = write(name, body);
+      expect(readHeadOrAllSync(p), name).toBe(await readHeadOrAll(p));
+    }
+  });
+
+  it('throws like readFileSync on a missing path, so caller try/catch still fires', () => {
+    expect(() => readHeadOrAllSync(path.join(dir, 'nope.html'))).toThrow();
   });
 });
 
