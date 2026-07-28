@@ -30,6 +30,7 @@ import {
   MIN_INDEXABLE_WORDS,
   countHtmlBodyWords,
   DRIVEBY_AD_SNIPPET,
+  buildCanonicalBridgePage,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
@@ -136,6 +137,81 @@ const FUEL_STATS_HUB_PATH: Record<FuelDailyLocale, string> = {
   de: '/de/statistiken/spritpreise-grenze/',
   fr: '/fr/statistiques/prix-essence-frontiere/',
 };
+
+/**
+ * Below-floor bridge target (issue #4553 item 3): every daily/archive/station/
+ * city/index page below has its own word-count floor and previously did a bare
+ * `continue` on miss — a silent 404 for a URL a prior build emitted and Google
+ * indexed once the underlying scraped data (station count observed to churn
+ * 352↔384 across builds) dips even briefly. FUEL_STATS_HUB_PATH is a static
+ * editorial page (SECTION_EDITORIAL in editorialContent.ts, emitted
+ * unconditionally by staticPagesPlugin.ts regardless of any fuel dataset), so
+ * it's a safe always-live redirect target — same shape as
+ * shared/salaryStatsBridge.ts's renderSalaryStatsBridge for the salary-stats
+ * family. No new self-map entry needed in searchConsoleCompat.ts: the existing
+ * FUEL_SECTION_FALLBACKS catch-all (any sub-path under a fuel section →
+ * that locale/fuel's regional "today" page) already covers this whole family,
+ * and its target page is itself covered by this same bridge below.
+ */
+function localeOfFuelPath(path: string): FuelDailyLocale {
+  const seg = path.split('/').filter(Boolean)[0];
+  if (seg === 'en' || seg === 'de' || seg === 'fr') return seg;
+  return 'it';
+}
+
+const FUEL_BRIDGE_COPY: Record<FuelDailyLocale, { title: string; description: string; ctaLabel: string }> = {
+  it: {
+    title: 'Pagina in aggiornamento | Frontaliere Ticino',
+    description:
+      'Questa pagina non ha ancora dati sufficienti oggi. Consulta lo storico completo dei prezzi carburante alla frontiera.',
+    ctaLabel: 'Vai alle statistiche prezzi carburante',
+  },
+  en: {
+    title: 'Page updating | Frontaliere Ticino',
+    description:
+      'This page does not have enough data yet today. See the full border fuel-price history and stats.',
+    ctaLabel: 'Go to border fuel price statistics',
+  },
+  de: {
+    title: 'Seite wird aktualisiert | Frontaliere Ticino',
+    description:
+      'Für diese Seite liegen heute noch nicht genügend Daten vor. Zur vollständigen Statistik der Spritpreise an der Grenze.',
+    ctaLabel: 'Zur Spritpreis-Statistik',
+  },
+  fr: {
+    title: 'Page en mise à jour | Frontaliere Ticino',
+    description:
+      "Cette page n'a pas encore assez de données aujourd'hui. Consultez l'historique complet des prix du carburant à la frontière.",
+    ctaLabel: 'Voir les statistiques des prix du carburant',
+  },
+};
+
+function renderFuelBelowFloorBridge(path: string): string {
+  const locale = localeOfFuelPath(path);
+  const targetPath = FUEL_STATS_HUB_PATH[locale];
+  const targetUrl = `${BASE_URL}${targetPath}`;
+  const hreflangEntries: Array<{ hreflang: string; href: string }> = FUEL_DAILY_LOCALES.map((loc) => ({
+    hreflang: loc,
+    href: `${BASE_URL}${FUEL_STATS_HUB_PATH[loc]}`,
+  }));
+  hreflangEntries.push({ hreflang: 'x-default', href: `${BASE_URL}${FUEL_STATS_HUB_PATH.it}` });
+  const copy = FUEL_BRIDGE_COPY[locale];
+  const html = buildCanonicalBridgePage({
+    canonicalUrl: targetUrl,
+    pathLabel: targetPath,
+    title: copy.title,
+    description: copy.description,
+    body: copy.description,
+    ctaLabel: copy.ctaLabel,
+    lang: locale,
+    noindex: true,
+    hreflangEntries,
+  });
+  return html.replace(
+    '</head>',
+    `    <meta http-equiv="refresh" content="0; url=${targetUrl}">\n  </head>`,
+  );
+}
 
 function buildFuelDiscoverMoreCtas(
   locale: FuelDailyLocale,
@@ -5052,6 +5128,7 @@ interface PluginResult {
   stationPagesWritten?: number;
   italianCityPagesWritten?: number;
   italianStationPagesWritten?: number;
+  bridgesWritten?: number;
 }
 
 /**
@@ -5278,12 +5355,16 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
 
       let pagesWritten = 0;
       let skipped = 0;
+      let bridgesWritten = 0;
       const sitemapPaths: string[] = [];
       for (const [path, html] of Object.entries(pages)) {
         const words = countHtmlBodyWords(html);
         if (words < MIN_INDEXABLE_WORDS) {
           skipped++;
           console.warn(`[fuel-daily-pages] thin content (${words} words) for ${path} — skipping`);
+          const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+          collector.add(np.join(outDir, 'index.html'), renderFuelBelowFloorBridge(path));
+          bridgesWritten++;
           continue;
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
@@ -5297,6 +5378,9 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         const words = countHtmlBodyWords(html);
         if (words < MIN_INDEXABLE_WORDS) {
           skipped++;
+          const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+          collector.add(np.join(outDir, 'index.html'), renderFuelBelowFloorBridge(path));
+          bridgesWritten++;
           continue;
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
@@ -5316,6 +5400,9 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         if (words < STATION_MIN_WORDS) {
           skipped++;
           console.warn(`[fuel-daily-pages] station thin content (${words} words) for ${path} — skipping`);
+          const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+          collector.add(np.join(outDir, 'index.html'), renderFuelBelowFloorBridge(path));
+          bridgesWritten++;
           continue;
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
@@ -5331,6 +5418,9 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         if (words < STATION_MIN_WORDS) {
           skipped++;
           console.warn(`[fuel-daily-pages] IT-city thin content (${words} words) for ${path} — skipping`);
+          const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+          collector.add(np.join(outDir, 'index.html'), renderFuelBelowFloorBridge(path));
+          bridgesWritten++;
           continue;
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
@@ -5346,6 +5436,9 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         if (words < STATION_MIN_WORDS) {
           skipped++;
           console.warn(`[fuel-daily-pages] IT-station thin content (${words} words) for ${path} — skipping`);
+          const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+          collector.add(np.join(outDir, 'index.html'), renderFuelBelowFloorBridge(path));
+          bridgesWritten++;
           continue;
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
@@ -5408,16 +5501,24 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       for (const [path, html] of Object.entries(indexPages)) {
         const words = countHtmlBodyWords(html);
         if (words < INDEX_MIN_WORDS) {
-          // Loud failure: skipping a fuel index page silently orphans every
-          // per-station / per-city leaf it would have linked. Emit an error
-          // (not a warning) so CI surfaces it before the orphan-pages gate
-          // catches the downstream regression.
+          // Loud failure: the per-station / per-city leaves this index would
+          // have linked are orphaned in sitemap-fuel-stations.xml regardless
+          // (they're in their own sitemap already, this index was their only
+          // BFS-reachable inbound link) — same either way whether the URL is
+          // silently missing or bridged, so bridge it below-floor same as the
+          // other 5 emission sites rather than leaving a bare 404 for a URL a
+          // prior build may have indexed. Emit an error (not a warning) so CI
+          // surfaces it before the orphan-pages gate catches the downstream
+          // regression.
           skipped++;
           console.error(
             `[fuel-daily-pages] CRITICAL: index thin content (${words} words < ${INDEX_MIN_WORDS}) for ${path} — skipping. ` +
               `Per-station leaves it should link will be orphaned in sitemap-fuel-stations.xml. ` +
               `Investigate fuelStationIndexPages.ts copy + station data integrity.`,
           );
+          const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+          collector.add(np.join(outDir, 'index.html'), renderFuelBelowFloorBridge(path));
+          bridgesWritten++;
           continue;
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
@@ -5468,9 +5569,10 @@ ${urlEntries}
         stationPagesWritten,
         italianCityPagesWritten,
         italianStationPagesWritten,
+        bridgesWritten,
       };
       console.log(
-        `\x1b[36m[fuel-daily-pages]\x1b[0m Generated ${result.pagesWritten} daily + ${result.archivesWritten} archives + ${stationPagesWritten} CH-station + ${italianCityPagesWritten} IT-city + ${italianStationPagesWritten} IT-station + ${indexPagesWritten} indexes (skipped ${result.skippedForWordCount})`,
+        `\x1b[36m[fuel-daily-pages]\x1b[0m Generated ${result.pagesWritten} daily + ${result.archivesWritten} archives + ${stationPagesWritten} CH-station + ${italianCityPagesWritten} IT-city + ${italianStationPagesWritten} IT-station + ${indexPagesWritten} indexes (skipped ${result.skippedForWordCount}, bridged ${result.bridgesWritten})`,
       );
     },
   };
