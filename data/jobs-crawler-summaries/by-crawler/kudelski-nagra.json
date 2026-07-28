@@ -1,16 +1,16 @@
 {
   "key": "kudelski-nagra",
   "label": "Kudelski NAGRA",
-  "generatedAt": "2026-07-28T11:27:07.199Z",
+  "generatedAt": "2026-07-28T22:17:04.152Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4746,
-  "avgDurationMs": 4746,
+  "unchangedCount": 1,
+  "durationMs": 10539,
+  "avgDurationMs": 10539,
   "durationHistory": [
-    4746
+    10539
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15596",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-28T11:27:04.348Z",
+      "crawledAt": "2026-07-28T22:17:00.964Z",
       "addressLocality": "Switzerland",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -49,7 +49,10 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "kudelski-nagra-027fe8cc43fc",
       "slug": "security-operations-engineer-kudelski-nagra-ch",
@@ -78,15 +81,16 @@
       "postedDate": "2026-01-07",
       "applyUrl": "https://careers.nagra.com/?page=advertisement_display&id=15633",
       "firstSeenAt": "2026-07-09T12:12:34.365Z",
-      "_qualityScore": 70,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
