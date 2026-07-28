@@ -143,6 +143,17 @@ jobs:
 
       - name: Run requested audits
         id: audits
+        env:
+          # The dist under audit is now the COMPLETE site, not the trunk, and a
+          # full-tree BFS walk holds a Map entry per discovered path. On the
+          # default heap that OOMs: run 30383007845 (the first replay after the
+          # rehydrate fix) died with `FATAL ERROR: Reached heap limit`, rc=134,
+          # before producing any verdict. post-deploy-validate-dist.yml has
+          # always run these walkers with an explicit heap — 8192 for
+          # audit:max-bfs-depth / audit:orphan-sitemap-pages, 4096 for
+          # audit:all. Same runner class here, and the loop below runs them one
+          # at a time, so take the larger of the two for the whole step.
+          NODE_OPTIONS: '--max-old-space-size=8192'
         run: |
           set +e
           IFS=',' read -ra AUDITS <<< "${{ inputs.audits }}"
