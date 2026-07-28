@@ -23,6 +23,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { getBingUrlSubmissionQuota } from './lib/bing-webmaster.mjs';
+import { CORE_SITEMAPS } from './lib/sitemap-files.mjs';
 
 const INDEXNOW_KEY = '39093e02a74b4a2dbf867c74bc53a7d8';
 const HOST = 'frontaliereticino.ch';
@@ -65,7 +66,7 @@ function getUrlsFromSitemaps() {
     : resolve(rootDir, 'public');
 
   // sitemap.xml is now a sitemap index — read all sub-sitemaps
-  const subSitemaps = ['sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-glossario.xml', 'sitemap-jobs.xml', 'sitemap-seo-hubs.xml'];
+  const subSitemaps = CORE_SITEMAPS;
   for (const file of subSitemaps) {
     try {
       const xml = readFileSync(resolve(sitemapDir, file), 'utf-8');
@@ -139,7 +140,7 @@ function readPublicXml(file) {
 // public/ <url> block. Never removes URLs.
 function expandWithPublicAlternates(urls) {
   if (urls.length === 0) return urls;
-  const publicXml = ['sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-glossario.xml', 'sitemap-jobs.xml', 'sitemap-news.xml']
+  const publicXml = ['sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-blog-ch.xml', 'sitemap-glossario.xml', 'sitemap-jobs.xml', 'sitemap-news.xml']
     .map(f => { try { return readPublicXml(f); } catch { return ''; } }).join('\n');
   const expanded = new Set(urls);
   const targets = new Set(urls);
@@ -156,7 +157,7 @@ function expandWithPublicAlternates(urls) {
 function getBingUrlsSubset() {
   // Read all sub-sitemaps for URL block lookup — public/ only, since the
   // lookup exists to resolve hreflang alternates (see readPublicXml docs).
-  const sitemapXml = ['sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-glossario.xml']
+  const sitemapXml = ['sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-blog-ch.xml', 'sitemap-glossario.xml']
     .map(f => { try { return readPublicXml(f); } catch { return ''; } }).join('\n');
 
   // Preferred: the newly generated article URL (from CI workflow output)
@@ -222,7 +223,7 @@ async function getDeployedUrls() {
 
   // 2. Fallback: fetch from live site (unreliable after deploy)
   console.log('⚠️  No pre-deploy snapshot found — fetching live sitemaps (may be already updated)');
-  const sitemapFiles = ['sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-glossario.xml', 'sitemap-jobs.xml', 'sitemap-news.xml', 'sitemap-seo-hubs.xml'];
+  const sitemapFiles = [...CORE_SITEMAPS, 'sitemap-news.xml'];
   const urls = new Set();
 
   for (const file of sitemapFiles) {

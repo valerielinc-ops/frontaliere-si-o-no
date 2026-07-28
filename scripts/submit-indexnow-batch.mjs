@@ -41,6 +41,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { DEFAULT_LIVE_CHECK_USER_AGENT } from './lib/live-link-check.mjs';
+import { CORE_SITEMAPS } from './lib/sitemap-files.mjs';
 
 // ── Configuration ─────────────────────────────────────────────
 const DEFAULT_KEY = '39093e02a74b4a2dbf867c74bc53a7d8';
@@ -57,15 +58,7 @@ const ENDPOINTS = {
   yandex: 'https://yandex.com/indexnow',
 };
 
-const SUB_SITEMAPS = [
-  'sitemap-pages.xml',
-  'sitemap-blog.xml',
-  'sitemap-glossario.xml',
-  'sitemap-jobs.xml',
-  'sitemap-news.xml',
-  'sitemap-guides.xml',
-  'sitemap-seo-hubs.xml',
-];
+const SUB_SITEMAPS = [...CORE_SITEMAPS, 'sitemap-news.xml', 'sitemap-guides.xml'];
 
 // Key pages that may not appear in sitemaps but should always be submitted
 const EXTRA_URLS = [

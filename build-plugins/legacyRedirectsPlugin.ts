@@ -41,6 +41,7 @@ function buildHreflangMap(rootDir: string): Map<string, HreflangEntry[]> {
  const sitemapFiles = [
  'sitemap-pages.xml',
  'sitemap-blog.xml',
+ 'sitemap-blog-ch.xml',
  'sitemap-glossario.xml',
  'sitemap-news.xml',
  ];
