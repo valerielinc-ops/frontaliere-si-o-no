@@ -9027,6 +9027,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.title': 'Restaurants pour frontaliers : les cantons qui reçoivent de l\'argent',
     'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.excerpt': 'Les cantons suisses qui reçoivent de l\'argent des pays d\'origine des frontaliers. Les données de septembre 2025.',
     'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.imageAlt': 'Frontalier suisses travaillant en Italie',
+    'blog.article.frontalieri-ticino-diminuzione.title': 'L\'accord fiscal change les règles au Tessin',
+    'blog.article.frontalieri-ticino-diminuzione.excerpt': 'Le nombre de travailleurs frontaliers au Tessin diminue régulièrement, tandis que le nombre de résidents augmente.',
+    'blog.article.frontalieri-ticino-diminuzione.imageAlt': 'Vue de Lugano pendant la saison automnale',
 };
 
 export default blogMetaFr;

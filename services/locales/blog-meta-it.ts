@@ -9026,6 +9026,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.title': 'Ristorni per frontalieri: i cantoni che ricevono soldi',
     'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.excerpt': 'I cantoni svizzeri che ricevono soldi dai Paesi di origine dei frontalieri. I dati di settembre 2025.',
     'blog.article.ristorni-al-contrario-i-cantoni-che-ricevono-soldi-dai-paesi-di-origine-dei-frontalieri.imageAlt': 'Frontalieri ticinesi che lavorano in Italia',
+    'blog.article.frontalieri-ticino-diminuzione.title': 'L\'accordo fiscale cambia le regole in Ticino',
+    'blog.article.frontalieri-ticino-diminuzione.excerpt': 'Il numero dei lavoratori frontalieri in Ticino sta diminuendo in modo costante, mentre il numero di residenti aumenta.',
+    'blog.article.frontalieri-ticino-diminuzione.imageAlt': 'Vista della città di Lugano durante la stagione autunnale',
 };
 
 export default blogMetaIt;
