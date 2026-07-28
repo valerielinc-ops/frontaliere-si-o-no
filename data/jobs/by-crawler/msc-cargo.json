@@ -280,18 +280,22 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "product-innovation-manager-new-builds-msc-geneva",
-        "product-innovation-manager-nuove-costruzioni-msc-group-geneva"
+        "product-innovation-manager-nuove-costruzioni-msc-group-geneva",
+        "product-innovation-manager-new-builds-analytics-msc-geneva",
+        "gestionnaire-d-innovation-de-produits-new-builds-analytics-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "product-innovation-manager-new-builds-msc-geneva",
-          "product-innovation-manager-nuove-costruzioni-msc-group-geneva"
+          "product-innovation-manager-nuove-costruzioni-msc-group-geneva",
+          "product-innovation-manager-new-builds-analytics-msc-geneva"
         ],
         "de": [
           "product-innovation-manager-new-builds-msc-geneva"
         ],
         "fr": [
-          "product-innovation-manager-new-builds-msc-geneva"
+          "product-innovation-manager-new-builds-msc-geneva",
+          "gestionnaire-d-innovation-de-produits-new-builds-analytics-msc-group-geneva"
         ]
       },
       "firstSeenAt": "2026-07-25T22:06:54.022Z",
@@ -451,7 +455,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-28T11:34:04.547Z"
+      "firstSeenAt": "2026-07-28T11:34:04.547Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "sr-direktor-of-guest-experience-development-delivery-msc-group-geneva"
+        ],
+        "fr": [
+          "directeur-principal-du-developpement-et-de-la-prestation-de-l-experience-client-msc-group-geneva"
+        ],
+        "it": [
+          "sr-direttore-of-guest-experience-development-delivery-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "sr-direktor-of-guest-experience-development-delivery-msc-group-geneva",
+        "directeur-principal-du-developpement-et-de-la-prestation-de-l-experience-client-msc-group-geneva",
+        "sr-direttore-of-guest-experience-development-delivery-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-4cce7fb6d42a",
@@ -667,7 +687,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-28T11:34:01.517Z"
+      "firstSeenAt": "2026-07-28T11:34:01.517Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "senior-manager-digital-medias-payants-delivery-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-digital-medias-payants-delivery-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-8fd1f556af0a",
