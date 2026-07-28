@@ -1642,6 +1642,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.zurich-procedimento-finma-licenziamenti.title': 'Zurich : licenciements après la procédure Finma',
     'blog.article.zurich-procedimento-finma-licenziamenti.excerpt': 'Le groupe Zurich a licencié plus d\'une douzaine de salariés à la suite d\'une procédure ouverte par la Finma concernant certaines polices d\'assurance vie d\'entreprise.',
     'blog.article.zurich-procedimento-finma-licenziamenti.imageAlt': 'Siège d\'assurance suisse avec skyline urbaine',
+    'blog.article.canicola-cantieri-ssic.title': 'Canicule et chantiers, la SSIC : \'Assez de pénalités pour retards\'',
+    'blog.article.canicola-cantieri-ssic.excerpt': 'La Société suisse des emprunts constructeurs (SSE) demande des conditions contractuelles plus équitables pour protéger la santé des travailleurs pendant les vagues de chaleur.',
+    'blog.article.canicola-cantieri-ssic.imageAlt': 'Travailleurs frontaliers sur chantiers de construction pendant la canicola.',
 };
 
 export default blogMetaChFr;

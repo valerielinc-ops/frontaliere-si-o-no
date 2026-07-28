@@ -1642,6 +1642,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.zurich-procedimento-finma-licenziamenti.title': 'Zurich: Kündigungen nach Finma-Verfahren',
     'blog.article.zurich-procedimento-finma-licenziamenti.excerpt': 'Der Zurich-Konzern hat nach einem von der Finma eröffneten Verfahren gegen bestimmte Unternehmenslebensversicherungen mehr als ein Dutzend Mitarbeiter entlassen.',
     'blog.article.zurich-procedimento-finma-licenziamenti.imageAlt': 'Schweizer Versicherungshauptsitz mit städtischer Skyline',
+    'blog.article.canicola-cantieri-ssic.title': 'Hitze und Baustellen, der SBV: \'Genug Strafen für Verspätungen\'',
+    'blog.article.canicola-cantieri-ssic.excerpt': 'Der Schweizerische Baudarlehensverband (SBV) fordert gerechtere Vertragsbedingungen, um die Gesundheit der Arbeitnehmer bei Hitzewellen zu schützen.',
+    'blog.article.canicola-cantieri-ssic.imageAlt': 'Frontalier-Arbeiter auf Baustellen während der Canicola.',
 };
 
 export default blogMetaChDe;

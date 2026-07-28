@@ -4922,6 +4922,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'canicola-cantieri-ssic',
+    category: 'pratico',
+    date: '2026-07-28T12:14:10.513Z',
+    image: '/images/blog/canicola-cantieri-ssic.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
