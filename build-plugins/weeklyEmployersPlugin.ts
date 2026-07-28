@@ -40,6 +40,7 @@ import {
   DRIVEBY_AD_SNIPPET,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { renderGuideHubBridge } from './shared/guideHubBridge';
 import { firstParsableMs } from './shared/firstParsableDate';
 import { buildDayStampIso } from './shared/buildDayStamp';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
@@ -4295,6 +4296,7 @@ interface PluginResult {
   companyCityPages: number;
   orphanBridgePages: number;
   skippedForWordCount: number;
+  bridgesWritten: number;
   degradedMode: boolean;
 }
 
@@ -4380,6 +4382,7 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
       let companyCityCount = 0;
       let orphanBridgeCount = 0;
       let skipped = 0;
+      let bridgesWritten = 0;
       // Paths that should land in sitemap-weekly-employers.xml. Only indexable
       // pages (current-week + last-12-weeks archives) are listed — noindex
       // archives stay reachable but are excluded from the sitemap to keep
@@ -4399,8 +4402,11 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
           if (words < MIN_INDEXABLE_WORDS) {
             skipped++;
             console.warn(
-              `[weekly-employers] thin content (${words} words) for ${page.path} — skipping`,
+              `[weekly-employers] thin content (${words} words) for ${page.path} — bridging`,
             );
+            const outDir = np.join(distDir, page.path.replace(/^\/+/, ''));
+            collector.add(np.join(outDir, 'index.html'), renderGuideHubBridge(page.path));
+            bridgesWritten++;
             __weProfRecord('process-page', __tPage);
             continue;
           }
@@ -4463,11 +4469,12 @@ ${urlEntries}
         companyCityPages: companyCityCount,
         orphanBridgePages: orphanBridgeCount,
         skippedForWordCount: skipped,
+        bridgesWritten,
         degradedMode: degraded,
       };
 
       console.log(
-        `\x1b[36m[weekly-employers]\x1b[0m Generated ${result.currentWeekPages} current-week + ${result.archivePages} archive + ${result.companyCityPages} company×city + ${result.orphanBridgePages} orphan-bridge pages (skipped ${result.skippedForWordCount}) — degraded=${result.degradedMode}`,
+        `\x1b[36m[weekly-employers]\x1b[0m Generated ${result.currentWeekPages} current-week + ${result.archivePages} archive + ${result.companyCityPages} company×city + ${result.orphanBridgePages} orphan-bridge pages (skipped ${result.skippedForWordCount}, bridged ${result.bridgesWritten}) — degraded=${result.degradedMode}`,
       );
 
       // ── P2.S1: per-canton CH-wide "companies hiring" pages ────────
