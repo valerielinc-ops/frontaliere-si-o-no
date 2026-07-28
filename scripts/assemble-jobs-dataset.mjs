@@ -1049,8 +1049,16 @@ export function isNearDuplicateLocalizedTitle(candidate, source) {
  *
  * @param {string} crawlerKey   - Normalised company key (e.g. 'coop', 'galenica')
  * @param {object[]} jobs       - Array of job objects discovered in this run
+ * @param {object} [options]
+ * @param {boolean} [options.skipShrinkGuard] - Bypass the anti-shrink guard
+ *   for THIS write only. Reserved for callers that have already verified,
+ *   deterministically, that a shrink (including to zero) is a real
+ *   correction rather than a degraded/failed scrape — e.g. a brand-identity
+ *   re-filter that found real content this run but confirmed none of it
+ *   belongs to this company (see scripts/update-swatchgroup-jobs.mjs,
+ *   issue #4866). Do not use to paper over an actual parser regression.
  */
-export function writeJobsCrawlerSlice(crawlerKey, jobs) {
+export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   if (!crawlerKey || typeof crawlerKey !== 'string') {
     throw new TypeError('writeJobsCrawlerSlice: crawlerKey must be a non-empty string');
   }
@@ -1286,7 +1294,7 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
   // returning a degraded/error result (broken pagination, changed markup)
   // still exits 0. Observed: axa-svizzera 152→5 jobs in one run. Centralized
   // here (not in 90 parsers) so the whole class is fixed by-construction.
-  if (!process.env.SKIP_SHRINK_GUARD && existingSlice && Array.isArray(existingSlice.jobs)) {
+  if (!process.env.SKIP_SHRINK_GUARD && !options.skipShrinkGuard && existingSlice && Array.isArray(existingSlice.jobs)) {
     const priorCount = existingSlice.jobs.length;
     const newCount = hardened.jobs.length;
     if (shouldBlockShrink(priorCount, newCount)) {
