@@ -28,14 +28,44 @@
 const ZONE_NAME = 'frontaliereticino.ch';
 const WORKER_NAME = 'frontaliere-stop-reply-handler';
 // Recipient addresses that must route to the worker, and the routing-rule name
-// for each. stop-reply-handler.js branches on `message.to` (NEWSLETTER_ADDRESS
-// var in wrangler.toml) — anything not matching that falls through to the
-// outreach-reply path, so OUTREACH_ADDRESS below stays first/default in intent.
+// for each. stop-reply-handler.js branches on `message.to` against the
+// OUTREACH_ADDRESS / NEWSLETTER_ADDRESS vars in wrangler.toml (keep the two
+// lists in lockstep); every other address below is forward-only and is bound
+// purely so the worker's isAutoReply filter can drop out-of-office replies
+// before they reach the human inbox.
 const OUTREACH_ADDRESS = 'valerie@frontaliereticino.ch';
 const NEWSLETTER_ADDRESS = 'newsletter@frontaliereticino.ch';
+// The addresses our outbound mail is sent FROM — an autoresponder answers to
+// one of these, so this is the whole surface an out-of-office can land on.
+// Sources: scripts/send-job-alerts.mjs + scripts/send-saved-jobs-digest.mjs +
+// scripts/monitor-gsc-job-indexation.mjs (alerts@), blast-publisher-ads.mjs
+// (confirmation@), notify-journalist-article-live.mjs (redazione@),
+// probe-mailgun-scheduled.mjs (notifiche@), lib/mymemory-translate.mjs (info@),
+// functions/src/sendCalculatorReport.js (report@). Plus the two inbound-only
+// role addresses: abuse@ (RFC 2142 — where the incident's automatic response
+// actually landed) and consulenza@, published in the site copy and the internal
+// lead notification target (functions/src/consultingCore.js).
+//
+// Deliberately NOT bound: the *-bot@ addresses (git commit identities in
+// workflows, they never receive mail) and preview@/qa-preview@ (local
+// newsletter preview/QA placeholders, never a real recipient).
+const AUTO_REPLY_SINK_ADDRESSES = [
+  'alerts@frontaliereticino.ch',
+  'abuse@frontaliereticino.ch',
+  'confirmation@frontaliereticino.ch',
+  'redazione@frontaliereticino.ch',
+  'notifiche@frontaliereticino.ch',
+  'info@frontaliereticino.ch',
+  'report@frontaliereticino.ch',
+  'consulenza@frontaliereticino.ch',
+];
 const ROUTING_RULES = [
   { address: OUTREACH_ADDRESS, name: 'cold-email reply → stop-reply-handler' },
   { address: NEWSLETTER_ADDRESS, name: 'newsletter unsubscribe reply → stop-reply-handler' },
+  ...AUTO_REPLY_SINK_ADDRESSES.map((address) => ({
+    address,
+    name: `${address.split('@')[0]} auto-reply filter → stop-reply-handler`,
+  })),
 ];
 
 const API = 'https://api.cloudflare.com/client/v4';

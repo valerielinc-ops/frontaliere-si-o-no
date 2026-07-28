@@ -9059,6 +9059,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp.title': 'Residenza fiscale accertata in Italia e caducazione delle sanzioni RW: il presupposto soggettivo come nodo decisivo',
     'blog.article.residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp.excerpt': 'La Corte di Giustizia Tributaria di primo grado di Vicenza annulla l\'atto di irrogazione sanzioni per omessa compilazione del quadro RW, in quanto la residenza',
     'blog.article.residenza-fiscale-accertata-in-italia-e-caducazione-delle-sanzioni-rw-il-presupp.imageAlt': 'Immagine editoriale relativa a: Residenza fiscale accertata in Italia e caducazione delle sanzioni RW: il presupposto soggettivo come nodo decisivo',
+    'blog.article.trasferirsi-maccagno-pino-veddasca.title': 'Vivere a Maccagno con Pino e Veddasca da frontaliere',
+    'blog.article.trasferirsi-maccagno-pino-veddasca.excerpt': 'Analisi pro e contro del vivere a Maccagno con Pino e Veddasca lavorando in Ticino: fiscalità, accordi e gestione del pendolarismo quotidiano.',
+    'blog.article.trasferirsi-maccagno-pino-veddasca.imageAlt': 'Vista panoramica di un borgo frontaliero tra Italia e Svizzera',
 };
 
 export default blogMetaIt;
