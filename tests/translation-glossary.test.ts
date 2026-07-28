@@ -66,6 +66,39 @@ describe('translation glossary — protected-term corrections', () => {
     })).toBe(it);
   });
 
+  it('fixes Levatrice → EN/DE/FR midwife mistranslation (singular + plural)', () => {
+    expect(applyGlossaryCorrections({
+      sourceText: 'Levatrice/ostetrica',
+      translatedText: 'Leverage / midwife',
+      targetLang: 'en',
+    })).toBe('Midwife / midwife');
+    expect(applyGlossaryCorrections({
+      sourceText: 'Levatrice/ostetrica',
+      translatedText: 'Hebelwirkung/Hebamme',
+      targetLang: 'de',
+    })).toBe('Hebamme/Hebamme');
+    expect(applyGlossaryCorrections({
+      sourceText: 'Levatrice/ostetrica',
+      translatedText: 'Serveur / sage-femme',
+      targetLang: 'fr',
+    })).toBe('Sage-femme / sage-femme');
+    // Plural source ("Levatrici") must trigger the same fix.
+    expect(applyGlossaryCorrections({
+      sourceText: 'Levatrici ricercate',
+      translatedText: 'Leverage sought',
+      targetLang: 'en',
+    })).toBe('Midwife sought');
+  });
+
+  it('does NOT fire Levatrice trigger on an unrelated longer token (word boundary)', () => {
+    const en = 'Senior Leverage Finance Analyst';
+    expect(applyGlossaryCorrections({
+      sourceText: 'Analista Finanziario Levereggio', // no "levatrice"/"levatrici" substring
+      translatedText: en,
+      targetLang: 'en',
+    })).toBe(en);
+  });
+
   it('is a no-op for empty / missing inputs', () => {
     expect(applyGlossaryCorrections({ sourceText: '', translatedText: 'x', targetLang: 'it' })).toBe('x');
     expect(applyGlossaryCorrections({ sourceText: 'Nachtwache', translatedText: '', targetLang: 'it' })).toBe('');
