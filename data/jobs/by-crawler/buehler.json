@@ -13166,12 +13166,12 @@
     },
     {
       "id": "buehler-0489f574655a",
-      "slug": "gerente-de-vendas-buehler-curitiba",
+      "slug": "responsabile-vendite-buhler-group-curitiba",
       "slugByLocale": {
-        "it": "gerente-de-vendas-buehler-curitiba",
-        "en": "gerente-de-vendas-buehler-curitiba",
-        "de": "gerente-de-vendas-buhler-group-curitiba",
-        "fr": "gerente-de-vendas-buehler-curitiba"
+        "fr": "gerente-de-vendas-buehler-curitiba",
+        "it": "responsabile-vendite-buhler-group-curitiba",
+        "en": "sales-manager-buhler-group-curitiba",
+        "de": "gerente-de-vendas-buhler-group-curitiba"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -13225,7 +13225,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-27T22:17:14.024Z"
+      "firstSeenAt": "2026-07-27T22:17:14.024Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gerente-de-vendas-buehler-curitiba"
+        ],
+        "en": [
+          "gerente-de-vendas-buehler-curitiba"
+        ]
+      },
+      "previousSlugs": [
+        "gerente-de-vendas-buehler-curitiba"
+      ]
     },
     {
       "id": "buehler-ec82cfb9b896",

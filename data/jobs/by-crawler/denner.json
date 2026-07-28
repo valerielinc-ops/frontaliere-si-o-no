@@ -2245,10 +2245,10 @@
       "id": "denner-3d85403ee4cf",
       "slug": "venditore-denner-oftringen",
       "slugByLocale": {
-        "it": "venditore-denner-oftringen",
-        "en": "seller-denner-oftringen",
+        "it": "venditore-denner-ag-oftringen-79429a",
+        "en": "seller-denner-ag-oftringen-79429a",
         "de": "verkaufer-in-denner-ag-oftringen",
-        "fr": "vendeur-denner-oftringen"
+        "fr": "vendeur-denner-ag-oftringen-79429a"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2304,12 +2304,6 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-07-28T11:43:32.248Z",
-      "previousSlugs": [
-        "verkaufer-in-denner-3",
-        "verkaufer-in-denner-oftringen",
-        "verkaufer-in-denner",
-        "venditore-denner-oftringen"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-3",
@@ -2317,17 +2311,25 @@
           "venditore-denner-oftringen"
         ],
         "en": [
-          "verkaufer-in-denner-oftringen"
+          "verkaufer-in-denner-oftringen",
+          "seller-denner-oftringen"
         ],
         "fr": [
-          "verkaufer-in-denner-oftringen"
+          "verkaufer-in-denner-oftringen",
+          "vendeur-denner-oftringen"
         ],
         "de": [
           "verkaufer-in-denner-oftringen"
         ]
       },
-      "firstSeenAt": "2026-07-27T22:21:05.566Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "verkaufer-in-denner-3",
+        "verkaufer-in-denner-oftringen",
+        "verkaufer-in-denner",
+        "venditore-denner-oftringen",
+        "seller-denner-oftringen",
+        "vendeur-denner-oftringen"
+      ],
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -2340,7 +2342,9 @@
           "unitText": "YEAR"
         }
       },
-      "country": "CH"
+      "country": "CH",
+      "firstSeenAt": "2026-07-27T22:21:05.566Z",
+      "needsRetranslation": true
     },
     {
       "id": "denner-68976ba2a233",
