@@ -4958,6 +4958,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-trasferirsi-clivio-frontaliere-pro-contro': { name: 'Trasferirsi a Clivio', path: '/articoli-frontaliere/trasferirsi-clivio-frontaliere-pro-contro', parent: 'blog' },
     'blog-vecchi-frontalieri-precompilata-2026': { name: 'Vecchi frontalieri', path: '/articoli-svizzera/vecchi-frontalieri-precompilata-2026/', parent: 'blog' },
     'blog-tacito-musica-ticino-concerti': { name: 'Festival Ticino Musica', path: '/articoli-frontaliere/tacito-musica-ticino-concerti', parent: 'blog' },
+    'blog-opinioni-tram-treno-lugano': { name: 'Tram treno Lugano', path: '/articoli-svizzera/opinioni-tram-treno-lugano/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

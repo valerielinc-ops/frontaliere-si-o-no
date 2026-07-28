@@ -1627,6 +1627,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.vecchi-frontalieri-precompilata-2026.title': 'Alte Grenzgänger: Schweizer Einkommen vorausgefüllt, was zu tun ist',
     'blog.article.vecchi-frontalieri-precompilata-2026.excerpt': 'Alte Grenzgänger finden ihre Lohndaten im vorausgefüllten 2026. Was passiert und was zu tun ist.',
     'blog.article.vecchi-frontalieri-precompilata-2026.imageAlt': 'Altfrontalier mit ihren Gehaltsdaten in der 2026 Vorverarbeitung',
+    'blog.article.opinioni-tram-treno-lugano.title': 'Meinungen zur Tram Lugano: Analysen und Auswirkungen',
+    'blog.article.opinioni-tram-treno-lugano.excerpt': 'Wir analysieren die Aussichten für das Projekt der Straßenbahn in Lugano und bewerten die Auswirkungen auf die Mobilität und das nationale wirtschaftliche Umfeld.',
+    'blog.article.opinioni-tram-treno-lugano.imageAlt': 'Panoramablick auf die Seepromenade von Lugano mit städtischen Mobilitätselementen.',
 };
 
 export default blogMetaChDe;
