@@ -398,8 +398,28 @@ export const SEO_ARTICLE_SHELL_RESERVE_CSS =
   '.s-card{padding:14px 16px;border:1px solid transparent;border-radius:14px}' +
   '.s-OCic8j{margin:10px 0 0;line-height:1.6}';
 
+/**
+ * `*,::after,::before{border:0 solid #e5e7eb}` below is wrapped in
+ * `@layer base` (matching the identical reset's layer in the ASYNC
+ * `index.css`) — NOT unlayered like the rest of this file's reserve blocks.
+ * Per CSS Cascade Layers, an unlayered author rule always wins over ANY
+ * layered rule regardless of specificity or source order, PERMANENTLY (not
+ * just until the async sheet loads). Left unlayered, this reset defeated
+ * every Tailwind `.border`/`.border-*` utility on every static SEO page
+ * sitewide — e.g. `border:1px solid var(--color-edge)` from `.border`/
+ * `.border-edge` in `index.css`'s `@layer utilities` computed to
+ * `border-width:0` forever, confirmed live via CDP
+ * `CSS.getMatchedStylesForNode` (2026-07-28). `@layer base` still beats
+ * UA-origin defaults (layers only rank within the same origin) and still
+ * loses to `index.css`'s own `@layer utilities`, so the intended "neutral
+ * baseline until Tailwind lands" behaviour is preserved — it just stops
+ * outranking Tailwind permanently. The rest of this file's classes
+ * (`.s-*` reserves) stay unlayered on purpose: they compete on raw
+ * source-order against `seo-static.css`, which is itself entirely
+ * unlayered by design.
+ */
 export const CRITICAL_CSS =
-  `@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(${BASE_URL}/fonts/inter-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"Space Grotesk";font-style:normal;font-weight:300 700;font-display:optional;src:url(${BASE_URL}/fonts/space-grotesk-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}h1,h2,h3{font-family:"Space Grotesk",ui-sans-serif,system-ui,-apple-system,sans-serif}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:var(--color-heading,#0f172a)}.dark .dark\\:text-heading{color:#f1f5f9}body{min-height:100vh}` +
+  `@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(${BASE_URL}/fonts/inter-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"Space Grotesk";font-style:normal;font-weight:300 700;font-display:optional;src:url(${BASE_URL}/fonts/space-grotesk-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@layer base{*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}h1,h2,h3{font-family:"Space Grotesk",ui-sans-serif,system-ui,-apple-system,sans-serif}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:var(--color-heading,#0f172a)}.dark .dark\\:text-heading{color:#f1f5f9}body{min-height:100vh}` +
   RAIL_RESERVE_CSS +
   SEO_STATIC_GRID_RESERVE_CSS +
   SEO_STATIC_HERO_RESERVE_CSS +
