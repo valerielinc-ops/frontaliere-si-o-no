@@ -1,18 +1,19 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-07-28T11:43:47.060Z",
-  "total": 15,
-  "newCount": 1,
+  "generatedAt": "2026-07-28T22:28:52.630Z",
+  "total": 14,
+  "newCount": 0,
   "updatedCount": 14,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 21289,
-  "avgDurationMs": 21289,
+  "durationMs": 18061,
+  "avgDurationMs": 18061,
   "durationHistory": [
-    21289
+    18061
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Coordinateur/trice Service Front-/Back-Office (m/f/d) 100%",
       "slug": "coordinateur-trice-service-front-back-office-m-f-d-100-hoval-crissier",
@@ -35,16 +36,19 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 73,
+      "id": "hoval-14bc02b74670",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-28T11:43:47.058Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Frontoffice Mitarbeiter/in (m/w/d)",
       "slug": "frontoffice-mitarbeiter-in-m-w-d-hoval-harkingen",
@@ -485,43 +489,6 @@
       }
     },
     {
-      "title": "Tecnico di servizio per impianti di riscaldamento energie rinnovabili (m/f/d)",
-      "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
-      "url": "https://www.hoval.it/it_IT/job/3903",
-      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3903/Application/New/4?DesignID=00&lang=ita",
-      "company": "Hoval",
-      "companyKey": "hoval",
-      "companyDomain": "hoval.it",
-      "location": "RC Ticino",
-      "addressLocality": "RC Ticino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "technician",
-      "sector": "Assistenza Tecnica",
-      "source": "hoval-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-28",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "hoval-fd8e3ab9018c",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "6500",
-      "firstSeenAt": "2026-05-17T10:26:05.869Z",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Tecnico di servizio per impianti di riscaldamento olio/gas (m/f/d)",
       "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-olio-gas-m-f-d-hoval-ticino",
       "url": "https://www.hoval.it/it_IT/job/3795",
@@ -559,6 +526,44 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Tecnico di servizio per impianti di riscaldamento energie rinnovabili (m/f/d)",
+      "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
+      "url": "https://www.hoval.it/it_IT/job/3903",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3903/Application/New/4?DesignID=00&lang=ita",
+      "company": "Hoval",
+      "companyKey": "hoval",
+      "companyDomain": "hoval.it",
+      "location": "RC Ticino",
+      "addressLocality": "RC Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "technician",
+      "sector": "Assistenza Tecnica",
+      "source": "hoval-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-16",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "hoval-fd8e3ab9018c",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "",
+      "postalCode": "6500",
+      "firstSeenAt": "2026-05-17T10:26:05.869Z",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": []
 }
