@@ -1,18 +1,19 @@
 {
   "key": "huntsman",
   "label": "Huntsman Corporation",
-  "generatedAt": "2026-07-27T22:22:22.905Z",
+  "generatedAt": "2026-07-28T11:35:14.320Z",
   "total": 7,
-  "newCount": 1,
-  "updatedCount": 6,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7591,
-  "avgDurationMs": 7591,
+  "durationMs": 7962,
+  "avgDurationMs": 7962,
   "durationHistory": [
-    7591
+    7962
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "huntsman-e4bfe7796d55",
       "slug": "intern-digital-engineer-huntsman-ch",
@@ -37,18 +38,17 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Intern-Digital-Engineer_J-020117",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-27T22:22:16.058Z",
+      "crawledAt": "2026-07-28T11:35:07.116Z",
       "jobReqId": "J-020117",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-27T22:22:16.058Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "huntsman-36e1a25387c1",
       "slug": "laboratory-technician-pcb-materials-huntsman-ch",
@@ -73,7 +73,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Laboratory-Technician---PCB-Materials_J-020110",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-27T22:22:16.639Z",
+      "crawledAt": "2026-07-28T11:35:07.813Z",
       "jobReqId": "J-020110",
       "firstSeenAt": "2026-07-24T22:16:40.031Z",
       "_qualityScore": 84,
@@ -108,7 +108,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Material-Scientist---PCB-Materials_J-020112",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-27T22:22:17.190Z",
+      "crawledAt": "2026-07-28T11:35:08.440Z",
       "jobReqId": "J-020112",
       "firstSeenAt": "2026-07-24T22:16:40.828Z",
       "_qualityScore": 84,
@@ -143,7 +143,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/LOGISTICIEN--H-F-_J-020013",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T22:22:17.738Z",
+      "crawledAt": "2026-07-28T11:35:09.016Z",
       "jobReqId": "J-020013",
       "firstSeenAt": "2026-07-20T12:04:44.172Z",
       "_qualityScore": 84,
@@ -178,7 +178,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019937",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T22:22:18.276Z",
+      "crawledAt": "2026-07-28T11:35:09.634Z",
       "jobReqId": "J-019937",
       "firstSeenAt": "2026-06-26T22:07:54.096Z",
       "_qualityScore": 82,
@@ -213,7 +213,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Technologue-en-production---5-quipes_J-019681",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-27T22:22:18.838Z",
+      "crawledAt": "2026-07-28T11:35:10.221Z",
       "jobReqId": "J-019681",
       "firstSeenAt": "2026-05-04T22:05:20.209Z",
       "_qualityScore": 82,
@@ -248,7 +248,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-27T22:22:19.541Z",
+      "crawledAt": "2026-07-28T11:35:10.808Z",
       "jobReqId": "J-019405",
       "firstSeenAt": "2026-04-13T10:44:47.716Z",
       "_qualityScore": 82,
