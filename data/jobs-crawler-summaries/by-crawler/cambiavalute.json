@@ -1,16 +1,16 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-07-27T22:16:48.812Z",
+  "generatedAt": "2026-07-28T11:29:01.541Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 155961,
-  "avgDurationMs": 155961,
+  "durationMs": 68763,
+  "avgDurationMs": 68763,
   "durationHistory": [
-    155961
+    68763
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-07-27T22:16:48.232Z",
+      "crawledAt": "2026-07-28T11:29:00.961Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "country": "CH",
       "sourceLang": "it",
@@ -75,7 +75,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-07-27T22:16:48.232Z",
+      "crawledAt": "2026-07-28T11:29:00.961Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "country": "CH",
       "sourceLang": "it",
@@ -99,7 +99,7 @@
       "slug": "legal-compliance-officer-cambiavalute-ch-2026-cambiavalute-ch-all-rights-reserved-cambi-viaqie",
       "company": "CambiaValute.ch",
       "title": "Legal & Compliance Officer",
-      "location": "2026 CambiaValute",
+      "location": "2026 Azienda",
       "canton": "TI",
       "category": "finance",
       "contract": "part-time",
@@ -115,7 +115,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-07-27T12:36:10.998Z",
+      "crawledAt": "2026-07-28T11:29:00.961Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "country": "CH",
       "sourceLang": "it",
@@ -125,7 +125,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
       "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -169,7 +168,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
