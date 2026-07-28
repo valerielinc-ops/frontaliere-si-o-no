@@ -80,3 +80,42 @@ describe('renderArticlePages — single-article render equals full-section rende
     }
   }, 300_000);
 });
+
+// Regression gate for the byline date bug fixed in #4837.
+//
+// normalizeDateTime stamps bare dates as `T00:00:00+01:00` (Swiss wall clock),
+// and the `datetime` attribute publishes that literal date. The visible text
+// used to be derived via `new Date(iso).getDate()`, i.e. the RUNNING PROCESS's
+// zone — and CI builds in UTC, where that instant is 23:00 the previous day.
+// Production before the fix, on /articoli-frontaliere/confronto-assicurazioni-auto/:
+//   <time datetime="2026-02-26" itemprop="datePublished">25 febbraio 2026</time>
+// Google reads the attribute, the reader reads the text, and they disagreed by a
+// day on ~142 articles. This asserts they agree, for an article that actually
+// sits in the midnight-CET window where the bug bit.
+describe('article byline date agrees with its own datetime attribute', () => {
+  const MONTHS_IT = ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
+
+  it('renders the same calendar day in the attribute and in the visible text', async () => {
+    const outDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ogpages-date-'));
+    try {
+      const res = await renderArticlePages({
+        rootDir,
+        distDir: outDir,
+        section: 'svizzera',
+        onlyArticleId: 'costo-vita-svizzera-2026', // datePublished sits in the T00:xx+01:00 window
+      });
+      expect(res.entries).toHaveLength(1);
+
+      const html = fs.readFileSync(path.join(outDir, res.entries[0].paths.it), 'utf-8');
+      const m = /<time datetime="([^"]+)"[^>]*itemprop="datePublished"[^>]*>([^<]+)<\/time>/.exec(html);
+      expect(m, 'no datePublished <time> element found in the rendered article').not.toBeNull();
+
+      const [, attr, visible] = m!;
+      const [yearStr, monthStr, dayStr] = attr.split('T')[0].split('-');
+      const expected = `${Number(dayStr)} ${MONTHS_IT[Number(monthStr) - 1]} ${Number(yearStr)}`;
+      expect(visible.trim()).toBe(expected);
+    } finally {
+      fs.rmSync(outDir, { recursive: true, force: true });
+    }
+  }, 120_000);
+});
