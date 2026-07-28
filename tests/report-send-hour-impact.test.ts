@@ -13,6 +13,7 @@ import {
   argValue,
   GROUP_ORDER,
   IMMEDIATE_LABEL,
+  TRANSACTIONAL_CAMPAIGN_IDS,
 } from '../scripts/report-send-hour-impact.mjs';
 
 // ── Fixture helpers ──────────────────────────────────────────────────────
@@ -144,6 +145,25 @@ describe('aggregate — canonical vs non-canonical delivery doc dedup', () => {
     const stub = { id: buildCanonicalDeliveryDocId(CAMPAIGN, 'stub@x.com'), data: () => ({ email: 'stub@x.com', campaign_id: CAMPAIGN, sent_at: null }) };
     const { segments } = aggregate([stub], [], null);
     expect(segments.combined.personal.deliveries + segments.combined.global.deliveries + segments.combined[IMMEDIATE_LABEL].deliveries).toBe(0);
+  });
+});
+
+describe('aggregate — transactional sends excluded from the immediate/pre-feature baseline (#4853)', () => {
+  it('drops calculator_paywall and lamal_ssn_tool deliveries entirely instead of bucketing them as immediate/pre-feature', () => {
+    const deliveries = [
+      deliveryDoc({ campaignId: 'calculator_paywall', email: 'calc@x.com', sentAt: new Date('2026-07-05T10:00:00Z'), sendTimeSource: null, opened: true }),
+      deliveryDoc({ campaignId: 'lamal_ssn_tool', email: 'lamal@x.com', sentAt: new Date('2026-07-05T10:00:00Z'), sendTimeSource: null }),
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'immediate1@x.com', sentAt: new Date('2026-07-05T10:00:00Z'), sendTimeSource: null }),
+    ];
+    const { segments, droppedTransactional } = aggregate(deliveries, [], null);
+    expect(droppedTransactional).toBe(2);
+    expect(segments.combined[IMMEDIATE_LABEL]).toEqual({ deliveries: 1, opens: 0, clicks: 0 });
+  });
+
+  it('exposes the known transactional campaign_id set for reuse/inspection', () => {
+    expect(TRANSACTIONAL_CAMPAIGN_IDS.has('calculator_paywall')).toBe(true);
+    expect(TRANSACTIONAL_CAMPAIGN_IDS.has('lamal_ssn_tool')).toBe(true);
+    expect(TRANSACTIONAL_CAMPAIGN_IDS.has(CAMPAIGN)).toBe(false);
   });
 });
 
