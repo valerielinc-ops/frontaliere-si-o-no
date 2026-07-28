@@ -9037,6 +9037,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-italiani-ticino-risorsa.title': 'Ticino: Italian border workers are scarce, now they are a resource',
     'blog.article.frontalieri-italiani-ticino-risorsa.excerpt': 'The drop in Italian border workers in the Canton of Ticino creates problems for local businesses, overturning the old accusations of the sovereignists.',
     'blog.article.frontalieri-italiani-ticino-risorsa.imageAlt': 'View of the border area between Italy and Canton Ticino',
+    'blog.article.mercati-predittivi-business-trump.title': 'Predictive markets and new platform: Trump\'s business',
+    'blog.article.mercati-predittivi-business-trump.excerpt': 'The Trump family expands its activities in predictive markets with the launch of the new Truth Api platform.',
+    'blog.article.mercati-predittivi-business-trump.imageAlt': 'Panoramic view of Lake Lugano, a symbol of the Ticino economy.',
 };
 
 export default blogMetaEn;

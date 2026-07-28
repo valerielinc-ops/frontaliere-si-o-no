@@ -9039,6 +9039,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-italiani-ticino-risorsa.title': 'Tessin : les frontaliers italiens manquent, ils sont maintenant une ressource',
     'blog.article.frontalieri-italiani-ticino-risorsa.excerpt': 'La baisse des frontaliers italiens dans le canton du Tessin crée des problèmes pour les entreprises locales, renversant les vieilles accusations des souverainistes.',
     'blog.article.frontalieri-italiani-ticino-risorsa.imageAlt': 'Vue de la zone frontalière entre l\'Italie et le Canton du Tessin',
+    'blog.article.mercati-predittivi-business-trump.title': 'Marchés prédictifs et nouvelle plateforme : le business de Trump',
+    'blog.article.mercati-predittivi-business-trump.excerpt': 'La famille Trump élargit ses activités sur les marchés prédictifs avec le lancement de la nouvelle plateforme Truth Api.',
+    'blog.article.mercati-predittivi-business-trump.imageAlt': 'Vue panoramique sur le lac de Lugano, symbole de l\'économie tessinoise.',
 };
 
 export default blogMetaFr;

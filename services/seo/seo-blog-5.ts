@@ -56348,6 +56348,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mercati-predittivi-business-trump': {
+    title: 'Mercati predittivi e nuova piattaforma: il business di Trump',
+    description: 'La famiglia Trump espande il proprio business nei mercati predittivi con la nuova piattaforma Truth Api. Analisi degli effetti sui mercati finanziari e i',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercati, predittivi, nuova, piattaforma',
+    ogTitle: 'Mercati predittivi e Truth Api: le mosse di Trump',
+    ogDescription: 'La famiglia Trump espande il proprio business nei mercati predittivi con la nuova piattaforma Truth Api. Analisi degli effetti sui mercati finanziari.',
+    canonicalPath: '/articoli-frontaliere/mercati-predittivi-business-trump',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercati predittivi e nuova piattaforma: il business di Trump",
+      "description": "La famiglia Trump espande il proprio business nei mercati predittivi con la nuova piattaforma Truth Api. Analisi degli effetti sui mercati finanziari e i",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercati-predittivi-business-trump.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica del Lago di Lugano, simbolo dell'economia ticinese."
+      },
+      "datePublished": "2026-07-28T04:19:46+00:00",
+      "dateModified": "2026-07-28T04:19:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mercati-predittivi-business-trump/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

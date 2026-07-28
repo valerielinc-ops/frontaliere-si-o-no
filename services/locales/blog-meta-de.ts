@@ -9036,6 +9036,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-italiani-ticino-risorsa.title': 'Tessin: Italienische Grenzgänger fehlen, jetzt sind sie eine Ressource',
     'blog.article.frontalieri-italiani-ticino-risorsa.excerpt': 'Der Rückgang der italienischen Grenzgänger im Kanton Tessin schafft Probleme für die lokalen Unternehmen und kehrt die alten Vorwürfe der Souveränisten um.',
     'blog.article.frontalieri-italiani-ticino-risorsa.imageAlt': 'Ansicht des Grenzgebiets zwischen Italien und dem Kanton Tessin',
+    'blog.article.mercati-predittivi-business-trump.title': 'Prognosemärkte und neue Plattform: Trumps Geschäft',
+    'blog.article.mercati-predittivi-business-trump.excerpt': 'Die Trump-Familie erweitert ihre Aktivitäten in prädiktiven Märkten mit der Einführung der neuen Truth-API-Plattform.',
+    'blog.article.mercati-predittivi-business-trump.imageAlt': 'Panoramablick auf den Luganersee, ein Symbol der Tessiner Wirtschaft.',
 };
 
 export default blogMetaDe;
