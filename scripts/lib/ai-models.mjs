@@ -588,25 +588,32 @@ export const DEFAULT_CHAIN = [
   // AI_MODELS.CF_QWEN_25_CODER_32B removed — wrapper crash "text.replace is not a function" (2026-05-27, run 26537033519).
   // AI_MODELS.GROQ_LLAMA_3_3_SPEC removed — Groq HTTP 400 "decommissioned" (2026-05-27, run 26537033519).
 
-  // Last-resort local model. Always sorted to the very bottom (sortChainByScore)
-  // and skipped entirely unless LOCAL_LLM_ENABLED — so when every remote provider
-  // above is daily-exhausted, generation still produces instead of deferring.
+  // Last-resort local model. Sorted below every real remote API but ABOVE
+  // claude-cli (sortChainByScore / _lastResortTier — see its doc comment for
+  // the 2026-07-28 reorder + the AI_LAST_RESORT_ORDER kill-switch) and skipped
+  // entirely unless LOCAL_LLM_ENABLED — so when every remote provider above is
+  // daily-exhausted, generation still produces instead of deferring.
   AI_MODELS.LOCAL_FALLBACK,
 
-  // Self-hosted local AI gateway (OmniRoute), opt-in pilot. Sorted below
-  // LOCAL_FALLBACK (sortChainByScore) — LOCAL is deterministic zero-network CPU
-  // inference with no failure mode worth deferring further; OmniRoute depends on
-  // its own registered upstream providers (same failure class as the main
-  // chain), so it sits below the guaranteed-available local model but above the
-  // reserved, Max-subscription-backed Claude CLI tier. Skipped entirely unless
-  // OMNIROUTE_ENABLED is set.
+  // Self-hosted local AI gateway (OmniRoute), opt-in pilot. Since 2026-07-28
+  // sorted ABOVE LOCAL_FALLBACK (sortChainByScore / _lastResortTier): run
+  // 30286278791 (omniroute-poc.yml) proved it reaches a frontier-class model
+  // over the network in seconds ("POC OK — model used:
+  // deepseek-ai/DeepSeek-V3.2", 2020 prompt tokens, real response), while run
+  // 28802314827 showed LOCAL_FALLBACK's Ollama qwen2.5:14b CPU inference on
+  // the CI runner costs ~12-17min PER generation — network beats CPU
+  // wall-clock when both are reachable. Still above the reserved,
+  // Max-subscription-backed Claude CLI tier. Skipped entirely unless
+  // OMNIROUTE_ENABLED is set. Order overridable via AI_LAST_RESORT_ORDER.
   AI_MODELS.OMNIROUTE_AUTO,
 
-  // Absolute last resort. Always sorted below LOCAL_FALLBACK and OMNIROUTE_AUTO
-  // (sortChainByScore) and skipped unless ENABLE_HAIKU_ARTICLE_FALLBACK (RC) +
-  // CLAUDE_CODE_OAUTH_TOKEN are both present — so a run only ever reaches it
-  // once every free-tier cloud model AND the local/OmniRoute fallbacks have
-  // already failed.
+  // Absolute last resort. By default sorted below LOCAL_FALLBACK and
+  // OMNIROUTE_AUTO (sortChainByScore / _lastResortTier — see that function's
+  // doc comment; AI_LAST_RESORT_ORDER can reorder it for an operator-driven
+  // rollback, but the code never promotes it by itself) and skipped unless
+  // ENABLE_HAIKU_ARTICLE_FALLBACK (RC) + CLAUDE_CODE_OAUTH_TOKEN are both
+  // present — so a run only ever reaches it once every free-tier cloud model
+  // AND the local/OmniRoute fallbacks have already failed.
   AI_MODELS.CLAUDE_CLI_HAIKU,
 ];
 
@@ -1129,15 +1136,27 @@ function cooldownProvider(provider) {
   console.warn(`🧊 Provider ${provider} cooled down for ${PROVIDER_COOLDOWN_MS / 1000}s (rate-limited)`);
 }
 
+// Single source of truth for what counts a "last-resort" model and its
+// prefix (AGENTS.md #6 — do not re-declare 'local/'/'omniroute/'/'claude-cli/'
+// yet again below). Declared here, ahead of _freshLastResortStats, because
+// _stats (below) builds its lastResort bucket eagerly at module-load time —
+// a later declaration would TDZ-crash on first import.
+const LAST_RESORT_TIER_PREFIXES = Object.freeze({
+  omniroute: 'omniroute/',
+  local: 'local/',
+  'claude-cli': 'claude-cli/',
+});
+
 // Fresh last-resort-tier stats bucket. Factory (not an inline literal reused
 // two places) keeps the initial shape and resetState()'s reset in sync — one
-// source of truth, no drift between the two (AGENTS.md #6).
+// source of truth, no drift between the two (AGENTS.md #6). Keys driven by
+// LAST_RESORT_TIER_PREFIXES instead of a separate hardcoded name list.
 function _freshLastResortStats() {
-  return {
-    local: { served: 0, failed: 0, skipped: 0, skipReasons: {} },
-    omniroute: { served: 0, failed: 0, skipped: 0, skipReasons: {} },
-    'claude-cli': { served: 0, failed: 0, skipped: 0, skipReasons: {} },
-  };
+  const stats = {};
+  for (const name of Object.keys(LAST_RESORT_TIER_PREFIXES)) {
+    stats[name] = { served: 0, failed: 0, skipped: 0, skipReasons: {} };
+  }
+  return stats;
 }
 
 const _stats = {
@@ -2072,26 +2091,71 @@ export function getScoreBoard() {
  * Models with higher scores come first.
  * Within equal scores, the original chain order is preserved (stable sort).
  */
-// Last-resort tiering for sortChainByScore: higher tier always sinks below
-// lower tier regardless of score. Local CPU fallback sinks below every real
-// remote API; OmniRoute sinks below Local (deterministic zero-network CPU
-// inference vs. OmniRoute's dependency on its own upstream providers); Claude
-// CLI Haiku sinks even below OmniRoute — it's the absolute last resort, only
-// reached once local AND OmniRoute have ALSO failed.
-function _lastResortTier(model) {
-  if (model.startsWith('claude-cli/')) return 3;
-  if (model.startsWith('omniroute/')) return 2;
-  if (model.startsWith('local/')) return 1;
-  return 0;
+// Identity of a model's last-resort tier — order-independent: which bucket
+// (local/omniroute/claude-cli) a model belongs to never changes, regardless
+// of AI_LAST_RESORT_ORDER below. Reuses LAST_RESORT_TIER_PREFIXES (declared
+// near _freshLastResortStats above) instead of re-testing the 3 prefixes here
+// a 3rd time (AGENTS.md #6). Returns null for a normal (non-last-resort) model.
+function _lastResortTierName(model) {
+  for (const [name, prefix] of Object.entries(LAST_RESORT_TIER_PREFIXES)) {
+    if (model.startsWith(prefix)) return name;
+  }
+  return null;
 }
 
-// Maps _lastResortTier's numeric tier to the _stats.lastResort bucket key.
-// Reuses _lastResortTier's prefix-matching instead of re-testing
-// model.startsWith('claude-cli/'|'omniroute/'|'local/') here — one source of
-// truth for "what counts as last-resort" (AGENTS.md #6).
-const LAST_RESORT_TIER_NAMES = { 1: 'local', 2: 'omniroute', 3: 'claude-cli' };
-function _lastResortTierName(model) {
-  return LAST_RESORT_TIER_NAMES[_lastResortTier(model)] || null;
+// Default priority order for the 3 last-resort tiers (changed 2026-07-28,
+// was local-first). Run 30286278791 (omniroute-poc.yml) proved OmniRoute
+// reaches a frontier-class model over the network in seconds ("POC OK —
+// model used: deepseek-ai/DeepSeek-V3.2", 2020 prompt tokens, real response),
+// while run 28802314827 showed LOCAL_FALLBACK's Ollama qwen2.5:14b CPU
+// inference on the CI runner costs ~12-17min PER generation — network beats
+// CPU wall-clock when both are reachable. claude-cli stays last: it's the
+// only subscription-gated tier and has 0 successes across ~20 attempts.
+const DEFAULT_LAST_RESORT_ORDER = ['omniroute', 'local', 'claude-cli'];
+
+// Set once a malformed AI_LAST_RESORT_ORDER has been warned about, so the
+// warning prints once per process rather than on every callLLM() — this path
+// runs unattended every 30min in prod; a noisy repeat warning is as useless
+// as a silent one. Reset by resetState() for test isolation.
+let _lastResortOrderWarned = false;
+
+/**
+ * AI_LAST_RESORT_ORDER — CSV kill-switch overriding the default priority
+ * order of the 3 last-resort tiers above, for an instant rollback without a
+ * code change/redeploy. Example: "local,omniroute,claude-cli" reproduces the
+ * pre-2026-07-28 order exactly (local first, like it always was before
+ * OmniRoute got promoted). Unset/empty → DEFAULT_LAST_RESORT_ORDER above.
+ * Malformed value (unknown tier name, wrong element count, duplicate entry,
+ * garbage string) → falls back to DEFAULT_LAST_RESORT_ORDER and warns ONCE
+ * per process (see _lastResortOrderWarned) instead of crashing or silently
+ * applying a partial/wrong order.
+ */
+function _getLastResortOrder() {
+  const raw = (process.env.AI_LAST_RESORT_ORDER || '').trim();
+  if (!raw) return DEFAULT_LAST_RESORT_ORDER;
+  const validNames = Object.keys(LAST_RESORT_TIER_PREFIXES);
+  const parsed = raw.split(',').map((s) => s.trim()).filter(Boolean);
+  const isValidPermutation = parsed.length === validNames.length
+    && new Set(parsed).size === validNames.length
+    && parsed.every((n) => validNames.includes(n));
+  if (isValidPermutation) return parsed;
+  if (!_lastResortOrderWarned) {
+    _lastResortOrderWarned = true;
+    console.warn(`⚠️ AI_LAST_RESORT_ORDER="${raw}" invalid (expected a permutation of ${validNames.join(',')}) — using default order ${DEFAULT_LAST_RESORT_ORDER.join(',')}.`);
+  }
+  return DEFAULT_LAST_RESORT_ORDER;
+}
+
+// Last-resort tiering for sortChainByScore: higher tier always sinks below
+// lower tier regardless of score, tier 0 = normal chain model (always ranked
+// above all 3 last-resort tiers). Rank among the 3 last-resort tiers follows
+// _getLastResortOrder() (default above, or the AI_LAST_RESORT_ORDER
+// override) — a model's tier IDENTITY (_lastResortTierName) never changes,
+// only its numeric RANK does.
+function _lastResortTier(model) {
+  const name = _lastResortTierName(model);
+  if (!name) return 0;
+  return _getLastResortOrder().indexOf(name) + 1; // 1-based; 0 reserved for "not last-resort"
 }
 
 // Bump the skip counter + aggregated cause for a last-resort model's bucket.
@@ -2264,11 +2328,15 @@ export function printRunSummary() {
     lines.push(`   429 streak: ${Object.entries(s.consecutive429s).map(([m, c]) => `${m}=${c}`).join(', ')}`);
   }
   const lr = s.lastResort;
-  const lrTiers = ['local', 'omniroute', 'claude-cli'];
+  // Names from LAST_RESORT_TIER_PREFIXES, not a 4th hardcoded copy (AGENTS.md
+  // #6). Display order fixed (not driven by AI_LAST_RESORT_ORDER) so the
+  // summary line's shape stays grep-able/diffable across runs regardless of
+  // which priority order was actually in effect.
+  const lrTiers = Object.keys(LAST_RESORT_TIER_PREFIXES);
   const lrReached = lrTiers.some((t) => lr[t].served + lr[t].failed + lr[t].skipped > 0);
   lines.push(lrReached
     ? `   last-resort: ${lrTiers.map((t) => _formatLastResortTier(t, lr[t])).join(' · ')}`
-    : `   last-resort: local/omniroute/claude-cli not reached this run`);
+    : `   last-resort: ${lrTiers.join('/')} not reached this run`);
   if (s.errors.length > 0) {
     lines.push(`   Errors: ${s.errors.length}`);
   }
@@ -2300,6 +2368,7 @@ export function resetState() {
   _stats.cacheHits = 0;
   _stats.errors = [];
   _stats.lastResort = _freshLastResortStats();
+  _lastResortOrderWarned = false;
   _responseCache.clear();
   _claudeCliBinaryMissing = false;
   _claudeCliConsecutiveTimeouts = 0;
