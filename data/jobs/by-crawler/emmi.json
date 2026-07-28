@@ -8772,10 +8772,10 @@
       "id": "emmi-c06695fe72cd",
       "slug": "specialista-in-magazzino-pezzi-di-ricambio-emmi-emmen-luzern",
       "slugByLocale": {
-        "it": "specialista-in-magazzino-pezzi-di-ricambio-emmi-emmen-luzern",
-        "en": "specialist-in-spare-parts-warehouse-emmi-emmen-luzern",
         "de": "materialbewirtschafter-in-ersatzteillager-emmi-ch",
-        "fr": "specialiste-dans-l-entrepot-de-pieces-detachees-emmi-emmen-luzern"
+        "it": "fachspezialist-in-ersatzteillager-emmi-emmen",
+        "en": "fachspezialist-in-ersatzteillager-emmi-emmen",
+        "fr": "fachspezialist-in-ersatzteillager-emmi-emmen"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8831,10 +8831,6 @@
         ]
       },
       "previousSlugsByLocale": {
-        "de": [
-          "fachspezialist-in-ersatzteillager-emmi-ch",
-          "materialbewirtschafter-in-ersatzteillager-emmi-ch"
-        ],
         "it": [
           "materialbewirtschafter-in-ersatzteillager-emmi-ch",
           "materialbewirtschafter-in-ersatzteillager-emmi-emmen",
@@ -8844,11 +8840,17 @@
         ],
         "en": [
           "materialbewirtschafter-in-ersatzteillager-emmi-emmen",
-          "fachspezialist-in-ersatzteillager-emmi-emmen"
+          "fachspezialist-in-ersatzteillager-emmi-emmen",
+          "specialist-in-spare-parts-warehouse-emmi-emmen-luzern"
+        ],
+        "de": [
+          "fachspezialist-in-ersatzteillager-emmi-ch",
+          "materialbewirtschafter-in-ersatzteillager-emmi-ch"
         ],
         "fr": [
           "materialbewirtschafter-in-ersatzteillager-emmi-emmen",
-          "fachspezialist-in-ersatzteillager-emmi-emmen"
+          "fachspezialist-in-ersatzteillager-emmi-emmen",
+          "specialiste-dans-l-entrepot-de-pieces-detachees-emmi-emmen-luzern"
         ]
       },
       "previousSlugs": [
@@ -8856,10 +8858,11 @@
         "materialbewirtschafter-in-ersatzteillager-emmi-emmen",
         "fachspezialist-in-ersatzteillager-emmi-ch",
         "fachspezialist-in-ersatzteillager-emmi-emmen",
-        "specialista-in-magazzino-pezzi-di-ricambio-emmi-emmen-luzern"
+        "specialista-in-magazzino-pezzi-di-ricambio-emmi-emmen-luzern",
+        "specialista-in-magazzino-pezzi-di-ricambio-emmi-emmen-luzern",
+        "specialist-in-spare-parts-warehouse-emmi-emmen-luzern",
+        "specialiste-dans-l-entrepot-de-pieces-detachees-emmi-emmen-luzern"
       ],
-      "firstSeenAt": "2026-07-27T12:39:23.883Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -8871,7 +8874,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-27T12:39:23.883Z",
+      "needsRetranslation": true
     },
     {
       "id": "emmi-a74e33c36510",
