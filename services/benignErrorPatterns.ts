@@ -102,6 +102,15 @@ export const UNIVERSAL_BENIGN_PATTERNS: readonly RegExp[] = [
   /__gCrWeb/,
   /TrackerStorageType/,
 
+  // ── Browser-extension messaging API failure — #4849 ──
+  // "Invalid call to runtime.sendMessage(). Tab not found." is thrown by
+  // Chrome's extension messaging API (`chrome.runtime.sendMessage` /
+  // `chrome.tabs.sendMessage`) when an extension's own background script
+  // targets a tab that has already closed/navigated. This codebase never
+  // calls the extension messaging APIs, so any occurrence is a third-party
+  // extension's internal error surfacing in page context, not our code.
+  /Invalid call to (?:runtime|tabs)\.sendMessage\(\)\. Tab not found\.?/i,
+
   // ── Microsoft Clarity internal selector crash — #3760 ──
   // Clarity (clarity.ms) uses `standardSelectors` internally for its element
   // capture. It can throw when accessing that property on an undefined object
