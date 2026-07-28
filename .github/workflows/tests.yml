@@ -66,27 +66,19 @@ jobs:
     # measured run.)
     timeout-minutes: 20
     steps:
+      # NIENTE `sparse-checkout` qui, ed è una scelta MISURATA, non un'omissione.
+      # Questo checkout è un fetch bulk shallow (`fetch-depth: 1` implicito, no
+      # `filter:`) e costa 75s (run 30355205859). Impostare `sparse-checkout`
+      # porterebbe actions/checkout su `--filter=blob:none`, convertendo quel
+      # singolo trasferimento in migliaia di lazy-fetch on-demand: provato su
+      # questa stessa PR (run 30361290650) il Checkout è salito a 169s, +125%,
+      # mangiandosi il guadagno dello split sotto.
+      #
+      # Regola generale ricavata dal confronto: lo sparse-checkout conviene solo
+      # dove il partial clone è GIÀ in uso — in pr-body-contract.yml, che ha
+      # `filter: blob:none`, escludere public/images/{events,blog} ha portato il
+      # Checkout da ~200s (280/141/177s su tre run) a 77s. Qui no.
       - uses: actions/checkout@v5
-        with:
-          # Sparse: il Checkout costava 75s misurati (run 30355205859) perché
-          # scaricava ogni blob dell'albero HEAD (~2.6GB). `public/images` da
-          # solo pesa 1153MB, di cui events 790MB + blog 361MB: immagini
-          # binarie che nessun test apre. Restano incluse `public/images/brands`
-          # (1.2MB) — fuel-station-redesign / job-alert-email / fuel-daily
-          # verificano la presenza-su-disco dei loghi brand — e TUTTO `data/`,
-          # che è l'input di assemble-jobs-dataset.mjs e dei test che ne
-          # leggono gli output.
-          #
-          # `sparse-checkout` porta actions/checkout su `--filter=blob:none`
-          # (partial clone). `timeout-minutes` sotto è la rete di sicurezza
-          # contro il lazy-fetch che in passato ha stallato un checkout per 11
-          # minuti su un altro workflow (run 27672265799).
-          sparse-checkout: |
-            /*
-            !/public/images/events
-            !/public/images/blog
-          sparse-checkout-cone-mode: false
-        timeout-minutes: 8
 
       - uses: actions/setup-node@v5
         with:
