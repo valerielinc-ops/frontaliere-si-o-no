@@ -9032,6 +9032,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-a-clivio-lavorare-ticino.title': 'Vivere a Clivio e lavorare in Ticino da frontaliere',
     'blog.article.vivere-a-clivio-lavorare-ticino.excerpt': 'Guida completa per i frontalieri che scelgono Clivio come residenza per pendolare verso il Canton Ticino, tra collegamenti e regole fiscali.',
     'blog.article.vivere-a-clivio-lavorare-ticino.imageAlt': 'Panorama tra Clivio e il Canton Ticino per i lavoratori frontalieri',
+    'blog.article.clivio-frontaliere-pro-contro.title': 'Trasferirsi a Clivio da frontaliere: pro e contro pratici',
+    'blog.article.clivio-frontaliere-pro-contro.excerpt': 'Guida completa per chi lavora in Ticino e valuta di vivere a Clivio: vantaggi fiscali, tempi di spostamento e considerazioni pratiche.',
+    'blog.article.clivio-frontaliere-pro-contro.imageAlt': 'Panorama di Clivio vicino al confine con la Svizzera per frontalieri',
 };
 
 export default blogMetaIt;

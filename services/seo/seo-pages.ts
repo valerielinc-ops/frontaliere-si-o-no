@@ -4759,7 +4759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3567,
+ "numberOfItems": 3568,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8327,7 +8327,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3564, "name": "L'accordo fiscale cambia le regole in Ticino", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-diminuzione` },
           { "@type": "ListItem", "position": 3565, "name": "Ticino blocca ristorni tassa salute frontalieri", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-blocco-ristorni-ticino` },
           { "@type": "ListItem", "position": 3566, "name": "Vivere a Clivio e lavorare in Ticino da frontal...", "url": `${BASE_URL}/articoli-frontaliere/vivere-a-clivio-lavorare-ticino` },
-          { "@type": "ListItem", "position": 3567, "name": "Imposte alla fonte: ecco chi pagherà di più in ...", "url": `${BASE_URL}/articoli-frontaliere/imposte-alla-fonte-svizzera-2024` }
+          { "@type": "ListItem", "position": 3567, "name": "Imposte alla fonte: ecco chi pagherà di più in ...", "url": `${BASE_URL}/articoli-frontaliere/imposte-alla-fonte-svizzera-2024` },
+          { "@type": "ListItem", "position": 3568, "name": "Trasferirsi a Clivio da frontaliere: pro e cont...", "url": `${BASE_URL}/articoli-frontaliere/clivio-frontaliere-pro-contro` }
  ]
  },
  {
