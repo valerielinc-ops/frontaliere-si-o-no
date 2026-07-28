@@ -269,6 +269,37 @@ describe('worker email() — unreadable message', () => {
     await Promise.all(ctx.waited);
     expect(message.forward).toHaveBeenCalledWith('human@example.com');
   });
+
+  it('fails closed: a mid-extraction throw skips classification entirely', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response('{}'));
+    vi.stubGlobal('fetch', fetchMock);
+
+    // `to` resolves fine, then the subject read throws — so isAutoReply never
+    // ran and we do NOT know whether this is an autoresponder. Classifying
+    // anyway would run the STOP patterns over this out-of-office body, whose
+    // footer says "unsubscribe", and suppress a company that never opted out.
+    const message = fakeMessage({
+      from: 'HR <hr@casale.ch>',
+      to: 'valerie@frontaliereticino.ch',
+      subject: 'irrelevant — never read',
+      rawText: 'Sono assente fino ad agosto. To unsubscribe from our updates, click here.',
+    });
+    message.headers = { get: () => { throw new Error('malformed header'); } };
+    const ctx = fakeCtx();
+
+    await worker.email(message, {
+      STOP_SECRET: SECRET,
+      REPLY_TRACK_FN_URL: 'https://fn.example/track',
+      STOP_REPLY_FN_URL: 'https://fn.example/stop',
+      NEWSLETTER_ADDRESS: 'newsletter@frontaliereticino.ch',
+      OUTREACH_ADDRESS: 'valerie@frontaliereticino.ch',
+      FORWARD_TO: 'human@example.com',
+    }, ctx);
+
+    await Promise.all(ctx.waited);
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(message.forward).toHaveBeenCalledWith('human@example.com');
+  });
 });
 
 describe('hmacHex (Web Crypto)', () => {
