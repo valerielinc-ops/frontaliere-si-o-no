@@ -629,30 +629,42 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  de: ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'],
  fr: ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'],
  };
+ // Read the calendar parts straight out of the ISO string instead of routing
+ // them through `new Date(...)` accessors.
+ //
+ // Why (bug fixed 2026-07-28, #4837): normalizeDateTime stamps bare dates as
+ // `T00:00:00+01:00` — Swiss wall clock, which is the author's intent and is
+ // also exactly what `datetime="${pubIso.split('T')[0]}"` publishes. But
+ // `new Date(iso).getDate()` returns the day in the RUNNING PROCESS's zone, and
+ // CI builds in UTC, where 2026-02-26T00:00:00+01:00 is 23:00 on the 25th.
+ // Live evidence before this fix, on /articoli-frontaliere/confronto-assicurazioni-auto/:
+ //   <time datetime="2026-02-26" itemprop="datePublished">25 febbraio 2026</time>
+ // — machine-readable and human-visible dates disagreed by a day on ~142
+ // articles (138 stamped T00:xx+01:00, 4 date-only). Parsing the string's own
+ // fields makes byline, datetime attribute and JSON-LD agree by construction
+ // and makes the renderer timezone-independent.
+ const ISO_PARTS_RX = /^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2}))?/;
+ const isoParts = (isoStr: string) => {
+  const m = ISO_PARTS_RX.exec(isoStr || '');
+  if (!m) return null;
+  const monthIdx = Number(m[2]) - 1;
+  if (monthIdx < 0 || monthIdx > 11) return null;
+  return { year: Number(m[1]), monthIdx, day: Number(m[3]), hh: m[4] ?? '00', mm: m[5] ?? '00' };
+ };
  const formatHumanDateTime = (isoStr: string, locale: string): string => {
- try {
- const d = new Date(isoStr);
- if (isNaN(d.getTime())) return isoStr.split('T')[0];
- const day = d.getDate();
- const month = (MONTH_NAMES[locale] || MONTH_NAMES.it)[d.getMonth()];
- const year = d.getFullYear();
- const hh = String(d.getHours()).padStart(2, '0');
- const mm = String(d.getMinutes()).padStart(2, '0');
- return `${day} ${month} ${year}, ${hh}:${mm}`;
- } catch { return isoStr.split('T')[0]; }
+  const p = isoParts(isoStr);
+  if (!p) return isoStr.split('T')[0];
+  const month = (MONTH_NAMES[locale] || MONTH_NAMES.it)[p.monthIdx];
+  return `${p.day} ${month} ${p.year}, ${p.hh}:${p.mm}`;
  };
 
  // Date-only formatter for visible E-E-A-T byline (squirrelscan eeat/content-dates).
  // Crawlers want a human "Pubblicato il 18 maggio 2026" near the H1.
  const formatHumanDate = (isoStr: string, locale: string): string => {
- try {
- const d = new Date(isoStr);
- if (isNaN(d.getTime())) return isoStr.split('T')[0];
- const day = d.getDate();
- const month = (MONTH_NAMES[locale] || MONTH_NAMES.it)[d.getMonth()];
- const year = d.getFullYear();
- return `${day} ${month} ${year}`;
- } catch { return isoStr.split('T')[0]; }
+  const p = isoParts(isoStr);
+  if (!p) return isoStr.split('T')[0];
+  const month = (MONTH_NAMES[locale] || MONTH_NAMES.it)[p.monthIdx];
+  return `${p.day} ${month} ${p.year}`;
  };
  const DATE_LABELS: Record<string, { published: string; updated: string }> = {
  it: { published: 'Pubblicato il', updated: 'Aggiornato il' },
