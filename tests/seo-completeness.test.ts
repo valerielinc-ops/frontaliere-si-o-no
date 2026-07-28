@@ -206,6 +206,12 @@ function isShadowedSwissRoute(route: AppRoute): boolean {
   return !!swissArticle && SHADOWED_SWISS_ARTICLE_IDS.has(swissArticle);
 }
 const indexNowContent = readProjectFile('scripts/submit-indexnow.js');
+// The IndexNow key/host/POST moved into a shared module (#4837) so the
+// sitemap-driven submitter and the fast-publish direct-URL submitter cannot
+// drift apart on the key. Assert against its new home, and against the key
+// FILE that must be served at the domain root — a key/keyfile mismatch is the
+// actual way IndexNow submissions start silently failing.
+const indexNowLibContent = readProjectFile('scripts/lib/indexnow-submit.mjs');
 const llmsTxtContent = readProjectFile('public/llms.txt');
 
 // Valid Schema.org types for Google/Bing rich results
@@ -505,8 +511,22 @@ describe('IndexNow — submit-indexnow.js reads sitemap and submits to Bing', ()
     expect(indexNowContent).toContain('yandex.com/indexnow');
   });
 
-  it('uses the correct IndexNow key', () => {
-    expect(indexNowContent).toContain('39093e02a74b4a2dbf867c74bc53a7d8');
+  it('uses the correct IndexNow key, and it matches the hosted key file', () => {
+    const KEY = '39093e02a74b4a2dbf867c74bc53a7d8';
+
+    // 1. The key is declared once, in the shared module.
+    expect(indexNowLibContent).toContain(KEY);
+
+    // 2. The submitter imports it rather than redeclaring its own copy.
+    expect(indexNowContent).toMatch(/from '\.\/lib\/indexnow-submit\.mjs'/);
+    expect(indexNowContent).toContain('INDEXNOW_KEY');
+    const ownDeclaration = /const\s+INDEXNOW_KEY\s*=\s*['"]/.test(indexNowContent);
+    expect(ownDeclaration, 'submit-indexnow.js must import the key, not redeclare it').toBe(false);
+
+    // 3. The key matches the file actually served at the domain root — IndexNow
+    //    verifies ownership by fetching https://<host>/<key>.txt and comparing
+    //    its contents to the submitted key.
+    expect(readProjectFile(`public/${KEY}.txt`).trim()).toBe(KEY);
   });
 
   it('extracts hreflang alternate URLs for all locales', () => {
