@@ -202,5 +202,5 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  occurred_at: new Date().toISOString(),
  });
 
- return { success: true, messageId: emailData?.id };
+ return { success: true, messageId };
 }
