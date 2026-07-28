@@ -268,7 +268,14 @@ async function main() {
       // trip to just this ONE sub-brand: log it, keep this brand's prior
       // on-disk count for the summary/aggregate, and let the loop continue.
       try {
-        writeJobsCrawlerSlice(ck, _ckJobs);
+        // _ckFilterEmptiedRealScrape means this run genuinely scraped jobs
+        // for `ck` (source is up, not degraded) and the brand-identity
+        // re-filter (#4392) deterministically confirmed NONE of them are
+        // real `ck` postings — a verified correction, not a failed scrape.
+        // Bypass only the shrink guard's total-wipeout check for this one
+        // write so that correction can actually persist instead of being
+        // refused forever by a stale mislabeled slice (issue #4866).
+        writeJobsCrawlerSlice(ck, _ckJobs, _ckFilterEmptiedRealScrape ? { skipShrinkGuard: true } : undefined);
         _ckTotal = _ckJobs.length;
         _aggregateTotal += _ckJobs.length;
       } catch (err) {
