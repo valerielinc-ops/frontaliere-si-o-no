@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 
 const DIST = path.resolve(__dirname, '../../dist');
 
@@ -150,24 +151,48 @@ describe('cathedral — per-canton company hubs (Phase 3.3)', () => {
       'cerca-lavoro-argovia',
       'cerca-lavoro-san-gallo',
     ];
-    let anyCompanyHub: { section: string; entry: string } | null = null;
-    for (const sec of nonTiSections) {
+    // The `/cerca-lavoro-{canton}/azienda-*` namespace is emitted by TWO
+    // plugins with intentionally different canonical semantics — exactly the
+    // situation the sibling TI test below documents. Sampling whatever dir
+    // entry happens to sort first (the previous approach here) produces a
+    // data-driven false-red the moment a redirect bridge sorts ahead of a
+    // real hub: bridges carry REDIRECT_STUB_MARKER + `noindex` and point
+    // their canonical at the canton hub BY DESIGN (AGENTS.md below-floor
+    // bridge doctrine), so asserting self-canonicalization on one breaks
+    // gate:seo-source in post-deploy validate-dist (run 30376520728,
+    // `/cerca-lavoro-zurigo/azienda-abb-svizzera-sede-ticino/`).
+    //
+    // Classify instead of sample: skip bridges explicitly, require that at
+    // least one REAL hub exists, and assert the invariant on every real hub
+    // we inspect — order-independent, so it never flaps on data churn.
+    // Bounded at SCAN_CAP real hubs to keep the vitest gate's wall time flat
+    // (the namespace holds thousands of entries per canton).
+    const SCAN_CAP = 50;
+    const realHubs: { section: string; entry: string; html: string }[] = [];
+    let bridgesSkipped = 0;
+    outer: for (const sec of nonTiSections) {
       const dir = path.join(DIST, sec);
       if (!fs.existsSync(dir)) continue;
-      const hit = fs.readdirSync(dir).find((e) => e.startsWith('azienda-'));
-      if (hit) {
-        anyCompanyHub = { section: sec, entry: hit };
-        break;
+      for (const entry of fs.readdirSync(dir).filter((e) => e.startsWith('azienda-')).sort()) {
+        const f = path.join(DIST, sec, entry, 'index.html');
+        if (!fs.existsSync(f)) continue;
+        const html = fs.readFileSync(f, 'utf-8');
+        if (html.includes(REDIRECT_STUB_MARKER) || /<meta[^>]+noindex/i.test(html)) {
+          bridgesSkipped++;
+          continue;
+        }
+        realHubs.push({ section: sec, entry, html });
+        if (realHubs.length >= SCAN_CAP) break outer;
       }
     }
-    expect(anyCompanyHub, 'No per-canton company hub emitted under any sampled non-TI canton').not.toBeNull();
-    if (anyCompanyHub) {
-      const f = path.join(DIST, anyCompanyHub.section, anyCompanyHub.entry, 'index.html');
-      expect(fs.existsSync(f)).toBe(true);
-      const html = fs.readFileSync(f, 'utf-8');
-      expect(html, 'per-canton company hub must self-canonicalize').toMatch(
+    expect(
+      realHubs.length,
+      `No real per-canton company hub emitted under any sampled non-TI canton (${bridgesSkipped} redirect bridge(s) skipped)`,
+    ).toBeGreaterThan(0);
+    for (const hub of realHubs) {
+      expect(hub.html, `per-canton company hub must self-canonicalize: ${hub.section}/${hub.entry}`).toMatch(
         new RegExp(
-          `<link\\s+rel=["']?canonical["']?\\s+href=["']?https://frontaliereticino\\.ch/${anyCompanyHub.section}/${anyCompanyHub.entry}/["']?`,
+          `<link\\s+rel=["']?canonical["']?\\s+href=["']?https://frontaliereticino\\.ch/${hub.section}/${hub.entry}/["']?`,
         ),
       );
     }
