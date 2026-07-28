@@ -51034,7 +51034,8 @@
     "createdAt": "2026-06-03",
     "slugByLocale": {
       "de": "ingenieur-projektleiter-geotechnische-und-sonderwerke-e-h-d-80-100-csd-engineers-lausanne",
-      "en": "engineer-chief-of-geotechnical-and-special-works-project-e-h-d-80-100-csd-engineers-lausanne"
+      "en": "engineer-chief-of-geotechnical-and-special-works-project-e-h-d-80-100-csd-engineers-lausanne",
+      "fr": "ingenieur-chef-de-projet-geotechnique-et-travaux-speciaux-f-h-d-80-100-csd-engineers-ch"
     }
   },
   "id|csd.ch|5761617": {
@@ -51096,7 +51097,12 @@
     "canonicalSlug": "projektingenieur-im-hochbau-70-100-w-m-d-csd-engineers-ch",
     "canton": "BL",
     "createdAt": "2026-06-26",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "senior-responsabile-progetto-100-csd-engineers-zurich",
+      "en": "senior-project-leader-100-csd-engineers-zurich",
+      "de": "senior-projektleiter-100-w-m-d-csd-engineers-ch",
+      "fr": "chef-de-projet-senior-100-csd-engineers-zurich"
+    }
   },
   "id|csd.ch|5762909": {
     "canonicalSlug": "chef-de-projet-environnement-f-h-d-80-100-csd-engineers-ch",
@@ -51153,7 +51159,8 @@
     "canton": "VD",
     "createdAt": "2026-06-03",
     "slugByLocale": {
-      "en": "project-chef-cvc-80-100-f-h-d-csd-engineers-lausanne"
+      "en": "project-chef-cvc-80-100-f-h-d-csd-engineers-lausanne",
+      "de": "chef-de-projet-cvc-80-100-f-h-d-csd-engineers-ch"
     }
   },
   "id|csd.ch|6563154": {
@@ -51234,7 +51241,8 @@
     "createdAt": "2026-06-03",
     "slugByLocale": {
       "en": "expert-hydrogeology-60-100-w-m-d-csd-engineers-bern",
-      "it": "idrogeologie-di-esperti-60-100-w-m-d-csd-engineers-bern"
+      "it": "idrogeologie-di-esperti-60-100-w-m-d-csd-engineers-bern",
+      "de": "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch"
     }
   },
   "id|csd.ch|6901991": {
@@ -51448,7 +51456,9 @@
     "createdAt": "2026-06-04",
     "slugByLocale": {
       "de": "collaborator-accounting-ap-ar-80-100-e-h-d-csd-engineers-givisiez",
-      "en": "collaborator-accounting-ap-ar-80-100-e-h-d-csd-engineers-givisiez"
+      "en": "collaborator-accounting-ap-ar-80-100-e-h-d-csd-engineers-givisiez",
+      "it": "collaboratore-contabilita-ap-ar-80-100-f-h-d-csd-engineers-givisiez",
+      "fr": "collaborateur-comptabilite-ap-ar-80-100-f-h-d-csd-engineers-ch"
     }
   },
   "id|csd.ch|7852725": {
@@ -172530,7 +172540,9 @@
     "canton": "OW",
     "createdAt": "2026-05-20",
     "slugByLocale": {
-      "de": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen"
+      "de": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
+      "en": "nursing-professional-hf-with-additional-function-stv-team-leadership-60-100-spitex-obwalden-sarnen",
+      "fr": "soins-infirmiers-professionnels-hf-avec-fonction-supplementaire-stv-team-leadership-60-100-spitex-obwalden-sarnen"
     }
   },
   "id|spitexjobs.ch|j982209": {
@@ -172660,13 +172672,22 @@
     "canonicalSlug": "dipl-pflegefachpersonen-hf-40-100-spitex-ch-langnau-im-emmental",
     "canton": "BE",
     "createdAt": "2026-05-28",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "dipl-professionisti-hf-40-100-spitex-region-emmental-langnau-im-emmental",
+      "en": "dipl-care-professionals-hf-40-100-spitex-region-emmental-langnau-im-emmental",
+      "de": "dipl-pflegefachpersonen-hf-40-100-spitex-ch-langnau-im-emmental",
+      "fr": "oui-professionnels-de-la-sante-hf-40-100-spitex-region-emmental-langnau-im-emmental"
+    }
   },
   "id|spitexjobs.ch|j982962": {
     "canonicalSlug": "fage-hauspflegerin-40-90-spitex-ch-langnau-im-emmental",
     "canton": "BE",
     "createdAt": "2026-05-28",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "fage-housekeeper-40-90-spitex-region-emmental-langnau-im-emmental",
+      "de": "fage-hauspflegerin-40-90-spitex-ch-langnau-im-emmental",
+      "fr": "fage-menageur-40-90-spitex-region-emmental-langnau-im-emmental"
+    }
   },
   "id|spitexjobs.ch|j982971": {
     "canonicalSlug": "fachfrau-fachmann-gesundheit-cfc-50-spitex-oberes-seetal-fahrwangen",
@@ -172683,7 +172704,12 @@
     "canonicalSlug": "dipl-pflegefachfrau-pflegefachmann-hf-im-tagdienst-mo-fr-spitex-ch-untersiggenthal",
     "canton": "AG",
     "createdAt": "2026-05-28",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "dipl-infermieristica-professionale-hf-in-servizio-giornaliero-mo-fr-spitex-limmat-aare-reuss-ag-untersiggenthal",
+      "en": "dipl-nursing-professional-hf-in-day-service-mo-fr-spitex-limmat-aare-reuss-ag-untersiggenthal",
+      "de": "dipl-pflegefachfrau-pflegefachmann-hf-im-tagdienst-mo-fr-spitex-ch-untersiggenthal",
+      "fr": "dipl-soins-infirmiers-professionnels-en-service-de-jour-mo-fr-spitex-limmat-aare-reuss-ag-untersiggenthal"
+    }
   },
   "id|spitexjobs.ch|j983126": {
     "canonicalSlug": "diplomierte-pflegefachperson-hf-o-fage-40-bis-50-spitex-greifensee-zentrum-im-hof-greifensee",
@@ -183298,7 +183324,8 @@
     "slugByLocale": {
       "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-efz-50-100-tertianum",
       "en": "medical-practice-assistant-efz-50-100-tertianum-berlingen",
-      "fr": "assistant-medical-efz-50-100-tertianum-berlingen"
+      "fr": "assistant-medical-efz-50-100-tertianum-berlingen",
+      "it": "medizinische-praxisassistentin-medizinischer-praxisassistent-cfc-50-100-tertianum-berlingen"
     }
   },
   "id|tertianum.ch|1398662133": {
@@ -186071,7 +186098,10 @@
     "canton": "TI",
     "createdAt": "2026-06-20",
     "slugByLocale": {
-      "fr": "receptionniste-geneve-100-ubs-suisse-romande"
+      "fr": "receptionniste-geneve-100-ubs-suisse-romande",
+      "it": "receptionist-ginevra-100-ubs-suisse-romande",
+      "en": "receptionist-geneva-100-ubs-suisse-romande",
+      "de": "empfanger-genf-100-ubs-suisse-romande"
     }
   },
   "id|ubs.com|345592": {
@@ -346839,7 +346869,10 @@
   "url|https://jobs.chur.ch/treffleitung-queerer-jugendtreff-de-j1701.html": {
     "canonicalSlug": "treffleitung-queerer-jugendtreff-stadt-chur-1701",
     "slugByLocale": {
-      "de": "treffleitung-queerer-jugendtreff-stadt-chur-1701"
+      "de": "treffleitung-queerer-jugendtreff-stadt-chur-1701",
+      "it": "guidato-da-queerer-jugendtreff-stadt-chur-chur",
+      "en": "guided-by-queerer-jugendtreff-stadt-chur-chur",
+      "fr": "guidee-par-queerer-jugendtreff-stadt-chur-chur"
     },
     "createdAt": "2026-07-17",
     "canton": "GR"
@@ -346847,7 +346880,10 @@
   "url|https://jobs.chur.ch/treffmitarbeit-queerer-jugendtreff-de-j1700.html": {
     "canonicalSlug": "treffmitarbeit-queerer-jugendtreff-stadt-chur-1700",
     "slugByLocale": {
-      "de": "treffmitarbeit-queerer-jugendtreff-stadt-chur-1700"
+      "de": "treffmitarbeit-queerer-jugendtreff-stadt-chur-1700",
+      "it": "incontro-con-queerer-jugendtreff-stadt-chur-chur",
+      "en": "meeting-with-queerer-jugendtreff-stadt-chur-chur",
+      "fr": "rencontre-avec-queerer-jugendtreff-stadt-chur-chur"
     },
     "createdAt": "2026-07-17",
     "canton": "GR"
@@ -372300,7 +372336,9 @@
     "canonicalSlug": "sachbearbeiter-in-vendita-servizio-interno-brandmelde-e-evakuationssysteme-80-100-siemens-volketswil",
     "slugByLocale": {
       "de": "sachbearbeiter-in-verkauf-innendienst-brandmelde-und-evakuationssysteme-80-100-siemens",
-      "it": "sachbearbeiter-in-vendita-servizio-interno-brandmelde-e-evakuationssysteme-80-100-siemens-volketswil"
+      "it": "sachbearbeiter-in-vendita-servizio-interno-brandmelde-e-evakuationssysteme-80-100-siemens-volketswil",
+      "en": "sachbearbeiter-in-sales-innendienst-brandmelde-und-evakuationssysteme-80-100-siemens-volketswil",
+      "fr": "sachbearbeiter-in-vente-innendienst-brandmelde-und-evakuationssysteme-80-100-siemens-volketswil"
     },
     "createdAt": "2026-07-20",
     "canton": "ZH"
@@ -372308,7 +372346,9 @@
   "url|https://jobs.siemens.com/en_us/externaljobs/jobdetail/513730": {
     "canonicalSlug": "working-student-software-testing-continuous-integration-40-60-siemens-zug",
     "slugByLocale": {
-      "en": "working-student-software-testing-continuous-integration-40-60-siemens-zug"
+      "en": "working-student-software-testing-continuous-integration-40-60-siemens-zug",
+      "it": "test-di-software-degli-studenti-di-lavoro-integrazione-continua-40-60-siemens-zug",
+      "fr": "test-du-logiciel-etudiant-et-integration-continue-40-60-siemens-zug"
     },
     "createdAt": "2026-07-20",
     "canton": "ZG"
@@ -384611,7 +384651,9 @@
     "canonicalSlug": "fachfrau-mann-gesundheit-cfc-viva-luzern",
     "slugByLocale": {
       "de": "fachfrau-mann-gesundheit-efz-viva-luzern-luzern",
-      "it": "fachfrau-mann-gesundheit-cfc-viva-luzern"
+      "it": "fachfrau-mann-gesundheit-cfc-viva-luzern",
+      "en": "specialist-health-efz-viva-luzern-luzern",
+      "fr": "specialiste-de-la-sante-efz-viva-luzern-luzern"
     },
     "createdAt": "2026-07-22",
     "canton": "LU"
@@ -384620,7 +384662,9 @@
     "canonicalSlug": "fachfrau-mann-gesundheit-cfc-o-pflegefachfrau-mann-hf-per-la-demenz-wohngruppe-viva-luzern",
     "slugByLocale": {
       "de": "fachfrau-mann-gesundheit-efz-oder-pflegefachfrau-mann-hf-fur-die-demenz-wohngruppe-viva",
-      "it": "fachfrau-mann-gesundheit-cfc-o-pflegefachfrau-mann-hf-per-la-demenz-wohngruppe-viva-luzern"
+      "it": "fachfrau-mann-gesundheit-cfc-o-pflegefachfrau-mann-hf-per-la-demenz-wohngruppe-viva-luzern",
+      "en": "specialist-health-efz-or-nursing-specialist-hf-for-the-dementia-housing-group-viva-luzern-luzern",
+      "fr": "specialiste-de-la-sante-efz-ou-specialiste-en-soins-infirmiers-hf-pour-le-groupe-d-hebergement-de-demence-viva-luzern"
     },
     "createdAt": "2026-07-22",
     "canton": "LU"
@@ -385529,7 +385573,9 @@
   "id|raiffeisen.ch|9bb9873b-3d3b-4f1b-bb89-36b55ebe0085": {
     "canonicalSlug": "un-e-relationship-manager-private-banking-conseiller-ere-en-gestion-de-fortune-raiffeisen",
     "slugByLocale": {
-      "fr": "un-e-relationship-manager-private-banking-conseiller-ere-en-gestion-de-fortune-raiffeisen"
+      "fr": "un-e-relationship-manager-private-banking-conseiller-ere-en-gestion-de-fortune-raiffeisen",
+      "it": "un-e-relationship-manager-private-banking-fortune-management-advisor-raiffeisen-lausanne",
+      "de": "un-e-relationship-manager-private-banking-fortune-management-advisor-raiffeisen-lausanne"
     },
     "createdAt": "2026-07-22",
     "canton": "VD"
@@ -389099,7 +389145,10 @@
   "url|https://jobs.smartrecruiters.com/swissquote/744000139010319-brand-marketing-intern-?oga=true": {
     "canonicalSlug": "brand-marketing-intern-swissquote-gland",
     "slugByLocale": {
-      "en": "brand-marketing-intern-swissquote-gland"
+      "en": "brand-marketing-intern-swissquote-gland",
+      "it": "brand-marketing-tirocinante-swissquote-gland",
+      "de": "brand-marketing-praktikant-swissquote-gland",
+      "fr": "brand-marketing-stagiaire-swissquote-gland"
     },
     "createdAt": "2026-07-22",
     "canton": "VD"
@@ -391722,7 +391771,9 @@
   "id|admin.ch|4e064c98-c549-44d3-8b29-b1452a86c5cb": {
     "canonicalSlug": "security-officer-f-35a-programm-stv-government-sap-security-officer-swiss-armed-forces-vtg-bern-cnbkzz",
     "slugByLocale": {
-      "de": "security-officer-f-35a-programm-stv-government-sap-security-officer-swiss-armed-forces-vtg-bern-cnbkzz"
+      "de": "security-officer-f-35a-programm-stv-government-sap-security-officer-swiss-armed-forces-vtg-bern-cnbkzz",
+      "it": "programma-dell-agente-di-sicurezza-f-35a-ufficiale-di-sicurezza-sap-del-governo-swiss-armed-forces-vtg-bern",
+      "fr": "programme-des-agents-de-securite-f-35a-agent-de-securite-sap-du-gouvernement-stv-swiss-armed-forces-vtg-bern"
     },
     "createdAt": "2026-07-23",
     "canton": "BE"
@@ -393179,7 +393230,8 @@
     "canonicalSlug": "junior-paralegal-part-time-50-6-months-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-3pz0j8",
     "slugByLocale": {
       "en": "junior-paralegal-part-time-50-6-months-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-3pz0j8",
-      "de": "junior-paralegal-teilzeit-50-6-months-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-3pz0j8"
+      "de": "junior-paralegal-teilzeit-50-6-months-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-3pz0j8",
+      "fr": "junior-paralegal-part-time-50-6-months-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
     },
     "createdAt": "2026-07-23",
     "canton": "TI"
@@ -395802,7 +395854,10 @@
   "id|solique.ch|4041560": {
     "canonicalSlug": "teamleitung-intensivstation-m-w-d-svar-spitalverbund-ar-herisau",
     "slugByLocale": {
-      "de": "teamleitung-intensivstation-m-w-d-svar-spitalverbund-ar-herisau"
+      "de": "teamleitung-intensivstation-m-w-d-svar-spitalverbund-ar-herisau",
+      "it": "gruppo-di-assistenza-intensiva-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "en": "team-management-intensive-care-unit-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "fr": "unite-de-soins-intensifs-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
     },
     "createdAt": "2026-07-24",
     "canton": "AR"
@@ -395811,7 +395866,9 @@
     "canonicalSlug": "pflegefachperson-hf-o-fachangestellte-gesundheit-cfc-come-dauernachtwache-per-springerpool-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
     "slugByLocale": {
       "de": "pflegefachperson-hf-oder-fachangestellte-gesundheit-efz-als-dauernachtwache-fur",
-      "it": "pflegefachperson-hf-o-fachangestellte-gesundheit-cfc-come-dauernachtwache-per-springerpool-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      "it": "pflegefachperson-hf-o-fachangestellte-gesundheit-cfc-come-dauernachtwache-per-springerpool-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "en": "nurse-hf-or-specialist-health-efz-as-a-permanent-night-watch-for-springerpool-m-f-d-spitalverbund-appenzell-ausserrhoden",
+      "fr": "infirmiere-hf-ou-specialiste-de-la-sante-efz-comme-veille-nocturne-permanente-pour-springerpool-m-f-d-spitalverbund"
     },
     "createdAt": "2026-07-24",
     "canton": "AR"
@@ -395819,7 +395876,10 @@
   "id|solique.ch|4041579": {
     "canonicalSlug": "dipl-experte-in-nds-intensivpflege-m-w-d-svar-spitalverbund-ar-herisau",
     "slugByLocale": {
-      "de": "dipl-experte-in-nds-intensivpflege-m-w-d-svar-spitalverbund-ar-herisau"
+      "de": "dipl-experte-in-nds-intensivpflege-m-w-d-svar-spitalverbund-ar-herisau",
+      "it": "dipl-nds-intensive-care-expert-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "en": "dipl-nds-intensive-care-expert-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "fr": "dipl-expert-en-soins-intensifs-des-snd-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
     },
     "createdAt": "2026-07-24",
     "canton": "AR"
@@ -395827,7 +395887,9 @@
   "id|solique.ch|4041571": {
     "canonicalSlug": "dipl-experte-expertin-notfallpflege-nds-mit-zusatzfunktion-berufsbildung-m-w-d-svar",
     "slugByLocale": {
-      "de": "dipl-experte-expertin-notfallpflege-nds-mit-zusatzfunktion-berufsbildung-m-w-d-svar"
+      "de": "dipl-experte-expertin-notfallpflege-nds-mit-zusatzfunktion-berufsbildung-m-w-d-svar",
+      "en": "dipl-expert-emergency-care-nds-with-additional-function-vocational-training-m-f-d-spitalverbund-appenzell-ausserrhoden",
+      "fr": "dipl-expert-emergency-care-nds-avec-fonction-supplementaire-formation-professionnelle-m-f-d-spitalverbund-appenzell"
     },
     "createdAt": "2026-07-24",
     "canton": "AR"
@@ -395835,7 +395897,9 @@
   "id|solique.ch|4041564": {
     "canonicalSlug": "dipl-experte-expertin-notfallpflege-nds-m-w-d-svar-spitalverbund-ar-herisau",
     "slugByLocale": {
-      "de": "dipl-experte-expertin-notfallpflege-nds-m-w-d-svar-spitalverbund-ar-herisau"
+      "de": "dipl-experte-expertin-notfallpflege-nds-m-w-d-svar-spitalverbund-ar-herisau",
+      "it": "dipl-expert-emergency-care-nds-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "fr": "dipl-expert-emergency-care-nds-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
     },
     "createdAt": "2026-07-24",
     "canton": "AR"
@@ -399801,7 +399865,9 @@
     "canonicalSlug": "gestionnaire-prestations-perte-de-gain-maladie-m-w-d-80-100-vaudoise-assurances-lausanne",
     "slugByLocale": {
       "fr": "gestionnaire-prestations-perte-de-gain-maladie-h-f-x-80-100-vaudoise-ch",
-      "it": "gestionnaire-prestations-perte-de-gain-maladie-m-w-d-80-100-vaudoise-assurances-lausanne"
+      "it": "gestionnaire-prestations-perte-de-gain-maladie-m-w-d-80-100-vaudoise-assurances-lausanne",
+      "en": "manager-sickness-earnings-loss-benefits-h-f-x-80-100-vaudoise-assurances-lausanne",
+      "de": "manager-krankheit-einkommen-verlustleistungen-h-f-x-80-100-vaudoise-assurances-lausanne"
     },
     "createdAt": "2026-07-25",
     "canton": "VD"
@@ -399810,7 +399876,9 @@
     "canonicalSlug": "gestionnaire-prestations-perte-de-gain-maladie-m-w-d-cdd-6-a-12-mois-80-100-vaudoise-assurances-lausanne",
     "slugByLocale": {
       "fr": "gestionnaire-prestations-perte-de-gain-maladie-h-f-x-cdd-6-a-12-mois-80-100-vaudoise-ch",
-      "it": "gestionnaire-prestations-perte-de-gain-maladie-m-w-d-cdd-6-a-12-mois-80-100-vaudoise-assurances-lausanne"
+      "it": "gestionnaire-prestations-perte-de-gain-maladie-m-w-d-cdd-6-a-12-mois-80-100-vaudoise-assurances-lausanne",
+      "en": "manager-benefits-loss-of-earnings-sickness-h-f-x-csd-6-to-12-months-80-100-vaudoise-assurances-lausanne",
+      "de": "manager-benefits-verlust-des-einkommens-krankheit-h-w-x-csd-6-bis-12-monate-80-100-vaudoise-assurances-lausanne"
     },
     "createdAt": "2026-07-25",
     "canton": "VD"
@@ -409307,7 +409375,8 @@
     "slugByLocale": {
       "it": "koch-kochin-efz-stgag-munsterlingen",
       "en": "koch-kochin-efz-stgag-munsterlingen",
-      "fr": "koch-kochin-efz-stgag-munsterlingen"
+      "fr": "koch-kochin-efz-stgag-munsterlingen",
+      "de": "koch-kochin-efz-stgag-ch"
     },
     "createdAt": "2026-07-27",
     "canton": "TG"
@@ -409757,7 +409826,10 @@
   "id|unispital-basel.ch|79a4791e-8f3e-4bea-895e-d8ab7c3d5422": {
     "canonicalSlug": "oberarztin-oberarzt-pneumologie-unispital-basel-ch",
     "slugByLocale": {
-      "de": "oberarztin-oberarzt-pneumologie-unispital-basel-ch"
+      "de": "oberarztin-oberarzt-pneumologie-unispital-basel-ch",
+      "it": "medico-senior-pneumologia-del-medico-senior-universitatsspital-basel-basel",
+      "en": "senior-physician-senior-physician-pneumology-universitatsspital-basel-basel",
+      "fr": "medecin-superieur-pneumologie-medecin-superieur-universitatsspital-basel-basel"
     },
     "createdAt": "2026-07-27",
     "canton": "BS"
@@ -410444,7 +410516,10 @@
   "id|recruitingapp-2736.umantis.com|1994": {
     "canonicalSlug": "fachfrau-gesundheit-50-100-m-w-d-spital-maennedorf-ch",
     "slugByLocale": {
-      "de": "fachfrau-gesundheit-50-100-m-w-d-spital-maennedorf-ch"
+      "de": "fachfrau-gesundheit-50-100-m-w-d-spital-maennedorf-ch",
+      "it": "professionista-della-salute-50-100-m-f-d-spital-mannedorf-mannedorf",
+      "en": "health-professional-50-100-m-f-d-spital-mannedorf-mannedorf",
+      "fr": "professionnels-de-la-sante-50-100-m-f-j-spital-mannedorf-mannedorf"
     },
     "createdAt": "2026-07-27",
     "canton": "ZH"
@@ -410797,7 +410872,8 @@
   "url|https://www.rhb.ch/it/job/wagenreiniger-in-100_2026-2237": {
     "canonicalSlug": "wagenreiniger-in-100-ferrovia-retica-rhb-chur",
     "slugByLocale": {
-      "it": "wagenreiniger-in-100-ferrovia-retica-rhb-chur"
+      "it": "wagenreiniger-in-100-ferrovia-retica-rhb-chur",
+      "en": "train-car-cleaner-ferrovia-retica-rhb-chur"
     },
     "createdAt": "2026-07-27",
     "canton": "GR"
@@ -410839,7 +410915,9 @@
     "canonicalSlug": "dipl-pflegefachperson-hf-specializzazione-psychiatrie-80-100-spitex-region-birs-gmbh-reinach-bl",
     "slugByLocale": {
       "de": "dipl-pflegefachperson-hf-fachrichtung-psychiatrie-80-100-spitex-ch-reinach-bl",
-      "it": "dipl-pflegefachperson-hf-specializzazione-psychiatrie-80-100-spitex-region-birs-gmbh-reinach-bl"
+      "it": "dipl-pflegefachperson-hf-specializzazione-psychiatrie-80-100-spitex-region-birs-gmbh-reinach-bl",
+      "en": "dipl-nurse-hf-department-of-psychiatry-80-100-spitex-region-birs-gmbh-reinach-bl",
+      "fr": "dipl-infirmiere-hf-departement-de-psychiatrie-80-100-spitex-region-birs-gmbh-reinach-bl"
     },
     "createdAt": "2026-07-27",
     "canton": "BL"
@@ -410848,7 +410926,9 @@
     "canonicalSlug": "dipl-pflegefachperson-hf-fh-con-zusatzfunktion-come-fachverantwortliche-r-per-pflegende-angehorige-regiospitex-limmattal-schlieren",
     "slugByLocale": {
       "de": "dipl-pflegefachperson-hf-fh-mit-zusatzfunktion-als-fachverantwortliche-r-fur-pflegende",
-      "it": "dipl-pflegefachperson-hf-fh-con-zusatzfunktion-come-fachverantwortliche-r-per-pflegende-angehorige-regiospitex-limmattal-schlieren"
+      "it": "dipl-pflegefachperson-hf-fh-con-zusatzfunktion-come-fachverantwortliche-r-per-pflegende-angehorige-regiospitex-limmattal-schlieren",
+      "en": "dipl-nursing-specialist-hf-fh-with-additional-function-as-specialist-responsible-for-carers-regiospitex-limmattal",
+      "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-avec-fonction-supplementaire-en-tant-que-specialiste-responsable-des-aidants"
     },
     "createdAt": "2026-07-27",
     "canton": "ZH"
@@ -411488,7 +411568,10 @@
   "id|coopjobs.ch|e64abbdc-ec5a-48fa-a617-9fd3f9acde4e": {
     "canonicalSlug": "verkaufsberater-in-deco-jumbo-chur-graubunden",
     "slugByLocale": {
-      "de": "verkaufsberater-in-deco-jumbo-chur-graubunden-9e3as9"
+      "de": "verkaufsberater-in-deco-jumbo-chur-graubunden-9e3as9",
+      "it": "consulente-commerciale-a-deco-jumbo-division-der-coop-genossenschaft-chur-graubunden",
+      "en": "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-chur-graubunden",
+      "fr": "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-chur-graubunden"
     },
     "createdAt": "2026-07-27",
     "canton": "GR"
@@ -411672,7 +411755,8 @@
     "canonicalSlug": "linux-system-administrator-transgourmet-prodega-moosseedorf-bern",
     "slugByLocale": {
       "de": "linux-system-administrator-transgourmet-prodega-moosseedorf-bern-a16j3i",
-      "fr": "administrateur-systeme-linux-transgourmet-schweiz-ag-moosseedorf-bern"
+      "fr": "administrateur-systeme-linux-transgourmet-schweiz-ag-moosseedorf-bern",
+      "en": "linu-s-transgourmet-schweiz-ag-moosseedorf-bern"
     },
     "createdAt": "2026-07-27",
     "canton": "BE"
@@ -412120,7 +412204,9 @@
     "canonicalSlug": "lagerist-in-jumbo-division-der-coop-genossenschaft-wurenlingen-aargau",
     "slugByLocale": {
       "de": "lagerist-in-jumbo-division-der-coop-genossenschaft-wurenlingen-aargau-c6dqdo",
-      "fr": "lageriste-in-jumbo-division-der-coop-genossenschaft-wurenlingen"
+      "fr": "lageriste-in-jumbo-division-der-coop-genossenschaft-wurenlingen",
+      "it": "operatore-a-di-magazzino-jumbo-division-der-coop-genossenschaft-wurenlingen",
+      "en": "warehouse-assistant-jumbo-division-der-coop-genossenschaft-wurenlingen"
     },
     "createdAt": "2026-07-28",
     "canton": "AG"
@@ -412577,7 +412663,9 @@
   "id|zurich.com|1367759357": {
     "canonicalSlug": "underwriter-cyber-tech-pi-zurich-insurance-sede-ticino-lugano-nii5aq",
     "slugByLocale": {
-      "en": "underwriter-cyber-tech-pi-zurich-insurance-sede-ticino-lugano-nii5aq"
+      "en": "underwriter-cyber-tech-pi-zurich-insurance-sede-ticino-lugano-nii5aq",
+      "it": "sottoscrittore-cyber-e-tech-pi-zurich-insurance-sede-ticino-lugano",
+      "fr": "souscripteur-cyber-tech-pi-zurich-insurance-sede-ticino-lugano"
     },
     "createdAt": "2026-07-28",
     "canton": "TI"
@@ -412623,7 +412711,10 @@
   "id|zurich.com|1367823457": {
     "canonicalSlug": "oper-atendimento-i-pcd-zurich-insurance-sede-ticino-lugano-n37pv3",
     "slugByLocale": {
-      "fr": "oper-atendimento-i-pcd-zurich-insurance-sede-ticino-lugano-n37pv3"
+      "fr": "oper-atendimento-i-pcd-zurich-insurance-sede-ticino-lugano-n37pv3",
+      "it": "operatore-customer-service-i-pcd-zurich-insurance-sede-ticino-lugano",
+      "en": "customer-service-operator-i-pcd-zurich-insurance-sede-ticino-lugano",
+      "de": "kundenservice-mitarbeiter-i-pcd-zurich-insurance-sede-ticino-lugano"
     },
     "createdAt": "2026-07-28",
     "canton": "TI"
@@ -412663,7 +412754,10 @@
   "id|oraclecloud.eu|1307": {
     "canonicalSlug": "it-tooling-devops-specialist-consultant-ubp-ch",
     "slugByLocale": {
-      "en": "it-tooling-devops-specialist-consultant-ubp-ch"
+      "en": "it-tooling-devops-specialist-consultant-ubp-ch",
+      "it": "it-tooling-devops-specialista-consulente-union-bancaire-privee-geneva-switzerland",
+      "de": "it-tooling-devops-spezialist-berater-union-bancaire-privee-geneva-switzerland",
+      "fr": "it-tooling-devops-specialiste-consultant-union-bancaire-privee-geneva-switzerland"
     },
     "createdAt": "2026-07-28",
     "canton": "GE"
@@ -412691,7 +412785,9 @@
   "id|fenaco.com|c6da7aa1-47b4-48f1-ab17-ae3d3830205c": {
     "canonicalSlug": "erntehelfer-in-keller-100-m-w-d-rutishauser-divino-sa-winterthur",
     "slugByLocale": {
-      "de": "erntehelfer-in-keller-100-m-w-d-rutishauser-divino-sa-winterthur"
+      "de": "erntehelfer-in-keller-100-m-w-d-rutishauser-divino-sa-winterthur",
+      "en": "harvest-helper-in-cellar-100-m-f-d-rutishauser-divino-sa-winterthur",
+      "fr": "aide-a-la-recolte-en-cave-100-m-f-d-rutishauser-divino-sa-winterthur"
     },
     "createdAt": "2026-07-28",
     "canton": "ZH"
@@ -412699,7 +412795,8 @@
   "id|fenaco.com|3a763740-2220-4267-8c81-1692cc532e75": {
     "canonicalSlug": "responsable-topshop-80-100-f-h-d-landi-rhone-lavaux-sa-paudex",
     "slugByLocale": {
-      "fr": "responsable-topshop-80-100-f-h-d-landi-rhone-lavaux-sa-paudex"
+      "fr": "responsable-topshop-80-100-f-h-d-landi-rhone-lavaux-sa-paudex",
+      "de": "leiter-von-topshop-80-100-f-h-d-landi-rhone-lavaux-sa-paudex"
     },
     "createdAt": "2026-07-28",
     "canton": "VD"
@@ -412707,7 +412804,10 @@
   "id|fenaco.com|88017323-8ecc-4fb3-b598-e6884f4b0cd2": {
     "canonicalSlug": "chauffeuse-chauffeur-kat-ce-w-m-d-br-dienstag-bis-samstag-traveco-transporte-ag-nebikon",
     "slugByLocale": {
-      "de": "chauffeuse-chauffeur-kat-ce-w-m-d-br-dienstag-bis-samstag-traveco-transporte-ag-nebikon"
+      "de": "chauffeuse-chauffeur-kat-ce-w-m-d-br-dienstag-bis-samstag-traveco-transporte-ag-nebikon",
+      "it": "chauffeuse-chauffeur-kat-ce-f-m-d-da-martedi-a-sabato-traveco-transporte-ag-nebikon",
+      "en": "chauffeuse-chauffeur-kat-ce-f-m-d-br-tuesday-to-saturday-traveco-transporte-ag-nebikon",
+      "fr": "chauffeuse-chauffeur-kat-ce-f-m-d-br-du-mardi-au-samedi-traveco-transporte-ag-nebikon"
     },
     "createdAt": "2026-07-28",
     "canton": "LU"
@@ -412772,7 +412872,10 @@
   "id|ruag.ch|ea378ccc-d2e0-458f-8c14-b384cb3d6df3": {
     "canonicalSlug": "technische-r-sachbearbeiterin-80-100-w-m-d-ruag-ag-emmen",
     "slugByLocale": {
-      "de": "technische-r-sachbearbeiterin-80-100-w-m-d-ruag-ag-emmen"
+      "de": "technische-r-sachbearbeiterin-80-100-w-m-d-ruag-ag-emmen",
+      "it": "tecnico-80-100-f-m-d-ruag-ag-emmen",
+      "en": "technician-80-100-f-m-d-ruag-ag-emmen",
+      "fr": "technicien-80-100-f-m-j-ruag-ag-emmen"
     },
     "createdAt": "2026-07-28",
     "canton": "LU"
@@ -412863,7 +412966,9 @@
   "id|recruitingapp-2908.umantis.com|3345": {
     "canonicalSlug": "psychologin-psychologe-mit-projektleitung-upd-bern",
     "slugByLocale": {
-      "de": "psychologin-psychologe-mit-projektleitung-upd-bern"
+      "de": "psychologin-psychologe-mit-projektleitung-upd-bern",
+      "en": "psychologist-psychologist-with-project-management-universitare-psychiatrische-dienste-bern-upd-bern",
+      "fr": "psychologue-psychologue-avec-gestion-de-projet-universitare-psychiatrische-dienste-bern-upd-bern"
     },
     "createdAt": "2026-07-28",
     "canton": "BE"
@@ -412871,7 +412976,10 @@
   "id|recruitingapp-2908.umantis.com|3097": {
     "canonicalSlug": "dipl-pflegefachperson-dauernachtwache-kriseninterventionsstation-upd-bern",
     "slugByLocale": {
-      "de": "dipl-pflegefachperson-dauernachtwache-kriseninterventionsstation-upd-bern"
+      "de": "dipl-pflegefachperson-dauernachtwache-kriseninterventionsstation-upd-bern",
+      "it": "dipl-infermiera-permanente-notte-orologio-crisi-intervento-stazione-universitare-psychiatrische-dienste-bern-upd-bern",
+      "en": "dipl-nurse-permanent-night-watch-crisis-intervention-station-universitare-psychiatrische-dienste-bern-upd-bern",
+      "fr": "dipl-poste-d-intervention-permanent-de-veille-de-nuit-de-l-infirmiere-universitare-psychiatrische-dienste-bern-upd-bern"
     },
     "createdAt": "2026-07-28",
     "canton": "BE"
@@ -413113,7 +413221,8 @@
     "slugByLocale": {
       "fr": "charge-de-projet-data-logistique-h-f-rolex-ch",
       "it": "project-manager-data-logistics-h-f-rolex-geneve",
-      "de": "projektleiter-data-logistics-h-f-rolex-geneve"
+      "de": "projektleiter-data-logistics-h-f-rolex-geneve",
+      "en": "project-manager-data-logistics-h-f-rolex-geneve"
     },
     "createdAt": "2026-07-28",
     "canton": "GE"
@@ -413134,7 +413243,8 @@
     "slugByLocale": {
       "it": "autista-camion-con-gru-pemsa-lugano",
       "en": "driver-truck-with-gru-pemsa-lugano",
-      "de": "driver-truck-mit-gru-pemsa-lugano"
+      "de": "driver-truck-mit-gru-pemsa-lugano",
+      "fr": "chauffeur-camion-avec-grue-pemsa-lugano"
     },
     "createdAt": "2026-07-28",
     "canton": "TI"
@@ -413142,7 +413252,10 @@
   "url|https://www.pemsa.ch/it/job/disegnatore-tecnico-reti-idrauliche-e-condutture-2684971": {
     "canonicalSlug": "disegnatore-tecnico-reti-idrauliche-e-condutture-pemsa-payerne",
     "slugByLocale": {
-      "it": "disegnatore-tecnico-reti-idrauliche-e-condutture-pemsa-payerne"
+      "it": "disegnatore-tecnico-reti-idrauliche-e-condutture-pemsa-payerne",
+      "en": "technical-designer-hydraulic-networks-and-pipelines-pemsa-payerne",
+      "de": "technischer-zeichner-hydraulische-netze-und-leitungen-pemsa-payerne",
+      "fr": "dessinateur-technique-reseaux-hydrauliques-et-conduites-pemsa-payerne"
     },
     "createdAt": "2026-07-28",
     "canton": "VD"
@@ -413169,7 +413282,10 @@
   "url|https://www.pemsa.ch/it/job/tecnico-a-di-officina-elettronica-2684964": {
     "canonicalSlug": "tecnico-a-di-officina-elettronica-pemsa-vevey",
     "slugByLocale": {
-      "it": "tecnico-a-di-officina-elettronica-pemsa-vevey"
+      "it": "tecnico-a-di-officina-elettronica-pemsa-vevey",
+      "en": "electronics-workshop-technician-pemsa-vevey",
+      "de": "elektronik-werkstatttechniker-in-pemsa-vevey",
+      "fr": "technicien-ne-d-atelier-electronique-pemsa-vevey"
     },
     "createdAt": "2026-07-28",
     "canton": "VD"
@@ -414203,5 +414319,1604 @@
     },
     "createdAt": "2026-07-28",
     "canton": "BS"
+  },
+  "id|softgarden.io|66350323": {
+    "canonicalSlug": "collaborateur-ou-collaboratrice-heg-h-f-x-60-vaudoise-ch",
+    "slugByLocale": {
+      "fr": "collaborateur-ou-collaboratrice-heg-h-f-x-60-vaudoise-ch"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "VD"
+  },
+  "id|stadlerrail.com|1362326555": {
+    "canonicalSlug": "field-engineer-inbetriebsetzung-flottenbetreuung-stadler-rail-ch",
+    "slugByLocale": {
+      "de": "field-engineer-inbetriebsetzung-flottenbetreuung-stadler-rail-ch"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "SG"
+  },
+  "id|zurich.com|1365128857": {
+    "canonicalSlug": "claims-specialista-ii-workers-compensation-zurich-insurance-sede-ticino-lugano-f9vot1",
+    "slugByLocale": {
+      "it": "claims-specialista-ii-workers-compensation-zurich-insurance-sede-ticino-lugano-f9vot1",
+      "en": "claims-specialist-ii-workers-compensation-zurich-insurance-sede-ticino-lugano-f9vot1",
+      "de": "claims-spezialist-ii-workers-compensation-zurich-insurance-sede-ticino-lugano-f9vot1",
+      "fr": "claims-specialiste-ii-workers-compensation-zurich-insurance-sede-ticino-lugano-f9vot1"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|zurich.com|1365126557": {
+    "canonicalSlug": "underwriting-specialista-or-executive-underwriter-cyber-and-technology-e-o-zurich-insurance-sede-ticino-lugano-f9uclw",
+    "slugByLocale": {
+      "it": "underwriting-specialista-or-executive-underwriter-cyber-and-technology-e-o-zurich-insurance-sede-ticino-lugano-f9uclw",
+      "en": "underwriting-specialist-or-executive-underwriter-cyber-and-technology-e-o-zurich-insurance-sede-ticino-lugano-f9uclw",
+      "de": "underwriting-spezialist-or-executive-underwriter-cyber-and-technology-e-o-zurich-insurance-sede-ticino-lugano-f9uclw",
+      "fr": "underwriting-specialiste-or-executive-underwriter-cyber-and-technology-e-o-zurich-insurance-sede-ticino-lugano-f9uclw"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|zurich.com|1365065657": {
+    "canonicalSlug": "actuarial-audit-tirocinante-zurich-insurance-sede-ticino-lugano-euzacb",
+    "slugByLocale": {
+      "it": "actuarial-audit-tirocinante-zurich-insurance-sede-ticino-lugano-euzacb",
+      "en": "actuarial-audit-intern-zurich-insurance-sede-ticino-lugano-euzacb",
+      "de": "actuarial-audit-praktikant-zurich-insurance-sede-ticino-lugano-euzacb",
+      "fr": "actuarial-audit-stagiaire-zurich-insurance-sede-ticino-lugano-euzacb"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|zurich.com|1367853057": {
+    "canonicalSlug": "beca-csm-administracion-zurich-insurance-sede-ticino-lugano-n1kf1s",
+    "slugByLocale": {
+      "fr": "beca-csm-administracion-zurich-insurance-sede-ticino-lugano-n1kf1s"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|zurich.com|1365030357": {
+    "canonicalSlug": "data-ingegnere-zurich-insurance-sede-ticino-lugano-et8nei",
+    "slugByLocale": {
+      "it": "data-ingegnere-zurich-insurance-sede-ticino-lugano-et8nei",
+      "en": "data-engineer-zurich-insurance-sede-ticino-lugano-et8nei",
+      "de": "data-ingenieur-zurich-insurance-sede-ticino-lugano-et8nei",
+      "fr": "data-ingenieur-zurich-insurance-sede-ticino-lugano-et8nei"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|zurich.com|1367859657": {
+    "canonicalSlug": "especialista-loyalty-marketing-cloud-zurich-insurance-sede-ticino-lugano-n1ggog",
+    "slugByLocale": {
+      "fr": "especialista-loyalty-marketing-cloud-zurich-insurance-sede-ticino-lugano-n1ggog"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|zurich.com|1367855757": {
+    "canonicalSlug": "gestor-a-contact-center-zurich-insurance-sede-ticino-lugano-n1izvv",
+    "slugByLocale": {
+      "fr": "gestor-a-contact-center-zurich-insurance-sede-ticino-lugano-n1izvv"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|zurich.com|1365089957": {
+    "canonicalSlug": "suscriptor-a-de-riesgos-complejos-pymes-gestion-de-cartera-zurich-insurance-sede-ticino-lugano-ew5hp8",
+    "slugByLocale": {
+      "fr": "suscriptor-a-de-riesgos-complejos-pymes-gestion-de-cartera-zurich-insurance-sede-ticino-lugano-ew5hp8"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|zurich.com|1365113257": {
+    "canonicalSlug": "suscriptor-a-de-riesgos-complejos-pymes-nuevo-negocio-y-mejora-continua-zurich-insurance-sede-ticino-lugano-f98ktv",
+    "slugByLocale": {
+      "fr": "suscriptor-a-de-riesgos-complejos-pymes-nuevo-negocio-y-mejora-continua-zurich-insurance-sede-ticino-lugano-f98ktv"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|zurich.com|1365112157": {
+    "canonicalSlug": "sales-manager-zurich-insurance-sede-ticino-lugano-f97x3n",
+    "slugByLocale": {
+      "fr": "sales-manager-zurich-insurance-sede-ticino-lugano-f97x3n"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|zurich.com|1354612757": {
+    "canonicalSlug": "business-analista-zurich-insurance-sede-ticino-lugano-pvklrg",
+    "slugByLocale": {
+      "it": "business-analista-zurich-insurance-sede-ticino-lugano-pvklrg",
+      "en": "business-analyst-zurich-insurance-sede-ticino-lugano-pvklrg",
+      "fr": "business-analyste-zurich-insurance-sede-ticino-lugano-pvklrg"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|zurich.com|1367848157": {
+    "canonicalSlug": "bank-reconciliation-specialista-1-year-contract-zurich-insurance-sede-ticino-lugano-n20zyt",
+    "slugByLocale": {
+      "it": "bank-reconciliation-specialista-1-year-contract-zurich-insurance-sede-ticino-lugano-n20zyt",
+      "en": "bank-reconciliation-specialist-1-year-contract-zurich-insurance-sede-ticino-lugano-n20zyt",
+      "de": "bank-reconciliation-spezialist-1-year-contract-zurich-insurance-sede-ticino-lugano-n20zyt",
+      "fr": "bank-reconciliation-specialiste-1-year-contract-zurich-insurance-sede-ticino-lugano-n20zyt"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|zurich.com|796440102": {
+    "canonicalSlug": "branch-sales-manager-kuching-zurich-insurance-sede-ticino-lugano-e9rkg6",
+    "slugByLocale": {
+      "en": "branch-sales-manager-kuching-zurich-insurance-sede-ticino-lugano-e9rkg6"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|zurich.com|1367884357": {
+    "canonicalSlug": "data-ingegnere-platform-analytics-zurich-insurance-sede-ticino-lugano-mzwc23",
+    "slugByLocale": {
+      "it": "data-ingegnere-platform-analytics-zurich-insurance-sede-ticino-lugano-mzwc23",
+      "en": "data-engineer-platform-analytics-zurich-insurance-sede-ticino-lugano-mzwc23",
+      "de": "data-ingenieur-platform-analytics-zurich-insurance-sede-ticino-lugano-mzwc23",
+      "fr": "data-ingenieur-platform-analytics-zurich-insurance-sede-ticino-lugano-mzwc23"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|zurich.com|1365073657": {
+    "canonicalSlug": "senior-construction-risk-engineering-consulente-zurich-insurance-sede-ticino-lugano-evhsym",
+    "slugByLocale": {
+      "it": "senior-construction-risk-engineering-consulente-zurich-insurance-sede-ticino-lugano-evhsym",
+      "en": "senior-construction-risk-engineering-consultant-zurich-insurance-sede-ticino-lugano-evhsym",
+      "de": "senior-construction-risk-engineering-berater-zurich-insurance-sede-ticino-lugano-evhsym"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|zurich.com|1365123657": {
+    "canonicalSlug": "underwriting-specialista-or-executive-underwriter-cyber-and-technology-e-o-zurich-insurance-sede-ticino-lugano-f9sge0",
+    "slugByLocale": {
+      "it": "underwriting-specialista-or-executive-underwriter-cyber-and-technology-e-o-zurich-insurance-sede-ticino-lugano-f9sge0",
+      "en": "underwriting-specialist-or-executive-underwriter-cyber-and-technology-e-o-zurich-insurance-sede-ticino-lugano-f9sge0",
+      "de": "underwriting-spezialist-or-executive-underwriter-cyber-and-technology-e-o-zurich-insurance-sede-ticino-lugano-f9sge0",
+      "fr": "underwriting-specialiste-or-executive-underwriter-cyber-and-technology-e-o-zurich-insurance-sede-ticino-lugano-f9sge0"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|zurich.com|1367850657": {
+    "canonicalSlug": "beca-suscripcion-usp-pymes-zurich-insurance-sede-ticino-lugano-n1m7k7",
+    "slugByLocale": {
+      "fr": "beca-suscripcion-usp-pymes-zurich-insurance-sede-ticino-lugano-n1m7k7"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|zurich.com|823116902": {
+    "canonicalSlug": "karrierechance-kundenberatung-region-mitte-mensch-quereinsteigende-willkommen-zurich-insurance-sede-ticino-8010-graz-tel-l8vcct",
+    "slugByLocale": {
+      "de": "karrierechance-kundenberatung-region-mitte-mensch-quereinsteigende-willkommen-zurich-insurance-sede-ticino-8010-graz-tel-l8vcct"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "VD"
+  },
+  "id|zurich.com|1365109957": {
+    "canonicalSlug": "underwriting-specialista-or-executive-underwriter-middle-market-zurich-insurance-sede-ticino-lugano-f8srcj",
+    "slugByLocale": {
+      "it": "underwriting-specialista-or-executive-underwriter-middle-market-zurich-insurance-sede-ticino-lugano-f8srcj",
+      "en": "underwriting-specialist-or-executive-underwriter-middle-market-zurich-insurance-sede-ticino-lugano-f8srcj",
+      "de": "underwriting-spezialist-or-executive-underwriter-middle-market-zurich-insurance-sede-ticino-lugano-f8srcj",
+      "fr": "underwriting-specialiste-or-executive-underwriter-middle-market-zurich-insurance-sede-ticino-lugano-f8srcj"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|zurich.com|823119602": {
+    "canonicalSlug": "karrierechance-kundenberatung-mensch-region-west-quereinsteigende-willkommen-zurich-insurance-sede-ticino-5020-salzburg-tel-l8x73b",
+    "slugByLocale": {
+      "de": "karrierechance-kundenberatung-mensch-region-west-quereinsteigende-willkommen-zurich-insurance-sede-ticino-5020-salzburg-tel-l8x73b"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "VD"
+  },
+  "id|zurich.com|1365104057": {
+    "canonicalSlug": "sr-corporate-counsel-corp-governance-zurich-insurance-sede-ticino-lugano-f8pdqn",
+    "slugByLocale": {
+      "en": "sr-corporate-counsel-corp-governance-zurich-insurance-sede-ticino-lugano-f8pdqn"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|zurich.com|1365112257": {
+    "canonicalSlug": "senior-tax-specialista-zurich-insurance-sede-ticino-lugano-f97xuc",
+    "slugByLocale": {
+      "it": "senior-tax-specialista-zurich-insurance-sede-ticino-lugano-f97xuc",
+      "en": "senior-tax-specialist-zurich-insurance-sede-ticino-lugano-f97xuc",
+      "de": "senior-tax-spezialist-zurich-insurance-sede-ticino-lugano-f97xuc",
+      "fr": "senior-tax-specialiste-zurich-insurance-sede-ticino-lugano-f97xuc"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|zurich.com|1365121357": {
+    "canonicalSlug": "ejecutivo-de-servicio-zurich-insurance-sede-ticino-lugano-f9r46v",
+    "slugByLocale": {
+      "fr": "ejecutivo-de-servicio-zurich-insurance-sede-ticino-lugano-f9r46v"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|zurich.com|1367857557": {
+    "canonicalSlug": "tirocinante-group-audit-operations-80-100-zurich-insurance-sede-ticino-lugano-n1hre7",
+    "slugByLocale": {
+      "it": "tirocinante-group-audit-operations-80-100-zurich-insurance-sede-ticino-lugano-n1hre7",
+      "en": "intern-group-audit-operations-80-100-zurich-insurance-sede-ticino-lugano-n1hre7",
+      "de": "praktikant-group-audit-operations-80-100-zurich-insurance-sede-ticino-lugano-n1hre7",
+      "fr": "stagiaire-group-audit-operations-80-100-zurich-insurance-sede-ticino-lugano-n1hre7"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|unispital-basel.ch|54cb4c80-1346-4f3c-bdc5-d33e05c61fe8": {
+    "canonicalSlug": "collaboratore-trice-in-medizin-betriebstechnik-universitatsspital-basel",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-medizin-amp-betriebstechnik-unispital-basel-ch",
+      "it": "collaboratore-trice-in-medizin-betriebstechnik-universitatsspital-basel",
+      "en": "mitarbeiter-in-medizin-betriebstechnik-universitatsspital-basel-basel",
+      "fr": "mitarbeiter-in-medizin-betriebstechnik-universitatsspital-basel-basel"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BS"
+  },
+  "id|unispital-basel.ch|7a0e8964-d0d3-4f31-b1df-134b0cd9eed6": {
+    "canonicalSlug": "collaboratore-trice-in-elektrotechnik-universitatsspital-basel",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-elektrotechnik-unispital-basel-ch",
+      "it": "collaboratore-trice-in-elektrotechnik-universitatsspital-basel",
+      "en": "mitarbeiter-in-elektrotechnik-universitatsspital-basel-basel",
+      "fr": "mitarbeiter-in-elektrotechnik-universitatsspital-basel-basel"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BS"
+  },
+  "id|admin.ch|02b21481-9b3b-48f1-88bc-19c0deacbc1f": {
+    "canonicalSlug": "collaboratore-trice-in-gebaudebetrieb-swiss-armed-forces-vtg-bern-ydhmt3",
+    "slugByLocale": {
+      "it": "collaboratore-trice-in-gebaudebetrieb-swiss-armed-forces-vtg-bern-ydhmt3",
+      "de": "mitarbeiter-in-gebaudebetrieb-swiss-armed-forces-vtg-bern-ydhmt3"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|admin.ch|f69a8db7-6317-44f9-8616-fbe1dd889657": {
+    "canonicalSlug": "professionista-inseguimento-della-situazione-centro-di-competenza-swissint-swiss-armed-forces-vtg-bern",
+    "slugByLocale": {
+      "it": "professionista-inseguimento-della-situazione-centro-di-competenza-swissint-swiss-armed-forces-vtg-bern",
+      "en": "university-practitioner-in-the-pursuit-of-the-situation-competence-center-swissint-swiss-armed-forces-vtg-bern",
+      "de": "hochschulpraktikant-in-lageverfolgung-kompetenzzentrum-swissint-swiss-armed-forces-vtg-bern-m4y70k",
+      "fr": "pratique-universitaire-dans-la-poursuite-de-la-situation-centre-de-competence-swissint-swiss-armed-forces-vtg-bern"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "url|https://jobs.chur.ch/vorarbeiterin-betrieblicher-unterhalt-mit-stellvertre-tung-de-j1702.html": {
+    "canonicalSlug": "vorarbeiter-in-betrieblicher-unterhalt-mit-stellvertre-tungsfunktion-bereichsleiter-100-stadt-chur-1702",
+    "slugByLocale": {
+      "de": "vorarbeiter-in-betrieblicher-unterhalt-mit-stellvertre-tungsfunktion-bereichsleiter-100-stadt-chur-1702"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "GR"
+  },
+  "id|coopjobs.ch|612c8da1-a7cb-415d-89ff-84d77a84d77f": {
+    "canonicalSlug": "aspirant-in-stv-geschaftsfuhrer-in-coop-unterageri-zug",
+    "slugByLocale": {
+      "de": "aspirant-in-stv-geschaftsfuhrer-in-coop-unterageri-zug-4w5ske"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZG"
+  },
+  "id|coopjobs.ch|de653a2c-23ea-4b9e-aa1e-ed40df195a5f": {
+    "canonicalSlug": "aspirant-in-stv-geschaftsfuhrer-in-coop-buochs-nidwalden",
+    "slugByLocale": {
+      "de": "aspirant-in-stv-geschaftsfuhrer-in-coop-buochs-nidwalden-gzj6w9"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "NW"
+  },
+  "id|coopjobs.ch|eee8ce56-6b4a-432b-a9ee-6b6800f943ad": {
+    "canonicalSlug": "backer-in-konditor-in-coop-baar-zug",
+    "slugByLocale": {
+      "de": "backer-in-konditor-in-coop-baar-zug-wxj0p0"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZG"
+  },
+  "id|coopjobs.ch|91675e20-c416-44ec-8a6e-b17df40f49d3": {
+    "canonicalSlug": "fachmann-fachfrau-facility-technischer-dienst-coop-immobilien-zurich",
+    "slugByLocale": {
+      "de": "fachmann-fachfrau-facility-technischer-dienst-coop-immobilien-zurich-g3p4eg"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|8cf459ec-5a69-46e6-b1b3-646c4c194a34": {
+    "canonicalSlug": "hoflogistiker-in-kat-c-railcare-bern",
+    "slugByLocale": {
+      "de": "hoflogistiker-in-kat-c-railcare-bern-hnto9o"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|18252206-f2cd-4148-931b-7428dbc62e6c": {
+    "canonicalSlug": "kundenberater-in-depositenkasse-20-40-coop-genossenschaft-basel-stadt",
+    "slugByLocale": {
+      "de": "kundenberater-in-depositenkasse-20-40-coop-genossenschaft-basel-stadt-w5nkau"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BS"
+  },
+  "id|coopjobs.ch|9958a53f-5648-458f-a3bc-7221e59ae446": {
+    "canonicalSlug": "laborant-in-lebensmittelanalytik-60-coop-pratteln-basel-landschaft",
+    "slugByLocale": {
+      "de": "laborant-in-lebensmittelanalytik-60-coop-pratteln-basel-landschaft-n7etap"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BL"
+  },
+  "id|coopjobs.ch|eb620987-4e1c-4bb1-855b-06b3bbefaad6": {
+    "canonicalSlug": "liegenschaftsbewirtschafter-in-100-region-nwzz-coop-immobilien-dietikon-zurich",
+    "slugByLocale": {
+      "de": "liegenschaftsbewirtschafter-in-100-region-nwzz-coop-immobilien-dietikon-zurich-6icxiw"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|d858d4dc-1a7e-4b5c-971e-4d1f09df71ec": {
+    "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-aarberg-bern",
+    "slugByLocale": {
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-aarberg-bern-f20f2x"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|169c9811-f37e-4aa5-af4c-181b3ef9d1cf": {
+    "canonicalSlug": "mitarbeiter-in-gastronomie-thai-street-coop-ristorante-biel-bern",
+    "slugByLocale": {
+      "it": "collaboratore-trice-gastronomie-thai-street-coop-ristorante-biel-bern-95dmbe",
+      "en": "associate-gastronomie-thai-street-coop-ristorante-biel-bern-95dmbe",
+      "de": "mitarbeiter-in-gastronomie-thai-street-coop-ristorante-biel-bern-95dmbe",
+      "fr": "collaborateur-trice-gastronomie-thai-street-coop-ristorante-biel-bern-95dmbe"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|f65cb74f-c725-42c2-8cfa-f5dbbe9ef51e": {
+    "canonicalSlug": "mitarbeiter-in-gastronomie-coop-ristorante-landquart-graubunden",
+    "slugByLocale": {
+      "it": "collaboratore-trice-gastronomie-coop-ristorante-landquart-graubunden-o2fubj",
+      "en": "associate-gastronomie-coop-ristorante-landquart-graubunden-o2fubj",
+      "de": "mitarbeiter-in-gastronomie-coop-ristorante-landquart-graubunden-o2fubj",
+      "fr": "collaborateur-trice-gastronomie-coop-ristorante-landquart-graubunden-o2fubj"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "GR"
+  },
+  "id|coopjobs.ch|38d53924-f7b6-41db-9e3e-232963df48c0": {
+    "canonicalSlug": "mitarbeiter-in-inventuren-coop-genossenschaft-basel",
+    "slugByLocale": {
+      "it": "collaboratore-trice-inventuren-coop-genossenschaft-basel-y9ez4r",
+      "en": "associate-inventuren-coop-genossenschaft-basel-y9ez4r",
+      "de": "mitarbeiter-in-inventuren-coop-genossenschaft-basel-y9ez4r",
+      "fr": "collaborateur-trice-inventuren-coop-genossenschaft-basel-y9ez4r"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BS"
+  },
+  "id|coopjobs.ch|91c691e8-65a5-40e8-96df-adaa40b962d2": {
+    "canonicalSlug": "mitarbeiter-in-verkauf-administration-und-kundendienst-coop-genossenschaft-dubendorf-zurich",
+    "slugByLocale": {
+      "it": "addetto-a-alle-vendite-administration-e-kundendienst-coop-genossenschaft-dubendorf-zurich-2wcybk",
+      "en": "associate-sales-administration-und-kundendienst-coop-genossenschaft-dubendorf-zurich-2wcybk",
+      "de": "mitarbeiter-in-verkauf-administration-und-kundendienst-coop-genossenschaft-dubendorf-zurich-2wcybk",
+      "fr": "collaborateur-trice-vente-administration-und-kundendienst-coop-genossenschaft-dubendorf-zurich-2wcybk"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|3f81495e-3593-4b7a-8ba0-731b67fea596": {
+    "canonicalSlug": "mitarbeiter-in-wareneingang-coop-wangen-bei-olten-solothurn",
+    "slugByLocale": {
+      "it": "collaboratore-trice-wareneingang-coop-wangen-bei-olten-solothurn-y4dxcf",
+      "en": "associate-wareneingang-coop-wangen-bei-olten-solothurn-y4dxcf",
+      "de": "mitarbeiter-in-wareneingang-coop-wangen-bei-olten-solothurn-y4dxcf",
+      "fr": "collaborateur-trice-wareneingang-coop-wangen-bei-olten-solothurn-y4dxcf"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "SO"
+  },
+  "id|coopjobs.ch|4f948a72-d117-4968-a428-7d0e64e89767": {
+    "canonicalSlug": "rangierer-in-railcare-wangen-bei-olten-solothurn",
+    "slugByLocale": {
+      "de": "rangierer-in-railcare-wangen-bei-olten-solothurn-l9gwyz"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "SO"
+  },
+  "id|coopjobs.ch|077d7176-f2af-4eee-abae-68e5f9d6743e": {
+    "canonicalSlug": "rangierspezialist-in-railcare-bern",
+    "slugByLocale": {
+      "de": "rangierspezialist-in-railcare-bern-op2l0l"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|00c9a640-e096-494f-97fa-e656cf457c22": {
+    "canonicalSlug": "rayonleiter-in-deco-inklusive-stellvertetung-der-geschaftsfuhrung-jumbo-schenkon-luzern",
+    "slugByLocale": {
+      "de": "rayonleiter-in-deco-inklusive-stellvertetung-der-geschaftsfuhrung-jumbo-schenkon-luzern-o1ad2s"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "LU"
+  },
+  "id|coopjobs.ch|ab44cab9-fc16-489e-b337-48f148cf4a2c": {
+    "canonicalSlug": "rayonleiter-in-grundnahrungsmittel-coop-muri-bei-bern",
+    "slugByLocale": {
+      "de": "rayonleiter-in-grundnahrungsmittel-coop-muri-bei-bern-o0xmk0"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|353a186b-fdc4-4318-9895-6ac5a53f6d28": {
+    "canonicalSlug": "rayonleiter-in-wein-coop-genossenschaft-wurenlingen-aargau",
+    "slugByLocale": {
+      "de": "rayonleiter-in-wein-coop-genossenschaft-wurenlingen-aargau-x1xfb0"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|04c3c89f-b3f6-433a-af44-af2673d8fe5a": {
+    "canonicalSlug": "sachbearbeiter-in-bewirtschaftung-datenqualitat-80-100-coop-immobilien-bern",
+    "slugByLocale": {
+      "de": "sachbearbeiter-in-bewirtschaftung-datenqualitat-80-100-coop-immobilien-bern-j51avi"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|06a6f36d-d2af-40e1-a606-1105ab753efc": {
+    "canonicalSlug": "stv-rayonleiter-in-getranke-wein-coop-muri-bei-bern",
+    "slugByLocale": {
+      "de": "stv-rayonleiter-in-getranke-wein-coop-muri-bei-bern-nkkihc"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|3e1bd47d-54c6-47e1-82bd-a35df0a5653d": {
+    "canonicalSlug": "teammember-food-m-w-d-marche-restaurants-schweiz-ag-dietlikon",
+    "slugByLocale": {
+      "de": "teammember-food-m-w-d-marche-restaurants-schweiz-ag-dietlikon-ovsjoj"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|9fb77ea3-c4a9-4e68-9826-11fdca08a70b": {
+    "canonicalSlug": "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-2",
+    "slugByLocale": {
+      "de": "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-678f1e"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|c4218f57-126f-4ec9-81ee-63c06ab03df7": {
+    "canonicalSlug": "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon",
+    "slugByLocale": {
+      "de": "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-zfr8up"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|7c47df1e-b12b-4c7d-9d9c-cd98bca12c13": {
+    "canonicalSlug": "transportdisponent-in-coop-wangen-bei-olten-solothurn",
+    "slugByLocale": {
+      "de": "transportdisponent-in-coop-wangen-bei-olten-solothurn-304b2a"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "SO"
+  },
+  "id|coopjobs.ch|3c9e3d6f-1f1a-4bec-b065-4d666b855928": {
+    "canonicalSlug": "verkaufer-in-food-getranke-coop-genossenschaft-frick-aargau",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-getranke-coop-genossenschaft-frick-aargau-iw9jzb"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|1b525a41-3277-4a0e-bfb0-5c859a3be201": {
+    "canonicalSlug": "verkaufer-in-food-coop-bern",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-bern-03bs7v"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|4084ac77-01ae-41ee-a7ae-45338169ecf7": {
+    "canonicalSlug": "verkaufer-in-food-coop-bern-2",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-bern-46akfl"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|0cdb94bc-c3a0-498c-a990-62286ca808ca": {
+    "canonicalSlug": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-heimberg-bern",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-heimberg-bern-l8wp8o"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|b648312f-a362-48e8-b8c8-5b9443f90d39": {
+    "canonicalSlug": "verkaufsberater-in-do-it-jumbo-widnau-sankt-gallen",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-do-it-jumbo-widnau-sankt-gallen-2d2apj"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "SG"
+  },
+  "id|coopjobs.ch|b212af99-1d97-4b53-9136-8e477335c35e": {
+    "canonicalSlug": "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur-zurich",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur-zurich-58472n"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|e4f74366-ae0f-4a78-bf97-f67ad36fdb22": {
+    "canonicalSlug": "verkaufsberater-in-jumbo-laupen-bern",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-jumbo-laupen-bern-7r8s4r"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|9cae268d-fc77-4466-bddc-cf08bad90513": {
+    "canonicalSlug": "verkaufsberater-in-schreinerei-jumbo-heimberg-bern",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-schreinerei-jumbo-heimberg-bern-6i5h3n"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|6ecfa00e-5fe2-466c-9cb3-ca747bf85d05": {
+    "canonicalSlug": "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen-o0b46z"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "SG"
+  },
+  "id|coopjobs.ch|974c83e0-7407-4de6-9233-2bcf642a6d45": {
+    "canonicalSlug": "verkaufsberater-in-import-parfumerie-rapperswil-jona-sankt-gallen",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-import-parfumerie-rapperswil-jona-sankt-gallen-juhqpf"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "SG"
+  },
+  "id|coopjobs.ch|f2822627-dc15-4dda-98f3-2018fc97ec53": {
+    "canonicalSlug": "verkaufsberater-in-interdiscount-interlaken-bern",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-interdiscount-interlaken-bern-eirkl2"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|fust.ch|9d66c95e-0ae6-4407-b6d7-380188f7b3e9": {
+    "canonicalSlug": "sanitarmonteur-in-kuchen-bader-fust-steg-hohtenn-wallis",
+    "slugByLocale": {
+      "de": "sanitarmonteur-in-kuchen-bader-fust-steg-hohtenn-wallis-d8fkpx"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "VS"
+  },
+  "id|coopjobs.ch|15d7e285-2841-4dd6-b35c-793fbfdc7f41": {
+    "canonicalSlug": "mitarbeiter-in-verkauf-food-06-00-bis-10-00-uhr-auffuller-in-coop-unterageri-zug",
+    "slugByLocale": {
+      "it": "addetto-a-alle-vendite-food-06-00-bis-10-00-uhr-auffuller-in-coop-unterageri-zug-i7wtyq",
+      "en": "associate-sales-food-06-00-bis-10-00-uhr-auffuller-in-coop-unterageri-zug-i7wtyq",
+      "de": "mitarbeiter-in-verkauf-food-06-00-bis-10-00-uhr-auffuller-in-coop-unterageri-zug-i7wtyq",
+      "fr": "collaborateur-trice-vente-food-06-00-bis-10-00-uhr-auffuller-in-coop-unterageri-zug-i7wtyq"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZG"
+  },
+  "id|coopjobs.ch|42427b8a-6b84-4d89-8286-ff047d3a30d7": {
+    "canonicalSlug": "rayonleiter-in-molkerei-eier-kase-coop-wolhusen-luzern",
+    "slugByLocale": {
+      "de": "rayonleiter-in-molkerei-eier-kase-coop-wolhusen-luzern-negfwj"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "LU"
+  },
+  "id|coopjobs.ch|24a15650-6401-4e64-8243-4ea22ee0a520": {
+    "canonicalSlug": "stv-rayonleiter-in-convenience-metzgerei-coop-muri-ag-aargau",
+    "slugByLocale": {
+      "de": "stv-rayonleiter-in-convenience-metzgerei-coop-muri-ag-aargau-18bw04"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|3c2041e0-1028-4b4e-b586-1572e952b30e": {
+    "canonicalSlug": "verkaufer-in-frischprodukte-coop-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-frischprodukte-coop-zurich-9kvcf6"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|d2b848aa-2dc5-4362-abfc-744d13593e71": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-kriens-luzern",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-kriens-luzern-u86zir"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "LU"
+  },
+  "id|csd.ch|8046261": {
+    "canonicalSlug": "paesaggiatori-80-100-m-f-d-csd-engineers-aarau",
+    "slugByLocale": {
+      "it": "paesaggiatori-80-100-m-f-d-csd-engineers-aarau",
+      "en": "landscapers-80-100-m-f-d-csd-engineers-aarau",
+      "de": "landschaftsbauzeichner-80-100-m-w-d-csd-engineers-ch",
+      "fr": "paysagistes-80-100-m-f-j-csd-engineers-aarau"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "AG"
+  },
+  "id|csd.ch|8135621": {
+    "canonicalSlug": "praktikant-umwelt-ab-1-oktober-2026-80-100-m-w-d-csd-engineers-ch",
+    "slugByLocale": {
+      "de": "praktikant-umwelt-ab-1-oktober-2026-80-100-m-w-d-csd-engineers-ch"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "id|fenaco.com|6330577b-3dd5-4258-a232-ae88922d9ea6": {
+    "canonicalSlug": "apprendistato-come-ict-fachmann-frau-cfc-m-w-d-ab-2027-in-bern-bison-bern",
+    "slugByLocale": {
+      "it": "apprendistato-come-ict-fachmann-frau-cfc-m-w-d-ab-2027-in-bern-bison-bern",
+      "de": "lehrstelle-als-ict-fachmann-frau-efz-m-w-d-ab-2027-in-bern-bison-bern"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|fenaco.com|2212f86b-bda8-4fd9-b2fa-123b6c9d5599": {
+    "canonicalSlug": "mitarbeiterin-addetto-a-alle-vendite-m-w-d-landi-reba-ag-laufen",
+    "slugByLocale": {
+      "it": "mitarbeiterin-addetto-a-alle-vendite-m-w-d-landi-reba-ag-laufen",
+      "de": "mitarbeiterin-mitarbeiter-verkauf-w-m-d-landi-reba-ag-laufen"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BL"
+  },
+  "id|fenaco.com|2f107575-d739-4dec-a7f9-7498e06d44e8": {
+    "canonicalSlug": "sachbearbeitung-transport-e-logistikadministration-m-w-d-traveco-transporte-ag-nebikon",
+    "slugByLocale": {
+      "it": "sachbearbeitung-transport-e-logistikadministration-m-w-d-traveco-transporte-ag-nebikon",
+      "de": "sachbearbeitung-transport-und-logistikadministration-w-m-d-traveco-transporte-ag-nebikon"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "LU"
+  },
+  "id|fenaco.com|d19d7dec-8db4-4288-b7bd-10cb8f9a5741": {
+    "canonicalSlug": "shopmitarbeiterin-shopmitarbeiter-m-w-d-landi-hindelbank",
+    "slugByLocale": {
+      "de": "shopmitarbeiterin-shopmitarbeiter-m-w-d-landi-hindelbank"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|fenaco.com|df579b15-0f68-4b63-81e3-b2d62077242b": {
+    "canonicalSlug": "shopmitarbeiterin-shopmitarbeiter-m-w-d-landi-jegenstorf",
+    "slugByLocale": {
+      "de": "shopmitarbeiterin-shopmitarbeiter-m-w-d-landi-jegenstorf"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|fenaco.com|9cbc14ff-b68b-48ec-a1d4-4c2bb238fb8d": {
+    "canonicalSlug": "verantwortliche-verantwortlicher-silobetrieb-m-w-d-landi-tafers",
+    "slugByLocale": {
+      "de": "verantwortliche-verantwortlicher-silobetrieb-m-w-d-landi-tafers"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "FR"
+  },
+  "id|fenaco.com|8c5b1ebe-2fdf-45bf-ac97-85c6833d868c": {
+    "canonicalSlug": "mitarbeiterin-collaboratore-trice-silobetrieb-landi-tafers",
+    "slugByLocale": {
+      "it": "mitarbeiterin-collaboratore-trice-silobetrieb-landi-tafers",
+      "de": "mitarbeiterin-mitarbeiter-silobetrieb-landi-tafers"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "FR"
+  },
+  "id|fenaco.com|b79e4e96-1803-43b5-aa4c-c48788dd9979": {
+    "canonicalSlug": "mitarbeiterin-addetto-a-alle-vendite-m-w-d-volg-oberkulm-landi-aarau-west-ag-oberkulm",
+    "slugByLocale": {
+      "it": "mitarbeiterin-addetto-a-alle-vendite-m-w-d-volg-oberkulm-landi-aarau-west-ag-oberkulm",
+      "de": "mitarbeiterin-mitarbeiter-verkauf-w-m-d-volg-oberkulm-landi-aarau-west-ag-oberkulm"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "AG"
+  },
+  "id|fenaco.com|221038b8-6869-4e77-9598-45b5cf68bb1e": {
+    "canonicalSlug": "senior-fachspezialistin-fachspezialist-payroll-sozialversicherungen-w-m-d-fenaco-bern",
+    "slugByLocale": {
+      "de": "senior-fachspezialistin-fachspezialist-payroll-sozialversicherungen-w-m-d-fenaco-bern"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|raiffeisen.ch|d6360125-81d8-4ae6-95c6-06c4d4c59120": {
+    "canonicalSlug": "servizi-client-privati-raiffeisen-langnau-im-emmental",
+    "slugByLocale": {
+      "it": "servizi-client-privati-raiffeisen-langnau-im-emmental",
+      "en": "private-client-services-raiffeisen-langnau-im-emmental",
+      "de": "privatkundenberatung-raiffeisen-langnau-im-emmental",
+      "fr": "services-a-la-clientele-privee-raiffeisen-langnau-im-emmental"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|raiffeisen.ch|7a57c70a-4833-49ef-b603-ea514c2cfb68": {
+    "canonicalSlug": "collaboratore-trice-credit-office-m-w-d-raiffeisen-warth-weiningen",
+    "slugByLocale": {
+      "it": "collaboratore-trice-credit-office-m-w-d-raiffeisen-warth-weiningen",
+      "de": "mitarbeiter-credit-office-w-m-d-raiffeisen-warth-weiningen",
+      "fr": "bureau-du-credit-aux-employes-f-m-d-raiffeisen-warth-weiningen"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TG"
+  },
+  "id|raiffeisen.ch|ba100c27-b796-4b7b-bbd1-b808bba910e8": {
+    "canonicalSlug": "consulente-cliente-aziendale-m-f-d-raiffeisen-kloten",
+    "slugByLocale": {
+      "it": "consulente-cliente-aziendale-m-f-d-raiffeisen-kloten",
+      "en": "corporate-client-advisor-m-f-d-raiffeisen-kloten",
+      "de": "firmenkundenberater-m-w-d-raiffeisen-kloten",
+      "fr": "conseiller-ministeriel-aupres-des-clients-m-f-d-raiffeisen-kloten"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "id|raiffeisen.ch|eb9f1465-a710-4aa3-b3e2-99db30832fa5": {
+    "canonicalSlug": "consulente-per-l-ereditarieta-f-m-d-raiffeisen-zurich",
+    "slugByLocale": {
+      "it": "consulente-per-l-ereditarieta-f-m-d-raiffeisen-zurich",
+      "en": "inheritance-counsellor-f-m-d-raiffeisen-zurich",
+      "de": "erbschaftsberater-w-m-d-raiffeisen-zurich",
+      "fr": "conseiller-en-heritage-f-m-d-raiffeisen-zurich"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "id|raiffeisen.ch|a060272b-1e32-4a45-a503-d02943ed17b5": {
+    "canonicalSlug": "collaboratore-trice-management-office-m-w-d-raiffeisen-niederrohrdorf",
+    "slugByLocale": {
+      "it": "collaboratore-trice-management-office-m-w-d-raiffeisen-niederrohrdorf",
+      "en": "employee-management-office-f-m-d-raiffeisen-niederrohrdorf",
+      "de": "mitarbeiter-management-office-w-m-d-raiffeisen-niederrohrdorf",
+      "fr": "bureau-de-la-gestion-des-employes-f-m-d-raiffeisen-niederrohrdorf"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "AG"
+  },
+  "id|raiffeisen.ch|b98be387-a10f-4045-8b3c-896cd1338311": {
+    "canonicalSlug": "consulente-cliente-aziendale-in-80-100-raiffeisen-stans",
+    "slugByLocale": {
+      "it": "consulente-cliente-aziendale-in-80-100-raiffeisen-stans",
+      "en": "corporate-client-advisor-in-80-100-raiffeisen-stans",
+      "de": "firmenkundenberater-in-80-100-raiffeisen-stans",
+      "fr": "conseiller-client-in-80-100-raiffeisen-stans"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "NW"
+  },
+  "id|raiffeisen.ch|8b7079f6-aa3d-4d2f-b9ca-60ff81bf8df7": {
+    "canonicalSlug": "collaboratore-trice-compliance-geldwascherei-m-w-d-raiffeisen-kolliken",
+    "slugByLocale": {
+      "it": "collaboratore-trice-compliance-geldwascherei-m-w-d-raiffeisen-kolliken",
+      "en": "employee-compliance-money-laundering-f-m-d-raiffeisen-kolliken",
+      "de": "mitarbeiter-compliance-geldwascherei-w-m-d-raiffeisen-kolliken",
+      "fr": "conformite-des-employes-blanchiment-d-argent-f-m-d-raiffeisen-kolliken"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "AG"
+  },
+  "id|raiffeisen.ch|2d3afecd-41ad-4e2e-9e8e-62ee24d17f5c": {
+    "canonicalSlug": "sistemi-di-gestione-dei-record-di-gruppo-f-m-d-raiffeisen-st-gallen",
+    "slugByLocale": {
+      "it": "sistemi-di-gestione-dei-record-di-gruppo-f-m-d-raiffeisen-st-gallen",
+      "en": "group-leader-records-management-systems-f-m-d-raiffeisen-st-gallen",
+      "de": "gruppenleiter-records-management-systeme-w-m-d-raiffeisen-st-gallen",
+      "fr": "chef-de-groupe-systemes-de-gestion-des-dossiers-f-m-d-raiffeisen-st-gallen"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "SG"
+  },
+  "id|raiffeisen.ch|2538d69f-ec03-4514-8a52-98a4fb3239b2": {
+    "canonicalSlug": "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-raiffeisen-benken",
+    "slugByLocale": {
+      "it": "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-raiffeisen-benken",
+      "en": "apprenticeship-as-a-businesswoman-businessman-efz-branche-bank-raiffeisen-benken",
+      "de": "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-raiffeisen-benken",
+      "fr": "apprentissage-en-tant-que-femme-d-affaires-homme-d-affaires-efz-branche-bank-raiffeisen-benken"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "SG"
+  },
+  "id|raiffeisen.ch|c7e119e1-7ebe-4369-9544-498c9d0185cf": {
+    "canonicalSlug": "responsabile-di-corporate-client-consulting-raiffeisen-wattwil",
+    "slugByLocale": {
+      "it": "responsabile-di-corporate-client-consulting-raiffeisen-wattwil",
+      "en": "head-of-corporate-client-consulting-raiffeisen-wattwil",
+      "de": "leiter-in-firmenkundenberatung-raiffeisen-wattwil",
+      "fr": "responsable-de-corporate-client-consulting-raiffeisen-wattwil"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "SG"
+  },
+  "id|raiffeisen.ch|79591772-a617-421d-8e2f-2d78e42f9e16": {
+    "canonicalSlug": "capo-ufficio-di-credito-f-m-d-raiffeisen-nafels",
+    "slugByLocale": {
+      "it": "capo-ufficio-di-credito-f-m-d-raiffeisen-nafels",
+      "en": "head-of-credit-office-f-m-d-raiffeisen-nafels",
+      "de": "leiter-credit-office-w-m-d-raiffeisen-nafels",
+      "fr": "chef-du-bureau-de-credit-f-m-d-raiffeisen-nafels"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "GL"
+  },
+  "id|raiffeisen.ch|8d2ef36c-7b94-456b-9c67-f8f00017c953": {
+    "canonicalSlug": "membro-del-comitato-esecutivo-raiffeisen-rossens-fr",
+    "slugByLocale": {
+      "it": "membro-del-comitato-esecutivo-raiffeisen-rossens-fr",
+      "en": "member-of-the-executive-board-raiffeisen-rossens-fr",
+      "de": "mitglied-des-verwaltungsrats-raiffeisen-rossens-fr",
+      "fr": "membre-du-conseil-d-39-administration-raiffeisen-rossens-fr"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "FR"
+  },
+  "id|raiffeisen.ch|210f313d-3641-4b7d-b516-d852053dcad3": {
+    "canonicalSlug": "consulente-clienti-privato-in-raiffeisen-thun",
+    "slugByLocale": {
+      "it": "consulente-clienti-privato-in-raiffeisen-thun",
+      "en": "private-client-advisor-in-raiffeisen-thun",
+      "de": "privatkundenberater-in-raiffeisen-thun",
+      "fr": "conseiller-client-prive-in-raiffeisen-thun"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|raiffeisen.ch|787aa680-9f6a-4ef3-b00b-98cf5a24b471": {
+    "canonicalSlug": "servizio-clienti-m-f-d-raiffeisen-urtenen-schonbuhl",
+    "slugByLocale": {
+      "it": "servizio-clienti-m-f-d-raiffeisen-urtenen-schonbuhl",
+      "en": "customer-service-provider-m-f-d-raiffeisen-urtenen-schonbuhl",
+      "de": "kundenberater-m-w-d-raiffeisen-urtenen-schonbuhl",
+      "fr": "fournisseur-de-services-a-la-clientele-m-f-d-raiffeisen-urtenen-schonbuhl"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|raiffeisen.ch|2031f12b-3323-4e78-94b0-89910b3c1bf8": {
+    "canonicalSlug": "gestione-del-team-raiffeisen-tagerwilen",
+    "slugByLocale": {
+      "it": "gestione-del-team-raiffeisen-tagerwilen",
+      "en": "team-management-credit-processing-raiffeisen-tagerwilen",
+      "de": "teamleitung-kreditverarbeitung-raiffeisen-tagerwilen",
+      "fr": "traitement-du-credit-de-gestion-d-equipe-raiffeisen-tagerwilen"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TG"
+  },
+  "id|raiffeisen.ch|1f7970c3-f34d-4dcb-8b63-3b1480cb7e1b": {
+    "canonicalSlug": "consulenza-clienti-individuale-f-m-d-raiffeisen-tagerwilen",
+    "slugByLocale": {
+      "it": "consulenza-clienti-individuale-f-m-d-raiffeisen-tagerwilen",
+      "en": "team-management-individual-client-advice-f-m-d-raiffeisen-tagerwilen",
+      "de": "teamleitung-individualkundenberatung-w-m-d-raiffeisen-tagerwilen",
+      "fr": "gestion-de-l-equipe-conseils-individuels-aux-clients-f-m-d-raiffeisen-tagerwilen"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TG"
+  },
+  "id|raiffeisen.ch|6c301af8-998c-4776-8a82-081c711c738f": {
+    "canonicalSlug": "berater-kunden-service-center-mit-fokus-vertrieb-w-m-d-raiffeisen-zurich",
+    "slugByLocale": {
+      "en": "consultant-customer-service-center-with-focus-sales-f-m-d-raiffeisen-zurich",
+      "de": "berater-kunden-service-center-mit-fokus-vertrieb-w-m-d-raiffeisen-zurich",
+      "fr": "centre-de-services-a-la-clientele-avec-concentration-ventes-f-m-d-raiffeisen-zurich"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "id|raiffeisen.ch|55bcae79-a985-410d-8521-8a1822c8b1ce": {
+    "canonicalSlug": "software-ingenieur-con-leidenschaft-per-testing-m-w-d-raiffeisen-st-gallen",
+    "slugByLocale": {
+      "it": "software-ingenieur-con-leidenschaft-per-testing-m-w-d-raiffeisen-st-gallen",
+      "en": "software-engineer-with-passion-for-testing-f-m-d-raiffeisen-st-gallen",
+      "de": "software-ingenieur-mit-leidenschaft-fur-testing-w-m-d-raiffeisen-st-gallen",
+      "fr": "ingenieur-logiciel-avec-passion-pour-les-tests-f-m-d-raiffeisen-st-gallen"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "SG"
+  },
+  "id|raiffeisen.ch|53819cbf-09cf-4c12-9573-9969b9a59de7": {
+    "canonicalSlug": "presidenza-della-direzione-banca-f-m-d-raiffeisen-recherswil",
+    "slugByLocale": {
+      "it": "presidenza-della-direzione-banca-f-m-d-raiffeisen-recherswil",
+      "en": "chairmanship-of-the-bank-management-f-m-d-raiffeisen-recherswil",
+      "de": "vorsitz-der-bankleitung-w-m-d-raiffeisen-recherswil",
+      "fr": "presidence-de-la-direction-de-la-banque-f-m-d-raiffeisen-recherswil"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "SO"
+  },
+  "id|raiffeisen.ch|0374a96f-2208-494e-878f-eeed195b8b0c": {
+    "canonicalSlug": "junior-privatkundenberater-w-m-d-raiffeisen-schwyz",
+    "slugByLocale": {
+      "de": "junior-privatkundenberater-w-m-d-raiffeisen-schwyz"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "SZ"
+  },
+  "id|raiffeisen.ch|ea456037-b2b0-4646-8fb5-ce8ee7caaa26": {
+    "canonicalSlug": "kundenberater-in-o-privatkundenberater-in-con-schaltertatigkeit-raiffeisen-menzingen",
+    "slugByLocale": {
+      "de": "kundenberater-in-oder-privatkundenberater-in-mit-schaltertatigkeit-raiffeisen-menzingen",
+      "it": "kundenberater-in-o-privatkundenberater-in-con-schaltertatigkeit-raiffeisen-menzingen"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZG"
+  },
+  "id|raiffeisen.ch|ca3eaa79-3027-4be3-ba1b-dc22b8ea91ea": {
+    "canonicalSlug": "conseiller-ere-clientele-privee-raiffeisen-nyon",
+    "slugByLocale": {
+      "fr": "conseiller-ere-clientele-privee-raiffeisen-nyon"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "VD"
+  },
+  "id|raiffeisen.ch|ede8c68b-0cc4-4b6e-a1f8-fdbee87c8c3d": {
+    "canonicalSlug": "it-business-analyst-w-m-d-raiffeisen-zurich",
+    "slugByLocale": {
+      "de": "it-business-analyst-w-m-d-raiffeisen-zurich"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "id|raiffeisen.ch|b6c26574-0671-4529-b729-a7b4752cb02c": {
+    "canonicalSlug": "conseiller-a-la-clientele-entreprises-senior-f-h-raiffeisen-sion",
+    "slugByLocale": {
+      "fr": "conseiller-a-la-clientele-entreprises-senior-f-h-raiffeisen-sion"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "VS"
+  },
+  "id|ruag.ch|874a4392-ad68-49e1-a8aa-9b497899c867": {
+    "canonicalSlug": "strategy-portfolio-manager-80-100-w-m-d-ruag-ag-emmen",
+    "slugByLocale": {
+      "de": "strategy-portfolio-manager-80-100-w-m-d-ruag-ag-emmen"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "LU"
+  },
+  "url|https://jobs.siemens.com/en_us/externaljobs/jobdetail/515121": {
+    "canonicalSlug": "product-solution-security-expert-80-100-siemens-zug",
+    "slugByLocale": {
+      "en": "product-solution-security-expert-80-100-siemens-zug",
+      "de": "produkt-und-losungssicherheitsexperte-80-100-siemens-zug",
+      "fr": "expert-en-securite-des-produits-et-solutions-80-100-siemens-zug"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZG"
+  },
+  "url|https://jobs.siemens.com/en_us/externaljobs/jobdetail/515341": {
+    "canonicalSlug": "coordinatore-del-servizio-in-80-100-siemens-zuerich",
+    "slugByLocale": {
+      "it": "coordinatore-del-servizio-in-80-100-siemens-zuerich",
+      "en": "service-coordinator-in-80-100-siemens-zuerich",
+      "de": "service-koordinator-in-80-100-siemens-zuerich",
+      "fr": "coordonnateur-des-services-en-80-a-100-siemens-zuerich"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "url|https://jobs.siemens.com/en_us/externaljobs/jobdetail/515269": {
+    "canonicalSlug": "team-leader-nelle-caselle-di-segnale-elettroniche-80-100-siemens-wallisellen",
+    "slugByLocale": {
+      "it": "team-leader-nelle-caselle-di-segnale-elettroniche-80-100-siemens-wallisellen",
+      "en": "team-leader-in-electronic-signal-boxes-80-100-siemens-wallisellen",
+      "de": "teamleiter-in-elektronische-stellwerke-80-100-siemens-wallisellen",
+      "fr": "chef-d-equipe-dans-les-boites-de-signalisation-electronique-80-100-siemens-wallisellen"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "url|https://jobs.siemens.com/en_us/externaljobs/jobdetail/515676": {
+    "canonicalSlug": "global-data-center-vertical-lead-80-100-siemens-zug",
+    "slugByLocale": {
+      "en": "global-data-center-vertical-lead-80-100-siemens-zug"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZG"
+  },
+  "url|https://jobs.siemens.com/en_us/externaljobs/jobdetail/514284": {
+    "canonicalSlug": "energieingenieur-in-80-100-siemens-renens",
+    "slugByLocale": {
+      "de": "energieingenieur-in-80-100-siemens-renens"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "VD"
+  },
+  "url|https://jobs.smartrecruiters.com/staubligroup/744000135670799-process-engineer-operational-excellence?oga=true": {
+    "canonicalSlug": "process-ingegnere-operational-excellence-staubli-allschwil",
+    "slugByLocale": {
+      "it": "process-ingegnere-operational-excellence-staubli-allschwil",
+      "de": "process-engineer-operational-excellence-staubli-allschwil-switzerland",
+      "fr": "process-ingenieur-operational-excellence-staubli-allschwil"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BL"
+  },
+  "url|https://jobs.smartrecruiters.com/staubligroup/744000135670729-division-procurement-controller?oga=true": {
+    "canonicalSlug": "controllore-degli-appalti-staubli-allschwil-switzerland",
+    "slugByLocale": {
+      "it": "controllore-degli-appalti-staubli-allschwil-switzerland",
+      "de": "division-procurement-controller-staubli-allschwil-switzerland",
+      "fr": "division-procurement-controller-staubli-allschwil"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BL"
+  },
+  "url|https://jobs.smartrecruiters.com/staubligroup/744000136819052-customs-transportation-specialist-befristet-?oga=true": {
+    "canonicalSlug": "customs-transportation-specialista-befristet-staubli-allschwil",
+    "slugByLocale": {
+      "it": "customs-transportation-specialista-befristet-staubli-allschwil",
+      "de": "customs-transportation-specialist-befristet-staubli-allschwil-switzerland",
+      "fr": "customs-transportation-specialiste-befristet-staubli-allschwil"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BL"
+  },
+  "url|https://jobs.smartrecruiters.com/staubligroup/744000135670020-head-of-product-management-power-transmission-distribution?oga=true": {
+    "canonicalSlug": "responsabile-product-management-power-transmission-distribution-staubli-allschwil",
+    "slugByLocale": {
+      "it": "responsabile-product-management-power-transmission-distribution-staubli-allschwil",
+      "en": "head-of-product-management-power-transmission-distribution-staubli-allschwil-switzerland",
+      "de": "leiter-product-management-power-transmission-distribution-staubli-allschwil",
+      "fr": "responsable-product-management-power-transmission-distribution-staubli-allschwil"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BL"
+  },
+  "url|https://jobs.smartrecruiters.com/staubligroup/744000140179519-electrical-engineer-test-engineer?oga=true": {
+    "canonicalSlug": "electrical-engineer-test-engineer-staubli-allschwil-switzerland",
+    "slugByLocale": {
+      "de": "electrical-engineer-test-engineer-staubli-allschwil-switzerland"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BL"
+  },
+  "url|https://jobs.smartrecruiters.com/staubligroup/744000135669754-head-group-processes-data-governance-?oga=true": {
+    "canonicalSlug": "processi-e-governance-dei-dati-staubli-pfaffikon-switzerland",
+    "slugByLocale": {
+      "it": "processi-e-governance-dei-dati-staubli-pfaffikon-switzerland",
+      "en": "head-group-processes-data-governance-staubli-pfaffikon-switzerland",
+      "de": "head-group-prozesse-data-governance-staubli-pfaffikon",
+      "fr": "processus-du-groupe-principal-et-gouvernance-des-donnees-staubli-pfaffikon-switzerland"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "url|https://jobs.smartrecruiters.com/swissquote/744000139625120-product-engineer?oga=true": {
+    "canonicalSlug": "product-ingegnere-swissquote-gland-d8732d",
+    "slugByLocale": {
+      "it": "product-ingegnere-swissquote-gland-d8732d",
+      "en": "product-engineer-swissquote-gland",
+      "de": "product-ingenieur-swissquote-gland-d8732d",
+      "fr": "product-ingenieur-swissquote-gland-d8732d"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "VD"
+  },
+  "url|https://jobs.smartrecruiters.com/swissquote/744000140179709-catering-officer-6-months-?oga=true": {
+    "canonicalSlug": "catering-officer-6-months-swissquote-gland",
+    "slugByLocale": {
+      "fr": "catering-officer-6-months-swissquote-gland"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "VD"
+  },
+  "url|https://jobs.smartrecruiters.com/swissquote/744000139585631-compliance-assistant-onboarding-private-3-months-contract-?oga=true": {
+    "canonicalSlug": "assistente-di-compliance-onboarding-private-3-mesi-di-contratto-swissquote-gland",
+    "slugByLocale": {
+      "it": "assistente-di-compliance-onboarding-private-3-mesi-di-contratto-swissquote-gland",
+      "en": "compliance-assistant-onboarding-private-3-months-contract-swissquote-gland",
+      "fr": "assistant-a-la-conformite-contrat-prive-3-mois-swissquote-gland"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "VD"
+  },
+  "url|https://jobs.smartrecruiters.com/swissquote/744000139581986-insights-analyst?oga=true": {
+    "canonicalSlug": "insights-analista-swissquote-gland",
+    "slugByLocale": {
+      "it": "insights-analista-swissquote-gland",
+      "en": "insights-analyst-swissquote-gland",
+      "fr": "insights-analyste-swissquote-gland"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "VD"
+  },
+  "id|solina.ch|mitarbeiterin-hauswirtschaft-5mlj7z2k": {
+    "canonicalSlug": "collaboratore-trice-hauswirtschaft-stiftung-solina-spiez",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-hauswirtschaft-solina-spiez",
+      "it": "collaboratore-trice-hauswirtschaft-stiftung-solina-spiez"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "url|https://jobs.somedia.ch/fachperson-personalentwicklung-kultur-100-de-j407.html": {
+    "canonicalSlug": "fachperson-personalentwicklung-kultur-100-somedia-ch",
+    "slugByLocale": {
+      "de": "fachperson-personalentwicklung-kultur-100-somedia-ch"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "GR"
+  },
+  "id|stadt-zuerich.ch|1367877657": {
+    "canonicalSlug": "leiter-in-berufliche-grundbildung-stadt-zurich",
+    "slugByLocale": {
+      "de": "leiter-in-berufliche-grundbildung-stadt-zuerich-zurigo-51067",
+      "it": "leiter-in-berufliche-grundbildung-stadt-zurich"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1367875257": {
+    "canonicalSlug": "jurist-in-stadt-zuerich-zurigo-51065",
+    "slugByLocale": {
+      "de": "jurist-in-stadt-zuerich-zurigo-51065"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "id|tertianum.ch|1419682433": {
+    "canonicalSlug": "fachfrau-mann-gesundheit-cfc-60-80-im-nachtdienst-tertianum-heimenschwand",
+    "slugByLocale": {
+      "de": "fachfrau-mann-gesundheit-efz-60-80-im-nachtdienst-tertianum-heimenschwand",
+      "it": "fachfrau-mann-gesundheit-cfc-60-80-im-nachtdienst-tertianum-heimenschwand"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|tertianum.ch|1419642533": {
+    "canonicalSlug": "praktikant-in-pflege-e-betreuung-tertianum-wattwil",
+    "slugByLocale": {
+      "de": "praktikant-in-pflege-und-betreuung-tertianum-wattwil",
+      "it": "praktikant-in-pflege-e-betreuung-tertianum-wattwil"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "SG"
+  },
+  "id|ubs.com|347808": {
+    "canonicalSlug": "product-structuring-specialist-fixed-term-contract-ubs-zurich",
+    "slugByLocale": {
+      "en": "product-structuring-specialist-fixed-term-contract-ubs-zurich"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "id|ubs.com|344402": {
+    "canonicalSlug": "spezialist-in-immobilien-finanzierungen-renditeliegenschaften-80-100-ubs-zurich",
+    "slugByLocale": {
+      "de": "spezialist-in-immobilien-finanzierungen-renditeliegenschaften-80-100-ubs-zurich"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "id|vivaluzern.ch|d0eb19da-bbd5-45a5-9e92-92799d88464a": {
+    "canonicalSlug": "stv-team-leader-in-cura-viva-luzern-luzern",
+    "slugByLocale": {
+      "it": "stv-team-leader-in-cura-viva-luzern-luzern",
+      "en": "stv-team-leader-in-care-viva-luzern-luzern",
+      "de": "stv-teamleiter-in-pflege-viva-luzern-luzern",
+      "fr": "chef-d-equipe-de-stv-en-soins-viva-luzern-luzern"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "LU"
+  },
+  "id|vivaluzern.ch|2f06d5f6-5062-42d3-a97d-d2c7af58b2e2": {
+    "canonicalSlug": "stv-teamleiter-in-betreuung-e-pflege-palliative-care-viva-luzern",
+    "slugByLocale": {
+      "de": "stv-teamleiter-in-betreuung-und-pflege-palliative-care-viva-luzern-luzern",
+      "it": "stv-teamleiter-in-betreuung-e-pflege-palliative-care-viva-luzern"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "LU"
+  },
+  "id|vivaluzern.ch|6821950f-bfe0-4bf1-a249-0a10871ab190": {
+    "canonicalSlug": "stv-teamleiter-in-pflege-per-spezialisierte-demenz-wohngruppe-viva-luzern",
+    "slugByLocale": {
+      "de": "stv-teamleiter-in-pflege-fur-spezialisierte-demenz-wohngruppe-viva-luzern-luzern",
+      "it": "stv-teamleiter-in-pflege-per-spezialisierte-demenz-wohngruppe-viva-luzern"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "LU"
+  },
+  "id|solique.ch|4045152": {
+    "canonicalSlug": "subakutstation-diplomierte-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau",
+    "slugByLocale": {
+      "de": "subakutstation-diplomierte-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "AR"
+  },
+  "id|prospective.ch|1f5f5d2c-d497-412f-bde2-b0341318153a": {
+    "canonicalSlug": "sekretar-in-notfall-triage-integrativ-aufsuchende-psychiatriepflege-80-sro-langenthal",
+    "slugByLocale": {
+      "de": "sekretar-in-notfall-triage-integrativ-aufsuchende-psychiatriepflege-80-sro-langenthal"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|manor.ch|1362288655": {
+    "canonicalSlug": "manor-mitarbeiter-in-verkauf-damen-fashion-50-aarau-mitarbeiterin-verkauf-damen",
+    "slugByLocale": {
+      "it": "manor-mitarbeiter-in-verkauf-damen-fashion-50-aarau-mitarbeiterin-verkauf-damen"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "AG"
+  },
+  "id|manor.ch|1362288955": {
+    "canonicalSlug": "manor-mitarbeiter-in-supermarkt-student-in-10-basel-mitarbeiterin-supermarkt-studentin",
+    "slugByLocale": {
+      "it": "manor-mitarbeiter-in-supermarkt-student-in-10-basel-mitarbeiterin-supermarkt-studentin"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BS"
+  },
+  "id|manor.ch|1362293155": {
+    "canonicalSlug": "manor-mitarbeiter-in-logistik-e-comm-20-hochdorf-mitarbeiterin-logistik-e",
+    "slugByLocale": {
+      "it": "manor-mitarbeiter-in-logistik-e-comm-20-hochdorf-mitarbeiterin-logistik-e"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "LU"
+  },
+  "id|manor.ch|1362292155": {
+    "canonicalSlug": "manor-mitarbeiter-in-logistik-e-comm-50-hochdorf-mitarbeiterin-logistik-e",
+    "slugByLocale": {
+      "it": "manor-mitarbeiter-in-logistik-e-comm-50-hochdorf-mitarbeiterin-logistik-e"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "LU"
+  },
+  "id|manor.ch|1362295855": {
+    "canonicalSlug": "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
+    "slugByLocale": {
+      "it": "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "LU"
+  },
+  "id|manor.ch|1362291355": {
+    "canonicalSlug": "manor-mitarbeiter-in-logistik-20-hochdorf-mitarbeiterin-logistik-20",
+    "slugByLocale": {
+      "it": "manor-mitarbeiter-in-logistik-20-hochdorf-mitarbeiterin-logistik-20"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "LU"
+  },
+  "id|manor.ch|1362291455": {
+    "canonicalSlug": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-kommissionierung",
+    "slugByLocale": {
+      "it": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-kommissionierung"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "LU"
+  },
+  "id|manor.ch|1362287655": {
+    "canonicalSlug": "manor-mitarbeiter-in-warenausgang-100-hochdorf-mitarbeiterin-warenausgang-100",
+    "slugByLocale": {
+      "it": "manor-mitarbeiter-in-warenausgang-100-hochdorf-mitarbeiterin-warenausgang-100"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "LU"
+  },
+  "id|manor.ch|1362288155": {
+    "canonicalSlug": "manor-mitarbeiter-in-parfumerie-40-solothurn-mitarbeiterin-parfumerie-40",
+    "slugByLocale": {
+      "de": "manor-mitarbeiter-in-parfumerie-40-solothurn-mitarbeiterin-parfumerie-40"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "SO"
+  },
+  "id|manor.ch|1356550955": {
+    "canonicalSlug": "manor-mitarbeiter-in-verkauf-fashion-60-langenthal-mitarbeiterin-verkauf-fashion",
+    "slugByLocale": {
+      "de": "manor-mitarbeiter-in-verkauf-fashion-60-langenthal-mitarbeiterin-verkauf-fashion"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|recruitingapp-2736.umantis.com|1941": {
+    "canonicalSlug": "medizinische-praxisassistentin-mpa-arztsekretarin-40-100-m-w-d-spital-mannedorf-mannedorf",
+    "slugByLocale": {
+      "de": "medizinische-praxisassistentin-mpa-arztsekretarin-40-100-m-w-d-spital-maennedorf-ch",
+      "it": "medizinische-praxisassistentin-mpa-arztsekretarin-40-100-m-w-d-spital-mannedorf-mannedorf",
+      "en": "medizinische-praxisassistentin-mpa-arztsekretarin-40-100-m-w-d-spital-mannedorf-mannedorf",
+      "fr": "medizinische-praxisassistentin-mpa-arztsekretarin-40-100-m-w-d-spital-mannedorf-mannedorf"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "id|recruitingapp-2908.umantis.com|3070": {
+    "canonicalSlug": "msc-psychologe-psychologin-sozialpadagogin-sozialpadagoge-dipl-pflegefachperson-im-ass-ifi",
+    "slugByLocale": {
+      "de": "msc-psychologe-psychologin-sozialpadagogin-sozialpadagoge-dipl-pflegefachperson-im-ass-ifi"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "id|stgag.ch|3730": {
+    "canonicalSlug": "medizinische-n-praxisassistenten-in-fachmann-frau-gesundheit-spital-thurgau-stgag-munsterlingen",
+    "slugByLocale": {
+      "de": "medizinische-n-praxisassistenten-in-fachmann-frau-gesundheit-stgag-munsterlingen",
+      "it": "medizinische-n-praxisassistenten-in-fachmann-frau-gesundheit-spital-thurgau-stgag-munsterlingen"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TG"
+  },
+  "id|sulzer.wd502.myworkdayjobs.com|jr103657": {
+    "canonicalSlug": "technical-sales-manager-sulzer-ch",
+    "slugByLocale": {
+      "en": "technical-sales-manager-sulzer-ch"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "ZH"
+  },
+  "id|vfc.wd5.myworkdayjobs.com|r-20260714-0009-2": {
+    "canonicalSlug": "associate-planner-fixed-term-sostituzione-maternita-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-tqt3cy",
+    "slugByLocale": {
+      "it": "associate-planner-fixed-term-sostituzione-maternita-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-tqt3cy",
+      "en": "associate-planner-fixed-term-maternity-cover-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-tqt3cy",
+      "de": "associate-planner-fixed-term-mutterschaftsvertretung-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-tqt3cy",
+      "fr": "associate-planner-fixed-term-remplacement-maternite-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-tqt3cy"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "id|carrieres-rolex.com|1419674133": {
+    "canonicalSlug": "operateur-polyvalent-h-f-rolex-ch",
+    "slugByLocale": {
+      "fr": "operateur-polyvalent-h-f-rolex-ch"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "FR"
+  },
+  "url|https://www.pemsa.ch/it/job/addetto-alla-logistica-afc-con-patente-per-carrelli-elevatori-60-100-m-f-d-2685089": {
+    "canonicalSlug": "addetto-alla-logistica-afc-con-patente-per-carrelli-elevatori-60-100-m-f-d-pemsa-basel",
+    "slugByLocale": {
+      "it": "addetto-alla-logistica-afc-con-patente-per-carrelli-elevatori-60-100-m-f-d-pemsa-basel"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BS"
+  },
+  "url|https://www.pemsa.ch/it/job/autista-esperto-di-finitrice-2685095": {
+    "canonicalSlug": "autista-esperto-di-finitrice-pemsa-lausanne",
+    "slugByLocale": {
+      "it": "autista-esperto-di-finitrice-pemsa-lausanne"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "VD"
+  },
+  "url|https://www.pemsa.ch/it/job/autisti-di-betoniere-patente-m6-2685066": {
+    "canonicalSlug": "autisti-di-betoniere-patente-m6-pemsa-lausanne",
+    "slugByLocale": {
+      "it": "autisti-di-betoniere-patente-m6-pemsa-lausanne"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "VD"
+  },
+  "url|https://www.pemsa.ch/it/job/carpentiere-2685090": {
+    "canonicalSlug": "carpentiere-pemsa-chiasso",
+    "slugByLocale": {
+      "it": "carpentiere-pemsa-chiasso"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "url|https://www.pemsa.ch/it/job/elettricista-con-attestato-federale-di-capacita-cfc-dall80-al-100-2685036": {
+    "canonicalSlug": "elettricista-con-attestato-federale-di-capacita-cfc-dall-80-al-100-pemsa-fribourg",
+    "slugByLocale": {
+      "it": "elettricista-con-attestato-federale-di-capacita-cfc-dall-80-al-100-pemsa-fribourg"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "FR"
+  },
+  "url|https://www.pemsa.ch/it/job/elettricista-industriale-2685073": {
+    "canonicalSlug": "elettricista-industriale-pemsa-montreux",
+    "slugByLocale": {
+      "it": "elettricista-industriale-pemsa-montreux"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "VD"
+  },
+  "url|https://www.pemsa.ch/it/job/elettricista-installatore-afc-m-f-2685031": {
+    "canonicalSlug": "elettricista-installatore-afc-m-f-pemsa-biel-bienne",
+    "slugByLocale": {
+      "it": "elettricista-installatore-afc-m-f-pemsa-biel-bienne"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "BE"
+  },
+  "url|https://www.pemsa.ch/it/job/gruista-2685005": {
+    "canonicalSlug": "gruista-pemsa-locarno",
+    "slugByLocale": {
+      "it": "gruista-pemsa-locarno"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "url|https://www.pemsa.ch/it/job/lattoniere-afc-2685096": {
+    "canonicalSlug": "lattoniere-afc-pemsa-bellinzona",
+    "slugByLocale": {
+      "it": "lattoniere-afc-pemsa-bellinzona"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "url|https://www.pemsa.ch/it/job/lattonieri-2685008": {
+    "canonicalSlug": "lattonieri-pemsa-locarno",
+    "slugByLocale": {
+      "it": "lattonieri-pemsa-locarno"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "url|https://www.pemsa.ch/it/job/macchinista-autista-2685025": {
+    "canonicalSlug": "macchinista-autista-pemsa-locarno",
+    "slugByLocale": {
+      "it": "macchinista-autista-pemsa-locarno"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "url|https://www.pemsa.ch/it/job/macchinista-m1-m2-2685054": {
+    "canonicalSlug": "macchinista-m1-m2-pemsa-lausanne",
+    "slugByLocale": {
+      "it": "macchinista-m1-m2-pemsa-lausanne"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "VD"
+  },
+  "url|https://www.pemsa.ch/it/job/macchinista-m2-con-esperienza-2685082": {
+    "canonicalSlug": "macchinista-m2-con-esperienza-pemsa-lausanne",
+    "slugByLocale": {
+      "it": "macchinista-m2-con-esperienza-pemsa-lausanne"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "VD"
+  },
+  "url|https://www.pemsa.ch/it/job/manovale-edile-2685021": {
+    "canonicalSlug": "manovale-edile-pemsa-locarno",
+    "slugByLocale": {
+      "it": "manovale-edile-pemsa-locarno"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "url|https://www.pemsa.ch/it/job/montatore-di-ponteggi-m-f-2685038": {
+    "canonicalSlug": "montatore-di-ponteggi-m-f-pemsa-neuchatel",
+    "slugByLocale": {
+      "it": "montatore-di-ponteggi-m-f-pemsa-neuchatel"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "NE"
+  },
+  "url|https://www.pemsa.ch/it/job/muratore-carpentiere-2685002": {
+    "canonicalSlug": "muratore-carpentiere-pemsa-locarno",
+    "slugByLocale": {
+      "it": "muratore-carpentiere-pemsa-locarno"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "url|https://www.pemsa.ch/it/job/muratore-esperto-in-ingegneria-civile-2685060": {
+    "canonicalSlug": "muratore-esperto-in-ingegneria-civile-pemsa-lausanne",
+    "slugByLocale": {
+      "it": "muratore-esperto-in-ingegneria-civile-pemsa-lausanne"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "VD"
+  },
+  "url|https://www.pemsa.ch/it/job/muratore-tradizionale-qualificato-2685057": {
+    "canonicalSlug": "muratore-tradizionale-qualificato-pemsa-lausanne",
+    "slugByLocale": {
+      "it": "muratore-tradizionale-qualificato-pemsa-lausanne"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "VD"
+  },
+  "url|https://www.pemsa.ch/it/job/operatore-gruista-suva-a-2685085": {
+    "canonicalSlug": "operatore-gruista-suva-a-pemsa-lausanne",
+    "slugByLocale": {
+      "it": "operatore-gruista-suva-a-pemsa-lausanne"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "VD"
+  },
+  "url|https://www.pemsa.ch/it/job/perforatore-assistente-perforatore-con-esperienza-2685063": {
+    "canonicalSlug": "perforatore-assistente-perforatore-con-esperienza-pemsa-lausanne",
+    "slugByLocale": {
+      "it": "perforatore-assistente-perforatore-con-esperienza-pemsa-lausanne"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "VD"
+  },
+  "url|https://www.pemsa.ch/it/job/pittore-2685012": {
+    "canonicalSlug": "pittore-pemsa-locarno",
+    "slugByLocale": {
+      "it": "pittore-pemsa-locarno"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "TI"
+  },
+  "url|https://www.pemsa.ch/it/job/regolatore-per-miscele-bituminose-2685076": {
+    "canonicalSlug": "regolatore-per-miscele-bituminose-pemsa-lausanne",
+    "slugByLocale": {
+      "it": "regolatore-per-miscele-bituminose-pemsa-lausanne"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "VD"
+  },
+  "url|https://www.pemsa.ch/it/job/tecnico-automobilistico-m-f-2685043": {
+    "canonicalSlug": "tecnico-automobilistico-m-f-pemsa-neuchatel",
+    "slugByLocale": {
+      "it": "tecnico-automobilistico-m-f-pemsa-neuchatel"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "NE"
+  },
+  "id|spitexjobs.ch|j988563": {
+    "canonicalSlug": "fage-per-morgen-abend-e-o-wochenendeinsatze-spitex-thal-balsthal",
+    "slugByLocale": {
+      "it": "fage-per-morgen-abend-e-o-wochenendeinsatze-spitex-thal-balsthal",
+      "en": "fage-for-morning-evening-and-or-weekend-assignments-spitex-thal-balsthal",
+      "de": "fage-fur-morgen-abend-und-oder-wochenendeinsatze-spitex-ch-balsthal",
+      "fr": "fage-pour-les-affectations-matin-soir-et-ou-week-end-spitex-thal-balsthal"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "SO"
+  },
+  "id|spitexjobs.ch|j988564": {
+    "canonicalSlug": "collaboratore-trice-hauswirtschaft-30-50-spitex-thal-balsthal",
+    "slugByLocale": {
+      "it": "collaboratore-trice-hauswirtschaft-30-50-spitex-thal-balsthal",
+      "en": "employee-housekeeping-30-50-spitex-thal-balsthal",
+      "de": "mitarbeiter-in-hauswirtschaft-30-50-spitex-ch-balsthal",
+      "fr": "employe-responsable-30-50-spitex-thal-balsthal"
+    },
+    "createdAt": "2026-07-28",
+    "canton": "SO"
   }
 }
