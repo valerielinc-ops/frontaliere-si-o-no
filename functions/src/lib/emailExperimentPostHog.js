@@ -52,22 +52,30 @@ export const EMAIL_EXPERIMENT_EVENTS = Object.freeze({
 export const EXPERIMENT_EXCLUDED_PROVIDERS = new Set(['mailtrap']);
 
 /**
- * Read the variant persisted on the SEND doc for (email, campaignId). The send
- * pipeline writes it at `${campaignId}__${email}` (double underscore); the ESP
- * webhooks write their own delivery doc at a different id, so non-Resend opens
- * have no variant of their own — look it up here so email_opened carries it.
- * Never throws.
+ * Read the variant + operator-verification flag persisted on the SEND doc for
+ * (email, campaignId). The send pipeline writes it at `${campaignId}__${email}`
+ * (double underscore); the ESP webhooks write their own delivery doc at a
+ * different id, so non-Resend opens have no variant of their own — look it up
+ * here so email_opened carries it. is_operator_verification is stamped by the
+ * send pipeline for manual QA sends (#3798 sibling-pattern sweep); callers use
+ * it to skip captureEmailEvent(OPENED, ...) for those — same reason
+ * scripts/send-newsletter.mjs's persistDelivery skips the SENT-event capture,
+ * a manual test open isn't real subscriber behavior. Never throws.
  * @param {FirebaseFirestore.DocumentReference} subscriberRef  newsletter_subscribers/{email}
- * @returns {Promise<string|null>}
+ * @returns {Promise<{variant: string|null, isOperatorVerification: boolean}>}
  */
 export async function lookupSentVariant(subscriberRef, campaignId, email) {
   try {
-    if (!subscriberRef || !campaignId || !email) return null;
+    if (!subscriberRef || !campaignId || !email) return { variant: null, isOperatorVerification: false };
     const docId = buildDeliveryDocId(campaignId, email);
     const snap = await subscriberRef.collection('campaign_deliveries').doc(docId).get();
-    return snap.exists ? (snap.data()?.variant || null) : null;
+    const data = snap.exists ? snap.data() : null;
+    return {
+      variant: data?.variant || null,
+      isOperatorVerification: data?.is_operator_verification === true,
+    };
   } catch {
-    return null;
+    return { variant: null, isOperatorVerification: false };
   }
 }
 

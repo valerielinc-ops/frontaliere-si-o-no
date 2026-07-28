@@ -104,6 +104,6 @@ jobs:
                 body,
                 '```',
                 '',
-                `_Auto-posted by the Send-Time Impact Report workflow — [run](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}). Cohorts flagged \`n<100\` are still below the significance threshold._`,
+                `_Auto-posted by the Send-Time Impact Report workflow — [run](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}). Each comparison above is now a real two-proportion z-test (\`[significant, p=...]\` / \`[not significant, p=...]\`), not a fixed n<100 cutoff._`,
               ].join('\n'),
             });

@@ -199,8 +199,10 @@ export async function persistMailgunEvent(db, eventData) {
  }
 
  if (type === 'open') {
- const variant = await lookupSentVariant(subscriberRef, campaignId, email);
+ const { variant, isOperatorVerification } = await lookupSentVariant(subscriberRef, campaignId, email);
+ if (!isOperatorVerification) {
  await captureEmailEvent(EMAIL_EXPERIMENT_EVENTS.OPENED, { email, provider: 'mailgun', campaignId, variant });
+ }
  }
  return { processed: true, type, email, campaignId };
 }

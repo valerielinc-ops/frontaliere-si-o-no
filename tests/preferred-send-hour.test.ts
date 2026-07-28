@@ -58,7 +58,13 @@ function createFakeSubscriberRef({
 }
 
 function fakeFieldValue() {
-  return { serverTimestamp: () => 'SERVER_TIMESTAMP' };
+  return { serverTimestamp: () => 'SERVER_TIMESTAMP', increment: (n: number) => ({ __increment: n }) };
+}
+
+function firestoreEventAt(daysAgo: number, hourUtc: number) {
+  const d = new Date(Date.now() - daysAgo * 24 * 60 * 60 * 1000);
+  d.setUTCHours(hourUtc, 0, 0, 0);
+  return { event_type: 'open', occurred_at: d.toISOString() };
 }
 
 describe('preferredSendHour (functions/src/lib)', () => {
@@ -345,6 +351,64 @@ describe('refreshPreferredSendHour — staleness gate (#3798 code review)', () =
     const result = await refreshPreferredSendHour(ref as never, fakeFieldValue());
     expect(wasEventsQueried()).toBe(true);
     expect(result.updated).toBe(true);
+  });
+});
+
+describe('refreshPreferredSendHour — churn instrumentation (#3798 Fix MEDIO-BASSO #6)', () => {
+  it('increments preferred_send_hour_churn_count when the newly computed hour differs from the stored one', async () => {
+    const staleDate = new Date(Date.now() - (PREFERRED_SEND_REFRESH_INTERVAL_MS + 60 * 60 * 1000));
+    const { ref, sets } = createFakeSubscriberRef({
+      docData: {
+        preferred_send_sample_count: 5,
+        preferred_send_hour_utc: 9,
+        preferred_send_strength: 0.8,
+        preferred_send_updated_at: staleDate,
+      },
+      events: [firestoreEventAt(1, 14), firestoreEventAt(2, 14), firestoreEventAt(3, 14)],
+    });
+
+    const result = await refreshPreferredSendHour(ref as never, fakeFieldValue());
+
+    expect(result.hourUtc).toBe(14);
+    expect(result.churned).toBe(true);
+    expect(sets[0].data.preferred_send_hour_churn_count).toEqual({ __increment: 1 });
+  });
+
+  it('does not increment when the newly computed hour matches the stored one', async () => {
+    const staleDate = new Date(Date.now() - (PREFERRED_SEND_REFRESH_INTERVAL_MS + 60 * 60 * 1000));
+    const { ref, sets } = createFakeSubscriberRef({
+      docData: {
+        preferred_send_sample_count: 5,
+        preferred_send_hour_utc: 14,
+        preferred_send_strength: 0.8,
+        preferred_send_updated_at: staleDate,
+      },
+      events: [firestoreEventAt(1, 14), firestoreEventAt(2, 14), firestoreEventAt(3, 14)],
+    });
+
+    const result = await refreshPreferredSendHour(ref as never, fakeFieldValue());
+
+    expect(result.hourUtc).toBe(14);
+    expect(result.churned).toBe(false);
+    expect(sets[0].data.preferred_send_hour_churn_count).toBeUndefined();
+  });
+
+  it('does not count the first assignment (null → hour) as churn', async () => {
+    const { ref, sets } = createFakeSubscriberRef({
+      docData: {
+        preferred_send_sample_count: 2,
+        preferred_send_hour_utc: null,
+        preferred_send_strength: null,
+        preferred_send_updated_at: new Date(),
+      },
+      events: [firestoreEventAt(1, 14), firestoreEventAt(2, 14), firestoreEventAt(3, 14)],
+    });
+
+    const result = await refreshPreferredSendHour(ref as never, fakeFieldValue());
+
+    expect(result.hourUtc).toBe(14);
+    expect(result.churned).toBe(false);
+    expect(sets[0].data.preferred_send_hour_churn_count).toBeUndefined();
   });
 });
 
