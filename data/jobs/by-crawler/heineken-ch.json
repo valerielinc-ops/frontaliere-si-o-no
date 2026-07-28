@@ -1,6 +1,6 @@
 {
   "crawlerKey": "heineken-ch",
-  "assembledAt": "2026-07-28T11:36:41.572Z",
+  "assembledAt": "2026-07-28T22:36:02.638Z",
   "jobs": [
     {
       "id": "heineken-ch-b178feb93410",
@@ -48,13 +48,15 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=153028&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:36:38.669Z",
+      "crawledAt": "2026-07-28T22:35:59.681Z",
       "previousSlugs": [
-        "mitarbeiterin-brauereifuhrungen-10-auf-abruf-heineken-ch-luzern"
+        "mitarbeiterin-brauereifuhrungen-10-auf-abruf-heineken-ch-luzern",
+        "personale-in-birrerie-10-su-chiamata-heineken-switzerland-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-brauereifuhrungen-10-auf-abruf-heineken-ch-luzern"
+          "mitarbeiterin-brauereifuhrungen-10-auf-abruf-heineken-ch-luzern",
+          "personale-in-birrerie-10-su-chiamata-heineken-switzerland-luzern"
         ],
         "en": [
           "mitarbeiterin-brauereifuhrungen-10-auf-abruf-heineken-ch-luzern"
@@ -124,7 +126,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=152911&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:36:31.144Z",
+      "crawledAt": "2026-07-28T22:35:50.696Z",
       "previousSlugs": [
         "logistiker-in-getrankelager-100-heineken-ch-luzern",
         "logistica-negozio-100-heineken-switzerland-luzern"
@@ -142,6 +144,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T11:12:50.193Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -202,13 +205,15 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=155984&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:36:22.991Z",
+      "crawledAt": "2026-07-28T22:35:43.344Z",
       "previousSlugs": [
-        "truck-driver-heineken-ch-baltschieder"
+        "truck-driver-heineken-ch-baltschieder",
+        "autista-di-camion-heineken-switzerland-baltschieder"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "truck-driver-heineken-ch-baltschieder"
+          "truck-driver-heineken-ch-baltschieder",
+          "autista-di-camion-heineken-switzerland-baltschieder"
         ],
         "en": [
           "truck-driver-heineken-ch-baltschieder"
@@ -278,13 +283,15 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156187&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:36:14.843Z",
+      "crawledAt": "2026-07-28T22:35:35.651Z",
       "previousSlugs": [
-        "chauffeur-kat-c-e-heineken-ch-luzern"
+        "chauffeur-kat-c-e-heineken-ch-luzern",
+        "autista-cat-c-e-heineken-switzerland-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-kat-c-e-heineken-ch-luzern"
+          "chauffeur-kat-c-e-heineken-ch-luzern",
+          "autista-cat-c-e-heineken-switzerland-luzern"
         ],
         "en": [
           "chauffeur-kat-c-e-heineken-ch-luzern"
@@ -354,13 +361,15 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=154093&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:36:07.486Z",
+      "crawledAt": "2026-07-28T22:35:26.608Z",
       "previousSlugs": [
-        "teamleiter-in-kundenservice-center-sales-80-100-heineken-ch-luzern"
+        "teamleiter-in-kundenservice-center-sales-80-100-heineken-ch-luzern",
+        "team-leader-in-customer-service-center-vendite-80-100-heineken-switzerland-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-kundenservice-center-sales-80-100-heineken-ch-luzern"
+          "teamleiter-in-kundenservice-center-sales-80-100-heineken-ch-luzern",
+          "team-leader-in-customer-service-center-vendite-80-100-heineken-switzerland-luzern"
         ],
         "en": [
           "teamleiter-in-kundenservice-center-sales-80-100-heineken-ch-luzern"
@@ -370,6 +379,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T12:46:57.564Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -430,15 +440,17 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=158627&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:35:59.000Z",
+      "crawledAt": "2026-07-28T22:35:18.814Z",
       "previousSlugs": [
         "agent-customer-service-heineken-ch-luzern",
-        "mitarbeiter-in-kundenservice-heineken-ch-luzern"
+        "mitarbeiter-in-kundenservice-heineken-ch-luzern",
+        "servizio-clienti-agente-heineken-switzerland-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "agent-customer-service-heineken-ch-luzern",
-          "mitarbeiter-in-kundenservice-heineken-ch-luzern"
+          "mitarbeiter-in-kundenservice-heineken-ch-luzern",
+          "servizio-clienti-agente-heineken-switzerland-luzern"
         ],
         "de": [
           "agent-customer-service-heineken-ch-luzern"
@@ -448,6 +460,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T12:46:50.069Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -508,7 +521,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=159424&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:35:50.590Z",
+      "crawledAt": "2026-07-28T22:35:11.177Z",
       "previousSlugs": [
         "logistiker-im-getrankelager-m-w-heineken-ch-davos"
       ],
@@ -524,6 +537,7 @@
         ]
       },
       "firstSeenAt": "2026-06-08T13:01:22.291Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
@@ -584,19 +598,22 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=160678&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:35:46.655Z",
+      "crawledAt": "2026-07-28T22:35:03.147Z",
       "previousSlugs": [
-        "agent-customer-support-heineken-ch-winterthur"
+        "agent-customer-support-heineken-ch-winterthur",
+        "supporto-clienti-dell-agente-heineken-switzerland-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agent-customer-support-heineken-ch-winterthur"
+          "agent-customer-support-heineken-ch-winterthur",
+          "supporto-clienti-dell-agente-heineken-switzerland-winterthur"
         ],
         "fr": [
           "agent-customer-support-heineken-ch-winterthur"
         ]
       },
       "firstSeenAt": "2026-06-25T22:27:52.893Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -657,19 +674,22 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162220&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:35:39.974Z",
+      "crawledAt": "2026-07-28T22:34:54.606Z",
       "previousSlugs": [
-        "logistics-key-account-specialist-80-100-heineken-ch-luzern"
+        "logistics-key-account-specialist-80-100-heineken-ch-luzern",
+        "logistica-key-account-specialista-80-100-heineken-switzerland-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistics-key-account-specialist-80-100-heineken-ch-luzern"
+          "logistics-key-account-specialist-80-100-heineken-ch-luzern",
+          "logistica-key-account-specialista-80-100-heineken-switzerland-luzern"
         ],
         "fr": [
           "logistics-key-account-specialist-80-100-heineken-ch-luzern"
         ]
       },
       "firstSeenAt": "2026-07-22T11:56:39.423Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -683,6 +703,69 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "heineken-ch-5b1f13bcfca3",
+      "jobReqId": "162611",
+      "slug": "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern",
+      "slugByLocale": {
+        "de": "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern",
+        "it": "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern",
+        "en": "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern",
+        "fr": "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern"
+      },
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Verkaufsberater/in im Aussendienst (Gastronomie)",
+      "titleByLocale": {
+        "de": "Verkaufsberater/in im Aussendienst (Gastronomie)",
+        "it": "Verkaufsberater/in im Aussendienst (Gastronomie)",
+        "en": "Verkaufsberater/in im Aussendienst (Gastronomie)",
+        "fr": "Verkaufsberater/in im Aussendienst (Gastronomie)"
+      },
+      "description": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 19 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Für unser Verkaufsgebiet Kanton Schwyz, Küssnacht und Rontal suchen wir einen selbständigen, erfahrenen und zielorientierten Verkaufsprofi als Verkaufsberater/in im Aussendienst (Gastronomie) Du liebst es, Beziehungen aufzubauen, Menschen zu begeistern und gemeinsam Erfolge zu erzielen? Möchtest du für unsere Kundinnen und Kunden eine vertrauensvolle Partnerin bzw. ein vertrauensvoller Partner sein und die Zukunft der Gastronomie aktiv mitgestalten? Dann könnte diese Herausforderung genau das Richtige für dich sein! In dieser abwechslungsreichen und vielseitigen Rolle erwarten dich folgende \n• Aufgaben: Gewinnung neuer Kundinnen und Kunden (WIN) sowie Betreuung, Weiterentwicklung und Ausbau bestehender Partnerschaften (KEEP) in Hotels, Restaurants, Bars und weiteren Gastronomiebetrieben Führen von Verkaufs- und Vertragsverhandlungen auf Augenhöhe mit viel Eigenverantwortung und Gestaltungsspielraum Verantwortung für ein professionelles Debitorenmanagement in enger Zusammenarbeit mit deinen Kundinnen und Kunden Ausbau der Distribution unserer Fokusmarken sowie Sicherstellung einer starken Präsenz und Sichtbarkeit unserer Marken am Markt Damit du in dieser Rolle erfolgreich bist, bringst du idealerweise Folgendes mit: Erfahrung im Verkauf, vorzugsweise im Aussendienst der Konsumgüterbranche Freude und nachweisbare Erfolge in der Neukundengewinnung und im Aufbau nachhaltiger Kundenbeziehungen Hohe Eigeninitiative, Selbstständigkeit und einen ausgeprägten Willen, Ziele zu erreichen Eine authentische, kommunikative und überzeugende Persönlichkeit mit Durchhaltevermögen und Leidenschaft für den Verkauf Gute Kenntnisse der lokalen Gastronomie und ein Gespür für Markt- und Kundenbedürfnisse Sicherer Umgang mit MS Office sowie idealerweise Erfahrung mit CRM-Systemen Wohnsitz in der Verkaufsregion und ein bestehendes Netzwerk, das du aktiv pflegst und weiter ausbaust Was dich besonders auszeichnet: Du baust gerne langfristige Beziehungen auf, denkst unternehmerisch und schätzt die Freiheit, deinen Erfolg selbst mitzugestalten. Gleichzeitig verstehst du es, Menschen für Ideen, Marken und gemeinsame Lösungen zu begeistern. Klingt das nach der Herausforderung, die du suchst? Dann freuen wir uns auf deine Bewerbung und darauf, gemeinsam mit dir die Zukunft der Gastronomie zu gestalten.",
+      "descriptionByLocale": {
+        "de": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 19 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Für unser Verkaufsgebiet Kanton Schwyz, Küssnacht und Rontal suchen wir einen selbständigen, erfahrenen und zielorientierten Verkaufsprofi als Verkaufsberater/in im Aussendienst (Gastronomie) Du liebst es, Beziehungen aufzubauen, Menschen zu begeistern und gemeinsam Erfolge zu erzielen? Möchtest du für unsere Kundinnen und Kunden eine vertrauensvolle Partnerin bzw. ein vertrauensvoller Partner sein und die Zukunft der Gastronomie aktiv mitgestalten? Dann könnte diese Herausforderung genau das Richtige für dich sein! In dieser abwechslungsreichen und vielseitigen Rolle erwarten dich folgende \n• Aufgaben: Gewinnung neuer Kundinnen und Kunden (WIN) sowie Betreuung, Weiterentwicklung und Ausbau bestehender Partnerschaften (KEEP) in Hotels, Restaurants, Bars und weiteren Gastronomiebetrieben Führen von Verkaufs- und Vertragsverhandlungen auf Augenhöhe mit viel Eigenverantwortung und Gestaltungsspielraum Verantwortung für ein professionelles Debitorenmanagement in enger Zusammenarbeit mit deinen Kundinnen und Kunden Ausbau der Distribution unserer Fokusmarken sowie Sicherstellung einer starken Präsenz und Sichtbarkeit unserer Marken am Markt Damit du in dieser Rolle erfolgreich bist, bringst du idealerweise Folgendes mit: Erfahrung im Verkauf, vorzugsweise im Aussendienst der Konsumgüterbranche Freude und nachweisbare Erfolge in der Neukundengewinnung und im Aufbau nachhaltiger Kundenbeziehungen Hohe Eigeninitiative, Selbstständigkeit und einen ausgeprägten Willen, Ziele zu erreichen Eine authentische, kommunikative und überzeugende Persönlichkeit mit Durchhaltevermögen und Leidenschaft für den Verkauf Gute Kenntnisse der lokalen Gastronomie und ein Gespür für Markt- und Kundenbedürfnisse Sicherer Umgang mit MS Office sowie idealerweise Erfahrung mit CRM-Systemen Wohnsitz in der Verkaufsregion und ein bestehendes Netzwerk, das du aktiv pflegst und weiter ausbaust Was dich besonders auszeichnet: Du baust gerne langfristige Beziehungen auf, denkst unternehmerisch und schätzt die Freiheit, deinen Erfolg selbst mitzugestalten. Gleichzeitig verstehst du es, Menschen für Ideen, Marken und gemeinsame Lösungen zu begeistern. Klingt das nach der Herausforderung, die du suchst? Dann freuen wir uns auf deine Bewerbung und darauf, gemeinsam mit dir die Zukunft der Gastronomie zu gestalten.",
+        "it": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 19 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Für unser Verkaufsgebiet Kanton Schwyz, Küssnacht und Rontal suchen wir einen selbständigen, erfahrenen und zielorientierten Verkaufsprofi als Verkaufsberater/in im Aussendienst (Gastronomie) Du liebst es, Beziehungen aufzubauen, Menschen zu begeistern und gemeinsam Erfolge zu erzielen? Möchtest du für unsere Kundinnen und Kunden eine vertrauensvolle Partnerin bzw. ein vertrauensvoller Partner sein und die Zukunft der Gastronomie aktiv mitgestalten? Dann könnte diese Herausforderung genau das Richtige für dich sein! In dieser abwechslungsreichen und vielseitigen Rolle erwarten dich folgende \n• Aufgaben: Gewinnung neuer Kundinnen und Kunden (WIN) sowie Betreuung, Weiterentwicklung und Ausbau bestehender Partnerschaften (KEEP) in Hotels, Restaurants, Bars und weiteren Gastronomiebetrieben Führen von Verkaufs- und Vertragsverhandlungen auf Augenhöhe mit viel Eigenverantwortung und Gestaltungsspielraum Verantwortung für ein professionelles Debitorenmanagement in enger Zusammenarbeit mit deinen Kundinnen und Kunden Ausbau der Distribution unserer Fokusmarken sowie Sicherstellung einer starken Präsenz und Sichtbarkeit unserer Marken am Markt Damit du in dieser Rolle erfolgreich bist, bringst du idealerweise Folgendes mit: Erfahrung im Verkauf, vorzugsweise im Aussendienst der Konsumgüterbranche Freude und nachweisbare Erfolge in der Neukundengewinnung und im Aufbau nachhaltiger Kundenbeziehungen Hohe Eigeninitiative, Selbstständigkeit und einen ausgeprägten Willen, Ziele zu erreichen Eine authentische, kommunikative und überzeugende Persönlichkeit mit Durchhaltevermögen und Leidenschaft für den Verkauf Gute Kenntnisse der lokalen Gastronomie und ein Gespür für Markt- und Kundenbedürfnisse Sicherer Umgang mit MS Office sowie idealerweise Erfahrung mit CRM-Systemen Wohnsitz in der Verkaufsregion und ein bestehendes Netzwerk, das du aktiv pflegst und weiter ausbaust Was dich besonders auszeichnet: Du baust gerne langfristige Beziehungen auf, denkst unternehmerisch und schätzt die Freiheit, deinen Erfolg selbst mitzugestalten. Gleichzeitig verstehst du es, Menschen für Ideen, Marken und gemeinsame Lösungen zu begeistern. Klingt das nach der Herausforderung, die du suchst? Dann freuen wir uns auf deine Bewerbung und darauf, gemeinsam mit dir die Zukunft der Gastronomie zu gestalten.",
+        "en": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 19 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Für unser Verkaufsgebiet Kanton Schwyz, Küssnacht und Rontal suchen wir einen selbständigen, erfahrenen und zielorientierten Verkaufsprofi als Verkaufsberater/in im Aussendienst (Gastronomie) Du liebst es, Beziehungen aufzubauen, Menschen zu begeistern und gemeinsam Erfolge zu erzielen? Möchtest du für unsere Kundinnen und Kunden eine vertrauensvolle Partnerin bzw. ein vertrauensvoller Partner sein und die Zukunft der Gastronomie aktiv mitgestalten? Dann könnte diese Herausforderung genau das Richtige für dich sein! In dieser abwechslungsreichen und vielseitigen Rolle erwarten dich folgende \n• Aufgaben: Gewinnung neuer Kundinnen und Kunden (WIN) sowie Betreuung, Weiterentwicklung und Ausbau bestehender Partnerschaften (KEEP) in Hotels, Restaurants, Bars und weiteren Gastronomiebetrieben Führen von Verkaufs- und Vertragsverhandlungen auf Augenhöhe mit viel Eigenverantwortung und Gestaltungsspielraum Verantwortung für ein professionelles Debitorenmanagement in enger Zusammenarbeit mit deinen Kundinnen und Kunden Ausbau der Distribution unserer Fokusmarken sowie Sicherstellung einer starken Präsenz und Sichtbarkeit unserer Marken am Markt Damit du in dieser Rolle erfolgreich bist, bringst du idealerweise Folgendes mit: Erfahrung im Verkauf, vorzugsweise im Aussendienst der Konsumgüterbranche Freude und nachweisbare Erfolge in der Neukundengewinnung und im Aufbau nachhaltiger Kundenbeziehungen Hohe Eigeninitiative, Selbstständigkeit und einen ausgeprägten Willen, Ziele zu erreichen Eine authentische, kommunikative und überzeugende Persönlichkeit mit Durchhaltevermögen und Leidenschaft für den Verkauf Gute Kenntnisse der lokalen Gastronomie und ein Gespür für Markt- und Kundenbedürfnisse Sicherer Umgang mit MS Office sowie idealerweise Erfahrung mit CRM-Systemen Wohnsitz in der Verkaufsregion und ein bestehendes Netzwerk, das du aktiv pflegst und weiter ausbaust Was dich besonders auszeichnet: Du baust gerne langfristige Beziehungen auf, denkst unternehmerisch und schätzt die Freiheit, deinen Erfolg selbst mitzugestalten. Gleichzeitig verstehst du es, Menschen für Ideen, Marken und gemeinsame Lösungen zu begeistern. Klingt das nach der Herausforderung, die du suchst? Dann freuen wir uns auf deine Bewerbung und darauf, gemeinsam mit dir die Zukunft der Gastronomie zu gestalten.",
+        "fr": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 19 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Für unser Verkaufsgebiet Kanton Schwyz, Küssnacht und Rontal suchen wir einen selbständigen, erfahrenen und zielorientierten Verkaufsprofi als Verkaufsberater/in im Aussendienst (Gastronomie) Du liebst es, Beziehungen aufzubauen, Menschen zu begeistern und gemeinsam Erfolge zu erzielen? Möchtest du für unsere Kundinnen und Kunden eine vertrauensvolle Partnerin bzw. ein vertrauensvoller Partner sein und die Zukunft der Gastronomie aktiv mitgestalten? Dann könnte diese Herausforderung genau das Richtige für dich sein! In dieser abwechslungsreichen und vielseitigen Rolle erwarten dich folgende \n• Aufgaben: Gewinnung neuer Kundinnen und Kunden (WIN) sowie Betreuung, Weiterentwicklung und Ausbau bestehender Partnerschaften (KEEP) in Hotels, Restaurants, Bars und weiteren Gastronomiebetrieben Führen von Verkaufs- und Vertragsverhandlungen auf Augenhöhe mit viel Eigenverantwortung und Gestaltungsspielraum Verantwortung für ein professionelles Debitorenmanagement in enger Zusammenarbeit mit deinen Kundinnen und Kunden Ausbau der Distribution unserer Fokusmarken sowie Sicherstellung einer starken Präsenz und Sichtbarkeit unserer Marken am Markt Damit du in dieser Rolle erfolgreich bist, bringst du idealerweise Folgendes mit: Erfahrung im Verkauf, vorzugsweise im Aussendienst der Konsumgüterbranche Freude und nachweisbare Erfolge in der Neukundengewinnung und im Aufbau nachhaltiger Kundenbeziehungen Hohe Eigeninitiative, Selbstständigkeit und einen ausgeprägten Willen, Ziele zu erreichen Eine authentische, kommunikative und überzeugende Persönlichkeit mit Durchhaltevermögen und Leidenschaft für den Verkauf Gute Kenntnisse der lokalen Gastronomie und ein Gespür für Markt- und Kundenbedürfnisse Sicherer Umgang mit MS Office sowie idealerweise Erfahrung mit CRM-Systemen Wohnsitz in der Verkaufsregion und ein bestehendes Netzwerk, das du aktiv pflegst und weiter ausbaust Was dich besonders auszeichnet: Du baust gerne langfristige Beziehungen auf, denkst unternehmerisch und schätzt die Freiheit, deinen Erfolg selbst mitzugestalten. Gleichzeitig verstehst du es, Menschen für Ideen, Marken und gemeinsame Lösungen zu begeistern. Klingt das nach der Herausforderung, die du suchst? Dann freuen wir uns auf deine Bewerbung und darauf, gemeinsam mit dir die Zukunft der Gastronomie zu gestalten."
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Luzern, LU",
+      "category": "Commerciale",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "postedDate": "2026-07-28",
+      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/verkaufsberaterin-im-aussendienst-gastronomie?jobid=162611",
+      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162611&career_ns=job_application",
+      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-28T22:34:47.887Z",
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-28T22:34:47.887Z"
     },
     {
       "id": "heineken-ch-a5b866815800",
@@ -758,7 +841,9 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-chur"
-      ]
+      ],
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "heineken-ch-3d1c80a02409",
@@ -829,7 +914,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
