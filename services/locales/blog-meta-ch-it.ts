@@ -1609,6 +1609,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.diritti-inquilino-affitti-svizzera.title': 'Affitti in Svizzera: diritti dell\'inquilino e disdetta',
     'blog.article.diritti-inquilino-affitti-svizzera.excerpt': 'Guida completa ai diritti dell\'inquilino in Svizzera, deposito cauzionale, procedura di disdetta e contestazione dell\'affitto.',
     'blog.article.diritti-inquilino-affitti-svizzera.imageAlt': 'Palazzina residenziale in Svizzera con affitti e diritti degli inquilini',
+    'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.title': 'Ticino blocca ristorni tassa salute frontalieri',
+    'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.excerpt': 'Il Canton Ticino è pronto a ridurre o sospendere i ristorni destinati ai Comuni di confine a causa della tassa sulla salute imposta dalla Lombardia.',
+    'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.imageAlt': 'Vista di Lugano con il lago in primo piano',
 };
 
 export default blogMetaChIt;

@@ -559,6 +559,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'perche-tanti-svizzeri-ignorano-tutor-italia': { it: 'perche-tanti-svizzeri-ignorano-tutor-italia', en: 'why-swiss-ignores-tutor-italy', de: 'warum-schweizer-tutor-italien-ignorieren', fr: 'pourquoi-suisses-ignorent-tutor-italie' },
  'incontro-sbt-finanze-clima-colpo-freno-svizzera': { it: 'incontro-sbt-finanze-clima-colpo-freno-svizzera', en: 'sbt-finance-climate-meeting', de: 'sbt-finanzen-umweltkonferenz', fr: 'reunion-sbt-finances-environnement' },
  'diritti-inquilino-affitti-svizzera': { it: 'diritti-inquilino-affitti-svizzera', en: 'tenant-rights-rent-switzerland', de: 'mieterrechte-schweiz-miete', fr: 'droits-locataire-loyer-suisse' },
+ 'tassa-salute-frontalieri-blocco-ristorni-ticino': { it: 'tassa-salute-frontalieri-blocco-ristorni-ticino', en: 'health-insurance-tax-frontaliers-suspension-of-returns', de: 'gesundheitsversicherungsabgabe-frontalier-sperre-von-ruckerstattungen', fr: 'taxe-de-securite-frontaliers-suspension-des-retraits' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -1,0 +1,19 @@
+{
+  "id": "tassa-salute-frontalieri-blocco-ristorni-ticino",
+  "slug": "tassa-salute-frontalieri-blocco-ristorni-ticino",
+  "publishedAt": "2026-07-28T00:51:13.547Z",
+  "cluster": "salute",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 149.68609251555554,
+    "confidence": 1,
+    "finalScore": 149.68609251555554,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 149.68609251555554,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

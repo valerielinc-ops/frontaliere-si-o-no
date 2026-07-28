@@ -1609,6 +1609,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.diritti-inquilino-affitti-svizzera.title': 'Location en Suisse : droits du locataire et résiliation',
     'blog.article.diritti-inquilino-affitti-svizzera.excerpt': 'Guide complet des droits du locataire en Suisse, dépôt de garantie, procédure de résiliation et contestation du loyer.',
     'blog.article.diritti-inquilino-affitti-svizzera.imageAlt': 'Immeuble résidentiel en Suisse représentant les droits des locataires',
+    'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.title': 'Tessin bloque les restaurations taxe de santé frontalière',
+    'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.excerpt': 'Le canton du Tessin est prêt à réduire ou à suspendre les restaurations destinées aux communes frontalières en raison de la taxe de santé imposée par la Lombardie.',
+    'blog.article.tassa-salute-frontalieri-blocco-ristorni-ticino.imageAlt': 'Vue de Lugano avec le lac en arrière-plan',
 };
 
 export default blogMetaChFr;
