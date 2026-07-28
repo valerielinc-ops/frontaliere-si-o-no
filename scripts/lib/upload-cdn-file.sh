@@ -110,6 +110,14 @@ _content_type_for() {
 content_type="$(_content_type_for "$local_file")"
 
 rtmp="${RUNNER_TEMP:-/tmp}"
+# An earlier invocation in the same job may have already installed rclone: the
+# `export PATH` below dies with that subshell (each call is its own bash
+# process) but the binary survives on disk. Without this, every uploaded file
+# re-downloads and re-unzips the ~20 MB archive — measured at ~4.5s per file on
+# a path whose entire reason to exist is speed (run 30365047167 paid it twice).
+if [ -x "$rtmp/rclone-bin/rclone" ]; then
+  export PATH="$rtmp/rclone-bin:$PATH"
+fi
 if ! command -v rclone >/dev/null 2>&1; then
   echo "[cdn-upload] rclone not found — installing static binary…"
   if curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors \
