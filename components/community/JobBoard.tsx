@@ -2328,7 +2328,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
       // AUTH_GATE priority preempts the (lower-priority) newsletter
       // popup — without a queue slot, NewsletterPopup's own timer/
       // exit-intent trigger can claim the empty queue and render its
-      // full-screen overlay on top of this modal (#4838).
+      // full-screen overlay on top of this modal.
       requestSlot('save-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
  setSaveAuthPromptOpen(true);
  Analytics.trackEvent('save_signin_prompt_shown', { job_id: job.id, surface });
