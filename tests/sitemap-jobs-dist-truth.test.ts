@@ -17,7 +17,7 @@
  * — critically — that healthy job URLs are never touched.
  */
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -140,5 +140,35 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
   it('removes exactly the offending run-30376520728 cohort and nothing else', async () => {
     await reconcileSitemapJobsWithDist(dist, []);
     expect(extractSitemapLocs(readSitemap())).toEqual([HEALTHY, HEALTHY_2, KNOWN_MIRROR]);
+  });
+});
+
+/**
+ * The safety property that matters most here: on a BUILD_LOCALE shard, most of
+ * sitemap-jobs.xml's URLs belong to locales this shard deliberately does not
+ * emit. Their HTML is absent by design and lives on another shard, so a naive
+ * "file missing → drop" pass would delete three quarters of the sitemap.
+ * dropOverwrittenLocs' cross-shard rule is what prevents that; this pins it
+ * through the sitemap-jobs entry point.
+ */
+describe('reconcileSitemapJobsWithDist on a locale shard', () => {
+  const EN = `${BASE}/en/find-jobs-ticino/sviluppatore-acme-lugano/`;
+  const DE = `${BASE}/de/jobs-im-tessin/sviluppatore-acme-lugano/`;
+  const FR = `${BASE}/fr/trouver-emploi-tessin/sviluppatore-acme-lugano/`;
+
+  it('keeps en/de/fr locs whose HTML lives on another shard', async () => {
+    fs.writeFileSync(path.join(dist, 'sitemap-jobs.xml'), wrap([HEALTHY, EN, DE, FR]), 'utf-8');
+    // Only the IT page is on disk — exactly what an it-shard build produces.
+    vi.resetModules();
+    const prev = process.env.BUILD_LOCALE;
+    process.env.BUILD_LOCALE = 'it';
+    try {
+      const shard = await import('../build-plugins/relatedSearchClustersPlugin');
+      await shard.reconcileSitemapJobsWithDist(dist, []);
+      expect(shard.extractSitemapLocs(readSitemap())).toEqual([HEALTHY, EN, DE, FR]);
+    } finally {
+      if (prev === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = prev;
+    }
   });
 });
