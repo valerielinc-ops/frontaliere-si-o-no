@@ -11,8 +11,20 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-07-28T11:30:10.851Z",
+  "updatedAt": "2026-07-28T22:26:48.112Z",
   "seedMetaByUrl": {
+    "https://jobs.pwc.ch/job-vacancies/senior-manager-quality-management/34b6355d-9546-4f52-987b-bb904ae758d8": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-07-28"
+    },
+    "https://jobs.pwc.ch/job-vacancies/assistant-manager-quality-management-technology/f196cf47-50ab-4981-9717-2d5aadfe62ff": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-07-28"
+    },
     "https://jobs.pwc.ch/job-vacancies/audit-manager-trade-industries-services/22b4524b-a81a-41e9-87be-90d9bcade3d1": {
       "location": "Zurich",
       "canton": "ZH",
