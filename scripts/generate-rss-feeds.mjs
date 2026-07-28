@@ -69,9 +69,9 @@ export const SECTIONS = [
     feedFile: (locale) => `rss-${locale}.xml`,
     localeMeta: {
       it: { title: 'Frontaliere Ticino', description: 'Notizie e guide per frontalieri italiani in Ticino', language: 'it', articlePrefix: `/${ARTICLE_SECTION_CORE.frontaliere.indexSlug.it}/` },
-      en: { title: 'Frontaliere Ticino — English', description: 'News and guides for cross-border workers in Ticino', language: 'en', articlePrefix: `/en/${ARTICLE_SECTION_CORE.frontaliere.indexSlug.en}/` },
-      de: { title: 'Frontaliere Ticino — Deutsch', description: 'Nachrichten und Leitfaden für Grenzgänger im Tessin', language: 'de', articlePrefix: `/de/${ARTICLE_SECTION_CORE.frontaliere.indexSlug.de}/` },
-      fr: { title: 'Frontaliere Ticino — Français', description: 'Actualités et guides pour les frontaliers au Tessin', language: 'fr', articlePrefix: `/fr/${ARTICLE_SECTION_CORE.frontaliere.indexSlug.fr}/` },
+      en: { title: 'Frontaliere Ticino — English', description: 'News and guides for cross-border workers in Ticino', language: 'en', articlePrefix: `/en/${ARTICLE_SECTION_CORE.frontaliere.indexSlug.en}/` }, // locale-segment-ok: voce di una mappa localeMeta indicizzata per locale — il prefisso /en/ e il branch per-locale, non un path costruito dinamicamente
+      de: { title: 'Frontaliere Ticino — Deutsch', description: 'Nachrichten und Leitfaden für Grenzgänger im Tessin', language: 'de', articlePrefix: `/de/${ARTICLE_SECTION_CORE.frontaliere.indexSlug.de}/` }, // locale-segment-ok: voce di una mappa localeMeta indicizzata per locale — il prefisso /de/ e il branch per-locale, non un path costruito dinamicamente
+      fr: { title: 'Frontaliere Ticino — Français', description: 'Actualités et guides pour les frontaliers au Tessin', language: 'fr', articlePrefix: `/fr/${ARTICLE_SECTION_CORE.frontaliere.indexSlug.fr}/` }, // locale-segment-ok: voce di una mappa localeMeta indicizzata per locale — il prefisso /fr/ e il branch per-locale, non un path costruito dinamicamente
     },
   },
   {
@@ -88,9 +88,9 @@ export const SECTIONS = [
     feedFile: (locale) => `rss-svizzera-${locale}.xml`,
     localeMeta: {
       it: { title: 'Frontaliere Ticino — Svizzera', description: 'Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana', language: 'it', articlePrefix: `/${ARTICLE_SECTION_CORE.svizzera.indexSlug.it}/` },
-      en: { title: 'Frontaliere Ticino — Switzerland', description: 'News and guides about Switzerland: economy, work, taxes and daily life', language: 'en', articlePrefix: `/en/${ARTICLE_SECTION_CORE.svizzera.indexSlug.en}/` },
-      de: { title: 'Frontaliere Ticino — Schweiz', description: 'Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag', language: 'de', articlePrefix: `/de/${ARTICLE_SECTION_CORE.svizzera.indexSlug.de}/` },
-      fr: { title: 'Frontaliere Ticino — Suisse', description: 'Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne', language: 'fr', articlePrefix: `/fr/${ARTICLE_SECTION_CORE.svizzera.indexSlug.fr}/` },
+      en: { title: 'Frontaliere Ticino — Switzerland', description: 'News and guides about Switzerland: economy, work, taxes and daily life', language: 'en', articlePrefix: `/en/${ARTICLE_SECTION_CORE.svizzera.indexSlug.en}/` }, // locale-segment-ok: voce di una mappa localeMeta indicizzata per locale — il prefisso /en/ e il branch per-locale, non un path costruito dinamicamente
+      de: { title: 'Frontaliere Ticino — Schweiz', description: 'Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag', language: 'de', articlePrefix: `/de/${ARTICLE_SECTION_CORE.svizzera.indexSlug.de}/` }, // locale-segment-ok: voce di una mappa localeMeta indicizzata per locale — il prefisso /de/ e il branch per-locale, non un path costruito dinamicamente
+      fr: { title: 'Frontaliere Ticino — Suisse', description: 'Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne', language: 'fr', articlePrefix: `/fr/${ARTICLE_SECTION_CORE.svizzera.indexSlug.fr}/` }, // locale-segment-ok: voce di una mappa localeMeta indicizzata per locale — il prefisso /fr/ e il branch per-locale, non un path costruito dinamicamente
     },
   },
 ];
