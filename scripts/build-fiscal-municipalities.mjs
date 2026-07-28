@@ -41,6 +41,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { assertPlausibleMunicipality } from './lib/municipality-plausibility-guard.mjs';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const SRC = path.join(ROOT, 'data', 'municipalities.ts');
@@ -194,4 +196,9 @@ function main() {
   console.log(`[fiscal-municipalities] wrote ${path.relative(ROOT, OUT)}`);
 }
 
-main();
+const invokedDirectly = (() => {
+  try { return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]); }
+  catch { return false; }
+})();
+
+if (invokedDirectly) main();
