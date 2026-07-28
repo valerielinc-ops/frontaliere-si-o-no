@@ -9030,6 +9030,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-a-clivio-lavorare-ticino.title': 'Wohnen in Clivio und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-a-clivio-lavorare-ticino.excerpt': 'Vollständiger Leitfaden für Grenzgänger, die Clivio als Wohnsitz wählen, um zwischen Verbindungen und Steuervorschriften in den Kanton Tessin zu pendeln.',
     'blog.article.vivere-a-clivio-lavorare-ticino.imageAlt': 'Landschaft zwischen Clivio und dem Tessin für Grenzgänger',
+    'blog.article.clivio-frontaliere-pro-contro.title': 'Umzug nach Clivio als Grenzgänger: Vor- und Nachteile praktisch',
+    'blog.article.clivio-frontaliere-pro-contro.excerpt': 'Vollständiger Leitfaden für diejenigen, die im Tessin arbeiten und in Clivio leben möchten: Steuervorteile, Reisezeiten und praktische Überlegungen.',
+    'blog.article.clivio-frontaliere-pro-contro.imageAlt': 'Ansicht von Clivio nahe der Schweizer Grenze für Grenzgänger',
 };
 
 export default blogMetaDe;

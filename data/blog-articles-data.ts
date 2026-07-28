@@ -27134,6 +27134,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'clivio-frontaliere-pro-contro',
+ category: 'pratico',
+ date: '2026-07-28T02:14:15.283Z',
+ image: '/images/blog/clivio-frontaliere-pro-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

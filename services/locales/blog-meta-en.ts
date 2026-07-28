@@ -9031,6 +9031,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-a-clivio-lavorare-ticino.title': 'Living in Clivio and working in Ticino as a border worker',
     'blog.article.vivere-a-clivio-lavorare-ticino.excerpt': 'Complete guide for border crossers who choose Clivio as a residence for commuting to the Canton of Ticino, including connections and tax rules.',
     'blog.article.vivere-a-clivio-lavorare-ticino.imageAlt': 'Landscape between Clivio and Canton Ticino for cross-border workers',
+    'blog.article.clivio-frontaliere-pro-contro.title': 'Moving to Clivio as a border crosser: practical pros and cons',
+    'blog.article.clivio-frontaliere-pro-contro.excerpt': 'Complete guide for those who work in Ticino and consider living in Clivio: tax advantages, travel times and practical considerations.',
+    'blog.article.clivio-frontaliere-pro-contro.imageAlt': 'View of Clivio near the Swiss border for cross-border workers',
 };
 
 export default blogMetaEn;
