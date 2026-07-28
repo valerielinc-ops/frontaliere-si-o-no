@@ -176,6 +176,36 @@ describe('worker email() — forward-only addresses', () => {
     expect(fetchMock).not.toHaveBeenCalled();
     expect(message.forward).toHaveBeenCalledWith('human@example.com');
   });
+
+  it('still forwards the paid-consulting lead notification to consulenza@', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response('{}'));
+    vi.stubGlobal('fetch', fetchMock);
+
+    // functions/src/consultingCore.js mails this to consulenza@ on every paid
+    // booking. It IS machine-generated, so the auto-reply filter must not be
+    // greedy enough to swallow it — this is why `Precedence: bulk` alone never
+    // counts as an automatic response.
+    const message = fakeMessage({
+      from: 'Frontaliere Ticino <consulenza@frontaliereticino.ch>',
+      to: 'consulenza@frontaliereticino.ch',
+      subject: 'Nuova consulenza pagata — Pro',
+      rawText: 'Dettagli prenotazione.',
+      headers: { precedence: 'bulk' },
+    });
+    const ctx = fakeCtx();
+
+    await worker.email(message, {
+      STOP_SECRET: SECRET,
+      REPLY_TRACK_FN_URL: 'https://fn.example/track',
+      NEWSLETTER_ADDRESS: 'newsletter@frontaliereticino.ch',
+      OUTREACH_ADDRESS: 'valerie@frontaliereticino.ch',
+      FORWARD_TO: 'human@example.com',
+    }, ctx);
+
+    await Promise.all(ctx.waited);
+    expect(message.forward).toHaveBeenCalledWith('human@example.com');
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
 });
 
 describe('hmacHex (Web Crypto)', () => {

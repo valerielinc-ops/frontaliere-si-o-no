@@ -40,9 +40,15 @@ const NEWSLETTER_ADDRESS = 'newsletter@frontaliereticino.ch';
 // Sources: scripts/send-job-alerts.mjs + scripts/send-saved-jobs-digest.mjs +
 // scripts/monitor-gsc-job-indexation.mjs (alerts@), blast-publisher-ads.mjs
 // (confirmation@), notify-journalist-article-live.mjs (redazione@),
-// probe-mailgun-scheduled.mjs (notifiche@), lib/mymemory-translate.mjs (info@).
-// abuse@ is not a From address but is the RFC 2142 role address receiving
-// mailers' automatic responses (the incident that motivated this).
+// probe-mailgun-scheduled.mjs (notifiche@), lib/mymemory-translate.mjs (info@),
+// functions/src/sendCalculatorReport.js (report@). Plus the two inbound-only
+// role addresses: abuse@ (RFC 2142 — where the incident's automatic response
+// actually landed) and consulenza@, published in the site copy and the internal
+// lead notification target (functions/src/consultingCore.js).
+//
+// Deliberately NOT bound: the *-bot@ addresses (git commit identities in
+// workflows, they never receive mail) and preview@/qa-preview@ (local
+// newsletter preview/QA placeholders, never a real recipient).
 const AUTO_REPLY_SINK_ADDRESSES = [
   'alerts@frontaliereticino.ch',
   'abuse@frontaliereticino.ch',
@@ -50,6 +56,8 @@ const AUTO_REPLY_SINK_ADDRESSES = [
   'redazione@frontaliereticino.ch',
   'notifiche@frontaliereticino.ch',
   'info@frontaliereticino.ch',
+  'report@frontaliereticino.ch',
+  'consulenza@frontaliereticino.ch',
 ];
 const ROUTING_RULES = [
   { address: OUTREACH_ADDRESS, name: 'cold-email reply → stop-reply-handler' },
