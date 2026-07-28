@@ -18,13 +18,21 @@
  *   node scripts/audit-article-factuality.mjs --json       # machine-readable
  *   node scripts/audit-article-factuality.mjs --critical   # blocking only
  *   node scripts/audit-article-factuality.mjs --limit 20   # cap output
+ *   node scripts/audit-article-factuality.mjs --changed <base>   # CI gate
  *
- * Exits 0 always — this is a report, not a gate. Nothing is modified, and no
- * page is ever unpublished: that is an owner decision.
+ * Corpus mode exits 0 always — it is a report, not a gate. Nothing is ever
+ * modified and no page is ever unpublished: that is an owner decision.
+ *
+ * `--changed <ref>` restricts the scan to article bodies touched in the diff
+ * against <ref> and exits 1 if any of them has a blocking issue. The gates live
+ * inside create-article.mjs, which covers the LLM generation path where the
+ * 2026-07-28 defects came from; this is the backstop for every other way an
+ * article body can reach main (hand edits, repair scripts, other generators).
  */
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
-import { runFactualityGates, SEVERITY } from './lib/article-factuality-gates.mjs';
+import { execFileSync } from 'node:child_process';
+import { join, basename } from 'node:path';
+import { runFactualityGates, SEVERITY, formatIssues } from './lib/article-factuality-gates.mjs';
 
 const BODY_DIRS = ['services/locales/blog-body', 'services/locales/blog-body-ch'];
 const AS_JSON = process.argv.includes('--json');
@@ -33,6 +41,45 @@ const LIMIT = (() => {
   const i = process.argv.indexOf('--limit');
   return i !== -1 ? Number(process.argv[i + 1]) || Infinity : Infinity;
 })();
+const CHANGED_BASE = (() => {
+  const i = process.argv.indexOf('--changed');
+  return i !== -1 ? (process.argv[i + 1] || 'origin/main') : null;
+})();
+
+/** Italian article ids touched in the diff against `base`. */
+function changedArticleIds(base) {
+  let out = '';
+  try {
+    // Three-dot first (changes introduced by this branch since the merge base).
+    // CI checks out shallow, so the merge base is often absent — fall back to a
+    // plain two-dot tree diff, which only needs both tips to be present.
+    try {
+      out = execFileSync('git', ['diff', '--name-only', `${base}...HEAD`], { encoding: 'utf-8', stdio: ['ignore', 'pipe', 'ignore'] });
+    } catch {
+      out = execFileSync('git', ['diff', '--name-only', base, 'HEAD'], { encoding: 'utf-8', stdio: ['ignore', 'pipe', 'ignore'] });
+    }
+  } catch {
+    // Shallow clone or unknown ref. Do NOT fall back to the whole corpus: this
+    // gate only ever judges what the diff introduces, and the corpus still
+    // carries pre-existing debt (47 blocking findings at the time of writing)
+    // that would turn every PR red. Report loudly and let the PR through — a
+    // gate that cannot compute its scope must not invent one.
+    console.error(`⚠️  git diff contro "${base}" non riuscito (clone shallow o ref assente).`);
+    console.error('   Gate NON eseguito su questo diff — nessun articolo verificato.');
+    return 'unavailable';
+  }
+  const ids = new Set();
+  for (const line of out.split('\n')) {
+    const m = line.match(/^services\/locales\/blog-body(?:-ch)?\/it\/(.+)\.ts$/);
+    if (m) ids.add(m[1]);
+  }
+  return ids;
+}
+
+const changedIdsRaw = CHANGED_BASE ? changedArticleIds(CHANGED_BASE) : null;
+const diffUnavailable = changedIdsRaw === 'unavailable';
+// An empty Set means "diff computed, no article touched" → scan nothing.
+const changedIds = diffUnavailable ? new Set() : changedIdsRaw;
 
 /** Same extraction the repair scripts use (scripts/repair-repetitive-articles.mjs). */
 function extractBodies(content, id) {
@@ -57,6 +104,7 @@ for (const bodyDir of BODY_DIRS) {
 
   for (const file of readdirSync(itDir).filter((f) => f.endsWith('.ts'))) {
     const id = file.replace('.ts', '');
+    if (changedIds && !changedIds.has(id)) continue;
     const sections = extractBodies(readFileSync(join(itDir, file), 'utf-8'), id);
     if (!Object.keys(sections).length) continue;
     scanned++;
@@ -111,4 +159,29 @@ if (AS_JSON) {
     console.log(`\n   … altri ${findings.length - shown.length} articoli non mostrati (usa --limit).`);
   }
   console.log('');
+}
+
+// ── CI gate mode ──
+if (CHANGED_BASE) {
+  const blocking = findings.filter((f) => f.criticalCount > 0);
+  if (diffUnavailable) {
+    // Already reported above. Non-blocking by design — see changedArticleIds().
+    process.exit(0);
+  }
+  if (!scanned) {
+    console.log('✅ Nessun body articolo modificato in questo diff — niente da verificare.');
+    process.exit(0);
+  }
+  if (!blocking.length) {
+    console.log(`✅ ${scanned} articoli modificati, nessun problema bloccante.`);
+    process.exit(0);
+  }
+  console.error(`\n🚫 ${blocking.length} articoli modificati con problemi BLOCCANTI:\n`);
+  for (const f of blocking) {
+    console.error(`─── ${f.id}`);
+    console.error(formatIssues(f.issues.filter((i) => i.severity === 'critical')));
+  }
+  console.error('\nOgni problema riporta la correzione richiesta (🔧). Correggi il contenuto:');
+  console.error('non abbassare le soglie e non rimuovere il passaggio per far passare il gate.\n');
+  process.exit(1);
 }
