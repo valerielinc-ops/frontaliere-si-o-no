@@ -15285,9 +15285,9 @@
     },
     {
       "id": "roche-e651a228bab5",
-      "slug": "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland",
+      "slug": "specialista-dell-assistenza-tecnica-specialista-roche-poland",
       "slugByLocale": {
-        "it": "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland",
+        "it": "specialista-dell-assistenza-tecnica-specialista-roche-poland",
         "en": "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
         "de": "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
         "fr": "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch"
@@ -15331,12 +15331,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
-        "specialista-dell-assistenza-tecnica-specialista-roche-poland"
+        "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
-          "specialista-dell-assistenza-tecnica-specialista-roche-poland"
+          "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland"
         ]
       },
       "needsRetranslation": true,
@@ -89739,10 +89739,10 @@
     },
     {
       "id": "roche-7d561956ca7b",
-      "slug": "key-account-manager-diagnostica-roche-ch",
+      "slug": "responsabile-account-chiave-diagnostica-roche-basel",
       "slugByLocale": {
         "fr": "key-account-manager-diagnostica-roche-ch",
-        "it": "key-account-manager-diagnostica-roche-ch",
+        "it": "responsabile-account-chiave-diagnostica-roche-basel",
         "en": "key-account-manager-diagnostica-roche-ch",
         "de": "key-account-manager-diagnostica-roche-ch"
       },
@@ -89798,7 +89798,15 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-27T22:09:11.706Z"
+      "firstSeenAt": "2026-07-27T22:09:11.706Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-diagnostica-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-manager-diagnostica-roche-ch"
+      ]
     },
     {
       "id": "roche-57f221ce2b86",

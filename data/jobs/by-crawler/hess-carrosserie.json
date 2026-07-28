@@ -61,8 +61,7 @@
         "carrosserielackierer-m-w-d-hess-rothenburg",
         "peintres-carrosseries-m-p-d-carrosserie-hess-ag-rothenburg",
         "carrosserielackierer-m-w-d-carrosserie-hess-ag-rothenburg",
-        "carrosseries-pengler-carrosserie-hess-ag-rothenburg",
-        "idraulico-carrozzeria-carrosserie-hess-ag-rothenburg"
+        "carrosseries-pengler-carrosserie-hess-ag-rothenburg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -72,8 +71,7 @@
           "carrosserie-painters-m-w-d-carrosserie-hess-ag-rothenburg",
           "carrosserielackierer-m-w-d-hess-rothenburg",
           "peintres-carrosseries-m-p-d-carrosserie-hess-ag-rothenburg",
-          "carrosserielackierer-m-w-d-carrosserie-hess-ag-rothenburg",
-          "idraulico-carrozzeria-carrosserie-hess-ag-rothenburg"
+          "carrosserielackierer-m-w-d-carrosserie-hess-ag-rothenburg"
         ],
         "en": [
           "carrosserie-painters-m-w-d-carrosserie-hess-ag-rothenburg",
@@ -88,7 +86,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:37.519Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -100,7 +97,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hess-carrosserie-23ff36e5c28c",
@@ -154,13 +152,11 @@
       "requirementsByLocale": {},
       "department": "Nutzfahrzeuge",
       "previousSlugs": [
-        "fahrzeugelektriker-nutzfahrzeuge-m-w-d-hess-bellach",
-        "elettricista-veicoli-veicoli-commerciali-m-f-d-carrosserie-hess-ag-bellach"
+        "fahrzeugelektriker-nutzfahrzeuge-m-w-d-hess-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fahrzeugelektriker-nutzfahrzeuge-m-w-d-hess-bellach",
-          "elettricista-veicoli-veicoli-commerciali-m-f-d-carrosserie-hess-ag-bellach"
+          "fahrzeugelektriker-nutzfahrzeuge-m-w-d-hess-bellach"
         ],
         "en": [
           "fahrzeugelektriker-nutzfahrzeuge-m-w-d-hess-bellach"
@@ -170,7 +166,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:37.094Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -182,7 +177,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hess-carrosserie-bad087e1a118",
@@ -243,8 +239,7 @@
         "chauffeur-fur-das-rangieren-von-elektrobussen-m-w-d-hess-bellach",
         "chauffeur-pour-la-chasse-au-bus-electrique-m-f-d-carrosserie-hess-ag-bellach",
         "assemblage-electrique-bus-et-chariot-m-f-d-carrosserie-hess-ag-bellach",
-        "autobus-et-chariot-electrique-m-f-d-carrosserie-hess-ag-bellach",
-        "elettricista-di-assemblaggio-bus-trolley-m-f-d-carrosserie-hess-ag-bellach"
+        "autobus-et-chariot-electrique-m-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -252,8 +247,7 @@
           "chauffeur-per-das-rangieren-von-elektrobussen-m-w-d-carrosserie-hess-ag-bellach",
           "chauffeur-for-electric-bus-shunting-m-f-d-carrosserie-hess-ag-bellach",
           "chauffeur-fur-das-rangieren-von-elektrobussen-m-w-d-hess-bellach",
-          "chauffeur-pour-la-chasse-au-bus-electrique-m-f-d-carrosserie-hess-ag-bellach",
-          "elettricista-di-assemblaggio-bus-trolley-m-f-d-carrosserie-hess-ag-bellach"
+          "chauffeur-pour-la-chasse-au-bus-electrique-m-f-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "montageelektriker-bus-trolley-m-w-d-hess-bellach",
@@ -271,7 +265,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:36.665Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -283,7 +276,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hess-carrosserie-41be2347df5c",
@@ -338,14 +332,12 @@
       "department": "Reparatur und Service",
       "previousSlugs": [
         "fahrzeugschlosser-hess-rothenburg",
-        "fahrzeugschlosser-carrosserie-hess-ag-rothenburg",
-        "montatori-di-veicoli-carrosserie-hess-ag-rothenburg"
+        "fahrzeugschlosser-carrosserie-hess-ag-rothenburg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fahrzeugschlosser-hess-rothenburg",
-          "fahrzeugschlosser-carrosserie-hess-ag-rothenburg",
-          "montatori-di-veicoli-carrosserie-hess-ag-rothenburg"
+          "fahrzeugschlosser-carrosserie-hess-ag-rothenburg"
         ],
         "en": [
           "fahrzeugschlosser-carrosserie-hess-ag-rothenburg"
@@ -579,13 +571,11 @@
       "requirementsByLocale": {},
       "department": "Bus und Trolley",
       "previousSlugs": [
-        "linienleiter-bus-montage-m-w-d-hess-bellach",
-        "assemblaggio-degli-autobus-line-manager-m-f-d-carrosserie-hess-ag-bellach"
+        "linienleiter-bus-montage-m-w-d-hess-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "linienleiter-bus-montage-m-w-d-hess-bellach",
-          "assemblaggio-degli-autobus-line-manager-m-f-d-carrosserie-hess-ag-bellach"
+          "linienleiter-bus-montage-m-w-d-hess-bellach"
         ],
         "en": [
           "linienleiter-bus-montage-m-w-d-hess-bellach"
@@ -595,7 +585,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:34.500Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -607,7 +596,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hess-carrosserie-96ede90bb231",
@@ -666,8 +656,7 @@
         "project-manager-sourcing-supply-chain-m-f-d-carrosserie-hess-ag-bellach",
         "projektleiter-sourcing-supply-chain-m-w-d-hess-bellach",
         "projektleiter-sourcing-chaine-d-approvisionnement-m-w-d-carrosserie-hess-ag-bellach",
-        "projektleiter-sourcing-supply-chain-m-w-d-carrosserie-hess-ag-bellach",
-        "omologazione-del-project-manager-m-f-d-carrosserie-hess-ag-bellach"
+        "projektleiter-sourcing-supply-chain-m-w-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -676,8 +665,7 @@
           "project-manager-sourcing-supply-chain-m-f-d-carrosserie-hess-ag-bellach",
           "projektleiter-sourcing-supply-chain-m-w-d-hess-bellach",
           "projektleiter-sourcing-chaine-d-approvisionnement-m-w-d-carrosserie-hess-ag-bellach",
-          "projektleiter-sourcing-supply-chain-m-w-d-carrosserie-hess-ag-bellach",
-          "omologazione-del-project-manager-m-f-d-carrosserie-hess-ag-bellach"
+          "projektleiter-sourcing-supply-chain-m-w-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "projektleiter-homologation-m-w-d-hess-bellach"
@@ -691,7 +679,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:33.724Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -703,7 +690,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hess-carrosserie-3cb8a78905f9",
@@ -757,13 +745,11 @@
       "requirementsByLocale": {},
       "department": "Bus und Trolley",
       "previousSlugs": [
-        "einkaufer-m-w-d-hess-bellach",
-        "acquirente-m-f-d-carrosserie-hess-ag-bellach"
+        "einkaufer-m-w-d-hess-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "einkaufer-m-w-d-hess-bellach",
-          "acquirente-m-f-d-carrosserie-hess-ag-bellach"
+          "einkaufer-m-w-d-hess-bellach"
         ],
         "en": [
           "einkaufer-m-w-d-hess-bellach"
@@ -1162,13 +1148,11 @@
       "requirementsByLocale": {},
       "department": "Reparatur und Service",
       "previousSlugs": [
-        "carrosseriespengler-fahrzeugrestaurator-hess-bellach",
-        "idraulico-carrozzeria-restauratore-di-veicoli-carrosserie-hess-ag-bellach"
+        "carrosseriespengler-fahrzeugrestaurator-hess-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "carrosseriespengler-fahrzeugrestaurator-hess-bellach",
-          "idraulico-carrozzeria-restauratore-di-veicoli-carrosserie-hess-ag-bellach"
+          "carrosseriespengler-fahrzeugrestaurator-hess-bellach"
         ],
         "en": [
           "carrosseriespengler-fahrzeugrestaurator-hess-bellach"
@@ -1244,14 +1228,12 @@
       "department": "Bus und Trolley",
       "previousSlugs": [
         "projektleiter-process-improvement-m-w-d-hess-bellach",
-        "projektleiter-process-improvement-m-w-d-carrosserie-hess-ag-bellach",
-        "project-manager-miglioramento-dei-processi-m-f-d-carrosserie-hess-ag-bellach"
+        "projektleiter-process-improvement-m-w-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-process-improvement-m-w-d-hess-bellach",
-          "projektleiter-process-improvement-m-w-d-carrosserie-hess-ag-bellach",
-          "project-manager-miglioramento-dei-processi-m-f-d-carrosserie-hess-ag-bellach"
+          "projektleiter-process-improvement-m-w-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "projektleiter-process-improvement-m-w-d-hess-bellach",
@@ -1262,7 +1244,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:30.219Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1274,7 +1255,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hess-carrosserie-f70e30423f0c",
@@ -1328,13 +1310,11 @@
       "requirementsByLocale": {},
       "department": "Nutzfahrzeuge",
       "previousSlugs": [
-        "fahrzeugschlosser-nutzfahrzeuge-m-w-d-hess-bellach",
-        "installatore-di-veicoli-commerciali-m-f-d-carrosserie-hess-ag-bellach"
+        "fahrzeugschlosser-nutzfahrzeuge-m-w-d-hess-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fahrzeugschlosser-nutzfahrzeuge-m-w-d-hess-bellach",
-          "installatore-di-veicoli-commerciali-m-f-d-carrosserie-hess-ag-bellach"
+          "fahrzeugschlosser-nutzfahrzeuge-m-w-d-hess-bellach"
         ],
         "en": [
           "fahrzeugschlosser-nutzfahrzeuge-m-w-d-hess-bellach"
@@ -1409,20 +1389,17 @@
       "requirementsByLocale": {},
       "department": "Finanz und Controlling",
       "previousSlugs": [
-        "e-e-product-security-engineer-m-w-d-hess-bellach",
-        "e-e-product-security-ingegnere-m-w-d-carrosserie-hess-ag-bellach"
+        "e-e-product-security-engineer-m-w-d-hess-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "e-e-product-security-engineer-m-w-d-hess-bellach",
-          "e-e-product-security-ingegnere-m-w-d-carrosserie-hess-ag-bellach"
+          "e-e-product-security-engineer-m-w-d-hess-bellach"
         ],
         "fr": [
           "e-e-product-security-engineer-m-w-d-hess-bellach"
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:29.353Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1434,7 +1411,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hess-carrosserie-c680d74df853",
@@ -1488,13 +1466,11 @@
       "requirementsByLocale": {},
       "department": "Bus und Trolley",
       "previousSlugs": [
-        "schlosser-metallbauer-vormontage-interne-fertigung-m-w-d-hess-bellach",
-        "preassemblaggio-e-produzione-interna-di-fabbro-metallurgia-f-f-d-carrosserie-hess-ag-bellach"
+        "schlosser-metallbauer-vormontage-interne-fertigung-m-w-d-hess-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schlosser-metallbauer-vormontage-interne-fertigung-m-w-d-hess-bellach",
-          "preassemblaggio-e-produzione-interna-di-fabbro-metallurgia-f-f-d-carrosserie-hess-ag-bellach"
+          "schlosser-metallbauer-vormontage-interne-fertigung-m-w-d-hess-bellach"
         ],
         "en": [
           "schlosser-metallbauer-vormontage-interne-fertigung-m-w-d-hess-bellach"
@@ -1569,13 +1545,11 @@
       "requirementsByLocale": {},
       "department": "Reparatur und Service",
       "previousSlugs": [
-        "carrosserielackierer-busse-nutzfahrzeuge-m-w-d-hess-bellach",
-        "carrozzeria-carrozzeria-autobus-veicoli-commerciali-lun-vendedi-d-carrosserie-hess-ag-bellach"
+        "carrosserielackierer-busse-nutzfahrzeuge-m-w-d-hess-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "carrosserielackierer-busse-nutzfahrzeuge-m-w-d-hess-bellach",
-          "carrozzeria-carrozzeria-autobus-veicoli-commerciali-lun-vendedi-d-carrosserie-hess-ag-bellach"
+          "carrosserielackierer-busse-nutzfahrzeuge-m-w-d-hess-bellach"
         ],
         "en": [
           "carrosserielackierer-busse-nutzfahrzeuge-m-w-d-hess-bellach"
@@ -1650,13 +1624,11 @@
       "requirementsByLocale": {},
       "department": "Bus und Trolley",
       "previousSlugs": [
-        "techniker-fur-die-inbetriebnahme-von-elektrobussen-m-w-d-hess-bellach",
-        "techniker-per-la-inbetriebnahme-von-elektrobussen-m-w-d-carrosserie-hess-ag-bellach"
+        "techniker-fur-die-inbetriebnahme-von-elektrobussen-m-w-d-hess-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "techniker-fur-die-inbetriebnahme-von-elektrobussen-m-w-d-hess-bellach",
-          "techniker-per-la-inbetriebnahme-von-elektrobussen-m-w-d-carrosserie-hess-ag-bellach"
+          "techniker-fur-die-inbetriebnahme-von-elektrobussen-m-w-d-hess-bellach"
         ],
         "en": [
           "techniker-fur-die-inbetriebnahme-von-elektrobussen-m-w-d-hess-bellach"
@@ -1666,7 +1638,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:27.581Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1678,7 +1649,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hess-carrosserie-71484d02de92",
@@ -1732,13 +1704,11 @@
       "requirementsByLocale": {},
       "department": "Bus und Trolley",
       "previousSlugs": [
-        "elektroinstallateur-oder-elektromonteur-mit-lust-zur-veranderung-m-w-d-hess-bellach",
-        "installatore-trice-elettrico-a-o-elektromonteur-con-lust-zur-veranderung-m-w-d-carrosserie-hess-ag-bellach"
+        "elektroinstallateur-oder-elektromonteur-mit-lust-zur-veranderung-m-w-d-hess-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-oder-elektromonteur-mit-lust-zur-veranderung-m-w-d-hess-bellach",
-          "installatore-trice-elettrico-a-o-elektromonteur-con-lust-zur-veranderung-m-w-d-carrosserie-hess-ag-bellach"
+          "elektroinstallateur-oder-elektromonteur-mit-lust-zur-veranderung-m-w-d-hess-bellach"
         ],
         "en": [
           "elektroinstallateur-oder-elektromonteur-mit-lust-zur-veranderung-m-w-d-hess-bellach"
@@ -1815,14 +1785,12 @@
       "previousSlugs": [
         "servicetechniker-klima-elektrik-100-m-w-d-hess-bellach",
         "servicetechniker-klima-elektrik-100-m-w-d-carrosserie-hess-ag-bellach",
-        "technicien-des-services-climat-electrics-100-m-f-d-carrosserie-hess-ag-bellach",
-        "tecnico-di-servizio-aria-condizionata-ed-elettricita-100-lunedi-venedi-d-carrosserie-hess-ag-bellach"
+        "technicien-des-services-climat-electrics-100-m-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-klima-elektrik-100-m-w-d-hess-bellach",
-          "servicetechniker-klima-elektrik-100-m-w-d-carrosserie-hess-ag-bellach",
-          "tecnico-di-servizio-aria-condizionata-ed-elettricita-100-lunedi-venedi-d-carrosserie-hess-ag-bellach"
+          "servicetechniker-klima-elektrik-100-m-w-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "servicetechniker-klima-elektrik-100-m-w-d-hess-bellach"
@@ -1834,7 +1802,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:26.676Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1846,7 +1813,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hess-carrosserie-6f40183ecbd0",
@@ -1902,13 +1870,11 @@
       "previousSlugs": [
         "spezialist-aftersales-garantieabwicklung-80-100-m-w-d-hess-bellach",
         "apres-vente-specialisee-et-traitement-de-la-garantie-80-100-m-f-d-carrosserie-hess-ag-bellach",
-        "spezialist-aftersales-garantieabwicklung-80-100-m-w-d-carrosserie-hess-ag-bellach",
-        "postvendita-specialistica-e-elaborazione-in-garanzia-80-100-lunedi-venerdi-giunderia-carrosserie-hess-ag-bellach"
+        "spezialist-aftersales-garantieabwicklung-80-100-m-w-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-aftersales-garantieabwicklung-80-100-m-w-d-hess-bellach",
-          "postvendita-specialistica-e-elaborazione-in-garanzia-80-100-lunedi-venerdi-giunderia-carrosserie-hess-ag-bellach"
+          "spezialist-aftersales-garantieabwicklung-80-100-m-w-d-hess-bellach"
         ],
         "en": [
           "spezialist-aftersales-garantieabwicklung-80-100-m-w-d-hess-bellach"
@@ -1920,7 +1886,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:26.240Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1932,7 +1897,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hess-carrosserie-f304163f401f",
@@ -2054,13 +2020,11 @@
       "requirementsByLocale": {},
       "department": "Bus und Trolley",
       "previousSlugs": [
-        "schreiner-im-busbau-m-w-d-hess-bellach",
-        "falegname-nella-costruzione-di-autobus-di-f-d-carrosserie-hess-ag-bellach"
+        "schreiner-im-busbau-m-w-d-hess-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-im-busbau-m-w-d-hess-bellach",
-          "falegname-nella-costruzione-di-autobus-di-f-d-carrosserie-hess-ag-bellach"
+          "schreiner-im-busbau-m-w-d-hess-bellach"
         ],
         "en": [
           "schreiner-im-busbau-m-w-d-hess-bellach"
@@ -2135,13 +2099,11 @@
       "requirementsByLocale": {},
       "department": "Bus und Trolley",
       "previousSlugs": [
-        "kaufmannischer-sachbearbeiter-fur-die-bus-montage-m-w-d-hess-bellach",
-        "kaufmannischer-sachbearbeiter-per-la-bus-montage-m-w-d-carrosserie-hess-ag-bellach"
+        "kaufmannischer-sachbearbeiter-fur-die-bus-montage-m-w-d-hess-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kaufmannischer-sachbearbeiter-fur-die-bus-montage-m-w-d-hess-bellach",
-          "kaufmannischer-sachbearbeiter-per-la-bus-montage-m-w-d-carrosserie-hess-ag-bellach"
+          "kaufmannischer-sachbearbeiter-fur-die-bus-montage-m-w-d-hess-bellach"
         ],
         "en": [
           "kaufmannischer-sachbearbeiter-fur-die-bus-montage-m-w-d-hess-bellach"
@@ -2151,7 +2113,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:24.928Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2163,7 +2124,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hess-carrosserie-135153cce8c7",
@@ -2217,13 +2179,11 @@
       "requirementsByLocale": {},
       "department": "Reparatur und Service",
       "previousSlugs": [
-        "sachbearbeiterin-personenwagen-reparaturen-60-80-hess-bellach",
-        "riparazioni-di-auto-passeggeri-per-ufficiali-60-80-carrosserie-hess-ag-bellach"
+        "sachbearbeiterin-personenwagen-reparaturen-60-80-hess-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiterin-personenwagen-reparaturen-60-80-hess-bellach",
-          "riparazioni-di-auto-passeggeri-per-ufficiali-60-80-carrosserie-hess-ag-bellach"
+          "sachbearbeiterin-personenwagen-reparaturen-60-80-hess-bellach"
         ],
         "en": [
           "sachbearbeiterin-personenwagen-reparaturen-60-80-hess-bellach"
@@ -2365,13 +2325,11 @@
       "department": "Bus und Trolley",
       "previousSlugs": [
         "mechanik-monteur-bus-produktion-m-w-d-hess-bellach",
-        "production-d-autobus-d-assemblage-mecanique-m-f-d-carrosserie-hess-ag-bellach",
-        "produzione-di-autobus-meccanici-m-f-d-carrosserie-hess-ag-bellach"
+        "production-d-autobus-d-assemblage-mecanique-m-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mechanik-monteur-bus-produktion-m-w-d-hess-bellach",
-          "produzione-di-autobus-meccanici-m-f-d-carrosserie-hess-ag-bellach"
+          "mechanik-monteur-bus-produktion-m-w-d-hess-bellach"
         ],
         "en": [
           "mechanik-monteur-bus-produktion-m-w-d-hess-bellach"
@@ -2382,7 +2340,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:24.058Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2394,7 +2351,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hess-carrosserie-9460aee78419",
@@ -2448,13 +2406,11 @@
       "requirementsByLocale": {},
       "department": "Bus und Trolley",
       "previousSlugs": [
-        "entwicklungsingenieur-mechatronik-schwerpunkt-software-m-w-d-hess-bellach",
-        "software-di-messa-a-fuoco-dell-ingegnere-di-sviluppo-m-f-d-carrosserie-hess-ag-bellach"
+        "entwicklungsingenieur-mechatronik-schwerpunkt-software-m-w-d-hess-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "entwicklungsingenieur-mechatronik-schwerpunkt-software-m-w-d-hess-bellach",
-          "software-di-messa-a-fuoco-dell-ingegnere-di-sviluppo-m-f-d-carrosserie-hess-ag-bellach"
+          "entwicklungsingenieur-mechatronik-schwerpunkt-software-m-w-d-hess-bellach"
         ],
         "en": [
           "entwicklungsingenieur-mechatronik-schwerpunkt-software-m-w-d-hess-bellach"
@@ -2464,7 +2420,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:19:07.058Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2476,7 +2431,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hess-carrosserie-6cfb79206139",
@@ -2530,13 +2486,11 @@
       "requirementsByLocale": {},
       "department": "Bus und Trolley",
       "previousSlugs": [
-        "teamleiter-leitstand-in-logistik-m-w-d-hess-bellach",
-        "team-leader-sala-di-controllo-in-logistica-m-f-d-carrosserie-hess-ag-bellach"
+        "teamleiter-leitstand-in-logistik-m-w-d-hess-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-leitstand-in-logistik-m-w-d-hess-bellach",
-          "team-leader-sala-di-controllo-in-logistica-m-f-d-carrosserie-hess-ag-bellach"
+          "teamleiter-leitstand-in-logistik-m-w-d-hess-bellach"
         ],
         "en": [
           "teamleiter-leitstand-in-logistik-m-w-d-hess-bellach"
@@ -2612,14 +2566,12 @@
       "department": "Bus und Trolley",
       "previousSlugs": [
         "stv-leiter-logistik-m-w-d-hess-bellach",
-        "stv-leiter-logistik-m-w-d-carrosserie-hess-ag-bellach",
-        "responsabile-della-logistica-m-f-d-carrosserie-hess-ag-bellach"
+        "stv-leiter-logistik-m-w-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-leiter-logistik-m-w-d-hess-bellach",
-          "stv-leiter-logistik-m-w-d-carrosserie-hess-ag-bellach",
-          "responsabile-della-logistica-m-f-d-carrosserie-hess-ag-bellach"
+          "stv-leiter-logistik-m-w-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "stv-leiter-logistik-m-w-d-hess-bellach"
@@ -2694,17 +2646,14 @@
       "requirementsByLocale": {},
       "department": "Bus und Trolley ",
       "previousSlugs": [
-        "reisefreudiger-allrounder-80-100-m-w-d-hess-bellach",
-        "allrounder-80-100-m-f-d-carrosserie-hess-ag-bellach"
+        "reisefreudiger-allrounder-80-100-m-w-d-hess-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "reisefreudiger-allrounder-80-100-m-w-d-hess-bellach",
-          "allrounder-80-100-m-f-d-carrosserie-hess-ag-bellach"
+          "reisefreudiger-allrounder-80-100-m-w-d-hess-bellach"
         ]
       },
       "firstSeenAt": "2026-07-15T22:34:41.073Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2716,7 +2665,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hess-carrosserie-554a215b2d68",
@@ -2770,13 +2720,11 @@
       "requirementsByLocale": {},
       "department": "Bus und Trolley",
       "previousSlugs": [
-        "strategischer-einkaufer-scm-m-w-d-hess-bellach",
-        "acquirente-strategico-scm-m-f-d-carrosserie-hess-ag-bellach"
+        "strategischer-einkaufer-scm-m-w-d-hess-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "strategischer-einkaufer-scm-m-w-d-hess-bellach",
-          "acquirente-strategico-scm-m-f-d-carrosserie-hess-ag-bellach"
+          "strategischer-einkaufer-scm-m-w-d-hess-bellach"
         ],
         "en": [
           "strategischer-einkaufer-scm-m-w-d-hess-bellach"
@@ -2855,14 +2803,12 @@
         "tecnologia-pubblicitaria-di-designer-m-f-d-carrosserie-hess-ag-bellach",
         "designer-advertising-technology-m-f-d-carrosserie-hess-ag-bellach-vjm5fh",
         "gestalter-werbetechnik-m-w-d-hess-bellach-vjm5fh",
-        "technologie-de-publicite-des-concepteurs-m-f-d-carrosserie-hess-ag-bellach",
-        "designer-advertising-technology-m-f-d-carrosserie-hess-ag-bellach"
+        "technologie-de-publicite-des-concepteurs-m-f-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestalter-werbetechnik-m-w-d-hess-bellach",
-          "tecnologia-pubblicitaria-di-designer-m-f-d-carrosserie-hess-ag-bellach",
-          "designer-advertising-technology-m-f-d-carrosserie-hess-ag-bellach"
+          "tecnologia-pubblicitaria-di-designer-m-f-d-carrosserie-hess-ag-bellach"
         ],
         "en": [
           "gestalter-werbetechnik-m-w-d-hess-bellach",
@@ -2877,7 +2823,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:30:46.736Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2889,7 +2834,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
