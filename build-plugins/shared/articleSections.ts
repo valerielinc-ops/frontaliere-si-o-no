@@ -59,3 +59,24 @@ export const ARTICLE_SECTIONS: OgSection[] = [
  indexSlug: { it: 'articoli-svizzera', en: 'swiss-articles', de: 'schweiz-artikel', fr: 'articles-suisse' },
  },
 ];
+
+/**
+ * Find every `'blog-<slug>': {` entry-key position in a `seoFiles` source
+ * file. Shared (issue #4881 Fase 4, AGENTS.md #6) between `ogPagesPlugin.ts`'s
+ * entries-building loop (the render-time, byte-identity-critical use) and the
+ * corpus re-render driver's id-enumeration (a superset-safe use — see
+ * `blogKeyToArticleId` below). One literal regex, not two copies that could
+ * silently diverge if the `blog-` key convention ever changed.
+ */
+export function extractBlogEntryPositions(source: string): Array<{ key: string; start: number }> {
+ const keyRx = /'(blog-[^']+)':\s*\{/g;
+ const out: Array<{ key: string; start: number }> = [];
+ let m: RegExpExecArray | null;
+ while ((m = keyRx.exec(source)) !== null) out.push({ key: m[1], start: m.index });
+ return out;
+}
+
+/** `'blog-<slug>'` -> `<slug>` (the `articleId` shape `renderArticlePages` uses everywhere: `onlyArticleId`, body filenames, write-loop filter). */
+export function blogKeyToArticleId(key: string): string {
+ return key.replace(/^blog-/, '');
+}

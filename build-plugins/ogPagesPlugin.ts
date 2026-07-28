@@ -27,7 +27,7 @@ import { stripMarkdownPlain } from './shared/stripMarkdownPlain';
 import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
 import { boostDescriptionForCtr } from './shared/ctrBoostDescription';
 import { SLUG_TABLES } from '../services/routeSlugs.data';
-import { ARTICLE_SECTIONS } from './shared/articleSections';
+import { ARTICLE_SECTIONS, extractBlogEntryPositions, blogKeyToArticleId } from './shared/articleSections';
 
 export interface RenderedArticleEntry {
  articleId: string;
@@ -320,15 +320,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  }
  const entries: Entry[] = [];
 
- const keyRx = /'(blog-[^']+)':\s*\{/g;
- let km: RegExpExecArray | null;
- const pos: { key: string; start: number }[] = [];
- while ((km = keyRx.exec(seoSrc)) !== null) pos.push({ key: km[1], start: km.index });
+ const pos = extractBlogEntryPositions(seoSrc);
 
  for (let i = 0; i < pos.length; i++) {
  const s = pos[i].start;
  const key = pos[i].key;
- const articleId = key.replace(/^blog-/, '');
+ const articleId = blogKeyToArticleId(key);
  const e = i + 1 < pos.length ? pos[i + 1].start : Math.min(s + 3000, seoSrc.length);
  const b = seoSrc.substring(s, e);
 
