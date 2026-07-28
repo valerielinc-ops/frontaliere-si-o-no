@@ -34,6 +34,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -48,30 +49,37 @@ const MAX_ITEMS = 50;
 // parse/emit logic below is section-agnostic and driven entirely by this table,
 // so the frontaliere output stays byte-identical to the pre-#1226 single-section
 // version while svizzera is added purely additively.
-const SECTIONS = [
+//
+// slugFile/bodyDir/metaFile-prefix/articlePrefix are sourced from
+// ARTICLE_SECTION_CORE (issue #4881 Fase 6, AGENTS.md #6) — the same
+// canonical tuple services/articleSections.ts re-exports as ARTICLE_SECTIONS.
+// `seoFiles` here is DELIBERATELY narrower than the full seo-blog chunk list
+// other consumers use (RSS only needs the freshest ~2 chunks worth of items,
+// capped at MAX_ITEMS below) — not part of the duplicated tuple, stays local.
+export const SECTIONS = [
   {
     id: 'frontaliere',
     seoFiles: ['seo-blog.ts', 'seo-blog-2.ts'],
-    slugFile: 'services/routerBlogData.ts',
-    metaFile: (locale) => `blog-meta-${locale}.ts`,
-    bodyDir: 'blog-body',
+    slugFile: ARTICLE_SECTION_CORE.frontaliere.slugDataFile,
+    metaFile: (locale) => `${ARTICLE_SECTION_CORE.frontaliere.metaPrefix}-${locale}.ts`,
+    bodyDir: ARTICLE_SECTION_CORE.frontaliere.bodyDir,
     // Localized slug fallback: missing locale → IT slug → articleId.
     slugFallback: 'it',
     mainFeed: 'rss.xml',
     feedFile: (locale) => `rss-${locale}.xml`,
     localeMeta: {
-      it: { title: 'Frontaliere Ticino', description: 'Notizie e guide per frontalieri italiani in Ticino', language: 'it', articlePrefix: '/articoli-frontaliere/' },
-      en: { title: 'Frontaliere Ticino — English', description: 'News and guides for cross-border workers in Ticino', language: 'en', articlePrefix: '/en/cross-border-articles/' },
-      de: { title: 'Frontaliere Ticino — Deutsch', description: 'Nachrichten und Leitfaden für Grenzgänger im Tessin', language: 'de', articlePrefix: '/de/grenzgaenger-artikel/' },
-      fr: { title: 'Frontaliere Ticino — Français', description: 'Actualités et guides pour les frontaliers au Tessin', language: 'fr', articlePrefix: '/fr/articles-frontalier/' },
+      it: { title: 'Frontaliere Ticino', description: 'Notizie e guide per frontalieri italiani in Ticino', language: 'it', articlePrefix: `/${ARTICLE_SECTION_CORE.frontaliere.indexSlug.it}/` },
+      en: { title: 'Frontaliere Ticino — English', description: 'News and guides for cross-border workers in Ticino', language: 'en', articlePrefix: `/en/${ARTICLE_SECTION_CORE.frontaliere.indexSlug.en}/` },
+      de: { title: 'Frontaliere Ticino — Deutsch', description: 'Nachrichten und Leitfaden für Grenzgänger im Tessin', language: 'de', articlePrefix: `/de/${ARTICLE_SECTION_CORE.frontaliere.indexSlug.de}/` },
+      fr: { title: 'Frontaliere Ticino — Français', description: 'Actualités et guides pour les frontaliers au Tessin', language: 'fr', articlePrefix: `/fr/${ARTICLE_SECTION_CORE.frontaliere.indexSlug.fr}/` },
     },
   },
   {
     id: 'svizzera',
     seoFiles: ['seo-blog-ch.ts'],
-    slugFile: 'services/routerSwissData.ts',
-    metaFile: (locale) => `blog-meta-ch-${locale}.ts`,
-    bodyDir: 'blog-body-ch',
+    slugFile: ARTICLE_SECTION_CORE.svizzera.slugDataFile,
+    metaFile: (locale) => `${ARTICLE_SECTION_CORE.svizzera.metaPrefix}-${locale}.ts`,
+    bodyDir: ARTICLE_SECTION_CORE.svizzera.bodyDir,
     // National slugs default to the article id per-locale (matches the
     // indexing-api URL resolution in generate-article.yml: SWISS_SLUGS[id][loc]
     // with an id fallback, NOT an IT-slug fallback).
@@ -79,10 +87,10 @@ const SECTIONS = [
     mainFeed: 'rss-svizzera.xml',
     feedFile: (locale) => `rss-svizzera-${locale}.xml`,
     localeMeta: {
-      it: { title: 'Frontaliere Ticino — Svizzera', description: 'Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana', language: 'it', articlePrefix: '/articoli-svizzera/' },
-      en: { title: 'Frontaliere Ticino — Switzerland', description: 'News and guides about Switzerland: economy, work, taxes and daily life', language: 'en', articlePrefix: '/en/swiss-articles/' },
-      de: { title: 'Frontaliere Ticino — Schweiz', description: 'Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag', language: 'de', articlePrefix: '/de/schweiz-artikel/' },
-      fr: { title: 'Frontaliere Ticino — Suisse', description: 'Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne', language: 'fr', articlePrefix: '/fr/articles-suisse/' },
+      it: { title: 'Frontaliere Ticino — Svizzera', description: 'Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana', language: 'it', articlePrefix: `/${ARTICLE_SECTION_CORE.svizzera.indexSlug.it}/` },
+      en: { title: 'Frontaliere Ticino — Switzerland', description: 'News and guides about Switzerland: economy, work, taxes and daily life', language: 'en', articlePrefix: `/en/${ARTICLE_SECTION_CORE.svizzera.indexSlug.en}/` },
+      de: { title: 'Frontaliere Ticino — Schweiz', description: 'Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag', language: 'de', articlePrefix: `/de/${ARTICLE_SECTION_CORE.svizzera.indexSlug.de}/` },
+      fr: { title: 'Frontaliere Ticino — Suisse', description: 'Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne', language: 'fr', articlePrefix: `/fr/${ARTICLE_SECTION_CORE.svizzera.indexSlug.fr}/` },
     },
   },
 ];

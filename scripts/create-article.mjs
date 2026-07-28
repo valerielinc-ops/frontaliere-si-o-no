@@ -138,6 +138,7 @@ import { computeAdaptiveEvergreenThresholds } from './lib/scoring/constants.mjs'
 import { detectBodyRepetition, dedupeRepeatedParagraphs, stripDuplicateTitleFromBody } from './lib/article-body-repetition.mjs';
 import { loadEmbeddingStore, loadEmbeddingMeta } from './lib/scoring/embeddingMatcher.mjs';
 import { appendCatalogEntry } from './generate-journalist-image-catalog.mjs';
+import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore.mjs';
 import { appendArticleListItem } from './lib/seo-pages-article-list.mjs';
 import { buildStructuralEvergreenTopics } from './lib/evergreen-topic-generator.mjs';
 
@@ -1647,16 +1648,22 @@ function write(rel, content) {
 }
 
 // ── Section config (--section=frontaliere|svizzera) ──────────────
-// Single source of truth for the two parallel article hubs. Mirrors
-// services/articleSections.ts (kept in sync — the .ts can't be imported by
-// this .mjs without a TS loader). For section="frontaliere" every value is
-// the original hardcoded literal so the default path stays byte-identical.
+// Single source of truth for the two parallel article hubs. The overlapping
+// fields (hubSlug/registryFile/slugDataFile/slugsConstName/metaPrefix/bodyDir)
+// come from ../build-plugins/shared/articleSectionCore.mjs's ARTICLE_SECTION_CORE
+// — the same canonical tuple services/articleSections.ts re-exports as
+// ARTICLE_SECTIONS (issue #4881 Fase 6, AGENTS.md #6; this .mjs can import
+// that core directly, no TS loader needed — it's plain JS). Every other field
+// below (label/newsSources/rssFallbackMap/seoFile/embeddings paths/etc.) is
+// genuinely unique to this script and stays hand-authored. For
+// section="frontaliere" every value is still the original literal so the
+// default path stays byte-identical.
 //
 // Per spec: the discovery-pool / evidence / quota slot machinery stays
 // frontaliere-only for now. The svizzera section uses the proven-only path
 // (scan CH sources → classify → generate → dedup vs SWISS_ARTICLES/embeddings
 // → write). The WRITE path + proven generation are fully section-aware.
-const ARTICLE_SECTION_CONFIGS = {
+export const ARTICLE_SECTION_CONFIGS = {
   frontaliere: {
     section: 'frontaliere',
     label: 'Frontaliere Ticino',
@@ -1664,22 +1671,17 @@ const ARTICLE_SECTION_CONFIGS = {
     newsSources: NEWS_SOURCES,
     rssFallbackMap: RSS_FALLBACK_MAP,
     // Localized hub slugs (URL path segment per locale)
-    hubSlug: {
-      it: 'articoli-frontaliere',
-      en: 'cross-border-articles',
-      de: 'grenzgaenger-artikel',
-      fr: 'articles-frontalier',
-    },
+    hubSlug: ARTICLE_SECTION_CORE.frontaliere.indexSlug,
     // Registry / slug-data / meta / body / seo write targets
-    registryFile: 'data/blog-articles-data.ts',
+    registryFile: ARTICLE_SECTION_CORE.frontaliere.registryFile,
     registryArrayName: 'ARTICLES',
-    slugDataFile: 'services/routerBlogData.ts',
-    slugsConstName: 'BLOG_SLUGS',
+    slugDataFile: ARTICLE_SECTION_CORE.frontaliere.slugDataFile,
+    slugsConstName: ARTICLE_SECTION_CORE.frontaliere.slugConst,
     allIdsConstName: 'ALL_BLOG_ARTICLE_IDS',
     // frontaliere also maintains the BlogArticleId union in router.ts
     updateRouterUnion: true,
-    metaPrefix: 'blog-meta',           // services/locales/blog-meta-{loc}.ts
-    bodyDir: 'blog-body',              // services/locales/blog-body/{loc}/{id}.ts
+    metaPrefix: ARTICLE_SECTION_CORE.frontaliere.metaPrefix, // services/locales/blog-meta-{loc}.ts
+    bodyDir: ARTICLE_SECTION_CORE.frontaliere.bodyDir,       // services/locales/blog-body/{loc}/{id}.ts
     seoFile: 'services/seo/seo-blog-5.ts',
     seoConstName: 'BLOG_SEO_METADATA', // matched with optional _\d+ suffix
     sitemapFile: 'public/sitemap-blog.xml',
@@ -1696,21 +1698,16 @@ const ARTICLE_SECTION_CONFIGS = {
     label: 'Articoli Svizzera',
     newsSources: NEWS_SOURCES_SVIZZERA,
     rssFallbackMap: NEWS_SOURCES_SVIZZERA_FALLBACK_MAP,
-    hubSlug: {
-      it: 'articoli-svizzera',
-      en: 'swiss-articles',
-      de: 'schweiz-artikel',
-      fr: 'articles-suisse',
-    },
-    registryFile: 'data/swiss-articles-data.ts',
+    hubSlug: ARTICLE_SECTION_CORE.svizzera.indexSlug,
+    registryFile: ARTICLE_SECTION_CORE.svizzera.registryFile,
     registryArrayName: 'SWISS_ARTICLES',
-    slugDataFile: 'services/routerSwissData.ts',
-    slugsConstName: 'SWISS_SLUGS',
+    slugDataFile: ARTICLE_SECTION_CORE.svizzera.slugDataFile,
+    slugsConstName: ARTICLE_SECTION_CORE.svizzera.slugConst,
     allIdsConstName: 'ALL_SWISS_ARTICLE_IDS',
     // svizzera ids are loose strings — no BlogArticleId union to touch.
     updateRouterUnion: false,
-    metaPrefix: 'blog-meta-ch',        // services/locales/blog-meta-ch-{loc}.ts
-    bodyDir: 'blog-body-ch',           // services/locales/blog-body-ch/{loc}/{id}.ts
+    metaPrefix: ARTICLE_SECTION_CORE.svizzera.metaPrefix, // services/locales/blog-meta-ch-{loc}.ts
+    bodyDir: ARTICLE_SECTION_CORE.svizzera.bodyDir,       // services/locales/blog-body-ch/{loc}/{id}.ts
     seoFile: 'services/seo/seo-blog-ch.ts',
     seoConstName: 'BLOG_CH_SEO_METADATA',
     sitemapFile: 'public/sitemap-blog-ch.xml',

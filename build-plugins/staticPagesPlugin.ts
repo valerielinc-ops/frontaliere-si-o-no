@@ -52,6 +52,7 @@ import { CITY_HUB_KEYS, CITY_HUB_DISPLAY_NAME, buildCityHubPath } from './cityJo
 import { buildTitleWithBrand, clampMetaDescription } from './shared/titleSuffix';
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { ARTICLE_SECTION_DESCRIPTORS } from './shared/articleSectionDescriptors';
 const SUFFIX_STRIP_RE = /\s*[|·]\s*Frontaliere Ticino\s*$/i;
 function capTitle70(s: string): string {
  if (!s) return s;
@@ -1039,24 +1040,20 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // collision on the shared registry → the page is dropped non-deterministically
  // (FR survives, IT/EN/DE vanish), surfacing as audit-hreflang [missingTarget]
  // on a freshly-published article (validate-dist failure 2026-06-23, run
- // 27998666257). Keep this list in lockstep with ogPagesPlugin's SECTIONS.
+ // 27998666257). This list used to be a hand-copied literal that had to be
+ // kept in lockstep with ogPagesPlugin's `SECTIONS` table by hand; as of
+ // issue #4881 Fase 6 it is derived from `ARTICLE_SECTION_DESCRIPTORS`, the
+ // SAME shared descriptor `ogPagesPlugin.ts` reads for its own `SECTIONS`
+ // table — so this skip-set can no longer drift from it by construction.
  const ogSections: ReadonlyArray<{
  seoFiles: readonly string[];
  slugData: string;
  indexSlugs: Record<'en' | 'de' | 'fr', string>;
- }> = [
- {
- seoFiles: ['services/seo/seo-blog.ts',
- ...Array.from({ length: 9 }, (_, i) => `services/seo/seo-blog-${i + 2}.ts`)],
- slugData: 'services/routerBlogData.ts',
- indexSlugs: { en: 'cross-border-articles', de: 'grenzgaenger-artikel', fr: 'articles-frontalier' },
- },
- {
- seoFiles: ['services/seo/seo-blog-ch.ts'],
- slugData: 'services/routerSwissData.ts',
- indexSlugs: { en: 'swiss-articles', de: 'schweiz-artikel', fr: 'articles-suisse' },
- },
- ];
+ }> = ARTICLE_SECTION_DESCRIPTORS.map((sec) => ({
+ seoFiles: sec.seoFiles,
+ slugData: sec.slugData,
+ indexSlugs: { en: sec.indexSlug.en, de: sec.indexSlug.de, fr: sec.indexSlug.fr },
+ }));
  const ogPagesPaths = new Set<string>();
  let totalLocaleVariants = 0;
  for (const sec of ogSections) {
