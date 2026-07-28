@@ -327,7 +327,12 @@ jobs:
         uses: actions/cache/restore@v5
         with:
           path: ${{ runner.temp }}/shard-clone-cache
-          key: shard-clone-cache-${{ github.run_id }}-${{ github.job }}-restore
+          # Primary key mirrors the save key below EXACTLY, so a same-job
+          # re-run hits directly. The cross-JOB hit this cache exists for
+          # comes from the restore-keys prefix instead — the previous
+          # `-restore` suffix could never match any save key, leaving the
+          # primary key dead weight (post-merge review #4908).
+          key: shard-clone-cache-${{ github.run_id }}-${{ github.job }}-${{ github.run_attempt }}
           restore-keys: |
             shard-clone-cache-${{ github.run_id }}-
 
@@ -692,7 +697,12 @@ jobs:
         uses: actions/cache/restore@v5
         with:
           path: ${{ runner.temp }}/shard-clone-cache
-          key: shard-clone-cache-${{ github.run_id }}-${{ github.job }}-restore
+          # Primary key mirrors the save key below EXACTLY, so a same-job
+          # re-run hits directly. The cross-JOB hit this cache exists for
+          # comes from the restore-keys prefix instead — the previous
+          # `-restore` suffix could never match any save key, leaving the
+          # primary key dead weight (post-merge review #4908).
+          key: shard-clone-cache-${{ github.run_id }}-${{ github.job }}-${{ github.run_attempt }}
           restore-keys: |
             shard-clone-cache-${{ github.run_id }}-
 
@@ -1226,7 +1236,12 @@ jobs:
         uses: actions/cache/restore@v5
         with:
           path: ${{ runner.temp }}/shard-clone-cache
-          key: shard-clone-cache-${{ github.run_id }}-${{ github.job }}-restore
+          # Primary key mirrors the save key below EXACTLY, so a same-job
+          # re-run hits directly. The cross-JOB hit this cache exists for
+          # comes from the restore-keys prefix instead — the previous
+          # `-restore` suffix could never match any save key, leaving the
+          # primary key dead weight (post-merge review #4908).
+          key: shard-clone-cache-${{ github.run_id }}-${{ github.job }}-${{ github.run_attempt }}
           restore-keys: |
             shard-clone-cache-${{ github.run_id }}-
 
