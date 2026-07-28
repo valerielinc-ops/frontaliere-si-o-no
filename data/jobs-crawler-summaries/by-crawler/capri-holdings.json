@@ -1,18 +1,19 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-07-27T22:07:37.801Z",
+  "generatedAt": "2026-07-28T11:26:23.859Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 7,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 20258,
-  "avgDurationMs": 20258,
+  "durationMs": 26029,
+  "avgDurationMs": 26029,
   "durationHistory": [
-    20258
+    26029
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Senior-General-Ledger-Accountant_R_785638",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Senior-General-Ledger-Accountant_R_785638",
@@ -40,18 +41,18 @@
         "canton": "TI",
         "location": "Manno"
       },
-      "crawledAt": "",
+      "id": "capri-holdings-c2a82205abea",
       "needsRetranslation": true,
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-07-27T22:07:37.799Z",
+      "crawledAt": "",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 10,
+        "translation": 25,
         "completeness": 15
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Geneva/fix-term-Sales-Associate--Geneva---Part-Time_R_785478",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Geneva/fix-term-Sales-Associate--Geneva---Part-Time_R_785478",
