@@ -56,10 +56,56 @@ runs:
       shell: bash
       run: echo "OMNIROUTE_FALLBACK_GATE=${ENABLE_OMNIROUTE_FALLBACK:-1}" >> "$GITHUB_ENV"
 
+    # Resolves npm's real download/content-cache directory (documented
+    # default ~/.npm, but read from npm's own config here instead of
+    # assuming — npm config `cache` is user-overridable in .npmrc) so the
+    # cache step below points at the directory that actually makes
+    # `npm install -g` fast, not a guessed path.
+    - name: Resolve npm cache dir
+      if: env.OMNIROUTE_FALLBACK_GATE != '0'
+      shell: bash
+      run: echo "OMNIROUTE_NPM_CACHE_DIR=$(npm config get cache)" >> "$GITHUB_ENV"
+
+    # Caches npm's download/content cache (tarballs + registry packuments),
+    # NOT the global install target (`npm root -g`): that path lives under
+    # Node's per-version hostedtoolcache directory, which would make this
+    # cache silently stop paying off (never break, just go cold) the moment
+    # any caller's node-version input changes — ~/.npm has no such
+    # dependency, it's keyed only to $HOME, so this is the simpler, more
+    # robust option of the two considered (see Install OmniRoute step below
+    # for the rest of the rationale).
+    - name: Cache OmniRoute npm download cache
+      if: env.OMNIROUTE_FALLBACK_GATE != '0'
+      uses: actions/cache@v5
+      with:
+        path: ${{ env.OMNIROUTE_NPM_CACHE_DIR }}
+        key: omniroute-npm-cache-3.8.48-${{ runner.os }}
+
+    # Version pinned to 3.8.48 — the version the previously-unpinned
+    # `npm install -g omniroute` already resolves to today (verified live:
+    # `npm view omniroute version` / registry dist-tags.latest = 3.8.48, and
+    # independently confirmed in the "Setup OmniRoute" step log of run
+    # 30286278791 — `marked@"^18.0.4" from omniroute@3.8.48`). This is a
+    # stability pin, not an upgrade or downgrade: without it, "latest"
+    # moving to a new release would both silently change the installed CLI
+    # AND perpetually invalidate the cache key above (a moving key never
+    # gets a warm hit). NOTE: an earlier draft of this task cited "16.2.10"
+    # as the running version, sourced from a GitHub Actions "orphan process"
+    # cleanup line ("Terminate orphan process: ... omniroute (v16.2.10)")
+    # in that same run's log — that string is the omniroute *binary's own*
+    # internal version banner, not the npm package version; 16.2.10 does not
+    # exist as a published npm version of this package (confirmed against
+    # the live registry) and pinning to it would hard-fail every install.
+    # 3.8.48 is the correct, verified pin. --prefer-offline lets npm satisfy
+    # the install from the cache above when warm, falling back to the
+    # normal network install on any miss (first run, cache eviction, a
+    # future version bump) — never a hard failure mode. --no-audit
+    # --no-fund drop two more registry round-trips npm makes by default that
+    # have no bearing on what gets installed.
     - name: Install OmniRoute
       if: env.OMNIROUTE_FALLBACK_GATE != '0'
       shell: bash
-      run: OMNIROUTE_SKIP_POSTINSTALL=1 npm install -g omniroute
+      run: OMNIROUTE_SKIP_POSTINSTALL=1 npm install -g omniroute@3.8.48 --prefer-offline --no-audit --no-fund
 
     - name: Start OmniRoute server
       if: env.OMNIROUTE_FALLBACK_GATE != '0'

@@ -173,6 +173,31 @@ jobs:
           set -e
           if ! command -v ollama >/dev/null 2>&1; then
             curl -fsSL https://ollama.com/install.sh | sh
+            # install.sh auto-detects systemd (present on GH-hosted full-VM
+            # ubuntu runners) and starts its OWN "ollama.service" — as a
+            # dedicated system user whose home is NOT $HOME — before this
+            # script continues. That auto-started server then races the
+            # manual "nohup ollama serve" below for port 11434; whichever
+            # wins the bind decides where `ollama pull` below writes the
+            # model. Root cause of "Cache local LLM model" above almost
+            # never producing a cache: when systemd's instance wins the
+            # race, the ~9GB model lands outside $HOME, so the cache step's
+            # `path: ~/.ollama/models` finds nothing to save at job end
+            # ("Path Validation Error: ... do(es) not exist", e.g. run
+            # 30375068235, step "Post Cache local LLM model", 2026-07-28
+            # 16:10:56Z). It is a race, not a hard failure, which is why
+            # `gh cache list` showed zero ollama-* entries historically but
+            # one DID appear from run 30381046429 (2026-07-28 17:41:50Z) —
+            # confirming both outcomes are live and it's timing, not a
+            # structural impossibility. Stopping the auto-started service
+            # here removes the race entirely: our own serve call below,
+            # running as this job's user, is then the only process that can
+            # bind 11434, so the model always lands under $HOME as the
+            # cache step already expects. No effect on the model itself or
+            # on generation output — same `ollama serve` binary, same
+            # model, just guaranteed to be the one process actually
+            # listening.
+            sudo systemctl stop ollama.service 2>/dev/null || true
           fi
           # Start the server in the background and wait for it to answer.
           # OLLAMA_KEEP_ALIVE keeps the model resident between cascade calls so
