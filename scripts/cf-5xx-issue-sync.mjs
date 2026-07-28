@@ -15,6 +15,13 @@
  *
  * Report-only source: a CF API failure logs and exits 0 rather than failing
  * the workflow — this is a backlog feeder, not a gate.
+ *
+ * Low-traffic-URL isolated 5xx blips correlated with deploy-run churn are a
+ * KNOWN, now-mitigated class (9 issues #3446→#4834, root-caused + fixed
+ * 2026-07-28 by enabling the zone's `always_online` setting — see
+ * docs/AGENTS-HISTORY.md#cloudflare-5xx-deploy-churn). Don't re-diagnose a
+ * new occurrence as the same unfixable noise — check `always_online` is
+ * still `on` first; a recurrence with it on is a genuinely new signal.
  */
 import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
