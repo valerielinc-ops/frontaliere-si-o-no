@@ -239,8 +239,10 @@ export async function persistMailerooEvent(db, event) {
   }
 
   if (type === 'open') {
-    const variant = await lookupSentVariant(subscriberRef, campaignId, email);
-    await captureEmailEvent(EMAIL_EXPERIMENT_EVENTS.OPENED, { email, provider: 'maileroo', campaignId, variant });
+    const { variant, isOperatorVerification } = await lookupSentVariant(subscriberRef, campaignId, email);
+    if (!isOperatorVerification) {
+      await captureEmailEvent(EMAIL_EXPERIMENT_EVENTS.OPENED, { email, provider: 'maileroo', campaignId, variant });
+    }
   }
   return { processed: true, type, email, campaignId };
 }
