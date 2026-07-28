@@ -1080,6 +1080,20 @@ const _exhaustReason = new Map();
 // line every time the fallback chain ticks past it.
 const _exhaustedLogged = new Set();
 
+// Same flood-avoidance discipline as _exhaustedLogged above, for the OTHER
+// pre-flight skip filters in callLLM's main loop (provider cooldown, missing
+// API key, max-output-token cap) — those used to be silent (errors.push only,
+// no console.warn), so a whole last-resort tier could vanish from a run's
+// output with zero trace unless the entire chain failed. Keyed `${model}:${cause}`
+// so distinct causes for the same model each still get their one log line.
+const _preflightSkipLogged = new Set();
+function _logPreflightSkipOnce(model, cause, message) {
+  const key = `${model}:${cause}`;
+  if (_preflightSkipLogged.has(key)) return;
+  _preflightSkipLogged.add(key);
+  console.warn(`⏭️  [${model}] Skipped — ${message}`);
+}
+
 // FRO-325: Track consecutive 429s per model — exhaust after 2
 /** @type {Map<string, number>} model → consecutive 429 count */
 const _consecutive429 = new Map();
@@ -1115,6 +1129,17 @@ function cooldownProvider(provider) {
   console.warn(`🧊 Provider ${provider} cooled down for ${PROVIDER_COOLDOWN_MS / 1000}s (rate-limited)`);
 }
 
+// Fresh last-resort-tier stats bucket. Factory (not an inline literal reused
+// two places) keeps the initial shape and resetState()'s reset in sync — one
+// source of truth, no drift between the two (AGENTS.md #6).
+function _freshLastResortStats() {
+  return {
+    local: { served: 0, failed: 0, skipped: 0, skipReasons: {} },
+    omniroute: { served: 0, failed: 0, skipped: 0, skipReasons: {} },
+    'claude-cli': { served: 0, failed: 0, skipped: 0, skipReasons: {} },
+  };
+}
+
 const _stats = {
   calls: 0,
   successes: 0,
@@ -1124,6 +1149,17 @@ const _stats = {
   providerCooldowns: 0,
   cacheHits: 0,
   errors: [],
+  // Visibility into the 3 opt-in last-resort tiers (local/, omniroute/,
+  // claude-cli/): calls served, calls attempted-but-failed, calls skipped
+  // pre-flight with aggregated cause. See printRunSummary()'s compact
+  // "last-resort: ..." line and _recordLastResortSkip/_recordLastResortOutcome
+  // below. Added after run 30333856358 (2026-07-28) went 11× claude-cli
+  // timeout with omniroute/auto never even attempted and zero trace of why —
+  // root cause there turned out to be a chain-membership gap (fixed in PR
+  // #4836, unrelated to this file), but the run had NO signal to distinguish
+  // that from a skip-logic bug. These counters make that distinction visible
+  // without needing to grep raw logs / gh run download next time.
+  lastResort: _freshLastResortStats(),
 };
 
 // ── In-process response cache (opt-in via opts.cache === true) ────
@@ -2049,6 +2085,33 @@ function _lastResortTier(model) {
   return 0;
 }
 
+// Maps _lastResortTier's numeric tier to the _stats.lastResort bucket key.
+// Reuses _lastResortTier's prefix-matching instead of re-testing
+// model.startsWith('claude-cli/'|'omniroute/'|'local/') here — one source of
+// truth for "what counts as last-resort" (AGENTS.md #6).
+const LAST_RESORT_TIER_NAMES = { 1: 'local', 2: 'omniroute', 3: 'claude-cli' };
+function _lastResortTierName(model) {
+  return LAST_RESORT_TIER_NAMES[_lastResortTier(model)] || null;
+}
+
+// Bump the skip counter + aggregated cause for a last-resort model's bucket.
+// No-op for non-last-resort models (normal chain is ~180 models deep; we only
+// want tier-level visibility for the 3 opt-in tiers, not every skip ever).
+function _recordLastResortSkip(model, cause) {
+  const tier = _lastResortTierName(model);
+  if (!tier) return;
+  const bucket = _stats.lastResort[tier];
+  bucket.skipped++;
+  bucket.skipReasons[cause] = (bucket.skipReasons[cause] || 0) + 1;
+}
+
+// Bump served (success) / failed (attempted, threw) for a last-resort model's
+// bucket. No-op for non-last-resort models.
+function _recordLastResortOutcome(model, outcome) {
+  const tier = _lastResortTierName(model);
+  if (tier) _stats.lastResort[tier][outcome]++;
+}
+
 function sortChainByScore(chain) {
   // Build index map for tiebreaker (lower index = better in original order)
   const indexMap = new Map(chain.map((m, i) => [m, i]));
@@ -2169,6 +2232,22 @@ export function getStats() {
   };
 }
 
+// Formats one last-resort tier's bucket for printRunSummary()'s compact
+// line, e.g. "local 0 served/0 failed/3 skipped(no API key)". Omits the
+// "skipped(...)" segment when nothing was skipped — keeps the common
+// "reached and worked/failed normally" case from being cluttered.
+function _formatLastResortTier(name, t) {
+  const parts = [`${t.served} served`, `${t.failed} failed`];
+  if (t.skipped > 0) {
+    const reasons = Object.entries(t.skipReasons)
+      .sort((a, b) => b[1] - a[1])
+      .map(([reason]) => reason)
+      .join(', ');
+    parts.push(`${t.skipped} skipped(${reasons})`);
+  }
+  return `${name} ${parts.join('/')}`;
+}
+
 /**
  * FRO-325: Print a human-readable end-of-run summary to console.
  * Call this at the end of a crawler run for visibility into AI usage.
@@ -2184,6 +2263,12 @@ export function printRunSummary() {
   if (Object.keys(s.consecutive429s).length > 0) {
     lines.push(`   429 streak: ${Object.entries(s.consecutive429s).map(([m, c]) => `${m}=${c}`).join(', ')}`);
   }
+  const lr = s.lastResort;
+  const lrTiers = ['local', 'omniroute', 'claude-cli'];
+  const lrReached = lrTiers.some((t) => lr[t].served + lr[t].failed + lr[t].skipped > 0);
+  lines.push(lrReached
+    ? `   last-resort: ${lrTiers.map((t) => _formatLastResortTier(t, lr[t])).join(' · ')}`
+    : `   last-resort: local/omniroute/claude-cli not reached this run`);
   if (s.errors.length > 0) {
     lines.push(`   Errors: ${s.errors.length}`);
   }
@@ -2196,6 +2281,7 @@ export function resetState() {
   _ghExhaustedPats.clear();
   _exhaustReason.clear();
   _exhaustedLogged.clear();
+  _preflightSkipLogged.clear();
   _providerCooldown.clear();
   _modelScores.clear();
   _modelDetails.clear();
@@ -2213,6 +2299,7 @@ export function resetState() {
   _stats.exhausted = 0;
   _stats.cacheHits = 0;
   _stats.errors = [];
+  _stats.lastResort = _freshLastResortStats();
   _responseCache.clear();
   _claudeCliBinaryMissing = false;
   _claudeCliConsecutiveTimeouts = 0;
@@ -3739,32 +3826,44 @@ export async function callLLM(messages, opts = {}) {
       // a single-model chain whose only model is exhausted, as in the smoke
       // test). Without this the harness surfaces a blank cause — undiagnosable.
       errors.push(`${model}: skipped — exhausted (daily limit / consecutive 429s / timeout circuit-breaker)`);
+      _recordLastResortSkip(model, 'exhausted (daily limit)');
       continue;
     }
 
-    // Skip models whose provider is cooling down (recent 429)
+    // Skip models whose provider is cooling down (recent 429). Was silent
+    // (errors.push only) until run 30333856358's investigation — a whole
+    // last-resort tier stuck in cooldown left zero trace unless the entire
+    // chain also failed. Logged once per model+cause (see _logPreflightSkipOnce).
     const provider = getProvider(model);
     if (isProviderCoolingDown(provider)) {
+      _logPreflightSkipOnce(model, 'cooldown', `provider ${provider} cooling down (rate-limited)`);
       errors.push(`${model}: skipped — provider ${provider} cooling down (recent 429)`);
+      _recordLastResortSkip(model, 'provider cooling down');
       continue;
     }
 
     // Skip models without API keys. Distinguish the two reasons isModelAvailable
     // returns false (missing key vs already-exhausted) so the output is actionable.
+    // Also was silent pre-flight — see cooldown comment above.
     if (!isModelAvailable(model)) {
       const reason = getApiKeyForProvider(provider)
         ? 'exhausted'
         : `no API key for provider ${provider}`;
+      _logPreflightSkipOnce(model, 'availability', reason);
       errors.push(`${model}: skipped — ${reason}`);
+      _recordLastResortSkip(model, reason);
       continue;
     }
 
     // Skip models whose max output token limit is below the requested maxTokens.
     // This avoids wasting API calls that will fail with "max tokens must be less than" errors.
+    // Also was silent pre-flight — see cooldown comment above.
     const apiModelId = getApiModelId(model);
     const modelLimit = MODEL_MAX_OUTPUT_TOKENS[apiModelId];
     if (modelLimit && o.maxTokens > modelLimit) {
+      _logPreflightSkipOnce(model, 'maxOutput', `model max output ${modelLimit} < requested maxTokens ${o.maxTokens}`);
       errors.push(`${model}: skipped — model max output ${modelLimit} < requested maxTokens ${o.maxTokens}`);
+      _recordLastResortSkip(model, 'max output token limit');
       continue;
     }
 
@@ -3789,6 +3888,7 @@ export async function callLLM(messages, opts = {}) {
         // One-line log per skip so ops can see the cascade in the workflow output
         console.warn(`⏭️  [${model}] Skipped — request would exceed ${reqLimit}-token limit (estimated ${estTokens})`);
         errors.push(`${model}: skipped — request ~${estTokens} tokens exceeds ${reqLimit}-token input cap`);
+        _recordLastResortSkip(model, 'request token limit');
         continue;
       }
     }
@@ -3804,6 +3904,7 @@ export async function callLLM(messages, opts = {}) {
       // ✅ Success — boost this model's score so it stays near the top
       recordModelSuccess(model);
       _consecutive429.delete(model); // FRO-325: reset 429 counter on success
+      _recordLastResortOutcome(model, 'served');
       if (provider === PROVIDER.CLAUDE_CLI) _claudeCliConsecutiveTimeouts = 0;
 
       if (i > 0) {
@@ -3836,6 +3937,7 @@ export async function callLLM(messages, opts = {}) {
     } catch (e) {
       const msg = e?.message || String(e);
       errors.push(`${model}: ${msg.slice(0, 200)}`);
+      _recordLastResortOutcome(model, 'failed');
 
       // claude CLI binary missing (spawn ENOENT — install step failed/was
       // skipped). Unlike quota/timeout exhaustion this can't self-heal mid-run
