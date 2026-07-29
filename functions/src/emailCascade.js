@@ -102,8 +102,9 @@ const PROVIDERS = [
   // delivers nothing — so every send through it was silently lost while being
   // counted as a success. Worse, Mailtrap then posts a `suspension` webhook per
   // message, which mapMailtrapEvent() used to translate into a per-SUBSCRIBER
-  // suppression (see newsletterMailtrapWebhookCore.js): 1730 subscribers, 23% of
-  // the base, were burned that way without a single real bounce or complaint.
+  // suppression (see newsletterMailtrapWebhookCore.js): over 1700 subscribers,
+  // more than a fifth of the base, were burned that way without a single real
+  // bounce or complaint.
   // Restore this entry only once Mailtrap's stream is verified sending again
   // AND a live test send is confirmed received.
   //
@@ -391,6 +392,12 @@ const MAILTRAP_CYCLE_FALLBACK_DAILY = 150;
  */
 async function computeMailtrapDynamicDailyLimit(nowMs = Date.now()) {
   const provider = PROVIDERS.find(p => p.id === 'mailtrap');
+  // mailtrap is no longer in PROVIDERS (see the commented-out entry). Nothing
+  // calls this today, but it is still exported, and dereferencing the missing
+  // provider below is exactly the throw that would have failed every send when
+  // it was still wired into syncQuotasFromAPIs. Guard rather than leave the
+  // same landmine for whoever re-enables the provider.
+  if (!provider) return MAILTRAP_CYCLE_FALLBACK_DAILY;
   const { count, apiLimit, cycleStart, cycleEnd, verified } = await fetchMailtrapCycleUsage();
   if (!verified) {
     console.warn(`⚠️  [mailtrap] billing-cycle usage unverifiable — falling back to conservative ${MAILTRAP_CYCLE_FALLBACK_DAILY}/day floor`);

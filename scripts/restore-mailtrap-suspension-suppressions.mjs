@@ -12,6 +12,14 @@
  * subscribers caused this way, none by a real bounce or complaint, some
  * suppressed seconds after a recorded delivery and open.
  *
+ * The restored STATUS is not assumed. A subscriber suppressed while still
+ * `pending` (signed up but never clicked the double opt-in link) must NOT come
+ * back as `confirmed` — that would fabricate a consent they never gave, a worse
+ * state than the bug being repaired. So the script restores `confirmed` only
+ * with positive evidence of consent (a `confirmed_at` stamp, a `confirm` /
+ * `subscribe_completed` event, or an origin that is auto-confirmed by design
+ * such as a job-unlock gate or a social sign-in), and `pending` otherwise.
+ *
  * This restores ONLY the ones whose suppression is attributable purely to that
  * mis-mapping. A subscriber is restored when:
  *   - status === 'suppressed', AND
@@ -46,6 +54,25 @@ const db = admin.firestore();
 /** Causes that are genuinely about the recipient and must stay suppressed. */
 const REAL_RECIPIENT_FAILURES = new Set(['bounce', 'soft_bounce', 'reject', 'spam_complaint', 'hard_bounce']);
 
+/**
+ * Origins that confirm at signup by design (the user performed an explicit act
+ * — unlocking a job, signing in with a provider — so no double opt-in is sent).
+ * Mirrors CONFIRMED_NEWSLETTER_SOURCES in services/newsletterSubscribers.ts.
+ */
+const AUTO_CONFIRMED_ORIGIN_RE = /^(signup|auth_|chatbot_|job_|tax_calendar_(google|facebook)|resubscribe_link|newsletter_email_link|one_tap|publisher_gate)/i;
+
+function hasConsentEvidence(data, events) {
+  if (data?.confirmed_at || data?.confirmedAt) return true;
+  for (const e of events) {
+    const t = String(e.event_type || '');
+    if (t === 'confirm' || t === 'subscribe_completed') return true;
+  }
+  for (const field of [data?.source_cta, data?.source, data?.source_channel]) {
+    if (field && AUTO_CONFIRMED_ORIGIN_RE.test(String(field))) return true;
+  }
+  return false;
+}
+
 function classify(events) {
   let sawSuspension = false;
   let sawRealFailure = false;
@@ -68,6 +95,8 @@ async function main() {
   console.log(`   status=suppressed: ${snap.size}`);
 
   const restore = [];
+  let restoredConfirmed = 0;
+  let restoredPending = 0;
   const keep = { realFailure: 0, unsubscribed: 0, noSuspensionEvidence: 0 };
 
   for (const doc of snap.docs) {
@@ -80,10 +109,12 @@ async function main() {
     if (data.unsubscribed_at || sawUnsubscribe) { keep.unsubscribed++; continue; }
     if (sawRealFailure) { keep.realFailure++; continue; }
     if (!sawSuspension) { keep.noSuspensionEvidence++; continue; }
-    restore.push(doc.ref);
+    const confirmed = hasConsentEvidence(data, events);
+    if (confirmed) restoredConfirmed++; else restoredPending++;
+    restore.push({ ref: doc.ref, confirmed });
   }
 
-  console.log(`   da ripristinare: ${restore.length}`);
+  console.log(`   da ripristinare: ${restore.length} (a 'confirmed' con prova di consenso: ${restoredConfirmed}, a 'pending' senza prova: ${restoredPending})`);
   console.log(`   lasciati soppressi: bounce/complaint reali=${keep.realFailure}, disiscritti=${keep.unsubscribed}, senza prova di suspension=${keep.noSuspensionEvidence}`);
 
   const targets = LIMIT ? restore.slice(0, LIMIT) : restore;
@@ -96,11 +127,11 @@ async function main() {
   const CHUNK = 400;
   for (let i = 0; i < targets.length; i += CHUNK) {
     const batch = db.batch();
-    for (const ref of targets.slice(i, i + CHUNK)) {
+    for (const { ref, confirmed } of targets.slice(i, i + CHUNK)) {
       batch.set(ref, {
-        status: 'confirmed',
-        isActive: true,
-        active: true,
+        status: confirmed ? 'confirmed' : 'pending',
+        isActive: confirmed,
+        active: confirmed,
         suppressed_at: admin.firestore.FieldValue.delete(),
         restored_at: admin.firestore.FieldValue.serverTimestamp(),
         restored_reason: 'mailtrap_suspension_mismapped',

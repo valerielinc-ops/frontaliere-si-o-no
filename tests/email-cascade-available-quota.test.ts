@@ -154,7 +154,7 @@ describe('PROVIDERS invariant', () => {
   // suspended, so it accepted every message, returned a message_id, and
   // delivered nothing — while its per-message `suspension` webhook was being
   // mis-mapped into a per-subscriber suppression that dropped 1676 real
-  // subscribers (22% of the base) from the newsletter. This test is the
+  // subscribers, more than a fifth of the base, from the newsletter. This test is the
   // guard against silently re-adding a provider that swallows mail; the
   // fetchMailtrap*/computeMailtrapDynamicDailyLimit helpers stay exported
   // and tested (see tests/email-cascade-burst.test.ts) since restoring the

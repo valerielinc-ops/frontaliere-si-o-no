@@ -162,7 +162,7 @@ describe('newsletterMailtrapWebhookCore — job alert bounce handling', () => {
 
 // This suite used to assert the opposite — that a `suspension` stamps
 // status=suppressed on the subscriber. That expectation encoded a defect, and
-// production proved it: 1730 subscribers (23% of the base) ended up suppressed
+// production proved it: over 1700 subscribers, more than a fifth of the base, ended up suppressed
 // and a 400-doc sample found 400 of them caused by a `suspension` event, none
 // by a real bounce or complaint. Some were suppressed seconds after a delivery
 // and an open. `suspension` is account/stream-level — Mailtrap saying it

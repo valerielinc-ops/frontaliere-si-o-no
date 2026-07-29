@@ -37,7 +37,7 @@ function mapMailtrapEvent(event) {
  // Mailtrap stopped sending, not that this recipient is undeliverable. Its
  // payload carries no bounce_category, no response and no response_code,
  // precisely because there was no recipient-side failure to report. Mapping
- // it to 'suppressed' burned 1730 subscribers (23% of the base) who had
+ // it to 'suppressed' burned over 1700 subscribers, more than a fifth of the base, who had
  // never bounced or complained, including ones with opens and deliveries
  // minutes earlier. Left unmapped on purpose, which makes handleMailtrapWebhook
  // return { skipped: true } without recording anything — acceptable because
