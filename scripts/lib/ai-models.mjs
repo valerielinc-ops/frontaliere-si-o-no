@@ -761,6 +761,21 @@ let _claudeCliConsecutiveTimeouts = 0;
 let _claudeCliTimeoutStormDetected = false;
 const CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD = 8;
 
+// Same in-run, never-persisted breaker shape as _claudeCliTimeoutStormDetected
+// above, omniroute/auto. _isLastResortProvider() exempts OmniRoute from
+// markModelExhausted on EVERY failure class (timeout, 429, nonretryable) — no
+// daily-quota concept a local gateway. Consequence measured live, run
+// 30427526187 (send-newsletter, 2026-07-29): 97 attempts, 0 successes, 74 of
+// them 30s timeouts + HTTP 400 "Invalid model name passed in
+// model=claude-fable-5" (gateway's own auto-routing picked a model its key
+// can't serve). Nothing ever stopped retrying it: ~37min of a 50min job
+// burned, score sank -3921. One failure IS worth retrying (gateway
+// re-routes internally next call); N back-to-back is the gateway itself
+// unusable this run, so stop paying the timeout. Reset on any success.
+let _omniRouteConsecutiveFailures = 0;
+let _omniRouteFailureStormDetected = false;
+const OMNIROUTE_FAILURE_STORM_THRESHOLD = 5;
+
 // Dedicated in-process concurrency cap for claude-cli subprocesses — separate
 // from any caller's own concurrency (e.g. send-newsletter.mjs's
 // AI_CONCURRENCY=5 pMap, which this file never sees or gates). T2 diagnosis
@@ -980,7 +995,7 @@ function getApiKeyForProvider(provider) {
     // OmniRoute needs no real key from us either; gate purely on the opt-in
     // flag, same sentinel pattern as Local. '' when disabled → every
     // omniroute/* model is skipped.
-    case PROVIDER.OMNIROUTE:   return isOmniRouteEnabled() ? getOmniRouteApiKey() : '';
+    case PROVIDER.OMNIROUTE:   return (!_omniRouteFailureStormDetected && isOmniRouteEnabled()) ? getOmniRouteApiKey() : '';
     default: return '';
   }
 }
@@ -2510,6 +2525,8 @@ export function resetState() {
   _claudeCliBinaryMissing = false;
   _claudeCliConsecutiveTimeouts = 0;
   _claudeCliTimeoutStormDetected = false;
+  _omniRouteConsecutiveFailures = 0;
+  _omniRouteFailureStormDetected = false;
   _claudeCliInFlight = 0;
   _claudeCliWaiters.length = 0;
 }
@@ -4173,6 +4190,7 @@ export async function callLLM(messages, opts = {}) {
       _consecutive429.delete(model); // FRO-325: reset 429 counter on success
       _recordLastResortOutcome(model, 'served');
       if (provider === PROVIDER.CLAUDE_CLI) _claudeCliConsecutiveTimeouts = 0;
+      if (provider === PROVIDER.OMNIROUTE) _omniRouteConsecutiveFailures = 0;
 
       if (i > 0) {
         console.warn(`✅ Fallback to ${model} succeeded (score → ${_modelScores.get(model) || 0})`);
@@ -4265,6 +4283,18 @@ export async function callLLM(messages, opts = {}) {
         if (_claudeCliConsecutiveTimeouts >= CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD) {
           _claudeCliTimeoutStormDetected = true;
           console.warn(`🚫 [${model}] ${_claudeCliConsecutiveTimeouts} consecutive timeouts — disabling claude-cli fallback for the rest of this run`);
+        }
+      }
+      // OmniRoute's own failure-storm breaker (see
+      // _omniRouteFailureStormDetected declaration). Counts EVERY failure
+      // class, not just timeouts: run 30427526187 alternated 30s timeouts
+      // with instant HTTP 400s, so a timeout-only counter would have been
+      // reset by each 400 and never tripped.
+      if (provider === PROVIDER.OMNIROUTE) {
+        _omniRouteConsecutiveFailures++;
+        if (_omniRouteConsecutiveFailures >= OMNIROUTE_FAILURE_STORM_THRESHOLD) {
+          _omniRouteFailureStormDetected = true;
+          console.warn(`🚫 [${model}] ${_omniRouteConsecutiveFailures} consecutive failures — disabling OmniRoute for the rest of this run`);
         }
       }
       recordModelFailure(model, {
