@@ -1,16 +1,16 @@
 {
   "key": "croix-rouge-fribourgeoise",
   "label": "Croix-Rouge fribourgeoise",
-  "generatedAt": "2026-07-29T11:49:10.727Z",
+  "generatedAt": "2026-07-29T22:17:11.554Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3620,
-  "avgDurationMs": 3620,
+  "durationMs": 3204,
+  "avgDurationMs": 3204,
   "durationHistory": [
-    3620
+    3204
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://company.jobcloud.ch/fr/jobs/502b52ba-d781-416d-a177-27ac2a10c989",
       "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-29T11:49:07.685Z",
+      "crawledAt": "2026-07-29T22:17:08.738Z",
       "hiringOrganization": {
         "name": "Croix-Rouge fribourgeoise"
       },
@@ -101,7 +101,7 @@
       "firstSeenAt": "2026-07-04T10:49:18.819Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
