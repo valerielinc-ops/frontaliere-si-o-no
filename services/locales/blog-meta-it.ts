@@ -9074,6 +9074,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.non-c-e-assolutamente-nessun-errore-sistemico.title': 'Non c\'è assolutamente nessun errore sistemico',
     'blog.article.non-c-e-assolutamente-nessun-errore-sistemico.excerpt': 'Il Ticinonline smentisce le voci su errori sistemici nel trattamento dei frontalieri.',
     'blog.article.non-c-e-assolutamente-nessun-errore-sistemico.imageAlt': 'Frontaliere in attesa ai valichi in Ticino',
+    'blog.article.lugano-lavori-di-asfaltatura.title': 'Lugano, lavori di asfaltatura: giovedì cantiere in via Alla Bozzoreda',
+    'blog.article.lugano-lavori-di-asfaltatura.excerpt': 'I lavori di asfaltatura in via Alla Bozzoreda a Lugano saranno contenuti ad un solo ciclo in fascia serale notturna tra le ore 20.00 di giovedì 30 luglio e le ore 5.00 di venerdì 31 luglio.',
+    'blog.article.lugano-lavori-di-asfaltatura.imageAlt': 'Lavori di asfaltatura in corso a Lugano',
 };
 
 export default blogMetaIt;

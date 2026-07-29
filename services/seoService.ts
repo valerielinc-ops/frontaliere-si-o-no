@@ -4975,6 +4975,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-trasferirsi-maccagno-frontaliere-pro-contro': { name: 'Maccagno Frontalieri', path: '/articoli-frontaliere/trasferirsi-maccagno-frontaliere-pro-contro', parent: 'blog' },
     'blog-caldo-estremo-cantieri-ssic': { name: 'Caldo nei cantieri', path: '/articoli-svizzera/caldo-estremo-cantieri-ssic/', parent: 'blog' },
     'blog-non-c-e-assolutamente-nessun-errore-sistemico': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/non-c-e-assolutamente-nessun-errore-sistemico', parent: 'blog' },
+    'blog-lugano-lavori-di-asfaltatura': { name: 'Lavori di asfaltatura in via Alla', path: '/articoli-frontaliere/lugano-lavori-di-asfaltatura', parent: 'blog' },
  };
 
  const info = sectionNames[section];
