@@ -12,6 +12,11 @@
  * error/expired/unknown connections; default skips them since CI has no use
  * for keys already known-dead).
  *
+ * Free-tier providers ONLY (2026-07-29): the payload is filtered through
+ * OMNIROUTE_FREE_PROVIDERS (scripts/lib/omniroute-free-providers.mjs, shared
+ * with the CI registrar), so paid-account keys never reach Remote Config in
+ * the first place. Pass --include-paid to publish everything anyway.
+ *
  * OAuth-type connections (github, antigravity, kilocode) are session/device
  * bound — no portable credential to sync, always excluded.
  *
@@ -24,6 +29,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { DatabaseSync } from 'node:sqlite';
 import { getRemoteConfig, fetchRcTemplate, stageRcParam, publishRcTemplate } from './lib/remote-config-admin.mjs';
+import { resolveOmniRouteAllowlist } from './lib/omniroute-free-providers.mjs';
 
 const DB_PATH = process.env.OMNIROUTE_DB_PATH || path.join(os.homedir(), '.omniroute', 'storage.sqlite');
 const STORAGE_KEY = process.env.STORAGE_ENCRYPTION_KEY;
@@ -62,15 +68,42 @@ const rows = db.prepare(
 ).all();
 db.close();
 
+// Same free-only allowlist the CI registrar applies, from the shared module so
+// the two cannot drift (AGENTS.md #6). Filtering here as well is not
+// redundant: it keeps paid-account API keys OUT of Remote Config entirely
+// rather than publishing them and declining to use them downstream — smaller
+// blast radius if the RC value ever leaks. Pass --include-paid to publish the
+// full set anyway (the registrar still filters unless overridden there too).
+const INCLUDE_PAID = process.argv.includes('--include-paid');
+// Honours OMNIROUTE_PROVIDER_ALLOWLIST exactly like the CI registrar does:
+// hardcoding `undefined` here would mean the same env var widened the
+// downstream gate while leaving this one on the built-in list, so the two
+// halves of one control would disagree.
+const { allowlist, filteringOff, malformed } = resolveOmniRouteAllowlist(process.env.OMNIROUTE_PROVIDER_ALLOWLIST);
+if (malformed) {
+  console.warn(`⚠️  OMNIROUTE_PROVIDER_ALLOWLIST="${process.env.OMNIROUTE_PROVIDER_ALLOWLIST}" has separators but no provider names — treating as misconfigured, keeping the built-in free list (use "" to disable filtering).`);
+}
+
 const payload = [];
+const excludedPaid = [];
 let failed = 0;
 for (const row of rows) {
+  // `filteringOff` must be honoured here too, not just `allowlist`: with the
+  // override set to "" the allowlist is EMPTY, so testing membership alone
+  // would exclude every connection and abort with "Nothing to publish" —
+  // precisely when the operator asked to publish everything.
+  if (!INCLUDE_PAID && !filteringOff && !allowlist.has(row.provider)) { excludedPaid.push(row.provider); continue; }
   const apiKey = decryptApiKey(row.api_key);
   if (!apiKey) { failed++; continue; }
   payload.push({ provider: row.provider, name: row.name || row.provider, apiKey });
 }
 
 if (failed > 0) console.warn(`⚠️  ${failed} connection(s) failed to decrypt — skipped.`);
+if (excludedPaid.length) {
+  console.log(`🆓 Free-only: excluded ${excludedPaid.length} non-allowlisted connection(s) — ${[...new Set(excludedPaid)].sort().join(', ')}`);
+} else if (INCLUDE_PAID) {
+  console.warn('⚠️  --include-paid: publishing EVERY connection, paid accounts included.');
+}
 if (payload.length === 0) {
   console.error('❌ Nothing to publish (0 decryptable apikey connections matched the filter).');
   process.exit(1);
