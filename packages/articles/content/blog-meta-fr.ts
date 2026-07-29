@@ -9099,6 +9099,9 @@ const blogMetaFr: Record<string, string> = {
  'blog.article.iniziativa-salari-ticino.title': 'Vote crucial au Tessin : l\'initiative anti-dumping salarial',
  'blog.article.iniziativa-salari-ticino.excerpt': 'Le Tessin, le canton aux salaires les plus bas, se prépare à voter sur une initiative visant à augmenter les salaires. Une analyse des conséquences pour les navetteurs transfrontaliers.',
  'blog.article.iniziativa-salari-ticino.imageAlt': 'Vue d\'une rue animée à Lugano, avec des gens qui marchent, symbolisant le dynamisme du marché du travail tessin.',
+    'blog.article.integrazione-ubs-credit-suisse-risultati.title': 'UBS et Credit Suisse : les résultats de l\'intégration',
+    'blog.article.integrazione-ubs-credit-suisse-risultati.excerpt': 'Trois ans après l\'annonce, le PDG Sergio Ermotti confirme des résultats tangibles et le dépassement des défis initiaux pour le groupe bancaire.',
+    'blog.article.integrazione-ubs-credit-suisse-risultati.imageAlt': 'Quartier financier de Lugano avec vue sur le lac',
 };
 
 export default blogMetaFr;

@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { maskNavLinks, translateFieldFreeMt } from '../../scripts/lib/article-free-mt.mjs';
+import {
+  joinTranslatedChunks,
+  maskNavLinks,
+  translateFieldFreeMt,
+  translatedStringOrNull,
+} from '../../scripts/lib/article-free-mt.mjs';
 
 // Pins the quota-free article translation helpers (2026-06-22). Article
 // translation moved off the generation LLM cascade onto the free MT cascade
@@ -73,5 +78,62 @@ describe('translateFieldFreeMt', () => {
     const translate = async () => { called = true; return 'x'; };
     expect(await translateFieldFreeMt({ text: '   ', sourceLang: 'it', targetLang: 'en', fieldType: 'title', translate })).toBe('');
     expect(called).toBe(false);
+  });
+});
+
+// Regression: 206 en/de/fr body files shipped a literal "[object Object]"
+// paragraph. A translation call asks for {"body1": "..."} but a model may answer
+// {"body1": {...}} / {"body1": [...]}. That parses as valid JSON, and every
+// truthiness check downstream passes because an object is truthy, so the value
+// reached a string context and JavaScript stringified it into published prose.
+// it/ was clean because it is generated, not translated.
+describe('translatedStringOrNull', () => {
+  it('passes a real translated string through untouched', () => {
+    expect(translatedStringOrNull('Cross-border commuters in Ticino.')).toBe('Cross-border commuters in Ticino.');
+  });
+
+  it('rejects the shapes that stringify to "[object Object]"', () => {
+    expect(translatedStringOrNull({ text: 'Cross-border commuters.' })).toBeNull();
+    expect(translatedStringOrNull(['a', 'b'])).toBeNull();
+    // and never returns the stringified form
+    expect(String(translatedStringOrNull({}))).not.toContain('[object Object]');
+  });
+
+  it('rejects missing and blank values so recovery treats the field as absent', () => {
+    expect(translatedStringOrNull(undefined)).toBeNull();
+    expect(translatedStringOrNull(null)).toBeNull();
+    expect(translatedStringOrNull('')).toBeNull();
+    expect(translatedStringOrNull('   \n  ')).toBeNull();
+  });
+});
+
+describe('joinTranslatedChunks', () => {
+  it('joins string chunks on a blank line, as the body format expects', () => {
+    const chunks = [{ body1: 'First block.' }, { body1: 'Second block.' }];
+    expect(joinTranslatedChunks(chunks, 'body1')).toBe('First block.\n\nSecond block.');
+  });
+
+  it('reproduces the shipped bug: one object chunk must NOT become "[object Object]"', () => {
+    const chunks = [
+      { body1: 'Good opening paragraph.' },
+      { body1: { text: 'the block that went missing' } },
+      { body1: 'Good closing paragraph.' },
+    ];
+    // Old behaviour: chunks.map((r) => r[bodyKey] || '').join('\n\n')
+    const oldBehaviour = chunks.map((r) => (r as Record<string, unknown>).body1 || '').join('\n\n');
+    expect(oldBehaviour).toContain('[object Object]');
+    // New behaviour: refuse the field so the per-field retry / IT fallback runs
+    expect(joinTranslatedChunks(chunks, 'body1')).toBeNull();
+  });
+
+  it('refuses the whole field when every chunk is an object', () => {
+    expect(joinTranslatedChunks([{ body2: {} }, { body2: {} }], 'body2')).toBeNull();
+  });
+
+  it('refuses when a chunk is missing, empty or the call returned nothing', () => {
+    expect(joinTranslatedChunks([{ body3: 'ok' }, {}], 'body3')).toBeNull();
+    expect(joinTranslatedChunks([{ body3: 'ok' }, { body3: '  ' }], 'body3')).toBeNull();
+    expect(joinTranslatedChunks([{ body3: 'ok' }, null], 'body3')).toBeNull();
+    expect(joinTranslatedChunks([], 'body3')).toBeNull();
   });
 });

@@ -9097,6 +9097,9 @@ const blogMetaEn: Record<string, string> = {
  'blog.article.iniziativa-salari-ticino.title': 'Crucial vote in Ticino: the anti-wage dumping initiative',
  'blog.article.iniziativa-salari-ticino.excerpt': 'Ticino, the canton with the lowest wages, is preparing to vote on an initiative that wants to armor paychecks. An analysis of the consequences for cross-border commuters.',
  'blog.article.iniziativa-salari-ticino.imageAlt': 'View of a busy street in Lugano, with people walking, symbolizing the dynamism of the Ticino labor market.',
+    'blog.article.integrazione-ubs-credit-suisse-risultati.title': 'UBS and Credit Suisse: the results of the integration',
+    'blog.article.integrazione-ubs-credit-suisse-risultati.excerpt': 'Three years after the announcement, CEO Sergio Ermotti confirms tangible results and overcoming the initial challenges for the banking group.',
+    'blog.article.integrazione-ubs-credit-suisse-risultati.imageAlt': 'Lugano financial district with lake view',
 };
 
 export default blogMetaEn;

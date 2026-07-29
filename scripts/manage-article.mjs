@@ -50,6 +50,7 @@ import { readFileSync, writeFileSync, existsSync, unlinkSync, readdirSync } from
 import { execSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import { ARTICLE_SECTION_CORE_LIST } from '../build-plugins/shared/articleSectionCore.mjs';
+import { resolveGitAddPaths } from './lib/resolve-git-add-path.mjs';
 
 const PROJECT_ROOT = new URL('..', import.meta.url).pathname.replace(/\/$/, '');
 
@@ -539,6 +540,7 @@ function gitAddAll(articleId) {
   const existing = [...new Set(files)].filter(pathIsTrackedOrExists);
   if (existing.length > 0) {
     execSync(`git add -A -- ${existing.map(f => JSON.stringify(f)).join(' ')}`, { cwd: PROJECT_ROOT, stdio: 'inherit' });
+    execSync(`git add ${resolveGitAddPaths(PROJECT_ROOT, existing).join(' ')}`, { cwd: PROJECT_ROOT, stdio: 'inherit' });
     console.error('  ✅ File modificati aggiunti a git');
   }
 }

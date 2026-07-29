@@ -9096,6 +9096,9 @@ const blogMetaDe: Record<string, string> = {
  'blog.article.iniziativa-salari-ticino.title': 'Entscheidende Abstimmung in Tessin: die Anti-Lohndumping-Initiative',
  'blog.article.iniziativa-salari-ticino.excerpt': 'Tessin, der Kanton mit den niedrigsten Löhnen, bereitet sich darauf vor, über eine Initiative abzustimmen, die die Gehälter aufrüsten will. Eine Analyse der Folgen für grenzüberschreitende Pendler.',
  'blog.article.iniziativa-salari-ticino.imageAlt': 'Blick auf eine belebte Straße in Lugano mit laufenden Menschen, die die Dynamik des Tessiner Arbeitsmarktes symbolisiert.',
+    'blog.article.integrazione-ubs-credit-suisse-risultati.title': 'UBS und Credit Suisse: Die Ergebnisse der Integration',
+    'blog.article.integrazione-ubs-credit-suisse-risultati.excerpt': 'Drei Jahre nach der Ankündigung bestätigt CEO Sergio Ermotti greifbare Ergebnisse und die Überwindung der anfänglichen Herausforderungen für die Bankengruppe.',
+    'blog.article.integrazione-ubs-credit-suisse-risultati.imageAlt': 'Finanzviertel in Lugano mit Blick auf den See',
 };
 
 export default blogMetaDe;

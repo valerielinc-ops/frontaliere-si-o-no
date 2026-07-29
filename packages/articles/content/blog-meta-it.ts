@@ -9098,6 +9098,9 @@ const blogMetaIt: Record<string, string> = {
  'blog.article.iniziativa-salari-ticino.title': 'Voto cruciale in Ticino: l\'iniziativa anti-dumping salariale',
  'blog.article.iniziativa-salari-ticino.excerpt': 'Il Ticino, Cantone con i salari più bassi, si prepara a votare un\'iniziativa che vuole blindare le buste paga. Un\'analisi delle conseguenze per i frontalieri.',
  'blog.article.iniziativa-salari-ticino.imageAlt': 'Vista di una via trafficata di Lugano, con persone che camminano, simboleggiando il dinamismo del mercato del lavoro ticinese.',
+    'blog.article.integrazione-ubs-credit-suisse-risultati.title': 'UBS e Credit Suisse: i risultati dell\'integrazione',
+    'blog.article.integrazione-ubs-credit-suisse-risultati.excerpt': 'A tre anni dall\'annuncio, il CEO Sergio Ermotti conferma risultati tangibili e il superamento delle sfide iniziali per il gruppo bancario.',
+    'blog.article.integrazione-ubs-credit-suisse-risultati.imageAlt': 'Distretto finanziario di Lugano con vista sul lago',
 };
 
 export default blogMetaIt;
